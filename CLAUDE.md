@@ -50,7 +50,10 @@ insultar ni burlarse.
 Cada corrida de la rutina hace **5 reels** (pedido de Juan, 27-10). Vos sos el coordinador:
 
 1. Elegí los 5 temas (paso 1) distintos entre sí y reservalos los 5 juntos en `ideas.md`, en un
-   solo commit y push a `main`.
+   solo commit y push a `main`. **Variedad** (pedido de Juan: "que no sean todos de bots"): en
+   cada tanda, ningún producto más de 2 veces, y al menos 3 distintos entre Puntos, Bot de
+   WhatsApp, Tienda online, Sitio web y "todo Scalerics" (como `el-de-enfrente`). Mirá también
+   las últimas tandas en "Hechos" para no repetir el mismo producto noche tras noche.
 2. Lanzá 5 subagentes con la herramienta Agent, **todos en el mismo mensaje** para que corran a la
    vez, uno por reel. A cada uno le pasás el `<slug>` y el tema, y le decís que haga los pasos 2 a 9
    de este archivo en `reels/<slug>/` (sin renderizar ni commitear) y que te devuelva el gancho y
