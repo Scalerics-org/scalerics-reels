@@ -21,7 +21,12 @@ const PROMPT =
       "tono provocador pero cercano, como un amigo que te dice las cosas en la cara.") +
   " Ritmo rápido, pausas muy cortas. Leé el texto completo, palabra por palabra, sin agregar ni sacar nada.";
 
-const texto = fs.readFileSync(guion, "utf8").replace(/\s*\n\s*/g, " ").trim();
+// Cómo se dice lo que la voz lee mal. Solo cambia el texto que se manda a la voz: el guion (y los
+// subtítulos) quedan con la ortografía real. "Scálerics" lo eligió Juan el 27-10 entre 4 pruebas.
+const PRONUNCIA = { Scalerics: "Scálerics" };
+
+let texto = fs.readFileSync(guion, "utf8").replace(/\s*\n\s*/g, " ").trim();
+for (const [palabra, dicha] of Object.entries(PRONUNCIA)) texto = texto.replaceAll(palabra, dicha);
 const j = await llamar("https://texttospeech.googleapis.com/v1/text:synthesize", {
   input: { prompt: PROMPT, text: texto },
   voice: { languageCode: "es-419", name: flag("voz", "Orus"), modelName: "gemini-2.5-pro-tts" },
