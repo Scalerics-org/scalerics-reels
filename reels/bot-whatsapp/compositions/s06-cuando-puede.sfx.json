@@ -1,0 +1,6 @@
+[
+  {"t": 0.45, "sfx": "notification", "vol": 0.25, "max": 0.6},
+  {"t": 1.14, "sfx": "notification", "vol": 0.28, "max": 0.6},
+  {"t": 1.85, "sfx": "notification", "vol": 0.32, "max": 0.6},
+  {"t": 2.35, "sfx": "click-soft", "vol": 0.2}
+]

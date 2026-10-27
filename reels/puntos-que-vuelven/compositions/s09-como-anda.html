@@ -1,0 +1,252 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-como-anda"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-como-anda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-como-anda"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-como-anda"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-como-anda"] .ln-x { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s09-como-anda"] .ln-fina { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2 10; }
+    [data-composition-id="s09-como-anda"] .ln-celda { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-linejoin: round; }
+    [data-composition-id="s09-como-anda"] .relleno { fill: #5ce611; }
+    [data-composition-id="s09-como-anda"] .s09-nombre { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 64px; letter-spacing: -0.01em; }
+    [data-composition-id="s09-como-anda"] .s09-crema { fill: #efeee5; }
+    [data-composition-id="s09-como-anda"] .s09-verde { fill: #5ce611; }
+    [data-composition-id="s09-como-anda"] .s09-num { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s09-como-anda"] .s09-rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; fill: rgba(239, 238, 229, 0.62); }
+    [data-composition-id="s09-como-anda"] .s09-hora { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 108px; letter-spacing: -0.02em; fill: #efeee5; }
+    [data-composition-id="s09-como-anda"] .s09-fecha { font-family: "Lexend", sans-serif; font-weight: 400; font-size: 26px; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s09-como-anda"] .s09-app { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s09-como-anda"] .s09-msg { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 33px; fill: #efeee5; }
+    [data-composition-id="s09-como-anda"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-como-anda"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s09-como-anda" data-width="1080" data-height="1920" data-duration="8.67">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="8.67" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s09-arbol">
+          <!-- caja de marca: idéntica al último cuadro de s08 (x 540, y 680, escala 0.72) -->
+          <g class="s09-caja">
+           <g transform="translate(540 900)">
+            <rect class="ln" x="-330" y="-70" width="660" height="140" rx="30" />
+            <text class="s09-nombre s09-crema" x="22" y="23" text-anchor="end">Scalerics</text>
+            <text class="s09-nombre s09-verde" x="40" y="23" text-anchor="start">Puntos</text>
+           </g>
+          </g>
+
+          <!-- árbol de tres ramas -->
+          <path class="ln s09-tronco" d="M540 736 V792" />
+          <path class="ln s09-rama-1" d="M540 792 C 400 792 300 800 300 872" />
+          <path class="ln s09-rama-2" d="M540 792 V872" />
+          <path class="ln s09-rama-3" d="M540 792 C 680 792 780 800 780 872" />
+
+          <!-- SUMA: ticket con contador -->
+          <g class="s09-ticket">
+            <g class="s09-ticket-in">
+              <path class="ln s09-dib-ticket" d="M-98 -52 H98 V-14 A14 14 0 0 0 98 14 V52 H-98 V14 A14 14 0 0 0 -98 -14 Z" />
+              <line class="ln-fina s09-perfo" x1="-52" y1="-38" x2="-52" y2="38" />
+              <text class="s09-num s09-n1" x="18" y="14" text-anchor="middle">+40</text>
+              <text class="s09-num s09-n2" x="18" y="14" text-anchor="middle">+80</text>
+              <text class="s09-num s09-n3" x="18" y="14" text-anchor="middle">+120</text>
+            </g>
+            <text class="s09-rotulo s09-r1" x="0" y="168" text-anchor="middle">SUMA</text>
+          </g>
+
+          <!-- TARJETA: tarjeta de sellos que termina dentro de un celular -->
+          <g class="s09-tarjeta">
+            <path class="ln s09-dib-cel" d="M-34 -100 H34 Q62 -100 62 -72 V72 Q62 100 34 100 H-34 Q-62 100 -62 72 V-72 Q-62 -100 -34 -100 Z" />
+            <path class="ln s09-dib-cel" d="M-14 -84 H14" />
+            <g class="s09-card">
+              <rect class="ln s09-dib-card" x="-80" y="-50" width="160" height="100" rx="14" />
+              <path class="ln s09-dib-card" d="M-80 -20 H80" />
+              <circle class="relleno s09-sello s09-sello-lleno" cx="-48" cy="18" r="11" />
+              <circle class="relleno s09-sello s09-sello-lleno" cx="-16" cy="18" r="11" />
+              <circle class="ln s09-sello s09-sello-3" cx="16" cy="18" r="10" />
+              <circle class="relleno s09-sello-3b" cx="16" cy="18" r="11" />
+              <circle class="ln s09-sello" cx="48" cy="18" r="10" />
+            </g>
+            <text class="s09-rotulo s09-r2" x="0" y="140" text-anchor="middle">TARJETA</text>
+          </g>
+
+          <!-- calendario (sin verte) que pasa a campana (avisos) -->
+          <g class="s09-avisos">
+            <g class="s09-cal">
+              <rect class="ln s09-dib-cal" x="-80" y="-60" width="160" height="128" rx="14" />
+              <path class="ln s09-dib-cal" d="M-80 -30 H80" />
+              <path class="ln s09-dib-cal" d="M-40 -74 V-48" />
+              <path class="ln s09-dib-cal" d="M40 -74 V-48" />
+              <g class="s09-celdas"></g>
+              <g class="s09-cruces"></g>
+            </g>
+            <g class="s09-campana">
+              <g class="s09-campana-in">
+                <path class="ln s09-dib-camp" d="M-38 32 H38 Q24 18 24 -8 Q24 -44 0 -48 Q-24 -44 -24 -8 Q-24 18 -38 32 Z" />
+                <path class="ln s09-dib-camp" d="M-11 44 Q0 54 11 44" />
+                <path class="ln s09-dib-camp" d="M0 -48 V-58" />
+              </g>
+              <circle class="relleno s09-badge" cx="30" cy="-40" r="14" />
+            </g>
+            <text class="s09-rotulo s09-r3a" x="0" y="148" text-anchor="middle">SIN VERTE</text>
+            <text class="s09-rotulo s09-r3b" x="0" y="148" text-anchor="middle">AVISOS</text>
+          </g>
+        </g>
+
+        <!-- celular bloqueado con la notificación -->
+        <g class="s09-tel">
+          <rect class="ln s09-dib-tel" x="330" y="594" width="420" height="650" rx="52" />
+          <path class="ln s09-dib-tel" d="M505 630 H575" />
+          <path class="ln s09-dib-tel" d="M495 1214 H585" />
+          <text class="s09-hora s09-reloj" x="540" y="772" text-anchor="middle">19:30</text>
+          <text class="s09-fecha s09-dia" x="540" y="818" text-anchor="middle">martes 14 de octubre</text>
+          <g class="s09-noti">
+            <rect class="ln" x="354" y="858" width="372" height="158" rx="26" style="stroke-width: 4" />
+            <circle class="relleno s09-noti-dot" cx="388" cy="898" r="12" />
+            <text class="s09-app" x="414" y="906">Scalerics Puntos · ahora</text>
+            <text class="s09-msg" x="378" y="954">Tenés <tspan class="s09-verde">450 puntos</tspan></text>
+            <text class="s09-msg" x="378" y="994">esperándote</text>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">Te escribe solo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-como-anda";
+      const DUR = 8.67;
+      const NS = "http://www.w3.org/2000/svg";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const SUMA = 0.47;
+      const CADA = 0.95;
+      const COMPRA = 1.19;
+      const TARJETA = 2.28;
+      const CELULAR = 2.8;
+      const Y = 3.51;
+      const PASAN = 3.89;
+      const SEMANAS = 4.41;
+      const LLEGA = 5.64;
+      const AVISO = 6.07;
+      const TENES = 6.78;
+      const PUNTOS = 7.06;
+      const ESPERANDOTE = 7.49;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+      const pop = (el, t, extra) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, Object.assign({ opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, extra || {}), t);
+      };
+      const rotulo = (el, t) => tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+
+      // caja: arranca exactamente donde la dejó s08 (geometría en 540,900; escala 0.72 alrededor de ese punto y sube 220 → centro en y 680)
+      gsap.set(q(".s09-caja"), { y: -220, scale: 0.72, svgOrigin: "540 900" });
+
+      // tronco y rama de SUMA arrancan ya
+      dibujar([q(".s09-tronco")], 0, 0.3);
+      dibujar([q(".s09-rama-1")], 0.12, 0.4);
+
+      // SUMA: ticket + contador +40 / +80 / +120
+      gsap.set(q(".s09-ticket"), { x: 300, y: 942 });
+      dibujar([q(".s09-dib-ticket")], SUMA - 0.05, 0.55);
+      tl.fromTo(q(".s09-perfo"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, SUMA + 0.3);
+      gsap.set(qa(".s09-num"), { opacity: 0 });
+      pop(q(".s09-n1"), SUMA + 0.08);
+      tl.to(q(".s09-n1"), { opacity: 0, y: -14, duration: 0.1 }, CADA - 0.04);
+      tl.fromTo(q(".s09-n2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power3.out" }, CADA + 0.06);
+      tl.to(q(".s09-n2"), { opacity: 0, y: -14, duration: 0.1 }, COMPRA - 0.04);
+      tl.fromTo(q(".s09-n3"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power3.out" }, COMPRA + 0.06);
+      tl.to(q(".s09-ticket-in"), { scale: 1.12, svgOrigin: "0 0", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, COMPRA + 0.04);
+      rotulo(q(".s09-r1"), SUMA + 0.25);
+
+      // TARJETA: rama del centro, tarjeta de sellos; en "celular" la envuelve un teléfono
+      dibujar([q(".s09-rama-2")], TARJETA - 0.45, 0.4);
+      gsap.set(q(".s09-tarjeta"), { x: 540, y: 970 });
+      dibujar(qa(".s09-dib-card"), TARJETA - 0.05, 0.5);
+      gsap.set(qa(".s09-sello, .s09-sello-3b"), { opacity: 0 });
+      qa(".s09-sello").forEach((s, i) => pop(s, TARJETA + 0.3 + i * 0.07));
+      rotulo(q(".s09-r2"), TARJETA + 0.2);
+      tl.to(q(".s09-card"), { scale: 0.56, y: 6, svgOrigin: "0 0", duration: 0.5, ease: "power3.inOut" }, CELULAR - 0.05);
+      dibujar(qa(".s09-dib-cel"), CELULAR + 0.05, 0.55);
+      // el tercer sello se llena: una compra más
+      pop(q(".s09-sello-3b"), CELULAR + 0.75);
+      tl.to(q(".s09-tarjeta"), { y: 960, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, CELULAR + 0.75);
+
+      // AVISOS: rama derecha; primero calendario con días tachados
+      dibujar([q(".s09-rama-3")], Y + 0.05, 0.4);
+      gsap.set(q(".s09-avisos"), { x: 780, y: 962 });
+      dibujar(qa(".s09-dib-cal"), PASAN - 0.05, 0.5);
+      const celdas = q(".s09-celdas");
+      const cruces = q(".s09-cruces");
+      const xs = [-58, -26, 6, 38];
+      const ys = [-18, 8, 34];
+      const lineasX = [];
+      ys.forEach((cy) =>
+        xs.forEach((cx) => {
+          const r = document.createElementNS(NS, "rect");
+          r.setAttribute("class", "ln-celda");
+          r.setAttribute("x", cx);
+          r.setAttribute("y", cy);
+          r.setAttribute("width", 20);
+          r.setAttribute("height", 18);
+          r.setAttribute("rx", 4);
+          celdas.appendChild(r);
+          const p = document.createElementNS(NS, "path");
+          p.setAttribute("class", "ln-x");
+          p.setAttribute("d", `M${cx - 2} ${cy - 2} L${cx + 22} ${cy + 20} M${cx + 22} ${cy - 2} L${cx - 2} ${cy + 20}`);
+          cruces.appendChild(p);
+          lineasX.push(p);
+        }),
+      );
+      tl.fromTo(celdas, { opacity: 0 }, { opacity: 1, duration: 0.3 }, PASAN + 0.25);
+      rotulo(q(".s09-r3a"), PASAN + 0.3);
+      // tacha 10 de 12 días, de "semanas" a "verlo"
+      lineasX.slice(0, 10).forEach((p, i) => dibujar([p], SEMANAS + i * 0.11, 0.16));
+      gsap.set(lineasX.slice(10), { opacity: 0 });
+
+      // "llega un aviso": el calendario se va, cae la campana
+      tl.to(q(".s09-cal"), { opacity: 0, scale: 0.8, svgOrigin: "0 0", duration: 0.3, ease: "power2.in" }, LLEGA + 0.1);
+      tl.to(q(".s09-r3a"), { opacity: 0, y: -8, duration: 0.2 }, AVISO - 0.12);
+      dibujar(qa(".s09-dib-camp"), AVISO - 0.08, 0.4);
+      tl.fromTo(q(".s09-campana"), { y: -30 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, AVISO - 0.08);
+      gsap.set(q(".s09-badge"), { opacity: 0 });
+      pop(q(".s09-badge"), AVISO + 0.2);
+      tl.fromTo(q(".s09-campana-in"), { rotation: 0, transformOrigin: "50% 0%" }, { rotation: 14, duration: 0.07, ease: "sine.inOut", yoyo: true, repeat: 5 }, AVISO + 0.25);
+      rotulo(q(".s09-r3b"), AVISO + 0.05);
+
+      // "tenés": todo se va, queda el celular bloqueado
+      tl.to(q(".s09-arbol"), { opacity: 0, scale: 0.92, svgOrigin: "540 900", filter: "blur(4px)", duration: 0.28, ease: "power2.in" }, TENES - 0.22);
+      dibujar(qa(".s09-dib-tel"), TENES - 0.08, 0.5, 0.6);
+      gsap.set(qa(".s09-reloj, .s09-dia"), { opacity: 0 });
+      pop(q(".s09-reloj"), TENES + 0.05);
+      tl.fromTo(q(".s09-dia"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, TENES + 0.15);
+      // la notificación cae en "puntos"
+      tl.fromTo(q(".s09-noti"), { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" }, PUNTOS);
+      // "esperándote": punch de la notificación y etiqueta
+      tl.to(q(".s09-noti"), { scale: 1.05, svgOrigin: "540 937", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, ESPERANDOTE);
+      tl.fromTo(q(".s09-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, ESPERANDOTE);
+      // que nunca quede quieto: acercamiento lento del celular y pulso del punto verde
+      tl.fromTo(q(".s09-tel"), { scale: 1 }, { scale: 1.04, svgOrigin: "540 920", duration: DUR - 0.3 - PUNTOS, ease: "sine.inOut" }, PUNTOS);
+      tl.to(q(".s09-noti-dot"), { scale: 1.45, transformOrigin: "50% 50%", duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1 }, 7.95);
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

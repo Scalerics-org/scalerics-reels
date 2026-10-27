@@ -1,0 +1,203 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-scalerics"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-scalerics"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-scalerics"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.55); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s10-scalerics"] .relleno { fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .s10-nombre { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 62px; letter-spacing: -0.01em; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .s10-para { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .s10-num { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 46px; fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .s10-moneda-txt { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .s10-rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.22em; fill: rgba(239, 238, 229, 0.62); }
+  </style>
+  <div id="root" data-composition-id="s10-scalerics" data-width="1080" data-height="1920" data-duration="8.02">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="8.02" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s10-todo">
+          <!-- caja de marca -->
+          <g class="s10-caja">
+            <g class="s10-caja-in">
+              <rect class="ln s10-dib-caja" x="-240" y="-78" width="480" height="156" rx="30" />
+              <text class="s10-nombre" x="0" y="-4" text-anchor="middle">Scalerics</text>
+              <text class="s10-para" x="0" y="46" text-anchor="middle">PARA COMERCIOS</text>
+            </g>
+          </g>
+
+          <!-- árbol de tres ramas -->
+          <path class="ln s10-tronco" d="M540 750 V800" />
+          <path class="ln s10-rama-1" d="M540 800 C 380 800 260 806 260 860" />
+          <path class="ln s10-rama-2" d="M540 800 V880" />
+          <path class="ln s10-rama-3" d="M540 800 C 700 800 820 806 820 860" />
+
+          <!-- BOT: celular con la burbuja verde -->
+          <g class="s10-bot">
+            <path class="ln s10-dib-cel" d="M-34 -105 H34 Q62 -105 62 -77 V77 Q62 105 34 105 H-34 Q-62 105 -62 77 V-77 Q-62 -105 -34 -105 Z" />
+            <path class="ln s10-dib-cel" d="M-14 -88 H14" />
+            <path class="ln s10-dib-cel" d="M-20 88 H20" />
+            <g class="s10-preg">
+              <rect class="ln-4" x="-46" y="-64" width="64" height="36" rx="12" />
+              <path class="ln-tenue" d="M-34 -46 H6" />
+            </g>
+            <g class="s10-burbuja">
+              <rect class="relleno" x="-20" y="-12" width="66" height="40" rx="13" />
+              <path class="relleno" d="M30 24 L48 38 L44 18 Z" />
+            </g>
+            <g class="s10-burbuja-2">
+              <rect class="relleno" x="-20" y="36" width="50" height="30" rx="11" />
+            </g>
+            <text class="s10-rotulo s10-r1" x="0" y="185" text-anchor="middle">BOT</text>
+          </g>
+
+          <!-- PUNTOS: tarjeta con contador y flecha circular -->
+          <g class="s10-puntos">
+            <g class="s10-puntos-in">
+              <rect class="ln s10-dib-card" x="-100" y="-62" width="200" height="124" rx="16" />
+              <path class="ln s10-dib-card" d="M-100 -28 H100" />
+              <text class="s10-num s10-n1" x="0" y="40" text-anchor="middle">+40</text>
+              <text class="s10-num s10-n2" x="0" y="40" text-anchor="middle">+80</text>
+              <text class="s10-num s10-n3" x="0" y="40" text-anchor="middle">+120</text>
+            </g>
+            <g class="s10-vuelta"><g class="s10-vuelta-in">
+              <path class="ln-ac s10-arco" d="M30 0 A30 30 0 1 1 0 -30" />
+              <path class="ln-ac s10-arco-punta" d="M-11 -42 L1 -30 L-11 -18" /></g>
+            </g>
+            <text class="s10-rotulo s10-r2" x="0" y="208" text-anchor="middle">PUNTOS</text>
+          </g>
+
+          <!-- TIENDA: bolsa con tilde y monedas que caen -->
+          <g class="s10-tienda">
+            <g class="s10-bolsa">
+              <path class="ln s10-dib-bolsa" d="M-72 -40 H72 L82 90 H-82 Z" />
+              <path class="ln s10-dib-bolsa" d="M-34 -40 V-62 Q-34 -96 0 -96 Q34 -96 34 -62 V-40" />
+              <path class="ln-ac s10-tilde" d="M-30 24 L-8 46 L34 2" />
+            </g>
+            <g class="s10-moneda s10-m1" data-layout-ignore>
+              <circle class="ln-ac" cx="0" cy="0" r="22" />
+              <text class="s10-moneda-txt" x="0" y="9" text-anchor="middle">$</text>
+            </g>
+            <g class="s10-moneda s10-m2" data-layout-ignore>
+              <circle class="ln-ac" cx="0" cy="0" r="22" />
+              <text class="s10-moneda-txt" x="0" y="9" text-anchor="middle">$</text>
+            </g>
+            <text class="s10-rotulo s10-r3" x="0" y="194" text-anchor="middle">TIENDA</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-scalerics";
+      const DUR = 8.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const SCALERICS = 0.24;
+      const ARMAMOS = 0.86;
+      const COMERCIOS = 1.82;
+      const BOT = 2.92;
+      const CONTESTA = 3.46;
+      const PUNTOS = 4.4;
+      const VOLVER = 5.06;
+      const TIENDA = 6.08;
+      const VENDE = 6.62;
+      const SOLA = 6.9;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+      const pop = (el, t, extra) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, Object.assign({ opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, extra || {}), t);
+      };
+      const rotulo = (el, t) => tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+
+      gsap.set(q(".s10-caja"), { x: 540, y: 672 });
+      gsap.set(q(".s10-bot"), { x: 260, y: 965 });
+      gsap.set(q(".s10-puntos"), { x: 540, y: 942 });
+      gsap.set(q(".s10-vuelta"), { x: 136, y: -62 });
+      gsap.set(q(".s10-tienda"), { x: 820, y: 956 });
+
+      // acercamiento lento de todo el árbol (nunca queda quieto)
+      tl.fromTo(q(".s10-todo"), { scale: 0.98, svgOrigin: "540 900" }, { scale: 1.02, svgOrigin: "540 900", duration: DUR - 0.3, ease: "sine.inOut" }, 0);
+
+      // "Scalerics": la caja se dibuja (arranca medio dibujada) y el nombre hace pop
+      dibujar([q(".s10-dib-caja")], 0, 0.55, 0.5);
+      pop(q(".s10-nombre"), SCALERICS);
+      // "armamos": golpe de la caja
+      tl.to(q(".s10-caja-in"), { scale: 1.06, svgOrigin: "0 0", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, ARMAMOS);
+      // "comercios"
+      tl.fromTo(q(".s10-para"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, COMERCIOS);
+      // el tronco baja de la caja
+      dibujar([q(".s10-tronco")], COMERCIOS + 0.4, 0.3);
+
+      // BOT
+      dibujar([q(".s10-rama-1")], BOT - 0.42, 0.4);
+      dibujar(qa(".s10-dib-cel"), BOT - 0.08, 0.5);
+      gsap.set(qa(".s10-preg, .s10-burbuja, .s10-burbuja-2"), { opacity: 0 });
+      pop(q(".s10-preg"), BOT + 0.15);
+      tl.fromTo(q(".s10-burbuja"), { opacity: 0, scale: 0.6, svgOrigin: "13 8" }, { opacity: 1, scale: 1, svgOrigin: "13 8", duration: 0.35, ease: "back.out(2)" }, BOT + 0.32);
+      rotulo(q(".s10-r1"), BOT + 0.15);
+      // "contesta": la burbuja late y llega una segunda
+      [CONTESTA, CONTESTA + 0.36].forEach((t) => tl.to(q(".s10-burbuja"), { scale: 1.16, svgOrigin: "13 8", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, t));
+      tl.fromTo(q(".s10-burbuja-2"), { opacity: 0, scale: 0.6, svgOrigin: "5 51" }, { opacity: 1, scale: 1, svgOrigin: "5 51", duration: 0.3, ease: "back.out(2)" }, CONTESTA + 0.5);
+
+      // PUNTOS
+      dibujar([q(".s10-rama-2")], PUNTOS - 0.42, 0.35);
+      dibujar(qa(".s10-dib-card"), PUNTOS - 0.08, 0.5);
+      gsap.set(qa(".s10-num"), { opacity: 0 });
+      tl.fromTo(q(".s10-n1"), { opacity: 0, scale: 0.85, svgOrigin: "0 24" }, { opacity: 1, scale: 1, svgOrigin: "0 24", duration: 0.2, ease: "back.out(1.6)" }, PUNTOS + 0.12);
+      tl.to(q(".s10-n1"), { opacity: 0, y: -14, duration: 0.1 }, PUNTOS + 0.34);
+      tl.fromTo(q(".s10-n2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, PUNTOS + 0.42);
+      tl.to(q(".s10-n2"), { opacity: 0, y: -14, duration: 0.1 }, PUNTOS + 0.6);
+      tl.fromTo(q(".s10-n3"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, PUNTOS + 0.68);
+      tl.to(q(".s10-puntos-in"), { scale: 1.08, svgOrigin: "0 0", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, PUNTOS + 0.7);
+      rotulo(q(".s10-r2"), PUNTOS + 0.15);
+      // "volver": aparece la flecha circular y da una vuelta
+      dibujar([q(".s10-arco")], VOLVER - 0.06, 0.4);
+      tl.fromTo(q(".s10-arco-punta"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, VOLVER + 0.32);
+      tl.fromTo(q(".s10-vuelta-in"), { rotation: 0, svgOrigin: "0 0" }, { rotation: 360, svgOrigin: "0 0", duration: 0.7, ease: "power2.inOut" }, VOLVER + 0.42);
+
+      // TIENDA
+      dibujar([q(".s10-rama-3")], TIENDA - 0.42, 0.4);
+      dibujar(qa(".s10-dib-bolsa"), TIENDA - 0.08, 0.5);
+      dibujar([q(".s10-tilde")], TIENDA + 0.3, 0.3);
+      rotulo(q(".s10-r3"), TIENDA + 0.15);
+      // "vende sola": caen dos monedas dentro de la bolsa
+      [[q(".s10-m1"), -20, VENDE - 0.05], [q(".s10-m2"), 24, VENDE + 0.2]].forEach(([m, x, t]) => {
+        tl.fromTo(m, { x: x, y: -190, opacity: 0 }, { y: -50, opacity: 1, duration: 0.32, ease: "power2.in" }, t);
+        tl.to(m, { opacity: 0, scale: 0.6, transformOrigin: "50% 50%", duration: 0.1 }, t + 0.32);
+        tl.to(q(".s10-bolsa"), { scale: 1.07, svgOrigin: "0 90", duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, t + 0.32);
+      });
+      gsap.set(qa(".s10-moneda"), { opacity: 0 });
+      // "sola": el tilde late
+      tl.to(q(".s10-tilde"), { scale: 1.22, svgOrigin: "2 24", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, SOLA + 0.15);
+
+      // remate: los tres íconos saltan uno tras otro
+      [".s10-bot", ".s10-puntos", ".s10-tienda"].forEach((s, i) => {
+        tl.to(q(s), { y: "-=14", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, 7.3 + i * 0.1);
+      });
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

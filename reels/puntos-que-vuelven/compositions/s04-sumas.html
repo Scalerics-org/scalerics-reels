@@ -1,0 +1,213 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-sumas"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-sumas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-sumas"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-sumas"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-sumas"] .ln-moño { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-sumas"] .ln-vapor { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s04-sumas"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s04-sumas"] .relleno-cr { fill: #efeee5; }
+    [data-composition-id="s04-sumas"] .visita { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.04em; fill: #5ce611; }
+    [data-composition-id="s04-sumas"] .pts { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 64px; fill: #5ce611; }
+    [data-composition-id="s04-sumas"] .pts-u { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.18em; fill: #efeee5; }
+    [data-composition-id="s04-sumas"] .premio-txt { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s04-sumas"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-sumas"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-sumas" data-width="1080" data-height="1920" data-duration="6.18">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.18" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- ===== fase 1: órbita ===== -->
+        <g class="s04-orbita">
+          <circle class="ln s04-anillo" cx="540" cy="860" r="170" />
+          <!-- blanco del centro -->
+          <g class="s04-blanco">
+            <circle class="ln s04-blanco-c" cx="540" cy="860" r="46" />
+            <circle class="relleno-ac s04-blanco-n" cx="540" cy="860" r="20" />
+          </g>
+          <!-- el que vuelve: un pin que da vueltas -->
+          <g class="s04-pin">
+            <line class="ln" x1="540" y1="690" x2="540" y2="654" />
+            <circle class="relleno-cr" cx="540" cy="646" r="11" />
+          </g>
+          <!-- VISITA N -->
+          <text class="visita s04-v s04-v1" x="540" y="1086" text-anchor="middle">VISITA 1</text>
+          <text class="visita s04-v s04-v2" x="540" y="1086" text-anchor="middle">VISITA 2</text>
+          <text class="visita s04-v s04-v3" x="540" y="1086" text-anchor="middle">VISITA 3</text>
+        </g>
+        <!-- contador -->
+        <g class="s04-cont">
+          <text class="pts s04-n s04-n1" x="540" y="1184" text-anchor="middle">+150<tspan class="pts-u" dx="14">PTS</tspan></text>
+          <text class="pts s04-n s04-n2" x="540" y="1184" text-anchor="middle">+300<tspan class="pts-u" dx="14">PTS</tspan></text>
+          <text class="pts s04-n s04-n3" x="540" y="1184" text-anchor="middle">+450<tspan class="pts-u" dx="14">PTS</tspan></text>
+        </g>
+
+        <!-- ===== fase 2: premios ===== -->
+        <!-- merienda: taza con plato -->
+        <g class="s04-premio s04-pr1">
+          <path class="ln s04-d1" d="M-56 -36 H56 V4 Q56 46 0 46 Q-56 46 -56 4 Z" />
+          <path class="ln s04-d1" d="M56 -20 Q92 -20 92 4 Q92 30 52 28" />
+          <path class="ln s04-d1" d="M-92 62 H92" />
+          <path class="ln s04-d1" d="M-70 62 Q0 84 70 62" />
+          <path class="ln-vapor s04-d1" d="M-20 -56 q-12 -16 0 -32 q12 -16 0 -32" />
+          <path class="ln-vapor s04-d1" d="M18 -56 q-12 -16 0 -32 q12 -16 0 -32" />
+          <g class="s04-moño">
+            <rect class="ln-moño" x="-21" y="-12" width="42" height="12" rx="3" />
+            <rect class="ln-moño" x="-17" y="0" width="34" height="26" rx="3" />
+            <path class="ln-moño" d="M0 -12 V26 M0 -12 C-10 -30 -26 -24 -14 -12 M0 -12 C10 -30 26 -24 14 -12" />
+          </g>
+          <text class="premio-txt s04-pt" x="0" y="150" text-anchor="middle">MERIENDA</text>
+        </g>
+        <!-- pizza: porción -->
+        <g class="s04-premio s04-pr2">
+          <path class="ln s04-d2" d="M-74 -58 Q0 -86 74 -58 L0 78 Z" />
+          <path class="ln s04-d2" d="M-66 -40 Q0 -66 66 -40" />
+          <circle class="ln s04-d2" cx="-30" cy="-32" r="10" />
+          <circle class="ln s04-d2" cx="16" cy="-36" r="10" />
+          <circle class="ln s04-d2" cx="4" cy="8" r="9" />
+          <g class="s04-moño">
+            <rect class="ln-moño" x="-21" y="-12" width="42" height="12" rx="3" />
+            <rect class="ln-moño" x="-17" y="0" width="34" height="26" rx="3" />
+            <path class="ln-moño" d="M0 -12 V26 M0 -12 C-10 -30 -26 -24 -14 -12 M0 -12 C10 -30 26 -24 14 -12" />
+          </g>
+          <text class="premio-txt s04-pt" x="0" y="150" text-anchor="middle">PIZZA</text>
+        </g>
+        <!-- postre: torta con vela -->
+        <g class="s04-premio s04-pr3">
+          <path class="ln s04-d3" d="M-84 64 H84" />
+          <path class="ln s04-d3" d="M-64 64 V-12 H64 V64" />
+          <path class="ln s04-d3" d="M-64 -12 q16 22 32 0 q16 22 32 0 q16 22 32 0 q16 22 32 0" />
+          <path class="ln s04-d3" d="M-64 30 H64" />
+          <path class="ln s04-d3" d="M0 -14 V-50" />
+          <path class="relleno-ac s04-llama" d="M0 -58 C-10 -66 -8 -78 0 -90 C8 -78 10 -66 0 -58 Z" />
+          <g class="s04-moño">
+            <rect class="ln-moño" x="-21" y="-12" width="42" height="12" rx="3" />
+            <rect class="ln-moño" x="-17" y="0" width="34" height="26" rx="3" />
+            <path class="ln-moño" d="M0 -12 V26 M0 -12 C-10 -30 -26 -24 -14 -12 M0 -12 C10 -30 26 -24 14 -12" />
+          </g>
+          <text class="premio-txt s04-pt" x="0" y="150" text-anchor="middle">POSTRE</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Vuelve y suma</span><span class="s04-e2">De regalo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-sumas";
+      const DUR = 6.18;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const VISITAS = [0.5, 1.03, 1.56]; // "cada vez que volvés, sumás"
+      const PUNTOS = 1.75; // "puntos"
+      const UNA = 2.84; // "Una"
+      const MERIENDA = 3.08;
+      const PIZZA = 3.98;
+      const POSTRE = 4.83;
+      const DE_REGALO = 5.21;
+      const REGALO = 5.31;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+      const pop = (el, t, dur) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: dur ?? 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // ---------- fase 1: órbita ----------
+      // el anillo arranca medio dibujado (cuadro 0 no negro), el blanco con pop
+      const anillo = q(".s04-anillo");
+      gsap.set(anillo, { rotation: -90, svgOrigin: "540 860" });
+      dibujar([anillo], 0, 0.6, 0.5);
+      dibujar([q(".s04-blanco-c")], 0, 0.45, 0.4);
+      tl.fromTo(q(".s04-blanco-n"), { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 0.1);
+
+      // el pin: el pin dibujado arriba (0°); pasa por abajo (180° + 360k) en cada visita
+      const pin = q(".s04-pin");
+      const REV = VISITAS[1] - VISITAS[0];
+      const GRADOS_SEG = 360 / REV;
+      const rot0 = 180 - VISITAS[0] * GRADOS_SEG;
+      gsap.set(pin, { rotation: rot0, svgOrigin: "540 860" });
+      tl.fromTo(pin, { opacity: 0 }, { opacity: 1, duration: 0.15 }, 0);
+      tl.to(pin, { rotation: 180 + 720, duration: VISITAS[2], ease: "none" }, 0);
+      // después de la tercera vuelta sigue, frenando
+      tl.to(pin, { rotation: 180 + 720 + 300, duration: UNA - VISITAS[2], ease: "power2.out" }, VISITAS[2]);
+
+      // en cada visita: VISITA N + contador + latido del blanco
+      VISITAS.forEach((t, i) => {
+        const v = q(".s04-v" + (i + 1));
+        const n = q(".s04-n" + (i + 1));
+        if (i > 0) {
+          tl.set(q(".s04-v" + i), { opacity: 0 }, t);
+          tl.set(q(".s04-n" + i), { opacity: 0 }, t);
+        }
+        tl.fromTo(v, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.22, ease: "power3.out" }, t);
+        tl.fromTo(n, { opacity: 0, scale: 0.85, svgOrigin: "540 1164" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, t);
+        tl.fromTo(q(".s04-blanco"), { scale: 1, svgOrigin: "540 860" }, { scale: 1.18, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, t);
+      });
+
+      // "puntos": punch del contador y el anillo se pone verde
+      tl.to(q(".s04-n3"), { scale: 1.28, svgOrigin: "540 1164", duration: 0.14, ease: "power2.out" }, PUNTOS);
+      tl.to(q(".s04-n3"), { scale: 1, svgOrigin: "540 1164", duration: 0.35, ease: "back.out(2)" }, PUNTOS + 0.14);
+      tl.to(anillo, { stroke: "#5ce611", duration: 0.2 }, PUNTOS);
+      tl.to(q(".s04-orbita"), { scale: 1.05, svgOrigin: "540 860", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, PUNTOS);
+
+      // etiqueta 1
+      tl.fromTo(q(".s04-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.66);
+
+      // ---------- transición: la órbita se achica y se va ----------
+      tl.to(q(".s04-orbita"), { scale: 0.3, y: -120, opacity: 0, svgOrigin: "540 860", duration: 0.45, ease: "power3.in" }, UNA);
+      tl.to(q(".s04-cont"), { opacity: 0, y: 20, duration: 0.3, ease: "power2.in" }, UNA);
+
+      // ---------- fase 2: premios ----------
+      gsap.set(q(".s04-pr1"), { x: 250, y: 900 });
+      gsap.set(q(".s04-pr2"), { x: 540, y: 900 });
+      gsap.set(q(".s04-pr3"), { x: 830, y: 900 });
+      gsap.set(qa(".s04-moño"), { x: 84, y: -92 });
+      const premios = [
+        [".s04-pr1", ".s04-d1", MERIENDA],
+        [".s04-pr2", ".s04-d2", PIZZA],
+        [".s04-pr3", ".s04-d3", POSTRE],
+      ];
+      premios.forEach(([g, d, t]) => {
+        const grupo = q(g);
+        dibujar(Array.from(grupo.querySelectorAll(d)), t, 0.6);
+        const moño = grupo.querySelector(".s04-moño");
+        tl.fromTo(moño, { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, t + 0.45);
+        tl.fromTo(grupo.querySelector(".s04-pt"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t + 0.2);
+      });
+      tl.fromTo(q(".s04-llama"), { opacity: 0, scale: 0.3, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, POSTRE + 0.5);
+      tl.to(q(".s04-llama"), { scaleX: 0.8, transformOrigin: "50% 100%", duration: 0.22, ease: "sine.inOut", yoyo: true, repeat: 3 }, POSTRE + 0.8);
+      // vapor de la taza que sube un poquito mientras espera
+      tl.to(qa(".s04-pr1 .ln-vapor"), { y: -8, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, MERIENDA + 0.7);
+
+      // "de regalo": los tres moños laten y la etiqueta cambia
+      tl.to(q(".s04-e1"), { opacity: 0, duration: 0.2 }, DE_REGALO - 0.1);
+      tl.fromTo(q(".s04-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, DE_REGALO);
+      qa(".s04-moño").forEach((m, i) => {
+        tl.to(m, { scale: 1.35, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, REGALO + i * 0.08);
+      });
+      tl.to(qa(".s04-premio"), { y: "-=12", duration: 0.3, ease: "power2.out", stagger: 0.08 }, REGALO);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

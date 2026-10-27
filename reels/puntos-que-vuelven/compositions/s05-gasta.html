@@ -1,0 +1,214 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-gasta"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-gasta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-gasta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-gasta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-gasta"] .ln-cal { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-gasta"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s05-gasta"] .hoja { fill: #07111f; stroke: #efeee5; stroke-width: 4; stroke-linejoin: round; }
+    [data-composition-id="s05-gasta"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.18em; fill: #efeee5; }
+    [data-composition-id="s05-gasta"] .peso { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s05-gasta"] .mes { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s05-gasta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-gasta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-gasta" data-width="1080" data-height="1920" data-duration="7.68">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="7.68" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- suelo -->
+        <line class="ln s05-suelo" x1="40" y1="1060" x2="1040" y2="1060" />
+        <!-- el local (mismo dibujo que el café de s01) -->
+        <g class="s05-local">
+          <g class="s05-local-in">
+            <path class="ln s05-dib" d="M-170 0 V-190 H170 V0" />
+            <path class="ln s05-dib" d="M-200 -190 H200 L180 -250 H-180 Z" />
+            <path class="ln s05-dib" d="M-200 -190 q25 34 50 0 q25 34 50 0 q25 34 50 0 q25 34 50 0 q25 34 50 0 q25 34 50 0 q25 34 50 0 q25 34 50 0" />
+            <rect class="ln s05-dib" x="-100" y="-310" width="200" height="56" rx="10" />
+            <text class="cartel s05-txt" x="0" y="-274" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s05-dib" x="-140" y="-130" width="100" height="72" rx="6" />
+            <rect class="ln s05-dib" x="40" y="-130" width="100" height="72" rx="6" />
+            <rect class="vidrio s05-luz" x="-130" y="-120" width="80" height="52" rx="3" />
+            <rect class="vidrio s05-luz" x="50" y="-120" width="80" height="52" rx="3" />
+            <path class="ln s05-dib" d="M-28 0 V-112 H28 V0" />
+          </g>
+        </g>
+
+        <!-- calendario chico arriba a la derecha -->
+        <g class="s05-cal">
+          <rect class="ln-cal" x="-62" y="-50" width="124" height="112" rx="10" />
+          <path class="ln-cal" d="M-62 -16 H62" />
+          <path class="ln-cal" d="M-30 -64 V-38 M30 -64 V-38" />
+          <!-- hojas: la de arriba es la que se arranca -->
+          <g class="s05-hoja s05-h4"><rect class="hoja" x="-54" y="-10" width="108" height="64" rx="4" /><text class="mes" x="0" y="32" text-anchor="middle">ABR</text></g>
+          <g class="s05-hoja s05-h3"><rect class="hoja" x="-54" y="-10" width="108" height="64" rx="4" /><text class="mes" x="0" y="32" text-anchor="middle">MAR</text></g>
+          <g class="s05-hoja s05-h2"><rect class="hoja" x="-54" y="-10" width="108" height="64" rx="4" /><text class="mes" x="0" y="32" text-anchor="middle">FEB</text></g>
+          <g class="s05-hoja s05-h1"><rect class="hoja" x="-54" y="-10" width="108" height="64" rx="4" /><text class="mes" x="0" y="32" text-anchor="middle">ENE</text></g>
+        </g>
+
+        <!-- monedas que se van -->
+        <g class="s05-mon s05-m1"><circle class="ln-ac" cx="0" cy="0" r="24" /><text class="peso" data-layout-ignore x="0" y="10" text-anchor="middle">$</text></g>
+        <g class="s05-mon s05-m2"><circle class="ln-ac" cx="0" cy="0" r="24" /><text class="peso" data-layout-ignore x="0" y="10" text-anchor="middle">$</text></g>
+        <g class="s05-mon s05-m3"><circle class="ln-ac" cx="0" cy="0" r="24" /><text class="peso" data-layout-ignore x="0" y="10" text-anchor="middle">$</text></g>
+        <g class="s05-mon s05-m4"><circle class="ln-ac" cx="0" cy="0" r="24" /><text class="peso" data-layout-ignore x="0" y="10" text-anchor="middle">$</text></g>
+        <g class="s05-mon s05-m5"><circle class="ln-ac" cx="0" cy="0" r="24" /><text class="peso" data-layout-ignore x="0" y="10" text-anchor="middle">$</text></g>
+        <g class="s05-mon s05-m6"><circle class="ln-ac" cx="0" cy="0" r="24" /><text class="peso" data-layout-ignore x="0" y="10" text-anchor="middle">$</text></g>
+        <g class="s05-mon s05-m7"><circle class="ln-ac" cx="0" cy="0" r="24" /><text class="peso" data-layout-ignore x="0" y="10" text-anchor="middle">$</text></g>
+
+        <!-- gente nueva que entra desde la izquierda -->
+        <g class="s05-p s05-nuevo"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+        <g class="s05-p s05-nuevo"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+        <g class="s05-p s05-nuevo"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+        <!-- el que ya vino: sale por la derecha -->
+        <g class="s05-p s05-viejo"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+        <!-- globo de mensaje sobre él, tachado -->
+        <g class="s05-globo">
+          <path class="ln s05-globo-d" d="M-66 -196 H66 Q78 -196 78 -184 V-140 Q78 -128 66 -128 H-6 L-22 -110 L-26 -128 H-66 Q-78 -128 -78 -140 V-184 Q-78 -196 -66 -196 Z" />
+          <circle class="ln s05-punto" cx="-28" cy="-162" r="5" />
+          <circle class="ln s05-punto" cx="0" cy="-162" r="5" />
+          <circle class="ln s05-punto" cx="28" cy="-162" r="5" />
+          <path class="ln-ac s05-tacha" d="M-96 -116 L96 -208" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Gasta en gente nueva</span><span class="s05-e2">Al que ya vino</span><span class="s05-e3">Ni un mensaje</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-gasta";
+      const DUR = 7.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const COMERCIOS = 1.76;
+      const GASTA = 2.14;
+      const GENTE = 2.94; // "gente nueva"
+      const CADA = 3.61; // "cada"
+      const MES = 3.94; // "mes"
+      const AL_QUE = 4.7; // "al que ya vino"
+      const VINO = 5.08;
+      const NO = 5.65; // "no le vuelve a hablar"
+      const HABLAR = 6.45;
+      const NUNCA = 6.69;
+
+      const SUELO = 1060;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+
+      // ---------- el local ----------
+      gsap.set(q(".s05-local"), { x: 540, y: SUELO });
+      gsap.set(q(".s05-local-in"), { scale: 1.12, transformOrigin: "0px -150px" });
+      dibujar(qa(".s05-dib"), 0, 0.7, 0.45);
+      tl.fromTo(q(".s05-txt"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.35);
+      tl.fromTo(q(".s05-suelo"), { scaleX: 0.5, transformOrigin: "540px 1060px" }, { scaleX: 1, duration: 0.8, ease: "power3.out" }, 0);
+      // la luz prendida, con un latido en "mayoría de los comercios"
+      tl.fromTo(qa(".s05-luz"), { opacity: 0 }, { opacity: 0.85, duration: 0.3, ease: "power2.out" }, 0.75);
+      tl.to(q(".s05-local-in"), { scale: 1.0, duration: 0.9, ease: "power3.inOut" }, 1.0);
+      tl.to(q(".s05-local-in"), { scale: 1.04, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, COMERCIOS);
+
+      // ---------- monedas: salen del local hacia la izquierda ----------
+      // [moneda, inicio, altura del arco, x final]
+      const vuelos = [
+        [".s05-m1", GASTA, 860, 90],
+        [".s05-m2", GASTA + 0.18, 840, 150],
+        [".s05-m3", GASTA + 0.36, 870, 70],
+        [".s05-m4", CADA, 850, 110],
+        [".s05-m5", CADA + 0.16, 830, 170],
+        [".s05-m6", MES, 860, 80],
+        [".s05-m7", MES + 0.16, 840, 140],
+      ];
+      vuelos.forEach(([s, t, alto, xf]) => {
+        const m = q(s);
+        gsap.set(m, { x: 320, y: 1000, opacity: 0, scale: 0.6, transformOrigin: "50% 50%" });
+        tl.to(m, { opacity: 1, scale: 1, duration: 0.15, ease: "power2.out" }, t);
+        tl.to(m, { x: xf, duration: 0.85, ease: "power1.out" }, t);
+        tl.to(m, { y: alto, duration: 0.35, ease: "power2.out" }, t);
+        tl.to(m, { y: alto + 60, duration: 0.5, ease: "power2.in" }, t + 0.35);
+        tl.to(m, { rotation: -200, duration: 0.85, ease: "none" }, t);
+        tl.to(m, { opacity: 0, duration: 0.2 }, t + 0.65);
+      });
+      // el local "paga": se encoge apenas en cada tanda
+      [GASTA, CADA, MES].forEach((t) => {
+        tl.to(q(".s05-local-in"), { scale: 0.97, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      });
+
+      // etiqueta 1
+      tl.fromTo(q(".s05-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, GASTA);
+
+      // ---------- gente nueva que entra ----------
+      const nuevos = qa(".s05-nuevo");
+      nuevos.forEach((p, i) => {
+        const t0 = GENTE + i * 0.42;
+        tl.fromTo(p, { x: 30, y: SUELO, opacity: 0 }, { x: 110, opacity: 1, duration: 0.22, ease: "none" }, t0);
+        tl.to(p, { x: 520, duration: 1.0, ease: "none" }, t0 + 0.22);
+        tl.to(p, { opacity: 0, duration: 0.12 }, t0 + 1.12);
+        tl.fromTo(p.querySelector("path"), { rotation: -4, transformOrigin: "0px -40px" }, { rotation: 4, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 5 }, t0);
+      });
+
+      // ---------- calendario: pasa hojas cada mes ----------
+      gsap.set(q(".s05-cal"), { x: 880, y: 700 });
+      tl.fromTo(q(".s05-cal"), { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, GENTE + 0.1);
+      // las hojas de abajo quedan ocultas hasta que se arranca la de arriba
+      gsap.set(qa(".s05-h2, .s05-h3, .s05-h4"), { opacity: 0 });
+      [[".s05-h1", CADA, ".s05-h2"], [".s05-h2", MES, ".s05-h3"], [".s05-h3", MES + 0.33, ".s05-h4"]].forEach(([s, t, sig]) => {
+        tl.set(q(sig), { opacity: 1 }, t + 0.08);
+        tl.to(q(s), { y: -60, rotation: -14, transformOrigin: "50% 0%", duration: 0.3, ease: "power2.in" }, t);
+        tl.to(q(s), { opacity: 0, duration: 0.12, ease: "power1.in" }, t + 0.04);
+      });
+
+      // ---------- el que ya vino: sale por la derecha y se aleja ----------
+      tl.to(q(".s05-e1"), { opacity: 0, duration: 0.2 }, AL_QUE - 0.1);
+      tl.fromTo(q(".s05-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, AL_QUE);
+      tl.to(q(".s05-cal"), { opacity: 0.4, duration: 0.4 }, AL_QUE);
+      const viejo = q(".s05-viejo");
+      gsap.set(viejo, { x: 560, y: SUELO, opacity: 0 });
+      tl.to(viejo, { opacity: 1, duration: 0.2 }, AL_QUE);
+      tl.to(viejo, { x: 870, duration: 1.0, ease: "power1.out" }, AL_QUE);
+      tl.fromTo(viejo.querySelector("path"), { rotation: -4, transformOrigin: "0px -40px" }, { rotation: 4, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 4 }, AL_QUE);
+      // con "vino" un latido verde en el que ya vino
+      tl.to(viejo.querySelectorAll(".ln"), { stroke: "#5ce611", duration: 0.15 }, VINO);
+      tl.to(viejo.querySelectorAll(".ln"), { stroke: "#efeee5", duration: 0.4 }, VINO + 0.35);
+
+      // "no le vuelve a hablar": globo sobre él
+      const globo = q(".s05-globo");
+      gsap.set(globo, { x: 870, y: SUELO });
+      dibujar([q(".s05-globo-d")], NO, 0.5);
+      qa(".s05-punto").forEach((p, i) => {
+        tl.fromTo(p, { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, NO + 0.3 + i * 0.1);
+      });
+      // los puntitos "escriben"... y nadie escribe
+      qa(".s05-punto").forEach((p, i) => {
+        tl.to(p, { y: -6, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1 }, NO + 0.65 + i * 0.08);
+      });
+      dibujar([q(".s05-tacha")], HABLAR, 0.4);
+      tl.to(q(".s05-e2"), { opacity: 0, duration: 0.2 }, HABLAR - 0.1);
+      tl.fromTo(q(".s05-e3"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, HABLAR);
+
+      // "nunca más": el globo se apaga y el cliente se aleja
+      tl.to([q(".s05-globo-d"), ...qa(".s05-punto")], { opacity: 0.4, duration: 0.4 }, NUNCA);
+      tl.to(viejo, { x: 990, opacity: 0.35, duration: 0.9, ease: "power1.in" }, NUNCA);
+      tl.fromTo(viejo.querySelector("path"), { rotation: -4 }, { rotation: 4, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, NUNCA);
+      tl.to(qa(".s05-luz"), { opacity: 0.35, duration: 0.5 }, NUNCA);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

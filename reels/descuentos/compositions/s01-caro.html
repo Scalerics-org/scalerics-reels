@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-caro"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-caro"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-caro"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-caro"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-caro"] .precio { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 112px; letter-spacing: -0.02em; fill: #efeee5; }
+    [data-composition-id="s01-caro"] .precio-ac { fill: #5ce611; }
+    [data-composition-id="s01-caro"] .moneda-txt { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; fill: #5ce611; }
+    [data-composition-id="s01-caro"] .pct { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s01-caro"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-caro"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-caro" data-width="1080" data-height="1920" data-duration="5.44">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.44" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- etiqueta de precio con descuento -->
+        <g class="s01-tag">
+          <path class="ln s01-dib" d="M330 850 L430 720 H750 Q770 720 770 740 V960 Q770 980 750 980 H430 Z" />
+          <circle class="ln s01-dib" cx="402" cy="850" r="16" />
+          <path class="ln s01-dib" d="M388 840 C 340 790 300 730 330 650" />
+          <text class="precio s01-precio" x="596" y="890" text-anchor="middle">-50<tspan class="precio-ac">%</tspan></text>
+        </g>
+        <!-- monedas que se escapan por abajo -->
+        <g class="s01-mon"><circle class="ln-ac" cx="0" cy="0" r="26" /><text class="moneda-txt" x="0" y="10" text-anchor="middle">$</text></g>
+        <g class="s01-mon"><circle class="ln-ac" cx="0" cy="0" r="26" /><text class="moneda-txt" x="0" y="10" text-anchor="middle">$</text></g>
+        <g class="s01-mon"><circle class="ln-ac" cx="0" cy="0" r="26" /><text class="moneda-txt" x="0" y="10" text-anchor="middle">$</text></g>
+        <g class="s01-mon"><circle class="ln-ac" cx="0" cy="0" r="26" /><text class="moneda-txt" x="0" y="10" text-anchor="middle">$</text></g>
+        <g class="s01-mon"><circle class="ln-ac" cx="0" cy="0" r="26" /><text class="moneda-txt" x="0" y="10" text-anchor="middle">$</text></g>
+        <!-- casi todos los comercios: fila de locales, cada uno con su % -->
+        <line class="ln s01-suelo" x1="60" y1="1100" x2="1020" y2="1100" />
+        <g class="s01-loc" data-x="160">
+          <path class="ln s01-loc-dib" d="M-62 0 V-112 H62 V0" /><path class="ln s01-loc-dib" d="M-76 -112 H76 L64 -146 H-64 Z" /><path class="ln s01-loc-dib" d="M-16 0 V-58 H16 V0" />
+          <g class="s01-pct"><circle class="ln-ac" cx="46" cy="-196" r="26" /><text class="pct" x="46" y="-186" text-anchor="middle">%</text></g>
+        </g>
+        <g class="s01-loc" data-x="350">
+          <path class="ln s01-loc-dib" d="M-62 0 V-112 H62 V0" /><path class="ln s01-loc-dib" d="M-76 -112 H76 L64 -146 H-64 Z" /><path class="ln s01-loc-dib" d="M-16 0 V-58 H16 V0" />
+          <g class="s01-pct"><circle class="ln-ac" cx="46" cy="-196" r="26" /><text class="pct" x="46" y="-186" text-anchor="middle">%</text></g>
+        </g>
+        <g class="s01-loc" data-x="540">
+          <path class="ln s01-loc-dib" d="M-62 0 V-112 H62 V0" /><path class="ln s01-loc-dib" d="M-76 -112 H76 L64 -146 H-64 Z" /><path class="ln s01-loc-dib" d="M-16 0 V-58 H16 V0" />
+          <g class="s01-pct"><circle class="ln-ac" cx="46" cy="-196" r="26" /><text class="pct" x="46" y="-186" text-anchor="middle">%</text></g>
+        </g>
+        <g class="s01-loc" data-x="730">
+          <path class="ln s01-loc-dib" d="M-62 0 V-112 H62 V0" /><path class="ln s01-loc-dib" d="M-76 -112 H76 L64 -146 H-64 Z" /><path class="ln s01-loc-dib" d="M-16 0 V-58 H16 V0" />
+          <g class="s01-pct"><circle class="ln-ac" cx="46" cy="-196" r="26" /><text class="pct" x="46" y="-186" text-anchor="middle">%</text></g>
+        </g>
+        <g class="s01-loc" data-x="920">
+          <path class="ln s01-loc-dib" d="M-62 0 V-112 H62 V0" /><path class="ln s01-loc-dib" d="M-76 -112 H76 L64 -146 H-64 Z" /><path class="ln s01-loc-dib" d="M-16 0 V-58 H16 V0" />
+          <g class="s01-pct"><circle class="ln-ac" cx="46" cy="-196" r="26" /><text class="pct" x="46" y="-186" text-anchor="middle">%</text></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">La forma más cara</span><span class="s01-e2">Casi todos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-caro";
+      const DUR = 4.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const DESCUENTOS = 0.44;
+      const MAS_CARA = 1.52;
+      const Y = 2.69;
+      const CASI = 2.85;
+      const TODOS = 3.13;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.8)" }, t);
+      };
+
+      // la etiqueta arranca medio dibujada (el cuadro 0 no puede ser negro)
+      dibujar(qa(".s01-dib"), 0, 0.6, 0.45);
+      tl.fromTo(q(".s01-tag"), { scale: 0.94, svgOrigin: "550 850" }, { scale: 1, svgOrigin: "550 850", duration: Y, ease: "none" }, 0);
+      // "descuentos": el -50% entra con golpe
+      tl.fromTo(q(".s01-precio"), { opacity: 0, scale: 1.4, svgOrigin: "600 850" }, { opacity: 1, scale: 1, svgOrigin: "600 850", duration: 0.32, ease: "power3.out" }, DESCUENTOS);
+      // el piolín se balancea
+      tl.fromTo(q(".s01-tag"), { rotation: 0, svgOrigin: "330 650" }, { rotation: 3, svgOrigin: "330 650", duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0.3);
+
+      // "más cara": la etiqueta tiembla y se le escapan monedas por abajo
+      tl.to(q(".s01-precio"), { x: 6, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, MAS_CARA);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, MAS_CARA);
+      const xs = [470, 560, 650, 520, 700];
+      qa(".s01-mon").forEach((m, i) => {
+        const t0 = MAS_CARA + 0.15 + i * 0.16;
+        tl.fromTo(m, { x: xs[i], y: 1020, opacity: 0, rotation: 0 }, { y: 1040, opacity: 1, duration: 0.12, ease: "none" }, t0);
+        tl.to(m, { y: 1250, rotation: (i % 2 ? 1 : -1) * 90, duration: 0.6, ease: "power2.in" }, t0 + 0.12);
+        tl.to(m, { opacity: 0, duration: 0.2 }, t0 + 0.52);
+      });
+
+      // "Y casi todos los comercios": la etiqueta se va, aparece la fila de locales
+      tl.to(q(".s01-tag"), { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, Y - 0.1);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, Y);
+      tl.fromTo(q(".s01-suelo"), { opacity: 0, scaleX: 0.3, svgOrigin: "540 1100" }, { opacity: 1, scaleX: 1, svgOrigin: "540 1100", duration: 0.5, ease: "power3.out" }, Y);
+      qa(".s01-loc").forEach((g, i) => {
+        gsap.set(g, { x: Number(g.dataset.x), y: 1100 });
+        dibujar(Array.from(g.querySelectorAll(".s01-loc-dib")), CASI + i * 0.09, 0.45);
+      });
+      qa(".s01-pct").forEach((p, i) => {
+        pop(p, TODOS + i * 0.1, "46 -196");
+        tl.fromTo(p, { rotation: -8, svgOrigin: "46 -222" }, { rotation: 8, svgOrigin: "46 -222", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 2 }, TODOS + 0.35 + i * 0.1);
+      });
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, TODOS);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      // escala de tiempo: la escena se armó con otra locución, se estira para calzar con la de Gemini
+      tl.paused(false);
+      tl.timeScale(0.8676);
+      const tlx = gsap.timeline({ paused: true });
+      tlx.add(tl, 0);
+      window.__timelines[ID] = tlx;
+    })();
+  </script>
+</template>

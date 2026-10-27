@@ -1,0 +1,140 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-domingo"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-domingo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-domingo"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-domingo"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-domingo"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s01-domingo"] .punto { fill: #efeee5; }
+    [data-composition-id="s01-domingo"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 25px; fill: #efeee5; }
+    [data-composition-id="s01-domingo"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 27px; fill: #efeee5; }
+    [data-composition-id="s01-domingo"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s01-domingo"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; letter-spacing: 0.08em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s01-domingo"] .hora-ac { fill: #5ce611; }
+    [data-composition-id="s01-domingo"] .estado { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s01-domingo"] .min { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; fill: #5ce611; }
+    [data-composition-id="s01-domingo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-domingo"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-domingo" data-width="1080" data-height="1920" data-duration="5.55">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.55" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s01-tel">
+          <!-- celular -->
+          <rect class="ln s01-dib" x="350" y="560" width="380" height="680" rx="52" />
+          <line class="ln s01-dib" x1="505" y1="590" x2="575" y2="590" />
+          <!-- barra de estado: día y hora -->
+          <text class="estado s01-estado" x="540" y="632" text-anchor="middle">DOM <tspan class="hora-ac">23:47</tspan></text>
+          <!-- cabecera del chat -->
+          <circle class="ln s01-dib" cx="402" cy="680" r="20" />
+          <text class="ui-nombre s01-cab" x="436" y="690">Tienda</text>
+          <line class="ln-tenue s01-dib" x1="372" y1="720" x2="708" y2="720" />
+          <!-- mensaje del cliente -->
+          <g class="s01-msg">
+            <rect class="ln" x="456" y="752" width="250" height="64" rx="22" />
+            <text class="ui" x="476" y="793">¿Tienen talle M?</text>
+            <text class="hora s01-h1" x="704" y="848" text-anchor="end">23:45</text>
+          </g>
+          <!-- escribiendo... -->
+          <g class="s01-escribe">
+            <rect class="ln" x="374" y="878" width="110" height="56" rx="22" />
+            <circle class="punto s01-dot" cx="405" cy="906" r="6" />
+            <circle class="punto s01-dot" cx="429" cy="906" r="6" />
+            <circle class="punto s01-dot" cx="453" cy="906" r="6" />
+          </g>
+          <!-- respuesta -->
+          <g class="s01-resp">
+            <rect class="ln-ac" x="374" y="878" width="262" height="104" rx="22" />
+            <text class="ui" x="394" y="918">¡Sí, hay!</text>
+            <text class="ui" x="394" y="954">¿Te lo guardamos?</text>
+            <text class="hora hora-ac s01-h2" x="378" y="1014">23:47</text>
+          </g>
+          <!-- caja de escribir -->
+          <rect class="ln-tenue s01-dib" x="374" y="1158" width="332" height="52" rx="26" />
+        </g>
+        <!-- llave de los 2 minutos -->
+        <g class="s01-llave">
+          <path class="ln-ac s01-llave-l" d="M752 790 H770 V960 H752" />
+          <text class="min s01-min" x="788" y="884">2 MIN</text>
+        </g>
+        <!-- luna -->
+        <path class="ln s01-luna" d="M858 612 A44 44 0 1 0 900 672 A34 34 0 1 1 858 612 Z" />
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Respuesta en 2 minutos</span><span class="s01-e2">Domingo, 23:47</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-domingo";
+      const DUR = 5.55;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const PREGUNTASTE = 0.81;
+      const CONTESTAN = 2.65;
+      const DOS_MIN = 3.22;
+      const DOMINGO = 4.03;
+      const NOCHE = 4.55;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // celular: arranca ya medio dibujado (el cuadro 0 no puede ser negro) y se acerca despacio
+      dibujar(qa(".s01-dib"), 0, 0.7, 0.45);
+      tl.fromTo(q(".s01-tel"), { scale: 0.96, svgOrigin: "540 900" }, { scale: 1.03, svgOrigin: "540 900", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s01-cab"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.35);
+      tl.fromTo(q(".s01-estado"), { opacity: 0 }, { opacity: 0.6, duration: 0.3 }, 0.45);
+
+      // el cliente pregunta
+      pop(q(".s01-msg"), PREGUNTASTE, "706 816");
+
+      // escribiendo... y la respuesta
+      pop(q(".s01-escribe"), 1.9, "374 934");
+      qa(".s01-dot").forEach((d, i) => {
+        tl.fromTo(d, { y: 0 }, { y: -8, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 3 }, 2.0 + i * 0.1);
+      });
+      tl.to(q(".s01-escribe"), { opacity: 0, duration: 0.1 }, CONTESTAN + 0.25);
+      pop(q(".s01-resp"), CONTESTAN + 0.25, "374 982");
+
+      // "dos minutos": la llave entre las dos horas
+      const llave = q(".s01-llave-l");
+      const Ll = llave.getTotalLength();
+      gsap.set(llave, { strokeDasharray: Ll, strokeDashoffset: Ll, opacity: 0 });
+      tl.to(llave, { opacity: 1, duration: 0.04 }, DOS_MIN);
+      tl.to(llave, { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" }, DOS_MIN);
+      tl.fromTo(q(".s01-min"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, DOS_MIN + 0.25);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, DOS_MIN);
+
+      // "domingo a la noche": la barra de estado hace punch, sale la luna
+      tl.to(q(".s01-estado"), { opacity: 1, duration: 0.15 }, DOMINGO);
+      tl.fromTo(q(".s01-estado"), { scale: 1, svgOrigin: "540 624" }, { scale: 1.25, svgOrigin: "540 624", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, DOMINGO);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, DOMINGO - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, DOMINGO + 0.05);
+      dibujar([q(".s01-luna")], NOCHE - 0.15, 0.6);
+      tl.fromTo(q(".s01-luna"), { rotation: -20, svgOrigin: "870 650" }, { rotation: 0, svgOrigin: "870 650", duration: 0.9, ease: "power2.out" }, NOCHE - 0.15);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

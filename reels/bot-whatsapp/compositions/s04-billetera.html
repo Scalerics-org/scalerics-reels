@@ -1,0 +1,174 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-billetera"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-billetera"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-billetera"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-billetera"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-billetera"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-billetera"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s04-billetera"] .ln-gris { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-billetera"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 25px; fill: #efeee5; }
+    [data-composition-id="s04-billetera"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 27px; fill: #efeee5; }
+    [data-composition-id="s04-billetera"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; letter-spacing: 0.08em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s04-billetera"] .s04-pesos { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; fill: #5ce611; }
+    [data-composition-id="s04-billetera"] .min { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.14em; fill: #5ce611; }
+    [data-composition-id="s04-billetera"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-billetera"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-billetera" data-width="1080" data-height="1920" data-duration="8.22">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="8.22" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs>
+          <clipPath id="s04-boca"><rect x="520" y="600" width="260" height="230" /></clipPath>
+        </defs>
+        <g class="s04-todo">
+          <!-- celular del chat -->
+          <g class="s04-tel">
+            <rect class="ln s04-dib" x="140" y="600" width="300" height="580" rx="48" />
+            <line class="ln s04-dib" x1="260" y1="628" x2="320" y2="628" />
+            <circle class="ln s04-dib" cx="190" cy="682" r="18" />
+            <text class="ui-nombre s04-cab" x="222" y="692">Tienda</text>
+            <line class="ln-tenue s04-dib" x1="162" y1="722" x2="418" y2="722" />
+            <!-- mensaje del cliente -->
+            <g class="s04-msg">
+              <rect class="ln" x="222" y="750" width="196" height="64" rx="22" />
+              <text class="ui" x="238" y="791">¿Cuánto sale?</text>
+            </g>
+            <text class="hora s04-hora" x="374" y="846" text-anchor="end">14:02</text>
+            <!-- un tilde y después el doble tilde, en gris -->
+            <path class="ln-gris s04-tilde1" d="M382 838 L388 844 L400 830" />
+            <path class="ln-gris s04-tilde2" d="M394 842 L396 844 L408 830" />
+            <rect class="ln-tenue s04-dib" x="162" y="1110" width="256" height="48" rx="24" />
+          </g>
+
+          <!-- billetera -->
+          <g class="s04-bill">
+            <g clip-path="url(#s04-boca)">
+              <g class="s04-billete">
+                <rect class="ln-ac" x="578" y="742" width="124" height="96" rx="8" />
+                <text class="s04-pesos" x="640" y="806" text-anchor="middle">$</text>
+              </g>
+            </g>
+            <rect class="ln s04-bdib" x="550" y="830" width="180" height="120" rx="18" />
+            <path class="ln s04-bdib" d="M690 870 H730 V910 H690 a20 20 0 0 1 0 -40 Z" />
+            <path class="ln s04-tapa" d="M552 842 V852 a18 18 0 0 0 18 18 H690" />
+          </g>
+
+          <!-- reloj -->
+          <g class="s04-reloj">
+            <circle class="ln s04-rdib" cx="640" cy="1056" r="56" />
+            <line class="ln s04-rdib" x1="640" y1="1056" x2="640" y2="1030" />
+            <line class="ln-ac s04-aguja" x1="640" y1="1056" x2="640" y2="1012" />
+            <text class="min s04-min" x="640" y="1158" text-anchor="middle">10 MIN</text>
+          </g>
+
+          <!-- el otro local -->
+          <g class="s04-otro">
+            <path class="ln s04-odib" d="M792 1030 L808 994 H932 L948 1030 Z" />
+            <rect class="ln s04-odib" x="804" y="1030" width="132" height="100" />
+            <rect class="ln s04-odib" x="852" y="1076" width="36" height="54" />
+            <g class="s04-ok"><circle class="ln-badge" cx="944" cy="980" r="18" /><path class="ln-badge" d="M935 980 L941 986 L953 973" /></g>
+          </g>
+          <path class="ln-ac s04-flecha" d="M742 880 Q 840 880 866 976" />
+          <path class="ln-ac s04-punta" d="M850 962 L867 980 L880 958" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Listo para comprar</span><span class="s04-e2">10 minutos después</span><span class="s04-e3">Le compró a otro</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-billetera";
+      const DUR = 8.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const ESCRIBE = 0.71;
+      const CUANTO = 1.03;
+      const SALE = 1.66;
+      const BILLETERA = 2.8;
+      const MANO = 3.42;
+      const DIEZ = 4.03;
+      const PASO = 5.93;
+      const O = 6.55;
+      const COMPRO = 7.11;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const etiqueta = (sale, entra, t) => {
+        if (sale) tl.to(sale, { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(entra, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, t + 0.05);
+      };
+
+      // todo se acerca despacio
+      tl.fromTo(q(".s04-todo"), { scale: 0.97, svgOrigin: "540 900" }, { scale: 1.03, svgOrigin: "540 900", duration: DUR, ease: "none" }, 0);
+
+      // celular: arranca ya medio dibujado
+      dibujar(qa(".s04-dib"), 0, 0.7, 0.45);
+      tl.fromTo(q(".s04-cab"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.3);
+      // "escribe": el celular se mueve un toque, como si vibrara
+      tl.to(q(".s04-tel"), { x: 4, duration: 0.05, ease: "power1.inOut", yoyo: true, repeat: 5 }, ESCRIBE);
+
+      // "¿cuánto sale?"
+      pop(q(".s04-msg"), CUANTO, "418 814");
+      tl.fromTo(q(".s04-hora"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, SALE);
+      dibujar([q(".s04-tilde1")], SALE + 0.05, 0.25);
+
+      // "billetera": se dibuja y el billete asoma
+      dibujar(qa(".s04-bdib"), BILLETERA - 0.15, 0.55);
+      gsap.set(q(".s04-tapa"), { opacity: 0 });
+      tl.fromTo(q(".s04-billete"), { y: 100 }, { y: 0, duration: 0.5, ease: "back.out(1.6)" }, BILLETERA + 0.25);
+      etiqueta(null, q(".s04-e1"), BILLETERA);
+      // "en la mano": el billete se sacude, listo
+      tl.to(q(".s04-billete"), { y: -10, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, MANO);
+      tl.to(q(".s04-bill"), { rotation: -3, svgOrigin: "640 950", duration: 0.2, ease: "power1.inOut", yoyo: true, repeat: 1 }, MANO + 0.25);
+
+      // "diez minutos": el reloj y el doble tilde gris, sin respuesta
+      dibujar(qa(".s04-rdib"), DIEZ - 0.1, 0.5);
+      gsap.set(q(".s04-aguja"), { opacity: 0 });
+      tl.to(q(".s04-aguja"), { opacity: 1, duration: 0.1 }, DIEZ + 0.2);
+      tl.fromTo(q(".s04-aguja"), { rotation: 0, svgOrigin: "640 1056" }, { rotation: 300, svgOrigin: "640 1056", duration: 1.9, ease: "power1.inOut" }, DIEZ + 0.2);
+      tl.fromTo(q(".s04-min"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, DIEZ + 0.33);
+      dibujar([q(".s04-tilde2")], DIEZ + 0.15, 0.25);
+      etiqueta(q(".s04-e1"), q(".s04-e2"), DIEZ);
+      tl.to(q(".s04-msg"), { opacity: 0.6, duration: 0.6 }, DIEZ + 0.6);
+
+      // "se le pasó": el billete baja y se cierra la billetera
+      tl.to(q(".s04-billete"), { y: 110, duration: 0.45, ease: "power2.in" }, PASO - 0.1);
+      dibujar([q(".s04-tapa")], PASO + 0.3, 0.4);
+      tl.to(q(".s04-reloj"), { opacity: 0.35, duration: 0.4 }, O);
+
+      // "le compró a otro": el otro local y la flecha
+      dibujar(qa(".s04-odib"), O + 0.15, 0.5);
+      dibujar([q(".s04-flecha")], COMPRO - 0.05, 0.45);
+      dibujar([q(".s04-punta")], COMPRO + 0.35, 0.2);
+      tl.fromTo(q(".s04-ok"), { opacity: 0, scale: 0.4, y: -26, svgOrigin: "944 980" }, { opacity: 1, scale: 1, y: 0, svgOrigin: "944 980", duration: 0.35, ease: "back.out(2.2)" }, COMPRO + 0.3);
+      tl.to(q(".s04-tel"), { opacity: 0.35, duration: 0.4 }, COMPRO);
+      etiqueta(q(".s04-e2"), q(".s04-e3"), O + 0.05);
+      tl.to(q(".s04-ok"), { scale: 1.2, svgOrigin: "944 980", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, COMPRO + 0.75);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

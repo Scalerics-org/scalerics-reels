@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-te-roba"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-te-roba"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-te-roba"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-te-roba"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-te-roba"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s01-te-roba"] .pupila { fill: #5ce611; }
+    [data-composition-id="s01-te-roba"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s01-te-roba"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-te-roba"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-te-roba" data-width="1080" data-height="1920" data-duration="5.06">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.06" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s01-suelo" x1="40" y1="1120" x2="1040" y2="1120" />
+        <!-- tu local (izquierda) -->
+        <g class="s01-tuyo">
+          <g class="s01-tuyo-in">
+            <path class="ln s01-dib-a" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s01-dib-a" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s01-dib-a" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s01-dib-a" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="cartel s01-txt-a" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s01-dib-a" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s01-dib-a" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="vidrio s01-luz-a" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="vidrio s01-luz-a" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s01-dib-a" d="M-24 0 V-96 H24 V0" />
+          </g>
+        </g>
+        <!-- el de enfrente (derecha) -->
+        <g class="s01-otro">
+          <g class="s01-otro-in">
+            <path class="ln s01-dib-b" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s01-dib-b" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s01-dib-b" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s01-dib-b" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="cartel s01-txt-b" x="0" y="-257" text-anchor="middle">ENFRENTE</text>
+            <rect class="ln s01-dib-b" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s01-dib-b" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="vidrio s01-luz-b" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="vidrio s01-luz-b" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s01-dib-b" d="M-24 0 V-96 H24 V0" />
+          </g>
+        </g>
+        <!-- clientes que cruzan -->
+        <g class="s01-p"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+        <g class="s01-p"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+        <g class="s01-p"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+        <!-- flecha del robo -->
+        <path class="ln-ac s01-flecha" d="M330 1180 Q540 1250 750 1180" />
+        <path class="ln-ac s01-punta" d="M722 1166 L752 1180 L726 1204" />
+        <!-- el ojo: a la vista de todos -->
+        <g class="s01-ojo">
+          <path class="ln s01-ojo-l" d="M440 690 Q540 610 640 690 Q540 770 440 690 Z" />
+          <circle class="ln s01-ojo-l" cx="540" cy="690" r="30" />
+          <circle class="pupila s01-pupila" cx="540" cy="690" r="13" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Te roba clientes</span><span class="s01-e2">A la vista de todos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-te-roba";
+      const DUR = 5.06;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const ENFRENTE = 0.74;
+      const ROBANDO = 1.8;
+      const CLIENTES = 2.4;
+      const VISTA = 3.92;
+      const TODOS = 4.4;
+
+      const SUELO = 1120;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // tu local arranca medio dibujado (el cuadro 0 no puede ser negro), con la luz prendida
+      gsap.set(q(".s01-tuyo"), { x: 270, y: SUELO });
+      gsap.set(q(".s01-otro"), { x: 810, y: SUELO });
+      dibujar(qa(".s01-dib-a"), 0, 0.6, 0.45);
+      tl.fromTo(q(".s01-txt-a"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.3);
+      tl.fromTo(qa(".s01-luz-a"), { opacity: 0 }, { opacity: 0.85, duration: 0.25 }, 0.4);
+      tl.fromTo(q(".s01-suelo"), { scaleX: 0.5, svgOrigin: "540 1120" }, { scaleX: 1, svgOrigin: "540 1120", duration: 0.7, ease: "power3.out" }, 0);
+
+      // "enfrente": aparece el otro, con golpe
+      dibujar(qa(".s01-dib-b"), ENFRENTE - 0.1, 0.5);
+      tl.fromTo(q(".s01-txt-b"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, ENFRENTE + 0.3);
+      gsap.set(qa(".s01-luz-b"), { opacity: 0 });
+      tl.fromTo(q(".s01-otro-in"), { scale: 1.12, svgOrigin: "0 -110" }, { scale: 1, svgOrigin: "0 -110", duration: 0.4, ease: "power3.out" }, ENFRENTE);
+
+      // "robando clientes": salen de tu local y cruzan al de enfrente
+      qa(".s01-p").forEach((p, i) => {
+        const t0 = ROBANDO + i * 0.32;
+        tl.fromTo(p, { x: 270, y: SUELO, opacity: 0 }, { x: 330, opacity: 1, duration: 0.18, ease: "none" }, t0);
+        tl.to(p, { x: 750, duration: 0.95, ease: "none" }, t0 + 0.18);
+        tl.to(p, { opacity: 0, duration: 0.12 }, t0 + 1.08);
+        tl.fromTo(p.querySelector("path"), { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 5 }, t0);
+      });
+      dibujar([q(".s01-flecha")], ROBANDO + 0.1, 0.7);
+      tl.fromTo(q(".s01-punta"), { opacity: 0 }, { opacity: 1, duration: 0.12 }, ROBANDO + 0.75);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, ROBANDO);
+      // tu local se apaga, el de enfrente se prende
+      tl.to(qa(".s01-luz-a"), { opacity: 0, duration: 0.3 }, CLIENTES + 0.3);
+      tl.to(qa(".s01-dib-a, .s01-txt-a"), { opacity: 0.4, duration: 0.4 }, CLIENTES + 0.3);
+      tl.to(qa(".s01-luz-b"), { opacity: 0.85, duration: 0.25 }, CLIENTES + 0.6);
+      tl.to(q(".s01-otro-in"), { scale: 1.06, svgOrigin: "0 -110", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, CLIENTES + 0.6);
+
+      // "a la vista de todos": se abre un ojo arriba y mira de un local al otro
+      gsap.set(q(".s01-ojo"), { opacity: 1 });
+      dibujar(qa(".s01-ojo-l"), VISTA - 0.15, 0.4);
+      tl.fromTo(q(".s01-pupila"), { opacity: 0, scale: 0.4, svgOrigin: "540 690" }, { opacity: 1, scale: 1, svgOrigin: "540 690", duration: 0.25, ease: "back.out(2)" }, VISTA + 0.15);
+      tl.to(q(".s01-pupila"), { x: -14, duration: 0.25, ease: "power2.inOut" }, VISTA + 0.4);
+      tl.to(q(".s01-pupila"), { x: 14, duration: 0.3, ease: "power2.inOut" }, TODOS);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, VISTA - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, VISTA);
+      tl.to(qa(".s01-flecha, .s01-punta"), { opacity: 0, duration: 0.25 }, VISTA);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

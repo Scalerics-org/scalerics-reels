@@ -1,0 +1,192 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-cuesta"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-cuesta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-cuesta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-cuesta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-cuesta"] .s06-plata { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s06-cuesta"] .s06-plata-chica { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s06-cuesta"] .s06-relleno { fill: #5ce611; }
+    [data-composition-id="s06-cuesta"] .s06-quien { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.16em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s06-cuesta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-cuesta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s06-cuesta"] .etiqueta span.s06-e-izq { left: 30px; right: auto; width: 540px; }
+    [data-composition-id="s06-cuesta"] .etiqueta span.s06-e-der { left: 530px; right: auto; width: 540px; }
+  </style>
+  <div id="root" data-composition-id="s06-cuesta" data-width="1080" data-height="1920" data-duration="5.82">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.82" data-track-index="0">
+      <!-- 1) la balanza -->
+      <div id="s06-balanza" class="s06-capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="ln s06-dib-bal" d="M440 1130 H640" />
+          <path class="ln s06-dib-bal" d="M540 1130 V812" />
+          <path class="ln s06-dib-bal" d="M505 1130 L540 1086 L575 1130" />
+          <g class="s06-brazo">
+            <path class="ln s06-dib-bal" d="M300 800 H780" />
+            <circle class="ln s06-dib-bal" cx="540" cy="800" r="13" />
+          </g>
+          <!-- platillo izquierdo: una moneda -->
+          <g class="s06-plato-izq">
+            <path class="ln s06-dib-bal" d="M300 800 L215 950 M300 800 L385 950" />
+            <path class="ln s06-dib-bal" d="M205 950 H395 Q360 998 300 998 Q240 998 205 950 Z" />
+            <g class="s06-cosa-bal">
+              <circle class="ln" cx="300" cy="920" r="24" />
+              <text class="s06-plata-chica" x="300" y="930" text-anchor="middle">$</text>
+            </g>
+          </g>
+          <!-- platillo derecho: una pila -->
+          <g class="s06-plato-der">
+            <path class="ln s06-dib-bal" d="M780 800 L695 950 M780 800 L865 950" />
+            <path class="ln s06-dib-bal" d="M685 950 H875 Q840 998 780 998 Q720 998 685 950 Z" />
+            <g class="s06-cosa-bal">
+              <rect class="ln" x="732" y="924" width="96" height="22" rx="11" />
+              <rect class="ln" x="732" y="898" width="96" height="22" rx="11" />
+              <rect class="ln" x="732" y="872" width="96" height="22" rx="11" />
+              <rect class="ln" x="732" y="846" width="96" height="22" rx="11" />
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- 2) la pantalla partida -->
+      <div id="s06-partida" class="s06-capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="ln-ac s06-divisor" d="M540 700 V1210" />
+
+          <!-- izquierda: el que vuelve -->
+          <g class="s06-izq">
+            <circle class="ln s06-dib-p1" cx="250" cy="976" r="22" />
+            <path class="ln s06-dib-p1" d="M250 998 V1066 M250 1018 L221 1047 M250 1018 L279 1047 M250 1066 L228 1130 M250 1066 L272 1130" />
+            <g class="s06-vuelta">
+              <path class="ln-ac s06-vuelta-arco" d="M210 880 A40 40 0 1 1 241 920" />
+              <path class="ln-ac s06-vuelta-punta" d="M224 906 L241 920 L222 934" />
+            </g>
+            <g class="s06-moneda">
+              <circle class="s06-relleno s06-moneda-luz" cx="400" cy="1094" r="34" />
+              <circle class="ln s06-moneda-borde" cx="400" cy="1094" r="34" />
+              <text class="s06-plata s06-moneda-txt" x="400" y="1105" text-anchor="middle">$</text>
+            </g>
+            <text class="s06-quien s06-quien-izq" x="300" y="1190" text-anchor="middle">CLIENTE QUE VUELVE</text>
+          </g>
+
+          <!-- derecha: el nuevo -->
+          <g class="s06-der">
+            <g class="s06-p2">
+              <circle class="ln s06-dib-p2" cx="700" cy="976" r="22" />
+              <path class="ln s06-dib-p2" d="M700 998 V1066 M700 1018 L671 1047 M700 1018 L729 1047 M700 1066 L678 1130 M700 1066 L722 1130" />
+            </g>
+            <g class="s06-pila">
+              <rect class="ln s06-mon" x="822" y="1108" width="96" height="22" rx="11" />
+              <rect class="ln s06-mon" x="822" y="1082" width="96" height="22" rx="11" />
+              <rect class="ln s06-mon" x="822" y="1056" width="96" height="22" rx="11" />
+              <rect class="ln s06-mon" x="822" y="1030" width="96" height="22" rx="11" />
+              <rect class="ln s06-mon" x="822" y="1004" width="96" height="22" rx="11" />
+              <rect class="ln s06-mon" x="822" y="978" width="96" height="22" rx="11" />
+            </g>
+            <text class="s06-quien s06-quien-der" x="800" y="1190" text-anchor="middle">CLIENTE NUEVO</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="etiqueta"><span class="s06-e0">Pesa</span><span class="s06-e-izq">Cuesta menos</span><span class="s06-e-der">Cuesta más</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-cuesta";
+      const DUR = 5.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const PESA = 0.86;
+      const PORQUE = 1.74;
+      const CLIENTE = 2.17;
+      const VUELVE = 2.74;
+      const TE = 3.12;
+      const CUESTA = 3.59;
+      const MUCHO = 3.88;
+      const MENOS = 4.4;
+      const UNO = 4.87;
+      const NUEVO = 5.06;
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.05);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, dur) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: dur ?? 0.35, ease: "back.out(1.6)" }, t);
+
+      // ---------- 1) balanza ----------
+      // arranca medio dibujada: el cuadro 0 no puede estar vacío
+      dibujar(qa(".s06-dib-bal"), 0, 0.65, 0.3, 0);
+      qa(".s06-cosa-bal").forEach((c, i) => pop(c, 0.25 + i * 0.12, 0.35));
+      // un vaivén chiquito mientras se dibuja, y en "pesa" se va para la derecha
+      const ANG = 13;
+      const BAJA = 240 * Math.sin((ANG * Math.PI) / 180);
+      tl.fromTo(q(".s06-brazo"), { rotation: -3, svgOrigin: "540 800" }, { rotation: 2, duration: PESA - 0.1, ease: "sine.inOut" }, 0.1);
+      tl.fromTo(q(".s06-plato-izq"), { y: 240 * Math.sin((-3 * Math.PI) / 180) * -1 }, { y: -240 * Math.sin((2 * Math.PI) / 180), duration: PESA - 0.1, ease: "sine.inOut" }, 0.1);
+      tl.fromTo(q(".s06-plato-der"), { y: 240 * Math.sin((-3 * Math.PI) / 180) }, { y: 240 * Math.sin((2 * Math.PI) / 180), duration: PESA - 0.1, ease: "sine.inOut" }, 0.1);
+      tl.to(q(".s06-brazo"), { rotation: ANG, svgOrigin: "540 800", duration: 0.85, ease: "elastic.out(1, 0.45)" }, PESA);
+      tl.to(q(".s06-plato-izq"), { y: -BAJA, duration: 0.85, ease: "elastic.out(1, 0.45)" }, PESA);
+      tl.to(q(".s06-plato-der"), { y: BAJA, duration: 0.85, ease: "elastic.out(1, 0.45)" }, PESA);
+      tl.fromTo(q(".s06-e0"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, PESA);
+      // la balanza se va
+      tl.to(q("#s06-balanza"), { opacity: 0, scale: 0.9, filter: "blur(6px)", transformOrigin: "540px 950px", duration: 0.35, ease: "power2.in" }, PORQUE - 0.05);
+      tl.to(q(".s06-e0"), { opacity: 0, duration: 0.2 }, PORQUE - 0.05);
+
+      // ---------- 2) pantalla partida ----------
+      dibujar([q(".s06-divisor")], PORQUE + 0.1, 0.55);
+      // el cliente que vuelve
+      dibujar(qa(".s06-dib-p1"), CLIENTE, 0.5);
+      tl.fromTo(q(".s06-quien-izq"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CLIENTE + 0.3);
+      // flecha de vuelta
+      const arco = q(".s06-vuelta-arco");
+      const La = arco.getTotalLength();
+      gsap.set(arco, { strokeDasharray: La, strokeDashoffset: La, opacity: 0 });
+      tl.to(arco, { opacity: 1, duration: 0.04 }, VUELVE);
+      tl.to(arco, { strokeDashoffset: 0, duration: 0.45, ease: "power2.out" }, VUELVE);
+      tl.fromTo(q(".s06-vuelta-punta"), { opacity: 0 }, { opacity: 1, duration: 0.15 }, VUELVE + 0.38);
+      tl.to(q(".s06-vuelta"), { rotation: 360, svgOrigin: "250 880", duration: 1.0, ease: "power2.inOut" }, VUELVE + 0.6);
+      // una sola moneda
+      gsap.set(q(".s06-moneda-luz"), { opacity: 0 });
+      pop(q(".s06-moneda"), TE);
+      // "mucho menos": la moneda pulsa verde
+      tl.to(q(".s06-moneda-luz"), { opacity: 0.22, duration: 0.2, ease: "power2.out" }, MUCHO);
+      tl.to(q(".s06-moneda-borde"), { stroke: "#5ce611", duration: 0.2 }, MUCHO);
+      tl.to(q(".s06-moneda-txt"), { fill: "#5ce611", duration: 0.2 }, MUCHO);
+      tl.to(q(".s06-moneda"), { scale: 1.25, svgOrigin: "400 1094", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, MUCHO);
+      tl.to(q(".s06-moneda"), { scale: 1.2, svgOrigin: "400 1094", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, MENOS);
+      tl.fromTo(q(".s06-e-izq"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, MENOS);
+
+      // el nuevo, con la pila que crece
+      dibujar(qa(".s06-dib-p2"), CUESTA, 0.45);
+      tl.fromTo(q(".s06-quien-der"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CUESTA + 0.25);
+      qa(".s06-mon").forEach((m, i) => {
+        const t = CUESTA + 0.2 + i * 0.17;
+        tl.fromTo(m, { opacity: 0, y: -46 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.in" }, t);
+      });
+      // "uno nuevo": punch de la pila y la etiqueta de la derecha
+      tl.fromTo(q(".s06-e-der"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, UNO);
+      tl.to(q(".s06-pila"), { scale: 1.12, svgOrigin: "870 1130", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, NUEVO);
+      tl.to(q(".s06-p2"), { y: -10, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, NUEVO);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

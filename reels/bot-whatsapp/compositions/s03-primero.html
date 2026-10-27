@@ -1,0 +1,174 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-primero"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-primero"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-primero"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-primero"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-primero"] .ln-fino { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-primero"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s03-primero"] .punto { fill: #efeee5; }
+    [data-composition-id="s03-primero"] .s03-gota { fill: rgba(239, 238, 229, 0.7); }
+    [data-composition-id="s03-primero"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 25px; fill: #efeee5; }
+    [data-composition-id="s03-primero"] .ui-chica { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: #efeee5; }
+    [data-composition-id="s03-primero"] .s03-uno { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 52px; fill: #5ce611; }
+    [data-composition-id="s03-primero"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-primero"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-primero" data-width="1080" data-height="1920" data-duration="4.22">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="4.22" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s03-todo">
+          <!-- cliente -->
+          <g class="s03-cliente">
+            <circle class="ln s03-dib" cx="290" cy="930" r="42" />
+            <path class="ln s03-dib" d="M200 1080 a90 90 0 0 1 180 0" />
+          </g>
+          <!-- su mensaje -->
+          <g class="s03-globo">
+            <path class="ln" d="M228 770 H354 a24 24 0 0 1 24 24 V814 a24 24 0 0 1 -24 24 H300 L276 860 L278 838 H228 a24 24 0 0 1 -24 -24 V794 a24 24 0 0 1 24 -24 Z" />
+            <text class="ui" x="291" y="813" text-anchor="middle">¿Precio?</text>
+          </g>
+          <!-- caminos punteados (los puntos los arma el script) -->
+          <g class="s03-camino-a"></g>
+          <g class="s03-camino-b"></g>
+
+          <!-- celular A: el que contesta -->
+          <g class="s03-tel-a">
+            <rect class="ln s03-dib" x="640" y="610" width="210" height="270" rx="38" />
+            <line class="ln s03-dib" x1="720" y1="634" x2="770" y2="634" />
+            <line class="ln-tenue s03-dib" x1="664" y1="664" x2="826" y2="664" />
+            <g class="s03-in-a">
+              <rect class="ln" x="696" y="680" width="134" height="48" rx="18" />
+              <text class="ui-chica" x="763" y="712" text-anchor="middle">¿Precio?</text>
+            </g>
+            <g class="s03-resp">
+              <rect class="ln-ac" x="660" y="752" width="140" height="52" rx="18" />
+              <text class="ui-chica" x="730" y="786" text-anchor="middle">¡$ 890!</text>
+            </g>
+          </g>
+          <text class="s03-uno" x="876" y="790">1º</text>
+
+          <!-- celular B: el que sigue escribiendo -->
+          <g class="s03-tel-b">
+            <rect class="ln s03-dib" x="640" y="920" width="210" height="270" rx="38" />
+            <line class="ln s03-dib" x1="720" y1="944" x2="770" y2="944" />
+            <line class="ln-tenue s03-dib" x1="664" y1="974" x2="826" y2="974" />
+            <g class="s03-in-b">
+              <rect class="ln" x="696" y="990" width="134" height="48" rx="18" />
+              <text class="ui-chica" x="763" y="1022" text-anchor="middle">¿Precio?</text>
+            </g>
+            <g class="s03-escribe">
+              <rect class="ln" x="660" y="1062" width="100" height="48" rx="18" />
+              <circle class="punto s03-dot" cx="688" cy="1086" r="6" />
+              <circle class="punto s03-dot" cx="710" cy="1086" r="6" />
+              <circle class="punto s03-dot" cx="732" cy="1086" r="6" />
+            </g>
+          </g>
+
+          <!-- la línea que gana -->
+          <path class="ln-ac s03-gana" d="M384 812 C 470 800 560 784 652 780" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">La regla</span><span class="s03-e2">El primero que contesta</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-primero";
+      const DUR = 4.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const ENTENDIERON = 0.29;
+      const ALGO = 0.71;
+      const EL = 1.24;
+      const CLIENTE = 1.57;
+      const PRIMERO = 2.61;
+      const CONTESTA = 3.27;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // caminos punteados: puntitos sobre una recta, que se prenden en orden
+      const camino = (g, x1, y1, x2, y2, n) => {
+        const pts = [];
+        for (let i = 0; i < n; i++) {
+          const k = i / (n - 1);
+          const c = document.createElementNS(NS, "circle");
+          c.setAttribute("cx", (x1 + (x2 - x1) * k).toFixed(1));
+          c.setAttribute("cy", (y1 + (y2 - y1) * k).toFixed(1));
+          c.setAttribute("r", "4.5");
+          c.setAttribute("class", "s03-gota");
+          g.appendChild(c);
+          pts.push(c);
+        }
+        return pts;
+      };
+      const ptsA = camino(q(".s03-camino-a"), 400, 800, 624, 712, 9);
+      const ptsB = camino(q(".s03-camino-b"), 400, 820, 624, 1010, 10);
+
+      // todo se acerca despacio
+      tl.fromTo(q(".s03-todo"), { scale: 0.97, svgOrigin: "540 900" }, { scale: 1.03, svgOrigin: "540 900", duration: DUR, ease: "none" }, 0);
+
+      // entrada: cliente y celulares ya medio dibujados
+      dibujar(qa(".s03-dib"), 0, 0.7, 0.45);
+      tl.fromTo(q(".s03-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, ENTENDIERON);
+      // "algo": el cliente levanta la cabeza
+      tl.fromTo(q(".s03-cliente"), { y: 0 }, { y: -10, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, ALGO);
+
+      // el cliente escribe
+      pop(q(".s03-globo"), EL - 0.1, "276 860");
+
+      // "cliente": el mensaje sale hacia los dos
+      [ptsA, ptsB].forEach((pts) => {
+        pts.forEach((p, i) => {
+          tl.fromTo(p, { opacity: 0, scale: 0.2, svgOrigin: p.getAttribute("cx") + " " + p.getAttribute("cy") }, { opacity: 1, scale: 1, svgOrigin: p.getAttribute("cx") + " " + p.getAttribute("cy"), duration: 0.18, ease: "back.out(2)" }, CLIENTE + i * 0.04);
+        });
+      });
+      pop(q(".s03-in-a"), CLIENTE + 0.4, "830 728");
+      pop(q(".s03-in-b"), CLIENTE + 0.44, "830 1038");
+
+      // los dos empiezan a escribir
+      pop(q(".s03-escribe"), 2.1, "660 1110");
+      qa(".s03-dot").forEach((d, i) => {
+        tl.fromTo(d, { y: 0 }, { y: -7, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 9 }, 2.2 + i * 0.1);
+      });
+
+      // "primero": A responde
+      pop(q(".s03-resp"), PRIMERO, "660 804");
+      tl.fromTo(q(".s03-uno"), { opacity: 0, scale: 0.6, svgOrigin: "900 774" }, { opacity: 1, scale: 1, svgOrigin: "900 774", duration: 0.4, ease: "back.out(2.4)" }, PRIMERO + 0.12);
+      tl.to(q(".s03-e1"), { opacity: 0, duration: 0.2 }, PRIMERO - 0.1);
+      tl.fromTo(q(".s03-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, PRIMERO + 0.05);
+
+      // "contesta": la línea verde une al cliente con A; B y el camino viejo se apagan
+      dibujar([q(".s03-gana")], CONTESTA, 0.55);
+      tl.to([q(".s03-tel-b"), q(".s03-camino-b")], { opacity: 0.35, duration: 0.35 }, CONTESTA);
+      tl.to(q(".s03-camino-a"), { opacity: 0, duration: 0.3 }, CONTESTA);
+      tl.to(q(".s03-uno"), { scale: 1.18, svgOrigin: "900 774", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, CONTESTA + 0.5);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

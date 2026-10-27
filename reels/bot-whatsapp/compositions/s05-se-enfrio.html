@@ -1,0 +1,131 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-se-enfrio"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-se-enfrio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-se-enfrio"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-se-enfrio"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-se-enfrio"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s05-se-enfrio"] .relleno { fill: #5ce611; }
+    [data-composition-id="s05-se-enfrio"] .punto { fill: #efeee5; }
+    [data-composition-id="s05-se-enfrio"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-se-enfrio"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-se-enfrio" data-width="1080" data-height="1920" data-duration="4.60">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.60" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s05-termo">
+          <!-- columna y bulbo (relleno verde) -->
+          <rect class="relleno s05-col" x="523" y="676" width="34" height="440" rx="17" />
+          <circle class="relleno s05-bulbo" cx="540" cy="1135" r="44" />
+          <!-- contorno del termómetro -->
+          <path class="ln s05-dib" d="M505 1084 V660 A35 35 0 0 1 575 660 V1084 A62 62 0 1 1 505 1084 Z" />
+          <!-- marcas -->
+          <line class="ln-tenue s05-dib" x1="596" y1="700" x2="626" y2="700" />
+          <line class="ln-tenue s05-dib" x1="596" y1="770" x2="614" y2="770" />
+          <line class="ln-tenue s05-dib" x1="596" y1="840" x2="626" y2="840" />
+          <line class="ln-tenue s05-dib" x1="596" y1="910" x2="614" y2="910" />
+          <line class="ln-tenue s05-dib" x1="596" y1="980" x2="626" y2="980" />
+          <line class="ln-tenue s05-dib" x1="596" y1="1050" x2="614" y2="1050" />
+        </g>
+        <!-- signo de pregunta -->
+        <g class="s05-preg">
+          <path class="ln s05-preg-l" d="M346 770 A34 34 0 1 1 398 800 Q380 812 380 840 V852" />
+          <circle class="punto" cx="380" cy="892" r="7" />
+        </g>
+        <!-- copos -->
+        <g transform="translate(340 1000)"><g class="s05-copo"><path class="ln" d="M-22 0 H22 M-11 -19 L11 19 M-11 19 L11 -19" /></g></g>
+        <g transform="translate(400 700)"><g class="s05-copo"><path class="ln" d="M-18 0 H18 M-9 -16 L9 16 M-9 16 L9 -16" /></g></g>
+        <g transform="translate(720 640)"><g class="s05-copo"><path class="ln" d="M-18 0 H18 M-9 -16 L9 16 M-9 16 L9 -16" /></g></g>
+        <g transform="translate(750 1060)"><g class="s05-copo"><path class="ln" d="M-22 0 H22 M-11 -19 L11 19 M-11 19 L11 -19" /></g></g>
+        <!-- relojito con puntos suspensivos -->
+        <g class="s05-reloj">
+          <circle class="ln" cx="770" cy="840" r="40" />
+          <line class="ln s05-aguja" x1="770" y1="840" x2="770" y2="812" />
+          <line class="ln" x1="770" y1="840" x2="788" y2="840" />
+          <circle class="punto s05-dot" cx="748" cy="918" r="6" />
+          <circle class="punto s05-dot" cx="770" cy="918" r="6" />
+          <circle class="punto s05-dot" cx="792" cy="918" r="6" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Estaba interesado</span><span class="s05-e2">Se enfrió esperando</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-se-enfrio";
+      const DUR = 4.6;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const NO_ESTABA = 0.67;
+      const ESTABA = 2.14;
+      const ENFRIO = 3.37;
+      const ESPERANDO = 3.7;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // termómetro: arranca medio dibujado y la columna sube
+      dibujar(qa(".s05-dib"), 0, 0.6, 0.45);
+      tl.fromTo(q(".s05-termo"), { scale: 0.97, svgOrigin: "540 900" }, { scale: 1.03, svgOrigin: "540 900", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s05-bulbo"), { opacity: 0, scale: 0.6, svgOrigin: "540 1135" }, { opacity: 1, scale: 1, svgOrigin: "540 1135", duration: 0.35, ease: "back.out(1.6)" }, 0.1);
+      tl.fromTo(q(".s05-col"), { scaleY: 0.05, svgOrigin: "540 1116" }, { scaleY: 1, svgOrigin: "540 1116", duration: 0.7, ease: "power2.out" }, 0.2);
+
+      // "no estaba tan interesado": aparece la duda
+      dibujar([q(".s05-preg-l")], NO_ESTABA, 0.5);
+      tl.fromTo(q(".s05-preg circle"), { opacity: 0, scale: 0.5, svgOrigin: "380 892" }, { opacity: 1, scale: 1, svgOrigin: "380 892", duration: 0.3, ease: "back.out(2)" }, NO_ESTABA + 0.4);
+      tl.fromTo(q(".s05-preg"), { rotation: -6, svgOrigin: "380 892" }, { rotation: 6, svgOrigin: "380 892", duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 3 }, NO_ESTABA + 0.3);
+
+      // "Estaba.": la duda se apaga y la columna late, llena
+      tl.to(q(".s05-preg"), { opacity: 0.3, duration: 0.25 }, ESTABA - 0.05);
+      tl.fromTo(q(".s05-col"), { scaleX: 1, svgOrigin: "540 1116" }, { scaleX: 1.35, svgOrigin: "540 1116", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 3 }, ESTABA);
+      tl.fromTo(q(".s05-bulbo"), { scale: 1, svgOrigin: "540 1135" }, { scale: 1.18, svgOrigin: "540 1135", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 3, immediateRender: false }, ESTABA);
+      tl.fromTo(q(".s05-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, ESTABA);
+      // mientras tanto, la columna tiembla arriba
+      tl.fromTo(q(".s05-col"), { scaleY: 1, svgOrigin: "540 1116" }, { scaleY: 0.96, svgOrigin: "540 1116", duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, ESTABA + 0.6);
+
+      // "se enfrió esperando": la columna baja, se apaga, caen copos
+      tl.to(q(".s05-preg"), { opacity: 0, duration: 0.3 }, ENFRIO - 0.2);
+      tl.to(q(".s05-col"), { scaleY: 0.1, svgOrigin: "540 1116", duration: 1.0, ease: "power1.inOut" }, ENFRIO);
+      tl.to([q(".s05-col"), q(".s05-bulbo")], { fill: "rgba(239, 238, 229, 0.42)", duration: 0.9, ease: "power1.inOut" }, ENFRIO + 0.1);
+      tl.to(q(".s05-e1"), { opacity: 0, duration: 0.2 }, ENFRIO - 0.1);
+      tl.fromTo(q(".s05-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, ENFRIO + 0.05);
+      qa(".s05-copo").forEach((c, i) => {
+        const t = ENFRIO + i * 0.12;
+        tl.fromTo(c, { opacity: 0, y: -50, rotation: 0, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, rotation: 30, transformOrigin: "50% 50%", duration: 0.5, ease: "power2.out" }, t);
+        tl.to(c, { y: 70, rotation: 90, transformOrigin: "50% 50%", duration: DUR - t - 0.5, ease: "none" }, t + 0.5);
+      });
+
+      // relojito con puntos suspensivos
+      pop(q(".s05-reloj"), ESPERANDO, "770 840");
+      tl.fromTo(q(".s05-aguja"), { rotation: 0, svgOrigin: "770 840" }, { rotation: 300, svgOrigin: "770 840", duration: DUR - ESPERANDO, ease: "none" }, ESPERANDO);
+      qa(".s05-dot").forEach((d, i) => {
+        tl.fromTo(d, { opacity: 0.3 }, { opacity: 1, duration: 0.15, yoyo: true, repeat: 1 }, ESPERANDO + 0.2 + i * 0.15);
+        tl.fromTo(d, { opacity: 0.3 }, { opacity: 1, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, ESPERANDO + 0.65 + i * 0.15);
+      });
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

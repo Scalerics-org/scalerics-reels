@@ -1,0 +1,151 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-no-es"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-no-es"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-no-es"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-es"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-es"] .s02-nombre { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.24em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s02-no-es"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-no-es"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-no-es" data-width="1080" data-height="1920" data-duration="4.25">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.25" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s02-fila">
+          <!-- 1: grupo de tres personas -->
+          <g class="s02-ico s02-ico1">
+            <g class="s02-dib">
+              <circle class="ln s02-d1 s02-cab" cx="-74" cy="-14" r="20" />
+              <path class="ln s02-d1" d="M-104 56 a30 30 0 0 1 60 0" />
+              <circle class="ln s02-d1 s02-cab" cx="74" cy="-14" r="20" />
+              <path class="ln s02-d1" d="M44 56 a30 30 0 0 1 60 0" />
+              <circle class="ln s02-d1 s02-cab" cx="0" cy="-34" r="26" />
+              <path class="ln s02-d1" d="M-38 56 a38 38 0 0 1 76 0" />
+            </g>
+            <text data-layout-ignore class="s02-nombre s02-n1" x="0" y="150" text-anchor="middle">EMPLEADOS</text>
+          </g>
+          <!-- 2: luna con estrellita -->
+          <g class="s02-ico s02-ico2">
+            <g class="s02-dib">
+              <path class="ln s02-d2" d="M-24 -60 A66 66 0 1 0 42 26 A51 51 0 1 1 -24 -60 Z" />
+              <path class="ln s02-estrella" d="M-74 -78 V-50 M-88 -64 H-60" />
+            </g>
+            <text data-layout-ignore class="s02-nombre s02-n2" x="0" y="150" text-anchor="middle">DE NOCHE</text>
+          </g>
+          <!-- 3: trébol de cuatro hojas -->
+          <g class="s02-ico s02-ico3">
+            <g class="s02-dib">
+              <path class="ln s02-d3" d="M0 -10 C-12 -18 -40 -26 -34 -50 C-28 -66 -6 -64 0 -48 C6 -64 28 -66 34 -50 C40 -26 12 -18 0 -10 Z" />
+              <path class="ln s02-d3" transform="rotate(90)" d="M0 -10 C-12 -18 -40 -26 -34 -50 C-28 -66 -6 -64 0 -48 C6 -64 28 -66 34 -50 C40 -26 12 -18 0 -10 Z" />
+              <path class="ln s02-d3" transform="rotate(180)" d="M0 -10 C-12 -18 -40 -26 -34 -50 C-28 -66 -6 -64 0 -48 C6 -64 28 -66 34 -50 C40 -26 12 -18 0 -10 Z" />
+              <path class="ln s02-d3" transform="rotate(270)" d="M0 -10 C-12 -18 -40 -26 -34 -50 C-28 -66 -6 -64 0 -48 C6 -64 28 -66 34 -50 C40 -26 12 -18 0 -10 Z" />
+              <path class="ln s02-d3" d="M46 46 Q 58 66 76 78" />
+            </g>
+            <text data-layout-ignore class="s02-nombre s02-n3" x="0" y="150" text-anchor="middle">SUERTE</text>
+          </g>
+        </g>
+        <!-- badges de "no" -->
+        <g class="s02-badge s02-b1"><g class="s02-b-in"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        <g class="s02-badge s02-b2"><g class="s02-b-in"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        <g class="s02-badge s02-b3"><g class="s02-b-in"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Nada de eso</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-no-es";
+      const DUR = 4.25;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const EMPLEADOS = 0.9;
+      const NI1 = 1.94;
+      const TRABAJEN = 2.22;
+      const NOCHE = 2.75;
+      const NI2 = 3.41;
+      const SUERTE = 3.6;
+
+      const Y = 890;
+      const XS = [270, 540, 810];
+      const BADGE = [[96, -84], [80, -96], [62, -92]];
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+      const nombre = (el, t) => {
+        tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+      // badge: cae desde arriba con pop
+      const badge = (el, t) => {
+        const inn = el.querySelector(".s02-b-in");
+        tl.fromTo(inn, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const sacudir = (el, t) => {
+        tl.to(el, { x: -6, duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      };
+
+      // posiciones
+      const icos = [q(".s02-ico1"), q(".s02-ico2"), q(".s02-ico3")];
+      icos.forEach((g, i) => gsap.set(g, { x: XS[i], y: Y }));
+      qa(".s02-dib").forEach((d) => gsap.set(d, { scale: 1.12, svgOrigin: "0 0" }));
+      [q(".s02-b1"), q(".s02-b2"), q(".s02-b3")].forEach((b, i) => gsap.set(b, { x: XS[i] + BADGE[i][0], y: Y + BADGE[i][1] }));
+      qa(".s02-b-in").forEach((b) => gsap.set(b, { opacity: 0 }));
+      qa(".s02-nombre").forEach((n) => gsap.set(n, { opacity: 0 }));
+
+      // la fila entera se acerca muy despacio (nunca queda quieta)
+      tl.fromTo(q(".s02-fila"), { scale: 1.06, svgOrigin: "540 " + Y }, { scale: 1, duration: DUR, ease: "none" }, 0);
+
+      // 1. empleados: arranca ya medio dibujado (el cuadro 0 no puede ser negro)
+      dibujar(qa(".s02-d1"), 0, 0.6, 0.2);
+      // en "empleados" las tres cabezas saltan en cadena
+      qa(".s02-cab").forEach((c, i) => {
+        tl.to(c, { y: -10, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, EMPLEADOS + i * 0.08);
+      });
+      nombre(q(".s02-n1"), EMPLEADOS);
+      badge(q(".s02-b1"), EMPLEADOS + 0.4);
+      sacudir(q(".s02-ico1 .s02-dib"), EMPLEADOS + 0.42);
+
+      // 2. de noche: la luna se dibuja en "trabajen", la estrellita titila en "noche"
+      tl.to(q(".s02-ico1"), { opacity: 0.4, duration: 0.3 }, NI1);
+      dibujar([q(".s02-d2")], TRABAJEN - 0.12, 0.6);
+      tl.fromTo(q(".s02-ico2 .s02-dib"), { rotation: -18, svgOrigin: "0 0" }, { rotation: 0, svgOrigin: "0 0", duration: 0.9, ease: "power2.out" }, TRABAJEN - 0.12);
+      tl.fromTo(q(".s02-estrella"), { opacity: 0, scale: 0.2, svgOrigin: "-74 -64" }, { opacity: 1, scale: 1, svgOrigin: "-74 -64", duration: 0.35, ease: "back.out(2.4)" }, NOCHE);
+      tl.to(q(".s02-estrella"), { rotation: 90, svgOrigin: "-74 -64", duration: 0.6, ease: "power2.inOut" }, NOCHE + 0.2);
+      nombre(q(".s02-n2"), NOCHE);
+      badge(q(".s02-b2"), NOCHE + 0.28);
+      sacudir(q(".s02-ico2 .s02-dib"), NOCHE + 0.3);
+
+      // 3. suerte: el trébol se dibuja en "Ni" y gira un poco
+      tl.to(q(".s02-ico2"), { opacity: 0.4, duration: 0.3 }, NI2);
+      dibujar(qa(".s02-d3"), NI2 - 0.12, 0.45);
+      tl.fromTo(q(".s02-ico3 .s02-dib"), { rotation: -30, svgOrigin: "0 0" }, { rotation: 0, svgOrigin: "0 0", duration: 0.6, ease: "back.out(1.8)" }, NI2 - 0.12);
+      nombre(q(".s02-n3"), SUERTE);
+      badge(q(".s02-b3"), SUERTE + 0.14);
+      sacudir(q(".s02-ico3 .s02-dib"), SUERTE + 0.16);
+
+      // "nada de eso": los tres badges laten juntos
+      tl.fromTo(q(".s02-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, NI2);
+      tl.to(qa(".s02-b-in"), { scale: 1.22, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, SUERTE + 0.42);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

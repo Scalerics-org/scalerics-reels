@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-en-visto"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-en-visto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-en-visto"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-en-visto"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-en-visto"] .tilde { fill: none; stroke: rgba(239, 238, 229, 0.55); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-en-visto"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s07-en-visto"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; letter-spacing: 0.08em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s07-en-visto"] .peso { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s07-en-visto"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-en-visto"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-en-visto" data-width="1080" data-height="1920" data-duration="4.33">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.33" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g transform="matrix(1.15 0 0 1.15 -197 -131)"><g class="s07-todo">
+          <!-- 4 mensajes de clientes, a la derecha -->
+          <g class="s07-msg">
+            <rect class="ln" x="530" y="628" width="270" height="68" rx="24" />
+            <text class="ui" x="552" y="672">¿Tienen stock?</text>
+            <text data-layout-ignore class="hora" x="752" y="728" text-anchor="end">10:42</text>
+            <path class="tilde s07-tilde" d="M760 716 L767 723 L780 708 M772 723 L785 708" />
+          </g>
+          <g class="s07-msg">
+            <rect class="ln" x="560" y="768" width="240" height="68" rx="24" />
+            <text class="ui" x="582" y="812">¿Cuánto sale?</text>
+            <text data-layout-ignore class="hora" x="752" y="868" text-anchor="end">11:05</text>
+            <path class="tilde s07-tilde" d="M760 856 L767 863 L780 848 M772 863 L785 848" />
+          </g>
+          <g class="s07-msg">
+            <rect class="ln" x="516" y="908" width="284" height="68" rx="24" />
+            <text class="ui" x="538" y="952">¿Hacen envíos?</text>
+            <text data-layout-ignore class="hora" x="752" y="1008" text-anchor="end">13:20</text>
+            <path class="tilde s07-tilde" d="M760 996 L767 1003 L780 988 M772 1003 L785 988" />
+          </g>
+          <g class="s07-msg">
+            <rect class="ln" x="580" y="1048" width="220" height="68" rx="24" />
+            <text class="ui" x="602" y="1092">¿Abren hoy?</text>
+            <text data-layout-ignore class="hora" x="752" y="1148" text-anchor="end">18:31</text>
+            <path class="tilde s07-tilde" d="M760 1136 L767 1143 L780 1128 M772 1143 L785 1128" />
+          </g>
+          <!-- monedas que se van -->
+          <g class="s07-moneda"><circle class="ln-ac" cx="500" cy="662" r="22" /><text class="peso" x="500" y="671" text-anchor="middle">$</text></g>
+          <g class="s07-moneda"><circle class="ln-ac" cx="530" cy="802" r="22" /><text class="peso" x="530" y="811" text-anchor="middle">$</text></g>
+          <g class="s07-moneda"><circle class="ln-ac" cx="486" cy="942" r="22" /><text class="peso" x="486" y="951" text-anchor="middle">$</text></g>
+          <g class="s07-moneda"><circle class="ln-ac" cx="550" cy="1082" r="22" /><text class="peso" x="550" y="1091" text-anchor="middle">$</text></g>
+        </g></g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">Visto</span><span class="s07-e2">Ventas que se van</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-en-visto";
+      const DUR = 4.33;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const LLEGAN = [0.0, 0.4, 0.8, 1.18];
+      const VISTO = 1.51;
+      const VENTA = 2.46;
+      const SIN_RUIDO = 3.17;
+
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      tl.fromTo(q(".s07-todo"), { scale: 0.97, svgOrigin: "660 880" }, { scale: 1.03, svgOrigin: "660 880", duration: DUR, ease: "none" }, 0);
+
+      // los mensajes llegan uno tras otro (el primero ya en el cuadro 0)
+      const msgs = qa(".s07-msg");
+      const bordes = [[800, 696], [800, 836], [800, 976], [800, 1116]];
+      msgs.forEach((m, i) => {
+        if (i === 0) {
+          tl.fromTo(m, { opacity: 0.4, scale: 0.9, svgOrigin: "800 696" }, { opacity: 1, scale: 1, svgOrigin: "800 696", duration: 0.3, ease: "back.out(1.6)" }, 0);
+        } else {
+          pop(m, LLEGAN[i], bordes[i].join(" "));
+        }
+      });
+
+      // "visto": los dobles tildes se ponen verdes a la vez, y nadie contesta
+      const tildes = qa(".s07-tilde");
+      tl.to(tildes, { stroke: "#5ce611", duration: 0.12 }, VISTO);
+      tildes.forEach((t, i) => {
+        const [x, y] = bordes[i];
+        tl.fromTo(t, { scale: 1, svgOrigin: (x - 28) + " " + (y + 30) }, { scale: 1.5, svgOrigin: (x - 28) + " " + (y + 30), duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, VISTO);
+      });
+      tl.fromTo(q(".s07-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, VISTO);
+      // espera: los mensajes respiran sin respuesta
+      msgs.forEach((m, i) => {
+        tl.to(m, { x: -4, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, VISTO + 0.4 + i * 0.08);
+      });
+
+      // "venta": de cada mensaje sale una moneda que se va flotando, en silencio
+      const monedas = qa(".s07-moneda");
+      gsap.set(monedas, { opacity: 0 });
+      monedas.forEach((mo, i) => {
+        const t = VENTA + i * 0.1;
+        tl.fromTo(mo, { opacity: 0, x: 30, y: 0, scale: 0.7, transformOrigin: "50% 50%" }, { opacity: 1, x: -20, scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "power2.out" }, t);
+        tl.to(mo, { x: -230 - i * 15, y: -50 - (i % 2) * 30, duration: SIN_RUIDO + 0.4 - t, ease: "sine.out" }, t + 0.3);
+        tl.to(mo, { opacity: 0, filter: "blur(3px)", duration: 0.45, ease: "power1.in" }, SIN_RUIDO - 0.1 + i * 0.05);
+      });
+      tl.to(q(".s07-e1"), { opacity: 0, duration: 0.2 }, VENTA - 0.1);
+      tl.fromTo(q(".s07-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, VENTA + 0.05);
+
+      // "sin hacer ruido": los mensajes quedan apagados
+      tl.to(msgs, { opacity: 0.4, duration: 0.6, ease: "power1.inOut" }, SIN_RUIDO + 0.2);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

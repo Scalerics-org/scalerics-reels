@@ -1,0 +1,202 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-sabe"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-sabe"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-sabe"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-sabe"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-sabe"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-sabe"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.3); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s05-sabe"] .s05-rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s05-sabe"] .s05-cuenta { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 38px; fill: #5ce611; }
+    [data-composition-id="s05-sabe"] .s05-ini { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 24px; fill: #efeee5; }
+    [data-composition-id="s05-sabe"] .s05-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efeee5; }
+    [data-composition-id="s05-sabe"] .s05-cero { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 120px; fill: #5ce611; }
+    [data-composition-id="s05-sabe"] .s05-contactos { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: rgba(239, 238, 229, 0.75); }
+    [data-composition-id="s05-sabe"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s05-sabe"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-sabe"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-sabe" data-width="1080" data-height="1920" data-duration="6.02">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="6.02" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- ===== ÉL: su lista de clientes ===== -->
+        <g class="s05-el">
+          <text class="s05-rotulo s05-rot-el" x="540" y="616" text-anchor="middle">ÉL</text>
+          <rect class="ln s05-card" x="290" y="640" width="500" height="480" rx="36" />
+          <text class="s05-rotulo s05-head" x="330" y="698">SUS CLIENTES</text>
+          <text class="s05-cuenta s05-num" x="750" y="702" text-anchor="end">4</text>
+          <line class="ln-tenue s05-div" x1="318" y1="726" x2="762" y2="726" />
+          <g class="s05-fila">
+            <circle class="ln-4" cx="350" cy="780" r="30" />
+            <text class="s05-ini" x="350" y="789" text-anchor="middle">LM</text>
+            <text class="s05-nombre" x="402" y="792">Lucía M.</text>
+          </g>
+          <g class="s05-fila">
+            <circle class="ln-4" cx="350" cy="870" r="30" />
+            <text class="s05-ini" x="350" y="879" text-anchor="middle">MR</text>
+            <text class="s05-nombre" x="402" y="882">Martín R.</text>
+          </g>
+          <g class="s05-fila">
+            <circle class="ln-4" cx="350" cy="960" r="30" />
+            <text class="s05-ini" x="350" y="969" text-anchor="middle">SP</text>
+            <text class="s05-nombre" x="402" y="972">Sofía P.</text>
+          </g>
+          <g class="s05-fila">
+            <circle class="ln-4" cx="350" cy="1050" r="30" />
+            <text class="s05-ini" x="350" y="1059" text-anchor="middle">DA</text>
+            <text class="s05-nombre" x="402" y="1062">Diego A.</text>
+          </g>
+          <!-- burbujas de mensaje en cada fila -->
+          <g class="s05-burb"><path class="ln-ac" d="M710 762 H754 a8 8 0 0 1 8 8 V790 a8 8 0 0 1 -8 8 H726 L712 808 V798 a8 8 0 0 1 -8 -8 V770 a8 8 0 0 1 6 -8 Z" /></g>
+          <g class="s05-burb"><path class="ln-ac" d="M710 852 H754 a8 8 0 0 1 8 8 V880 a8 8 0 0 1 -8 8 H726 L712 898 V888 a8 8 0 0 1 -8 -8 V860 a8 8 0 0 1 6 -8 Z" /></g>
+          <g class="s05-burb"><path class="ln-ac" d="M710 942 H754 a8 8 0 0 1 8 8 V970 a8 8 0 0 1 -8 8 H726 L712 988 V978 a8 8 0 0 1 -8 -8 V950 a8 8 0 0 1 6 -8 Z" /></g>
+          <g class="s05-burb"><path class="ln-ac" d="M710 1032 H754 a8 8 0 0 1 8 8 V1060 a8 8 0 0 1 -8 8 H726 L712 1078 V1068 a8 8 0 0 1 -8 -8 V1040 a8 8 0 0 1 6 -8 Z" /></g>
+        </g>
+        <!-- sobres que salen volando -->
+        <g class="s05-sobre"><g><rect class="ln-ac" x="-30" y="-21" width="60" height="42" rx="6" /><path class="ln-ac" d="M-28 -18 L0 4 L28 -18" /></g></g>
+        <g class="s05-sobre"><g><rect class="ln-ac" x="-30" y="-21" width="60" height="42" rx="6" /><path class="ln-ac" d="M-28 -18 L0 4 L28 -18" /></g></g>
+        <g class="s05-sobre"><g><rect class="ln-ac" x="-30" y="-21" width="60" height="42" rx="6" /><path class="ln-ac" d="M-28 -18 L0 4 L28 -18" /></g></g>
+
+        <!-- ===== VOS: libreta vacía y tu local ===== -->
+        <g class="s05-vos">
+          <text class="s05-rotulo s05-rot-vos" x="540" y="616" text-anchor="middle">VOS</text>
+          <g class="s05-libreta">
+            <rect class="ln s05-lib" x="220" y="700" width="250" height="360" rx="20" />
+            <path class="ln-4 s05-lib" d="M256 712 V684 M296 712 V684 M336 712 V684 M376 712 V684 M416 712 V684" />
+            <line class="ln-tenue s05-renglon" x1="252" y1="780" x2="438" y2="780" />
+            <line class="ln-tenue s05-renglon" x1="252" y1="820" x2="438" y2="820" />
+            <line class="ln-tenue s05-renglon" x1="252" y1="1000" x2="438" y2="1000" />
+            <line class="ln-tenue s05-renglon" x1="252" y1="1032" x2="438" y2="1032" />
+            <text class="s05-cero" x="345" y="944" text-anchor="middle">0</text>
+            <text class="s05-contactos" x="345" y="980" text-anchor="middle">CONTACTOS</text>
+          </g>
+          <line class="ln s05-suelo" x1="560" y1="1060" x2="1040" y2="1060" />
+          <g class="s05-local">
+            <path class="ln s05-dib-l" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s05-dib-l" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s05-dib-l" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s05-dib-l" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="cartel s05-txt-l" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s05-dib-l" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s05-dib-l" x="42" y="-122" width="58" height="52" rx="5" />
+            <path class="ln s05-dib-l" d="M-24 0 V-96 H24 V0" />
+          </g>
+          <g class="s05-p"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+          <g class="s05-p"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Sabe quiénes son</span><span class="s05-e2">Ni el teléfono</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-sabe";
+      const DUR = 6.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const SABE = 0.24;
+      const QUIENES = 0.56;
+      const CLIENTES = 1.22;
+      const LES = 1.98;
+      const ESCRIBE = 2.24;
+      const VOS = 3.08;
+      const NO = 3.42;
+      const NI = 3.8;
+      const TELEFONO = 4.2;
+      const YA = 4.94;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origin) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origin }, { opacity: 1, scale: 1, svgOrigin: origin, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // ===== ÉL =====
+      // la tarjeta arranca medio dibujada (el cuadro 0 no puede ser negro)
+      dibujar([q(".s05-card")], 0, 0.6, 0.45);
+      tl.fromTo(q(".s05-el"), { scale: 1.04, svgOrigin: "540 880" }, { scale: 1, svgOrigin: "540 880", duration: 3.0, ease: "none" }, 0);
+      tl.fromTo(q(".s05-rot-el"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.05);
+      tl.fromTo(q(".s05-head"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, SABE);
+      dibujar([q(".s05-div")], SABE, 0.4);
+
+      // "quiénes son": entran las cuatro filas
+      qa(".s05-fila").forEach((f, i) => {
+        tl.fromTo(f, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, QUIENES + i * 0.12);
+      });
+      tl.fromTo(q(".s05-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, QUIENES);
+      // "clientes": el contador
+      pop(q(".s05-num"), CLIENTES, "735 690");
+      tl.to(q(".s05-num"), { scale: 1.3, svgOrigin: "735 690", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, CLIENTES + 0.35);
+
+      // "les escribe": burbujas en cada fila y salen tres sobres volando
+      qa(".s05-burb").forEach((b, i) => {
+        const cy = 780 + i * 90;
+        tl.fromTo(b, { opacity: 0, scale: 0.4, svgOrigin: "733 " + cy }, { opacity: 1, scale: 1, svgOrigin: "733 " + cy, duration: 0.3, ease: "back.out(2)" }, LES + i * 0.06);
+      });
+      const desde = [[733, 780], [733, 960], [733, 1050]];
+      const hasta = [[930, 660], [990, 880], [940, 1150]];
+      qa(".s05-sobre").forEach((s, i) => {
+        const t0 = ESCRIBE + i * 0.12;
+        gsap.set(s, { opacity: 0 });
+        tl.fromTo(s, { x: desde[i][0], y: desde[i][1], opacity: 0, scale: 0.5, rotation: 0 },
+          { x: hasta[i][0], y: hasta[i][1], opacity: 1, scale: 1, rotation: [-14, 8, 16][i], duration: 0.55, ease: "power3.out" }, t0);
+        tl.to(s, { opacity: 0, duration: 0.25 }, t0 + 0.45);
+      });
+
+      // sale él
+      tl.to(q(".s05-el"), { opacity: 0, y: -20, duration: 0.25, ease: "power2.in" }, VOS - 0.2);
+      tl.to(q(".s05-e1"), { opacity: 0, duration: 0.2 }, VOS - 0.15);
+
+      // ===== VOS =====
+      gsap.set(q(".s05-local"), { x: 770, y: 1060, scale: 0.85, opacity: 0.4 });
+      gsap.set(qa(".s05-cero, .s05-contactos, .s05-renglon"), { opacity: 0 });
+      tl.fromTo(q(".s05-rot-vos"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, VOS);
+      dibujar(qa(".s05-lib"), VOS - 0.05, 0.55);
+      tl.fromTo(q(".s05-libreta"), { rotation: -6, svgOrigin: "345 880" }, { rotation: 0, svgOrigin: "345 880", duration: 0.6, ease: "back.out(1.6)" }, VOS - 0.05);
+      dibujar(qa(".s05-dib-l"), VOS + 0.05, 0.55);
+      dibujar([q(".s05-suelo")], VOS, 0.5);
+      tl.fromTo(q(".s05-txt-l"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, VOS + 0.4);
+      // "no tenés": renglones vacíos
+      qa(".s05-renglon").forEach((r, i) => {
+        tl.to(r, { opacity: 1, duration: 0.2 }, NO + i * 0.06);
+      });
+      tl.fromTo(q(".s05-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, NI);
+      // "teléfono": 0 CONTACTOS con golpe y la libreta se sacude
+      tl.fromTo(q(".s05-cero"), { opacity: 0, scale: 1.4, svgOrigin: "345 900" }, { opacity: 1, scale: 1, svgOrigin: "345 900", duration: 0.35, ease: "back.out(2.2)" }, TELEFONO);
+      tl.to(q(".s05-contactos"), { opacity: 1, duration: 0.25 }, TELEFONO + 0.15);
+      tl.to(q(".s05-libreta"), { x: -7, duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, TELEFONO + 0.2);
+
+      // "ya vinieron": dos clientes salen de tu local y se van sin dejar nada
+      qa(".s05-p").forEach((p, i) => {
+        const t0 = YA - 0.1 + i * 0.3;
+        tl.fromTo(p, { x: 770, y: 1060, opacity: 0, scale: 0.85, svgOrigin: "0 0" }, { x: 820, opacity: 1, duration: 0.18, ease: "none" }, t0);
+        tl.to(p, { x: 990, duration: 0.65, ease: "none" }, t0 + 0.18);
+        tl.to(p, { opacity: 0, duration: 0.15 }, t0 + 0.68);
+        tl.fromTo(p.querySelector("path"), { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.16, ease: "sine.inOut", yoyo: true, repeat: 4 }, t0);
+      });
+      // el cero late una vez más cuando se van
+      tl.to(q(".s05-cero"), { scale: 1.12, svgOrigin: "345 900", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, YA + 0.5);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

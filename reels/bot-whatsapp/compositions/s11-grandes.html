@@ -1,0 +1,208 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-grandes"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-grandes"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-grandes"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-grandes"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-grandes"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-grandes"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-grandes"] .vent { fill: #efeee5; }
+    [data-composition-id="s11-grandes"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s11-grandes"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.18em; fill: #efeee5; }
+    [data-composition-id="s11-grandes"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: #efeee5; }
+    [data-composition-id="s11-grandes"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 24px; fill: #efeee5; }
+    [data-composition-id="s11-grandes"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-grandes"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s11-grandes" data-width="1080" data-height="1920" data-duration="4.88">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.88" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- parte 1: la marca grande (edificio corporativo + equipo con auriculares) -->
+        <g class="s11-grande">
+          <g class="s11-edif">
+            <path class="ln s11-dib-ed" d="M400 1000 V610 H680 V1000" />
+            <line class="ln s11-dib-ed" x1="540" y1="610" x2="540" y2="572" />
+            <rect class="ln s11-dib-ed" x="470" y="940" width="140" height="48" rx="8" />
+            <text data-layout-ignore class="cartel s11-cartel" x="540" y="972" text-anchor="middle">S.A.</text>
+            <g class="s11-ventanas"></g>
+          </g>
+          <line class="ln s11-suelo1" x1="300" y1="1150" x2="780" y2="1150" />
+          <g class="s11-equipo"></g>
+        </g>
+
+        <!-- parte 2: tu local + celular con la respuesta -->
+        <g class="s11-local">
+          <g class="s11-local-in">
+            <path class="ln s11-dib-lo" d="M-170 0 V-190 H170 V0" />
+            <path class="ln s11-dib-lo" d="M-200 -190 H200 L180 -250 H-180 Z" />
+            <path class="ln s11-dib-lo" d="M-200 -190 q25 34 50 0 q25 34 50 0 q25 34 50 0 q25 34 50 0 q25 34 50 0 q25 34 50 0 q25 34 50 0 q25 34 50 0" />
+            <rect class="ln s11-dib-lo" x="-110" y="-310" width="220" height="56" rx="10" />
+            <text data-layout-ignore class="cartel s11-txt-lo" x="0" y="-274" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s11-dib-lo" x="-140" y="-130" width="100" height="72" rx="6" />
+            <rect class="ln s11-dib-lo" x="40" y="-130" width="100" height="72" rx="6" />
+            <rect class="vidrio s11-luz" x="-130" y="-120" width="80" height="52" rx="3" />
+            <rect class="vidrio s11-luz" x="50" y="-120" width="80" height="52" rx="3" />
+            <path class="ln s11-dib-lo" d="M-28 0 V-112 H28 V0" />
+          </g>
+        </g>
+        <line class="ln s11-suelo2" x1="110" y1="1100" x2="970" y2="1100" />
+        <g class="s11-tel">
+          <rect class="ln s11-dib-tel" x="680" y="700" width="230" height="390" rx="40" />
+          <line class="ln s11-dib-tel" x1="770" y1="726" x2="820" y2="726" />
+          <circle class="ln s11-dib-tel" cx="718" cy="768" r="14" />
+          <text class="ui-nombre s11-tel-txt" x="742" y="776">Tu local</text>
+          <line class="ln-tenue s11-dib-tel" x1="700" y1="800" x2="890" y2="800" />
+          <!-- cliente -->
+          <g class="s11-msg">
+            <rect class="ln" x="712" y="820" width="180" height="50" rx="18" />
+            <text class="ui" x="728" y="854">¿Hay turno?</text>
+          </g>
+          <!-- respuesta -->
+          <g class="s11-resp">
+            <rect class="ln-ac" x="698" y="888" width="184" height="50" rx="18" />
+            <text class="ui" x="714" y="922">¡Sí, a las 10!</text>
+          </g>
+          <circle class="ln-ac s11-tilde-c" cx="795" cy="1012" r="44" />
+          <path class="ln-ac s11-tilde" d="M774 1013 L790 1029 L818 997" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Equipos enteros</span><span class="s11-e2">En tu local</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-grandes";
+      const DUR = 4.88;
+      const NS = "http://www.w3.org/2000/svg";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (palabras de la locución, relativos a la escena)
+      const MARCAS = 0.24;
+      const EQUIPOS = 1.47;
+      const ENTEROS = 1.85;
+      const VOS = 2.7;
+      const PODES = 3.32;
+      const EN = 3.84;
+      const LOCAL = 4.08;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // ventanas del edificio: grilla 4 x 7, brillo fijo (patrón determinista)
+      const BRILLO = [0.9, 0.35, 0.9, 0.55, 0.35, 0.9, 0.55, 0.9, 0.9, 0.55, 0.35, 0.9, 0.55, 0.9, 0.9, 0.35, 0.9, 0.35, 0.55, 0.9, 0.35, 0.9, 0.9, 0.55, 0.9, 0.55, 0.35, 0.9];
+      const vg = q(".s11-ventanas");
+      const vents = [];
+      for (let r = 0; r < 7; r++) {
+        for (let c = 0; c < 4; c++) {
+          const v = document.createElementNS(NS, "rect");
+          v.setAttribute("class", "vent");
+          v.setAttribute("x", 428 + c * 58);
+          v.setAttribute("y", 640 + r * 42);
+          v.setAttribute("width", 44);
+          v.setAttribute("height", 28);
+          v.setAttribute("rx", 4);
+          v.dataset.o = BRILLO[r * 4 + c];
+          vg.appendChild(v);
+          vents.push(v);
+        }
+      }
+      // equipo: 7 figuritas con auriculares (vincha + micrófono en verde)
+      const eq = q(".s11-equipo");
+      const FIG =
+        '<circle class="ln" cx="0" cy="-96" r="14" />' +
+        '<path class="ln-ac4" d="M-19 -96 A19 19 0 0 1 19 -96 M-19 -100 V-88 M19 -100 V-88 M-19 -90 Q-18 -76 -6 -78" />' +
+        '<path class="ln s11-cuerpo" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" />';
+      const figs = [];
+      for (let i = 0; i < 7; i++) {
+        const g = document.createElementNS(NS, "g");
+        g.innerHTML = FIG;
+        eq.appendChild(g);
+        figs.push(g);
+      }
+      const FX = [360, 420, 480, 540, 600, 660, 720];
+
+      // edificio: arranca medio dibujado
+      dibujar(qa(".s11-dib-ed"), 0, 0.65, 0.4);
+      tl.fromTo(q(".s11-cartel"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.3);
+      tl.fromTo(q(".s11-suelo1"), { scaleX: 0.4, svgOrigin: "540 1150", opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.7, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s11-edif"), { scale: 0.94, svgOrigin: "540 1000" }, { scale: 1, duration: 1.2, ease: "power3.out" }, 0);
+      // "marcas grandes": las ventanas se prenden de abajo hacia arriba
+      const orden = vents.slice().reverse();
+      orden.forEach((v, i) => {
+        tl.fromTo(v, { opacity: 0 }, { opacity: Number(v.dataset.o), duration: 0.12, ease: "power1.out" }, MARCAS + i * 0.03);
+      });
+      // titileo de algunas ventanas mientras llega el equipo
+      [vents[1], vents[10], vents[17], vents[26]].forEach((v, i) => {
+        tl.to(v, { opacity: 0.9, duration: 0.15, yoyo: true, repeat: 1 }, 1.1 + i * 0.22);
+      });
+
+      // "equipos": la fila de 7 figuritas sube con pop
+      figs.forEach((f, i) => {
+        gsap.set(f, { x: FX[i], y: 1140, opacity: 0 });
+        tl.fromTo(f, { opacity: 0, y: 1170, scale: 0.85, transformOrigin: "0px -50px" }, { opacity: 1, y: 1140, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, EQUIPOS + i * 0.05);
+      });
+      // "enteros": todos saltan juntos
+      tl.to(figs, { y: 1122, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1, stagger: 0.03 }, ENTEROS);
+      // vaivén de los brazos (atendiendo) hasta "Vos"
+      figs.forEach((f, i) => {
+        tl.fromTo(f.querySelector(".s11-cuerpo"), { rotation: -3, transformOrigin: "0px -40px" }, { rotation: 3, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 3 }, ENTEROS + 0.3 + (i % 2) * 0.09);
+      });
+      tl.fromTo(q(".s11-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, EQUIPOS);
+
+      // "Vos": todo eso se achica y se apaga
+      tl.to(q(".s11-grande"), { scale: 0.55, opacity: 0.25, svgOrigin: "540 900", duration: 0.5, ease: "power3.inOut" }, VOS);
+      tl.to(q(".s11-grande"), { opacity: 0, filter: "blur(4px)", duration: 0.25, ease: "power2.in" }, VOS + 0.25);
+      tl.to(q(".s11-e1"), { opacity: 0, duration: 0.2 }, VOS);
+
+      // tu local a la izquierda, sobre su suelo
+      gsap.set(q(".s11-local"), { x: 400, y: 1100 });
+      gsap.set(q(".s11-local-in"), { scale: 0.86, transformOrigin: "0px 0px" });
+      gsap.set(qa(".s11-luz"), { opacity: 0 });
+      gsap.set(q(".s11-txt-lo"), { opacity: 0 });
+      gsap.set(q(".s11-suelo2"), { opacity: 0 });
+      tl.fromTo(q(".s11-suelo2"), { scaleX: 0, svgOrigin: "540 1100", opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.6, ease: "power3.out", immediateRender: false }, VOS + 0.3);
+      dibujar(qa(".s11-dib-lo"), VOS + 0.35, 0.6);
+      tl.to(q(".s11-txt-lo"), { opacity: 1, duration: 0.3 }, VOS + 0.8);
+
+      // celular al lado: se dibuja, llega la consulta y sale la respuesta verde
+      dibujar(qa(".s11-dib-tel"), VOS + 0.5, 0.55);
+      gsap.set(q(".s11-tel-txt"), { opacity: 0 });
+      tl.to(q(".s11-tel-txt"), { opacity: 1, duration: 0.3 }, VOS + 0.85);
+      gsap.set(qa(".s11-msg, .s11-resp"), { opacity: 0 });
+      pop(q(".s11-msg"), PODES - 0.05, "892 870");
+      pop(q(".s11-resp"), PODES + 0.38, "698 938");
+      // "local": el tilde se dibuja
+      dibujar([q(".s11-tilde-c")], LOCAL - 0.2, 0.4);
+      dibujar([q(".s11-tilde")], LOCAL + 0.05, 0.3);
+      tl.to(q(".s11-tel"), { scale: 1.05, svgOrigin: "795 1012", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, LOCAL + 0.3);
+
+      // "tu local": se prenden las vidrieras y el local hace punch
+      tl.to(qa(".s11-luz"), { opacity: 0.85, duration: 0.25, ease: "power2.out" }, LOCAL - 0.05);
+      tl.to(q(".s11-local-in"), { scale: 0.92, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, LOCAL - 0.05);
+      tl.fromTo(q(".s11-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, EN - 0.25);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
