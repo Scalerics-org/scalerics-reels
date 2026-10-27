@@ -45,6 +45,25 @@ Reglas: voseo uruguayo; Scalerics habla en plural ("hacemos", "te contamos"); 15
 (con Orus son ~50-58 s); frases cortas; sin cifras ni estadísticas inventadas; polémico sin
 insultar ni burlarse.
 
+## Cuántos por corrida: 5, en paralelo
+
+Cada corrida de la rutina hace **5 reels** (pedido de Juan, 27-10). Vos sos el coordinador:
+
+1. Elegí los 5 temas (paso 1) distintos entre sí y reservalos los 5 juntos en `ideas.md`, en un
+   solo commit y push a `main`.
+2. Lanzá 5 subagentes con la herramienta Agent, **todos en el mismo mensaje** para que corran a la
+   vez, uno por reel. A cada uno le pasás el `<slug>` y el tema, y le decís que haga los pasos 2 a 9
+   de este archivo en `reels/<slug>/` (sin renderizar ni commitear) y que te devuelva el gancho y
+   qué quedó flojo. Un subagente no puede lanzar otros: sus escenas las hace él, en orden.
+3. **Chrome es de a uno.** La máquina tiene 4 CPU y 15 GB: todo comando que abre Chrome
+   (`snapshot`, `check`, `render`) va con candado, y decíselo así a cada subagente:
+   `flock /tmp/hyperframes.lock npx --yes hyperframes@0.8.206 snapshot ...`
+   (lo mismo para `check`). La voz y los tiempos sí pueden ir en paralelo.
+4. Cuando vuelvan los 5, hacé vos el paso 10 (render, con el mismo candado) y el 11 de cada uno,
+   de a uno. Si un subagente no terminó, entregá lo que haya en su rama `reel/<slug>` y dejalo en
+   "En curso" con la nota de qué falta: la próxima corrida lo termina antes de arrancar nuevos.
+5. La notificación final lista los 5 ganchos y sus ramas.
+
 ## El proceso
 
 Todo desde la raíz del repo salvo donde dice. `<slug>` = nombre corto del reel en kebab-case.
@@ -112,7 +131,7 @@ Los `t` de su `.sfx.json` se multiplican por el mismo ratio. Así quedó `reels/
 
 - `cdn.jsdelivr.net`, Hugging Face, HeyGen y Microsoft están bloqueados en la nube. GSAP va local
   (`assets/vendor/gsap.min.js`); los tiempos salen de Speech-to-Text de Google, no de whisper.
-- `snapshot` y `render` comen memoria: nunca dos a la vez. `--workers 2`.
+- `snapshot`, `check` y `render` abren Chrome y comen memoria: nunca dos a la vez (`flock /tmp/hyperframes.lock ...`). `--workers 2`.
 - En SVG, rotar/escalar con `svgOrigin`, no `transformOrigin`.
 - Un trazo con caps redondos sin dibujar deja un puntito: `dibujar()` lo deja en opacity 0
   hasta que arranca.
