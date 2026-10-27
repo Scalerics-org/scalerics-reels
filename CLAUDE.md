@@ -118,6 +118,9 @@ Todo desde la raíz del repo salvo donde dice. `<slug>` = nombre corto del reel 
     - En una rama `reel/<slug>`: lo mismo más `renders/<slug>-final.mp4`
       (`git add -f`). Así el mp4 no engorda `main`.
     - Push de las dos.
+    - Si el push a `main` falla (403 del proxy de la nube), no insistas: dejá todo, incluido
+      `ideas.md`, en la rama `reel/<slug>` y decilo en la notificación. Las ramas `reel/*` sí andan
+      (probado el 27-10). Borrar ramas remotas desde la nube NO anda: no lo intentes.
 
 **Sin voz** (no hay `GOOGLE_SA_JSON` o la API falla): hacé hasta el SPEC con tiempos estimados
 (0.34 s por palabra) y entregá en la rama `reel/<slug>` el guion, el reel.json y el SPEC, sin
