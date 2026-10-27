@@ -7,6 +7,7 @@
 - 27-10 · `el-de-enfrente` · Todo Scalerics · "El de enfrente te está robando clientes." · Comentá CLIENTES
 
 ## En curso
+- 27-10 · `clientes-fantasma` · Puntos + Bot · especial Halloween (lo hace Claude en la compu de Juan)
 
 ## Banco de ideas (tomá uno o inventá otro en la misma línea)
 - "Tu Instagram no es tuyo": si Meta te cierra la cuenta, perdés todo; la tienda propia y la base
