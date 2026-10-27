@@ -76,7 +76,7 @@ Todo desde la raíz del repo salvo donde dice. `<slug>` = nombre corto del reel 
    línea).
 3. **Voz.** Desde `reels/<slug>`:
    `node ../../herramientas/voz.mjs guion.txt assets/voice/locucion.wav`
-   Si falla por la clave (no hay `GOOGLE_API_KEY`), andá al paso "Sin voz" al final.
+   Si falla por la credencial (no hay `GOOGLE_SA_JSON`), andá al paso "Sin voz" al final.
 4. **Tiempos.** `node ../../herramientas/tiempos.mjs assets/voice/locucion.wav guion.txt assets/voice/palabras.json`
    Compará lo que imprime en "oyó:" contra el guion. Si la voz se salteó o cambió frases enteras,
    regenerala (paso 3). Que interpole 3-5 palabras sueltas es normal.
@@ -116,9 +116,9 @@ Todo desde la raíz del repo salvo donde dice. `<slug>` = nombre corto del reel 
       (`git add -f`). Así el mp4 no engorda `main`.
     - Push de las dos.
 
-**Sin voz** (no hay clave de Google o la API falla): hacé hasta el SPEC con tiempos estimados
+**Sin voz** (no hay `GOOGLE_SA_JSON` o la API falla): hacé hasta el SPEC con tiempos estimados
 (0.34 s por palabra) y entregá en la rama `reel/<slug>` el guion, el reel.json y el SPEC, sin
-escenas. En `ideas.md` dejalo en "En curso" con la nota "falta voz". La próxima corrida con clave
+escenas. En `ideas.md` dejalo en "En curso" con la nota "falta voz". La próxima corrida con credencial
 lo termina antes de arrancar uno nuevo.
 
 **Si la voz cambia con las escenas ya hechas**: no rehacer las escenas. Corré `node armar.mjs`
