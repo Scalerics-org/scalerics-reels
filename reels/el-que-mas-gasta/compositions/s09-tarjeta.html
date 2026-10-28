@@ -1,0 +1,121 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-tarjeta"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-tarjeta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-tarjeta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tarjeta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tarjeta"] .ln-tenue { fill: none; stroke: #efeee5; stroke-opacity: 0.4; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tarjeta"] .relleno { fill: #5ce611; }
+    [data-composition-id="s09-tarjeta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s09-tarjeta"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s09-tarjeta"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s09-tarjeta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-tarjeta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s09-tarjeta" data-width="1080" data-height="1920" data-duration="3.22">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="3.22" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s09-cel">
+          <path class="ln s09-dm" d="M402 590 H678 A52 52 0 0 1 730 642 V1178 A52 52 0 0 1 678 1230 H402 A52 52 0 0 1 350 1178 V642 A52 52 0 0 1 402 590 Z" />
+          <line class="ln s09-dm" x1="506" y1="620" x2="574" y2="620" />
+          <g class="s09-ui">
+            <circle class="relleno" cx="392" cy="664" r="10" />
+            <text data-layout-ignore class="lex" x="414" y="673" style="font-size:24px">Scalerics Puntos</text>
+            <line class="ln-tenue" x1="378" y1="698" x2="702" y2="698" />
+            <circle class="ln" cx="398" cy="736" r="14" style="stroke-width:4" />
+            <path class="ln" d="M376 774 a22 18 0 0 1 44 0" style="stroke-width:4" />
+            <text class="lex" x="438" y="766" style="font-size:32px">Marcos</text>
+            <text class="mono" x="378" y="828" style="font-size:22px; fill-opacity:0.6">TUS PUNTOS</text>
+            <text class="lex s09-n1" x="374" y="920" style="font-size:84px; font-weight:700">1.240</text>
+            <text class="lex s09-n2" x="374" y="920" style="font-size:84px; font-weight:700">940</text>
+            <text class="mono-ac s09-menos" x="702" y="828" text-anchor="end">-300</text>
+            <rect class="ln" x="372" y="966" width="336" height="226" rx="26" style="stroke-width:4" />
+            <path class="ln-ac" d="M396 1004 H432 V1028 Q432 1044 416 1044 H412 Q396 1044 396 1028 Z" />
+            <path class="ln-ac" d="M432 1010 Q446 1010 446 1020 Q446 1030 432 1030" />
+            <text class="lex" x="462" y="1036" style="font-size:32px">Café gratis</text>
+            <text class="mono" x="396" y="1086">300 PTS</text>
+            <rect class="relleno s09-lleno" x="392" y="1112" width="296" height="60" rx="30" />
+            <rect class="ln-ac" x="392" y="1112" width="296" height="60" rx="30" />
+            <text class="mono-ac s09-btn" x="540" y="1151" text-anchor="middle" style="letter-spacing:0.16em">CANJEAR</text>
+          </g>
+        </g>
+        <g class="s09-nota">
+          <path class="ln-tenue" style="stroke-dasharray: 2 12" d="M738 1040 H770" />
+          <text class="mono-ac" x="790" y="1010">VOS</text>
+          <text class="mono-ac" x="790" y="1048">ELEGÍS</text>
+          <text class="mono-ac" x="790" y="1086">EL PREMIO</text>
+        </g>
+
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">En su celular</span><span class="s09-e2">Canjea premios</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-tarjeta";
+      const DUR = 3.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const SUELO = 1120;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (desde !== undefined && desde < 1 && t === 0) {
+            gsap.set(el, { opacity: 1 });
+          } else {
+            gsap.set(el, { opacity: 0 });
+            tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, svgOrigin) => {
+        const o = svgOrigin ? { svgOrigin } : { transformOrigin: "50% 50%" };
+        tl.fromTo(el, { opacity: 0, scale: 0.85, ...o }, { opacity: 1, scale: 1, ...o, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const etq = (n, t, fuera) => {
+        if (fuera !== undefined) tl.to(q(".s09-e" + fuera), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s09-e" + n), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const caminar = (g, t0, n) => {
+        const p = g.querySelector("path");
+        tl.fromTo(p, { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: n }, t0);
+      };
+
+      const TARJETA = 0.32, CELULAR = 0.92, CANJEA = 1.82, PREMIOS = 2.22, ELEGIS = 2.82;
+      gsap.set(q(".s09-cel"), { x: -70 });
+      gsap.set(q(".s09-nota"), { x: -50 });
+      // el celular arranca medio dibujado
+      dibujar(qa(".s09-dm"), 0, 0.55, 0.45);
+      tl.fromTo(q(".s09-ui"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, TARJETA - 0.15);
+      tl.fromTo(q(".s09-cel"), { y: 40 }, { y: 0, duration: 0.6, ease: "power3.out" }, 0);
+      gsap.set(qa(".s09-n2, .s09-menos"), { opacity: 0 });
+      tl.to(q(".s09-cel"), { rotation: -3, svgOrigin: "540 910", duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, CELULAR);
+      etq(1, TARJETA);
+      // "canjea": el botón se llena de verde y el saldo baja
+      tl.fromTo(q(".s09-lleno"), { scaleX: 0, svgOrigin: "392 1142" }, { scaleX: 1, svgOrigin: "392 1142", duration: 0.35, ease: "power3.out" }, CANJEA);
+      tl.to(q(".s09-btn"), { fill: "#0b1d35", duration: 0.1 }, CANJEA + 0.15);
+      tl.fromTo(q(".s09-menos"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25 }, CANJEA + 0.2);
+      tl.to(q(".s09-n1"), { opacity: 0, y: -20, duration: 0.2 }, CANJEA + 0.25);
+      tl.fromTo(q(".s09-n2"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, CANJEA + 0.35);
+      etq(2, PREMIOS, 1);
+      // "que elegís vos": la notita
+      pop(q(".s09-nota"), ELEGIS - 0.1, "800 1050");
+
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

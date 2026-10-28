@@ -1,0 +1,152 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-viene"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-viene"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-viene"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-viene"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-viene"] .ln-tenue { fill: none; stroke: #efeee5; stroke-opacity: 0.4; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-viene"] .relleno { fill: #5ce611; }
+    [data-composition-id="s02-viene"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s02-viene"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s02-viene"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s02-viene"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-viene"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s02-viene" data-width="1080" data-height="1920" data-duration="5.36">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="5.36" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s02-suelo" x1="160" y1="1120" x2="920" y2="1120" />
+        <g class="s02-dia">
+          <rect class="ln" x="300" y="620" width="100" height="100" rx="14" />
+          <line class="ln" x1="300" y1="652" x2="400" y2="652" />
+          <text data-layout-ignore class="mono" x="350" y="644" text-anchor="middle" style="font-size:18px">SEM 1</text>
+          <path class="ln-ac s02-tick" d="M328 688 l16 16 l30 -32" />
+        </g>
+        <g class="s02-dia">
+          <rect class="ln" x="430" y="620" width="100" height="100" rx="14" />
+          <line class="ln" x1="430" y1="652" x2="530" y2="652" />
+          <text data-layout-ignore class="mono" x="480" y="644" text-anchor="middle" style="font-size:18px">SEM 2</text>
+          <path class="ln-ac s02-tick" d="M458 688 l16 16 l30 -32" />
+        </g>
+        <g class="s02-dia">
+          <rect class="ln" x="560" y="620" width="100" height="100" rx="14" />
+          <line class="ln" x1="560" y1="652" x2="660" y2="652" />
+          <text data-layout-ignore class="mono" x="610" y="644" text-anchor="middle" style="font-size:18px">SEM 3</text>
+          <path class="ln-ac s02-tick" d="M588 688 l16 16 l30 -32" />
+        </g>
+        <g class="s02-dia">
+          <rect class="ln" x="690" y="620" width="100" height="100" rx="14" />
+          <line class="ln" x1="690" y1="652" x2="790" y2="652" />
+          <text data-layout-ignore class="mono" x="740" y="644" text-anchor="middle" style="font-size:18px">SEM 4</text>
+          <path class="ln-ac s02-tick" d="M718 688 l16 16 l30 -32" />
+        </g>
+
+        <rect class="relleno s02-barra s02-b0" x="440" y="840" width="64" height="280" rx="8" />
+        <rect class="ln-tenue s02-barra s02-b1" x="560" y="1060" width="64" height="60" rx="8" />
+        <rect class="ln-tenue s02-barra s02-b2" x="680" y="1040" width="64" height="80" rx="8" />
+        <rect class="ln-tenue s02-barra s02-b3" x="800" y="1070" width="64" height="50" rx="8" />
+        <g class="s02-cli"><g class="s02-cli-in">
+            <circle class="ln" cx="0" cy="-96" r="14" />
+            <path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" />
+            <path class="ln" d="M14 -52 h30 l-4 36 h-22 Z" />
+            <path class="ln" d="M22 -52 q7 -12 14 0" />
+          </g></g>
+        <g class="s02-otro"><g class="s02-otro-in">
+            <circle class="ln" cx="0" cy="-96" r="14" />
+            <path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" />
+          </g></g>
+        <g class="s02-tk s02-tk1"><rect class="ln" x="-90" y="-34" width="180" height="68" rx="12" /><text class="mono" x="0" y="9" text-anchor="middle">GRACIAS</text></g>
+        <g class="s02-tk s02-tk2"><rect class="ln" x="-90" y="-34" width="180" height="68" rx="12" /><text class="mono" x="0" y="9" text-anchor="middle">GRACIAS</text></g>
+        <path class="ln-ac s02-igual" d="M520 860 H600 M520 892 H600" style="stroke-width:8" />
+
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Todas las semanas</span><span class="s02-e2">Recibe lo mismo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-viene";
+      const DUR = 5.36;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const SUELO = 1120;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (desde !== undefined && desde < 1 && t === 0) {
+            gsap.set(el, { opacity: 1 });
+          } else {
+            gsap.set(el, { opacity: 0 });
+            tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, svgOrigin) => {
+        const o = svgOrigin ? { svgOrigin } : { transformOrigin: "50% 50%" };
+        tl.fromTo(el, { opacity: 0, scale: 0.85, ...o }, { opacity: 1, scale: 1, ...o, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const etq = (n, t, fuera) => {
+        if (fuera !== undefined) tl.to(q(".s02-e" + fuera), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s02-e" + n), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const caminar = (g, t0, n) => {
+        const p = g.querySelector("path");
+        tl.fromTo(p, { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: n }, t0);
+      };
+
+      const TODAS = 0.26, SEMANAS = 1.07, DEJA = 1.47, NADIE = 2.06, RECIBE = 2.86, MISMO = 3.36, VEZ = 4.36, VOLVIO = 4.87;
+      gsap.set(q(".s02-cli"), { x: 320, y: SUELO });
+      gsap.set(q(".s02-cli-in"), { scale: 1.6, svgOrigin: "0 0" });
+      gsap.set(q(".s02-otro"), { x: 760, y: SUELO, opacity: 0 });
+      gsap.set(q(".s02-otro-in"), { scale: 1.6, svgOrigin: "0 0" });
+      tl.fromTo(q(".s02-suelo"), { scaleX: 0.6, svgOrigin: "540 1120" }, { scaleX: 1, svgOrigin: "540 1120", duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s02-cli"), { opacity: 0, x: 280 }, { opacity: 1, x: 320, duration: 0.35, ease: "power3.out" }, 0);
+      caminar(q(".s02-cli"), 0, 1);
+
+      // "todas las semanas": cuatro semanas que se tildan
+      qa(".s02-dia").forEach((d, i) => pop(d, 0.05 + i * 0.08, (350 + i * 130) + " 670"));
+      qa(".s02-tick").forEach((t, i) => dibujar([t], TODAS + i * 0.24, 0.25));
+      etq(1, TODAS);
+
+      // "deja más que nadie": su barra crece alta y verde, las otras bajitas
+      qa(".s02-barra").forEach((b, i) => {
+        const cx = [472, 592, 712, 832][i];
+        tl.fromTo(b, { scaleY: 0, svgOrigin: cx + " 1120" }, { scaleY: 1, svgOrigin: cx + " 1120", duration: i === 0 ? 0.7 : 0.35, ease: i === 0 ? "back.out(1.4)" : "power2.out" }, (i === 0 ? DEJA : NADIE - 0.2 + i * 0.06));
+      });
+      tl.to(q(".s02-b0"), { scaleY: 1.06, svgOrigin: "472 1120", duration: 0.12, yoyo: true, repeat: 1 }, NADIE + 0.1);
+
+      // "recibe lo mismo": se va todo, aparece el que vino una vez, los dos reciben lo mismo
+      tl.to(qa(".s02-dia, .s02-barra"), { opacity: 0, y: -16, duration: 0.3, ease: "power2.in" }, RECIBE - 0.25);
+      tl.to(q(".s02-cli"), { x: 360, duration: 0.4, ease: "power2.inOut" }, RECIBE - 0.2);
+      tl.fromTo(q(".s02-otro"), { opacity: 0, x: 820 }, { opacity: 1, x: 760, duration: 0.4, ease: "power3.out" }, RECIBE - 0.2);
+      caminar(q(".s02-otro"), RECIBE - 0.2, 1);
+      gsap.set(q(".s02-tk1"), { x: 360, y: 860 });
+      gsap.set(q(".s02-tk2"), { x: 760, y: 860 });
+      tl.fromTo(qa(".s02-tk"), { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", stagger: 0.12 }, RECIBE);
+      dibujar([q(".s02-igual")], MISMO, 0.3);
+      etq(2, RECIBE, 1);
+
+      // "una vez y no volvió": el de la derecha se va
+      tl.to(q(".s02-tk2"), { opacity: 0.35, duration: 0.3 }, VEZ);
+      tl.to(q(".s02-otro"), { x: 1000, duration: 0.6, ease: "power1.in" }, VOLVIO - 0.2);
+      tl.to(q(".s02-otro"), { opacity: 0, duration: 0.3 }, VOLVIO + 0.1);
+      caminar(q(".s02-otro"), VOLVIO - 0.2, 3);
+
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

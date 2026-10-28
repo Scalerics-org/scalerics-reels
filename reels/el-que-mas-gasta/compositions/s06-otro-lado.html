@@ -1,0 +1,151 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-otro-lado"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-otro-lado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-otro-lado"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-otro-lado"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-otro-lado"] .ln-tenue { fill: none; stroke: #efeee5; stroke-opacity: 0.4; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-otro-lado"] .relleno { fill: #5ce611; }
+    [data-composition-id="s06-otro-lado"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s06-otro-lado"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s06-otro-lado"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s06-otro-lado"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-otro-lado"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s06-otro-lado" data-width="1080" data-height="1920" data-duration="4.22">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="4.22" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s06-suelo" x1="80" y1="1120" x2="1000" y2="1120" />
+        <g class="s06-tuyo"><g class="s06-tuyo-in">
+            <path class="ln s06-da" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s06-da" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s06-da" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s06-da" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="mono s06-da-t" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s06-da" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s06-da" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="relleno s06-da-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="relleno s06-da-luz" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s06-da" d="M-24 0 V-96 H24 V0" />
+          </g></g>
+        <g class="s06-otro"><g class="s06-otro-in">
+            <path class="ln s06-db" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s06-db" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s06-db" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s06-db" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="mono s06-db-t" x="0" y="-257" text-anchor="middle">OTRO</text>
+            <rect class="ln s06-db" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s06-db" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="relleno s06-db-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="relleno s06-db-luz" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s06-db" d="M-24 0 V-96 H24 V0" />
+          </g></g>
+        <g class="s06-cli"><g class="s06-cli-in">
+            <circle class="ln" cx="0" cy="-96" r="14" />
+            <path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" />
+            <path class="ln" d="M14 -52 h30 l-4 36 h-22 Z" />
+            <path class="ln" d="M22 -52 q7 -12 14 0" />
+          </g></g>
+        <g class="s06-regalo">
+          <path class="ln-tenue" style="stroke-dasharray: 10 10" d="M-56 -20 H56 V52 H-56 Z M-64 -46 H64 V-20 H-64 Z M0 -46 V52" />
+          <path class="ln-tenue" style="stroke-dasharray: 10 10" d="M0 -46 C-20 -76 -46 -70 -36 -52 Z M0 -46 C20 -76 46 -70 36 -52 Z" />
+        </g>
+        <g class="s06-badge"><g class="s06-badge-in"><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" style="stroke-width:4" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        <g class="s06-cal">
+          <rect class="ln" x="-60" y="-56" width="120" height="112" rx="12" />
+          <line class="ln" x1="-60" y1="-22" x2="60" y2="-22" />
+          <path class="ln" d="M-30 -66 V-46 M30 -66 V-46" />
+          <g class="s06-hoja"><text class="lex s06-hoja-t" x="0" y="34" text-anchor="middle" style="font-size:48px">?</text></g>
+        </g>
+
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Nada distinto</span><span class="s06-e2">Prueba en otro lado</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-otro-lado";
+      const DUR = 4.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const SUELO = 1120;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (desde !== undefined && desde < 1 && t === 0) {
+            gsap.set(el, { opacity: 1 });
+          } else {
+            gsap.set(el, { opacity: 0 });
+            tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, svgOrigin) => {
+        const o = svgOrigin ? { svgOrigin } : { transformOrigin: "50% 50%" };
+        tl.fromTo(el, { opacity: 0, scale: 0.85, ...o }, { opacity: 1, scale: 1, ...o, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const etq = (n, t, fuera) => {
+        if (fuera !== undefined) tl.to(q(".s06-e" + fuera), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s06-e" + n), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const caminar = (g, t0, n) => {
+        const p = g.querySelector("path");
+        tl.fromTo(p, { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: n }, t0);
+      };
+
+      const NUNCA = 0.18, NADA = 0.98, DISTINTO = 1.28, UNDIA = 2.18, PRUEBA = 2.85, OTRO = 3.18, LADO = 3.28;
+      gsap.set(q(".s06-tuyo"), { x: 220, y: SUELO });
+      gsap.set(q(".s06-tuyo-in"), { scale: 0.75, svgOrigin: "0 0" });
+      gsap.set(q(".s06-otro"), { x: 860, y: SUELO });
+      gsap.set(q(".s06-otro-in"), { scale: 0.75, svgOrigin: "0 0" });
+      gsap.set(q(".s06-cli"), { x: 420, y: SUELO });
+      gsap.set(q(".s06-cli-in"), { scale: 1.6, svgOrigin: "0 0" });
+      tl.fromTo(q(".s06-suelo"), { scaleX: 0.6, svgOrigin: "540 1120" }, { scaleX: 1, svgOrigin: "540 1120", duration: 0.6, ease: "power3.out" }, 0);
+      // tu local, apagado, arranca medio dibujado; el cliente al lado
+      dibujar(qa(".s06-da"), 0, 0.5, 0.45);
+      gsap.set(qa(".s06-da-luz"), { opacity: 0 });
+      tl.fromTo(q(".s06-tuyo-in"), { opacity: 1 }, { opacity: 0.45, duration: 0.4 }, 0.3);
+      tl.fromTo(q(".s06-cli"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.05);
+
+      // "nunca recibe nada distinto": un regalo vacío, punteado, con badge
+      gsap.set(q(".s06-regalo"), { x: 600, y: 820 });
+      pop(q(".s06-regalo"), NUNCA + 0.2, "600 820");
+      gsap.set(q(".s06-badge"), { x: 676, y: 760, opacity: 0 });
+      tl.set(q(".s06-badge"), { opacity: 1 }, NADA);
+      tl.fromTo(q(".s06-badge-in"), { scale: 0.3, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }, NADA);
+      tl.to(q(".s06-regalo"), { x: "+=8", duration: 0.06, yoyo: true, repeat: 3 }, DISTINTO);
+      etq(1, NADA);
+
+      // "un día": el calendario pasa de hoja
+      tl.to(qa(".s06-regalo, .s06-badge"), { opacity: 0, duration: 0.2 }, UNDIA - 0.2);
+      gsap.set(q(".s06-cal"), { x: 600, y: 810 });
+      pop(q(".s06-cal"), UNDIA - 0.1, "600 810");
+      tl.fromTo(q(".s06-hoja"), { scaleY: 1, svgOrigin: "0 -22" }, { scaleY: 0, svgOrigin: "0 -22", duration: 0.15, ease: "power2.in", yoyo: true, repeat: 1 }, UNDIA + 0.15);
+
+      // "prueba en otro lado": aparece otro local, prendido, y el cliente camina hacia allá
+      dibujar(qa(".s06-db"), PRUEBA - 0.45, 0.45);
+      tl.fromTo(q(".s06-db-t"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, PRUEBA - 0.1);
+      tl.fromTo(qa(".s06-db-luz"), { opacity: 0 }, { opacity: 0.85, duration: 0.2 }, OTRO);
+      tl.to(q(".s06-cal"), { opacity: 0, duration: 0.2 }, PRUEBA - 0.1);
+      tl.to(q(".s06-cli"), { x: 700, duration: 1.0, ease: "power1.inOut" }, PRUEBA);
+      caminar(q(".s06-cli"), PRUEBA, 5);
+      etq(2, PRUEBA, 1);
+
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

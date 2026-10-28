@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-panel"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-panel"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-panel"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-panel"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-panel"] .ln-tenue { fill: none; stroke: #efeee5; stroke-opacity: 0.4; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-panel"] .relleno { fill: #5ce611; }
+    [data-composition-id="s10-panel"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s10-panel"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s10-panel"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s10-panel"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-panel"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s10-panel" data-width="1080" data-height="1920" data-duration="6.4">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="6.4" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect class="ln s10-dt" x="120" y="606" width="840" height="590" rx="40" />
+        <line class="ln-tenue s10-dt" x1="160" y1="690" x2="920" y2="690" />
+        <circle class="relleno s10-cab" cx="176" cy="650" r="12" />
+        <text class="lex s10-cab" x="204" y="662" style="font-size:32px">Tus clientes</text>
+        <text data-layout-ignore class="mono s10-cab" x="900" y="657" text-anchor="end" style="font-size:20px; fill-opacity:0.6">ESTE AÑO</text>
+        <g class="s10-fila s10-f0">
+          <rect class="ln-tenue" x="160" y="0" width="760" height="96" rx="22" />
+          <circle class="ln" cx="218" cy="48" r="30" style="stroke-width:4" />
+          <text class="mono" x="218" y="57" text-anchor="middle" style="font-size:22px; letter-spacing:0.04em">LM</text>
+          <text class="lex" x="270" y="60" style="font-size:34px">Lucía Méndez</text>
+          <text class="mono s10-dato" x="890" y="58" text-anchor="end" style="font-size:24px; letter-spacing:0.04em; fill-opacity:0.75">cada 9 días</text>
+        </g>
+        <g class="s10-fila s10-f1">
+          <rect class="ln-tenue" x="160" y="0" width="760" height="96" rx="22" /><rect class="ln-ac s10-marco-ac" x="160" y="0" width="760" height="96" rx="22" /><g transform="translate(560 46)"><path class="relleno s10-estrella" d="M0 -22 L6.5 -8.9 L20.9 -6.8 L10.5 3.4 L12.9 17.8 L0 11 L-12.9 17.8 L-10.5 3.4 L-20.9 -6.8 L-6.5 -8.9 Z" /></g>
+          <circle class="ln" cx="218" cy="48" r="30" style="stroke-width:4" />
+          <text class="mono" x="218" y="57" text-anchor="middle" style="font-size:22px; letter-spacing:0.04em">MS</text>
+          <text class="lex" x="270" y="60" style="font-size:34px">Marcos Silva</text>
+          <text class="mono s10-dato" x="890" y="58" text-anchor="end" style="font-size:24px; letter-spacing:0.04em; fill-opacity:0.75">cada 6 días</text>
+        </g>
+        <g class="s10-fila s10-f2">
+          <rect class="ln-tenue" x="160" y="0" width="760" height="96" rx="22" />
+          <circle class="ln" cx="218" cy="48" r="30" style="stroke-width:4" />
+          <text class="mono" x="218" y="57" text-anchor="middle" style="font-size:22px; letter-spacing:0.04em">DA</text>
+          <text class="lex" x="270" y="60" style="font-size:34px">Diego Acosta</text>
+          <text class="mono s10-dato" x="890" y="58" text-anchor="end" style="font-size:24px; letter-spacing:0.04em; fill-opacity:0.75">cada 15 días</text>
+        </g>
+        <g class="s10-fila s10-f3">
+          <rect class="ln-tenue" x="160" y="0" width="760" height="96" rx="22" />
+          <circle class="ln" cx="218" cy="48" r="30" style="stroke-width:4" />
+          <text class="mono" x="218" y="57" text-anchor="middle" style="font-size:22px; letter-spacing:0.04em">SP</text>
+          <text class="lex" x="270" y="60" style="font-size:34px">Sofía Pérez</text>
+          <text class="mono s10-dato" x="890" y="58" text-anchor="end" style="font-size:24px; letter-spacing:0.04em; fill-opacity:0.75">cada 22 días</text>
+        </g>
+
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Con nombre y apellido</span><span class="s10-e2">Tus mejores clientes</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-panel";
+      const DUR = 6.4;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const SUELO = 1120;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (desde !== undefined && desde < 1 && t === 0) {
+            gsap.set(el, { opacity: 1 });
+          } else {
+            gsap.set(el, { opacity: 0 });
+            tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, svgOrigin) => {
+        const o = svgOrigin ? { svgOrigin } : { transformOrigin: "50% 50%" };
+        tl.fromTo(el, { opacity: 0, scale: 0.85, ...o }, { opacity: 1, scale: 1, ...o, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const etq = (n, t, fuera) => {
+        if (fuera !== undefined) tl.to(q(".s10-e" + fuera), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s10-e" + n), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const caminar = (g, t0, n) => {
+        const p = g.querySelector("path");
+        tl.fromTo(p, { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: n }, t0);
+      };
+
+      const VOS = 0.8, VES = 1.1, NOMBRE = 1.8, APELLIDO = 2.3, QUIENES = 3.23, MEJORES = 3.8, CLIENTES = 4.3, CADA = 5.41, CUANTO = 5.6, VIENEN = 6.0;
+      const Y = [720, 830, 940, 1050];
+      // la tablet arranca medio dibujada
+      dibujar(qa(".s10-dt"), 0, 0.7, 0.45);
+      tl.fromTo(qa(".s10-cab"), { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.08 }, 0.3);
+      tl.to(qa(".s10-dt"), { scale: 1.02, svgOrigin: "540 900", duration: 0.15, yoyo: true, repeat: 1 }, VES);
+      // "con nombre y apellido": entran las filas
+      qa(".s10-fila").forEach((f, i) => {
+        gsap.set(f, { y: Y[i] });
+        tl.fromTo(f, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, NOMBRE - 0.2 + i * 0.16);
+      });
+      gsap.set(qa(".s10-dato, .s10-marco-ac, .s10-estrella"), { opacity: 0 });
+      etq(1, NOMBRE);
+      // "mejores clientes": Marcos sube primero, se marca en verde y gana su estrella
+      tl.to(q(".s10-f1"), { y: Y[0], duration: 0.45, ease: "power3.inOut" }, QUIENES + 0.1);
+      tl.to(q(".s10-f0"), { y: Y[1], duration: 0.45, ease: "power3.inOut" }, QUIENES + 0.1);
+      tl.to(q(".s10-marco-ac"), { opacity: 1, duration: 0.25 }, MEJORES);
+      tl.fromTo(q(".s10-estrella"), { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 0.9, duration: 0.4, ease: "back.out(2.6)" }, CLIENTES - 0.1);
+      tl.to(qa(".s10-f0, .s10-f2, .s10-f3"), { opacity: 0.6, duration: 0.3 }, MEJORES);
+      etq(2, MEJORES, 1);
+      // "cada cuánto vienen"
+      qa(".s10-dato").forEach((d, i) => tl.fromTo(d, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, CADA + i * 0.12));
+
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

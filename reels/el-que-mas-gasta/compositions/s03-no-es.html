@@ -1,0 +1,130 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-no-es"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-no-es"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-no-es"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-no-es"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-no-es"] .ln-tenue { fill: none; stroke: #efeee5; stroke-opacity: 0.4; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-no-es"] .relleno { fill: #5ce611; }
+    [data-composition-id="s03-no-es"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s03-no-es"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s03-no-es"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s03-no-es"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-no-es"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s03-no-es" data-width="1080" data-height="1920" data-duration="7.15">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="7.15" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s03-ico s03-i1"><g class="s03-in">
+          <path class="ln s03-d1" d="M0 56 C-40 26 -66 6 -66 -22 C-66 -44 -50 -60 -30 -60 C-14 -60 -4 -50 0 -40 C4 -50 14 -60 30 -60 C50 -60 66 -44 66 -22 C66 6 40 26 0 56 Z" />
+          <text data-layout-ignore class="mono" x="0" y="130" text-anchor="middle">DESINTERÉS</text>
+        </g></g>
+        <g class="s03-ico s03-i2"><g class="s03-in">
+          <rect class="ln s03-d2" x="-72" y="-46" width="144" height="96" rx="14" />
+          <path class="ln s03-d2" d="M-72 -14 H40 a14 14 0 0 1 14 14 v0 a14 14 0 0 1 -14 14 H-72" />
+          <rect class="ln s03-d2" x="-14" y="-82" width="28" height="22" rx="4" />
+          <path class="ln s03-d2" d="M-8 -82 v-8 a8 8 0 0 1 16 0 v8" />
+          <text data-layout-ignore class="mono" x="0" y="130" text-anchor="middle">AMARRETE</text>
+        </g></g>
+        <g class="s03-ico s03-i3"><g class="s03-in">
+          <path class="ln s03-d3" d="M-70 56 V-10 H70 V56 Z" />
+          <path class="ln s03-d3" d="M-56 -10 L-44 -50 H44 L56 -10" />
+          <text class="mono-ac" x="0" y="-22" text-anchor="middle" style="font-size:30px">$</text>
+          <line class="ln s03-d3" x1="-44" y1="16" x2="-16" y2="16" /><line class="ln s03-d3" x1="16" y1="16" x2="44" y2="16" />
+          <text data-layout-ignore class="mono" x="0" y="130" text-anchor="middle">SIN PLATA</text>
+        </g></g>
+        <g class="s03-b1"><g class="s03-b1-in"><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" style="stroke-width:4" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        <g class="s03-b2"><g class="s03-b2-in"><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" style="stroke-width:4" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        <g class="s03-b3"><g class="s03-b3-in"><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" style="stroke-width:4" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        <g class="s03-quien">
+          <circle class="ln s03-dq" cx="540" cy="800" r="84" />
+          <path class="ln s03-dq" d="M370 1130 C370 1000 450 920 540 920 C630 920 710 1000 710 1130" />
+          <text class="lex s03-preg" x="540" y="838" text-anchor="middle" style="font-size:110px; fill:#5ce611">?</text>
+        </g>
+
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">Nada de eso</span><span class="s03-e2">¿Quién es?</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-no-es";
+      const DUR = 7.15;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const SUELO = 1120;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (desde !== undefined && desde < 1 && t === 0) {
+            gsap.set(el, { opacity: 1 });
+          } else {
+            gsap.set(el, { opacity: 0 });
+            tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, svgOrigin) => {
+        const o = svgOrigin ? { svgOrigin } : { transformOrigin: "50% 50%" };
+        tl.fromTo(el, { opacity: 0, scale: 0.85, ...o }, { opacity: 1, scale: 1, ...o, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const etq = (n, t, fuera) => {
+        if (fuera !== undefined) tl.to(q(".s03-e" + fuera), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s03-e" + n), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const caminar = (g, t0, n) => {
+        const p = g.querySelector("path");
+        tl.fromTo(p, { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: n }, t0);
+      };
+
+      const NO = 0.0, IMPORTE = 1.2, NI1 = 2.11, AMARRETE = 2.6, NI2 = 3.2, QUE = 4.5, ES = 5.11, QUIEN = 6.1;
+      const X = [260, 540, 820];
+      qa(".s03-ico").forEach((g, i) => gsap.set(g, { x: X[i], y: 860 }));
+      qa(".s03-in").forEach((g) => gsap.set(g, { scale: 1.3, svgOrigin: "0 0" }));
+      [".s03-b1", ".s03-b2", ".s03-b3"].forEach((c, i) => gsap.set(q(c), { x: X[i] + 92, y: 770, opacity: 0 }));
+
+      // corazón arranca a medio dibujar
+      dibujar(qa(".s03-d1"), 0, 0.6, 0.5);
+      tl.fromTo(q(".s03-i1 text"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.3);
+      // billetera y caja: entran con su palabra
+      gsap.set(qa(".s03-i2 text, .s03-i3 text"), { opacity: 0 });
+      dibujar(qa(".s03-d2"), NI1 - 0.1, 0.45);
+      tl.to(q(".s03-i2 text"), { opacity: 1, duration: 0.3 }, NI1 + 0.2);
+      dibujar(qa(".s03-d3"), NI2 - 0.1, 0.45);
+      tl.fromTo(q(".s03-i3 .mono-ac"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, NI2 + 0.3);
+      tl.to(q(".s03-i3 text.mono"), { opacity: 1, duration: 0.3 }, NI2 + 0.2);
+
+      // badges de "no" en la palabra
+      [IMPORTE, AMARRETE, QUE].forEach((t, i) => {
+        const b = q(".s03-b" + (i + 1));
+        tl.set(b, { opacity: 1 }, t);
+        tl.fromTo(b.firstElementChild, { scale: 0.3, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }, t);
+        tl.to(q(".s03-i" + (i + 1) + " .s03-in"), { opacity: 0.45, duration: 0.3 }, t + 0.1);
+      });
+      etq(1, QUE + 0.1);
+
+      // "Es que no sabés quién es": se va todo, aparece la silueta
+      tl.to(qa(".s03-ico, [class^='s03-b']"), { opacity: 0, y: "+=24", duration: 0.3, ease: "power2.in", stagger: 0.03 }, ES - 0.1);
+      dibujar(qa(".s03-dq"), ES + 0.15, 0.6);
+      tl.fromTo(q(".s03-preg"), { opacity: 0, scale: 0.5, svgOrigin: "540 800" }, { opacity: 1, scale: 1, svgOrigin: "540 800", duration: 0.4, ease: "back.out(2.2)" }, QUIEN - 0.1);
+      tl.to(q(".s03-preg"), { rotation: 8, svgOrigin: "540 800", duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, QUIEN + 0.4);
+      etq(2, QUIEN - 0.1, 1);
+
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

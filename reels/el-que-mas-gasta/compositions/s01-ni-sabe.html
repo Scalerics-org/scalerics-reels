@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-ni-sabe"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-ni-sabe"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-ni-sabe"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ni-sabe"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ni-sabe"] .ln-tenue { fill: none; stroke: #efeee5; stroke-opacity: 0.4; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ni-sabe"] .s01-punto { fill: #efeee5; fill-opacity: 0.45; }
+    [data-composition-id="s01-ni-sabe"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s01-ni-sabe"] .total { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s01-ni-sabe"] .pregunta { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 96px; fill: #efeee5; }
+    [data-composition-id="s01-ni-sabe"] .pantalla { fill: #5ce611; }
+    [data-composition-id="s01-ni-sabe"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-ni-sabe"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-ni-sabe" data-width="1080" data-height="1920" data-duration="4.14">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.14" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s01-suelo" x1="120" y1="1120" x2="960" y2="1120" />
+
+        <!-- el ticket largo que sale de la caja -->
+        <g class="s01-ticket">
+          <path class="ln s01-tk-borde" d="M644 862 V650 l17 -12 l17 12 l17 -12 l17 12 l17 -12 l17 12 l17 -12 l17 12 l16 -12 l16 12 V862" />
+          <line class="ln-tenue s01-tk-l" x1="668" y1="690" x2="772" y2="690" />
+          <line class="ln-tenue s01-tk-l" x1="668" y1="722" x2="740" y2="722" />
+          <line class="ln-tenue s01-tk-l" x1="668" y1="754" x2="772" y2="754" />
+          <line class="ln-tenue s01-tk-l" x1="668" y1="786" x2="720" y2="786" />
+          <text class="total s01-tk-total" x="720" y="836" text-anchor="middle">$ 4.850</text>
+        </g>
+
+        <!-- mostrador con caja registradora -->
+        <g class="s01-mostrador">
+          <path class="ln s01-dib-m" d="M580 1120 V990 H900 V1120" />
+          <line class="ln-tenue s01-dib-m" x1="600" y1="1030" x2="880" y2="1030" />
+          <path class="ln s01-dib-m" d="M640 990 V900 H800 V990" />
+          <path class="ln s01-dib-m" d="M650 900 L664 862 H776 L790 900" />
+          <rect class="pantalla s01-pantalla" x="690" y="872" width="60" height="18" rx="4" />
+          <line class="ln s01-dib-m" x1="664" y1="930" x2="696" y2="930" />
+          <line class="ln s01-dib-m" x1="744" y1="930" x2="776" y2="930" />
+          <line class="ln s01-dib-m" x1="664" y1="958" x2="696" y2="958" />
+          <line class="ln s01-dib-m" x1="744" y1="958" x2="776" y2="958" />
+        </g>
+
+        <!-- el cliente de siempre, con su bolsa -->
+        <g class="s01-cli">
+          <g class="s01-cli-in">
+            <circle class="ln s01-dib-c" cx="0" cy="-96" r="14" />
+            <path class="ln s01-dib-c" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" />
+            <path class="ln s01-dib-c" d="M14 -52 h30 l-4 36 h-22 Z" />
+            <path class="ln s01-dib-c" d="M22 -52 q7 -12 14 0" />
+          </g>
+        </g>
+
+        <!-- ni sabe -->
+        <text class="pregunta s01-preg" x="330" y="880" text-anchor="middle">?</text>
+
+        <!-- el corazón que no le llega -->
+        <path class="ln-tenue s01-corazon" d="M540 830 C510 806 486 790 486 766 C486 748 500 736 516 736 C528 736 536 744 540 752 C544 744 552 736 564 736 C580 736 594 748 594 766 C594 790 570 806 540 830 Z" />
+        <circle class="s01-punto" cx="522" cy="850" r="5" /><circle class="s01-punto" cx="500" cy="864" r="5" /><circle class="s01-punto" cx="478" cy="876" r="5" />
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">El que más gasta</span><span class="s01-e2">Ni se entera</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-ni-sabe";
+      const DUR = 4.14;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CLIENTE = 0.4;
+      const GASTA = 1.1;
+      const LOCAL = 1.6;
+      const NI_SABE = 2.36;
+      const VALORAS = 3.2;
+
+      const SUELO = 1120;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (desde !== undefined && desde < 1 && t === 0) {
+            gsap.set(el, { opacity: 1 });
+          } else {
+            gsap.set(el, { opacity: 0 });
+            tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, svgOrigin) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin }, { opacity: 1, scale: 1, svgOrigin, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // el cliente y el mostrador arrancan medio dibujados (el cuadro 0 no puede ser negro)
+      gsap.set(q(".s01-cli"), { x: 330, y: SUELO });
+      gsap.set(q(".s01-cli-in"), { scale: 1.8, svgOrigin: "0 0" });
+      dibujar(qa(".s01-dib-c"), 0, 0.6, 0.45);
+      dibujar(qa(".s01-dib-m"), 0, 0.7, 0.5);
+      tl.fromTo(q(".s01-suelo"), { scaleX: 0.5, svgOrigin: "540 1120" }, { scaleX: 1, svgOrigin: "540 1120", duration: 0.7, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-pantalla"), { opacity: 0 }, { opacity: 0.85, duration: 0.2 }, 0.5);
+      // "cliente": un saltito
+      tl.to(q(".s01-cli-in"), { y: -10, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, CLIENTE);
+
+      // "más gasta": el ticket sale de la caja, larguísimo
+      tl.fromTo(q(".s01-ticket"), { scaleY: 0, svgOrigin: "720 862" }, { scaleY: 1, svgOrigin: "720 862", duration: 0.7, ease: "power3.out" }, GASTA - 0.2);
+      gsap.set(qa(".s01-tk-l"), { opacity: 0 });
+      qa(".s01-tk-l").forEach((l, i) => tl.to(l, { opacity: 1, duration: 0.1 }, GASTA + 0.1 + i * 0.1));
+      pop(q(".s01-tk-total"), LOCAL - 0.1, "720 826");
+      tl.to(q(".s01-pantalla"), { opacity: 0.3, duration: 0.08, yoyo: true, repeat: 3 }, GASTA);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, GASTA);
+
+      // "ni sabe": signo de pregunta sobre la cabeza
+      tl.fromTo(q(".s01-preg"), { opacity: 0, y: 20, scale: 0.6, svgOrigin: "330 850" }, { opacity: 1, y: 0, scale: 1, svgOrigin: "330 850", duration: 0.35, ease: "back.out(2)" }, NI_SABE);
+      tl.to(q(".s01-preg"), { rotation: -8, svgOrigin: "330 870", duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 3 }, NI_SABE + 0.4);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, NI_SABE - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, NI_SABE);
+
+      // "valorás": un corazón apagado en el mostrador, y el hilo que no llega
+      dibujar([q(".s01-corazon")], VALORAS - 0.2, 0.55);
+      qa(".s01-punto").forEach((d, i) => tl.fromTo(d, { opacity: 0 }, { opacity: 1, duration: 0.08 }, VALORAS + 0.35 + i * 0.12));
+      tl.to(q(".s01-corazon"), { scale: 0.92, svgOrigin: "540 790", duration: 0.15, yoyo: true, repeat: 1 }, VALORAS + 0.45);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

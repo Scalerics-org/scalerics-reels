@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-de-siempre"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-de-siempre"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-de-siempre"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-de-siempre"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-de-siempre"] .ln-tenue { fill: none; stroke: #efeee5; stroke-opacity: 0.4; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-de-siempre"] .relleno { fill: #5ce611; }
+    [data-composition-id="s04-de-siempre"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s04-de-siempre"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s04-de-siempre"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s04-de-siempre"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-de-siempre"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s04-de-siempre" data-width="1080" data-height="1920" data-duration="6.14">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.14" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s04-f1">
+          <line class="ln s04-d" x1="160" y1="1120" x2="920" y2="1120" />
+          <path class="ln s04-d" d="M600 1120 V990 H900 V1120" />
+          <line class="ln-tenue s04-d" x1="620" y1="1030" x2="880" y2="1030" />
+          <g class="s04-cli"><g class="s04-cli-in">
+            <circle class="ln" cx="0" cy="-96" r="14" />
+            <path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" />
+            <path class="ln" d="M14 -52 h30 l-4 36 h-22 Z" />
+            <path class="ln" d="M22 -52 q7 -12 14 0" />
+          </g></g>
+          <g class="s04-ojo">
+            <path class="ln s04-ojo-l" d="M440 690 Q540 610 640 690 Q540 770 440 690 Z" />
+            <circle class="ln s04-ojo-l" cx="540" cy="690" r="30" />
+            <circle class="relleno s04-pupila" cx="540" cy="690" r="13" />
+          </g>
+          <g class="s04-burbuja">
+            <path class="ln" d="M560 790 H900 a20 20 0 0 1 20 20 V870 a20 20 0 0 1 -20 20 H640 L600 924 L606 890 H560 a20 20 0 0 1 -20 -20 V810 a20 20 0 0 1 20 -20 Z" />
+            <text class="lex" x="730" y="852" text-anchor="middle" style="font-size:34px">¿Lo de siempre?</text>
+          </g>
+          <g class="s04-taza">
+            <path class="ln" d="M640 940 H700 V968 Q700 988 680 988 H660 Q640 988 640 968 Z" />
+            <path class="ln" d="M700 948 Q716 948 716 960 Q716 972 700 972" />
+            <path class="ln-tenue" d="M660 926 q-6 -10 0 -18 M680 926 q-6 -10 0 -18" />
+          </g>
+        </g>
+        <g class="s04-ficha">
+          <rect class="ln s04-df" x="300" y="680" width="480" height="380" rx="26" />
+          <line class="ln-tenue s04-df" x1="330" y1="770" x2="750" y2="770" />
+          <text class="mono s04-ft" x="336" y="740">ESTE AÑO</text>
+                    <text class="mono s04-ft" x="336" y="830" style="fill-opacity:0.55">TE COMPRÓ</text>
+          <text class="lex s04-peso" x="340" y="960" style="font-size:96px">$</text>
+          <text class="lex s04-q" x="460" y="960" text-anchor="middle" style="font-size:96px">?</text>
+          <text class="lex s04-q" x="560" y="960" text-anchor="middle" style="font-size:96px">?</text>
+          <text class="lex s04-q" x="660" y="960" text-anchor="middle" style="font-size:96px; fill:#5ce611">?</text>
+          <line class="ln-tenue s04-df" x1="330" y1="1000" x2="750" y2="1000" />
+        </g>
+
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Lo tenés de vista</span><span class="s04-e2">¿Cuánto te compró?</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-de-siempre";
+      const DUR = 6.14;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const SUELO = 1120;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (desde !== undefined && desde < 1 && t === 0) {
+            gsap.set(el, { opacity: 1 });
+          } else {
+            gsap.set(el, { opacity: 0 });
+            tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, svgOrigin) => {
+        const o = svgOrigin ? { svgOrigin } : { transformOrigin: "50% 50%" };
+        tl.fromTo(el, { opacity: 0, scale: 0.85, ...o }, { opacity: 1, scale: 1, ...o, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const etq = (n, t, fuera) => {
+        if (fuera !== undefined) tl.to(q(".s04-e" + fuera), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s04-e" + n), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const caminar = (g, t0, n) => {
+        const p = g.querySelector("path");
+        tl.fromTo(p, { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: n }, t0);
+      };
+
+      const VISTA = 0.45, DECIS = 1.25, SIEMPRE = 2.25, PERO = 3.29, CUANTO = 3.85, COMPRO = 4.55, ANO = 5.05;
+      gsap.set(q(".s04-cli"), { x: 330, y: SUELO });
+      gsap.set(q(".s04-cli-in"), { scale: 1.8, svgOrigin: "0 0" });
+      dibujar(qa(".s04-d"), 0, 0.6, 0.45);
+      tl.fromTo(q(".s04-cli"), { opacity: 0.3 }, { opacity: 1, duration: 0.3 }, 0);
+
+      // "de vista": el ojo se abre y mira al cliente
+      dibujar(qa(".s04-ojo-l"), 0.1, 0.4);
+      tl.fromTo(q(".s04-pupila"), { opacity: 0, scale: 0.4, svgOrigin: "540 690" }, { opacity: 1, scale: 1, svgOrigin: "540 690", duration: 0.25, ease: "back.out(2)" }, VISTA);
+      tl.to(q(".s04-pupila"), { x: -14, y: 6, duration: 0.3, ease: "power2.inOut" }, VISTA + 0.3);
+      etq(1, VISTA);
+
+      // "¿lo de siempre?": burbuja desde el mostrador, y la tacita
+      tl.to(q(".s04-ojo"), { opacity: 0, y: -10, duration: 0.25 }, DECIS - 0.15);
+      pop(q(".s04-burbuja"), DECIS, "600 924");
+      pop(q(".s04-taza"), SIEMPRE, "670 988");
+      tl.to(q(".s04-cli-in"), { y: -10, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, SIEMPRE + 0.2);
+
+      // "pero no sabés cuánto te compró este año"
+      tl.to(q(".s04-f1"), { opacity: 0, x: -40, filter: "blur(4px)", duration: 0.3, ease: "power2.in" }, PERO - 0.1);
+      dibujar(qa(".s04-df"), PERO + 0.15, 0.5);
+      tl.fromTo(qa(".s04-ft"), { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.1 }, PERO + 0.35);
+      pop(q(".s04-peso"), CUANTO - 0.15, "370 930");
+      const QT = [CUANTO, COMPRO - 0.15, ANO];
+      qa(".s04-q").forEach((t, i) => tl.fromTo(t, { opacity: 0, y: -70 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(2)" }, QT[i]));
+      tl.to(q(".s04-q:last-of-type"), { rotation: 10, svgOrigin: "660 930", duration: 0.2, yoyo: true, repeat: 1 }, ANO + 0.45);
+      etq(2, CUANTO, 1);
+
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
