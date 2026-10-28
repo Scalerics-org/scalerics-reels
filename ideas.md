@@ -14,9 +14,9 @@
 - 28-10 · `tarjeta-que-nadie-lee` · Sitio web · "Tu página web es una tarjeta personal que nadie lee." · Comentá PÁGINA
 - 28-10 · `el-que-mas-gasta` · Puntos · "El cliente que más gasta en tu local ni sabe que lo valorás." · Comentá PREMIO
 - 28-10 · `si-te-vas-una-semana` · Todo Scalerics · "Si te vas una semana de vacaciones, ¿tu negocio sigue vendiendo? Si la respuesta es no, no tenés un negocio. Tenés un trabajo." · Comentá VACACIONES
+- 28-10 · `tu-mejor-cliente` · Puntos · "Tu mejor cliente se fue y no te diste cuenta." · Comentá AVISO
 
 ## En curso
-- 28-10 · `tu-mejor-cliente` · Puntos · "Tu mejor cliente se fue y no te diste cuenta."
 - 28-10 · `contestar-rapido` · Bot · "Contestar rápido vende más que bajar el precio."
 
 ## Banco de ideas (tomá uno o inventá otro en la misma línea)

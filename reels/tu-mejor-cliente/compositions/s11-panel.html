@@ -1,0 +1,147 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-panel"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-panel"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-panel"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-panel"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-panel"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-panel"] .ln-punto { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 3; }
+    [data-composition-id="s11-panel"] .relleno { fill: #5ce611; }
+    [data-composition-id="s11-panel"] .estrella { fill: #5ce611; }
+    [data-composition-id="s11-panel"] .s11-titulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.22em; fill: #5ce611; }
+    [data-composition-id="s11-panel"] .s11-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efeee5; }
+    [data-composition-id="s11-panel"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-panel"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s11-panel" data-width="1080" data-height="1920" data-duration="6.86">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="6.86" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s11-panel">
+          <rect class="ln s11-d-panel" x="150" y="650" width="780" height="520" rx="28" />
+          <path class="ln-4 s11-d-panel" d="M150 734 H930" />
+          <text class="s11-titulo" x="190" y="702">TUS CLIENTES</text>
+          <g class="s11-filas"></g>
+          <rect class="ln-ac s11-marco" x="168" y="842" width="744" height="80" rx="18" />
+          <g class="s11-campana">
+            <g class="s11-campana-in">
+              <path class="ln-ac" d="M-18 10 V-4 Q-18 -24 0 -24 Q18 -24 18 -4 V10 L24 16 H-24 Z" />
+              <path class="ln-ac" d="M-6 24 Q0 30 6 24" />
+            </g>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Quiénes son</span><span class="s11-e2">Cada cuánto vienen</span><span class="s11-e3">Te enterás</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-panel";
+      const DUR = 6.86;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const VOS = 0.5;
+      const QUIENES = 1.22;
+      const CADA = 2.8;
+      const VIENEN = 3.6;
+      const DIA = 4.6;
+      const FALTA = 5.0;
+      const ENTERAS = 5.4;
+
+      // filas de clientes (geometría fija)
+      const NS = "http://www.w3.org/2000/svg";
+      const capa = q(".s11-filas");
+      const mk = (padre, tag, attrs, txt) => {
+        const el = document.createElementNS(NS, tag);
+        for (const k in attrs) el.setAttribute(k, attrs[k]);
+        if (txt) el.textContent = txt;
+        padre.appendChild(el);
+        return el;
+      };
+      let est = "";
+      for (let i = 0; i < 10; i++) {
+        const r = i % 2 === 0 ? 19 : 8;
+        const a = -Math.PI / 2 + (i * Math.PI) / 5;
+        est += (i === 0 ? "M" : "L") + (r * Math.cos(a)).toFixed(1) + " " + (r * Math.sin(a)).toFixed(1) + " ";
+      }
+      const NOMBRES = ["Lucía", "Martín", "Sofía", "Diego"];
+      const filas = [], puntos = [];
+      NOMBRES.forEach((n, k) => {
+        const y = 792 + k * 90;
+        const g = mk(capa, "g", { class: "s11-fila" });
+        mk(g, "circle", { class: "ln-4", cx: 212, cy: y, r: 24 });
+        if (k === 1) mk(g, "path", { class: "estrella", d: est + "Z", transform: `translate(234 ${y - 22}) scale(0.55)` });
+        mk(g, "text", { class: "s11-nombre", x: 256, y: y + 12 }, n);
+        const ps = [];
+        for (let j = 0; j < 6; j++) {
+          const cx = 530 + j * 50;
+          mk(g, "circle", { class: "ln-punto", cx: cx, cy: y, r: 11 });
+          ps.push(mk(g, "circle", { class: "relleno", cx: cx, cy: y, r: 11 }));
+        }
+        filas.push(g);
+        puntos.push(ps);
+      });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const ti = t > 0 ? t + i * 0.05 : 0;
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const ETQ = qa(".etiqueta span");
+      const etiqueta = (k, t) => {
+        if (k > 0) tl.to(ETQ[k - 1], { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(ETQ[k], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      gsap.set(filas, { opacity: 0 });
+      puntos.flat().forEach((p) => gsap.set(p, { opacity: 0 }));
+      gsap.set(q(".s11-campana"), { x: 860, y: 884, opacity: 0 });
+
+      // el panel arranca medio dibujado
+      dibujar(qa(".s11-d-panel"), 0, 0.5, 0.35);
+      tl.fromTo(q(".s11-titulo"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.15);
+      tl.fromTo(q(".s11-panel"), { scale: 0.97, svgOrigin: "540 910" }, { scale: 1.02, svgOrigin: "540 910", duration: DUR, ease: "sine.inOut" }, 0);
+      tl.to(q(".s11-titulo"), { scale: 1.06, transformOrigin: "0% 50%", duration: 0.13, yoyo: true, repeat: 1 }, VOS + 0.2);
+
+      // "quiénes son": entran las filas
+      filas.forEach((f, i) => tl.fromTo(f, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, QUIENES - 0.1 + i * 0.12));
+      etiqueta(0, QUIENES);
+
+      // "cada cuánto vienen": se llenan las tiras de visitas
+      puntos.forEach((ps, k) => ps.forEach((p, j) => {
+        tl.fromTo(p, { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.4)" }, CADA - 0.1 + j * 0.08 + k * 0.05);
+      }));
+      etiqueta(1, CADA);
+      tl.to(puntos.map((ps) => ps[5]), { scale: 1.3, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1 }, VIENEN + 0.3);
+
+      // "el día que uno falta": la fila de Martín se marca y se vacían sus últimas visitas
+      dibujar([q(".s11-marco")], DIA - 0.1, 0.45);
+      [0, 2, 3].forEach((k) => tl.to(filas[k], { opacity: 0.4, duration: 0.35 }, DIA));
+      puntos[1].slice(3).forEach((p, j) => tl.to(p, { opacity: 0, scale: 0.3, transformOrigin: "50% 50%", duration: 0.2, ease: "power2.in" }, FALTA - 0.1 + j * 0.1));
+
+      // "te enterás": suena la campanita
+      tl.fromTo(q(".s11-campana"), { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, ENTERAS - 0.1);
+      tl.fromTo(q(".s11-campana-in"), { rotation: -16, svgOrigin: "0 -24" }, { rotation: 16, svgOrigin: "0 -24", duration: 0.11, ease: "sine.inOut", yoyo: true, repeat: 7 }, ENTERAS + 0.15);
+      tl.to(filas[1], { x: 6, duration: 0.07, yoyo: true, repeat: 3 }, ENTERAS + 0.15);
+      etiqueta(2, ENTERAS);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-viernes"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-viernes"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-viernes"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-viernes"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-viernes"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-viernes"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.42); stroke-width: 5; stroke-linecap: round; }
+    [data-composition-id="s02-viernes"] .s02-titulo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 42px; letter-spacing: 0.02em; fill: #efeee5; }
+    [data-composition-id="s02-viernes"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-viernes"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-viernes" data-width="1080" data-height="1920" data-duration="4.95">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.95" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s02-todo">
+          <!-- la tarjeta del calendario -->
+          <rect class="ln s02-dib-card" x="220" y="680" width="640" height="500" rx="28" />
+          <path class="ln s02-dib-card" d="M220 784 H860" />
+          <path class="ln s02-dib-card" d="M350 664 V700 M730 664 V700" />
+          <text class="s02-titulo" x="560" y="748" text-anchor="middle">VIERNES</text>
+          <!-- taza: lo de siempre -->
+          <g class="s02-taza">
+            <path class="ln" d="M-24 -12 H24 V8 Q24 28 0 28 Q-24 28 -24 8 Z" />
+            <path class="ln" d="M24 -4 Q40 -4 40 8 Q40 20 24 20" />
+            <path class="ln-4 s02-vapor" d="M-9 -22 q-9 -9 0 -18 q9 -9 0 -18" />
+            <path class="ln-4 s02-vapor" d="M10 -22 q-9 -9 0 -18 q9 -9 0 -18" />
+          </g>
+          <g class="s02-celdas"></g>
+          <rect class="ln-ac s02-marco" x="252" y="912" width="576" height="248" rx="18" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Todos los viernes</span><span class="s02-e2">Lo de siempre</span><span class="s02-e3">Hace 2 meses</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-viernes";
+      const DUR = 4.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const VIERNES = 1.04;
+      const PEDIA = 1.24;
+      const SIEMPRE = 2.24;
+      const HACE = 2.91;
+      const MESES = 3.54;
+      const APARECE = 4.24;
+
+      // grilla 3 x 4 (geometría fija)
+      const NS = "http://www.w3.org/2000/svg";
+      const capa = q(".s02-celdas");
+      const mk = (tag, attrs) => {
+        const el = document.createElementNS(NS, tag);
+        for (const k in attrs) el.setAttribute(k, attrs[k]);
+        capa.appendChild(el);
+        return el;
+      };
+      const celdas = [], tildes = [], vacios = [];
+      for (let f = 0; f < 3; f++) {
+        for (let c = 0; c < 4; c++) {
+          const x = 270 + c * 140, y = 808 + f * 120;
+          celdas.push(mk("rect", { class: "ln-4", x: x, y: y, width: 120, height: 100, rx: 14 }));
+          const cx = x + 60, cy = y + 50;
+          if (f === 0) tildes.push(mk("path", { class: "ln-ac", d: `M${cx - 26} ${cy + 2} L${cx - 8} ${cy + 20} L${cx + 26} ${cy - 18}` }));
+          else vacios.push(mk("path", { class: "ln-tenue", d: `M${cx - 18} ${cy} H${cx + 18}` }));
+        }
+      }
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t > 0 ? t + i * (paso ?? 0.04) : 0;
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const etiqueta = (el, t) => tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      const fuera = (el, t) => tl.to(el, { opacity: 0, duration: 0.2 }, t);
+
+      gsap.set(q(".s02-taza"), { x: 300, y: 736 });
+
+      // la tarjeta arranca medio dibujada; la grilla se arma enseguida
+      dibujar(qa(".s02-dib-card"), 0, 0.5, 0.35);
+      tl.fromTo(q(".s02-titulo"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.05);
+      dibujar(celdas, 0.05, 0.35, 1, 0.025);
+      tl.fromTo(q(".s02-todo"), { scale: 1.04, svgOrigin: "540 930" }, { scale: 1, svgOrigin: "540 930", duration: DUR, ease: "none" }, 0);
+
+      // "venía todos los viernes": cuatro tildes en cadena
+      tildes.forEach((t, i) => {
+        dibujar([t], 0.3 + i * 0.22, 0.22);
+        tl.fromTo(celdas[i], { scale: 1 }, { scale: 1.08, transformOrigin: "50% 50%", duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 0.42 + i * 0.22);
+      });
+      etiqueta(q(".s02-e1"), 0.1);
+
+      // "pedía lo de siempre": la taza hace pop y echa vapor
+      gsap.set(q(".s02-taza"), { opacity: 0 });
+      tl.fromTo(q(".s02-taza"), { opacity: 0, scale: 0.6, svgOrigin: "300 736" }, { opacity: 1, scale: 1, svgOrigin: "300 736", duration: 0.35, ease: "back.out(2)" }, PEDIA);
+      dibujar(qa(".s02-vapor"), PEDIA + 0.3, 0.4, 1, 0.12);
+      tl.to(qa(".s02-vapor"), { y: -10, opacity: 0, duration: 0.4, ease: "power1.in" }, SIEMPRE);
+      tl.to(q(".s02-taza"), { rotation: -8, svgOrigin: "300 764", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, SIEMPRE);
+      fuera(q(".s02-e1"), PEDIA - 0.1);
+      etiqueta(q(".s02-e2"), PEDIA);
+
+      // "hace dos meses que no aparece": ocho semanas vacías, una por una
+      celdas.slice(4).forEach((c) => tl.to(c, { opacity: 0.45, duration: 0.3 }, HACE));
+      vacios.forEach((v, i) => {
+        gsap.set(v, { opacity: 0 });
+        tl.fromTo(v, { opacity: 0, scaleX: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, duration: 0.18, ease: "power2.out" }, HACE + 0.05 + i * 0.13);
+      });
+      tl.to(qa(".s02-dib-card, .s02-titulo"), { opacity: 0.7, duration: 0.4 }, MESES);
+      fuera(q(".s02-e2"), HACE - 0.1);
+      etiqueta(q(".s02-e3"), HACE);
+      // "aparece": el hueco de dos meses se encierra en verde
+      dibujar([q(".s02-marco")], APARECE - 0.15, 0.4);
+      tl.to(q(".s02-e3"), { scale: 1.08, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, APARECE + 0.2);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

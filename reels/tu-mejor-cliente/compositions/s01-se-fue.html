@@ -1,0 +1,145 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-se-fue"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-se-fue"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-se-fue"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-se-fue"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-se-fue"] .punteada { fill: none; stroke: rgba(239, 238, 229, 0.42); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 8 11; }
+    [data-composition-id="s01-se-fue"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s01-se-fue"] .estrella { fill: #5ce611; }
+    [data-composition-id="s01-se-fue"] .estrella-hueca { fill: none; stroke: rgba(92, 230, 17, 0.55); stroke-width: 3; stroke-linejoin: round; }
+    [data-composition-id="s01-se-fue"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s01-se-fue"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-se-fue"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-se-fue" data-width="1080" data-height="1920" data-duration="3.66">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="3.66" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s01-todo">
+        <line class="ln s01-suelo" x1="110" y1="1140" x2="970" y2="1140" />
+        <!-- tu local -->
+        <g class="s01-local">
+          <path class="ln s01-dib-l" d="M-120 0 V-170 H120 V0" />
+          <path class="ln s01-dib-l" d="M-140 -170 H140 L122 -222 H-122 Z" />
+          <path class="ln s01-dib-l" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+          <rect class="ln s01-dib-l" x="-86" y="-290" width="172" height="50" rx="10" />
+          <text class="cartel s01-txt" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+          <rect class="ln s01-dib-l" x="-100" y="-122" width="58" height="52" rx="5" />
+          <rect class="ln s01-dib-l" x="42" y="-122" width="58" height="52" rx="5" />
+          <rect class="vidrio s01-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+          <rect class="vidrio s01-luz" x="50" y="-114" width="42" height="36" rx="3" />
+          <path class="ln s01-dib-l" d="M-24 0 V-96 H24 V0" />
+        </g>
+        <!-- silueta punteada: el lugar donde estaba -->
+        <g class="s01-hueco">
+          <circle class="punteada" cx="0" cy="-96" r="14" />
+          <path class="punteada" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" />
+          <path class="estrella-hueca s01-est-path" d="" transform="translate(0 -132)" />
+        </g>
+        <!-- tu mejor cliente -->
+        <g class="s01-cliente">
+          <g class="s01-cuerpo">
+            <circle class="ln s01-dib-c" cx="0" cy="-96" r="14" />
+            <path class="ln s01-dib-c s01-piernas" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" />
+          </g>
+          <g class="s01-estrella"><path class="estrella s01-est-path" d="" transform="translate(0 -132)" /></g>
+        </g>
+        </g>
+        <!-- el ojo cerrado: no te diste cuenta -->
+        <g class="s01-ojo">
+          <path class="ln s01-ojo-l" d="M440 690 Q540 752 640 690" />
+          <path class="ln s01-ojo-l" d="M476 712 L462 738 M520 724 L516 752 M560 724 L564 752 M604 712 L618 738" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Tu mejor cliente</span><span class="s01-e2">Ni te enteraste</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-se-fue";
+      const DUR = 3.66;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const MEJOR = 0.3;
+      const FUE = 1.0;
+      const NO = 2.4;
+      const CUENTA = 3.0;
+
+      const SUELO = 1140;
+      const XC = 600; // donde está parado el cliente
+
+      // estrellita de 5 puntas (geometría fija)
+      let d = "";
+      for (let i = 0; i < 10; i++) {
+        const r = i % 2 === 0 ? 19 : 8;
+        const a = -Math.PI / 2 + (i * Math.PI) / 5;
+        d += (i === 0 ? "M" : "L") + (r * Math.cos(a)).toFixed(1) + " " + (r * Math.sin(a)).toFixed(1) + " ";
+      }
+      qa(".s01-est-path").forEach((p) => p.setAttribute("d", d + "Z"));
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const ti = t > 0 ? t + i * 0.04 : 0;
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen || "0 0" }, { opacity: 1, scale: 1, svgOrigin: origen || "0 0", duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const etiqueta = (el, t) => tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+
+      gsap.set(q(".s01-local"), { x: 360, y: SUELO });
+      gsap.set(q(".s01-hueco"), { x: XC, y: SUELO, opacity: 0 });
+      gsap.set(q(".s01-cliente"), { x: XC, y: SUELO });
+
+      // el local y el cliente arrancan medio dibujados (el cuadro 0 no puede ser negro)
+      gsap.set(q(".s01-todo"), { scale: 1.2, svgOrigin: "540 1140" });
+      dibujar(qa(".s01-dib-l"), 0, 0.5, 0.2);
+      tl.fromTo(q(".s01-txt"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.25);
+      tl.fromTo(qa(".s01-luz"), { opacity: 0 }, { opacity: 0.85, duration: 0.25 }, 0.35);
+      tl.fromTo(q(".s01-suelo"), { scaleX: 0.5, svgOrigin: "540 1140" }, { scaleX: 1, svgOrigin: "540 1140", duration: 0.7, ease: "power3.out" }, 0);
+      dibujar(qa(".s01-dib-c"), 0, 0.4, 0.2);
+      tl.fromTo(q(".s01-cuerpo"), { y: 0 }, { y: -8, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, MEJOR + 0.2);
+
+      // "mejor cliente": le cae la estrellita
+      gsap.set(q(".s01-estrella"), { opacity: 0 });
+      tl.fromTo(q(".s01-estrella"), { opacity: 0, scale: 0.3, svgOrigin: "0 -132" }, { opacity: 1, scale: 1, svgOrigin: "0 -132", duration: 0.4, ease: "back.out(2.4)" }, MEJOR + 0.05);
+      tl.to(q(".s01-estrella"), { rotation: 72, svgOrigin: "0 -132", duration: 0.6, ease: "power2.inOut" }, MEJOR + 0.4);
+      etiqueta(q(".s01-e1"), MEJOR);
+
+      // "se fue": camina hacia la derecha y se desvanece; queda su silueta punteada
+      tl.to(q(".s01-cliente"), { x: 900, duration: 1.2, ease: "none" }, FUE + 0.1);
+      tl.fromTo(q(".s01-piernas"), { rotation: -5, svgOrigin: "0 -40" }, { rotation: 5, svgOrigin: "0 -40", duration: 0.16, ease: "sine.inOut", yoyo: true, repeat: 7 }, FUE + 0.1);
+      tl.to(q(".s01-cliente"), { opacity: 0, filter: "blur(4px)", duration: 0.35, ease: "power2.in" }, FUE + 1.05);
+      tl.to(q(".s01-hueco"), { opacity: 1, duration: 0.4, ease: "power2.out" }, FUE + 0.35);
+      // el local, solo, se apaga un poco
+      tl.to(qa(".s01-luz"), { opacity: 0.3, duration: 0.4 }, FUE + 0.9);
+
+      // "no te diste cuenta": arriba se dibuja un ojo cerrado que se mece
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, NO - 0.2);
+      etiqueta(q(".s01-e2"), NO);
+      dibujar(qa(".s01-ojo-l"), NO - 0.1, 0.4);
+      tl.fromTo(q(".s01-ojo"), { rotation: -4, svgOrigin: "540 700" }, { rotation: 4, svgOrigin: "540 700", duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, NO + 0.2);
+      // "cuenta": la silueta punteada late
+      tl.to(q(".s01-hueco"), { scale: 1.12, svgOrigin: XC + " " + SUELO, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, CUENTA);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
