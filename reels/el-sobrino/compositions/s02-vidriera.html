@@ -1,0 +1,125 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-vidriera"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-vidriera"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-vidriera"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-vidriera"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-vidriera"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-vidriera"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-vidriera"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-vidriera"] .ln-tenue2 { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-vidriera"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s02-vidriera"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s02-vidriera"] .relleno { fill: #efeee5; }
+    [data-composition-id="s02-vidriera"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s02-vidriera"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s02-vidriera"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s02-vidriera"] .pag-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s02-vidriera"] .pag-btn { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s02-vidriera"] .pag-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s02-vidriera"] .pag-ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s02-vidriera"] .pag-btn-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s02-vidriera"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-vidriera"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s02-vidriera"] .s02-g .ln, [data-composition-id="s02-vidriera"] .s02-g .ln-ac { stroke-width: 2.7; }
+    [data-composition-id="s02-vidriera"] .s02-g .cartel { font-size: 22px; }
+    [data-composition-id="s02-vidriera"] .s02-vid { fill: #5ce611; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-vidriera" data-width="1080" data-height="1920" data-duration="3.22">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="3.22" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s02-suelo" x1="150" y1="1180" x2="790" y2="1180" />
+        <g transform="translate(470 1180) scale(1.9)"><g class="s02-g">
+          <rect class="s02-vid" x="-100" y="-122" width="58" height="52" rx="5" />
+          <rect class="s02-vid" x="42" y="-122" width="58" height="52" rx="5" />
+            <path class="ln s02-dl" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s02-dl" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s02-dl" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s02-dl" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="cartel s02-dl-txt" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s02-dl" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s02-dl" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="vidrio s02-dl-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="vidrio s02-dl-luz" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s02-dl" d="M-24 0 V-96 H24 V0" />
+          <g class="s02-cartel"><rect class="ln-ac s02-cartel-ac" x="-80" y="-290" width="160" height="50" rx="10" /></g>
+          <rect class="ln-ac s02-vac" x="-100" y="-122" width="58" height="52" rx="5" />
+          <rect class="ln-ac s02-vac" x="42" y="-122" width="58" height="52" rx="5" />
+          <g class="s02-sillas"><path class="ln s02-si" d="M-86 -110 V-80 M-86 -94 H-70 V-80" /><path class="ln s02-si" d="M-68 -110 V-80 M-68 -94 H-52 V-80" /><path class="ln s02-si" d="M56 -110 V-80 M56 -94 H72 V-80" /><path class="ln s02-si" d="M74 -110 V-80 M74 -94 H90 V-80" /></g>
+        </g></g>
+        <!-- paleta de muestras -->
+        <g class="s02-paleta">
+          <rect class="ln s02-mu" x="850" y="770" width="90" height="70" rx="8" />
+          <rect class="ln s02-mu" x="850" y="870" width="90" height="70" rx="8" />
+          <rect class="relleno-ac s02-elegida" x="850" y="870" width="90" height="70" rx="8" />
+          <rect class="ln s02-mu" x="850" y="970" width="90" height="70" rx="8" />
+        </g>
+        <g transform="translate(694 676)"><g class="s02-t1"><g><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" d="M-8 0 L-2 7 L9 -7" style="stroke-width:4" /></g></g></g>
+        <g transform="translate(760 950)"><g class="s02-t2"><g><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" d="M-8 0 L-2 7 L9 -7" style="stroke-width:4" /></g></g></g>
+        <g transform="translate(895 1080)"><g class="s02-t3"><g><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" d="M-8 0 L-2 7 L9 -7" style="stroke-width:4" /></g></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Cada detalle</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-vidriera";
+      const DUR = 3.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const CARTEL = 0.42, VIDRIERA = 1.12, HASTA = 2.03, COLOR = 2.32;
+      dibujar(qa(".s02-dl"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s02-dl-txt"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.2);
+      tl.fromTo(q(".s02-suelo"), { scaleX: 0.5, svgOrigin: "470 1180" }, { scaleX: 1, svgOrigin: "470 1180", duration: 0.5, ease: "power3.out" }, 0);
+      gsap.set(qa(".s02-dl-luz"), { opacity: 0 });
+      // "cartel"
+      dibujar([q(".s02-cartel-ac")], CARTEL - 0.1, 0.4);
+      tl.fromTo(q(".s02-g"), { scale: 1 }, { scale: 1.03, svgOrigin: "0 -265", duration: 0.12, yoyo: true, repeat: 1 }, CARTEL);
+      badge(q(".s02-t1"), CARTEL + 0.15);
+      etiqueta(q(".s02-e1"), CARTEL);
+      // "vidriera"
+      dibujar(qa(".s02-vac"), VIDRIERA - 0.1, 0.4);
+      tl.to(qa(".s02-vid"), { opacity: 0.22, duration: 0.3 }, VIDRIERA);
+      badge(q(".s02-t2"), VIDRIERA + 0.15);
+      // "hasta": aparecen las sillas detrás del vidrio
+      gsap.set(qa(".s02-si"), { opacity: 0 });
+      tl.fromTo(qa(".s02-si"), { opacity: 0, y: -6 }, { opacity: 1, y: 0, duration: 0.25, stagger: 0.06, ease: "back.out(2)" }, HASTA - 0.2);
+      // "color": la paleta, se elige el verde y las sillas se pintan
+      dibujar(qa(".s02-mu"), HASTA, 0.35);
+      tl.fromTo(q(".s02-elegida"), { opacity: 0, scale: 0.6, svgOrigin: "895 905" }, { opacity: 1, scale: 1, svgOrigin: "895 905", duration: 0.3, ease: "back.out(2.4)" }, COLOR);
+      tl.to(qa(".s02-si"), { stroke: "#5ce611", duration: 0.2 }, COLOR + 0.25);
+      badge(q(".s02-t3"), COLOR + 0.2);
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

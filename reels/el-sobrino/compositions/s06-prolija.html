@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-prolija"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-prolija"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-prolija"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-prolija"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-prolija"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-prolija"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-prolija"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-prolija"] .ln-tenue2 { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-prolija"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s06-prolija"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s06-prolija"] .relleno { fill: #efeee5; }
+    [data-composition-id="s06-prolija"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s06-prolija"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s06-prolija"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s06-prolija"] .pag-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s06-prolija"] .pag-btn { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s06-prolija"] .pag-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s06-prolija"] .pag-ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s06-prolija"] .pag-btn-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s06-prolija"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-prolija"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s06-prolija" data-width="1080" data-height="1920" data-duration="3.13">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="3.13" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g transform="translate(520 910)"><g class="s06-tel">
+            <rect class="ln s06-dt" x="-170" y="-300" width="340" height="600" rx="52" />
+            <line class="ln s06-dt" x1="-40" y1="-268" x2="40" y2="-268" />
+            <g class="s06-f0"><path class="ln-fino" d="M-124 -204 V-234 H-72 V-204 M-130 -234 H-66 L-72 -250 H-124 Z M-104 -204 V-220 H-92 V-204" /><text class="pag-nom" x="-52" y="-214">Tu Local</text><line class="ln-tenue" x1="-130" y1="-176" x2="130" y2="-176" /></g>
+            <g class="s06-f1"><circle class="ln-fino-ac" cx="-108" cy="-118" r="18" /><path class="ln-fino-ac s06-aguja" d="M-108 -118 V-130 M-108 -118 L-99 -113" /><text class="pag-ui" x="-74" y="-109">Abierto hoy</text></g>
+            <g class="s06-f2"><path class="ln-fino" d="M-108 -14 C-116 -24 -126 -34 -126 -46 A18 18 0 0 1 -90 -46 C-90 -34 -100 -24 -108 -14 Z" /><circle class="relleno-ac" cx="-108" cy="-46" r="6" /><text class="pag-ui" x="-74" y="-33">Cómo llegar</text></g>
+            <g class="s06-f3"><path class="ln-fino" d="M-124 52 H-92 L-96 90 H-120 Z M-116 52 V44 A8 8 0 0 1 -100 44 V52" /><text class="pag-ui" x="-74" y="79">Productos</text></g>
+            <g class="s06-f4"><rect class="ln-ac" x="-124" y="160" width="248" height="76" rx="38" /><text class="pag-btn-ac" x="0" y="208" text-anchor="middle">Escribinos</text></g>
+        </g></g>
+        <g class="s06-globo">
+          <path class="ln" d="M760 640 H930 Q950 640 950 660 V770 Q950 790 930 790 H820 L776 826 L784 790 H760 Q740 790 740 770 V660 Q740 640 760 640 Z" />
+          <path class="ln-ac s06-tilde" style="stroke-width:9" d="M800 716 L834 750 L892 680" />
+        </g>
+        <path class="relleno-ac s06-cor" d="M850 880 C850 862 874 858 880 876 C886 858 910 862 910 880 C910 900 880 916 880 928 C880 916 850 900 850 880 Z" />
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Prolija</span><span class="s06-e2">Confianza</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-prolija";
+      const DUR = 3.13;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const PROLIJA = 0.26, DICE = 1.06, ACA = 1.66, ATENDER = 2.16;
+      dibujar(qa(".s06-dt"), 0, 0.45, 0.5);
+      // la página se arma prolija, fila por fila
+      ["f0", "f1", "f2", "f3", "f4"].forEach((f, i) => tl.fromTo(q(".s06-" + f), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, (i === 0 ? 0 : PROLIJA) + i * 0.1));
+      tl.fromTo(q(".s06-aguja"), { rotation: -120, svgOrigin: "-108 -118" }, { rotation: 0, svgOrigin: "-108 -118", duration: 0.5, ease: "back.out(2)" }, PROLIJA + 0.2);
+      etiqueta(q(".s06-e1"), PROLIJA);
+      // "dice": el globo con el tilde
+      tl.fromTo(q(".s06-globo"), { opacity: 0, scale: 0.6, svgOrigin: "780 820" }, { opacity: 1, scale: 1, svgOrigin: "780 820", duration: 0.35, ease: "back.out(2)" }, DICE - 0.05);
+      dibujar([q(".s06-tilde")], DICE + 0.2, 0.35);
+      etiqueta(q(".s06-e2"), ACA, q(".s06-e1"));
+      // "atender bien": late el botón y aparece el corazón
+      tl.fromTo(q(".s06-f4"), { scale: 1 }, { scale: 1.08, svgOrigin: "0 198", duration: 0.15, yoyo: true, repeat: 3, immediateRender: false }, ATENDER - 0.2);
+      tl.fromTo(q(".s06-cor"), { opacity: 0, scale: 0.3, svgOrigin: "880 900" }, { opacity: 1, scale: 1, svgOrigin: "880 900", duration: 0.35, ease: "back.out(3)" }, ATENDER);
+      tl.to(q(".s06-cor"), { y: -14, duration: 0.6, ease: "sine.inOut" }, ATENDER + 0.35);
+
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

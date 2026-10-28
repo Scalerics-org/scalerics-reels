@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-no-viene"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-no-viene"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-no-viene"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-no-viene"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-no-viene"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-no-viene"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-no-viene"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-no-viene"] .ln-tenue2 { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-no-viene"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s08-no-viene"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s08-no-viene"] .relleno { fill: #efeee5; }
+    [data-composition-id="s08-no-viene"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s08-no-viene"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s08-no-viene"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s08-no-viene"] .pag-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s08-no-viene"] .pag-btn { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s08-no-viene"] .pag-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s08-no-viene"] .pag-ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s08-no-viene"] .pag-btn-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s08-no-viene"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-no-viene"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s08-no-viene" data-width="1080" data-height="1920" data-duration="2.75">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="2.75" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s08-suelo" x1="130" y1="1130" x2="950" y2="1130" />
+        <g transform="translate(300 1130)"><g class="s08-loc">
+            <path class="ln s08-dl" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s08-dl" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s08-dl" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s08-dl" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="cartel s08-dl-txt" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s08-dl" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s08-dl" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="vidrio s08-dl-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="vidrio s08-dl-luz" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s08-dl" d="M-24 0 V-96 H24 V0" /></g></g>
+        <g transform="translate(720 1130)"><g class="s08-cli"><g class="s08-giro">
+            <circle class="ln s08-dc" cx="0" cy="-200" r="22" />
+            <path class="ln s08-dc" d="M0 -178 V-90 M0 -90 L-24 0 M0 -90 L24 0" />
+            <path class="ln s08-dc" d="M0 -160 L-26 -112 M0 -160 L28 -132 L36 -150" />
+            <rect class="ln-fino s08-dc" x="28" y="-190" width="28" height="46" rx="6" /></g></g></g>
+        <g class="s08-globo">
+          <path class="ln" d="M680 700 H840 Q860 700 860 720 V800 Q860 820 840 820 H760 L730 852 L736 820 H680 Q660 820 660 800 V720 Q660 700 680 700 Z" />
+          <circle class="relleno s08-pt" cx="720" cy="760" r="8" /><circle class="relleno s08-pt" cx="760" cy="760" r="8" /><circle class="relleno s08-pt" cx="800" cy="760" r="8" />
+          <path class="ln-ac s08-tacha" style="stroke-width:7" d="M650 840 L870 690" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">No se queja</span><span class="s08-e2">No viene</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-no-viene";
+      const DUR = 2.75;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const QUEJA = 0.26, SIMPLEMENTE = 0.96, NO = 1.66;
+      dibujar(qa(".s08-dl"), 0, 0.45, 0.4);
+      gsap.set(qa(".s08-dl-luz"), { opacity: 0.85 });
+      dibujar(qa(".s08-dc"), 0, 0.45, 0.4);
+      tl.fromTo(q(".s08-globo"), { opacity: 0, scale: 0.7, svgOrigin: "730 850" }, { opacity: 1, scale: 1, svgOrigin: "730 850", duration: 0.3, ease: "back.out(2)" }, 0.05);
+      tl.fromTo(qa(".s08-pt"), { opacity: 0.2 }, { opacity: 1, duration: 0.15, stagger: 0.08, yoyo: true, repeat: 1 }, 0.1);
+      // "queja": el globo se tacha
+      dibujar([q(".s08-tacha")], QUEJA, 0.3);
+      etiqueta(q(".s08-e1"), QUEJA);
+      tl.to(q(".s08-globo"), { opacity: 0, y: -20, duration: 0.25 }, SIMPLEMENTE - 0.1);
+      // "simplemente no viene": se da vuelta y se va
+      tl.to(q(".s08-giro"), { scaleX: -1, svgOrigin: "0 0", duration: 0.2, ease: "power2.inOut" }, SIMPLEMENTE);
+      tl.to(q(".s08-cli"), { x: 260, duration: 1.2, ease: "power1.in" }, SIMPLEMENTE + 0.2);
+      tl.to(q(".s08-cli"), { opacity: 0, duration: 0.3 }, SIMPLEMENTE + 1.1);
+      tl.fromTo(q(".s08-dc"), { y: 0 }, { y: -6, duration: 0.15, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, SIMPLEMENTE + 0.2);
+      // el local se apaga
+      tl.to(qa(".s08-dl-luz"), { opacity: 0, duration: 0.3 }, NO);
+      tl.to(q(".s08-loc"), { opacity: 0.4, duration: 0.4 }, NO);
+      etiqueta(q(".s08-e2"), NO, q(".s08-e1"));
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

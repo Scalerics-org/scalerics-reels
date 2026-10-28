@@ -1,0 +1,139 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-sistema"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-sistema"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-sistema"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-tenue2 { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s09-sistema"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s09-sistema"] .relleno { fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s09-sistema"] .pag-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s09-sistema"] .pag-btn { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s09-sistema"] .pag-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .pag-ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .pag-btn-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s09-sistema"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-sistema"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s09-sistema"] .s09-pesos { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 54px; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .s09-igual { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 84px; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s09-sistema" data-width="1080" data-height="1920" data-duration="5.31">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="5.31" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s09-a">
+          <g transform="translate(370 900) scale(1.3)"><g class="s09-i1"><g transform="rotate(-18)">
+            <path class="ln s09-d1" d="M-78 -46 H28 L78 0 L28 46 H-78 Z" />
+            <circle class="ln-fino s09-d1" cx="42" cy="0" r="9" />
+            <text class="s09-pesos s09-d1t" x="-30" y="19" text-anchor="middle">$</text>
+          </g></g></g>
+          <g transform="translate(720 900)"><g class="s09-i2">
+            <path class="ln s09-d2" d="M-90 -40 L-50 -90 H50 L90 -40 L0 80 Z" />
+            <path class="ln s09-d2" d="M-90 -40 H90 M-50 -90 L-26 -40 L0 80 L26 -40 L50 -90" />
+          </g></g>
+          <g transform="translate(476 776)"><g class="s09-x1"><g><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" style="stroke-width:4" /></g></g></g>
+          <g transform="translate(826 776)"><g class="s09-x2"><g><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" style="stroke-width:4" /></g></g></g>
+        </g>
+        <g class="s09-gpos"><g transform="translate(0 -20)"><g class="s09-gear"><path class="ln s09-gl" d="M629.7 899.5 L658.9 903.5 L658.9 936.5 L629.7 940.5 L624.6 956.1 L645.9 976.5 L626.4 1003.2 L600.5 989.3 L587.2 999.0 L592.5 1027.9 L561.0 1038.1 L548.2 1011.6 L531.8 1011.6 L519.0 1038.1 L487.5 1027.9 L492.8 999.0 L479.5 989.3 L453.6 1003.2 L434.1 976.5 L455.4 956.1 L450.3 940.5 L421.1 936.5 L421.1 903.5 L450.3 899.5 L455.4 883.9 L434.1 863.5 L453.6 836.8 L479.5 850.7 L492.8 841.0 L487.5 812.1 L519.0 801.9 L531.8 828.4 L548.2 828.4 L561.0 801.9 L592.5 812.1 L587.2 841.0 L600.5 850.7 L626.4 836.8 L645.9 863.5 L624.6 883.9 Z" /><circle class="ln-ac s09-gl" cx="540" cy="920" r="38" /></g></g></g>
+        <g class="s09-b">
+          <g transform="translate(320 1180) scale(1.14)"><g class="s09-loc">
+            <path class="ln s09-dl" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s09-dl" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s09-dl" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s09-dl" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="cartel s09-dl-txt" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s09-dl" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s09-dl" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="vidrio s09-dl-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="vidrio s09-dl-luz" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s09-dl" d="M-24 0 V-96 H24 V0" /></g></g>
+          <g transform="translate(760 1015) scale(0.55)"><g class="s09-tel" data-layout-ignore>
+            <rect class="ln s09-dt" x="-170" y="-300" width="340" height="600" rx="52" />
+            <line class="ln s09-dt" x1="-40" y1="-268" x2="40" y2="-268" />
+            <g class="s09-f0"><path class="ln-fino" d="M-124 -204 V-234 H-72 V-204 M-130 -234 H-66 L-72 -250 H-124 Z M-104 -204 V-220 H-92 V-204" /><text class="pag-nom" x="-52" y="-214">Tu Local</text><line class="ln-tenue" x1="-130" y1="-176" x2="130" y2="-176" /></g>
+            <g class="s09-f1"><circle class="ln-fino-ac" cx="-108" cy="-118" r="18" /><path class="ln-fino-ac s09-aguja" d="M-108 -118 V-130 M-108 -118 L-99 -113" /><text class="pag-ui" x="-74" y="-109">Abierto hoy</text></g>
+            <g class="s09-f2"><path class="ln-fino" d="M-108 -14 C-116 -24 -126 -34 -126 -46 A18 18 0 0 1 -90 -46 C-90 -34 -100 -24 -108 -14 Z" /><circle class="relleno-ac" cx="-108" cy="-46" r="6" /><text class="pag-ui" x="-74" y="-33">Cómo llegar</text></g>
+            <g class="s09-f3"><path class="ln-fino" d="M-124 52 H-92 L-96 90 H-120 Z M-116 52 V44 A8 8 0 0 1 -100 44 V52" /><text class="pag-ui" x="-74" y="79">Productos</text></g>
+            <g class="s09-f4"><rect class="ln-ac" x="-124" y="160" width="248" height="76" rx="38" /><text class="pag-btn-ac" x="0" y="208" text-anchor="middle">Escribinos</text></g></g></g>
+          <path class="ln-ac s09-nivel" d="M150 836 H920 M150 820 V852 M920 820 V852" />
+          <text class="s09-igual" x="548" y="1050" text-anchor="middle">=</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">No es caro</span><span class="s09-e2">Es un sistema</span><span class="s09-e3">A la altura</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-sistema";
+      const DUR = 5.31;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const CARO = 0.21, LUJO = 0.91, SISTEMA = 2.11, CARA = 3.11, ALTURA = 4.51, LOCAL = 5.01;
+      dibujar(qa(".s09-d1"), 0, 0.45, 0.4);
+      tl.fromTo(q(".s09-d1t"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.1);
+      badge(q(".s09-x1"), CARO + 0.15);
+      tl.to(q(".s09-i1"), { opacity: 0.4, duration: 0.3 }, CARO + 0.35);
+      etiqueta(q(".s09-e1"), CARO);
+      dibujar(qa(".s09-d2"), LUJO - 0.4, 0.45);
+      tl.fromTo(q(".s09-i2"), { rotation: -10, svgOrigin: "0 0" }, { rotation: 0, svgOrigin: "0 0", duration: 0.5, ease: "elastic.out(1, 0.5)" }, LUJO - 0.1);
+      badge(q(".s09-x2"), LUJO + 0.15);
+      tl.to(q(".s09-i2"), { opacity: 0.4, duration: 0.3 }, LUJO + 0.35);
+      // "sistema": se van y entra el engranaje
+      tl.to(q(".s09-a"), { opacity: 0, y: 30, duration: 0.25, ease: "power2.in" }, SISTEMA - 0.3);
+      dibujar(qa(".s09-gl"), SISTEMA - 0.1, 0.55);
+      tl.fromTo(q(".s09-gear"), { rotation: 0, svgOrigin: "540 920" }, { rotation: 300, svgOrigin: "540 920", duration: DUR - SISTEMA + 0.1, ease: "none" }, SISTEMA - 0.1);
+      tl.fromTo(q(".s09-gpos"), { scale: 0.85, svgOrigin: "540 900" }, { scale: 1, svgOrigin: "540 900", duration: 0.4, ease: "back.out(2)" }, SISTEMA);
+      etiqueta(q(".s09-e2"), SISTEMA, q(".s09-e1"));
+      // "tu cara en internet": el engranaje sube y aparecen el local y la página
+      tl.to(q(".s09-gpos"), { scale: 0.42, y: -250, svgOrigin: "540 900", duration: 0.45, ease: "power3.inOut" }, CARA - 0.35);
+      dibujar(qa(".s09-dl"), CARA - 0.4, 0.45);
+      gsap.set(qa(".s09-dl-luz"), { opacity: 0 });
+      tl.fromTo(q(".s09-dl-txt"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, CARA - 0.1);
+      tl.to(qa(".s09-dl-luz"), { opacity: 0.85, duration: 0.2 }, CARA + 0.4);
+      dibujar(qa(".s09-dt"), CARA + 0.3, 0.45);
+      ["f0", "f1", "f2", "f3", "f4"].forEach((f, i) => tl.fromTo(q(".s09-" + f), { opacity: 0 }, { opacity: 1, duration: 0.2 }, CARA + 0.6 + i * 0.07));
+      // "altura": la línea de nivel toca los dos techos
+      dibujar([q(".s09-nivel")], ALTURA - 0.15, 0.4);
+      tl.fromTo(q(".s09-igual"), { opacity: 0, scale: 0.4, svgOrigin: "548 1020" }, { opacity: 1, scale: 1, svgOrigin: "548 1020", duration: 0.35, ease: "back.out(3)" }, ALTURA + 0.1);
+      tl.to(qa(".s09-loc, .s09-tel"), { y: -10, duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out" }, LOCAL - 0.1);
+      etiqueta(q(".s09-e3"), ALTURA, q(".s09-e2"));
+
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-busca"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-busca"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-busca"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-busca"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-busca"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-busca"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-busca"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-busca"] .ln-tenue2 { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-busca"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s11-busca"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s11-busca"] .relleno { fill: #efeee5; }
+    [data-composition-id="s11-busca"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s11-busca"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s11-busca"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s11-busca"] .pag-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s11-busca"] .pag-btn { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s11-busca"] .pag-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s11-busca"] .pag-ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s11-busca"] .pag-btn-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s11-busca"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-busca"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s11-busca"] .s11-fila { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s11-busca" data-width="1080" data-height="1920" data-duration="5.7">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="5.7" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g transform="translate(540 905)"><g class="s11-tel">
+            <rect class="ln s11-dt" x="-170" y="-300" width="340" height="600" rx="52" />
+            <line class="ln s11-dt" x1="-40" y1="-268" x2="40" y2="-268" />
+          <g class="s11-cab"><path class="ln-fino" d="M-124 -196 V-226 H-72 V-196 M-130 -226 H-66 L-72 -242 H-124 Z M-104 -196 V-212 H-92 V-196" /><text class="pag-nom" x="-52" y="-206">Tu Local</text><line class="ln-tenue" x1="-130" y1="-170" x2="130" y2="-170" /></g>
+          <g class="s11-f1"><circle class="ln-fino-ac" cx="-100" cy="-112" r="22" /><path class="ln-fino-ac s11-aguja" d="M-100 -112 V-126 M-100 -112 L-90 -106" /><text class="s11-fila" x="-62" y="-100">Horarios</text></g>
+          <g transform="translate(0 16)"><g class="s11-f2"><path class="ln-fino-ac" d="M-100 -2 C-110 -14 -122 -26 -122 -40 A22 22 0 0 1 -78 -40 C-78 -26 -90 -14 -100 -2 Z" /><circle class="relleno-ac s11-pin" cx="-100" cy="-40" r="7" /><text class="s11-fila" x="-62" y="-22">Ubicación</text></g></g>
+          <g class="s11-f3"><path class="ln-fino-ac" d="M-120 66 H-80 L-86 112 H-114 Z M-110 66 V56 A10 10 0 0 1 -90 56 V66" /><text class="s11-fila" x="-62" y="100">Comprar</text></g>
+          <g class="s11-f4"><rect class="relleno-ac" x="-130" y="170" width="260" height="80" rx="40" /><text class="s11-fila" x="0" y="222" text-anchor="middle" style="fill:#0b1d35">Escribinos</text></g>
+        </g></g>
+        <g class="s11-lupa"><circle class="ln s11-lu" cx="820" cy="690" r="44" /><path class="ln s11-lu" d="M852 722 L892 762" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Lo que busca</span><span class="s11-e2">Todo a mano</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-busca";
+      const DUR = 5.7;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const BUSCA = 1.4, HORARIOS = 2.05, UBICACION = 2.76, COMPRARTE = 3.9, ESCRIBIRTE = 4.6;
+      dibujar(qa(".s11-dt"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s11-cab"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.1);
+      // "busca": la lupa
+      dibujar(qa(".s11-lu"), BUSCA - 0.15, 0.35);
+      tl.to(q(".s11-lupa"), { x: -16, y: 10, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, BUSCA + 0.25);
+      etiqueta(q(".s11-e1"), BUSCA);
+      const fila = (s, t) => tl.fromTo(q(s), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.8)" }, t);
+      fila(".s11-f1", HORARIOS - 0.1);
+      tl.fromTo(q(".s11-aguja"), { rotation: -180, svgOrigin: "-100 -112" }, { rotation: 0, svgOrigin: "-100 -112", duration: 0.6, ease: "back.out(2)" }, HORARIOS);
+      fila(".s11-f2", UBICACION - 0.1);
+      tl.fromTo(q(".s11-pin"), { scale: 0, svgOrigin: "-100 -40" }, { scale: 1, svgOrigin: "-100 -40", duration: 0.3, ease: "back.out(3)" }, UBICACION + 0.1);
+      fila(".s11-f3", COMPRARTE - 0.15);
+      tl.fromTo(q(".s11-f4"), { opacity: 0, scale: 0.7, svgOrigin: "0 210" }, { opacity: 1, scale: 1, svgOrigin: "0 210", duration: 0.4, ease: "back.out(2)" }, ESCRIBIRTE - 0.1);
+      tl.to(q(".s11-f4"), { scale: 1.06, svgOrigin: "0 210", duration: 0.14, yoyo: true, repeat: 1 }, ESCRIBIRTE + 0.45);
+      tl.to(q(".s11-lupa"), { opacity: 0.4, duration: 0.3 }, ESCRIBIRTE);
+      etiqueta(q(".s11-e2"), ESCRIBIRTE, q(".s11-e1"));
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

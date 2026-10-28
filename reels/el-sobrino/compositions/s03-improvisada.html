@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-improvisada"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-improvisada"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-improvisada"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-improvisada"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-improvisada"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-improvisada"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-improvisada"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-improvisada"] .ln-tenue2 { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-improvisada"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s03-improvisada"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s03-improvisada"] .relleno { fill: #efeee5; }
+    [data-composition-id="s03-improvisada"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s03-improvisada"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s03-improvisada"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s03-improvisada"] .pag-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s03-improvisada"] .pag-btn { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s03-improvisada"] .pag-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s03-improvisada"] .pag-ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s03-improvisada"] .pag-btn-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s03-improvisada"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-improvisada"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s03-improvisada"] .s03-cinta-t { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s03-improvisada" data-width="1080" data-height="1920" data-duration="3.04">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.04" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s03-suelo" x1="140" y1="1130" x2="460" y2="1130" />
+        <g transform="translate(300 1130)"><g class="s03-local">
+            <path class="ln s03-dl" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s03-dl" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s03-dl" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s03-dl" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="cartel s03-dl-txt" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s03-dl" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s03-dl" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="vidrio s03-dl-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="vidrio s03-dl-luz" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s03-dl" d="M-24 0 V-96 H24 V0" />
+        </g></g>
+        <g transform="translate(790 900)"><g class="s03-tel">
+            <rect class="ln s03-dt" x="-170" y="-300" width="340" height="600" rx="52" />
+            <line class="ln s03-dt" x1="-40" y1="-268" x2="40" y2="-268" />
+            <g class="s03-b1"><rect class="ln-tenue2" x="-130" y="-236" width="260" height="64" rx="6" /><text class="pag-tit" x="-108" y="-193">MI LOCAL</text></g>
+            <g class="s03-b2"><rect class="ln-tenue2" x="-120" y="-150" width="240" height="150" rx="6" /><path class="ln-tenue2" d="M-6 -150 L14 -110 L-8 -82 L18 -44 L-2 0" /><path class="ln-tenue2" d="M-100 -22 L-62 -70 L-34 -40" /><circle class="ln-tenue2" cx="70" cy="-108" r="14" /></g>
+            <g class="s03-b3"><path class="ln-tenue2" d="M-118 40 H96 M-108 78 H40 M-124 116 H118" /></g>
+            <g class="s03-b4"><rect class="ln-tenue2" x="-104" y="170" width="208" height="64" rx="8" /><text class="pag-btn" x="0" y="212" text-anchor="middle">CONTACTO</text></g>
+          <g class="s03-cinta"><g transform="rotate(-9)"><rect class="ln" x="-150" y="88" width="300" height="52" rx="6" /><text class="s03-cinta-t" x="0" y="123" text-anchor="middle">EN CONSTRUCCIÓN</text></g></g>
+        </g></g>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">Tu cara en internet</span><span class="s03-e2">Improvisada</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-improvisada";
+      const DUR = 3.04;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const CARA = 0.7, INTERNET = 1.0, IMPROVISADA = 2.0;
+      dibujar(qa(".s03-dl"), 0, 0.4, 0.4);
+      gsap.set(q(".s03-local"), { opacity: 0.45 });
+      gsap.set(qa(".s03-dl-luz"), { opacity: 0.6 });
+      dibujar(qa(".s03-dt"), 0, 0.5, 0.5);
+      // "cara": el celular hace golpe y el local se aparta
+      tl.fromTo(q(".s03-tel"), { scale: 1 }, { scale: 1.07, svgOrigin: "0 0", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, CARA);
+      tl.to(q(".s03-local"), { opacity: 0.3, duration: 0.3 }, CARA);
+      etiqueta(q(".s03-e1"), CARA);
+      // "internet": la página se arma derechita
+      const B = [".s03-b1", ".s03-b2", ".s03-b3", ".s03-b4"];
+      B.forEach((s, i) => tl.fromTo(q(s), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, INTERNET - 0.05 + i * 0.12));
+      // "improvisada": se desarma
+      const ROT = [-6, 5, -4, 9];
+      B.forEach((s, i) => tl.to(q(s), { rotation: ROT[i], transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(3)" }, IMPROVISADA - 0.05 + i * 0.06));
+      tl.to(q(".s03-b3"), { y: 70, x: -10, duration: 0.45, ease: "bounce.out" }, IMPROVISADA + 0.1);
+      tl.to(q(".s03-b4"), { y: 26, duration: 0.4, ease: "bounce.out" }, IMPROVISADA + 0.15);
+      tl.fromTo(q(".s03-cinta"), { opacity: 0, scale: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "power3.out" }, IMPROVISADA + 0.35);
+      tl.fromTo(q(".s03-tel"), { rotation: 0 }, { rotation: -2, svgOrigin: "0 300", duration: 0.1, yoyo: true, repeat: 3, immediateRender: false }, IMPROVISADA);
+      etiqueta(q(".s03-e2"), IMPROVISADA, q(".s03-e1"));
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,7 @@
+[
+  {"t":1.3,"sfx":"whoosh-short","vol":0.18},
+  {"t":2,"sfx":"pop","vol":0.25},
+  {"t":2.7,"sfx":"pop","vol":0.25},
+  {"t":3.8,"sfx":"pop","vol":0.25},
+  {"t":4.55,"sfx":"notification","vol":0.28,"max":0.7}
+]

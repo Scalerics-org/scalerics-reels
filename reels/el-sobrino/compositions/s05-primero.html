@@ -1,0 +1,171 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-primero"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-primero"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-primero"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-primero"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-primero"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-primero"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-primero"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-primero"] .ln-tenue2 { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-primero"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s05-primero"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s05-primero"] .relleno { fill: #efeee5; }
+    [data-composition-id="s05-primero"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s05-primero"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s05-primero"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s05-primero"] .pag-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s05-primero"] .pag-btn { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s05-primero"] .pag-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s05-primero"] .pag-ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s05-primero"] .pag-btn-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s05-primero"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-primero"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s05-primero"] .s05-uno { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 56px; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s05-primero" data-width="1080" data-height="1920" data-duration="7.08">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="7.08" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s05-a">
+          <line class="ln s05-suelo" x1="150" y1="1130" x2="940" y2="1130" />
+          <g transform="translate(270 1130)"><g class="s05-cli">
+            <circle class="ln s05-dc" cx="0" cy="-200" r="22" />
+            <path class="ln s05-dc" d="M0 -178 V-90 M0 -90 L-24 0 M0 -90 L24 0" />
+            <path class="ln s05-dc" d="M0 -160 L-26 -112 M0 -160 L28 -132 L36 -150" />
+            <rect class="ln-fino s05-dc" x="28" y="-190" width="28" height="46" rx="6" /></g></g>
+          <g transform="translate(790 1130) scale(0.8)"><g class="s05-loc">
+            <path class="ln s05-dl" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s05-dl" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s05-dl" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s05-dl" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="cartel s05-dl-txt" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s05-dl" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s05-dl" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="vidrio s05-dl-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="vidrio s05-dl-luz" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s05-dl" d="M-24 0 V-96 H24 V0" /></g></g>
+          <!-- ondas del celular -->
+          <path class="ln-fino-ac s05-onda" d="M326 954 Q342 936 336 912" />
+          <path class="ln-fino-ac s05-onda" d="M342 966 Q368 936 356 900" />
+          <!-- globo con el local adentro -->
+          <g class="s05-globo">
+            <rect class="ln" x="250" y="660" width="260" height="200" rx="28" />
+            <path class="ln" d="M300 860 L320 900 L340 860" />
+            <g transform="translate(380 830) scale(0.5)"><path class="ln-ac" style="stroke-width:8" d="M-120 0 V-170 H120 V0 M-140 -170 H140 L122 -222 H-122 Z M-24 0 V-96 H24 V0" /><rect class="vidrio" x="-100" y="-122" width="58" height="52" rx="5" /><rect class="vidrio" x="42" y="-122" width="58" height="52" rx="5" /></g>
+          </g>
+          <!-- pasos que no da -->
+          <g class="s05-pasos"><circle class="relleno s05-paso" cx="360" cy="1162" r="6" /><circle class="relleno s05-paso" cx="412" cy="1162" r="6" /><circle class="relleno s05-paso" cx="464" cy="1162" r="6" /><circle class="relleno s05-paso" cx="516" cy="1162" r="6" /><circle class="relleno s05-paso" cx="568" cy="1162" r="6" /><circle class="relleno s05-paso" cx="620" cy="1162" r="6" /></g>
+        </g>
+        <g class="s05-b">
+          <g class="s05-ojo">
+            <path class="ln s05-ojo-l" d="M430 690 Q540 610 650 690 Q540 770 430 690 Z" />
+            <circle class="ln s05-ojo-l" cx="540" cy="690" r="32" />
+            <circle class="relleno-ac s05-pupila" cx="540" cy="690" r="14" />
+            <text class="s05-uno" x="690" y="712">1°</text>
+          </g>
+          <g transform="translate(320 1180) scale(0.85)"><g class="s05-vid">
+            <path class="ln s05-dv" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s05-dv" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s05-dv" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s05-dv" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="cartel s05-dv-txt" x="0" y="-257" text-anchor="middle">VIDRIERA</text>
+            <rect class="ln s05-dv" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s05-dv" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="vidrio s05-dv-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="vidrio s05-dv-luz" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s05-dv" d="M-24 0 V-96 H24 V0" /></g></g>
+          <g transform="translate(770 1010) scale(0.55)"><g class="s05-tel" data-layout-ignore>
+            <rect class="ln s05-dt" x="-170" y="-300" width="340" height="600" rx="52" />
+            <line class="ln s05-dt" x1="-40" y1="-268" x2="40" y2="-268" />
+            <g class="s05-f0"><path class="ln-fino" d="M-124 -204 V-234 H-72 V-204 M-130 -234 H-66 L-72 -250 H-124 Z M-104 -204 V-220 H-92 V-204" /><text class="pag-nom" x="-52" y="-214">Tu Local</text><line class="ln-tenue" x1="-130" y1="-176" x2="130" y2="-176" /></g>
+            <g class="s05-f1"><circle class="ln-fino-ac" cx="-108" cy="-118" r="18" /><path class="ln-fino-ac s05-aguja" d="M-108 -118 V-130 M-108 -118 L-99 -113" /><text class="pag-ui" x="-74" y="-109">Abierto hoy</text></g>
+            <g class="s05-f2"><path class="ln-fino" d="M-108 -14 C-116 -24 -126 -34 -126 -46 A18 18 0 0 1 -90 -46 C-90 -34 -100 -24 -108 -14 Z" /><circle class="relleno-ac" cx="-108" cy="-46" r="6" /><text class="pag-ui" x="-74" y="-33">Cómo llegar</text></g>
+            <g class="s05-f3"><path class="ln-fino" d="M-124 52 H-92 L-96 90 H-120 Z M-116 52 V44 A8 8 0 0 1 -100 44 V52" /><text class="pag-ui" x="-74" y="79">Productos</text></g>
+            <g class="s05-f4"><rect class="ln-ac" x="-124" y="160" width="248" height="76" rx="38" /><text class="pag-btn-ac" x="0" y="208" text-anchor="middle">Escribinos</text></g>
+            <rect class="ln-ac s05-aro" style="stroke-width:9" x="-200" y="-330" width="400" height="660" rx="70" />
+          </g></g>
+          <g transform="translate(436 900)"><g class="s05-x"><g><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" style="stroke-width:4" /></g></g></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Antes de pisarlo</span><span class="s05-e2">Lo primero que ve</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-primero";
+      const DUR = 7.08;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const CLIENTE = 0.74, CONOCE = 1.04, LOCAL = 1.74, ANTES = 2.25, Y = 3.14, PRIMERO = 3.64, NO = 4.54, VIDRIERA = 5.29, PAGINA = 5.84;
+      // A: el cliente con su celular, el local lejos
+      dibujar(qa(".s05-dc"), 0, 0.5, 0.4);
+      dibujar(qa(".s05-dl"), 0, 0.5, 0.4);
+      gsap.set(q(".s05-loc"), { opacity: 0.45 });
+      gsap.set(qa(".s05-dl-luz"), { opacity: 0 });
+      tl.fromTo(q(".s05-suelo"), { scaleX: 0.6, svgOrigin: "540 1130" }, { scaleX: 1, svgOrigin: "540 1130", duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s05-cli"), { scale: 1 }, { scale: 1.08, svgOrigin: "0 0", duration: 0.14, yoyo: true, repeat: 1 }, CLIENTE);
+      // "conoce": ondas y el globo con tu local
+      qa(".s05-onda").forEach((o, i) => dibujar([o], CONOCE + i * 0.1, 0.3));
+      tl.to(qa(".s05-onda"), { opacity: 0.3, duration: 0.3 }, CONOCE + 0.6);
+      tl.fromTo(q(".s05-globo"), { opacity: 0, scale: 0.6, svgOrigin: "320 880" }, { opacity: 1, scale: 1, svgOrigin: "320 880", duration: 0.4, ease: "back.out(1.8)" }, CONOCE + 0.1);
+      tl.fromTo(q(".s05-globo g"), { scale: 0.5 }, { scale: 0.56, svgOrigin: "0 -100", duration: 0.14, yoyo: true, repeat: 1 }, LOCAL);
+      // "antes de pisarlo": los pasos aparecen pero el cliente no se mueve
+      tl.fromTo(qa(".s05-paso"), { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 0.8, scale: 1, transformOrigin: "50% 50%", duration: 0.2, stagger: 0.08, ease: "back.out(2)" }, ANTES - 0.1);
+      tl.to(qa(".s05-paso"), { opacity: 0.25, duration: 0.3 }, ANTES + 0.6);
+      etiqueta(q(".s05-e1"), ANTES);
+      tl.to(q(".s05-a"), { opacity: 0, y: 20, duration: 0.3, ease: "power2.in" }, Y - 0.15);
+      // B: el ojo, la vidriera y la página
+      dibujar(qa(".s05-ojo-l"), PRIMERO - 0.3, 0.4);
+      tl.fromTo(q(".s05-pupila"), { opacity: 0, scale: 0.3, svgOrigin: "540 690" }, { opacity: 1, scale: 1, svgOrigin: "540 690", duration: 0.25, ease: "back.out(2)" }, PRIMERO);
+      tl.fromTo(q(".s05-uno"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(2)" }, PRIMERO + 0.1);
+      dibujar(qa(".s05-dv"), Y + 0.05, 0.5);
+      tl.fromTo(q(".s05-dv-txt"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, Y + 0.4);
+      gsap.set(qa(".s05-dv-luz"), { opacity: 0 });
+      tl.to(qa(".s05-dv-luz"), { opacity: 0.8, duration: 0.2 }, Y + 0.5);
+      dibujar(qa(".s05-dt"), Y + 0.15, 0.5);
+      gsap.set(q(".s05-aro"), { opacity: 0 });
+      ["f0", "f1", "f2", "f3", "f4"].forEach((f, i) => tl.fromTo(q(".s05-" + f), { opacity: 0 }, { opacity: 1, duration: 0.25 }, Y + 0.4 + i * 0.08));
+      etiqueta(q(".s05-e2"), PRIMERO, q(".s05-e1"));
+      // "no es tu vidriera": el ojo la mira y se tacha
+      tl.to(q(".s05-pupila"), { x: -18, y: 6, duration: 0.25, ease: "power2.inOut" }, NO);
+      badge(q(".s05-x"), VIDRIERA);
+      tl.to(q(".s05-vid"), { opacity: 0.35, duration: 0.3 }, VIDRIERA + 0.1);
+      // "es tu página": mira al celular, que se agranda con aro verde
+      tl.to(q(".s05-pupila"), { x: 18, y: 8, duration: 0.25, ease: "power2.inOut" }, PAGINA - 0.15);
+      tl.fromTo(q(".s05-tel"), { scale: 1 }, { scale: 1.15, svgOrigin: "0 0", duration: 0.35, ease: "back.out(2)" }, PAGINA);
+      dibujar([q(".s05-aro")], PAGINA + 0.05, 0.4);
+      tl.to(q(".s05-uno"), { x: 30, y: 30, duration: 0.3, ease: "power2.out" }, PAGINA);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

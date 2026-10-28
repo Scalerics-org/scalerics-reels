@@ -1,0 +1,108 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-scalerics"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-scalerics"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-scalerics"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-tenue2 { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .relleno { fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .pag-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s10-scalerics"] .pag-btn { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s10-scalerics"] .pag-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .pag-ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .pag-btn-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-scalerics"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s10-scalerics"] .s10-marca { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 62px; letter-spacing: -0.01em; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s10-scalerics" data-width="1080" data-height="1920" data-duration="5.9">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="5.9" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect class="ln s10-caja" x="320" y="596" width="440" height="108" rx="26" />
+        <text class="s10-marca" x="540" y="672" text-anchor="middle">Scalerics</text>
+        <text class="rotulo-ac s10-para" x="540" y="762" text-anchor="middle">SITIOS WEB PARA COMERCIOS</text>
+        <g transform="translate(540 1030) scale(0.66)"><g class="s10-tel" data-layout-ignore>
+            <rect class="ln s10-dt" x="-170" y="-300" width="340" height="600" rx="52" />
+            <line class="ln s10-dt" x1="-40" y1="-268" x2="40" y2="-268" />
+            <g class="s10-f0"><path class="ln-fino" d="M-124 -204 V-234 H-72 V-204 M-130 -234 H-66 L-72 -250 H-124 Z M-104 -204 V-220 H-92 V-204" /><text class="pag-nom" x="-52" y="-214">Tu Local</text><line class="ln-tenue" x1="-130" y1="-176" x2="130" y2="-176" /></g>
+            <g class="s10-f1"><circle class="ln-fino-ac" cx="-108" cy="-118" r="18" /><path class="ln-fino-ac s10-aguja" d="M-108 -118 V-130 M-108 -118 L-99 -113" /><text class="pag-ui" x="-74" y="-109">Abierto hoy</text></g>
+            <g class="s10-f2"><path class="ln-fino" d="M-108 -14 C-116 -24 -126 -34 -126 -46 A18 18 0 0 1 -90 -46 C-90 -34 -100 -24 -108 -14 Z" /><circle class="relleno-ac" cx="-108" cy="-46" r="6" /><text class="pag-ui" x="-74" y="-33">Cómo llegar</text></g>
+            <g class="s10-f3"><path class="ln-fino" d="M-124 52 H-92 L-96 90 H-120 Z M-116 52 V44 A8 8 0 0 1 -100 44 V52" /><text class="pag-ui" x="-74" y="79">Productos</text></g>
+            <g class="s10-f4"><rect class="ln-ac" x="-124" y="160" width="248" height="76" rx="38" /><text class="pag-btn-ac" x="0" y="208" text-anchor="middle">Escribinos</text></g>
+          <rect class="ln-tenue2 s10-riel" x="-130" y="-160" width="260" height="14" rx="7" />
+          <rect class="relleno-ac s10-barra" x="-130" y="-160" width="260" height="14" rx="7" />
+        </g></g>
+        <g transform="translate(700 860)"><g class="s10-t"><g><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" d="M-8 0 L-2 7 L9 -7" style="stroke-width:4" /></g></g></g>
+        <path class="ln-ac s10-rayo" style="stroke-width:6" d="M300 930 L262 1010 H300 L282 1080 L340 990 H302 L322 930 Z" />
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Profesional</span><span class="s10-e2">Rápido en el celular</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-scalerics";
+      const DUR = 5.9;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const SCALERICS = 0.7, SITIOS = 1.9, COMERCIOS = 2.5, PROF = 3.9, CARGAN = 4.8, RAPIDO = 5.2;
+      // la caja arranca medio dibujada
+      dibujar([q(".s10-caja")], 0, 0.6, 0.5);
+      tl.fromTo(q(".s10-marca"), { opacity: 0, filter: "blur(8px)", y: 8 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.4, ease: "power3.out" }, SCALERICS - 0.1);
+      tl.fromTo(q(".s10-caja"), { scale: 1 }, { scale: 1.04, svgOrigin: "540 650", duration: 0.14, yoyo: true, repeat: 1, immediateRender: false }, SCALERICS + 0.2);
+      tl.fromTo(q(".s10-para"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, SITIOS);
+      // "sitios web": el celular con la página, todavía desacomodada
+      dibujar(qa(".s10-dt"), SITIOS - 0.2, 0.5);
+      const F = ["f0", "f1", "f2", "f3", "f4"], ROT = [-4, 5, -3, 4, -6], DX = [-14, 18, -10, 12, -8];
+      F.forEach((f, i) => tl.fromTo(q(".s10-" + f), { opacity: 0, rotation: ROT[i], x: DX[i], transformOrigin: "50% 50%" }, { opacity: 1, duration: 0.25 }, SITIOS + 0.1 + i * 0.1));
+      tl.fromTo(q(".s10-tel"), { scale: 1 }, { scale: 1.04, svgOrigin: "0 0", duration: 0.14, yoyo: true, repeat: 1, immediateRender: false }, COMERCIOS);
+      // "profesionales": todo se alinea de un golpe
+      F.forEach((f, i) => tl.to(q(".s10-" + f), { rotation: 0, x: 0, duration: 0.3, ease: "back.out(2.5)" }, PROF - 0.1 + i * 0.03));
+      badge(q(".s10-t"), PROF + 0.15);
+      etiqueta(q(".s10-e1"), PROF);
+      // "cargan rápido": la barra se llena de un tirón y aparece el rayo
+      tl.fromTo(q(".s10-riel"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, CARGAN - 0.25);
+      tl.fromTo(q(".s10-barra"), { scaleX: 0.02, svgOrigin: "-130 -153" }, { scaleX: 1, svgOrigin: "-130 -153", duration: 0.35, ease: "power4.in" }, CARGAN);
+      tl.fromTo(q(".s10-rayo"), { opacity: 0, scale: 0.4, svgOrigin: "300 1005" }, { opacity: 1, scale: 1, svgOrigin: "300 1005", duration: 0.3, ease: "back.out(3)" }, RAPIDO - 0.05);
+      etiqueta(q(".s10-e2"), CARGAN, q(".s10-e1"));
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
