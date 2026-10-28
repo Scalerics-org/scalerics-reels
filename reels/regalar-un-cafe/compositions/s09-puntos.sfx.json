@@ -1,0 +1,8 @@
+[
+  {"t":0.4,"sfx":"pop","vol":0.22},
+  {"t":1.3,"sfx":"click-soft","vol":0.2},
+  {"t":2.3,"sfx":"ping","vol":0.22},
+  {"t":2.9,"sfx":"ping","vol":0.22},
+  {"t":3.2,"sfx":"ping","vol":0.24},
+  {"t":4.9,"sfx":"chime","vol":0.22,"max":0.6}
+]

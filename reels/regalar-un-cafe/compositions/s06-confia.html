@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-confia"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-confia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-confia"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-confia"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-confia"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-confia"] .relleno { fill: #5ce611; }
+    [data-composition-id="s06-confia"] .plata { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s06-confia"] .txt { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s06-confia"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s06-confia"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-confia"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s06-confia" data-width="1080" data-height="1920" data-duration="5.95">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.95" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="ln s06-suelo" d="M160 1130 H920" />
+        <g transform="translate(600 1130) scale(1.8)"><g class="s06-cli"><g class="s06-fig" ><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+        <g class="s06-bolsa"><path class="ln" d="M12 -48 H40 V-16 H12 Z" style="stroke-width:3" /><path class="ln" d="M19 -48 Q26 -60 33 -48" style="stroke-width:3" /></g></g></g>
+        <g class="s06-ok"><circle class="ln-ac" cx="600" cy="860" r="32" /><path class="ln-ac s06-tilde" d="M584 860 L596 872 L618 848" /></g>
+        <g transform="translate(270 900)"><g class="s06-mega"><path class="ln" d="M-40 -18 L50 -60 V60 L-40 18 Z" /><path class="ln" d="M-66 -20 H-40 V20 H-66 Z" /><path class="ln" d="M-20 12 L-30 50 H-10" /><path class="ln-ac s06-mega-ondas" d="M72 -36 L94 -50 M76 0 H102 M72 36 L94 50" /></g></g>
+        <path class="ln-ac s06-tacha" d="M170 820 L380 990" />
+        <path class="ln-ac s06-arco" d="M695 835 A190 190 0 1 1 505 835" />
+        <path class="ln-ac s06-punta" d="M482 862 L505 835 L470 832" />
+        <g transform="translate(890 980) scale(0.8)"><g class="s06-taza"><path class="ln" d="M-70 78 H70" /><path class="ln" d="M-46 0 H46 L39 64 Q37 72 29 72 H-29 Q-37 72 -39 64 Z" /><path class="ln" d="M45 15 Q78 13 75 36 Q72 56 40 53" /><path class="ln-ac s06-taza-vapor" d="M-14 -18 q-12 -16 0 -32 q12 -16 0 -32" /><path class="ln-ac s06-taza-vapor" d="M16 -18 q-12 -16 0 -32 q12 -16 0 -32" /></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Ya confía</span><span class="s06-e2">No hay que convencerlo</span><span class="s06-e3">Un motivo para volver</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-confia";
+      const DUR = 5.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (desde !== undefined && t === 0) {
+            gsap.set(el, { opacity: 1 });
+          } else {
+            gsap.set(el, { opacity: 0 });
+            tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.03);
+          }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.03);
+        });
+      };
+      const pop = (el, t, a) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: a ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      // cambia la etiqueta mono: n = 1, 2, 3...
+      let etiq = 0;
+      const etiqueta = (n, t) => {
+        if (etiq) tl.to(q(".s06-e" + etiq), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s06-e" + n), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etiq = n;
+      };
+      // badge de "no": círculo verde con X, entra con pop
+      const badge = (el, t) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+
+      const COMPRA = 0.45, CONFIA = 1.35, CONVENCERLO = 2.85, SOLO = 4.03, MOTIVO = 4.55, VOLVER = 5.25;
+      dibujar([q(".s06-suelo")], 0, 0.6, 0.5);
+      pop(q(".s06-cli"), 0.0);
+      tl.fromTo(q(".s06-cli"), { x: -40 }, { x: 0, duration: 0.6, ease: "power2.out" }, 0);
+      // "compra": aparece la bolsa
+      pop(q(".s06-bolsa"), COMPRA);
+      // "confía": tilde verde arriba de la cabeza
+      etiqueta(1, CONFIA);
+      pop(q(".s06-ok"), CONFIA);
+      dibujar([q(".s06-tilde")], CONFIA + 0.1, 0.3);
+      // "convencerlo": el megáfono aparece y se tacha
+      etiqueta(2, CONVENCERLO);
+      pop(q(".s06-mega"), CONVENCERLO - 0.35);
+      tl.fromTo(q(".s06-mega-ondas"), { opacity: 0 }, { opacity: 1, duration: 0.12, yoyo: true, repeat: 3 }, CONVENCERLO - 0.1);
+      dibujar([q(".s06-tacha")], CONVENCERLO + 0.25, 0.35);
+      tl.to(qa(".s06-mega, .s06-tacha"), { opacity: 0, duration: 0.3 }, SOLO);
+      tl.to(q(".s06-ok"), { opacity: 0, duration: 0.3 }, SOLO);
+      // "motivo para volver": una flecha que lo rodea y la taza al lado
+      etiqueta(3, MOTIVO);
+      dibujar([q(".s06-arco")], SOLO + 0.15, 0.8);
+      tl.fromTo(q(".s06-punta"), { opacity: 0 }, { opacity: 1, duration: 0.12 }, SOLO + 0.9);
+      pop(q(".s06-taza"), MOTIVO);
+      dibujar(qa(".s06-taza-vapor"), MOTIVO + 0.2, 0.4);
+      tl.to(qa(".s06-arco, .s06-punta"), { rotation: 25, svgOrigin: "600 1000", duration: 0.5, ease: "back.out(2)" }, VOLVER);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

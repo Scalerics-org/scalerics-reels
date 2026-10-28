@@ -1,0 +1,95 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-cuenta"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-cuenta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-cuenta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-cuenta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-cuenta"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-cuenta"] .relleno { fill: #5ce611; }
+    [data-composition-id="s05-cuenta"] .plata { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s05-cuenta"] .txt { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s05-cuenta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s05-cuenta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-cuenta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s05-cuenta"] .s05-num { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 60px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s05-cuenta"] .s05-preg { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 190px; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s05-cuenta" data-width="1080" data-height="1920" data-duration="2.46">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="2.46" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect class="ln s05-dib" x="380" y="770" width="300" height="300" rx="80" />
+        <rect class="ln s05-dib" x="425" y="840" width="210" height="96" rx="14" />
+        <circle class="ln s05-dib" cx="360" cy="1060" r="44" />
+        <g class="s05-boton"><rect class="ln" x="585" y="722" width="56" height="48" rx="10" /></g>
+        <text class="s05-num" x="534" y="910" text-anchor="middle">000</text>
+        <path class="ln s05-dib" d="M450 990 H610" />
+        <text class="s05-preg" x="820" y="980" text-anchor="middle">?</text>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Nadie lleva la cuenta</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-cuenta";
+      const DUR = 2.46;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (desde !== undefined && t === 0) {
+            gsap.set(el, { opacity: 1 });
+          } else {
+            gsap.set(el, { opacity: 0 });
+            tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.03);
+          }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.03);
+        });
+      };
+      const pop = (el, t, a) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: a ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      // cambia la etiqueta mono: n = 1, 2, 3...
+      let etiq = 0;
+      const etiqueta = (n, t) => {
+        if (etiq) tl.to(q(".s05-e" + etiq), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s05-e" + n), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etiq = n;
+      };
+      // badge de "no": círculo verde con X, entra con pop
+      const badge = (el, t) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+
+      const NADIE = 0.31, LLEVA = 0.71, CUENTA = 1.31;
+      dibujar(qa(".s05-dib"), 0, 0.55, 0.5);
+      pop(q(".s05-boton"), 0.1);
+      tl.fromTo(q(".s05-num"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.2);
+      etiqueta(1, NADIE);
+      // aprieta el botón dos veces y el número no cambia
+      [NADIE, LLEVA].forEach((t) => {
+        tl.to(q(".s05-boton"), { y: 12, duration: 0.08, ease: "power2.in" }, t);
+        tl.to(q(".s05-boton"), { y: 0, duration: 0.14, ease: "power2.out" }, t + 0.08);
+        tl.to(q(".s05-num"), { x: -4, duration: 0.05, yoyo: true, repeat: 3 }, t + 0.08);
+      });
+      // "cuenta": el visor se apaga y aparece el "?"
+      tl.to(qa(".s05-num, .s05-dib, .s05-boton"), { opacity: 0.4, duration: 0.3 }, CUENTA);
+      tl.fromTo(q(".s05-preg"), { opacity: 0, scale: 0.5, svgOrigin: "820 920", rotation: -15 }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: "820 920", duration: 0.45, ease: "back.out(2)" }, CUENTA);
+      tl.to(q(".s05-preg"), { rotation: 8, svgOrigin: "820 920", duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, CUENTA + 0.5);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-no-es"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-no-es"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-no-es"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-no-es"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-no-es"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-no-es"] .relleno { fill: #5ce611; }
+    [data-composition-id="s04-no-es"] .plata { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s04-no-es"] .txt { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s04-no-es"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s04-no-es"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-no-es"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s04-no-es" data-width="1080" data-height="1920" data-duration="3.68">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.68" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s04-i1"><path class="ln s04-d1" d="M270 990 C190 935 180 870 220 848 C248 834 270 852 270 870 C270 852 292 834 320 848 C360 870 350 935 270 990 Z" /></g>
+        <g class="s04-i2"><path class="ln s04-d2" d="M490 880 Q480 862 505 855 H575 Q600 862 590 880 L615 980 Q618 1000 598 1000 H482 Q462 1000 465 980 Z" />
+        <path class="ln s04-d2" d="M505 855 L520 828 H560 L575 855" />
+        <text class="plata s04-pesos" x="540" y="960" text-anchor="middle" style="font-size:52px">$</text></g>
+        <g class="s04-i3"><circle class="ln s04-d3" cx="810" cy="920" r="78" />
+        <path class="ln s04-d3" d="M796 828 H824 M810 828 V842" />
+        <path class="ln-ac s04-agujas" d="M810 920 V870 M810 920 L846 942" /></g>
+        <g class="s04-x1"><circle class="ln-badge" cx="345" cy="845" r="18" /><path class="ln-badge" d="M338 838 L352 852 M352 838 L338 852" /></g>
+        <g class="s04-x2"><circle class="ln-badge" cx="615" cy="845" r="18" /><path class="ln-badge" d="M608 838 L622 852 M622 838 L608 852" /></g>
+        <g class="s04-x3"><circle class="ln-badge" cx="885" cy="845" r="18" /><path class="ln-badge" d="M878 838 L892 852 M892 838 L878 852" /></g>
+        <path class="ln-ac s04-raya" d="M190 1090 H890" />
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Intención</span><span class="s04-e2">Plata</span><span class="s04-e3">Nada de eso</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-no-es";
+      const DUR = 3.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (desde !== undefined && t === 0) {
+            gsap.set(el, { opacity: 1 });
+          } else {
+            gsap.set(el, { opacity: 0 });
+            tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.03);
+          }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.03);
+        });
+      };
+      const pop = (el, t, a) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: a ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      // cambia la etiqueta mono: n = 1, 2, 3...
+      let etiq = 0;
+      const etiqueta = (n, t) => {
+        if (etiq) tl.to(q(".s04-e" + etiq), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s04-e" + n), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etiq = n;
+      };
+      // badge de "no": círculo verde con X, entra con pop
+      const badge = (el, t) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+
+      const INTENCION = 0.39, PLATA = 1.69, TIEMPO = 2.79;
+      dibujar(qa(".s04-d1"), 0, 0.5, 0.55);
+      badge(q(".s04-x1"), INTENCION + 0.15);
+      tl.to(q(".s04-i1"), { scale: 1.08, svgOrigin: "270 910", duration: 0.15, yoyo: true, repeat: 1 }, INTENCION);
+      etiqueta(1, INTENCION - 0.1);
+      dibujar(qa(".s04-d2"), PLATA - 0.35, 0.45);
+      tl.fromTo(q(".s04-pesos"), { opacity: 0, scale: 0.6, svgOrigin: "540 945" }, { opacity: 1, scale: 1, svgOrigin: "540 945", duration: 0.3, ease: "back.out(2)" }, PLATA - 0.05);
+      badge(q(".s04-x2"), PLATA + 0.15);
+      etiqueta(2, PLATA);
+      dibujar(qa(".s04-d3"), TIEMPO - 0.4, 0.45);
+      tl.fromTo(q(".s04-agujas"), { opacity: 0, rotation: -90, svgOrigin: "810 920" }, { opacity: 1, rotation: 0, svgOrigin: "810 920", duration: 0.5, ease: "power3.out" }, TIEMPO - 0.15);
+      badge(q(".s04-x3"), TIEMPO + 0.1);
+      // "nada de eso": todo se apaga y una raya verde lo cierra
+      tl.to(qa(".s04-i1, .s04-i2, .s04-i3"), { opacity: 0.4, duration: 0.3 }, TIEMPO + 0.45);
+      dibujar([q(".s04-raya")], TIEMPO + 0.35, 0.35);
+      etiqueta(3, TIEMPO);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

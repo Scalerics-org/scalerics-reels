@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-motivo"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-motivo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-motivo"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-motivo"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-motivo"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-motivo"] .relleno { fill: #5ce611; }
+    [data-composition-id="s07-motivo"] .plata { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s07-motivo"] .txt { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s07-motivo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s07-motivo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-motivo"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s07-motivo" data-width="1080" data-height="1920" data-duration="4.14">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.14" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g transform="translate(320 840) scale(1.3)"><g class="s07-taza"><path class="ln" d="M-70 78 H70" /><path class="ln" d="M-46 0 H46 L39 64 Q37 72 29 72 H-29 Q-37 72 -39 64 Z" /><path class="ln" d="M45 15 Q78 13 75 36 Q72 56 40 53" /><path class="ln-ac s07-taza-vapor" d="M-14 -18 q-12 -16 0 -32 q12 -16 0 -32" /><path class="ln-ac s07-taza-vapor" d="M16 -18 q-12 -16 0 -32 q12 -16 0 -32" /></g></g>
+        <circle class="ln s07-pto" cx="220" cy="1010" r="15" /><circle class="relleno s07-lleno" cx="220" cy="1010" r="9" />
+        <circle class="ln s07-pto" cx="270" cy="1010" r="15" /><circle class="relleno s07-lleno" cx="270" cy="1010" r="9" />
+        <circle class="ln s07-pto" cx="320" cy="1010" r="15" /><circle class="relleno s07-lleno" cx="320" cy="1010" r="9" />
+        <circle class="ln s07-pto" cx="370" cy="1010" r="15" /><circle class="relleno s07-lleno" cx="370" cy="1010" r="9" />
+        <circle class="ln s07-pto" cx="420" cy="1010" r="15" /><circle class="relleno s07-lleno" cx="420" cy="1010" r="9" />
+        <path class="ln s07-div" d="M540 760 V1060" />
+        <g class="s07-torta">
+        <path class="ln s07-dt" d="M650 1010 H870 V930 L650 968 Z" />
+        <path class="ln s07-dt" d="M650 988 L870 960" />
+        <path class="ln s07-dt" d="M650 1030 H880" />
+        <circle class="relleno s07-cereza" cx="846" cy="912" r="13" />
+        </g>
+        <g class="s07-reloj"><circle class="ln" cx="760" cy="790" r="48" /><path class="ln-ac s07-agujas" d="M760 790 V758 M760 790 L784 802" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">Al juntar puntos</span><span class="s07-e2">Si deja de venir</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-motivo";
+      const DUR = 4.14;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (desde !== undefined && t === 0) {
+            gsap.set(el, { opacity: 1 });
+          } else {
+            gsap.set(el, { opacity: 0 });
+            tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.03);
+          }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.03);
+        });
+      };
+      const pop = (el, t, a) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: a ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      // cambia la etiqueta mono: n = 1, 2, 3...
+      let etiq = 0;
+      const etiqueta = (n, t) => {
+        if (etiq) tl.to(q(".s07-e" + etiq), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s07-e" + n), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etiq = n;
+      };
+      // badge de "no": círculo verde con X, entra con pop
+      const badge = (el, t) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+
+      const CAFE = 0.1, JUNTA = 0.8, PUNTOS = 1.3, POSTRE = 2.1, HACE = 2.7, VIENE = 3.4;
+      dibujar(qa(".s07-taza path.ln"), 0, 0.55, 0.5);
+      dibujar(qa(".s07-taza-vapor"), CAFE + 0.2, 0.45);
+      tl.to(qa(".s07-taza-vapor"), { y: -8, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, CAFE + 0.7);
+      dibujar(qa(".s07-pto"), 0.3, 0.3);
+      tl.fromTo(q(".s07-div"), { opacity: 0, scaleY: 0.3, svgOrigin: "540 910" }, { opacity: 0.35, scaleY: 1, svgOrigin: "540 910", duration: 0.5, ease: "power2.out" }, 0.2);
+      // "junta sus puntos": se llenan los 5
+      etiqueta(1, JUNTA);
+      qa(".s07-lleno").forEach((c, i) => {
+        tl.fromTo(c, { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.5)" }, JUNTA + i * 0.12);
+      });
+      tl.to(q(".s07-taza"), { scale: 1.08, transformOrigin: "50% 80%", duration: 0.15, yoyo: true, repeat: 1 }, PUNTOS + 0.15);
+      // "postre"
+      dibujar(qa(".s07-dt"), POSTRE - 0.3, 0.45);
+      pop(q(".s07-cereza"), POSTRE + 0.15);
+      // "hace mucho que no viene": el reloj aparece y gira
+      etiqueta(2, POSTRE + 0.3);
+      pop(q(".s07-reloj"), HACE - 0.1);
+      tl.fromTo(q(".s07-agujas"), { rotation: 0, svgOrigin: "760 790" }, { rotation: 720, svgOrigin: "760 790", duration: 1.0, ease: "power2.inOut" }, HACE);
+      tl.to(q(".s07-torta"), { y: -10, duration: 0.15, yoyo: true, repeat: 1 }, VIENE);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
