@@ -164,6 +164,8 @@ if (hayIG) {
     if (!uid) {
       const pags = await pedir(`${igBase}/me/accounts?fields=instagram_business_account&access_token=${tk}`);
       uid = pags.data?.map((p) => p.instagram_business_account?.id).find(Boolean);
+      // token de página (no vence): "me" es la página misma
+      if (!uid) uid = (await pedir(`${igBase}/me?fields=instagram_business_account&access_token=${tk}`).catch(() => ({}))).instagram_business_account?.id;
     }
     if (!uid) throw new Error("no encontré el id de la cuenta de Instagram: cargalo como IG_USER_ID en el workflow");
   }
