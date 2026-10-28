@@ -1,0 +1,6 @@
+{
+  "name": "scalerics-reels-panel",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "22.x" }
+}

@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Scalerics Reels · Publicar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --fondo: #050a12; --panel: #0b1626; --panel2: #10203a; --borde: #1d3150;
+    --texto: #eef2f7; --suave: #98a6ba; --verde: #5ce611; --verde-osc: #3aa600;
+    --rojo: #ff5a5f; --amarillo: #ffd23f; --radio: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--fondo); color: var(--texto); font: 15px/1.5 "Lexend", system-ui, sans-serif; min-height: 100vh; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  .mono { font-family: "IBM Plex Mono", monospace; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; border-bottom: 1px solid var(--borde); position: sticky; top: 0; background: rgba(5,10,18,0.92); backdrop-filter: blur(8px); z-index: 5; }
+  header h1 { font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+  header h1 i { width: 12px; height: 12px; border-radius: 3px; background: var(--verde); display: inline-block; transform: skewX(-18deg); }
+  main { max-width: 1180px; margin: 0 auto; padding: 24px 16px 80px; }
+  .intro { color: var(--suave); margin-bottom: 20px; max-width: 70ch; }
+  .grilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+  .tarjeta { background: var(--panel); border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; display: flex; flex-direction: column; }
+  .tarjeta video { width: 100%; aspect-ratio: 9 / 16; background: #000; display: block; object-fit: cover; }
+  .cuerpo { padding: 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .gancho { font-weight: 600; line-height: 1.35; }
+  .meta { display: flex; gap: 6px; flex-wrap: wrap; }
+  .etiqueta { border: 1px solid var(--borde); border-radius: 999px; padding: 2px 10px; font-size: 12px; color: var(--suave); }
+  .etiqueta.ok { border-color: var(--verde-osc); color: var(--verde); }
+  .boton { border: 0; border-radius: 10px; padding: 11px 16px; font-weight: 600; cursor: pointer; background: var(--verde); color: #04110a; transition: transform .1s, opacity .2s; }
+  .boton:hover { transform: translateY(-1px); }
+  .boton:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+  .boton.sec { background: transparent; border: 1px solid var(--borde); color: var(--texto); }
+  .cuerpo .boton { margin-top: auto; }
+  /* login */
+  .login { max-width: 380px; margin: 12vh auto; background: var(--panel); border: 1px solid var(--borde); border-radius: var(--radio); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .login h2 { font-size: 20px; }
+  input[type=password], textarea, select { width: 100%; background: var(--fondo); border: 1px solid var(--borde); border-radius: 10px; padding: 10px 12px; }
+  textarea { min-height: 150px; resize: vertical; }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--verde); outline-offset: 1px; }
+  .error { color: var(--rojo); font-size: 14px; }
+  /* el formulario de TikTok */
+  dialog { border: 1px solid var(--borde); border-radius: 18px; background: var(--panel); color: var(--texto); width: min(980px, calc(100vw - 32px)); max-height: calc(100vh - 32px); margin: auto; padding: 0; }
+  dialog::backdrop { background: rgba(0,0,0,0.7); }
+  .dlg { display: grid; grid-template-columns: 300px 1fr; }
+  .dlg .prev { background: #000; display: flex; align-items: center; justify-content: center; }
+  .dlg .prev video { width: 100%; max-height: calc(100vh - 34px); aspect-ratio: 9/16; object-fit: contain; }
+  .form { padding: 22px; display: flex; flex-direction: column; gap: 18px; overflow-y: auto; max-height: calc(100vh - 34px); }
+  .cuenta { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--panel2); border-radius: 12px; }
+  .cuenta img { width: 44px; height: 44px; border-radius: 50%; background: var(--borde); }
+  .cuenta b { display: block; }
+  .campo { display: flex; flex-direction: column; gap: 8px; }
+  .campo > label, .campo > .tit { font-weight: 600; }
+  .ayuda { color: var(--suave); font-size: 13px; }
+  .checks { display: flex; gap: 18px; flex-wrap: wrap; }
+  .checks label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+  .checks label.apagado { opacity: 0.45; cursor: not-allowed; }
+  input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--verde); }
+  .interruptor { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .switch { position: relative; width: 46px; height: 26px; flex: none; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .switch span { position: absolute; inset: 0; background: var(--borde); border-radius: 999px; cursor: pointer; transition: .2s; }
+  .switch span::after { content: ""; position: absolute; width: 20px; height: 20px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: .2s; }
+  .switch input:checked + span { background: var(--verde); }
+  .switch input:checked + span::after { transform: translateX(20px); }
+  .comercial { display: none; flex-direction: column; gap: 10px; padding: 12px; border: 1px solid var(--borde); border-radius: 12px; }
+  .comercial.visible { display: flex; }
+  .aviso { background: var(--panel2); border-radius: 12px; padding: 12px; font-size: 13px; color: var(--suave); }
+  .aviso a { color: var(--verde); }
+  .acciones { display: flex; gap: 10px; justify-content: flex-end; }
+  .resultado { padding: 12px; border-radius: 12px; background: var(--panel2); font-size: 14px; }
+  .resultado.ok { border: 1px solid var(--verde-osc); }
+  .resultado.mal { border: 1px solid var(--rojo); }
+  .vacio { color: var(--suave); padding: 40px 0; text-align: center; }
+  @media (max-width: 760px) {
+    .dlg { grid-template-columns: 1fr; }
+    .dlg .prev video { max-height: 50vh; }
+    header { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1><i></i>Scalerics Reels <span class="mono" style="color:var(--suave)">publicar</span></h1>
+  <span class="mono" id="estadoCabecera" style="color:var(--suave)"></span>
+</header>
+
+<div id="vistaLogin" class="login" hidden>
+  <h2>Panel de publicación</h2>
+  <p class="ayuda">Para revisar y publicar los reels de Scalerics.</p>
+  <input type="password" id="clave" placeholder="Clave" autocomplete="current-password" />
+  <button class="boton" id="entrar">Entrar</button>
+  <p class="error" id="errorLogin"></p>
+</div>
+
+<main id="vistaPanel" hidden>
+  <p class="intro">Cada reel terminado aparece acá. Miralo, revisá la descripción y elegí cómo sale en TikTok. Nada se publica sin que lo confirmes vos.</p>
+  <div class="grilla" id="grilla"><p class="vacio">Cargando reels...</p></div>
+</main>
+
+<dialog id="dlg">
+  <div class="dlg">
+    <div class="prev"><video id="dlgVideo" controls playsinline preload="metadata"></video></div>
+    <div class="form">
+      <div class="cuenta" id="cuenta"><img alt="" /><div><span class="ayuda">Se publica en TikTok en</span><b>Cargando la cuenta...</b></div></div>
+
+      <div class="campo">
+        <label for="titulo">Descripción</label>
+        <textarea id="titulo" maxlength="2200"></textarea>
+        <span class="ayuda" id="contador"></span>
+      </div>
+
+      <div class="campo">
+        <label for="privacidad">¿Quién puede ver este video?</label>
+        <select id="privacidad"><option value="" selected disabled>Elegí una opción</option></select>
+        <span class="ayuda" id="ayudaPrivacidad"></span>
+      </div>
+
+      <div class="campo">
+        <span class="tit">Permitir que los usuarios</span>
+        <div class="checks">
+          <label id="lblComentar"><input type="checkbox" id="comentarios" /> Comenten</label>
+          <label id="lblDuo"><input type="checkbox" id="duo" /> Hagan dúo</label>
+          <label id="lblStitch"><input type="checkbox" id="stitch" /> Hagan stitch</label>
+        </div>
+        <span class="ayuda" id="ayudaInteracciones"></span>
+      </div>
+
+      <div class="campo">
+        <div class="interruptor">
+          <div><span class="tit">Divulgar contenido comercial</span><div class="ayuda">Activalo si el video promociona una marca, un producto o un servicio.</div></div>
+          <label class="switch"><input type="checkbox" id="comercial" /><span></span></label>
+        </div>
+        <div class="comercial" id="cajaComercial">
+          <label class="checks"><span style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" id="marcaPropia" /> <span><b>Tu marca</b><br /><span class="ayuda">Promocionás tu propio negocio. Se va a etiquetar como "Contenido promocional".</span></span></span></label>
+          <label class="checks"><span style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" id="marcaAjena" /> <span><b>Contenido de marca</b><br /><span class="ayuda">Promocionás a otra marca o a un tercero. Se va a etiquetar como "Colaboración pagada".</span></span></span></label>
+          <span class="ayuda" id="ayudaComercial"></span>
+        </div>
+      </div>
+
+      <div class="aviso" id="aviso"></div>
+      <div class="resultado" id="resultado" hidden></div>
+      <div class="acciones">
+        <button class="boton sec" id="cancelar">Cancelar</button>
+        <button class="boton" id="publicar" disabled>Publicar en TikTok</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const NOMBRES = { PUBLIC_TO_EVERYONE: "Todos", MUTUAL_FOLLOW_FRIENDS: "Amigos", FOLLOWER_OF_CREATOR: "Seguidores", SELF_ONLY: "Solo yo" };
+let creador = null, actual = null, duracion = 0;
+
+async function api(ruta, opciones) {
+  const r = await fetch(ruta, opciones);
+  if (r.status === 401) { mostrarLogin(); throw new Error("sin sesión"); }
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.error || "Error " + r.status);
+  return j;
+}
+
+function mostrarLogin() { $("#vistaLogin").hidden = false; $("#vistaPanel").hidden = true; }
+
+async function iniciar() {
+  const { sesion } = await (await fetch("/api/login")).json();
+  if (!sesion) return mostrarLogin();
+  $("#vistaLogin").hidden = true; $("#vistaPanel").hidden = false;
+  cargarReels();
+}
+
+$("#entrar").onclick = async () => {
+  $("#errorLogin").textContent = "";
+  try {
+    await api("/api/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ clave: $("#clave").value }) });
+    iniciar();
+  } catch (e) { $("#errorLogin").textContent = e.message; }
+};
+$("#clave").addEventListener("keydown", (e) => { if (e.key === "Enter") $("#entrar").click(); });
+
+async function cargarReels() {
+  const g = $("#grilla");
+  try {
+    const { reels } = await api("/api/reels");
+    if (!reels.length) { g.innerHTML = '<p class="vacio">No hay reels terminados todavía.</p>'; return; }
+    g.innerHTML = "";
+    for (const r of reels) {
+      const t = document.createElement("article");
+      t.className = "tarjeta";
+      t.innerHTML = `
+        <video src="/api/video?slug=${r.slug}" preload="none" controls playsinline></video>
+        <div class="cuerpo">
+          <div class="meta"><span class="etiqueta">${r.fecha}</span>
+            <span class="etiqueta ${r.enTikTok ? "ok" : ""}">${r.enTikTok ? "Ya en TikTok" : "Sin publicar en TikTok"}</span></div>
+          <div class="gancho"></div>
+          <button class="boton">${r.enTikTok ? "Publicar de nuevo" : "Publicar en TikTok"}</button>
+        </div>`;
+      t.querySelector(".gancho").textContent = r.gancho.replace(/`/g, "");
+      t.querySelector("button").onclick = () => abrir(r);
+      g.appendChild(t);
+    }
+  } catch (e) { g.innerHTML = `<p class="vacio">No se pudieron cargar los reels: ${e.message}</p>`; }
+}
+
+async function abrir(r) {
+  actual = r;
+  $("#resultado").hidden = true;
+  $("#titulo").value = r.descripcion || "";
+  contar();
+  for (const id of ["comentarios", "duo", "stitch", "comercial", "marcaPropia", "marcaAjena"]) $("#" + id).checked = false;
+  $("#cajaComercial").classList.remove("visible");
+  const v = $("#dlgVideo");
+  duracion = 0;
+  v.src = "/api/video?slug=" + r.slug;
+  v.onloadedmetadata = () => { duracion = v.duration; validar(); };
+  $("#dlg").showModal();
+  await cargarCreador();
+  validar();
+}
+
+async function cargarCreador() {
+  const c = $("#cuenta");
+  const sel = $("#privacidad");
+  sel.innerHTML = '<option value="" selected disabled>Elegí una opción</option>';
+  try {
+    creador = await api("/api/creador");
+    c.querySelector("img").src = creador.creator_avatar_url || "";
+    c.querySelector("b").textContent = `${creador.creator_nickname || ""} · @${creador.creator_username || ""}`;
+    for (const p of creador.privacy_level_options || []) {
+      const o = document.createElement("option");
+      o.value = p; o.textContent = NOMBRES[p] || p;
+      sel.appendChild(o);
+    }
+    const apagados = [];
+    for (const [id, lbl, campo, nombre] of [["comentarios", "#lblComentar", "comment_disabled", "comentarios"], ["duo", "#lblDuo", "duet_disabled", "dúos"], ["stitch", "#lblStitch", "stitch_disabled", "stitch"]]) {
+      const off = !!creador[campo];
+      $("#" + id).disabled = off;
+      $(lbl).classList.toggle("apagado", off);
+      if (off) apagados.push(nombre);
+    }
+    $("#ayudaInteracciones").textContent = apagados.length ? `En la configuración de tu cuenta están apagados: ${apagados.join(", ")}.` : "";
+  } catch (e) {
+    creador = null;
+    c.querySelector("b").textContent = "No se pudo leer la cuenta de TikTok: " + e.message;
+  }
+}
+
+function contar() { $("#contador").textContent = `${$("#titulo").value.length} / 2200`; }
+$("#titulo").addEventListener("input", contar);
+
+function validar() {
+  const priv = $("#privacidad").value;
+  const comercial = $("#comercial").checked;
+  const propia = $("#marcaPropia").checked, ajena = $("#marcaAjena").checked;
+  // contenido de marca no puede ser privado
+  const soloYo = [...$("#privacidad").options].find((o) => o.value === "SELF_ONLY");
+  if (soloYo) { soloYo.disabled = comercial && ajena; soloYo.textContent = comercial && ajena ? "Solo yo (no disponible con contenido de marca)" : "Solo yo"; }
+  if (comercial && ajena && priv === "SELF_ONLY") $("#privacidad").value = "";
+  let motivo = "";
+  if (!creador) motivo = "Falta conectar la cuenta de TikTok.";
+  else if (!$("#privacidad").value) motivo = "Elegí quién puede ver el video.";
+  else if (comercial && !propia && !ajena) motivo = "Indicá si es tu marca, contenido de marca o ambos.";
+  else if (duracion && creador.max_video_post_duration_sec && duracion > creador.max_video_post_duration_sec) motivo = `El video dura ${Math.round(duracion)} s y tu cuenta permite hasta ${creador.max_video_post_duration_sec} s.`;
+  $("#ayudaComercial").textContent = comercial && !propia && !ajena ? "Elegí al menos una opción." : (comercial ? (ajena ? 'Se va a mostrar como "Colaboración pagada".' : 'Se va a mostrar como "Contenido promocional".') : "");
+  $("#ayudaPrivacidad").textContent = motivo && !$("#privacidad").value ? "" : "";
+  const musica = '<a href="https://www.tiktok.com/legal/page/global/music-usage-confirmation/en" target="_blank" rel="noopener">Confirmación de uso de música</a>';
+  const marca = '<a href="https://www.tiktok.com/legal/page/global/bc-policy/en" target="_blank" rel="noopener">Política de contenido de marca</a>';
+  $("#aviso").innerHTML = `Al publicar, aceptás la ${musica} de TikTok${comercial && ajena ? ` y la ${marca}` : ""}. El video se marca como contenido generado con IA. Después de publicar, TikTok puede tardar unos minutos en procesarlo y mostrarlo en tu perfil.` + (motivo ? `<br><b style="color:var(--amarillo)">${motivo}</b>` : "");
+  $("#publicar").disabled = !!motivo;
+}
+for (const id of ["privacidad", "comercial", "marcaPropia", "marcaAjena"]) $("#" + id).addEventListener("change", () => {
+  $("#cajaComercial").classList.toggle("visible", $("#comercial").checked);
+  if (!$("#comercial").checked) { $("#marcaPropia").checked = false; $("#marcaAjena").checked = false; }
+  validar();
+});
+
+$("#cancelar").onclick = () => { $("#dlgVideo").pause(); $("#dlg").close(); };
+
+$("#publicar").onclick = async () => {
+  const b = $("#publicar");
+  b.disabled = true; b.textContent = "Enviando...";
+  const res = $("#resultado");
+  try {
+    const desde = Date.now();
+    await api("/api/publicar", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        slug: actual.slug, titulo: $("#titulo").value, privacidad: $("#privacidad").value,
+        comentarios: $("#comentarios").checked, duo: $("#duo").checked, stitch: $("#stitch").checked,
+        marcaPropia: $("#comercial").checked && $("#marcaPropia").checked, marcaAjena: $("#comercial").checked && $("#marcaAjena").checked,
+        acepto: true,
+      }),
+    });
+    res.hidden = false; res.className = "resultado";
+    res.textContent = "Enviado. Se está subiendo a TikTok: tarda unos minutos en procesarse y aparecer en tu perfil.";
+    seguir(desde);
+  } catch (e) {
+    res.hidden = false; res.className = "resultado mal"; res.textContent = "No se pudo publicar: " + e.message;
+    b.disabled = false;
+  }
+  b.textContent = "Publicar en TikTok";
+};
+
+async function seguir(desde) {
+  const res = $("#resultado");
+  for (let i = 0; i < 90; i++) {
+    await new Promise((r) => setTimeout(r, 10000));
+    try {
+      const e = await api("/api/estado");
+      if (!e.creado || new Date(e.creado).getTime() < desde - 60000) continue;
+      if (e.estado === "completed") {
+        if (e.resultado === "success") { res.className = "resultado ok"; res.textContent = "Publicado en TikTok. Puede tardar unos minutos más en verse en tu perfil."; cargarReels(); }
+        else { res.className = "resultado mal"; res.textContent = "TikTok no lo aceptó. Revisá el detalle en GitHub (Actions → Publicar reel)."; }
+        return;
+      }
+      res.textContent = "Subiendo y procesando en TikTok...";
+    } catch {}
+  }
+}
+
+iniciar();
+</script>
+</body>
+</html>

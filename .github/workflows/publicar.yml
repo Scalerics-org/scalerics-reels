@@ -16,6 +16,10 @@ on:
         description: "Solo la primera vez: el code de TikTok (scalerics.com/tiktok?code=...)"
         type: string
         default: ""
+      panel:
+        description: "Lo manda el panel de aprobación (no tocar a mano)"
+        type: string
+        default: ""
       tiktok_estado:
         description: "Diagnóstico: publish_id de TikTok para ver en qué quedó (no publica nada)"
         type: string
@@ -39,5 +43,6 @@ jobs:
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           IG_USER_ID: ${{ vars.IG_USER_ID }}
           TIKTOK_PAUSADO: "1"
+          PANEL: ${{ inputs.panel }}
           DRIVE_APROBADOS: 1VRxt08EiUNDxKDrJk5ugXzsRCRZKedGK
           DRIVE_PUBLICADOS: 1QGCBFfdUfWAF7hCHfgYJfMXfd_CUzh2p

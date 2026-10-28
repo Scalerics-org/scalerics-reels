@@ -15,9 +15,12 @@
 import fs from "node:fs";
 import { execFileSync } from "node:child_process";
 import { tokenGoogle } from "./google.mjs";
-import { accesoTikTok, publicarTikTok } from "./tiktok.mjs";
+import { accesoTikTok, publicarTikTok, publicarTikTokPanel } from "./tiktok.mjs";
 
 const PRUEBA = process.argv.includes("--prueba");
+// PANEL (variable de entorno) = base64url de un JSON: lo eligió una persona en el panel de aprobación
+const PANEL_ARG = process.env.PANEL || "";
+const PANEL = PANEL_ARG ? JSON.parse(Buffer.from(PANEL_ARG, "base64url").toString("utf8")) : null;
 const TIKTOK_CODE = (process.argv.find((a) => a.startsWith("--tiktok-code=")) || "").split("=")[1] || "";
 const APROBADOS = process.env.DRIVE_APROBADOS;
 const PUBLICADOS = process.env.DRIVE_PUBLICADOS;
@@ -75,6 +78,18 @@ if (ESTADO_TT && accesoTT) {
 // Lo publicado, por red: { tiktok: [slugs], instagram: [slugs] }
 let pub = (await estadoJson("publicados.json")) || {};
 if (Array.isArray(pub)) pub = { tiktok: pub, instagram: pub };
+// Desde el panel: publica en TikTok exactamente lo que se eligió ahí, y nada más
+if (PANEL) {
+  if (!accesoTT) throw new Error("TikTok no está autorizado");
+  if (!/^[a-z0-9-]+$/.test(PANEL.slug || "")) throw new Error("slug inválido");
+  const bytesPanel = execFileSync("git", ["show", `origin/reel/${PANEL.slug}:reels/${PANEL.slug}/renders/${PANEL.slug}-final.mp4`], { maxBuffer: 200e6 });
+  console.log(`panel: ${PANEL.slug} · ${PANEL.privacidad}`);
+  if (PRUEBA) { console.log("PRUEBA: no publico"); process.exit(0); }
+  console.log("TIKTOK: " + (await publicarTikTokPanel(accesoTT, bytesPanel, PANEL)));
+  pub.tiktok = [...new Set([...(pub.tiktok || []), PANEL.slug])];
+  await estadoJson("publicados.json", pub);
+  process.exit(0);
+}
 const igOn = !!process.env.IG_TOKEN || !!(await estadoJson("ig.json"));
 // TikTok en pausa (TIKTOK_PAUSADO=1) mientras la app no esté auditada: sin auditoría los envíos no le
 // llegan a la cuenta. Al reactivar, sacar ojala-te-fundas de publicados.json (tiktok): no salió.

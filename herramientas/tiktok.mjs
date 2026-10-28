@@ -55,6 +55,43 @@ async function api(acceso, ruta, cuerpo) {
   return j.data;
 }
 
+export async function infoCreador(acceso) {
+  return api(acceso, "/post/publish/creator_info/query/");
+}
+
+// Publicación desde el panel de aprobación: una persona eligió todo a mano (privacidad sin valor por
+// defecto, interacciones, divulgación comercial) y aceptó las condiciones de TikTok. Sin borrador.
+export async function publicarTikTokPanel(acceso, bytes, o) {
+  const creador = await infoCreador(acceso);
+  if (!creador.privacy_level_options?.includes(o.privacidad)) throw new Error(`privacidad no permitida: ${o.privacidad}`);
+  const ini = await api(acceso, "/post/publish/video/init/", {
+    post_info: {
+      title: String(o.titulo || "").slice(0, 2200),
+      privacy_level: o.privacidad,
+      disable_comment: !o.comentarios || !!creador.comment_disabled,
+      disable_duet: !o.duo || !!creador.duet_disabled,
+      disable_stitch: !o.stitch || !!creador.stitch_disabled,
+      brand_organic_toggle: !!o.marcaPropia,
+      brand_content_toggle: !!o.marcaAjena,
+      is_aigc: true,
+    },
+    source_info: { source: "FILE_UPLOAD", video_size: bytes.length, chunk_size: bytes.length, total_chunk_count: 1 },
+  });
+  const sub = await fetch(ini.upload_url, {
+    method: "PUT",
+    headers: { "Content-Type": "video/mp4", "Content-Length": String(bytes.length), "Content-Range": `bytes 0-${bytes.length - 1}/${bytes.length}` },
+    body: bytes,
+  });
+  if (!sub.ok) throw new Error("TikTok no aceptó el video: " + sub.status);
+  for (let i = 0; i < 60; i++) {
+    await espera(10000);
+    const st = await api(acceso, "/post/publish/status/fetch/", { publish_id: ini.publish_id });
+    if (st.status === "PUBLISH_COMPLETE") return `${o.privacidad} (publish_id ${ini.publish_id})`;
+    if (st.status === "FAILED") throw new Error("TikTok falló: " + st.fail_reason);
+  }
+  throw new Error("TikTok tardó más de 10 minutos");
+}
+
 export async function publicarTikTok(acceso, bytes, caption, prueba) {
   const creador = await api(acceso, "/post/publish/creator_info/query/");
   console.log(`tiktok: @${creador.creator_username}`);
