@@ -1,0 +1,59 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-foco { position: absolute; top: -200px; width: 520px; height: 1900px; transform-origin: 50% 0%; background: radial-gradient(ellipse 50% 100% at 50% 0%, rgba(255, 200, 61, 0.16) 0%, rgba(255, 200, 61, 0.05) 45%, rgba(255, 200, 61, 0) 75%); mix-blend-mode: screen; }
+    [data-composition-id="ambiente"] .amb-brillo { position: absolute; width: 8px; height: 8px; }
+    [data-composition-id="ambiente"] .amb-brillo::before, [data-composition-id="ambiente"] .amb-brillo::after { content: ""; position: absolute; left: 3px; top: -6px; width: 2px; height: 20px; background: #ffc83d; border-radius: 1px; }
+    [data-composition-id="ambiente"] .amb-brillo::after { transform: rotate(90deg); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1120px at 540px 900px, rgba(10, 3, 7, 0) 55%, rgba(10, 3, 7, 0.82) 100%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #fff6ea; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="63.41">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="63.41" data-track-index="0">
+      <!-- dos focos de escenario que barren (el "set" de la telenovela) -->
+      <div class="amb-foco amb-f1" style="left:-80px;"></div>
+      <div class="amb-foco amb-f2" style="left:640px;"></div>
+      <!-- brillitos dorados de "escándalo" -->
+      <div class="amb-brillo"></div><div class="amb-brillo"></div><div class="amb-brillo"></div><div class="amb-brillo"></div>
+      <div class="amb-brillo"></div><div class="amb-brillo"></div><div class="amb-brillo"></div><div class="amb-brillo"></div>
+      <div class="amb-vineta"></div>
+      <!-- flashes de paparazzi en las revelaciones -->
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 63.41;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // focos: van y vienen despacio, cruzados
+      tl.fromTo(q(".amb-f1"), { rotation: -22 }, { rotation: 14, duration: 4.5, ease: "sine.inOut", yoyo: true, repeat: Math.floor(DUR / 4.5) - 1 }, 0);
+      tl.fromTo(q(".amb-f2"), { rotation: 20 }, { rotation: -16, duration: 5.2, ease: "sine.inOut", yoyo: true, repeat: Math.floor(DUR / 5.2) - 1 }, 0);
+
+      // brillitos: posiciones fijas, titilan y giran
+      const P = [[110, 640], [960, 720], [190, 1420], [880, 1360], [80, 1050], [1000, 1120], [300, 560], [780, 1560]];
+      qa(".amb-brillo").forEach((b, i) => {
+        gsap.set(b, { x: P[i][0], y: P[i][1], scale: 0, opacity: 0 });
+        const per = 2.2 + (i % 4) * 0.6;
+        tl.fromTo(b, { scale: 0, opacity: 0, rotation: 0 }, { scale: 1 + (i % 3) * 0.3, opacity: 0.85, rotation: 90, duration: per / 2, ease: "sine.inOut", yoyo: true, repeat: Math.floor((DUR - 1) / (per / 2)) - 1 }, (i * 0.53) % 2);
+      });
+
+      // flashes (segundos globales): "infiel", "pruebas", las tres pruebas, "estaba", "INFIEL" del cierre
+      const FLASH = [1.6, 3.8, 5.3, 17.65, 25.55, 44.55, 57.55];
+      const fl = q(".amb-flash");
+      FLASH.forEach((t) => {
+        tl.to(fl, { opacity: 0.75, duration: 0.03 }, t);
+        tl.to(fl, { opacity: 0, duration: 0.28, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

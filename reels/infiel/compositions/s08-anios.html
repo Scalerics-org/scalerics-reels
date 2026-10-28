@@ -1,0 +1,250 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-anios"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-anios"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-anios"] .papel { fill: #fff6ea; }
+    [data-composition-id="s08-anios"] .foto { fill: #2a0d1d; }
+    [data-composition-id="s08-anios"] .oro { fill: #ffc83d; }
+    [data-composition-id="s08-anios"] .rosa { fill: #ff3d7f; }
+    [data-composition-id="s08-anios"] .ln { fill: none; stroke: #fff6ea; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-anios"] .ln-vino { fill: none; stroke: #2a0d1d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-anios"] .ln-oro { fill: none; stroke: #ffc83d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-anios"] .marcador { fill: none; stroke: #ff3d7f; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-anios"] .bando { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 40px; letter-spacing: 0.06em; }
+    [data-composition-id="s08-anios"] .anio { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 54px; fill: #2a0d1d; }
+    [data-composition-id="s08-anios"] .mes { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #fff6ea; }
+    [data-composition-id="s08-anios"] .horario { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 25px; letter-spacing: 0.08em; fill: #2a0d1d; }
+    [data-composition-id="s08-anios"] .cerrado { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; letter-spacing: 0.1em; fill: #fff6ea; }
+    [data-composition-id="s08-anios"] .h24 { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 44px; fill: #2a0d1d; }
+    [data-composition-id="s08-anios"] .brillo-rosa { filter: drop-shadow(0 0 20px rgba(255, 61, 127, 0.75)); }
+    [data-composition-id="s08-anios"] .brillo-oro { filter: drop-shadow(0 0 22px rgba(255, 200, 61, 0.7)); }
+    [data-composition-id="s08-anios"] .etiqueta { position: absolute; left: 0; right: 0; top: 1305px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffc83d; }
+    [data-composition-id="s08-anios"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-anios" data-width="1080" data-height="1920" data-duration="6.11">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="6.11" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s08-cam">
+          <!-- los bandos del duelo -->
+          <text class="bando s08-vos" x="270" y="622" text-anchor="middle" fill="#fff6ea" opacity="0.75">VOS</text>
+          <text class="bando s08-otro brillo-oro" x="810" y="622" text-anchor="middle" fill="#ffc83d">EL OTRO</text>
+
+          <!-- la balanza: poste y base -->
+          <g class="s08-pie">
+            <path class="ln" d="M540 712 V1236" />
+            <path class="ln" d="M470 1262 L540 1236 L610 1262 Z" />
+            <path class="ln" d="M430 1262 H650" />
+          </g>
+
+          <!-- la viga (rectángulo invisible centrado en el pivote para que gire sobre él) -->
+          <g class="s08-viga">
+            <rect x="256" y="680" width="568" height="40" fill="none" stroke="none" />
+            <path class="ln" d="M270 700 H810" />
+            <circle class="ln" cx="270" cy="700" r="8" />
+            <circle class="ln" cx="810" cy="700" r="8" />
+          </g>
+
+          <!-- plato izquierdo: VOS = calendario de años + cartel de horario -->
+          <g class="s08-platoL">
+            <path class="ln" d="M270 708 L150 1060 M270 708 L390 1060" opacity="0.6" />
+            <path class="ln" d="M140 1060 H400 Q370 1104 270 1104 Q170 1104 140 1060 Z" />
+            <g class="s08-cal">
+              <rect class="papel" x="182" y="866" width="176" height="188" rx="10" />
+              <rect class="foto" x="182" y="866" width="176" height="52" rx="10" />
+              <rect class="foto" x="182" y="900" width="176" height="18" />
+              <circle class="papel" cx="225" cy="866" r="7" />
+              <circle class="papel" cx="315" cy="866" r="7" />
+              <text class="mes" x="270" y="901" text-anchor="middle">AÑOS</text>
+              <g class="s08-anios">
+                <text class="anio" x="270" y="1004" text-anchor="middle">2019</text>
+                <text class="anio" x="270" y="1004" text-anchor="middle">2020</text>
+                <text class="anio" x="270" y="1004" text-anchor="middle">2021</text>
+                <text class="anio" x="270" y="1004" text-anchor="middle">2022</text>
+                <text class="anio" x="270" y="1004" text-anchor="middle">2023</text>
+                <text class="anio" x="270" y="1004" text-anchor="middle">2024</text>
+                <text class="anio" x="270" y="1004" text-anchor="middle">2025</text>
+              </g>
+              <path class="rosa s08-corazonL" d="M270 1028 C266 1022 256 1022 256 1031 C256 1039 266 1043 270 1048 C274 1043 284 1039 284 1031 C284 1022 274 1022 270 1028 Z" />
+              <!-- la hoja que se arranca -->
+              <rect class="papel s08-hoja" x="182" y="918" width="176" height="136" />
+            </g>
+            <!-- el cartel de horario colgando abajo del plato -->
+            <g class="s08-cartel">
+              <path class="ln" d="M200 1100 L210 1132 M340 1100 L330 1132" opacity="0.6" />
+              <g class="s08-cartel-a">
+                <rect class="papel" x="120" y="1132" width="300" height="70" rx="8" />
+                <text class="horario" x="270" y="1177" text-anchor="middle">HORARIO 9 A 19</text>
+              </g>
+              <g class="s08-cartel-b">
+                <rect class="rosa" x="120" y="1132" width="300" height="70" rx="8" />
+                <text class="cerrado" x="270" y="1180" text-anchor="middle">CERRADO</text>
+              </g>
+            </g>
+          </g>
+
+          <!-- plato derecho: EL OTRO = reloj dorado 24 h -->
+          <g class="s08-platoR">
+            <path class="ln-oro" d="M810 708 L690 1060 M810 708 L930 1060" opacity="0.7" />
+            <path class="ln-oro" d="M680 1060 H940 Q910 1104 810 1104 Q710 1104 680 1060 Z" />
+            <g class="s08-reloj brillo-oro">
+              <circle class="foto" cx="810" cy="960" r="86" />
+              <circle class="ln-oro" cx="810" cy="960" r="86" />
+              <path class="ln-oro" d="M810 884 V898 M810 1022 V1036 M734 960 H748 M872 960 H886" />
+              <path class="ln-oro" d="M770 1040 L760 1058 M850 1040 L860 1058" />
+              <path class="ln-oro" d="M760 876 L748 864 M860 876 L872 864" />
+              <path class="ln-oro s08-aguja-h" d="M810 960 V916" />
+              <path class="ln-oro s08-aguja-m" d="M810 960 V896" stroke-width="4" />
+              <circle class="oro" cx="810" cy="960" r="7" />
+            </g>
+            <g transform="translate(-127 -189) scale(1.18)"><g class="s08-badge brillo-oro">
+              <path class="oro" d="M900 880 L911 902 L935 896 L930 920 L952 932 L932 946 L942 968 L918 968 L912 992 L894 976 L874 990 L870 966 L846 964 L858 944 L840 928 L862 918 L860 894 L882 902 Z" />
+              <text class="h24" x="896" y="950" font-size="36" text-anchor="middle">24H</text>
+            </g></g>
+            <!-- marcador: círculo alrededor del 24 H -->
+            <path class="marcador s08-circulo" transform="translate(-127 -189) scale(1.18)" d="M900 860 C960 862 978 930 962 972 C944 1016 872 1020 846 986 C820 950 834 870 900 860 C912 858 922 862 930 868" />
+            <!-- corazoncitos que salen del otro -->
+            <path class="rosa s08-cz s08-cz1" d="M740 900 C736 894 726 894 726 903 C726 911 736 915 740 920 C744 915 754 911 754 903 C754 894 744 894 740 900 Z" />
+            <path class="rosa s08-cz s08-cz2" d="M790 870 C786 864 776 864 776 873 C776 881 786 885 790 890 C794 885 804 881 804 873 C804 864 794 864 790 870 Z" />
+            <path class="rosa s08-cz s08-cz3" d="M860 880 C856 874 846 874 846 883 C846 891 856 895 860 900 C864 895 874 891 874 883 C874 874 864 874 860 880 Z" />
+          </g>
+
+          <circle class="papel" cx="540" cy="700" r="12" />
+          <!-- sparkles del otro -->
+          <g class="s08-chispas">
+            <path class="ln-oro" d="M690 820 V850 M675 835 H705" />
+            <path class="ln-oro" d="M955 800 V830 M940 815 H970" />
+            <path class="ln-oro" d="M960 1080 V1104 M948 1092 H972" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">Años de atención</span><span class="s08-e2">Él está siempre</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-anios";
+      const DUR = 6.11;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (palabras)
+      const LE_DISTE = 0.4;
+      const ANIOS = 1.07;
+      const ATENCION = 1.9;
+      const EL_OTRO = 3.25;
+      const ATENCION2 = 4.2;
+      const CUALQUIER = 4.9;
+      const HORA = 5.3;
+
+      const dibujar = (els, t, dur) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // la balanza: la viga gira sobre el pivote y los platos cuelgan siguiendo las puntas
+      const R = 270;
+      const inclinar = (deg, t, dur, ease) => {
+        const a = (deg * Math.PI) / 180;
+        const dx = R * (1 - Math.cos(a));
+        const dy = R * Math.sin(a);
+        tl.to(q(".s08-viga"), { rotation: deg, transformOrigin: "50% 50%", duration: dur, ease }, t);
+        tl.to(q(".s08-platoL"), { x: dx, y: -dy, duration: dur, ease }, t);
+        tl.to(q(".s08-platoR"), { x: -dx, y: dy, duration: dur, ease }, t);
+      };
+      gsap.set(q(".s08-viga"), { rotation: 0, transformOrigin: "50% 50%" });
+
+      // cuadro 0: la balanza ya está, cae a la mesa
+      tl.fromTo(q(".s08-cam"), { y: -50, scale: 1.06, transformOrigin: "50% 50%" }, { y: 0, scale: 1, transformOrigin: "50% 50%", duration: 0.4, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s08-vos"), { scale: 0.6, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(2)" }, 0.05);
+
+      // "le diste": el calendario cae al plato de VOS y la balanza se va para tu lado
+      gsap.set(q(".s08-cal"), { opacity: 0 });
+      tl.fromTo(q(".s08-cal"), { opacity: 0, y: -260, rotation: -16, transformOrigin: "50% 100%" }, { opacity: 1, y: 0, rotation: 0, transformOrigin: "50% 100%", duration: 0.35, ease: "power3.in", immediateRender: false }, LE_DISTE - 0.15);
+      inclinar(-8, LE_DISTE + 0.2, 0.6, "back.out(2.2)");
+      gsap.set(q(".s08-hoja"), { opacity: 0 });
+
+      // "años": los años pasan volando (hojas arrancadas)
+      const anios = qa(".s08-anios text");
+      anios.forEach((el, i) => gsap.set(el, { opacity: i === 0 ? 1 : 0 }));
+      const paso = 0.14;
+      anios.forEach((el, i) => {
+        if (i === 0) return;
+        const t = ANIOS + (i - 1) * paso;
+        tl.set(anios[i - 1], { opacity: 0 }, t);
+        tl.set(el, { opacity: 1 }, t);
+      });
+      // la hoja que vuela, una por año
+      for (let i = 0; i < 4; i++) {
+        const t = ANIOS + i * paso * 1.5;
+        tl.fromTo(q(".s08-hoja"), { opacity: 1, x: 0, y: 0, rotation: 0, transformOrigin: "50% 0%" }, { opacity: 0, x: -90 - i * 10, y: -110, rotation: -40, transformOrigin: "50% 0%", duration: paso * 1.5, ease: "power2.out", immediateRender: false }, t);
+      }
+      tl.fromTo(q(".s08-cal"), { scale: 1, transformOrigin: "50% 100%" }, { scale: 1.08, transformOrigin: "50% 100%", duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, ANIOS);
+      tl.fromTo(q(".s08-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, ANIOS);
+      // corazoncito crema-rosa del calendario late con "buena atención"
+      tl.fromTo(q(".s08-corazonL"), { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(3)" }, 1.6);
+      tl.to(q(".s08-corazonL"), { scale: 1.35, transformOrigin: "50% 50%", duration: 0.14, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.95);
+
+      // "atención": cae el cartel de horario, y a las 19... da vuelta a CERRADO
+      gsap.set(q(".s08-cartel"), { opacity: 0 });
+      tl.fromTo(q(".s08-cartel"), { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2.4)", immediateRender: false }, ATENCION - 0.1);
+      tl.fromTo(q(".s08-cartel"), { rotation: 0, transformOrigin: "50% 0%" }, { rotation: 6, transformOrigin: "50% 0%", duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, ATENCION + 0.2);
+      gsap.set(q(".s08-cartel-b"), { opacity: 0 });
+      tl.to(q(".s08-cartel-a"), { scaleY: 0, transformOrigin: "50% 50%", duration: 0.12, ease: "power2.in" }, 2.95);
+      tl.set(q(".s08-cartel-a"), { opacity: 0 }, 3.07);
+      tl.fromTo(q(".s08-cartel-b"), { opacity: 1, scaleY: 0, transformOrigin: "50% 50%" }, { opacity: 1, scaleY: 1, transformOrigin: "50% 50%", duration: 0.16, ease: "back.out(2)", immediateRender: false }, 3.07);
+      // y la balanza ya no está tan segura (titubea)
+      inclinar(-4, 2.9, 0.35, "power2.inOut");
+
+      // "el otro": aparece EL OTRO y su reloj dorado cae del cielo
+      gsap.set(q(".s08-otro"), { opacity: 0 });
+      tl.fromTo(q(".s08-otro"), { opacity: 0, scale: 1.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.25, ease: "power4.in", immediateRender: false }, EL_OTRO);
+      gsap.set(q(".s08-reloj"), { opacity: 0 });
+      tl.fromTo(q(".s08-reloj"), { opacity: 0, y: -300, rotation: 30, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, rotation: 0, transformOrigin: "50% 50%", duration: 0.32, ease: "power3.in", immediateRender: false }, EL_OTRO + 0.05);
+      inclinar(3, EL_OTRO + 0.35, 0.5, "back.out(2.5)");
+      tl.to(q(".s08-e1"), { opacity: 0, y: -10, duration: 0.2 }, EL_OTRO);
+
+      // las agujas: tranquilas al llegar, a toda velocidad desde "atención"
+      tl.fromTo(q(".s08-aguja-m"), { rotation: 0, transformOrigin: "50% 100%" }, { rotation: 180, transformOrigin: "50% 100%", duration: 0.9, ease: "none", immediateRender: false }, EL_OTRO + 0.4);
+      tl.to(q(".s08-aguja-m"), { rotation: 180 + 360 * 7, transformOrigin: "50% 100%", duration: DUR - ATENCION2, ease: "power2.in" }, ATENCION2 - 0.1);
+      tl.fromTo(q(".s08-aguja-h"), { rotation: 30, transformOrigin: "50% 100%" }, { rotation: 30 + 360 * 2, transformOrigin: "50% 100%", duration: DUR - ATENCION2 + 0.1, ease: "power2.in", immediateRender: false }, ATENCION2 - 0.1);
+      tl.fromTo(q(".s08-reloj"), { x: 0 }, { x: 4, duration: 0.05, yoyo: true, repeat: 15, ease: "none", immediateRender: false }, ATENCION2 + 0.2);
+
+      // "a cualquier hora": 24H, la balanza se desploma hacia el otro, zoom de golpe
+      gsap.set(q(".s08-badge"), { opacity: 0 });
+      tl.fromTo(q(".s08-badge"), { opacity: 0, scale: 2.6, rotation: -40, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 8, transformOrigin: "50% 50%", duration: 0.2, ease: "power4.in", immediateRender: false }, CUALQUIER - 0.12);
+      tl.to(q(".s08-badge"), { rotation: -6, scale: 1.12, transformOrigin: "50% 50%", duration: 0.18, yoyo: true, repeat: 5, ease: "sine.inOut" }, CUALQUIER + 0.1);
+      inclinar(11, CUALQUIER, 0.55, "back.out(3)");
+      // VOS sale volando para arriba un poco y se apaga
+      tl.to(q(".s08-vos"), { opacity: 0.35, duration: 0.3 }, CUALQUIER);
+      tl.fromTo(q(".s08-cam"), { scale: 1, transformOrigin: "60% 75%" }, { scale: 1.06, transformOrigin: "60% 75%", duration: 0.16, ease: "power3.out", immediateRender: false }, CUALQUIER);
+      [[-12, 7], [10, -6], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s08-cam"), { x, y, duration: 0.04, ease: "none" }, CUALQUIER + 0.16 + i * 0.045));
+      gsap.set(q(".s08-chispas"), { opacity: 0 });
+      tl.fromTo(q(".s08-chispas"), { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(3)", immediateRender: false }, CUALQUIER + 0.05);
+      tl.to(q(".s08-chispas"), { rotation: 8, transformOrigin: "50% 50%", opacity: 0.4, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, CUALQUIER + 0.4);
+      // corazoncitos que suben del reloj
+      qa(".s08-cz").forEach((c, i) => {
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { opacity: 1, y: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 0, y: -170 - i * 30, scale: 1.2, transformOrigin: "50% 50%", duration: 0.9, ease: "power1.out", immediateRender: false }, CUALQUIER + 0.1 + i * 0.12);
+      });
+      // "hora": círculo de marcador al 24H
+      dibujar([q(".s08-circulo")], HORA - 0.05, 0.4);
+      tl.fromTo(q(".s08-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, CUALQUIER);
+
+      // salida: zoom de golpe + fundido
+      tl.to(q("#s08-escena"), { scale: 1.2, opacity: 0, filter: "blur(6px)", transformOrigin: "60% 50%", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

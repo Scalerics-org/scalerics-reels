@@ -1,0 +1,161 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-prueba1"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-prueba1"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-prueba1"] .papel { fill: #fff6ea; }
+    [data-composition-id="s03-prueba1"] .foto { fill: #2a0d1d; }
+    [data-composition-id="s03-prueba1"] .ln { fill: none; stroke: #fff6ea; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-prueba1"] .ln-oro { fill: none; stroke: #ffc83d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-prueba1"] .marco { fill: rgba(42, 13, 29, 0.82); stroke: #ff3d7f; stroke-width: 8; }
+    [data-composition-id="s03-prueba1"] .marco-in { fill: none; stroke: #ff3d7f; stroke-width: 3; opacity: 0.6; }
+    [data-composition-id="s03-prueba1"] .marcador { fill: none; stroke: #ff3d7f; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-prueba1"] .corazon { fill: #ff3d7f; }
+    [data-composition-id="s03-prueba1"] .oro { fill: #ffc83d; }
+    [data-composition-id="s03-prueba1"] .crema { fill: #fff6ea; }
+    [data-composition-id="s03-prueba1"] .t-prueba { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 120px; letter-spacing: 0.08em; fill: #ff3d7f; }
+    [data-composition-id="s03-prueba1"] .t-num { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 200px; letter-spacing: 0.02em; fill: #ff3d7f; }
+    [data-composition-id="s03-prueba1"] .t-gorro { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.3em; fill: #ffc83d; }
+    [data-composition-id="s03-prueba1"] .t-dia { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.28em; fill: #2a0d1d; }
+    [data-composition-id="s03-prueba1"] .t-hora { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 128px; letter-spacing: 0.02em; fill: #ffc83d; }
+    [data-composition-id="s03-prueba1"] .t-chico { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; fill: #fff6ea; }
+    [data-composition-id="s03-prueba1"] .brillo-rosa { filter: drop-shadow(0 0 22px rgba(255, 61, 127, 0.75)); }
+    [data-composition-id="s03-prueba1"] .brillo-oro { filter: drop-shadow(0 0 18px rgba(255, 200, 61, 0.7)); }
+    [data-composition-id="s03-prueba1"] .etiqueta { position: absolute; left: 0; right: 0; top: 1305px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffc83d; }
+    [data-composition-id="s03-prueba1"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-prueba1" data-width="1080" data-height="1920" data-duration="3.46">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.46" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s03-camara">
+          <g class="s03-tiembla">
+            <!-- TARJETA DE PRUEBA (molde para Nº2 y Nº3): marco rosa doble con foquitos dorados de cartel de telenovela -->
+            <g class="s03-tarjeta">
+              <g class="s03-tarjeta-in brillo-rosa">
+                <rect class="marco" x="150" y="640" width="780" height="420" rx="26" />
+                <rect class="marco-in" x="172" y="662" width="736" height="376" rx="16" />
+                <text class="t-gorro" x="540" y="712" text-anchor="middle">EXPEDIENTE · CASO 0412</text>
+                <text class="t-prueba" x="540" y="830" text-anchor="middle">PRUEBA</text>
+                <text class="t-num" x="540" y="1012" text-anchor="middle">Nº1</text>
+              </g>
+              <!-- foquitos del cartel -->
+              <g class="s03-focos">
+                <circle class="oro s03-foco" cx="150" cy="700" r="9" /><circle class="oro s03-foco" cx="150" cy="790" r="9" /><circle class="oro s03-foco" cx="150" cy="880" r="9" /><circle class="oro s03-foco" cx="150" cy="970" r="9" />
+                <circle class="oro s03-foco" cx="930" cy="700" r="9" /><circle class="oro s03-foco" cx="930" cy="790" r="9" /><circle class="oro s03-foco" cx="930" cy="880" r="9" /><circle class="oro s03-foco" cx="930" cy="970" r="9" />
+                <circle class="oro s03-foco" cx="260" cy="640" r="9" /><circle class="oro s03-foco" cx="400" cy="640" r="9" /><circle class="oro s03-foco" cx="540" cy="640" r="9" /><circle class="oro s03-foco" cx="680" cy="640" r="9" /><circle class="oro s03-foco" cx="820" cy="640" r="9" />
+                <circle class="oro s03-foco" cx="260" cy="1060" r="9" /><circle class="oro s03-foco" cx="400" cy="1060" r="9" /><circle class="oro s03-foco" cx="540" cy="1060" r="9" /><circle class="oro s03-foco" cx="680" cy="1060" r="9" /><circle class="oro s03-foco" cx="820" cy="1060" r="9" />
+              </g>
+            </g>
+
+            <!-- EL CALENDARIO: hoja crema arrancable, MARTES, y debajo el reloj dorado de la noche -->
+            <g class="s03-cal">
+              <rect class="papel" x="290" y="790" width="500" height="430" rx="18" />
+              <rect class="corazon" x="290" y="790" width="500" height="92" rx="18" />
+              <rect class="corazon" x="290" y="850" width="500" height="32" />
+              <text class="t-dia s03-martes" x="540" y="852" text-anchor="middle" style="fill:#fff6ea">MARTES</text>
+              <!-- anillos -->
+              <path class="ln-oro" d="M370 772 V806 M450 772 V806 M630 772 V806 M710 772 V806" />
+              <rect class="foto" x="320" y="902" width="440" height="290" rx="10" />
+              <!-- la hora va cambiando hasta las 23:00 -->
+              <text data-layout-ignore class="t-hora s03-h1" x="540" y="1100" text-anchor="middle" opacity="0">22:58</text>
+              <text data-layout-ignore class="t-hora s03-h2" x="540" y="1100" text-anchor="middle" opacity="0">22:59</text>
+              <g class="s03-h3" opacity="0">
+                <text class="t-hora brillo-oro" x="540" y="1100" text-anchor="middle">23:00</text>
+              </g>
+              <text class="t-chico s03-pm" x="540" y="1174" text-anchor="middle" opacity="0">DE LA NOCHE</text>
+            </g>
+            <!-- la luna y las estrellas (afuera del calendario, arriba a la derecha) -->
+            <g class="s03-luna brillo-oro">
+              <path class="oro" d="M842 690 A62 62 0 1 0 900 788 A48 48 0 1 1 842 690 Z" />
+            </g>
+            <path class="oro s03-estrella" d="M222 720 L228 738 L246 744 L228 750 L222 768 L216 750 L198 744 L216 738 Z" />
+            <path class="oro s03-estrella" d="M880 1150 L885 1164 L899 1169 L885 1174 L880 1188 L875 1174 L861 1169 L875 1164 Z" />
+            <path class="oro s03-estrella" d="M200 1060 L204 1072 L216 1076 L204 1080 L200 1092 L196 1080 L184 1076 L196 1072 Z" />
+            <!-- el marcador rodea la hora -->
+            <path class="marcador s03-circulo" d="M540 978 C390 980 330 1010 338 1050 C348 1110 470 1128 560 1126 C690 1122 756 1094 748 1046 C740 996 650 974 520 980 C500 981 482 986 466 992" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">Prueba 1</span><span class="s03-e2">Martes · 23:00</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-prueba1";
+      const DUR = 3.46;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const MARTES = 1.31;
+      const ONCE = 1.73;
+      const NOCHE = 2.53;
+
+      const dibujar = (els, t, dur) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // TARJETA: entra con zoom de golpe (visible desde el cuadro 0; flash global 5.3)
+      tl.fromTo(q(".s03-tarjeta"), { scale: 2.6, rotation: 6, transformOrigin: "50% 50%" }, { scale: 1, rotation: -3, transformOrigin: "50% 50%", duration: 0.14, ease: "power4.in" }, 0);
+      [[-18, 10], [14, -8], [-9, 6], [5, -3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s03-tiembla"), { x, y, duration: 0.04, ease: "none" }, 0.15 + i * 0.045));
+      // zoom dramático de cámara sobre la tarjeta
+      tl.fromTo(q(".s03-camara"), { scale: 1, transformOrigin: "50% 45%" }, { scale: 1.12, transformOrigin: "50% 45%", duration: 0.22, ease: "power3.out" }, 0.2);
+      tl.to(q(".s03-camara"), { scale: 1.04, transformOrigin: "50% 45%", duration: 0.8, ease: "sine.inOut" }, 0.45);
+      // "número uno": el Nº1 late
+      tl.to(q(".s03-tarjeta-in"), { scale: 1.06, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0.63);
+      // foquitos que titilan alternados (finito)
+      qa(".s03-foco").forEach((f, i) => {
+        tl.fromTo(f, { opacity: i % 2 ? 1 : 0.25 }, { opacity: i % 2 ? 0.25 : 1, duration: 0.14, ease: "none", yoyo: true, repeat: 7 }, 0.15);
+      });
+
+      // la tarjeta se va con barrido en "martes"
+      tl.to(q(".s03-tarjeta"), { x: -1150, rotation: -10, opacity: 0.4, transformOrigin: "50% 50%", duration: 0.24, ease: "power3.in" }, MARTES - 0.2);
+
+      // "martes": el calendario entra con barrido desde la derecha
+      gsap.set(q(".s03-cal"), { opacity: 0 });
+      tl.fromTo(q(".s03-cal"), { x: 1100, rotation: 10, opacity: 1, transformOrigin: "50% 50%" }, { x: 0, rotation: -2, opacity: 1, transformOrigin: "50% 50%", duration: 0.26, ease: "back.out(1.3)", immediateRender: false }, MARTES - 0.06);
+      tl.to(q(".s03-camara"), { scale: 1, transformOrigin: "50% 45%", duration: 0.3, ease: "power2.out" }, MARTES);
+      // la hora corre: 22:58, 22:59 y en "once" clava 23:00
+      tl.set(q(".s03-h1"), { opacity: 1 }, MARTES + 0.1);
+      tl.set(q(".s03-h1"), { opacity: 0 }, MARTES + 0.28);
+      tl.set(q(".s03-h2"), { opacity: 1 }, MARTES + 0.28);
+      tl.set(q(".s03-h2"), { opacity: 0 }, ONCE);
+      tl.set(q(".s03-h3"), { opacity: 1 }, ONCE);
+      tl.fromTo(q(".s03-h3"), { scale: 1.5, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.2, ease: "power4.in", immediateRender: false }, ONCE);
+      [[-10, 6], [8, -4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s03-tiembla"), { x, y, duration: 0.04, ease: "none" }, ONCE + 0.2 + i * 0.045));
+      tl.fromTo(q(".s03-cal"), { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.08, transformOrigin: "50% 50%", duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ONCE + 0.2);
+
+      // la luna sale y las estrellas titilan ("de la noche")
+      gsap.set(q(".s03-luna"), { opacity: 0 });
+      tl.fromTo(q(".s03-luna"), { opacity: 0, y: 80, rotation: -40, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, rotation: 0, transformOrigin: "50% 50%", duration: 0.45, ease: "back.out(1.6)", immediateRender: false }, MARTES + 0.15);
+      tl.to(q(".s03-luna"), { rotation: 12, transformOrigin: "50% 50%", duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 1 }, MARTES + 0.6);
+      qa(".s03-estrella").forEach((s, i) => {
+        gsap.set(s, { scale: 0, transformOrigin: "50% 50%" });
+        tl.to(s, { scale: 1.2, rotation: 90, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(2)" }, MARTES + 0.3 + i * 0.18);
+        tl.to(s, { scale: 0.6, transformOrigin: "50% 50%", duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 3 }, MARTES + 0.62 + i * 0.18);
+      });
+      tl.fromTo(q(".s03-pm"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, 2.2);
+      dibujar([q(".s03-circulo")], NOCHE, 0.45);
+
+      // etiquetas
+      tl.fromTo(q(".s03-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, 0.12);
+      tl.to(q(".s03-e1"), { opacity: 0, y: -10, duration: 0.15 }, MARTES);
+      tl.fromTo(q(".s03-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, ONCE);
+
+      // salida: barrido hacia la izquierda con blur
+      tl.to(q("#s03-escena"), { x: -260, opacity: 0, filter: "blur(6px)", duration: 0.24, ease: "power3.in" }, DUR - 0.24);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

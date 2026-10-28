@@ -33,7 +33,7 @@
 - 28-10 · `crecer-sin-contratar` · Todo Scalerics · "Para crecer no necesitás contratar a nadie. Necesitás dejar de hacer todo a mano." · Comentá CRECER
 - 28-10 · `negocio-zombi` · Todo Scalerics · especial Halloween 2, más color y efectos: "Tu negocio no está muerto. Es peor: es un zombi." · Comentá ZOMBI [formato H · estilo zombi con ambiente]
 - 28-10 · `tu-jarvis` · Todo Scalerics · "¿Y si tu comercio tuviera su propio JARVIS?" · Comentá JARVIS [formato B+G · estilo HUD, dos voces]
-- 28-10 · `infiel` · Todo Scalerics · formato telenovela (lo hace Claude en la compu de Juan)
+- 28-10 · `infiel` · Todo Scalerics · "Tu cliente te está siendo infiel. Y tengo las pruebas." · Comentá INFIEL si te pasó [formato D telenovela · estilo polaroids/sellos rosa-dorado]
 
 ## En curso
 

@@ -1,0 +1,218 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-prueba2"] .s06-capa, [data-composition-id="s06-prueba2"] .s06-cam, [data-composition-id="s06-prueba2"] .s06-tiembla { position: absolute; inset: 0; }
+    [data-composition-id="s06-prueba2"] svg.s06-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-prueba2"] .ln { fill: none; stroke: #fff6ea; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-prueba2"] .ln-oro { fill: none; stroke: #ffc83d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-prueba2"] .marco { fill: rgba(42, 13, 29, 0.82); stroke: #ff3d7f; stroke-width: 8; }
+    [data-composition-id="s06-prueba2"] .marco-in { fill: none; stroke: #ff3d7f; stroke-width: 3; opacity: 0.6; }
+    [data-composition-id="s06-prueba2"] .marcador { fill: none; stroke: #ff3d7f; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-prueba2"] .hilo { fill: none; stroke: #ff3d7f; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s06-prueba2"] .corazon { fill: #ff3d7f; }
+    [data-composition-id="s06-prueba2"] .oro { fill: #ffc83d; }
+    [data-composition-id="s06-prueba2"] .t-prueba { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 120px; letter-spacing: 0.08em; fill: #ff3d7f; }
+    [data-composition-id="s06-prueba2"] .t-num { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 200px; letter-spacing: 0.02em; fill: #ff3d7f; }
+    [data-composition-id="s06-prueba2"] .t-gorro { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.3em; fill: #ffc83d; }
+    [data-composition-id="s06-prueba2"] .t-30 { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 62px; fill: #ff3d7f; }
+    [data-composition-id="s06-prueba2"] .brillo-rosa { filter: drop-shadow(0 0 22px rgba(255, 61, 127, 0.75)); }
+    [data-composition-id="s06-prueba2"] .brillo-oro { filter: drop-shadow(0 0 22px rgba(255, 200, 61, 0.55)); }
+    /* polaroids */
+    [data-composition-id="s06-prueba2"] .s06-pol { position: absolute; top: 622px; width: 270px; height: 300px; background: #fff6ea; border-radius: 6px; box-shadow: 0 10px 30px rgba(10, 3, 7, 0.55); }
+    [data-composition-id="s06-prueba2"] .s06-pol svg { position: absolute; left: 18px; top: 18px; width: 234px; height: 216px; background: #2a0d1d; }
+    [data-composition-id="s06-prueba2"] .s06-pie { position: absolute; left: 0; right: 0; top: 248px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.08em; color: #2a0d1d; white-space: nowrap; }
+    /* la libreta del otro */
+    [data-composition-id="s06-prueba2"] .s06-ficha { position: absolute; left: 110px; top: 975px; width: 860px; height: 290px; background: #fff6ea; border-radius: 10px; box-shadow: 0 12px 34px rgba(10, 3, 7, 0.6); }
+    [data-composition-id="s06-prueba2"] .s06-banda { position: absolute; left: 0; right: 0; top: 0; height: 58px; border-radius: 10px 10px 0 0; background: #ffc83d; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.22em; line-height: 58px; text-align: center; color: #2a0d1d; }
+    [data-composition-id="s06-prueba2"] .s06-fila { position: absolute; left: 36px; right: 36px; height: 64px; border-bottom: 3px dashed rgba(42, 13, 29, 0.25); }
+    [data-composition-id="s06-prueba2"] .s06-lab { position: absolute; left: 0; top: 22px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; color: #2a0d1d; opacity: 0.7; white-space: nowrap; }
+    [data-composition-id="s06-prueba2"] .s06-val { position: absolute; left: 270px; top: 6px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 42px; line-height: 1.2; color: #2a0d1d; white-space: nowrap; }
+    [data-composition-id="s06-prueba2"] .s06-val span { opacity: 0; }
+    [data-composition-id="s06-prueba2"] .s06-ficha svg { position: absolute; left: 0; top: 0; width: 860px; height: 290px; overflow: visible; }
+    [data-composition-id="s06-prueba2"] .etiqueta { position: absolute; left: 0; right: 0; top: 1305px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffc83d; }
+    [data-composition-id="s06-prueba2"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s06-prueba2" data-width="1080" data-height="1920" data-duration="7.90">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="7.90" data-track-index="0">
+      <div class="s06-cam">
+        <div class="s06-tiembla">
+          <!-- TARJETA "PRUEBA Nº2" (mismo molde que s03) -->
+          <svg class="s06-full" viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s06-tarjeta">
+              <g class="s06-tarjeta-in brillo-rosa">
+                <rect class="marco" x="150" y="640" width="780" height="420" rx="26" />
+                <rect class="marco-in" x="172" y="662" width="736" height="376" rx="16" />
+                <text class="t-gorro" x="540" y="712" text-anchor="middle">EXPEDIENTE · CASO 0412</text>
+                <text class="t-prueba" x="540" y="830" text-anchor="middle">PRUEBA</text>
+                <text class="t-num" x="540" y="1012" text-anchor="middle">Nº2</text>
+              </g>
+              <g class="s06-focos">
+                <circle class="oro s06-foco" cx="150" cy="700" r="9" /><circle class="oro s06-foco" cx="150" cy="790" r="9" /><circle class="oro s06-foco" cx="150" cy="880" r="9" /><circle class="oro s06-foco" cx="150" cy="970" r="9" />
+                <circle class="oro s06-foco" cx="930" cy="700" r="9" /><circle class="oro s06-foco" cx="930" cy="790" r="9" /><circle class="oro s06-foco" cx="930" cy="880" r="9" /><circle class="oro s06-foco" cx="930" cy="970" r="9" />
+                <circle class="oro s06-foco" cx="260" cy="640" r="9" /><circle class="oro s06-foco" cx="400" cy="640" r="9" /><circle class="oro s06-foco" cx="540" cy="640" r="9" /><circle class="oro s06-foco" cx="680" cy="640" r="9" /><circle class="oro s06-foco" cx="820" cy="640" r="9" />
+                <circle class="oro s06-foco" cx="260" cy="1060" r="9" /><circle class="oro s06-foco" cx="400" cy="1060" r="9" /><circle class="oro s06-foco" cx="540" cy="1060" r="9" /><circle class="oro s06-foco" cx="680" cy="1060" r="9" /><circle class="oro s06-foco" cx="820" cy="1060" r="9" />
+              </g>
+            </g>
+          </svg>
+
+          <!-- LA LIBRETA DEL OTRO: lo anota todo -->
+          <div class="s06-ficha">
+            <div class="s06-banda">LIBRETA DE EL OTRO</div>
+            <div class="s06-fila" style="top:76px"><div class="s06-lab">NOMBRE:</div><div class="s06-val s06-v1">LUCÍA</div></div>
+            <div class="s06-fila" style="top:146px"><div class="s06-lab">PIDE:</div><div class="s06-val s06-v2">EL DE SIEMPRE</div></div>
+            <div class="s06-fila" style="top:216px"><div class="s06-lab">ÚLTIMA VISITA:</div><div class="s06-val s06-v3">HACE 30 DÍAS</div></div>
+            <svg viewBox="0 0 860 290" aria-hidden="true">
+              <path class="marcador s06-c1" d="" />
+              <path class="marcador s06-c2" d="" />
+              <path class="marcador s06-c3" d="" />
+              <path class="corazon s06-banda-cora" d="M800 22 C795 15 784 17 784 26 C784 35 795 40 800 46 C805 40 816 35 816 26 C816 17 805 15 800 22 Z" />
+            </svg>
+          </div>
+
+          <!-- las tres polaroids (pruebas) -->
+          <div class="s06-pol s06-p1" style="left:66px">
+            <svg viewBox="0 0 234 216" aria-hidden="true">
+              <path class="ln" d="M20 196 H214" opacity="0.4" />
+              <g transform="translate(117 194) scale(1.45)">
+                <circle class="ln" cx="0" cy="-96" r="14" />
+                <path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" />
+                <path class="corazon" d="M0 -126 C-6 -134 -18 -132 -18 -122 C-18 -112 -6 -106 0 -100 C6 -106 18 -112 18 -122 C18 -132 6 -134 0 -126 Z" />
+              </g>
+            </svg>
+            <div class="s06-pie">LUCÍA</div>
+          </div>
+          <div class="s06-pol s06-p2" style="left:405px">
+            <svg viewBox="0 0 234 216" aria-hidden="true">
+              <path class="ln-oro" d="M98 74 C86 60 108 50 96 34 M128 74 C116 60 138 50 126 34" />
+              <path class="ln" d="M66 88 H162 V146 C162 172 142 184 114 184 C86 184 66 172 66 146 Z" />
+              <path class="ln" d="M162 104 C192 104 192 146 162 146" />
+              <path class="ln" d="M44 196 H184" />
+            </svg>
+            <div class="s06-pie">SU PEDIDO</div>
+          </div>
+          <div class="s06-pol s06-p3" style="left:744px">
+            <svg viewBox="0 0 234 216" aria-hidden="true">
+              <rect class="ln" x="42" y="44" width="150" height="148" rx="12" />
+              <path class="ln" d="M42 84 H192" />
+              <path class="ln-oro" d="M80 30 V56 M154 30 V56" />
+              <text class="t-30" x="117" y="168" text-anchor="middle">30</text>
+            </svg>
+            <div class="s06-pie">1 MES SIN IR</div>
+          </div>
+
+          <!-- el hilo rosa que une las pruebas, con chinches -->
+          <svg class="s06-full" viewBox="0 0 1080 1920" aria-hidden="true">
+            <path class="hilo s06-hilo1" d="M201 630 Q370 700 540 624" />
+            <path class="hilo s06-hilo2" d="M540 624 Q710 700 879 630" />
+            <circle class="corazon s06-pin s06-pin1" cx="201" cy="630" r="13" />
+            <circle class="corazon s06-pin s06-pin2" cx="540" cy="624" r="13" />
+            <circle class="corazon s06-pin s06-pin3" cx="879" cy="630" r="13" />
+            <!-- la flecha de marcador: "hace un mes que no va" -->
+            <path class="marcador s06-flecha" d="M900 940 C930 1040 900 1150 800 1196" />
+            <path class="marcador s06-punta" d="M832 1170 L796 1198 L840 1206" />
+          </svg>
+        </div>
+      </div>
+      <div class="etiqueta"><span class="s06-e1">Prueba 2</span><span class="s06-e2">Se acuerda de todo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-prueba2";
+      const DUR = 7.9;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const DOS = 0.88;
+      const OTRO = 1.88;
+      const ACUERDA = 2.38;
+      const NOMBRE = 3.08;
+      const PIDE = 4.78;
+      const NOVA = 6.68;
+
+      const dibujar = (els, t, dur) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const tiemble = (el, t, f) => [[-14, 9], [12, -7], [-7, 4], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // texto que se tipea letra por letra
+      const tipear = (el, t, dur) => {
+        const txt = el.textContent;
+        el.textContent = "";
+        const spans = Array.from(txt).map((c) => { const s = document.createElement("span"); s.textContent = c; el.appendChild(s); return s; });
+        spans.forEach((s, i) => tl.set(s, { opacity: 1 }, t + (i * dur) / spans.length));
+      };
+      // círculo de marcador a mano alrededor de un valor de la libreta
+      const lazo = (el, cx, cy, rx, ry) => el.setAttribute("d",
+        `M${cx} ${cy + ry} C${cx - rx * 1.05} ${cy + ry * 1.05} ${cx - rx * 1.08} ${cy - ry} ${cx - rx * 0.2} ${cy - ry * 1.08} ` +
+        `C${cx + rx * 0.6} ${cy - ry * 1.15} ${cx + rx * 1.1} ${cy - ry * 0.6} ${cx + rx * 1.02} ${cy + ry * 0.1} ` +
+        `C${cx + rx * 0.95} ${cy + ry * 0.9} ${cx + rx * 0.3} ${cy + ry * 1.1} ${cx - rx * 0.3} ${cy + ry * 0.92}`);
+      lazo(q(".s06-c1"), 376, 114, 100, 34);
+      lazo(q(".s06-c2"), 464, 184, 214, 34);
+      lazo(q(".s06-c3"), 452, 254, 202, 34);
+
+      // ===== TARJETA: entra con zoom de golpe (cuadro 0; flash global 17.65) =====
+      tl.fromTo(q(".s06-tarjeta"), { scale: 2.6, rotation: -6, transformOrigin: "50% 50%" }, { scale: 1, rotation: 3, transformOrigin: "50% 50%", duration: 0.14, ease: "power4.in" }, 0);
+      tiemble(q(".s06-tiembla"), 0.15, 1.2);
+      tl.fromTo(q(".s06-cam"), { scale: 1, transformOrigin: "50% 45%" }, { scale: 1.12, transformOrigin: "50% 45%", duration: 0.22, ease: "power3.out" }, 0.2);
+      tl.to(q(".s06-cam"), { scale: 1.04, transformOrigin: "50% 45%", duration: 0.6, ease: "sine.inOut" }, 0.45);
+      // "dos": el Nº2 late
+      tl.to(q(".s06-tarjeta-in"), { scale: 1.07, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1, ease: "sine.inOut" }, DOS);
+      qa(".s06-foco").forEach((f, i) => {
+        tl.fromTo(f, { opacity: i % 2 ? 1 : 0.25 }, { opacity: i % 2 ? 0.25 : 1, duration: 0.14, ease: "none", yoyo: true, repeat: 9 }, 0.15);
+      });
+      // barrido de salida de la tarjeta
+      tl.to(q(".s06-tarjeta"), { x: -1150, rotation: -10, opacity: 0.4, transformOrigin: "50% 50%", duration: 0.24, ease: "power3.in" }, 1.6);
+      tl.to(q(".s06-cam"), { scale: 1, transformOrigin: "50% 45%", duration: 0.3, ease: "power2.out" }, 1.75);
+
+      // ===== "el otro": cae la libreta del otro =====
+      gsap.set(q(".s06-ficha"), { opacity: 0 });
+      tl.fromTo(q(".s06-ficha"), { opacity: 1, y: -520, rotation: -14, scale: 1.15 }, { opacity: 1, y: 0, rotation: -1.5, scale: 1, duration: 0.36, ease: "back.out(1.3)", immediateRender: false }, 1.72);
+      tiemble(q(".s06-tiembla"), 2.08, 0.6);
+      // "se acuerda": la libreta late y el corazoncito de la banda también
+      tl.to(q(".s06-ficha"), { scale: 1.05, duration: 0.12, yoyo: true, repeat: 1, ease: "sine.inOut" }, ACUERDA);
+      tl.fromTo(q(".s06-banda-cora"), { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.4, transformOrigin: "50% 50%", duration: 0.15, yoyo: true, repeat: 9, ease: "sine.inOut", immediateRender: false }, ACUERDA);
+      // cámara: empuje lento sobre el tablero
+      tl.fromTo(q(".s06-cam"), { scale: 1 }, { scale: 1.05, transformOrigin: "50% 60%", duration: DUR - 2.1, ease: "none", immediateRender: false }, 2.05);
+
+      // cada prueba: polaroid que cae, chinche, hilo, se tipea en la libreta y se marca
+      const prueba = (pol, pin, val, circ, t, rot, hilo) => {
+        gsap.set(q(pol), { opacity: 0 });
+        gsap.set(q(pin), { opacity: 0 });
+        tl.fromTo(q(pol), { opacity: 1, y: -260, rotation: rot * -4, scale: 1.3 }, { opacity: 1, y: 0, rotation: rot, scale: 1, duration: 0.22, ease: "power4.in", immediateRender: false }, t - 0.12);
+        tl.fromTo(q(pin), { opacity: 1, scale: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.2, ease: "back.out(3)", immediateRender: false }, t + 0.1);
+        if (hilo) dibujar([q(hilo)], t + 0.12, 0.35);
+        tiemble(q(".s06-tiembla"), t + 0.1, 0.7);
+        tipear(q(val), t + 0.05, 0.35);
+        dibujar([q(circ)], t + 0.4, 0.45);
+      };
+      prueba(".s06-p1", ".s06-pin1", ".s06-v1", ".s06-c1", NOMBRE, -5, null);
+      prueba(".s06-p2", ".s06-pin2", ".s06-v2", ".s06-c2", PIDE, 3, ".s06-hilo1");
+      prueba(".s06-p3", ".s06-pin3", ".s06-v3", ".s06-c3", NOVA, -4, ".s06-hilo2");
+      // el vapor del café se mueve (lo de siempre, recién hecho)
+      // "no va": zoom de golpe y flecha de marcador a la última visita
+      tl.to(q(".s06-cam"), { scale: 1.12, transformOrigin: "50% 60%", duration: 0.12, ease: "power3.out", yoyo: true, repeat: 1 }, NOVA + 0.1);
+      dibujar([q(".s06-flecha"), q(".s06-punta")], NOVA + 0.75, 0.3);
+
+      // etiquetas
+      tl.fromTo(q(".s06-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, 0.12);
+      tl.to(q(".s06-e1"), { opacity: 0, y: -10, duration: 0.15 }, 1.65);
+      tl.fromTo(q(".s06-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, OTRO);
+
+      // salida: zoom de golpe hacia adentro + fundido
+      tl.to(q("#s06-escena"), { scale: 1.25, opacity: 0, filter: "blur(6px)", transformOrigin: "50% 50%", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

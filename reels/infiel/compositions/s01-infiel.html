@@ -1,0 +1,107 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-infiel"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-infiel"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-infiel"] .papel { fill: #fff6ea; }
+    [data-composition-id="s01-infiel"] .foto { fill: #2a0d1d; }
+    [data-composition-id="s01-infiel"] .ln { fill: none; stroke: #fff6ea; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-infiel"] .ln-oro { fill: none; stroke: #ffc83d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-infiel"] .marcador { fill: none; stroke: #ff3d7f; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-infiel"] .corazon { fill: #ff3d7f; }
+    [data-composition-id="s01-infiel"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.14em; fill: #ffc83d; }
+    [data-composition-id="s01-infiel"] .pie { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #2a0d1d; }
+    [data-composition-id="s01-infiel"] .sello-txt { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 118px; letter-spacing: 0.08em; fill: #ff3d7f; }
+    [data-composition-id="s01-infiel"] .sello-borde { fill: none; stroke: #ff3d7f; stroke-width: 10; }
+    [data-composition-id="s01-infiel"] .brillo-rosa { filter: drop-shadow(0 0 22px rgba(255, 61, 127, 0.75)); }
+    [data-composition-id="s01-infiel"] .etiqueta { position: absolute; left: 0; right: 0; top: 1305px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffc83d; }
+    [data-composition-id="s01-infiel"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-infiel" data-width="1080" data-height="1920" data-duration="2.99">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="2.99" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- LA FOTO DE PRUEBA: una polaroid (el recurso de todo el reel: las pruebas son polaroids) -->
+        <g class="s01-polaroid">
+          <g class="s01-polaroid-in">
+            <rect class="papel" x="250" y="610" width="580" height="660" rx="6" />
+            <rect class="foto" x="285" y="645" width="510" height="500" />
+            <!-- adentro de la foto: el local del otro, de noche, y tu cliente entrando -->
+            <path class="ln-oro" d="M560 1060 V950 H760 V1060" />
+            <path class="ln-oro" d="M545 950 H775 L760 912 H560 Z" />
+            <text class="cartel" data-layout-allow-overlap x="660" y="940" text-anchor="middle">EL OTRO</text>
+            <path class="ln-oro" d="M640 1060 V998 H680 V1060" />
+            <line class="ln" x1="300" y1="1060" x2="780" y2="1060" opacity="0.5" />
+            <!-- la luna de la cita -->
+            <path class="ln" d="M380 720 A34 34 0 1 0 412 772 A26 26 0 1 1 380 720 Z" opacity="0.7" />
+            <!-- tu cliente: figurita con un corazón arriba -->
+            <g class="s01-cliente">
+              <circle class="ln" cx="0" cy="-96" r="14" />
+              <path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" />
+              <path class="corazon s01-cora" d="M0 -126 C-6 -134 -18 -132 -18 -122 C-18 -112 -6 -106 0 -100 C6 -106 18 -112 18 -122 C18 -132 6 -134 0 -126 Z" />
+            </g>
+            <text class="pie" x="540" y="1222" text-anchor="middle">MARTES · 23:07</text>
+            <!-- el círculo de marcador alrededor del cliente -->
+            <path class="marcador s01-circulo" d="M520 1080 C440 1086 418 990 452 940 C486 888 584 884 612 950 C640 1016 600 1078 520 1080 C500 1081 486 1074 478 1066" />
+          </g>
+        </g>
+        <!-- el sello -->
+        <g class="s01-sello brillo-rosa">
+          <rect class="sello-borde" x="240" y="830" width="600" height="170" rx="14" />
+          <text class="sello-txt" data-layout-allow-overlap x="540" y="958" text-anchor="middle">INFIEL</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Expediente abierto</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-infiel";
+      const DUR = 2.99;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CLIENTE = 0.3;
+      const INFIEL = 1.6;
+
+      const dibujar = (els, t, dur) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // la polaroid cae sobre la mesa girando (ya se ve en el cuadro 0)
+      tl.fromTo(q(".s01-polaroid-in"), { rotation: -18, scale: 1.25, y: -60, transformOrigin: "50% 50%" }, { rotation: -4, scale: 1, y: 0, transformOrigin: "50% 50%", duration: 0.45, ease: "back.out(1.4)" }, 0);
+      // lento zoom de "cámara de telenovela" sobre la foto
+      tl.fromTo(q(".s01-polaroid"), { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.08, transformOrigin: "50% 50%", duration: DUR, ease: "none" }, 0);
+
+      // "tu cliente": la figurita camina hacia la puerta del otro y late el corazón
+      gsap.set(q(".s01-cliente"), { x: 470, y: 1060 });
+      tl.to(q(".s01-cliente"), { x: 560, duration: 1.2, ease: "none" }, CLIENTE);
+      tl.fromTo(q(".s01-cora"), { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(3)" }, CLIENTE + 0.1);
+      tl.to(q(".s01-cora"), { scale: 1.3, transformOrigin: "50% 50%", duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, CLIENTE + 0.45);
+      // el detective lo marca con un círculo
+      dibujar([q(".s01-circulo")], CLIENTE + 0.5, 0.55);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, CLIENTE);
+
+      // "infiel": el sello cae de golpe (el flash lo pone ambiente.html) y todo tiembla
+      gsap.set(q(".s01-sello"), { opacity: 0 });
+      tl.fromTo(q(".s01-sello"), { opacity: 0, scale: 2.4, rotation: -14, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: -10, transformOrigin: "50% 50%", duration: 0.18, ease: "power4.in", immediateRender: false }, INFIEL - 0.1);
+      [[-14, 9], [12, -7], [-7, 4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-polaroid"), { x, y, duration: 0.04, ease: "none" }, INFIEL + 0.08 + i * 0.045));
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.15 }, INFIEL);
+
+      // salida: zoom de golpe hacia adentro + fundido
+      tl.to(q("#s01-escena"), { scale: 1.25, opacity: 0, transformOrigin: "50% 48%", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

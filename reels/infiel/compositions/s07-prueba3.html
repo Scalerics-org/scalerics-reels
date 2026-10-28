@@ -1,0 +1,264 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-prueba3"] .s07-capa, [data-composition-id="s07-prueba3"] .s07-cam, [data-composition-id="s07-prueba3"] .s07-tiembla, [data-composition-id="s07-prueba3"] .s07-calle { position: absolute; inset: 0; }
+    [data-composition-id="s07-prueba3"] svg.s07-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-prueba3"] .ln { fill: none; stroke: #fff6ea; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba3"] .ln-oro { fill: none; stroke: #ffc83d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba3"] .marco { fill: rgba(42, 13, 29, 0.82); stroke: #ff3d7f; stroke-width: 8; }
+    [data-composition-id="s07-prueba3"] .marco-in { fill: none; stroke: #ff3d7f; stroke-width: 3; opacity: 0.6; }
+    [data-composition-id="s07-prueba3"] .marcador { fill: none; stroke: #ff3d7f; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba3"] .corazon { fill: #ff3d7f; }
+    [data-composition-id="s07-prueba3"] .oro { fill: #ffc83d; }
+    [data-composition-id="s07-prueba3"] .t-prueba { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 120px; letter-spacing: 0.08em; fill: #ff3d7f; }
+    [data-composition-id="s07-prueba3"] .t-num { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 200px; letter-spacing: 0.02em; fill: #ff3d7f; }
+    [data-composition-id="s07-prueba3"] .t-gorro { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.3em; fill: #ffc83d; }
+    [data-composition-id="s07-prueba3"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.14em; fill: #ffc83d; }
+    [data-composition-id="s07-prueba3"] .sello-txt { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 96px; letter-spacing: 0.04em; fill: #ff3d7f; }
+    [data-composition-id="s07-prueba3"] .sello-borde { fill: rgba(42, 13, 29, 0.55); stroke: #ff3d7f; stroke-width: 10; }
+    [data-composition-id="s07-prueba3"] .brillo-rosa { filter: drop-shadow(0 0 22px rgba(255, 61, 127, 0.75)); }
+    [data-composition-id="s07-prueba3"] .brillo-oro { filter: drop-shadow(0 0 22px rgba(255, 200, 61, 0.6)); }
+    /* el celular del cliente */
+    [data-composition-id="s07-prueba3"] .s07-tel { position: absolute; left: 330px; top: 610px; width: 420px; height: 660px; box-sizing: border-box; border: 5px solid #fff6ea; border-radius: 56px; background: rgba(42, 13, 29, 0.92); }
+    [data-composition-id="s07-prueba3"] .s07-barrita { position: absolute; left: 50%; margin-left: -50px; top: 18px; width: 100px; height: 10px; border-radius: 5px; background: #fff6ea; opacity: 0.6; }
+    [data-composition-id="s07-prueba3"] .s07-reloj { position: absolute; left: 0; right: 0; top: 52px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 300; font-size: 104px; line-height: 1.1; color: #fff6ea; }
+    [data-composition-id="s07-prueba3"] .s07-dia { position: absolute; left: 0; right: 0; top: 176px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.24em; color: #fff6ea; opacity: 0.7; }
+    [data-composition-id="s07-prueba3"] .s07-noti { position: absolute; left: 18px; right: 18px; top: 226px; padding: 16px 20px 20px; box-sizing: border-box; border: 4px solid #ffc83d; border-radius: 26px; background: #2a0d1d; }
+    [data-composition-id="s07-prueba3"] .s07-noti-cab { position: relative; height: 34px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; letter-spacing: 0.14em; line-height: 34px; color: #ffc83d; }
+    [data-composition-id="s07-prueba3"] .s07-noti-cab i { display: inline-block; width: 26px; height: 26px; margin-right: 10px; vertical-align: -6px; border-radius: 7px; background: #ffc83d; }
+    [data-composition-id="s07-prueba3"] .s07-noti-cab b { position: absolute; right: 0; top: 0; font-weight: 500; opacity: 0.75; }
+    [data-composition-id="s07-prueba3"] .s07-txt { margin-top: 10px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; line-height: 1.3; color: #fff6ea; min-height: 166px; }
+    [data-composition-id="s07-prueba3"] .s07-l1 { position: relative; display: inline-block; }
+    [data-composition-id="s07-prueba3"] .s07-l1 svg { position: absolute; left: -40px; top: -10px; width: 310px; height: 62px; overflow: visible; }
+    [data-composition-id="s07-prueba3"] .s07-t1 span, [data-composition-id="s07-prueba3"] .s07-t2 span { opacity: 0; }
+    [data-composition-id="s07-prueba3"] .s07-regalo { position: absolute; left: 115px; top: 438px; width: 180px; height: 180px; overflow: visible; }
+    [data-composition-id="s07-prueba3"] .etiqueta { position: absolute; left: 0; right: 0; top: 1305px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffc83d; }
+    [data-composition-id="s07-prueba3"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-prueba3" data-width="1080" data-height="1920" data-duration="8.38">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="8.38" data-track-index="0">
+      <div class="s07-cam">
+        <div class="s07-tiembla">
+          <!-- TARJETA "PRUEBA Nº3" (mismo molde que s03) -->
+          <svg class="s07-full" viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s07-tarjeta">
+              <g class="s07-tarjeta-in brillo-rosa">
+                <rect class="marco" x="150" y="640" width="780" height="420" rx="26" />
+                <rect class="marco-in" x="172" y="662" width="736" height="376" rx="16" />
+                <text class="t-gorro" x="540" y="712" text-anchor="middle">EXPEDIENTE · CASO 0412</text>
+                <text class="t-prueba" x="540" y="830" text-anchor="middle">PRUEBA</text>
+                <text class="t-num" x="540" y="1012" text-anchor="middle">Nº3</text>
+              </g>
+              <g class="s07-focos">
+                <circle class="oro s07-foco" cx="150" cy="700" r="9" /><circle class="oro s07-foco" cx="150" cy="790" r="9" /><circle class="oro s07-foco" cx="150" cy="880" r="9" /><circle class="oro s07-foco" cx="150" cy="970" r="9" />
+                <circle class="oro s07-foco" cx="930" cy="700" r="9" /><circle class="oro s07-foco" cx="930" cy="790" r="9" /><circle class="oro s07-foco" cx="930" cy="880" r="9" /><circle class="oro s07-foco" cx="930" cy="970" r="9" />
+                <circle class="oro s07-foco" cx="260" cy="640" r="9" /><circle class="oro s07-foco" cx="400" cy="640" r="9" /><circle class="oro s07-foco" cx="540" cy="640" r="9" /><circle class="oro s07-foco" cx="680" cy="640" r="9" /><circle class="oro s07-foco" cx="820" cy="640" r="9" />
+                <circle class="oro s07-foco" cx="260" cy="1060" r="9" /><circle class="oro s07-foco" cx="400" cy="1060" r="9" /><circle class="oro s07-foco" cx="540" cy="1060" r="9" /><circle class="oro s07-foco" cx="680" cy="1060" r="9" /><circle class="oro s07-foco" cx="820" cy="1060" r="9" />
+              </g>
+            </g>
+          </svg>
+
+          <!-- EL CELULAR DEL CLIENTE: le llega el mensaje de el otro -->
+          <div class="s07-tel">
+            <div class="s07-barrita"></div>
+            <div class="s07-reloj">21:47</div>
+            <div class="s07-dia" data-layout-ignore>JUEVES</div>
+            <div class="s07-noti brillo-oro">
+              <div class="s07-noti-cab"><i></i>EL OTRO<b data-layout-ignore>ahora</b></div>
+              <div class="s07-txt"><span class="s07-l1"><span class="s07-t1">Te extrañamos.</span><svg viewBox="0 0 280 62" preserveAspectRatio="none" aria-hidden="true"><path class="marcador s07-lazo" d="M140 60 C4 62 -6 4 112 0 C206 -4 286 8 282 32 C278 56 200 62 104 56" /></svg></span><br /><span class="s07-t2">Tenés un regalo esperándote</span></div>
+            </div>
+            <!-- el regalo con moño rosa -->
+            <svg class="s07-regalo" viewBox="0 0 180 180" aria-hidden="true">
+              <g class="s07-caja">
+                <rect class="oro" x="24" y="80" width="132" height="96" rx="8" />
+                <rect class="corazon" x="78" y="80" width="24" height="96" />
+              </g>
+              <g class="s07-tapa">
+                <rect class="oro" x="14" y="56" width="152" height="30" rx="8" />
+                <rect class="corazon" x="78" y="56" width="24" height="30" />
+                <path class="corazon" d="M90 56 C70 20 34 26 46 48 C54 60 76 58 90 56 Z M90 56 C110 20 146 26 134 48 C126 60 104 58 90 56 Z" />
+              </g>
+              <path class="oro s07-chispa" d="M10 20 L14 32 L26 36 L14 40 L10 52 L6 40 L-6 36 L6 32 Z" />
+              <path class="oro s07-chispa" d="M170 14 L174 26 L186 30 L174 34 L170 46 L166 34 L154 30 L166 26 Z" />
+              <path class="oro s07-chispa" d="M176 110 L179 119 L188 122 L179 125 L176 134 L173 125 L164 122 L173 119 Z" />
+            </svg>
+          </div>
+
+          <!-- LA CALLE: el local de EL OTRO y tu cliente que vuelve -->
+          <div class="s07-calle">
+            <svg class="s07-full" viewBox="0 0 1080 1920" aria-hidden="true">
+              <line class="ln" x1="110" y1="1200" x2="970" y2="1200" opacity="0.5" />
+              <g class="s07-local brillo-oro">
+                <rect class="oro" x="598" y="1060" width="70" height="56" rx="4" opacity="0.4" />
+                <rect class="oro" x="808" y="1060" width="70" height="56" rx="4" opacity="0.4" />
+                <path class="ln-oro" d="M580 1200 V1010 H900 V1200" />
+                <path class="ln-oro" d="M560 1010 H920 L900 948 H580 Z" />
+                <text class="cartel" x="740" y="992" text-anchor="middle">EL OTRO</text>
+                <path class="ln-oro" d="M708 1200 V1094 H772 V1200" />
+                <rect class="ln-oro" x="598" y="1060" width="70" height="56" rx="4" />
+                <rect class="ln-oro" x="808" y="1060" width="70" height="56" rx="4" />
+              </g>
+              <g class="s07-brillos">
+                <path class="oro s07-br" d="M560 900 L565 914 L579 919 L565 924 L560 938 L555 924 L541 919 L555 914 Z" />
+                <path class="oro s07-br" d="M940 920 L944 932 L956 936 L944 940 L940 952 L936 940 L924 936 L936 932 Z" />
+                <path class="oro s07-br" d="M960 1110 L964 1122 L976 1126 L964 1130 L960 1142 L956 1130 L944 1126 L956 1122 Z" />
+              </g>
+              <!-- tu cliente (la figurita), con el celular dorado en la mano -->
+              <g class="s07-cliente">
+                <g transform="scale(1.6)"><g class="s07-cuerpo">
+                  <circle class="ln" cx="0" cy="-96" r="14" />
+                  <path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -56 M0 -40 L-14 0 M0 -40 L14 0" />
+                  <rect class="oro" x="16" y="-68" width="12" height="20" rx="3" />
+                  <path class="corazon s07-cora" d="M0 -126 C-6 -134 -18 -132 -18 -122 C-18 -112 -6 -106 0 -100 C6 -106 18 -112 18 -122 C18 -132 6 -134 0 -126 Z" />
+                </g>
+                </g>
+              </g>
+              <!-- explosión de corazones en la puerta -->
+              <g class="s07-boom">
+                <path class="corazon s07-bh" d="M0 -8 C-6 -16 -18 -14 -18 -4 C-18 6 -6 12 0 18 C6 12 18 6 18 -4 C18 -14 6 -16 0 -8 Z" />
+                <path class="corazon s07-bh" d="M0 -8 C-6 -16 -18 -14 -18 -4 C-18 6 -6 12 0 18 C6 12 18 6 18 -4 C18 -14 6 -16 0 -8 Z" />
+                <path class="corazon s07-bh" d="M0 -8 C-6 -16 -18 -14 -18 -4 C-18 6 -6 12 0 18 C6 12 18 6 18 -4 C18 -14 6 -16 0 -8 Z" />
+                <path class="corazon s07-bh" d="M0 -8 C-6 -16 -18 -14 -18 -4 C-18 6 -6 12 0 18 C6 12 18 6 18 -4 C18 -14 6 -16 0 -8 Z" />
+                <path class="corazon s07-bh" d="M0 -8 C-6 -16 -18 -14 -18 -4 C-18 6 -6 12 0 18 C6 12 18 6 18 -4 C18 -14 6 -16 0 -8 Z" />
+                <path class="corazon s07-bh" d="M0 -8 C-6 -16 -18 -14 -18 -4 C-18 6 -6 12 0 18 C6 12 18 6 18 -4 C18 -14 6 -16 0 -8 Z" />
+                <path class="corazon s07-bh" d="M0 -8 C-6 -16 -18 -14 -18 -4 C-18 6 -6 12 0 18 C6 12 18 6 18 -4 C18 -14 6 -16 0 -8 Z" />
+                <path class="corazon s07-bh" d="M0 -8 C-6 -16 -18 -14 -18 -4 C-18 6 -6 12 0 18 C6 12 18 6 18 -4 C18 -14 6 -16 0 -8 Z" />
+                <path class="corazon s07-bh" d="M0 -8 C-6 -16 -18 -14 -18 -4 C-18 6 -6 12 0 18 C6 12 18 6 18 -4 C18 -14 6 -16 0 -8 Z" />
+                <path class="corazon s07-bh" d="M0 -8 C-6 -16 -18 -14 -18 -4 C-18 6 -6 12 0 18 C6 12 18 6 18 -4 C18 -14 6 -16 0 -8 Z" />
+              </g>
+              <!-- el sello -->
+              <g class="s07-sello brillo-rosa">
+                <rect class="sello-borde" x="150" y="740" width="780" height="150" rx="14" />
+                <text class="sello-txt" x="540" y="852" text-anchor="middle">CONFIRMADO</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="etiqueta"><span class="s07-e1">Prueba 3</span><span class="s07-e2">El otro escribe</span><span class="s07-e3">Y vuelve</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-prueba3";
+      const DUR = 8.38;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const TRES = 0.78;
+      const OTRO = 1.77;
+      const MENSAJE = 2.68;
+      const TE = 3.18;
+      const EXTRANAMOS = 3.78;
+      const TENES = 5.05;
+      const REGALO = 5.38;
+      const VUELVE = 7.3;
+
+      const dibujar = (els, t, dur) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const tiemble = (el, t, f) => [[-14, 9], [12, -7], [-7, 4], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const tipear = (el, t, dur) => {
+        const txt = el.textContent;
+        el.textContent = "";
+        const spans = Array.from(txt).map((c) => { const s = document.createElement("span"); s.textContent = c; el.appendChild(s); return s; });
+        spans.forEach((s, i) => tl.set(s, { opacity: 1 }, t + (i * dur) / spans.length));
+      };
+
+      // ===== TARJETA: entra con zoom de golpe (cuadro 0; flash global 25.55) =====
+      tl.fromTo(q(".s07-tarjeta"), { scale: 2.6, rotation: 8, transformOrigin: "50% 50%" }, { scale: 1, rotation: -4, transformOrigin: "50% 50%", duration: 0.14, ease: "power4.in" }, 0);
+      tiemble(q(".s07-tiembla"), 0.15, 1.2);
+      tl.fromTo(q(".s07-cam"), { scale: 1, transformOrigin: "50% 45%" }, { scale: 1.12, transformOrigin: "50% 45%", duration: 0.22, ease: "power3.out" }, 0.2);
+      tl.to(q(".s07-cam"), { scale: 1.04, transformOrigin: "50% 45%", duration: 0.55, ease: "sine.inOut" }, 0.45);
+      tl.to(q(".s07-tarjeta-in"), { scale: 1.07, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1, ease: "sine.inOut" }, TRES);
+      qa(".s07-foco").forEach((f, i) => {
+        tl.fromTo(f, { opacity: i % 2 ? 1 : 0.25 }, { opacity: i % 2 ? 0.25 : 1, duration: 0.14, ease: "none", yoyo: true, repeat: 9 }, 0.15);
+      });
+      tl.to(q(".s07-tarjeta"), { x: -1150, rotation: -10, opacity: 0.4, transformOrigin: "50% 50%", duration: 0.24, ease: "power3.in" }, 1.55);
+      tl.to(q(".s07-cam"), { scale: 1, transformOrigin: "50% 45%", duration: 0.3, ease: "power2.out" }, 1.7);
+
+      // ===== "el otro le manda": el celular del cliente sube a cuadro =====
+      gsap.set(q(".s07-tel"), { opacity: 0 });
+      tl.fromTo(q(".s07-tel"), { opacity: 1, y: 760, rotation: 10 }, { opacity: 1, y: 0, rotation: -2, duration: 0.36, ease: "back.out(1.2)", immediateRender: false }, OTRO - 0.12);
+      // la hora late (es de noche y está solo)
+      tl.fromTo(q(".s07-reloj"), { opacity: 0.6 }, { opacity: 1, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, OTRO + 0.25);
+
+      // "mensaje": la notificación dorada baja y el celular vibra
+      gsap.set(q(".s07-noti"), { opacity: 0 });
+      tl.fromTo(q(".s07-noti"), { opacity: 0, y: -90, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, MENSAJE);
+      [[-10, 0, -4], [10, 0, 0], [-8, 0, -3.5], [8, 0, -0.5], [0, 0, -2]].forEach(([x, y, r], i) => tl.to(q(".s07-tel"), { x, y, rotation: r, duration: 0.04, ease: "none" }, MENSAJE + i * 0.045));
+      // cámara: se acerca al celular mientras se lee
+      tl.fromTo(q(".s07-cam"), { scale: 1 }, { scale: 1.1, transformOrigin: "50% 50%", duration: 3.4, ease: "sine.inOut", immediateRender: false }, MENSAJE + 0.1);
+
+      // se tipea: "Te extrañamos." ... "Tenés un regalo esperándote"
+      tipear(q(".s07-t1"), TE, 0.75);
+      dibujar([q(".s07-lazo")], EXTRANAMOS + 0.25, 0.45);
+      tipear(q(".s07-t2"), TENES, 0.95);
+
+      // "regalo": el regalo salta y la tapa se abre dos veces
+      gsap.set(q(".s07-regalo"), { opacity: 0 });
+      tl.fromTo(q(".s07-regalo"), { opacity: 1, scale: 0, rotation: -25, transformOrigin: "50% 80%" }, { opacity: 1, scale: 1, rotation: 0, transformOrigin: "50% 80%", duration: 0.35, ease: "back.out(2.2)", immediateRender: false }, REGALO);
+      [REGALO + 0.45, REGALO + 0.95].forEach((t) => {
+        tl.to(q(".s07-tapa"), { y: -26, rotation: -8, transformOrigin: "50% 50%", duration: 0.12, ease: "power2.out" }, t);
+        tl.to(q(".s07-tapa"), { y: 0, rotation: 0, transformOrigin: "50% 50%", duration: 0.18, ease: "bounce.out" }, t + 0.12);
+      });
+      qa(".s07-chispa").forEach((c, i) => {
+        gsap.set(c, { scale: 0, transformOrigin: "50% 50%" });
+        tl.to(c, { scale: 1.3, rotation: 90, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(2)" }, REGALO + 0.2 + i * 0.12);
+        tl.to(c, { scale: 0.5, transformOrigin: "50% 50%", duration: 0.22, yoyo: true, repeat: 3, ease: "sine.inOut" }, REGALO + 0.5 + i * 0.12);
+      });
+
+      // ===== el celular se va y aparece la calle =====
+      tl.to(q(".s07-tel"), { x: -900, rotation: -24, opacity: 0.3, duration: 0.3, ease: "power3.in" }, 6.42);
+      tl.to(q(".s07-cam"), { scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "power2.out" }, 6.5);
+      gsap.set(q(".s07-calle"), { opacity: 0 });
+      tl.fromTo(q(".s07-calle"), { opacity: 1, x: 900 }, { opacity: 1, x: 0, duration: 0.34, ease: "back.out(1.2)", immediateRender: false }, 6.55);
+      qa(".s07-br").forEach((b, i) => {
+        tl.fromTo(b, { scale: 0, rotation: 0, transformOrigin: "50% 50%" }, { scale: 1.2, rotation: 90, transformOrigin: "50% 50%", duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 5, immediateRender: false }, 6.75 + i * 0.12);
+      });
+      // la figurita mira el celular (corazón que late)
+      gsap.set(q(".s07-cliente"), { x: 250, y: 1200 });
+      tl.to(q(".s07-cora"), { scale: 1.35, transformOrigin: "50% 50%", duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, 6.85);
+
+      // "Y vuelve": camina a la puerta de EL OTRO, entra y explotan corazones
+      tl.to(q(".s07-cliente"), { x: 740, duration: 0.42, ease: "power1.in" }, VUELVE);
+      tl.to(q(".s07-cuerpo"), { y: -12, duration: 0.07, yoyo: true, repeat: 5, ease: "sine.inOut" }, VUELVE);
+      tl.to(q(".s07-cliente"), { opacity: 0, duration: 0.12 }, VUELVE + 0.42);
+      tl.fromTo(q(".s07-local"), { scale: 1, transformOrigin: "50% 100%" }, { scale: 1.08, transformOrigin: "50% 100%", duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, VUELVE + 0.44);
+      const N = qa(".s07-bh").length;
+      qa(".s07-bh").forEach((h, i) => {
+        const a = (-170 + (160 * i) / (N - 1)) * (Math.PI / 180);
+        const r = 170 + (i % 3) * 50;
+        gsap.set(h, { x: 740, y: 1140, scale: 0, opacity: 0 });
+        tl.to(h, { opacity: 1, scale: 1.2 + (i % 2) * 0.6, x: 740 + Math.cos(a) * r, y: 1140 + Math.sin(a) * r, rotation: (i % 2 ? 1 : -1) * 25, duration: 0.4, ease: "power3.out" }, VUELVE + 0.46);
+      });
+      // el sello CONFIRMADO cae de golpe
+      gsap.set(q(".s07-sello"), { opacity: 0 });
+      tl.fromTo(q(".s07-sello"), { opacity: 0, scale: 2.4, rotation: 12, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: -7, transformOrigin: "50% 50%", duration: 0.18, ease: "power4.in", immediateRender: false }, VUELVE + 0.38);
+      tiemble(q(".s07-tiembla"), VUELVE + 0.58, 1);
+
+      // etiquetas
+      tl.fromTo(q(".s07-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, 0.12);
+      tl.to(q(".s07-e1"), { opacity: 0, y: -10, duration: 0.15 }, 1.6);
+      tl.fromTo(q(".s07-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, MENSAJE);
+      tl.to(q(".s07-e2"), { opacity: 0, y: -10, duration: 0.15 }, VUELVE - 0.1);
+      tl.fromTo(q(".s07-e3"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, VUELVE);
+
+      // salida: zoom de golpe hacia adentro + fundido
+      tl.to(q("#s07-escena"), { scale: 1.25, opacity: 0, filter: "blur(6px)", transformOrigin: "50% 50%", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
