@@ -1,0 +1,148 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-crece"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-crece"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-crece"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-crece"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-crece"] .ln-gordo { fill: none; stroke: #efeee5; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-crece"] .ln-gordo-ac { fill: none; stroke: #5ce611; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-crece"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-crece"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s11-crece"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s11-crece"] .signo { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 30px; fill: #5ce611; }
+    [data-composition-id="s11-crece"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s11-crece"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s11-crece"] .rotulo-tenue { fill-opacity: 0.55; }
+    [data-composition-id="s11-crece"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-crece"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s11-crece" data-width="1080" data-height="1920" data-duration="3.17">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="3.17" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- A: deja los malabares -->
+        <g class="s11-a">
+          <!-- las tres cajas -->
+          <g class="s11-cajas">
+            <rect class="ln-fino" x="190" y="640" width="160" height="110" rx="18" />
+            <rect class="ln-fino" x="460" y="640" width="160" height="110" rx="18" />
+            <rect class="ln-fino" x="730" y="640" width="160" height="110" rx="18" />
+            <text class="rotulo rotulo-ac" x="270" y="800" text-anchor="middle">BOT</text>
+            <text class="rotulo rotulo-ac" x="540" y="800" text-anchor="middle">PUNTOS</text>
+            <text class="rotulo rotulo-ac" x="810" y="800" text-anchor="middle">TIENDA</text>
+          </g>
+          <!-- las cosas -->
+          <g class="s11-c1">
+            <path class="ln" d="M-40 -26 H40 Q48 -26 48 -18 V14 Q48 22 40 22 H-26 L-40 36 V-18 Q-40 -26 -32 -26 Z" />
+            <text class="signo" x="4" y="9" text-anchor="middle">$</text>
+          </g>
+          <g class="s11-c2">
+            <rect class="ln" x="-44" y="-28" width="88" height="56" rx="10" />
+            <circle class="relleno-ac" cx="-20" cy="0" r="8" /><circle class="relleno-ac" cx="4" cy="0" r="8" /><circle class="ln-fino" cx="28" cy="0" r="8" />
+          </g>
+          <g class="s11-c3">
+            <path class="ln" d="M-30 -22 H30 L36 34 H-36 Z" />
+            <path class="ln" d="M-14 -22 V-32 Q0 -48 14 -32 V-22" />
+          </g>
+          <!-- el dueño -->
+          <g class="s11-duenio">
+            <circle class="ln" cx="540" cy="960" r="24" />
+            <path class="ln" d="M540 984 V1076 M540 1076 L516 1160 M540 1076 L564 1160" />
+            <path class="ln s11-brazos-arriba" d="M540 1004 L492 952 L480 900 M540 1004 L588 952 L600 900" />
+            <path class="ln s11-brazos-abajo" d="M540 1004 L510 1050 L506 1070 M540 1004 L570 1050 L574 1070" />
+          </g>
+          <line class="ln s11-suelo" x1="300" y1="1160" x2="780" y2="1160" />
+        </g>
+        <!-- B: el gráfico dado vuelta -->
+        <g class="s11-b">
+          <path class="ln s11-eje" d="M220 640 V1160 H880" />
+          <path class="ln-tenue s11-marca" d="M320 1160 V1176 M420 1160 V1176 M520 1160 V1176 M620 1160 V1176 M720 1160 V1176 M820 1160 V1176" />
+          <path class="ln-gordo s11-l-horas" d="M240 760 C380 790 520 900 640 960 C720 1000 780 1010 830 1016" />
+          <text class="rotulo rotulo-tenue s11-rot-h" x="830" y="1066" text-anchor="end">HORAS</text>
+          <g class="s11-ventas">
+            <path class="ln-gordo-ac s11-l-ventas" d="M240 1110 C380 1100 470 1020 560 900 C640 790 720 720 830 690" />
+            <path class="ln-gordo-ac s11-punta" d="M796 672 L832 690 L800 716" />
+            <text class="rotulo rotulo-ac s11-rot-v" x="830" y="640" text-anchor="end">VENTAS</text>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Sin malabares</span><span class="s11-e2">El negocio crece</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-crece";
+      const DUR = 3.17;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const MALABARES = 0.61;
+      const Y = 1.11;
+      const NEGOCIO = 1.71;
+      const CRECE = 2.01;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, o) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // A. arranca haciendo malabares (las cosas giran sobre la cabeza)
+      const ARRANQUE = [[440, 870], [540, 800], [640, 870]];
+      const DESTINO = [[270, 695], [540, 695], [810, 695]];
+      const cosas = [q(".s11-c1"), q(".s11-c2"), q(".s11-c3")];
+      cosas.forEach((c, i) => {
+        gsap.set(c, { x: ARRANQUE[i][0], y: ARRANQUE[i][1] });
+        tl.to(c, { y: ARRANQUE[i][1] - 40, duration: 0.15, ease: "sine.out", yoyo: true, repeat: 1 }, i * 0.1);
+        // "malabares": cada una vuela a su caja
+        tl.to(c, { x: DESTINO[i][0], y: DESTINO[i][1], duration: 0.4, ease: "back.out(1.4)" }, MALABARES - 0.15 + i * 0.1);
+      });
+      gsap.set(q(".s11-cajas"), { opacity: 0 });
+      tl.to(q(".s11-cajas"), { opacity: 1, duration: 0.3 }, 0.1);
+      tl.fromTo(q(".s11-cajas"), { y: -10 }, { y: 0, duration: 0.4, ease: "power3.out" }, 0.1);
+      // baja los brazos
+      gsap.set(q(".s11-brazos-abajo"), { opacity: 0 });
+      tl.to(q(".s11-brazos-arriba"), { opacity: 0, duration: 0.05 }, MALABARES + 0.1);
+      tl.to(q(".s11-brazos-abajo"), { opacity: 1, duration: 0.05 }, MALABARES + 0.1);
+      tl.fromTo(q(".s11-duenio"), { y: 0 }, { y: 6, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, MALABARES + 0.1);
+
+      // B. sale A, entra el gráfico dado vuelta
+      tl.to(q(".s11-a"), { opacity: 0, y: -20, duration: 0.25, ease: "power2.in" }, Y + 0.05);
+      dibujar([q(".s11-eje")], Y + 0.15, 0.4);
+      gsap.set(q(".s11-marca"), { opacity: 0 });
+      tl.to(q(".s11-marca"), { opacity: 1, duration: 0.3 }, Y + 0.5);
+      dibujar([q(".s11-l-horas")], Y + 0.3, 0.5);
+      gsap.set(q(".s11-l-horas"), { stroke: "rgba(239, 238, 229, 0.45)" });
+      pop(q(".s11-rot-h"), Y + 0.6, "780 1056");
+      // "negocio crece": ventas sube en verde con punch
+      dibujar([q(".s11-l-ventas")], NEGOCIO - 0.1, 0.45);
+      pop(q(".s11-punta"), CRECE - 0.1, "830 690");
+      pop(q(".s11-rot-v"), CRECE - 0.05, "770 630");
+      tl.to(q(".s11-ventas"), { y: -18, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, CRECE + 0.15);
+
+      // etiquetas
+      tl.fromTo(q(".s11-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, MALABARES);
+      tl.to(q(".s11-e1"), { opacity: 0, duration: 0.2 }, NEGOCIO - 0.2);
+      tl.fromTo(q(".s11-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, NEGOCIO);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

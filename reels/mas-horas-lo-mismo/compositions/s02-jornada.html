@@ -1,0 +1,161 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-jornada"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-jornada"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-jornada"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-jornada"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-jornada"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s02-jornada"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s02-jornada"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s02-jornada"] .signo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 52px; fill: #5ce611; }
+    [data-composition-id="s02-jornada"] .ui { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 24px; fill: #0b1d35; }
+    [data-composition-id="s02-jornada"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-jornada"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-jornada" data-width="1080" data-height="1920" data-duration="5.85">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="5.85" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- A: la jornada que se estira -->
+        <g class="s02-a">
+          <rect class="ln s02-barra" x="400" y="790" width="280" height="64" rx="32" />
+          <text class="rotulo s02-abierto" x="540" y="832" text-anchor="middle">ABIERTO</text>
+          <path class="ln-ac s02-izq" d="M400 790 H262 A32 32 0 0 0 262 854 H400" />
+          <path class="ln-ac s02-der" d="M680 790 H818 A32 32 0 0 1 818 854 H680" />
+          <path class="ln-tenue s02-marcas" d="M300 880 V896 M380 880 V896 M460 880 V896 M540 880 V896 M620 880 V896 M700 880 V896 M780 880 V896" />
+          <!-- sol -->
+          <g class="s02-sol">
+            <circle class="ln" cx="262" cy="700" r="26" />
+            <path class="ln" d="M262 656 V644 M262 744 V756 M218 700 H206 M306 700 H318 M231 669 L222 660 M293 669 L302 660 M231 731 L222 740 M293 731 L302 740" />
+          </g>
+          <!-- luna -->
+          <g class="s02-luna">
+            <path class="ln" d="M836 670 A34 34 0 1 0 852 730 A28 28 0 1 1 836 670 Z" />
+          </g>
+        </g>
+        <!-- B: la cena con el celular -->
+        <g class="s02-b">
+          <g class="s02-plato">
+            <circle class="ln s02-dib-b" cx="440" cy="1050" r="84" />
+            <circle class="ln-tenue s02-dib-b" cx="440" cy="1050" r="54" />
+            <path class="ln s02-dib-b" d="M318 980 V1030 M302 980 V1014 Q302 1030 318 1030 Q334 1030 334 1014 V980 M318 1030 V1124" />
+            <path class="ln s02-dib-b" d="M562 1124 V980 Q584 1004 578 1060 H562" />
+          </g>
+          <g class="s02-tel">
+            <rect class="ln s02-dib-b" x="650" y="935" width="140" height="230" rx="26" />
+            <line class="ln s02-dib-b" x1="700" y1="955" x2="740" y2="955" />
+            <rect class="relleno-ac s02-burb" x="668" y="980" width="96" height="30" rx="12" />
+            <rect class="relleno-ac s02-burb" x="668" y="1022" width="80" height="30" rx="12" />
+            <rect class="relleno-ac s02-burb" x="668" y="1064" width="104" height="30" rx="12" />
+            <rect class="relleno-ac s02-burb" x="668" y="1106" width="70" height="30" rx="12" />
+          </g>
+          <path class="ln-ac s02-vibra" d="M812 990 Q824 1010 812 1030 M830 980 Q848 1010 830 1040" />
+        </g>
+        <!-- C: la caja, igual -->
+        <g class="s02-c">
+          <g class="s02-reg">
+            <rect class="ln s02-dib-c" x="400" y="700" width="280" height="150" rx="16" />
+            <rect class="ln s02-dib-c" x="450" y="640" width="180" height="60" rx="10" />
+            <path class="ln s02-dib-c" d="M380 850 H700 V900 H380 Z" />
+            <path class="ln-tenue s02-dib-c" d="M440 740 H480 M520 740 H560 M600 740 H640 M440 790 H480 M520 790 H560 M600 790 H640" />
+            <text class="signo s02-pesos" x="540" y="690" text-anchor="middle">$</text>
+          </g>
+          <rect class="ln s02-bar1" x="350" y="990" width="100" height="160" rx="10" />
+          <rect class="ln s02-bar2" x="630" y="990" width="100" height="160" rx="10" />
+          <text class="rotulo s02-r1" x="400" y="1206" text-anchor="middle">AÑO PASADO</text>
+          <text class="rotulo s02-r2" x="680" y="1206" text-anchor="middle">HOY</text>
+          <path class="ln-ac s02-igual" d="M520 1054 H560 M520 1084 H560" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">De sol a luna</span><span class="s02-e2">Y la caja, igual</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-jornada";
+      const DUR = 5.85;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const ANTES = 0.35;
+      const TARDE = 1.45;
+      const CONTESTAS = 2.25;
+      const MENSAJES = 2.65;
+      const CENA = 3.45;
+      const Y = 3.75;
+      const CAJA = 4.45;
+      const IGUAL = 5.19;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, o) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // A. la barra ya está (entra con golpe), el texto adentro
+      tl.fromTo(q(".s02-barra"), { scaleX: 0.7, svgOrigin: "540 822" }, { scaleX: 1, svgOrigin: "540 822", duration: 0.35, ease: "back.out(1.8)" }, 0);
+      pop(q(".s02-abierto"), 0.05, "540 822");
+      gsap.set(q(".s02-marcas"), { opacity: 0 });
+      tl.to(q(".s02-marcas"), { opacity: 1, duration: 0.3 }, 0.15);
+      // "antes": se estira a la izquierda y sale el sol
+      dibujar([q(".s02-izq")], ANTES - 0.05, 0.4);
+      pop(q(".s02-sol"), ANTES + 0.15, "262 700");
+      tl.to(q(".s02-sol"), { rotation: 45, svgOrigin: "262 700", duration: 3.2, ease: "none" }, ANTES + 0.3);
+      // "tarde": a la derecha y sale la luna
+      dibujar([q(".s02-der")], TARDE - 0.1, 0.4);
+      pop(q(".s02-luna"), TARDE + 0.1, "846 700");
+      tl.fromTo(q(".s02-luna"), { rotation: -20, svgOrigin: "846 700" }, { rotation: 0, svgOrigin: "846 700", duration: 0.5, ease: "back.out(2)" }, TARDE + 0.1);
+      tl.to(q(".s02-abierto"), { opacity: 0.5, duration: 0.3 }, TARDE + 0.3);
+
+      // B. "contestás mensajes en la cena"
+      dibujar(qa(".s02-dib-b"), CONTESTAS - 0.15, 0.45);
+      qa(".s02-burb").forEach((b, i) => {
+        const t = MENSAJES + i * 0.3;
+        tl.fromTo(b, { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.2, ease: "back.out(2)" }, t);
+      });
+      gsap.set(q(".s02-vibra"), { opacity: 0 });
+      [MENSAJES, CENA].forEach((t) => {
+        tl.to(q(".s02-tel"), { x: 5, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, t);
+        tl.to(q(".s02-vibra"), { opacity: 1, duration: 0.05, yoyo: true, repeat: 3 }, t);
+      });
+      tl.to(q(".s02-plato"), { opacity: 0.45, duration: 0.3 }, CENA);
+
+      // C. salen A y B, entra la caja
+      tl.to(qa(".s02-a, .s02-b"), { opacity: 0, y: -20, duration: 0.3, ease: "power2.in" }, Y);
+      dibujar(qa(".s02-dib-c"), CAJA - 0.55, 0.45);
+      pop(q(".s02-pesos"), CAJA, "540 670");
+      tl.to(q(".s02-reg"), { y: 8, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1 }, CAJA);
+      dibujar([q(".s02-bar1"), q(".s02-bar2")], CAJA + 0.1, 0.4);
+      tl.fromTo(qa(".s02-bar1, .s02-bar2"), { scaleY: 0.4, svgOrigin: "540 1150" }, { scaleY: 1, svgOrigin: "540 1150", duration: 0.45, ease: "power3.out" }, CAJA + 0.1);
+      gsap.set(qa(".s02-bar1, .s02-bar2"), { strokeOpacity: 0.55 });
+      pop(q(".s02-r1"), CAJA + 0.3, "400 1196");
+      pop(q(".s02-r2"), CAJA + 0.4, "680 1196");
+      pop(q(".s02-igual"), IGUAL - 0.05, "540 1069");
+      tl.to(q(".s02-igual"), { scale: 1.3, svgOrigin: "540 1069", duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, IGUAL + 0.3);
+
+      // etiquetas
+      tl.fromTo(q(".s02-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, TARDE);
+      tl.to(q(".s02-e1"), { opacity: 0, duration: 0.2 }, Y);
+      tl.fromTo(q(".s02-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CAJA);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

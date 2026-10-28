@@ -1,0 +1,7 @@
+[
+  {"t": 0.4, "sfx": "pop", "vol": 0.22},
+  {"t": 1.36, "sfx": "click", "vol": 0.22},
+  {"t": 2.4, "sfx": "ping", "vol": 0.25, "max": 0.6},
+  {"t": 3.5, "sfx": "ping", "vol": 0.25, "max": 0.6},
+  {"t": 4.0, "sfx": "whoosh-short", "vol": 0.2}
+]

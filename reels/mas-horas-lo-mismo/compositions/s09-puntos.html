@@ -1,0 +1,129 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-puntos"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-puntos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-puntos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-puntos"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-puntos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-puntos"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s09-puntos"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s09-puntos"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s09-puntos"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: #efeee5; fill-opacity: 0.75; }
+    [data-composition-id="s09-puntos"] .num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 60px; fill: #5ce611; }
+    [data-composition-id="s09-puntos"] .mas { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; fill: #5ce611; }
+    [data-composition-id="s09-puntos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-puntos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s09-puntos" data-width="1080" data-height="1920" data-duration="4.60">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.60" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s09-tel">
+          <rect class="ln s09-dib" x="350" y="610" width="380" height="560" rx="52" />
+          <line class="ln s09-dib" x1="510" y1="638" x2="570" y2="638" />
+          <text class="ui-nombre s09-tit" x="540" y="706" text-anchor="middle">Scalerics Puntos</text>
+          <!-- la tarjeta -->
+          <rect class="ln-fino s09-dib" x="380" y="736" width="320" height="250" rx="22" />
+          <text class="ui s09-tus" x="404" y="780">Tus puntos</text>
+          <text data-layout-allow-overlap class="num s09-n s09-n1" x="404" y="846">80</text>
+          <text data-layout-allow-overlap class="num s09-n s09-n2" x="404" y="846">90</text>
+          <text data-layout-allow-overlap class="num s09-n s09-n3" x="404" y="846">100</text>
+          <text class="mas s09-mas s09-mas1" x="600" y="836" text-anchor="middle">+10</text>
+          <text class="mas s09-mas s09-mas2" x="600" y="836" text-anchor="middle">+10</text>
+          <!-- sellos -->
+          <g class="s09-sellos">
+            <circle class="ln-fino" cx="420" cy="900" r="18" /><circle class="ln-fino" cx="470" cy="900" r="18" /><circle class="ln-fino" cx="520" cy="900" r="18" /><circle class="ln-fino" cx="570" cy="900" r="18" /><circle class="ln-fino" cx="620" cy="900" r="18" /><circle class="ln-fino" cx="670" cy="900" r="18" />
+            <circle class="ln-fino" cx="420" cy="948" r="18" /><circle class="ln-fino" cx="470" cy="948" r="18" /><circle class="ln-fino" cx="520" cy="948" r="18" /><circle class="ln-fino" cx="570" cy="948" r="18" /><circle class="ln-fino" cx="620" cy="948" r="18" /><circle class="ln-fino" cx="670" cy="948" r="18" />
+          </g>
+          <circle class="relleno-ac s09-lleno" cx="420" cy="900" r="12" />
+          <circle class="relleno-ac s09-lleno" cx="470" cy="900" r="12" />
+          <circle class="relleno-ac s09-lleno" cx="520" cy="900" r="12" />
+          <circle class="relleno-ac s09-lleno" cx="570" cy="900" r="12" />
+          <circle class="relleno-ac s09-sello4" cx="620" cy="900" r="12" />
+          <circle class="relleno-ac s09-sello5" cx="670" cy="900" r="12" />
+          <!-- vuelve -->
+          <g class="s09-vuelve">
+            <circle class="ln-fino" cx="540" cy="1036" r="12" />
+            <path class="ln-fino" d="M540 1048 V1080 M540 1058 L526 1070 M540 1058 L554 1070 M540 1080 L530 1104 M540 1080 L550 1104" />
+          </g>
+          <path class="ln-ac s09-flecha" d="M600 1070 A62 62 0 1 1 586 1030" />
+          <path class="ln-ac s09-punta" d="M572 1018 L588 1028 L590 1008" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">Scalerics Puntos</span><span class="s09-e2">Suma y vuelve</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-puntos";
+      const DUR = 4.6;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const PUNTOS = 1.36;
+      const SUME = 2.4;
+      const COMPRA = 3.5;
+      const VUELVA = 4.14;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, o) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // el celular arranca medio dibujado
+      qa(".s09-dib").forEach((el) => dibujar([el], 0, 0.55, 0.45));
+      tl.fromTo(q(".s09-tel"), { y: 30 }, { y: 0, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s09-sellos"), { opacity: 0 }, { opacity: 0.6, duration: 0.3 }, 0.3);
+      qa(".s09-lleno").forEach((c, i) => pop(c, 0.4 + i * 0.12, c.getAttribute("cx") + " 900"));
+      pop(q(".s09-tus"), 0.5, "460 772");
+      pop(q(".s09-n1"), 0.7, "440 830");
+      gsap.set(qa(".s09-n2, .s09-n3, .s09-mas, .s09-sello4, .s09-sello5"), { opacity: 0 });
+
+      // "Puntos": el título
+      tl.fromTo(q(".s09-tit"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, PUNTOS - 0.1);
+      tl.to(q(".s09-tel"), { scale: 1.03, svgOrigin: "540 890", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, PUNTOS);
+
+      // "sume": sello + 10
+      const sumar = (t, sello, mas, viejo, nuevo) => {
+        pop(q(sello), t, q(sello).getAttribute("cx") + " 900");
+        tl.fromTo(q(mas), { opacity: 0, y: 10 }, { opacity: 1, y: -30, duration: 0.45, ease: "power2.out" }, t);
+        tl.to(q(mas), { opacity: 0, duration: 0.2 }, t + 0.55);
+        tl.to(q(viejo), { opacity: 0, duration: 0.08 }, t + 0.1);
+        tl.fromTo(q(nuevo), { opacity: 0, scale: 1.25, svgOrigin: "440 830" }, { opacity: 1, scale: 1, svgOrigin: "440 830", duration: 0.3, ease: "back.out(2)" }, t + 0.1);
+      };
+      sumar(SUME, ".s09-sello4", ".s09-mas1", ".s09-n1", ".s09-n2");
+      sumar(COMPRA, ".s09-sello5", ".s09-mas2", ".s09-n2", ".s09-n3");
+
+      // "vuelva": la figurita y la flecha circular
+      pop(q(".s09-vuelve"), VUELVA - 0.45, "540 1070");
+      dibujar([q(".s09-flecha")], VUELVA - 0.3, 0.45);
+      tl.fromTo(q(".s09-punta"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, VUELVA + 0.12);
+      tl.to(qa(".s09-flecha, .s09-punta"), { rotation: 40, svgOrigin: "540 1068", duration: 0.4, ease: "power2.out" }, VUELVA + 0.15);
+
+      // etiquetas
+      tl.fromTo(q(".s09-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, PUNTOS);
+      tl.to(q(".s09-e1"), { opacity: 0, duration: 0.2 }, 3.0);
+      tl.fromTo(q(".s09-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 3.2);
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

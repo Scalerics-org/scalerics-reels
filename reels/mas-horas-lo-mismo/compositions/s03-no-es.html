@@ -1,0 +1,148 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-no-es"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-no-es"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-no-es"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-no-es"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-no-es"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s03-no-es"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s03-no-es"] .s03-nombre { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s03-no-es"] .s03-titular { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.04em; fill: #efeee5; }
+    [data-composition-id="s03-no-es"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-no-es"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-no-es" data-width="1080" data-height="1920" data-duration="4.61">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="4.61" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s03-fila">
+          <!-- 1: batería llena (las ganas) -->
+          <g class="s03-ico s03-ico1">
+            <g class="s03-dib">
+              <rect class="ln s03-d1" x="-44" y="-74" width="88" height="148" rx="14" />
+              <path class="ln s03-d1" d="M-16 -74 V-88 H16 V-74" />
+              <rect class="relleno-ac s03-carga" x="-30" y="34" width="60" height="26" rx="5" />
+              <rect class="relleno-ac s03-carga" x="-30" y="0" width="60" height="26" rx="5" />
+              <rect class="relleno-ac s03-carga" x="-30" y="-34" width="60" height="26" rx="5" />
+              <rect class="relleno-ac s03-carga" x="-30" y="-60" width="60" height="18" rx="5" />
+            </g>
+            <text data-layout-ignore class="s03-nombre s03-n" x="0" y="150" text-anchor="middle">GANAS</text>
+          </g>
+          <!-- 2: clientes -->
+          <g class="s03-ico s03-ico2">
+            <g class="s03-dib">
+              <circle class="ln s03-d2" cx="-34" cy="-46" r="20" />
+              <path class="ln s03-d2" d="M-34 -26 V30 M-34 -10 L-58 14 M-34 -10 L-10 14 M-34 30 L-52 76 M-34 30 L-16 76" />
+              <circle class="ln s03-d2" cx="38" cy="-46" r="20" />
+              <path class="ln s03-d2" d="M38 -26 V30 M38 -10 L14 14 M38 -10 L62 14 M38 30 L20 76 M38 30 L56 76" />
+            </g>
+            <text data-layout-ignore class="s03-nombre s03-n" x="0" y="150" text-anchor="middle">CLIENTES</text>
+          </g>
+          <!-- 3: el diario de la crisis -->
+          <g class="s03-ico s03-ico3">
+            <g class="s03-dib">
+              <rect class="ln s03-d3" x="-78" y="-74" width="156" height="148" rx="8" />
+              <text class="s03-titular s03-tit" x="0" y="-26" text-anchor="middle">CRISIS</text>
+              <path class="ln-tenue s03-d3" d="M-56 6 H56 M-56 30 H20 M-56 54 H40" />
+            </g>
+            <text data-layout-ignore class="s03-nombre s03-n" x="0" y="150" text-anchor="middle">LA CRISIS</text>
+          </g>
+        </g>
+        <g class="s03-badge s03-b1"><g class="s03-b-in"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        <g class="s03-badge s03-b2"><g class="s03-b-in"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        <g class="s03-badge s03-b3"><g class="s03-b-in"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">Nada de eso</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-no-es";
+      const DUR = 4.61;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const FALTA = 1.2;
+      const GANAS = 1.6;
+      const NI1 = 2.0;
+      const CLIENTES = 2.6;
+      const NI2 = 3.6;
+      const CRISIS = 3.8;
+
+      const Y = 930;
+      const XS = [270, 540, 810];
+      const BADGE = [[60, -92], [70, -78], [84, -90]];
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const badge = (el, t) => {
+        const inn = el.querySelector(".s03-b-in");
+        tl.fromTo(inn, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const sacudir = (el, t) => tl.to(el, { x: -6, duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      const nombre = (el, t) => tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+
+      const icos = [q(".s03-ico1"), q(".s03-ico2"), q(".s03-ico3")];
+      icos.forEach((g, i) => gsap.set(g, { x: XS[i], y: Y }));
+      [q(".s03-b1"), q(".s03-b2"), q(".s03-b3")].forEach((b, i) => gsap.set(b, { x: XS[i] + BADGE[i][0], y: Y + BADGE[i][1] }));
+      qa(".s03-b-in").forEach((b) => gsap.set(b, { opacity: 0 }));
+      qa(".s03-n").forEach((n) => gsap.set(n, { opacity: 0 }));
+
+      // 1. la batería: arranca medio dibujada y se va cargando hasta "ganas"
+      dibujar(qa(".s03-d1"), 0, 0.5, 0.4);
+      tl.fromTo(q(".s03-ico1 .s03-dib"), { scale: 1.25, svgOrigin: "0 0" }, { scale: 1.1, svgOrigin: "0 0", duration: 0.5, ease: "power3.out" }, 0);
+      qa(".s03-carga").forEach((c, i) => {
+        tl.fromTo(c, { opacity: 0, scaleY: 0.3, svgOrigin: "0 " + (60 - i * 34) }, { opacity: 1, scaleY: 1, svgOrigin: "0 " + (60 - i * 34), duration: 0.18, ease: "back.out(2)" }, 0.3 + i * 0.25);
+      });
+      // la batería se corre a su lugar en la fila
+      gsap.set(q(".s03-ico1"), { x: 540 });
+      tl.to(q(".s03-ico1"), { x: XS[0], duration: 0.4, ease: "power3.inOut" }, FALTA - 0.15);
+      tl.to(q(".s03-ico1 .s03-dib"), { scale: 1, svgOrigin: "0 0", duration: 0.4, ease: "power3.inOut" }, FALTA - 0.15);
+      nombre(q(".s03-ico1 .s03-n"), GANAS - 0.1);
+      badge(q(".s03-b1"), GANAS + 0.1);
+      sacudir(q(".s03-ico1 .s03-dib"), GANAS + 0.12);
+
+      // 2. clientes
+      tl.to(q(".s03-ico1"), { opacity: 0.4, duration: 0.3 }, NI1);
+      dibujar(qa(".s03-d2"), NI1 + 0.05, 0.45);
+      tl.fromTo(q(".s03-ico2 .s03-dib"), { y: 24 }, { y: 0, duration: 0.45, ease: "power3.out" }, NI1 + 0.05);
+      nombre(q(".s03-ico2 .s03-n"), CLIENTES - 0.1);
+      badge(q(".s03-b2"), CLIENTES + 0.1);
+      sacudir(q(".s03-ico2 .s03-dib"), CLIENTES + 0.12);
+      // los dos clientes se balancean mientras tanto
+      tl.to(q(".s03-ico2 .s03-dib"), { rotation: 4, svgOrigin: "0 76", duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 3 }, CLIENTES + 0.4);
+
+      // 3. la crisis
+      tl.to(q(".s03-ico2"), { opacity: 0.4, duration: 0.3 }, NI2 - 0.2);
+      dibujar(qa(".s03-d3"), NI2 - 0.25, 0.4);
+      tl.fromTo(q(".s03-tit"), { opacity: 0, scale: 0.6, svgOrigin: "0 -36" }, { opacity: 1, scale: 1, svgOrigin: "0 -36", duration: 0.3, ease: "back.out(2)" }, CRISIS - 0.1);
+      tl.fromTo(q(".s03-ico3 .s03-dib"), { rotation: -14, svgOrigin: "0 74" }, { rotation: 0, svgOrigin: "0 74", duration: 0.5, ease: "back.out(2)" }, NI2 - 0.25);
+      nombre(q(".s03-ico3 .s03-n"), CRISIS);
+      badge(q(".s03-b3"), CRISIS + 0.15);
+      sacudir(q(".s03-ico3 .s03-dib"), CRISIS + 0.17);
+
+      // "nada de eso"
+      tl.fromTo(q(".s03-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, NI2);
+      tl.to(qa(".s03-b-in"), { scale: 1.22, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, CRISIS + 0.45);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

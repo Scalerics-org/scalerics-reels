@@ -1,0 +1,111 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-horas"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-horas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-horas"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-horas"] .ln-gordo { fill: none; stroke: #efeee5; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-horas"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-horas"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s01-horas"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s01-horas"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-horas"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-horas" data-width="1080" data-height="1920" data-duration="2.65">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="2.65" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s01-todo">
+          <!-- ejes -->
+          <path class="ln s01-eje" d="M220 640 V1160 H880" />
+          <path class="ln s01-eje" d="M204 664 L220 640 L236 664" />
+          <!-- marcas del eje horizontal (días) -->
+          <path class="ln-tenue s01-marca" d="M320 1160 V1176 M420 1160 V1176 M520 1160 V1176 M620 1160 V1176 M720 1160 V1176 M820 1160 V1176" />
+          <!-- HORAS: sube empinada -->
+          <g class="s01-horas-g">
+            <path class="ln-gordo s01-l-horas" d="M240 1130 C380 1110 470 1020 560 900 C640 790 720 720 830 690" />
+            <path class="ln-gordo s01-punta" d="M796 672 L832 690 L800 716" />
+            <text class="rotulo s01-rot-h" x="830" y="640" text-anchor="end">HORAS</text>
+          </g>
+          <!-- VENTAS: plana -->
+          <g class="s01-ventas-g">
+            <path class="ln-gordo s01-l-ventas" d="M240 1066 C330 1058 420 1074 510 1066 C600 1058 690 1074 790 1066" />
+            <text class="rotulo s01-rot-v" x="240" y="1030">VENTAS</text>
+          </g>
+          <!-- el igual -->
+          <g class="s01-igual">
+            <path class="ln-ac" d="M820 1052 H860 M820 1080 H860" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Más horas</span><span class="s01-e2">Mismas ventas</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-horas";
+      const DUR = 2.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const HORAS = 0.6;
+      const NUNCA = 1.1;
+      const VENDES = 1.5;
+      const MISMO = 2.0;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          // lo que arranca en 0 ya se ve (el cuadro 0 no puede ser negro)
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, o) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // los ejes arrancan medio dibujados (el cuadro 0 no puede ser negro)
+      dibujar(qa(".s01-eje"), 0, 0.45, 0.45);
+      gsap.set(q(".s01-marca"), { opacity: 0 });
+      tl.to(q(".s01-marca"), { opacity: 1, duration: 0.3 }, 0.2);
+      // todo el gráfico se acerca despacio
+      tl.fromTo(q(".s01-todo"), { scale: 1.06, svgOrigin: "540 900" }, { scale: 1, svgOrigin: "540 900", duration: DUR, ease: "none" }, 0);
+
+      // "horas": la línea sube empinada, rápido (se ve también en el cuadro 0, ya arrancada)
+      dibujar([q(".s01-l-horas")], 0, HORAS + 0.45, 0.82);
+      pop(q(".s01-punta"), HORAS + 0.4, "830 690");
+      pop(q(".s01-rot-h"), HORAS + 0.2, "760 630");
+      // "nunca": golpe de la línea hacia arriba
+      tl.to(q(".s01-horas-g"), { y: -18, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, NUNCA);
+
+      // "vendés": la línea de ventas se dibuja plana, apagada
+      dibujar([q(".s01-l-ventas")], VENDES - 0.1, 0.45);
+      gsap.set(q(".s01-l-ventas"), { stroke: "rgba(239, 238, 229, 0.45)" });
+      pop(q(".s01-rot-v"), VENDES, "300 1020");
+      gsap.set(q(".s01-rot-v"), { fillOpacity: 0.6 });
+
+      // "mismo": el igual verde late
+      pop(q(".s01-igual"), MISMO - 0.05, "840 1066");
+      tl.to(q(".s01-igual"), { scale: 1.25, svgOrigin: "840 1066", duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, MISMO + 0.3);
+
+      // etiquetas
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, HORAS);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, VENDES - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, VENDES + 0.05);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
