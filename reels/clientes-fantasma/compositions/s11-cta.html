@@ -1,0 +1,75 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-cta"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-cta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-cta"] .ojo { fill: #efeee5; }
+    [data-composition-id="s11-cta"] .s11-marca { position: absolute; left: 0; right: 0; top: 795px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 110px; line-height: 1.1; letter-spacing: -0.02em; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s11-cta"] .s11-marca span { display: inline-block; }
+    [data-composition-id="s11-cta"] .s11-bajada { position: absolute; left: 0; right: 0; top: 950px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 34px; color: #efeee5; }
+    [data-composition-id="s11-cta"] .s11-pildora-caja { position: absolute; left: 0; right: 0; top: 1104px; display: flex; justify-content: center; }
+    [data-composition-id="s11-cta"] .s11-pildora { display: inline-block; padding: 24px 52px; border-radius: 999px; background: #efeee5; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; line-height: 1.2; color: #0b1d35; white-space: nowrap; }
+    [data-composition-id="s11-cta"] .s11-pildora b { font-weight: 800; }
+  </style>
+  <div id="root" data-composition-id="s11-cta" data-width="1080" data-height="1920" data-duration="5.35">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="5.35" data-track-index="0">
+      <div class="s11-marca"><span class="s11-w1">Scalerics</span></div>
+      <div class="s11-bajada">Bots · Puntos · Tiendas para comercios</div>
+      <!-- fantasmita que asoma detrás de la píldora (va antes en el DOM: la píldora lo tapa) -->
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g transform="translate(770 0)"><g class="s11-fan"><g class="s11-mece">
+          <path class="ln" d="M-45 50 V-10 A45 45 0 0 1 45 -10 V50 l-15 -14 l-15 14 l-15 -14 l-15 14 l-15 -14 l-15 14 Z" />
+          <ellipse class="ojo" cx="-15" cy="-8" rx="6" ry="9" /><ellipse class="ojo" cx="15" cy="-8" rx="6" ry="9" />
+        </g></g></g>
+      </svg>
+      <div class="s11-pildora-caja"><div class="s11-pildora">Comentá <b>“FANTASMA”</b></div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-cta";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (palabras de la locución, relativos a la escena)
+      const COMENTA = 0.0;
+      const FANTASMA = 0.26;
+      const CONTAMOS = 1.56;
+
+      // nombre: entra desenfocado y se asienta
+      tl.fromTo(q(".s11-w1"), { opacity: 0.5, filter: "blur(6px)", y: 10 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.45, ease: "power3.out" }, 0);
+      // deriva lenta del bloque de marca (termina quieta antes del final)
+      tl.fromTo(q(".s11-marca"), { scale: 0.97, transformOrigin: "540px 50%" }, { scale: 1, duration: 4.4, ease: "power1.out" }, 0);
+
+      // bajada
+      tl.fromTo(q(".s11-bajada"), { opacity: 0, y: 12 }, { opacity: 0.7, y: 0, duration: 0.45, ease: "power3.out" }, 0.4);
+
+      // píldora: pop en "Comentá", golpe en "FANTASMA" y pulsos suaves finitos cada ~1.2 s
+      const p = q(".s11-pildora");
+      tl.fromTo(p, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, COMENTA + 0.02);
+      [FANTASMA, FANTASMA + 1.2, FANTASMA + 2.4, FANTASMA + 3.6].forEach((t) => {
+        tl.to(p, { scale: 1.06, duration: 0.2, ease: "sine.out" }, t);
+        tl.to(p, { scale: 1, duration: 0.3, ease: "sine.inOut" }, t + 0.2);
+      });
+      // "contamos": la bajada se ilumina un toque
+      tl.to(q(".s11-bajada"), { opacity: 0.95, duration: 0.25, yoyo: true, repeat: 1 }, CONTAMOS);
+
+      // fantasmita: asoma por arriba de la esquina derecha de la píldora y se mece una vez
+      const fan = q(".s11-fan");
+      gsap.set(fan, { y: 1150, opacity: 0 });
+      tl.to(fan, { opacity: 0.55, duration: 0.2 }, FANTASMA + 0.3);
+      tl.to(fan, { y: 1080, duration: 0.5, ease: "back.out(1.6)" }, FANTASMA + 0.3);
+      tl.fromTo(q(".s11-mece"), { rotation: 0, transformOrigin: "50% 100%" }, { rotation: 10, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1 }, 1.3);
+      tl.to(q(".s11-mece"), { rotation: -6, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, 2.2);
+
+      // sin salida: el último cuadro queda quieto y legible
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,161 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-miedo"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-miedo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-miedo"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-miedo"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-miedo"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s06-miedo"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s06-miedo"] .ojo { fill: #efeee5; }
+    [data-composition-id="s06-miedo"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 27px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s06-miedo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-miedo"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s06-miedo" data-width="1080" data-height="1920" data-duration="5.73">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.73" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s06-suelo" x1="80" y1="1150" x2="1000" y2="1150" />
+        <!-- tu local (izquierda), apagado -->
+        <g class="s06-local-a">
+          <g class="s06-apaga">
+            <path class="ln s06-dib-a" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s06-dib-a" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s06-dib-a" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s06-dib-a" x="-100" y="-296" width="200" height="56" rx="10" />
+            <text class="cartel s06-txt-a" x="0" y="-258" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s06-dib-a" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s06-dib-a" x="42" y="-122" width="58" height="52" rx="5" />
+            <path class="ln s06-dib-a" d="M-24 0 V-96 H24 V0" />
+          </g>
+        </g>
+        <!-- el de enfrente (derecha), con luz -->
+        <g class="s06-local-b">
+          <path class="ln s06-dib-b" d="M-120 0 V-170 H120 V0" />
+          <path class="ln s06-dib-b" d="M-140 -170 H140 L122 -222 H-122 Z" />
+          <path class="ln s06-dib-b" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+          <rect class="ln s06-dib-b" x="-100" y="-296" width="200" height="56" rx="10" />
+          <text class="cartel s06-txt-b" x="0" y="-258" text-anchor="middle">ENFRENTE</text>
+          <rect class="ln s06-dib-b" x="-100" y="-122" width="58" height="52" rx="5" />
+          <rect class="ln s06-dib-b" x="42" y="-122" width="58" height="52" rx="5" />
+          <rect class="vidrio s06-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+          <rect class="vidrio s06-luz" x="50" y="-114" width="42" height="36" rx="3" />
+          <path class="ln s06-dib-b" d="M-24 0 V-96 H24 V0" />
+        </g>
+        <!-- el anotador de él -->
+        <g class="s06-nota">
+          <rect class="ln" x="690" y="634" width="240" height="214" rx="16" />
+          <path class="ln" d="M740 622 V646 M810 622 V646 M880 622 V646" />
+          <path class="ln-ac s06-tilde" d="M716 702 L728 714 L750 690" />
+          <line class="ln-tenue s06-renglon" x1="770" y1="702" x2="900" y2="702" />
+          <path class="ln-ac s06-tilde" d="M716 756 L728 768 L750 744" />
+          <line class="ln-tenue s06-renglon" x1="770" y1="756" x2="900" y2="756" />
+          <path class="ln-ac s06-tilde" d="M716 810 L728 822 L750 798" />
+          <line class="ln-tenue s06-renglon" x1="770" y1="810" x2="900" y2="810" />
+        </g>
+        <!-- los tres que se van: fantasma y, al llegar, figurita -->
+        <g class="s06-fan s06-fan-1"><g class="s06-flota">
+          <path class="ln" d="M-45 50 V-10 A45 45 0 0 1 45 -10 V50 l-15 -14 l-15 14 l-15 -14 l-15 14 l-15 -14 l-15 14 Z" />
+          <ellipse class="ojo" cx="-15" cy="-8" rx="6" ry="9" /><ellipse class="ojo" cx="15" cy="-8" rx="6" ry="9" />
+        </g></g>
+        <g class="s06-fan s06-fan-2"><g class="s06-flota">
+          <path class="ln" d="M-45 50 V-10 A45 45 0 0 1 45 -10 V50 l-15 -14 l-15 14 l-15 -14 l-15 14 l-15 -14 l-15 14 Z" />
+          <ellipse class="ojo" cx="-15" cy="-8" rx="6" ry="9" /><ellipse class="ojo" cx="15" cy="-8" rx="6" ry="9" />
+        </g></g>
+        <g class="s06-fan s06-fan-3"><g class="s06-flota">
+          <path class="ln" d="M-45 50 V-10 A45 45 0 0 1 45 -10 V50 l-15 -14 l-15 14 l-15 -14 l-15 14 l-15 -14 l-15 14 Z" />
+          <ellipse class="ojo" cx="-15" cy="-8" rx="6" ry="9" /><ellipse class="ojo" cx="15" cy="-8" rx="6" ry="9" />
+        </g></g>
+        <g class="s06-p s06-p-1"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+        <g class="s06-p s06-p-2"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+        <g class="s06-p s06-p-3"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Da miedo</span><span class="s06-e2">Él los tiene anotados</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-miedo";
+      const DUR = 5.73;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const MIEDO = 0.5;
+      const VAYAN = 1.9;
+      const COMPETENCIA = 3.1;
+      const ANOTADOS = 4.6;
+
+      const SUELO = 1150;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // tu local: medio dibujado desde el cuadro 0, y se apaga a 0.4 en "miedo"
+      gsap.set(q(".s06-local-a"), { x: 270, y: SUELO, scale: 0.9 });
+      dibujar(qa(".s06-dib-a"), 0, 0.6, 0.45);
+      tl.fromTo(q(".s06-txt-a"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.15);
+      tl.fromTo(q(".s06-suelo"), { scaleX: 0.5, svgOrigin: "540 1150" }, { scaleX: 1, svgOrigin: "540 1150", duration: 0.7, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s06-apaga"), { opacity: 1 }, { opacity: 0.4, duration: 0.5 }, MIEDO);
+
+      // "miedo": salen 3 fantasmas por la puerta; "se vayan": se van a la derecha
+      const fans = qa(".s06-fan");
+      const flotando = [[330, 760], [420, 690], [480, 800]];
+      const medio = [[470, 860], [560, 790], [640, 880]];
+      const llegada = [[580, 1090], [650, 1090], [810, 1090]];
+      fans.forEach((g, i) => {
+        const t0 = MIEDO + i * 0.18;
+        gsap.set(g, { opacity: 0 });
+        tl.fromTo(g, { x: 270, y: 1080, scale: 0.5, opacity: 0 }, { x: flotando[i][0], y: flotando[i][1], scale: 0.85, opacity: 0.55, duration: 0.7, ease: "power3.out" }, t0);
+        tl.to(g, { x: medio[i][0], y: medio[i][1], duration: 1.1, ease: "sine.inOut" }, VAYAN + i * 0.1);
+        tl.to(g, { x: llegada[i][0], y: llegada[i][1], scale: 0.7, duration: 0.55, ease: "power2.inOut" }, COMPETENCIA + 0.15 + i * 0.12);
+        tl.fromTo(g.querySelector(".s06-flota"), { y: 8 }, { y: -8, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 3 }, t0);
+      });
+      tl.fromTo(q(".s06-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, MIEDO);
+
+      // "competencia": se dibuja el de enfrente, con la luz prendida
+      gsap.set(q(".s06-local-b"), { x: 810, y: SUELO, scale: 0.9 });
+      dibujar(qa(".s06-dib-b"), COMPETENCIA - 0.05, 0.55);
+      tl.fromTo(q(".s06-txt-b"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, COMPETENCIA + 0.3);
+      tl.fromTo(qa(".s06-luz"), { opacity: 0 }, { opacity: 0.85, duration: 0.25 }, COMPETENCIA + 0.4);
+
+      // al llegar, cada fantasma se vuelve figurita sólida
+      qa(".s06-p").forEach((p, i) => {
+        const t1 = COMPETENCIA + 0.7 + i * 0.12;
+        gsap.set(p, { x: llegada[i][0], y: SUELO, opacity: 0 });
+        tl.to(fans[i], { opacity: 0, duration: 0.2 }, t1);
+        tl.fromTo(p, { opacity: 0, scale: 0.85, svgOrigin: "0 0" }, { opacity: 1, scale: 1, svgOrigin: "0 0", duration: 0.35, ease: "back.out(1.6)" }, t1);
+        tl.to(p, { y: SUELO - 10, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, t1 + 0.35 + i * 0.05);
+      });
+
+      // "anotados": el anotador y los tres tildes, de a uno
+      gsap.set(q(".s06-nota"), { opacity: 0 });
+      pop(q(".s06-nota"), ANOTADOS - 0.25, "810 848");
+      dibujar(qa(".s06-renglon"), ANOTADOS - 0.15, 0.3);
+      qa(".s06-tilde").forEach((t, i) => dibujar([t], ANOTADOS + 0.05 + i * 0.22, 0.25));
+      tl.to(q(".s06-e1"), { opacity: 0, duration: 0.2 }, COMPETENCIA - 0.1);
+      tl.fromTo(q(".s06-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, COMPETENCIA + 0.9);
+      tl.to(q(".s06-nota"), { rotation: -3, svgOrigin: "810 848", duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, ANOTADOS + 0.6);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

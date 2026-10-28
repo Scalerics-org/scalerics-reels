@@ -1,0 +1,156 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-bot"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-bot"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-bot"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-bot"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-bot"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s09-bot"] .punto { fill: #efeee5; }
+    [data-composition-id="s09-bot"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s09-bot"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s09-bot"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 27px; fill: #efeee5; }
+    [data-composition-id="s09-bot"] .ui-precio { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; fill: #5ce611; }
+    [data-composition-id="s09-bot"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s09-bot"] .reloj { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s09-bot"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-bot"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s09-bot" data-width="1080" data-height="1920" data-duration="4.96">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.96" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- luna chica -->
+        <path class="ln s09-luna" d="M838 640 A40 40 0 1 0 876 694 A31 31 0 1 1 838 640 Z" />
+        <g class="s09-tel">
+          <!-- celular centrado 360x600, y 640-1240 -->
+          <rect class="ln s09-dib" x="360" y="640" width="360" height="600" rx="52" />
+          <line class="ln s09-dib" x1="510" y1="668" x2="570" y2="668" />
+          <!-- reloj de la barra de estado -->
+          <text class="reloj s09-reloj" x="540" y="716" text-anchor="middle">3:00</text>
+          <!-- cabecera del chat -->
+          <circle class="ln s09-dib" cx="408" cy="768" r="20" />
+          <text class="ui-nombre s09-cab" x="442" y="778">Tienda</text>
+          <line class="ln-tenue s09-dib" x1="384" y1="808" x2="696" y2="808" />
+          <!-- mensaje del cliente -->
+          <g class="s09-msg">
+            <rect class="ln" x="548" y="832" width="148" height="60" rx="22" />
+            <text class="ui" x="566" y="871">¿Precio?</text>
+          </g>
+          <!-- escribiendo... -->
+          <g class="s09-escribe">
+            <rect class="ln" x="384" y="916" width="110" height="56" rx="22" />
+            <circle class="punto s09-dot" cx="415" cy="944" r="6" />
+            <circle class="punto s09-dot" cx="439" cy="944" r="6" />
+            <circle class="punto s09-dot" cx="463" cy="944" r="6" />
+          </g>
+          <!-- respuesta del bot -->
+          <g class="s09-resp">
+            <rect class="ln-ac" x="384" y="916" width="232" height="110" rx="22" />
+            <text class="ui-precio s09-precio" x="404" y="960">$ 290</text>
+            <text class="ui" x="404" y="1004">¿Te lo guardo?</text>
+          </g>
+          <line class="ln-ac s09-subraya" x1="404" y1="970" x2="500" y2="970" />
+          <text class="hora s09-h1" data-layout-ignore x="388" y="1054">3:00</text>
+          <!-- segunda respuesta -->
+          <g class="s09-resp2">
+            <rect class="ln-ac" x="384" y="1072" width="234" height="60" rx="22" />
+            <text class="ui" x="402" y="1111">Abrimos a las 9</text>
+          </g>
+          <!-- caja de escribir -->
+          <rect class="ln-tenue s09-dib" x="384" y="1166" width="312" height="48" rx="24" />
+        </g>
+        <!-- el bot: cabeza redonda con antena, a la izquierda del celular -->
+        <g class="s09-bot" transform="translate(250 770)">
+          <g class="s09-bot-in">
+            <line class="ln" x1="0" y1="-40" x2="0" y2="-64" />
+            <circle class="relleno-ac" cx="0" cy="-70" r="9" />
+            <circle class="ln" cx="0" cy="0" r="40" />
+            <circle class="relleno-ac s09-ojo" cx="-14" cy="-4" r="6" />
+            <circle class="relleno-ac s09-ojo" cx="14" cy="-4" r="6" />
+            <path class="ln" d="M-12 16 Q0 24 12 16" />
+            <line class="ln" x1="-40" y1="0" x2="-50" y2="0" />
+            <line class="ln" x1="40" y1="0" x2="50" y2="0" />
+          </g>
+        </g>
+        <path class="ln-ac s09-enlace" d="M296 840 Q340 860 352 900" />
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">El bot contesta</span><span class="s09-e2">Con tus precios</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-bot";
+      const DUR = 4.96;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const BOT = 0.26;
+      const CONTESTA = 1.38;
+      const TRES = 2.06;
+      const MANANA = 2.56;
+      const CON_TUS = 3.28;
+      const PRECIOS = 3.76;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: hasta ?? 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // el mismo celular de s05, de noche: arranca medio dibujado con el mensaje ya ahí
+      dibujar(qa(".s09-dib"), 0, 0.6, 0.45);
+      tl.fromTo(q(".s09-tel"), { scale: 0.97, svgOrigin: "540 940" }, { scale: 1.02, svgOrigin: "540 940", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s09-reloj"), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+      tl.fromTo(q(".s09-cab"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+      tl.fromTo(q(".s09-msg"), { opacity: 0.6, scale: 0.94, svgOrigin: "696 892" }, { opacity: 1, scale: 1, svgOrigin: "696 892", duration: 0.3, ease: "back.out(1.6)" }, 0);
+      dibujar([q(".s09-luna")], 0, 0.6, 0.4);
+      tl.fromTo(q(".s09-luna"), { rotation: -15, svgOrigin: "850 680" }, { rotation: 5, svgOrigin: "850 680", duration: DUR, ease: "sine.inOut" }, 0);
+
+      // "bot": aparece la cabecita con antena y se conecta al chat
+      tl.fromTo(q(".s09-bot-in"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, BOT);
+      tl.fromTo(q(".s09-bot-in"), { rotation: -8, transformOrigin: "50% 100%" }, { rotation: 8, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 7 }, BOT + 0.4);
+      dibujar([q(".s09-enlace")], BOT + 0.25, 0.4);
+      tl.fromTo(q(".s09-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, BOT);
+
+      // escribiendo... y en "contesta" la respuesta con punch
+      pop(q(".s09-escribe"), 0.75, "384 972");
+      qa(".s09-dot").forEach((d, i) => {
+        tl.fromTo(d, { y: 0 }, { y: -8, duration: 0.16, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.85 + i * 0.08);
+      });
+      tl.to(q(".s09-escribe"), { opacity: 0, duration: 0.08 }, CONTESTA - 0.05);
+      tl.fromTo(q(".s09-resp"), { opacity: 0, scale: 0.7, svgOrigin: "384 1026" }, { opacity: 1, scale: 1, svgOrigin: "384 1026", duration: 0.4, ease: "back.out(2.2)" }, CONTESTA - 0.05);
+      tl.fromTo(q(".s09-h1"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, CONTESTA + 0.2);
+      // el bot asiente con los ojos al contestar
+      tl.fromTo(qa(".s09-ojo"), { scaleY: 1, transformOrigin: "50% 50%" }, { scaleY: 0.2, duration: 0.08, yoyo: true, repeat: 1 }, CONTESTA);
+
+      // "tres de la mañana": el reloj hace punch y llega la segunda respuesta
+      tl.fromTo(q(".s09-reloj"), { scale: 1, svgOrigin: "540 706" }, { scale: 1.3, svgOrigin: "540 706", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, TRES);
+      pop(q(".s09-resp2"), MANANA, "384 1132");
+
+      // "con tus precios": el precio golpea y se subraya
+      tl.to(q(".s09-e1"), { opacity: 0, duration: 0.2 }, CON_TUS - 0.1);
+      tl.fromTo(q(".s09-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, CON_TUS);
+      tl.fromTo(q(".s09-precio"), { scale: 1, svgOrigin: "452 950" }, { scale: 1.25, svgOrigin: "452 950", duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, PRECIOS);
+      dibujar([q(".s09-subraya")], PRECIOS, 0.35);
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
