@@ -32,6 +32,7 @@
 - 28-10 · `antes-de-entrar` · Sitio web · "Tu cliente decide si te compra antes de pisar tu local." · Comentá WEB
 - 28-10 · `crecer-sin-contratar` · Todo Scalerics · "Para crecer no necesitás contratar a nadie. Necesitás dejar de hacer todo a mano." · Comentá CRECER
 - 28-10 · `negocio-zombi` · Todo Scalerics · especial Halloween 2, más color y efectos: "Tu negocio no está muerto. Es peor: es un zombi." · Comentá ZOMBI
+- 28-10 · `tu-jarvis` · Todo Scalerics · formato nuevo: HUD + voz de asistente (lo hace Claude en la compu de Juan)
 
 ## En curso
 
