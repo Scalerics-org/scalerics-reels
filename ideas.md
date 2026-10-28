@@ -8,10 +8,13 @@
 - 27-10 · `clientes-fantasma` · Puntos + Bot · especial Halloween: "Tu local está lleno de fantasmas." · Comentá FANTASMA
 
 ## En curso
+- 28-10 · `tu-instagram-no-es-tuyo` · Tienda online · si Meta te cierra la cuenta perdés todo; la tienda propia es tuya · Comentá TIENDA
+- 28-10 · `nadie-te-encuentra` · Sitio web · si tu negocio no aparece en Google, para el que busca no existe · Comentá WEB
+- 28-10 · `publicidad-sin-respuesta` · Bot · pagás publicidad para que te escriban y después no contestás · Comentá BOT
+- 28-10 · `cerraste-a-las-8` · Tienda online · cerraste a las 8 y tu tienda siguió vendiendo · Comentá VENDER
+- 28-10 · `el-cuaderno` · Todo Scalerics · tu cuaderno de pedidos te cuesta más que un sistema · Comentá SISTEMA
 
 ## Banco de ideas (tomá uno o inventá otro en la misma línea)
-- "Tu Instagram no es tuyo": si Meta te cierra la cuenta, perdés todo; la tienda propia y la base
-  de clientes sí son tuyas. (Tienda online)
 - "Tu mejor cliente se fue y no te diste cuenta": nadie le escribió en 2 meses. (Puntos, avisos)
 - "Contestar rápido vende más que bajar el precio." (Bot)
 - "Vendés por Instagram y anotás los pedidos en un cuaderno." (Tienda + envíos)
@@ -20,8 +23,4 @@
 - "Tu competencia no es el de enfrente: es el celular de tu cliente a las 11 de la noche." (Tienda)
 - "Regalar un café te sale más barato que conseguir un cliente nuevo." (Puntos)
 - "Tu página web es una tarjeta personal que nadie lee." (Sitio web)
-- "Si tu negocio no aparece en Google, para el que busca no existe." (Sitio web)
-- "Pagás publicidad para que te escriban y después no contestás." (Bot)
 - "El cliente que más gasta en tu local ni sabe que lo valorás." (Puntos)
-- "Cerraste a las 8 y tu tienda siguió vendiendo." (Tienda online)
-- "Tu cuaderno de pedidos te cuesta más que un sistema." (todo Scalerics)
