@@ -1,10 +1,11 @@
 # Publica en Instagram el reel aprobado más viejo (ver herramientas/publicar.mjs).
-# 12:00 y 19:00 de Uruguay. A mano: Actions → "Publicar reel" → Run workflow (con "prueba" no publica).
+# 12:00, 18:00 y 21:00 de Uruguay (3 por día). A mano: Actions → "Publicar reel" → Run workflow (con "prueba" no publica).
 name: Publicar reel
 on:
   schedule:
     - cron: "0 15 * * *"
-    - cron: "0 22 * * *"
+    - cron: "0 21 * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
     inputs:
       prueba:
