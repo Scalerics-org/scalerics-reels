@@ -6,10 +6,10 @@
 - 27-10 · `descuentos` · Puntos · "Hacer descuentos es la forma más cara de vender." · Comentá PUNTOS
 - 27-10 · `el-de-enfrente` · Todo Scalerics · "El de enfrente te está robando clientes." · Comentá CLIENTES
 - 27-10 · `clientes-fantasma` · Puntos + Bot · especial Halloween: "Tu local está lleno de fantasmas." · Comentá FANTASMA
+- 28-10 · `nadie-te-encuentra` · Sitio web · "Si tu negocio no aparece en Google, para el que busca no existe." · Comentá WEB
 
 ## En curso
 - 28-10 · `tu-instagram-no-es-tuyo` · Tienda online · si Meta te cierra la cuenta perdés todo; la tienda propia es tuya · Comentá TIENDA
-- 28-10 · `nadie-te-encuentra` · Sitio web · si tu negocio no aparece en Google, para el que busca no existe · Comentá WEB
 - 28-10 · `publicidad-sin-respuesta` · Bot · pagás publicidad para que te escriban y después no contestás · Comentá BOT
 - 28-10 · `cerraste-a-las-8` · Tienda online · cerraste a las 8 y tu tienda siguió vendiendo · Comentá VENDER
 - 28-10 · `el-cuaderno` · Todo Scalerics · tu cuaderno de pedidos te cuesta más que un sistema · Comentá SISTEMA

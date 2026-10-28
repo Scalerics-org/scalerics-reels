@@ -1,0 +1,174 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-tu-sitio"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-tu-sitio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-tu-sitio"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tu-sitio"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tu-sitio"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tu-sitio"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tu-sitio"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tu-sitio"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s11-tu-sitio"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s11-tu-sitio"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s11-tu-sitio"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s11-tu-sitio"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s11-tu-sitio"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s11-tu-sitio"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s11-tu-sitio"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-tu-sitio"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+    [data-composition-id="s11-tu-sitio"] .s11-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s11-tu-sitio"] .s11-boton { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s11-tu-sitio"] .s11-num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 24px; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s11-tu-sitio" data-width="1080" data-height="1920" data-duration="6.34">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="6.34" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- tu sitio -->
+        <g class="s11-izq">
+          <rect class="ln s11-marco-a" x="110" y="620" width="380" height="590" rx="52" />
+          <line class="ln s11-marco-a" x1="265" y1="646" x2="335" y2="646" />
+          <g class="s11-cab">
+            <path class="ln-fino" d="M146 712 V686 H192 V712 M140 686 H198 L192 672 H146 Z M163 712 V698 H175 V712" />
+            <rect class="vidrio" x="150" y="692" width="9" height="10" rx="2" />
+            <rect class="vidrio" x="179" y="692" width="9" height="10" rx="2" />
+            <text class="s11-nombre" x="214" y="704">Tu local</text>
+            <line class="ln-tenue" x1="140" y1="736" x2="460" y2="736" />
+          </g>
+          <g class="s11-f1">
+            <circle class="ln-fino-ac" cx="158" cy="786" r="18" />
+            <path class="ln-fino-ac s11-aguja" d="M158 786 V774 M158 786 L167 791" />
+            <text class="ui" x="192" y="795">Horarios</text>
+          </g>
+          <g class="s11-f2">
+            <path class="ln-fino" d="M158 884 C150 874 140 864 140 852 A18 18 0 0 1 176 852 C176 864 166 874 158 884 Z" />
+            <text class="ui" x="192" y="870">Cómo llegar</text>
+          </g>
+          <g class="s11-f3">
+            <path class="ln-fino" d="M142 932 H174 M142 946 H174 M142 960 H174" />
+            <text class="ui" x="192" y="955">Lo que ofrecés</text>
+            <path class="ln-tenue" d="M192 984 H430 M192 1006 H380" />
+          </g>
+          <g class="s11-btn">
+            <rect class="ln-ac" x="140" y="1070" width="320" height="82" rx="41" />
+            <path class="ln-fino-ac" d="M186 1096 H226 Q234 1096 234 1104 V1120 Q234 1128 226 1128 H198 L186 1138 L188 1128 H186 Q178 1128 178 1120 V1104 Q178 1096 186 1096 Z" />
+            <text class="s11-boton" x="250" y="1121">Escribinos</text>
+          </g>
+        </g>
+        <!-- tu WhatsApp -->
+        <g class="s11-der">
+          <rect class="ln s11-marco-b" x="590" y="620" width="380" height="590" rx="52" />
+          <line class="ln s11-marco-b" x1="745" y1="646" x2="815" y2="646" />
+          <g class="s11-cab-b">
+            <circle class="ln-fino" cx="638" cy="694" r="20" />
+            <text class="s11-nombre" x="672" y="704">Consultas</text>
+            <line class="ln-tenue" x1="620" y1="736" x2="940" y2="736" />
+          </g>
+          <g class="s11-aviso">
+            <circle class="ln-fino-ac" cx="920" cy="694" r="20" />
+            <text class="s11-num" x="920" y="703" text-anchor="middle">3</text>
+          </g>
+          <g class="s11-m s11-m1">
+            <rect class="ln-fino" x="620" y="770" width="290" height="64" rx="22" />
+            <text class="ui" x="642" y="811">¿Tienen para hoy?</text>
+          </g>
+          <g class="s11-m s11-m2">
+            <rect class="ln-fino" x="620" y="856" width="250" height="64" rx="22" />
+            <text class="ui" x="642" y="897">¿Hacen envíos?</text>
+          </g>
+          <g class="s11-m s11-m3">
+            <rect class="ln-fino" x="620" y="942" width="270" height="64" rx="22" />
+            <text class="ui" x="642" y="983">¿Hasta qué hora?</text>
+          </g>
+        </g>
+        <!-- consultas que vuelan -->
+        <circle class="relleno-ac s11-vuela" cx="0" cy="0" r="10" />
+        <circle class="relleno-ac s11-vuela" cx="0" cy="0" r="10" />
+        <circle class="relleno-ac s11-vuela" cx="0" cy="0" r="10" />
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Tu sitio</span><span class="s11-e2">Consultas a tu WhatsApp</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-tu-sitio";
+      const DUR = 6.34;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const HORARIOS = 0.3;
+      const LLEGAR = 1.2;
+      const OFRECES = 2.2;
+      const BOTON = 3.2;
+      const TRAE = 3.7;
+      const CONSULTAS = 4.1;
+      const WHATSAPP = 5.3;
+
+      // tu sitio arranca centrado y medio dibujado
+      gsap.set(q(".s11-izq"), { x: 240 });
+      dibujar(qa(".s11-marco-a"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s11-cab"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.05);
+      etiqueta(q(".s11-e1"), 0.1);
+      const fila = (s, t) => tl.fromTo(q(s), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, t);
+      fila(".s11-f1", HORARIOS - 0.05);
+      tl.fromTo(q(".s11-aguja"), { rotation: -90, svgOrigin: "158 786" }, { rotation: 0, svgOrigin: "158 786", duration: 0.5, ease: "back.out(2)" }, HORARIOS);
+      fila(".s11-f2", LLEGAR - 0.05);
+      tl.fromTo(q(".s11-f2 path"), { y: -16 }, { y: 0, duration: 0.4, ease: "bounce.out" }, LLEGAR);
+      fila(".s11-f3", OFRECES - 0.05);
+
+      // "botón": se corre a la izquierda, entra el botón y aparece tu WhatsApp
+      tl.to(q(".s11-izq"), { x: 0, duration: 0.5, ease: "power3.inOut" }, BOTON - 0.45);
+      tl.fromTo(q(".s11-btn"), { opacity: 0, scale: 0.7, svgOrigin: "300 1111" }, { opacity: 1, scale: 1, svgOrigin: "300 1111", duration: 0.4, ease: "back.out(2)" }, BOTON);
+      dibujar(qa(".s11-marco-b"), BOTON - 0.2, 0.5);
+      tl.fromTo(q(".s11-cab-b"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, BOTON + 0.2);
+
+      // "trae las consultas": tres puntitos vuelan del botón al chat y entran los mensajes
+      const LLEGA = [CONSULTAS, 4.6, 5.0];
+      const YM = [802, 888, 974];
+      qa(".s11-vuela").forEach((c, i) => {
+        const t0 = TRAE - 0.25 + i * 0.4;
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { x: 300, y: 1111, opacity: 1 }, { x: 460, y: 880 - i * 10, duration: 0.18, ease: "power1.out", immediateRender: false }, t0);
+        tl.to(c, { x: 640, y: YM[i], duration: 0.18, ease: "power1.in" }, t0 + 0.18);
+        tl.to(c, { opacity: 0, scale: 0.3, duration: 0.08, transformOrigin: "50% 50%" }, t0 + 0.36);
+        tl.fromTo(q(".s11-m" + (i + 1)), { opacity: 0, x: -20, scale: 0.9, svgOrigin: "620 " + YM[i] }, { opacity: 1, x: 0, scale: 1, svgOrigin: "620 " + YM[i], duration: 0.3, ease: "back.out(2)" }, LLEGA[i]);
+        tl.to(q(".s11-btn"), { scale: 1.06, svgOrigin: "300 1111", duration: 0.1, yoyo: true, repeat: 1 }, t0);
+      });
+      etiqueta(q(".s11-e2"), CONSULTAS, q(".s11-e1"));
+
+      // "WhatsApp": aviso con el 3
+      tl.fromTo(q(".s11-aviso"), { opacity: 0, scale: 0.3, svgOrigin: "920 694" }, { opacity: 1, scale: 1, svgOrigin: "920 694", duration: 0.3, ease: "back.out(3)" }, WHATSAPP - 0.1);
+      tl.to(q(".s11-aviso"), { scale: 1.15, svgOrigin: "920 694", duration: 0.15, yoyo: true, repeat: 1 }, WHATSAPP + 0.5);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

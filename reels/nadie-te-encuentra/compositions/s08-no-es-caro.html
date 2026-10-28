@@ -1,0 +1,122 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-no-es-caro"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-no-es-caro"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-no-es-caro"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-no-es-caro"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-no-es-caro"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-no-es-caro"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-no-es-caro"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-no-es-caro"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s08-no-es-caro"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s08-no-es-caro"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s08-no-es-caro"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s08-no-es-caro"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s08-no-es-caro"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s08-no-es-caro"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s08-no-es-caro"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-no-es-caro"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+    [data-composition-id="s08-no-es-caro"] .s08-pesos { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 50px; fill: #efeee5; }
+    [data-composition-id="s08-no-es-caro"] .s08-ven { fill: none; stroke: #efeee5; stroke-width: 3; stroke-linejoin: round; }
+  </style>
+  <div id="root" data-composition-id="s08-no-es-caro" data-width="1080" data-height="1920" data-duration="2.72">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="2.72" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s08-suelo" x1="140" y1="1110" x2="940" y2="1110" />
+        <!-- etiqueta de precio -->
+        <g class="s08-precio">
+          <g transform="rotate(-16)">
+            <path class="ln s08-d1" d="M-120 -64 H50 L120 0 L50 64 H-120 Z" />
+            <circle class="ln-fino s08-d1" cx="70" cy="0" r="12" />
+            <text class="s08-pesos s08-d1t" x="-38" y="18" text-anchor="middle">$$$</text>
+          </g>
+        </g>
+        <!-- edificio de empresa grande -->
+        <g class="s08-edif">
+          <path class="ln s08-d2" d="M680 1110 V680 H850 V1110" />
+          <path class="ln s08-d2" d="M765 680 V630 M745 630 H785" />
+          <path class="ln s08-d2" d="M740 1110 V1050 H790 V1110" />
+          <g class="s08-vent"></g>
+        </g>
+        <g class="s08-badge s08-b1"><g><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" style="stroke-width:4" /></g></g>
+        <g class="s08-badge s08-b2"><g><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" style="stroke-width:4" /></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">No es caro</span><span class="s08-e2">Ni de empresas grandes</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-no-es-caro";
+      const DUR = 2.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const CARO = 0.7;
+      const EMPRESAS = 1.5;
+      const GRANDES = 1.9;
+
+      // ventanitas del edificio (grilla fija)
+      const NS = "http://www.w3.org/2000/svg";
+      const vg = q(".s08-vent");
+      const vents = [];
+      for (let f = 0; f < 6; f++) for (let c = 0; c < 3; c++) {
+        const r = document.createElementNS(NS, "rect");
+        r.setAttribute("x", 706 + c * 44); r.setAttribute("y", 712 + f * 54); r.setAttribute("width", 30); r.setAttribute("height", 32); r.setAttribute("rx", 4);
+        r.setAttribute("class", "s08-ven");
+        vg.appendChild(r);
+        vents.push(r);
+      }
+
+      // precio: arranca medio dibujado
+      gsap.set(q(".s08-precio"), { x: 340, y: 900 });
+      dibujar([q(".s08-suelo")], 0, 0.5, 0.4);
+      dibujar(qa(".s08-d1"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s08-d1t"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.3);
+      tl.fromTo(q(".s08-precio"), { rotation: -10, transformOrigin: "50% 50%" }, { rotation: 0, transformOrigin: "50% 50%", duration: 0.6, ease: "elastic.out(1, 0.5)" }, CARO - 0.2);
+      gsap.set(q(".s08-b1"), { x: 440, y: 790 });
+      badge(q(".s08-b1"), CARO + 0.25);
+      tl.to(q(".s08-precio"), { opacity: 0.4, duration: 0.3 }, CARO + 0.4);
+      etiqueta(q(".s08-e1"), CARO);
+
+      // empresa grande: el edificio crece desde el suelo
+      dibujar(qa(".s08-d2"), EMPRESAS - 0.35, 0.45);
+      tl.fromTo(q(".s08-edif"), { scaleY: 0.85, svgOrigin: "765 1110" }, { scaleY: 1, svgOrigin: "765 1110", duration: 0.45, ease: "back.out(1.6)" }, EMPRESAS - 0.3);
+      vents.forEach((r, i) => tl.fromTo(r, { opacity: 0 }, { opacity: 0.7, duration: 0.08 }, EMPRESAS - 0.1 + i * 0.02));
+      gsap.set(q(".s08-b2"), { x: 860, y: 670 });
+      badge(q(".s08-b2"), GRANDES + 0.1);
+      tl.to(q(".s08-edif"), { opacity: 0.4, duration: 0.3 }, GRANDES + 0.25);
+      etiqueta(q(".s08-e2"), EMPRESAS, q(".s08-e1"));
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
