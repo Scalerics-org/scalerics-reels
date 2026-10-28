@@ -13,14 +13,15 @@
 - 28-10 · `publicidad-sin-respuesta` · Bot · "Pagás publicidad para que te escriban. Y después no contestás." · Comentá BOT
 
 ## En curso
+- 28-10 · `tu-mejor-cliente` · Puntos · "Tu mejor cliente se fue y no te diste cuenta."
+- 28-10 · `contestar-rapido` · Bot · "Contestar rápido vende más que bajar el precio."
+- 28-10 · `tarjeta-que-nadie-lee` · Sitio web · "Tu página web es una tarjeta personal que nadie lee."
+- 28-10 · `el-que-mas-gasta` · Puntos · "El cliente que más gasta en tu local ni sabe que lo valorás."
+- 28-10 · `si-te-vas-una-semana` · Todo Scalerics · "Si te vas una semana de vacaciones, ¿tu negocio sigue vendiendo?"
 
 ## Banco de ideas (tomá uno o inventá otro en la misma línea)
-- "Tu mejor cliente se fue y no te diste cuenta": nadie le escribió en 2 meses. (Puntos, avisos)
-- "Contestar rápido vende más que bajar el precio." (Bot)
 - "Vendés por Instagram y anotás los pedidos en un cuaderno." (Tienda + envíos)
 - "El cliente que no vuelve te cuesta más que el alquiler." (Puntos)
 - "Dejá de atender el WhatsApp vos." (Bot)
 - "Tu competencia no es el de enfrente: es el celular de tu cliente a las 11 de la noche." (Tienda)
 - "Regalar un café te sale más barato que conseguir un cliente nuevo." (Puntos)
-- "Tu página web es una tarjeta personal que nadie lee." (Sitio web)
-- "El cliente que más gasta en tu local ni sabe que lo valorás." (Puntos)
