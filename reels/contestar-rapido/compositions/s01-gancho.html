@@ -1,0 +1,115 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .rayo { fill: #5ce611; stroke: #5ce611; stroke-width: 4; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .signo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 76px; fill: #efeee5; }
+    [data-composition-id="s01-gancho"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s01-gancho"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-gancho"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="3.01">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="3.01" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s01-todo">
+          <!-- apoyo y piso -->
+          <path class="ln s01-dib" d="M540 1004 L492 1084 H588 Z" />
+          <line class="ln s01-dib" x1="400" y1="1084" x2="680" y2="1084" />
+          <!-- el subibaja: tabla + lo que hay arriba -->
+          <g class="s01-tabla">
+            <line class="ln s01-dib" x1="200" y1="1000" x2="880" y2="1000" />
+            <!-- contestar rápido: burbuja con rayo -->
+            <g class="s01-burbuja">
+              <rect class="ln s01-dib" x="240" y="830" width="190" height="128" rx="34" />
+              <path class="ln s01-dib" d="M286 958 L268 990 L326 958" />
+              <path class="rayo s01-rayo" d="M350 846 L304 900 H336 L318 942 L370 884 H336 Z" />
+            </g>
+            <!-- bajar el precio: etiqueta con $ -->
+            <g class="s01-precio">
+              <path class="ln s01-dib" d="M710 872 H880 V990 H710 L660 931 Z" />
+              <circle class="ln s01-dib" cx="694" cy="931" r="9" />
+              <text class="signo s01-signo" x="795" y="958" text-anchor="middle">$</text>
+            </g>
+          </g>
+          <!-- flecha de bajar -->
+          <path class="ln-ac s01-flecha" d="M795 760 V836" />
+          <path class="ln-ac s01-punta" d="M770 812 L795 837 L820 812" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Contestar rápido</span><span class="s01-e2">Vende más</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 3.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CONTESTAR = 0.23;
+      const RAPIDO = 0.7;
+      const VENDE = 0.9;
+      const MAS = 1.5;
+      const BAJAR = 1.9;
+      const PRECIO = 2.2;
+
+      // dibuja trazos; si arranca en 0 queda visible desde el cuadro 0 (no puede ser negro)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1) });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // todo se acerca despacio (nunca queda quieto)
+      tl.fromTo(q(".s01-todo"), { scale: 0.97, svgOrigin: "540 950" }, { scale: 1.03, svgOrigin: "540 950", duration: DUR, ease: "none" }, 0);
+
+      // arranca medio dibujado, con el precio pesando más (como cree todo el mundo)
+      dibujar(qa(".s01-dib"), 0, 0.55, 0.45, 0);
+      tl.fromTo(q(".s01-signo"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.2);
+      gsap.set(q(".s01-tabla"), { rotation: 6, svgOrigin: "540 1000" });
+      gsap.set(qa(".s01-flecha, .s01-punta"), { opacity: 0 });
+
+      // "contestar rápido": el rayo entra con golpe y la burbuja late
+      tl.fromTo(q(".s01-rayo"), { opacity: 0, scale: 0.3, svgOrigin: "337 894" }, { opacity: 1, scale: 1, svgOrigin: "337 894", duration: 0.3, ease: "back.out(2.4)" }, RAPIDO - 0.1);
+      tl.to(q(".s01-burbuja"), { scale: 1.1, svgOrigin: "335 958", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, RAPIDO);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, CONTESTAR);
+
+      // "vende más": el subibaja se va para el lado de la burbuja (pesa más)
+      tl.to(q(".s01-tabla"), { rotation: -9, svgOrigin: "540 1000", duration: 0.55, ease: "back.out(1.6)" }, VENDE);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, VENDE + 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, VENDE + 0.25);
+      tl.to(q(".s01-tabla"), { rotation: -11, svgOrigin: "540 1000", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, MAS);
+      tl.to(q(".s01-e2"), { scale: 1.08, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, MAS);
+
+      // "bajar el precio": la flecha verde baja hacia la etiqueta, que queda arriba (liviana)
+      dibujar([q(".s01-flecha")], BAJAR - 0.1, 0.35);
+      tl.fromTo(q(".s01-punta"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, BAJAR + 0.2);
+      tl.fromTo(qa(".s01-flecha, .s01-punta"), { y: -20 }, { y: 0, duration: 0.5, ease: "power2.out" }, BAJAR - 0.1);
+      tl.to(q(".s01-precio"), { x: 6, duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, PRECIO);
+      tl.to(q(".s01-precio"), { opacity: 0.45, duration: 0.3 }, PRECIO + 0.2);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

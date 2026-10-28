@@ -1,0 +1,8 @@
+[
+  {"t":0.48,"sfx":"ping","vol":0.28},
+  {"t":0.8,"sfx":"pop","vol":0.22},
+  {"t":1.3,"sfx":"click","vol":0.2},
+  {"t":2.9,"sfx":"notification","vol":0.22,"max":0.5},
+  {"t":3.38,"sfx":"pop","vol":0.22},
+  {"t":3.88,"sfx":"pop","vol":0.22}
+]

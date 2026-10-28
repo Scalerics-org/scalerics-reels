@@ -1,0 +1,148 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-bajas"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-bajas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-bajas"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-bajas"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-bajas"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-bajas"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-bajas"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s06-bajas"] .ln-bdg { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-bajas"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s06-bajas"] .relleno { fill: #5ce611; }
+    [data-composition-id="s06-bajas"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.1em; fill: #efeee5; }
+    [data-composition-id="s06-bajas"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s06-bajas"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s06-bajas"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s06-bajas"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s06-bajas"] .signo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 64px; fill: #efeee5; }
+    [data-composition-id="s06-bajas"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-bajas"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s06-bajas"] .precio { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 76px; fill: #efeee5; }
+    [data-composition-id="s06-bajas"] .mon { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; fill: #5ce611; }
+    [data-composition-id="s06-bajas"] .grande { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 84px; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s06-bajas" data-width="1080" data-height="1920" data-duration="5.24">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.24" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s06-cabeza-g">
+          <path class="ln s06-dc" d="M340 1150 V1070 Q290 1040 290 960 Q290 870 380 860 Q470 856 478 930 L500 972 L480 982 Q484 1030 450 1046 V1150" />
+          <path class="ln s06-dc" d="M300 1150 H500" />
+          <circle class="ln s06-nube1" cx="530" cy="842" r="10" />
+          <circle class="ln s06-nube2" cx="566" cy="800" r="16" />
+          <g class="s06-nube">
+            <rect class="ln" x="580" y="630" width="260" height="150" rx="75" />
+            <text class="grande s06-preg" x="710" y="735" text-anchor="middle">?</text>
+            <text class="grande ui-ac s06-plata" x="710" y="735" text-anchor="middle" style="fill:#5ce611">$</text>
+          </g>
+        </g>
+        <g class="s06-tag-g">
+          <g class="s06-tag">
+            <path class="ln s06-dt" d="M430 810 H780 V990 H430 L350 900 Z" />
+            <circle class="ln s06-dt" cx="388" cy="900" r="11" />
+            <text class="precio s06-p1" x="605" y="928" text-anchor="middle">$ 890</text>
+            <text class="precio s06-p2" x="605" y="928" text-anchor="middle">$ 790</text>
+          </g>
+          <path class="ln-ac s06-flecha" d="M850 790 V960 M818 928 L850 960 L882 928" />
+          <g class="s06-m s06-m1"><circle class="ln-ac" cx="0" cy="0" r="32" /><text class="mon" x="0" y="13" text-anchor="middle">$</text></g>
+          <g class="s06-m s06-m2"><circle class="ln-ac" cx="0" cy="0" r="32" /><text class="mon" x="0" y="13" text-anchor="middle">$</text></g>
+          <g class="s06-m s06-m3"><circle class="ln-ac" cx="0" cy="0" r="32" /><text class="mon" x="0" y="13" text-anchor="middle">$</text></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">El problema es el precio</span><span class="s06-e2">Lo bajás</span><span class="s06-e3">Perdés en cada venta</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-bajas";
+      const DUR = 5.24;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // dibuja trazos; si arranca en 0 queda visible desde el cuadro 0
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1) });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      // badge de "no": cae desde arriba con pop
+      const badge = (el, t) => {
+        const inn = el.querySelector(".bdg-in");
+        tl.fromTo(inn, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      qa(".bdg-in").forEach((b) => gsap.set(b, { opacity: 0 }));
+      const latir = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.1, svgOrigin: origen, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      const sacudir = (el, t) => {
+        tl.to(el, { x: "+=6", duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      };
+      const etq = (el, t) => tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      const fuera = (el, t) => tl.to(el, { opacity: 0, duration: 0.2 }, t);
+
+
+      const PENSAS = 0.16, PROBLEMA = 0.96, PRECIO = 1.56, Y = 2.06, BAJAS = 2.66, PERDES = 3.46, PLATA = 3.76, CADA = 4.16, VENTA = 4.36;
+      gsap.set(qa(".s06-nube1, .s06-nube2, .s06-nube, .s06-preg, .s06-plata, .s06-tag-g, .s06-p2, .s06-m"), { opacity: 0 });
+
+      // la cabeza arranca dibujada a medias, mirando la nube
+      dibujar(qa(".s06-dc"), 0, 0.6, 0.4, 0);
+      tl.fromTo(q(".s06-cabeza-g"), { scale: 1, svgOrigin: "540 950" }, { scale: 1.04, svgOrigin: "540 950", duration: 2.3, ease: "none" }, 0);
+      pop(q(".s06-nube1"), PENSAS + 0.1, "530 842");
+      pop(q(".s06-nube2"), PENSAS + 0.25, "566 800");
+      pop(q(".s06-nube"), PENSAS + 0.4, "710 780");
+      // "problema": un signo de pregunta que se mece
+      tl.fromTo(q(".s06-preg"), { opacity: 0, scale: 0.4, svgOrigin: "710 705" }, { opacity: 1, scale: 1, svgOrigin: "710 705", duration: 0.3, ease: "back.out(2.2)" }, PROBLEMA - 0.1);
+      tl.to(q(".s06-preg"), { rotation: 12, svgOrigin: "710 735", duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, PROBLEMA + 0.2);
+      // "precio": el signo pasa a $
+      tl.to(q(".s06-preg"), { opacity: 0, scale: 0.4, svgOrigin: "710 705", duration: 0.15 }, PRECIO - 0.12);
+      tl.fromTo(q(".s06-plata"), { opacity: 0, scale: 0.4, svgOrigin: "710 705" }, { opacity: 1, scale: 1, svgOrigin: "710 705", duration: 0.3, ease: "back.out(2.4)" }, PRECIO);
+      latir(q(".s06-nube"), PRECIO + 0.3, "710 705", 1.08);
+      etq(q(".s06-e1"), PROBLEMA);
+
+      // "Y lo bajás": se va la cabeza, queda la etiqueta y el número baja
+      tl.to(q(".s06-cabeza-g"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, Y);
+      tl.set(q(".s06-tag-g"), { opacity: 1 }, Y + 0.15);
+      dibujar(qa(".s06-dt"), Y + 0.15, 0.45);
+      tl.fromTo(q(".s06-p1"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, Y + 0.35);
+      tl.fromTo(q(".s06-tag-g"), { scale: 1.06, svgOrigin: "560 900" }, { scale: 0.98, svgOrigin: "560 900", duration: DUR - Y, ease: "none" }, Y);
+      fuera(q(".s06-e1"), BAJAS - 0.25);
+      etq(q(".s06-e2"), BAJAS);
+      dibujar([q(".s06-flecha")], BAJAS - 0.15, 0.4);
+      tl.to(q(".s06-p1"), { y: 40, opacity: 0, duration: 0.14, ease: "power2.in" }, BAJAS - 0.05);
+      tl.fromTo(q(".s06-p2"), { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.8)" }, BAJAS + 0.08);
+
+      // "perdés plata en cada venta": se le caen monedas, una por golpe
+      fuera(q(".s06-e2"), PERDES - 0.2);
+      etq(q(".s06-e3"), PERDES);
+      [PERDES + 0.05, PLATA + 0.15, VENTA + 0.05].forEach((t, i) => {
+        const m = q(".s06-m" + (i + 1));
+        const x = [500, 600, 700][i];
+        tl.fromTo(m, { x, y: 1030, opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.12 }, t);
+        tl.to(m, { y: 1190, rotation: 90, duration: 0.5, ease: "power2.in" }, t);
+        tl.to(m, { opacity: 0, duration: 0.15 }, t + 0.45);
+        sacudir(q(".s06-tag"), t);
+      });
+
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

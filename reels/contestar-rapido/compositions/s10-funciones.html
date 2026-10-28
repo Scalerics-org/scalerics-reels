@@ -1,0 +1,156 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-funciones"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-funciones"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-funciones"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-funciones"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-funciones"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-funciones"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-funciones"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s10-funciones"] .ln-bdg { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-funciones"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s10-funciones"] .relleno { fill: #5ce611; }
+    [data-composition-id="s10-funciones"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.1em; fill: #efeee5; }
+    [data-composition-id="s10-funciones"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s10-funciones"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s10-funciones"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s10-funciones"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s10-funciones"] .signo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 64px; fill: #efeee5; }
+    [data-composition-id="s10-funciones"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-funciones"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s10-funciones"] .relleno-c { fill: #efeee5; opacity: 0.6; }
+    [data-composition-id="s10-funciones"] .preg { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s10-funciones" data-width="1080" data-height="1920" data-duration="4.68">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="4.68" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s10-fila">
+          <g transform="translate(230 880)">
+            <g class="s10-i1">
+              <rect class="ln s10-d1" x="-72" y="-92" width="144" height="186" rx="14" />
+              <rect class="ln s10-d1" x="-32" y="-108" width="64" height="30" rx="8" />
+              <rect class="ln-fino s10-d1" x="-46" y="-46" width="24" height="24" rx="5" /><line class="ln-fino s10-d1" x1="-6" y1="-34" x2="46" y2="-34" />
+              <rect class="ln-fino s10-d1" x="-46" y="0" width="24" height="24" rx="5" /><line class="ln-fino s10-d1" x1="-6" y1="12" x2="46" y2="12" />
+              <rect class="ln-fino s10-d1" x="-46" y="46" width="24" height="24" rx="5" /><line class="ln-fino s10-d1" x1="-6" y1="58" x2="34" y2="58" />
+              <path class="ln-fino-ac s10-ck" d="M-44 -36 L-34 -26 L-16 -50" />
+              <path class="ln-fino-ac s10-ck" d="M-44 10 L-34 20 L-16 -4" />
+              <path class="ln-fino-ac s10-ck" d="M-44 56 L-34 66 L-16 42" />
+            </g>
+            <text class="rotulo s10-r1" x="0" y="160" text-anchor="middle">PEDIDOS</text>
+          </g>
+          <g transform="translate(540 880)">
+            <g class="s10-i2">
+              <rect class="ln s10-d2" x="-82" y="-74" width="164" height="160" rx="16" />
+              <line class="ln s10-d2" x1="-82" y1="-34" x2="82" y2="-34" />
+              <path class="ln s10-d2" d="M-40 -90 V-58 M40 -90 V-58" />
+              <g class="s10-pts"><circle class="relleno-c s10-pt" cx="-51" cy="-2" r="6" /><circle class="relleno-c s10-pt" cx="-17" cy="-2" r="6" /><circle class="relleno-c s10-pt" cx="17" cy="-2" r="6" /><circle class="relleno-c s10-pt" cx="51" cy="-2" r="6" /><circle class="relleno-c s10-pt" cx="-51" cy="32" r="6" /><circle class="relleno-c s10-pt" cx="-17" cy="32" r="6" /><circle class="relleno-c s10-pt" cx="51" cy="32" r="6" /><circle class="relleno-c s10-pt" cx="-51" cy="66" r="6" /><circle class="relleno-c s10-pt" cx="-17" cy="66" r="6" /><circle class="relleno-c s10-pt" cx="17" cy="66" r="6" /><circle class="relleno-c s10-pt" cx="51" cy="66" r="6" /></g>
+              <circle class="ln-fino-ac s10-dia" cx="17" cy="32" r="17" />
+              <circle class="relleno s10-dia-p" cx="17" cy="32" r="7" />
+            </g>
+            <text class="rotulo s10-r2" x="0" y="160" text-anchor="middle">TURNOS</text>
+          </g>
+          <g transform="translate(850 880)">
+            <g class="s10-i3">
+              <rect class="ln s10-d3" x="-100" y="-84" width="76" height="150" rx="16" />
+              <g class="s10-preg-g"><rect class="ln-fino s10-d3b" x="-90" y="-44" width="56" height="40" rx="12" /><text class="preg" x="-62" y="-13" text-anchor="middle">?</text></g>
+              <path class="ln-ac s10-flecha" d="M-10 -14 H32 M18 -28 L32 -14 L18 0" />
+              <g class="s10-vos">
+                <circle class="ln" cx="76" cy="-40" r="24" />
+                <path class="ln" d="M38 46 Q38 -6 76 -6 Q114 -6 114 46" />
+              </g>
+            </g>
+            <text class="rotulo s10-r3" x="0" y="160" text-anchor="middle">TE LA PASA</text>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Toma pedidos</span><span class="s10-e2">Agenda turnos</span><span class="s10-e3">Te la pasa</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-funciones";
+      const DUR = 4.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // dibuja trazos; si arranca en 0 queda visible desde el cuadro 0
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1) });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      // badge de "no": cae desde arriba con pop
+      const badge = (el, t) => {
+        const inn = el.querySelector(".bdg-in");
+        tl.fromTo(inn, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      qa(".bdg-in").forEach((b) => gsap.set(b, { opacity: 0 }));
+      const latir = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.1, svgOrigin: origen, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      const sacudir = (el, t) => {
+        tl.to(el, { x: "+=6", duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      };
+      const etq = (el, t) => tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      const fuera = (el, t) => tl.to(el, { opacity: 0, duration: 0.2 }, t);
+
+
+      const PEDIDOS = 0.26, AGENDA = 1.0, TURNOS = 1.36, CUANDO = 2.16, CONSULTA = 2.56, VOS = 3.06, PASA = 3.86;
+      gsap.set(qa(".s10-ck, .s10-r1, .s10-r2, .s10-r3, .s10-dia, .s10-dia-p, .s10-pts, .s10-preg-g, .s10-vos"), { opacity: 0 });
+      tl.fromTo(q(".s10-fila"), { scale: 1.06, svgOrigin: "540 900" }, { scale: 1.0, svgOrigin: "540 900", duration: DUR, ease: "none" }, 0);
+
+      // pedidos: la planilla arranca dibujada a medias y se van tildando
+      dibujar(qa(".s10-d1"), 0, 0.45, 0.4, 0);
+      etq(q(".s10-r1"), PEDIDOS);
+      etq(q(".s10-e1"), PEDIDOS - 0.1);
+      qa(".s10-ck").forEach((c, i) => dibujar([c], PEDIDOS + 0.1 + i * 0.18, 0.2));
+      tl.to(q(".s10-i1"), { opacity: 0.45, duration: 0.3 }, AGENDA + 0.6);
+
+      // turnos: el calendario y un día marcado
+      dibujar(qa(".s10-d2"), AGENDA - 0.15, 0.45);
+      tl.to(q(".s10-pts"), { opacity: 1, duration: 0.25 }, AGENDA + 0.15);
+      dibujar([q(".s10-dia")], TURNOS - 0.05, 0.3);
+      tl.set(q(".s10-dia"), { opacity: 1 }, TURNOS - 0.05);
+      tl.fromTo(q(".s10-dia-p"), { opacity: 0, scale: 0.2, svgOrigin: "17 32" }, { opacity: 1, scale: 1, svgOrigin: "17 32", duration: 0.3, ease: "back.out(2.4)" }, TURNOS + 0.1);
+      etq(q(".s10-r2"), TURNOS);
+      fuera(q(".s10-e1"), TURNOS - 0.2);
+      etq(q(".s10-e2"), TURNOS - 0.05);
+      tl.to(q(".s10-i2"), { opacity: 0.45, duration: 0.3 }, CUANDO + 0.2);
+
+      // te la pasa: una consulta que no es para el bot pasa a vos
+      dibujar([q(".s10-d3")], CUANDO - 0.15, 0.45);
+      pop(q(".s10-preg-g"), CONSULTA - 0.1, "-62 -4");
+      tl.to(q(".s10-preg-g"), { rotation: -8, svgOrigin: "-62 -4", duration: 0.12, yoyo: true, repeat: 1 }, CONSULTA + 0.3);
+      pop(q(".s10-vos"), VOS - 0.1, "76 46");
+      latir(q(".s10-vos"), VOS + 0.3, "76 46", 1.1);
+      dibujar([q(".s10-flecha")], PASA - 0.25, 0.3);
+      tl.to(q(".s10-preg-g"), { x: 150, y: -64, scale: 0.8, duration: 0.35, ease: "power2.inOut" }, PASA - 0.1);
+      tl.to(q(".s10-preg-g"), { opacity: 0, duration: 0.12 }, PASA + 0.2);
+      latir(q(".s10-vos"), PASA + 0.3, "76 46", 1.12);
+      etq(q(".s10-r3"), PASA - 0.2);
+      fuera(q(".s10-e2"), VOS - 0.2);
+      etq(q(".s10-e3"), VOS);
+
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

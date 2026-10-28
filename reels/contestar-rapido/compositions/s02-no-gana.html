@@ -1,0 +1,145 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-no-gana"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-no-gana"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-no-gana"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-gana"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-gana"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-gana"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-gana"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s02-no-gana"] .ln-bdg { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-gana"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s02-no-gana"] .relleno { fill: #5ce611; }
+    [data-composition-id="s02-no-gana"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.1em; fill: #efeee5; }
+    [data-composition-id="s02-no-gana"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s02-no-gana"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s02-no-gana"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s02-no-gana"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s02-no-gana"] .signo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 64px; fill: #efeee5; }
+    [data-composition-id="s02-no-gana"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-no-gana"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s02-no-gana" data-width="1080" data-height="1920" data-duration="4.42">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.42" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s02-fila">
+          <g class="s02-i1" transform="translate(290 890)">
+            <g class="s02-dib1">
+              <path class="ln s02-d1" d="M-40 -60 H90 V60 H-40 L-92 0 Z" />
+              <circle class="ln s02-d1" cx="-64" cy="0" r="9" />
+              <text class="signo s02-t1" x="25" y="23" text-anchor="middle">$</text>
+            </g>
+            <text class="rotulo s02-n1" x="0" y="140" text-anchor="middle">BARATO</text>
+          </g>
+          <g class="s02-i2" transform="translate(540 890)">
+            <g class="s02-dib2">
+              <path class="ln s02-d2" d="M-30 -72 L-84 -46 L-64 -4 L-46 -14 V76 H46 V-14 L64 -4 L84 -46 L30 -72 Q0 -42 -30 -72 Z" />
+            </g>
+            <path class="ln-ac s02-chispa" d="M-92 -108 V-76 M-108 -92 H-76" />
+            <path class="ln-ac s02-chispa" d="M96 40 V68 M82 54 H110" />
+            <text class="rotulo s02-n2" x="0" y="140" text-anchor="middle">LINDO</text>
+          </g>
+          <g class="s02-i3" transform="translate(790 890)">
+            <g class="s02-dib3">
+              <path class="ln s02-d3" d="M-82 -26 H-46 L42 -74 V74 L-46 26 H-82 Z" />
+              <path class="ln s02-d3" d="M-66 26 L-54 72 H-32 L-40 26" />
+            </g>
+            <path class="ln-ac s02-onda" d="M66 -30 Q84 0 66 30" />
+            <path class="ln-ac s02-onda" d="M88 -54 Q118 0 88 54" />
+            <text class="rotulo s02-n3" x="0" y="140" text-anchor="middle">CONOCIDO</text>
+          </g>
+          <g class="s02-b1" transform="translate(395 812)"><g class="bdg-in"><circle class="ln-bdg" cx="0" cy="0" r="18" /><path class="ln-bdg" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+          <g class="s02-b2" transform="translate(625 800)"><g class="bdg-in"><circle class="ln-bdg" cx="0" cy="0" r="18" /><path class="ln-bdg" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+          <g class="s02-b3" transform="translate(880 800)"><g class="bdg-in"><circle class="ln-bdg" cx="0" cy="0" r="18" /><path class="ln-bdg" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">¿Quién gana?</span><span class="s02-e2">Nada de eso</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-no-gana";
+      const DUR = 4.42;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // dibuja trazos; si arranca en 0 queda visible desde el cuadro 0
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1) });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      // badge de "no": cae desde arriba con pop
+      const badge = (el, t) => {
+        const inn = el.querySelector(".bdg-in");
+        tl.fromTo(inn, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      qa(".bdg-in").forEach((b) => gsap.set(b, { opacity: 0 }));
+      const latir = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.1, svgOrigin: origen, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      const sacudir = (el, t) => {
+        tl.to(el, { x: "+=6", duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      };
+      const etq = (el, t) => tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      const fuera = (el, t) => tl.to(el, { opacity: 0, duration: 0.2 }, t);
+
+
+      const BARATO = 0.89, NI1 = 1.29, LINDO = 2.09, NI2 = 2.81, CONOCIDO = 3.19;
+      qa(".s02-n1, .s02-n2, .s02-n3, .s02-t1").forEach((n) => gsap.set(n, { opacity: 0 }));
+      tl.fromTo(q(".s02-fila"), { scale: 1.2, svgOrigin: "540 900" }, { scale: 1.13, svgOrigin: "540 900", duration: DUR, ease: "none" }, 0);
+      etq(q(".s02-e1"), 0.1);
+
+      // 1. barato: la etiqueta arranca dibujada a medias y la flecha baja
+      dibujar(qa(".s02-d1"), 0, 0.5, 0.35, 0);
+      tl.to(q(".s02-t1"), { opacity: 1, duration: 0.2 }, 0.15);
+      latir(q(".s02-dib1"), BARATO - 0.1, "0 0", 1.1);
+      etq(q(".s02-n1"), BARATO);
+      badge(q(".s02-b1"), BARATO + 0.2);
+      sacudir(q(".s02-dib1"), BARATO + 0.22);
+      tl.to(q(".s02-i1"), { opacity: 0.4, duration: 0.3 }, NI1);
+
+      // 2. lindo: la remera y las chispitas
+      dibujar(qa(".s02-d2"), NI1 - 0.05, 0.55);
+      qa(".s02-chispa").forEach((c, i) => {
+        tl.fromTo(c, { opacity: 0, scale: 0.2, svgOrigin: i ? "96 54" : "-92 -92" }, { opacity: 1, scale: 1, rotation: 90, svgOrigin: i ? "96 54" : "-92 -92", duration: 0.45, ease: "back.out(2)" }, LINDO - 0.1 + i * 0.1);
+      });
+      etq(q(".s02-n2"), LINDO);
+      badge(q(".s02-b2"), LINDO + 0.3);
+      sacudir(q(".s02-dib2"), LINDO + 0.32);
+      tl.to(q(".s02-i2"), { opacity: 0.4, duration: 0.3 }, NI2);
+
+      // 3. conocido: el megáfono y las ondas
+      dibujar(qa(".s02-d3"), NI2 - 0.05, 0.45);
+      qa(".s02-onda").forEach((o, i) => dibujar([o], CONOCIDO - 0.1 + i * 0.12, 0.3));
+      latir(q(".s02-dib3"), CONOCIDO + 0.1, "0 0", 1.12);
+      etq(q(".s02-n3"), CONOCIDO);
+      badge(q(".s02-b3"), CONOCIDO + 0.35);
+      sacudir(q(".s02-dib3"), CONOCIDO + 0.37);
+      fuera(q(".s02-e1"), CONOCIDO + 0.35);
+      etq(q(".s02-e2"), CONOCIDO + 0.5);
+
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
