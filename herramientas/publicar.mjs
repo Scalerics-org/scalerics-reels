@@ -57,6 +57,20 @@ const estadoTikTok = {
 const accesoTT = process.env.TIKTOK_CLIENT_SECRET ? await accesoTikTok(estadoTikTok, TIKTOK_CODE) : null;
 console.log(accesoTT ? "tiktok: autorizado" : "tiktok: sin autorizar todavía");
 
+// --tiktok-estado=<publish_id>: solo consulta en qué quedó un envío a TikTok y termina
+const ESTADO_TT = (process.argv.find((a) => a.startsWith("--tiktok-estado=")) || "").split("=")[1] || "";
+if (ESTADO_TT && accesoTT) {
+  const r = await fetch("https://open.tiktokapis.com/v2/post/publish/status/fetch/", {
+    method: "POST",
+    headers: { Authorization: "Bearer " + accesoTT, "Content-Type": "application/json; charset=UTF-8" },
+    body: JSON.stringify({ publish_id: ESTADO_TT }),
+  });
+  console.log("tiktok estado:", JSON.stringify(await r.json()));
+  const u = await fetch("https://open.tiktokapis.com/v2/user/info/?fields=open_id,display_name,username", { headers: { Authorization: "Bearer " + accesoTT } });
+  console.log("tiktok cuenta:", JSON.stringify(await u.json()));
+  process.exit(0);
+}
+
 
 // Lo publicado, por red: { tiktok: [slugs], instagram: [slugs] }
 let pub = (await estadoJson("publicados.json")) || {};

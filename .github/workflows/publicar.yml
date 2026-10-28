@@ -16,6 +16,10 @@ on:
         description: "Solo la primera vez: el code de TikTok (scalerics.com/tiktok?code=...)"
         type: string
         default: ""
+      tiktok_estado:
+        description: "Diagnóstico: publish_id de TikTok para ver en qué quedó (no publica nada)"
+        type: string
+        default: ""
 concurrency: publicar
 jobs:
   publicar:
@@ -28,7 +32,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node herramientas/publicar.mjs ${{ inputs.prueba && '--prueba' || '' }} ${{ inputs.tiktok_code && format('--tiktok-code={0}', inputs.tiktok_code) || '' }}
+      - run: node herramientas/publicar.mjs ${{ inputs.prueba && '--prueba' || '' }} ${{ inputs.tiktok_code && format('--tiktok-code={0}', inputs.tiktok_code) || '' }} ${{ inputs.tiktok_estado && format('--tiktok-estado={0}', inputs.tiktok_estado) || '' }}
         env:
           GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
