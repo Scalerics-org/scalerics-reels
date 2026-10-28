@@ -1,0 +1,111 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-pasos"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-pasos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-pasos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-pasos"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-pasos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-pasos"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-pasos"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-pasos"] .tapa { fill: #07111f; }
+    [data-composition-id="s04-pasos"] .punto { fill: #efeee5; }
+    [data-composition-id="s04-pasos"] .punto-ac { fill: #5ce611; }
+    [data-composition-id="s04-pasos"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s04-pasos"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s04-pasos"] .ui-tenue { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s04-pasos"] .pesos { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s04-pasos"] .boton { fill: #5ce611; }
+    [data-composition-id="s04-pasos"] .boton-tx { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 30px; fill: #0b1d35; }
+    [data-composition-id="s04-pasos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-pasos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s04-pasos"] .s04-signo { font-size: 44px; }
+    [data-composition-id="s04-pasos"] .s04-flash { fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s04-pasos" data-width="1080" data-height="1920" data-duration="6.21">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.21" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s04-todo">
+        <rect class="ln s04-dc" x="290" y="600" width="500" height="630" rx="52" />
+        <line class="ln s04-dc" x1="510" y1="628" x2="570" y2="628" />
+        <rect class="s04-flash" x="296" y="606" width="488" height="618" rx="48" />
+        <g class="s04-f s04-f0"><path class="ln-4" d="M332 690 L360 672 L388 690 Z M340 694 V716 M360 694 V716 M380 694 V716 M330 722 H390" /><text class="ui-b" x="410" y="710">Abrir el banco</text><rect class="ln-tenue" x="722" y="682" width="36" height="36" rx="8" /><path class="ln-ac s04-tick s04-tick0" d="M729 700 L737 709 L752 691" /></g>
+        <g class="s04-f s04-f1"><rect class="ln-4" x="336" y="776" width="32" height="40" rx="5" /><rect class="ln-4" x="350" y="788" width="32" height="40" rx="5" /><text class="ui-b" x="410" y="810">Copiar la cuenta</text><rect class="ln-tenue" x="722" y="782" width="36" height="36" rx="8" /><path class="ln-ac s04-tick s04-tick1" d="M729 800 L737 809 L752 791" /></g>
+        <g class="s04-f s04-f2"><text class="pesos s04-signo" x="360" y="916" text-anchor="middle">$</text><text class="ui-b" x="410" y="910">Poner el monto</text><rect class="ln-tenue" x="722" y="882" width="36" height="36" rx="8" /><path class="ln-ac s04-tick s04-tick2" d="M729 900 L737 909 L752 891" /></g>
+        <g class="s04-f s04-f3"><path class="ln-4" d="M336 990 V976 H350 M370 976 H384 V990 M384 1010 V1024 H370 M350 1024 H336 V1010" /><circle class="ln-4" cx="360" cy="1000" r="8" /><text class="ui-b" x="410" y="1010">Sacar la captura</text><rect class="ln-tenue" x="722" y="982" width="36" height="36" rx="8" /><path class="ln-ac s04-tick s04-tick3" d="M729 1000 L737 1009 L752 991" /></g>
+        <g class="s04-f s04-f4"><path class="ln-4" d="M334 1102 L386 1078 L370 1124 L360 1108 Z M360 1108 L386 1078" /><text class="ui-b" x="410" y="1110">Mandarla</text><rect class="ln-tenue" x="722" y="1082" width="36" height="36" rx="8" /><path class="ln-ac s04-tick s04-tick4" d="M729 1100 L737 1109 L752 1091" /></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Paso 1</span><span class="s04-e2">Paso 2</span><span class="s04-e3">Paso 3</span><span class="s04-e4">Paso 4</span><span class="s04-e5">Paso 5</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-pasos";
+      const DUR = 6.21;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (els, t, d) => { gsap.set(els, { opacity: 0 }); tl.to(els, { opacity: 1, duration: d ?? 0.3 }, t); };
+      // etiqueta: et(n, t) muestra la n (1, 2, ...) y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s04-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+
+      const T = [0.0, 0.68, 2.18, 3.38, 4.28];
+      tl.fromTo(q(".s04-todo"), { scale: 0.98, svgOrigin: "540 915" }, { scale: 1.01, svgOrigin: "540 915", duration: 5.0, ease: "none" }, 0);
+      dibujar(qa(".s04-dc"), 0, 0.6, 0.45);
+      gsap.set(q(".s04-flash"), { opacity: 0 });
+      const filas = qa(".s04-f");
+      const ticks = qa(".s04-tick");
+      ticks.forEach((t) => { const L = t.getTotalLength(); gsap.set(t, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); });
+      T.forEach((t, i) => {
+      const y = [700, 800, 900, 1000, 1100][i];
+      gsap.set(filas[i], { opacity: 0 });
+      tl.fromTo(filas[i], { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, Math.max(0, t - 0.05) + (i === 0 ? 0.1 : 0));
+      et(i + 1, i === 0 ? 0.1 : t);
+      // la fila anterior se marca y se atenúa
+      const fin = i + 1 < T.length ? T[i + 1] : 4.95;
+      tl.to(ticks[i], { opacity: 1, duration: 0.04 }, fin - 0.25);
+      tl.to(ticks[i], { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, fin - 0.25);
+      if (i + 1 < T.length) tl.to(filas[i], { opacity: 0.5, duration: 0.3 }, fin + 0.1);
+      });
+      // "captura": flash
+      tl.to(q(".s04-flash"), { opacity: 0.45, duration: 0.06 }, 3.98);
+      tl.to(q(".s04-flash"), { opacity: 0, duration: 0.35 }, 4.04);
+      // "mandártela": el avioncito sale
+      tl.to(q(".s04-f4 path"), { x: 14, y: -8, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 }, 4.5);
+      // cansado: se achica un toque
+      tl.to(q(".s04-todo"), { y: 16, duration: 0.6, ease: "power2.inOut" }, 5.2);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

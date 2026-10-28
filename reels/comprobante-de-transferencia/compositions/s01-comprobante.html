@@ -1,0 +1,148 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-comprobante"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-comprobante"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-comprobante"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-comprobante"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-comprobante"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-comprobante"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-comprobante"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-comprobante"] .tapa { fill: #07111f; }
+    [data-composition-id="s01-comprobante"] .punto { fill: #efeee5; }
+    [data-composition-id="s01-comprobante"] .punto-ac { fill: #5ce611; }
+    [data-composition-id="s01-comprobante"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s01-comprobante"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s01-comprobante"] .ui-tenue { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s01-comprobante"] .pesos { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s01-comprobante"] .boton { fill: #5ce611; }
+    [data-composition-id="s01-comprobante"] .boton-tx { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 30px; fill: #0b1d35; }
+    [data-composition-id="s01-comprobante"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-comprobante"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s01-comprobante"] .s01-chico { font-size: 24px; }
+  </style>
+  <div id="root" data-composition-id="s01-comprobante" data-width="1080" data-height="1920" data-duration="4.85">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.85" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s01-todo">
+        <g class="s01-cel">
+        <rect class="ln s01-dc" x="250" y="610" width="380" height="600" rx="52" />
+        <line class="ln s01-dc" x1="410" y1="638" x2="470" y2="638" />
+        <circle class="ln-4 s01-dc" cx="298" cy="684" r="16" />
+        <text class="ui-b s01-txt" x="326" y="693">tu_comercio</text>
+        <line class="ln-tenue s01-dc" x1="276" y1="718" x2="604" y2="718" />
+        </g>
+        <g class="s01-pide">
+        <path class="ln-4" d="M296 744 H580 Q600 744 600 764 V800 Q600 820 580 820 H310 L286 838 L292 816 Q276 810 276 796 V764 Q276 744 296 744 Z" />
+        <text class="ui s01-chico" x="294" y="790">Pasame el comprobante</text>
+        </g>
+        <g class="s01-tk">
+        <rect class="ln-4" x="364" y="852" width="240" height="300" rx="22" />
+        <g class="s01-ticket">
+        <path class="ln s01-dt" d="M384 872 H584 V1092 L564 1112 L544 1092 L524 1112 L504 1092 L484 1112 L464 1092 L444 1112 L424 1092 L404 1112 L384 1092 Z" />
+        <line class="ln-tenue s01-dt" x1="404" y1="930" x2="564" y2="930" />
+        <line class="ln-tenue s01-dt" x1="414" y1="1030" x2="554" y2="1030" />
+        <line class="ln-tenue s01-dt" x1="434" y1="1060" x2="534" y2="1060" />
+        <text class="ui s01-chico s01-tt" x="484" y="914" text-anchor="middle">Transferencia</text>
+        <text class="pesos s01-tt" x="484" y="988" text-anchor="middle">$ 1.850</text>
+        </g>
+        </g>
+        <g class="s01-reloj">
+        <circle class="ln-ac4" cx="310" cy="1100" r="24" />
+        <line class="ln-ac4 s01-aguja" x1="310" y1="1100" x2="310" y2="1084" />
+        <line class="ln-ac4" x1="310" y1="1100" x2="320" y2="1100" />
+        </g>
+        <g class="s01-badge"><circle class="ln-ac4" cx="600" cy="856" r="18" /><path class="ln-ac4" d="M592 848 L608 864 M608 848 L592 864" /></g>
+        <line class="ln-tenue s01-suelo" x1="700" y1="1180" x2="1010" y2="1180" />
+        <g class="s01-cliente">
+        <g transform="scale(1.3)">
+        <g class="s01-cliente-in">
+        <circle class="ln s01-df" cx="0" cy="-166" r="24" />
+        <path class="ln s01-df" d="M0 -142 V-70 M0 -122 L-44 -104 M0 -122 L26 -86 M0 -70 L-24 0 M0 -70 L24 0" />
+        <g class="s01-billete">
+        <rect class="ln-ac4" x="-104" y="-126" width="62" height="38" rx="6" />
+        <text class="pesos" x="-73" y="-98" text-anchor="middle">$</text>
+        </g>
+        </g>
+        </g>
+        </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Pasame el comprobante</span><span class="s01-e2">No te compran</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-comprobante";
+      const DUR = 4.85;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (els, t, d) => { gsap.set(els, { opacity: 0 }); tl.to(els, { opacity: 1, duration: d ?? 0.3 }, t); };
+      // etiqueta: et(n, t) muestra la n (1, 2, ...) y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s01-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+
+      const COMPRARTE = 0.5, MANDARTE = 1.4, COMPROBANTE = 2.0, TRANSF = 2.8, NO = 3.78, COMPRAN = 4.1;
+      tl.fromTo(q(".s01-todo"), { scale: 0.97, svgOrigin: "600 910" }, { scale: 1.02, svgOrigin: "600 910", duration: DUR, ease: "none" }, 0);
+      // el celular arranca medio dibujado
+      dibujar(qa(".s01-dc"), 0, 0.6, 0.45);
+      aparecer(qa(".s01-txt"), 0.2);
+      pop(q(".s01-pide"), 0.25, 286, 838);
+      // el cliente, con la plata en la mano
+      gsap.set(q(".s01-cliente"), { x: 860, y: 1180 });
+      dibujar(qa(".s01-df"), 0.05, 0.55, 0.4);
+      dibujar([q(".s01-suelo")], 0, 0.5, 0.5);
+      pop(q(".s01-billete"), COMPRARTE, -73, -107);
+      punch(q(".s01-billete"), COMPRARTE + 0.45, -73, -107, 1.15);
+      et(1, MANDARTE);
+      punch(q(".s01-pide"), MANDARTE, 438, 782, 1.05);
+      // "comprobante": el ticket de la transferencia
+      pop(q(".s01-tk"), COMPROBANTE - 0.1, 484, 1000);
+      dibujar(qa(".s01-dt"), COMPROBANTE, 0.6);
+      aparecer(qa(".s01-tt"), COMPROBANTE + 0.3);
+      // "transferencia": el relojito de espera
+      pop(q(".s01-reloj"), TRANSF, 310, 1100);
+      tl.fromTo(q(".s01-aguja"), { rotation: 0, svgOrigin: "310 1100" }, { rotation: 540, svgOrigin: "310 1100", duration: 1.6, ease: "none" }, TRANSF);
+      // el cliente espera: la plata baja
+      tl.to(q(".s01-billete"), { y: 8, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, TRANSF + 0.2);
+      // "no te compran": se da vuelta y se va
+      tl.to(q(".s01-cliente-in"), { scaleX: -1, svgOrigin: "0 -90", duration: 0.18, ease: "power2.inOut" }, NO - 0.1);
+      tl.to(q(".s01-billete text"), { scaleX: -1, svgOrigin: "-73 -107", duration: 0.18, ease: "power2.inOut" }, NO - 0.1);
+      tl.to(q(".s01-cliente"), { x: 1120, duration: 0.6, ease: "power2.in" }, NO + 0.1);
+      tl.to(q(".s01-ticket"), { opacity: 0.4, duration: 0.3 }, COMPRAN - 0.1);
+      pop(q(".s01-badge"), COMPRAN, 600, 856);
+      et(2, NO);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

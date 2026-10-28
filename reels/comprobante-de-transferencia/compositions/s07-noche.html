@@ -1,0 +1,120 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-noche"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-noche"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-noche"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-noche"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-noche"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-noche"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-noche"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-noche"] .tapa { fill: #07111f; }
+    [data-composition-id="s07-noche"] .punto { fill: #efeee5; }
+    [data-composition-id="s07-noche"] .punto-ac { fill: #5ce611; }
+    [data-composition-id="s07-noche"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s07-noche"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s07-noche"] .ui-tenue { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s07-noche"] .pesos { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s07-noche"] .boton { fill: #5ce611; }
+    [data-composition-id="s07-noche"] .boton-tx { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 30px; fill: #0b1d35; }
+    [data-composition-id="s07-noche"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-noche"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s07-noche"] .s07-q { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; fill: rgba(239, 238, 229, 0.55); }
+  </style>
+  <div id="root" data-composition-id="s07-noche" data-width="1080" data-height="1920" data-duration="6.2">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="6.2" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s07-todo">
+        <path class="ln s07-luna" d="M930 612 A34 34 0 1 0 930 676 A26 26 0 0 1 930 612 Z" />
+        <rect class="ln s07-dn" x="230" y="700" width="620" height="400" rx="22" />
+        <path class="ln s07-dn" d="M180 1120 H900 L870 1150 H210 Z" />
+        <text class="ui-b s07-tx" x="266" y="760">Movimientos</text>
+        <line class="ln-4 s07-dn" x1="264" y1="782" x2="816" y2="782" />
+        <g class="s07-f s07-f0"><circle class="ln-4" cx="282" cy="822" r="14" /><text class="ui" x="312" y="830">Transferencia</text><text class="pesos" x="610" y="830">$ 1.850</text><line class="ln-tenue" x1="264" y1="854" x2="816" y2="854" /></g>
+        <g class="s07-f s07-f1"><circle class="ln-4" cx="282" cy="892" r="14" /><text class="ui" x="312" y="900">Transferencia</text><text class="pesos" x="610" y="900">$ 990</text><line class="ln-tenue" x1="264" y1="924" x2="816" y2="924" /></g>
+        <g class="s07-f s07-f2"><circle class="ln-4" cx="282" cy="962" r="14" /><text class="ui" x="312" y="970">Transferencia</text><text class="pesos" x="610" y="970">$ 2.400</text><line class="ln-tenue" x1="264" y1="994" x2="816" y2="994" /></g>
+        <g class="s07-f s07-f3"><circle class="ln-4" cx="282" cy="1032" r="14" /><text class="ui" x="312" y="1040">Transferencia</text><text class="pesos" x="610" y="1040">$ 1.200</text><line class="ln-tenue" x1="264" y1="1064" x2="816" y2="1064" /></g>
+        <path class="ln-ac s07-tick" d="M770 892 L782 905 L804 880" />
+        <text class="s07-q s07-q1" x="786" y="982" text-anchor="middle">?</text>
+        <text class="s07-q s07-q2" x="786" y="1052" text-anchor="middle">?</text>
+        <g class="s07-lupa">
+        <circle class="ln-ac" cx="0" cy="0" r="34" />
+        <line class="ln-ac" x1="24" y1="24" x2="56" y2="56" />
+        </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">A la noche</span><span class="s07-e2">Una por una</span><span class="s07-e3">¿Quién pagó?</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-noche";
+      const DUR = 6.2;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (els, t, d) => { gsap.set(els, { opacity: 0 }); tl.to(els, { opacity: 1, duration: d ?? 0.3 }, t); };
+      // etiqueta: et(n, t) muestra la n (1, 2, ...) y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s07-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+
+      const NOCHE = 0.51, REVISANDO = 1.01, BANCO = 1.71, T1 = 2.31, T2 = 3.31, PAGO = 4.71, QUIEN = 5.31, NO = 5.61;
+      tl.fromTo(q(".s07-todo"), { scale: 0.97, svgOrigin: "540 920" }, { scale: 1.02, svgOrigin: "540 920", duration: DUR, ease: "none" }, 0);
+      dibujar(qa(".s07-dn"), 0, 0.6, 0.45);
+      aparecer(q(".s07-tx"), 0.2);
+      dibujar([q(".s07-luna")], NOCHE - 0.2, 0.5);
+      tl.fromTo(q(".s07-luna"), { rotation: -15, svgOrigin: "920 644" }, { rotation: 5, svgOrigin: "920 644", duration: 2, ease: "sine.inOut" }, NOCHE);
+      et(1, NOCHE);
+      const filas = qa(".s07-f");
+      [REVISANDO, BANCO, T1, T2].forEach((t, i) => {
+      gsap.set(filas[i], { opacity: 0 });
+      tl.fromTo(filas[i], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+      });
+      // la lupa recorre fila por fila
+      const lupa = q(".s07-lupa");
+      gsap.set(lupa, { x: 282, y: 822, opacity: 0 });
+      tl.to(lupa, { opacity: 1, duration: 0.25 }, BANCO);
+      tl.to(lupa, { y: 892, duration: 0.4, ease: "power2.inOut" }, T1);
+      tl.to(lupa, { y: 962, duration: 0.4, ease: "power2.inOut" }, T2);
+      tl.to(lupa, { y: 1032, duration: 0.4, ease: "power2.inOut" }, 4.11);
+      tl.to(lupa, { y: 892, duration: 0.35, ease: "power2.inOut" }, PAGO - 0.3);
+      tl.to(lupa, { y: 962, duration: 0.25, ease: "power2.inOut" }, QUIEN - 0.2);
+      tl.to(lupa, { y: 1032, duration: 0.25, ease: "power2.inOut" }, NO - 0.15);
+      et(2, T1);
+      dibujar([q(".s07-tick")], PAGO, 0.3);
+      pop(q(".s07-q1"), QUIEN, 786, 970);
+      pop(q(".s07-q2"), NO, 786, 1040);
+      et(3, PAGO - 0.2);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,130 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-omnibus"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-omnibus"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-omnibus"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-omnibus"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-omnibus"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-omnibus"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-omnibus"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-omnibus"] .tapa { fill: #07111f; }
+    [data-composition-id="s05-omnibus"] .punto { fill: #efeee5; }
+    [data-composition-id="s05-omnibus"] .punto-ac { fill: #5ce611; }
+    [data-composition-id="s05-omnibus"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s05-omnibus"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s05-omnibus"] .ui-tenue { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s05-omnibus"] .pesos { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s05-omnibus"] .boton { fill: #5ce611; }
+    [data-composition-id="s05-omnibus"] .boton-tx { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 30px; fill: #0b1d35; }
+    [data-composition-id="s05-omnibus"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-omnibus"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s05-omnibus" data-width="1080" data-height="1920" data-duration="3.05">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.05" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s05-velo">
+        <line class="ln-tenue s05-dv" x1="70" y1="830" x2="130" y2="830" />
+        <line class="ln-tenue s05-dv" x1="50" y1="910" x2="130" y2="910" />
+        <line class="ln-tenue s05-dv" x1="80" y1="990" x2="130" y2="990" />
+        </g>
+        <line class="ln-tenue s05-ds" x1="110" y1="1112" x2="970" y2="1112" />
+        <g class="s05-bus">
+        <rect class="ln s05-db" x="160" y="760" width="760" height="300" rx="40" />
+        <rect class="ln-4 s05-db" x="196" y="792" width="130" height="150" rx="14" />
+        <rect class="ln-4 s05-db" x="346" y="792" width="320" height="150" rx="14" />
+        <rect class="ln-4 s05-db" x="686" y="792" width="70" height="150" rx="14" />
+        <path class="ln-4 s05-db" d="M780 792 H860 Q896 792 904 830 L912 900 Q914 942 876 942 H780 Z" />
+        <line class="ln-4 s05-db" x1="160" y1="990" x2="920" y2="990" />
+        <circle class="ln s05-db s05-r1" cx="300" cy="1064" r="42" />
+        <circle class="ln s05-db s05-r2" cx="770" cy="1064" r="42" />
+        <circle class="punto s05-db" cx="300" cy="1064" r="8" />
+        <circle class="punto s05-db" cx="770" cy="1064" r="8" />
+        <line class="ln-tenue s05-pasa" x1="366" y1="814" x2="646" y2="814" />
+        <g class="s05-persona">
+        <circle class="ln s05-dp" cx="490" cy="852" r="20" />
+        <path class="ln s05-dp" d="M490 872 V942" />
+        <path class="ln s05-mano" d="M490 888 L462 852 L456 816" />
+        <path class="ln s05-dp" d="M490 888 L520 908 L540 892" />
+        <g class="s05-cel">
+        <rect class="ln-ac4" x="532" y="852" width="28" height="48" rx="6" />
+        </g>
+        </g>
+        </g>
+        <g class="s05-frena">
+        <path class="ln-tenue s05-df" d="M180 1112 H250" />
+        <path class="ln-tenue s05-df" d="M650 1112 H720" />
+        <path class="ln-tenue s05-df" d="M190 1126 H240" />
+        <path class="ln-tenue s05-df" d="M660 1126 H710" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Con una mano</span><span class="s05-e2">Frenando</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-omnibus";
+      const DUR = 3.05;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (els, t, d) => { gsap.set(els, { opacity: 0 }); tl.to(els, { opacity: 1, duration: d ?? 0.3 }, t); };
+      // etiqueta: et(n, t) muestra la n (1, 2, ...) y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s05-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+
+      const CELULAR = 0.37, MANO = 1.07, OMNIBUS = 1.77, FRENANDO = 1.97;
+      dibujar(qa(".s05-db"), 0, 0.55, 0.45);
+      dibujar([q(".s05-ds")], 0, 0.5, 0.5);
+      dibujar(qa(".s05-dv"), 0.1, 0.4);
+      dibujar(qa(".s05-dp"), 0.15, 0.4);
+      // el ómnibus anda: vibra y las ruedas giran
+      tl.to(q(".s05-bus"), { y: -4, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 7 }, 0);
+      tl.to(qa(".s05-velo line"), { x: -20, duration: 0.5, ease: "none", yoyo: true, repeat: 3 }, 0);
+      pop(q(".s05-cel"), CELULAR, 546, 876);
+      dibujar([q(".s05-pasa")], MANO - 0.3, 0.4);
+      dibujar([q(".s05-mano")], MANO - 0.1, 0.35);
+      et(1, CELULAR);
+      // "frenando": tirón
+      tl.to(q(".s05-bus"), { rotation: 2.5, svgOrigin: "800 1106", duration: 0.18, ease: "power2.out" }, FRENANDO);
+      tl.to(q(".s05-bus"), { rotation: 0, svgOrigin: "800 1106", duration: 0.45, ease: "back.out(2)" }, FRENANDO + 0.2);
+      tl.to(q(".s05-persona"), { rotation: 12, svgOrigin: "490 942", duration: 0.2, ease: "power2.out" }, FRENANDO + 0.02);
+      tl.to(q(".s05-persona"), { rotation: 0, svgOrigin: "490 942", duration: 0.5, ease: "back.out(2)" }, FRENANDO + 0.24);
+      tl.to(q(".s05-cel"), { rotation: 25, svgOrigin: "546 876", duration: 0.1, yoyo: true, repeat: 3, ease: "sine.inOut" }, FRENANDO + 0.05);
+      tl.to(qa(".s05-velo line"), { opacity: 0, duration: 0.2 }, FRENANDO);
+      dibujar(qa(".s05-df"), FRENANDO, 0.3);
+      et(2, FRENANDO);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
