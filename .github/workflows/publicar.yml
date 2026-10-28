@@ -11,6 +11,10 @@ on:
         description: "Prueba: hace todo menos publicar"
         type: boolean
         default: true
+      tiktok_code:
+        description: "Solo la primera vez: el code de TikTok (scalerics.com/tiktok?code=...)"
+        type: string
+        default: ""
 concurrency: publicar
 jobs:
   publicar:
@@ -21,9 +25,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node herramientas/publicar.mjs ${{ inputs.prueba && '--prueba' || '' }}
+      - run: node herramientas/publicar.mjs ${{ inputs.prueba && '--prueba' || '' }} ${{ inputs.tiktok_code && format('--tiktok-code={0}', inputs.tiktok_code) || '' }}
         env:
           GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           DRIVE_APROBADOS: 1VRxt08EiUNDxKDrJk5ugXzsRCRZKedGK
           DRIVE_PUBLICADOS: 1QGCBFfdUfWAF7hCHfgYJfMXfd_CUzh2p

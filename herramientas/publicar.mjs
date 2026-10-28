@@ -14,8 +14,10 @@
 // DRIVE_APROBADOS y DRIVE_PUBLICADOS (ids de las carpetas).
 import fs from "node:fs";
 import { tokenGoogle } from "./google.mjs";
+import { accesoTikTok, publicarTikTok } from "./tiktok.mjs";
 
 const PRUEBA = process.argv.includes("--prueba");
+const TIKTOK_CODE = (process.argv.find((a) => a.startsWith("--tiktok-code=")) || "").split("=")[1] || "";
 const APROBADOS = process.env.DRIVE_APROBADOS;
 const PUBLICADOS = process.env.DRIVE_PUBLICADOS;
 const BUCKET_VIDEOS = "scalerics-reels-publicar";
@@ -91,6 +93,13 @@ async function guardarEstado(estado) {
     body: JSON.stringify(estado),
   });
 }
+const estadoTikTok = {
+  leer: async () => { try { return await pedir(`https://storage.googleapis.com/storage/v1/b/${BUCKET_ESTADO}/o/tiktok.json?alt=media`, { headers: conG }); } catch { return null; } },
+  guardar: (o) => pedir(`https://storage.googleapis.com/upload/storage/v1/b/${BUCKET_ESTADO}/o?uploadType=media&name=tiktok.json`, { method: "POST", headers: { ...conG, "Content-Type": "application/json" }, body: JSON.stringify(o) }),
+};
+const accesoTT = process.env.TIKTOK_CLIENT_SECRET ? await accesoTikTok(estadoTikTok, TIKTOK_CODE) : null;
+console.log(accesoTT ? "tiktok: autorizado" : "tiktok: sin autorizar todavía, solo Instagram");
+
 let estado = await leerEstado();
 if (!estado?.token) {
   if (!process.env.IG_TOKEN) throw new Error("falta IG_TOKEN (y no hay token guardado)");
@@ -106,6 +115,7 @@ const tk = estado.token;
 const yo = await pedir(`${IG}/me?fields=user_id,username&access_token=${tk}`);
 console.log(`cuenta: @${yo.username}`);
 
+if (accesoTT && PRUEBA) await publicarTikTok(accesoTT, bytes, caption, true);
 if (PRUEBA) {
   console.log("PRUEBA: no publico ni muevo nada.");
   process.exit(0);
@@ -128,6 +138,13 @@ if (st.status_code !== "FINISHED") throw new Error("Instagram tardó más de 10 
 const pub = await pedir(`${IG}/${yo.user_id}/media_publish`, { method: "POST", body: form({ creation_id: cont.id }) });
 const info = await pedir(`${IG}/${pub.id}?fields=permalink&access_token=${tk}`);
 console.log("PUBLICADO: " + info.permalink);
+if (accesoTT) {
+  try {
+    console.log("TIKTOK: " + (await publicarTikTok(accesoTT, bytes, caption, false)));
+  } catch (e) {
+    console.log("TIKTOK FALLÓ (Instagram ya salió): " + e.message);
+  }
+}
 
 // 6. A "publicados"
 await pedir(`https://www.googleapis.com/drive/v3/files/${video.id}?addParents=${PUBLICADOS}&removeParents=${APROBADOS}&supportsAllDrives=true`, {
