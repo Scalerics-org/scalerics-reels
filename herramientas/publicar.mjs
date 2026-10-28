@@ -58,7 +58,12 @@ const accesoTT = process.env.TIKTOK_CLIENT_SECRET ? await accesoTikTok(estadoTik
 console.log(accesoTT ? "tiktok: autorizado" : "tiktok: sin autorizar todavía");
 
 
-const publicados = (await estadoJson("publicados.json")) || [];
+// Lo publicado, por red: { tiktok: [slugs], instagram: [slugs] }
+let pub = (await estadoJson("publicados.json")) || {};
+if (Array.isArray(pub)) pub = { tiktok: pub, instagram: pub };
+const igOn = !!process.env.IG_TOKEN || !!(await estadoJson("ig.json"));
+const redes = [...(accesoTT ? ["tiktok"] : []), ...(igOn ? ["instagram"] : [])];
+const falta = (sl) => redes.filter((r) => !(pub[r] || []).includes(sl));
 
 // 1. El aprobado más viejo
 const q = encodeURIComponent(`'${APROBADOS}' in parents and trashed = false`);
@@ -78,7 +83,7 @@ if (video) {
 } else {
   const veto = fs.existsSync("no-publicar.txt") ? fs.readFileSync("no-publicar.txt", "utf8").split(/\s+/).filter(Boolean) : [];
   const hechos = [...fs.readFileSync("ideas.md", "utf8").matchAll(/^- \d\d-\d\d · `([a-z0-9-]+)`/gm)].map((m) => m[1]);
-  const pendientes = hechos.filter((h) => !publicados.includes(h) && !veto.includes(h)).reverse();
+  const pendientes = hechos.filter((h) => falta(h).length && !veto.includes(h)).reverse();
   for (const s2 of pendientes) {
     try {
       bytesRepo = execFileSync("git", ["show", `origin/reel/${s2}:reels/${s2}/renders/${s2}-final.mp4`], { maxBuffer: 200e6 });
@@ -133,9 +138,11 @@ async function guardarEstado(estado) {
 }
 let estado = await leerEstado();
 if (!estado?.token && process.env.IG_TOKEN) estado = { token: process.env.IG_TOKEN, renovado: 0 };
-const hayIG = !!estado?.token;
+const hayIG = !!estado?.token && falta(slug).includes("instagram");
+const hacerTT = !!accesoTT && falta(slug).includes("tiktok");
+const hechoEn = [];
 if (!hayIG) console.log("instagram: sin IG_TOKEN todavía, se saltea");
-if (!hayIG && !accesoTT) throw new Error("no hay ni Instagram ni TikTok configurados");
+if (!hayIG && !hacerTT) throw new Error(`no hay a dónde publicar ${slug}`);
 let tk, yo;
 if (hayIG) {
 if (Date.now() - (estado.renovado || 0) > 7 * 864e5) {
@@ -149,7 +156,8 @@ yo = await pedir(`${IG}/me?fields=user_id,username&access_token=${tk}`);
 console.log(`cuenta: @${yo.username}`);
 }
 
-if (accesoTT && PRUEBA) await publicarTikTok(accesoTT, bytes, caption, true);
+if (hacerTT && PRUEBA) await publicarTikTok(accesoTT, bytes, caption, true);
+console.log(`redes para ${slug}: ${[hayIG && "instagram", hacerTT && "tiktok"].filter(Boolean).join(", ")}`);
 if (PRUEBA) {
   console.log("PRUEBA: no publico ni muevo nada.");
   process.exit(0);
@@ -173,10 +181,12 @@ if (st.status_code !== "FINISHED") throw new Error("Instagram tardó más de 10 
 const pub = await pedir(`${IG}/${yo.user_id}/media_publish`, { method: "POST", body: form({ creation_id: cont.id }) });
 const info = await pedir(`${IG}/${pub.id}?fields=permalink&access_token=${tk}`);
 console.log("PUBLICADO: " + info.permalink);
+hechoEn.push("instagram");
 }
-if (accesoTT) {
+if (hacerTT) {
   try {
     console.log("TIKTOK: " + (await publicarTikTok(accesoTT, bytes, caption, false)));
+    hechoEn.push("tiktok");
   } catch (e) {
     console.log("TIKTOK FALLÓ: " + e.message);
     if (!hayIG) throw e;
@@ -184,7 +194,8 @@ if (accesoTT) {
 }
 
 // 6. Registrar y, si vino de Drive, pasarlo a "publicados"
-await estadoJson("publicados.json", [...publicados, slug]);
+for (const r of hechoEn) pub[r] = [...(pub[r] || []), slug];
+await estadoJson("publicados.json", pub);
 if (video) await pedir(`https://www.googleapis.com/drive/v3/files/${video.id}?addParents=${PUBLICADOS}&removeParents=${APROBADOS}&supportsAllDrives=true`, {
   method: "PATCH",
   headers: conG,
