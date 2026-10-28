@@ -30,9 +30,9 @@
 - 28-10 · `a-que-hora-abren` · Bot · "¿A qué hora abren? Si esa pregunta la contestás vos, estás perdiendo ventas." · Comentá ABIERTO
 - 28-10 · `comprobante-de-transferencia` · Tienda online · "Si para comprarte hay que mandarte el comprobante de la transferencia, no te compran." · Comentá COBRAR
 - 28-10 · `antes-de-entrar` · Sitio web · "Tu cliente decide si te compra antes de pisar tu local." · Comentá WEB
+- 28-10 · `crecer-sin-contratar` · Todo Scalerics · "Para crecer no necesitás contratar a nadie. Necesitás dejar de hacer todo a mano." · Comentá CRECER
 
 ## En curso
-- 28-10 · `crecer-sin-contratar` · Todo Scalerics · "Para crecer no necesitás contratar a nadie. Necesitás dejar de hacer todo a mano."
 
 ## Banco de ideas (tomá uno o inventá otro en la misma línea)
 - "Vendés por Instagram y anotás los pedidos en un cuaderno." (Tienda + envíos)

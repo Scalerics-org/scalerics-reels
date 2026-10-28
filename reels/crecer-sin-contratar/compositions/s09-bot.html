@@ -1,0 +1,140 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-bot"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-bot"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-bot"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-bot"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-bot"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-bot"] .ln-ac8 { fill: none; stroke: #5ce611; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-bot"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-bot"] .relleno { fill: #5ce611; }
+    [data-composition-id="s09-bot"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s09-bot"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s09-bot"] .ui-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s09-bot"] .nombre { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.75); }
+    [data-composition-id="s09-bot"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-bot"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s09-bot"] .s09-nombre { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 62px; letter-spacing: -0.01em; fill: #efeee5; }
+    [data-composition-id="s09-bot"] .s09-para { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s09-bot" data-width="1080" data-height="1920" data-duration="6.6">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="6.6" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s09-caja">
+          <g class="s09-caja-in">
+            <rect class="ln s09-dib-caja" x="-240" y="-78" width="480" height="156" rx="30" />
+            <text class="s09-nombre" x="0" y="-4" text-anchor="middle">Scalerics</text>
+            <text class="s09-para" x="0" y="46" text-anchor="middle">PARA COMERCIOS</text>
+          </g>
+        </g>
+        <g class="s09-tel">
+          <rect class="ln s09-dt" x="330" y="620" width="420" height="590" rx="52" />
+          <line class="ln s09-dt" x1="510" y1="646" x2="570" y2="646" />
+          <circle class="ln s09-dt" cx="382" cy="704" r="18" />
+          <text class="ui-nombre s09-cab" x="412" y="713">Tu local</text>
+          <circle class="relleno s09-cab" cx="710" cy="704" r="8" />
+          <line class="ln-tenue s09-dt" x1="356" y1="742" x2="724" y2="742" />
+          <g class="s09-preg">
+            <rect class="ln-4" x="356" y="766" width="330" height="58" rx="20" />
+            <text class="ui" x="374" y="804">¿Tenés pan de campo?</text>
+          </g>
+          <g class="s09-resp">
+            <rect class="ln-ac" x="436" y="842" width="288" height="96" rx="20" />
+            <text class="ui" x="456" y="880">Sí, recién salido.</text>
+            <text class="ui" x="456" y="914">¿Te lo guardo?</text>
+          </g>
+          <g class="s09-si">
+            <rect class="ln-4" x="356" y="956" width="196" height="54" rx="18" />
+            <text class="ui" x="376" y="992">Guardame 2</text>
+          </g>
+          <g class="s09-pedido">
+            <rect class="ln-ac" x="370" y="1040" width="340" height="120" rx="18" />
+            <rect class="ln-ac" x="394" y="1072" width="56" height="56" rx="8" />
+            <path class="ln-ac" d="M407 1100 L419 1112 L439 1086" />
+            <text class="ui-mono" x="468" y="1092">PEDIDO TOMADO</text>
+            <text class="ui" x="468" y="1128">2 panes · hoy</text>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">Bot de WhatsApp</span><span class="s09-e2">Pedido tomado</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-bot";
+      const DUR = 6.6;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          // si arranca a medio dibujar (cuadro 0) se ve desde el principio; si no, opacity 0 hasta que arranca
+          if (desde != null && desde < 1 && t <= 0) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const latir = (el, t, origen, k) => tl.to(el, { scale: k ?? 1.06, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const sacudir = (el, t) => tl.to(el, { x: "-=6", duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      const badge = (el, t) => tl.fromTo(el.querySelector(".b-in"), { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      qa(".b-in").forEach((b) => gsap.set(b, { opacity: 0 }));
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const SCALERICS = 0.13;
+      const ARMAMOS = 0.93;
+      const COMERCIOS = 1.53;
+      const UN = 2.63;
+      const WHATSAPP = 3.03;
+      const CONTESTA = 3.73;
+      const INSTANTE = 4.23;
+      const TOMA = 5.23;
+      const PEDIDOS = 5.63;
+
+      gsap.set(q(".s09-caja"), { x: 540, y: 900 });
+      gsap.set(qa(".s09-cab, .s09-preg, .s09-resp, .s09-si, .s09-pedido"), { opacity: 0 });
+
+      // "Scalerics": la caja (medio dibujada en el cuadro 0) y el nombre
+      dibujar([q(".s09-dib-caja")], 0, 0.5, 0.5);
+      tl.fromTo(q(".s09-nombre"), { opacity: 0.3, scale: 0.85, svgOrigin: "0 -24" }, { opacity: 1, scale: 1, svgOrigin: "0 -24", duration: 0.35, ease: "back.out(1.6)" }, SCALERICS - 0.1);
+      latir(q(".s09-caja-in"), ARMAMOS, "0 0");
+      tl.fromTo(q(".s09-para"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, COMERCIOS - 0.1);
+      tl.fromTo(q(".s09-caja-in"), { scale: 1 }, { scale: 1.04, svgOrigin: "0 0", duration: 0.9, ease: "none" }, COMERCIOS + 0.2);
+      tl.to(q(".s09-caja"), { y: 760, opacity: 0, duration: 0.35, ease: "power2.in" }, UN - 0.3);
+
+      // "un bot de WhatsApp": el celular y la pregunta
+      dibujar(qa(".s09-dt"), UN, 0.5);
+      tl.to(qa(".s09-cab"), { opacity: 1, duration: 0.25 }, UN + 0.3);
+      pop(q(".s09-preg"), WHATSAPP, "356 824");
+      etiqueta(".s09-e1", WHATSAPP);
+      // "contesta al instante"
+      pop(q(".s09-resp"), CONTESTA, "724 938");
+      tl.to(q(".s09-tel"), { y: -6, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, CONTESTA + 0.05);
+      latir(q(".s09-resp"), INSTANTE, "724 938", 1.05);
+      pop(q(".s09-si"), INSTANTE + 0.45, "356 1010");
+      // "toma los pedidos"
+      pop(q(".s09-pedido"), TOMA, "540 1100");
+      etiqueta(".s09-e2", TOMA + 0.05, ".s09-e1");
+      latir(q(".s09-pedido"), PEDIDOS, "540 1100");
+      tl.fromTo(q(".s09-tel"), { scale: 1 }, { scale: 1.03, svgOrigin: "540 915", duration: DUR - UN, ease: "none" }, UN);
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

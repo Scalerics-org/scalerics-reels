@@ -1,0 +1,131 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-no-das-abasto"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-no-das-abasto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-no-das-abasto"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-das-abasto"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-das-abasto"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-das-abasto"] .ln-ac8 { fill: none; stroke: #5ce611; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-das-abasto"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-das-abasto"] .relleno { fill: #5ce611; }
+    [data-composition-id="s02-no-das-abasto"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s02-no-das-abasto"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s02-no-das-abasto"] .ui-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s02-no-das-abasto"] .nombre { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.75); }
+    [data-composition-id="s02-no-das-abasto"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-no-das-abasto"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s02-no-das-abasto"] .s02-do { stroke: rgba(239, 238, 229, 0.55); stroke-dasharray: 10 12; }
+  </style>
+  <div id="root" data-composition-id="s02-no-das-abasto" data-width="1080" data-height="1920" data-duration="4.23">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.23" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s02-esc">
+          <g class="s02-most"><path class="ln s02-dm" d="M-300 0 H300 M-280 0 V150 M280 0 V150" /></g>
+          <g class="s02-duenio"><g class="s02-duenio-in"><circle class="ln s02-dd" cx="0" cy="-150" r="30" /><path class="ln s02-dd" d="M-70 0 V-60 Q-70 -104 -26 -108 H26 Q70 -104 70 -60 V0" /></g></g>
+          <g class="s02-caja">
+            <path class="ln s02-dc" d="M-58 0 V-58 H58 V0" />
+            <rect class="ln-4 s02-dc" x="-42" y="-100" width="84" height="36" rx="6" />
+            <rect class="relleno s02-pantalla" x="-30" y="-91" width="60" height="18" rx="3" />
+          </g>
+          <path class="ln-ac s02-flecha" d="M0 40 V-40 M-26 -14 L0 -40 L26 -14" />
+          <g class="s02-b s02-b0"><path class="ln " d="M-64 34 H64 Q90 34 90 8 V-20 Q90 -46 64 -46 H-64 Q-90 -46 -90 -20 V8 Q-90 34 -64 34" /><path class="ln " d="M-54 34 L-70 62 L-28 34" /><path class="ln-tenue" d="M-56 -14 H56 M-56 8 H20" /></g>
+          <g class="s02-b s02-b1"><path class="ln " d="M-64 34 H64 Q90 34 90 8 V-20 Q90 -46 64 -46 H-64 Q-90 -46 -90 -20 V8 Q-90 34 -64 34" /><path class="ln " d="M-54 34 L-70 62 L-28 34" /><path class="ln-tenue" d="M-56 -14 H56 M-56 8 H20" /></g>
+          <g class="s02-b s02-b2"><path class="ln " d="M-64 34 H64 Q90 34 90 8 V-20 Q90 -46 64 -46 H-64 Q-90 -46 -90 -20 V8 Q-90 34 -64 34" /><path class="ln " d="M-54 34 L-70 62 L-28 34" /><path class="ln-tenue" d="M-56 -14 H56 M-56 8 H20" /></g>
+          <g class="s02-b s02-b3"><path class="ln " d="M-64 34 H64 Q90 34 90 8 V-20 Q90 -46 64 -46 H-64 Q-90 -46 -90 -20 V8 Q-90 34 -64 34" /><path class="ln " d="M-54 34 L-70 62 L-28 34" /><path class="ln-tenue" d="M-56 -14 H56 M-56 8 H20" /></g>
+          <g class="s02-b s02-b4"><path class="ln " d="M-64 34 H64 Q90 34 90 8 V-20 Q90 -46 64 -46 H-64 Q-90 -46 -90 -20 V8 Q-90 34 -64 34" /><path class="ln " d="M-54 34 L-70 62 L-28 34" /><path class="ln-tenue" d="M-56 -14 H56 M-56 8 H20" /></g>
+        </g>
+        <!-- pensás en sumar a alguien -->
+        <g class="s02-piensa">
+          <circle class="ln s02-dp" cx="0" cy="0" r="120" />
+          <circle class="ln-4 s02-dp" cx="160" cy="130" r="18" />
+          <circle class="ln-4 s02-dp" cx="196" cy="176" r="10" />
+          <g class="s02-otro"><g transform="translate(-20 80) scale(0.62)"><circle class="ln s02-do" cx="0" cy="-150" r="30" /><path class="ln s02-do" d="M-70 0 V-60 Q-70 -104 -26 -108 H26 Q70 -104 70 -60 V0" /></g></g>
+          <path class="ln-ac8 s02-mas" d="M60 -40 V20 M30 -10 H90" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">No das abasto</span><span class="s02-e2">Sumar a alguien</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-no-das-abasto";
+      const DUR = 4.23;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          // si arranca a medio dibujar (cuadro 0) se ve desde el principio; si no, opacity 0 hasta que arranca
+          if (desde != null && desde < 1 && t <= 0) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const latir = (el, t, origen, k) => tl.to(el, { scale: k ?? 1.06, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const sacudir = (el, t) => tl.to(el, { x: "-=6", duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      const badge = (el, t) => tl.fromTo(el.querySelector(".b-in"), { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      qa(".b-in").forEach((b) => gsap.set(b, { opacity: 0 }));
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const BIEN = 0.8;
+      const NO = 1.41;
+      const ABASTO = 1.7;
+      const PENSAS = 2.5;
+      const SUMAR = 3.0;
+      const ALGUIEN = 3.3;
+
+      const BUR = [[330,850],[380,700],[720,690],[790,840],[560,640]];
+      gsap.set(q(".s02-most"), { x: 540, y: 1100 });
+      gsap.set(q(".s02-duenio"), { x: 540, y: 1100 });
+      gsap.set(q(".s02-caja"), { x: 760, y: 1100 });
+      gsap.set(q(".s02-flecha"), { x: 760, y: 900, opacity: 0 });
+      gsap.set(q(".s02-piensa"), { x: 290, y: 720 });
+      gsap.set(qa(".s02-pantalla, .s02-otro, .s02-mas"), { opacity: 0 });
+      qa(".s02-b").forEach((b, i) => gsap.set(b, { x: BUR[i][0], y: BUR[i][1], opacity: 0 }));
+
+      // el dueño y el mostrador (a medio dibujar en el cuadro 0)
+      dibujar(qa(".s02-dm, .s02-dd"), 0, 0.55, 0.5);
+      dibujar(qa(".s02-dc"), 0.25, 0.45);
+      tl.fromTo(q(".s02-pantalla"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.6);
+      // "bien": la caja suena y sube la flecha
+      tl.fromTo(q(".s02-flecha"), { opacity: 0, y: 940 }, { opacity: 1, y: 900, duration: 0.4, ease: "back.out(2)" }, BIEN);
+      tl.to(q(".s02-flecha"), { y: 880, duration: 0.5, ease: "sine.inOut" }, BIEN + 0.4);
+      latir(q(".s02-caja"), BIEN, "760 1060", 1.1);
+      // "no das abasto": le llueven mensajes
+      tl.to(q(".s02-flecha"), { opacity: 0, duration: 0.2 }, NO - 0.1);
+      qa(".s02-b").forEach((b, i) => {
+        tl.fromTo(b, { opacity: 0, scale: 0.6, svgOrigin: BUR[i][0] + " " + BUR[i][1] }, { opacity: 1, scale: 0.75, svgOrigin: BUR[i][0] + " " + BUR[i][1], duration: 0.3, ease: "back.out(2)" }, NO + i * 0.11);
+      });
+      tl.to(q(".s02-duenio-in"), { x: -8, duration: 0.05, ease: "none", yoyo: true, repeat: 9 }, ABASTO);
+      etiqueta(".s02-e1", ABASTO);
+      // "pensás": todo se apaga, globo de pensamiento
+      tl.to(qa(".s02-b"), { opacity: 0, y: "-=30", duration: 0.3, stagger: 0.04, ease: "power2.in" }, PENSAS - 0.3);
+      tl.to(qa(".s02-caja, .s02-most"), { opacity: 0.35, duration: 0.3 }, PENSAS - 0.2);
+      dibujar(qa(".s02-dp"), PENSAS - 0.1, 0.45);
+      // "sumar a alguien": la otra figurita, punteada, y el +
+      tl.fromTo(q(".s02-otro"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, SUMAR - 0.1);
+      tl.fromTo(q(".s02-mas"), { opacity: 0, scale: 0.3, svgOrigin: "60 -10" }, { opacity: 1, scale: 1, svgOrigin: "60 -10", duration: 0.35, ease: "back.out(2.4)" }, ALGUIEN);
+      etiqueta(".s02-e2", SUMAR, ".s02-e1");
+      tl.fromTo(q(".s02-piensa"), { scale: 1 }, { scale: 1.05, svgOrigin: "290 720", duration: 1.2, ease: "none" }, PENSAS + 0.3);
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

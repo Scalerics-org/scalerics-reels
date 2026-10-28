@@ -1,0 +1,119 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-dos-a-mano"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-dos-a-mano"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-dos-a-mano"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-dos-a-mano"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-dos-a-mano"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-dos-a-mano"] .ln-ac8 { fill: none; stroke: #5ce611; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-dos-a-mano"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-dos-a-mano"] .relleno { fill: #5ce611; }
+    [data-composition-id="s06-dos-a-mano"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s06-dos-a-mano"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s06-dos-a-mano"] .ui-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s06-dos-a-mano"] .nombre { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.75); }
+    [data-composition-id="s06-dos-a-mano"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-dos-a-mano"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s06-dos-a-mano" data-width="1080" data-height="1920" data-duration="2.89">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="2.89" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="ln s06-most" d="M120 1110 H960" />
+        <g class="s06-a"><g class="s06-fa"><circle class="ln s06-da" cx="0" cy="-150" r="30" /><path class="ln s06-da" d="M-70 0 V-60 Q-70 -104 -26 -108 H26 Q70 -104 70 -60 V0" /></g><g class="s06-ca"><rect class="ln s06-dca" x="-60" y="-80" width="120" height="150" rx="10" /><path class="ln-tenue s06-dca" d="M-40 -40 H40 M-40 -6 H40 M-40 28 H40" /><path class="ln-4 s06-ga" d="M-40 -48 q8 -10 16 0 t16 0 t16 0 t16 0 t16 0 M-40 -14 q8 -10 16 0 t16 0 t16 0 t16 0 M-40 20 q8 -10 16 0 t16 0 t16 0 t16 0 t16 0" /><g class="s06-la"><path class="ln-4" d="M0 0 L6 -20 L70 -84 L84 -70 L20 -6 Z" /><path class="relleno" d="M0 0 L3 -12 L12 -3 Z" /></g></g></g>
+        <g class="s06-b"><g class="s06-fb"><circle class="ln s06-db" cx="0" cy="-150" r="30" /><path class="ln s06-db" d="M-70 0 V-60 Q-70 -104 -26 -108 H26 Q70 -104 70 -60 V0" /></g><g class="s06-cb"><rect class="ln s06-dcb" x="-60" y="-80" width="120" height="150" rx="10" /><path class="ln-tenue s06-dcb" d="M-40 -40 H40 M-40 -6 H40 M-40 28 H40" /><path class="ln-4 s06-gb" d="M-40 -48 q8 -10 16 0 t16 0 t16 0 t16 0 t16 0 M-40 -14 q8 -10 16 0 t16 0 t16 0 t16 0 M-40 20 q8 -10 16 0 t16 0 t16 0 t16 0 t16 0" /><g class="s06-lb"><path class="ln-4" d="M0 0 L6 -20 L70 -84 L84 -70 L20 -6 Z" /><path class="relleno" d="M0 0 L3 -12 L12 -3 Z" /></g></g></g>
+        <path class="ln-ac8 s06-mas" d="M850 740 V800 M820 770 H880" />
+        <g class="s06-papeles">
+          <rect class="ln-4 s06-p" x="-46" y="-30" width="92" height="60" rx="6" transform="translate(0 0) rotate(-6)" />
+          <rect class="ln-4 s06-p" x="-46" y="-30" width="92" height="60" rx="6" transform="translate(6 -22) rotate(4)" />
+          <rect class="ln-4 s06-p" x="-46" y="-30" width="92" height="60" rx="6" transform="translate(-8 -44) rotate(-3)" />
+          <rect class="ln-4 s06-p" x="-46" y="-30" width="92" height="60" rx="6" transform="translate(4 -66) rotate(8)" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Uno más</span><span class="s06-e2">Dos · todo a mano</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-dos-a-mano";
+      const DUR = 2.89;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          // si arranca a medio dibujar (cuadro 0) se ve desde el principio; si no, opacity 0 hasta que arranca
+          if (desde != null && desde < 1 && t <= 0) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const latir = (el, t, origen, k) => tl.to(el, { scale: k ?? 1.06, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const sacudir = (el, t) => tl.to(el, { x: "-=6", duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      const badge = (el, t) => tl.fromTo(el.querySelector(".b-in"), { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      qa(".b-in").forEach((b) => gsap.set(b, { opacity: 0 }));
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const SUMAS = 0.09;
+      const ALGUIEN = 0.39;
+      const ESO = 0.99;
+      const SON = 1.7;
+      const DOS = 1.89;
+      const TODO = 2.39;
+      const MANO = 2.59;
+
+      gsap.set(q(".s06-fa"), { x: 330, y: 1110 });
+      gsap.set(q(".s06-ca"), { x: 175, y: 1030 });
+      gsap.set(q(".s06-fb"), { x: 750, y: 1110 });
+      gsap.set(q(".s06-cb"), { x: 905, y: 1030 });
+      gsap.set(q(".s06-papeles"), { x: 540, y: 1076 });
+      gsap.set(qa(".s06-b, .s06-mas, .s06-p, .s06-la, .s06-lb"), { opacity: 0 });
+      gsap.set(qa(".s06-ga, .s06-gb"), { opacity: 0 });
+
+      // el dueño con su cuaderno (medio dibujado en el cuadro 0)
+      dibujar(qa(".s06-most, .s06-da, .s06-dca"), 0, 0.5, 0.5);
+      // "alguien": entra el segundo, con un +
+      tl.to(q(".s06-b"), { opacity: 1, duration: 0.05 }, ALGUIEN - 0.15);
+      dibujar(qa(".s06-db, .s06-dcb"), ALGUIEN - 0.15, 0.4);
+      tl.fromTo(q(".s06-fb"), { y: 1130 }, { y: 1110, duration: 0.4, ease: "back.out(2)" }, ALGUIEN - 0.15);
+      tl.fromTo(q(".s06-mas"), { opacity: 0, scale: 0.3, svgOrigin: "850 770" }, { opacity: 1, scale: 1, svgOrigin: "850 770", duration: 0.35, ease: "back.out(2.4)" }, ALGUIEN + 0.1);
+      etiqueta(".s06-e1", ALGUIEN + 0.1);
+      // "son dos haciendo": los dos escriben igual, a la vez
+      tl.to(q(".s06-mas"), { opacity: 0, duration: 0.2 }, SON - 0.2);
+      [["a", -40, -48], ["b", -40, -48]].forEach(([k]) => {
+        const g = q(".s06-g" + k);
+        const L = g.getTotalLength();
+        gsap.set(g, { strokeDasharray: L, strokeDashoffset: L });
+        tl.to(g, { opacity: 1, duration: 0.02 }, SON);
+        tl.to(g, { strokeDashoffset: 0, duration: 1.0, ease: "none" }, SON);
+        const lp = q(".s06-l" + k);
+        tl.fromTo(lp, { opacity: 0, x: -40, y: -48 }, { opacity: 1, x: 40, y: -48, duration: 0.33, ease: "none" }, SON);
+        tl.to(lp, { x: 30, y: -14, duration: 0.33, ease: "none" }, SON + 0.33);
+        tl.to(lp, { x: 40, y: 20, duration: 0.33, ease: "none" }, SON + 0.66);
+      });
+      etiqueta(".s06-e2", DOS, ".s06-e1");
+      // "todo a mano": se apilan papeles en el medio
+      qa(".s06-p").forEach((p, i) => tl.fromTo(p, { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, TODO - 0.2 + i * 0.12));
+      tl.to(qa(".s06-fa, .s06-fb"), { y: 1104, duration: 0.08, ease: "power1.inOut", yoyo: true, repeat: 3 }, MANO);
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,156 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-tareas"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-tareas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-tareas"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-tareas"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-tareas"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-tareas"] .ln-ac8 { fill: none; stroke: #5ce611; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-tareas"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-tareas"] .relleno { fill: #5ce611; }
+    [data-composition-id="s05-tareas"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s05-tareas"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s05-tareas"] .ui-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s05-tareas"] .nombre { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.75); }
+    [data-composition-id="s05-tareas"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-tareas"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s05-tareas" data-width="1080" data-height="1920" data-duration="6.06">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="6.06" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- 1. whatsapp -->
+        <g class="s05-col s05-col1">
+          <rect class="ln s05-d1" x="-120" y="-210" width="240" height="420" rx="36" />
+          <line class="ln s05-d1" x1="-26" y1="-188" x2="26" y2="-188" />
+          <g class="s05-m s05-q1"><rect class="ln-4" x="-96" y="-153" width="148" height="46" rx="16" /><text class="ui" x="-22" y="-121" text-anchor="middle">¿Precio?</text></g>
+          <g class="s05-m s05-r1"><rect class="ln-ac" x="-30" y="-95" width="126" height="42" rx="16" /><path class="ln-tenue" d="M-12 -78 H76 M-12 -66 H40" /></g>
+          <g class="s05-m s05-q2"><rect class="ln-4" x="-96" y="-37" width="148" height="46" rx="16" /><text class="ui" x="-22" y="-5" text-anchor="middle">¿Precio?</text></g>
+          <g class="s05-m s05-r2"><rect class="ln-ac" x="-30" y="21" width="126" height="42" rx="16" /><path class="ln-tenue" d="M-12 38 H76 M-12 50 H40" /></g>
+          <g class="s05-m s05-q3"><rect class="ln-4" x="-96" y="79" width="148" height="46" rx="16" /><text class="ui" x="-22" y="111" text-anchor="middle">¿Precio?</text></g>
+          <g class="s05-m s05-r3"><rect class="ln-ac" x="-30" y="137" width="126" height="42" rx="16" /><path class="ln-tenue" d="M-12 154 H76 M-12 166 H40" /></g>
+          <text data-layout-ignore class="nombre s05-n" x="0" y="268" text-anchor="middle">WHATSAPP</text>
+        </g>
+        <!-- 2. cuaderno -->
+        <g class="s05-col s05-col2">
+          <rect class="ln s05-d2" x="-125" y="-150" width="250" height="300" rx="14" />
+          <circle class="ln-4 s05-d2" cx="-75" cy="-150" r="11" />
+          <circle class="ln-4 s05-d2" cx="-25" cy="-150" r="11" />
+          <circle class="ln-4 s05-d2" cx="25" cy="-150" r="11" />
+          <circle class="ln-4 s05-d2" cx="75" cy="-150" r="11" />
+          <path class="ln-tenue s05-d2" d="M-95 -80 H95 M-95 -20 H95 M-95 40 H95 M-95 100 H95" />
+          <path class="ln-4 s05-esc s05-esc1" d="M-90 -92 q10 -14 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" />
+          <path class="ln-4 s05-esc s05-esc2" d="M-90 -32 q10 -14 20 0 t20 0 t20 0 t20 0 t20 0 t20 0" />
+          <path class="ln-4 s05-esc s05-esc3" d="M-90 28 q10 -14 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" />
+          <path class="ln-4 s05-esc s05-esc4" d="M-90 88 q10 -14 20 0 t20 0 t20 0 t20 0" />
+          <g class="s05-lapiz"><path class="ln-4" d="M0 0 L7 -24 L84 -101 L101 -84 L24 -7 Z" /><path class="relleno" d="M0 0 L4 -14 L14 -4 Z" /></g>
+          <text data-layout-ignore class="nombre s05-n" x="0" y="230" text-anchor="middle">PEDIDOS</text>
+        </g>
+        <!-- 3. clientes -->
+        <g class="s05-col s05-col3">
+          <g class="s05-ficha"><g transform="scale(1.2)"><rect class="ln s05-d3" x="-100" y="-64" width="200" height="128" rx="16" /><circle class="ln-4 s05-d3" cx="-50" cy="-16" r="18" /><path class="ln-4 s05-d3" d="M-82 44 Q-82 10 -50 10 Q-18 10 -18 44" /><path class="ln-tenue s05-d3" d="M0 -24 H70 M0 4 H50" /><text class="s05-preg" x="60" y="50" text-anchor="middle" style="font-family: Lexend, sans-serif; font-weight: 700; font-size: 44px; fill: #5ce611;">?</text></g></g>
+          <text data-layout-ignore class="nombre s05-n" x="0" y="190" text-anchor="middle">CLIENTES</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Todo a mano</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-tareas";
+      const DUR = 6.06;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          // si arranca a medio dibujar (cuadro 0) se ve desde el principio; si no, opacity 0 hasta que arranca
+          if (desde != null && desde < 1 && t <= 0) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const latir = (el, t, origen, k) => tl.to(el, { scale: k ?? 1.06, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const sacudir = (el, t) => tl.to(el, { x: "-=6", duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      const badge = (el, t) => tl.fromTo(el.querySelector(".b-in"), { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      qa(".b-in").forEach((b) => gsap.set(b, { opacity: 0 }));
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CONTESTAR = 0.0;
+      const PRECIO = 0.75;
+      const WHATSAPP = 1.25;
+      const ANOTAR = 2.0;
+      const PEDIDOS = 2.45;
+      const CUADERNO = 3.05;
+      const ACORDARTE = 3.89;
+      const DEJO = 4.85;
+      const VENIR = 5.15;
+
+      const Y = 900;
+      const XS = [205, 540, 870];
+      qa(".s05-col").forEach((c, i) => gsap.set(c, { x: XS[i], y: Y }));
+      gsap.set(q(".s05-col3"), { y: Y + 20 });
+      gsap.set(qa(".s05-m, .s05-n, .s05-lapiz, .s05-preg"), { opacity: 0 });
+      gsap.set(qa(".s05-col2, .s05-col3"), { opacity: 0.4 });
+      const nombre = (el, t) => tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+
+      // 1. el celular (medio dibujado en el cuadro 0) y la misma pregunta tres veces
+      dibujar(qa(".s05-d1"), 0, 0.5, 0.5);
+      nombre(q(".s05-col1 .s05-n"), 0.2);
+      ["q1", "r1", "q2", "r2", "q3", "r3"].forEach((k, i) => {
+        const el = q(".s05-" + k);
+        tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.22, ease: "back.out(2)" }, 0.15 + i * 0.25);
+      });
+      etiqueta(".s05-e1", PRECIO);
+      latir(q(".s05-col1"), WHATSAPP + 0.2, XS[0] + " " + Y, 1.04);
+
+      // 2. el cuaderno
+      tl.to(q(".s05-col1"), { opacity: 0.4, duration: 0.3 }, ANOTAR - 0.2);
+      tl.to(q(".s05-col2"), { opacity: 1, duration: 0.2 }, ANOTAR - 0.3);
+      dibujar(qa(".s05-d2"), ANOTAR - 0.3, 0.45);
+      nombre(q(".s05-col2 .s05-n"), ANOTAR);
+      tl.fromTo(q(".s05-lapiz"), { opacity: 0, x: 100, y: -40 }, { opacity: 1, x: -90, y: -92, duration: 0.25, ease: "power2.out" }, ANOTAR + 0.05);
+      const renglon = (sel, y0, x1, t, d) => {
+        const el = q(sel);
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(el, { opacity: 1, duration: 0.02 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "none" }, t);
+        tl.fromTo(q(".s05-lapiz"), { x: -90, y: y0 }, { x: x1, y: y0, duration: d, ease: "none" }, t);
+      };
+      renglon(".s05-esc1", -92, 70, PEDIDOS - 0.15, 0.4);
+      renglon(".s05-esc2", -32, 30, PEDIDOS + 0.3, 0.3);
+      renglon(".s05-esc3", 28, 50, CUADERNO - 0.3, 0.35);
+      renglon(".s05-esc4", 88, -10, CUADERNO + 0.1, 0.25);
+      tl.to(q(".s05-lapiz"), { opacity: 0, duration: 0.2 }, ACORDARTE - 0.3);
+
+      // 3. acordarte de quién dejó de venir
+      tl.to(q(".s05-col2"), { opacity: 0.4, duration: 0.3 }, ACORDARTE - 0.2);
+      tl.to(q(".s05-col3"), { opacity: 1, duration: 0.2 }, ACORDARTE - 0.3);
+      dibujar(qa(".s05-d3"), ACORDARTE - 0.3, 0.45);
+      nombre(q(".s05-col3 .s05-n"), ACORDARTE);
+      tl.to(qa(".s05-ficha .ln-4"), { opacity: 0.3, duration: 0.4 }, DEJO);
+      tl.fromTo(q(".s05-preg"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2.4)" }, VENIR);
+      tl.to(q(".s05-preg"), { y: -8, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 1 }, VENIR + 0.35);
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

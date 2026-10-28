@@ -1,0 +1,111 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-te-sobra"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-te-sobra"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-te-sobra"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-te-sobra"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-te-sobra"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-te-sobra"] .ln-ac8 { fill: none; stroke: #5ce611; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-te-sobra"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-te-sobra"] .relleno { fill: #5ce611; }
+    [data-composition-id="s04-te-sobra"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s04-te-sobra"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s04-te-sobra"] .ui-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s04-te-sobra"] .nombre { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.75); }
+    [data-composition-id="s04-te-sobra"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-te-sobra"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s04-te-sobra" data-width="1080" data-height="1920" data-duration="3.02">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.02" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s04-suelo" x1="200" y1="1184" x2="960" y2="1184" />
+        <g class="s04-pila"><g class="s04-card s04-c0"><g class="s04-card-in"><rect class="ln" x="-110" y="-34" width="220" height="68" rx="12" /><path class="ln-4" d="M-88 -16 Q-88 -24 -80 -24 H-52 Q-44 -24 -44 -16 V2 Q-44 10 -52 10 H-74 L-86 22 L-84 10 Q-88 10 -88 2 Z" /><path class="ln-tenue" d="M-28 -8 H80 M-28 12 H44" /></g></g>
+          <g class="s04-card s04-c1"><g class="s04-card-in"><rect class="ln" x="-110" y="-34" width="220" height="68" rx="12" /><rect class="ln-4" x="-88" y="-24" width="40" height="48" rx="5" /><path class="ln-4" d="M-80 -10 H-56 M-80 4 H-56" /><path class="ln-tenue" d="M-28 -8 H80 M-28 12 H44" /></g></g>
+          <g class="s04-card s04-c2"><g class="s04-card-in"><rect class="ln" x="-110" y="-34" width="220" height="68" rx="12" /><circle class="ln-4" cx="-66" cy="-10" r="9" /><path class="ln-4" d="M-84 22 Q-84 4 -66 4 Q-48 4 -48 22" /><path class="ln-tenue" d="M-28 -8 H80 M-28 12 H44" /></g></g>
+          <g class="s04-card s04-c3"><g class="s04-card-in"><rect class="ln" x="-110" y="-34" width="220" height="68" rx="12" /><path class="ln-4" d="M-88 -16 Q-88 -24 -80 -24 H-52 Q-44 -24 -44 -16 V2 Q-44 10 -52 10 H-74 L-86 22 L-84 10 Q-88 10 -88 2 Z" /><path class="ln-tenue" d="M-28 -8 H80 M-28 12 H44" /></g></g>
+          <g class="s04-card s04-c4"><g class="s04-card-in"><rect class="ln" x="-110" y="-34" width="220" height="68" rx="12" /><rect class="ln-4" x="-88" y="-24" width="40" height="48" rx="5" /><path class="ln-4" d="M-80 -10 H-56 M-80 4 H-56" /><path class="ln-tenue" d="M-28 -8 H80 M-28 12 H44" /></g></g>
+          <g class="s04-card s04-c5"><g class="s04-card-in"><rect class="ln" x="-110" y="-34" width="220" height="68" rx="12" /><circle class="ln-4" cx="-66" cy="-10" r="9" /><path class="ln-4" d="M-84 22 Q-84 4 -66 4 Q-48 4 -48 22" /><path class="ln-tenue" d="M-28 -8 H80 M-28 12 H44" /></g></g>
+          <g class="s04-card s04-c6"><g class="s04-card-in"><rect class="ln" x="-110" y="-34" width="220" height="68" rx="12" /><path class="ln-4" d="M-88 -16 Q-88 -24 -80 -24 H-52 Q-44 -24 -44 -16 V2 Q-44 10 -52 10 H-74 L-86 22 L-84 10 Q-88 10 -88 2 Z" /><path class="ln-tenue" d="M-28 -8 H80 M-28 12 H44" /></g></g></g>
+        <g class="s04-persona"><circle class="ln s04-df" cx="0" cy="-150" r="30" /><path class="ln s04-df" d="M-70 0 V-60 Q-70 -104 -26 -108 H26 Q70 -104 70 -60 V0" /></g>
+        <g class="s04-x"><g class="b-in"><circle class="ln-ac" cx="0" cy="0" r="22" /><path class="ln-ac" d="M-8 -8 L8 8 M8 -8 L-8 8" /></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Te sobra trabajo</span><span class="s04-e2">No es para nadie</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-te-sobra";
+      const DUR = 3.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          // si arranca a medio dibujar (cuadro 0) se ve desde el principio; si no, opacity 0 hasta que arranca
+          if (desde != null && desde < 1 && t <= 0) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const latir = (el, t, origen, k) => tl.to(el, { scale: k ?? 1.06, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const sacudir = (el, t) => tl.to(el, { x: "-=6", duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      const badge = (el, t) => tl.fromTo(el.querySelector(".b-in"), { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      qa(".b-in").forEach((b) => gsap.set(b, { opacity: 0 }));
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const SOBRA = 0.07;
+      const TRABAJO = 0.47;
+      const TENDRIA = 1.27;
+      const NADIE = 2.07;
+
+      const PX = 450, BASE = 1180;
+      const ROT = [-2, 3, -4, 2, -3, 5, -2];
+      const DX = [0, 10, -8, 14, -4, 18, 6];
+      gsap.set(q(".s04-persona"), { x: 800, y: 1184, opacity: 0.0 });
+      gsap.set(q(".s04-x"), { x: 868, y: 990 });
+      qa(".s04-card").forEach((c, i) => {
+        const y = BASE - 36 - i * 72;
+        gsap.set(c, { x: PX + DX[i], y });
+        gsap.set(c.querySelector(".s04-card-in"), { rotation: ROT[i], svgOrigin: "0 0" });
+        if (i === 0) return;
+        const t = SOBRA + (i - 1) * 0.15;
+        tl.fromTo(c, { opacity: 0, y: y - 260 }, { opacity: 1, y, duration: 0.3, ease: "power2.in" }, t);
+        tl.to(qa(".s04-card").slice(0, i).map((e) => e.querySelector(".s04-card-in")), { y: 3, duration: 0.06, ease: "power1.out", yoyo: true, repeat: 1 }, t + 0.3);
+      });
+      // la primera tarjeta y el piso, medio dibujados en el cuadro 0
+      dibujar([q(".s04-suelo")], 0, 0.5, 0.5);
+      tl.fromTo(q(".s04-c0"), { opacity: 0.6 }, { opacity: 1, duration: 0.2 }, 0);
+      etiqueta(".s04-e1", TRABAJO);
+      // la pila se tambalea
+      tl.to(q(".s04-pila"), { rotation: 2, svgOrigin: PX + " " + BASE, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 1.1);
+      // "tendría": aparece una persona al lado
+      tl.to(q(".s04-persona"), { opacity: 1, duration: 0.05 }, TENDRIA - 0.05);
+      dibujar(qa(".s04-df"), TENDRIA - 0.05, 0.45);
+      // "nadie": X a la persona, la pila tiembla
+      badge(q(".s04-x"), NADIE);
+      tl.to(q(".s04-persona"), { opacity: 0.35, duration: 0.3 }, NADIE + 0.15);
+      tl.to(q(".s04-pila"), { x: -5, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, NADIE);
+      etiqueta(".s04-e2", NADIE - 0.2, ".s04-e1");
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

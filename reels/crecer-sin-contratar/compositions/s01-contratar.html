@@ -1,0 +1,156 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-contratar"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-contratar"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-contratar"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-contratar"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-contratar"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-contratar"] .ln-ac8 { fill: none; stroke: #5ce611; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-contratar"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-contratar"] .relleno { fill: #5ce611; }
+    [data-composition-id="s01-contratar"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s01-contratar"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s01-contratar"] .ui-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s01-contratar"] .nombre { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.75); }
+    [data-composition-id="s01-contratar"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-contratar"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s01-contratar"] .s01-cartel-txt { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 56px; letter-spacing: 0.02em; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s01-contratar" data-width="1080" data-height="1920" data-duration="5.2">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.2" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- el cartel de SE BUSCA PERSONAL -->
+        <g class="s01-cartel">
+          <g class="s01-cartel-esc"><g class="s01-cartel-in">
+            <circle class="relleno s01-clavo" cx="0" cy="-180" r="9" />
+            <path class="ln s01-dc" d="M0 -180 L-170 -92 M0 -180 L170 -92" />
+            <rect class="ln s01-dc" x="-240" y="-92" width="480" height="196" rx="24" />
+            <text class="s01-cartel-txt s01-t" x="0" y="-12" text-anchor="middle">SE BUSCA</text>
+            <text class="s01-cartel-txt s01-t" x="0" y="62" text-anchor="middle">PERSONAL</text>
+            <path class="ln-ac8 s01-tacha" d="M-262 96 L262 -84" />
+          </g></g>
+        </g>
+        <!-- flechita de crecer -->
+        <g class="s01-flecha"><path class="ln-ac s01-fl" d="M0 60 V-60 M-30 -30 L0 -60 L30 -30" /></g>
+        <!-- badge X -->
+        <g class="s01-badge"><g class="s01-b-in"><circle class="ln-ac" cx="0" cy="0" r="22" /><path class="ln-ac" d="M-8 -8 L8 8 M8 -8 L-8 8" /></g></g>
+        <!-- el cuaderno de pedidos, a mano -->
+        <g class="s01-cuaderno">
+          <g class="s01-cuaderno-in">
+            <rect class="ln s01-dq" x="-200" y="-140" width="400" height="290" rx="16" />
+            <circle class="ln-4 s01-dq" cx="-140" cy="-140" r="13" />
+            <circle class="ln-4 s01-dq" cx="-70" cy="-140" r="13" />
+            <circle class="ln-4 s01-dq" cx="0" cy="-140" r="13" />
+            <circle class="ln-4 s01-dq" cx="70" cy="-140" r="13" />
+            <circle class="ln-4 s01-dq" cx="140" cy="-140" r="13" />
+            <path class="ln-tenue s01-dq" d="M-160 -60 H160 M-160 0 H160 M-160 60 H160 M-160 120 H160" />
+            <path class="ln-4 s01-esc s01-esc1" d="M-150 -74 q12 -16 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" />
+            <path class="ln-4 s01-esc s01-esc2" d="M-150 -14 q12 -16 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" />
+            <path class="ln-4 s01-esc s01-esc3" d="M-150 46 q12 -16 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" />
+            <g class="s01-lapiz">
+              <path class="ln-4" d="M0 0 L8 -28 L98 -118 L118 -98 L28 -8 Z" />
+              <path class="relleno" d="M0 0 L5 -17 L17 -5 Z" />
+              <path class="ln-4" d="M84 -132 L132 -84" />
+            </g>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">No hace falta</span><span class="s01-e2">Todo a mano</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-contratar";
+      const DUR = 5.2;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          // si arranca a medio dibujar (cuadro 0) se ve desde el principio; si no, opacity 0 hasta que arranca
+          if (desde != null && desde < 1 && t <= 0) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const latir = (el, t, origen, k) => tl.to(el, { scale: k ?? 1.06, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const sacudir = (el, t) => tl.to(el, { x: "-=6", duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CRECER = 0.2;
+      const CONTRATAR = 1.6;
+      const NADIE = 2.1;
+      const NECESITAS = 2.91;
+      const HACER = 4.1;
+      const MANO = 4.9;
+
+      const CX = 540, CY = 820;
+      gsap.set(q(".s01-cartel"), { x: CX, y: CY });
+      gsap.set(q(".s01-flecha"), { x: 880, y: 640 });
+      gsap.set(q(".s01-badge"), { x: CX + 236, y: CY - 92 });
+      gsap.set(q(".s01-b-in"), { opacity: 0 });
+      gsap.set(q(".s01-cuaderno"), { x: 540, y: 1000 });
+      gsap.set(qa(".s01-lapiz"), { opacity: 0 });
+
+      // el cartel arranca medio dibujado (el cuadro 0 no puede ser negro)
+      dibujar(qa(".s01-dc"), 0, 0.55, 0.5);
+      tl.fromTo(qa(".s01-t"), { opacity: 0.3, y: 8 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.12, ease: "power3.out" }, 0);
+      // "crecer": flechita verde que sube
+      dibujar([q(".s01-fl")], CRECER, 0.45);
+      tl.fromTo(q(".s01-flecha"), { y: 680 }, { y: 640, duration: 0.6, ease: "power2.out" }, CRECER);
+      tl.to(q(".s01-flecha"), { y: 620, duration: 1.0, ease: "sine.inOut" }, CRECER + 0.6);
+      // "contratar": el cartel se balancea
+      tl.fromTo(q(".s01-cartel-in"), { rotation: 0, svgOrigin: "0 -180" }, { rotation: 5, svgOrigin: "0 -180", duration: 0.25, ease: "sine.out" }, CONTRATAR - 0.1);
+      tl.to(q(".s01-cartel-in"), { rotation: -3, svgOrigin: "0 -180", duration: 0.3, ease: "sine.inOut" }, CONTRATAR + 0.15);
+      tl.to(q(".s01-cartel-in"), { rotation: 0, svgOrigin: "0 -180", duration: 0.3, ease: "sine.inOut" }, CONTRATAR + 0.45);
+      // "nadie": tachado verde + X
+      dibujar([q(".s01-tacha")], NADIE - 0.05, 0.25);
+      tl.fromTo(q(".s01-b-in"), { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, NADIE);
+      sacudir(q(".s01-cartel-in"), NADIE + 0.1);
+      etiqueta(".s01-e1", NADIE);
+      tl.to(q(".s01-flecha"), { opacity: 0, duration: 0.3 }, NADIE + 0.2);
+
+      // "necesitás": el cartel se achica y sube apagado; abajo el cuaderno
+      tl.to(q(".s01-cartel"), { y: 700, opacity: 0.35, duration: 0.5, ease: "power3.inOut" }, NECESITAS - 0.1);
+      tl.to(q(".s01-cartel-esc"), { scale: 0.55, svgOrigin: "0 0", duration: 0.5, ease: "power3.inOut" }, NECESITAS - 0.1);
+      tl.to(q(".s01-badge"), { opacity: 0, duration: 0.25 }, NECESITAS - 0.1);
+      dibujar(qa(".s01-dq"), NECESITAS, 0.45);
+      tl.fromTo(q(".s01-cuaderno-in"), { y: 30 }, { y: 0, duration: 0.5, ease: "power3.out" }, NECESITAS);
+      // el lápiz escribe renglones
+      tl.fromTo(q(".s01-lapiz"), { opacity: 0, x: 140, y: -40 }, { opacity: 1, x: -150, y: -74, duration: 0.35, ease: "power2.out" }, NECESITAS + 0.35);
+      const renglon = (sel, y0, x1, t, d) => {
+        const el = q(sel);
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(el, { opacity: 1, duration: 0.02 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "none" }, t);
+        tl.fromTo(q(".s01-lapiz"), { x: -150, y: y0 }, { x: x1, y: y0, duration: d, ease: "none" }, t);
+        tl.fromTo(q(".s01-lapiz"), { rotation: 0, svgOrigin: "0 0" }, { rotation: -6, svgOrigin: "0 0", duration: d / 8, ease: "sine.inOut", yoyo: true, repeat: 7 }, t);
+      };
+      renglon(".s01-esc1", -74, 114, NECESITAS + 0.7, 0.5);
+      renglon(".s01-esc2", -14, 66, HACER - 0.05, 0.4);
+      renglon(".s01-esc3", 46, 18, HACER + 0.4, 0.35);
+      etiqueta(".s01-e2", HACER, ".s01-e1");
+      latir(q(".s01-cuaderno-in"), MANO - 0.15, "0 0", 1.04);
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
