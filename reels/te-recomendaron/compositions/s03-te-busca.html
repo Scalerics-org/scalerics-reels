@@ -1,0 +1,148 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-te-busca"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-te-busca"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-te-busca"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-te-busca"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-te-busca"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-te-busca"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-te-busca"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-te-busca"] .hilo { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1 19; }
+    [data-composition-id="s03-te-busca"] .hilo-roto { fill: none; stroke: rgba(239, 238, 229, 0.3); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1 19; }
+    [data-composition-id="s03-te-busca"] .mascara { fill: none; stroke: #ffffff; stroke-width: 24; stroke-linecap: round; }
+    [data-composition-id="s03-te-busca"] .vidrio, [data-composition-id="s03-te-busca"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s03-te-busca"] .relleno { fill: #efeee5; }
+    [data-composition-id="s03-te-busca"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s03-te-busca"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s03-te-busca"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s03-te-busca"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s03-te-busca"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s03-te-busca"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-te-busca"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s03-te-busca"] .s03-busca { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s03-te-busca"] .s03-fecha { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #efeee5; }
+    [data-composition-id="s03-te-busca"] .s03-preg { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s03-te-busca" data-width="1080" data-height="1920" data-duration="6.1">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="6.1" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s03-cel">
+        <rect class="ln s03-dcel" x="360" y="580" width="360" height="640" rx="50" />
+        <path class="ln s03-dcel" d="M504 608.8 H576" />
+        <g class="s03-barra">
+        <rect class="ln-fino" x="390" y="640" width="300" height="60" rx="30" />
+        <circle class="ln-fino" cx="424" cy="668" r="11" /><path class="ln-fino" d="M432 676 L441 685" />
+        <text class="s03-busca" x="456" y="680"><tspan class="s03-l">p</tspan><tspan class="s03-l">a</tspan><tspan class="s03-l">n</tspan><tspan class="s03-l">a</tspan><tspan class="s03-l">d</tspan><tspan class="s03-l">e</tspan><tspan class="s03-l">r</tspan><tspan class="s03-l">í</tspan><tspan class="s03-l">a</tspan></text>
+        <line class="ln-ac s03-cursor" x1="0" y1="652" x2="0" y2="688" style="stroke-width:3" />
+        </g>
+        <line class="ln-tenue s03-sep" x1="390" y1="724" x2="690" y2="724" />
+        <g class="s03-foto">
+        <rect class="ln-fino" x="400" y="746" width="280" height="160" rx="10" />
+        <path class="ln-fino" d="M410 890 L480 820 L530 866 L570 830 L670 900" />
+        <circle class="ln-fino" cx="620" cy="790" r="16" />
+        <text class="s03-fecha" x="414" y="778">2019</text>
+        </g>
+        <g class="s03-tel">
+        <path class="ln-fino" d="M406 950 Q404 940 414 936 L424 932 Q430 930 433 937 L438 950 Q440 956 434 960 L428 964 Q434 978 446 986 L452 980 Q456 976 462 978 L474 984 Q480 988 478 994 L474 1004 Q470 1012 460 1010 Q420 1000 406 950 Z" />
+        <text class="ui s03-llama" x="496" y="986">Llamando...</text>
+        </g>
+        <g class="s03-badge"><g><circle class="ln-ac" cx="0" cy="0" r="18" style="stroke-width:4" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" style="stroke-width:4" /></g></g>
+        <g class="s03-hora">
+        <circle class="ln-fino" cx="434" cy="1066" r="22" />
+        <path class="ln-fino" d="M434 1066 V1054 M434 1066 L443 1071" />
+        <text class="ui" x="472" y="1076">Horario:</text>
+        <text class="s03-preg s03-q" x="600" y="1078">?</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">Te busca</span><span class="s03-e2">Foto vieja</span><span class="s03-e3">Nadie atiende</span><span class="s03-e4">Sin horario</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-te-busca";
+      const DUR = 6.1;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, ti); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // camina: balanceo de una figurita (tweens finitos)
+      const camina = (el, t, veces) => {
+        tl.fromTo(el, { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.16, ease: "sine.inOut", yoyo: true, repeat: veces ?? 5 }, t);
+      };
+      const SACA = 0.4;
+      const BUSCA = 1.32;
+      const ENCUENTRA = 2.5;
+      const FOTO = 3.0;
+      const TELEFONO = 4.0;
+      const NADIE = 4.6;
+      const NINGUN = 5.4;
+      // "saca el celular": sube desde abajo mientras se dibuja
+      dibujar(qa(".s03-dcel"), 0, 0.6, 0.4);
+      tl.fromTo(q(".s03-cel"), { y: 110, rotation: 6, svgOrigin: "540 900" }, { y: 0, rotation: 0, svgOrigin: "540 900", duration: 0.7, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s03-barra"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, SACA + 0.2);
+      // "te busca": se tipea panadería, con cursor que acompaña
+      const ls = qa(".s03-l");
+      gsap.set(ls, { opacity: 0 });
+      gsap.set(q(".s03-cursor"), { x: 458, opacity: 0 });
+      tl.to(q(".s03-cursor"), { opacity: 1, duration: 0.05 }, SACA + 0.4);
+      const t0 = BUSCA - 0.35;
+      ls.forEach((l, i) => {
+      tl.to(l, { opacity: 1, duration: 0.03 }, t0 + i * 0.07);
+      });
+      // avance aproximado del cursor por letra (Lexend 28px)
+      tl.to(q(".s03-cursor"), { x: 458 + 132, duration: ls.length * 0.07, ease: "none" }, t0);
+      tl.to(q(".s03-cursor"), { opacity: 0, duration: 0.05 }, ENCUENTRA - 0.2);
+      etiqueta(q(".s03-e1"), BUSCA);
+      // "encuentra": la búsqueda devuelve algo... flojo
+      dibujar([q(".s03-sep")], ENCUENTRA - 0.1, 0.4);
+      // foto vieja, torcida y apagada
+      gsap.set(q(".s03-foto"), { opacity: 0 });
+      tl.fromTo(q(".s03-foto"), { opacity: 0, scale: 0.85, svgOrigin: "540 826" }, { opacity: 0.5, scale: 1, svgOrigin: "540 826", duration: 0.35, ease: "back.out(1.6)" }, FOTO - 0.05);
+      tl.to(q(".s03-foto"), { rotation: -4, svgOrigin: "540 826", duration: 0.5, ease: "back.out(2)" }, FOTO + 0.3);
+      etiqueta(q(".s03-e2"), FOTO, q(".s03-e1"));
+      // teléfono que nadie atiende
+      tl.fromTo(q(".s03-tel"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, TELEFONO - 0.05);
+      tl.to(q(".s03-tel path"), { rotation: -12, svgOrigin: "440 970", duration: 0.07, yoyo: true, repeat: 7, ease: "none" }, TELEFONO + 0.2);
+      gsap.set(q(".s03-badge"), { x: 680, y: 960 });
+      badge(q(".s03-badge"), NADIE + 0.05);
+      tl.to(q(".s03-tel"), { opacity: 0.45, duration: 0.3 }, NADIE + 0.25);
+      etiqueta(q(".s03-e3"), NADIE, q(".s03-e2"));
+      // ningún horario
+      tl.fromTo(q(".s03-hora"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, NINGUN - 0.1);
+      tl.fromTo(q(".s03-q"), { scale: 0.3, svgOrigin: "610 1066" }, { scale: 1.3, svgOrigin: "610 1066", duration: 0.3, ease: "back.out(3)" }, NINGUN + 0.1);
+      tl.to(q(".s03-q"), { rotation: 14, svgOrigin: "610 1066", duration: 0.08, yoyo: true, repeat: 3, ease: "none" }, NINGUN + 0.45);
+      etiqueta(q(".s03-e4"), NINGUN + 0.1, q(".s03-e3"));
+      // el celular tiembla un toque al final
+      tl.to(q(".s03-cel"), { x: 6, duration: 0.05, yoyo: true, repeat: 3, ease: "none" }, 5.6);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

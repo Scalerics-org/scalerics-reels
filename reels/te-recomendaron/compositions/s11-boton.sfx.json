@@ -1,0 +1,8 @@
+[
+  {"t":0.17,"sfx":"pop","vol":0.25},
+  {"t":0.67,"sfx":"click","vol":0.25},
+  {"t":1,"sfx":"whoosh-short","vol":0.18},
+  {"t":1.67,"sfx":"notification","vol":0.28,"max":0.8},
+  {"t":3.45,"sfx":"sparkle","vol":0.2,"max":0.8},
+  {"t":4.85,"sfx":"chime","vol":0.28,"max":0.9}
+]

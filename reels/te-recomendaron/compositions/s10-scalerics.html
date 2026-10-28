@@ -1,0 +1,141 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-scalerics"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-scalerics"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-scalerics"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .hilo { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1 19; }
+    [data-composition-id="s10-scalerics"] .hilo-roto { fill: none; stroke: rgba(239, 238, 229, 0.3); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1 19; }
+    [data-composition-id="s10-scalerics"] .mascara { fill: none; stroke: #ffffff; stroke-width: 24; stroke-linecap: round; }
+    [data-composition-id="s10-scalerics"] .vidrio, [data-composition-id="s10-scalerics"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .relleno { fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-scalerics"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s10-scalerics"] .s10-nombre { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 58px; letter-spacing: -0.01em; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .s10-para { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.24em; fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .s10-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .s10-fila-t { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .s10-abierto { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 21px; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s10-scalerics" data-width="1080" data-height="1920" data-duration="8.33">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="8.33" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s10-caja">
+        <rect class="ln s10-dcaja" x="320" y="598" width="440" height="110" rx="28" />
+        <text class="s10-nombre s10-nom" x="540" y="673" text-anchor="middle">Scalerics</text>
+        </g>
+        <text class="s10-para s10-sub" x="540" y="757" text-anchor="middle">SITIOS WEB PARA COMERCIOS</text>
+        <g class="s10-cel">
+        <rect class="ln s10-dcel" x="370" y="805" width="340" height="420" rx="48" />
+        <path class="ln s10-dcel" d="M506 823.9 H574" />
+        <g class="s10-cab">
+        <text class="s10-tit" x="402" y="874">Panadería</text>
+        <line class="ln-tenue" x1="392" y1="896" x2="688" y2="896" />
+        </g>
+        <line class="ln-ac s10-carga" x1="392" y1="896" x2="688" y2="896" />
+        <path class="relleno-ac s10-rayo" d="M668 846 L650 874 H664 L656 896 L680 864 H666 Z" />
+        <g class="s10-f s10-f1">
+        <path class="ln-fino" d="M402 932 H438 L442 966 H398 Z M410 932 V926 Q420 916 430 926 V932" />
+        <text class="s10-fila-t" x="460" y="960">Lo que vendés</text>
+        </g>
+        <g class="s10-f s10-f2">
+        <circle class="ln-fino" cx="420" cy="1022" r="18" />
+        <path class="ln-fino s10-aguja" d="M420 1022 V1011 M420 1022 L428 1027" />
+        <text class="s10-fila-t" x="460" y="1032">Horarios</text>
+        <rect class="ln-fino-ac" x="600" y="1006" width="92" height="34" rx="17" style="stroke-width:3" />
+        <text class="s10-abierto" x="646" y="1030" text-anchor="middle">Abierto</text>
+        </g>
+        <g class="s10-f s10-f3">
+        <path class="ln-fino s10-pinf" d="M420 1118 C412 1108 402 1098 402 1086 A18 18 0 0 1 438 1086 C438 1098 428 1108 420 1118 Z" />
+        <text class="s10-fila-t" x="460" y="1104">Cómo llegar</text>
+        <path class="ln-tenue" d="M460 1140 Q520 1120 560 1150 T680 1140" />
+        </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-scalerics";
+      const DUR = 8.33;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, ti); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // camina: balanceo de una figurita (tweens finitos)
+      const camina = (el, t, veces) => {
+        tl.fromTo(el, { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.16, ease: "sine.inOut", yoyo: true, repeat: veces ?? 5 }, t);
+      };
+      const SCALERICS = 0.7;
+      const SITIOS = 1.7;
+      const COMERCIOS = 2.4;
+      const CON = 2.9;
+      const VENDES = 3.7;
+      const HORARIOS = 4.5;
+      const LLEGAR = 5.6;
+      const CLARO = 6.38;
+      const RAPIDO = 6.8;
+      // caja de marca: arranca dibujándose
+      dibujar([q(".s10-dcaja")], 0, 0.8, 0.5);
+      tl.fromTo(q(".s10-nom"), { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, SCALERICS - 0.2);
+      tl.fromTo(q(".s10-caja"), { scale: 0.94, svgOrigin: "540 653" }, { scale: 1, svgOrigin: "540 653", duration: 0.45, ease: "back.out(2)" }, SCALERICS);
+      tl.fromTo(q(".s10-sub"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, SITIOS);
+      // el celular con el sitio
+      dibujar(qa(".s10-dcel"), COMERCIOS - 0.3, 0.55);
+      tl.fromTo(q(".s10-cel"), { y: 40 }, { y: 0, duration: 0.6, ease: "power3.out" }, COMERCIOS - 0.3);
+      tl.fromTo(q(".s10-cab"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, CON);
+      const fila = (s, t) => tl.fromTo(q(s), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, t);
+      fila(".s10-f1", VENDES - 0.1);
+      tl.fromTo(q(".s10-f1 path"), { rotation: -10, svgOrigin: "420 950" }, { rotation: 0, svgOrigin: "420 950", duration: 0.5, ease: "elastic.out(1, 0.4)" }, VENDES);
+      fila(".s10-f2", HORARIOS - 0.1);
+      tl.fromTo(q(".s10-aguja"), { rotation: -120, svgOrigin: "420 1022" }, { rotation: 0, svgOrigin: "420 1022", duration: 0.6, ease: "back.out(2)" }, HORARIOS);
+      tl.fromTo(qa(".s10-f2 rect, .s10-abierto"), { opacity: 0, scale: 0.7, svgOrigin: "646 1023" }, { opacity: 1, scale: 1, svgOrigin: "646 1023", duration: 0.3, ease: "back.out(2.4)" }, HORARIOS + 0.4);
+      fila(".s10-f3", LLEGAR - 0.15);
+      tl.fromTo(q(".s10-pinf"), { y: -18 }, { y: 0, duration: 0.45, ease: "bounce.out" }, LLEGAR);
+      // "claro y rápido": la barra de carga corre en un toque y aparece el rayo
+      dibujar([q(".s10-carga")], CLARO - 0.1, 0.35);
+      qa(".s10-f").forEach((f, i) => tl.to(f, { x: 6, duration: 0.1, yoyo: true, repeat: 1 }, CLARO + i * 0.08));
+      gsap.set(q(".s10-rayo"), { opacity: 0 });
+      tl.fromTo(q(".s10-rayo"), { opacity: 0, scale: 0.3, svgOrigin: "665 871" }, { opacity: 1, scale: 1, svgOrigin: "665 871", duration: 0.3, ease: "back.out(3)" }, RAPIDO);
+      tl.to(q(".s10-cel"), { scale: 1.03, svgOrigin: "540 1015", duration: 0.15, yoyo: true, repeat: 1 }, RAPIDO + 0.1);
+      tl.to(q(".s10-cel"), { y: -8, duration: 0.6, ease: "sine.inOut" }, 7.3);
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

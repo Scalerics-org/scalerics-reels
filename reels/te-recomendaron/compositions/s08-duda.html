@@ -1,0 +1,158 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-duda"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-duda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-duda"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-duda"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-duda"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-duda"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-duda"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-duda"] .hilo { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1 19; }
+    [data-composition-id="s08-duda"] .hilo-roto { fill: none; stroke: rgba(239, 238, 229, 0.3); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1 19; }
+    [data-composition-id="s08-duda"] .mascara { fill: none; stroke: #ffffff; stroke-width: 24; stroke-linecap: round; }
+    [data-composition-id="s08-duda"] .vidrio, [data-composition-id="s08-duda"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s08-duda"] .relleno { fill: #efeee5; }
+    [data-composition-id="s08-duda"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s08-duda"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s08-duda"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s08-duda"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s08-duda"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s08-duda"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-duda"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s08-duda"] .s08-rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; fill: #efeee5; }
+    [data-composition-id="s08-duda"] .s08-preg { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 48px; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s08-duda" data-width="1080" data-height="1920" data-duration="4.45">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.45" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <text class="s08-rot s08-rot-a" x="280" y="640" text-anchor="middle">CLARO</text>
+        <g class="s08-cel-a"><rect class="ln s08-dcel-a" x="205" y="665" width="150" height="250" rx="21" />
+        <path class="ln s08-dcel-a" d="M265 676.25 H295" /></g>
+        <line class="ln s08-suelo-a" x1="80" y1="1170" x2="480" y2="1170" />
+        <g transform="translate(370 1170) scale(0.5)"><g class="s08-loc-a">
+        <path class="ln s08-dloc-a" d="M-120 0 V-170 H120 V0" />
+        <path class="ln s08-dloc-a" d="M-140 -170 H140 L122 -222 H-122 Z" />
+        <path class="ln s08-dloc-a" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+        <rect class="ln s08-dloc-a" x="-80" y="-290" width="160" height="50" rx="10" />
+        <text class="cartel s08-txt-a" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+        <rect class="ln s08-dloc-a" x="-100" y="-122" width="58" height="52" rx="5" />
+        <rect class="ln s08-dloc-a" x="42" y="-122" width="58" height="52" rx="5" />
+        <rect class="vidrio s08-luz-a" x="-92" y="-114" width="42" height="36" rx="3" />
+        <rect class="vidrio s08-luz-a" x="50" y="-114" width="42" height="36" rx="3" />
+        <path class="ln s08-dloc-a" d="M-24 0 V-96 H24 V0" /></g></g>
+        <g class="s08-fig-a"><g class="s08-fig-a-c"><circle class="ln s08-dfig-a" cx="0" cy="-96" r="14" /><path class="ln s08-dfig-a" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g></g>
+        <g class="s08-fila"><path class="ln-fino-ac" d="M226 730 L236 740 L254 720" /><path class="ln-fino" d="M268 730 H332" /></g>
+        <g class="s08-fila"><path class="ln-fino-ac" d="M226 785 L236 795 L254 775" /><path class="ln-fino" d="M268 785 H320" /></g>
+        <g class="s08-fila"><path class="ln-fino-ac" d="M226 840 L236 850 L254 830" /><path class="ln-fino" d="M268 840 H336" /></g>
+        
+        <text class="s08-rot s08-rot-b" x="800" y="640" text-anchor="middle">DUDA</text>
+        <g class="s08-cel-b"><rect class="ln s08-dcel-b" x="725" y="665" width="150" height="250" rx="21" />
+        <path class="ln s08-dcel-b" d="M785 676.25 H815" /></g>
+        <line class="ln s08-suelo-b" x1="600" y1="1170" x2="1000" y2="1170" />
+        <g transform="translate(890 1170) scale(0.5)"><g class="s08-loc-b">
+        <path class="ln s08-dloc-b" d="M-120 0 V-170 H120 V0" />
+        <path class="ln s08-dloc-b" d="M-140 -170 H140 L122 -222 H-122 Z" />
+        <path class="ln s08-dloc-b" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+        <rect class="ln s08-dloc-b" x="-80" y="-290" width="160" height="50" rx="10" />
+        <text class="cartel s08-txt-b" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+        <rect class="ln s08-dloc-b" x="-100" y="-122" width="58" height="52" rx="5" />
+        <rect class="ln s08-dloc-b" x="42" y="-122" width="58" height="52" rx="5" />
+        <rect class="vidrio s08-luz-b" x="-92" y="-114" width="42" height="36" rx="3" />
+        <rect class="vidrio s08-luz-b" x="50" y="-114" width="42" height="36" rx="3" />
+        <path class="ln s08-dloc-b" d="M-24 0 V-96 H24 V0" /></g></g>
+        <g class="s08-fig-b"><g class="s08-fig-b-c"><circle class="ln s08-dfig-b" cx="0" cy="-96" r="14" /><path class="ln s08-dfig-b" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g></g>
+        <path class="ln-tenue s08-borroso" d="M760 735 H800 M760 785 H830 M760 835 H790" />
+        <text class="s08-preg s08-q" x="690" y="1030" text-anchor="middle">?</text>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">Vienen</span><span class="s08-e2">No viene</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-duda";
+      const DUR = 4.45;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, ti); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // camina: balanceo de una figurita (tweens finitos)
+      const camina = (el, t, veces) => {
+        tl.fromTo(el, { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.16, ease: "sine.inOut", yoyo: true, repeat: veces ?? 5 }, t);
+      };
+      const ENCUENTRAN = 0.25;
+      const VIENEN = 1.38;
+      const SINO = 2.03;
+      const DUDAN = 2.64;
+      const NOVIENE = 4.08;
+      // lado claro
+      tl.fromTo(q(".s08-rot-a"), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+      dibujar(qa(".s08-dcel-a"), 0, 0.45, 0.4);
+      dibujar([q(".s08-suelo-a")], 0, 0.4, 0.4);
+      dibujar(qa(".s08-dloc-a"), 0.05, 0.45, 1, 0.02);
+      tl.fromTo(q(".s08-txt-a"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.3);
+      gsap.set(qa(".s08-luz-a, .s08-luz-b"), { opacity: 0 });
+      qa(".s08-fila").forEach((f, i) => {
+      tl.fromTo(f, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, ENCUENTRAN + i * 0.2);
+      });
+      gsap.set(q(".s08-fig-a"), { x: 170, y: 1170 });
+      dibujar(qa(".s08-dfig-a"), 0.2, 0.4);
+      // "vienen": camina y entra
+      tl.to(q(".s08-fig-a"), { x: 370, duration: 0.7, ease: "none" }, VIENEN - 0.5);
+      camina(q(".s08-fig-a-c"), VIENEN - 0.5, 3);
+      tl.to(q(".s08-fig-a"), { opacity: 0, duration: 0.2 }, VIENEN + 0.15);
+      tl.to(qa(".s08-luz-a"), { opacity: 0.85, duration: 0.2 }, VIENEN + 0.2);
+      tl.fromTo(q(".s08-loc-a"), { scale: 1, svgOrigin: "0 -110" }, { scale: 1.1, svgOrigin: "0 -110", duration: 0.14, yoyo: true, repeat: 1 }, VIENEN + 0.2);
+      etiqueta(q(".s08-e1"), VIENEN);
+      // lado duda
+      tl.fromTo(q(".s08-rot-b"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, SINO - 0.1);
+      tl.to(q(".s08-cel-a"), { opacity: 0.6, duration: 0.3 }, SINO);
+      dibujar(qa(".s08-dcel-b"), SINO - 0.1, 0.4);
+      tl.fromTo(q(".s08-cel-b"), { opacity: 1 }, { opacity: 0.45, duration: 0.3 }, SINO + 0.4);
+      tl.fromTo(q(".s08-borroso"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, SINO + 0.2);
+      dibujar([q(".s08-suelo-b")], SINO - 0.1, 0.4);
+      dibujar(qa(".s08-dloc-b"), SINO, 0.45, 1, 0.02);
+      tl.fromTo(q(".s08-txt-b"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, SINO + 0.3);
+      tl.to(qa(".s08-dloc-b, .s08-txt-b"), { opacity: 0.45, duration: 0.3 }, DUDAN);
+      gsap.set(q(".s08-fig-b"), { x: 690, y: 1170 });
+      dibujar(qa(".s08-dfig-b"), SINO + 0.1, 0.4);
+      // "dudan": signo de pregunta que tiembla
+      gsap.set(q(".s08-q"), { opacity: 0 });
+      tl.fromTo(q(".s08-q"), { opacity: 0, scale: 0.3, svgOrigin: "690 1015" }, { opacity: 1, scale: 1, svgOrigin: "690 1015", duration: 0.3, ease: "back.out(3)" }, DUDAN);
+      tl.to(q(".s08-q"), { rotation: 12, svgOrigin: "690 1015", duration: 0.12, yoyo: true, repeat: 7, ease: "sine.inOut" }, DUDAN + 0.3);
+      tl.to(q(".s08-fig-b-c"), { rotation: -5, svgOrigin: "0 -40", duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, DUDAN + 0.2);
+      // "no viene": se da vuelta y se va
+      tl.to(q(".s08-fig-b-c"), { scaleX: -1, svgOrigin: "0 -40", duration: 0.12 }, NOVIENE - 0.25);
+      tl.to(qa(".s08-fig-b, .s08-q"), { x: "-=90", opacity: 0, duration: 0.45, ease: "power1.in" }, NOVIENE - 0.15);
+      etiqueta(q(".s08-e2"), NOVIENE - 0.2, q(".s08-e1"));
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

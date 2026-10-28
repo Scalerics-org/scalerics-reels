@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-lo-perdes"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-lo-perdes"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-lo-perdes"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-lo-perdes"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-lo-perdes"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-lo-perdes"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-lo-perdes"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-lo-perdes"] .hilo { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1 19; }
+    [data-composition-id="s06-lo-perdes"] .hilo-roto { fill: none; stroke: rgba(239, 238, 229, 0.3); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1 19; }
+    [data-composition-id="s06-lo-perdes"] .mascara { fill: none; stroke: #ffffff; stroke-width: 24; stroke-linecap: round; }
+    [data-composition-id="s06-lo-perdes"] .vidrio, [data-composition-id="s06-lo-perdes"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s06-lo-perdes"] .relleno { fill: #efeee5; }
+    [data-composition-id="s06-lo-perdes"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s06-lo-perdes"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s06-lo-perdes"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s06-lo-perdes"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s06-lo-perdes"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s06-lo-perdes"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-lo-perdes"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s06-lo-perdes" data-width="1080" data-height="1920" data-duration="4.05">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="4.05" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s06-suelo" x1="60" y1="1110" x2="1020" y2="1110" />
+        <g class="s06-rec-fig"><g transform="scale(1.3)"><circle class="ln s06-dfig" cx="0" cy="-96" r="14" /><path class="ln s06-dfig" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g></g>
+        <g class="s06-rec"><g transform="translate(200 830)">
+        <path class="ln-ac s06-burb" d="M-46 -42 H46 Q60 -42 60 -28 V22 Q60 36 46 36 H-18 L-44 58 L-38 36 H-46 Q-60 36 -60 22 V-28 Q-60 -42 -46 -42 Z" />
+        <path class="relleno-ac s06-burb-est" d="M0.0 -22.0 L5.8 -8.0 L20.9 -6.8 L9.4 3.1 L12.9 17.8 L0.0 9.9 L-12.9 17.8 L-9.4 3.1 L-20.9 -6.8 L-5.8 -8.0 Z" transform="translate(0 -4)" /></g></g>
+        
+        <mask id="s06-ha" maskUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1920"><path class="mascara s06-ha-m" d="M265 850 Q380 820 462 930" /></mask>
+        <path class="hilo s06-ha " d="M265 850 Q380 820 462 930" mask="url(#s06-ha)" />
+        <g class="s06-cel">
+        <rect class="ln s06-dcel" x="465" y="855" width="150" height="250" rx="21" />
+        <path class="ln s06-dcel" d="M525 866.25 H555" />
+        <path class="ln-tenue s06-pant" d="M495 935 H585 M495 965 H560" />
+        </g>
+        
+        <mask id="s06-hb" maskUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1920"><path class="mascara s06-hb-m" d="M620 1010 Q740 1090 850 1070" /></mask>
+        <path class="hilo s06-hb " d="M620 1010 Q740 1090 850 1070" mask="url(#s06-hb)" />
+        <path class="hilo-roto s06-hb-roto" d="M620 1010 Q740 1090 850 1070" />
+        <g class="s06-local" transform="translate(870 1110)"><g class="s06-local-in">
+        <path class="ln s06-dloc" d="M-120 0 V-170 H120 V0" />
+        <path class="ln s06-dloc" d="M-140 -170 H140 L122 -222 H-122 Z" />
+        <path class="ln s06-dloc" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+        <rect class="ln s06-dloc" x="-80" y="-290" width="160" height="50" rx="10" />
+        <text class="cartel s06-txt" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+        <rect class="ln s06-dloc" x="-100" y="-122" width="58" height="52" rx="5" />
+        <rect class="ln s06-dloc" x="42" y="-122" width="58" height="52" rx="5" />
+        <rect class="vidrio s06-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+        <rect class="vidrio s06-luz" x="50" y="-114" width="42" height="36" rx="3" />
+        <path class="ln s06-dloc" d="M-24 0 V-96 H24 V0" /></g></g>
+        <g class="s06-cli"><g class="s06-cli-c"><circle class="ln s06-dcli" cx="0" cy="-96" r="14" /><path class="ln s06-dcli" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g></g>
+        <g class="s06-flecha">
+        <path class="ln-ac" d="M540 760 V820" />
+        <path class="ln-ac" d="M518 800 L540 824 L562 800" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Te manda al cliente</span><span class="s06-e2">Lo perdés acá</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-lo-perdes";
+      const DUR = 4.05;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, ti); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // camina: balanceo de una figurita (tweens finitos)
+      const camina = (el, t, veces) => {
+        tl.fromTo(el, { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.16, ease: "sine.inOut", yoyo: true, repeat: veces ?? 5 }, t);
+      };
+      const ANDA = 0.52;
+      const MANDA = 1.22;
+      const PERDES = 2.52;
+      const CELULAR = 3.12;
+      gsap.set(q(".s06-rec-fig"), { x: 130, y: 1110 });
+      dibujar(qa(".s06-dfig"), 0, 0.45, 0.3);
+      dibujar(qa(".s06-burb"), 0, 0.4, 0.3);
+      tl.fromTo(q(".s06-burb-est"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.1);
+      tl.fromTo(q(".s06-suelo"), { scaleX: 0.85, svgOrigin: "540 1110" }, { scaleX: 1, svgOrigin: "540 1110", duration: 0.6, ease: "power3.out" }, 0);
+      dibujar(qa(".s06-dcel"), 0.1, 0.45);
+      tl.fromTo(q(".s06-pant"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.4);
+      dibujar(qa(".s06-dloc"), 0.15, 0.5, 1, 0.02);
+      tl.fromTo(q(".s06-txt"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.45);
+      tl.fromTo(qa(".s06-luz"), { opacity: 0 }, { opacity: 0.85, duration: 0.2 }, 0.5);
+      // "anda": la recomendación late y sale el hilo
+      tl.to(q(".s06-rec"), { scale: 1.12, svgOrigin: "200 830", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, ANDA);
+      dibujar([q(".s06-ha-m")], ANDA, 0.6);
+      dibujar([q(".s06-hb-m")], ANDA + 0.5, 0.6);
+      gsap.set(q(".s06-hb-roto"), { opacity: 0 });
+      // "te manda al cliente": camina hacia el celular
+      gsap.set(q(".s06-cli"), { x: 200, y: 1110, opacity: 0 });
+      tl.to(q(".s06-cli"), { opacity: 1, duration: 0.15 }, MANDA - 0.1);
+      dibujar(qa(".s06-dcli"), MANDA - 0.1, 0.3);
+      tl.to(q(".s06-cli"), { x: 470, duration: PERDES - MANDA - 0.1, ease: "none" }, MANDA);
+      camina(q(".s06-cli-c"), MANDA, 7);
+      etiqueta(q(".s06-e1"), MANDA);
+      // "perdés": entra al celular y se esfuma; el hilo se corta
+      tl.to(q(".s06-cli"), { opacity: 0, scale: 0.5, transformOrigin: "50% 100%", filter: "blur(4px)", duration: 0.3, ease: "power2.in" }, PERDES - 0.05);
+      tl.to(q(".s06-cel"), { x: 8, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, PERDES);
+      tl.to(q(".s06-hb"), { opacity: 0, duration: 0.08 }, PERDES + 0.1);
+      tl.to(q(".s06-hb-roto"), { opacity: 1, duration: 0.08 }, PERDES + 0.1);
+      tl.to(q(".s06-hb-roto"), { y: 16, duration: 0.4, ease: "power2.in" }, PERDES + 0.15);
+      tl.to(qa(".s06-luz"), { opacity: 0, duration: 0.25 }, PERDES + 0.2);
+      tl.to(qa(".s06-dloc, .s06-txt"), { opacity: 0.4, duration: 0.35 }, PERDES + 0.2);
+      etiqueta(q(".s06-e2"), PERDES, q(".s06-e1"));
+      // "en el celular": flecha que lo señala
+      gsap.set(q(".s06-flecha"), { opacity: 0 });
+      tl.fromTo(q(".s06-flecha"), { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, CELULAR - 0.2);
+      tl.to(q(".s06-flecha"), { y: 10, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, CELULAR + 0.2);
+
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
