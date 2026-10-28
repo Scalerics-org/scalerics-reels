@@ -1,0 +1,162 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-una-hora"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-una-hora"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-una-hora"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-una-hora"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-una-hora"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-una-hora"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-una-hora"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.3); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s05-una-hora"] .ln-hueco { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+    [data-composition-id="s05-una-hora"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s05-una-hora"] .relleno { fill: #5ce611; }
+    [data-composition-id="s05-una-hora"] .titulo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; letter-spacing: 0.08em; fill: #efeee5; }
+    [data-composition-id="s05-una-hora"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s05-una-hora"] .nombre { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s05-una-hora"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s05-una-hora"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s05-una-hora"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s05-una-hora"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s05-una-hora"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s05-una-hora"] .grande { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s05-una-hora"] .navy { fill: #0b1d35; }
+    [data-composition-id="s05-una-hora"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-una-hora"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-una-hora" data-width="1080" data-height="1920" data-duration="7.5">
+    <div id="s05-escena" class="capa clip" data-start="0" data-duration="7.5" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s05-tel">
+          <rect class="ln s05-dib" x="350" y="620" width="380" height="600" rx="52" />
+          <line class="ln s05-dib" x1="510" y1="648" x2="570" y2="648" />
+          <circle class="ln-fino s05-dib" cx="402" cy="712" r="20" />
+          <text class="ui-b s05-cab" x="436" y="722">Clienta nueva</text>
+          <line class="ln-tenue s05-dib" x1="374" y1="756" x2="706" y2="756" />
+          <g class="s05-msg">
+            <rect class="ln-fino" x="378" y="780" width="300" height="104" rx="22" />
+            <text class="ui" x="398" y="822">¿Tenés lugar</text>
+            <text class="ui" x="398" y="862">hoy a las seis?</text>
+          </g>
+          <path class="ln-tenue s05-visto" d="M628 902 l8 8 l14 -16 M642 908 l2 2 l14 -16" />
+          <g class="s05-resp">
+            <rect class="ln-fino" x="410" y="920" width="296" height="64" rx="22" />
+            <text class="ui" x="428" y="961">¡Sí! ¿Te queda bien?</text>
+          </g>
+          <g class="s05-no">
+            <rect class="ln-fino" x="378" y="1004" width="300" height="104" rx="22" />
+            <text class="ui" x="398" y="1046">Gracias, ya reservé</text>
+            <text class="ui" x="398" y="1086">en otro lado.</text>
+          </g>
+          <rect class="ln-tenue s05-dib" x="378" y="1136" width="324" height="54" rx="27" />
+          <g class="s05-b1"><circle class="ln-badge" cx="672" cy="1163" r="18" /><path class="ln-badge" d="M665 1156 L679 1170 M679 1156 L665 1170" /></g>
+        </g>
+        <!-- el reloj: una hora -->
+        <g class="s05-reloj">
+          <circle class="ln" cx="860" cy="760" r="56" />
+          <path class="ln-fino" d="M860 712 v8 M908 760 h-8 M860 808 v-8 M812 760 h8" />
+          <path class="ln s05-min" d="M860 760 V722" />
+          <path class="ln s05-hr" d="M860 760 L882 770" />
+        </g>
+        <text class="rotulo rotulo-ac s05-hora" x="860" y="866" text-anchor="middle" style="font-size:30px">+1 HORA</text>
+        <g class="s05-moneda"><circle class="ln" cx="860" cy="962" r="36" /><text class="ui-b" x="860" y="977" text-anchor="middle" style="font-size:40px">$</text></g>
+        <!-- el otro local: contestó primero -->
+        <g class="s05-otro">
+          <rect class="ln s05-dib2" x="640" y="700" width="280" height="470" rx="44" />
+          <line class="ln s05-dib2" x1="750" y1="726" x2="810" y2="726" />
+          <text class="rotulo s05-rot" x="780" y="778" text-anchor="middle">OTRO LOCAL</text>
+          <line class="ln-tenue s05-dib2" x1="660" y1="800" x2="900" y2="800" />
+          <g class="s05-o1"><rect class="ln-fino" x="660" y="826" width="236" height="60" rx="20" /><text class="ui" x="676" y="864" style="font-size:24px">¿Tenés lugar hoy?</text></g>
+          <g class="s05-o2"><rect class="ln-fino-ac" x="680" y="906" width="220" height="60" rx="20" /><text class="ui" x="698" y="944" style="font-size:24px">¡Sí! Te agendo.</text></g>
+          <path class="ln-fino-ac s05-o3" d="M852 988 l8 8 l14 -16 M866 994 l2 2 l14 -16" />
+        </g>
+        <g class="s05-primero"><circle class="relleno" cx="910" cy="704" r="36" /><text class="ui-b navy" x="910" y="716" text-anchor="middle" style="font-size:32px">1º</text></g>
+
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">No podés contestar</span><span class="s05-e2">Una hora después</span><span class="s05-e3">Reservó con otro</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-una-hora";
+      const DUR = 7.5;
+
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan solos; si arrancan en el cuadro 0 se ven medio dibujados
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.12, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      let etqPrev = null;
+      const etq = (sel, t) => {
+        if (etqPrev) tl.to(q(etqPrev), { opacity: 0, duration: 0.2 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqPrev = sel;
+      };
+
+
+      const CONTESTAR = 0.5, TERMINAS = 1.0, COBRAS = 2.27, HORA = 3.5, RESERVO = 4.6, OTRO = 5.3, CON = 5.6, PRIMERO = 6.1, CONTESTO = 6.6;
+      // arranca medio dibujado, con el mensaje sin contestar
+      dibujar(qa(".s05-dib"), 0, 0.5, 0.3);
+      tl.fromTo(qa(".s05-cab, .s05-msg"), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+      tl.fromTo(q(".s05-visto"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.2);
+      // "no podés contestar": badge en el campo para escribir
+      pop(q(".s05-b1"), CONTESTAR, "672 1163");
+      etq(".s05-e1", 0.15);
+      // el reloj: la aguja da una vuelta entera hasta "una hora después"
+      pop(q(".s05-reloj"), TERMINAS - 0.25, "860 760");
+      tl.fromTo(q(".s05-min"), { rotation: 0, svgOrigin: "860 760" }, { rotation: 360, svgOrigin: "860 760", duration: HORA - TERMINAS, ease: "none" }, TERMINAS);
+      tl.fromTo(q(".s05-hr"), { rotation: 0, svgOrigin: "860 760" }, { rotation: 30, svgOrigin: "860 760", duration: HORA - TERMINAS, ease: "none" }, TERMINAS);
+      // "cobrás"
+      pop(q(".s05-moneda"), COBRAS, "860 962");
+      tl.to(q(".s05-moneda"), { y: -10, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, COBRAS + 0.35);
+      // "una hora después": +1 HORA y tu respuesta tardía
+      tl.fromTo(q(".s05-hora"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, HORA - 0.15);
+      punch(q(".s05-reloj"), HORA, "860 760", 1.12);
+      pop(q(".s05-resp"), HORA + 0.05, "706 984");
+      tl.to(q(".s05-b1"), { opacity: 0, duration: 0.2 }, HORA);
+      etq(".s05-e2", HORA - 0.2);
+      // "reservó": la respuesta de la clienta
+      pop(q(".s05-no"), RESERVO - 0.05, "378 1108");
+      etq(".s05-e3", RESERVO);
+      tl.to(qa(".s05-reloj, .s05-hora, .s05-moneda"), { opacity: 0, duration: 0.3 }, RESERVO + 0.3);
+      // tu celular se apaga y se corre; aparece el otro local
+      tl.to(q(".s05-tel"), { x: -190, scale: 0.8, svgOrigin: "540 920", opacity: 0.4, duration: 0.5, ease: "power3.inOut" }, OTRO - 0.4);
+      dibujar(qa(".s05-dib2"), OTRO - 0.15, 0.45);
+      tl.fromTo(q(".s05-rot"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, OTRO + 0.1);
+      pop(q(".s05-o1"), CON - 0.1, "660 886");
+      pop(q(".s05-o2"), CON + 0.2, "900 966");
+      tl.fromTo(q(".s05-o3"), { opacity: 0 }, { opacity: 1, duration: 0.15 }, CON + 0.35);
+      // "primero"
+      tl.fromTo(q(".s05-primero"), { opacity: 0, scale: 0.4, svgOrigin: "910 704" }, { opacity: 1, scale: 1, svgOrigin: "910 704", duration: 0.35, ease: "back.out(2.2)" }, PRIMERO);
+      punch(q(".s05-otro"), CONTESTO, "780 935", 1.04);
+      punch(q(".s05-primero"), CONTESTO + 0.05, "910 704", 1.18);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,141 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-manos"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-manos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-manos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-manos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-manos"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-manos"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-manos"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.3); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s03-manos"] .ln-hueco { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+    [data-composition-id="s03-manos"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s03-manos"] .relleno { fill: #5ce611; }
+    [data-composition-id="s03-manos"] .titulo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; letter-spacing: 0.08em; fill: #efeee5; }
+    [data-composition-id="s03-manos"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s03-manos"] .nombre { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s03-manos"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s03-manos"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s03-manos"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s03-manos"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s03-manos"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s03-manos"] .grande { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s03-manos"] .navy { fill: #0b1d35; }
+    [data-composition-id="s03-manos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-manos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-manos" data-width="1080" data-height="1920" data-duration="3.73">
+    <div id="s03-escena" class="capa clip" data-start="0" data-duration="3.73" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <line class="ln s03-dib" x1="180" y1="1180" x2="920" y2="1180" />
+        <!-- sillón -->
+        <path class="ln s03-dib" d="M490 1180 V1110 M430 1180 H550" />
+        <rect class="ln s03-dib" x="395" y="1060" width="190" height="44" rx="12" />
+        <path class="ln s03-dib" d="M405 1062 V930 M575 1062 V930" />
+        <!-- la clienta, con la capa -->
+        <circle class="ln s03-cli" cx="490" cy="862" r="40" />
+        <path class="ln s03-cli" d="M420 1060 L448 918 Q490 900 532 918 L560 1060" />
+        <!-- vos, de pie -->
+        <circle class="ln s03-vos" cx="700" cy="760" r="34" />
+        <path class="ln s03-vos" d="M700 794 V1010 M700 1010 L668 1180 M700 1010 L732 1180" />
+        <path class="ln s03-vos" d="M700 850 L640 880 L598 852" />
+        <path class="ln s03-vos" d="M700 838 L672 800 L640 792" />
+        <!-- peine -->
+        <g class="s03-peine"><rect class="ln-fino" x="582" y="780" width="64" height="16" rx="5" /><path class="ln-fino" d="M592 796 v10 M604 796 v10 M616 796 v10 M628 796 v10" /></g>
+        <g class="s03-tijera">
+            <path class="ln-fino s03-hoja1" d="M590 846 L548 826" />
+            <path class="ln-fino s03-hoja2" d="M590 846 L548 868" />
+            <circle class="ln-fino s03-hoja1" cx="603" cy="834" r="9" />
+            <circle class="ln-fino s03-hoja2" cx="603" cy="860" r="9" />
+          </g>
+        <!-- marcas verdes en las manos -->
+        <circle class="ln-ac s03-mano" cx="600" cy="826" r="66" />
+        <!-- mostrador con el celular -->
+        <path class="ln s03-dib" d="M800 1010 H940 M920 1010 V1180" />
+        <rect class="ln s03-tel" x="842" y="928" width="50" height="78" rx="10" />
+        <!-- taco del sábado -->
+        <g class="s03-taco">
+          <rect class="ln" x="250" y="660" width="120" height="100" rx="14" />
+          <line class="ln" x1="250" y1="694" x2="370" y2="694" />
+          <path class="ln" d="M280 648 V672 M340 648 V672" />
+          <text class="rotulo rotulo-ac" x="310" y="740" text-anchor="middle" style="font-size:30px">SÁB</text>
+        </g>
+
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">Sábado</span><span class="s03-e2">Manos ocupadas</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-manos";
+      const DUR = 3.73;
+
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan solos; si arrancan en el cuadro 0 se ven medio dibujados
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.12, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      let etqPrev = null;
+      const etq = (sel, t) => {
+        if (etqPrev) tl.to(q(etqPrev), { opacity: 0, duration: 0.2 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqPrev = sel;
+      };
+
+
+      const SABADO = 0.33, MANOS = 1.93, OCUPADAS = 2.23, CLIENTA = 3.63;
+      tl.fromTo(q("svg"), { scale: 0.97, svgOrigin: "540 950" }, { scale: 1.02, svgOrigin: "540 950", duration: DUR, ease: "none" }, 0);
+      dibujar(qa(".s03-dib"), 0, 0.6, 0.45);
+      dibujar(qa(".s03-cli"), 0, 0.6, 0.5);
+      dibujar(qa(".s03-vos"), 0.15, 0.6);
+      tl.fromTo(qa(".s03-peine, .s03-tijera"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.6);
+      dibujar([q(".s03-tel")], 0.5, 0.4);
+      // "sábado"
+      pop(q(".s03-taco"), SABADO - 0.05, "310 710");
+      etq(".s03-e1", SABADO);
+      // la tijera corta todo el tiempo, más fuerte en "manos ocupadas"
+      for (let k = 0; k < 8; k++) {
+        const t = 0.7 + k * 0.38;
+        tl.to(qa(".s03-hoja1"), { rotation: -12, svgOrigin: "590 846", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+        tl.to(qa(".s03-hoja2"), { rotation: 12, svgOrigin: "590 846", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      }
+      tl.to(q(".s03-peine"), { x: -16, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 5 }, 0.8);
+      gsap.set(qa(".s03-mano"), { opacity: 0 });
+      dibujar(qa(".s03-mano"), MANOS - 0.1, 0.45);
+      punch(q(".s03-tijera"), OCUPADAS, "596 850", 1.15);
+      punch(q(".s03-mano"), OCUPADAS + 0.1, "600 826", 1.08);
+      etq(".s03-e2", MANOS);
+      // el celular, solo en el mostrador
+      tl.to(q(".s03-tel"), { x: 3, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, 2.9);
+      // "clienta": la clienta asiente
+      tl.to(qa(".s03-cli")[0], { y: 6, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, CLIENTA - 0.4);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

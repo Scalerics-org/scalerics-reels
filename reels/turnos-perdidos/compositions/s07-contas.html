@@ -1,0 +1,115 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-contas"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-contas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-contas"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-contas"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-contas"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-contas"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-contas"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.3); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s07-contas"] .ln-hueco { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+    [data-composition-id="s07-contas"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s07-contas"] .relleno { fill: #5ce611; }
+    [data-composition-id="s07-contas"] .titulo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; letter-spacing: 0.08em; fill: #efeee5; }
+    [data-composition-id="s07-contas"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s07-contas"] .nombre { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s07-contas"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s07-contas"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s07-contas"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s07-contas"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s07-contas"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s07-contas"] .grande { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s07-contas"] .navy { fill: #0b1d35; }
+    [data-composition-id="s07-contas"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-contas"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-contas" data-width="1080" data-height="1920" data-duration="3.75">
+    <div id="s07-escena" class="capa clip" data-start="0" data-duration="3.75" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <line class="ln-tenue s07-div" x1="540" y1="690" x2="540" y2="1170" />
+        <text class="rotulo s07-r1" x="300" y="720" text-anchor="middle">CANCELADOS</text>
+        <text class="rotulo s07-r2" x="780" y="720" text-anchor="middle">SIN RESPUESTA</text>
+        <!-- palitos de conteo -->
+        <g class="s07-palos">
+          <path class="ln s07-p" d="M240 860 V990" />
+          <path class="ln s07-p" d="M275 860 V990" />
+          <path class="ln s07-p" d="M310 860 V990" />
+          <path class="ln s07-p" d="M345 860 V990" />
+          <path class="ln-ac s07-p" d="M215 965 L370 885" />
+        </g>
+        <!-- los que se fueron sin reservar -->
+        <g class="s07-f" transform="translate(690 1040) scale(1.4)"><path class="ln-hueco" d="M0 -107 V-52 M0 -91 L-23 -68 M0 -91 L23 -68 M0 -52 L-18 0 M0 -52 L18 0" /><circle class="ln-hueco" cx="0" cy="-125" r="18" /></g>
+        <g class="s07-f" transform="translate(780 1040) scale(1.4)"><path class="ln-hueco" d="M0 -107 V-52 M0 -91 L-23 -68 M0 -91 L23 -68 M0 -52 L-18 0 M0 -52 L18 0" /><circle class="ln-hueco" cx="0" cy="-125" r="18" /></g>
+        <g class="s07-f" transform="translate(870 1040) scale(1.4)"><path class="ln-hueco" d="M0 -107 V-52 M0 -91 L-23 -68 M0 -91 L23 -68 M0 -52 L-18 0 M0 -52 L18 0" /><circle class="ln-hueco" cx="0" cy="-125" r="18" /></g>
+        <text class="grande s07-preg" x="780" y="1010" text-anchor="middle" style="font-size:200px">?</text>
+
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">Los contás</span><span class="s07-e2">Esos no</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-contas";
+      const DUR = 3.75;
+
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan solos; si arrancan en el cuadro 0 se ven medio dibujados
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.12, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      let etqPrev = null;
+      const etq = (sel, t) => {
+        if (etqPrev) tl.to(q(etqPrev), { opacity: 0, duration: 0.2 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqPrev = sel;
+      };
+
+
+      const CANCELACIONES = 0.09, CONTAS = 0.79, FUERON = 1.99, RESERVAR = 2.49, NO = 3.19;
+      dibujar([q(".s07-div")], 0, 0.5, 0.45);
+      tl.fromTo(qa(".s07-r1, .s07-r2"), { opacity: 0.3 }, { opacity: 1, duration: 0.3 }, 0);
+      // los figuritas punteadas ya están, tenues
+      tl.fromTo(qa(".s07-f"), { opacity: 0 }, { opacity: 0.9, duration: 0.3, stagger: 0.08 }, 0.1);
+      // "las contás": palitos uno por uno
+      dibujar(qa(".s07-p"), CANCELACIONES + 0.1, 0.25);
+      qa(".s07-p").forEach((el, i) => tl.to(el, { opacity: 1 }, CANCELACIONES + 0.1 + i * 0.12));
+      punch(q(".s07-palos"), CONTAS, "292 925", 1.1);
+      tl.to(q(".s07-r1"), { fill: "#5ce611", duration: 0.2 }, CONTAS);
+      etq(".s07-e1", CONTAS);
+      // "se fueron": las figuritas se van
+      qa(".s07-f").forEach((f, i) => tl.to(f, { x: 70, opacity: 0, duration: 0.45, ease: "power2.in" }, FUERON + i * 0.1));
+      // "sin reservar, no": el signo de pregunta
+      tl.fromTo(q(".s07-preg"), { opacity: 0, scale: 0.6, svgOrigin: "780 940" }, { opacity: 1, scale: 1, svgOrigin: "780 940", duration: 0.4, ease: "back.out(2)" }, RESERVAR);
+      etq(".s07-e2", RESERVAR);
+      punch(q(".s07-preg"), NO, "780 940", 1.15);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,163 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-agenda"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-agenda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-agenda"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-agenda"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-agenda"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-agenda"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-agenda"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.3); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s10-agenda"] .ln-hueco { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+    [data-composition-id="s10-agenda"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s10-agenda"] .relleno { fill: #5ce611; }
+    [data-composition-id="s10-agenda"] .titulo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; letter-spacing: 0.08em; fill: #efeee5; }
+    [data-composition-id="s10-agenda"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s10-agenda"] .nombre { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s10-agenda"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s10-agenda"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s10-agenda"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s10-agenda"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s10-agenda"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s10-agenda"] .grande { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s10-agenda"] .navy { fill: #0b1d35; }
+    [data-composition-id="s10-agenda"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-agenda"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s10-agenda" data-width="1080" data-height="1920" data-duration="6.19">
+    <div id="s10-escena" class="capa clip" data-start="0" data-duration="6.19" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s10-tel">
+          <rect class="ln s10-dib" x="120" y="640" width="360" height="560" rx="50" />
+          <line class="ln s10-dib" x1="270" y1="666" x2="330" y2="666" />
+          <g class="s10-cab"><rect class="ln-fino-ac" x="148" y="694" width="44" height="36" rx="10" /><circle class="relleno" cx="162" cy="712" r="4" /><circle class="relleno" cx="178" cy="712" r="4" /></g>
+          <text class="ui-b s10-cab" x="206" y="722">Tu local</text>
+          <line class="ln-tenue s10-dib" x1="144" y1="752" x2="456" y2="752" />
+          <g class="s10-libres">
+            <rect class="ln-fino-ac" x="144" y="770" width="312" height="186" rx="22" />
+            <text class="ui" x="164" y="810" style="font-size:24px">Tengo lugar a las:</text>
+            <g class="s10-chip"><rect class="ln-fino" x="164" y="830" width="128" height="48" rx="24" /><text class="hora" x="228" y="863" text-anchor="middle" style="fill:#efeee5">16:00</text></g>
+            <g class="s10-chip"><rect class="ln-fino" x="306" y="830" width="128" height="48" rx="24" /><text class="hora" x="370" y="863" text-anchor="middle" style="fill:#efeee5">17:30</text></g>
+            <g class="s10-chip"><rect class="ln-fino s10-c18" x="164" y="890" width="128" height="48" rx="24" /><text class="hora s10-t18" x="228" y="923" text-anchor="middle" style="fill:#efeee5">18:00</text></g>
+          </g>
+          <g class="s10-ok"><rect class="ln-fino-ac" x="144" y="976" width="312" height="60" rx="20" /><path class="ln-fino-ac" d="M164 1006 l8 8 l14 -16" /><text class="ui" x="196" y="1015">Turno agendado</text></g>
+          <g class="s10-cli2"><rect class="ln-fino" x="144" y="1056" width="292" height="60" rx="20" /><text class="ui" x="162" y="1094" style="font-size:24px">¿Qué color me queda?</text></g>
+        </g>
+        <g class="s10-vuela"><rect class="ln-fino" x="144" y="1056" width="292" height="60" rx="20" /><text class="ui" x="162" y="1094" style="font-size:24px">¿Qué color me queda?</text></g>
+        <!-- la agenda -->
+        <g class="s10-agenda">
+          <rect class="ln s10-dib2" x="580" y="700" width="340" height="460" rx="16" />
+          <path class="ln s10-dib2" d="M640 716 V682 a11 11 0 0 1 22 0 V716 M700 716 V682 a11 11 0 0 1 22 0 V716 M778 716 V682 a11 11 0 0 1 22 0 V716 M838 716 V682 a11 11 0 0 1 22 0 V716" />
+          <text class="titulo" x="750" y="772" text-anchor="middle" style="font-size:30px">SÁBADO</text>
+          <line class="ln s10-dib2" x1="604" y1="794" x2="896" y2="794" />
+          <text class="hora" x="604" y="849">15:00</text>
+          <line class="ln-tenue" x1="604" y1="875" x2="896" y2="875" />
+          <text class="nombre" x="700" y="850">Lucía</text>
+          <text class="hora" x="604" y="919">16:00</text>
+          <line class="ln-tenue" x1="604" y1="945" x2="896" y2="945" />
+          <text class="nombre" x="700" y="920">Sofía</text>
+          <text class="hora" x="604" y="989">17:00</text>
+          <line class="ln-tenue" x1="604" y1="1015" x2="896" y2="1015" />
+          <text class="nombre" x="700" y="990">Camila</text>
+          <text class="hora" x="604" y="1059">18:00</text>
+          <rect class="ln-hueco s10-hueco" x="692" y="1029" width="190" height="42" rx="10" />
+          <text class="nombre s10-nueva" x="700" y="1060">Nueva</text>
+          <path class="ln-fino-ac s10-tic" d="M846 1050 l8 8 l14 -16" />
+        </g>
+        <path class="ln-ac s10-flecha" d="M462 1000 Q520 1080 572 1052" />
+        <path class="ln-ac s10-punta" d="M548 1040 L574 1052 L554 1072" />
+        <!-- vos -->
+        <g class="s10-vos">
+          <circle class="ln" cx="750" cy="850" r="44" />
+          <path class="ln" d="M670 1000 a80 80 0 0 1 160 0" />
+          <text class="rotulo rotulo-ac" x="750" y="1050" text-anchor="middle" style="font-size:28px">VOS</text>
+        </g>
+        <circle class="ln-ac s10-aro" cx="750" cy="935" r="150" />
+
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Lugares libres</span><span class="s10-e2">Turno agendado</span><span class="s10-e3">Te la pasa</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-agenda";
+      const DUR = 6.19;
+
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan solos; si arrancan en el cuadro 0 se ven medio dibujados
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.12, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      let etqPrev = null;
+      const etq = (sel, t) => {
+        if (etqPrev) tl.to(q(etqPrev), { opacity: 0, duration: 0.2 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqPrev = sel;
+      };
+
+
+      const LUGARES = 1.1, AGENDA = 1.9, TURNO = 2.4, Y = 4.03, CONSULTA = 4.3, TE = 5.1, PASA = 5.6;
+      dibujar(qa(".s10-dib"), 0, 0.5, 0.45);
+      dibujar(qa(".s10-dib2"), 0.05, 0.5, 0.45);
+      tl.fromTo(qa(".s10-cab, .s10-agenda text:not(.s10-nueva)"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0);
+      gsap.set(qa(".s10-libres, .s10-ok, .s10-cli2, .s10-vuela, .s10-nueva, .s10-tic, .s10-vos"), { opacity: 0 });
+      // "lugares libres": la respuesta con los horarios
+      pop(q(".s10-libres"), LUGARES - 0.3, "144 956");
+      qa(".s10-chip").forEach((c, i) => tl.fromTo(c, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, LUGARES + i * 0.1));
+      etq(".s10-e1", LUGARES);
+      // "agenda": elige las 18:00
+      tl.to(q(".s10-c18"), { fill: "#5ce611", stroke: "#5ce611", duration: 0.2 }, AGENDA);
+      tl.to(q(".s10-t18"), { fill: "#0b1d35", duration: 0.2 }, AGENDA);
+      punch(qa(".s10-chip")[2], AGENDA, "228 914", 1.12);
+      // "turno": confirmación, flecha a la agenda, la fila se llena
+      pop(q(".s10-ok"), TURNO - 0.1, "144 1036");
+      dibujar([q(".s10-flecha")], TURNO, 0.4);
+      tl.fromTo(q(".s10-punta"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, TURNO + 0.35);
+      tl.to(q(".s10-hueco"), { opacity: 0, duration: 0.2 }, TURNO + 0.4);
+      tl.fromTo(q(".s10-nueva"), { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, TURNO + 0.45);
+      dibujar([q(".s10-tic")], TURNO + 0.6, 0.3);
+      etq(".s10-e2", TURNO);
+      punch(q(".s10-agenda"), 3.0, "750 930", 1.04);
+      // después: la agenda se va, aparece vos
+      tl.to(qa(".s10-agenda, .s10-flecha, .s10-punta"), { opacity: 0, filter: "blur(6px)", duration: 0.3 }, Y - 0.35);
+      pop(q(".s10-vos"), Y, "750 920");
+      // "consulta": una pregunta que es para vos
+      pop(q(".s10-cli2"), CONSULTA - 0.1, "144 1116");
+      // "te la pasa": la burbuja vuela hacia vos
+      tl.set(q(".s10-vuela"), { opacity: 1 }, TE);
+      tl.fromTo(q(".s10-vuela"), { x: 0, y: 0, scale: 1, svgOrigin: "290 1086" }, { x: 460, y: -150, scale: 0.7, svgOrigin: "290 1086", duration: 0.5, ease: "power3.inOut" }, TE);
+      tl.to(q(".s10-vuela"), { opacity: 0, duration: 0.15 }, TE + 0.45);
+      dibujar([q(".s10-aro")], PASA - 0.15, 0.45);
+      punch(q(".s10-vos"), PASA, "750 920", 1.1);
+      tl.to(q(".s10-cli2"), { opacity: 0.4, duration: 0.3 }, TE + 0.1);
+      etq(".s10-e3", TE);
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

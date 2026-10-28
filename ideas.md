@@ -22,10 +22,10 @@
 - 28-10 · `deja-el-whatsapp` · Bot · "Dejá de atender el WhatsApp vos. Sí, vos. El dueño." · Comentá BOT
 - 28-10 · `mas-horas-lo-mismo` · Todo Scalerics · "Trabajás más horas que nunca y vendés lo mismo." · Comentá HORAS
 - 28-10 · `mandame-un-mensaje` · Tienda online · "Si para comprarte hay que mandarte un mensaje, ya perdiste la venta." · Comentá LINK
+- 28-10 · `turnos-perdidos` · Bot · "Perdés más turnos por no contestar que por cancelaciones." · Comentá TURNOS
 
 ## En curso
 - 28-10 · `el-que-no-vuelve` · Puntos · "El cliente que no vuelve te cuesta más que el alquiler." · Comentá VUELVE
-- 28-10 · `turnos-perdidos` · Bot · "Perdés más turnos por no contestar que por cancelaciones." · Comentá TURNOS
 - 28-10 · `el-sobrino` · Sitio web · "Le pagaste a un arquitecto para el local, y la página te la hizo tu sobrino." · Comentá WEB
 - 28-10 · `tu-memoria` · Todo Scalerics · "Si tu negocio funciona porque vos te acordás de todo, no funciona." · Comentá MEMORIA
 
