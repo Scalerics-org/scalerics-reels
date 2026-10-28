@@ -1,0 +1,221 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-camina"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-camina"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-camina"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-camina"] .ln-ver { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-camina"] .ln-nar { fill: none; stroke: #ff7a1a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-camina"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-camina"] .ojo { fill: #5ce611; }
+    [data-composition-id="s02-camina"] .pupila { fill: #0d0819; }
+    [data-composition-id="s02-camina"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s02-camina"] .s02-dia { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #0d0819; }
+    [data-composition-id="s02-camina"] .s02-num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 76px; fill: #efeee5; }
+    [data-composition-id="s02-camina"] .s02-plata { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 40px; fill: #ff7a1a; }
+    [data-composition-id="s02-camina"] .s02-cero { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 72px; fill: #ff7a1a; }
+    [data-composition-id="s02-camina"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ff7a1a; }
+    [data-composition-id="s02-camina"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-camina" data-width="1080" data-height="1920" data-duration="4.38">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.38" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s02-suelo" x1="110" y1="1190" x2="970" y2="1190" />
+        <!-- marcas de arrastrar los pies -->
+        <path class="ln-tenue s02-rastro" d="M250 1206 H300" />
+        <path class="ln-tenue s02-rastro" d="M290 1214 H345" />
+        <path class="ln-tenue s02-rastro" d="M335 1206 H385" />
+        <path class="ln-tenue s02-rastro" d="M375 1214 H425" />
+        <!-- polvo de cada paso -->
+        <circle class="ln-tenue s02-polvo" cx="0" cy="0" r="12" />
+        <circle class="ln-tenue s02-polvo" cx="0" cy="0" r="12" />
+        <circle class="ln-tenue s02-polvo" cx="0" cy="0" r="12" />
+        <circle class="ln-tenue s02-polvo" cx="0" cy="0" r="12" />
+
+        <!-- calendario que pasa hojas -->
+        <g class="s02-cal">
+          <g class="s02-cal-in">
+            <rect class="ln s02-cal-l" x="-88" y="-72" width="176" height="166" rx="14" />
+            <path d="M-88 -58 a14 14 0 0 1 14 -14 H74 a14 14 0 0 1 14 14 V-30 H-88 Z" fill="#ff7a1a" />
+            <path class="ln s02-cal-l" d="M-44 -88 V-58 M44 -88 V-58" />
+            <g class="s02-hojas"></g>
+          </g>
+        </g>
+
+        <!-- billete que sale de la boca -->
+        <g class="s02-bill">
+          <g class="s02-bill-in">
+            <rect class="ln" x="-60" y="-32" width="120" height="64" rx="8" />
+            <circle class="ln-tenue" cx="0" cy="0" r="22" />
+            <text class="s02-plata" x="0" y="14" text-anchor="middle">$</text>
+          </g>
+        </g>
+        <g class="s02-brillo">
+          <path class="ln-nar s02-ray" d="M0 -60 V-84" />
+          <path class="ln-nar s02-ray" d="M48 -44 L64 -60" />
+          <path class="ln-nar s02-ray" d="M-48 -44 L-64 -60" />
+        </g>
+
+        <!-- gráfico que intenta subir y se cae -->
+        <g class="s02-graf">
+          <path class="ln s02-eje" d="M700 880 V1100 H1000" />
+          <path class="ln-nar s02-curva" style="stroke-width: 7; filter: drop-shadow(0 0 12px #ff7a1a);" d="M712 1080 L780 1020 L830 1048 L890 930 L912 1086 L990 1088" />
+          <text class="s02-cero" x="850" y="860" text-anchor="middle">0%</text>
+        </g>
+
+        <!-- EL LOCAL ZOMBI -->
+        <g class="s02-local">
+          <g class="s02-local-in"><g transform="scale(1)">
+            <path class="ln-ver s02-brazo" d="M-120 -100 H-250 M-250 -100 l-22 -14 M-250 -100 l-26 0 M-250 -100 l-22 14" />
+            <path class="ln-ver s02-brazo" d="M120 -100 H250 M250 -100 l22 -14 M250 -100 l26 0 M250 -100 l22 14" />
+            <path class="ln" d="M-120 0 V-170 H120 V0" />
+            <path class="ln" d="M-142 -166 L138 -178 L118 -228 L-124 -218 Z" />
+            <path class="ln" d="M-142 -166 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2" />
+            <rect class="ln" x="-80" y="-296" width="160" height="50" rx="10" transform="rotate(-6 0 -271)" />
+            <text class="cartel" data-layout-ignore x="0" y="-263" text-anchor="middle" transform="rotate(-6 0 -271)">TU LOCAL</text>
+            <rect class="ln" x="-100" y="-130" width="62" height="56" rx="6" />
+            <rect class="ln" x="38" y="-124" width="62" height="50" rx="6" />
+            <rect class="ojo" x="-92" y="-122" width="46" height="40" rx="4" />
+            <rect class="ojo" x="46" y="-116" width="46" height="34" rx="4" />
+            <circle class="pupila s02-pupila" cx="-66" cy="-100" r="9" />
+            <circle class="pupila s02-pupila" cx="72" cy="-98" r="9" />
+            <path class="ln" d="M-30 0 V-60 L-18 -48 L-6 -60 L6 -48 L18 -60 L30 -48 V0" />
+          </g></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Abre</span><span class="s02-e2">Abre · Camina</span><span class="s02-e3">Abre · Camina · Cobra</span><span class="s02-e4">No crece</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-camina";
+      const DUR = 4.38;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CAMINA = 0.74;
+      const COBRA = 2.1;
+      const PERO = 3.08;
+      const CRECE = 3.34;
+
+      const SUELO = 1190;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const etiqueta = (sale, entra, t) => {
+        if (sale) tl.to(sale, { opacity: 0, duration: 0.12 }, t - 0.08);
+        tl.fromTo(entra, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+      };
+
+      // ---- calendario: hojas que vuelan (abre todos los días) ----
+      const DIAS = ["LUN", "MAR", "MIÉ", "JUE", "VIE", "SÁB", "DOM"];
+      const hojas = q(".s02-hojas");
+      const TIEMPOS = [];
+      for (let k = 0; k < 8; k++) TIEMPOS.push(k * 0.09);          // rapidísimo hasta "días"
+      for (let t = 0.95; t < PERO - 0.05; t += 0.3) TIEMPOS.push(t); // y sigue pasando mientras camina
+      const paginas = TIEMPOS.map((t, k) => {
+        const g = document.createElementNS(NS, "g");
+        const d = document.createElementNS(NS, "text");
+        d.setAttribute("class", "s02-dia"); d.setAttribute("x", "0"); d.setAttribute("y", "-43"); d.setAttribute("text-anchor", "middle");
+        d.textContent = DIAS[k % 7];
+        const n = document.createElementNS(NS, "text");
+        n.setAttribute("class", "s02-num"); n.setAttribute("x", "0"); n.setAttribute("y", "56"); n.setAttribute("text-anchor", "middle");
+        n.textContent = String(k + 1);
+        d.setAttribute("data-layout-ignore", ""); n.setAttribute("data-layout-ignore", "");
+        g.appendChild(d); g.appendChild(n); hojas.appendChild(g);
+        gsap.set(g, { opacity: k === 0 ? 1 : 0 });
+        return g;
+      });
+      paginas.forEach((g, k) => {
+        if (k === 0) return;
+        const t = TIEMPOS[k];
+        tl.to(paginas[k - 1], { opacity: 0, y: -26, x: k % 2 ? 14 : -14, duration: 0.07, ease: "power2.in" }, t);
+        tl.fromTo(g, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.06, ease: "power2.out" }, t + 0.02);
+      });
+      gsap.set(q(".s02-cal"), { x: 540, y: 702 });
+      tl.fromTo(q(".s02-cal-in"), { scale: 0.85, opacity: 0.4, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, 0);
+      // el calendario tiembla con cada hoja rápida
+      tl.to(q(".s02-cal-in"), { rotation: 4, transformOrigin: "50% 0%", duration: 0.09, ease: "sine.inOut", yoyo: true, repeat: 7 }, 0.05);
+      // y al "no crece" se apaga: se queda en el mismo día
+      tl.to(q(".s02-cal"), { opacity: 0.35, duration: 0.3 }, PERO);
+
+      // ---- el local zombi ----
+      const X0 = 300;
+      gsap.set(q(".s02-local"), { x: X0, y: SUELO });
+      tl.fromTo(q(".s02-local-in"), { y: 50, scaleY: 0.85, transformOrigin: "50% 100%" }, { y: 0, scaleY: 1, transformOrigin: "50% 100%", duration: 0.4, ease: "back.out(1.7)" }, 0);
+      dibujar([q(".s02-suelo")], 0, 0.5, 0.4);
+      // brazos que se mecen todo el rato
+      tl.fromTo(qa(".s02-brazo"), { y: -6 }, { y: 6, duration: 0.32, ease: "sine.inOut", yoyo: true, repeat: 12 }, 0);
+      tl.fromTo(qa(".s02-pupila"), { x: -5 }, { x: 5, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0.1);
+
+      // "camina": cuatro pasos arrastrados con balanceo
+      const PASO = 0.34;
+      const polvo = qa(".s02-polvo");
+      const rastros = qa(".s02-rastro");
+      for (let i = 0; i < 4; i++) {
+        const t = CAMINA + i * PASO;
+        const x = X0 + (i + 1) * 36;
+        tl.to(q(".s02-local"), { x, duration: PASO, ease: "power1.inOut" }, t);
+        tl.to(q(".s02-local-in"), { rotation: i % 2 ? -6 : 6, transformOrigin: "50% 100%", duration: PASO / 2, ease: "sine.out" }, t);
+        tl.to(q(".s02-local-in"), { rotation: 0, transformOrigin: "50% 100%", duration: PASO / 2, ease: "sine.in" }, t + PASO / 2);
+        tl.to(q(".s02-local-in"), { y: -12, duration: PASO / 2, ease: "sine.out", yoyo: true, repeat: 1 }, t);
+        // polvo en el pie que arrastra
+        gsap.set(polvo[i], { x: x - 70, y: SUELO - 8, opacity: 0 });
+        tl.fromTo(polvo[i], { opacity: 0.9, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 0, scale: 1.6, x: x - 100, y: SUELO - 30, duration: 0.45, ease: "power2.out" }, t + 0.12);
+        dibujar([rastros[i]], t + 0.05, 0.25);
+      }
+
+      // "cobra": de la boca sale un billete volando
+      const XC = X0 + 4 * 36;
+      gsap.set(q(".s02-bill"), { x: XC, y: SUELO - 30, opacity: 0 });
+      tl.to(q(".s02-local-in"), { scaleY: 0.9, transformOrigin: "50% 100%", duration: 0.08, ease: "power2.in", yoyo: true, repeat: 1 }, COBRA - 0.1);
+      tl.to(q(".s02-bill"), { opacity: 1, duration: 0.04 }, COBRA);
+      tl.fromTo(q(".s02-bill"), { x: XC, y: SUELO - 30 }, { x: XC + 190, y: SUELO - 360, duration: 0.5, ease: "power3.out" }, COBRA);
+      tl.fromTo(q(".s02-bill-in"), { scale: 0.3, rotation: -40, transformOrigin: "50% 50%" }, { scale: 1, rotation: 12, transformOrigin: "50% 50%", duration: 0.5, ease: "back.out(2)" }, COBRA);
+      tl.to(q(".s02-bill-in"), { rotation: -8, y: -10, transformOrigin: "50% 50%", duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 2 }, COBRA + 0.5);
+      gsap.set(q(".s02-brillo"), { x: XC + 190, y: SUELO - 360 });
+      dibujar(qa(".s02-ray"), COBRA + 0.35, 0.18);
+      tl.to(qa(".s02-ray"), { opacity: 0, duration: 0.2 }, COBRA + 0.75);
+      // el billete se va al bolsillo: se encoge y desaparece antes del gráfico
+      tl.to(q(".s02-bill"), { x: XC - 20, y: SUELO - 120, scale: 0.2, opacity: 0, duration: 0.3, ease: "power3.in" }, PERO - 0.3);
+
+      // "pero no crece": el local recula y aparece el gráfico que se cae
+      tl.to(q(".s02-local"), { x: X0 + 100, duration: 0.3, ease: "power2.out" }, PERO - 0.05);
+      dibujar([q(".s02-eje")], PERO - 0.05, 0.3);
+      dibujar([q(".s02-curva")], PERO + 0.05, 0.5);
+      gsap.set(q(".s02-cero"), { opacity: 0 });
+      tl.fromTo(q(".s02-cero"), { opacity: 0, scale: 0.4, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1, transformOrigin: "50% 100%", duration: 0.3, ease: "back.out(2.5)" }, CRECE);
+      // glitch del gráfico cuando la línea se desploma
+      [0.0, 0.04, 0.08].forEach((d, i) => tl.to(q(".s02-graf"), { x: i % 2 ? -14 : 16, duration: 0.03, ease: "none" }, CRECE + 0.2 + d));
+      tl.to(q(".s02-graf"), { x: 0, duration: 0.03, ease: "none" }, CRECE + 0.32);
+      tl.to(q(".s02-cero"), { rotation: -6, transformOrigin: "50% 100%", duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 3 }, CRECE + 0.35);
+      // el zombi mira el gráfico sin entender
+      tl.to(qa(".s02-pupila"), { x: 7, y: -3, duration: 0.2, ease: "power2.out" }, PERO + 0.1);
+
+      // etiquetas
+      etiqueta(null, q(".s02-e1"), 0.05);
+      etiqueta(q(".s02-e1"), q(".s02-e2"), CAMINA);
+      etiqueta(q(".s02-e2"), q(".s02-e3"), COBRA);
+      etiqueta(q(".s02-e3"), q(".s02-e4"), PERO);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

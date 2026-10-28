@@ -1,0 +1,211 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-miedo"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-miedo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-miedo"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-miedo"] .ln-ver { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-miedo"] .ln-nar { fill: none; stroke: #ff7a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-miedo"] .ln-vio { fill: none; stroke: #9b5cff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-miedo"] .ojo { fill: #5ce611; }
+    [data-composition-id="s08-miedo"] .pupila { fill: #0d0819; }
+    [data-composition-id="s08-miedo"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s08-miedo"] .s08-cerrado-txt { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 50px; letter-spacing: 0.06em; fill: #ff7a1a; }
+    [data-composition-id="s08-miedo"] .s08-anio { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 84px; fill: #efeee5; opacity: 0; }
+    [data-composition-id="s08-miedo"] .s08-anio-fin { fill: #ff7a1a; }
+    [data-composition-id="s08-miedo"] .s08-mes { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #0d0819; }
+    [data-composition-id="s08-miedo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ff7a1a; }
+    [data-composition-id="s08-miedo"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-miedo" data-width="1080" data-height="1920" data-duration="4.43">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.43" data-track-index="0">
+      <div class="s08-capa s08-temblor">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <line class="ln s08-suelo" x1="200" y1="1180" x2="880" y2="1180" />
+          <!-- grietas del paso del tiempo -->
+          <path class="ln-nar s08-grieta" d="M520 1180 l-24 20 l12 16 l-22 20" />
+          <path class="ln-nar s08-grieta" d="M590 1180 l20 16 l-8 18 l26 18" />
+
+          <!-- EL LOCAL ZOMBI (de s01) -->
+          <g class="s08-local">
+            <g class="s08-local-in"><g transform="scale(1.05)">
+              <path class="ln-ver s08-brazo" d="M-120 -100 H-250 M-250 -100 l-22 -14 M-250 -100 l-26 0 M-250 -100 l-22 14" />
+              <path class="ln-ver s08-brazo" d="M120 -100 H250 M250 -100 l22 -14 M250 -100 l26 0 M250 -100 l22 14" />
+              <path class="ln" d="M-120 0 V-170 H120 V0" />
+              <path class="ln" d="M-142 -166 L138 -178 L118 -228 L-124 -218 Z" />
+              <path class="ln" d="M-142 -166 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2" />
+              <g class="s08-cartel">
+                <rect class="ln" x="-80" y="-296" width="160" height="50" rx="10" transform="rotate(-6 0 -271)" />
+                <text data-layout-ignore class="cartel" x="0" y="-263" text-anchor="middle" transform="rotate(-6 0 -271)">TU LOCAL</text>
+              </g>
+              <rect class="ln" x="-100" y="-130" width="62" height="56" rx="6" />
+              <rect class="ln" x="38" y="-124" width="62" height="50" rx="6" />
+              <rect class="ojo s08-ojo" x="-92" y="-122" width="46" height="40" rx="4" />
+              <rect class="ojo s08-ojo" x="46" y="-116" width="46" height="34" rx="4" />
+              <circle class="pupila s08-pupila" cx="-66" cy="-100" r="9" />
+              <circle class="pupila s08-pupila" cx="72" cy="-98" r="9" />
+              <path class="ln" d="M-30 0 V-60 L-18 -48 L-6 -60 L6 -48 L18 -60 L30 -48 V0" />
+              <!-- telarañas violetas (aparecen con los años) -->
+              <g class="s08-tela">
+                <path class="ln-vio s08-tela-l" d="M-118 -168 l70 0 M-118 -168 l0 70 M-118 -168 l52 52 M-118 -168 l64 28 M-118 -168 l28 64" />
+                <path class="ln-vio s08-tela-l" d="M-90 -168 q4 14 -4 26 q12 -4 24 6 q-4 10 6 22 q-14 2 -20 14 q-12 -6 -26 -4" />
+                <path class="ln-vio s08-tela-l" d="M-66 -168 q6 24 -6 44 q22 -6 40 10 q-8 18 6 38 q-24 4 -34 22 q-22 -10 -46 -8" />
+              </g>
+              <g class="s08-tela">
+                <path class="ln-vio s08-tela-r" d="M118 -168 l-70 0 M118 -168 l0 70 M118 -168 l-52 52 M118 -168 l-64 28 M118 -168 l-28 64" />
+                <path class="ln-vio s08-tela-r" d="M90 -168 q-4 14 4 26 q-12 -4 -24 6 q4 10 -6 22 q14 2 20 14 q12 -6 26 -4" />
+                <path class="ln-vio s08-tela-r" d="M66 -168 q-6 24 6 44 q-22 -6 -40 10 q8 18 -6 38 q24 4 34 22 q22 -10 46 -8" />
+              </g>
+              <!-- araña que baja del toldo -->
+              <g class="s08-arana">
+                <line class="ln-vio" x1="186" y1="-176" x2="186" y2="-128" />
+                <circle cx="186" cy="-122" r="10" fill="#9b5cff" />
+                <path class="ln-vio" d="M176 -126 l-12 -8 M176 -118 l-12 8 M196 -126 l12 -8 M196 -118 l12 8" />
+              </g>
+            </g></g>
+          </g>
+
+          <!-- cartel colgante "CERRADO" -->
+          <g class="s08-colgante">
+            <path class="ln s08-hilo" d="M540 622 L404 704 M540 622 L676 704" />
+            <circle cx="540" cy="620" r="7" fill="#efeee5" />
+            <rect x="380" y="700" width="320" height="118" rx="16" fill="#0d0819" stroke="#ff7a1a" stroke-width="6" />
+            <text class="s08-cerrado-txt" x="540" y="777" text-anchor="middle">CERRADO</text>
+            <path class="ln-nar s08-x" d="M364 676 L716 844" stroke-width="10" />
+            <path class="ln-nar s08-x" d="M716 676 L364 844" stroke-width="10" />
+          </g>
+
+          <!-- calendario que corre de 2026 a 2036 -->
+          <g class="s08-cal">
+            <rect x="404" y="618" width="272" height="188" rx="18" fill="#0d0819" stroke="#efeee5" stroke-width="5" />
+            <path d="M404 672 V636 a18 18 0 0 1 18 -18 H658 a18 18 0 0 1 18 18 V672 Z" fill="#ff7a1a" />
+            <text data-layout-ignore class="s08-mes" x="540" y="654" text-anchor="middle">OCTUBRE</text>
+            <line class="ln" x1="460" y1="600" x2="460" y2="634" />
+            <line class="ln" x1="620" y1="600" x2="620" y2="634" />
+            <text data-layout-ignore class="s08-anio" x="540" y="772" text-anchor="middle">2026</text>
+            <text data-layout-ignore class="s08-anio" x="540" y="772" text-anchor="middle">2027</text>
+            <text data-layout-ignore class="s08-anio" x="540" y="772" text-anchor="middle">2028</text>
+            <text data-layout-ignore class="s08-anio" x="540" y="772" text-anchor="middle">2029</text>
+            <text data-layout-ignore class="s08-anio" x="540" y="772" text-anchor="middle">2030</text>
+            <text data-layout-ignore class="s08-anio" x="540" y="772" text-anchor="middle">2031</text>
+            <text data-layout-ignore class="s08-anio" x="540" y="772" text-anchor="middle">2032</text>
+            <text data-layout-ignore class="s08-anio" x="540" y="772" text-anchor="middle">2033</text>
+            <text data-layout-ignore class="s08-anio" x="540" y="772" text-anchor="middle">2034</text>
+            <text data-layout-ignore class="s08-anio" x="540" y="772" text-anchor="middle">2035</text>
+            <text class="s08-anio s08-anio-fin" x="540" y="772" text-anchor="middle">2036</text>
+          </g>
+        </svg>
+      </div>
+      <div class="etiqueta"><span class="s08-e1">No es cerrar</span><span class="s08-e2">10 años así</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-miedo";
+      const DUR = 4.43;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const MIEDO = 1.1;     // rayo global 31.75 = 1.05 relativo
+      const NO = 1.4;
+      const CERRAR = 1.7;
+      const ES = 2.1;
+      const DIEZ = 2.8;
+      const ANIOS = 3.2;
+
+      const SUELO = 1180;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // ---------- arranque: local y cartel ya en el cuadro 0 ----------
+      gsap.set(q(".s08-local"), { x: 540, y: SUELO });
+      tl.fromTo(q(".s08-local-in"), { scaleY: 0.86, transformOrigin: "50% 100%" }, { scaleY: 1, transformOrigin: "50% 100%", duration: 0.45, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s08-suelo"), { scaleX: 0.6, svgOrigin: "540 1180" }, { scaleX: 1, svgOrigin: "540 1180", duration: 0.5, ease: "power3.out" }, 0);
+      // el cartel entra cayendo y se hamaca
+      tl.fromTo(q(".s08-colgante"), { y: -40, rotation: 14, svgOrigin: "540 620" }, { y: 0, rotation: -8, svgOrigin: "540 620", duration: 0.45, ease: "back.out(2)" }, 0);
+      tl.to(q(".s08-colgante"), { rotation: 6, svgOrigin: "540 620", duration: 0.32, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.45);
+      // los brazos se mecen y las pupilas miran a los costados
+      tl.fromTo(qa(".s08-brazo"), { y: -6 }, { y: 8, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.1);
+      tl.fromTo(qa(".s08-pupila"), { x: -6 }, { x: 6, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.1);
+      qa(".s08-x").forEach((el) => gsap.set(el, { opacity: 0 }));
+      gsap.set(qa(".s08-tela"), { opacity: 1 });
+      gsap.set(q(".s08-arana"), { opacity: 0 });
+      gsap.set(q(".s08-cal"), { opacity: 0 });
+
+      // ---------- "miedo": rayo, la pantalla tiembla, las pupilas se achican ----------
+      const tem = q(".s08-temblor");
+      [[-18, 8], [16, -10], [-12, 6], [10, -4], [-6, 2]].forEach(([x, y], i) => tl.to(tem, { x, y, duration: 0.04, ease: "none" }, MIEDO - 0.05 + i * 0.045));
+      tl.to(tem, { x: 0, y: 0, duration: 0.06, ease: "power2.out" }, MIEDO + 0.18);
+      tl.to(qa(".s08-pupila"), { scale: 0.45, x: 0, transformOrigin: "50% 50%", duration: 0.12, ease: "power3.out" }, MIEDO);
+      tl.to(q(".s08-colgante"), { rotation: -16, svgOrigin: "540 620", duration: 0.18, ease: "power3.out" }, MIEDO);
+      tl.to(q(".s08-colgante"), { rotation: 10, svgOrigin: "540 620", duration: 0.3, ease: "sine.inOut" }, MIEDO + 0.18);
+      tl.to(q(".s08-local-in"), { scaleX: 0.94, scaleY: 1.06, transformOrigin: "50% 100%", duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, MIEDO);
+      tl.fromTo(q(".s08-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, NO);
+
+      // ---------- "cerrar": X naranja y el cartel se corta y cae ----------
+      dibujar(qa(".s08-x"), CERRAR - 0.08, 0.18);
+      tl.to(q(".s08-colgante"), { rotation: 0, svgOrigin: "540 620", duration: 0.12, ease: "power2.out" }, CERRAR - 0.1);
+      tl.to(q(".s08-hilo"), { opacity: 0, duration: 0.05 }, ES - 0.15);
+      tl.to(q(".s08-colgante"), { y: 520, rotation: 28, svgOrigin: "540 760", opacity: 0, duration: 0.42, ease: "power3.in" }, ES - 0.12);
+
+      // ---------- "pasar diez años": el calendario corre 2026 -> 2036 ----------
+      tl.fromTo(q(".s08-cal"), { opacity: 0, scale: 0.6, svgOrigin: "540 712" }, { opacity: 1, scale: 1, svgOrigin: "540 712", duration: 0.35, ease: "back.out(2)" }, ES + 0.2);
+      const anios = qa(".s08-anio");
+      tl.set(anios[0], { opacity: 1 }, ES + 0.2);
+      // arranca lento y se acelera hasta "años"
+      const T = [2.62, 2.8, 2.92, 3.0, 3.06, 3.11, 3.15, 3.19, 3.23, 3.28];
+      T.forEach((t, k) => {
+        tl.set(anios[k], { opacity: 0 }, t);
+        tl.set(anios[k + 1], { opacity: 1 }, t);
+        tl.fromTo(anios[k + 1], { y: -14 }, { y: 0, duration: 0.05, ease: "none", immediateRender: false }, t);
+      });
+      // la hoja tiembla mientras corre
+      tl.to(q(".s08-cal"), { rotation: 3, svgOrigin: "540 618", duration: 0.06, ease: "none", yoyo: true, repeat: 7 }, 2.8);
+      // 2036: golpe naranja con brillo
+      tl.fromTo(q(".s08-cal"), { scale: 1.18, rotation: 0, svgOrigin: "540 712" }, { scale: 1, rotation: -4, svgOrigin: "540 712", duration: 0.4, ease: "back.out(2.5)", immediateRender: false }, 3.28);
+      tl.fromTo(anios[10], { filter: "drop-shadow(0 0 0px #ff7a1a)" }, { filter: "drop-shadow(0 0 14px #ff7a1a)", duration: 0.3, ease: "power2.out", immediateRender: false }, 3.28);
+
+      // ---------- el local envejece ----------
+      // se le cae el cartel "TU LOCAL"
+      tl.to(q(".s08-cartel"), { rotation: 18, transformOrigin: "100% 50%", duration: 0.25, ease: "power2.in" }, DIEZ);
+      tl.to(q(".s08-cartel"), { y: 260, rotation: 70, opacity: 0, transformOrigin: "100% 50%", duration: 0.5, ease: "power3.in" }, DIEZ + 0.3);
+      // telarañas en las esquinas y una araña que baja
+      dibujar(qa(".s08-tela-l"), DIEZ + 0.05, 0.4);
+      dibujar(qa(".s08-tela-r"), DIEZ + 0.15, 0.4);
+      tl.to(q(".s08-arana"), { opacity: 1, duration: 0.05 }, ANIOS);
+      tl.fromTo(q(".s08-arana"), { y: -50, scaleY: 1 }, { y: 0, duration: 0.5, ease: "bounce.out" }, ANIOS);
+      // se encorva, los brazos se caen, los ojos se apagan
+      tl.to(q(".s08-local-in"), { rotation: 4, scaleY: 0.93, transformOrigin: "50% 100%", duration: 0.6, ease: "power2.inOut" }, DIEZ + 0.1);
+      tl.to(qa(".s08-brazo"), { y: 30, opacity: 0.5, duration: 0.6, ease: "power2.inOut" }, DIEZ + 0.1);
+      tl.to(qa(".s08-ojo"), { opacity: 0.45, duration: 0.5 }, DIEZ + 0.2);
+      tl.to(qa(".s08-pupila"), { scale: 1, y: 6, transformOrigin: "50% 50%", duration: 0.4 }, DIEZ + 0.2);
+      dibujar(qa(".s08-grieta"), ANIOS - 0.1, 0.35);
+      // sigue hundiéndose despacio hasta el final (nada quieto)
+      tl.to(q(".s08-local-in"), { rotation: 6, scaleY: 0.9, transformOrigin: "50% 100%", duration: DUR - 3.4, ease: "sine.inOut" }, 3.4);
+      tl.to(q(".s08-cal"), { y: 10, duration: DUR - 3.7, ease: "sine.inOut" }, 3.7);
+
+      tl.to(q(".s08-e1"), { opacity: 0, duration: 0.15 }, DIEZ - 0.15);
+      tl.fromTo(q(".s08-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, DIEZ);
+      tl.to(q(".s08-e2"), { scale: 1.1, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, 3.28);
+
+      // salida
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

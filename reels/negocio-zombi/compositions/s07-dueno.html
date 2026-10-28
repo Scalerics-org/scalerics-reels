@@ -1,0 +1,211 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-dueno"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-dueno"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-dueno"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-dueno"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-dueno"] .ln-ver { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-dueno"] .glow-ver { filter: drop-shadow(0 0 14px #5ce611); }
+    [data-composition-id="s07-dueno"] .ln-nar { fill: none; stroke: #ff7a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-dueno"] .ln-vio { fill: none; stroke: #9b5cff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-dueno"] .relleno-nar { fill: #ff7a1a; }
+    [data-composition-id="s07-dueno"] .flecha-nar { fill: #ff7a1a; filter: drop-shadow(0 0 12px #ff7a1a); }
+    [data-composition-id="s07-dueno"] .nube { fill: rgba(155, 92, 255, 0.18); stroke: #9b5cff; stroke-width: 5; stroke-linejoin: round; }
+    [data-composition-id="s07-dueno"] .burbuja { fill: rgba(155, 92, 255, 0.18); stroke: #9b5cff; stroke-width: 4; }
+    [data-composition-id="s07-dueno"] .cal-head { fill: #ff7a1a; }
+    [data-composition-id="s07-dueno"] .cal-dia { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.04em; fill: #efeee5; }
+    [data-composition-id="s07-dueno"] .cal-mes { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.16em; fill: #0d0819; }
+    [data-composition-id="s07-dueno"] .cal-n { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 26px; fill: #ff7a1a; }
+    [data-composition-id="s07-dueno"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ff7a1a; }
+    [data-composition-id="s07-dueno"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-dueno" data-width="1080" data-height="1920" data-duration="5.30">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.30" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- la rueda de hámster (detrás del dueño) -->
+        <g class="s07-rueda">
+          <circle class="ln s07-rd" cx="470" cy="1000" r="185" />
+          <circle class="ln-tenue s07-rd" cx="470" cy="1000" r="165" />
+          <g class="s07-rayos">
+            <path class="ln-tenue s07-rd" d="M470 835 V1165 M305 1000 H635 M353 883 L587 1117 M587 883 L353 1117" />
+          </g>
+          <circle class="ln s07-rd" cx="470" cy="1000" r="12" />
+        </g>
+        <path class="ln s07-pie" d="M470 1000 L380 1215 M470 1000 L560 1215 M340 1215 H600" />
+        <!-- flechas en loop alrededor de la rueda -->
+        <g class="s07-loop">
+          <path class="ln-nar s07-arco" d="M690 1000 A220 220 0 0 1 470 1220" />
+          <path class="ln-nar s07-arco" d="M250 1000 A220 220 0 0 1 470 780" />
+          <path class="flecha-nar s07-punta" d="M470 1220 l24 -18 l0 36 Z" />
+          <path class="flecha-nar s07-punta" d="M470 780 l-24 -18 l0 36 Z" />
+        </g>
+        <!-- el dueño -->
+        <g class="s07-dueno">
+          <g class="s07-dueno-in">
+            <circle class="ln s07-dd s07-cabeza" cx="470" cy="944" r="34" />
+            <path class="ln s07-dd" d="M470 978 V1082" />
+            <path class="relleno-nar s07-corbata" d="M470 984 l-9 10 l9 46 l9 -46 Z" />
+            <path class="ln s07-dd s07-brazo-a" d="M470 1004 L428 1052" />
+            <path class="ln s07-dd s07-brazo-b" d="M470 1004 L512 1052" />
+            <path class="ln s07-dd s07-pierna-a" d="M470 1082 L444 1182" />
+            <path class="ln s07-dd s07-pierna-b" d="M470 1082 L496 1182" />
+          </g>
+        </g>
+        <!-- el pensamiento: crecer -->
+        <g class="s07-piensa">
+          <circle class="burbuja s07-b" cx="532" cy="890" r="10" />
+          <circle class="burbuja s07-b" cx="566" cy="852" r="15" />
+          <circle class="burbuja s07-b" cx="606" cy="808" r="20" />
+          <g class="s07-nube">
+            <path class="nube" d="M650 820 C 600 820 590 760 640 750 C 620 690 690 660 720 690 C 740 640 820 640 840 690 C 890 670 930 720 900 760 C 940 790 910 840 860 825 C 830 860 760 860 740 830 C 710 850 670 845 650 820 Z" />
+            <path class="ln s07-eje" d="M680 700 V800 H880" />
+            <g class="glow-ver">
+              <path class="ln-ver s07-crece" d="M690 790 L740 760 L780 775 L850 710" />
+              <path class="ln-ver s07-crece" d="M820 708 L852 708 L852 740" />
+            </g>
+          </g>
+        </g>
+        <!-- pedazos de la explosión -->
+        <g class="s07-pedazos">
+          <path class="ln-nar s07-ped" d="M770 650 v-34" />
+          <path class="ln-nar s07-ped" d="M850 670 l24 -24" />
+          <path class="ln-nar s07-ped" d="M900 740 h34" />
+          <path class="ln-nar s07-ped" d="M860 830 l24 24" />
+          <path class="ln-nar s07-ped" d="M760 850 v34" />
+          <path class="ln-nar s07-ped" d="M660 830 l-24 24" />
+          <path class="ln-vio s07-ped" d="M620 740 h-34" />
+          <path class="ln-vio s07-ped" d="M680 670 l-24 -24" />
+        </g>
+        <!-- el calendario que repite el mismo día -->
+        <g class="s07-cal">
+          <rect class="ln" x="770" y="880" width="180" height="180" rx="16" />
+          <rect class="cal-head" x="770" y="880" width="180" height="48" rx="12" />
+          <text class="cal-mes" x="860" y="912" text-anchor="middle">HOY</text>
+          <path class="ln" d="M815 866 v30 M905 866 v30" />
+          <g class="s07-hoja">
+            <text class="cal-dia" x="860" y="990" text-anchor="middle">LUNES</text>
+            <path class="ln-tenue" d="M800 1020 H920" />
+          </g>
+          <text class="cal-n s07-n" x="860" y="1046" text-anchor="middle">×1</text>
+          <text class="cal-n s07-n" x="860" y="1046" text-anchor="middle">×2</text>
+          <text class="cal-n s07-n" x="860" y="1046" text-anchor="middle">×3</text>
+          <text class="cal-n s07-n" x="860" y="1046" text-anchor="middle">×4</text>
+          <text class="cal-n s07-n" x="860" y="1046" text-anchor="middle">×5</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">Tendría que crecer</span><span class="s07-e2">El mismo día, otra vez</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-dueno";
+      const DUR = 5.3;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const DUENO = 0.8;
+      const TENDRIA = 1.3;
+      const PENSAR = 1.8;
+      const CRECER = 2.4;
+      const SE_PASA = 3.13;
+      const LO_MISMO = 4.5;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // ---- el dueño: está desde el cuadro 0 y cae con rebote
+      dibujar(qa(".s07-dd"), 0, 0.45, 0.25);
+      tl.fromTo(q(".s07-dueno-in"), { y: -120, scaleY: 1.15, transformOrigin: "50% 100%" }, { y: 0, scaleY: 1, transformOrigin: "50% 100%", duration: 0.5, ease: "bounce.out" }, 0);
+      gsap.set(q(".s07-corbata"), { opacity: 0 });
+      // "dueño": la corbata aparece con pop y él se acomoda
+      pop(q(".s07-corbata"), DUENO, "470 984");
+      tl.to(q(".s07-cabeza"), { y: -8, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, DUENO);
+      // la mano al mentón: pensando
+      tl.to(q(".s07-brazo-b"), { rotation: -95, svgOrigin: "470 1004", duration: 0.35, ease: "back.out(2)" }, TENDRIA);
+      tl.to(q(".s07-cabeza"), { rotation: 10, svgOrigin: "470 978", duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 3 }, TENDRIA + 0.1);
+
+      // ---- el pensamiento
+      qa(".s07-b").forEach((b, i) => {
+        const c = b.getAttribute("cx") + " " + b.getAttribute("cy");
+        pop(b, TENDRIA + i * 0.1, c);
+      });
+      pop(q(".s07-nube"), TENDRIA + 0.3, "760 750");
+      dibujar([q(".s07-eje")], TENDRIA + 0.4, 0.3);
+      dibujar(qa(".s07-crece"), PENSAR, 0.55);
+      // "crecer": la flecha hace punch
+      tl.fromTo(q(".s07-nube"), { scale: 1, svgOrigin: "760 750" }, { scale: 1.12, svgOrigin: "760 750", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, CRECER);
+      tl.to(q(".s07-nube"), { rotation: 3, svgOrigin: "760 750", duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 3 }, CRECER + 0.3);
+      tl.fromTo(q(".s07-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, TENDRIA);
+
+      // ---- "se pasa el día": la nube se infla y revienta
+      tl.to(q(".s07-nube"), { scale: 1.25, svgOrigin: "760 750", duration: 0.12, ease: "power2.in" }, SE_PASA - 0.12);
+      tl.to(q(".s07-piensa"), { opacity: 0, duration: 0.05 }, SE_PASA);
+      const peds = qa(".s07-ped");
+      gsap.set(peds, { opacity: 0 });
+      peds.forEach((p, i) => {
+        const a = (i / peds.length) * Math.PI * 2 - Math.PI / 2;
+        tl.fromTo(p, { opacity: 1, x: 0, y: 0 }, { opacity: 0, x: Math.cos(a) * 90, y: Math.sin(a) * 90, rotation: 40, duration: 0.45, ease: "power3.out", immediateRender: false }, SE_PASA);
+      });
+      // el dueño se sacude
+      [0.02, 0.06, 0.1].forEach((d, i) => tl.to(q(".s07-dueno"), { x: i % 2 ? -14 : 16, duration: 0.03, ease: "none" }, SE_PASA + d));
+      tl.to(q(".s07-dueno"), { x: 0, duration: 0.03, ease: "none" }, SE_PASA + 0.14);
+      tl.to(q(".s07-brazo-b"), { rotation: 0, svgOrigin: "470 1004", duration: 0.2, ease: "power2.out" }, SE_PASA);
+      tl.to(q(".s07-e1"), { opacity: 0, duration: 0.15 }, SE_PASA);
+
+      // ---- la rueda: se dibuja alrededor y él corre
+      dibujar(qa(".s07-rd"), SE_PASA + 0.05, 0.35);
+      dibujar([q(".s07-pie")], SE_PASA + 0.1, 0.35);
+      tl.fromTo(q(".s07-rayos"), { rotation: 0, svgOrigin: "470 1000" }, { rotation: -540, svgOrigin: "470 1000", duration: DUR - SE_PASA - 0.2, ease: "power1.in" }, SE_PASA + 0.2);
+      dibujar(qa(".s07-arco"), SE_PASA + 0.25, 0.35);
+      gsap.set(qa(".s07-punta"), { opacity: 0 });
+      tl.to(qa(".s07-punta"), { opacity: 1, duration: 0.1 }, SE_PASA + 0.55);
+      tl.fromTo(q(".s07-loop"), { rotation: 0, svgOrigin: "470 1000" }, { rotation: 300, svgOrigin: "470 1000", duration: DUR - SE_PASA - 0.25, ease: "power1.in" }, SE_PASA + 0.25);
+      // piernas y brazos corriendo (finito)
+      const N = 9;
+      const PASO = 0.2;
+      tl.fromTo(q(".s07-pierna-a"), { rotation: 30, svgOrigin: "470 1082" }, { rotation: -30, svgOrigin: "470 1082", duration: PASO, ease: "sine.inOut", yoyo: true, repeat: N }, SE_PASA + 0.2);
+      tl.fromTo(q(".s07-pierna-b"), { rotation: -30, svgOrigin: "470 1082" }, { rotation: 30, svgOrigin: "470 1082", duration: PASO, ease: "sine.inOut", yoyo: true, repeat: N }, SE_PASA + 0.2);
+      tl.fromTo(q(".s07-brazo-a"), { rotation: -35, svgOrigin: "470 1004" }, { rotation: 35, svgOrigin: "470 1004", duration: PASO, ease: "sine.inOut", yoyo: true, repeat: N }, SE_PASA + 0.25);
+      tl.fromTo(q(".s07-brazo-b"), { rotation: 35, svgOrigin: "470 1004" }, { rotation: -35, svgOrigin: "470 1004", duration: PASO, ease: "sine.inOut", yoyo: true, repeat: N }, SE_PASA + 0.25);
+      tl.fromTo(q(".s07-cabeza"), { y: 0 }, { y: -6, duration: PASO / 2, ease: "sine.inOut", yoyo: true, repeat: N * 2 + 1 }, SE_PASA + 0.2);
+
+      // ---- calendario: entra y repite LUNES
+      pop(q(".s07-cal"), SE_PASA + 0.3, "860 970");
+      const ns = qa(".s07-n");
+      gsap.set(ns, { opacity: 0 });
+      tl.set(ns[0], { opacity: 1 }, SE_PASA + 0.3);
+      const FLIPS = [3.95, LO_MISMO, 4.66, 4.82];
+      FLIPS.forEach((t, i) => {
+        tl.fromTo(q(".s07-hoja"), { scaleY: 1, svgOrigin: "860 940" }, { scaleY: 0, svgOrigin: "860 940", duration: 0.06, ease: "power2.in" }, t);
+        tl.to(q(".s07-hoja"), { scaleY: 1, svgOrigin: "860 940", duration: 0.08, ease: "back.out(2)" }, t + 0.06);
+        tl.set(ns[i], { opacity: 0 }, t + 0.06);
+        tl.set(ns[i + 1], { opacity: 1 }, t + 0.06);
+        tl.fromTo(q(".s07-cal"), { x: 0 }, { x: i % 2 ? -10 : 10, duration: 0.03, ease: "none", yoyo: true, repeat: 1 }, t + 0.06);
+      });
+      tl.fromTo(q(".s07-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, SE_PASA + 0.3);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

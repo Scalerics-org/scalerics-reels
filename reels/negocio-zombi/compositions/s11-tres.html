@@ -1,0 +1,222 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-tres"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-tres"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-tres"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tres"] .ln-ver { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tres"] .ln-nar { fill: none; stroke: #ff7a1a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tres"] .s11-marco { fill: rgba(13, 8, 25, 0.55); stroke: #efeee5; stroke-width: 5; stroke-linejoin: round; }
+    [data-composition-id="s11-tres"] .s11-marco-on { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linejoin: round; opacity: 0; }
+    [data-composition-id="s11-tres"] .rel-ver { fill: #5ce611; }
+    [data-composition-id="s11-tres"] .rel-nar { fill: #ff7a1a; }
+    [data-composition-id="s11-tres"] .rel-vio { fill: #9b5cff; }
+    [data-composition-id="s11-tres"] .rel-osc { fill: #0d0819; }
+    [data-composition-id="s11-tres"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.02em; fill: #ff7a1a; }
+    [data-composition-id="s11-tres"] .s11-mas { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; fill: #5ce611; }
+    [data-composition-id="s11-tres"] .s11-z { font-family: "Lexend", sans-serif; font-weight: 700; fill: #9b5cff; }
+    [data-composition-id="s11-tres"] .s11-bpm { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.06em; fill: #5ce611; }
+    [data-composition-id="s11-tres"] .s11-pulso { filter: drop-shadow(0 0 12px #5ce611); }
+    [data-composition-id="s11-tres"] .s11-luna { filter: drop-shadow(0 0 14px #9b5cff); }
+  </style>
+  <div id="root" data-composition-id="s11-tres" data-width="1080" data-height="1920" data-duration="6.91">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="6.91" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs>
+          <clipPath id="s11-recorte"><rect x="120" y="1080" width="700" height="200" /></clipPath>
+        </defs>
+
+        <!-- TARJETA 1: BOT -->
+        <g class="s11-card s11-c1"><g class="s11-card-in">
+          <rect class="s11-marco" x="-130" y="-200" width="260" height="400" rx="28" />
+          <rect class="s11-marco-on" x="-130" y="-200" width="260" height="400" rx="28" />
+          <rect class="ln" x="-62" y="-176" width="124" height="290" rx="22" />
+          <line class="ln" x1="-16" y1="-160" x2="16" y2="-160" />
+          <g class="s11-msg1"><rect class="ln" x="-48" y="-136" width="74" height="34" rx="14" />
+            <path class="ln" d="M-36 -119 h4 M-22 -119 h4 M-8 -119 h4" /></g>
+          <g class="s11-res1"><rect class="rel-ver" x="-26" y="-90" width="76" height="40" rx="14" />
+            <path d="M-14 -76 h46 M-14 -64 h30" stroke="#0d0819" stroke-width="5" stroke-linecap="round" /></g>
+          <g class="s11-msg2"><rect class="ln" x="-48" y="-38" width="64" height="34" rx="14" />
+            <path class="ln" d="M-36 -21 h4 M-22 -21 h4 M-8 -21 h4" /></g>
+          <g class="s11-res2"><rect class="rel-ver" x="-26" y="8" width="76" height="40" rx="14" />
+            <path d="M-14 22 h46 M-14 34 h22" stroke="#0d0819" stroke-width="5" stroke-linecap="round" /></g>
+          <!-- rayito de líneas: al instante -->
+          <path class="ln-ver s11-rayito" d="M104 -150 L80 -106 H102 L78 -58" />
+          <path class="ln-ver s11-rayito" d="M-100 -40 L-84 -66 H-100 L-84 -94" />
+          <text class="rotulo" x="0" y="168" text-anchor="middle">BOT</text>
+        </g></g>
+
+        <!-- TARJETA 2: PUNTOS -->
+        <g class="s11-card s11-c2"><g class="s11-card-in">
+          <rect class="s11-marco" x="-130" y="-200" width="260" height="400" rx="28" />
+          <rect class="s11-marco-on" x="-130" y="-200" width="260" height="400" rx="28" />
+          <rect class="ln" x="-100" y="-160" width="200" height="124" rx="16" />
+          <line class="ln" x1="-78" y1="-130" x2="-10" y2="-130" />
+          <circle class="ln" cx="-64" cy="-78" r="13" /><circle class="ln" cx="-32" cy="-78" r="13" />
+          <circle class="ln" cx="0" cy="-78" r="13" /><circle class="ln" cx="32" cy="-78" r="13" /><circle class="ln" cx="64" cy="-78" r="13" />
+          <circle class="rel-ver s11-sello" cx="-64" cy="-78" r="9" /><circle class="rel-ver s11-sello" cx="-32" cy="-78" r="9" />
+          <circle class="rel-ver s11-sello" cx="0" cy="-78" r="9" /><circle class="rel-ver s11-sello" cx="32" cy="-78" r="9" />
+          <circle class="rel-ver s11-sello" cx="64" cy="-78" r="9" />
+          <text class="s11-mas" x="58" y="-104" text-anchor="middle">+10</text>
+          <!-- flecha circular: vuelven -->
+          <g class="s11-vuelta">
+            <path class="ln-ver s11-flecha" d="M48 38 A50 50 0 1 1 26 -4" />
+            <path class="ln-ver s11-flecha" d="M26 -4 l-4 -22 M26 -4 l-22 2" />
+          </g>
+          <circle class="ln s11-cli" cx="0" cy="26" r="11" />
+          <path class="ln s11-cli" d="M-16 66 Q0 36 16 66" />
+          <text class="rotulo" x="0" y="168" text-anchor="middle">PUNTOS</text>
+        </g></g>
+
+        <!-- TARJETA 3: TIENDA ONLINE -->
+        <g class="s11-card s11-c3"><g class="s11-card-in">
+          <rect class="s11-marco" x="-130" y="-200" width="260" height="400" rx="28" />
+          <rect class="s11-marco-on" x="-130" y="-200" width="260" height="400" rx="28" />
+          <path class="rel-vio s11-luna" d="M-58 -172 A34 34 0 1 0 -26 -120 A27 27 0 1 1 -58 -172 Z" />
+          <text class="s11-z s11-z1" x="18" y="-128" font-size="34">Z</text>
+          <text class="s11-z s11-z2" x="50" y="-150" font-size="28">z</text>
+          <text class="s11-z s11-z3" x="76" y="-170" font-size="24" data-layout-ignore>z</text>
+          <g class="s11-moneda"><circle class="rel-nar" cx="-30" cy="-40" r="16" /><path d="M-30 -48 v16" stroke="#0d0819" stroke-width="4" stroke-linecap="round" /></g>
+          <g class="s11-moneda"><circle class="rel-nar" cx="10" cy="-40" r="16" /><path d="M10 -48 v16" stroke="#0d0819" stroke-width="4" stroke-linecap="round" /></g>
+          <g class="s11-moneda"><circle class="rel-nar" cx="40" cy="-40" r="16" /><path d="M40 -48 v16" stroke="#0d0819" stroke-width="4" stroke-linecap="round" /></g>
+          <g class="s11-bolsa">
+            <path class="s11-marco" d="M-76 -26 H76 L66 118 H-66 Z" />
+            <path class="ln-ver" d="M-34 -26 V-46 A34 34 0 0 1 34 -46 V-26" />
+            <path class="ln-ver" d="M-30 40 L-8 62 L34 18" />
+          </g>
+          <text class="rotulo" x="0" y="168" text-anchor="middle">TIENDA ONLINE</text>
+        </g></g>
+
+        <!-- la línea de pulso verde que corre abajo todo el tiempo -->
+        <line class="ln s11-base" x1="130" y1="1180" x2="810" y2="1180" opacity="0.25" />
+        <g clip-path="url(#s11-recorte)">
+          <path class="ln-ver s11-pulso" d="" />
+        </g>
+        <text class="s11-bpm" x="950" y="1190" text-anchor="end">98 BPM</text>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-tres";
+      const DUR = 6.91;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const BOT = 0.16, CONTESTA = 0.56, INSTANTE = 1.06;
+      const PUNTOS = 2.02, PARA = 2.36, VUELVAN = 2.96;
+      const TIENDA = 4.26, VENDE = 5.16, DORMIS = 5.86;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d = 0.35) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(2.2)" }, t);
+      };
+
+      // ---- línea de pulso: patrón de ECG repetido que corre hacia la izquierda ----
+      const P = 170, Y = 1180;
+      let d = "M120 " + Y;
+      for (let x = 120; x < 120 + 700 + P * 5; x += P) {
+        d += " h52 l10 -12 l10 12 h14 l8 18 l12 -80 l12 96 l8 -34 h10 l12 -14 l12 14 h10";
+      }
+      const pulso = q(".s11-pulso");
+      pulso.setAttribute("d", d);
+      tl.fromTo(pulso, { x: 0 }, { x: -P * 4, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s11-bpm"), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+      [0.5, 1.5, 2.5, 3.5, 4.5, 5.5].forEach((t) => {
+        tl.fromTo(q(".s11-bpm"), { scale: 1.12, transformOrigin: "100% 50%" }, { scale: 1, transformOrigin: "100% 50%", duration: 0.3, ease: "power2.out", immediateRender: false }, t);
+      });
+
+      // ---- las tres tarjetas: entran volando con golpe ----
+      const CX = [250, 540, 830], CY = 860;
+      const cards = qa(".s11-card");
+      const llega = [0, PUNTOS - 0.12, TIENDA - 0.12];
+      const desde = [[-420, -18], [540, 1500], [1500, 18]];
+      cards.forEach((c, i) => {
+        const t = llega[i];
+        if (i === 0) {
+          // la primera ya está entrando en el cuadro 0
+          tl.fromTo(c, { x: CX[0] - 120, y: CY, rotation: -10, opacity: 1, transformOrigin: "50% 50%" }, { x: CX[0], rotation: 0, duration: 0.3, ease: "back.out(1.4)" }, 0);
+        } else {
+          gsap.set(c, { opacity: 0 });
+          tl.set(c, { opacity: 1 }, t);
+          tl.fromTo(c, { x: i === 1 ? CX[1] : desde[i][0], y: i === 1 ? 1500 : CY, rotation: desde[i][1] }, { x: CX[i], y: CY, rotation: 0, duration: 0.32, ease: "back.out(1.5)", immediateRender: false }, t);
+        }
+        // golpe al aterrizar: aplasta y rebota
+        const inn = c.querySelector(".s11-card-in");
+        tl.fromTo(inn, { scaleY: 0.9, scaleX: 1.08, transformOrigin: "50% 100%" }, { scaleY: 1, scaleX: 1, transformOrigin: "50% 100%", duration: 0.35, ease: "back.out(3)", immediateRender: false }, t + 0.3);
+        // la activa se marca en verde; la anterior se apaga
+        const on = c.querySelector(".s11-marco-on");
+        tl.to(on, { opacity: 1, duration: 0.12 }, t + 0.28);
+        if (i > 0) {
+          tl.to(cards[i - 1].querySelector(".s11-marco-on"), { opacity: 0, duration: 0.2 }, t + 0.28);
+          tl.to(cards[i - 1], { opacity: 0.55, duration: 0.25 }, t + 0.28);
+          // sacudón de las otras con el golpe
+          cards.slice(0, i).forEach((o) => {
+            [0, 1, 2].forEach((k) => tl.to(o, { y: CY + (k % 2 ? -8 : 10), duration: 0.04, ease: "none" }, t + 0.3 + k * 0.04));
+            tl.to(o, { y: CY, duration: 0.05, ease: "none" }, t + 0.42);
+          });
+        }
+        // glitch de llegada
+        [0.03, 0.07, 0.11].forEach((dd, k) => tl.to(inn, { x: k % 2 ? -12 : 14, duration: 0.03, ease: "none" }, t + 0.62 + dd));
+        tl.to(inn, { x: 0, duration: 0.03, ease: "none" }, t + 0.77);
+      });
+      // la última activa se queda prendida; al final vuelven todas a brillar
+      tl.to(cards.slice(0, 2), { opacity: 1, duration: 0.3 }, DORMIS + 0.2);
+      tl.to(qa(".s11-marco-on"), { opacity: 1, duration: 0.3 }, DORMIS + 0.2);
+
+      // ---- BOT: mensaje entra y la respuesta sale al instante ----
+      pop(q(".s11-msg1"), BOT);
+      pop(q(".s11-res1"), CONTESTA, 0.22);
+      dibujar(qa(".s11-rayito"), CONTESTA - 0.04, 0.22);
+      tl.to(qa(".s11-rayito"), { opacity: 0.25, duration: 0.08, yoyo: true, repeat: 3 }, CONTESTA + 0.3);
+      pop(q(".s11-msg2"), INSTANTE - 0.1);
+      pop(q(".s11-res2"), INSTANTE + 0.12, 0.22);
+      tl.fromTo(q(".s11-c1 .s11-card-in"), { rotation: 0 }, { rotation: 2, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut", transformOrigin: "50% 100%", immediateRender: false }, INSTANTE + 0.14);
+
+      // ---- PUNTOS: se llenan los sellos, +10 sube, flecha que vuelve ----
+      qa(".s11-sello").forEach((s, i) => pop(s, PUNTOS + 0.32 + i * 0.1, 0.25));
+      gsap.set(q(".s11-mas"), { opacity: 0 });
+      tl.fromTo(q(".s11-mas"), { opacity: 0, y: 30, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(2.5)" }, PARA + 0.1);
+      tl.to(q(".s11-mas"), { y: -20, duration: 0.9, ease: "sine.out" }, PARA + 0.45);
+      tl.to(q(".s11-mas"), { opacity: 0, duration: 0.3 }, PARA + 1.2);
+      dibujar(qa(".s11-flecha"), VUELVAN - 0.1, 0.45);
+      dibujar(qa(".s11-cli"), VUELVAN - 0.4, 0.35);
+      tl.fromTo(q(".s11-vuelta"), { rotation: 0, svgOrigin: "0 30" }, { rotation: 360, svgOrigin: "0 30", duration: 1.0, ease: "power2.inOut", immediateRender: false }, VUELVAN + 0.4);
+      tl.fromTo(q(".s11-vuelta"), { rotation: 0, svgOrigin: "0 30" }, { rotation: 360, svgOrigin: "0 30", duration: 1.0, ease: "power2.inOut", immediateRender: false }, TIENDA + 0.6);
+
+      // ---- TIENDA: bolsa, luna, monedas que caen mientras dormís ----
+      pop(q(".s11-luna"), TIENDA + 0.25);
+      tl.fromTo(q(".s11-luna"), { rotation: -10 }, { rotation: 8, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut", svgOrigin: "-50 -140", immediateRender: false }, TIENDA + 0.5);
+      qa(".s11-moneda").forEach((m, i) => {
+        const t = VENDE - 0.15 + i * 0.18;
+        gsap.set(m, { opacity: 0 });
+        tl.fromTo(m, { opacity: 1, y: -190 }, { y: 70, duration: 0.32, ease: "power2.in", immediateRender: false }, t);
+        tl.set(m, { opacity: 0 }, t + 0.32);
+        tl.fromTo(q(".s11-bolsa"), { scaleY: 0.9, transformOrigin: "50% 100%" }, { scaleY: 1, transformOrigin: "50% 100%", duration: 0.2, ease: "back.out(3)", immediateRender: false }, t + 0.32);
+      });
+      ["s11-z1", "s11-z2", "s11-z3"].forEach((c, i) => pop(q("." + c), DORMIS + i * 0.14, 0.3));
+      tl.to(qa(".s11-z"), { y: -10, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, DORMIS + 0.45);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,227 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-pulso"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-pulso"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-pulso"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-pulso"] .ln-ver { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-pulso"] .ln-vio { fill: none; stroke: #9b5cff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-pulso"] .ojo { fill: #5ce611; }
+    [data-composition-id="s10-pulso"] .pupila { fill: #0d0819; }
+    [data-composition-id="s10-pulso"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s10-pulso"] .s10-marca { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 64px; letter-spacing: -0.01em; fill: #efeee5; }
+    [data-composition-id="s10-pulso"] .s10-bpm { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; letter-spacing: 0.06em; }
+    [data-composition-id="s10-pulso"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ff7a1a; }
+    [data-composition-id="s10-pulso"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s10-pulso" data-width="1080" data-height="1920" data-duration="3.40">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="3.40" data-track-index="0">
+      <div class="s10-capa s10-temblor">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <clipPath id="s10-pantalla"><rect x="166" y="752" width="748" height="166" rx="16" /></clipPath>
+          </defs>
+
+          <!-- la caja "Scalerics" -->
+          <g class="s10-caja">
+            <rect x="320" y="600" width="440" height="108" rx="30" fill="#0d0819" stroke="#5ce611" stroke-width="6" class="s10-caja-rect" />
+            <text class="s10-marca" x="540" y="676" text-anchor="middle">Scalerics</text>
+          </g>
+          <!-- cables de energía de la caja al monitor -->
+          <path class="ln-ver s10-cable" d="M320 654 C230 654 200 690 200 740" stroke-width="5" />
+          <path class="ln-ver s10-cable" d="M760 654 C850 654 880 690 880 740" stroke-width="5" />
+          <path class="ln-ver s10-chispa" d="M320 654 C230 654 200 690 200 740" stroke-width="10" />
+          <path class="ln-ver s10-chispa" d="M760 654 C850 654 880 690 880 740" stroke-width="10" />
+
+          <!-- MONITOR CARDÍACO -->
+          <g class="s10-monitor">
+            <rect class="ln" x="150" y="736" width="780" height="198" rx="28" />
+            <g clip-path="url(#s10-pantalla)">
+              <path class="ln s10-grilla" d="M166 800 H914 M166 846 H914 M166 892 H914" stroke-width="2" opacity="0.12" />
+              <!-- zombi: casi plana violeta -->
+              <path class="ln-vio s10-plana" d="" />
+              <!-- vivo: ECG verde con picos grandes que corre (mismo LATIDO que s09/s11) -->
+              <path class="ln-ver s10-ecg" d="" stroke-width="7" />
+            </g>
+            <rect x="748" y="756" width="160" height="50" rx="10" fill="#0d0819" />
+            <text class="s10-bpm s10-bpm-zombi" x="896" y="794" text-anchor="end" fill="#9b5cff">12 BPM</text>
+            <text class="s10-bpm s10-bpm-vivo" x="896" y="794" text-anchor="end" fill="#5ce611">98 BPM</text>
+          </g>
+
+          <!-- rayos de vida alrededor del local -->
+          <g class="s10-estallido">
+            <path class="ln-ver s10-rayito" d="M370 1030 L340 1004" />
+            <path class="ln-ver s10-rayito" d="M710 1030 L740 1004" />
+            <path class="ln-ver s10-rayito" d="M320 1130 H284" />
+            <path class="ln-ver s10-rayito" d="M760 1130 H796" />
+            <path class="ln-ver s10-rayito" d="M330 1210 L298 1226" />
+            <path class="ln-ver s10-rayito" d="M750 1210 L782 1226" />
+          </g>
+
+          <line class="ln s10-suelo" x1="240" y1="1236" x2="840" y2="1236" />
+          <!-- EL LOCAL: zombi que revive -->
+          <g class="s10-local">
+            <g class="s10-local-in"><g transform="scale(0.86)">
+              <path class="ln-ver s10-brazo s10-brazo-l" d="M-120 -100 H-250 M-250 -100 l-22 -14 M-250 -100 l-26 0 M-250 -100 l-22 14" />
+              <path class="ln-ver s10-brazo s10-brazo-r" d="M120 -100 H250 M250 -100 l22 -14 M250 -100 l26 0 M250 -100 l22 14" />
+              <path class="ln" d="M-120 0 V-170 H120 V0" />
+              <!-- toldo torcido (zombi) y derecho (vivo) -->
+              <g class="s10-zombi">
+                <path class="ln" d="M-142 -166 L138 -178 L118 -228 L-124 -218 Z" />
+                <path class="ln" d="M-142 -166 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2" />
+                <rect class="ln" x="-80" y="-296" width="160" height="50" rx="10" transform="rotate(-6 0 -271)" />
+                <text data-layout-ignore class="cartel" x="0" y="-263" text-anchor="middle" transform="rotate(-6 0 -271)">TU LOCAL</text>
+                <path class="ln" d="M-30 0 V-60 L-18 -48 L-6 -60 L6 -48 L18 -60 L30 -48 V0" />
+              </g>
+              <g class="s10-vivo">
+                <path d="M-140 -172 L140 -172 L120 -226 L-120 -226 Z" fill="#5ce611" stroke="#efeee5" stroke-width="5" stroke-linejoin="round" />
+                <path class="ln" d="M-140 -172 q17.5 26 35 0 q17.5 26 35 0 q17.5 26 35 0 q17.5 26 35 0 q17.5 26 35 0 q17.5 26 35 0 q17.5 26 35 0 q17.5 26 35 0" />
+                <path class="ln" d="M-70 -226 V-246 M70 -226 V-246" stroke-width="4" />
+                <rect class="ln" x="-80" y="-296" width="160" height="50" rx="10" />
+                <text data-layout-ignore class="cartel" x="0" y="-263" text-anchor="middle">TU LOCAL</text>
+                <path class="ln" d="M-30 0 V-62 H30 V0" />
+                <circle cx="18" cy="-30" r="5" fill="#efeee5" />
+              </g>
+              <!-- ventanas: ojos verdes (zombi) -> ventanas con luz (vivo) -->
+              <rect class="ln" x="-100" y="-130" width="62" height="56" rx="6" />
+              <rect class="ln" x="38" y="-124" width="62" height="50" rx="6" />
+              <rect class="ojo s10-ojo" x="-92" y="-122" width="46" height="40" rx="4" />
+              <rect class="ojo s10-ojo" x="46" y="-116" width="46" height="34" rx="4" />
+              <circle class="pupila s10-pupila" cx="-66" cy="-100" r="9" />
+              <circle class="pupila s10-pupila" cx="72" cy="-98" r="9" />
+              <g class="s10-luz">
+                <rect x="-92" y="-122" width="46" height="40" rx="4" fill="#efeee5" />
+                <rect x="46" y="-116" width="46" height="34" rx="4" fill="#efeee5" />
+                <path d="M-69 -122 V-82 M-92 -102 H-46 M69 -116 V-82 M46 -99 H92" stroke="#0d0819" stroke-width="4" fill="none" />
+              </g>
+            </g></g>
+          </g>
+        </svg>
+      </div>
+      <div class="etiqueta"><span class="s10-e1">Pulso devuelto</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-pulso";
+      const DUR = 3.4;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const SCALERICS = 0.06;
+      const DEVOLVEMOS = 0.96;
+      const PULSO = 1.76;     // rayo global 41.35 = 1.71 relativo
+      const COMERCIO = 2.36;
+
+      // ---------- ECG reutilizable (mismo latido que s09/s11) ----------
+      // un latido = 200 px de ancho, vuelve a la base (neto 0); pico a -94, valle a +46
+      const LATIDO = "h30 l12 -12 l12 12 h16 l8 16 l14 -110 l14 140 l10 -46 h18 q18 -36 36 0 h30";
+      const PLANO = "h150 l8 -8 l8 18 l8 -10 h26";
+      const ecg = (x0, y0, n, latido) => "M" + x0 + " " + y0 + " " + Array(n).fill(latido).join(" ");
+      const BASE = 852;
+      q(".s10-plana").setAttribute("d", ecg(166, BASE, 6, PLANO));
+      q(".s10-ecg").setAttribute("d", ecg(166, BASE, 9, LATIDO));
+
+      const SUELO = 1236;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // ---------- arranque: todo en pantalla desde el cuadro 0 ----------
+      gsap.set(q(".s10-local"), { x: 540, y: SUELO });
+      gsap.set(q(".s10-vivo"), { opacity: 0 });
+      gsap.set(q(".s10-luz"), { opacity: 0 });
+      gsap.set(q(".s10-bpm-vivo"), { opacity: 0 });
+      gsap.set(q(".s10-ecg"), { opacity: 0 });
+      gsap.set(qa(".s10-rayito"), { opacity: 0 });
+      // "Scalerics": la caja entra con golpe y brillo verde
+      tl.fromTo(q(".s10-caja"), { scale: 0.7, opacity: 0.4, svgOrigin: "540 654" }, { scale: 1, opacity: 1, svgOrigin: "540 654", duration: 0.4, ease: "back.out(2.2)" }, 0);
+      tl.fromTo(q(".s10-caja-rect"), { filter: "drop-shadow(0 0 2px #5ce611)" }, { filter: "drop-shadow(0 0 14px #5ce611)", duration: 0.5, ease: "power2.out" }, SCALERICS);
+      tl.fromTo(q(".s10-monitor"), { opacity: 0.5, y: 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s10-local-in"), { scaleY: 0.85, transformOrigin: "50% 100%" }, { scaleY: 1, transformOrigin: "50% 100%", duration: 0.4, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s10-suelo"), { scaleX: 0.6, svgOrigin: "540 1236" }, { scaleX: 1, svgOrigin: "540 1236", duration: 0.4, ease: "power3.out" }, 0);
+      // la línea zombi corre; el local zombi se mece
+      tl.fromTo(q(".s10-plana"), { x: 0 }, { x: -380, duration: PULSO, ease: "none" }, 0);
+      tl.fromTo(q(".s10-bpm-zombi"), { opacity: 1 }, { opacity: 0.35, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 4 }, 0.1);
+      tl.fromTo(q(".s10-local-in"), { rotation: 0 }, { rotation: -3, transformOrigin: "50% 100%", duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 2, immediateRender: false }, 0.4);
+      tl.fromTo(qa(".s10-brazo"), { y: -5 }, { y: 7, duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0.1);
+      tl.fromTo(qa(".s10-pupila"), { x: -5 }, { x: 5, duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0.1);
+
+      // ---------- "devolvemos": los cables se cargan ----------
+      dibujar(qa(".s10-cable"), DEVOLVEMOS - 0.1, 0.3);
+      qa(".s10-chispa").forEach((el, i) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: "30 " + (L + 60), strokeDashoffset: 30, opacity: 0 });
+        tl.set(el, { opacity: 1 }, DEVOLVEMOS + 0.15);
+        tl.fromTo(el, { strokeDashoffset: 30 }, { strokeDashoffset: -L, duration: 0.3, ease: "power1.in", repeat: 1 }, DEVOLVEMOS + 0.15);
+        tl.fromTo(el, { strokeDashoffset: 30 }, { strokeDashoffset: -L, duration: 0.22, ease: "power1.in", immediateRender: false }, PULSO - 0.24);
+        tl.set(el, { opacity: 0 }, PULSO);
+      });
+      // la caja late cargando
+      tl.to(q(".s10-caja"), { scale: 1.06, svgOrigin: "540 654", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 3 }, DEVOLVEMOS + 0.2);
+      // el monitor tiembla antes del golpe
+      tl.to(q(".s10-monitor"), { x: 5, duration: 0.03, ease: "none", yoyo: true, repeat: 7 }, PULSO - 0.3);
+
+      // ---------- "PULSO": el monitor se dispara y el local revive ----------
+      const tem = q(".s10-temblor");
+      [[-20, 10], [18, -12], [-14, 8], [10, -6], [-6, 2]].forEach(([x, y], i) => tl.to(tem, { x, y, duration: 0.04, ease: "none" }, PULSO - 0.02 + i * 0.045));
+      tl.to(tem, { x: 0, y: 0, duration: 0.06, ease: "power2.out" }, PULSO + 0.21);
+      // línea: fuera la plana, entra el ECG verde que se dibuja y corre
+      tl.to(q(".s10-plana"), { opacity: 0, duration: 0.08 }, PULSO);
+      dibujar([q(".s10-ecg")], PULSO, 0.4);
+      tl.fromTo(q(".s10-ecg"), { x: 0 }, { x: -540, duration: DUR - PULSO, ease: "none" }, PULSO);
+      tl.fromTo(q(".s10-ecg"), { filter: "drop-shadow(0 0 0px #5ce611)" }, { filter: "drop-shadow(0 0 12px #5ce611)", duration: 0.25, ease: "power2.out", immediateRender: false }, PULSO);
+      // número: 12 -> 98
+      tl.to(q(".s10-bpm-zombi"), { opacity: 0, duration: 0.06 }, PULSO);
+      tl.fromTo(q(".s10-bpm-vivo"), { opacity: 0, scale: 1.7, svgOrigin: "830 781" }, { opacity: 1, scale: 1, svgOrigin: "830 781", duration: 0.35, ease: "back.out(3)" }, PULSO);
+      // late con los beeps
+      const BEEPS = [PULSO, PULSO + 0.61, PULSO + 1.22];
+      BEEPS.forEach((t) => {
+        tl.fromTo(q(".s10-bpm-vivo"), { scale: 1.18, svgOrigin: "830 781" }, { scale: 1, svgOrigin: "830 781", duration: 0.3, ease: "power2.out", immediateRender: false }, t + 0.35);
+        tl.fromTo(q(".s10-local-in"), { scaleX: 1.06, scaleY: 1.06, transformOrigin: "50% 100%" }, { scaleX: 1, scaleY: 1, transformOrigin: "50% 100%", duration: 0.35, ease: "power2.out", immediateRender: false }, t + 0.36);
+      });
+      // el local: salto, brazos que se guardan, toldo y cartel que se enderezan, ventanas con luz
+      tl.to(q(".s10-local-in"), { rotation: 0, transformOrigin: "50% 100%", duration: 0.1 }, PULSO - 0.1);
+      tl.fromTo(q(".s10-local"), { y: SUELO }, { y: SUELO - 60, duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, PULSO);
+      tl.to(q(".s10-brazo-l"), { scaleX: 0, opacity: 0, transformOrigin: "100% 50%", duration: 0.3, ease: "back.in(1.6)" }, PULSO + 0.05);
+      tl.to(q(".s10-brazo-r"), { scaleX: 0, opacity: 0, transformOrigin: "0% 50%", duration: 0.3, ease: "back.in(1.6)" }, PULSO + 0.05);
+      tl.to(q(".s10-zombi"), { opacity: 0, duration: 0.1 }, PULSO + 0.1);
+      tl.fromTo(q(".s10-vivo"), { opacity: 0, scale: 0.9, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1, transformOrigin: "50% 100%", duration: 0.35, ease: "back.out(2.5)" }, PULSO + 0.1);
+      tl.to(qa(".s10-ojo, .s10-pupila"), { opacity: 0, duration: 0.1 }, PULSO + 0.12);
+      tl.fromTo(q(".s10-luz"), { opacity: 0 }, { opacity: 1, duration: 0.05 }, PULSO + 0.12);
+      // las ventanas parpadean al prender (como un tubo)
+      tl.to(q(".s10-luz"), { opacity: 0.3, duration: 0.04, ease: "steps(1)", yoyo: true, repeat: 3 }, PULSO + 0.2);
+      tl.fromTo(q(".s10-local-in"), { filter: "drop-shadow(0 0 0px #5ce611)" }, { filter: "drop-shadow(0 0 14px #5ce611)", duration: 0.3, ease: "power2.out", immediateRender: false }, PULSO + 0.1);
+      tl.to(q(".s10-local-in"), { filter: "drop-shadow(0 0 5px #5ce611)", duration: 0.8, ease: "sine.inOut" }, PULSO + 0.5);
+      // estallido de rayitos verdes alrededor
+      qa(".s10-rayito").forEach((el, i) => {
+        tl.fromTo(el, { opacity: 1, scale: 0.3, svgOrigin: "540 1110" }, { scale: 1.25, svgOrigin: "540 1110", duration: 0.45, ease: "power3.out", immediateRender: false }, PULSO + 0.12 + i * 0.015);
+        tl.to(el, { opacity: 0, duration: 0.25 }, PULSO + 0.45 + i * 0.015);
+        tl.fromTo(el, { opacity: 1, scale: 0.6, svgOrigin: "540 1110" }, { scale: 1.15, svgOrigin: "540 1110", duration: 0.35, ease: "power3.out", immediateRender: false }, BEEPS[2] + 0.35);
+        tl.to(el, { opacity: 0, duration: 0.2 }, BEEPS[2] + 0.55);
+      });
+      // la caja Scalerics late con el pulso
+      tl.fromTo(q(".s10-caja"), { scale: 1.12, svgOrigin: "540 654" }, { scale: 1, svgOrigin: "540 654", duration: 0.35, ease: "back.out(2)", immediateRender: false }, PULSO);
+      tl.fromTo(q(".s10-e1"), { opacity: 0, y: 14, scale: 1.3 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, PULSO + 0.05);
+      tl.to(q(".s10-e1"), { scale: 1.08, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, COMERCIO);
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

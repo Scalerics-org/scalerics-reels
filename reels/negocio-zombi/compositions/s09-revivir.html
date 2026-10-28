@@ -1,0 +1,211 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-revivir"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-revivir"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-revivir"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-revivir"] .ln-ver { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-revivir"] .ln-nar { fill: none; stroke: #ff7a1a; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-revivir"] .ln-vio { fill: none; stroke: #9b5cff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-revivir"] .s09-bpm { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.06em; }
+    [data-composition-id="s09-revivir"] .s09-rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; opacity: 0.45; }
+    [data-composition-id="s09-revivir"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ff7a1a; }
+    [data-composition-id="s09-revivir"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s09-revivir" data-width="1080" data-height="1920" data-duration="4.51">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.51" data-track-index="0">
+      <div class="s09-capa s09-temblor">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <clipPath id="s09-pantalla"><rect x="152" y="642" width="776" height="268" rx="18" /></clipPath>
+          </defs>
+
+          <!-- MONITOR CARDÍACO -->
+          <g class="s09-monitor">
+            <rect class="ln" x="130" y="620" width="820" height="312" rx="30" />
+            <text data-layout-ignore class="s09-rot" x="172" y="682">PULSO</text>
+            <g clip-path="url(#s09-pantalla)">
+              <!-- grilla tenue -->
+              <path class="ln" d="M152 720 H928 M152 790 H928 M152 860 H928" stroke-width="2" opacity="0.12" />
+              <!-- línea zombi: casi plana, un latidito cada 200 px (la arma el script) -->
+              <path class="ln-vio s09-plana" d="" />
+              <!-- el primer latido verde -->
+              <path class="ln-ver s09-latido" d="" stroke-width="7" />
+            </g>
+            <text class="s09-bpm s09-bpm-zombi" x="908" y="690" text-anchor="end" fill="#9b5cff">12 BPM</text>
+            <text class="s09-bpm s09-bpm-vivo" x="908" y="690" text-anchor="end" fill="#5ce611">41 BPM</text>
+            <circle class="s09-led" cx="186" cy="896" r="8" fill="#ff7a1a" />
+          </g>
+
+          <!-- el paciente: EL LOCAL ZOMBI enchufado al monitor -->
+          <path class="ln s09-cable-pac" d="M340 932 V1040" stroke-width="4" opacity="0.6" />
+          <line class="ln s09-suelo" x1="140" y1="1210" x2="540" y2="1210" />
+          <g class="s09-local">
+            <g class="s09-local-in"><g transform="scale(0.72)">
+              <path class="ln-ver s09-brazo" d="M-120 -100 H-250 M-250 -100 l-22 -14 M-250 -100 l-26 0 M-250 -100 l-22 14" />
+              <path class="ln-ver s09-brazo" d="M120 -100 H250 M250 -100 l22 -14 M250 -100 l26 0 M250 -100 l22 14" />
+              <path class="ln" d="M-120 0 V-170 H120 V0" />
+              <path class="ln" d="M-142 -166 L138 -178 L118 -228 L-124 -218 Z" />
+              <path class="ln" d="M-142 -166 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2" />
+              <rect class="ln" x="-100" y="-130" width="62" height="56" rx="6" />
+              <rect class="ln" x="38" y="-124" width="62" height="50" rx="6" />
+              <rect class="s09-ojo" x="-92" y="-122" width="46" height="40" rx="4" fill="#5ce611" />
+              <rect class="s09-ojo" x="46" y="-116" width="46" height="34" rx="4" fill="#5ce611" />
+              <circle class="s09-pupila" cx="-66" cy="-100" r="9" fill="#0d0819" />
+              <circle class="s09-pupila" cx="72" cy="-98" r="9" fill="#0d0819" />
+              <path class="ln" d="M-30 0 V-60 L-18 -48 L-6 -60 L6 -48 L18 -60 L30 -48 V0" />
+            </g></g>
+          </g>
+
+          <!-- el "milagro": vela con estrellitas -->
+          <g class="s09-milagro">
+            <g class="s09-vela">
+              <rect class="ln" x="732" y="1070" width="56" height="130" rx="8" />
+              <path class="ln" d="M760 1070 V1050" stroke-width="4" />
+              <path class="s09-llama" d="M760 1046 C742 1024 748 1002 760 982 C772 1002 778 1024 760 1046 Z" fill="#ff7a1a" />
+              <line class="ln" x1="690" y1="1200" x2="830" y2="1200" />
+            </g>
+            <path class="s09-estrella" d="M650 1040 l8 -22 l8 22 l22 8 l-22 8 l-8 22 l-8 -22 l-22 -8 Z" fill="#9b5cff" />
+            <path class="s09-estrella" d="M860 1000 l6 -16 l6 16 l16 6 l-16 6 l-6 16 l-6 -16 l-16 -6 Z" fill="#efeee5" />
+            <path class="s09-estrella" d="M882 1110 l8 -22 l8 22 l22 8 l-22 8 l-8 22 l-8 -22 l-22 -8 Z" fill="#9b5cff" />
+            <path class="s09-estrella" d="M620 1140 l6 -16 l6 16 l16 6 l-16 6 l-6 16 l-6 -16 l-16 -6 Z" fill="#efeee5" />
+            <path class="ln-nar s09-x" d="M640 990 L880 1210" />
+            <path class="ln-nar s09-x" d="M880 990 L640 1210" />
+          </g>
+
+          <!-- el sistema: engranaje verde conectado al monitor -->
+          <path class="ln-ver s09-cable" d="M760 932 V990" />
+          <g class="s09-engranaje">
+            <path class="ln-ver s09-dib-g s09-dientes" d="" />
+            <circle class="ln-ver s09-dib-g" cx="760" cy="1100" r="36" />
+          </g>
+        </svg>
+      </div>
+      <div class="etiqueta"><span class="s09-e1">No es un milagro</span><span class="s09-e2">Es un sistema</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-revivir";
+      const DUR = 4.51;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const REVIVIR = 0.27;
+      const NO = 0.87;
+      const MILAGRO = 1.77;
+      const HACE = 2.61;
+      const SISTEMA = 3.37;
+
+      // ---------- ECG reutilizable (mismo latido que s10/s11) ----------
+      // un latido = 200 px de ancho, vuelve a la base (neto 0); pico a -94, valle a +46
+      const LATIDO = "h30 l12 -12 l12 12 h16 l8 16 l14 -110 l14 140 l10 -46 h18 q18 -36 36 0 h30";
+      // latido zombi: casi plano, un temblorcito
+      const PLANO = "h150 l8 -8 l8 18 l8 -10 h26";
+      const ecg = (x0, y0, n, latido) => "M" + x0 + " " + y0 + " " + Array(n).fill(latido).join(" ");
+      const BASE = 790;
+      q(".s09-plana").setAttribute("d", ecg(152, BASE, 9, PLANO));
+      q(".s09-latido").setAttribute("d", "M440 " + BASE + " " + LATIDO);
+
+      // dientes del engranaje (geometría fija, como s07 de puntos-que-vuelven)
+      const CX = 760, CY = 1100, RIN = 82, ROUT = 110, N = 8;
+      const pt = (r, a) => (CX + r * Math.cos(a)).toFixed(1) + " " + (CY + r * Math.sin(a)).toFixed(1);
+      let d = "";
+      for (let i = 0; i < N; i++) {
+        const a = -Math.PI / 2 + (i * 2 * Math.PI) / N;
+        const p0 = pt(RIN, a - 0.22), p1 = pt(ROUT, a - 0.14), p2 = pt(ROUT, a + 0.14), p3 = pt(RIN, a + 0.22);
+        const sig = pt(RIN, a + (2 * Math.PI) / N - 0.22);
+        d += (i === 0 ? "M" + p0 : "") + " L" + p1 + " L" + p2 + " L" + p3 + " A" + RIN + " " + RIN + " 0 0 1 " + sig;
+      }
+      q(".s09-dientes").setAttribute("d", d + " Z");
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // ---------- arranque: el monitor ya está en el cuadro 0 ----------
+      tl.fromTo(q(".s09-monitor"), { scale: 0.86, opacity: 0.6, svgOrigin: "540 776" }, { scale: 1, opacity: 1, svgOrigin: "540 776", duration: 0.4, ease: "back.out(1.8)" }, 0);
+      // la línea plana corre todo el tiempo (latiditos de zombi pasando)
+      tl.fromTo(q(".s09-plana"), { x: 0 }, { x: -800, duration: DUR, ease: "none" }, 0);
+      gsap.set(q(".s09-bpm-vivo"), { opacity: 0 });
+      // el número y el led parpadean, débiles
+      tl.fromTo(q(".s09-bpm-zombi"), { opacity: 1 }, { opacity: 0.35, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 5 }, 0);
+      tl.fromTo(q(".s09-led"), { opacity: 1 }, { opacity: 0.15, duration: 0.3, ease: "steps(1)", yoyo: true, repeat: 9 }, 0);
+      // "revivirlo": el monitor da un sacudón
+      tl.to(q(".s09-monitor"), { rotation: -2, svgOrigin: "540 776", duration: 0.08, ease: "power2.out", yoyo: true, repeat: 3 }, REVIVIR);
+      // "no hace falta": glitch en la pantalla
+      const tem = q(".s09-temblor");
+      [14, -18, 10, 0].forEach((x, i) => tl.to(tem, { x, duration: 0.03, ease: "none" }, NO + i * 0.04));
+      tl.fromTo(q(".s09-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, NO);
+
+      // ---------- "milagro": vela y estrellitas, X naranja ----------
+      gsap.set(q(".s09-milagro"), { opacity: 1 });
+      tl.fromTo(q(".s09-vela"), { opacity: 0, scale: 0.5, svgOrigin: "760 1200" }, { opacity: 1, scale: 1, svgOrigin: "760 1200", duration: 0.35, ease: "back.out(2)" }, MILAGRO - 0.25);
+      tl.fromTo(q(".s09-llama"), { filter: "drop-shadow(0 0 4px #ff7a1a)" }, { filter: "drop-shadow(0 0 14px #ff7a1a)", duration: 0.3, ease: "power2.out" }, MILAGRO - 0.1);
+      tl.fromTo(q(".s09-llama"), { scaleX: 1, svgOrigin: "760 1046" }, { scaleX: 0.75, svgOrigin: "760 1046", duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 5 }, MILAGRO - 0.1);
+      qa(".s09-estrella").forEach((s, i) => {
+        const b = s.getBBox();
+        const o = (b.x + b.width / 2) + " " + (b.y + b.height / 2);
+        tl.fromTo(s, { opacity: 0, scale: 0, rotation: -90, svgOrigin: o }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: o, duration: 0.35, ease: "back.out(2.5)" }, MILAGRO - 0.1 + i * 0.07);
+        tl.to(s, { scale: 0.7, svgOrigin: o, duration: 0.15, ease: "sine.inOut", yoyo: true, repeat: 1 }, MILAGRO + 0.3 + i * 0.05);
+      });
+      dibujar(qa(".s09-x"), MILAGRO + 0.25, 0.18);
+      tl.to(q(".s09-milagro"), { x: 10, duration: 0.04, ease: "none", yoyo: true, repeat: 5 }, MILAGRO + 0.45);
+      // "hace falta": la vela se apaga y se hunde
+      tl.to(q(".s09-llama"), { opacity: 0, scale: 0.2, svgOrigin: "760 1046", duration: 0.2, ease: "power2.in" }, HACE - 0.15);
+      tl.to(q(".s09-milagro"), { opacity: 0, y: 120, duration: 0.4, ease: "power3.in" }, HACE);
+
+      // ---------- "sistema": engranaje verde con punch y primer latido ----------
+      tl.to(q(".s09-e1"), { opacity: 0, duration: 0.15 }, HACE + 0.4);
+      dibujar(qa(".s09-dib-g"), HACE + 0.45, 0.45);
+      tl.fromTo(q(".s09-engranaje"), { rotation: -40, svgOrigin: "760 1100" }, { rotation: 140, svgOrigin: "760 1100", duration: DUR - HACE - 0.45, ease: "none" }, HACE + 0.45);
+      tl.fromTo(q(".s09-engranaje"), { scale: 1.35, svgOrigin: "760 1100" }, { scale: 1, svgOrigin: "760 1100", duration: 0.45, ease: "back.out(3)", immediateRender: false }, SISTEMA);
+      tl.fromTo(q(".s09-engranaje"), { filter: "drop-shadow(0 0 0px #5ce611)" }, { filter: "drop-shadow(0 0 14px #5ce611)", duration: 0.3, ease: "power2.out", immediateRender: false }, SISTEMA);
+      dibujar([q(".s09-cable")], SISTEMA + 0.08, 0.18);
+      tl.fromTo(q(".s09-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, SISTEMA - 0.1);
+      tl.to(q(".s09-e2"), { scale: 1.1, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, SISTEMA);
+      // el primer latido verde cruza la pantalla
+      const LAT = SISTEMA + 0.3;
+      dibujar([q(".s09-latido")], LAT, 0.32);
+      tl.fromTo(q(".s09-latido"), { filter: "drop-shadow(0 0 0px #5ce611)" }, { filter: "drop-shadow(0 0 12px #5ce611)", duration: 0.2, immediateRender: false }, LAT + 0.1);
+      tl.to(q(".s09-plana"), { opacity: 0.25, duration: 0.2 }, LAT);
+      tl.to(q(".s09-bpm-zombi"), { opacity: 0, duration: 0.08 }, LAT + 0.15);
+      tl.fromTo(q(".s09-bpm-vivo"), { opacity: 0, scale: 1.5, svgOrigin: "908 676" }, { opacity: 1, scale: 1, svgOrigin: "908 676", duration: 0.3, ease: "back.out(2.5)" }, LAT + 0.15);
+      tl.to(q(".s09-led"), { fill: "#5ce611", opacity: 1, duration: 0.05 }, LAT + 0.15);
+      tl.to(q(".s09-monitor"), { scale: 1.04, svgOrigin: "540 776", duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, LAT + 0.15);
+
+      // ---------- el paciente: el local zombi, flojo, hasta el primer latido ----------
+      gsap.set(q(".s09-local"), { x: 340, y: 1210 });
+      tl.fromTo(q(".s09-local-in"), { scaleY: 0.8, transformOrigin: "50% 100%" }, { scaleY: 1, transformOrigin: "50% 100%", duration: 0.45, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s09-suelo"), { scaleX: 0.6, svgOrigin: "340 1210" }, { scaleX: 1, svgOrigin: "340 1210", duration: 0.45, ease: "power3.out" }, 0);
+      // se tambalea, cada vez más caído
+      tl.fromTo(q(".s09-local-in"), { rotation: 0 }, { rotation: -6, transformOrigin: "50% 100%", duration: 0.7, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, 0.45);
+      tl.fromTo(qa(".s09-brazo"), { y: -4 }, { y: 10, duration: 0.55, ease: "sine.inOut", yoyo: true, repeat: 5 }, 0.1);
+      tl.fromTo(qa(".s09-pupila"), { x: -5 }, { x: 5, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 5 }, 0.1);
+      tl.fromTo(qa(".s09-ojo"), { opacity: 1 }, { opacity: 0.45, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 5 }, 0.2);
+      // primer latido: el local pega un salto y los ojos se prenden
+      tl.to(q(".s09-local-in"), { rotation: 0, transformOrigin: "50% 100%", duration: 0.1 }, LAT + 0.05);
+      tl.fromTo(q(".s09-local"), { y: 1210 }, { y: 1170, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, LAT + 0.15);
+      tl.to(qa(".s09-ojo"), { opacity: 1, duration: 0.05 }, LAT + 0.15);
+      tl.to(q(".s09-cable-pac"), { stroke: "#5ce611", opacity: 1, duration: 0.05 }, LAT + 0.1);
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

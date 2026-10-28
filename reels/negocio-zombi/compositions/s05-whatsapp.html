@@ -1,0 +1,199 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-whatsapp"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-whatsapp"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-whatsapp"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-whatsapp"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s05-whatsapp"] .ln-ver { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-whatsapp"] .ln-nar { fill: none; stroke: #ff7a1a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-whatsapp"] .ln-vio { fill: none; stroke: #9b5cff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-whatsapp"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: #efeee5; }
+    [data-composition-id="s05-whatsapp"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s05-whatsapp"] .badge { fill: #ff7a1a; filter: drop-shadow(0 0 14px #ff7a1a); }
+    [data-composition-id="s05-whatsapp"] .badge-n { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; fill: #0d0819; }
+    [data-composition-id="s05-whatsapp"] .punto-nar { fill: #ff7a1a; }
+    [data-composition-id="s05-whatsapp"] .mano { filter: drop-shadow(0 0 12px #5ce611); }
+    [data-composition-id="s05-whatsapp"] .mancha { fill: #9b5cff; opacity: 0.85; }
+    [data-composition-id="s05-whatsapp"] .titulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s05-whatsapp"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ff7a1a; }
+    [data-composition-id="s05-whatsapp"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-whatsapp" data-width="1080" data-height="1920" data-duration="3.68">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.68" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- el celular que no da abasto -->
+        <g class="s05-tel">
+          <g class="s05-tel-in">
+            <rect class="ln s05-dib" x="380" y="630" width="320" height="560" rx="48" />
+            <line class="ln s05-dib" x1="505" y1="656" x2="575" y2="656" />
+            <circle class="ln s05-dib" cx="420" cy="700" r="18" />
+            <text class="ui-nombre s05-cab" x="450" y="709">Pedidos</text>
+            <line class="ln-tenue s05-dib" x1="400" y1="735" x2="680" y2="735" />
+            <!-- burbujas sin leer -->
+            <g class="s05-msg"><rect class="ln" x="400" y="756" width="200" height="54" rx="20" /><text class="ui" x="418" y="791">¿Hay stock?</text><circle class="punto-nar" cx="618" cy="783" r="7" /></g>
+            <g class="s05-msg"><rect class="ln" x="400" y="826" width="140" height="54" rx="20" /><text class="ui" x="418" y="861">Hola??</text><circle class="punto-nar" cx="558" cy="853" r="7" /></g>
+            <g class="s05-msg"><rect class="ln" x="400" y="896" width="210" height="54" rx="20" /><text class="ui" x="418" y="931">¿Abren hoy?</text><circle class="punto-nar" cx="628" cy="923" r="7" /></g>
+            <g class="s05-msg"><rect class="ln" x="400" y="966" width="160" height="54" rx="20" /><text class="ui" x="418" y="1001">¿Precio?</text><circle class="punto-nar" cx="578" cy="993" r="7" /></g>
+            <g class="s05-msg"><rect class="ln" x="400" y="1036" width="240" height="54" rx="20" /><text class="ui" x="418" y="1071">¿Hacen envío?</text><circle class="punto-nar" cx="658" cy="1063" r="7" /></g>
+            <rect class="ln-tenue s05-dib" x="400" y="1118" width="280" height="46" rx="23" />
+            <!-- badge naranja de sin leer: el número sube -->
+            <g class="s05-badge">
+              <circle class="badge" cx="700" cy="640" r="36" />
+              <text class="badge-n s05-n" x="700" y="652" text-anchor="middle">12</text>
+              <text class="badge-n s05-n" x="700" y="652" text-anchor="middle">17</text>
+              <text class="badge-n s05-n" x="700" y="652" text-anchor="middle">23</text>
+              <text class="badge-n s05-n" x="700" y="652" text-anchor="middle">31</text>
+              <text class="badge-n s05-n" x="700" y="652" text-anchor="middle">48</text>
+            </g>
+          </g>
+        </g>
+        <!-- la mano zombi, lenta y torpe, desde abajo a la derecha -->
+        <g class="s05-mano">
+          <g class="mano">
+            <path class="ln-ver" d="M880 1230 L768 1100" />
+            <path class="ln-ver" d="M915 1205 L792 1072" />
+            <path class="ln-ver" d="M768 1100 C 730 1100 712 1070 724 1046 C 738 1022 772 1028 792 1072" />
+            <path class="ln-ver" d="M728 1046 q-34 -14 -46 -52 l-10 6 M744 1034 q-14 -30 -6 -66 l-12 2 M764 1036 q6 -30 30 -54 l-12 -4 M722 1070 q-36 2 -58 -18" />
+            <!-- manga rota -->
+            <path class="ln s05-manga" d="M862 1250 L900 1190 L930 1222 L918 1236 L940 1250" />
+          </g>
+        </g>
+        <!-- el cuaderno -->
+        <g class="s05-cuad">
+          <g class="s05-cuad-in">
+            <path class="ln s05-cd" d="M540 790 C 460 770 340 770 250 790 V1150 C 340 1130 460 1130 540 1150 Z" />
+            <path class="ln s05-cd" d="M540 790 C 620 770 740 770 830 790 V1150 C 740 1130 620 1130 540 1150 Z" />
+            <path class="ln-tenue s05-cd" d="M280 880 H510 M280 940 H510 M280 1000 H510 M280 1060 H510 M570 880 H800 M570 940 H800 M570 1000 H800 M570 1060 H800" />
+            <text class="titulo s05-tit" x="395" y="845" text-anchor="middle">PEDIDOS</text>
+            <!-- garabatos -->
+            <path class="ln s05-gar" d="M285 872 q12 -22 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" />
+            <path class="ln s05-gar" d="M285 932 q10 -20 20 0 t20 0 t20 0 t20 0 t20 0" />
+            <path class="ln s05-gar" d="M285 992 q14 -22 28 0 t28 0 t28 0 t28 0 t28 0 t28 0" />
+            <path class="ln s05-gar" d="M575 872 q12 -22 24 0 t24 0 t24 0 t24 0 t24 0" />
+            <path class="ln s05-gar" d="M575 932 q12 -22 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" />
+            <!-- tachones naranjas -->
+            <path class="ln-nar s05-tach" d="M282 1052 L420 1040 L290 1068 L430 1058 L300 1080" />
+            <path class="ln-nar s05-tach" d="M578 990 L760 978 L590 1002 L770 994" />
+            <!-- mancha -->
+            <path class="mancha s05-mancha" d="M660 1060 c 20 -24 52 -18 60 4 c 22 -6 34 18 18 32 c 10 20 -16 34 -34 22 c -16 18 -46 8 -44 -12 c -22 -2 -24 -32 0 -46 Z" />
+          </g>
+        </g>
+        <!-- el lápiz que tiembla -->
+        <g class="s05-lapiz">
+          <path class="ln" d="M770 1120 L880 950 L905 966 L795 1136 Z" />
+          <path class="ln-nar" d="M770 1120 L765 1152 L795 1136" />
+          <path class="ln" d="M868 968 L893 984" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Contesta cuando puede</span><span class="s05-e2">Todo en un cuaderno</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-whatsapp";
+      const DUR = 3.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CUANDO = 0.56;
+      const ANOTA = 1.46;
+      const PEDIDOS = 2.16;
+      const CUADERNO = 2.76;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // celular: arranca medio dibujado (cuadro 0 no vacío) con un golpe
+      dibujar(qa(".s05-dib"), 0, 0.5, 0.45);
+      tl.fromTo(q(".s05-tel-in"), { scale: 0.9, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.45, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s05-cab"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.1);
+
+      // las burbujas entran volando de a una, apiladas
+      qa(".s05-msg").forEach((m, i) => {
+        tl.fromTo(m, { opacity: 0, x: -60, rotation: -6, transformOrigin: "0% 50%" }, { opacity: 1, x: 0, rotation: 0, transformOrigin: "0% 50%", duration: 0.3, ease: "back.out(2)" }, 0.08 + i * 0.12);
+      });
+
+      // badge: pop y el número que sube con punch
+      const nums = qa(".s05-n");
+      pop(q(".s05-badge"), 0.05, "700 640");
+      const CAMBIOS = [0, 0.55, 1.05, 1.7, 2.25];
+      nums.forEach((n, i) => {
+        gsap.set(n, { opacity: i === 0 ? 1 : 0 });
+        if (i > 0) {
+          tl.set(nums[i - 1], { opacity: 0 }, CAMBIOS[i]);
+          tl.set(n, { opacity: 1 }, CAMBIOS[i]);
+          tl.fromTo(q(".s05-badge"), { scale: 1.3, svgOrigin: "700 640" }, { scale: 1, svgOrigin: "700 640", duration: 0.3, ease: "back.out(3)" }, CAMBIOS[i]);
+        }
+      });
+      // el celular vibra con cada mensaje
+      [0.55, 1.05, 1.7, 2.25].forEach((t) => {
+        [0, 1, 2, 3].forEach((k) => tl.to(q(".s05-tel"), { x: k === 3 ? 0 : (k % 2 ? -8 : 8), rotation: k === 3 ? 0 : (k % 2 ? -1.2 : 1.2), svgOrigin: "540 910", duration: 0.03, ease: "none" }, t + k * 0.03));
+      });
+
+      // la mano zombi entra lenta y a los tirones (cuando puede)
+      const mano = q(".s05-mano");
+      gsap.set(mano, { opacity: 0, x: 170, y: 170 });
+      tl.to(mano, { opacity: 1, duration: 0.15 }, CUANDO - 0.2);
+      [[120, 130], [100, 100], [70, 80], [55, 55], [25, 30], [10, 8], [0, 0]].forEach(([x, y], i) => {
+        tl.to(mano, { x, y, rotation: i % 2 ? 3 : -3, svgOrigin: "880 1230", duration: 0.12, ease: "power3.out" }, CUANDO - 0.2 + i * 0.13);
+      });
+      // toca, torpe, y no le pega (el celular sigue sumando)
+      tl.to(mano, { x: -12, y: -14, rotation: 0, duration: 0.1, ease: "power2.in" }, ANOTA - 0.05);
+      tl.to(mano, { x: 0, y: 0, duration: 0.25, ease: "back.out(2)" }, ANOTA + 0.05);
+      tl.to(mano, { x: -10, y: -10, duration: 0.1, ease: "power2.in" }, ANOTA + 0.4);
+      tl.to(mano, { x: 6, y: 4, rotation: -4, svgOrigin: "880 1230", duration: 0.3, ease: "sine.inOut" }, ANOTA + 0.5);
+      tl.fromTo(q(".s05-manga"), { rotation: -4, svgOrigin: "900 1220" }, { rotation: 4, svgOrigin: "900 1220", duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 7 }, CUANDO);
+
+      tl.fromTo(q(".s05-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CUANDO);
+
+      // "pedidos": el celular y la mano se van volando a la izquierda
+      tl.to(q(".s05-tel"), { x: -560, rotation: -18, svgOrigin: "540 910", opacity: 0, duration: 0.4, ease: "power3.in" }, PEDIDOS + 0.3);
+      tl.to(mano, { x: 260, y: 260, opacity: 0, duration: 0.35, ease: "power3.in" }, PEDIDOS + 0.3);
+
+      // "cuaderno": entra volando de la derecha con golpe
+      const cuad = q(".s05-cuad");
+      gsap.set(cuad, { opacity: 0 });
+      tl.to(cuad, { opacity: 1, duration: 0.05 }, CUADERNO - 0.22);
+      tl.fromTo(q(".s05-cuad-in"), { x: 620, rotation: 14, transformOrigin: "50% 50%" }, { x: 0, rotation: -3, transformOrigin: "50% 50%", duration: 0.4, ease: "back.out(1.5)" }, CUADERNO - 0.22);
+      dibujar(qa(".s05-cd"), CUADERNO - 0.22, 0.3, 0.5);
+      tl.fromTo(q(".s05-tit"), { opacity: 0 }, { opacity: 1, duration: 0.15 }, CUADERNO - 0.05);
+      dibujar(qa(".s05-gar"), CUADERNO, 0.25);
+      dibujar(qa(".s05-tach"), CUADERNO + 0.3, 0.2);
+      tl.fromTo(q(".s05-mancha"), { opacity: 0, scale: 0.2, svgOrigin: "690 1080" }, { opacity: 0.85, scale: 1, svgOrigin: "690 1080", duration: 0.3, ease: "back.out(2.5)" }, CUADERNO + 0.2);
+
+      // el lápiz entra y tiembla
+      const lapiz = q(".s05-lapiz");
+      gsap.set(lapiz, { opacity: 0 });
+      tl.to(lapiz, { opacity: 1, duration: 0.05 }, CUADERNO - 0.1);
+      tl.fromTo(lapiz, { x: 160, y: -120 }, { x: 0, y: 0, duration: 0.3, ease: "back.out(1.6)" }, CUADERNO - 0.1);
+      tl.to(lapiz, { x: -50, duration: 0.07, ease: "sine.inOut", yoyo: true, repeat: 7 }, CUADERNO + 0.2);
+      tl.to(lapiz, { rotation: 3, svgOrigin: "770 1120", duration: 0.04, ease: "none", yoyo: true, repeat: 11 }, CUADERNO + 0.2);
+
+      tl.to(q(".s05-e1"), { opacity: 0, duration: 0.15 }, CUADERNO - 0.15);
+      tl.fromTo(q(".s05-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CUADERNO);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

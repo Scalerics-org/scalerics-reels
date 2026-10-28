@@ -1,0 +1,132 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-zombi"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-zombi"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-zombi"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-zombi"] .ln-ver { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-zombi"] .ln-nar { fill: none; stroke: #ff7a1a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-zombi"] .ojo { fill: #5ce611; }
+    [data-composition-id="s01-zombi"] .pupila { fill: #0d0819; }
+    [data-composition-id="s01-zombi"] .rip { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 54px; letter-spacing: 0.08em; fill: #ff7a1a; }
+    [data-composition-id="s01-zombi"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s01-zombi"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ff7a1a; }
+    [data-composition-id="s01-zombi"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-zombi" data-width="1080" data-height="1920" data-duration="4.06">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.06" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s01-suelo" x1="120" y1="1150" x2="960" y2="1150" />
+        <!-- grietas en el suelo -->
+        <path class="ln-nar s01-grieta" d="M540 1150 l-30 22 l14 18 l-26 24" />
+        <path class="ln-nar s01-grieta" d="M560 1150 l26 18 l-8 20 l30 20" />
+        <path class="ln-nar s01-grieta" d="M470 1150 l-40 12 l-20 22" />
+        <!-- la lápida -->
+        <g class="s01-lapida">
+          <g class="s01-lapida-in">
+            <path class="ln s01-lap" d="M-95 0 V-170 A95 95 0 0 1 95 -170 V0" />
+            <line class="ln s01-lap" x1="-130" y1="0" x2="130" y2="0" />
+            <text class="rip s01-rip" x="0" y="-150" text-anchor="middle">RIP</text>
+            <path class="ln s01-lap" d="M-50 -90 H50 M-50 -60 H30" />
+          </g>
+        </g>
+        <!-- badge de "no": círculo naranja con X, arriba a la derecha de la lápida -->
+        <g class="s01-no">
+          <circle class="ln-nar" cx="650" cy="880" r="22" />
+          <path class="ln-nar" d="M640 870 L660 890 M660 870 L640 890" />
+        </g>
+        <!-- EL LOCAL ZOMBI: el personaje de todo el reel (copialo tal cual) -->
+        <g class="s01-local">
+          <g class="s01-local-in"><g transform="scale(1.3)">
+            <!-- brazos verdes estirados hacia adelante -->
+            <path class="ln-ver s01-brazo" d="M-120 -100 H-250 M-250 -100 l-22 -14 M-250 -100 l-26 0 M-250 -100 l-22 14" />
+            <path class="ln-ver s01-brazo" d="M120 -100 H250 M250 -100 l22 -14 M250 -100 l26 0 M250 -100 l22 14" />
+            <path class="ln" d="M-120 0 V-170 H120 V0" />
+            <!-- toldo torcido -->
+            <path class="ln" d="M-142 -166 L138 -178 L118 -228 L-124 -218 Z" />
+            <path class="ln" d="M-142 -166 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2 q17.5 26 35 -1 q17.5 26 35 -2" />
+            <rect class="ln" x="-80" y="-296" width="160" height="50" rx="10" transform="rotate(-6 0 -271)" />
+            <text class="cartel" x="0" y="-263" text-anchor="middle" transform="rotate(-6 0 -271)">TU LOCAL</text>
+            <!-- ventanas = ojos verdes con pupila -->
+            <rect class="ln" x="-100" y="-130" width="62" height="56" rx="6" />
+            <rect class="ln" x="38" y="-124" width="62" height="50" rx="6" />
+            <rect class="ojo" x="-92" y="-122" width="46" height="40" rx="4" />
+            <rect class="ojo" x="46" y="-116" width="46" height="34" rx="4" />
+            <circle class="pupila s01-pupila" cx="-66" cy="-100" r="9" />
+            <circle class="pupila s01-pupila" cx="72" cy="-98" r="9" />
+            <!-- puerta = boca con dientes -->
+            <path class="ln" d="M-30 0 V-60 L-18 -48 L-6 -60 L6 -48 L18 -60 L30 -48 V0" />
+          </g>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">No está muerto</span><span class="s01-e2">Es un zombi</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-zombi";
+      const DUR = 4.06;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const MUERTO = 1.0;
+      const PEOR = 2.02;
+      const ZOMBI = 3.0;
+
+      const SUELO = 1150;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          // si arranca a medio dibujar (desde), se ve desde el cuadro 0
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // la lápida ya está en el cuadro 0 y entra con un golpe
+      gsap.set(q(".s01-lapida"), { x: 540, y: SUELO });
+      tl.fromTo(q(".s01-lapida-in"), { scale: 0.85, svgOrigin: "0 -100" }, { scale: 1, svgOrigin: "0 -100", duration: 0.5, ease: "back.out(1.8)" }, 0);
+      tl.fromTo(q(".s01-suelo"), { scaleX: 0.6, svgOrigin: "540 1150" }, { scaleX: 1, svgOrigin: "540 1150", duration: 0.6, ease: "power3.out" }, 0);
+
+      // "no está muerto": badge naranja con sacudón (el rayo lo pone ambiente.html)
+      tl.fromTo(q(".s01-no"), { opacity: 0, scale: 0.4, svgOrigin: "650 880" }, { opacity: 1, scale: 1, svgOrigin: "650 880", duration: 0.3, ease: "back.out(2.5)" }, MUERTO);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, MUERTO);
+
+      // "es peor": la lápida tiembla y el suelo se agrieta en naranja
+      tl.to(q(".s01-lapida-in"), { x: 6, duration: 0.05, ease: "none", yoyo: true, repeat: 9 }, PEOR);
+      tl.to(q(".s01-no"), { opacity: 0, duration: 0.2 }, PEOR + 0.2);
+      dibujar(qa(".s01-grieta"), PEOR + 0.1, 0.4);
+
+      // "zombi": la lápida se hunde y del suelo sale el local zombi, con glitch
+      tl.to(q(".s01-lapida"), { y: SUELO + 260, opacity: 0, duration: 0.35, ease: "power3.in" }, ZOMBI - 0.25);
+      tl.to(qa(".s01-grieta"), { opacity: 0, duration: 0.3 }, ZOMBI);
+      gsap.set(q(".s01-local"), { x: 540, y: SUELO, opacity: 0 });
+      tl.to(q(".s01-local"), { opacity: 1, duration: 0.05 }, ZOMBI);
+      tl.fromTo(q(".s01-local-in"), { y: 300, scaleY: 0.6, transformOrigin: "50% 100%" }, { y: 0, scaleY: 1, transformOrigin: "50% 100%", duration: 0.45, ease: "back.out(1.6)" }, ZOMBI);
+      // glitch: saltos secos a los costados (tweens finitos)
+      [0.05, 0.1, 0.16].forEach((d, i) => tl.to(q(".s01-local"), { x: 540 + (i % 2 ? -14 : 18), duration: 0.03, ease: "none" }, ZOMBI + 0.45 + d));
+      tl.to(q(".s01-local"), { x: 540, duration: 0.03, ease: "none" }, ZOMBI + 0.66);
+      // los brazos se estiran hacia adelante y se mecen
+      tl.fromTo(qa(".s01-brazo"), { scaleX: 0.2, transformOrigin: "50% 50%" }, { scaleX: 1, transformOrigin: "50% 50%", duration: 0.4, ease: "back.out(2)" }, ZOMBI + 0.2);
+      tl.to(qa(".s01-brazo"), { y: 8, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, ZOMBI + 0.6);
+      tl.fromTo(qa(".s01-pupila"), { x: -6 }, { x: 6, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, ZOMBI + 0.4);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.15 }, ZOMBI - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, ZOMBI);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
