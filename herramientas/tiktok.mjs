@@ -62,7 +62,7 @@ export async function publicarTikTok(acceso, bytes, caption, prueba) {
   const quiero = process.env.TIKTOK_PRIVACIDAD || "SELF_ONLY";
   const privacidad = creador.privacy_level_options?.includes(quiero) ? quiero : "SELF_ONLY";
   const ini = await api(acceso, "/post/publish/video/init/", {
-    post_info: { title: caption.slice(0, 2200), privacy_level: privacidad, disable_comment: false, disable_duet: false, disable_stitch: false },
+    post_info: { title: caption.slice(0, 2200), privacy_level: privacidad, disable_comment: false, disable_duet: false, disable_stitch: false, is_aigc: true },
     source_info: { source: "FILE_UPLOAD", video_size: bytes.length, chunk_size: bytes.length, total_chunk_count: 1 },
   });
   const sub = await fetch(ini.upload_url, {

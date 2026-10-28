@@ -22,6 +22,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+      # las ramas reel/* tienen los mp4: la cola automática los saca de ahí
+      - run: git fetch --no-tags --depth=1 origin "+refs/heads/reel/*:refs/remotes/origin/reel/*"
       - uses: actions/setup-node@v4
         with:
           node-version: 22

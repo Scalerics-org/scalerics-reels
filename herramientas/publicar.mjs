@@ -13,6 +13,7 @@
 // para arrancar: después se renueva solo y vive en gs://scalerics-reels-estado/ig.json),
 // DRIVE_APROBADOS y DRIVE_PUBLICADOS (ids de las carpetas).
 import fs from "node:fs";
+import { execFileSync } from "node:child_process";
 import { tokenGoogle } from "./google.mjs";
 import { accesoTikTok, publicarTikTok } from "./tiktok.mjs";
 
@@ -42,6 +43,13 @@ async function pedir(url, opciones = {}, como = "json") {
 }
 
 const BUCKET_ESTADO_TT = "scalerics-reels-estado";
+async function estadoJson(nombre, valor) {
+  const base = `https://storage.googleapis.com/storage/v1/b/${BUCKET_ESTADO_TT}/o`;
+  if (valor === undefined) {
+    try { return await pedir(`${base}/${nombre}?alt=media`, { headers: conG }); } catch { return null; }
+  }
+  await pedir(`https://storage.googleapis.com/upload/storage/v1/b/${BUCKET_ESTADO_TT}/o?uploadType=media&name=${nombre}`, { method: "POST", headers: { ...conG, "Content-Type": "application/json" }, body: JSON.stringify(valor) });
+}
 const estadoTikTok = {
   leer: async () => { try { return await pedir(`https://storage.googleapis.com/storage/v1/b/${BUCKET_ESTADO_TT}/o/tiktok.json?alt=media`, { headers: conG }); } catch { return null; } },
   guardar: (o) => pedir(`https://storage.googleapis.com/upload/storage/v1/b/${BUCKET_ESTADO_TT}/o?uploadType=media&name=tiktok.json`, { method: "POST", headers: { ...conG, "Content-Type": "application/json" }, body: JSON.stringify(o) }),
@@ -50,6 +58,8 @@ const accesoTT = process.env.TIKTOK_CLIENT_SECRET ? await accesoTikTok(estadoTik
 console.log(accesoTT ? "tiktok: autorizado" : "tiktok: sin autorizar todavía");
 
 
+const publicados = (await estadoJson("publicados.json")) || [];
+
 // 1. El aprobado más viejo
 const q = encodeURIComponent(`'${APROBADOS}' in parents and trashed = false`);
 const { files } = await pedir(
@@ -57,27 +67,46 @@ const { files } = await pedir(
   { headers: conG },
 );
 const videos = files.filter((f) => f.mimeType.startsWith("video/"));
-if (!videos.length) {
-  console.log("nada para publicar: la carpeta de aprobados no tiene videos");
-  process.exit(0);
+// Si la carpeta de Drive está vacía, sale el reel MÁS NUEVO del repo que todavía no se publicó
+// (orden de "Hechos" en ideas.md), salvo los que estén en no-publicar.txt.
+const video = videos[0] || null;
+let base, slug, bytesRepo;
+if (video) {
+  base = video.name.replace(/\.[^.]+$/, "");
+  slug = base.replace(/-(final|halloween)$/, "");
+  console.log(`toca (Drive): ${video.name} (quedan ${videos.length - 1} más en la carpeta)`);
+} else {
+  const veto = fs.existsSync("no-publicar.txt") ? fs.readFileSync("no-publicar.txt", "utf8").split(/\s+/).filter(Boolean) : [];
+  const hechos = [...fs.readFileSync("ideas.md", "utf8").matchAll(/^- \d\d-\d\d · `([a-z0-9-]+)`/gm)].map((m) => m[1]);
+  const pendientes = hechos.filter((h) => !publicados.includes(h) && !veto.includes(h)).reverse();
+  for (const s2 of pendientes) {
+    try {
+      bytesRepo = execFileSync("git", ["show", `origin/reel/${s2}:reels/${s2}/renders/${s2}-final.mp4`], { maxBuffer: 200e6 });
+    } catch {
+      continue; // sin render en su rama
+    }
+    slug = base = s2;
+    break;
+  }
+  if (!slug) {
+    console.log("nada para publicar: ni la carpeta de Drive ni el repo tienen reels pendientes");
+    process.exit(0);
+  }
+  console.log(`toca (repo): ${slug} (quedan ${pendientes.length - 1} pendientes)`);
 }
-const video = videos[0];
-const base = video.name.replace(/\.[^.]+$/, "");
-const slug = base.replace(/-(final|halloween)$/, "");
-console.log(`toca: ${video.name} (quedan ${videos.length - 1} más en la cola)`);
 
 // 2. La descripción
-let caption = (video.description || "").trim();
-const txt = files.find((f) => f.name === base + ".txt");
+let caption = ((video && video.description) || "").trim();
+const txt = video ? files.find((f) => f.name === base + ".txt") : null;
 if (!caption && txt) caption = (await pedir(`https://www.googleapis.com/drive/v3/files/${txt.id}?alt=media`, { headers: conG }, "texto")).trim();
 for (const p of [`reels/${base}/descripcion.txt`, `reels/${slug}/descripcion.txt`]) {
   if (!caption && fs.existsSync(p)) caption = fs.readFileSync(p, "utf8").trim();
 }
-if (!caption) throw new Error(`no encontré la descripción de ${video.name}: ponela en Drive, en ${base}.txt o en reels/${slug}/descripcion.txt`);
+if (!caption) throw new Error(`no encontré la descripción de ${base}: ponela en Drive, en ${base}.txt o en reels/${slug}/descripcion.txt`);
 console.log("descripción:\n" + caption.split("\n").map((l) => "  " + l).join("\n"));
 
 // 3. Al bucket público
-const bytes = await pedir(`https://www.googleapis.com/drive/v3/files/${video.id}?alt=media&supportsAllDrives=true`, { headers: conG }, "bytes");
+const bytes = video ? await pedir(`https://www.googleapis.com/drive/v3/files/${video.id}?alt=media&supportsAllDrives=true`, { headers: conG }, "bytes") : bytesRepo;
 const objeto = `${base}-${Date.now()}.mp4`;
 await pedir(`https://storage.googleapis.com/upload/storage/v1/b/${BUCKET_VIDEOS}/o?uploadType=media&name=${encodeURIComponent(objeto)}`, {
   method: "POST",
@@ -154,8 +183,9 @@ if (accesoTT) {
   }
 }
 
-// 6. A "publicados"
-await pedir(`https://www.googleapis.com/drive/v3/files/${video.id}?addParents=${PUBLICADOS}&removeParents=${APROBADOS}&supportsAllDrives=true`, {
+// 6. Registrar y, si vino de Drive, pasarlo a "publicados"
+await estadoJson("publicados.json", [...publicados, slug]);
+if (video) await pedir(`https://www.googleapis.com/drive/v3/files/${video.id}?addParents=${PUBLICADOS}&removeParents=${APROBADOS}&supportsAllDrives=true`, {
   method: "PATCH",
   headers: conG,
 });
@@ -165,4 +195,4 @@ if (txt) {
     headers: conG,
   });
 }
-console.log(`movido a "Reels: publicados"`);
+console.log(video ? `movido a "Reels: publicados"` : `anotado como publicado: ${slug}`);
