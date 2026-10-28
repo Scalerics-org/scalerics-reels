@@ -1,0 +1,7 @@
+[
+  {"t": 0.0, "sfx": "pop", "vol": 0.3},
+  {"t": 1.95, "sfx": "click", "vol": 0.28},
+  {"t": 3.5, "sfx": "click", "vol": 0.28},
+  {"t": 4.75, "sfx": "click-soft", "vol": 0.22},
+  {"t": 5.05, "sfx": "click", "vol": 0.3}
+]

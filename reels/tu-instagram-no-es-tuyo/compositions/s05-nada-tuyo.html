@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-nada-tuyo"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-nada-tuyo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-nada-tuyo"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-nada-tuyo"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-nada-tuyo"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.18); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s05-nada-tuyo"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-nada-tuyo"] .ln-badge { fill: #0b1d35; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s05-nada-tuyo"] .s05-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #efeee5; }
+    [data-composition-id="s05-nada-tuyo"] .s05-estado { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #5ce611; }
+    [data-composition-id="s05-nada-tuyo"] .s05-cero { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 56px; fill: #5ce611; }
+    [data-composition-id="s05-nada-tuyo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-nada-tuyo"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-nada-tuyo" data-width="1080" data-height="1920" data-duration="6.61">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="6.61" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="ln-tenue s05-div" d="M140 812 H940" />
+        <path class="ln-tenue s05-div" d="M140 1012 H940" />
+
+        <!-- fila 1: seguidores -->
+        <g class="s05-fila s05-f1">
+          <g class="s05-ico1">
+            <circle class="ln s05-d1" cx="-40" cy="-22" r="14" />
+            <path class="ln s05-d1" d="M-62 30 a22 22 0 0 1 44 0" />
+            <circle class="ln s05-d1" cx="40" cy="-22" r="14" />
+            <path class="ln s05-d1" d="M18 30 a22 22 0 0 1 44 0" />
+            <circle class="ln s05-d1" cx="0" cy="-34" r="18" />
+            <path class="ln s05-d1" d="M-28 30 a28 28 0 0 1 56 0" />
+          </g>
+          <text class="s05-nombre s05-n1" x="130" y="-6">Seguidores</text>
+          <text class="s05-estado s05-s1" x="130" y="38">SON DE INSTAGRAM</text>
+        </g>
+        <!-- fila 2: ventas por mensajes -->
+        <g class="s05-fila s05-f2">
+          <g class="s05-ico2">
+            <path class="ln s05-d2" d="M-62 -46 H14 Q26 -46 26 -34 V-4 Q26 8 14 8 H-34 L-50 22 V8 H-62 Q-74 8 -74 -4 V-34 Q-74 -46 -62 -46 Z" />
+            <path class="ln s05-d2" d="M-6 0 H58 Q70 0 70 12 V36 Q70 48 58 48 H50 V62 L34 48 H-6 Q-18 48 -18 36 V12 Q-18 0 -6 0 Z" />
+            <path class="ln-4 s05-d2" d="M-52 -20 H2" />
+          </g>
+          <text class="s05-nombre s05-n2" x="130" y="-6">Tus ventas</text>
+          <text class="s05-estado s05-s2" x="130" y="38">NO LAS CONTROLÁS</text>
+        </g>
+        <!-- fila 3: la libreta de clientes -->
+        <g class="s05-fila s05-f3">
+          <g class="s05-ico3">
+            <rect class="ln s05-d3" x="-48" y="-60" width="96" height="120" rx="10" />
+            <path class="ln-4 s05-d3" d="M-48 -34 H-60 M-48 -6 H-60 M-48 22 H-60" />
+            <path class="ln-4 s05-renglon" d="M-26 -30 H28" />
+            <path class="ln-4 s05-renglon" d="M-26 -4 H28" />
+            <path class="ln-4 s05-renglon" d="M-26 22 H14" />
+            <text class="s05-cero" x="0" y="20" text-anchor="middle">0</text>
+          </g>
+          <text class="s05-nombre s05-n3" x="130" y="-6">Tu lista</text>
+          <text class="s05-estado s05-s3" x="130" y="38">NO EXISTE</text>
+        </g>
+
+        <!-- badges -->
+        <g class="s05-badge s05-b1"><circle class="ln-badge" cx="0" cy="0" r="24" /><path class="ln-ac" d="M-9 -9 L9 9 M9 -9 L-9 9" /></g>
+        <g class="s05-badge s05-b2"><circle class="ln-badge" cx="0" cy="0" r="24" /><path class="ln-ac" d="M-9 -9 L9 9 M9 -9 L-9 9" /></g>
+        <g class="s05-badge s05-b3"><circle class="ln-badge" cx="0" cy="0" r="24" /><path class="ln-ac" d="M-9 -9 L9 9 M9 -9 L-9 9" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Nada es tuyo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-nada-tuyo";
+      const DUR = 6.61;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const SEGUIDORES = 0.16;
+      const INSTAGRAM = 0.86;
+      const VENTAS = 1.86;
+      const MENSAJES = 2.76;
+      const CONTROLAS = 3.46;
+      const LISTA = 4.66;
+      const EXISTE = 5.66;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const entra = (el, t) => tl.fromTo(el, { opacity: 0, x: "-=16" }, { opacity: 1, x: "+=16", duration: 0.35, ease: "power3.out" }, t);
+      const badge = (el, t) => tl.fromTo(el, { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, t);
+
+      const FY = [712, 912, 1112];
+      [".s05-f1", ".s05-f2", ".s05-f3"].forEach((c, i) => gsap.set(q(c), { x: 230, y: FY[i] }));
+      [".s05-b1", ".s05-b2", ".s05-b3"].forEach((c, i) => gsap.set(q(c), { x: 900, y: FY[i] }));
+      gsap.set(qa(".s05-nombre, .s05-estado, .s05-cero"), { opacity: 0 });
+
+      dibujar(qa(".s05-div"), 0, 0.6);
+
+      // fila 1: "seguidores" → "de Instagram"
+      dibujar(qa(".s05-d1"), 0, 0.4);
+      entra(q(".s05-n1"), SEGUIDORES);
+      entra(q(".s05-s1"), INSTAGRAM);
+      badge(q(".s05-b1"), INSTAGRAM + 0.2);
+      tl.to(q(".s05-ico1"), { x: 10, duration: 0.08, ease: "none", yoyo: true, repeat: 3 }, INSTAGRAM + 0.2);
+      tl.to(qa(".s05-d1"), { opacity: 0.4, duration: 0.3 }, INSTAGRAM + 0.45);
+
+      // fila 2: "ventas" → "mensajes" → "no controlás"
+      entra(q(".s05-n2"), VENTAS);
+      dibujar(qa(".s05-d2"), MENSAJES - 0.35, 0.4);
+      tl.to(q(".s05-ico2"), { y: -8, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 3 }, MENSAJES + 0.1);
+      entra(q(".s05-s2"), CONTROLAS);
+      badge(q(".s05-b2"), CONTROLAS + 0.2);
+      tl.to(qa(".s05-d2"), { opacity: 0.4, duration: 0.3 }, CONTROLAS + 0.45);
+
+      // fila 3: "lista" → "no existe": los renglones se borran y queda un 0
+      dibujar(qa(".s05-d3"), LISTA - 0.4, 0.4);
+      dibujar(qa(".s05-renglon"), LISTA - 0.1, 0.25);
+      entra(q(".s05-n3"), LISTA);
+      qa(".s05-renglon").forEach((r, i) => tl.to(r, { opacity: 0, scaleX: 0, transformOrigin: "100% 50%", duration: 0.18, ease: "power2.in" }, EXISTE - 0.25 + i * 0.06));
+      tl.fromTo(q(".s05-cero"), { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, EXISTE);
+      entra(q(".s05-s3"), EXISTE);
+      badge(q(".s05-b3"), EXISTE + 0.15);
+
+      tl.fromTo(q(".s05-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, EXISTE + 0.25);
+      qa(".s05-badge").forEach((b, i) => tl.to(b, { scale: 1.2, transformOrigin: "50% 50%", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, EXISTE + 0.45 + i * 0.07));
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

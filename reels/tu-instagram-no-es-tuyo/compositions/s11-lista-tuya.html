@@ -1,0 +1,157 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-lista-tuya"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-lista-tuya"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-lista-tuya"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-lista-tuya"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-lista-tuya"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s11-lista-tuya"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-lista-tuya"] .ln-ac-g { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-lista-tuya"] .tapa { fill: #0b1d35; stroke: #efeee5; stroke-width: 5; stroke-linejoin: round; }
+    [data-composition-id="s11-lista-tuya"] .tapa-ac { fill: #0b1d35; stroke: #5ce611; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s11-lista-tuya"] .relleno { fill: #5ce611; }
+    [data-composition-id="s11-lista-tuya"] .punto { fill: #efeee5; }
+    [data-composition-id="s11-lista-tuya"] .s11-titulo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; fill: #efeee5; }
+    [data-composition-id="s11-lista-tuya"] .s11-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s11-lista-tuya"] .s11-ini { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 22px; fill: #5ce611; }
+    [data-composition-id="s11-lista-tuya"] .s11-peso { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; fill: #5ce611; }
+    [data-composition-id="s11-lista-tuya"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-lista-tuya"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s11-lista-tuya" data-width="1080" data-height="1920" data-duration="5.22">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="5.22" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- el ticket de compra -->
+        <g class="s11-ticket">
+          <path class="ln s11-dt" d="M150 720 H330 V960 L315 945 L300 960 L285 945 L270 960 L255 945 L240 960 L225 945 L210 960 L195 945 L180 960 L165 945 L150 960 Z" />
+          <text class="s11-peso s11-dt-txt" x="240" y="786" text-anchor="middle">$</text>
+          <path class="ln-tenue s11-dt" d="M176 830 H304 M176 862 H280 M176 894 H304" />
+          <path class="ln-ac-g s11-dt-tilde" d="M206 918 L226 936 L262 902" />
+        </g>
+        <!-- Instagram candadeado (pase lo que pase) -->
+        <g class="s11-insta">
+          <rect class="ln" x="160" y="760" width="160" height="290" rx="30" />
+          <path class="ln" d="M220 776 H260" />
+          <g opacity="0.5">
+            <rect class="ln-4" x="204" y="806" width="72" height="72" rx="22" />
+            <circle class="ln-4" cx="240" cy="842" r="17" />
+            <circle class="punto" cx="261" cy="822" r="5" />
+          </g>
+          <g class="s11-candado">
+            <path class="ln-ac-g s11-aro" d="M214 950 V922 Q214 896 240 896 Q266 896 266 922 V950" />
+            <rect class="tapa-ac" x="196" y="944" width="88" height="72" rx="14" />
+            <circle class="relleno" cx="240" cy="976" r="8" />
+          </g>
+        </g>
+
+        <!-- la lista de clientes -->
+        <g class="s11-lista">
+          <rect class="ln s11-dl" x="440" y="640" width="500" height="490" rx="26" />
+          <text class="s11-titulo s11-tit" x="476" y="700">Tus clientes</text>
+          <path class="ln-4 s11-dl" d="M440 724 H940" />
+          <g class="s11-fila s11-f0"><circle class="ln-4" cx="500" cy="780" r="28" /><text class="s11-ini" x="500" y="788" text-anchor="middle">LM</text><text class="s11-nom" x="546" y="776">Lucía M.</text><path class="ln-tenue" d="M548 800 H700" /></g>
+          <g class="s11-fila s11-f1"><circle class="ln-4" cx="500" cy="868" r="28" /><text class="s11-ini" x="500" y="876" text-anchor="middle">MR</text><text class="s11-nom" x="546" y="864">Martín R.</text><path class="ln-tenue" d="M548 888 H700" /></g>
+          <g class="s11-fila s11-f2"><circle class="ln-4" cx="500" cy="956" r="28" /><text class="s11-ini" x="500" y="964" text-anchor="middle">SP</text><text class="s11-nom" x="546" y="952">Sofía P.</text><path class="ln-tenue" d="M548 976 H700" /></g>
+          <g class="s11-fila s11-f3"><circle class="ln-4" cx="500" cy="1044" r="28" /><text class="s11-ini" x="500" y="1052" text-anchor="middle">DA</text><text class="s11-nom" x="546" y="1040">Diego A.</text><path class="ln-tenue" d="M548 1064 H700" /></g>
+        </g>
+        <!-- la tarjeta que vuela del ticket a la lista -->
+        <g class="s11-vuela">
+          <rect class="tapa" x="-150" y="-44" width="300" height="88" rx="18" />
+          <circle class="ln-4" cx="-100" cy="0" r="24" />
+          <text class="s11-ini" x="-100" y="8" text-anchor="middle">LM</text>
+          <path class="ln-4" d="M-60 -10 H90" />
+          <path class="ln-tenue" d="M-60 16 H50" />
+        </g>
+        <!-- la llave -->
+        <g class="s11-llave">
+          <g class="s11-llave-in">
+            <circle class="tapa-ac" cx="0" cy="0" r="30" />
+            <path class="ln-ac-g" d="M30 0 H110 M86 0 V22 M102 0 V18" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Cada compra, un contacto</span><span class="s11-e2">Tu lista, siempre</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-lista-tuya";
+      const DUR = 5.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const COMPRA = 0.48;
+      const CONTACTO = 1.48;
+      const CLIENTE = 2.18;
+      const LISTA = 2.88;
+      const TUYA = 3.65;
+      const PASE = 4.03;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, extra) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, Object.assign({ opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, extra || {}), t);
+      };
+
+      gsap.set(qa(".s11-fila, .s11-tit, .s11-vuela, .s11-llave, .s11-insta, .s11-dt-txt"), { opacity: 0 });
+
+      // "cada compra": el ticket se imprime
+      dibujar(qa(".s11-dt"), 0, 0.45);
+      pop(q(".s11-dt-txt"), COMPRA - 0.1);
+      dibujar([q(".s11-dt-tilde")], COMPRA + 0.15, 0.25);
+      tl.fromTo(q(".s11-ticket"), { y: -20 }, { y: 0, duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s11-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, COMPRA);
+      // la lista se dibuja vacía
+      dibujar(qa(".s11-dl"), 0.6, 0.45);
+      tl.fromTo(q(".s11-tit"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 0.9);
+
+      // "contacto": sale la tarjeta del ticket y vuela a la primera fila
+      tl.fromTo(q(".s11-vuela"), { x: 240, y: 860, opacity: 0 }, { x: 240, y: 680, opacity: 1, duration: 0.3, ease: "power3.out" }, CONTACTO - 0.15);
+      tl.to(q(".s11-vuela"), { x: 650, y: 780, duration: 0.45, ease: "power2.inOut" }, CONTACTO + 0.2);
+      tl.to(q(".s11-vuela"), { opacity: 0, duration: 0.12 }, CONTACTO + 0.62);
+      tl.fromTo(q(".s11-f0"), { opacity: 0 }, { opacity: 1, duration: 0.12 }, CONTACTO + 0.6);
+      tl.to(q(".s11-f0"), { x: 8, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, CLIENTE - 0.05);
+
+      // "lista": se llenan las demás filas
+      [".s11-f1", ".s11-f2", ".s11-f3"].forEach((f, i) => {
+        tl.fromTo(q(f), { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.28, ease: "power3.out" }, LISTA - 0.2 + i * 0.13);
+      });
+
+      // "tuya": la llave verde y golpe de la lista
+      tl.fromTo(q(".s11-llave"), { x: 1010, y: 560, opacity: 0 }, { x: 900, y: 640, opacity: 1, duration: 0.3, ease: "power3.out" }, TUYA - 0.2);
+      gsap.set(q(".s11-llave-in"), { rotation: -50, svgOrigin: "0 0" });
+      tl.to(q(".s11-llave-in"), { rotation: -20, svgOrigin: "0 0", duration: 0.25, ease: "back.out(2)" }, TUYA + 0.1);
+      tl.to(q(".s11-lista"), { scale: 1.04, svgOrigin: "690 885", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, TUYA);
+      tl.to(qa(".s11-ini"), { scale: 1.2, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1 }, TUYA + 0.05);
+      tl.to(q(".s11-e1"), { opacity: 0, duration: 0.2 }, TUYA - 0.15);
+      tl.fromTo(q(".s11-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, TUYA);
+
+      // "pase lo que pase": el ticket se va, aparece Instagram y se candadea; la lista sigue
+      tl.to(q(".s11-ticket"), { opacity: 0, y: 20, duration: 0.2, ease: "power2.in" }, PASE - 0.25);
+      tl.fromTo(q(".s11-insta"), { opacity: 0, scale: 0.9, svgOrigin: "240 905" }, { opacity: 1, scale: 1, svgOrigin: "240 905", duration: 0.3, ease: "back.out(1.6)" }, PASE - 0.05);
+      tl.fromTo(q(".s11-aro"), { y: -20 }, { y: 0, duration: 0.12, ease: "power4.in" }, PASE + 0.3);
+      tl.to(q(".s11-insta"), { opacity: 0.45, duration: 0.3 }, PASE + 0.5);
+      tl.to(q(".s11-lista"), { y: -6, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, PASE + 0.5);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

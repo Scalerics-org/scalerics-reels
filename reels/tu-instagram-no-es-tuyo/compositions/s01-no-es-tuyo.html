@@ -1,0 +1,162 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-no-es-tuyo"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-no-es-tuyo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-no-es-tuyo"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-no-es-tuyo"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-no-es-tuyo"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-no-es-tuyo"] .ln-ac-g { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-no-es-tuyo"] .tapa { fill: #0b1d35; stroke: #5ce611; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s01-no-es-tuyo"] .relleno { fill: #5ce611; }
+    [data-composition-id="s01-no-es-tuyo"] .punto { fill: #efeee5; }
+    [data-composition-id="s01-no-es-tuyo"] .s01-usuario { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s01-no-es-tuyo"] .s01-tag-txt { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s01-no-es-tuyo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-no-es-tuyo"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-no-es-tuyo" data-width="1080" data-height="1920" data-duration="4.14">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.14" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s01-todo">
+          <!-- celular con el perfil -->
+          <g class="s01-cel">
+            <rect class="ln s01-dib-cel" x="370" y="610" width="340" height="600" rx="52" />
+            <path class="ln s01-dib-cel" d="M510 642 H570" />
+            <path class="ln s01-dib-cel" d="M500 1182 H580" />
+            <!-- ícono de cámara genérico (avatar) -->
+            <g class="s01-cam">
+              <rect class="ln" x="404" y="676" width="68" height="68" rx="20" />
+              <circle class="ln" cx="438" cy="710" r="16" />
+              <circle class="punto" cx="458" cy="692" r="4.5" />
+            </g>
+            <text class="s01-usuario s01-txt-u" x="490" y="704">tu.comercio</text>
+            <path class="ln-4 s01-dib-stats" d="M492 730 H540 M562 730 H610 M632 730 H668" />
+            <!-- grilla de fotos -->
+            <g class="s01-grilla">
+              <g class="s01-foto"><rect class="ln-4" x="398" y="772" width="88" height="88" rx="8" /><path class="ln-4" d="M406 848 L432 818 L450 836 L462 824 L478 848" /></g>
+              <g class="s01-foto"><rect class="ln-4" x="496" y="772" width="88" height="88" rx="8" /><circle class="ln-4" cx="540" cy="816" r="22" /></g>
+              <g class="s01-foto"><rect class="ln-4" x="594" y="772" width="88" height="88" rx="8" /><path class="ln-4" d="M612 846 V806 H664 V846 M612 806 L638 788 L664 806" /></g>
+              <g class="s01-foto"><rect class="ln-4" x="398" y="870" width="88" height="88" rx="8" /><path class="ln-4" d="M420 940 Q442 888 464 940" /></g>
+              <g class="s01-foto"><rect class="ln-4" x="496" y="870" width="88" height="88" rx="8" /><path class="ln-4" d="M516 902 H564 L558 940 H522 Z" /></g>
+              <g class="s01-foto"><rect class="ln-4" x="594" y="870" width="88" height="88" rx="8" /><path class="ln-4" d="M606 944 L630 912 L648 930 L670 900" /></g>
+              <g class="s01-foto"><rect class="ln-4" x="398" y="968" width="88" height="88" rx="8" /><circle class="ln-4" cx="442" cy="1012" r="14" /><path class="ln-4" d="M420 1044 Q442 1020 464 1044" /></g>
+              <g class="s01-foto"><rect class="ln-4" x="496" y="968" width="88" height="88" rx="8" /><path class="ln-4" d="M514 1040 L540 990 L566 1040 Z" /></g>
+              <g class="s01-foto"><rect class="ln-4" x="594" y="968" width="88" height="88" rx="8" /><path class="ln-4" d="M612 1000 H664 M612 1018 H650 M612 1036 H660" /></g>
+            </g>
+            <rect class="ln-4 s01-dib-boton" x="398" y="1082" width="284" height="56" rx="16" />
+            <path class="ln-4 s01-dib-boton" d="M500 1110 H580" />
+          </g>
+
+          <!-- la etiqueta colgada: TUYO → DE META -->
+          <path class="ln-4 s01-hilo" d="M690 640 Q740 640 772 676" />
+          <g class="s01-tag">
+            <g class="s01-tag-in">
+              <path class="ln s01-dib-tag" d="M772 676 L812 656 H960 Q972 656 972 668 V724 Q972 736 960 736 H812 L772 716 Z" />
+              <circle class="ln-4 s01-dib-tag" cx="796" cy="696" r="7" />
+              <g class="s01-cara-a">
+                <text class="s01-tag-txt" x="890" y="706" text-anchor="middle">TUYO</text>
+                <path class="ln-ac-g s01-tacha" d="M838 698 H944" />
+              </g>
+              <g class="s01-cara-b">
+                <text class="s01-tag-txt" x="890" y="706" text-anchor="middle">DE META</text>
+              </g>
+            </g>
+          </g>
+
+          <!-- el candado que cierra la cuenta -->
+          <g class="s01-candado">
+            <path class="ln-ac-g s01-aro" d="M490 940 V880 Q490 830 540 830 Q590 830 590 880 V940" />
+            <g class="s01-cuerpo">
+              <rect class="tapa" x="456" y="930" width="168" height="140" rx="22" />
+              <circle class="relleno" cx="540" cy="986" r="14" />
+              <path class="ln-ac" d="M540 990 V1030" />
+            </g>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">No es tuyo</span><span class="s01-e2">Te lo pueden cerrar</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-no-es-tuyo";
+      const DUR = 4.14;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const INSTAGRAM = 0.2;
+      const TUYO = 0.9;
+      const META = 1.7;
+      const CERRAR = 2.8;
+      const MANANA = 2.9;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t + i * 0.04 <= 0 ? 1 : 0 });
+          if (t + i * 0.04 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, extra) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, Object.assign({ opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, extra || {}), t);
+      };
+
+      // acercamiento lento (nunca queda quieto)
+      tl.fromTo(q(".s01-todo"), { scale: 0.97, svgOrigin: "540 910" }, { scale: 1.03, svgOrigin: "540 910", duration: DUR, ease: "sine.inOut" }, 0);
+
+      // el celular arranca medio dibujado (el cuadro 0 no puede ser negro)
+      dibujar(qa(".s01-dib-cel"), 0, 0.5, 0.45);
+      // "Instagram": aparece el perfil
+      pop(q(".s01-cam"), INSTAGRAM - 0.1);
+      tl.fromTo(q(".s01-txt-u"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, INSTAGRAM + 0.05);
+      dibujar([q(".s01-dib-stats")], INSTAGRAM + 0.1, 0.35);
+      qa(".s01-foto").forEach((f, i) => tl.fromTo(f, { opacity: 0.5, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, i * 0.05));
+      dibujar(qa(".s01-dib-boton"), 0.5, 0.4);
+
+      // la etiqueta "TUYO" cuelga del celular
+      dibujar([q(".s01-hilo")], 0.3, 0.3);
+      dibujar(qa(".s01-dib-tag"), 0.4, 0.4);
+      gsap.set(q(".s01-cara-b"), { opacity: 0 });
+      tl.fromTo(q(".s01-cara-a text"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.62);
+      tl.fromTo(q(".s01-tag-in"), { rotation: 8, svgOrigin: "772 696" }, { rotation: 0, svgOrigin: "772 696", duration: 0.9, ease: "elastic.out(1, 0.5)" }, 0.4);
+      // "no es tuyo": se tacha
+      dibujar([q(".s01-tacha")], TUYO + 0.05, 0.3);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, TUYO);
+
+      // "Meta": la etiqueta gira y dice DE META
+      tl.to(q(".s01-tag-in"), { scaleY: 0, svgOrigin: "872 696", duration: 0.12, ease: "power2.in" }, META - 0.1);
+      tl.set(q(".s01-cara-a"), { opacity: 0 }, META + 0.02);
+      tl.set(q(".s01-cara-b"), { opacity: 1 }, META + 0.02);
+      tl.to(q(".s01-tag-in"), { scaleY: 1, svgOrigin: "872 696", duration: 0.25, ease: "back.out(2)" }, META + 0.02);
+      tl.to(q(".s01-tag-in"), { rotation: 6, svgOrigin: "772 696", duration: 0.2, ease: "sine.out", yoyo: true, repeat: 3 }, META + 0.25);
+
+      // "cerrar": el candado se cierra sobre el celular y lo apaga
+      gsap.set(q(".s01-candado"), { opacity: 0 });
+      tl.to(q(".s01-candado"), { opacity: 1, duration: 0.05 }, CERRAR - 0.45);
+      pop(q(".s01-cuerpo"), CERRAR - 0.45);
+      dibujar([q(".s01-aro")], CERRAR - 0.4, 0.3);
+      gsap.set(q(".s01-aro"), { y: -36 });
+      tl.to(q(".s01-aro"), { y: 0, duration: 0.14, ease: "power4.in" }, CERRAR);
+      tl.to(q(".s01-candado"), { scale: 1.08, svgOrigin: "540 1000", duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, CERRAR + 0.14);
+      tl.to(qa(".s01-cel, .s01-hilo, .s01-tag"), { opacity: 0.35, duration: 0.35 }, CERRAR + 0.14);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, CERRAR - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, MANANA);
+      tl.to(q(".s01-candado"), { rotation: -4, svgOrigin: "540 1070", duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 3 }, MANANA + 0.35);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

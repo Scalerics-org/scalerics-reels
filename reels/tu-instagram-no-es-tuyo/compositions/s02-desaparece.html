@@ -1,0 +1,180 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-desaparece"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-desaparece"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-desaparece"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-desaparece"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-desaparece"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-desaparece"] .ln-punteada { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-dasharray: 10 12; stroke-linecap: round; }
+    [data-composition-id="s02-desaparece"] .punto { fill: #efeee5; }
+    [data-composition-id="s02-desaparece"] .relleno { fill: #5ce611; }
+    [data-composition-id="s02-desaparece"] .s02-usuario { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s02-desaparece"] .s02-rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.7); }
+    [data-composition-id="s02-desaparece"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-desaparece"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-desaparece" data-width="1080" data-height="1920" data-duration="4.56">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.56" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- celular con el perfil (al centro, un poco más chico) -->
+        <g class="s02-cel">
+          <g class="s02-cel-in">
+            <rect class="ln s02-dib-cel" x="370" y="610" width="340" height="600" rx="52" />
+            <path class="ln s02-dib-cel" d="M510 642 H570" />
+            <path class="ln s02-dib-cel" d="M500 1182 H580" />
+            <g class="s02-perfil">
+              <g class="s02-cam">
+                <rect class="ln" x="404" y="676" width="68" height="68" rx="20" />
+                <circle class="ln" cx="438" cy="710" r="16" />
+                <circle class="punto" cx="458" cy="692" r="4.5" />
+              </g>
+              <text class="s02-usuario" x="490" y="704">tu.comercio</text>
+              <path class="ln-4" d="M492 730 H540 M562 730 H610 M632 730 H668" />
+            </g>
+            <g class="s02-grilla">
+              <g class="s02-foto"><rect class="ln-4" x="398" y="772" width="88" height="88" rx="8" /><path class="ln-4" d="M406 848 L432 818 L450 836 L462 824 L478 848" /></g>
+              <g class="s02-foto"><rect class="ln-4" x="496" y="772" width="88" height="88" rx="8" /><circle class="ln-4" cx="540" cy="816" r="22" /></g>
+              <g class="s02-foto"><rect class="ln-4" x="594" y="772" width="88" height="88" rx="8" /><path class="ln-4" d="M612 846 V806 H664 V846 M612 806 L638 788 L664 806" /></g>
+              <g class="s02-foto"><rect class="ln-4" x="398" y="870" width="88" height="88" rx="8" /><path class="ln-4" d="M420 940 Q442 888 464 940" /></g>
+              <g class="s02-foto"><rect class="ln-4" x="496" y="870" width="88" height="88" rx="8" /><path class="ln-4" d="M516 902 H564 L558 940 H522 Z" /></g>
+              <g class="s02-foto"><rect class="ln-4" x="594" y="870" width="88" height="88" rx="8" /><path class="ln-4" d="M606 944 L630 912 L648 930 L670 900" /></g>
+              <g class="s02-foto"><rect class="ln-4" x="398" y="968" width="88" height="88" rx="8" /><circle class="ln-4" cx="442" cy="1012" r="14" /><path class="ln-4" d="M420 1044 Q442 1020 464 1044" /></g>
+              <g class="s02-foto"><rect class="ln-4" x="496" y="968" width="88" height="88" rx="8" /><path class="ln-4" d="M514 1040 L540 990 L566 1040 Z" /></g>
+              <g class="s02-foto"><rect class="ln-4" x="594" y="968" width="88" height="88" rx="8" /><path class="ln-4" d="M612 1000 H664 M612 1018 H650 M612 1036 H660" /></g>
+            </g>
+            <rect class="ln-4 s02-boton" x="398" y="1082" width="284" height="56" rx="16" />
+            <!-- lo que queda cuando desaparece -->
+            <g class="s02-vacio">
+              <rect class="ln-punteada" x="398" y="772" width="284" height="284" rx="12" />
+              <circle class="ln-ac s02-vacio-c" cx="540" cy="914" r="46" />
+              <path class="ln-ac s02-vacio-x" d="M520 894 L560 934 M560 894 L520 934" />
+            </g>
+          </g>
+        </g>
+
+        <!-- 1: candado (cuenta bloqueada) -->
+        <g class="s02-ico s02-i1">
+          <path class="ln s02-d1" d="M-30 -14 V-42 Q-30 -72 0 -72 Q30 -72 30 -42 V-14" />
+          <rect class="ln s02-d1" x="-48" y="-16" width="96" height="80" rx="14" />
+          <circle class="relleno s02-ojo1" cx="0" cy="18" r="9" />
+          <text class="s02-rotulo s02-r1" x="0" y="112" text-anchor="middle">BLOQUEO</text>
+        </g>
+        <!-- 2: contraseña con gancho (hackeo) -->
+        <g class="s02-ico s02-i2">
+          <rect class="ln s02-d2" x="-88" y="-30" width="176" height="64" rx="14" />
+          <circle class="punto s02-pt" cx="-54" cy="2" r="7" />
+          <circle class="punto s02-pt" cx="-18" cy="2" r="7" />
+          <circle class="punto s02-pt" cx="18" cy="2" r="7" />
+          <circle class="punto s02-pt" cx="54" cy="2" r="7" />
+          <path class="ln-ac s02-gancho" d="M54 -150 V-30 Q54 -10 34 -10 Q14 -10 14 -30 L6 -20" />
+          <text class="s02-rotulo s02-r2" x="0" y="82" text-anchor="middle">HACKEO</text>
+        </g>
+        <!-- 3: hoja de reglas que cambia -->
+        <g class="s02-ico s02-i3">
+          <path class="ln s02-d3" d="M-52 -70 H28 L52 -46 V70 H-52 Z" />
+          <path class="ln s02-d3" d="M28 -70 V-46 H52" />
+          <path class="ln-4 s02-renglon" d="M-30 -30 H30" />
+          <path class="ln-4 s02-renglon" d="M-30 0 H30" />
+          <path class="ln-4 s02-renglon" d="M-30 30 H16" />
+          <path class="ln-ac s02-tacha" d="M-40 -48 L40 48" />
+          <path class="ln-ac s02-tacha" d="M40 -48 L-40 48" />
+          <text class="s02-rotulo s02-r3" x="0" y="112" text-anchor="middle">REGLAS</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Un día cualquiera</span><span class="s02-e2">Tu negocio desaparece</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-desaparece";
+      const DUR = 4.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const BLOQUEADA = 0.46;
+      const HACKEO = 1.36;
+      const REGLAS = 2.76;
+      const NEGOCIO = 3.46;
+      const DESAPARECE = 3.66;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, extra) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, Object.assign({ opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, extra || {}), t);
+      };
+      const rotulo = (el, t) => tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+      // cada golpe sacude el celular
+      const sacudir = (t) => tl.fromTo(q(".s02-cel-in"), { x: 0 }, { x: 8, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, t);
+
+      gsap.set(q(".s02-cel"), { scale: 0.8, svgOrigin: "540 910" });
+      gsap.set(q(".s02-i1"), { x: 196, y: 760 });
+      gsap.set(q(".s02-i2"), { x: 884, y: 930 });
+      gsap.set(q(".s02-i3"), { x: 196, y: 1080 });
+
+      // entra el celular (pop) mientras arranca la frase
+      tl.fromTo(q(".s02-cel-in"), { opacity: 0, scale: 0.9, svgOrigin: "540 910" }, { opacity: 1, scale: 1, svgOrigin: "540 910", duration: 0.35, ease: "back.out(1.6)" }, 0);
+      gsap.set(q(".s02-vacio"), { opacity: 0 });
+      tl.fromTo(q(".s02-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.1);
+
+      // "bloqueada": candado
+      dibujar(qa(".s02-d1"), BLOQUEADA - 0.25, 0.4);
+      pop(q(".s02-ojo1"), BLOQUEADA + 0.1);
+      tl.fromTo(q(".s02-i1 path"), { y: -14 }, { y: 0, duration: 0.14, ease: "power4.in" }, BLOQUEADA + 0.15);
+      rotulo(q(".s02-r1"), BLOQUEADA);
+      sacudir(BLOQUEADA + 0.3);
+
+      // "hackeo": campo de contraseña y el gancho que baja y se lleva un puntito
+      dibujar([q(".s02-d2")], HACKEO - 0.3, 0.4);
+      qa(".s02-pt").forEach((p, i) => pop(p, HACKEO - 0.15 + i * 0.05));
+      dibujar([q(".s02-gancho")], HACKEO, 0.35);
+      rotulo(q(".s02-r2"), HACKEO);
+      tl.to(qa(".s02-gancho, .s02-pt:nth-of-type(4)"), { y: -70, duration: 0.3, ease: "power3.in" }, HACKEO + 0.4);
+      tl.to(qa(".s02-pt"), { opacity: 0.3, duration: 0.2 }, HACKEO + 0.55);
+      sacudir(HACKEO + 0.6);
+
+      // "cambio de reglas": la hoja se tacha
+      dibujar(qa(".s02-d3"), 1.95, 0.4);
+      dibujar(qa(".s02-renglon"), 2.15, 0.3);
+      dibujar(qa(".s02-tacha"), REGLAS - 0.05, 0.2);
+      tl.to(qa(".s02-renglon"), { opacity: 0.35, duration: 0.2 }, REGLAS + 0.1);
+      rotulo(q(".s02-r3"), 2.2);
+      tl.fromTo(q(".s02-i3"), { rotation: 0, svgOrigin: "196 1080" }, { rotation: -6, svgOrigin: "196 1080", duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, REGLAS + 0.2);
+      sacudir(REGLAS + 0.25);
+
+      // "tu negocio desaparece": las fotos se van una por una y queda vacío
+      tl.to(q(".s02-cel-in"), { scale: 1.05, svgOrigin: "540 910", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, NEGOCIO);
+      qa(".s02-foto").forEach((f, i) => {
+        tl.to(f, { opacity: 0, scale: 0.3, transformOrigin: "50% 50%", duration: 0.2, ease: "power2.in" }, DESAPARECE + i * 0.04);
+      });
+      tl.to(qa(".s02-perfil, .s02-boton"), { opacity: 0.25, duration: 0.3 }, DESAPARECE + 0.1);
+      tl.to(qa(".s02-dib-cel"), { opacity: 0.45, duration: 0.3 }, DESAPARECE + 0.1);
+      tl.to(qa(".s02-ico"), { opacity: 0.35, duration: 0.3 }, DESAPARECE + 0.1);
+      tl.to(q(".s02-vacio"), { opacity: 1, duration: 0.05 }, DESAPARECE + 0.35);
+      tl.fromTo(q(".s02-vacio-c"), { scale: 0.5, svgOrigin: "540 914", opacity: 0 }, { scale: 1, svgOrigin: "540 914", opacity: 1, duration: 0.3, ease: "back.out(2)" }, DESAPARECE + 0.38);
+      tl.fromTo(q(".s02-vacio-x"), { opacity: 0 }, { opacity: 1, duration: 0.15 }, DESAPARECE + 0.5);
+      tl.fromTo(q(".s02-vacio rect"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, DESAPARECE + 0.35);
+      tl.to(q(".s02-e1"), { opacity: 0, duration: 0.2 }, DESAPARECE - 0.2);
+      tl.fromTo(q(".s02-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, DESAPARECE);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

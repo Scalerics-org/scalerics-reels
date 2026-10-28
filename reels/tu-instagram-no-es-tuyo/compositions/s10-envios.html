@@ -1,0 +1,116 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-envios"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-envios"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-envios"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-envios"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-envios"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s10-envios"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-envios"] .s10-ticket-txt { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; fill: #efeee5; }
+    [data-composition-id="s10-envios"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-envios"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s10-envios" data-width="1080" data-height="1920" data-duration="3.02">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="3.02" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- la caja de envío -->
+        <g class="s10-caja">
+          <g class="s10-caja-in">
+            <path class="ln s10-dc" d="M-100 -50 H100 V90 H-100 Z" />
+            <path class="ln s10-dc" d="M-100 -50 L-60 -100 H140 L100 -50" />
+            <path class="ln s10-dc" d="M100 90 L140 40 V-100" />
+            <path class="ln-ac s10-cinta" d="M-20 -50 V90 M-20 -50 L20 -100" />
+            <path class="ln-4 s10-dc" d="M40 30 H80 M40 54 H70" />
+          </g>
+        </g>
+        <!-- flechas a cada envío -->
+        <path class="ln-ac s10-fl s10-fl1" d="M430 900 Q500 790 590 770" />
+        <path class="ln-ac s10-fl s10-fl2" d="M430 930 H590" />
+        <path class="ln-ac s10-fl s10-fl3" d="M430 960 Q500 1070 590 1090" />
+        <!-- tickets -->
+        <g class="s10-ticket s10-t1">
+          <path class="ln" d="M0 -42 H300 V-14 Q286 -14 286 0 Q286 14 300 14 V42 H0 V14 Q14 14 14 0 Q14 -14 0 -14 Z" />
+          <text class="s10-ticket-txt" x="150" y="13" text-anchor="middle">DAC</text>
+        </g>
+        <g class="s10-ticket s10-t2">
+          <path class="ln" d="M0 -42 H300 V-14 Q286 -14 286 0 Q286 14 300 14 V42 H0 V14 Q14 14 14 0 Q14 -14 0 -14 Z" />
+          <text class="s10-ticket-txt" x="150" y="13" text-anchor="middle">Correo</text>
+        </g>
+        <g class="s10-ticket s10-t3">
+          <path class="ln" d="M0 -42 H300 V-14 Q286 -14 286 0 Q286 14 300 14 V42 H0 V14 Q14 14 14 0 Q14 -14 0 -14 Z" />
+          <text class="s10-ticket-txt" x="150" y="13" text-anchor="middle">PedidosYa</text>
+        </g>
+        <!-- la camioneta que sale -->
+        <line class="ln-tenue s10-calle" x1="120" y1="1206" x2="960" y2="1206" />
+        <g class="s10-van">
+          <path class="ln" d="M-110 0 V-84 H30 L70 -48 H100 V0 Z" />
+          <path class="ln-4" d="M38 -76 L62 -50 H38 Z" />
+          <circle class="ln" cx="-70" cy="4" r="16" />
+          <circle class="ln" cx="60" cy="4" r="16" />
+          <path class="ln-ac" d="M-90 -54 H-10 M-90 -30 H-30" />
+          <path class="ln-tenue s10-humo" d="M-130 -20 H-170 M-130 -44 H-190" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Envíos resueltos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-envios";
+      const DUR = 3.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const ENVIOS = 0.1;
+      const DAC = 0.9;
+      const CORREO = 1.41;
+      const PEDIDOSYA = 1.9;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      gsap.set(q(".s10-caja"), { x: 270, y: 900 });
+      const TY = [770, 930, 1090];
+      [".s10-t1", ".s10-t2", ".s10-t3"].forEach((c, i) => gsap.set(q(c), { x: 620, y: TY[i], opacity: 0 }));
+
+      // "envíos": la caja se dibuja con su cinta verde
+      dibujar(qa(".s10-dc"), 0, 0.4);
+      dibujar([q(".s10-cinta")], ENVIOS + 0.25, 0.3);
+      tl.to(q(".s10-caja-in"), { scale: 1.06, svgOrigin: "0 20", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, ENVIOS + 0.5);
+      tl.fromTo(q(".s10-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, ENVIOS + 0.2);
+
+      // cada envío en su palabra: flecha y ticket con golpe
+      [[DAC, ".s10-fl1", ".s10-t1"], [CORREO, ".s10-fl2", ".s10-t2"], [PEDIDOSYA, ".s10-fl3", ".s10-t3"]].forEach(([t, f, k]) => {
+        dibujar([q(f)], t - 0.2, 0.22);
+        tl.fromTo(q(k), { opacity: 0, x: 580, scale: 0.9, transformOrigin: "0% 50%" }, { opacity: 1, x: 620, scale: 1, duration: 0.32, ease: "back.out(1.8)" }, t);
+        tl.to(q(".s10-caja-in"), { x: 6, duration: 0.05, yoyo: true, repeat: 1, ease: "none" }, t);
+      });
+
+      // la camioneta cruza al final
+      dibujar([q(".s10-calle")], 1.7, 0.4);
+      tl.fromTo(q(".s10-van"), { x: -150, y: 1186 }, { x: 470, y: 1186, duration: 0.7, ease: "power3.out" }, 2.0);
+      tl.to(q(".s10-van"), { y: 1182, duration: 0.06, ease: "none", yoyo: true, repeat: 7 }, 2.0);
+      tl.fromTo(q(".s10-humo"), { opacity: 0 }, { opacity: 1, duration: 0.15, yoyo: true, repeat: 1 }, 2.2);
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

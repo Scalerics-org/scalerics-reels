@@ -1,0 +1,136 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-se-cae"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-se-cae"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-se-cae"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-se-cae"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-se-cae"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-se-cae"] .ln-punteada { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-dasharray: 8 10; stroke-linecap: round; }
+    [data-composition-id="s06-se-cae"] .s06-susp { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s06-se-cae"] .s06-preg { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 150px; fill: #5ce611; }
+    [data-composition-id="s06-se-cae"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-se-cae"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s06-se-cae" data-width="1080" data-height="1920" data-duration="3.58">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="3.58" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- el celular que se cae -->
+        <g class="s06-cel">
+          <g class="s06-cel-in">
+            <rect class="ln" x="-120" y="-230" width="240" height="460" rx="44" />
+            <path class="ln" d="M-24 -204 H24" />
+            <path class="ln" d="M-30 206 H30" />
+            <g class="s06-grilla">
+              <rect class="ln-4" x="-90" y="-160" width="54" height="54" rx="6" />
+              <rect class="ln-4" x="-27" y="-160" width="54" height="54" rx="6" />
+              <rect class="ln-4" x="36" y="-160" width="54" height="54" rx="6" />
+              <rect class="ln-4" x="-90" y="-97" width="54" height="54" rx="6" />
+              <rect class="ln-4" x="-27" y="-97" width="54" height="54" rx="6" />
+              <rect class="ln-4" x="36" y="-97" width="54" height="54" rx="6" />
+              <rect class="ln-4" x="-90" y="-34" width="54" height="54" rx="6" />
+              <rect class="ln-4" x="-27" y="-34" width="54" height="54" rx="6" />
+              <rect class="ln-4" x="36" y="-34" width="54" height="54" rx="6" />
+              <rect class="ln-4" x="-90" y="50" width="180" height="40" rx="12" />
+            </g>
+            <g class="s06-caida">
+              <circle class="ln-ac" cx="0" cy="-40" r="42" />
+              <path class="ln-ac" d="M-18 -58 L18 -22 M18 -58 L-18 -22" />
+              <text class="s06-susp" x="0" y="50" text-anchor="middle">CUENTA</text>
+              <text class="s06-susp" x="0" y="84" text-anchor="middle">SUSPENDIDA</text>
+            </g>
+          </g>
+        </g>
+
+        <!-- el megáfono hacia nadie -->
+        <g class="s06-mega">
+          <g class="s06-mega-in">
+            <path class="ln s06-dm" d="M-60 -26 L36 -74 V74 L-60 26 Z" />
+            <path class="ln s06-dm" d="M-60 -26 H-78 V26 H-60" />
+            <path class="ln s06-dm" d="M-44 32 L-30 84 H-10 L-20 40" />
+          </g>
+          <path class="ln-ac s06-onda" d="M62 -40 Q82 0 62 40" />
+          <path class="ln-ac s06-onda" d="M92 -64 Q124 0 92 64" />
+          <path class="ln-ac s06-onda" d="M122 -88 Q166 0 122 88" />
+        </g>
+        <!-- siluetas punteadas: nadie del otro lado -->
+        <g class="s06-nadie">
+          <g class="s06-sil"><circle class="ln-punteada" cx="0" cy="-44" r="18" /><path class="ln-punteada" d="M-30 30 a30 30 0 0 1 60 0" /></g>
+          <g class="s06-sil"><circle class="ln-punteada" cx="0" cy="-44" r="18" /><path class="ln-punteada" d="M-30 30 a30 30 0 0 1 60 0" /></g>
+          <g class="s06-sil"><circle class="ln-punteada" cx="0" cy="-44" r="18" /><path class="ln-punteada" d="M-30 30 a30 30 0 0 1 60 0" /></g>
+        </g>
+        <text class="s06-preg" x="900" y="970" text-anchor="middle">?</text>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Se cayó la cuenta</span><span class="s06-e2">A nadie</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-se-cae";
+      const DUR = 3.58;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CAE = 0.55;
+      const CUENTA = 0.85;
+      const NO = 1.51;
+      const QUIEN = 2.15;
+      const AVISARLE = 2.35;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      gsap.set(q(".s06-cel"), { x: 290, y: 920 });
+      gsap.set(q(".s06-mega"), { x: 590, y: 930 });
+      const SX = [850, 930, 1010];
+      qa(".s06-sil").forEach((s, i) => gsap.set(s, { x: SX[i] - 40, y: 960 + (i === 1 ? -20 : 0) }));
+      gsap.set(qa(".s06-caida, .s06-preg"), { opacity: 0 });
+
+      // entra el celular
+      tl.fromTo(q(".s06-cel-in"), { opacity: 0, scale: 0.9, svgOrigin: "0 0" }, { opacity: 1, scale: 1, svgOrigin: "0 0", duration: 0.3, ease: "back.out(1.6)" }, 0);
+      // "se cae": se ladea y baja, la pantalla se vacía
+      tl.to(q(".s06-cel-in"), { rotation: -10, y: 26, svgOrigin: "0 230", duration: 0.25, ease: "power3.in" }, CAE - 0.1);
+      tl.to(q(".s06-cel-in"), { rotation: -7, svgOrigin: "0 230", duration: 0.2, ease: "power2.out" }, CAE + 0.15);
+      tl.to(q(".s06-grilla"), { opacity: 0, duration: 0.15 }, CAE);
+      tl.fromTo(q(".s06-caida"), { opacity: 0, scale: 0.7, svgOrigin: "0 0" }, { opacity: 1, scale: 1, svgOrigin: "0 0", duration: 0.3, ease: "back.out(2)" }, CUENTA - 0.15);
+      tl.fromTo(q(".s06-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, CAE);
+
+      // "no tenés a quién": megáfono, ondas que salen y siluetas que se borran
+      dibujar(qa(".s06-dm"), NO - 0.3, 0.35);
+      tl.to(q(".s06-mega-in"), { scale: 1.08, svgOrigin: "-20 0", duration: 0.1, yoyo: true, repeat: 1, ease: "power2.out" }, NO + 0.1);
+      qa(".s06-onda").forEach((o, i) => {
+        tl.fromTo(o, { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.15 }, NO + 0.1 + i * 0.12);
+        tl.to(o, { opacity: 0.25, duration: 0.3 }, NO + 0.5 + i * 0.12);
+        tl.fromTo(o, { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.15, immediateRender: false }, NO + 1.0 + i * 0.12);
+        tl.to(o, { opacity: 0.2, duration: 0.3 }, NO + 1.4 + i * 0.12);
+      });
+      qa(".s06-sil").forEach((s, i) => {
+        tl.fromTo(s, { opacity: 0 }, { opacity: 1, duration: 0.2 }, NO + 0.1 + i * 0.06);
+        tl.to(s, { opacity: 0, y: "+=10", duration: 0.3, ease: "power2.in" }, QUIEN + i * 0.1);
+      });
+      tl.fromTo(q(".s06-preg"), { opacity: 0, scale: 0.5, svgOrigin: "900 940" }, { opacity: 1, scale: 1, svgOrigin: "900 940", duration: 0.35, ease: "back.out(2.2)" }, AVISARLE + 0.2);
+      tl.to(q(".s06-preg"), { rotation: 10, svgOrigin: "900 970", duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, AVISARLE + 0.6);
+      tl.to(q(".s06-e1"), { opacity: 0, duration: 0.2 }, QUIEN - 0.1);
+      tl.fromTo(q(".s06-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, QUIEN + 0.1);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

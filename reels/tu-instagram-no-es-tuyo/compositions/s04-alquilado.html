@@ -1,0 +1,116 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-alquilado"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-alquilado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-alquilado"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-alquilado"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-alquilado"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s04-alquilado"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-alquilado"] .tabla { fill: #0b1d35; stroke: #5ce611; stroke-width: 5; stroke-linejoin: round; }
+    [data-composition-id="s04-alquilado"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s04-alquilado"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s04-alquilado"] .s04-alq { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.02em; fill: #5ce611; }
+    [data-composition-id="s04-alquilado"] .s04-duenio { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s04-alquilado"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-alquilado"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-alquilado" data-width="1080" data-height="1920" data-duration="3.15">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.15" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s04-todo">
+          <!-- terreno -->
+          <line class="ln s04-suelo" x1="120" y1="1130" x2="960" y2="1130" />
+          <path class="ln-tenue s04-rayas" d="M170 1160 l-24 30 M250 1160 l-24 30 M330 1160 l-24 30 M410 1160 l-24 30 M490 1160 l-24 30 M570 1160 l-24 30 M650 1160 l-24 30 M730 1160 l-24 30 M810 1160 l-24 30 M890 1160 l-24 30" />
+          <!-- tu local, que se levanta -->
+          <g class="s04-local">
+            <g class="s04-local-in">
+              <path class="ln" d="M-120 0 V-170 H120 V0" />
+              <path class="ln" d="M-140 -170 H140 L122 -222 H-122 Z" />
+              <path class="ln" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+              <rect class="ln" x="-80" y="-290" width="160" height="50" rx="10" />
+              <text class="cartel" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+              <rect class="ln" x="-100" y="-122" width="58" height="52" rx="5" />
+              <rect class="ln" x="42" y="-122" width="58" height="52" rx="5" />
+              <rect class="vidrio s04-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+              <rect class="vidrio s04-luz" x="50" y="-114" width="42" height="36" rx="3" />
+              <path class="ln" d="M-24 0 V-96 H24 V0" />
+            </g>
+          </g>
+          <!-- el cartel clavado: ALQUILADO -->
+          <g class="s04-cartel">
+            <path class="ln" d="M810 1130 V930" />
+            <rect class="tabla" x="676" y="778" width="268" height="152" rx="14" />
+            <text class="s04-alq s04-t1" x="810" y="846" text-anchor="middle">ALQUILADO</text>
+            <path class="ln-4 s04-raya" d="M712 870 H908" />
+            <text class="s04-duenio s04-t2" x="810" y="908" text-anchor="middle">DUEÑO: META</text>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Tu negocio</span><span class="s04-e2">Terreno alquilado</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-alquilado";
+      const DUR = 3.15;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const LEVANTASTE = 0.21;
+      const NEGOCIO = 0.91;
+      const TERRENO = 1.61;
+      const ALQUILADO = 2.01;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      gsap.set(q(".s04-local"), { x: 420, y: 1130 });
+      tl.fromTo(q(".s04-todo"), { scale: 0.98, svgOrigin: "540 1000" }, { scale: 1.02, svgOrigin: "540 1000", duration: DUR, ease: "sine.inOut" }, 0);
+
+      // el terreno se dibuja enseguida
+      dibujar([q(".s04-suelo")], 0, 0.4);
+      dibujar([q(".s04-rayas")], 0.1, 0.5);
+      // "levantaste": el local crece desde el suelo
+      tl.fromTo(q(".s04-local-in"), { scaleY: 0, opacity: 0, svgOrigin: "0 0" }, { scaleY: 1, opacity: 1, svgOrigin: "0 0", duration: 0.6, ease: "back.out(1.4)" }, LEVANTASTE);
+      gsap.set(qa(".s04-luz"), { opacity: 0 });
+      // "negocio": se prenden las luces
+      tl.to(qa(".s04-luz"), { opacity: 0.85, duration: 0.2 }, NEGOCIO);
+      tl.to(q(".s04-local-in"), { scale: 1.05, svgOrigin: "0 0", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, NEGOCIO);
+      tl.fromTo(q(".s04-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, NEGOCIO);
+
+      // "terreno": el cartel cae y se clava
+      gsap.set(qa(".s04-t1, .s04-t2, .s04-raya"), { opacity: 0 });
+      tl.fromTo(q(".s04-cartel"), { y: -260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.in" }, TERRENO - 0.3);
+      tl.to(q(".s04-todo"), { y: 6, duration: 0.06, ease: "power2.out", yoyo: true, repeat: 1 }, TERRENO);
+      tl.fromTo(q(".s04-cartel"), { rotation: -5, svgOrigin: "810 1130" }, { rotation: 0, svgOrigin: "810 1130", duration: 0.5, ease: "elastic.out(1, 0.4)" }, TERRENO);
+      // "alquilado": aparece el texto, el local pierde fuerza
+      tl.fromTo(q(".s04-t1"), { opacity: 0, scale: 0.85, svgOrigin: "810 834" }, { opacity: 1, scale: 1, svgOrigin: "810 834", duration: 0.3, ease: "back.out(2)" }, ALQUILADO);
+      tl.to(q(".s04-raya"), { opacity: 1, duration: 0.2 }, ALQUILADO + 0.2);
+      tl.fromTo(q(".s04-t2"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, ALQUILADO + 0.3);
+      tl.to(qa(".s04-luz"), { opacity: 0.25, duration: 0.3 }, ALQUILADO + 0.35);
+      tl.to(q(".s04-local-in"), { opacity: 0.5, duration: 0.3 }, ALQUILADO + 0.35);
+      tl.to(q(".s04-e1"), { opacity: 0, duration: 0.2 }, ALQUILADO - 0.15);
+      tl.fromTo(q(".s04-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, ALQUILADO);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
