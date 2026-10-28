@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-cortina"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-cortina"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-cortina"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-cortina"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-cortina"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-cortina"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s01-cortina"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s01-cortina"] .s01-hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 72px; letter-spacing: 0.06em; fill: #5ce611; }
+    [data-composition-id="s01-cortina"] .s01-cero { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 128px; fill: #5ce611; }
+    [data-composition-id="s01-cortina"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-cortina"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-cortina" data-width="1080" data-height="1920" data-duration="3.70">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="3.70" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs>
+          <clipPath id="s01-clip-cortina"><rect class="s01-clip-r" x="-200" y="-264" width="400" height="268" /></clipPath>
+        </defs>
+        <line class="ln s01-suelo" x1="80" y1="1160" x2="1000" y2="1160" />
+        <!-- el reloj -->
+        <g class="s01-reloj"><text class="s01-hora" x="540" y="676" text-anchor="middle">20:00</text></g>
+        <!-- tu local -->
+        <g class="s01-local">
+          <g class="s01-local-in">
+            <path class="ln s01-dib" d="M-200 0 V-280 H200 V0" />
+            <path class="ln s01-dib" d="M-228 -280 H228 L204 -350 H-204 Z" />
+            <path class="ln s01-dib" d="M-228 -280 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0" />
+            <rect class="ln s01-dib" x="-100" y="-436" width="200" height="60" rx="12" />
+            <text class="cartel s01-txt" x="0" y="-396" text-anchor="middle">TU LOCAL</text>
+            <!-- vidrieras y puerta (quedan detrás de la cortina) -->
+            <g class="s01-frente">
+              <rect class="ln s01-dib" x="-164" y="-200" width="104" height="96" rx="6" />
+              <rect class="ln s01-dib" x="60" y="-200" width="104" height="96" rx="6" />
+              <rect class="vidrio s01-luz" x="-152" y="-188" width="80" height="72" rx="4" />
+              <rect class="vidrio s01-luz" x="72" y="-188" width="80" height="72" rx="4" />
+              <path class="ln s01-dib" d="M-34 0 V-170 H34 V0" />
+            </g>
+            <!-- la cortina metálica -->
+            <g class="s01-cortina" clip-path="url(#s01-clip-cortina)">
+              <path class="ln-4 s01-rayas" d="M-184 -240 H184 M-184 -218 H184 M-184 -196 H184 M-184 -174 H184 M-184 -152 H184 M-184 -130 H184 M-184 -108 H184 M-184 -86 H184 M-184 -64 H184 M-184 -42 H184 M-184 -20 H184" />
+              <path class="ln-4" d="M-184 -262 V0 M184 -262 V0" />
+            </g>
+            <g class="s01-barra"><path class="ln" d="M-188 0 H188" /><rect class="ln-4" x="-22" y="-14" width="44" height="12" rx="4" /></g>
+            <text class="s01-cero" x="0" y="-86" text-anchor="middle">$ 0</text>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Cerrado</span><span class="s01-e2">Ventas: 0</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-cortina";
+      const DUR = 3.7;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CORTINA = 0.5;
+      const OCHO = 1.1;
+      const MANANA = 1.9;
+      const VENDES = 2.0;
+      const CERO = 3.32;
+
+      const SUELO = 1160;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          // si arranca a medio hacer (desde < 1) ya se ve en el cuadro 0
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // el local arranca medio dibujado (el cuadro 0 no puede ser negro), con la luz prendida
+      gsap.set(q(".s01-local"), { x: 540, y: SUELO });
+      dibujar(qa(".s01-dib"), 0, 0.5, 0.4);
+      tl.fromTo(q(".s01-txt"), { opacity: 0.3 }, { opacity: 1, duration: 0.25 }, 0);
+      tl.fromTo(qa(".s01-luz"), { opacity: 0.5 }, { opacity: 0.85, duration: 0.25 }, 0);
+      tl.fromTo(q(".s01-suelo"), { scaleX: 0.5, svgOrigin: "540 1160" }, { scaleX: 1, svgOrigin: "540 1160", duration: 0.7, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-local-in"), { scale: 0.96, svgOrigin: "0 0" }, { scale: 1, svgOrigin: "0 0", duration: 0.5, ease: "power3.out" }, 0);
+
+      // "cortina": baja de arriba a abajo, la luz se apaga y el local queda apagado
+      const BAJA = 0.75;
+      tl.fromTo(q(".s01-clip-r"), { scaleY: 0, svgOrigin: "0 -264" }, { scaleY: 1, svgOrigin: "0 -264", duration: BAJA, ease: "power2.in" }, CORTINA - 0.1);
+      tl.fromTo(q(".s01-barra"), { y: -262, opacity: 0 }, { y: 0, opacity: 1, duration: BAJA, ease: "power2.in" }, CORTINA - 0.1);
+      tl.set(q(".s01-barra"), { opacity: 1 }, CORTINA - 0.05);
+      tl.to(qa(".s01-luz"), { opacity: 0, duration: 0.35 }, CORTINA + 0.2);
+      tl.to(q(".s01-frente"), { opacity: 0, duration: 0.3 }, CORTINA + 0.35);
+      // golpe al tocar el piso
+      tl.to(q(".s01-local-in"), { y: 6, duration: 0.07, ease: "power2.out", yoyo: true, repeat: 1 }, CORTINA - 0.1 + BAJA);
+      tl.to(qa(".s01-dib, .s01-txt, .s01-cortina, .s01-barra"), { opacity: 0.4, duration: 0.4 }, CORTINA + 0.75);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, CORTINA + 0.3);
+
+      // "ocho": el reloj entra con golpe y titila los dos puntos
+      tl.fromTo(q(".s01-reloj"), { opacity: 0, scale: 0.85, svgOrigin: "540 650" }, { opacity: 1, scale: 1, svgOrigin: "540 650", duration: 0.35, ease: "back.out(1.6)" }, OCHO - 0.05);
+      tl.to(q(".s01-reloj"), { opacity: 0.55, duration: 0.15, yoyo: true, repeat: 3 }, MANANA);
+
+      // "vendés": aparece el $ 0 chico; "cero": cae con golpe y tiembla
+      tl.fromTo(q(".s01-cero"), { opacity: 0, scale: 0.6, svgOrigin: "0 -130" }, { opacity: 0.5, scale: 0.75, svgOrigin: "0 -130", duration: 0.3, ease: "power3.out" }, VENDES);
+      tl.to(q(".s01-cero"), { scale: 0.82, svgOrigin: "0 -130", duration: CERO - VENDES - 0.35, ease: "sine.inOut" }, VENDES + 0.3);
+      tl.fromTo(q(".s01-cero"), { y: -60 }, { y: 0, opacity: 1, scale: 1, svgOrigin: "0 -130", duration: 0.18, ease: "power3.in", immediateRender: false }, CERO - 0.12);
+      tl.to(q(".s01-cero"), { x: 7, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, CERO + 0.06);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, CERO - 0.15);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CERO);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

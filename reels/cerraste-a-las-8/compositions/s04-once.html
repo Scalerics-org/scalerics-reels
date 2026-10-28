@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-once"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-once"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-once"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-once"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-once"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-once"] .relleno { fill: #5ce611; }
+    [data-composition-id="s04-once"] .s04-hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 72px; letter-spacing: 0.06em; fill: #5ce611; }
+    [data-composition-id="s04-once"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-once"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-once" data-width="1080" data-height="1920" data-duration="4.81">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.81" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s04-clip-hora"><rect x="340" y="604" width="400" height="90" /></clipPath></defs>
+        <!-- el reloj: 20:00 rueda a 23:00 -->
+        <g class="s04-reloj" clip-path="url(#s04-clip-hora)">
+          <text class="s04-hora s04-h1" x="540" y="676" text-anchor="middle">20:00</text>
+          <text class="s04-hora s04-h2" x="540" y="676" text-anchor="middle">23:00</text>
+        </g>
+        <!-- luna y estrellas -->
+        <g class="s04-luna">
+          <path class="ln s04-dib-luna" d="M-24 -60 A66 66 0 1 0 42 26 A51 51 0 1 1 -24 -60 Z" />
+          <path class="ln-4 s04-estrella" d="M-84 -66 V-44 M-95 -55 H-73" />
+          <path class="ln-4 s04-estrella" d="M640 -40 V-22 M631 -31 H649" />
+        </g>
+        <g transform="translate(540 1150) scale(1.3)">
+        <!-- el sillón -->
+        <g class="s04-sillon">
+          <path class="ln s04-dib-s" d="M-170 -100 V-210 Q-170 -232 -148 -232 H148 Q170 -232 170 -210 V-100" />
+          <path class="ln s04-dib-s" d="M-170 -100 H170" />
+          <path class="ln s04-dib-s" d="M-170 -150 H-200 Q-216 -150 -216 -134 V-20 H216 V-134 Q216 -150 200 -150 H170" />
+          <path class="ln s04-dib-s" d="M-196 -20 V0 M196 -20 V0" />
+        </g>
+        <!-- tu cliente sentado -->
+        <g class="s04-cli">
+          <circle class="ln s04-dib-c" cx="-40" cy="-262" r="24" />
+          <path class="ln s04-dib-c" d="M-42 -236 Q-46 -180 -34 -114" />
+          <path class="ln s04-dib-c" d="M-34 -114 L56 -110 L62 -24" />
+          <path class="ln s04-dib-c" d="M-40 -200 L8 -168 L34 -200" />
+        </g>
+        <!-- el celular con la pantalla prendida -->
+        <g class="s04-cel">
+          <rect class="ln-4" x="20" y="-250" width="30" height="50" rx="6" />
+          <rect class="relleno s04-pantalla" x="26" y="-243" width="18" height="34" rx="2" />
+          <path class="ln-ac s04-haz" d="M18 -232 L-6 -250 M18 -222 L-10 -226 M18 -212 L-6 -204" />
+        </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Las 11 de la noche</span><span class="s04-e2">En el sillón</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-once";
+      const DUR = 4.81;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const LAS = 0.64;
+      const ONCE = 1.1;
+      const NOCHE = 1.6;
+      const CLIENTE = 2.1;
+      const SILLON = 2.9;
+      const CELULAR = 3.8;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // el reloj ya está (viene de la escena 1): titila y en "once" rueda
+      gsap.set(q(".s04-h2"), { y: 90 });
+      tl.fromTo(q(".s04-h1"), { opacity: 0.6, scale: 0.92, svgOrigin: "540 650" }, { opacity: 1, scale: 1, svgOrigin: "540 650", duration: 0.3, ease: "power3.out" }, 0);
+      tl.to(q(".s04-h1"), { opacity: 0.5, duration: 0.15, yoyo: true, repeat: 1 }, LAS - 0.2);
+      tl.to(q(".s04-h1"), { y: -90, duration: 0.3, ease: "power3.in" }, ONCE - 0.2);
+      tl.to(q(".s04-h2"), { y: 0, duration: 0.35, ease: "back.out(1.6)" }, ONCE + 0.05);
+      tl.fromTo(q(".s04-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, ONCE);
+
+      // luna: arranca medio dibujada (cuadro 0 no negro) y se completa en "noche"
+      gsap.set(q(".s04-luna"), { x: 220, y: 820, scale: 0.8 });
+      dibujar([q(".s04-dib-luna")], 0, 0.5, 0.6);
+      tl.fromTo(q(".s04-luna"), { rotation: -20, transformOrigin: "50% 50%" }, { rotation: 0, transformOrigin: "50% 50%", duration: 1.4, ease: "power2.out" }, 0);
+      qa(".s04-estrella").forEach((e, i) => {
+        tl.fromTo(e, { opacity: 0, scale: 0.2, svgOrigin: i ? "640 -31" : "-84 -55" }, { opacity: 1, scale: 1, svgOrigin: i ? "640 -31" : "-84 -55", duration: 0.35, ease: "back.out(2.4)" }, NOCHE + i * 0.2);
+        tl.to(e, { rotation: 90, svgOrigin: i ? "640 -31" : "-84 -55", duration: 1.2, ease: "power2.inOut" }, NOCHE + 0.4 + i * 0.2);
+      });
+      tl.fromTo(q(".s04-luna"), { scale: 0.8 }, { scale: 0.9, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, NOCHE);
+
+      // "cliente": se dibuja la figurita; "sillón": el sillón debajo
+            dibujar(qa(".s04-dib-c"), CLIENTE - 0.1, 0.45);
+      dibujar(qa(".s04-dib-s"), CLIENTE - 0.2, 0.55);
+      tl.fromTo(q(".s04-sillon"), { scale: 0.94, transformOrigin: "50% 100%" }, { scale: 1, transformOrigin: "50% 100%", duration: 0.5, ease: "back.out(1.6)" }, SILLON - 0.1);
+      tl.to(q(".s04-e1"), { opacity: 0, duration: 0.2 }, SILLON - 0.2);
+      tl.fromTo(q(".s04-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, SILLON);
+
+      // "celular": se prende la pantalla y titila
+      gsap.set(q(".s04-cel"), { opacity: 0 });
+      tl.fromTo(q(".s04-cel"), { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(2)" }, CELULAR - 0.25);
+      dibujar([q(".s04-haz")], CELULAR, 0.3);
+      tl.fromTo(q(".s04-pantalla"), { opacity: 1 }, { opacity: 0.5, duration: 0.12, yoyo: true, repeat: 3, immediateRender: false }, CELULAR + 0.2);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

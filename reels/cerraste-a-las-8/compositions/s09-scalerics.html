@@ -1,0 +1,129 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-scalerics"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-scalerics"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-scalerics"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-scalerics"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-scalerics"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.3); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s09-scalerics"] .relleno { fill: #5ce611; }
+    [data-composition-id="s09-scalerics"] .s09-marca { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 60px; letter-spacing: -0.01em; fill: #efeee5; }
+    [data-composition-id="s09-scalerics"] .s09-rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s09-scalerics"] .s09-precio { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 24px; fill: #5ce611; }
+    [data-composition-id="s09-scalerics"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-scalerics"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s09-scalerics" data-width="1080" data-height="1920" data-duration="4.95">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.95" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- la marca -->
+        <g class="s09-caja">
+          <rect class="ln s09-dib-caja" x="330" y="604" width="420" height="96" rx="22" />
+          <text class="s09-marca s09-nombre" x="540" y="673" text-anchor="middle">Scalerics</text>
+        </g>
+        <!-- la laptop con la tienda -->
+        <g class="s09-lap">
+          <rect class="ln s09-dib-lap" x="250" y="740" width="580" height="370" rx="18" />
+          <path class="ln s09-dib-lap" d="M210 1110 H870 L846 1146 H234 Z" />
+          <text class="s09-rot s09-top" x="282" y="786">TU TIENDA</text>
+          <circle class="relleno s09-online" cx="796" cy="778" r="8" />
+          <line class="ln-tenue s09-div" x1="278" y1="806" x2="802" y2="806" />
+        </g>
+        <!-- los productos -->
+        <g class="s09-prod" data-cx="346">
+          <rect class="ln-4" x="288" y="826" width="116" height="190" rx="12" />
+          <path class="ln-4" d="M316 852 L334 844 Q346 854 358 844 L376 852 L386 872 L372 878 V918 H320 V878 L306 872 Z" />
+          <text class="s09-precio" x="346" y="990" text-anchor="middle">$ 890</text>
+        </g>
+        <g class="s09-prod" data-cx="478">
+          <rect class="ln-4" x="420" y="826" width="116" height="190" rx="12" />
+          <path class="ln-4" d="M452 856 H496 V902 Q496 914 484 914 H464 Q452 914 452 902 Z M496 868 Q514 868 514 884 Q514 898 496 898" />
+          <text class="s09-precio" x="478" y="990" text-anchor="middle">$ 450</text>
+        </g>
+        <g class="s09-prod" data-cx="610">
+          <rect class="ln-4" x="552" y="826" width="116" height="190" rx="12" />
+          <path class="ln-4" d="M572 904 L578 870 Q592 872 600 860 L616 874 Q642 880 652 892 Q656 900 652 908 Z M570 916 H654" />
+          <text class="s09-precio" x="610" y="990" text-anchor="middle">$ 2.490</text>
+        </g>
+        <g class="s09-prod" data-cx="742">
+          <rect class="ln-4" x="684" y="826" width="116" height="190" rx="12" />
+          <path class="ln-4" d="M712 868 H772 L778 916 H706 Z M728 868 V858 Q742 840 756 858 V868" />
+          <text class="s09-precio" x="742" y="990" text-anchor="middle">$ 1.200</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">Tu tienda online</span><span class="s09-e2">Tus productos</span><span class="s09-e3">Tus precios</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-scalerics";
+      const DUR = 4.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const SCALERICS = 0.2;
+      const HACEMOS = 1.0;
+      const TIENDA = 1.4;
+      const ONLINE = 1.7;
+      const PRODUCTOS = 2.8;
+      const PRECIOS = 3.8;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+      const etiqueta = (sale, entra, t) => {
+        if (sale) tl.to(q(sale), { opacity: 0, duration: 0.15 }, t - 0.12);
+        tl.fromTo(q(entra), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // la caja de marca arranca medio dibujada (cuadro 0 no negro); "Scalerics" entra
+      dibujar([q(".s09-dib-caja")], 0, 0.5, 0.4);
+      tl.fromTo(q(".s09-nombre"), { opacity: 0, filter: "blur(8px)", y: 8 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.4, ease: "power3.out" }, SCALERICS - 0.1);
+      tl.fromTo(q(".s09-caja"), { scale: 0.94, svgOrigin: "540 652" }, { scale: 1, svgOrigin: "540 652", duration: 0.5, ease: "back.out(1.6)" }, 0);
+      tl.to(q(".s09-caja"), { scale: 1.05, svgOrigin: "540 652", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, HACEMOS);
+
+      // "tienda online": se dibuja la laptop
+      dibujar(qa(".s09-dib-lap"), TIENDA - 0.35, 0.5);
+      dibujar([q(".s09-div")], TIENDA + 0.1, 0.35);
+      tl.fromTo(qa(".s09-top"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, TIENDA + 0.05);
+      tl.fromTo(q(".s09-online"), { opacity: 0, scale: 0.3, svgOrigin: "796 778" }, { opacity: 1, scale: 1, svgOrigin: "796 778", duration: 0.3, ease: "back.out(2.4)" }, ONLINE);
+      tl.to(q(".s09-online"), { scale: 1.5, svgOrigin: "796 778", duration: 0.2, ease: "power2.out", yoyo: true, repeat: 3 }, ONLINE + 0.35);
+      etiqueta(null, ".s09-e1", TIENDA);
+
+      // "productos": caen las cuatro tarjetas una tras otra (los precios todavía no)
+      const prods = qa(".s09-prod");
+      prods.forEach((p, i) => {
+        const cx = p.dataset.cx;
+        gsap.set(p, { opacity: 0 });
+        gsap.set(p.querySelector(".s09-precio"), { opacity: 0 });
+        tl.fromTo(p, { opacity: 0, y: -40, scale: 0.85, svgOrigin: cx + " 920" }, { opacity: 1, y: 0, scale: 1, svgOrigin: cx + " 920", duration: 0.35, ease: "back.out(1.6)" }, PRODUCTOS - 0.25 + i * 0.16);
+      });
+      etiqueta(".s09-e1", ".s09-e2", PRODUCTOS);
+
+      // "precios": a cada una le aparece su precio
+      prods.forEach((p, i) => {
+        const cx = p.dataset.cx;
+        tl.fromTo(p.querySelector(".s09-precio"), { opacity: 0, scale: 1.4, svgOrigin: cx + " 980" }, { opacity: 1, scale: 1, svgOrigin: cx + " 980", duration: 0.28, ease: "power3.out" }, PRECIOS - 0.1 + i * 0.1);
+      });
+      etiqueta(".s09-e2", ".s09-e3", PRECIOS);
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

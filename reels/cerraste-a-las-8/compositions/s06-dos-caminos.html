@@ -1,0 +1,168 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-dos-caminos"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-dos-caminos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-dos-caminos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-dos-caminos"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-dos-caminos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-dos-caminos"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s06-dos-caminos"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s06-dos-caminos"] .s06-hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 72px; letter-spacing: 0.06em; fill: #5ce611; }
+    [data-composition-id="s06-dos-caminos"] .s06-ped { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s06-dos-caminos"] .s06-ped-h { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; fill: rgba(239, 238, 229, 0.7); }
+    [data-composition-id="s06-dos-caminos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-dos-caminos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s06-dos-caminos" data-width="1080" data-height="1920" data-duration="7.22">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="7.22" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s06-clip-cortina"><rect class="s06-clip-r" x="-200" y="-264" width="400" height="268" /></clipPath></defs>
+        <!-- el reloj -->
+        <g class="s06-reloj"><text class="s06-hora" x="540" y="676" text-anchor="middle">08:00</text></g>
+
+        <!-- ===== camino 1: te compró a vos ===== -->
+        <g class="s06-uno">
+          <g class="s06-card1">
+            <rect class="ln-ac" x="340" y="740" width="400" height="88" rx="44" />
+            <circle class="ln-ac" cx="392" cy="784" r="20" />
+            <path class="ln-ac" d="M382 785 L390 793 L403 777" />
+            <text class="s06-ped" x="428" y="794">Pedido · pagado</text>
+          </g>
+          <line class="ln s06-suelo1" x1="160" y1="1110" x2="920" y2="1110" />
+          <g class="s06-caja">
+            <rect class="ln s06-dib-caja" x="440" y="960" width="200" height="150" rx="6" />
+            <path class="ln s06-tapa-a" d="M440 960 L396 920" />
+            <path class="ln s06-tapa-b" d="M640 960 L684 920" />
+            <path class="ln s06-tapa-c" d="M440 960 H640" />
+            <path class="ln-ac s06-cinta" d="M540 960 V1040" />
+            <circle class="ln-ac s06-ok" cx="600" cy="1060" r="18" />
+            <path class="ln-ac s06-ok" d="M591 1061 L598 1068 L610 1053" />
+          </g>
+          <path class="ln-tenue s06-vel" d="M300 990 H400 M260 1030 H400 M320 1070 H400" />
+        </g>
+
+        <!-- ===== camino 2: no te compró ===== -->
+        <g class="s06-dos">
+          <line class="ln s06-suelo2" x1="80" y1="1160" x2="1000" y2="1160" />
+          <g class="s06-local">
+            <g class="s06-local-in">
+              <path class="ln s06-dib-l" d="M-200 0 V-280 H200 V0" />
+              <path class="ln s06-dib-l" d="M-228 -280 H228 L204 -350 H-204 Z" />
+              <path class="ln s06-dib-l" d="M-228 -280 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0" />
+              <rect class="ln s06-dib-l" x="-100" y="-436" width="200" height="60" rx="12" />
+              <text class="cartel s06-txt-l" x="0" y="-396" text-anchor="middle">TU LOCAL</text>
+              <g class="s06-frente">
+                <rect class="ln-4" x="-164" y="-200" width="104" height="96" rx="6" />
+                <rect class="ln-4" x="60" y="-200" width="104" height="96" rx="6" />
+                <path class="ln-4" d="M-34 0 V-170 H34 V0" />
+              </g>
+              <g class="s06-cortina" clip-path="url(#s06-clip-cortina)">
+                <path class="ln-4" d="M-184 -240 H184 M-184 -218 H184 M-184 -196 H184 M-184 -174 H184 M-184 -152 H184 M-184 -130 H184 M-184 -108 H184 M-184 -86 H184 M-184 -64 H184 M-184 -42 H184 M-184 -20 H184" />
+                <path class="ln-4" d="M-184 -262 V0 M184 -262 V0" />
+              </g>
+              <g class="s06-barra"><path class="ln" d="M-188 0 H188" /><rect class="ln-4" x="-22" y="-14" width="44" height="12" rx="4" /></g>
+            </g>
+          </g>
+          <!-- la venta que se va -->
+          <g class="s06-card2" data-layout-allow-overflow>
+            <rect class="ln-ac" x="680" y="730" width="300" height="80" rx="40" />
+            <text class="s06-ped" x="712" y="780">Pedido</text>
+            <text class="s06-ped-h" x="950" y="779" text-anchor="end">23:14</text>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Te compró a vos</span><span class="s06-e2">Sale a la mañana</span><span class="s06-e3">Abrís y nada</span><span class="s06-e4">Se la llevó otro</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-dos-caminos";
+      const DUR = 7.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const MANANA1 = 0.67;
+      const ARMAS = 1.27;
+      const PAQUETE = 1.87;
+      const SALE = 2.37;
+      const SINO = 2.67;
+      const ABRIS = 4.17;
+      const VENTA = 5.27;
+      const LLEVO = 6.17;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const etiqueta = (sale, entra, t) => {
+        if (sale) tl.to(q(sale), { opacity: 0, duration: 0.15 }, t - 0.12);
+        tl.fromTo(q(entra), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // ===== camino 1 =====
+      // el pedido pagado ya está (cuadro 0 no negro): entra con pop
+      tl.fromTo(q(".s06-card1"), { opacity: 0.4, scale: 0.85, svgOrigin: "540 784" }, { opacity: 1, scale: 1, svgOrigin: "540 784", duration: 0.35, ease: "back.out(1.6)" }, 0);
+      etiqueta(null, ".s06-e1", 0.1);
+      // "mañana": el reloj marca 08:00
+      tl.fromTo(q(".s06-reloj"), { opacity: 0, scale: 0.85, svgOrigin: "540 650" }, { opacity: 1, scale: 1, svgOrigin: "540 650", duration: 0.35, ease: "back.out(1.6)" }, MANANA1 - 0.05);
+      // "armás el paquete": la caja se dibuja abierta, en "paquete" se cierra
+      dibujar([q(".s06-suelo1")], 0.2, 0.5);
+      dibujar([q(".s06-dib-caja"), q(".s06-tapa-a"), q(".s06-tapa-b")], ARMAS - 0.2, 0.45);
+      gsap.set(qa(".s06-tapa-c, .s06-cinta, .s06-ok"), { opacity: 0 });
+      tl.to(q(".s06-tapa-a"), { rotation: 135, svgOrigin: "440 960", duration: 0.25, ease: "power3.in" }, PAQUETE - 0.25);
+      tl.to(q(".s06-tapa-b"), { rotation: -135, svgOrigin: "640 960", duration: 0.25, ease: "power3.in" }, PAQUETE - 0.25);
+      tl.set(qa(".s06-tapa-a, .s06-tapa-b"), { opacity: 0 }, PAQUETE);
+      tl.set(q(".s06-tapa-c"), { opacity: 1 }, PAQUETE);
+      dibujar([q(".s06-cinta")], PAQUETE, 0.25);
+      tl.fromTo(qa(".s06-ok"), { opacity: 0, scale: 0.4, svgOrigin: "600 1060" }, { opacity: 1, scale: 1, svgOrigin: "600 1060", duration: 0.3, ease: "back.out(2.2)" }, PAQUETE + 0.15);
+      tl.to(q(".s06-caja"), { y: 6, duration: 0.07, ease: "power2.out", yoyo: true, repeat: 1 }, PAQUETE);
+      // "sale": la caja se va hacia la derecha con rayas de velocidad
+      gsap.set(q(".s06-vel"), { opacity: 0 });
+      tl.to(qa(".s06-caja"), { x: 560, duration: 0.5, ease: "power3.in" }, SALE);
+      tl.fromTo(q(".s06-vel"), { opacity: 0, x: 0 }, { opacity: 1, x: 300, duration: 0.3, ease: "power3.in" }, SALE + 0.1);
+      tl.to(q(".s06-vel"), { opacity: 0, duration: 0.15 }, SALE + 0.4);
+      etiqueta(".s06-e1", ".s06-e2", SALE - 0.2);
+      tl.to(q(".s06-uno"), { opacity: 0, duration: 0.25 }, SINO + 0.1);
+
+      // ===== camino 2 =====
+      gsap.set(q(".s06-local"), { x: 540, y: 1160 });
+      gsap.set(qa(".s06-dib-l, .s06-txt-l, .s06-frente, .s06-cortina, .s06-barra, .s06-suelo2"), { opacity: 0 });
+      dibujar(qa(".s06-dib-l"), SINO + 0.2, 0.5);
+      dibujar([q(".s06-suelo2")], SINO + 0.2, 0.5);
+      tl.to(qa(".s06-txt-l, .s06-cortina, .s06-barra"), { opacity: 1, duration: 0.3 }, SINO + 0.5);
+      tl.fromTo(q(".s06-local-in"), { scale: 0.94, svgOrigin: "0 0" }, { scale: 1, svgOrigin: "0 0", duration: 0.6, ease: "power3.out" }, SINO + 0.2);
+      tl.to(q(".s06-reloj"), { opacity: 0.5, duration: 0.15, yoyo: true, repeat: 3 }, SINO + 0.6);
+      // "abrís": la cortina sube; adentro no hay nada
+      tl.to(q(".s06-clip-r"), { scaleY: 0, svgOrigin: "0 -264", duration: 0.6, ease: "power2.out" }, ABRIS - 0.1);
+      tl.fromTo(q(".s06-barra"), { y: 0 }, { y: -262, duration: 0.6, ease: "power2.out", immediateRender: false }, ABRIS - 0.1);
+      tl.to(q(".s06-barra"), { opacity: 0, duration: 0.1 }, ABRIS + 0.45);
+      tl.to(q(".s06-frente"), { opacity: 0.6, duration: 0.3 }, ABRIS + 0.1);
+      etiqueta(".s06-e2", ".s06-e3", ABRIS);
+      // "esa venta": aparece el pedido de las 23:14; "se la llevó otro": se va a la derecha
+      gsap.set(q(".s06-card2"), { opacity: 0 });
+      tl.fromTo(q(".s06-card2"), { opacity: 0, scale: 0.85, svgOrigin: "830 770" }, { opacity: 1, scale: 1, svgOrigin: "830 770", duration: 0.35, ease: "back.out(1.6)" }, VENTA - 0.1);
+      tl.to(q(".s06-card2"), { x: 420, opacity: 0, duration: 0.4, ease: "power2.in" }, LLEVO - 0.25);
+      tl.to(qa(".s06-local, .s06-suelo2"), { opacity: 0.4, duration: 0.35 }, LLEVO + 0.15);
+      tl.to(q(".s06-local-in"), { x: -6, duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, LLEVO + 0.3);
+      etiqueta(".s06-e3", ".s06-e4", LLEVO);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

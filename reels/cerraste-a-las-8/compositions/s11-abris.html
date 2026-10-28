@@ -1,0 +1,130 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-abris"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-abris"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-abris"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-abris"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-abris"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-abris"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s11-abris"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s11-abris"] .s11-hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 72px; letter-spacing: 0.06em; fill: #5ce611; }
+    [data-composition-id="s11-abris"] .s11-ped { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s11-abris"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-abris"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s11-abris" data-width="1080" data-height="1920" data-duration="3.38">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="3.38" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs>
+          <clipPath id="s11-clip-hora"><rect x="340" y="604" width="400" height="90" /></clipPath>
+          <clipPath id="s11-clip-cortina"><rect class="s11-clip-r" x="-200" y="-264" width="400" height="268" /></clipPath>
+        </defs>
+        <g class="s11-reloj" clip-path="url(#s11-clip-hora)">
+          <text class="s11-hora s11-h1" x="540" y="676" text-anchor="middle">20:00</text>
+          <text class="s11-hora s11-h2" x="540" y="676" text-anchor="middle">08:00</text>
+        </g>
+        <line class="ln s11-suelo" x1="60" y1="1160" x2="1020" y2="1160" />
+        <g transform="translate(320 1160) scale(0.8)">
+          <g class="s11-local">
+            <path class="ln s11-dib" d="M-200 0 V-280 H200 V0" />
+            <path class="ln s11-dib" d="M-228 -280 H228 L204 -350 H-204 Z" />
+            <path class="ln s11-dib" d="M-228 -280 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0 q19 30 38 0" />
+            <rect class="ln s11-dib" x="-100" y="-436" width="200" height="60" rx="12" />
+            <text class="cartel s11-txt" x="0" y="-396" text-anchor="middle">TU LOCAL</text>
+            <g class="s11-frente">
+              <rect class="ln s11-dib" x="-164" y="-200" width="104" height="96" rx="6" />
+              <rect class="ln s11-dib" x="60" y="-200" width="104" height="96" rx="6" />
+              <rect class="vidrio s11-luz" x="-152" y="-188" width="80" height="72" rx="4" />
+              <rect class="vidrio s11-luz" x="72" y="-188" width="80" height="72" rx="4" />
+              <path class="ln s11-dib" d="M-34 0 V-170 H34 V0" />
+            </g>
+            <g class="s11-cortina" clip-path="url(#s11-clip-cortina)">
+              <path class="ln-4" d="M-184 -240 H184 M-184 -218 H184 M-184 -196 H184 M-184 -174 H184 M-184 -152 H184 M-184 -130 H184 M-184 -108 H184 M-184 -86 H184 M-184 -64 H184 M-184 -42 H184 M-184 -20 H184" />
+              <path class="ln-4" d="M-184 -262 V0 M184 -262 V0" />
+            </g>
+            <g class="s11-barra"><path class="ln" d="M-188 0 H188" /><rect class="ln-4" x="-22" y="-14" width="44" height="12" rx="4" /></g>
+          </g>
+        </g>
+        <!-- los pedidos pagos -->
+        <g class="s11-p"><rect class="ln-ac" x="600" y="826" width="380" height="76" rx="38" /><circle class="ln-ac" cx="644" cy="864" r="18" /><path class="ln-ac" d="M635 865 L642 872 L654 857" /><text class="s11-ped" x="678" y="874">Pedido · pagado</text></g>
+        <g class="s11-p"><rect class="ln-ac" x="600" y="926" width="380" height="76" rx="38" /><circle class="ln-ac" cx="644" cy="964" r="18" /><path class="ln-ac" d="M635 965 L642 972 L654 957" /><text class="s11-ped" x="678" y="974">Pedido · pagado</text></g>
+        <g class="s11-p"><rect class="ln-ac" x="600" y="1026" width="380" height="76" rx="38" /><circle class="ln-ac" cx="644" cy="1064" r="18" /><path class="ln-ac" d="M635 1065 L642 1072 L654 1057" /><text class="s11-ped" x="678" y="1074">Pedido · pagado</text></g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Cerrás a las 8</span><span class="s11-e2">Abrís con pedidos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-abris";
+      const DUR = 3.38;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CERRAS = 0.29;
+      const OCHO = 0.89;
+      const ABRIS = 1.59;
+      const PEDIDOS = 1.99;
+      const PAGOS = 2.59;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // el local arranca medio dibujado con la luz prendida
+      dibujar(qa(".s11-dib"), 0, 0.4, 0.4);
+      tl.fromTo(q(".s11-txt"), { opacity: 0.4 }, { opacity: 1, duration: 0.25 }, 0);
+      tl.fromTo(qa(".s11-luz"), { opacity: 0.5 }, { opacity: 0.85, duration: 0.2 }, 0);
+      tl.fromTo(q(".s11-suelo"), { scaleX: 0.6, svgOrigin: "540 1160" }, { scaleX: 1, svgOrigin: "540 1160", duration: 0.5, ease: "power3.out" }, 0);
+      gsap.set(q(".s11-h2"), { y: 90 });
+      tl.fromTo(q(".s11-reloj"), { opacity: 0, scale: 0.85, svgOrigin: "540 650" }, { opacity: 1, scale: 1, svgOrigin: "540 650", duration: 0.3, ease: "back.out(1.6)" }, 0.05);
+
+      // "cerrás": baja la cortina y se apaga
+      tl.fromTo(q(".s11-clip-r"), { scaleY: 0, svgOrigin: "0 -264" }, { scaleY: 1, svgOrigin: "0 -264", duration: 0.45, ease: "power2.in" }, CERRAS - 0.05);
+      tl.fromTo(q(".s11-barra"), { y: -262 }, { y: 0, duration: 0.45, ease: "power2.in" }, CERRAS - 0.05);
+      tl.to(qa(".s11-luz"), { opacity: 0, duration: 0.25 }, CERRAS + 0.15);
+      tl.to(q(".s11-frente"), { opacity: 0, duration: 0.2 }, CERRAS + 0.3);
+      tl.to(q(".s11-local"), { y: 6, duration: 0.07, ease: "power2.out", yoyo: true, repeat: 1 }, CERRAS + 0.4);
+      tl.to(qa(".s11-dib, .s11-txt"), { opacity: 0.45, duration: 0.3 }, CERRAS + 0.45);
+      tl.fromTo(q(".s11-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CERRAS);
+      tl.to(q(".s11-h1"), { opacity: 0.5, duration: 0.12, yoyo: true, repeat: 1 }, OCHO);
+
+      // "abrís": el reloj rueda a 08:00 y la cortina sube, se prende
+      tl.to(q(".s11-h1"), { y: -90, duration: 0.28, ease: "power3.in" }, ABRIS - 0.25);
+      tl.to(q(".s11-h2"), { y: 0, duration: 0.32, ease: "back.out(1.6)" }, ABRIS);
+      tl.to(q(".s11-clip-r"), { scaleY: 0, svgOrigin: "0 -264", duration: 0.4, ease: "power2.out" }, ABRIS);
+      tl.to(q(".s11-barra"), { y: -262, duration: 0.4, ease: "power2.out" }, ABRIS);
+      tl.to(q(".s11-barra"), { opacity: 0, duration: 0.1 }, ABRIS + 0.32);
+      tl.to(qa(".s11-dib, .s11-txt, .s11-frente"), { opacity: 1, duration: 0.25 }, ABRIS + 0.15);
+      tl.to(qa(".s11-luz"), { opacity: 0.85, duration: 0.25 }, ABRIS + 0.25);
+      tl.to(q(".s11-e1"), { opacity: 0, duration: 0.15 }, ABRIS - 0.1);
+      tl.fromTo(q(".s11-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, ABRIS);
+
+      // "pedidos": salen los tres pedidos; "pagos": golpe
+      const ps = qa(".s11-p");
+      ps.forEach((p, i) => {
+        gsap.set(p, { opacity: 0 });
+        tl.fromTo(p, { opacity: 0, x: -140, scale: 0.85, svgOrigin: "790 " + (864 + i * 100) }, { opacity: 1, x: 0, scale: 1, svgOrigin: "790 " + (864 + i * 100), duration: 0.35, ease: "back.out(1.6)" }, PEDIDOS - 0.1 + i * 0.15);
+      });
+      tl.to(ps, { scale: 1.06, svgOrigin: "790 964", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, PAGOS);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

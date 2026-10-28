@@ -1,0 +1,109 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-no-cierra"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-no-cierra"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-no-cierra"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-no-cierra"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-no-cierra"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-no-cierra"] .relleno { fill: #5ce611; }
+    [data-composition-id="s07-no-cierra"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s07-no-cierra"] .s07-abierto { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.18em; fill: #5ce611; }
+    [data-composition-id="s07-no-cierra"] .s07-hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 44px; letter-spacing: 0.06em; fill: rgba(239, 238, 229, 0.7); }
+    [data-composition-id="s07-no-cierra"] .s07-rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s07-no-cierra"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-no-cierra"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-no-cierra" data-width="1080" data-height="1920" data-duration="2.65">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="2.65" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s07-suelo" x1="60" y1="1120" x2="1020" y2="1120" />
+        <!-- tu local cerrado (izquierda) -->
+        <g class="s07-local">
+          <g class="s07-local-in">
+            <path class="ln s07-dib-l" d="M-130 0 V-180 H130 V0" />
+            <path class="ln s07-dib-l" d="M-150 -180 H150 L132 -232 H-132 Z" />
+            <rect class="ln s07-dib-l" x="-86" y="-300" width="172" height="50" rx="10" />
+            <text class="cartel s07-txt-l" x="0" y="-267" text-anchor="middle">TU LOCAL</text>
+            <path class="ln-4 s07-dib-l" d="M-116 -160 H116 M-116 -138 H116 M-116 -116 H116 M-116 -94 H116 M-116 -72 H116 M-116 -50 H116 M-116 -28 H116" />
+            <path class="ln-4 s07-dib-l" d="M-116 -178 V0 M116 -178 V0" />
+          </g>
+        </g>
+        <text class="s07-hora" x="280" y="790" text-anchor="middle">20:00</text>
+        <!-- tu tienda online (derecha) -->
+        <g class="s07-tienda">
+          <g class="s07-tienda-in">
+            <rect class="ln s07-dib-t" x="700" y="770" width="200" height="350" rx="30" />
+            <line class="ln s07-dib-t" x1="775" y1="796" x2="825" y2="796" />
+            <rect class="ln-4 s07-dib-t" x="724" y="828" width="70" height="70" rx="8" />
+            <rect class="ln-4 s07-dib-t" x="806" y="828" width="70" height="70" rx="8" />
+            <rect class="ln-4 s07-dib-t" x="724" y="910" width="70" height="70" rx="8" />
+            <rect class="ln-4 s07-dib-t" x="806" y="910" width="70" height="70" rx="8" />
+            <rect class="relleno s07-btn" x="724" y="1010" width="152" height="46" rx="23" />
+          </g>
+        </g>
+        <g class="s07-cartel">
+          <rect class="ln-ac" x="680" y="666" width="240" height="60" rx="12" />
+          <text class="s07-abierto" x="800" y="706" text-anchor="middle">ABIERTO</text>
+        </g>
+        <text class="s07-rot s07-rot-t" x="800" y="1168" text-anchor="middle">TU TIENDA</text>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">Cerrado</span><span class="s07-e2">Abierto 24 hs</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-no-cierra";
+      const DUR = 2.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CERRASTE = 0.25;
+      const OCHO = 0.95;
+      const TIENDA = 1.65;
+      const ONLINE = 1.95;
+      const NO = 2.5;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.03); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.03);
+        });
+      };
+
+      // tu local arranca medio dibujado y se apaga en "cerraste"
+      gsap.set(q(".s07-local"), { x: 280, y: 1120 });
+      dibujar(qa(".s07-dib-l"), 0, 0.4, 0.4);
+      tl.fromTo(q(".s07-suelo"), { scaleX: 0.6, svgOrigin: "540 1120" }, { scaleX: 1, svgOrigin: "540 1120", duration: 0.5, ease: "power3.out" }, 0);
+      tl.to(q(".s07-local"), { opacity: 0.4, duration: 0.35 }, CERRASTE + 0.1);
+      tl.fromTo(q(".s07-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CERRASTE);
+      tl.fromTo(q(".s07-hora"), { opacity: 0, scale: 0.85, svgOrigin: "280 776" }, { opacity: 1, scale: 1, svgOrigin: "280 776", duration: 0.3, ease: "back.out(1.6)" }, OCHO - 0.1);
+
+      // "tienda online": se prende la tienda
+      dibujar(qa(".s07-dib-t"), TIENDA - 0.25, 0.4);
+      tl.fromTo(q(".s07-btn"), { opacity: 0, scale: 0.6, svgOrigin: "800 1033" }, { opacity: 1, scale: 1, svgOrigin: "800 1033", duration: 0.3, ease: "back.out(2)" }, TIENDA + 0.1);
+      tl.fromTo(q(".s07-rot-t"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, TIENDA);
+      tl.fromTo(q(".s07-cartel"), { opacity: 0, scale: 0.85, svgOrigin: "800 696" }, { opacity: 1, scale: 1, svgOrigin: "800 696", duration: 0.35, ease: "back.out(1.6)" }, ONLINE);
+      tl.to(q(".s07-e1"), { opacity: 0, duration: 0.15 }, ONLINE - 0.1);
+      tl.fromTo(q(".s07-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, ONLINE);
+      // "no": golpe
+      tl.to(q(".s07-cartel"), { scale: 1.12, svgOrigin: "800 696", duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, NO - 0.1);
+      tl.to(q(".s07-tienda-in"), { scale: 1.05, svgOrigin: "800 945", duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, NO - 0.1);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

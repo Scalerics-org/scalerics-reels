@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-paga"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-paga"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-paga"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-paga"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-paga"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-paga"] .relleno { fill: #5ce611; }
+    [data-composition-id="s05-paga"] .s05-busca { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s05-paga"] .s05-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s05-paga"] .s05-precio { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; fill: #5ce611; }
+    [data-composition-id="s05-paga"] .s05-boton { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #0b1d35; }
+    [data-composition-id="s05-paga"] .s05-ok { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #5ce611; }
+    [data-composition-id="s05-paga"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-paga"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-paga" data-width="1080" data-height="1920" data-duration="3.62">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.62" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s05-clip-tipeo"><rect class="s05-tipeo" x="446" y="664" width="230" height="50" /></clipPath></defs>
+        <g class="s05-cel">
+          <rect class="ln s05-dib" x="360" y="600" width="360" height="620" rx="52" />
+          <line class="ln s05-dib" x1="510" y1="630" x2="570" y2="630" />
+          <g class="s05-contenido">
+            <!-- búsqueda -->
+            <rect class="ln-4 s05-dib" x="388" y="660" width="304" height="58" rx="29" />
+            <circle class="ln-4 s05-dib" cx="420" cy="686" r="11" />
+            <line class="ln-4 s05-dib" x1="428" y1="694" x2="438" y2="704" />
+            <text class="s05-busca" x="452" y="699" clip-path="url(#s05-clip-tipeo)">zapatillas</text>
+            <!-- el producto -->
+            <g class="s05-prod">
+              <rect class="ln-4" x="388" y="744" width="304" height="300" rx="18" />
+              <path class="ln s05-zapa" d="M432 924 L444 852 Q474 856 492 832 L524 858 Q590 872 632 896 Q650 908 644 926 Z" />
+              <path class="ln s05-zapa" d="M428 940 H648" />
+              <path class="ln-4 s05-zapa" d="M488 852 L500 868 M506 846 L518 862" />
+              <text class="s05-nom" x="412" y="986">Zapatillas</text>
+              <text class="s05-precio" x="412" y="1028">$ 2.490</text>
+            </g>
+            <!-- el botón de pago -->
+            <g class="s05-btn">
+              <rect class="relleno" x="388" y="1072" width="304" height="68" rx="34" />
+              <text class="s05-boton" x="540" y="1115" text-anchor="middle">Pagar · Mercado Pago</text>
+            </g>
+          </g>
+          <!-- el dedo que toca -->
+          <circle class="ln s05-dedo" cx="600" cy="1106" r="26" />
+          <circle class="ln-4 s05-onda" cx="600" cy="1106" r="26" />
+          <!-- pago aprobado -->
+          <g class="s05-aprob">
+            <circle class="ln-ac s05-dib-ok" cx="540" cy="860" r="84" />
+            <path class="ln-ac s05-dib-ok" d="M500 862 L530 892 L584 832" />
+            <text class="s05-ok" x="540" y="1010" text-anchor="middle">Pago aprobado</text>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Busca · encuentra</span><span class="s05-e2">Paga ahí mismo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-paga";
+      const DUR = 3.62;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const BUSCA = 0.0;
+      const ENCUENTRA = 1.19;
+      const PAGA = 1.99;
+      const AHI = 2.5;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // el celular arranca medio dibujado (cuadro 0 no negro)
+      dibujar(qa(".s05-dib"), 0, 0.45, 0.4);
+      tl.fromTo(q(".s05-cel"), { y: 30 }, { y: 0, duration: 0.5, ease: "power3.out" }, 0);
+
+      // "busca": se tipea la búsqueda
+      tl.fromTo(q(".s05-tipeo"), { scaleX: 0, svgOrigin: "446 690" }, { scaleX: 1, svgOrigin: "446 690", duration: 0.75, ease: "steps(10)" }, BUSCA + 0.25);
+
+      // "encuentra": aparece el producto
+      gsap.set(q(".s05-prod"), { opacity: 0 });
+      tl.fromTo(q(".s05-prod"), { opacity: 0, scale: 0.85, svgOrigin: "540 894" }, { opacity: 1, scale: 1, svgOrigin: "540 894", duration: 0.35, ease: "back.out(1.6)" }, ENCUENTRA - 0.1);
+      dibujar(qa(".s05-zapa"), ENCUENTRA, 0.45);
+      tl.fromTo(q(".s05-precio"), { scale: 1 }, { scale: 1.12, svgOrigin: "470 1016", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ENCUENTRA + 0.45);
+      tl.fromTo(q(".s05-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.3);
+
+      // el botón: entra antes de "paga"; "paga": el dedo lo toca
+      gsap.set(q(".s05-btn"), { opacity: 0 });
+      tl.fromTo(q(".s05-btn"), { opacity: 0, scale: 0.85, svgOrigin: "540 1106" }, { opacity: 1, scale: 1, svgOrigin: "540 1106", duration: 0.35, ease: "back.out(1.6)" }, ENCUENTRA + 0.35);
+      gsap.set(qa(".s05-dedo, .s05-onda"), { opacity: 0 });
+      tl.fromTo(q(".s05-dedo"), { opacity: 0, x: 70, y: 90 }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out" }, PAGA - 0.3);
+      tl.to(q(".s05-btn"), { scale: 0.94, svgOrigin: "540 1106", duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1 }, PAGA);
+      tl.fromTo(q(".s05-onda"), { opacity: 0.9, scale: 1, svgOrigin: "600 1106" }, { opacity: 0, scale: 2.4, svgOrigin: "600 1106", duration: 0.45, ease: "power2.out", immediateRender: false }, PAGA);
+      tl.to(q(".s05-dedo"), { opacity: 0, duration: 0.2 }, PAGA + 0.3);
+      tl.to(q(".s05-e1"), { opacity: 0, duration: 0.2 }, PAGA - 0.15);
+      tl.fromTo(q(".s05-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, PAGA);
+
+      // "ahí mismo": la pantalla muestra el pago aprobado
+      tl.to(q(".s05-contenido"), { opacity: 0.07, duration: 0.25 }, AHI - 0.15);
+      gsap.set(q(".s05-aprob"), { opacity: 1 });
+      dibujar(qa(".s05-dib-ok"), AHI - 0.05, 0.4);
+      tl.fromTo(q(".s05-ok"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, AHI + 0.2);
+      tl.fromTo(q(".s05-aprob"), { scale: 1 }, { scale: 1.08, svgOrigin: "540 900", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, AHI + 0.45);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
