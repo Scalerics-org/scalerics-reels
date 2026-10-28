@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-no-es"] .cap { position: absolute; inset: 0; }
+    [data-composition-id="s02-no-es"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-no-es"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-es"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-es"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s02-no-es"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s02-no-es"] .relleno { fill: #efeee5; }
+    [data-composition-id="s02-no-es"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s02-no-es"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s02-no-es"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s02-no-es"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 56px; fill: #5ce611; }
+    [data-composition-id="s02-no-es"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; letter-spacing: 0.08em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s02-no-es"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s02-no-es"] .mono-ac { fill: #5ce611; }
+    [data-composition-id="s02-no-es"] .contador { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; fill: #0b1d35; }
+    [data-composition-id="s02-no-es"] .badge-num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 19px; fill: #5ce611; }
+    [data-composition-id="s02-no-es"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-no-es"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-no-es" data-width="1080" data-height="1920" data-duration="6.65">
+    <div id="s02-escena" class="cap clip" data-start="0" data-duration="6.65" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s02-fila">
+          <g transform="translate(270 880)"><g class="s02-ico s02-ico1"><g class="s02-dib">
+            <path class="ln s02-d1" d="M-80 -52 H30 L84 0 L30 52 H-80 Z" />
+            <circle class="ln s02-d1" cx="44" cy="0" r="9" />
+            <text class="grande s02-signo" x="-26" y="20" text-anchor="middle">$</text>
+          </g>
+          <text class="mono s02-n1" x="0" y="150" text-anchor="middle">PRECIOS</text></g></g>
+          <g transform="translate(540 880)"><g class="s02-ico s02-ico2"><g class="s02-dib">
+            <circle class="ln s02-d2" cx="-56" cy="-20" r="24" />
+            <path class="ln s02-d2" d="M-104 70 a48 48 0 0 1 96 0" />
+            <path class="ln s02-d2" d="M4 -104 H96 a20 20 0 0 1 20 20 V-46 a20 20 0 0 1 -20 20 H40 L18 -6 V-26 H4 a20 20 0 0 1 -20 -20 V-84 a20 20 0 0 1 20 -20 Z" />
+            <circle class="relleno s02-punto" cx="28" cy="-65" r="6" /><circle class="relleno s02-punto" cx="50" cy="-65" r="6" /><circle class="relleno s02-punto" cx="72" cy="-65" r="6" />
+          </g>
+          <text class="mono s02-n2" x="0" y="150" text-anchor="middle">HABLAR CON VOS</text></g></g>
+          <g transform="translate(810 880)"><g class="s02-ico s02-ico3"><g class="s02-dib">
+            <rect class="ln s02-d3" x="-76" y="-40" width="152" height="106" rx="14" />
+            <path class="ln s02-d3" d="M-30 -40 V-64 a8 8 0 0 1 8 -8 H22 a8 8 0 0 1 8 8 V-40" />
+            <path class="ln s02-d3" d="M-76 4 H76" />
+            <rect class="relleno-ac s02-cierre" x="-13" y="-6" width="26" height="20" rx="4" />
+          </g>
+          <text class="mono s02-n3" x="0" y="150" text-anchor="middle">EL TRABAJO</text></g></g>
+          <g transform="translate(362 796)"><g class="s02-b1" opacity="0"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+          <g transform="translate(670 760)"><g class="s02-b2" opacity="0"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+          <g transform="translate(902 800)"><g class="s02-b3" opacity="0"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">No es eso</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-no-es";
+      const DUR = 6.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      // badge de "no": cae desde arriba con pop (geometría centrada en 0,0 dentro del grupo)
+      const badge = (el, t) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.4, y: -26, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const rotulo = (el, t) => {
+        tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      const etq = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const PRECIOS = 2.0;
+      const NI1 = 2.6;
+      const HABLAR = 3.6;
+      const NI2 = 4.6;
+      const TRABAJO = 5.7;
+
+      qa(".s02-n1, .s02-n2, .s02-n3").forEach((n) => gsap.set(n, { opacity: 0 }));
+      // la fila se acerca muy despacio
+      tl.fromTo(q(".s02-fila"), { scale: 1.05, svgOrigin: "540 880" }, { scale: 1, svgOrigin: "540 880", duration: DUR, ease: "none" }, 0);
+
+      // 1. precios: la etiqueta se dibuja de entrada y se balancea
+      dibujar(qa(".s02-d1"), 0, 0.6, 0.6);
+      pop(q(".s02-signo"), 0.5, "-26 0");
+      tl.fromTo(q(".s02-ico1"), { rotation: -10, svgOrigin: "44 0" }, { rotation: 6, svgOrigin: "44 0", duration: 1.4, ease: "sine.inOut" }, 0.2);
+      rotulo(q(".s02-n1"), 1.2);
+      tl.to(q(".s02-signo"), { scale: 1.25, svgOrigin: "-26 0", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, PRECIOS - 0.3);
+      badge(q(".s02-b1"), PRECIOS);
+      tl.to(q(".s02-ico1"), { rotation: 0, x: -6, svgOrigin: "44 0", duration: 0.06, yoyo: true, repeat: 3 }, PRECIOS + 0.05);
+
+      // 2. hablar con vos
+      tl.to(q(".s02-ico1"), { opacity: 0.4, duration: 0.3 }, NI1);
+      dibujar(qa(".s02-d2"), NI1 - 0.1, 0.5);
+      qa(".s02-punto").forEach((d, i) => {
+        tl.fromTo(d, { opacity: 0 }, { opacity: 1, duration: 0.1 }, NI1 + 0.5 + i * 0.08);
+        tl.fromTo(d, { y: 0 }, { y: -8, duration: 0.16, ease: "sine.inOut", yoyo: true, repeat: 3 }, NI1 + 0.7 + i * 0.1);
+      });
+      rotulo(q(".s02-n2"), HABLAR - 0.3);
+      badge(q(".s02-b2"), HABLAR + 0.3);
+      tl.to(q(".s02-ico2"), { x: -6, duration: 0.06, yoyo: true, repeat: 3 }, HABLAR + 0.35);
+
+      // 3. el trabajo
+      tl.to(q(".s02-ico2"), { opacity: 0.4, duration: 0.3 }, NI2);
+      dibujar(qa(".s02-d3"), NI2 - 0.1, 0.5);
+      pop(q(".s02-cierre"), NI2 + 0.4, "0 4");
+      tl.fromTo(q(".s02-ico3"), { rotation: -6, svgOrigin: "0 66" }, { rotation: 0, svgOrigin: "0 66", duration: 0.7, ease: "back.out(2)" }, NI2);
+      rotulo(q(".s02-n3"), TRABAJO - 0.3);
+      badge(q(".s02-b3"), TRABAJO);
+      tl.to(q(".s02-ico3"), { x: -6, duration: 0.06, yoyo: true, repeat: 3 }, TRABAJO + 0.05);
+
+      // etiqueta y los tres badges laten juntos
+      etq(q(".s02-e1"), PRECIOS);
+      tl.to([q(".s02-b1"), q(".s02-b2"), q(".s02-b3")], { scale: 1.22, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, TRABAJO + 0.5);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

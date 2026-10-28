@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-funciones"] .cap { position: absolute; inset: 0; }
+    [data-composition-id="s10-funciones"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-funciones"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-funciones"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-funciones"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s10-funciones"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s10-funciones"] .relleno { fill: #efeee5; }
+    [data-composition-id="s10-funciones"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s10-funciones"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s10-funciones"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s10-funciones"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 56px; fill: #5ce611; }
+    [data-composition-id="s10-funciones"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; letter-spacing: 0.08em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s10-funciones"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s10-funciones"] .mono-ac { fill: #5ce611; }
+    [data-composition-id="s10-funciones"] .contador { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; fill: #0b1d35; }
+    [data-composition-id="s10-funciones"] .badge-num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 19px; fill: #5ce611; }
+    [data-composition-id="s10-funciones"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-funciones"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s10-funciones" data-width="1080" data-height="1920" data-duration="4.50">
+    <div id="s10-escena" class="cap clip" data-start="0" data-duration="4.50" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s10-fila">
+          <g transform="translate(270 880)"><g class="s10-ico1">
+            <rect class="ln s10-d1" x="-80" y="-60" width="160" height="140" rx="14" />
+            <path class="ln s10-d1" d="M-80 -24 H80" />
+            <path class="ln s10-d1" d="M-40 -76 V-46 M40 -76 V-46" />
+            <circle class="relleno s10-pt" cx="-46" cy="6" r="5" opacity="0.4" /><circle class="relleno s10-pt" cx="-16" cy="6" r="5" opacity="0.4" /><circle class="relleno s10-pt" cx="14" cy="6" r="5" opacity="0.4" /><circle class="relleno s10-pt" cx="44" cy="6" r="5" opacity="0.4" /><circle class="relleno s10-pt" cx="-46" cy="40" r="5" opacity="0.4" /><circle class="relleno s10-pt" cx="-16" cy="40" r="5" opacity="0.4" /><circle class="relleno s10-pt" cx="44" cy="40" r="5" opacity="0.4" />
+            <rect class="relleno-ac s10-dia" x="2" y="28" width="26" height="24" rx="5" />
+          </g><text class="mono s10-n1" x="0" y="150" text-anchor="middle">TURNOS</text></g>
+          <g transform="translate(362 800)"><g class="s10-t1" opacity="0"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-8 0 L-2 7 L9 -7" /></g></g>
+          <g transform="translate(540 880)"><g class="s10-ico2">
+            <path class="ln s10-d2" d="M-64 -30 H64 L76 80 H-76 Z" />
+            <path class="ln s10-d2" d="M-28 -30 V-46 a28 28 0 0 1 56 0 V-30" />
+            <path class="ln-tenue s10-d2" d="M-34 16 H34 M-34 44 H18" />
+          </g><text class="mono s10-n2" x="0" y="150" text-anchor="middle">PEDIDOS</text></g>
+          <g transform="translate(630 800)"><g class="s10-t2" opacity="0"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-8 0 L-2 7 L9 -7" /></g></g>
+          <g transform="translate(810 880)"><g class="s10-ico3">
+            <circle class="ln s10-d3" cx="40" cy="0" r="24" />
+            <path class="ln s10-d3" d="M-6 80 a46 46 0 0 1 92 0" />
+            <path class="ln-ac s10-flecha" d="M-80 6 Q-66 52 6 24" />
+            <path class="ln-ac s10-flecha-p" d="M-18 10 L8 24 L-14 40" />
+            <g class="s10-burbuja"><g class="s10-burbuja-in">
+              <rect class="ln" x="-124" y="-60" width="88" height="56" rx="18" />
+              <rect class="ln-ac s10-burbuja-ac" x="-124" y="-60" width="88" height="56" rx="18" />
+              <text class="ui-b" x="-80" y="-22" text-anchor="middle">?</text>
+            </g></g>
+          </g><text class="mono s10-n3" x="0" y="150" text-anchor="middle">PARA VOS</text></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Turnos y pedidos</span><span class="s10-e2">Te pasa lo tuyo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-funciones";
+      const DUR = 4.5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      // badge de "no": cae desde arriba con pop (geometría centrada en 0,0 dentro del grupo)
+      const badge = (el, t) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.4, y: -26, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const rotulo = (el, t) => {
+        tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      const etq = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const TURNOS = 0.26;
+      const PEDIDOS = 1.26;
+      const CUANDO = 2.06;
+      const CONSULTA = 2.46;
+      const VOS = 2.96;
+      const TE = 3.26;
+      const PASA = 3.86;
+
+      qa(".s10-n1, .s10-n2, .s10-n3").forEach((n) => gsap.set(n, { opacity: 0 }));
+      tl.fromTo(q(".s10-fila"), { scale: 1.05, svgOrigin: "540 880" }, { scale: 1, svgOrigin: "540 880", duration: DUR, ease: "none" }, 0);
+
+      // 1. agenda turnos
+      dibujar(qa(".s10-d1"), 0, 0.45, 0.5, 0.05);
+      tl.fromTo(qa(".s10-pt"), { opacity: 0 }, { opacity: 0.4, duration: 0.2, stagger: 0.03 }, 0.15);
+      pop(q(".s10-dia"), TURNOS, "15 40");
+      rotulo(q(".s10-n1"), TURNOS);
+      tl.fromTo(q(".s10-t1"), { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, TURNOS + 0.3);
+
+      // 2. toma pedidos
+      dibujar(qa(".s10-d2"), PEDIDOS - 0.45, 0.45, 1, 0.06);
+      tl.fromTo(q(".s10-ico2"), { y: -16 }, { y: 0, duration: 0.5, ease: "bounce.out" }, PEDIDOS - 0.45);
+      rotulo(q(".s10-n2"), PEDIDOS);
+      tl.fromTo(q(".s10-t2"), { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, PEDIDOS + 0.15);
+
+      // 3. la consulta que es para vos, te la pasa
+      tl.to([q(".s10-ico1"), q(".s10-ico2"), q(".s10-t1"), q(".s10-t2")], { opacity: 0.4, duration: 0.3 }, CUANDO);
+      dibujar(qa(".s10-d3"), CUANDO - 0.1, 0.45);
+      pop(q(".s10-burbuja-in"), CONSULTA, "-80 -32");
+      gsap.set(q(".s10-burbuja-ac"), { opacity: 0 });
+      tl.to(q(".s10-burbuja-in"), { rotation: -8, svgOrigin: "-80 -32", duration: 0.12, yoyo: true, repeat: 3 }, VOS);
+      rotulo(q(".s10-n3"), VOS);
+      dibujar([q(".s10-flecha")], TE - 0.1, 0.45);
+      tl.fromTo(q(".s10-flecha-p"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, TE + 0.3);
+      // "pasa": la burbuja viaja hasta vos y se pone verde
+      tl.to(q(".s10-burbuja"), { x: 120, y: -46, scale: 0.8, svgOrigin: "-80 -32", duration: 0.4, ease: "power3.inOut" }, PASA - 0.25);
+      tl.to(q(".s10-burbuja-ac"), { opacity: 1, duration: 0.15 }, PASA);
+      tl.to(qa(".s10-d3"), { y: -8, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, PASA + 0.1);
+
+      etq(q(".s10-e1"), 0.3);
+      etq(q(".s10-e2"), TE, q(".s10-e1"));
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

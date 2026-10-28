@@ -19,9 +19,9 @@
 - 28-10 · `regalar-un-cafe` · Puntos · "Regalar un café te sale más barato que conseguir un cliente nuevo." · Comentá CAFÉ
 - 28-10 · `te-recomendaron` · Sitio web · "Te recomendaron. Te buscaron. Y no te encontraron." · Comentá SITIO
 - 28-10 · `celular-a-las-11` · Tienda online · "Tu competencia no es el de enfrente: es el celular de tu cliente a las once de la noche." · Comentá TIENDA
+- 28-10 · `deja-el-whatsapp` · Bot · "Dejá de atender el WhatsApp vos. Sí, vos. El dueño." · Comentá BOT
 
 ## En curso
-- 28-10 · `deja-el-whatsapp` · Bot · "Dejá de atender el WhatsApp vos."
 - 28-10 · `mas-horas-lo-mismo` · Todo Scalerics · "Trabajás más horas que nunca y vendés lo mismo."
 
 ## Banco de ideas (tomá uno o inventá otro en la misma línea)

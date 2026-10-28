@@ -1,0 +1,116 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-dueno"] .cap { position: absolute; inset: 0; }
+    [data-composition-id="s11-dueno"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-dueno"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s11-dueno"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s11-dueno"] .relleno { fill: #efeee5; }
+    [data-composition-id="s11-dueno"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s11-dueno"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s11-dueno"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s11-dueno"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 56px; fill: #5ce611; }
+    [data-composition-id="s11-dueno"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; letter-spacing: 0.08em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s11-dueno"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s11-dueno"] .mono-ac { fill: #5ce611; }
+    [data-composition-id="s11-dueno"] .contador { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; fill: #0b1d35; }
+    [data-composition-id="s11-dueno"] .badge-num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 19px; fill: #5ce611; }
+    [data-composition-id="s11-dueno"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-dueno"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s11-dueno"] .s11-cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s11-dueno" data-width="1080" data-height="1920" data-duration="2.24">
+    <div id="s11-escena" class="cap clip" data-start="0" data-duration="2.24" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s11-todo">
+          <path class="ln s11-d" d="M190 1100 H890" />
+          <path class="ln s11-d" d="M220 1100 V1190 M860 1100 V1190" />
+          <g class="s11-tel">
+            <rect class="ln s11-d" x="270" y="890" width="130" height="210" rx="22" />
+            <rect class="relleno-ac s11-bu" x="290" y="928" width="60" height="22" rx="8" />
+            <rect class="relleno s11-bu" x="320" y="962" width="60" height="22" rx="8" opacity="0.6" />
+            <rect class="relleno-ac s11-bu" x="290" y="996" width="72" height="22" rx="8" />
+            <rect class="relleno s11-bu" x="330" y="1030" width="50" height="22" rx="8" opacity="0.6" />
+          </g>
+          <g class="s11-duenio">
+            <circle class="ln s11-p" cx="660" cy="900" r="34" />
+            <path class="ln s11-p" d="M590 1098 C590 990 730 990 730 1098" />
+            <path class="ln s11-p" d="M604 1030 L566 974" />
+            <path class="ln s11-p" d="M716 1030 L754 974" />
+          </g>
+          <g class="s11-tag">
+            <path class="ln" d="M700 868 L760 842" />
+            <rect class="ln" x="760" y="814" width="170" height="54" rx="12" />
+            <text class="s11-cartel" x="845" y="850" text-anchor="middle">DUEÑO</text>
+          </g>
+          <g transform="translate(930 812)"><g class="s11-tilde" opacity="0"><circle class="ln-ac" cx="0" cy="0" r="20" /><path class="ln-ac" d="M-8 0 L-2 7 L9 -7" /></g></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">El dueño, de nuevo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-dueno";
+      const DUR = 2.24;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      // badge de "no": cae desde arriba con pop (geometría centrada en 0,0 dentro del grupo)
+      const badge = (el, t) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.4, y: -26, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const rotulo = (el, t) => {
+        tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      const etq = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const VOLVES = 0.56;
+      const DUENO = 1.36;
+
+      dibujar(qa(".s11-d"), 0, 0.45, 0.5, 0.04);
+      dibujar(qa(".s11-p"), 0.1, 0.45, 0.6, 0.05);
+      tl.fromTo(q(".s11-todo"), { scale: 0.97, svgOrigin: "540 1000" }, { scale: 1.02, svgOrigin: "540 1000", duration: DUR, ease: "none" }, 0);
+      // el celular contesta solo, apoyado en el mostrador
+      qa(".s11-bu").forEach((b, i) => {
+        tl.fromTo(b, { opacity: 0, x: i % 2 ? 10 : -10 }, { opacity: i % 2 ? 0.6 : 1, x: 0, duration: 0.2, ease: "power3.out" }, 0.25 + i * 0.35);
+      });
+      // "volvés": el dueño se estira, con las manos libres
+      tl.fromTo(q(".s11-duenio"), { y: 0 }, { y: -12, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1 }, VOLVES);
+      etq(q(".s11-e1"), VOLVES);
+      // "dueño": vuelve el cartelito, ahora con tilde
+      tl.fromTo(q(".s11-tag"), { opacity: 0, rotation: -14, y: -16, svgOrigin: "700 868" }, { opacity: 1, rotation: 0, y: 0, svgOrigin: "700 868", duration: 0.4, ease: "back.out(2)" }, DUENO - 0.3);
+      tl.fromTo(q(".s11-tilde"), { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, DUENO);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

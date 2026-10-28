@@ -1,0 +1,128 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-crecer"] .cap { position: absolute; inset: 0; }
+    [data-composition-id="s07-crecer"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-crecer"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-crecer"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-crecer"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s07-crecer"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s07-crecer"] .relleno { fill: #efeee5; }
+    [data-composition-id="s07-crecer"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s07-crecer"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s07-crecer"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s07-crecer"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 56px; fill: #5ce611; }
+    [data-composition-id="s07-crecer"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; letter-spacing: 0.08em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s07-crecer"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s07-crecer"] .mono-ac { fill: #5ce611; }
+    [data-composition-id="s07-crecer"] .contador { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; fill: #0b1d35; }
+    [data-composition-id="s07-crecer"] .badge-num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 19px; fill: #5ce611; }
+    [data-composition-id="s07-crecer"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-crecer"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-crecer" data-width="1080" data-height="1920" data-duration="4.30">
+    <div id="s07-escena" class="cap clip" data-start="0" data-duration="4.30" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s07-fila">
+          <g transform="translate(270 880)"><g class="s07-ico1">
+            <circle class="ln s07-d1" cx="-36" cy="-26" r="24" />
+            <path class="ln s07-d1" d="M-84 66 a48 48 0 0 1 96 0" />
+            <circle class="ln s07-d1" cx="42" cy="-6" r="18" />
+            <path class="ln s07-d1" d="M8 66 a34 34 0 0 1 68 0" />
+            <path class="ln-ac s07-mas" d="M64 -92 V-44 M40 -68 H88" />
+          </g><text class="mono s07-n1" x="0" y="150" text-anchor="middle">CLIENTES</text></g>
+          <g transform="translate(540 880)"><g class="s07-ico2">
+            <path class="ln s07-d2" d="M-64 70 V-90 H64 V70" />
+            <path class="ln s07-d2" d="M-104 70 H104" />
+            <g class="s07-fig"><circle class="ln" cx="0" cy="-26" r="17" /><path class="ln" d="M0 -9 V30 M0 30 L-14 68 M0 30 L14 68 M0 2 L-18 20 M0 2 L18 20" /></g>
+          </g><text class="mono s07-n2" x="0" y="150" text-anchor="middle">ATENDER</text></g>
+          <g transform="translate(620 780)"><g class="s07-tilde" opacity="0"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-8 0 L-2 7 L9 -7" /></g></g>
+          <g transform="translate(810 880)"><g class="s07-ico3">
+            <path class="ln s07-d3" d="M-96 70 H-48 V30 H0 V-10 H48 V-50 H96" />
+            <path class="ln-ac s07-sube" d="M-84 10 L56 -104" />
+            <path class="ln-ac s07-sube-p" d="M24 -108 L60 -108 L60 -74" />
+          </g><text class="mono s07-n3" x="0" y="150" text-anchor="middle">PRÓXIMO PASO</text></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">Lo que hace crecer</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-crecer";
+      const DUR = 4.3;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      // badge de "no": cae desde arriba con pop (geometría centrada en 0,0 dentro del grupo)
+      const badge = (el, t) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.4, y: -26, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const rotulo = (el, t) => {
+        tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      const etq = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const CLIENTES = 0.3;
+      const NUEVOS = 0.7;
+      const ATENDER = 1.1;
+      const ENTRO = 1.9;
+      const PENSAR = 2.55;
+      const PASO = 3.3;
+
+      qa(".s07-n1, .s07-n2, .s07-n3").forEach((n) => gsap.set(n, { opacity: 0 }));
+      tl.fromTo(q(".s07-fila"), { scale: 1.05, svgOrigin: "540 880" }, { scale: 1, svgOrigin: "540 880", duration: DUR, ease: "none" }, 0);
+
+      // 1. clientes nuevos
+      dibujar(qa(".s07-d1"), 0, 0.5, 0.5, 0.06);
+      tl.fromTo(q(".s07-mas"), { opacity: 0, scale: 0.3, rotation: -90, svgOrigin: "64 -68" }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: "64 -68", duration: 0.4, ease: "back.out(2.2)" }, CLIENTES);
+      tl.to(q(".s07-mas"), { scale: 1.3, svgOrigin: "64 -68", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, NUEVOS);
+      rotulo(q(".s07-n1"), CLIENTES + 0.1);
+
+      // 2. atender al que entró
+      dibujar(qa(".s07-d2"), ATENDER - 0.2, 0.45);
+      tl.fromTo(q(".s07-fig"), { x: -150, opacity: 0 }, { x: -110, opacity: 1, duration: 0.2, ease: "none" }, ATENDER);
+      tl.to(q(".s07-fig"), { x: 0, duration: 0.75, ease: "power2.out" }, ATENDER + 0.2);
+      tl.fromTo(q(".s07-fig path"), { rotation: -4, svgOrigin: "0 30" }, { rotation: 4, svgOrigin: "0 30", duration: 0.15, ease: "sine.inOut", yoyo: true, repeat: 4 }, ATENDER);
+      rotulo(q(".s07-n2"), ATENDER + 0.2);
+      tl.fromTo(q(".s07-tilde"), { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, ENTRO);
+
+      // 3. pensar el próximo paso
+      dibujar(qa(".s07-d3"), PENSAR - 0.15, 0.5);
+      rotulo(q(".s07-n3"), PENSAR);
+      dibujar([q(".s07-sube")], PASO - 0.35, 0.4);
+      tl.fromTo(q(".s07-sube-p"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, PASO);
+      tl.to([q(".s07-sube"), q(".s07-sube-p")], { x: 8, y: -8, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, PASO + 0.1);
+
+      etq(q(".s07-e1"), 0.3);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

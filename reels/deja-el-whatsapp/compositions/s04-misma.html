@@ -1,0 +1,159 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-misma"] .cap { position: absolute; inset: 0; }
+    [data-composition-id="s04-misma"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-misma"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-misma"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-misma"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s04-misma"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s04-misma"] .relleno { fill: #efeee5; }
+    [data-composition-id="s04-misma"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s04-misma"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s04-misma"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s04-misma"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 56px; fill: #5ce611; }
+    [data-composition-id="s04-misma"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; letter-spacing: 0.08em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s04-misma"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s04-misma"] .mono-ac { fill: #5ce611; }
+    [data-composition-id="s04-misma"] .contador { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; fill: #0b1d35; }
+    [data-composition-id="s04-misma"] .badge-num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 19px; fill: #5ce611; }
+    [data-composition-id="s04-misma"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-misma"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-misma" data-width="1080" data-height="1920" data-duration="4.08">
+    <div id="s04-escena" class="cap clip" data-start="0" data-duration="4.08" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s04-copias">
+<g transform="translate(300 640) rotate(-6)"><g class="s04-copia"><rect class="ln" x="0" y="0" width="240" height="62" rx="22" /><text class="ui" x="22" y="41">¿Cuánto sale?</text></g></g>
+<g transform="translate(520 700) rotate(4)"><g class="s04-copia"><rect class="ln" x="0" y="0" width="240" height="62" rx="22" /><text class="ui" x="22" y="41">¿Cuánto sale?</text></g></g>
+<g transform="translate(330 790) rotate(3)"><g class="s04-copia"><rect class="ln" x="0" y="0" width="240" height="62" rx="22" /><text class="ui" x="22" y="41">¿Cuánto sale?</text></g></g>
+<g transform="translate(560 860) rotate(-4)"><g class="s04-copia"><rect class="ln" x="0" y="0" width="240" height="62" rx="22" /><text class="ui" x="22" y="41">¿Cuánto sale?</text></g></g>
+<g transform="translate(300 950) rotate(-3)"><g class="s04-copia"><rect class="ln" x="0" y="0" width="240" height="62" rx="22" /><text class="ui" x="22" y="41">¿Cuánto sale?</text></g></g>
+<g transform="translate(540 1030) rotate(5)"><g class="s04-copia"><rect class="ln" x="0" y="0" width="240" height="62" rx="22" /><text class="ui" x="22" y="41">¿Cuánto sale?</text></g></g>
+<g transform="translate(340 1110) rotate(2)"><g class="s04-copia"><rect class="ln" x="0" y="0" width="240" height="62" rx="22" /><text class="ui" x="22" y="41">¿Cuánto sale?</text></g></g>
+        </g>
+        <g class="s04-reloj">
+          <circle class="ln s04-rel" cx="880" cy="760" r="62" />
+          <line class="ln-ac s04-ag-h" x1="880" y1="760" x2="880" y2="726" />
+          <line class="ln s04-ag-m" x1="880" y1="760" x2="880" y2="712" />
+          <path class="ln-ac s04-vuelta" d="M880 676 A84 84 0 1 1 816 706" />
+          <path class="ln-ac s04-vuelta-p" d="M812 684 L814 708 L838 704" />
+        </g>
+        <g transform="translate(540 860) scale(0.85)"><g class="s04-mano-g">
+<g class="s04-tiembla">
+<rect class="ln s04-dib" x="-160" y="-280" width="320" height="560" rx="46" />
+<line class="ln s04-dib" x1="-34" y1="-252" x2="34" y2="-252" />
+<text class="ui-b s04-tit" x="-128" y="-192">Chats</text>
+<line class="ln-tenue s04-dib" x1="-134" y1="-168" x2="134" y2="-168" />
+<g class="s04-fila"><circle class="ln" cx="-104" cy="-118" r="22" /><line class="ln" x1="-66" y1="-128" x2="50" y2="-128" /><line class="ln-tenue" x1="-66" y1="-104" x2="20" y2="-104" /><circle class="ln-ac" cx="112" cy="-116" r="17" /><text data-layout-ignore class="badge-num" x="112" y="-109" text-anchor="middle">4</text></g>
+<g class="s04-fila"><circle class="ln" cx="-104" cy="-40" r="22" /><line class="ln" x1="-66" y1="-50" x2="34" y2="-50" /><line class="ln-tenue" x1="-66" y1="-26" x2="20" y2="-26" /><circle class="ln-ac" cx="112" cy="-38" r="17" /><text data-layout-ignore class="badge-num" x="112" y="-31" text-anchor="middle">2</text></g>
+<g class="s04-fila"><circle class="ln" cx="-104" cy="38" r="22" /><line class="ln" x1="-66" y1="28" x2="60" y2="28" /><line class="ln-tenue" x1="-66" y1="52" x2="20" y2="52" /><circle class="ln-ac" cx="112" cy="40" r="17" /><text data-layout-ignore class="badge-num" x="112" y="47" text-anchor="middle">7</text></g>
+<g class="s04-fila"><circle class="ln" cx="-104" cy="116" r="22" /><line class="ln" x1="-66" y1="106" x2="40" y2="106" /><line class="ln-tenue" x1="-66" y1="130" x2="20" y2="130" /><circle class="ln-ac" cx="112" cy="118" r="17" /><text data-layout-ignore class="badge-num" x="112" y="125" text-anchor="middle">3</text></g>
+<g class="s04-fila"><circle class="ln" cx="-104" cy="194" r="22" /><line class="ln" x1="-66" y1="184" x2="56" y2="184" /><line class="ln-tenue" x1="-66" y1="208" x2="20" y2="208" /><circle class="ln-ac" cx="112" cy="196" r="17" /><text data-layout-ignore class="badge-num" x="112" y="203" text-anchor="middle">5</text></g>
+<path class="ln s04-mano" d="M152 -40 C198 -46 206 -4 156 -2" />
+<path class="ln s04-mano" d="M152 22 C202 16 210 60 156 62" />
+<path class="ln s04-mano" d="M152 86 C200 80 208 124 156 126" />
+<path class="ln s04-mano" d="M154 150 C196 146 202 184 158 188" />
+<path class="ln s04-mano" d="M-206 236 C-216 170 -200 120 -170 92 C-152 76 -130 88 -140 112" />
+<path class="ln s04-mano" d="M-206 236 C-200 300 -150 340 -84 352 L-76 420" />
+<path class="ln s04-mano" d="M158 188 C198 230 190 300 116 346 L104 420" />
+</g>
+<g class="s04-cont"><circle class="relleno-ac" cx="168" cy="-262" r="38" /><text class="contador s04-n" x="168" y="-251" text-anchor="middle">31</text><text class="contador s04-n" x="168" y="-251" text-anchor="middle">38</text><text class="contador s04-n" x="168" y="-251" text-anchor="middle">44</text></g>
+        </g></g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">La misma pregunta</span><span class="s04-e2">Celular en la mano</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-misma";
+      const DUR = 4.08;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t + i * (paso ?? 0.04);
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      // badge de "no": cae desde arriba con pop (geometría centrada en 0,0 dentro del grupo)
+      const badge = (el, t) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.4, y: -26, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const rotulo = (el, t) => {
+        tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      const etq = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, duration: 0.2 }, t - 0.1);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const MISMA = 0.08;
+      const TODO = 0.78;
+      const DIA = 1.58;
+      const Y_VOS = 1.88;
+      const CELULAR = 2.68;
+      const MANO = 3.28;
+
+      // las copias de la misma pregunta caen una tras otra
+      const copias = qa(".s04-copia");
+      copias.forEach((c, i) => {
+        tl.fromTo(c, { opacity: 0, scale: 0.7, svgOrigin: "115 31" }, { opacity: 1, scale: 1, svgOrigin: "115 31", duration: 0.3, ease: "back.out(1.8)" }, i === 0 ? 0 : MISMA + i * 0.1);
+      });
+      gsap.set(copias[0], { opacity: 0.6 });
+      tl.fromTo(q(".s04-copias"), { y: 10 }, { y: -10, duration: Y_VOS, ease: "none" }, 0);
+
+      // "todo el día": el reloj y sus agujas dan la vuelta
+      dibujar([q(".s04-rel")], 0.2, 0.5);
+      tl.fromTo([q(".s04-ag-h"), q(".s04-ag-m")], { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.5);
+      tl.fromTo(q(".s04-ag-m"), { rotation: 0, svgOrigin: "880 760" }, { rotation: 360 * 3, svgOrigin: "880 760", duration: DIA - TODO + 0.3, ease: "power1.inOut" }, TODO);
+      tl.fromTo(q(".s04-ag-h"), { rotation: 0, svgOrigin: "880 760" }, { rotation: 360, svgOrigin: "880 760", duration: DIA - TODO + 0.3, ease: "power1.inOut" }, TODO);
+      dibujar([q(".s04-vuelta")], TODO, DIA - TODO);
+      tl.fromTo(q(".s04-vuelta-p"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, DIA - 0.05);
+      etq(q(".s04-e1"), MISMA + 0.2);
+
+      // "Y vos": todo se va y vuelve la mano con el celular
+      tl.to([q(".s04-copias"), q(".s04-reloj")], { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, Y_VOS - 0.15);
+      gsap.set(q(".s04-mano-g"), { opacity: 0 });
+      tl.set(q(".s04-mano-g"), { opacity: 1 }, Y_VOS);
+      dibujar(qa(".s04-dib"), Y_VOS, 0.45, 1, 0.02);
+      dibujar(qa(".s04-mano"), Y_VOS + 0.15, 0.5, 1, 0.03);
+      tl.fromTo(q(".s04-tit"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, Y_VOS + 0.3);
+      qa(".s04-fila").forEach((f, i) => {
+        tl.fromTo(f, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, Y_VOS + 0.3 + i * 0.12);
+      });
+      const nums = qa(".s04-n");
+      nums.forEach((n, i) => gsap.set(n, { opacity: i === 0 ? 1 : 0 }));
+      pop(q(".s04-cont"), Y_VOS + 0.4, "168 -262");
+      [CELULAR, MANO].forEach((t, k) => {
+        tl.set(nums[k], { opacity: 0 }, t);
+        tl.set(nums[k + 1], { opacity: 1 }, t);
+        tl.fromTo(q(".s04-cont"), { scale: 1.25, svgOrigin: "168 -262" }, { scale: 1, svgOrigin: "168 -262", duration: 0.25, ease: "back.out(2)" }, t);
+      });
+      tl.fromTo(q(".s04-tiembla"), { x: 0 }, { x: -5, duration: 0.04, ease: "none", yoyo: true, repeat: 5 }, CELULAR);
+      // "mano": la mano aprieta
+      tl.to(q(".s04-mano-g"), { scale: 0.95, svgOrigin: "0 0", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, MANO);
+      etq(q(".s04-e2"), Y_VOS + 0.1, q(".s04-e1"));
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
