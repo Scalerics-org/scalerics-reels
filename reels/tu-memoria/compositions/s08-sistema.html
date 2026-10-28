@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-sistema"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-sistema"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-sistema"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 14; }
+    [data-composition-id="s08-sistema"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-sistema"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-sistema" data-width="1080" data-height="1920" data-duration="3.71">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="3.71" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s08-cabeza">
+          <path class="ln s08-perfil" d="M-110 280 C-110 210 -190 170 -200 60 C-215 -120 -100 -270 60 -270 C190 -270 270 -180 272 -70 L276 -40 L318 30 Q324 44 306 48 L282 52 L288 80 L278 92 L286 108 L278 122 Q284 160 250 168 L190 174 Q160 186 160 280" />
+        </g>
+        <!-- tilde de memoria -->
+        <g class="s08-ok"><g class="s08-ok-in"><circle class="ln-ac" cx="0" cy="0" r="22" /><path class="ln-ac" d="M-10 0 L-3 8 L11 -8" /></g></g>
+        <!-- camino -->
+        <path class="ln-tenue s08-camino" d="M480 860 Q580 800 660 880" />
+        <!-- engranaje -->
+        <g class="s08-eng">
+          <g class="s08-eng-in">
+            <path class="ln s08-dientes" d="" />
+            <circle class="ln-ac s08-eje" cx="0" cy="0" r="34" />
+          </g>
+        </g>
+        <!-- cajitas (en coordenadas globales) -->
+        <g class="s08-caja s08-c1"><rect class="ln-4" x="-58" y="-24" width="116" height="48" rx="10" /><path class="ln-ac" d="M-40 -10 H-14 L-11 12 H-43 Z" /><path class="ln-4" d="M2 -4 H40 M2 8 H28" opacity="0.4" /></g>
+        <g class="s08-caja s08-c2"><rect class="ln-4" x="-58" y="-24" width="116" height="48" rx="10" /><path class="ln-ac" d="M-44 -12 H-12 V6 H-24 L-32 14 V6 H-44 Z" /><path class="ln-4" d="M2 -4 H40 M2 8 H28" opacity="0.4" /></g>
+        <g class="s08-caja s08-c3"><rect class="ln-4" x="-58" y="-24" width="116" height="48" rx="10" /><circle class="ln-ac" cx="-28" cy="-5" r="7" /><path class="ln-ac" d="M-40 14 Q-28 0 -16 14" /><path class="ln-4" d="M2 -4 H40 M2 8 H28" opacity="0.4" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">Memoria tenés</span><span class="s08-e2">Te falta un sistema</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-sistema";
+      const DUR = 3.71;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const MEMORIA = 0.7;
+      const TE = 1.1;
+      const FALTA = 1.8;
+      const SISTEMA = 2.3;
+
+      // dientes del engranaje (determinista)
+      const N = 10, RO = 112, RI = 86;
+      let d = "";
+      for (let i = 0; i < N; i++) {
+        const a0 = (i / N) * Math.PI * 2;
+        const pa = [a0 - 0.2, a0 - 0.13, a0 + 0.13, a0 + 0.2, a0 + Math.PI / N - 0.2];
+        const pt = (a, r) => (r * Math.cos(a)).toFixed(1) + " " + (r * Math.sin(a)).toFixed(1);
+        d += (i === 0 ? "M" : "L") + pt(pa[0], RI) + " L" + pt(pa[1], RO) + " L" + pt(pa[2], RO) + " L" + pt(pa[3], RI) + " A" + RI + " " + RI + " 0 0 1 " + pt(a0 + (Math.PI * 2) / N - 0.2, RI) + " ";
+      }
+      q(".s08-dientes").setAttribute("d", d + "Z");
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      const CX = 300, CY = 920, S = 0.78;
+      gsap.set(q(".s08-cabeza"), { x: CX, y: CY, scale: S, svgOrigin: "0 0" });
+      gsap.set(q(".s08-ok"), { x: CX + 230, y: CY - 210 });
+      gsap.set(q(".s08-ok-in"), { opacity: 0 });
+      gsap.set(q(".s08-eng"), { x: 790, y: 900 });
+      const cajas = [q(".s08-c1"), q(".s08-c2"), q(".s08-c3")];
+      const enCabeza = [[CX + 20, CY - 140], [CX + 4, CY - 80], [CX + 30, CY - 20]];
+      cajas.forEach((c, i) => gsap.set(c, { x: enCabeza[i][0], y: enCabeza[i][1] }));
+      gsap.set(qa(".s08-camino"), { opacity: 0 });
+
+      // la cabeza con sus cajitas (arranca a medio dibujar)
+      const perfil = q(".s08-perfil");
+      const L = perfil.getTotalLength();
+      gsap.set(perfil, { strokeDasharray: L });
+      tl.fromTo(perfil, { strokeDashoffset: L * 0.45 }, { strokeDashoffset: 0, duration: 0.55, ease: "power2.out" }, 0);
+      cajas.forEach((c, i) => tl.fromTo(c, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 0.05 + i * 0.1));
+
+      // "memoria": tilde verde, memoria tenés
+      tl.fromTo(q(".s08-ok-in"), { opacity: 0, scale: 0.4, y: -20, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, MEMORIA);
+      tl.fromTo(q(".s08-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, MEMORIA);
+      tl.to(cajas, { y: "-=6", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, stagger: 0.05 }, TE);
+
+      // "falta": el camino punteado
+      tl.to(q(".s08-camino"), { opacity: 1, duration: 0.3 }, FALTA - 0.3);
+      tl.fromTo(q(".s08-camino"), { strokeDashoffset: 0 }, { strokeDashoffset: -64, duration: DUR - FALTA, ease: "none" }, FALTA - 0.3);
+
+      // "sistema": el engranaje se dibuja y gira; las cajitas se mudan
+      dibujar([q(".s08-dientes")], FALTA - 0.2, 0.6);
+      dibujar([q(".s08-eje")], FALTA + 0.1, 0.35);
+      tl.fromTo(q(".s08-eng-in"), { rotation: -40, svgOrigin: "0 0" }, { rotation: 140, svgOrigin: "0 0", duration: DUR - FALTA + 0.2, ease: "power1.out" }, FALTA - 0.2);
+      const destino = [[790, 760], [930, 980], [650, 1000]];
+      cajas.forEach((c, i) => {
+        tl.to(c, { x: destino[i][0], y: destino[i][1], duration: 0.55, ease: "power3.inOut" }, SISTEMA + i * 0.1);
+      });
+      tl.to(q(".s08-eng-in"), { scale: 1.1, svgOrigin: "0 0", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, SISTEMA + 0.55);
+      tl.to(q(".s08-cabeza"), { opacity: 0.45, duration: 0.4 }, SISTEMA + 0.3);
+      tl.to(q(".s08-ok"), { opacity: 0, duration: 0.3 }, SISTEMA);
+      tl.to(q(".s08-e1"), { opacity: 0, duration: 0.2 }, SISTEMA - 0.2);
+      tl.fromTo(q(".s08-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, SISTEMA);
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

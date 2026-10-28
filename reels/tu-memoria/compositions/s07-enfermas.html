@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-enfermas"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-enfermas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-enfermas"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-enfermas"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 8; stroke-linecap: round; }
+    [data-composition-id="s07-enfermas"] .s07-bulbo { fill: #5ce611; }
+    [data-composition-id="s07-enfermas"] .s07-preg { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 64px; fill: #5ce611; }
+    [data-composition-id="s07-enfermas"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-enfermas"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-enfermas" data-width="1080" data-height="1920" data-duration="4.10">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.10" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s07-a">
+          <g class="s07-cabeza">
+            <path class="ln s07-perfil" d="M-110 280 C-110 210 -190 170 -200 60 C-215 -120 -100 -270 60 -270 C190 -270 270 -180 272 -70 L276 -40 L318 30 Q324 44 306 48 L282 52 L288 80 L278 92 L286 108 L278 122 Q284 160 250 168 L190 174 Q160 186 160 280" />
+            <!-- ojo cerrado -->
+            <path class="ln s07-ojo" d="M196 -40 Q214 -28 232 -40" />
+          </g>
+          <!-- termómetro en la boca -->
+          <g class="s07-termo">
+            <g class="s07-termo-in">
+              <path class="ln s07-dt" d="M0 -11 H132 M0 11 H132 M0 -11 A11 11 0 0 0 0 11" />
+              <circle class="ln s07-dt" cx="150" cy="0" r="20" />
+              <circle class="s07-bulbo" cx="150" cy="0" r="10" />
+              <path class="ln-ac s07-mercurio" d="M140 0 H12" />
+            </g>
+          </g>
+        </g>
+        <!-- nadie sabe nada -->
+        <g class="s07-b">
+          <g class="s07-p s07-p1"><g class="s07-p-in">
+            <circle class="ln" cx="0" cy="-130" r="22" />
+            <path class="ln" d="M0 -108 V-52 M0 -92 L-26 -66 M0 -92 L26 -66 M0 -52 L-18 0 M0 -52 L18 0" />
+            <text class="s07-preg" x="0" y="-178" text-anchor="middle">?</text>
+          </g></g>
+          <g class="s07-p s07-p2"><g class="s07-p-in">
+            <circle class="ln" cx="0" cy="-130" r="22" />
+            <path class="ln" d="M0 -108 V-52 M0 -92 L-26 -66 M0 -92 L26 -66 M0 -52 L-18 0 M0 -52 L18 0" />
+            <text class="s07-preg" x="0" y="-178" text-anchor="middle">?</text>
+          </g></g>
+          <g class="s07-p s07-p3"><g class="s07-p-in">
+            <circle class="ln" cx="0" cy="-130" r="22" />
+            <path class="ln" d="M0 -108 V-52 M0 -92 L-26 -66 M0 -92 L26 -66 M0 -52 L-18 0 M0 -52 L18 0" />
+            <text class="s07-preg" x="0" y="-178" text-anchor="middle">?</text>
+          </g></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">Te enfermás</span><span class="s07-e2">Nadie sabe nada</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-enfermas";
+      const DUR = 4.1;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const SI = 0.89;
+      const ENFERMAS = 1.4;
+      const NADIE = 2.3;
+      const SABE = 2.5;
+      const DONDE = 2.8;
+      const NADA = 3.2;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      const CX = 440, CY = 905;
+      gsap.set(q(".s07-cabeza"), { x: CX, y: CY });
+      gsap.set(q(".s07-termo"), { x: CX + 300, y: CY + 70 });
+      gsap.set(q(".s07-termo-in"), { rotation: -18, svgOrigin: "0 0" });
+      gsap.set(qa(".s07-bulbo"), { opacity: 0 });
+
+      // la cabeza ya está, a medio dibujar
+      dibujar([q(".s07-perfil")], 0, 0.6, 0.4);
+      dibujar([q(".s07-ojo")], 0.3, 0.3);
+      // "si un día": aparece el termómetro
+      dibujar(qa(".s07-dt"), SI - 0.15, 0.4);
+      tl.to(q(".s07-bulbo"), { opacity: 1, duration: 0.2 }, SI + 0.2);
+      // "enfermás": sube el mercurio verde, la cabeza se apaga y se inclina
+      dibujar([q(".s07-mercurio")], ENFERMAS - 0.1, 0.6);
+      tl.to(q(".s07-cabeza"), { opacity: 0.45, duration: 0.5 }, ENFERMAS);
+      tl.to(q(".s07-a"), { rotation: 6, svgOrigin: "440 1185", duration: 0.7, ease: "power2.inOut" }, ENFERMAS);
+      tl.fromTo(q(".s07-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, ENFERMAS);
+
+      // "nadie sabe": se va la cabeza, aparecen tres que no saben
+      tl.to(q(".s07-a"), { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, NADIE - 0.25);
+      const ps = [q(".s07-p1"), q(".s07-p2"), q(".s07-p3")];
+      [290, 540, 790].forEach((x, i) => gsap.set(ps[i], { x: x, y: 1150 }));
+      gsap.set(ps, { opacity: 0 });
+      qa(".s07-p-in").forEach((g) => gsap.set(g, { scale: 1.35, svgOrigin: "0 0" }));
+      ps.forEach((p, i) => {
+        tl.fromTo(p, { opacity: 0, scale: 0.85, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, NADIE + i * 0.08);
+        const pr = p.querySelector(".s07-preg");
+        tl.fromTo(pr, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, SABE + i * 0.1);
+        tl.to(p.querySelector(".s07-p-in"), { rotation: i % 2 ? 6 : -6, svgOrigin: "0 0", duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 3 }, DONDE + i * 0.06);
+      });
+      tl.to(q(".s07-e1"), { opacity: 0, duration: 0.2 }, NADIE - 0.1);
+      tl.fromTo(q(".s07-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, NADIE + 0.1);
+      tl.to(qa(".s07-preg"), { scale: 1.25, transformOrigin: "50% 100%", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, NADA);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

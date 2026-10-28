@@ -1,0 +1,104 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-cabeza"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-cabeza"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-cabeza"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-cabeza"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-cabeza"] .s03-vidrio { fill: #5ce611; }
+    [data-composition-id="s03-cabeza"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-cabeza"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-cabeza" data-width="1080" data-height="1920" data-duration="4.39">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="4.39" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s03-cabeza">
+          <g class="s03-cabeza-in">
+            <path class="ln s03-perfil" d="M-110 280 C-110 210 -190 170 -200 60 C-215 -120 -100 -270 60 -270 C190 -270 270 -180 272 -70 L276 -40 L318 30 Q324 44 306 48 L282 52 L288 80 L278 92 L286 108 L278 122 Q284 160 250 168 L190 174 Q160 186 160 280" />
+          </g>
+        </g>
+        <!-- el lugar único: anillo verde -->
+        <circle class="ln-ac s03-anillo" cx="500" cy="815" r="118" />
+        <!-- el local (el negocio entero) -->
+        <g class="s03-local">
+          <g class="s03-local-in">
+            <path class="ln s03-dl" d="M-66 70 V-14 H66 V70" />
+            <path class="ln s03-dl" d="M-78 -14 H78 L68 -44 H-68 Z" />
+            <path class="ln s03-dl" d="M-78 -14 q9.75 16 19.5 0 q9.75 16 19.5 0 q9.75 16 19.5 0 q9.75 16 19.5 0 q9.75 16 19.5 0 q9.75 16 19.5 0 q9.75 16 19.5 0 q9.75 16 19.5 0" />
+            <rect class="ln s03-dl" x="-52" y="16" width="34" height="30" rx="4" />
+            <path class="ln s03-dl" d="M8 70 V18 H42 V70" />
+            <path class="ln s03-dl" d="M-90 70 H90" />
+            <rect class="s03-vidrio s03-luz" x="-46" y="22" width="22" height="18" rx="2" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">Un solo lugar</span><span class="s03-e2">Tu cabeza</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-cabeza";
+      const DUR = 4.39;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const NEGOCIO = 0.62;
+      const ENTERO = 1.02;
+      const GUARDADO = 1.32;
+      const SOLO = 2.12;
+      const LUGAR = 2.42;
+      const CABEZA = 3.22;
+
+      const CX = 470, CY = 905;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      gsap.set(q(".s03-cabeza"), { x: CX, y: CY });
+      gsap.set(q(".s03-local"), { x: 540, y: 900 });
+      gsap.set(q(".s03-local-in"), { scale: 2.4, svgOrigin: "0 0" });
+      gsap.set(q(".s03-luz"), { opacity: 0 });
+
+      // el local arranca dibujándose grande
+      dibujar(qa(".s03-dl"), 0, 0.55, 0.5);
+      tl.to(q(".s03-luz"), { opacity: 0.9, duration: 0.2 }, NEGOCIO);
+      tl.to(q(".s03-local-in"), { scale: 2.6, svgOrigin: "0 0", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, NEGOCIO);
+      // "entero": otro golpe
+      tl.to(q(".s03-local-in"), { scale: 2.6, svgOrigin: "0 0", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, ENTERO);
+
+      // "guardado": se achica y se mete en la cabeza que se dibuja alrededor
+      tl.to(q(".s03-local"), { x: 500, y: 815, duration: 0.7, ease: "power3.inOut" }, GUARDADO);
+      tl.to(q(".s03-local-in"), { scale: 1, svgOrigin: "0 0", duration: 0.7, ease: "power3.inOut" }, GUARDADO);
+      dibujar([q(".s03-perfil")], GUARDADO + 0.1, 1.0);
+
+      // "un solo lugar": el anillo verde lo encierra
+      dibujar([q(".s03-anillo")], SOLO - 0.1, 0.5);
+      tl.fromTo(q(".s03-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, SOLO);
+
+      // "cabeza": golpe de la cabeza entera
+      tl.fromTo(q(".s03-cabeza-in"), { scale: 1, svgOrigin: "40 0" }, { scale: 1.06, svgOrigin: "40 0", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, CABEZA);
+      tl.to(q(".s03-anillo"), { scale: 1.12, svgOrigin: "500 815", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, CABEZA);
+      tl.to(q(".s03-e1"), { opacity: 0, duration: 0.2 }, CABEZA - 0.2);
+      tl.fromTo(q(".s03-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CABEZA);
+      // deriva final
+      tl.to(q(".s03-local"), { y: 805, duration: 0.8, ease: "sine.inOut" }, LUGAR + 0.9);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

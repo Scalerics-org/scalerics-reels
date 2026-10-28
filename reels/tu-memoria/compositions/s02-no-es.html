@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-no-es"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-no-es"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-no-es"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-es"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-no-es"] .s02-arena { fill: #5ce611; }
+    [data-composition-id="s02-no-es"] .s02-nombre { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.7); }
+    [data-composition-id="s02-no-es"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-no-es"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-no-es" data-width="1080" data-height="1920" data-duration="4.28">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.28" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s02-fila">
+          <!-- 1: reloj de arena (la edad) -->
+          <g class="s02-ico s02-ico1">
+            <g class="s02-dib">
+              <path class="ln s02-d1" d="M-52 -78 H52 M-52 78 H52" />
+              <path class="ln s02-d1" d="M-40 -78 C-40 -18 -8 -10 -8 0 C-8 10 -40 18 -40 78" />
+              <path class="ln s02-d1" d="M40 -78 C40 -18 8 -10 8 0 C8 10 40 18 40 78" />
+              <path class="s02-arena s02-arena1" d="M-26 70 Q0 30 26 70 Z" />
+            </g>
+            <text data-layout-ignore class="s02-nombre s02-n" x="0" y="160" text-anchor="middle">LA EDAD</text>
+          </g>
+          <!-- 2: rayo (el estrés) -->
+          <g class="s02-ico s02-ico2">
+            <g class="s02-dib">
+              <path class="ln s02-d2" d="M14 -84 L-42 8 H2 L-16 84 L44 -14 H2 Z" />
+              <path class="ln s02-d2" d="M-74 -40 L-58 -50 M-80 0 H-62 M66 30 H84 M60 64 L76 74" />
+            </g>
+            <text data-layout-ignore class="s02-nombre s02-n" x="0" y="160" text-anchor="middle">EL ESTRÉS</text>
+          </g>
+          <!-- 3: papeles revueltos (el desorden) -->
+          <g class="s02-ico s02-ico3">
+            <g class="s02-dib">
+              <rect class="ln s02-d3" x="-66" y="-60" width="90" height="116" rx="8" transform="rotate(-14)" />
+              <rect class="ln s02-d3" x="-30" y="-50" width="90" height="116" rx="8" transform="rotate(10)" />
+              <path class="ln s02-d3" d="M-6 -20 H40 M-10 4 H34 M-14 28 H26" transform="rotate(10)" />
+              <path class="ln s02-d3" d="M-60 78 Q-40 64 -20 80 T20 78" />
+            </g>
+            <text data-layout-ignore class="s02-nombre s02-n" x="0" y="160" text-anchor="middle">EL DESORDEN</text>
+          </g>
+        </g>
+        <g class="s02-badge s02-b1"><g class="s02-b-in"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        <g class="s02-badge s02-b2"><g class="s02-b-in"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        <g class="s02-badge s02-b3"><g class="s02-b-in"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">No es eso</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-no-es";
+      const DUR = 4.28;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const NO = 0.47;
+      const EDAD = 0.9;
+      const NI1 = 1.1;
+      const ESTRES = 1.7;
+      const NI2 = 2.2;
+      const DESORDENADO = 3.0;
+
+      const Y = 900;
+      const XS = [270, 540, 810];
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.querySelector(".s02-b-in"), { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const sacudir = (el, t) => tl.to(el, { x: -6, duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      const nombre = (el, t) => tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+
+      const icos = [q(".s02-ico1"), q(".s02-ico2"), q(".s02-ico3")];
+      icos.forEach((g, i) => gsap.set(g, { x: XS[i], y: Y }));
+      qa(".s02-dib").forEach((d) => gsap.set(d, { scale: 1.15, svgOrigin: "0 0" }));
+      [q(".s02-b1"), q(".s02-b2"), q(".s02-b3")].forEach((b, i) => gsap.set(b, { x: XS[i] + 82, y: Y - 104 }));
+      qa(".s02-b-in").forEach((b) => gsap.set(b, { opacity: 0 }));
+      qa(".s02-n").forEach((n) => gsap.set(n, { opacity: 0 }));
+      gsap.set(q(".s02-arena1"), { opacity: 0 });
+
+      // la fila se acerca despacio
+      tl.fromTo(q(".s02-fila"), { scale: 1.04, svgOrigin: "540 " + Y }, { scale: 1, svgOrigin: "540 " + Y, duration: DUR, ease: "none" }, 0);
+
+      // 1. la edad (arranca medio dibujado)
+      dibujar(qa(".s02-d1"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s02-arena1"), { opacity: 0, scale: 0.3, svgOrigin: "0 70" }, { opacity: 1, scale: 1, svgOrigin: "0 70", duration: 0.4, ease: "back.out(2)" }, NO);
+      tl.fromTo(q(".s02-ico1 .s02-dib"), { rotation: 0, svgOrigin: "0 0" }, { rotation: 180, svgOrigin: "0 0", duration: 0.5, ease: "power2.inOut" }, NO - 0.1);
+      nombre(q(".s02-ico1 .s02-n"), EDAD - 0.1);
+      badge(q(".s02-b1"), EDAD);
+      sacudir(q(".s02-ico1 .s02-dib"), EDAD + 0.05);
+
+      // 2. el estrés
+      tl.to(q(".s02-ico1"), { opacity: 0.4, duration: 0.3 }, NI1);
+      dibujar(qa(".s02-d2"), NI1 + 0.04, 0.45);
+      tl.fromTo(q(".s02-ico2 .s02-dib"), { y: -24 }, { y: 0, duration: 0.45, ease: "back.out(2)" }, NI1 + 0.04);
+      nombre(q(".s02-ico2 .s02-n"), ESTRES - 0.1);
+      badge(q(".s02-b2"), ESTRES);
+      sacudir(q(".s02-ico2 .s02-dib"), ESTRES + 0.05);
+
+      // 3. el desorden
+      tl.to(q(".s02-ico2"), { opacity: 0.4, duration: 0.3 }, NI2);
+      dibujar(qa(".s02-d3"), NI2 + 0.04, 0.5);
+      tl.fromTo(q(".s02-ico3 .s02-dib"), { rotation: 14, svgOrigin: "0 80" }, { rotation: 0, svgOrigin: "0 80", duration: 0.6, ease: "back.out(2)" }, NI2 + 0.04);
+      nombre(q(".s02-ico3 .s02-n"), DESORDENADO - 0.15);
+      badge(q(".s02-b3"), DESORDENADO);
+      sacudir(q(".s02-ico3 .s02-dib"), DESORDENADO + 0.05);
+
+      tl.fromTo(q(".s02-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, DESORDENADO + 0.3);
+      tl.to(qa(".s02-b-in"), { scale: 1.22, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, DESORDENADO + 0.55);
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

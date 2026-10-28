@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-tienda"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-tienda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-tienda"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tienda"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tienda"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tienda"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s11-tienda"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s11-tienda"] .ui-boton { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s11-tienda"] .ui-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #efeee5; }
+    [data-composition-id="s11-tienda"] .moneda-txt { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s11-tienda"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-tienda"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s11-tienda" data-width="1080" data-height="1920" data-duration="4.20">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.20" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- celular con la tienda -->
+        <g class="s11-tel">
+          <rect class="ln s11-dt" x="150" y="630" width="360" height="560" rx="50" />
+          <line class="ln s11-dt" x1="300" y1="656" x2="360" y2="656" />
+          <text class="ui-nombre s11-cab" x="180" y="716">Tu tienda</text>
+          <line class="ln-tenue s11-dt" x1="174" y1="742" x2="486" y2="742" />
+          <g class="s11-prod s11-prod1">
+            <rect class="ln-4" x="176" y="768" width="146" height="150" rx="14" />
+            <path class="ln-4" d="M212 860 Q249 800 286 860 Z" />
+            <path class="ln-tenue" d="M188 948 H290 M188 976 H254" />
+          </g>
+          <g class="s11-prod s11-prod2">
+            <rect class="ln-4" x="338" y="768" width="146" height="150" rx="14" />
+            <circle class="ln-4" cx="411" cy="843" r="34" />
+            <path class="ln-tenue" d="M350 948 H452 M350 976 H416" />
+          </g>
+          <g class="s11-boton">
+            <rect class="ln-ac" x="186" y="1036" width="288" height="68" rx="34" />
+            <text class="ui-boton" x="330" y="1079" text-anchor="middle">Comprar</text>
+          </g>
+        </g>
+        <!-- pedidos que entran -->
+        <g class="s11-ped s11-ped1"><rect class="ln-4" x="580" y="690" width="340" height="80" rx="16" /><path class="ln-ac" d="M606 730 L620 744 L644 716" /><text class="ui-mono" x="666" y="739">PEDIDO NUEVO</text></g>
+        <g class="s11-ped s11-ped2"><rect class="ln-4" x="580" y="790" width="340" height="80" rx="16" /><path class="ln-ac" d="M606 830 L620 844 L644 816" /><text class="ui-mono" x="666" y="839">PEDIDO NUEVO</text></g>
+        <g class="s11-ped s11-ped3"><rect class="ln-4" x="580" y="890" width="340" height="80" rx="16" /><path class="ln-ac" d="M606 930 L620 944 L644 916" /><text class="ui-mono" x="666" y="939">PEDIDO NUEVO</text></g>
+        <!-- la bolsa que se llena -->
+        <g class="s11-bolsa">
+          <path class="ln s11-db" d="M690 1060 H850 L862 1190 H678 Z" />
+          <path class="ln s11-db" d="M730 1060 V1040 Q730 1006 770 1006 Q810 1006 810 1040 V1060" />
+          <path class="ln-ac s11-tilde" d="M738 1124 L760 1146 L802 1102" />
+        </g>
+        <g class="s11-moneda s11-m1" data-layout-ignore><circle class="ln-ac" cx="0" cy="0" r="22" /><text class="moneda-txt" x="0" y="9" text-anchor="middle">$</text></g>
+        <g class="s11-moneda s11-m2" data-layout-ignore><circle class="ln-ac" cx="0" cy="0" r="22" /><text class="moneda-txt" x="0" y="9" text-anchor="middle">$</text></g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Tienda online</span><span class="s11-e2">Vende sola</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-tienda";
+      const DUR = 4.2;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const TIENDA = 1.0;
+      const TOMA = 1.9;
+      const PEDIDOS = 2.4;
+      const VENDE = 2.9;
+      const SOLA = 3.3;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      gsap.set(qa(".s11-cab, .s11-prod, .s11-boton, .s11-ped, .s11-moneda"), { opacity: 0 });
+
+      // el celular (medio dibujado)
+      dibujar(qa(".s11-dt"), 0, 0.5, 0.45);
+      tl.to(q(".s11-cab"), { opacity: 1, duration: 0.25 }, 0.3);
+      // "tienda online": productos y botón
+      pop(q(".s11-prod1"), TIENDA - 0.25, "249 843");
+      pop(q(".s11-prod2"), TIENDA - 0.1, "411 843");
+      pop(q(".s11-boton"), TIENDA + 0.1, "330 1070");
+      tl.fromTo(q(".s11-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, TIENDA);
+
+      // "toma los pedidos": el botón se aprieta y entran los pedidos
+      const peds = [q(".s11-ped1"), q(".s11-ped2"), q(".s11-ped3")];
+      [TOMA - 0.1, TOMA + 0.2, PEDIDOS].forEach((t, i) => {
+        tl.to(q(".s11-boton"), { scale: 0.94, svgOrigin: "330 1070", duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1 }, t - 0.1);
+        tl.fromTo(peds[i], { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.6)" }, t);
+      });
+
+      // "vende sola": la bolsa, las monedas y el tilde
+      dibujar(qa(".s11-db"), VENDE - 0.45, 0.4);
+      gsap.set(q(".s11-tilde"), { opacity: 0 });
+      [[q(".s11-m1"), 750, VENDE - 0.05], [q(".s11-m2"), 794, VENDE + 0.2]].forEach(([m, x, t]) => {
+        tl.fromTo(m, { x: x, y: 880, opacity: 0 }, { y: 1080, opacity: 1, duration: 0.32, ease: "power2.in" }, t);
+        tl.to(m, { opacity: 0, scale: 0.6, transformOrigin: "50% 50%", duration: 0.1 }, t + 0.32);
+        tl.to(q(".s11-bolsa"), { scale: 1.06, svgOrigin: "770 1190", duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, t + 0.32);
+      });
+      tl.to(qa(".s11-ped"), { opacity: 0.45, duration: 0.3 }, VENDE);
+      dibujar([q(".s11-tilde")], SOLA, 0.3);
+      tl.to(q(".s11-e1"), { opacity: 0, duration: 0.2 }, VENDE - 0.1);
+      tl.fromTo(q(".s11-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, VENDE + 0.05);
+      tl.to(q(".s11-tilde"), { scale: 1.2, svgOrigin: "770 1124", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, SOLA + 0.35);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
