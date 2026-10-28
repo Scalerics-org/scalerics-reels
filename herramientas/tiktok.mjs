@@ -7,8 +7,8 @@
 // "Publicar reel" con ese code en el campo tiktok_code (vence en minutos). El token se guarda en
 // gs://scalerics-reels-estado/tiktok.json y se renueva solo (el de refresco dura un año).
 //
-// Mientras TikTok no audite la app, los videos salen PRIVADOS (SELF_ONLY) con su descripción:
-// alguien los pasa a públicos desde la app con un toque. Después de la auditoría: TIKTOK_PRIVACIDAD=PUBLIC_TO_EVERYONE.
+// Mientras TikTok no audite la app, NO deja publicar directo (salvo cuentas privadas): el video va a
+// la bandeja de borradores de la app y se publica desde ahí. Auditada: TIKTOK_PRIVACIDAD=PUBLIC_TO_EVERYONE.
 export const CLIENT_KEY = "sbaw5hfo5gyagmulgu";
 const REDIRECT = "https://scalerics.com/tiktok";
 const API = "https://open.tiktokapis.com/v2";
@@ -61,10 +61,21 @@ export async function publicarTikTok(acceso, bytes, caption, prueba) {
   if (prueba) return null;
   const quiero = process.env.TIKTOK_PRIVACIDAD || "SELF_ONLY";
   const privacidad = creador.privacy_level_options?.includes(quiero) ? quiero : "SELF_ONLY";
-  const ini = await api(acceso, "/post/publish/video/init/", {
-    post_info: { title: caption.slice(0, 2200), privacy_level: privacidad, disable_comment: false, disable_duet: false, disable_stitch: false, is_aigc: true },
-    source_info: { source: "FILE_UPLOAD", video_size: bytes.length, chunk_size: bytes.length, total_chunk_count: 1 },
-  });
+  const fuente = { source: "FILE_UPLOAD", video_size: bytes.length, chunk_size: bytes.length, total_chunk_count: 1 };
+  let ini, borrador = false;
+  try {
+    ini = await api(acceso, "/post/publish/video/init/", {
+      post_info: { title: caption.slice(0, 2200), privacy_level: privacidad, disable_comment: false, disable_duet: false, disable_stitch: false, is_aigc: true },
+      source_info: fuente,
+    });
+  } catch (e) {
+    // Sin auditoría, TikTok solo deja publicar directo en cuentas privadas: el video va a la
+    // bandeja de borradores de la app y alguien lo publica desde ahí (con la descripción pegada).
+    if (!/unaudited_client/.test(e.message)) throw e;
+    console.log("tiktok: la app no está auditada, va a borradores (inbox)");
+    ini = await api(acceso, "/post/publish/inbox/video/init/", { source_info: fuente });
+    borrador = true;
+  }
   const sub = await fetch(ini.upload_url, {
     method: "PUT",
     headers: { "Content-Type": "video/mp4", "Content-Length": String(bytes.length), "Content-Range": `bytes 0-${bytes.length - 1}/${bytes.length}` },
@@ -75,6 +86,7 @@ export async function publicarTikTok(acceso, bytes, caption, prueba) {
     await espera(10000);
     const st = await api(acceso, "/post/publish/status/fetch/", { publish_id: ini.publish_id });
     if (st.status === "PUBLISH_COMPLETE") return `${privacidad} (publish_id ${ini.publish_id})`;
+    if (borrador && st.status === "SEND_TO_USER_INBOX") return `BORRADOR en la app (publish_id ${ini.publish_id})`;
     if (st.status === "FAILED") throw new Error("TikTok falló: " + st.fail_reason);
   }
   throw new Error("TikTok tardó más de 10 minutos");
