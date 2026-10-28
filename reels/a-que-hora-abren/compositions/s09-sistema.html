@@ -1,0 +1,122 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-sistema"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-sistema"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-sistema"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-hueco { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+    [data-composition-id="s09-sistema"] .ln-punteo-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-dasharray: 2 14; stroke-linecap: round; }
+    [data-composition-id="s09-sistema"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s09-sistema"] .relleno { fill: #5ce611; }
+    [data-composition-id="s09-sistema"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s09-sistema"] .ui-tenue { fill: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s09-sistema"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s09-sistema"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; fill: #5ce611; }
+    [data-composition-id="s09-sistema"] .navy { fill: #0b1d35; }
+    [data-composition-id="s09-sistema"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-sistema"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s09-sistema" data-width="1080" data-height="1920" data-duration="3.82">
+    <div id="s09-escena" class="capa clip" data-start="0" data-duration="3.82" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g id="s09-mano">
+          <g class="s09-tel">
+            <rect class="ln s09-d" x="460" y="740" width="160" height="290" rx="28" />
+            <line class="ln s09-d" x1="520" y1="762" x2="560" y2="762" />
+            <rect class="ln-fino s09-d" x="482" y="800" width="100" height="36" rx="12" />
+            <rect class="ln-fino s09-d" x="482" y="852" width="80" height="36" rx="12" />
+            <rect class="ln-fino s09-d" x="482" y="904" width="110" height="36" rx="12" />
+          </g>
+          <path class="ln s09-d" d="M440 900 Q430 1000 470 1060 L520 1150 M640 950 Q650 1020 600 1080 L590 1150" />
+          <path class="ln s09-d" d="M440 900 Q446 870 462 880 M640 950 Q630 920 620 930" />
+          <g class="s09-b"><circle class="ln-badge" cx="630" cy="740" r="18" /><path class="ln-badge" d="M623 733 L637 747 M637 733 L623 747" /></g>
+        </g>
+        <g id="s09-sis">
+          <g class="s09-engranaje">
+            <path class="ln s09-dg s09-dientes" d="" />
+            <circle class="ln-ac s09-dg" cx="540" cy="910" r="54" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">Con el celular, no</span><span class="s09-e2">Un sistema</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-sistema";
+      const DUR = 3.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan solos; si arrancan en el cuadro 0 se ven medio dibujados
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.12, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      let etqPrev = null;
+      const etq = (sel, t) => {
+        if (etqPrev) tl.to(q(etqPrev), { opacity: 0, duration: 0.2 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqPrev = sel;
+      };
+
+      const CELULAR = 0.9, SE = 2.02, SISTEMA = 2.8;
+      const CX = 540, CY = 910, RIN = 128, ROUT = 168, N = 9;
+      const pt = (r, a) => (CX + r * Math.cos(a)).toFixed(1) + " " + (CY + r * Math.sin(a)).toFixed(1);
+      let d = "";
+      for (let i = 0; i < N; i++) {
+        const a = -Math.PI / 2 + (i * 2 * Math.PI) / N;
+        const p0 = pt(RIN, a - 0.2), p1 = pt(ROUT, a - 0.12), p2 = pt(ROUT, a + 0.12), p3 = pt(RIN, a + 0.2);
+        const sig = pt(RIN, a + (2 * Math.PI) / N - 0.2);
+        d += (i === 0 ? "M" + p0 : "") + " L" + p1 + " L" + p2 + " L" + p3 + " A" + RIN + " " + RIN + " 0 0 1 " + sig;
+      }
+      q(".s09-dientes").setAttribute("d", d + " Z");
+
+      dibujar(qa(".s09-d"), 0, 0.55, 0.45);
+      // el celular en la mano tiembla: malabares
+      tl.to(q(".s09-tel"), { x: 6, rotation: 2, svgOrigin: "540 1000", duration: 0.08, ease: "none", yoyo: true, repeat: 21 }, 0.1);
+      pop(q(".s09-b"), CELULAR, "630 740");
+      etq(".s09-e1", CELULAR);
+      tl.to(q("#s09-mano"), { opacity: 0.45, duration: 0.3 }, CELULAR + 0.4);
+      // "se arregla": se va; entra el engranaje
+      tl.to(q("#s09-mano"), { opacity: 0, scale: 0.7, filter: "blur(6px)", transformOrigin: "540px 940px", duration: 0.35, ease: "power2.in" }, SE - 0.15);
+      dibujar(qa(".s09-dg"), SE + 0.05, 0.55);
+      tl.fromTo(q(".s09-engranaje"), { rotation: -30, svgOrigin: "540 910" }, { rotation: 60, svgOrigin: "540 910", duration: DUR - SE, ease: "none" }, SE);
+      etq(".s09-e2", SE + 0.1);
+      tl.fromTo(q("#s09-sis"), { scale: 1 }, { scale: 1.12, transformOrigin: "540px 910px", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, SISTEMA);
+      tl.to(q(".s09-e2"), { scale: 1.08, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, SISTEMA);
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-la-mas-facil"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-la-mas-facil"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-la-mas-facil"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-la-mas-facil"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-la-mas-facil"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-la-mas-facil"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-la-mas-facil"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-la-mas-facil"] .ln-hueco { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+    [data-composition-id="s08-la-mas-facil"] .ln-punteo-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-dasharray: 2 14; stroke-linecap: round; }
+    [data-composition-id="s08-la-mas-facil"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s08-la-mas-facil"] .relleno { fill: #5ce611; }
+    [data-composition-id="s08-la-mas-facil"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s08-la-mas-facil"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s08-la-mas-facil"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s08-la-mas-facil"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s08-la-mas-facil"] .ui-tenue { fill: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s08-la-mas-facil"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s08-la-mas-facil"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s08-la-mas-facil"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; fill: #5ce611; }
+    [data-composition-id="s08-la-mas-facil"] .navy { fill: #0b1d35; }
+    [data-composition-id="s08-la-mas-facil"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-la-mas-facil"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s08-la-mas-facil" data-width="1080" data-height="1920" data-duration="5.30">
+    <div id="s08-escena" class="capa clip" data-start="0" data-duration="5.30" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s08-dif">
+          <text class="rotulo s08-rd" x="140" y="700">DIFÍCIL</text>
+          <rect class="ln-fino s08-d" x="140" y="720" width="380" height="190" rx="24" />
+          <line class="ln-tenue s08-l" x1="170" y1="768" x2="490" y2="768" />
+          <line class="ln-tenue s08-l" x1="170" y1="808" x2="470" y2="808" />
+          <line class="ln-tenue s08-l" x1="170" y1="848" x2="490" y2="848" />
+          <line class="ln-tenue s08-l" x1="170" y1="878" x2="380" y2="878" />
+        </g>
+        <path class="ln-ac s08-tacha" d="M150 900 L510 730" />
+        <g class="s08-b1"><circle class="ln-badge" cx="520" cy="720" r="18" /><path class="ln-badge" d="M513 713 L527 727 M527 713 L513 727" /></g>
+        <g class="s08-fac">
+          <rect class="ln" x="560" y="960" width="400" height="84" rx="26" />
+          <text class="ui-b" x="584" y="1014" style="font-size:34px">¿A qué hora abren?</text>
+        </g>
+        <ellipse class="ln-ac s08-aro" cx="760" cy="1002" rx="240" ry="90" />
+        <text class="rotulo rotulo-ac s08-rf" x="760" y="1142" text-anchor="middle">LA MÁS FÁCIL</text>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">No fue la difícil</span><span class="s08-e2">Fue la más fácil</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-la-mas-facil";
+      const DUR = 5.30;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan solos; si arrancan en el cuadro 0 se ven medio dibujados
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.12, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      let etqPrev = null;
+      const etq = (sel, t) => {
+        if (etqPrev) tl.to(q(etqPrev), { opacity: 0, duration: 0.2 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqPrev = sel;
+      };
+
+      const PERDISTE = 0.8, DIFICIL = 2.4, LA = 3.41, FACIL = 4.4;
+      dibujar(qa(".s08-d"), 0, 0.6, 0.45);
+      tl.fromTo(q(".s08-rd"), { opacity: 0.3 }, { opacity: 1, duration: 0.3 }, 0);
+      dibujar(qa(".s08-l"), 0.3, 0.5);
+      tl.fromTo(q(".s08-dif"), { x: 0 }, { x: 14, duration: 3.4, ease: "none" }, 0);
+      punch(q(".s08-dif"), PERDISTE, "330 815", 1.04);
+      tl.to(qa(".s08-l"), { opacity: 0.6, duration: 0.2, yoyo: true, repeat: 3, stagger: 0.1 }, PERDISTE + 0.3);
+      // "difícil": tachada, no fue esa
+      dibujar([q(".s08-tacha")], DIFICIL, 0.35);
+      pop(q(".s08-b1"), DIFICIL + 0.2, "520 720");
+      tl.to(q(".s08-dif"), { opacity: 0.4, duration: 0.3 }, DIFICIL + 0.4);
+      etq(".s08-e1", DIFICIL);
+      // "la perdiste": la más fácil, grande, con el aro
+      pop(q(".s08-fac"), LA - 0.1, "760 1002");
+      dibujar([q(".s08-aro")], LA + 0.3, 0.6);
+      tl.fromTo(q(".s08-rf"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, FACIL);
+      punch(q(".s08-fac"), FACIL, "760 1002", 1.1);
+      punch(q(".s08-aro"), FACIL, "760 1002", 1.06);
+      etq(".s08-e2", FACIL);
+
+      // salida
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

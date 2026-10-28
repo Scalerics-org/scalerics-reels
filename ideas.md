@@ -27,10 +27,10 @@
 - 28-10 · `el-sobrino` · Sitio web · "Le pagaste a un arquitecto para el local, y la página te la hizo tu sobrino." · Comentá WEB
 - 28-10 · `tu-memoria` · Todo Scalerics · "Si tu negocio funciona porque vos te acordás de todo, no funciona." · Comentá MEMORIA
 - 28-10 · `tarjetita-de-carton` · Puntos · "La tarjetita de cartón con sellos no fideliza a nadie." · Comentá SELLOS
+- 28-10 · `a-que-hora-abren` · Bot · "¿A qué hora abren? Si esa pregunta la contestás vos, estás perdiendo ventas." · Comentá ABIERTO
 
 ## En curso
 - 28-10 · `comprobante-de-transferencia` · Tienda online · "Si para comprarte hay que mandarte el comprobante de la transferencia, no te compran."
-- 28-10 · `a-que-hora-abren` · Bot · "¿A qué hora abren?": cada vez que esa pregunta espera, perdés una venta.
 - 28-10 · `antes-de-entrar` · Sitio web · "Tu cliente decide si te compra antes de pisar tu local."
 - 28-10 · `crecer-sin-contratar` · Todo Scalerics · "Para crecer no necesitás contratar a nadie. Necesitás dejar de hacer todo a mano."
 

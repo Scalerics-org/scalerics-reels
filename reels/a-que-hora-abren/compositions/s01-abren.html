@@ -1,0 +1,142 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-abren"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-abren"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-abren"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-abren"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-abren"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-abren"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-abren"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-abren"] .ln-hueco { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+    [data-composition-id="s01-abren"] .ln-punteo-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-dasharray: 2 14; stroke-linecap: round; }
+    [data-composition-id="s01-abren"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s01-abren"] .relleno { fill: #5ce611; }
+    [data-composition-id="s01-abren"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s01-abren"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s01-abren"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s01-abren"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s01-abren"] .ui-tenue { fill: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s01-abren"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s01-abren"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s01-abren"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; fill: #5ce611; }
+    [data-composition-id="s01-abren"] .navy { fill: #0b1d35; }
+    [data-composition-id="s01-abren"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-abren"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s01-abren" data-width="1080" data-height="1920" data-duration="5.20">
+    <div id="s01-escena" class="capa clip" data-start="0" data-duration="5.20" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s01-tel">
+          <rect class="ln s01-dib" x="250" y="620" width="380" height="600" rx="52" />
+          <line class="ln s01-dib" x1="410" y1="648" x2="470" y2="648" />
+          <circle class="ln-fino s01-dib" cx="296" cy="712" r="20" />
+          <text class="ui-b s01-cab" x="330" y="722">Lucía</text>
+          <line class="ln-tenue s01-dib" x1="274" y1="764" x2="606" y2="764" />
+          <g class="s01-burbuja">
+            <rect class="ln-fino" x="276" y="796" width="300" height="64" rx="20" />
+            <text class="ui" x="296" y="837">¿A qué hora abren?</text>
+          </g>
+          <g class="s01-meta" data-layout-ignore>
+            <text class="rotulo" x="276" y="896" style="font-size:20px;fill:rgba(239,238,229,0.5)">21:40</text>
+            <path class="ln-tenue" d="M520 886 l6 6 l12 -14 M532 890 l2 2 l12 -14" />
+          </g>
+          <g class="s01-espera">
+            <circle class="ln-fino" cx="300" cy="972" r="24" />
+            <path class="ln-fino s01-aguja" d="M300 972 V954" />
+            <text class="ui ui-tenue" x="340" y="981">sin respuesta</text>
+          </g>
+          <rect class="ln-tenue s01-dib" x="274" y="1140" width="332" height="54" rx="27" />
+        </g>
+        <g class="s01-notif"><circle class="relleno" cx="622" cy="632" r="22" /><text class="ui-b navy" x="622" y="642" text-anchor="middle">1</text></g>
+        <!-- vos, ocupado atendiendo: con una bolsa en la mano -->
+        <g class="s01-vos">
+          <circle class="ln s01-dv" cx="840" cy="880" r="34" />
+          <path class="ln s01-dv" d="M780 1060 V970 Q780 930 840 930 Q900 930 900 970 V1060" />
+          <path class="ln s01-dv" d="M900 975 L948 1030" />
+          <g class="s01-bolsa">
+            <path class="ln s01-dv" d="M920 1040 H982 L974 1120 H928 Z" />
+            <path class="ln s01-dv" d="M936 1040 Q951 1010 966 1040" />
+          </g>
+        </g>
+        <text class="rotulo rotulo-ac s01-rvos" x="840" y="1110" text-anchor="middle">VOS</text>
+        <!-- la venta que se va -->
+        <g class="s01-tag">
+          <path class="ln-ac" d="M650 1010 L680 980 H760 V1040 H680 Z" />
+          <circle class="relleno" cx="688" cy="1010" r="6" />
+          <text class="ui-b ui-ac" x="724" y="1021" text-anchor="middle">$</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">¿A qué hora abren?</span><span class="s01-e2">Venta perdida</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-abren";
+      const DUR = 5.20;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan solos; si arrancan en el cuadro 0 se ven medio dibujados
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.12, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      let etqPrev = null;
+      const etq = (sel, t) => {
+        if (etqPrev) tl.to(q(etqPrev), { opacity: 0, duration: 0.2 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqPrev = sel;
+      };
+
+      const HORA = 0.5, CONTESTAS = 2.4, VOS = 3.0, PERDIENDO = 3.8, VENTAS = 4.2;
+      tl.fromTo(q(".s01-tel"), { scale: 0.97, svgOrigin: "440 920" }, { scale: 1.02, svgOrigin: "440 920", duration: DUR, ease: "none" }, 0);
+      // arranca medio dibujado
+      dibujar(qa(".s01-dib"), 0, 0.6, 0.45);
+      tl.fromTo(q(".s01-cab"), { opacity: 0.3 }, { opacity: 1, duration: 0.3 }, 0);
+      // "hora": entra la pregunta y la notificación
+      pop(q(".s01-burbuja"), HORA - 0.15, "276 860");
+      tl.fromTo(q(".s01-meta"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, HORA + 0.2);
+      pop(q(".s01-notif"), HORA + 0.1, "622 632");
+      etq(".s01-e1", HORA + 0.2);
+      punch(q(".s01-notif"), 1.4, "622 632", 1.25);
+      // "contestás vos": vos estás ocupado, el chat espera
+      dibujar(qa(".s01-dv"), CONTESTAS - 0.3, 0.5);
+      tl.fromTo(q(".s01-rvos"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, VOS);
+      punch(q(".s01-rvos"), VOS + 0.3, "840 1100", 1.2);
+      tl.fromTo(q(".s01-bolsa"), { rotation: -6, svgOrigin: "948 1030" }, { rotation: 6, svgOrigin: "948 1030", duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 5 }, CONTESTAS);
+      tl.fromTo(q(".s01-espera"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, CONTESTAS);
+      tl.fromTo(q(".s01-aguja"), { rotation: 0, svgOrigin: "300 972" }, { rotation: 540, svgOrigin: "300 972", duration: DUR - CONTESTAS, ease: "none" }, CONTESTAS);
+      punch(q(".s01-notif"), VOS, "622 632", 1.25);
+      // "perdiendo ventas": la venta se va y el chat se apaga
+      tl.fromTo(q(".s01-tag"), { opacity: 0, scale: 0.6, svgOrigin: "705 1010" }, { opacity: 1, scale: 1, svgOrigin: "705 1010", duration: 0.3, ease: "back.out(2)" }, PERDIENDO - 0.1);
+      tl.to(q(".s01-tag"), { x: 300, y: 60, rotation: 20, svgOrigin: "705 1010", opacity: 0, filter: "blur(6px)", duration: 0.6, ease: "power2.in" }, VENTAS);
+      tl.to(qa(".s01-burbuja, .s01-espera"), { opacity: 0.4, duration: 0.3 }, VENTAS + 0.1);
+      etq(".s01-e2", VENTAS);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

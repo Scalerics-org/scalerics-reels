@@ -1,0 +1,131 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-esperando"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-esperando"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-esperando"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-esperando"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-esperando"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-esperando"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-esperando"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-esperando"] .ln-hueco { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+    [data-composition-id="s06-esperando"] .ln-punteo-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-dasharray: 2 14; stroke-linecap: round; }
+    [data-composition-id="s06-esperando"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s06-esperando"] .relleno { fill: #5ce611; }
+    [data-composition-id="s06-esperando"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s06-esperando"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s06-esperando"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s06-esperando"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s06-esperando"] .ui-tenue { fill: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s06-esperando"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s06-esperando"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s06-esperando"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; fill: #5ce611; }
+    [data-composition-id="s06-esperando"] .navy { fill: #0b1d35; }
+    [data-composition-id="s06-esperando"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-esperando"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s06-esperando" data-width="1080" data-height="1920" data-duration="4.40">
+    <div id="s06-escena" class="capa clip" data-start="0" data-duration="4.40" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- vos atendiendo en el mostrador -->
+        <g class="s06-mostr">
+          <circle class="ln s06-d" cx="240" cy="860" r="32" />
+          <path class="ln s06-d" d="M180 1000 V960 Q180 920 240 920 Q300 920 300 960 V1000" />
+          <circle class="ln s06-d" cx="470" cy="880" r="32" />
+          <path class="ln s06-d" d="M410 1000 V980 Q410 940 470 940 Q530 940 530 980 V1000" />
+          <path class="ln s06-d" d="M150 1000 H560 M170 1000 V1160 M540 1000 V1160" />
+          <g class="s06-bolsa">
+            <path class="ln" d="M330 940 H382 L376 1000 H336 Z" />
+            <path class="ln" d="M344 940 Q356 916 368 940" />
+          </g>
+        </g>
+        <!-- el celular esperando -->
+        <g class="s06-tel">
+          <rect class="ln s06-dt" x="650" y="780" width="250" height="400" rx="38" />
+          <line class="ln s06-dt" x1="755" y1="804" x2="795" y2="804" />
+          <g class="s06-m1"><rect class="ln-fino" x="672" y="840" width="170" height="48" rx="16" /><line class="ln-tenue" x1="690" y1="864" x2="820" y2="864" /></g>
+          <g class="s06-m2"><rect class="ln-fino" x="672" y="904" width="140" height="48" rx="16" /><line class="ln-tenue" x1="690" y1="928" x2="790" y2="928" /></g>
+          <g class="s06-m3"><rect class="ln-fino" x="672" y="968" width="160" height="48" rx="16" /><line class="ln-tenue" x1="690" y1="992" x2="810" y2="992" /></g>
+          <path class="ln-tenue s06-tilde" d="M800 1032 l6 6 l12 -14 M812 1036 l2 2 l12 -14" />
+        </g>
+        <g class="s06-reloj">
+          <circle class="ln" cx="720" cy="690" r="44" />
+          <path class="ln s06-ag" d="M720 690 V658" />
+          <path class="ln" d="M720 690 L740 700" />
+        </g>
+        <text class="ui-b ui-ac s06-h1" x="790" y="704" style="font-size:40px">+1 H</text>
+        <text class="ui-b ui-ac s06-h2" x="790" y="704" style="font-size:40px">+2 H</text>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Atendiendo</span><span class="s06-e2">Esperando</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-esperando";
+      const DUR = 4.40;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan solos; si arrancan en el cuadro 0 se ven medio dibujados
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.12, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      let etqPrev = null;
+      const etq = (sel, t) => {
+        if (etqPrev) tl.to(q(etqPrev), { opacity: 0, duration: 0.2 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqPrev = sel;
+      };
+
+      const ATENDES = 0.4, ESPERANDO = 2.4, HORA = 3.36, DOS = 3.95;
+      dibujar(qa(".s06-d"), 0, 0.55, 0.45);
+      dibujar(qa(".s06-dt"), 0, 0.55, 0.45);
+      tl.fromTo(qa(".s06-m1, .s06-m2, .s06-m3"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.25, stagger: 0.12 }, 0.2);
+      tl.fromTo(q(".s06-tilde"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.6);
+      // "atendés": la bolsa pasa de vos al cliente
+      tl.fromTo(q(".s06-bolsa"), { x: -70, opacity: 0 }, { x: -70, opacity: 1, duration: 0.2 }, ATENDES - 0.2);
+      tl.to(q(".s06-bolsa"), { x: 60, duration: 0.7, ease: "power2.inOut" }, ATENDES);
+      tl.to(q(".s06-bolsa"), { y: -14, duration: 0.35, ease: "sine.out", yoyo: true, repeat: 1 }, ATENDES);
+      etq(".s06-e1", ATENDES);
+      tl.fromTo(q(".s06-mostr"), { x: 0 }, { x: 8, duration: 2, ease: "none" }, 0);
+      // los mensajes laten: siguen ahí
+      tl.to(qa(".s06-m1, .s06-m2, .s06-m3"), { opacity: 0.5, duration: 0.3, stagger: 0.1 }, 1.4);
+      // "esperando": el reloj
+      pop(q(".s06-reloj"), ESPERANDO - 0.15, "720 690");
+      tl.fromTo(q(".s06-tel"), { rotation: 0 }, { rotation: 0, duration: 0.01 }, 0);
+      tl.to(q(".s06-tel"), { x: 4, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, ESPERANDO);
+      etq(".s06-e2", ESPERANDO);
+      tl.fromTo(q(".s06-ag"), { rotation: 0, svgOrigin: "720 690" }, { rotation: 360, svgOrigin: "720 690", duration: 0.6, ease: "power2.inOut" }, HORA - 0.3);
+      gsap.set(qa(".s06-h1, .s06-h2"), { opacity: 0 });
+      pop(q(".s06-h1"), HORA, "830 690");
+      tl.fromTo(q(".s06-ag"), { rotation: 360, svgOrigin: "720 690" }, { rotation: 720, svgOrigin: "720 690", duration: 0.45, ease: "power2.inOut", immediateRender: false }, DOS - 0.3);
+      tl.set(q(".s06-h1"), { opacity: 0 }, DOS);
+      tl.fromTo(q(".s06-h2"), { opacity: 0, scale: 1.3, svgOrigin: "830 690" }, { opacity: 1, scale: 1, svgOrigin: "830 690", duration: 0.2, ease: "power3.out" }, DOS);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

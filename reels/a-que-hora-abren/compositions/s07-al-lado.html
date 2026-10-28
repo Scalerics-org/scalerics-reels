@@ -1,0 +1,130 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-al-lado"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-al-lado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-al-lado"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-al-lado"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-al-lado"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-al-lado"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-al-lado"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-al-lado"] .ln-hueco { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+    [data-composition-id="s07-al-lado"] .ln-punteo-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-dasharray: 2 14; stroke-linecap: round; }
+    [data-composition-id="s07-al-lado"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s07-al-lado"] .relleno { fill: #5ce611; }
+    [data-composition-id="s07-al-lado"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s07-al-lado"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s07-al-lado"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s07-al-lado"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s07-al-lado"] .ui-tenue { fill: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s07-al-lado"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s07-al-lado"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s07-al-lado"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; fill: #5ce611; }
+    [data-composition-id="s07-al-lado"] .navy { fill: #0b1d35; }
+    [data-composition-id="s07-al-lado"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-al-lado"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s07-al-lado" data-width="1080" data-height="1920" data-duration="4.50">
+    <div id="s07-escena" class="capa clip" data-start="0" data-duration="4.50" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s07-tuyo">
+          <path class="ln s07-d" d="M130 760 H450 L430 820 H150 Z" />
+          <path class="ln-fino s07-d" d="M194 760 L188 820 M258 760 L254 820 M322 760 L326 820 M386 760 L392 820" />
+          <path class="ln s07-d" d="M160 820 V1040 H420 V820" />
+          <rect class="ln s07-d" x="250" y="920" width="80" height="120" rx="4" />
+          <rect class="ln-fino s07-d" x="180" y="846" width="220" height="44" rx="8" />
+          <text class="rotulo rotulo-ac" x="290" y="877" text-anchor="middle">TU LOCAL</text>
+        </g>
+        <g class="s07-otro">
+          <path class="ln s07-d" d="M630 760 H950 L930 820 H650 Z" />
+          <path class="ln-fino s07-d" d="M694 760 L688 820 M758 760 L754 820 M822 760 L826 820 M886 760 L892 820" />
+          <path class="ln s07-d" d="M660 820 V1040 H920 V820" />
+          <rect class="ln s07-d" x="750" y="920" width="80" height="120" rx="4" />
+          <rect class="ln-fino s07-d" x="680" y="846" width="220" height="44" rx="8" />
+          <text class="rotulo rotulo-ac" x="790" y="877" text-anchor="middle">AL LADO</text>
+        </g>
+        <!-- el que preguntó -->
+        <g class="s07-fig">
+          <circle class="ln s07-df" cx="540" cy="1100" r="28" />
+          <path class="ln s07-df" d="M488 1230 V1180 Q488 1146 540 1146 Q592 1146 592 1180 V1230" />
+          <rect class="ln-fino s07-df" x="574" y="1150" width="26" height="44" rx="6" />
+        </g>
+        <path class="ln-hueco s07-arco1" d="M560 1140 Q460 1040 330 1050" />
+        <g class="s07-espera"><circle class="ln-fino" cx="300" cy="700" r="26" /><path class="ln-fino s07-ag" d="M300 700 V682" /><text class="ui ui-tenue" x="340" y="709">sin respuesta</text></g>
+        <path class="ln-punteo-ac s07-arco2" d="M600 1140 Q700 1060 790 1050" />
+        <g class="s07-preg"><rect class="ln-fino" x="610" y="1060" width="70" height="56" rx="18" /><text class="ui-b" x="645" y="1098" text-anchor="middle">?</text></g>
+        <g class="s07-resp"><rect class="ln-fino-ac" x="700" y="660" width="190" height="60" rx="18" /><text class="ui ui-ac" x="720" y="699">¡Hola! Sí</text><path class="ln-fino-ac" d="M840 690 l6 6 l12 -14 M852 694 l2 2 l12 -14" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">No espera</span><span class="s07-e2">Contesta el de al lado</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-al-lado";
+      const DUR = 4.50;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan solos; si arrancan en el cuadro 0 se ven medio dibujados
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.12, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      let etqPrev = null;
+      const etq = (sel, t) => {
+        if (etqPrev) tl.to(q(etqPrev), { opacity: 0, duration: 0.2 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqPrev = sel;
+      };
+
+      const NO = 1.2, ESCRIBE = 2.4, CONTESTA = 4.0;
+      dibujar(qa(".s07-d"), 0, 0.6, 0.45);
+      dibujar(qa(".s07-df"), 0, 0.5, 0.4);
+      tl.fromTo(qa(".s07-tuyo text, .s07-otro text"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.2);
+      // le había escrito a tu local: espera
+      dibujar([q(".s07-arco1")], 0.15, 0.5);
+      tl.fromTo(q(".s07-espera"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.4);
+      tl.fromTo(q(".s07-ag"), { rotation: 0, svgOrigin: "300 700" }, { rotation: 360, svgOrigin: "300 700", duration: 1.6, ease: "none" }, 0.4);
+      // "no espera": se da vuelta hacia el de al lado
+      tl.to(qa(".s07-arco1, .s07-espera"), { opacity: 0, duration: 0.3 }, NO);
+      tl.to(q(".s07-fig"), { x: 30, duration: 0.4, ease: "power3.out" }, NO);
+      tl.to(q(".s07-fig"), { y: -10, duration: 0.15, yoyo: true, repeat: 1 }, NO);
+      tl.to(q(".s07-tuyo"), { opacity: 0.6, duration: 0.4 }, NO + 0.2);
+      etq(".s07-e1", NO + 0.1);
+      // "escribe": la pregunta viaja al de al lado
+      pop(q(".s07-preg"), ESCRIBE - 0.2, "645 1088");
+      dibujar([q(".s07-arco2")], ESCRIBE, 0.5);
+      tl.to(q(".s07-preg"), { x: 150, y: -190, opacity: 0, duration: 0.6, ease: "power2.in" }, ESCRIBE + 0.3);
+      punch(q(".s07-otro"), ESCRIBE + 0.85, "790 900", 1.05);
+      // "contesta": vuelve al instante, tu local se apaga
+      pop(q(".s07-resp"), CONTESTA - 0.25, "795 720");
+      punch(q(".s07-resp"), CONTESTA + 0.12, "795 690", 1.1);
+      tl.to(q(".s07-tuyo"), { opacity: 0.3, duration: 0.3 }, CONTESTA - 0.2);
+      etq(".s07-e2", CONTESTA - 0.25);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

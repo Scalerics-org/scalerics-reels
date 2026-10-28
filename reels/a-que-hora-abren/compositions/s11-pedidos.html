@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-pedidos"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-pedidos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-pedidos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-pedidos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-pedidos"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-pedidos"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-pedidos"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-pedidos"] .ln-hueco { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+    [data-composition-id="s11-pedidos"] .ln-punteo-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-dasharray: 2 14; stroke-linecap: round; }
+    [data-composition-id="s11-pedidos"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s11-pedidos"] .relleno { fill: #5ce611; }
+    [data-composition-id="s11-pedidos"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s11-pedidos"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s11-pedidos"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s11-pedidos"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s11-pedidos"] .ui-tenue { fill: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s11-pedidos"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s11-pedidos"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s11-pedidos"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; fill: #5ce611; }
+    [data-composition-id="s11-pedidos"] .navy { fill: #0b1d35; }
+    [data-composition-id="s11-pedidos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-pedidos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s11-pedidos" data-width="1080" data-height="1920" data-duration="4.72">
+    <div id="s11-escena" class="capa clip" data-start="0" data-duration="4.72" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s11-fila">
+          <!-- pedido -->
+          <g class="s11-ped">
+            <rect class="ln s11-d1" x="160" y="820" width="120" height="160" rx="14" />
+            <path class="ln s11-d1" d="M195 820 V806 H245 V820" />
+            <line class="ln-tenue s11-d1" x1="184" y1="866" x2="256" y2="866" />
+            <line class="ln-tenue s11-d1" x1="184" y1="900" x2="256" y2="900" />
+            <path class="ln-ac s11-t1" d="M196 934 l14 14 l30 -32" />
+          </g>
+          <text class="rotulo s11-r1" x="220" y="1040" text-anchor="middle">PEDIDO</text>
+          <!-- turno -->
+          <g class="s11-tur">
+            <rect class="ln s11-d2" x="380" y="830" width="160" height="150" rx="14" />
+            <line class="ln s11-d2" x1="380" y1="870" x2="540" y2="870" />
+            <path class="ln s11-d2" d="M415 818 V842 M505 818 V842" />
+            <path class="ln-tenue s11-d2" d="M380 925 H540 M433 870 V980 M487 870 V980" />
+            <rect class="relleno s11-celda" x="440" y="932" width="40" height="40" rx="6" />
+          </g>
+          <text class="rotulo s11-r2" x="460" y="1040" text-anchor="middle">TURNO</text>
+          <!-- consulta -->
+          <g class="s11-con">
+            <path class="ln s11-d3" d="M640 840 H760 Q780 840 780 860 V920 Q780 940 760 940 H690 L664 966 V940 H640 Q620 940 620 920 V860 Q620 840 640 840 Z" />
+            <text class="ui-b" x="700" y="906" text-anchor="middle" style="font-size:40px">?</text>
+          </g>
+          <text class="rotulo s11-r3" x="700" y="1040" text-anchor="middle">CONSULTA</text>
+        </g>
+        <!-- vos -->
+        <g class="s11-vos">
+          <circle class="ln" cx="900" cy="860" r="32" />
+          <path class="ln" d="M842 1000 V960 Q842 920 900 920 Q958 920 958 960 V1000" />
+        </g>
+        <text class="rotulo rotulo-ac s11-rv" x="900" y="1040" text-anchor="middle">VOS</text>
+        <path class="ln-punteo-ac s11-arco" d="M760 830 Q830 740 880 800" />
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Pedidos y turnos</span><span class="s11-e2">Te la pasa</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-pedidos";
+      const DUR = 4.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan solos; si arrancan en el cuadro 0 se ven medio dibujados
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.12, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      let etqPrev = null;
+      const etq = (sel, t) => {
+        if (etqPrev) tl.to(q(etqPrev), { opacity: 0, duration: 0.2 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqPrev = sel;
+      };
+
+      const PEDIDOS = 0.11, TURNOS = 1.31, CONSULTA = 2.41, VOS = 3.01, TE = 3.31, PASA = 3.71;
+      tl.fromTo(q(".s11-fila"), { x: 10 }, { x: -10, duration: DUR, ease: "none" }, 0);
+      // pedido: arranca medio dibujado
+      dibujar(qa(".s11-d1"), 0, 0.5, 0.45);
+      tl.fromTo(q(".s11-r1"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, PEDIDOS);
+      dibujar([q(".s11-t1")], PEDIDOS + 0.4, 0.3);
+      punch(q(".s11-ped"), PEDIDOS + 0.7, "220 900", 1.08);
+      etq(".s11-e1", 0.6);
+      // turno
+      dibujar(qa(".s11-d2"), TURNOS - 0.4, 0.45);
+      tl.fromTo(q(".s11-r2"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, TURNOS - 0.2);
+      pop(q(".s11-celda"), TURNOS + 0.1, "460 952");
+      punch(q(".s11-tur"), TURNOS + 0.45, "460 905", 1.08);
+      // consulta
+      dibujar(qa(".s11-d3"), CONSULTA - 0.35, 0.45);
+      tl.fromTo(q(".s11-con text"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, CONSULTA);
+      tl.fromTo(q(".s11-r3"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, CONSULTA - 0.1);
+      // vos aparece, y la consulta vuela hacia vos
+      pop(q(".s11-vos"), VOS - 0.15, "900 930");
+      tl.fromTo(q(".s11-rv"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, VOS);
+      dibujar([q(".s11-arco")], TE - 0.1, 0.35);
+      tl.to(q(".s11-con"), { x: 160, y: -110, scale: 0.6, svgOrigin: "700 900", duration: 0.45, ease: "power2.inOut" }, TE);
+      tl.to(q(".s11-con"), { opacity: 0, duration: 0.15 }, PASA - 0.1);
+      punch(q(".s11-vos"), PASA, "900 930", 1.15);
+      tl.to(qa(".s11-ped, .s11-tur, .s11-r1, .s11-r2, .s11-r3"), { opacity: 0.5, duration: 0.3 }, TE);
+      etq(".s11-e2", TE);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

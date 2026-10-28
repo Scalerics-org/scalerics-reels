@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-hueco { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+    [data-composition-id="s12-cta"] .ln-punteo-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-dasharray: 2 14; stroke-linecap: round; }
+    [data-composition-id="s12-cta"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s12-cta"] .relleno { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s12-cta"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .ui-tenue { fill: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s12-cta"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .navy { fill: #0b1d35; }
+    [data-composition-id="s12-cta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s12-cta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s12-cta"] .s12-marca { position: absolute; left: 0; right: 0; top: 795px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 110px; line-height: 1.1; letter-spacing: -0.02em; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s12-cta"] .s12-marca span { display: inline-block; }
+    [data-composition-id="s12-cta"] .s12-bajada { position: absolute; left: 0; right: 0; top: 950px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 34px; color: #efeee5; opacity: 0; }
+    [data-composition-id="s12-cta"] .s12-pildora-caja { position: absolute; left: 0; right: 0; top: 1104px; display: flex; justify-content: center; }
+    [data-composition-id="s12-cta"] .s12-pildora { display: inline-block; padding: 24px 52px; border-radius: 999px; background: #efeee5; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; line-height: 1.2; color: #0b1d35; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s12-cta"] .s12-pildora b { font-weight: 800; }
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="7.60">
+    <div id="s12-escena" class="capa clip" data-start="0" data-duration="7.60" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g id="s12-a">
+          <g class="s12-local">
+          <path class="ln s12-d" d="M130 760 H450 L430 820 H150 Z" />
+          <path class="ln-fino s12-d" d="M194 760 L188 820 M258 760 L254 820 M322 760 L326 820 M386 760 L392 820" />
+          <path class="ln s12-d" d="M160 820 V1040 H420 V820" />
+          <rect class="ln s12-d" x="250" y="920" width="80" height="120" rx="4" />
+          <rect class="ln-fino s12-d" x="180" y="846" width="220" height="44" rx="8" />
+            <text class="rotulo rotulo-ac s12-ab" x="290" y="877" text-anchor="middle">ABIERTO</text>
+            <text class="rotulo s12-ce" x="290" y="877" text-anchor="middle" style="fill:rgba(239,238,229,0.6)">CERRADO</text>
+            <g class="s12-persiana">
+              <rect class="ln-fino" x="166" y="904" width="248" height="136" />
+              <path class="ln-tenue" d="M166 926 H414 M166 948 H414 M166 970 H414 M166 992 H414 M166 1014 H414" />
+            </g>
+          </g>
+          <path class="ln-ac s12-luna" d="M520 650 A30 30 0 1 0 552 690 A23 23 0 1 1 520 650 Z" />
+          <g class="s12-tel">
+            <rect class="ln s12-d" x="620" y="740" width="270" height="420" rx="40" />
+            <line class="ln s12-d" x1="730" y1="764" x2="780" y2="764" />
+            <circle class="relleno s12-online" cx="650" cy="806" r="8" />
+            <text class="ui ui-ac s12-online" x="668" y="815" style="font-size:24px">en línea</text>
+            <g class="s12-q"><rect class="ln-fino" x="634" y="850" width="240" height="56" rx="18" /><text class="ui" x="650" y="886" style="font-size:24px">¿Abren mañana?</text></g>
+            <g class="s12-r"><rect class="ln-fino-ac" x="660" y="926" width="210" height="56" rx="18" /><text class="ui ui-ac" x="676" y="962" style="font-size:24px">Sí, de 9 a 20 h</text></g>
+          </g>
+        </g>
+      </svg>
+      <div class="s12-marca"><span class="s12-w1">Scalerics</span></div>
+      <div class="s12-bajada">Bots de WhatsApp para comercios</div>
+      <div class="s12-pildora-caja"><div class="s12-pildora">Comentá <b>“ABIERTO”</b></div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 7.60;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan solos; si arrancan en el cuadro 0 se ven medio dibujados
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.12, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      let etqPrev = null;
+      const etq = (sel, t) => {
+        if (etqPrev) tl.to(q(etqPrev), { opacity: 0, duration: 0.2 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqPrev = sel;
+      };
+
+      const CIERRA = 0.39, WHATSAPP = 1.19, NO = 1.89, FUERA = 2.4, COMENTA = 2.7, ABIERTO = 2.99, CONTAMOS = 3.59;
+      dibujar(qa(".s12-d"), 0, 0.55, 0.45);
+      tl.fromTo(q(".s12-ab"), { opacity: 0.4 }, { opacity: 1, duration: 0.2 }, 0);
+      gsap.set(qa(".s12-ce, .s12-online, .s12-q, .s12-r"), { opacity: 0 });
+      // "cierra": baja la persiana, se hace de noche
+      tl.fromTo(q(".s12-persiana"), { scaleY: 0, svgOrigin: "290 904", opacity: 1 }, { scaleY: 1, svgOrigin: "290 904", duration: 0.45, ease: "power2.inOut" }, CIERRA);
+      tl.to(q(".s12-ab"), { opacity: 0, duration: 0.15 }, CIERRA + 0.2);
+      tl.to(q(".s12-ce"), { opacity: 1, duration: 0.2 }, CIERRA + 0.3);
+      pop(q(".s12-luna"), CIERRA + 0.1, "530 680");
+      tl.to(q(".s12-local"), { opacity: 0.5, duration: 0.3 }, CIERRA + 0.5);
+      // "WhatsApp": el celular sigue en línea y contesta
+      tl.to(qa(".s12-online"), { opacity: 1, duration: 0.2 }, WHATSAPP - 0.1);
+      pop(q(".s12-q"), WHATSAPP, "640 906");
+      pop(q(".s12-r"), WHATSAPP + 0.4, "870 982");
+      punch(q(".s12-tel"), NO, "755 950", 1.08);
+      // el cierre de marca
+      tl.to(q("#s12-a"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, FUERA);
+      tl.fromTo(q(".s12-marca"), { opacity: 0.25, filter: "blur(10px)", y: 10 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, FUERA + 0.2);
+      tl.fromTo(q(".s12-marca"), { scale: 0.97, transformOrigin: "540px 50%" }, { scale: 1, duration: 4.4, ease: "power1.out", immediateRender: false }, FUERA + 0.2);
+      tl.fromTo(q(".s12-bajada"), { opacity: 0, y: 12 }, { opacity: 0.7, y: 0, duration: 0.45, ease: "power3.out" }, FUERA + 0.6);
+      const p = q(".s12-pildora");
+      tl.fromTo(p, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, COMENTA + 0.05);
+      [ABIERTO, ABIERTO + 1.2, ABIERTO + 2.4, ABIERTO + 3.6].forEach((t) => {
+        tl.to(p, { scale: 1.06, duration: 0.2, ease: "sine.out" }, t);
+        tl.to(p, { scale: 1, duration: 0.3, ease: "sine.inOut" }, t + 0.2);
+      });
+      tl.to(q(".s12-bajada"), { opacity: 0.95, duration: 0.25, yoyo: true, repeat: 1 }, CONTAMOS);
+      // sin salida: el último cuadro queda quieto y legible
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

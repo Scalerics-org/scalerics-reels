@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-faciles"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-faciles"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-faciles"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-faciles"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-faciles"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-faciles"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-faciles"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-faciles"] .ln-hueco { fill: none; stroke: rgba(239, 238, 229, 0.45); stroke-width: 3; stroke-dasharray: 10 10; stroke-linecap: round; }
+    [data-composition-id="s05-faciles"] .ln-punteo-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-dasharray: 2 14; stroke-linecap: round; }
+    [data-composition-id="s05-faciles"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s05-faciles"] .relleno { fill: #5ce611; }
+    [data-composition-id="s05-faciles"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s05-faciles"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s05-faciles"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s05-faciles"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s05-faciles"] .ui-tenue { fill: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s05-faciles"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s05-faciles"] .rotulo-ac { fill: #5ce611; }
+    [data-composition-id="s05-faciles"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; fill: #5ce611; }
+    [data-composition-id="s05-faciles"] .navy { fill: #0b1d35; }
+    [data-composition-id="s05-faciles"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-faciles"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s05-faciles" data-width="1080" data-height="1920" data-duration="4.64">
+    <div id="s05-escena" class="capa clip" data-start="0" data-duration="4.64" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s05-q">
+          <g class="s05-q1"><rect class="ln-fino s05-dq" x="140" y="700" width="300" height="64" rx="20" /><text class="ui s05-tq" x="160" y="741">¿A qué hora abren?</text></g>
+          <g class="s05-q2"><rect class="ln-fino s05-dq" x="140" y="860" width="230" height="64" rx="20" /><text class="ui s05-tq" x="160" y="901">¿Cuánto sale?</text></g>
+          <g class="s05-q3"><rect class="ln-fino s05-dq" x="140" y="1020" width="270" height="64" rx="20" /><text class="ui s05-tq" x="160" y="1061">¿Tenés en negro?</text></g>
+        </g>
+        <path class="ln-fino-ac s05-fl" d="M470 732 H600 M584 718 L602 732 L584 746" />
+        <path class="ln-fino-ac s05-fl" d="M470 892 H600 M584 878 L602 892 L584 906" />
+        <path class="ln-fino-ac s05-fl" d="M470 1052 H600 M584 1038 L602 1052 L584 1066" />
+        <!-- copias fantasma: la misma respuesta, una y otra vez -->
+        <g class="s05-fant">
+          <path class="ln-tenue" d="M674 686 H864 Q884 686 884 706 V730" />
+          <path class="ln-tenue" d="M688 672 H878 Q898 672 898 692 V716" />
+          <path class="ln-tenue" d="M674 846 H804 Q824 846 824 866 V890" />
+          <path class="ln-tenue" d="M688 832 H818 Q838 832 838 852 V876" />
+          <path class="ln-tenue" d="M674 1006 H814 Q834 1006 834 1026 V1050" />
+          <path class="ln-tenue" d="M688 992 H828 Q848 992 848 1012 V1036" />
+        </g>
+        <g class="s05-r1"><rect class="ln-fino-ac" x="640" y="700" width="230" height="64" rx="20" /><text class="ui ui-ac" x="660" y="741">De 9 a 20 h</text></g>
+        <g class="s05-r2"><rect class="ln-fino-ac" x="640" y="860" width="170" height="64" rx="20" /><text class="ui ui-ac" x="660" y="901">$ 890</text></g>
+        <g class="s05-r3"><rect class="ln-fino-ac" x="640" y="1020" width="180" height="64" rx="20" /><text class="ui ui-ac" x="660" y="1061">Sí, hay</text></g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Las más fáciles</span><span class="s05-e2">Siempre lo mismo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-faciles";
+      const DUR = 4.64;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan solos; si arrancan en el cuadro 0 se ven medio dibujados
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.12, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      // etiquetas: entra la nueva, se va la anterior
+      let etqPrev = null;
+      const etq = (sel, t) => {
+        if (etqPrev) tl.to(q(etqPrev), { opacity: 0, duration: 0.2 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqPrev = sel;
+      };
+
+      const FACILES = 0.74, RESPUESTA = 2.44, SIEMPRE = 3.34, MISMA = 3.74;
+      dibujar(qa(".s05-dq"), 0, 0.5, 0.45);
+      tl.fromTo(qa(".s05-tq"), { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.1 }, 0.15);
+      // "fáciles": las tres preguntas laten
+      [".s05-q1", ".s05-q2", ".s05-q3"].forEach((s, i) => punch(q(s), FACILES + i * 0.1, "290 " + (732 + i * 160), 1.07));
+      etq(".s05-e1", FACILES);
+      tl.fromTo(q(".s05-q"), { x: 0 }, { x: -12, duration: DUR, ease: "none" }, 0);
+      // "respuesta": flechas y respuestas
+      dibujar(qa(".s05-fl"), RESPUESTA - 0.35, 0.35);
+      [".s05-r1", ".s05-r2", ".s05-r3"].forEach((s, i) => pop(q(s), RESPUESTA + i * 0.12, "640 " + (732 + i * 160)));
+      // "siempre la misma": la respuesta se repite como un sello
+      tl.fromTo(q(".s05-fant"), { opacity: 0, x: -14, y: 14 }, { opacity: 1, x: 0, y: 0, duration: 0.4, ease: "power3.out" }, SIEMPRE);
+      [".s05-r1", ".s05-r2", ".s05-r3"].forEach((s, i) => punch(q(s), MISMA + i * 0.08, "740 " + (732 + i * 160), 1.08));
+      etq(".s05-e2", MISMA);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
