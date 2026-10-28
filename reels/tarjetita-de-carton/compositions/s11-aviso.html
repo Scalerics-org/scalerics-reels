@@ -1,0 +1,147 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-aviso"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-aviso"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-aviso"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-aviso"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-aviso"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-aviso"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-aviso"] .relleno { fill: #5ce611; }
+    [data-composition-id="s11-aviso"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s11-aviso"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-aviso"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s11-aviso"] .s11-caja { fill: #0b1d35; stroke: #5ce611; stroke-width: 4; }
+    [data-composition-id="s11-aviso"] .s11-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; fill: #efeee5; }
+    [data-composition-id="s11-aviso"] .s11-num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 96px; fill: #5ce611; }
+    [data-composition-id="s11-aviso"] .s11-pts { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.62); }
+    [data-composition-id="s11-aviso"] .s11-gris { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s11-aviso"] .s11-a1 { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s11-aviso"] .s11-a2 { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s11-aviso"] .s11-titulo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; fill: #efeee5; }
+    [data-composition-id="s11-aviso"] .s11-n { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; fill: #efeee5; }
+    [data-composition-id="s11-aviso"] .s11-c { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: rgba(239, 238, 229, 0.7); }
+    [data-composition-id="s11-aviso"] .s11-verde { fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s11-aviso" data-width="1080" data-height="1920" data-duration="5">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="5" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s11-cel">
+          <rect class="ln s11-dc" x="350" y="610" width="380" height="620" rx="52" />
+          <path class="ln s11-dc" d="M500 638 H580" />
+          <g class="s11-tarjeta">
+            <rect class="ln-4" x="380" y="780" width="320" height="250" rx="24" />
+            <text class="s11-nombre" x="540" y="850" text-anchor="middle">Diego</text>
+            <text class="s11-num" x="540" y="950" text-anchor="middle">80</text>
+            <text class="s11-pts" x="540" y="990" text-anchor="middle">PUNTOS</text>
+          </g>
+          <text class="s11-gris" x="540" y="1110" text-anchor="middle">hace un mes sin venir</text>
+          <g class="s11-aviso">
+            <rect class="s11-caja" x="368" y="652" width="344" height="110" rx="22" />
+            <text class="s11-a1" x="540" y="698" text-anchor="middle">Te falta un sello</text>
+            <text class="s11-a2" x="540" y="736" text-anchor="middle">para tu premio</text>
+          </g>
+        </g>
+        <g class="s11-panel">
+          <rect class="ln s11-dp" x="160" y="640" width="760" height="470" rx="26" />
+          <path class="ln s11-dp" d="M500 1110 L484 1170 M580 1110 L596 1170 M440 1172 H640" />
+          <text class="s11-titulo" x="210" y="712">Tus clientes</text>
+          <path class="ln-4 s11-dp" d="M160 740 H920" opacity="0.6" />
+          <g class="s11-fila s11-f0">
+            <circle class="ln-4" cx="226" cy="800" r="18" />
+            <text class="s11-n" x="266" y="811">Lucía</text>
+            <text class="s11-c" x="870" y="811" text-anchor="end">cada semana</text>
+          </g>
+          <g class="s11-fila s11-f1">
+            <circle class="ln-4" cx="226" cy="880" r="18" />
+            <text class="s11-n" x="266" y="891">Martín</text>
+            <text class="s11-c" x="870" y="891" text-anchor="end">cada 10 días</text>
+          </g>
+          <g class="s11-fila s11-f2">
+            <circle class="ln-4" cx="226" cy="960" r="18" />
+            <text class="s11-n" x="266" y="971">Sofía</text>
+            <text class="s11-c" x="870" y="971" text-anchor="end">cada 15 días</text>
+          </g>
+          <g class="s11-fila s11-f3">
+            <circle class="relleno" cx="226" cy="1040" r="12" />
+            <text class="s11-n" x="266" y="1051">Diego</text>
+            <text class="s11-c s11-verde" x="870" y="1051" text-anchor="end">hace un mes</text>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Le llega un aviso</span><span class="s11-e2">Vos ves quiénes son</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-aviso";
+      const DUR = 5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const nuevo = (padre, tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); padre.appendChild(e); return e; };
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t > 0 ? t + i * (paso ?? 0.04) : 0;
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const ETQ = qa(".etiqueta span");
+      const etiqueta = (k, t) => {
+        if (k > 0) tl.to(ETQ[k - 1], { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(ETQ[k], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // figurita de palo: pies en (x, y)
+      const FIG = (x, y) => '<circle class="ln" cx="' + x + '" cy="' + (y - 96) + '" r="14" /><path class="ln" d="M' + x + ' ' + (y - 82) + ' V' + (y - 40) + ' M' + x + ' ' + (y - 70) + ' L' + (x - 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 70) + ' L' + (x + 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 40) + ' L' + (x - 14) + ' ' + y + ' M' + x + ' ' + (y - 40) + ' L' + (x + 14) + ' ' + y + '" />';
+      const caminar = (g, t, pasos) => tl.fromTo(g, { rotation: -4, svgOrigin: "0 0" }, { rotation: 4, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: pasos }, t);
+
+
+      const SI = 0.0, VENIR = 0.8, LLEGA = 1.5, OLVIDE = 2.1, Y = 2.64, VOS = 2.9, QUIENES = 3.1, CADA = 3.9, VIENEN = 4.6;
+      gsap.set(qa(".s11-gris, .s11-aviso, .s11-titulo, .s11-fila, .s11-c"), { opacity: 0 });
+      dibujar(qa(".s11-dc"), 0, 0.45, 0.35);
+      tl.fromTo(q(".s11-tarjeta"), { opacity: 0.4, scale: 0.92, svgOrigin: "540 905" }, { opacity: 1, scale: 1, svgOrigin: "540 905", duration: 0.35, ease: "back.out(1.6)" }, 0.05);
+      // "si deja de venir": la tarjeta se apaga
+      tl.to(q(".s11-tarjeta"), { opacity: 0.4, duration: 0.35 }, VENIR);
+      tl.fromTo(q(".s11-gris"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, VENIR - 0.1);
+      // "le llega un aviso"
+      tl.fromTo(q(".s11-aviso"), { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, LLEGA - 0.15);
+      tl.to(q(".s11-cel"), { rotation: -2, svgOrigin: "540 1230", duration: 0.07, ease: "sine.inOut", yoyo: true, repeat: 5 }, LLEGA + 0.1);
+      etiqueta(0, LLEGA - 0.1);
+      // "antes de que se olvide": late y la tarjeta se vuelve a prender
+      tl.to(q(".s11-aviso"), { scale: 1.07, svgOrigin: "540 707", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, OLVIDE);
+      tl.to(q(".s11-tarjeta"), { opacity: 1, duration: 0.3 }, OLVIDE);
+      tl.to(q(".s11-gris"), { opacity: 0, duration: 0.3 }, OLVIDE);
+      // "Y vos ves": el celular se va y entra el panel
+      tl.to(q(".s11-cel"), { x: -160, opacity: 0, filter: "blur(6px)", duration: 0.35, ease: "power2.in" }, Y - 0.1);
+      dibujar(qa(".s11-dp"), Y + 0.15, 0.5, 1, 0.05);
+      tl.fromTo(q(".s11-titulo"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, Y + 0.4);
+      etiqueta(1, VOS);
+      // "quiénes son": las filas
+      qa(".s11-fila").forEach((f, i) => tl.fromTo(f, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, QUIENES - 0.2 + i * 0.12));
+      // "cada cuánto": los tiempos
+      qa(".s11-c").forEach((c, i) => tl.fromTo(c, { opacity: 0, x: 16 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, CADA - 0.1 + i * 0.1));
+      // "vienen": el que falta late
+      tl.to(q(".s11-f3"), { scale: 1.05, svgOrigin: "540 1030", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, VIENEN - 0.2);
+      tl.fromTo(q(".s11-panel"), { scale: 0.98, svgOrigin: "540 900" }, { scale: 1.01, svgOrigin: "540 900", duration: DUR - Y - 0.3, ease: "sine.inOut" }, Y);
+
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

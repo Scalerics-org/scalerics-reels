@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-no-se-pierde"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-no-se-pierde"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-no-se-pierde"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-no-se-pierde"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-no-se-pierde"] .ln-t { fill: none; stroke: rgba(239, 238, 229, 0.55); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-no-se-pierde"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-no-se-pierde"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-no-se-pierde"] .relleno { fill: #5ce611; }
+    [data-composition-id="s10-no-se-pierde"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s10-no-se-pierde"] .signo { font-family: "Lexend", sans-serif; font-weight: 700; fill: #5ce611; }
+    [data-composition-id="s10-no-se-pierde"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-no-se-pierde"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s10-no-se-pierde"] .s10-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s10-no-se-pierde"] .s10-pts { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.62); }
+    [data-composition-id="s10-no-se-pierde"] .s10-marca { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s10-no-se-pierde"] .s10-ac { fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s10-no-se-pierde" data-width="1080" data-height="1920" data-duration="3.47">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="3.47" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s10-cel">
+        <rect class="ln s10-dc" x="350" y="610" width="380" height="620" rx="52" />
+        <path class="ln s10-dc" d="M500 638 H580" />
+        <text class="s10-marca" x="540" y="704" text-anchor="middle">Scalerics <tspan class="s10-ac">Puntos</tspan></text>
+        <path class="ln-4 s10-dc" d="M350 736 H730" />
+        <rect class="ln-4 s10-dc" x="380" y="770" width="320" height="300" rx="24" />
+        <text class="s10-nombre" x="410" y="830">Sofía</text>
+        <text class="s10-pts" x="540" y="1040" text-anchor="middle">MIS SELLOS</text>
+        <circle class="ln-t" cx="420" cy="900" r="20" /><circle class="relleno s10-s s10-s0" cx="420" cy="900" r="20" />
+        <circle class="ln-t" cx="480" cy="900" r="20" /><circle class="relleno s10-s s10-s1" cx="480" cy="900" r="20" />
+        <circle class="ln-t" cx="540" cy="900" r="20" /><circle class="relleno s10-s s10-s2" cx="540" cy="900" r="20" />
+        <circle class="ln-t" cx="600" cy="900" r="20" /><circle class="relleno s10-s s10-s3" cx="600" cy="900" r="20" />
+        <circle class="ln-t" cx="660" cy="900" r="20" /><circle class="relleno s10-s s10-s4" cx="660" cy="900" r="20" />
+        <circle class="ln-t" cx="420" cy="960" r="20" /><circle class="relleno s10-s s10-s5" cx="420" cy="960" r="20" />
+        <circle class="ln-t" cx="480" cy="960" r="20" /><circle class="relleno s10-s s10-s6" cx="480" cy="960" r="20" />
+        <circle class="ln-t" cx="540" cy="960" r="20" /><circle class="relleno s10-s s10-s7" cx="540" cy="960" r="20" />
+        <circle class="ln-t" cx="600" cy="960" r="20" /><circle class="relleno s10-s s10-s8" cx="600" cy="960" r="20" />
+        <circle class="ln-t" cx="660" cy="960" r="20" /><circle class="relleno s10-s s10-s9" cx="660" cy="960" r="20" />
+        </g>
+        <g class="s10-ok">
+        <circle class="ln-badge" cx="730" cy="626" r="34" />
+        <path class="ln-badge" d="M714 627 L726 640 L748 613" />
+        </g>
+        <g class="s10-viejo">
+        <rect class="ln-t" x="110" y="860" width="170" height="106" rx="10" />
+        <circle class="ln-t" cx="145" cy="903" r="10" /><circle class="ln-t" cx="178" cy="903" r="10" /><circle class="ln-t" cx="211" cy="903" r="10" />
+        </g>
+        <g class="s10-regalo">
+        <rect class="ln" x="796" y="900" width="150" height="120" rx="8" />
+        <path class="ln" d="M780 866 H962 V900 H780 Z" />
+        <path class="ln" d="M871 866 V1020" />
+        <path class="ln-ac" d="M871 866 Q830 820 820 846 Q830 866 871 866 Q912 820 922 846 Q912 866 871 866" />
+        <text class="cartel" x="871" y="1070" text-anchor="middle">PREMIO</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">No se pierde</span><span class="s10-e2">Junta sellos</span><span class="s10-e3">Canjea premios</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-no-se-pierde";
+      const DUR = 3.47;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const nuevo = (padre, tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); padre.appendChild(e); return e; };
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t > 0 ? t + i * (paso ?? 0.04) : 0;
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const ETQ = qa(".etiqueta span");
+      const etiqueta = (k, t) => {
+        if (k > 0) tl.to(ETQ[k - 1], { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(ETQ[k], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // badge de "no": círculo verde con una X, centrado en (x, y)
+      const badge = (padre, x, y, r) => {
+        const g = nuevo(padre, "g", {});
+        r = r || 18;
+        const k = r * 0.42;
+        nuevo(g, "circle", { class: "ln-badge", cx: x, cy: y, r: r });
+        nuevo(g, "path", { class: "ln-badge", d: "M" + (x - k) + " " + (y - k) + " L" + (x + k) + " " + (y + k) + " M" + (x + k) + " " + (y - k) + " L" + (x - k) + " " + (y + k) });
+        return g;
+      };
+      // figurita de palo: pies en (x, y)
+      const FIG = (x, y) => '<circle class="ln" cx="' + x + '" cy="' + (y - 96) + '" r="14" /><path class="ln" d="M' + x + ' ' + (y - 82) + ' V' + (y - 40) + ' M' + x + ' ' + (y - 70) + ' L' + (x - 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 70) + ' L' + (x + 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 40) + ' L' + (x - 14) + ' ' + y + ' M' + x + ' ' + (y - 40) + ' L' + (x + 14) + ' ' + y + '" />';
+      const caminar = (g, t, pasos, origen) => tl.fromTo(g, { rotation: -4, svgOrigin: origen || "0 0" }, { rotation: 4, svgOrigin: origen || "0 0", duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: pasos }, t);
+
+      const NO = 0.17, PIERDE = 0.57, JUNTA = 0.67, SELLOS = 1.63, CANJEA = 2.59, PREMIOS = 2.97;
+      gsap.set(qa(".s10-ok, .s10-regalo"), { opacity: 0 });
+      qa(".s10-s").forEach((s, i) => gsap.set(s, { opacity: i < 6 ? 1 : 0 }));
+      dibujar(qa(".s10-dc"), 0, 0.4, 0.35, 0.02);
+      tl.fromTo(q(".s10-cel"), { y: 20 }, { y: 0, duration: 0.5, ease: "power3.out" }, 0);
+      // la de cartón, apagada, se cae y se va
+      tl.fromTo(q(".s10-viejo"), { opacity: 0.8, y: 0, rotation: -6, svgOrigin: "195 913" }, { opacity: 0, y: 260, rotation: 30, svgOrigin: "195 913", duration: 0.7, ease: "power2.in" }, NO);
+      // "no se pierde": tilde verde
+      pop(q(".s10-ok"), PIERDE - 0.15, "730 626");
+      etiqueta(0, NO);
+      // "junta sellos": se llenan los que faltan
+      qa(".s10-s").slice(6).forEach((s, i) => {
+        const cx = s.getAttribute("cx"), cy = s.getAttribute("cy");
+        tl.fromTo(s, { opacity: 0, scale: 0.2, svgOrigin: cx + " " + cy }, { opacity: 1, scale: 1, svgOrigin: cx + " " + cy, duration: 0.3, ease: "back.out(2.4)" }, JUNTA + 0.15 + i * 0.26);
+      });
+      tl.to(q(".s10-cel"), { scale: 1.03, svgOrigin: "540 920", duration: 0.12, yoyo: true, repeat: 1 }, SELLOS);
+      etiqueta(1, JUNTA + 0.2);
+      // "canjea premios": el regalo
+      pop(q(".s10-regalo"), CANJEA - 0.1, "871 960");
+      tl.to(q(".s10-regalo"), { y: -18, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, PREMIOS);
+      tl.to(qa(".s10-s"), { opacity: 0.4, duration: 0.2 }, CANJEA + 0.1);
+      etiqueta(2, CANJEA);
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,156 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-se-pierde"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-se-pierde"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-se-pierde"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-se-pierde"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-se-pierde"] .ln-t { fill: none; stroke: rgba(239, 238, 229, 0.55); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-se-pierde"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-se-pierde"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-se-pierde"] .relleno { fill: #5ce611; }
+    [data-composition-id="s04-se-pierde"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s04-se-pierde"] .signo { font-family: "Lexend", sans-serif; font-weight: 700; fill: #5ce611; }
+    [data-composition-id="s04-se-pierde"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-se-pierde"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s04-se-pierde" data-width="1080" data-height="1920" data-duration="4.6">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.6" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s04-v1">
+        <g class="s04-tar">
+        <path class="ln s04-dk" d="M320 740 H740 L780 780 V1020 Q780 1040 760 1040 H320 Q300 1040 300 1020 V760 Q300 740 320 740 Z" />
+        <path class="ln-4 s04-oreja" d="M740 740 V780 H780" />
+        <text class="cartel s04-tit" x="336" y="792">MIS SELLOS</text>
+        <text class="cartel s04-nom" x="336" y="1008" opacity="0.7">NOMBRE</text>
+        <path class="ln-t s04-raya" d="M470 1002 H744" />
+        <circle class="ln-t s04-vacio" cx="360" cy="856" r="26" />
+        <circle class="ln-t s04-vacio" cx="450" cy="856" r="26" />
+        <circle class="ln-t s04-vacio" cx="540" cy="856" r="26" />
+        <circle class="ln-t s04-vacio" cx="630" cy="856" r="26" />
+        <circle class="ln-t s04-vacio" cx="720" cy="856" r="26" />
+        <circle class="ln-t s04-vacio" cx="360" cy="936" r="26" />
+        <circle class="ln-t s04-vacio" cx="450" cy="936" r="26" />
+        <circle class="ln-t s04-vacio" cx="540" cy="936" r="26" />
+        <circle class="ln-t s04-vacio" cx="630" cy="936" r="26" />
+        <circle class="ln-t s04-vacio" cx="720" cy="936" r="26" />
+        <g class="s04-sello "><circle class="ln" cx="360" cy="856" r="26" /><path class="ln-4" d="M350 856 H370 M360 846 V866 M353 849 L367 863 M367 849 L353 863" /></g>
+        <g class="s04-sello "><circle class="ln" cx="450" cy="856" r="26" /><path class="ln-4" d="M440 856 H460 M450 846 V866 M443 849 L457 863 M457 849 L443 863" /></g>
+        <g class="s04-sello "><circle class="ln" cx="540" cy="856" r="26" /><path class="ln-4" d="M530 856 H550 M540 846 V866 M533 849 L547 863 M547 849 L533 863" /></g>
+        <g class="s04-sello "><circle class="ln" cx="630" cy="856" r="26" /><path class="ln-4" d="M620 856 H640 M630 846 V866 M623 849 L637 863 M637 849 L623 863" /></g>
+        <g class="s04-sello "><circle class="ln" cx="720" cy="856" r="26" /><path class="ln-4" d="M710 856 H730 M720 846 V866 M713 849 L727 863 M727 849 L713 863" /></g>
+        <g class="s04-sello "><circle class="ln" cx="360" cy="936" r="26" /><path class="ln-4" d="M350 936 H370 M360 926 V946 M353 929 L367 943 M367 929 L353 943" /></g>
+        </g>
+        <text class="signo s04-q1" x="540" y="960" text-anchor="middle" font-size="140">?</text>
+        </g>
+        <g class="s04-v2">
+        <rect class="ln s04-dl" x="370" y="700" width="340" height="420" rx="24" />
+        <path class="ln s04-dl" d="M370 790 H710" />
+        <circle class="ln-4 s04-dl" cx="420" cy="745" r="16" />
+        <circle class="ln-4 s04-dl" cx="470" cy="745" r="16" />
+        <path class="ln-4 s04-dl" d="M600 745 H670" />
+        <circle class="ln s04-dl" cx="540" cy="955" r="120" />
+        <circle class="ln-t s04-dl" cx="540" cy="955" r="96" />
+        <g class="s04-tambor">
+        <path class="ln-4 s04-agua" d="M452 990 q22 -14 44 0 t44 0 t44 0 t44 0" />
+        <g class="s04-mini"><rect class="ln-4" x="490" y="895" width="90" height="56" rx="8" /><circle class="ln-t" cx="512" cy="923" r="9" /><circle class="ln-t" cx="537" cy="923" r="9" /></g>
+        <path class="ln-4 s04-pant" d="M560 960 H640 L650 1040 H622 L600 985 L585 1040 H556 Z" />
+        </g>
+        <g class="s04-b2"></g>
+        </g>
+        <g class="s04-v3">
+        <path class="ln s04-dw" d="M330 860 H750 V1120 Q750 1140 730 1140 H350 Q330 1140 330 1120 Z" />
+        <path class="ln-4 s04-dw" d="M330 920 H750" />
+        <g class="s04-asoma"><rect class="ln-4" x="420" y="790" width="240" height="140" rx="12" /><text class="cartel" x="440" y="830">MIS SELLOS</text></g>
+        <path class="ln s04-solapa" d="M330 860 H750 L750 960 Q750 980 730 980 H560 Q540 980 540 960 V930" />
+        <circle class="ln-4 s04-boton" cx="700" cy="930" r="10" />
+        <text class="signo s04-q3" x="800" y="840" text-anchor="middle" font-size="90">?</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Se pierde</span><span class="s04-e2">Se lava</span><span class="s04-e3">En otra billetera</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-se-pierde";
+      const DUR = 4.6;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const nuevo = (padre, tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); padre.appendChild(e); return e; };
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t > 0 ? t + i * (paso ?? 0.04) : 0;
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const ETQ = qa(".etiqueta span");
+      const etiqueta = (k, t) => {
+        if (k > 0) tl.to(ETQ[k - 1], { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(ETQ[k], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // badge de "no": círculo verde con una X, centrado en (x, y)
+      const badge = (padre, x, y, r) => {
+        const g = nuevo(padre, "g", {});
+        r = r || 18;
+        const k = r * 0.42;
+        nuevo(g, "circle", { class: "ln-badge", cx: x, cy: y, r: r });
+        nuevo(g, "path", { class: "ln-badge", d: "M" + (x - k) + " " + (y - k) + " L" + (x + k) + " " + (y + k) + " M" + (x + k) + " " + (y - k) + " L" + (x - k) + " " + (y + k) });
+        return g;
+      };
+      // figurita de palo: pies en (x, y)
+      const FIG = (x, y) => '<circle class="ln" cx="' + x + '" cy="' + (y - 96) + '" r="14" /><path class="ln" d="M' + x + ' ' + (y - 82) + ' V' + (y - 40) + ' M' + x + ' ' + (y - 70) + ' L' + (x - 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 70) + ' L' + (x + 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 40) + ' L' + (x - 14) + ' ' + y + ' M' + x + ' ' + (y - 40) + ' L' + (x + 14) + ' ' + y + '" />';
+      const caminar = (g, t, pasos, origen) => tl.fromTo(g, { rotation: -4, svgOrigin: origen || "0 0" }, { rotation: 4, svgOrigin: origen || "0 0", duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: pasos }, t);
+
+      const PIERDE = 0.8, SE = 1.3, LAVA = 1.65, PANTALON = 2.3, QUEDA = 3.21, BILLETERA = 4.3;
+      gsap.set(qa(".s04-q1, .s04-pant, .s04-mini, .s04-agua, .s04-asoma, .s04-solapa, .s04-boton, .s04-q3"), { opacity: 0 });
+      gsap.set(q(".s04-tar"), { scale: 0.75, svgOrigin: "540 890" });
+      // la tarjeta, entera, que se cae
+      tl.fromTo(q(".s04-tar"), { opacity: 0.6, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.to(q(".s04-tar"), { rotation: -6, svgOrigin: "540 890", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.1);
+      tl.to(q(".s04-tar"), { y: 300, rotation: 40, svgOrigin: "540 890", opacity: 0, duration: 0.55, ease: "power2.in" }, PIERDE - 0.2);
+      pop(q(".s04-q1"), PIERDE + 0.25, "540 910");
+      tl.to(q(".s04-q1"), { scale: 1.12, svgOrigin: "540 910", duration: 0.12, yoyo: true, repeat: 1 }, PIERDE + 0.6);
+      etiqueta(0, PIERDE);
+      tl.to(q(".s04-v1"), { opacity: 0, filter: "blur(6px)", duration: 0.2 }, SE - 0.05);
+      // "se lava": el lavarropas
+      dibujar(qa(".s04-dl"), SE, 0.4, 1, 0.03);
+      tl.to(qa(".s04-mini, .s04-agua"), { opacity: 1, duration: 0.2 }, SE + 0.3);
+      tl.fromTo(q(".s04-tambor"), { rotation: 0, svgOrigin: "540 955" }, { rotation: 540, svgOrigin: "540 955", duration: QUEDA - SE - 0.2, ease: "power1.in" }, SE + 0.3);
+      etiqueta(1, LAVA);
+      // "pantalón"
+      pop(q(".s04-pant"), PANTALON - 0.05, "600 1000");
+      tl.to(q(".s04-v2"), { x: 6, duration: 0.05, ease: "sine.inOut", yoyo: true, repeat: 9 }, PANTALON + 0.1);
+      const B = badge(q(".s04-b2"), 650, 860, 26);
+      pop(B, PANTALON + 0.35, "650 860");
+      tl.to(q(".s04-v2"), { opacity: 0, filter: "blur(6px)", duration: 0.25 }, QUEDA - 0.2);
+      // "queda olvidado en otra billetera"
+      dibujar(qa(".s04-dw"), QUEDA, 0.4, 1, 0.05);
+      tl.fromTo(q(".s04-asoma"), { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, QUEDA + 0.15);
+      etiqueta(2, QUEDA + 0.2);
+      tl.to(q(".s04-asoma"), { y: 70, duration: 0.3, ease: "power2.in" }, BILLETERA - 0.35);
+      tl.fromTo(q(".s04-solapa"), { opacity: 0, scaleY: -1, svgOrigin: "540 860" }, { opacity: 1, scaleY: 1, svgOrigin: "540 860", duration: 0.3, ease: "back.out(1.6)" }, BILLETERA - 0.1);
+      tl.to(q(".s04-asoma"), { opacity: 0, duration: 0.1 }, BILLETERA);
+      tl.to(q(".s04-boton"), { opacity: 1, duration: 0.1 }, BILLETERA + 0.15);
+      pop(q(".s04-q3"), BILLETERA, "800 810");
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

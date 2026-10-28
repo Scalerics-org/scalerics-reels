@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-a-un-sello"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-a-un-sello"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-a-un-sello"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-a-un-sello"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-a-un-sello"] .ln-t { fill: none; stroke: rgba(239, 238, 229, 0.55); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-a-un-sello"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-a-un-sello"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-a-un-sello"] .relleno { fill: #5ce611; }
+    [data-composition-id="s06-a-un-sello"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s06-a-un-sello"] .signo { font-family: "Lexend", sans-serif; font-weight: 700; fill: #5ce611; }
+    [data-composition-id="s06-a-un-sello"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-a-un-sello"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s06-a-un-sello" data-width="1080" data-height="1920" data-duration="4.79">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="4.79" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s06-tarjeta">
+        
+        <path class="ln s06-dk" d="M320 740 H740 L780 780 V1020 Q780 1040 760 1040 H320 Q300 1040 300 1020 V760 Q300 740 320 740 Z" />
+        <path class="ln-4 s06-oreja" d="M740 740 V780 H780" />
+        <text class="cartel s06-tit" x="336" y="792">MIS SELLOS</text>
+        <text class="cartel s06-nom" x="336" y="1008" opacity="0.7">NOMBRE</text>
+        <path class="ln-t s06-raya" d="M470 1002 H744" />
+        <circle class="ln-t s06-vacio" cx="360" cy="856" r="26" />
+        <circle class="ln-t s06-vacio" cx="450" cy="856" r="26" />
+        <circle class="ln-t s06-vacio" cx="540" cy="856" r="26" />
+        <circle class="ln-t s06-vacio" cx="630" cy="856" r="26" />
+        <circle class="ln-t s06-vacio" cx="720" cy="856" r="26" />
+        <circle class="ln-t s06-vacio" cx="360" cy="936" r="26" />
+        <circle class="ln-t s06-vacio" cx="450" cy="936" r="26" />
+        <circle class="ln-t s06-vacio" cx="540" cy="936" r="26" />
+        <circle class="ln-t s06-vacio" cx="630" cy="936" r="26" />
+        <circle class="ln-t s06-vacio" cx="720" cy="936" r="26" />
+        <g class="s06-sello "><circle class="ln" cx="360" cy="856" r="26" /><path class="ln-4" d="M350 856 H370 M360 846 V866 M353 849 L367 863 M367 849 L353 863" /></g>
+        <g class="s06-sello "><circle class="ln" cx="450" cy="856" r="26" /><path class="ln-4" d="M440 856 H460 M450 846 V866 M443 849 L457 863 M457 849 L443 863" /></g>
+        <g class="s06-sello "><circle class="ln" cx="540" cy="856" r="26" /><path class="ln-4" d="M530 856 H550 M540 846 V866 M533 849 L547 863 M547 849 L533 863" /></g>
+        <g class="s06-sello "><circle class="ln" cx="630" cy="856" r="26" /><path class="ln-4" d="M620 856 H640 M630 846 V866 M623 849 L637 863 M637 849 L623 863" /></g>
+        <g class="s06-sello "><circle class="ln" cx="720" cy="856" r="26" /><path class="ln-4" d="M710 856 H730 M720 846 V866 M713 849 L727 863 M727 849 L713 863" /></g>
+        <g class="s06-sello "><circle class="ln" cx="360" cy="936" r="26" /><path class="ln-4" d="M350 936 H370 M360 926 V946 M353 929 L367 943 M367 929 L353 943" /></g>
+        <g class="s06-sello "><circle class="ln" cx="450" cy="936" r="26" /><path class="ln-4" d="M440 936 H460 M450 926 V946 M443 929 L457 943 M457 929 L443 943" /></g>
+        <g class="s06-sello "><circle class="ln" cx="540" cy="936" r="26" /><path class="ln-4" d="M530 936 H550 M540 926 V946 M533 929 L547 943 M547 929 L533 943" /></g>
+        <g class="s06-sello "><circle class="ln" cx="630" cy="936" r="26" /><path class="ln-4" d="M620 936 H640 M630 926 V946 M623 929 L637 943 M637 929 L623 943" /></g>
+        
+        <circle class="ln-ac s06-falta" cx="720" cy="936" r="26" stroke-dasharray="8 9" />
+        <path class="ln-ac s06-raya-v" d="M470 1002 H744" />
+        <text class="signo s06-nn" x="607" y="1016" text-anchor="middle" font-size="40">? ? ?</text>
+        </g>
+        <g class="s06-regalo">
+        <rect class="ln-4" x="852" y="830" width="96" height="76" rx="6" />
+        <path class="ln-4" d="M842 808 H958 V830 H842 Z M900 808 V906" />
+        <path class="ln-4" d="M900 808 Q872 776 866 796 Q872 810 900 808 Q928 776 934 796 Q928 810 900 808" />
+        <text class="signo" x="900" y="770" text-anchor="middle" font-size="56">?</text>
+        </g>
+        <g class="s06-fig"></g>
+        <g class="s06-flecha">
+        <path class="ln-ac" d="M830 1150 H930" />
+        <path class="ln-ac" d="M908 1130 L932 1150 L908 1170" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">A un sello</span><span class="s06-e2">Dejó de venir</span><span class="s06-e3">Sin nombre</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-a-un-sello";
+      const DUR = 4.79;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const nuevo = (padre, tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); padre.appendChild(e); return e; };
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t > 0 ? t + i * (paso ?? 0.04) : 0;
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const ETQ = qa(".etiqueta span");
+      const etiqueta = (k, t) => {
+        if (k > 0) tl.to(ETQ[k - 1], { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(ETQ[k], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // badge de "no": círculo verde con una X, centrado en (x, y)
+      const badge = (padre, x, y, r) => {
+        const g = nuevo(padre, "g", {});
+        r = r || 18;
+        const k = r * 0.42;
+        nuevo(g, "circle", { class: "ln-badge", cx: x, cy: y, r: r });
+        nuevo(g, "path", { class: "ln-badge", d: "M" + (x - k) + " " + (y - k) + " L" + (x + k) + " " + (y + k) + " M" + (x + k) + " " + (y - k) + " L" + (x - k) + " " + (y + k) });
+        return g;
+      };
+      // figurita de palo: pies en (x, y)
+      const FIG = (x, y) => '<circle class="ln" cx="' + x + '" cy="' + (y - 96) + '" r="14" /><path class="ln" d="M' + x + ' ' + (y - 82) + ' V' + (y - 40) + ' M' + x + ' ' + (y - 70) + ' L' + (x - 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 70) + ' L' + (x + 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 40) + ' L' + (x - 14) + ' ' + y + ' M' + x + ' ' + (y - 40) + ' L' + (x + 14) + ' ' + y + '" />';
+      const caminar = (g, t, pasos, origen) => tl.fromTo(g, { rotation: -4, svgOrigin: origen || "0 0" }, { rotation: 4, svgOrigin: origen || "0 0", duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: pasos }, t);
+
+      const SELLO = 0.99, PREMIO = 1.69, DEJO = 2.49, MES = 3.39, COMO = 3.99;
+      const T = q(".s06-tarjeta");
+      gsap.set(T, { y: -90 });
+      q(".s06-fig").innerHTML = FIG(380, 1200);
+      gsap.set(qa(".s06-falta, .s06-raya-v, .s06-nn, .s06-regalo, .s06-fig, .s06-flecha"), { opacity: 0 });
+      dibujar(qa(".s06-dk, .s06-raya"), 0, 0.45, 0.4);
+      tl.fromTo(qa(".s06-sello"), { opacity: 0 }, { opacity: 1, duration: 0.12, stagger: 0.03 }, 0.05);
+      tl.fromTo(T, { scale: 0.96, svgOrigin: "540 890" }, { scale: 1, svgOrigin: "540 890", duration: 0.5, ease: "power3.out" }, 0);
+      // "a un sello": el que falta, punteado verde, late
+      pop(q(".s06-falta"), SELLO - 0.1, "720 936");
+      tl.to(q(".s06-falta"), { scale: 1.2, svgOrigin: "720 936", duration: 0.18, yoyo: true, repeat: 3 }, SELLO + 0.25);
+      etiqueta(0, SELLO - 0.1);
+      // "del premio": un regalito con signo de pregunta
+      pop(q(".s06-regalo"), PREMIO - 0.1, "900 860");
+      // "dejó de venir": la figurita se va
+      tl.to(q(".s06-fig"), { opacity: 1, duration: 0.15 }, DEJO - 0.3);
+      tl.fromTo(q(".s06-fig"), { x: 0 }, { x: 380, duration: 1.1, ease: "power1.in" }, DEJO - 0.2);
+      caminar(q(".s06-fig"), DEJO - 0.2, 5, "380 1200");
+      tl.to(q(".s06-fig"), { opacity: 0, duration: 0.3 }, MES - 0.3);
+      etiqueta(1, DEJO);
+      // "hace un mes": flecha que se aleja
+      tl.fromTo(q(".s06-flecha"), { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, MES - 0.1);
+      tl.to(q(".s06-flecha"), { opacity: 0, x: 30, duration: 0.3 }, COMO - 0.1);
+      // "cómo se llama": el nombre en blanco
+      tl.to(q(".s06-raya"), { opacity: 0, duration: 0.15 }, COMO - 0.1);
+      pop(q(".s06-nn"), COMO, "607 1004");
+      tl.to(q(".s06-nn"), { scale: 1.1, svgOrigin: "607 1004", duration: 0.12, yoyo: true, repeat: 1 }, COMO + 0.5);
+      etiqueta(2, COMO);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
