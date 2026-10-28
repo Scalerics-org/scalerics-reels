@@ -41,6 +41,15 @@ async function pedir(url, opciones = {}, como = "json") {
   return como === "json" ? r.json() : como === "texto" ? r.text() : Buffer.from(await r.arrayBuffer());
 }
 
+const BUCKET_ESTADO_TT = "scalerics-reels-estado";
+const estadoTikTok = {
+  leer: async () => { try { return await pedir(`https://storage.googleapis.com/storage/v1/b/${BUCKET_ESTADO_TT}/o/tiktok.json?alt=media`, { headers: conG }); } catch { return null; } },
+  guardar: (o) => pedir(`https://storage.googleapis.com/upload/storage/v1/b/${BUCKET_ESTADO_TT}/o?uploadType=media&name=tiktok.json`, { method: "POST", headers: { ...conG, "Content-Type": "application/json" }, body: JSON.stringify(o) }),
+};
+const accesoTT = process.env.TIKTOK_CLIENT_SECRET ? await accesoTikTok(estadoTikTok, TIKTOK_CODE) : null;
+console.log(accesoTT ? "tiktok: autorizado" : "tiktok: sin autorizar todavía");
+
+
 // 1. El aprobado más viejo
 const q = encodeURIComponent(`'${APROBADOS}' in parents and trashed = false`);
 const { files } = await pedir(
@@ -93,27 +102,23 @@ async function guardarEstado(estado) {
     body: JSON.stringify(estado),
   });
 }
-const estadoTikTok = {
-  leer: async () => { try { return await pedir(`https://storage.googleapis.com/storage/v1/b/${BUCKET_ESTADO}/o/tiktok.json?alt=media`, { headers: conG }); } catch { return null; } },
-  guardar: (o) => pedir(`https://storage.googleapis.com/upload/storage/v1/b/${BUCKET_ESTADO}/o?uploadType=media&name=tiktok.json`, { method: "POST", headers: { ...conG, "Content-Type": "application/json" }, body: JSON.stringify(o) }),
-};
-const accesoTT = process.env.TIKTOK_CLIENT_SECRET ? await accesoTikTok(estadoTikTok, TIKTOK_CODE) : null;
-console.log(accesoTT ? "tiktok: autorizado" : "tiktok: sin autorizar todavía, solo Instagram");
-
 let estado = await leerEstado();
-if (!estado?.token) {
-  if (!process.env.IG_TOKEN) throw new Error("falta IG_TOKEN (y no hay token guardado)");
-  estado = { token: process.env.IG_TOKEN, renovado: 0 };
-}
+if (!estado?.token && process.env.IG_TOKEN) estado = { token: process.env.IG_TOKEN, renovado: 0 };
+const hayIG = !!estado?.token;
+if (!hayIG) console.log("instagram: sin IG_TOKEN todavía, se saltea");
+if (!hayIG && !accesoTT) throw new Error("no hay ni Instagram ni TikTok configurados");
+let tk, yo;
+if (hayIG) {
 if (Date.now() - (estado.renovado || 0) > 7 * 864e5) {
   const r = await pedir(`${IG}/refresh_access_token?grant_type=ig_refresh_token&access_token=${estado.token}`);
   estado = { token: r.access_token, renovado: Date.now() };
   await guardarEstado(estado);
   console.log(`token de Instagram renovado (vence en ${Math.round(r.expires_in / 86400)} días)`);
 }
-const tk = estado.token;
-const yo = await pedir(`${IG}/me?fields=user_id,username&access_token=${tk}`);
+tk = estado.token;
+yo = await pedir(`${IG}/me?fields=user_id,username&access_token=${tk}`);
 console.log(`cuenta: @${yo.username}`);
+}
 
 if (accesoTT && PRUEBA) await publicarTikTok(accesoTT, bytes, caption, true);
 if (PRUEBA) {
@@ -121,6 +126,7 @@ if (PRUEBA) {
   process.exit(0);
 }
 
+if (hayIG) {
 // 5. Publicar: crear el contenedor, esperar a que Instagram procese el video, publicar
 const form = (o) => new URLSearchParams({ ...o, access_token: tk });
 const cont = await pedir(`${IG}/${yo.user_id}/media`, {
@@ -138,11 +144,13 @@ if (st.status_code !== "FINISHED") throw new Error("Instagram tardó más de 10 
 const pub = await pedir(`${IG}/${yo.user_id}/media_publish`, { method: "POST", body: form({ creation_id: cont.id }) });
 const info = await pedir(`${IG}/${pub.id}?fields=permalink&access_token=${tk}`);
 console.log("PUBLICADO: " + info.permalink);
+}
 if (accesoTT) {
   try {
     console.log("TIKTOK: " + (await publicarTikTok(accesoTT, bytes, caption, false)));
   } catch (e) {
-    console.log("TIKTOK FALLÓ (Instagram ya salió): " + e.message);
+    console.log("TIKTOK FALLÓ: " + e.message);
+    if (!hayIG) throw e;
   }
 }
 
