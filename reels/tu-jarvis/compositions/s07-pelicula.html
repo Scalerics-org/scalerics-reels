@@ -1,0 +1,244 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-pelicula"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-pelicula"] .s07-tv, [data-composition-id="s07-pelicula"] .s07-hud, [data-composition-id="s07-pelicula"] .s07-nuevo { position: absolute; inset: 0; }
+    [data-composition-id="s07-pelicula"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-pelicula"] .hud { fill: none; stroke: #38e1ff; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s07-pelicula"] .hud-fino { fill: none; stroke: #38e1ff; stroke-width: 1.5; opacity: 0.6; }
+    [data-composition-id="s07-pelicula"] .hud-grueso { fill: none; stroke: #38e1ff; stroke-width: 10; stroke-linecap: butt; }
+    [data-composition-id="s07-pelicula"] .panel { fill: rgba(56, 225, 255, 0.06); stroke: #38e1ff; stroke-width: 2.5; stroke-linejoin: round; }
+    [data-composition-id="s07-pelicula"] .ln { fill: none; stroke: #e8f6ff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-pelicula"] .nucleo { fill: #38e1ff; }
+    [data-composition-id="s07-pelicula"] .brillo { filter: drop-shadow(0 0 16px rgba(56, 225, 255, 0.85)); }
+    [data-composition-id="s07-pelicula"] .mt { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; letter-spacing: 3px; fill: #38e1ff; }
+    [data-composition-id="s07-pelicula"] .num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 52px; }
+    [data-composition-id="s07-pelicula"] .s07-barra { position: absolute; left: 0; width: 1080px; opacity: 0; }
+    [data-composition-id="s07-pelicula"] .s07-negro { position: absolute; inset: 0; background: #010508; opacity: 0; }
+    [data-composition-id="s07-pelicula"] .s07-punto { position: absolute; left: 528px; top: 903px; width: 24px; height: 24px; border-radius: 50%; background: #e8f6ff; box-shadow: 0 0 30px 10px rgba(56, 225, 255, 0.9); opacity: 0; }
+    [data-composition-id="s07-pelicula"] .s07-linea { position: absolute; left: 0; top: 913px; width: 1080px; height: 4px; background: #e8f6ff; box-shadow: 0 0 24px 6px rgba(56, 225, 255, 0.9); opacity: 0; }
+    [data-composition-id="s07-pelicula"] .s07-flash { position: absolute; inset: 0; background: #e8f6ff; opacity: 0; }
+    [data-composition-id="s07-pelicula"] .s07-reinicio { position: absolute; left: 0; right: 0; top: 960px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.3em; color: #38e1ff; opacity: 0; }
+    [data-composition-id="s07-pelicula"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #38e1ff; }
+    [data-composition-id="s07-pelicula"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-pelicula" data-width="1080" data-height="1920" data-duration="4.69">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.69" data-track-index="0">
+      <!-- LA "PELÍCULA": el HUD de la mañana, que se rompe y se apaga -->
+      <div class="s07-tv">
+        <div class="s07-hud">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s07-n1">
+              <circle class="hud-fino" cx="540" cy="915" r="210" />
+              <circle class="hud s07-a1" cx="540" cy="915" r="188" stroke-dasharray="90 24 16 24" />
+              <circle class="hud-grueso s07-a2" cx="540" cy="915" r="160" stroke-dasharray="46 18" opacity="0.55" />
+              <circle class="hud s07-a3" cx="540" cy="915" r="132" stroke-dasharray="220 60" />
+              <circle class="nucleo brillo" cx="540" cy="915" r="34" />
+              <circle class="hud" cx="540" cy="915" r="54" />
+            </g>
+            <path class="hud-fino" d="M400 750 L452 827 M680 750 L628 827 M400 1070 L452 1003 M680 1070 L628 1003" />
+            <path class="panel" d="M104 620 H400 V726 L376 750 H80 V644 Z" />
+            <path class="hud-fino" d="M80 664 H400" />
+            <text class="mt" x="100" y="650">// MENSAJES</text>
+            <text class="num" x="100" y="730" fill="#5ce611">32</text>
+            <text class="mt" x="196" y="726" fill="#e8f6ff">RESPONDIDOS</text>
+            <path class="panel" d="M704 620 H1000 V726 L976 750 H680 V644 Z" />
+            <path class="hud-fino" d="M680 664 H1000" />
+            <text class="mt" x="700" y="650">// TURNOS</text>
+            <text class="num" x="700" y="730" fill="#5ce611">5</text>
+            <text class="mt" x="760" y="726" fill="#e8f6ff">AGENDADOS</text>
+            <path class="panel" d="M104 1070 H400 V1176 L376 1200 H80 V1094 Z" />
+            <path class="hud-fino" d="M80 1114 H400" />
+            <text class="mt" x="100" y="1100">// PEDIDOS</text>
+            <text class="num" x="100" y="1180" fill="#5ce611">7</text>
+            <text class="mt" x="160" y="1176" fill="#e8f6ff">COBRADOS</text>
+            <path class="panel" d="M704 1070 H1000 V1176 L976 1200 H680 V1094 Z" />
+            <path class="hud-fino" d="M680 1114 H1000" />
+            <text class="mt" x="700" y="1100">// PRIORIDAD</text>
+            <text class="num" x="700" y="1180" fill="#ffb020">1</text>
+            <text class="mt" x="760" y="1176" fill="#e8f6ff">PARA VOS</text>
+          </svg>
+        </div>
+        <div class="s07-barra" style="top:640px; height:4px; background:#e8f6ff;"></div>
+        <div class="s07-barra" style="top:700px; height:12px; background:#38e1ff;"></div>
+        <div class="s07-barra" style="top:812px; height:34px; background:rgba(232,246,255,0.7);"></div>
+        <div class="s07-barra" style="top:905px; height:6px; background:#e8f6ff;"></div>
+        <div class="s07-barra" style="top:990px; height:24px; background:#38e1ff;"></div>
+        <div class="s07-barra" style="top:1120px; height:14px; background:rgba(56,225,255,0.6);"></div>
+        <div class="s07-barra" style="top:1180px; height:30px; background:rgba(232,246,255,0.35);"></div>
+      </div>
+      <div class="s07-negro"></div>
+      <div class="s07-punto"></div>
+      <div class="s07-reinicio">// REINICIANDO_</div>
+
+      <!-- LO REAL: tu comercio, con el núcleo adentro -->
+      <div class="s07-nuevo">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s07-aro">
+            <circle class="hud-fino" cx="540" cy="920" r="318" />
+            <circle class="hud s07-aro-a brillo" cx="540" cy="920" r="296" stroke-dasharray="160 40 24 40" />
+            <circle class="hud-grueso s07-aro-b" cx="540" cy="920" r="270" stroke-dasharray="30 22" opacity="0.4" />
+          </g>
+          <g class="s07-local">
+            <path class="ln s07-l" d="M330 1100 H750" />
+            <path class="ln s07-l" d="M390 860 V1100" />
+            <path class="ln s07-l" d="M690 860 V1100" />
+            <path class="ln s07-l" d="M360 860 H720 L700 800 H380 Z" />
+            <path class="ln s07-l" d="M360 860 q20 26 40 0 q20 26 40 0 q20 26 40 0 q20 26 40 0 q20 26 40 0 q20 26 40 0 q20 26 40 0 q20 26 40 0 q20 26 40 0" />
+            <rect class="ln s07-l" x="420" y="732" width="240" height="46" rx="6" />
+            <path class="hud-fino" d="M452 755 H628" />
+            <rect class="ln s07-l" x="410" y="900" width="170" height="150" rx="6" />
+            <path class="ln s07-l" d="M610 1100 V920 H675 V1100" />
+            <circle cx="624" cy="1012" r="5" fill="#e8f6ff" class="s07-pomo" />
+          </g>
+          <g class="s07-nuc">
+            <circle class="hud-fino" cx="495" cy="975" r="58" />
+            <circle class="hud s07-nuc-a" cx="495" cy="975" r="46" stroke-dasharray="30 12 6 12" />
+            <circle class="nucleo s07-nuc-c brillo" cx="495" cy="975" r="22" />
+          </g>
+          <circle class="hud s07-onda brillo" cx="495" cy="975" r="30" />
+          <circle class="hud s07-onda brillo" cx="495" cy="975" r="30" />
+          <circle class="hud s07-onda" cx="495" cy="975" r="30" />
+          <line class="hud s07-scan brillo" x1="340" y1="0" x2="740" y2="0" />
+        </svg>
+      </div>
+      <div class="s07-linea"></div>
+      <div class="s07-flash"></div>
+      <div class="etiqueta">
+        <span class="s07-e1">No es una película</span>
+        <span class="s07-e2">Es tu comercio</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-pelicula";
+      const DUR = 4.69;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const NO = 0.3, PELICULA = 0.9, ES = 1.9, COMERCIO = 2.2, CON = 2.7, JARVIS = 3.7;
+      const O = "540 915";
+
+      const dibujar = (el, t, d = 0.5, ease = "power2.inOut") => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease }, t);
+      };
+
+      // ---------- copias del HUD para el glitch (desfase de color y franjas corridas) ----------
+      const hud = q(".s07-hud");
+      const tv = q(".s07-tv");
+      const copia = (estilo) => { const c = hud.cloneNode(true); c.classList.remove("s07-hud"); c.classList.add("s07-copia"); Object.assign(c.style, estilo); tv.insertBefore(c, hud.nextSibling); gsap.set(c, { opacity: 0 }); return c; };
+      const rgbB = copia({ filter: "brightness(0) invert(1)", position: "absolute", inset: "0" });
+      const rgbC = copia({ position: "absolute", inset: "0" });
+      const BANDAS = ["inset(34% 0 58% 0)", "inset(46% 0 47% 0)", "inset(57% 0 33% 0)", "inset(39% 0 54% 0)"];
+      const tajadas = BANDAS.map((b) => copia({ clipPath: b, position: "absolute", inset: "0" }));
+      const barras = qa(".s07-barra");
+
+      // ---------- 0 → 0.9: la interfaz está, late, y se rompe ----------
+      tl.fromTo(q(".s07-a1"), { rotation: 0, svgOrigin: O }, { rotation: 90, svgOrigin: O, duration: 1, ease: "none" }, 0);
+      tl.fromTo(q(".s07-a2"), { rotation: 0, svgOrigin: O }, { rotation: -70, svgOrigin: O, duration: 1, ease: "none" }, 0);
+      tl.fromTo(q(".s07-a3"), { rotation: 0, svgOrigin: O }, { rotation: 140, svgOrigin: O, duration: 1, ease: "none" }, 0);
+      tl.fromTo(hud, { scale: 1.04, transformOrigin: "540px 915px" }, { scale: 1, transformOrigin: "540px 915px", duration: 0.3, ease: "expo.out" }, 0);
+      [[-6, 0.14], [4, 0.17], [0, 0.2]].forEach(([x, t]) => tl.to(hud, { x, duration: 0.03, ease: "none" }, t));
+
+      const RAFAGAS = [NO, 0.46, 0.61, 0.74, 0.83];
+      const BARRAS_ON = [[0, 2, 4], [1, 5, 3], [6, 0, 2, 4], [1, 3, 5, 6], [0, 2, 4, 5]];
+      RAFAGAS.forEach((t, r) => {
+        const amp = 12 + r * 6;
+        // el HUD salta
+        [[-amp, 0], [amp * 0.8, 0.03], [-amp * 0.4, 0.06], [0, 0.09]].forEach(([x, d]) => tl.to(hud, { x, duration: 0.03, ease: "none" }, t + d));
+        // desfase de color: copia blanca y cian corridas
+        tl.set(rgbB, { opacity: 0.55, x: 6 + r * 2, y: -2 }, t);
+        tl.set(rgbC, { opacity: 0.6, x: -6 - r * 2, y: 2 }, t);
+        tl.set([rgbB, rgbC], { opacity: 0 }, t + 0.1);
+        // franjas corridas
+        tajadas.forEach((s, k) => {
+          tl.set(s, { opacity: 1, x: (((k + 1) * (r + 2) * 23) % 110) - 55 }, t);
+          tl.set(s, { x: (((k + 2) * (r + 3) * 31) % 90) - 45 }, t + 0.04);
+          tl.set(s, { opacity: 0, x: 0 }, t + 0.08);
+        });
+        // barras horizontales
+        BARRAS_ON[r].forEach((i) => {
+          tl.set(barras[i], { opacity: 0.9, x: ((i * 37 + r * 19) % 80) - 40 }, t);
+          tl.set(barras[i], { opacity: 0 }, t + 0.05 + (i % 2) * 0.03);
+        });
+      });
+      tl.to(hud, { skewX: 9, duration: 0.03, ease: "none" }, 0.46);
+      tl.to(hud, { skewX: -5, duration: 0.03, ease: "none" }, 0.49);
+      tl.to(hud, { skewX: 0, duration: 0.03, ease: "none" }, 0.52);
+      tl.to(hud, { opacity: 0.35, duration: 0.03, yoyo: true, repeat: 5, ease: "steps(1)" }, 0.62);
+      tl.to(hud, { filter: "brightness(1.8)", duration: 0.04, ease: "none" }, 0.74);
+      // al final la imagen tiembla sin parar con la copia corrida fija
+      tl.set([rgbB, rgbC], { opacity: 0.5 }, 0.86);
+
+      // ---------- 0.9 "película": se apaga como una tele vieja ----------
+      tl.to(tv, { scaleY: 0.006, scaleX: 1.05, filter: "brightness(3)", transformOrigin: "540px 915px", duration: 0.1, ease: "power3.in" }, PELICULA);
+      tl.to(tv, { scaleX: 0, transformOrigin: "540px 915px", duration: 0.12, ease: "power3.in" }, PELICULA + 0.12);
+      tl.to(q(".s07-negro"), { opacity: 1, duration: 0.06 }, PELICULA + 0.02);
+      tl.to(q(".s07-punto"), { opacity: 1, duration: 0.03 }, PELICULA + 0.2);
+      tl.to(q(".s07-punto"), { scale: 0.15, opacity: 0, duration: 0.45, ease: "power2.in" }, PELICULA + 0.3);
+      // en la oscuridad: el sistema reinicia (parpadea)
+      tl.to(q(".s07-reinicio"), { opacity: 1, duration: 0.12, yoyo: true, repeat: 3, ease: "steps(1)" }, 1.32);
+
+      // ---------- 1.9 "Es tu comercio": se prende otra vez ----------
+      gsap.set(q(".s07-nuevo"), { opacity: 0 });
+      gsap.set(qa(".s07-onda"), { opacity: 0 });
+      tl.fromTo(q(".s07-linea"), { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.08, ease: "expo.out", immediateRender: false }, ES - 0.06);
+      tl.to(q(".s07-linea"), { opacity: 0, scaleY: 40, duration: 0.18, ease: "power2.out" }, ES + 0.04);
+      tl.fromTo(q(".s07-nuevo"), { opacity: 1, scaleY: 0.01, transformOrigin: "540px 915px" }, { scaleY: 1, transformOrigin: "540px 915px", duration: 0.22, ease: "expo.out", immediateRender: false }, ES + 0.02);
+      tl.fromTo(q(".s07-flash"), { opacity: 0.55 }, { opacity: 0, duration: 0.3, ease: "power2.out", immediateRender: false }, ES + 0.02);
+      tl.to(q(".s07-negro"), { opacity: 0, duration: 0.25 }, ES + 0.04);
+      qa(".s07-l").forEach((el, i) => dibujar(el, ES + 0.02 + i * 0.035, 0.32, "power3.out"));
+      gsap.set(q(".s07-pomo"), { opacity: 0 });
+      tl.to(q(".s07-pomo"), { opacity: 1, duration: 0.1 }, ES + 0.35);
+      // reencendido con temblor de imagen
+      [[10, 0.04], [-6, 0.07], [0, 0.1]].forEach(([x, d]) => tl.to(q(".s07-nuevo"), { x, duration: 0.03, ease: "none" }, ES + 0.2 + d));
+      // el anillo que rodea el comercio
+      gsap.set(q(".s07-aro"), { opacity: 0 });
+      tl.fromTo(q(".s07-aro"), { opacity: 0, scale: 1.25, svgOrigin: "540 920" }, { opacity: 1, scale: 1, svgOrigin: "540 920", duration: 0.35, ease: "expo.out", immediateRender: false }, COMERCIO);
+      tl.fromTo(q(".s07-aro-a"), { rotation: 0, svgOrigin: "540 920" }, { rotation: 160, svgOrigin: "540 920", duration: DUR - COMERCIO, ease: "none", immediateRender: false }, COMERCIO);
+      tl.fromTo(q(".s07-aro-b"), { rotation: 0, svgOrigin: "540 920" }, { rotation: -110, svgOrigin: "540 920", duration: DUR - COMERCIO, ease: "none", immediateRender: false }, COMERCIO);
+      // "con su propio": el núcleo aparece adentro de la vidriera
+      gsap.set(q(".s07-nuc"), { opacity: 0 });
+      tl.fromTo(q(".s07-nuc"), { opacity: 0, scale: 0.3, svgOrigin: "495 975" }, { opacity: 1, scale: 1, svgOrigin: "495 975", duration: 0.35, ease: "back.out(2.2)", immediateRender: false }, CON);
+      tl.fromTo(q(".s07-nuc-a"), { rotation: 0, svgOrigin: "495 975" }, { rotation: 420, svgOrigin: "495 975", duration: DUR - CON, ease: "none", immediateRender: false }, CON);
+      gsap.set(q(".s07-scan"), { opacity: 0 });
+      tl.fromTo(q(".s07-scan"), { y: 730, opacity: 0 }, { y: 1100, opacity: 1, duration: 0.6, ease: "power1.inOut", immediateRender: false }, 3.0);
+      tl.to(q(".s07-scan"), { opacity: 0, duration: 0.1 }, 3.6);
+
+      // ---------- 3.7 "JARVIS": el núcleo se enciende con onda expansiva ----------
+      tl.to(q(".s07-nuc-c"), { scale: 1.9, svgOrigin: "495 975", duration: 0.25, ease: "back.out(3)" }, JARVIS);
+      tl.to(q(".s07-nuc-c"), { scale: 1.4, svgOrigin: "495 975", duration: 0.4, ease: "sine.inOut" }, JARVIS + 0.25);
+      qa(".s07-onda").forEach((o, i) => {
+        tl.fromTo(o, { opacity: 1, scale: 0.8, svgOrigin: "495 975" }, { opacity: 0, scale: 15 - i * 3, svgOrigin: "495 975", duration: 0.7, ease: "power2.out", immediateRender: false }, JARVIS + i * 0.1);
+      });
+      tl.fromTo(q(".s07-flash"), { opacity: 0.35 }, { opacity: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, JARVIS);
+      tl.to(q(".s07-local"), { filter: "drop-shadow(0 0 16px rgba(56,225,255,0.9))", duration: 0.2 }, JARVIS);
+      tl.to(q(".s07-aro"), { scale: 1.06, svgOrigin: "540 920", duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, JARVIS);
+      [[-8, 0], [6, 0.03], [-3, 0.06], [0, 0.09]].forEach(([y, d]) => tl.to(q(".s07-nuevo"), { y, duration: 0.03, ease: "none" }, JARVIS + d));
+      tl.fromTo(q(".s07-nuevo"), { scale: 1 }, { scale: 1.06, transformOrigin: "540px 915px", duration: DUR - JARVIS - 0.2, ease: "power1.out", immediateRender: false }, JARVIS);
+
+      // ---------- etiquetas ----------
+      gsap.set(q(".s07-e1"), { opacity: 0 });
+      tl.to(q(".s07-e1"), { opacity: 1, duration: 0.04 }, NO);
+      [[-16, 0.03], [10, 0.06], [0, 0.09], [-22, 0.3], [14, 0.33], [0, 0.36]].forEach(([x, d]) => tl.to(q(".s07-e1"), { x, duration: 0.03, ease: "none" }, NO + d));
+      tl.to(q(".s07-e1"), { opacity: 0.3, duration: 0.05, yoyo: true, repeat: 3, ease: "steps(1)" }, PELICULA - 0.15);
+      tl.to(q(".s07-e1"), { opacity: 0, duration: 0.15 }, ES - 0.2);
+      tl.fromTo(q(".s07-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, COMERCIO);
+
+      // salida: corte de pantalla rápido
+      tl.to(q("#s07-escena"), { opacity: 0, scaleY: 0.02, transformOrigin: "50% 47%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

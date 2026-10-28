@@ -1,0 +1,5 @@
+[
+  {"t": 0.0, "sfx": "riser", "vol": 0.25, "max": 0.5},
+  {"t": 0.48, "sfx": "impact-bass-2", "vol": 0.4, "max": 0.8},
+  {"t": 0.5, "sfx": "sparkle", "vol": 0.25, "max": 0.7}
+]

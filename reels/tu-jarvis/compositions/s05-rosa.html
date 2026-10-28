@@ -1,0 +1,260 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-rosa"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-rosa"] .s05-cam { position: absolute; inset: 0; }
+    [data-composition-id="s05-rosa"] .s05-grupo { position: absolute; inset: 0; }
+    [data-composition-id="s05-rosa"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-rosa"] .hud { fill: none; stroke: #38e1ff; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s05-rosa"] .hud-fino { fill: none; stroke: #38e1ff; stroke-width: 1.5; opacity: 0.6; }
+    [data-composition-id="s05-rosa"] .panel { fill: rgba(56, 225, 255, 0.06); stroke: #38e1ff; stroke-width: 2.5; stroke-linejoin: round; }
+    [data-composition-id="s05-rosa"] .ln { fill: none; stroke: #e8f6ff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-rosa"] .ambar { fill: none; stroke: #ffb020; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-rosa"] .verde { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-rosa"] .brillo { filter: drop-shadow(0 0 14px rgba(56, 225, 255, 0.8)); }
+    [data-composition-id="s05-rosa"] .brillo-v { filter: drop-shadow(0 0 14px rgba(92, 230, 17, 0.85)); }
+    [data-composition-id="s05-rosa"] .brillo-a { filter: drop-shadow(0 0 12px rgba(255, 176, 32, 0.8)); }
+    [data-composition-id="s05-rosa"] .t { position: absolute; white-space: pre; line-height: 1; }
+    [data-composition-id="s05-rosa"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; color: #38e1ff; }
+    [data-composition-id="s05-rosa"] .mono-s { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 18px; letter-spacing: 0.16em; color: rgba(56, 225, 255, 0.7); }
+    [data-composition-id="s05-rosa"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 46px; color: #e8f6ff; }
+    [data-composition-id="s05-rosa"] .pill { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.16em; padding: 6px 12px; border: 2px solid; }
+    [data-composition-id="s05-rosa"] .cel { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; line-height: 34px; color: #e8f6ff; }
+    [data-composition-id="s05-rosa"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #38e1ff; }
+    [data-composition-id="s05-rosa"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-rosa" data-width="1080" data-height="1920" data-duration="7.00">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="7.00" data-track-index="0">
+      <div class="s05-cam">
+        <!-- FICHA DE CLIENTE -->
+        <div class="s05-grupo s05-ficha">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <path class="panel s05-ficha-marco" d="M100 630 H650 V1020 L620 1050 H70 V660 Z" />
+            <path class="verde s05-ficha-flash" d="M100 630 H650 V1020 L620 1050 H70 V660 Z" opacity="0" />
+            <path class="hud-fino" d="M70 680 H650" />
+            <circle class="hud s05-av-aro" cx="150" cy="760" r="44" />
+            <circle class="ln s05-av" cx="150" cy="748" r="14" />
+            <path class="ln s05-av" d="M124 788 C128 768 172 768 176 788" />
+            <path class="hud-fino" d="M96 834 H624" />
+            <g class="s05-alerta brillo-a">
+              <path class="ambar" d="M588 870 L622 930 H554 Z" />
+              <path class="ambar" d="M588 890 V910" />
+              <circle cx="588" cy="920" r="3" fill="#ffb020" />
+            </g>
+            <g class="s05-ok brillo-v">
+              <circle class="verde s05-ok-aro" cx="588" cy="905" r="34" />
+              <path class="verde s05-ok-tilde" d="M572 906 L584 918 L606 893" />
+            </g>
+            <rect class="hud-fino" x="96" y="998" width="528" height="18" />
+            <rect class="s05-barra" x="96" y="998" width="528" height="18" fill="#38e1ff" />
+            <rect class="s05-barra s05-barra-a" x="96" y="998" width="528" height="18" fill="#ffb020" opacity="0" />
+            <rect class="s05-barra s05-barra-v" x="96" y="998" width="528" height="18" fill="#5ce611" opacity="0" />
+          </svg>
+          <div class="t mono s05-tit" style="left:96px; top:644px;">// CLIENTE #0412</div>
+          <div class="t mono-s s05-rec" style="left:480px; top:648px;" data-layout-ignore>REC · LIVE</div>
+          <div class="t grande s05-nombre" style="left:222px; top:716px;">DOÑA ROSA</div>
+          <div class="t pill s05-inactiva" style="left:222px; top:774px; color:#ffb020; border-color:#ffb020;">INACTIVA</div>
+          <div class="t pill s05-activa" style="left:222px; top:774px; color:#5ce611; border-color:#5ce611;">ACTIVA</div>
+          <div class="t mono s05-lbl-1" style="left:96px; top:852px;">ÚLTIMA VISITA</div>
+          <div class="t mono s05-lbl-2" style="left:96px; top:852px; color:#5ce611;">PRÓXIMA VISITA</div>
+          <div class="t grande s05-hace brillo-a" style="left:96px; top:892px; font-size:44px; color:#ffb020;">HACE <span class="s05-dias">0</span> DÍAS</div>
+          <div class="t grande s05-hoy brillo-v" style="left:96px; top:892px; font-size:44px; color:#5ce611;">VIENE HOY</div>
+          <div class="t mono s05-lbl-f" style="left:96px; top:962px; font-size:22px;">FRECUENCIA</div>
+          <div class="t mono s05-pct" style="left:556px; top:962px; font-size:22px; color:#ffb020;">-82%</div>
+        </div>
+
+        <!-- PUNTOS -->
+        <div class="s05-grupo s05-puntos">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <path class="panel" d="M100 1080 H650 V1170 L620 1200 H70 V1110 Z" />
+            <path class="hud-fino" d="M70 1124 H650" />
+            <path class="verde s05-env-tilde" d="M386 1162 L396 1172 L414 1152" style="stroke-width:4" />
+          </svg>
+          <div class="t mono s05-ptit" style="left:96px; top:1090px; font-size:22px;">// PUNTOS</div>
+          <div class="t grande brillo-v" style="left:96px; top:1138px; font-size:48px; color:#5ce611;"><span class="s05-pts">0</span><span style="font-size:26px; letter-spacing:0.1em;"> PTS</span></div>
+          <div class="t mono s05-env" style="left:424px; top:1152px; font-size:22px; color:#5ce611;">AVISO ENVIADO</div>
+        </div>
+
+        <!-- CELULAR DE ROSA -->
+        <div class="s05-grupo s05-cel">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <rect x="710" y="630" width="290" height="570" rx="40" fill="rgba(56,225,255,0.04)" class="ln" />
+            <path class="ln" d="M822 656 H888" style="stroke-width:6" />
+            <path class="ln" d="M822 1180 H888" style="stroke-width:5; opacity:0.5" />
+            <rect class="s05-card" x="728" y="790" width="254" height="172" rx="16" fill="rgba(56,225,255,0.10)" stroke="#38e1ff" stroke-width="2.5" />
+            <g class="s05-tecleo">
+              <rect x="880" y="992" width="102" height="52" rx="22" fill="rgba(92,230,17,0.10)" stroke="#5ce611" stroke-width="2.5" />
+              <circle class="s05-punto" cx="905" cy="1018" r="6" fill="#e8f6ff" />
+              <circle class="s05-punto" cx="931" cy="1018" r="6" fill="#e8f6ff" />
+              <circle class="s05-punto" cx="957" cy="1018" r="6" fill="#e8f6ff" />
+            </g>
+            <rect class="s05-resp brillo-v" x="772" y="988" width="210" height="62" rx="22" fill="rgba(92,230,17,0.16)" stroke="#5ce611" stroke-width="2.5" />
+          </svg>
+          <div class="t s05-hora" style="left:710px; width:290px; top:690px; text-align:center; font-family:'Lexend',sans-serif; font-weight:600; font-size:52px; color:#e8f6ff;">07:02</div>
+          <div class="t mono-s s05-fecha" style="left:710px; width:290px; top:752px; text-align:center;" data-layout-ignore>MIÉ 28 OCT</div>
+          <div class="t mono-s s05-card-tit" style="left:746px; top:804px;" data-layout-ignore>PUNTOS · AHORA</div>
+          <div class="t cel s05-card-txt" style="left:746px; top:834px;">Rosa, tenés</div>
+          <div class="t cel s05-card-txt s05-120" style="left:746px; top:868px; color:#5ce611;">120 puntos</div>
+          <div class="t cel s05-card-txt" style="left:746px; top:902px;">esperándote</div>
+          <div class="t cel s05-resp-txt" style="left:772px; width:210px; top:1002px; text-align:center; font-size:28px;">¡Paso hoy!</div>
+          <div class="t mono-s s05-visto" style="left:982px; top:1062px; transform:translateX(-100%);" data-layout-ignore>VISTO 07:14</div>
+        </div>
+
+        <!-- el aviso que vuela y los trazos que conectan -->
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="hud s05-trazo brillo" d="M420 1120 C 600 1110, 700 1000, 850 876" />
+          <path class="verde s05-trazo-v brillo-v" d="M772 1019 C 700 1019, 690 916, 660 916" style="stroke-width:3" />
+          <g class="s05-vuela brillo">
+            <rect x="-86" y="-28" width="172" height="56" rx="14" fill="rgba(2,18,28,0.9)" stroke="#38e1ff" stroke-width="2.5" />
+            <path d="M-58 8 V-4 A10 10 0 0 1 -38 -4 V8 Z M-62 8 H-34 M-51 13 H-45" fill="none" stroke="#e8f6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="-22" y="9" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="22" fill="#5ce611" letter-spacing="2">120 PTS</text>
+          </g>
+        </svg>
+      </div>
+      <div class="etiqueta">
+        <span class="s05-e1">21 días sin venir</span>
+        <span class="s05-e2">Aviso enviado</span>
+        <span class="s05-e3" style="color:#5ce611;">Viene hoy</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-rosa";
+      const DUR = 7.0;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // palabras
+      const ROSA = 0.21, TRES = 0.81, SEMANAS = 1.11, NOVIENE = 1.71, AVISO = 3.11, PUNTOS = 3.91;
+      const CONTESTO = 4.81, VIENE = 5.74, HOY = 6.01;
+
+      // helpers
+      const dibujar = (el, t, d = 0.5, ease = "power2.inOut") => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease }, t);
+      };
+      const tipear = (el, t, d) => {
+        const txt = el.textContent;
+        el.textContent = "";
+        const spans = Array.from(txt).map((c) => { const s = document.createElement("span"); s.textContent = c; el.appendChild(s); return s; });
+        gsap.set(spans, { opacity: 0 });
+        tl.to(spans, { opacity: 1, duration: 0.01, stagger: d / spans.length, ease: "none" }, t);
+      };
+      const glitch = (el, t, amp = 14) => {
+        [[-amp, 0], [amp * 0.7, 0.03], [-amp * 0.35, 0.06], [0, 0.09]].forEach(([x, d]) => tl.to(el, { x, duration: 0.03, ease: "none" }, t + d));
+      };
+      const aparece = (el, t, d = 0.25) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: d, ease: "power2.out" }, t); };
+      const contar = (el, t, a, b, d) => {
+        const o = { v: a };
+        el.textContent = String(a);
+        tl.to(o, { v: b, duration: d, ease: "power2.out", onUpdate: () => { el.textContent = String(Math.round(o.v)); } }, t);
+      };
+
+      // ---- estado inicial (lo que aparece después, escondido) ----
+      qa(".s05-card-txt").forEach((el) => gsap.set(el, { opacity: 0 }));
+      ["s05-activa", "s05-lbl-2", "s05-hoy", "s05-ok", "s05-alerta", "s05-barra-v", "s05-tecleo", "s05-resp", "s05-resp-txt", "s05-visto", "s05-card", "s05-card-tit", "s05-vuela", "s05-env", "s05-env-tilde", "s05-puntos", "s05-pct"].forEach((c) => gsap.set(q("." + c), { opacity: 0 }));
+
+      // cámara: zoom lento todo el tiempo
+      tl.fromTo(q(".s05-cam"), { scale: 1.06, transformOrigin: "540px 915px" }, { scale: 1, transformOrigin: "540px 915px", duration: 0.5, ease: "expo.out" }, 0);
+      tl.to(q(".s05-cam"), { scale: 1.035, transformOrigin: "540px 915px", duration: 5.2, ease: "none" }, 0.5);
+
+      // ---- entrada: ficha desde la izquierda, celular desde la derecha (cuadro 0 ya con algo) ----
+      tl.fromTo(q(".s05-ficha"), { x: -110, opacity: 0.75 }, { x: 0, opacity: 1, duration: 0.4, ease: "expo.out" }, 0);
+      tl.fromTo(q(".s05-cel"), { x: 120, opacity: 0.7 }, { x: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 0.05);
+      tipear(q(".s05-tit"), 0.05, 0.3);
+      tl.fromTo(q(".s05-rec"), { opacity: 1 }, { opacity: 0.2, duration: 0.25, yoyo: true, repeat: 13, ease: "steps(1)" }, 0);
+      dibujar(q(".s05-av-aro"), 0.05, 0.45, "power3.out");
+      qa(".s05-av").forEach((el, i) => dibujar(el, 0.15 + i * 0.08, 0.35));
+      tipear(q(".s05-nombre"), ROSA, 0.32);
+      tl.fromTo(q(".s05-inactiva"), { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, NOVIENE);
+      gsap.set(q(".s05-inactiva"), { opacity: 0 });
+      glitch(q(".s05-inactiva"), NOVIENE + 0.05, 10);
+
+      // ---- "hace tres semanas": días en ámbar + alerta que parpadea ----
+      gsap.set([q(".s05-lbl-1"), q(".s05-hace"), q(".s05-lbl-f")], { opacity: 0 });
+      tl.to(q(".s05-lbl-1"), { opacity: 1, duration: 0.15 }, 0.55);
+      tl.to(q(".s05-hace"), { opacity: 1, duration: 0.05 }, TRES);
+      glitch(q(".s05-hace"), TRES, 16);
+      contar(q(".s05-dias"), TRES, 0, 21, 0.35);
+      tl.fromTo(q(".s05-alerta"), { opacity: 0, scale: 0.4, transformOrigin: "50% 60%" }, { opacity: 1, scale: 1, transformOrigin: "50% 60%", duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, SEMANAS);
+      tl.to(q(".s05-alerta"), { opacity: 0.15, duration: 0.14, yoyo: true, repeat: 15, ease: "steps(1)" }, SEMANAS + 0.35);
+      tl.to(q(".s05-lbl-f"), { opacity: 1, duration: 0.15 }, 0.9);
+      // la frecuencia se desploma
+      gsap.set(qa(".s05-barra"), { scaleX: 0.9, transformOrigin: "0% 50%" });
+      tl.to(q(".s05-barra-a"), { opacity: 1, duration: 0.1 }, SEMANAS);
+      tl.to(qa(".s05-barra"), { scaleX: 0.16, transformOrigin: "0% 50%", duration: 0.6, ease: "power3.inOut" }, SEMANAS);
+      tl.to(q(".s05-pct"), { opacity: 1, duration: 0.1 }, SEMANAS + 0.4);
+      glitch(q(".s05-pct"), SEMANAS + 0.4, 10);
+      // la ficha tiembla un toque en "no viene"
+      glitch(q(".s05-ficha"), NOVIENE + 0.1, 8);
+      tl.fromTo(q(".s05-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, TRES);
+
+      // ---- "le llegó un aviso con sus puntos" ----
+      tl.fromTo(q(".s05-puntos"), { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.35, ease: "expo.out", immediateRender: false }, 2.45);
+      contar(q(".s05-pts"), 2.6, 0, 120, 0.5);
+      tl.fromTo(q(".s05-vuela"), { x: 400, y: 1130, scale: 0.6, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.15, ease: "back.out(2)", immediateRender: false }, AVISO - 0.05);
+      tl.to(q(".s05-vuela"), { x: 855, duration: 0.42, ease: "power1.in" }, AVISO + 0.08);
+      tl.to(q(".s05-vuela"), { y: 876, duration: 0.42, ease: "power2.in" }, AVISO + 0.08);
+      tl.to(q(".s05-vuela"), { scale: 0.5, opacity: 0, duration: 0.1, ease: "power2.in" }, AVISO + 0.46);
+      gsap.set(q(".s05-vuela"), { x: 400, y: 1130 });
+      dibujar(q(".s05-trazo"), AVISO, 0.45, "power2.in");
+      tl.to(q(".s05-trazo"), { opacity: 0, duration: 0.3 }, AVISO + 0.6);
+      tl.to(q(".s05-e1"), { opacity: 0, y: -10, duration: 0.15 }, AVISO - 0.1);
+      tl.fromTo(q(".s05-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, AVISO);
+      tl.to(q(".s05-env-tilde"), { opacity: 1, duration: 0.01 }, AVISO + 0.1);
+      dibujar(q(".s05-env-tilde"), AVISO + 0.1, 0.25);
+      tl.to(q(".s05-env"), { opacity: 1, duration: 0.2 }, AVISO + 0.12);
+      // en el celular: la hora sube y entra la notificación
+      tl.to([q(".s05-hora"), q(".s05-fecha")], { y: -20, opacity: 0.45, duration: 0.3, ease: "power3.out" }, AVISO + 0.45);
+      tl.fromTo(q(".s05-card"), { opacity: 0, scale: 0.7, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, AVISO + 0.48);
+      tl.to(q(".s05-card-tit"), { opacity: 1, duration: 0.15 }, AVISO + 0.55);
+      qa(".s05-card-txt").forEach((el, i) => { tl.set(el, { opacity: 1 }, AVISO + 0.58); tipear(el, AVISO + 0.58 + i * 0.16, 0.16); });
+      // "puntos": el 120 brilla
+      tl.fromTo(q(".s05-120"), { filter: "drop-shadow(0 0 0px rgba(92,230,17,0))" }, { filter: "drop-shadow(0 0 16px rgba(92,230,17,1))", duration: 0.2, yoyo: true, repeat: 3, ease: "power1.inOut", immediateRender: false }, PUNTOS);
+      tl.to(q(".s05-card"), { scale: 1.04, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1 }, PUNTOS);
+
+      // ---- "Ya contestó": tecleando... y llega la respuesta ----
+      tl.to(q(".s05-tecleo"), { opacity: 1, duration: 0.12 }, 4.3);
+      qa(".s05-punto").forEach((p, i) => tl.to(p, { y: -8, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, 4.3 + i * 0.06));
+      tl.to(q(".s05-tecleo"), { opacity: 0, duration: 0.06 }, CONTESTO - 0.04);
+      tl.fromTo(q(".s05-resp"), { opacity: 0, scale: 0.6, transformOrigin: "100% 50%" }, { opacity: 1, scale: 1, transformOrigin: "100% 50%", duration: 0.3, ease: "back.out(2.2)", immediateRender: false }, CONTESTO);
+      tl.fromTo(q(".s05-resp-txt"), { opacity: 0, scale: 0.6, transformOrigin: "100% 50%" }, { opacity: 1, scale: 1, transformOrigin: "100% 50%", duration: 0.3, ease: "back.out(2.2)", immediateRender: false }, CONTESTO);
+      tl.to(q(".s05-visto"), { opacity: 1, duration: 0.2 }, CONTESTO + 0.25);
+      dibujar(q(".s05-trazo-v"), CONTESTO + 0.3, 0.4, "power2.out");
+      tl.to(q(".s05-trazo-v"), { opacity: 0, duration: 0.3 }, VIENE + 0.3);
+
+      // ---- "viene hoy": la ficha pasa de ámbar a verde ----
+      tl.to([q(".s05-hace"), q(".s05-lbl-1"), q(".s05-inactiva"), q(".s05-pct")], { opacity: 0, duration: 0.08 }, VIENE);
+      tl.to(q(".s05-alerta"), { opacity: 0, scale: 0.3, transformOrigin: "50% 60%", duration: 0.15, ease: "power2.in" }, VIENE);
+      tl.to([q(".s05-hoy"), q(".s05-lbl-2"), q(".s05-activa")], { opacity: 1, duration: 0.06 }, VIENE + 0.06);
+      glitch(q(".s05-hoy"), VIENE + 0.06, 18);
+      tl.set(q(".s05-ok"), { opacity: 1 }, VIENE + 0.1);
+      dibujar(q(".s05-ok-aro"), VIENE + 0.1, 0.3, "power3.out");
+      dibujar(q(".s05-ok-tilde"), HOY, 0.25, "power3.out");
+      tl.fromTo(q(".s05-ok"), { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.3, transformOrigin: "50% 50%", duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, HOY + 0.2);
+      tl.to(q(".s05-barra-a"), { opacity: 0, duration: 0.1 }, VIENE + 0.1);
+      tl.to(q(".s05-barra-v"), { opacity: 1, duration: 0.1 }, VIENE + 0.1);
+      tl.to(qa(".s05-barra"), { scaleX: 1, transformOrigin: "0% 50%", duration: 0.55, ease: "expo.out" }, VIENE + 0.1);
+      tl.to(q(".s05-ficha-flash"), { opacity: 1, duration: 0.08, yoyo: true, repeat: 3, ease: "none" }, VIENE);
+      tl.to(q(".s05-e2"), { opacity: 0, y: -10, duration: 0.15 }, VIENE - 0.1);
+      tl.fromTo(q(".s05-e3"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, VIENE);
+      // golpe de cámara en "hoy"
+      tl.to(q(".s05-cam"), { scale: 1.07, transformOrigin: "540px 915px", duration: 0.3, ease: "expo.out" }, HOY);
+      tl.to(q(".s05-cam"), { scale: 1.05, transformOrigin: "540px 915px", duration: 0.5, ease: "sine.inOut" }, HOY + 0.3);
+
+      // salida: corte de pantalla rápido
+      tl.to(q("#s05-escena"), { opacity: 0, scaleY: 0.02, transformOrigin: "50% 47%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

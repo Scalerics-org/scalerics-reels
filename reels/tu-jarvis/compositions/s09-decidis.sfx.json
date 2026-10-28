@@ -1,0 +1,8 @@
+[
+  {"t": 0.0, "sfx": "whoosh-short", "vol": 0.2},
+  {"t": 0.21, "sfx": "click", "vol": 0.4},
+  {"t": 0.22, "sfx": "impact-bass-2", "vol": 0.3, "max": 0.5},
+  {"t": 0.45, "sfx": "blip", "vol": 0.3},
+  {"t": 1.21, "sfx": "riser", "vol": 0.22, "max": 0.4},
+  {"t": 1.62, "sfx": "chime", "vol": 0.3, "max": 0.6}
+]

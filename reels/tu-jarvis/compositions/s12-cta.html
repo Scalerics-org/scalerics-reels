@@ -1,0 +1,91 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cta"] .hud { fill: none; stroke: #38e1ff; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s12-cta"] .hud-fino { fill: none; stroke: #38e1ff; stroke-width: 1.5; opacity: 0.6; }
+    [data-composition-id="s12-cta"] .hud-grueso { fill: none; stroke: #38e1ff; stroke-width: 7; stroke-linecap: butt; }
+    [data-composition-id="s12-cta"] .nucleo { fill: #38e1ff; }
+    [data-composition-id="s12-cta"] .brillo { filter: drop-shadow(0 0 18px rgba(56, 225, 255, 0.85)); }
+    [data-composition-id="s12-cta"] .s12-marca { position: absolute; left: 0; right: 0; top: 958px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 100px; line-height: 1.1; letter-spacing: -0.01em; color: #e8f6ff; white-space: nowrap; filter: drop-shadow(0 0 16px rgba(56, 225, 255, 0.7)); }
+    [data-composition-id="s12-cta"] .s12-bajada { position: absolute; left: 0; right: 0; top: 1090px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 34px; color: #e8f6ff; }
+    [data-composition-id="s12-cta"] .s12-pildora-caja { position: absolute; left: 0; right: 0; top: 1175px; display: flex; justify-content: center; }
+    [data-composition-id="s12-cta"] .s12-pildora { display: inline-block; padding: 24px 56px; border-radius: 999px; background: #38e1ff; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 44px; line-height: 1.2; color: #02121c; white-space: nowrap; filter: drop-shadow(0 0 20px rgba(56, 225, 255, 0.6)); }
+    [data-composition-id="s12-cta"] .s12-pildora b { font-weight: 800; }
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="6.03">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="6.03" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- el núcleo grande (escala 0.55 del de s01) -->
+        <g class="s12-nucleo">
+          <circle class="hud-fino" cx="540" cy="760" r="165" />
+          <circle class="hud s12-anillo-a" cx="540" cy="760" r="149" stroke-dasharray="66 17 11 17" />
+          <circle class="hud-grueso s12-anillo-b" cx="540" cy="760" r="128" stroke-dasharray="33 13" opacity="0.55" />
+          <circle class="hud s12-anillo-c" cx="540" cy="760" r="108" stroke-dasharray="165 44" />
+          <path class="hud-fino" d="M540 590 V604 M540 916 V930 M370 760 H384 M696 760 H710" />
+          <circle class="nucleo s12-centro brillo" cx="540" cy="760" r="30" />
+          <circle class="hud s12-aro" cx="540" cy="760" r="44" />
+          <circle class="hud s12-onda" cx="540" cy="760" r="44" opacity="0" />
+        </g>
+      </svg>
+      <div class="s12-marca"><span class="s12-w1" style="display:inline-block">Scalerics</span></div>
+      <div class="s12-bajada">Bots · Puntos · Tiendas para comercios</div>
+      <div class="s12-pildora-caja"><div class="s12-pildora">Comentá <b>“JARVIS”</b></div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 6.03;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const COMENTA = 0.0;
+      const JARVIS = 0.29;
+      const MOSTRAMOS = 1.19;
+      const TUYO = 2.29;
+      const O = "540 760";
+
+      // núcleo: arranca a medias (cuadro 0 no vacío), entra con golpe y gira todo el cierre
+      tl.fromTo(q(".s12-nucleo"), { scale: 0.7, opacity: 0.5, svgOrigin: O }, { scale: 1, opacity: 1, svgOrigin: O, duration: 0.45, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s12-anillo-a"), { rotation: 0, svgOrigin: O }, { rotation: 140, svgOrigin: O, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s12-anillo-b"), { rotation: 0, svgOrigin: O }, { rotation: -100, svgOrigin: O, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s12-anillo-c"), { rotation: 0, svgOrigin: O }, { rotation: 220, svgOrigin: O, duration: DUR, ease: "none" }, 0);
+
+      // nombre: entra con glitch y queda
+      const w = q(".s12-w1");
+      tl.fromTo(w, { opacity: 0.3, scale: 1.12 }, { opacity: 1, scale: 1, duration: 0.4, ease: "expo.out" }, 0);
+      [[-18, 0.02], [12, 0.06], [-6, 0.1], [0, 0.14]].forEach(([x, d]) => tl.to(w, { x, duration: 0.03, ease: "none" }, d));
+      tl.fromTo(q(".s12-bajada"), { opacity: 0, y: 12 }, { opacity: 0.7, y: 0, duration: 0.4, ease: "power3.out" }, 0.45);
+      tl.to(q(".s12-bajada"), { opacity: 0.95, duration: 0.25, yoyo: true, repeat: 1 }, MOSTRAMOS);
+
+      // píldora cian: pop en "Comentá", glitch y golpe en "JARVIS"
+      const p = q(".s12-pildora");
+      tl.fromTo(p, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.8)" }, COMENTA + 0.03);
+      [[14, 0.0], [-10, 0.04], [6, 0.08], [0, 0.12]].forEach(([x, d]) => tl.to(p, { x, duration: 0.03, ease: "none" }, JARVIS + d));
+      // el núcleo se enciende en "JARVIS" con onda expansiva
+      tl.to(q(".s12-centro"), { scale: 1.5, svgOrigin: O, duration: 0.15, ease: "back.out(3)" }, JARVIS);
+      tl.to(q(".s12-centro"), { scale: 1, svgOrigin: O, duration: 0.4, ease: "power2.out" }, JARVIS + 0.15);
+      tl.fromTo(q(".s12-onda"), { scale: 1, opacity: 1, svgOrigin: O }, { scale: 5, opacity: 0, svgOrigin: O, duration: 0.7, ease: "power2.out", immediateRender: false }, JARVIS);
+      // latidos finitos de la píldora y del núcleo
+      [JARVIS + 0.2, 1.29, 2.29, 3.29, 4.29].forEach((t, i) => {
+        tl.to(p, { scale: i === 0 ? 1.1 : 1.06, duration: 0.14, ease: "sine.out" }, t);
+        tl.to(p, { scale: 1, duration: 0.3, ease: "sine.inOut" }, t + 0.14);
+        if (i > 0) tl.fromTo(q(".s12-aro"), { scale: 1, opacity: 1, svgOrigin: O }, { scale: 2.6, opacity: 0, svgOrigin: O, duration: 0.6, ease: "power2.out", immediateRender: false }, t);
+      });
+      // el aro vuelve a su lugar y queda
+      tl.fromTo(q(".s12-aro"), { scale: 0.6, opacity: 0, svgOrigin: O }, { scale: 1, opacity: 1, svgOrigin: O, duration: 0.3, ease: "power2.out", immediateRender: false }, 4.95);
+      // "el tuyo": brillo extra en el nombre
+      tl.to(w, { opacity: 0.6, duration: 0.05, yoyo: true, repeat: 1, ease: "none" }, TUYO);
+
+      // sin salida: el último cuadro queda quieto y legible
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

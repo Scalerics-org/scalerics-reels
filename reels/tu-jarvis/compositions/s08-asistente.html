@@ -1,0 +1,276 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-asistente"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-asistente"] .s08-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s08-asistente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-asistente"] .hud { fill: none; stroke: #38e1ff; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s08-asistente"] .hud-fino { fill: none; stroke: #38e1ff; stroke-width: 1.5; opacity: 0.6; }
+    [data-composition-id="s08-asistente"] .hud-grueso { fill: none; stroke: #38e1ff; stroke-width: 8; stroke-linecap: butt; }
+    [data-composition-id="s08-asistente"] .panel { fill: rgba(56, 225, 255, 0.06); stroke: #38e1ff; stroke-width: 2.5; stroke-linejoin: miter; }
+    [data-composition-id="s08-asistente"] .ln { fill: none; stroke: #e8f6ff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-asistente"] .nucleo { fill: #38e1ff; }
+    [data-composition-id="s08-asistente"] .brillo { filter: drop-shadow(0 0 14px rgba(56, 225, 255, 0.8)); }
+    [data-composition-id="s08-asistente"] .brillo-v { filter: drop-shadow(0 0 12px rgba(92, 230, 17, 0.8)); }
+    [data-composition-id="s08-asistente"] .brillo-a { filter: drop-shadow(0 0 16px rgba(255, 176, 32, 0.85)); }
+    [data-composition-id="s08-asistente"] .tit { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #38e1ff; }
+    [data-composition-id="s08-asistente"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #e8f6ff; }
+    [data-composition-id="s08-asistente"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 56px; fill: #e8f6ff; }
+    [data-composition-id="s08-asistente"] .nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #e8f6ff; }
+    [data-composition-id="s08-asistente"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #38e1ff; }
+    [data-composition-id="s08-asistente"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-asistente" data-width="1080" data-height="1920" data-duration="6.50">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="6.50" data-track-index="0">
+      <div class="s08-cam">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <clipPath id="s08-clip-lista" clipPathUnits="userSpaceOnUse"><rect x="720" y="686" width="310" height="166" /></clipPath>
+          </defs>
+
+          <!-- conexiones núcleo → módulos -->
+          <path class="hud s08-con s08-con-a" d="M412 816 L372 790" />
+          <path class="hud s08-con s08-con-b" d="M668 816 L708 790" />
+          <path class="hud s08-con s08-con-c" d="M540 992 V1028" />
+
+          <!-- EL NÚCLEO (copiado de s01, más chico) -->
+          <g class="s08-nucleo">
+            <circle class="hud-fino" cx="540" cy="850" r="140" />
+            <circle class="hud s08-anillo-a" cx="540" cy="850" r="126" stroke-dasharray="60 16 10 16" />
+            <circle class="hud-grueso s08-anillo-b" cx="540" cy="850" r="106" stroke-dasharray="30 12" opacity="0.55" />
+            <circle class="hud s08-anillo-c" cx="540" cy="850" r="88" stroke-dasharray="140 40" />
+            <path class="hud-fino" d="M540 700 V714 M540 986 V1000 M390 850 H404 M676 850 H690" />
+            <circle class="nucleo s08-centro brillo" cx="540" cy="850" r="30" />
+            <circle class="hud s08-aro" cx="540" cy="850" r="44" />
+          </g>
+
+          <text class="tit s08-boot" x="540" y="1062" text-anchor="middle">INICIANDO ASISTENTE</text>
+
+          <!-- MÓDULO A: WHATSAPP 24/7 -->
+          <g class="s08-mod-a">
+            <path class="panel" d="M62 630 H370 V858 L348 880 H40 V652 Z" />
+            <text class="tit" x="60" y="664">// WHATSAPP 24/7</text>
+            <line class="hud-fino" x1="40" y1="678" x2="370" y2="678" />
+            <circle class="ln" cx="115" cy="760" r="46" />
+            <path class="hud-fino" d="M115 718 V726 M115 794 V802 M73 760 H81 M149 760 H157" />
+            <line class="ln s08-aguja-h" x1="115" y1="760" x2="115" y2="732" stroke="#38e1ff" />
+            <line class="ln s08-aguja-m" x1="115" y1="760" x2="147" y2="760" />
+            <circle class="nucleo" cx="115" cy="760" r="6" />
+            <text class="grande s08-247 brillo" x="275" y="772" text-anchor="middle">24/7</text>
+            <g class="s08-horas">
+              <text class="mono s08-hora" x="275" y="818" text-anchor="middle">09:00</text>
+              <text class="mono s08-hora" x="275" y="818" text-anchor="middle">13:40</text>
+              <text class="mono s08-hora" x="275" y="818" text-anchor="middle">19:15</text>
+              <text class="mono s08-hora" x="275" y="818" text-anchor="middle">23:50</text>
+              <text class="mono s08-hora" x="275" y="818" text-anchor="middle" fill="#38e1ff">03:20</text>
+            </g>
+            <circle class="s08-ok-dot" cx="66" cy="850" r="7" fill="#5ce611" />
+            <text class="mono" x="82" y="858" fill="#5ce611">ATENDIENDO</text>
+          </g>
+
+          <!-- MÓDULO B: MEMORIA DE CLIENTES -->
+          <g class="s08-mod-b">
+            <path class="panel" d="M732 630 H1040 V858 L1018 880 H710 V652 Z" />
+            <text class="tit" x="728" y="664">// MEMORIA</text>
+            <text class="tit s08-cnt" x="1024" y="664" text-anchor="end" fill="#5ce611">0</text>
+            <line class="hud-fino" x1="710" y1="678" x2="1040" y2="678" />
+            <g clip-path="url(#s08-clip-lista)">
+              <g class="s08-lista">
+                <g class="s08-fila"><rect class="panel" x="726" y="692" width="298" height="46" /><circle class="ln" cx="750" cy="715" r="12" /><text class="nombre" x="774" y="724">JORGE</text><text class="tit" x="1012" y="723" text-anchor="end">#0388</text></g>
+                <g class="s08-fila"><rect class="panel" x="726" y="746" width="298" height="46" /><circle class="ln" cx="750" cy="769" r="12" /><text class="nombre" x="774" y="778">LUCÍA</text><text class="tit" x="1012" y="777" text-anchor="end">#0531</text></g>
+                <g class="s08-fila"><rect class="panel" x="726" y="800" width="298" height="46" /><circle class="ln" cx="750" cy="823" r="12" /><text class="nombre" x="774" y="832">ANA</text><text class="tit" x="1012" y="831" text-anchor="end">#0207</text></g>
+                <g class="s08-fila"><rect class="panel" x="726" y="854" width="298" height="46" /><circle class="ln" cx="750" cy="877" r="12" /><text class="nombre" x="774" y="886">PEDRO</text><text class="tit" x="1012" y="885" text-anchor="end">#0619</text></g>
+                <g class="s08-fila"><rect class="panel" x="726" y="908" width="298" height="46" /><circle class="ln" cx="750" cy="931" r="12" /><text class="nombre" x="774" y="940">MARTA</text><text class="tit" x="1012" y="939" text-anchor="end">#0150</text></g>
+                <g class="s08-fila s08-rosa"><rect class="panel s08-rosa-rect" x="726" y="962" width="298" height="46" /><circle class="ln" cx="750" cy="985" r="12" /><text class="nombre s08-rosa-txt" x="774" y="994">ROSA</text><text class="tit" x="1012" y="993" text-anchor="end">#0412</text></g>
+                <g class="s08-fila"><rect class="panel" x="726" y="1016" width="298" height="46" /><circle class="ln" cx="750" cy="1039" r="12" /><text class="nombre" x="774" y="1048">RAÚL</text><text class="tit" x="1012" y="1047" text-anchor="end">#0444</text></g>
+              </g>
+            </g>
+          </g>
+
+          <!-- MÓDULO C: ALERTAS -->
+          <g class="s08-mod-c">
+            <path class="panel" d="M312 1030 H790 V1218 L768 1240 H290 V1052 Z" />
+            <text class="tit" x="308" y="1064">// ALERTAS</text>
+            <text class="tit s08-c-n1" x="772" y="1064" text-anchor="end">ENTRAN 12</text>
+            <text class="tit s08-c-n2" x="772" y="1064" text-anchor="end" fill="#ffb020">PASA 1</text>
+            <line class="hud-fino" x1="290" y1="1078" x2="790" y2="1078" />
+            <g class="s08-mini"><rect x="306" y="1090" width="170" height="22" fill="none" stroke="#e8f6ff" stroke-opacity="0.45" stroke-width="2" /><circle cx="318" cy="1101" r="4" fill="#e8f6ff" fill-opacity="0.5" /><line x1="332" y1="1101" x2="452" y2="1101" stroke="#e8f6ff" stroke-opacity="0.4" stroke-width="4" stroke-linecap="round" /></g>
+            <g class="s08-mini"><rect x="306" y="1118" width="170" height="22" fill="none" stroke="#e8f6ff" stroke-opacity="0.45" stroke-width="2" /><circle cx="318" cy="1129" r="4" fill="#e8f6ff" fill-opacity="0.5" /><line x1="332" y1="1129" x2="430" y2="1129" stroke="#e8f6ff" stroke-opacity="0.4" stroke-width="4" stroke-linecap="round" /></g>
+            <g class="s08-mini s08-mini-ok"><rect class="s08-mini-ok-r" x="306" y="1146" width="170" height="22" fill="none" stroke="#e8f6ff" stroke-opacity="0.45" stroke-width="2" /><circle cx="318" cy="1157" r="4" fill="#e8f6ff" fill-opacity="0.5" /><line x1="332" y1="1157" x2="460" y2="1157" stroke="#e8f6ff" stroke-opacity="0.4" stroke-width="4" stroke-linecap="round" /></g>
+            <g class="s08-mini"><rect x="306" y="1174" width="170" height="22" fill="none" stroke="#e8f6ff" stroke-opacity="0.45" stroke-width="2" /><circle cx="318" cy="1185" r="4" fill="#e8f6ff" fill-opacity="0.5" /><line x1="332" y1="1185" x2="420" y2="1185" stroke="#e8f6ff" stroke-opacity="0.4" stroke-width="4" stroke-linecap="round" /></g>
+            <g class="s08-mini"><rect x="306" y="1202" width="170" height="22" fill="none" stroke="#e8f6ff" stroke-opacity="0.45" stroke-width="2" /><circle cx="318" cy="1213" r="4" fill="#e8f6ff" fill-opacity="0.5" /><line x1="332" y1="1213" x2="444" y2="1213" stroke="#e8f6ff" stroke-opacity="0.4" stroke-width="4" stroke-linecap="round" /></g>
+            <line class="hud s08-filtro brillo" x1="530" y1="1088" x2="530" y2="1226" stroke-dasharray="10 8" />
+            <g class="s08-sobrevive">
+              <path d="M572 1098 H776 V1196 L758 1214 H556 V1114 Z" fill="rgba(255,176,32,0.10)" stroke="#ffb020" stroke-width="3" />
+              <path d="M572 1146 L586 1120 L600 1146 Z" fill="none" stroke="#ffb020" stroke-width="3" stroke-linejoin="round" />
+              <line x1="586" y1="1130" x2="586" y2="1137" stroke="#ffb020" stroke-width="3" stroke-linecap="round" />
+              <text class="nombre s08-paravos brillo-a" x="610" y="1144" fill="#ffb020" style="font-weight:700; font-size:27px">PARA VOS</text>
+              <text class="mono" x="574" y="1190">1 CONSULTA</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="etiqueta">
+        <span class="s08-e1">Asistente activo</span>
+        <span class="s08-e2">A cualquier hora</span>
+        <span class="s08-e3">Cada cliente</span>
+        <span class="s08-e4">Solo lo importante</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-asistente";
+      const DUR = 6.5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (palabras)
+      const ASISTENTE = 0.11, ATIENDE = 0.71, CUALQUIER = 1.61, HORA = 2.31;
+      const ACUERDA = 2.87, CLIENTE = 3.71, AVISA = 4.61, SOLO = 4.91, IMPORTA = 5.51;
+
+      // dibujar un trazo (invisible hasta que arranca)
+      function dibujar(el, t, dur) {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+        tl.to(el, { opacity: 1, duration: 0.01 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur || 0.35, ease: "power2.inOut" }, t);
+      }
+      function glitch(el, t) {
+        [[-16, 0], [12, 0.03], [-7, 0.06], [0, 0.09]].forEach(([x, d]) => tl.to(el, { x, duration: 0.03, ease: "none" }, t + d));
+      }
+      function etiqueta(sel, t, prev) {
+        if (prev) tl.to(q(prev), { opacity: 0, y: -10, duration: 0.15 }, t - 0.05);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, t);
+      }
+
+      // ---- cámara: arranca cerca y se abre; después se corre hacia cada módulo ----
+      const cam = q(".s08-cam");
+      tl.fromTo(cam, { scale: 1.12, transformOrigin: "540px 900px" }, { scale: 1, transformOrigin: "540px 900px", duration: 0.6, ease: "expo.out" }, 0);
+      tl.to(cam, { x: 16, y: 6, scale: 1.02, duration: 0.45, ease: "power3.out" }, ATIENDE);
+      tl.to(cam, { x: -16, y: 6, scale: 1.02, duration: 0.45, ease: "power3.out" }, ACUERDA);
+      tl.to(cam, { x: 0, y: -14, scale: 1.03, duration: 0.45, ease: "power3.out" }, AVISA);
+      tl.to(cam, { x: 0, y: 0, scale: 1, duration: 0.6, ease: "power2.inOut" }, IMPORTA + 0.2);
+
+      // ---- el núcleo: siempre girando, acelera en "a cualquier hora" ----
+      const O = "540 850";
+      [["a", 70, 330, 400], ["b", -50, -260, -310], ["c", 110, 470, 560]].forEach(([k, r1, r2, r3]) => {
+        const el = q(".s08-anillo-" + k);
+        tl.fromTo(el, { rotation: 0, svgOrigin: O }, { rotation: r1, svgOrigin: O, duration: CUALQUIER, ease: "none" }, 0);
+        tl.to(el, { rotation: r2, svgOrigin: O, duration: HORA - CUALQUIER, ease: "power2.inOut" }, CUALQUIER);
+        tl.to(el, { rotation: r3, svgOrigin: O, duration: DUR - HORA, ease: "none" }, HORA);
+      });
+      tl.fromTo(q(".s08-nucleo"), { scale: 0.75, opacity: 0.6, svgOrigin: O }, { scale: 1, opacity: 1, svgOrigin: O, duration: 0.45, ease: "back.out(1.7)" }, 0);
+      // late con cada módulo que activa
+      [ASISTENTE, ATIENDE, ACUERDA, AVISA, IMPORTA].forEach((t) => {
+        tl.fromTo(q(".s08-centro"), { scale: 1.35, svgOrigin: O }, { scale: 1, svgOrigin: O, duration: 0.3, ease: "power2.out", immediateRender: false }, t);
+        tl.fromTo(q(".s08-aro"), { scale: 0.8, opacity: 1, svgOrigin: O }, { scale: 3.4, opacity: 0, svgOrigin: O, duration: 0.6, ease: "power2.out", immediateRender: false }, t);
+      });
+      gsap.set(q(".s08-aro"), { opacity: 0 });
+
+      // ---- MÓDULO A: WhatsApp 24/7 ----
+      const A = q(".s08-mod-a");
+      gsap.set(A, { x: -160, opacity: 0 });
+      dibujar(q(".s08-con-a"), ATIENDE - 0.1, 0.25);
+      tl.to(A, { x: 0, opacity: 1, duration: 0.4, ease: "expo.out" }, ATIENDE);
+      glitch(A, ATIENDE + 0.4);
+      gsap.set(q(".s08-247"), { opacity: 0 });
+      tl.fromTo(q(".s08-247"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(2)", immediateRender: false }, ATIENDE + 0.25);
+      tl.to(q(".s08-ok-dot"), { opacity: 0.2, duration: 0.15, yoyo: true, repeat: 15, ease: "steps(1)" }, ATIENDE + 0.4);
+      // reloj: gira normal y en "cualquier hora" da vueltas rapidísimo
+      const H = q(".s08-aguja-h"), M = q(".s08-aguja-m");
+      tl.fromTo(M, { rotation: 0, transformOrigin: "0% 50%" }, { rotation: 180, transformOrigin: "0% 50%", duration: CUALQUIER - ATIENDE, ease: "none" }, ATIENDE);
+      tl.to(M, { rotation: 180 + 360 * 5, transformOrigin: "0% 50%", duration: HORA - CUALQUIER, ease: "power2.inOut" }, CUALQUIER);
+      tl.to(M, { rotation: 180 + 360 * 5 + 90, transformOrigin: "0% 50%", duration: DUR - HORA, ease: "none" }, HORA);
+      tl.fromTo(H, { rotation: 0, transformOrigin: "50% 100%" }, { rotation: 20, transformOrigin: "50% 100%", duration: CUALQUIER - ATIENDE, ease: "none" }, ATIENDE);
+      tl.to(H, { rotation: 20 + 360 * 1.5, transformOrigin: "50% 100%", duration: HORA - CUALQUIER, ease: "power2.inOut" }, CUALQUIER);
+      // la hora que se ve va pasando: 09:00 → … → 03:20
+      const horas = qa(".s08-hora");
+      gsap.set(horas.slice(1), { opacity: 0 });
+      horas.forEach((h, i) => {
+        if (i === 0) return;
+        const t = CUALQUIER + 0.12 + (i - 1) * 0.15;
+        tl.to(horas[i - 1], { opacity: 0, duration: 0.02 }, t);
+        tl.to(h, { opacity: 1, duration: 0.02 }, t);
+      });
+      tl.fromTo(q(".s08-horas"), { scale: 1.25, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(2)", immediateRender: false }, HORA - 0.1);
+
+      // ---- MÓDULO B: memoria de clientes ----
+      const B = q(".s08-mod-b");
+      gsap.set(B, { x: 160, opacity: 0 });
+      tl.to(A, { opacity: 0.55, duration: 0.3 }, ACUERDA);
+      dibujar(q(".s08-con-b"), ACUERDA - 0.1, 0.25);
+      tl.to(B, { x: 0, opacity: 1, duration: 0.4, ease: "expo.out" }, ACUERDA);
+      glitch(B, ACUERDA + 0.4);
+      const filas = qa(".s08-fila");
+      gsap.set(filas, { opacity: 0, x: 40 });
+      tl.to(filas, { opacity: 1, x: 0, duration: 0.25, stagger: 0.06, ease: "power3.out" }, ACUERDA + 0.15);
+      // contador de fichas
+      const cnt = q(".s08-cnt");
+      const num = { v: 0 };
+      const fmt = (n) => { const s = String(Math.round(n)); return s.length > 3 ? s.slice(0, -3) + "." + s.slice(-3) : s; };
+      tl.to(num, { v: 1284, duration: 0.9, ease: "power2.out", onUpdate: () => { cnt.textContent = fmt(num.v); } }, ACUERDA + 0.1);
+      // "cliente": las fichas se barajan y caen en ROSA
+      tl.to(q(".s08-lista"), { y: -216, duration: 0.65, ease: "expo.inOut" }, CLIENTE - 0.2);
+      tl.to(q(".s08-rosa-rect"), { stroke: "#5ce611", fill: "rgba(92,230,17,0.10)", duration: 0.15 }, CLIENTE + 0.45);
+      tl.to(q(".s08-rosa-txt"), { fill: "#5ce611", duration: 0.15 }, CLIENTE + 0.45);
+      tl.fromTo(q(".s08-rosa"), { scale: 1.08, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(2)", immediateRender: false }, CLIENTE + 0.45);
+
+      // ---- MÓDULO C: alertas ----
+      const C = q(".s08-mod-c");
+      gsap.set(C, { y: 90, opacity: 0 });
+      tl.to(B, { opacity: 0.55, duration: 0.3 }, AVISA);
+      dibujar(q(".s08-con-c"), AVISA - 0.1, 0.2);
+      tl.to(C, { y: 0, opacity: 1, duration: 0.4, ease: "expo.out" }, AVISA);
+      const minis = qa(".s08-mini");
+      gsap.set(minis, { opacity: 0, x: -50 });
+      tl.to(minis, { opacity: 1, x: 0, duration: 0.15, stagger: 0.04, ease: "power3.out" }, AVISA + 0.1);
+      gsap.set(q(".s08-c-n2"), { opacity: 0 });
+      // "solo": todas corren al filtro; pasa una sola
+      tl.to(minis, { x: 54, duration: 0.25, stagger: 0.05, ease: "power2.in" }, SOLO);
+      minis.forEach((m, i) => {
+        if (m.classList.contains("s08-mini-ok")) return;
+        tl.to(m, { scaleX: 0, opacity: 0, transformOrigin: "100% 50%", duration: 0.12, ease: "power2.in" }, SOLO + 0.25 + i * 0.05);
+      });
+      tl.to(q(".s08-filtro"), { opacity: 0.3, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, SOLO + 0.25);
+      tl.to(q(".s08-mini-ok-r"), { stroke: "#ffb020", strokeOpacity: 1, duration: 0.1 }, SOLO + 0.3);
+      tl.to(q(".s08-mini-ok"), { x: 170, opacity: 0, duration: 0.25, ease: "power2.in" }, SOLO + 0.4);
+      tl.to(q(".s08-c-n1"), { opacity: 0, duration: 0.05 }, IMPORTA - 0.1);
+      tl.to(q(".s08-c-n2"), { opacity: 1, duration: 0.05 }, IMPORTA - 0.1);
+      const S = q(".s08-sobrevive");
+      gsap.set(S, { opacity: 0 });
+      tl.fromTo(S, { opacity: 0, scale: 0.7, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, transformOrigin: "0% 50%", duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, IMPORTA - 0.15);
+      tl.to(S, { opacity: 0.45, duration: 0.08, yoyo: true, repeat: 3, ease: "none" }, IMPORTA + 0.3);
+      glitch(S, IMPORTA + 0.05);
+      tl.fromTo(S, { filter: "drop-shadow(0 0 0px rgba(255,176,32,0))" }, { filter: "drop-shadow(0 0 18px rgba(255,176,32,0.9))", duration: 0.3, immediateRender: false }, IMPORTA);
+      tl.to(C, { scale: 1.04, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, IMPORTA);
+
+      // ---- texto de arranque tipeado letra por letra ----
+      const boot = q(".s08-boot");
+      const txt = boot.textContent;
+      boot.textContent = "";
+      const letras = Array.from(txt).map((ch) => { const t = document.createElementNS("http://www.w3.org/2000/svg", "tspan"); t.textContent = ch; boot.appendChild(t); return t; });
+      gsap.set(letras, { opacity: 0 });
+      tl.to(letras, { opacity: 1, duration: 0.01, stagger: 0.025 }, 0.02);
+      tl.to(boot, { opacity: 0.35, duration: 0.05, yoyo: true, repeat: 3, ease: "none" }, 0.6);
+      tl.to(boot, { opacity: 0, y: 12, duration: 0.2 }, CUALQUIER - 0.2);
+
+      // ---- etiquetas ----
+      etiqueta(".s08-e1", ASISTENTE);
+      etiqueta(".s08-e2", CUALQUIER, ".s08-e1");
+      etiqueta(".s08-e3", CLIENTE - 0.2, ".s08-e2");
+      etiqueta(".s08-e4", SOLO, ".s08-e3");
+
+      // salida: corte de pantalla
+      tl.to(q("#s08-escena"), { opacity: 0, scaleY: 0.02, transformOrigin: "50% 47%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

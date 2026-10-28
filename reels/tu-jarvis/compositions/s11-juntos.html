@@ -1,0 +1,174 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-juntos"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-juntos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-juntos"] .hud { fill: none; stroke: #38e1ff; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s11-juntos"] .hud-fino { fill: none; stroke: #38e1ff; stroke-width: 1.5; opacity: 0.6; }
+    [data-composition-id="s11-juntos"] .hud-grueso { fill: none; stroke: #38e1ff; stroke-width: 6; stroke-linecap: butt; }
+    [data-composition-id="s11-juntos"] .ln { fill: none; stroke: #e8f6ff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-juntos"] .ln-ver { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-juntos"] .energia { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s11-juntos"] .panel { fill: rgba(56, 225, 255, 0.06); stroke: #38e1ff; stroke-width: 2.5; stroke-linejoin: miter; }
+    [data-composition-id="s11-juntos"] .panel-ver { fill: rgba(92, 230, 17, 0.06); stroke: #5ce611; stroke-width: 3; stroke-linejoin: miter; }
+    [data-composition-id="s11-juntos"] .nucleo { fill: #38e1ff; }
+    [data-composition-id="s11-juntos"] .verde { fill: #5ce611; }
+    [data-composition-id="s11-juntos"] .brillo { filter: drop-shadow(0 0 14px rgba(56, 225, 255, 0.8)); }
+    [data-composition-id="s11-juntos"] .brillo-ver { filter: drop-shadow(0 0 12px rgba(92, 230, 17, 0.8)); }
+    [data-composition-id="s11-juntos"] .barra { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 18px; letter-spacing: 0.14em; fill: #38e1ff; }
+    [data-composition-id="s11-juntos"] .activo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 18px; letter-spacing: 0.14em; fill: #5ce611; }
+    [data-composition-id="s11-juntos"] .nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #e8f6ff; }
+    [data-composition-id="s11-juntos"] .burbuja { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: #e8f6ff; }
+    [data-composition-id="s11-juntos"] .burbuja-ver { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: #5ce611; }
+    [data-composition-id="s11-juntos"] .numero { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 50px; fill: #5ce611; }
+    [data-composition-id="s11-juntos"] .chico { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 18px; letter-spacing: 0.2em; fill: #38e1ff; }
+    [data-composition-id="s11-juntos"] .s11-marca { position: absolute; left: 0; right: 0; top: 597px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 69px; line-height: 1.1; letter-spacing: -0.01em; color: #e8f6ff; white-space: nowrap; filter: drop-shadow(0 0 14px rgba(56, 225, 255, 0.8)); }
+    [data-composition-id="s11-juntos"] .s11-flash { position: absolute; inset: 0; background: #e8f6ff; opacity: 0; }
+    [data-composition-id="s11-juntos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #38e1ff; }
+    [data-composition-id="s11-juntos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s11-juntos"] .etiqueta .s11-e2 { color: #5ce611; filter: drop-shadow(0 0 10px rgba(92, 230, 17, 0.7)); }
+  </style>
+  <div id="root" data-composition-id="s11-juntos" data-width="1080" data-height="1920" data-duration="1.79">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="1.79" data-track-index="0">
+      <div class="s11-todo s11-capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- conectores (base cian) y la energía verde que corre hacia el núcleo -->
+          <path class="hud" d="M426 870 H330" /><path class="hud" d="M654 870 H750" /><path class="hud" d="M540 984 V1015" />
+          <path class="energia s11-en brillo-ver" d="M330 870 H430" />
+          <path class="energia s11-en brillo-ver" d="M750 870 H650" />
+          <path class="energia s11-en brillo-ver" d="M540 1015 V980" />
+          <!-- chispas que viajan desde cada módulo -->
+          <circle class="verde s11-chispa brillo-ver" cx="0" cy="0" r="9" />
+          <circle class="verde s11-chispa brillo-ver" cx="0" cy="0" r="9" />
+          <circle class="verde s11-chispa brillo-ver" cx="0" cy="0" r="9" />
+
+          <!-- NÚCLEO chico (mismo que s10) -->
+          <g class="s11-nucleo">
+            <circle class="hud-fino" cx="540" cy="870" r="114" />
+            <circle class="hud s11-anillo-a" cx="540" cy="870" r="103" stroke-dasharray="46 11 8 11" />
+            <circle class="hud-grueso s11-anillo-b" cx="540" cy="870" r="88" stroke-dasharray="23 9" opacity="0.55" />
+            <circle class="hud s11-anillo-c" cx="540" cy="870" r="74" stroke-dasharray="114 30" />
+            <circle class="nucleo s11-centro brillo" cx="540" cy="870" r="24" />
+            <circle class="ln-ver s11-onda brillo-ver" cx="540" cy="870" r="34" opacity="0" />
+            <circle class="hud s11-onda2" cx="540" cy="870" r="34" opacity="0" />
+          </g>
+
+          <!-- módulos, en el estado en que los dejó s10 -->
+          <g class="s11-card">
+            <path class="panel" d="M50 760 H330 V960 L310 980 H30 V780 Z" />
+            <path class="panel-ver s11-verde" d="M50 760 H330 V960 L310 980 H30 V780 Z" opacity="0.35" />
+            <path class="hud-fino" d="M42 800 H318" />
+            <text class="barra" x="48" y="789" data-layout-ignore>// MÓDULO 01</text>
+            <text class="activo" x="312" y="789" text-anchor="end" data-layout-ignore>ACTIVO</text>
+            <rect x="46" y="814" width="180" height="44" rx="14" class="ln" stroke-width="2.5" />
+            <text class="burbuja" x="62" y="844">¿Abren hoy?</text>
+            <rect x="94" y="868" width="220" height="44" rx="14" fill="rgba(92,230,17,0.14)" stroke="#5ce611" stroke-width="2.5" />
+            <text class="burbuja-ver" x="302" y="898" text-anchor="end">Sí, abrimos 9 h</text>
+            <text class="nombre" x="48" y="956">Bot de WhatsApp</text>
+          </g>
+          <g class="s11-card">
+            <path class="panel" d="M770 760 H1050 V960 L1030 980 H750 V780 Z" />
+            <path class="panel-ver s11-verde" d="M770 760 H1050 V960 L1030 980 H750 V780 Z" opacity="0.35" />
+            <path class="hud-fino" d="M762 800 H1038" />
+            <text class="barra" x="768" y="789" data-layout-ignore>// MÓDULO 02</text>
+            <text class="activo" x="1032" y="789" text-anchor="end" data-layout-ignore>ACTIVO</text>
+            <g class="s11-flecha">
+              <path class="ln-ver brillo-ver" d="M834 837 A38 38 0 1 1 796 837" />
+              <path class="ln-ver" d="M781 834 L796 837 L797 822" />
+              <circle class="verde" cx="815" cy="870" r="7" />
+            </g>
+            <text class="numero brillo-ver" x="876" y="890">+120</text>
+            <text class="chico" x="879" y="918" data-layout-ignore>PUNTOS</text>
+            <text class="nombre" x="768" y="956">Puntos</text>
+          </g>
+          <g class="s11-card">
+            <path class="panel" d="M410 1015 H690 V1215 L670 1235 H390 V1035 Z" />
+            <path class="panel-ver s11-verde" d="M410 1015 H690 V1215 L670 1235 H390 V1035 Z" opacity="0.35" />
+            <path class="hud-fino" d="M402 1055 H678" />
+            <text class="barra" x="408" y="1044" data-layout-ignore>// MÓDULO 03</text>
+            <text class="activo" x="672" y="1044" text-anchor="end" data-layout-ignore>ACTIVO</text>
+            <path class="ln" d="M418 1082 H436 L450 1146 H516 L530 1100 H442" />
+            <circle class="ln" cx="460" cy="1164" r="7" /><circle class="ln" cx="508" cy="1164" r="7" />
+            <circle class="verde brillo-ver" cx="470" cy="1118" r="10" />
+            <circle class="verde brillo-ver" cx="488" cy="1112" r="10" />
+            <circle class="verde brillo-ver" cx="506" cy="1120" r="10" />
+            <text class="numero brillo-ver" x="560" y="1134">+7</text>
+            <text class="chico" x="562" y="1162" data-layout-ignore>VENTAS</text>
+            <text class="nombre" x="408" y="1211">Tienda online</text>
+          </g>
+        </svg>
+        <div class="s11-marca">Scalerics</div>
+        <div class="etiqueta">
+          <span class="s11-e1">Bot · Puntos · Tienda</span>
+          <span class="s11-e2">Sistema completo</span>
+        </div>
+      </div>
+      <div class="s11-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-juntos";
+      const DUR = 1.79;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const JUNTOS = 0.48;
+      const O = "540 870";
+
+      // los anillos siguen girando (arrancan donde los dejó s10)
+      tl.fromTo(q(".s11-anillo-a"), { rotation: 240, svgOrigin: O }, { rotation: 330, svgOrigin: O, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s11-anillo-b"), { rotation: -180, svgOrigin: O }, { rotation: -260, svgOrigin: O, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s11-anillo-c"), { rotation: 320, svgOrigin: O }, { rotation: 460, svgOrigin: O, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s11-flecha"), { rotation: 450, svgOrigin: "815 870" }, { rotation: 560, svgOrigin: "815 870", duration: DUR, ease: "none" }, 0);
+
+      // "trabajando": la energía verde corre de cada módulo al núcleo, con una chispa adelante
+      const DESDE = [[330, 870, 430, 870], [750, 870, 650, 870], [540, 1015, 540, 980]];
+      qa(".s11-en").forEach((p, i) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L });
+        tl.to(p, { strokeDashoffset: 0, duration: 0.35, ease: "power2.in" }, 0.02 + i * 0.06);
+      });
+      qa(".s11-chispa").forEach((c, i) => {
+        const [x1, y1, x2, y2] = DESDE[i];
+        gsap.set(c, { x: x1, y: y1, opacity: 0 });
+        tl.to(c, { opacity: 1, duration: 0.03 }, 0.02 + i * 0.06);
+        tl.to(c, { x: x2, y: y2, duration: 0.35, ease: "power2.in" }, 0.02 + i * 0.06);
+        tl.to(c, { opacity: 0, duration: 0.05 }, 0.38 + i * 0.06);
+      });
+      // los módulos tiemblan un poco al cargar
+      qa(".s11-card").forEach((c, i) => {
+        [[5, 0.1], [-4, 0.16], [0, 0.22]].forEach(([x, d]) => tl.to(c, { x, duration: 0.03, ease: "none" }, d + i * 0.04));
+      });
+      tl.to(q(".s11-centro"), { scale: 1.3, svgOrigin: O, duration: 0.4, ease: "power2.in" }, 0.05);
+
+      // "juntos": pulso grande, flash de 0.1 s, ondas y todo se enciende en verde
+      tl.to(q(".s11-centro"), { scale: 2.1, svgOrigin: O, duration: 0.12, ease: "back.out(3)" }, JUNTOS);
+      tl.to(q(".s11-centro"), { scale: 1.2, svgOrigin: O, duration: 0.5, ease: "power2.out" }, JUNTOS + 0.15);
+      tl.fromTo(q(".s11-flash"), { opacity: 0 }, { opacity: 0.35, duration: 0.03, ease: "none", immediateRender: false }, JUNTOS);
+      tl.to(q(".s11-flash"), { opacity: 0, duration: 0.09, ease: "power2.out" }, JUNTOS + 0.04);
+      tl.fromTo(q(".s11-onda"), { scale: 1, opacity: 1, svgOrigin: O }, { scale: 16, opacity: 0, svgOrigin: O, duration: 0.8, ease: "power2.out", immediateRender: false }, JUNTOS);
+      tl.fromTo(q(".s11-onda2"), { scale: 1, opacity: 0.9, svgOrigin: O }, { scale: 10, opacity: 0, svgOrigin: O, duration: 0.7, ease: "power2.out", immediateRender: false }, JUNTOS + 0.1);
+      tl.to(qa(".s11-verde"), { opacity: 1, duration: 0.06, stagger: 0.03 }, JUNTOS);
+      tl.to(q(".s11-todo"), { scale: 1.05, transformOrigin: "540px 900px", duration: 0.12, ease: "power3.out" }, JUNTOS);
+      tl.to(q(".s11-todo"), { scale: 1.02, transformOrigin: "540px 900px", duration: 0.7, ease: "power2.out" }, JUNTOS + 0.12);
+      tl.to(q(".s11-marca"), { color: "#5ce611", duration: 0.08 }, JUNTOS);
+      tl.to(q(".s11-marca"), { color: "#e8f6ff", duration: 0.5 }, JUNTOS + 0.3);
+
+      // etiqueta
+      tl.fromTo(q(".s11-e1"), { opacity: 1 }, { opacity: 0, duration: 0.12 }, JUNTOS - 0.1);
+      tl.fromTo(q(".s11-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, JUNTOS + 0.05);
+
+      // salida: corte de pantalla
+      tl.to(q("#s11-escena"), { opacity: 0, scaleY: 0.02, transformOrigin: "50% 47%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

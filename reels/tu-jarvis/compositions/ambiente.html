@@ -1,0 +1,93 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="ambiente"] .cian { fill: none; stroke: #38e1ff; stroke-width: 3; stroke-linecap: square; }
+    [data-composition-id="ambiente"] .grilla { stroke: rgba(56, 225, 255, 0.06); stroke-width: 1; }
+    [data-composition-id="ambiente"] .amb-barrido { position: absolute; left: 0; right: 0; top: 0; height: 140px; background: linear-gradient(180deg, rgba(56, 225, 255, 0) 0%, rgba(56, 225, 255, 0.07) 85%, rgba(56, 225, 255, 0.35) 100%); }
+    [data-composition-id="ambiente"] .amb-punto { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #38e1ff; }
+    [data-composition-id="ambiente"] .amb-mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 18px; letter-spacing: 0.2em; color: rgba(56, 225, 255, 0.55); }
+    [data-composition-id="ambiente"] .amb-onda { position: absolute; left: 340px; top: 1590px; width: 400px; height: 70px; }
+    [data-composition-id="ambiente"] .amb-barra { position: absolute; bottom: 0; width: 8px; height: 70px; border-radius: 4px; background: #38e1ff; transform-origin: 50% 50%; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 780px 1150px at 540px 900px, rgba(2, 10, 16, 0) 60%, rgba(2, 10, 16, 0.8) 100%); }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="53.64">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="53.64" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="amb-grilla">
+          <line class="grilla" x1="0" y1="560" x2="1080" y2="560" /><line class="grilla" x1="0" y1="760" x2="1080" y2="760" />
+          <line class="grilla" x1="0" y1="960" x2="1080" y2="960" /><line class="grilla" x1="0" y1="1160" x2="1080" y2="1160" />
+          <line class="grilla" x1="0" y1="1360" x2="1080" y2="1360" /><line class="grilla" x1="140" y1="0" x2="140" y2="1920" />
+          <line class="grilla" x1="340" y1="0" x2="340" y2="1920" /><line class="grilla" x1="540" y1="0" x2="540" y2="1920" />
+          <line class="grilla" x1="740" y1="0" x2="740" y2="1920" /><line class="grilla" x1="940" y1="0" x2="940" y2="1920" />
+        </g>
+        <!-- esquinas del visor -->
+        <path class="cian amb-esq" d="M40 120 V40 H120" /><path class="cian amb-esq" d="M960 40 H1040 V120" />
+        <path class="cian amb-esq" d="M40 1800 V1880 H120" /><path class="cian amb-esq" d="M1040 1800 V1880 H960" />
+      </svg>
+      <div class="amb-mono" data-layout-ignore style="left:64px; top:1820px;">SYS · ONLINE</div>
+      <div class="amb-mono amb-reloj" data-layout-ignore style="right:64px; top:1820px; text-align:right;">REC ●</div>
+      <div class="amb-punto"></div><div class="amb-punto"></div><div class="amb-punto"></div><div class="amb-punto"></div>
+      <div class="amb-punto"></div><div class="amb-punto"></div><div class="amb-punto"></div><div class="amb-punto"></div>
+      <div class="amb-punto"></div><div class="amb-punto"></div>
+      <!-- la onda de voz del asistente (solo mientras habla él) -->
+      <div class="amb-onda">
+        <div class="amb-barra" style="left:0px"></div><div class="amb-barra" style="left:24px"></div><div class="amb-barra" style="left:48px"></div>
+        <div class="amb-barra" style="left:72px"></div><div class="amb-barra" style="left:96px"></div><div class="amb-barra" style="left:120px"></div>
+        <div class="amb-barra" style="left:144px"></div><div class="amb-barra" style="left:168px"></div><div class="amb-barra" style="left:192px"></div>
+        <div class="amb-barra" style="left:216px"></div><div class="amb-barra" style="left:240px"></div><div class="amb-barra" style="left:264px"></div>
+        <div class="amb-barra" style="left:288px"></div><div class="amb-barra" style="left:312px"></div><div class="amb-barra" style="left:336px"></div>
+        <div class="amb-barra" style="left:360px"></div><div class="amb-barra" style="left:384px"></div>
+      </div>
+      <div class="amb-barrido"></div>
+      <div class="amb-vineta"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 53.64;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // el visor se "enciende" al principio
+      tl.fromTo(qa(".amb-esq"), { opacity: 0, scale: 1.3, transformOrigin: "50% 50%" }, { opacity: 0.9, scale: 1, transformOrigin: "50% 50%", duration: 0.4, stagger: 0.05, ease: "power3.out" }, 0);
+      tl.fromTo(q(".amb-grilla"), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.1);
+      tl.fromTo(q(".amb-reloj"), { opacity: 0.3 }, { opacity: 1, duration: 0.5, yoyo: true, repeat: Math.floor(DUR / 0.5) - 1, ease: "steps(1)" }, 0);
+
+      // barrido de escaneo de arriba abajo cada 4 s
+      const per = 4;
+      tl.fromTo(q(".amb-barrido"), { y: -160 }, { y: 1940, duration: 1.6, ease: "none", repeat: Math.floor(DUR / per) - 1, repeatDelay: per - 1.6 }, 0.3);
+
+      // partículas que flotan (posiciones fijas, nada de azar)
+      const P = [[120, 700], [260, 1450], [420, 640], [610, 1500], [780, 760], [930, 1380], [180, 1100], [880, 1050], [540, 1600], [330, 980]];
+      qa(".amb-punto").forEach((p, i) => {
+        gsap.set(p, { x: P[i][0], y: P[i][1], opacity: 0 });
+        const d = 3 + (i % 3);
+        tl.fromTo(p, { opacity: 0 }, { opacity: 0.6, duration: d / 2, yoyo: true, repeat: Math.floor(DUR / (d / 2)) - 1, ease: "sine.inOut" }, (i * 0.37) % 2);
+        tl.fromTo(p, { y: P[i][1] }, { y: P[i][1] - 60, duration: d, yoyo: true, repeat: Math.floor(DUR / d) - 1, ease: "sine.inOut" }, 0);
+      });
+
+      // onda de voz: aparece cuando habla el asistente (3.25 a 24.1) y las barras laten
+      const HABLA = [3.25, 24.1];
+      const onda = q(".amb-onda");
+      gsap.set(onda, { opacity: 0 });
+      tl.to(onda, { opacity: 1, duration: 0.25 }, HABLA[0] - 0.1);
+      tl.to(onda, { opacity: 0, duration: 0.3 }, HABLA[1]);
+      qa(".amb-barra").forEach((b, i) => {
+        const d = 0.11 + (i % 5) * 0.025;
+        const lo = 0.15 + ((i * 7) % 5) * 0.03;
+        tl.fromTo(b, { scaleY: lo }, { scaleY: 0.45 + ((i * 3) % 7) * 0.08, duration: d, yoyo: true, repeat: Math.floor((HABLA[1] - HABLA[0]) / d) - 1, ease: "sine.inOut" }, HABLA[0]);
+        tl.to(b, { scaleY: 0.08, duration: 0.2 }, HABLA[1]);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

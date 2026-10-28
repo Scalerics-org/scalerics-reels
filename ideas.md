@@ -5,7 +5,7 @@
 - 27-10 · `bot-whatsapp` · Bot · "¿Por qué las marcas grandes te contestan en dos minutos un domingo a la noche?" · Comentá BOT
 - 27-10 · `descuentos` · Puntos · "Hacer descuentos es la forma más cara de vender." · Comentá PUNTOS
 - 27-10 · `el-de-enfrente` · Todo Scalerics · "El de enfrente te está robando clientes." · Comentá CLIENTES
-- 27-10 · `clientes-fantasma` · Puntos + Bot · especial Halloween: "Tu local está lleno de fantasmas." · Comentá FANTASMA
+- 27-10 · `clientes-fantasma` · Puntos + Bot · especial Halloween: "Tu local está lleno de fantasmas." · Comentá FANTASMA [formato H · estilo líneas]
 - 28-10 · `nadie-te-encuentra` · Sitio web · "Si tu negocio no aparece en Google, para el que busca no existe." · Comentá WEB
 - 28-10 · `tu-instagram-no-es-tuyo` · Tienda online · "Tu Instagram no es tuyo. Es de Meta, y te lo puede cerrar mañana." · Comentá TIENDA
 - 28-10 · `cerraste-a-las-8` · Tienda online · "Bajás la cortina a las ocho y hasta mañana vendés cero." · Comentá VENDER
@@ -31,8 +31,8 @@
 - 28-10 · `comprobante-de-transferencia` · Tienda online · "Si para comprarte hay que mandarte el comprobante de la transferencia, no te compran." · Comentá COBRAR
 - 28-10 · `antes-de-entrar` · Sitio web · "Tu cliente decide si te compra antes de pisar tu local." · Comentá WEB
 - 28-10 · `crecer-sin-contratar` · Todo Scalerics · "Para crecer no necesitás contratar a nadie. Necesitás dejar de hacer todo a mano." · Comentá CRECER
-- 28-10 · `negocio-zombi` · Todo Scalerics · especial Halloween 2, más color y efectos: "Tu negocio no está muerto. Es peor: es un zombi." · Comentá ZOMBI
-- 28-10 · `tu-jarvis` · Todo Scalerics · formato nuevo: HUD + voz de asistente (lo hace Claude en la compu de Juan)
+- 28-10 · `negocio-zombi` · Todo Scalerics · especial Halloween 2, más color y efectos: "Tu negocio no está muerto. Es peor: es un zombi." · Comentá ZOMBI [formato H · estilo zombi con ambiente]
+- 28-10 · `tu-jarvis` · Todo Scalerics · "¿Y si tu comercio tuviera su propio JARVIS?" · Comentá JARVIS [formato B+G · estilo HUD, dos voces]
 
 ## En curso
 

@@ -1,0 +1,10 @@
+[
+  {"t": 0.44, "sfx": "glitch-1", "vol": 0.25, "max": 0.4},
+  {"t": 0.6, "sfx": "scan", "vol": 0.28},
+  {"t": 1.65, "sfx": "typing", "vol": 0.22, "max": 0.5},
+  {"t": 2.7, "sfx": "hud-on", "vol": 0.32},
+  {"t": 3.35, "sfx": "blip", "vol": 0.35},
+  {"t": 4.15, "sfx": "whoosh-short", "vol": 0.2},
+  {"t": 4.9, "sfx": "blip", "vol": 0.35},
+  {"t": 6.35, "sfx": "ping", "vol": 0.3}
+]

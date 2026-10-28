@@ -1,0 +1,137 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-buenos-dias"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-buenos-dias"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-buenos-dias"] .panel { fill: rgba(56, 225, 255, 0.06); stroke: #38e1ff; stroke-width: 2.5; stroke-linejoin: miter; }
+    [data-composition-id="s02-buenos-dias"] .hud { fill: none; stroke: #38e1ff; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s02-buenos-dias"] .hud-fino { fill: none; stroke: #38e1ff; stroke-width: 1.5; opacity: 0.6; }
+    [data-composition-id="s02-buenos-dias"] .hud-grueso { fill: none; stroke: #38e1ff; stroke-width: 7; stroke-linecap: butt; }
+    [data-composition-id="s02-buenos-dias"] .nucleo { fill: #38e1ff; }
+    [data-composition-id="s02-buenos-dias"] .brillo { filter: drop-shadow(0 0 14px rgba(56, 225, 255, 0.8)); }
+    [data-composition-id="s02-buenos-dias"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #38e1ff; white-space: pre; }
+    [data-composition-id="s02-buenos-dias"] .hora { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 200px; letter-spacing: 0.02em; fill: #e8f6ff; }
+    [data-composition-id="s02-buenos-dias"] .saludo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.12em; fill: #38e1ff; white-space: pre; }
+    [data-composition-id="s02-buenos-dias"] .chip { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.15em; fill: #e8f6ff; }
+    [data-composition-id="s02-buenos-dias"] .ok { fill: #5ce611; }
+    [data-composition-id="s02-buenos-dias"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #38e1ff; }
+    [data-composition-id="s02-buenos-dias"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-buenos-dias" data-width="1080" data-height="1920" data-duration="1.59">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="1.59" data-track-index="0">
+      <div class="s02-capa s02-zoom">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el panel de bienvenida -->
+          <g class="s02-panel">
+            <path class="panel" d="M166 620 H940 V1194 L914 1220 H140 V646 Z" />
+            <path class="hud-fino" d="M140 668 H940" />
+            <path class="hud" d="M166 612 H300 M914 1228 H780" />
+            <text class="mono" x="164" y="653">// PARTE DIARIO</text>
+            <text class="mono" x="916" y="653" text-anchor="end" opacity="0.7">LUN · 07:00</text>
+            <!-- sol de líneas -->
+            <g class="s02-sol">
+              <circle class="hud" cx="830" cy="770" r="28" />
+              <path class="hud s02-rayos" d="M830 728 V712 M830 812 V828 M788 770 H772 M872 770 H888 M800 740 L789 729 M860 800 L871 811 M860 740 L871 729 M800 800 L789 811" />
+            </g>
+            <!-- la hora -->
+            <text class="hora s02-h1" x="540" y="1010" text-anchor="middle">06:59</text>
+            <text class="hora s02-h2 brillo" x="540" y="1010" text-anchor="middle">07:00</text>
+            <text class="saludo s02-saludo brillo" x="540" y="1086" text-anchor="middle">BUENOS DÍAS, MARTÍN</text>
+            <!-- lo que ya está andando -->
+            <path class="hud-fino" d="M180 1124 H900" />
+            <g class="s02-chip"><circle class="ok" cx="214" cy="1166" r="8" /><text class="chip" x="232" y="1175">WHATSAPP</text></g>
+            <g class="s02-chip"><circle class="ok" cx="474" cy="1166" r="8" /><text class="chip" x="492" y="1175">AGENDA</text></g>
+            <g class="s02-chip"><circle class="ok" cx="704" cy="1166" r="8" /><text class="chip" x="722" y="1175">TIENDA</text></g>
+            <line class="hud s02-scan brillo" x1="150" y1="0" x2="930" y2="0" opacity="0" />
+          </g>
+          <!-- el núcleo chico: el que habla -->
+          <g class="s02-nucleo">
+            <circle class="hud-fino" cx="250" cy="770" r="80" />
+            <circle class="hud s02-anillo-a" cx="250" cy="770" r="68" stroke-dasharray="40 12 8 12" />
+            <circle class="hud-grueso s02-anillo-b" cx="250" cy="770" r="54" stroke-dasharray="20 9" opacity="0.55" />
+            <circle class="hud s02-anillo-c" cx="250" cy="770" r="40" stroke-dasharray="100 26" />
+            <circle class="nucleo s02-centro brillo" cx="250" cy="770" r="17" />
+          </g>
+        </svg>
+      </div>
+      <div class="etiqueta"><span class="s02-e1">Parte de la mañana</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-buenos-dias";
+      const DUR = 1.59;
+      const NS = "http://www.w3.org/2000/svg";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const DIAS = 0.25;
+      const MARTIN = 0.55;
+
+      // texto que se tipea letra por letra (tspans con opacity)
+      function tipear(el, t0, dt) {
+        const txt = el.textContent;
+        el.textContent = "";
+        const letras = Array.from(txt).map((ch) => {
+          const s = document.createElementNS(NS, "tspan");
+          s.textContent = ch;
+          el.appendChild(s);
+          return s;
+        });
+        gsap.set(letras, { opacity: 0 });
+        letras.forEach((s, i) => tl.to(s, { opacity: 1, duration: 0.02, ease: "none" }, t0 + i * dt));
+      }
+
+      // el panel se abre con corte (arranca ya visible, aplastado)
+      tl.fromTo(q(".s02-panel"), { scaleY: 0.4, svgOrigin: "540 920" }, { scaleY: 1, svgOrigin: "540 920", duration: 0.18, ease: "expo.out" }, 0);
+      tl.fromTo(q(".s02-zoom"), { scale: 1.07 }, { scale: 1, duration: DUR, ease: "power2.out" }, 0);
+
+      // núcleo: pop, anillos girando y centro que late con la voz
+      tl.fromTo(q(".s02-nucleo"), { scale: 0.7, opacity: 0.6, svgOrigin: "250 770" }, { scale: 1, opacity: 1, svgOrigin: "250 770", duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s02-anillo-a"), { rotation: 0, transformOrigin: "50% 50%" }, { rotation: 160, transformOrigin: "50% 50%", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s02-anillo-b"), { rotation: 0, transformOrigin: "50% 50%" }, { rotation: -120, transformOrigin: "50% 50%", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s02-anillo-c"), { rotation: 0, transformOrigin: "50% 50%" }, { rotation: 240, transformOrigin: "50% 50%", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s02-centro"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1.45, transformOrigin: "50% 50%", duration: 0.09, yoyo: true, repeat: 13, ease: "sine.inOut" }, 0.02);
+
+      // la hora: 06:59 salta a 07:00 con glitch
+      gsap.set(q(".s02-h2"), { opacity: 0 });
+      tl.fromTo(q(".s02-h1"), { x: 0 }, { x: 8, duration: 0.03, yoyo: true, repeat: 3, ease: "none" }, 0.1);
+      tl.to(q(".s02-h1"), { opacity: 0, duration: 0.02 }, DIAS);
+      tl.to(q(".s02-h2"), { opacity: 1, duration: 0.02 }, DIAS);
+      [[-16, 0], [12, 0.04], [-6, 0.08], [0, 0.12]].forEach(([x, d]) => tl.to(q(".s02-h2"), { x, duration: 0.03, ease: "none" }, DIAS + d));
+
+      // el saludo se tipea
+      tipear(q(".s02-saludo"), 0.04, 0.04);
+
+      // el sol se prende y gira
+      gsap.set(q(".s02-sol"), { opacity: 0 });
+      tl.fromTo(q(".s02-sol"), { scale: 0.4, svgOrigin: "830 770" }, { scale: 1, svgOrigin: "830 770", duration: 0.3, ease: "back.out(2.2)" }, 0.12);
+      tl.to(q(".s02-sol"), { opacity: 1, duration: 0.1 }, 0.12);
+      tl.fromTo(q(".s02-rayos"), { rotation: 0, transformOrigin: "50% 50%" }, { rotation: 90, transformOrigin: "50% 50%", duration: DUR, ease: "none" }, 0);
+
+      // barrido de escaneo por el panel
+      tl.fromTo(q(".s02-scan"), { y: 680 }, { y: 1200, duration: 0.6, ease: "power1.inOut" }, 0.35);
+      tl.to(q(".s02-scan"), { opacity: 1, duration: 0.05 }, 0.35);
+      tl.to(q(".s02-scan"), { opacity: 0, duration: 0.1 }, 0.9);
+
+      // los sistemas que ya están andando
+      const chips = qa(".s02-chip");
+      gsap.set(chips, { opacity: 0, y: 10 });
+      chips.forEach((c, i) => tl.to(c, { opacity: 1, y: 0, duration: 0.16, ease: "back.out(2)" }, 0.72 + i * 0.14));
+
+      // etiqueta
+      tl.fromTo(q(".s02-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, MARTIN);
+
+      // salida: corte
+      tl.to(q("#s02-escena"), { opacity: 0, scaleY: 0.02, transformOrigin: "50% 47%", duration: 0.15, ease: "power3.in" }, DUR - 0.15);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

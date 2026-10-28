@@ -1,0 +1,249 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-mensajes"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-mensajes"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-mensajes"] .panel { fill: rgba(56, 225, 255, 0.06); stroke: #38e1ff; stroke-width: 2.5; stroke-linejoin: miter; }
+    [data-composition-id="s03-mensajes"] .hud { fill: none; stroke: #38e1ff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-mensajes"] .hud-fino { fill: none; stroke: #38e1ff; stroke-width: 1.5; opacity: 0.6; }
+    [data-composition-id="s03-mensajes"] .ln { fill: none; stroke: #e8f6ff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-mensajes"] .verde { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-mensajes"] .relleno-ok { fill: rgba(92, 230, 17, 0.2); stroke: none; }
+    [data-composition-id="s03-mensajes"] .punto-ok { fill: #5ce611; }
+    [data-composition-id="s03-mensajes"] .nucleo { fill: #38e1ff; }
+    [data-composition-id="s03-mensajes"] .brillo { filter: drop-shadow(0 0 14px rgba(56, 225, 255, 0.8)); }
+    [data-composition-id="s03-mensajes"] .brillo-ok { filter: drop-shadow(0 0 14px rgba(92, 230, 17, 0.85)); }
+    [data-composition-id="s03-mensajes"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #38e1ff; }
+    [data-composition-id="s03-mensajes"] .mono-b { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.08em; fill: #e8f6ff; }
+    [data-composition-id="s03-mensajes"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.05em; fill: rgba(56, 225, 255, 0.75); }
+    [data-composition-id="s03-mensajes"] .burbuja-in { fill: rgba(232, 246, 255, 0.08); stroke: #e8f6ff; stroke-width: 2; }
+    [data-composition-id="s03-mensajes"] .burbuja-out { fill: rgba(56, 225, 255, 0.2); stroke: #38e1ff; stroke-width: 2; }
+    [data-composition-id="s03-mensajes"] .txt { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: #e8f6ff; }
+    [data-composition-id="s03-mensajes"] .num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 68px; fill: #e8f6ff; }
+    [data-composition-id="s03-mensajes"] .zz { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; fill: #38e1ff; }
+    [data-composition-id="s03-mensajes"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #38e1ff; }
+    [data-composition-id="s03-mensajes"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-mensajes" data-width="1080" data-height="1920" data-duration="4.86">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="4.86" data-track-index="0">
+      <div class="s03-capa s03-zoom">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <clipPath id="s03-ventana"><rect x="96" y="852" width="418" height="270" /></clipPath>
+          </defs>
+
+          <!-- // ANOCHE: la línea de tiempo 00:00 a 07:00 -->
+          <g class="s03-linea">
+            <path class="panel" d="M112 600 H990 V748 L968 770 H90 V622 Z" />
+            <path class="hud-fino" d="M90 648 H990" />
+            <path class="hud" d="M112 592 H260" />
+            <text class="mono" x="114" y="633">// ANOCHE</text>
+            <text class="mono s03-reloj" x="900" y="633" text-anchor="end">00:00</text>
+            <g class="s03-mini">
+              <circle class="hud s03-mini-aro" cx="950" cy="624" r="15" stroke-dasharray="14 6" />
+              <circle class="nucleo s03-mini-c brillo" cx="950" cy="624" r="6" />
+            </g>
+            <path class="hud-fino" d="M140 700 H940" />
+            <path class="hud-fino" d="M140 690 V710 M254 694 V706 M369 694 V706 M483 694 V706 M597 694 V706 M711 694 V706 M826 694 V706 M940 690 V710" />
+            <line class="hud s03-avance brillo" x1="140" y1="700" x2="940" y2="700" stroke-width="4" />
+            <g class="s03-marcas">
+              <circle class="punto-ok" cx="176" cy="680" r="5" /><circle class="punto-ok" cx="238" cy="680" r="5" />
+              <circle class="punto-ok" cx="301" cy="680" r="5" /><circle class="punto-ok" cx="352" cy="680" r="5" />
+              <circle class="punto-ok" cx="420" cy="680" r="5" /><circle class="punto-ok" cx="471" cy="680" r="5" />
+              <circle class="punto-ok" cx="530" cy="680" r="5" /><circle class="punto-ok" cx="584" cy="680" r="5" />
+            </g>
+            <g class="s03-cursor">
+              <path class="hud" d="M140 672 V728" />
+              <circle class="nucleo brillo" cx="140" cy="700" r="8" />
+            </g>
+            <text class="hora" x="140" y="752" text-anchor="middle">00</text><text class="hora" x="254" y="752" text-anchor="middle">01</text>
+            <text class="hora" x="369" y="752" text-anchor="middle">02</text><text class="hora" x="483" y="752" text-anchor="middle">03</text>
+            <text class="hora" x="597" y="752" text-anchor="middle">04</text><text class="hora" x="711" y="752" text-anchor="middle">05</text>
+            <text class="hora" x="826" y="752" text-anchor="middle">06</text><text class="hora" x="940" y="752" text-anchor="middle">07</text>
+          </g>
+
+          <!-- mientras dormías: luna y zetas -->
+          <g class="s03-luna">
+            <path class="ln" d="M575 930 A92 92 0 1 0 610 1060 A72 72 0 1 1 575 930 Z" />
+            <text class="zz s03-z" x="620" y="960">z</text>
+            <text class="zz s03-z" x="650" y="925">z</text>
+            <text class="zz s03-z" x="682" y="890">Z</text>
+            <text class="mono" x="540" y="1150" text-anchor="middle">MODO NOCHE</text>
+          </g>
+
+          <!-- // WHATSAPP: burbujas en cascada + contador -->
+          <g class="s03-wa">
+            <path class="panel" d="M112 795 H520 V1223 L498 1245 H90 V817 Z" />
+            <path class="hud-fino" d="M90 843 H520" />
+            <text class="mono" x="114" y="828">// WHATSAPP</text>
+            <circle class="punto-ok s03-online" cx="496" cy="819" r="7" />
+            <g clip-path="url(#s03-ventana)">
+              <g class="s03-lista">
+                <g class="s03-b"><rect class="burbuja-in" x="106" y="858" width="214" height="44" rx="10" /><text class="txt" x="122" y="888">¿Abren mañana?</text></g>
+                <g class="s03-b"><rect class="burbuja-out" x="276" y="912" width="228" height="44" rx="10" /><text class="txt" x="292" y="942">Sí, de 9 a 20 h.</text></g>
+                <g class="s03-b"><rect class="burbuja-in" x="106" y="966" width="228" height="44" rx="10" /><text class="txt" x="122" y="996">¿Tienen talle M?</text></g>
+                <g class="s03-b"><rect class="burbuja-out" x="292" y="1020" width="212" height="44" rx="10" /><text class="txt" x="308" y="1050">Sí, quedan dos.</text></g>
+                <g class="s03-b"><rect class="burbuja-in" x="106" y="1074" width="214" height="44" rx="10" /><text class="txt" x="122" y="1104">¿Hacen envíos?</text></g>
+                <g class="s03-b"><rect class="burbuja-out" x="256" y="1128" width="248" height="44" rx="10" /><text class="txt" x="272" y="1158">Sí, a todo el país.</text></g>
+                <g class="s03-b"><rect class="burbuja-in" x="106" y="1182" width="262" height="44" rx="10" /><text class="txt" x="122" y="1212">¿Precio del combo?</text></g>
+                <g class="s03-b"><rect class="burbuja-out" x="236" y="1236" width="268" height="44" rx="10" /><text class="txt" x="252" y="1266">$ 690, va la foto.</text></g>
+              </g>
+            </g>
+            <path class="hud-fino" d="M106 1136 H504" />
+            <text class="mono" x="114" y="1200">MENSAJES</text>
+            <text class="num s03-n1" x="420" y="1212" text-anchor="end">0</text>
+            <g class="s03-ok1 brillo-ok">
+              <circle class="verde" cx="470" cy="1189" r="22" />
+              <path class="verde" d="M459 1190 L467 1198 L482 1181" />
+            </g>
+          </g>
+
+          <!-- // AGENDA: cinco casilleros que se llenan -->
+          <g class="s03-ag">
+            <path class="panel" d="M582 795 H990 V1223 L968 1245 H560 V817 Z" />
+            <path class="hud-fino" d="M560 843 H990" />
+            <text class="mono" x="584" y="828">// AGENDA · HOY</text>
+            <g class="s03-fila"><text class="hora" x="584" y="888">09:00</text><rect class="hud-fino" x="680" y="860" width="286" height="40" rx="6" /><rect class="relleno-ok s03-relleno" x="680" y="860" width="286" height="40" rx="6" /><text class="txt s03-nombre" x="696" y="889">Lucía P.</text><path class="verde s03-tilde" d="M932 880 L940 888 L954 872" /></g>
+            <g class="s03-fila"><text class="hora" x="584" y="944">10:30</text><rect class="hud-fino" x="680" y="916" width="286" height="40" rx="6" /><rect class="relleno-ok s03-relleno" x="680" y="916" width="286" height="40" rx="6" /><text class="txt s03-nombre" x="696" y="945">Diego R.</text><path class="verde s03-tilde" d="M932 936 L940 944 L954 928" /></g>
+            <g class="s03-fila"><text class="hora" x="584" y="1000">12:00</text><rect class="hud-fino" x="680" y="972" width="286" height="40" rx="6" /><rect class="relleno-ok s03-relleno" x="680" y="972" width="286" height="40" rx="6" /><text class="txt s03-nombre" x="696" y="1001">Sofía M.</text><path class="verde s03-tilde" d="M932 992 L940 1000 L954 984" /></g>
+            <g class="s03-fila"><text class="hora" x="584" y="1056">15:30</text><rect class="hud-fino" x="680" y="1028" width="286" height="40" rx="6" /><rect class="relleno-ok s03-relleno" x="680" y="1028" width="286" height="40" rx="6" /><text class="txt s03-nombre" x="696" y="1057">Ana L.</text><path class="verde s03-tilde" d="M932 1048 L940 1056 L954 1040" /></g>
+            <g class="s03-fila"><text class="hora" x="584" y="1112">17:00</text><rect class="hud-fino" x="680" y="1084" width="286" height="40" rx="6" /><rect class="relleno-ok s03-relleno" x="680" y="1084" width="286" height="40" rx="6" /><text class="txt s03-nombre" x="696" y="1113">Pablo G.</text><path class="verde s03-tilde" d="M932 1104 L940 1112 L954 1096" /></g>
+            <path class="hud-fino" d="M576 1136 H974" />
+            <text class="mono" x="584" y="1200">TURNOS</text>
+            <text class="num s03-n2" x="890" y="1212" text-anchor="end">0</text>
+            <g class="s03-ok2 brillo-ok">
+              <circle class="verde" cx="940" cy="1189" r="22" />
+              <path class="verde" d="M929 1190 L937 1198 L952 1181" />
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="etiqueta"><span class="s03-e1">Mientras dormías</span><span class="s03-e2">32 respondidos</span><span class="s03-e3">32 respondidos · 5 turnos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-mensajes";
+      const DUR = 4.86;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (palabras de la locución)
+      const DORMIAS = 0.16;
+      const CONTESTE = 0.76;
+      const DOS = 1.93;
+      const AGENDE = 2.16;
+      const TURNOS = 3.96;
+
+      const etiqueta = (el, t) => tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, t);
+      const fuera = (el, t) => tl.to(el, { opacity: 0, y: -10, duration: 0.15 }, t);
+      const glitch = (el, t, saltos) => saltos.forEach(([x, d]) => tl.to(el, { x, duration: 0.03, ease: "none" }, t + d));
+
+      // zoom de toda la escena + pequeño golpe en los hitos
+      tl.fromTo(q(".s03-zoom"), { scale: 1.05 }, { scale: 1, duration: DUR, ease: "power1.out" }, 0);
+
+      // ---- la línea de tiempo se abre con corte y se recorre toda la noche ----
+      tl.fromTo(q(".s03-linea"), { scaleY: 0.4, svgOrigin: "540 685" }, { scaleY: 1, svgOrigin: "540 685", duration: 0.2, ease: "expo.out" }, 0);
+      tl.fromTo(q(".s03-mini-aro"), { rotation: 0, transformOrigin: "50% 50%" }, { rotation: 540, transformOrigin: "50% 50%", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s03-mini-c"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1.5, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 37, ease: "sine.inOut" }, 0);
+      const FIN = DUR - 0.3;
+      tl.fromTo(q(".s03-avance"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, transformOrigin: "0% 50%", duration: FIN - DORMIAS, ease: "power1.inOut" }, DORMIAS);
+      tl.fromTo(q(".s03-cursor"), { x: 0 }, { x: 800, duration: FIN - DORMIAS, ease: "power1.inOut" }, DORMIAS);
+      const reloj = q(".s03-reloj");
+      const hh = { v: 0 };
+      tl.fromTo(hh, { v: 0 }, {
+        v: 420, duration: FIN - DORMIAS, ease: "power1.inOut",
+        onUpdate: () => { const m = Math.round(hh.v); reloj.textContent = String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"); },
+      }, DORMIAS);
+      tl.fromTo(reloj, { opacity: 1 }, { opacity: 0.3, duration: 0.05, yoyo: true, repeat: 3, ease: "none", immediateRender: false }, FIN);
+
+      // ---- la luna: modo noche ----
+      tl.fromTo(q(".s03-luna"), { scale: 0.8, opacity: 0.5, svgOrigin: "540 1010" }, { scale: 1, opacity: 1, svgOrigin: "540 1010", duration: 0.3, ease: "back.out(2)" }, 0);
+      qa(".s03-z").forEach((z, i) => {
+        tl.fromTo(z, { y: 10, opacity: 0.2 }, { y: -22, opacity: 1, duration: 0.45, yoyo: true, repeat: 3, ease: "sine.inOut" }, i * 0.15);
+      });
+      tl.to(q(".s03-luna"), { x: 235, scale: 0.62, svgOrigin: "540 1010", duration: 0.35, ease: "power3.inOut" }, CONTESTE - 0.05);
+      glitch(q(".s03-luna"), AGENDE - 0.06, [[250, 0], [220, 0.03], [245, 0.06]]);
+      tl.to(q(".s03-luna"), { opacity: 0, duration: 0.03, yoyo: true, repeat: 2, ease: "none" }, AGENDE - 0.06);
+      tl.to(q(".s03-luna"), { opacity: 0, scale: 0.2, svgOrigin: "540 1010", duration: 0.12, ease: "power3.in" }, AGENDE + 0.04);
+
+      // ---- "contesté": entra el panel de WhatsApp desde la izquierda ----
+      gsap.set(q(".s03-wa"), { x: -520, opacity: 0 });
+      tl.to(q(".s03-wa"), { x: 0, opacity: 1, duration: 0.28, ease: "power3.out" }, CONTESTE);
+      glitch(q(".s03-wa"), CONTESTE + 0.28, [[14, 0], [-8, 0.03], [0, 0.06]]);
+      tl.fromTo(q(".s03-online"), { opacity: 1 }, { opacity: 0.25, duration: 0.2, yoyo: true, repeat: 15, ease: "none", immediateRender: false }, CONTESTE);
+
+      // burbujas en cascada rápida; la lista sube cuando se llena la ventana
+      const burbujas = qa(".s03-b");
+      gsap.set(burbujas, { opacity: 0 });
+      const marcas = qa(".s03-marcas circle");
+      gsap.set(marcas, { opacity: 0 });
+      burbujas.forEach((b, i) => {
+        const t = CONTESTE + 0.16 + i * 0.13;
+        const derecha = i % 2 === 1;
+        tl.fromTo(b, { scale: 0.6, transformOrigin: derecha ? "100% 50%" : "0% 50%" }, { scale: 1, transformOrigin: derecha ? "100% 50%" : "0% 50%", duration: 0.18, ease: "back.out(2)", immediateRender: false }, t);
+        tl.to(b, { opacity: 1, duration: 0.06 }, t);
+        if (i >= 5) tl.to(q(".s03-lista"), { y: -(i - 4) * 54, duration: 0.12, ease: "power2.out" }, t);
+        tl.fromTo(marcas[i], { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.15, ease: "back.out(3)", immediateRender: false }, t);
+        tl.to(marcas[i], { opacity: 1, duration: 0.04 }, t);
+      });
+
+      // contador 0 → 32
+      const n1 = q(".s03-n1");
+      const c1 = { v: 0 };
+      tl.fromTo(c1, { v: 0 }, { v: 32, duration: DOS - (CONTESTE + 0.1), ease: "power1.in", onUpdate: () => { n1.textContent = String(Math.round(c1.v)); } }, CONTESTE + 0.1);
+      gsap.set(q(".s03-ok1"), { opacity: 0 });
+      tl.fromTo(q(".s03-ok1"), { scale: 0.3, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.25, ease: "back.out(3)", immediateRender: false }, DOS);
+      tl.to(q(".s03-ok1"), { opacity: 1, duration: 0.05 }, DOS);
+      tl.to(n1, { fill: "#5ce611", duration: 0.1 }, DOS);
+      tl.fromTo(n1, { scale: 1, transformOrigin: "100% 50%" }, { scale: 1.18, transformOrigin: "100% 50%", duration: 0.1, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, DOS);
+      tl.to(q(".s03-zoom"), { scale: 1.03, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, DOS);
+
+      // ---- "agendé cinco turnos": entra la agenda desde la derecha ----
+      gsap.set(q(".s03-ag"), { x: 520, opacity: 0 });
+      tl.to(q(".s03-ag"), { x: 0, opacity: 1, duration: 0.28, ease: "power3.out" }, AGENDE);
+      glitch(q(".s03-ag"), AGENDE + 0.28, [[-14, 0], [8, 0.03], [0, 0.06]]);
+      const rellenos = qa(".s03-relleno");
+      const nombres = qa(".s03-nombre");
+      const tildes = qa(".s03-tilde");
+      gsap.set(nombres, { opacity: 0 });
+      gsap.set(tildes, { opacity: 0 });
+      const T0 = AGENDE + 0.32;
+      rellenos.forEach((r, k) => {
+        const t = T0 + k * 0.3;
+        tl.fromTo(r, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, transformOrigin: "0% 50%", duration: 0.2, ease: "power3.out" }, t);
+        tl.fromTo(nombres[k], { x: -12 }, { x: 0, duration: 0.18, ease: "power3.out", immediateRender: false }, t + 0.05);
+        tl.to(nombres[k], { opacity: 1, duration: 0.12 }, t + 0.05);
+        tl.fromTo(tildes[k], { scale: 0.3, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.18, ease: "back.out(3)", immediateRender: false }, t + 0.12);
+        tl.to(tildes[k], { opacity: 1, duration: 0.05 }, t + 0.12);
+      });
+      // contador de turnos: sube uno con cada casillero
+      const n2 = q(".s03-n2");
+      const c2 = { v: 0 };
+      tl.fromTo(c2, { v: 0 }, { v: 5, duration: 1.5, ease: "none", onUpdate: () => { n2.textContent = String(Math.min(5, Math.floor(c2.v + 0.001))); } }, T0 - 0.3);
+      gsap.set(q(".s03-ok2"), { opacity: 0 });
+      tl.fromTo(q(".s03-ok2"), { scale: 0.3, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.25, ease: "back.out(3)", immediateRender: false }, TURNOS);
+      tl.to(q(".s03-ok2"), { opacity: 1, duration: 0.05 }, TURNOS);
+      tl.to(n2, { fill: "#5ce611", duration: 0.1 }, TURNOS);
+      tl.to(q(".s03-zoom"), { scale: 0.97, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, TURNOS);
+
+      // etiquetas
+      etiqueta(q(".s03-e1"), 0);
+      fuera(q(".s03-e1"), DOS - 0.05);
+      etiqueta(q(".s03-e2"), DOS + 0.05);
+      fuera(q(".s03-e2"), TURNOS - 0.05);
+      etiqueta(q(".s03-e3"), TURNOS + 0.05);
+
+      // salida: corte
+      tl.to(q("#s03-escena"), { opacity: 0, scaleY: 0.02, transformOrigin: "50% 47%", duration: 0.18, ease: "power3.in" }, DUR - 0.18);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
