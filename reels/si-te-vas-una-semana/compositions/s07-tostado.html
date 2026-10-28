@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-tostado"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-tostado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-tostado"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-tostado"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-tostado"] .barra { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linejoin: round; }
+    [data-composition-id="s07-tostado"] .dia { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; fill: rgba(239, 238, 229, 0.62); }
+    [data-composition-id="s07-tostado"] .cero { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 84px; fill: #5ce611; }
+    [data-composition-id="s07-tostado"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-tostado"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-tostado" data-width="1080" data-height="1920" data-duration="3.02">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="3.02" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s07-todo">
+          <!-- el sol -->
+          <g class="s07-sol">
+            <circle class="ln s07-dib-sol" cx="440" cy="740" r="62" />
+            <path class="ln s07-rayos" d="M440 652 V628 M440 828 V852 M352 740 H328 M528 740 H552 M378 678 L361 661 M502 678 L519 661 M378 802 L361 819 M502 802 L519 819" />
+            <path class="ln s07-cara" d="M412 726 H432 M448 726 H468 M432 726 Q440 718 448 726 M414 756 Q440 776 466 756" />
+          </g>
+          <!-- la valija -->
+          <g class="s07-valija">
+            <rect class="ln" x="640" y="700" width="150" height="110" rx="14" />
+            <path class="ln" d="M685 700 V680 Q685 670 695 670 H735 Q745 670 745 680 V700" />
+            <path class="ln" d="M680 700 V810 M750 700 V810" />
+            <path class="ln-ac" d="M640 740 H790" />
+          </g>
+
+          <!-- gráfico de la semana -->
+          <line class="ln s07-base" x1="260" y1="1170" x2="820" y2="1170" />
+          <g class="s07-barras">
+            <rect class="barra s07-b" x="280" y="1040" width="50" height="130" rx="6" />
+            <rect class="barra s07-b" x="360" y="1000" width="50" height="170" rx="6" />
+            <rect class="barra s07-b" x="440" y="1060" width="50" height="110" rx="6" />
+            <rect class="barra s07-b" x="520" y="1010" width="50" height="160" rx="6" />
+            <rect class="barra s07-b" x="600" y="980" width="50" height="190" rx="6" />
+            <rect class="barra s07-b" x="680" y="950" width="50" height="220" rx="6" />
+            <rect class="barra s07-b" x="760" y="1020" width="50" height="150" rx="6" />
+          </g>
+          <g class="s07-dias">
+            <text class="dia" x="305" y="1212" text-anchor="middle">L</text>
+            <text class="dia" x="385" y="1212" text-anchor="middle">M</text>
+            <text class="dia" x="465" y="1212" text-anchor="middle">M</text>
+            <text class="dia" x="545" y="1212" text-anchor="middle">J</text>
+            <text class="dia" x="625" y="1212" text-anchor="middle">V</text>
+            <text class="dia" x="705" y="1212" text-anchor="middle">S</text>
+            <text class="dia" x="785" y="1212" text-anchor="middle">D</text>
+          </g>
+          <text class="cero s07-cero" x="540" y="1100" text-anchor="middle">$ 0</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">Volvés tostado</span><span class="s07-e2">Una semana en cero</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-tostado";
+      const DUR = 3.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const TOSTADO = 0.11;
+      const SEMANA = 1.31;
+      const VENTAS = 1.81;
+      const PERDIDAS = 2.11;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      tl.fromTo(q(".s07-todo"), { scale: 0.97, svgOrigin: "540 940" }, { scale: 1.02, svgOrigin: "540 940", duration: DUR, ease: "none" }, 0);
+
+      // "tostado": el sol arranca medio dibujado y gira; la valija hace pop
+      dibujar([q(".s07-dib-sol")], 0, 0.45, 0.5);
+      dibujar([q(".s07-cara")], TOSTADO + 0.1, 0.4);
+      gsap.set(q(".s07-rayos"), { opacity: 0 });
+      tl.to(q(".s07-rayos"), { opacity: 1, duration: 0.15 }, TOSTADO);
+      tl.fromTo(q(".s07-rayos"), { rotation: -20, scale: 0.8, svgOrigin: "440 740" }, { rotation: 70, scale: 1, svgOrigin: "440 740", duration: DUR - TOSTADO, ease: "power1.out", immediateRender: false }, TOSTADO);
+      tl.fromTo(q(".s07-valija"), { opacity: 0, scale: 0.6, y: -30, svgOrigin: "715 810" }, { opacity: 1, scale: 1, y: 0, svgOrigin: "715 810", duration: 0.4, ease: "back.out(2)" }, TOSTADO + 0.35);
+      tl.to(q(".s07-valija"), { rotation: -6, svgOrigin: "715 810", duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, TOSTADO + 0.8);
+      tl.fromTo(q(".s07-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, TOSTADO);
+
+      // "semana": las 7 barras crecen
+      dibujar([q(".s07-base")], SEMANA - 0.45, 0.35);
+      gsap.set(qa(".s07-dias text"), { opacity: 0 });
+      qa(".s07-b").forEach((b, i) => {
+        tl.fromTo(b, { opacity: 0, scaleY: 0, svgOrigin: "540 1170" }, { opacity: 1, scaleY: 1, svgOrigin: "540 1170", duration: 0.3, ease: "back.out(1.6)" }, SEMANA - 0.35 + i * 0.05);
+      });
+      tl.to(qa(".s07-dias text"), { opacity: 1, duration: 0.2, stagger: 0.04 }, SEMANA - 0.3);
+      tl.to(q(".s07-e1"), { opacity: 0, duration: 0.2 }, SEMANA - 0.1);
+      tl.fromTo(q(".s07-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, SEMANA);
+
+      // "ventas perdidas": se caen todas a cero
+      qa(".s07-b").forEach((b, i) => {
+        tl.to(b, { scaleY: 0.04, opacity: 0.45, svgOrigin: "540 1170", duration: 0.3, ease: "power3.in" }, VENTAS + i * 0.04);
+      });
+      gsap.set(q(".s07-cero"), { opacity: 0 });
+      tl.fromTo(q(".s07-cero"), { opacity: 0, scale: 1.5, svgOrigin: "540 1072" }, { opacity: 1, scale: 1, svgOrigin: "540 1072", duration: 0.3, ease: "power3.out" }, PERDIDAS);
+      tl.to(q(".s07-cero"), { x: 6, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, PERDIDAS + 0.3);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

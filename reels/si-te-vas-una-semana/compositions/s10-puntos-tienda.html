@@ -1,0 +1,197 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-puntos-tienda"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-puntos-tienda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-puntos-tienda"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-puntos-tienda"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-puntos-tienda"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-puntos-tienda"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s10-puntos-tienda"] .relleno { fill: #5ce611; }
+    [data-composition-id="s10-puntos-tienda"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.18em; fill: rgba(239, 238, 229, 0.7); }
+    [data-composition-id="s10-puntos-tienda"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #5ce611; }
+    [data-composition-id="s10-puntos-tienda"] .num { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 56px; fill: #5ce611; }
+    [data-composition-id="s10-puntos-tienda"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 25px; fill: #efeee5; }
+    [data-composition-id="s10-puntos-tienda"] .precio { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s10-puntos-tienda"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-puntos-tienda"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s10-puntos-tienda" data-width="1080" data-height="1920" data-duration="7.54">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="7.54" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- A: Scalerics Puntos -->
+        <g class="s10-a">
+          <g class="s10-tel">
+            <rect class="ln s10-dib-tel" x="190" y="660" width="270" height="480" rx="44" />
+            <line class="ln s10-dib-tel" x1="295" y1="686" x2="355" y2="686" />
+            <g class="s10-card">
+              <rect class="ln-4 s10-dib-card" x="218" y="740" width="214" height="250" rx="18" />
+              <text class="mono" x="325" y="790" text-anchor="middle">PUNTOS</text>
+              <text class="num s10-n1" x="325" y="870" text-anchor="middle">+40</text>
+              <text class="num s10-n2" x="325" y="870" text-anchor="middle">+120</text>
+              <circle class="relleno s10-sello" cx="257" cy="940" r="11" />
+              <circle class="relleno s10-sello" cx="291" cy="940" r="11" />
+              <circle class="relleno s10-sello" cx="325" cy="940" r="11" />
+              <circle class="ln-4" cx="359" cy="940" r="11" />
+              <circle class="ln-4" cx="393" cy="940" r="11" />
+            </g>
+          </g>
+          <!-- el aviso que viaja -->
+          <g class="s10-aviso">
+            <rect class="ln-ac" x="-120" y="-34" width="240" height="68" rx="20" />
+            <text class="ui" x="0" y="9" text-anchor="middle">¡Tenés puntos!</text>
+          </g>
+          <!-- el cliente que dejó de venir -->
+          <g class="s10-cli">
+            <g class="s10-cli-in">
+              <circle class="ln" cx="0" cy="-96" r="14" />
+              <path class="ln s10-cli-cuerpo" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" />
+            </g>
+          </g>
+          <path class="ln-ac s10-vuelve" d="M760 1150 Q640 1190 520 1150" />
+          <path class="ln-ac s10-vuelve-p" d="M546 1138 L518 1150 L544 1168" />
+        </g>
+
+        <!-- B: tienda online -->
+        <g class="s10-b">
+          <g class="s10-nav">
+            <rect class="ln s10-dib-nav" x="200" y="630" width="680" height="380" rx="24" />
+            <line class="ln s10-dib-nav" x1="200" y1="684" x2="880" y2="684" />
+            <circle class="ln-4 s10-dib-nav" cx="236" cy="657" r="8" />
+            <circle class="ln-4 s10-dib-nav" cx="264" cy="657" r="8" />
+            <rect class="ln-tenue s10-dib-nav" x="300" y="646" width="440" height="22" rx="11" />
+          </g>
+          <g class="s10-prod1">
+            <rect class="ln-4" x="240" y="716" width="280" height="270" rx="16" />
+            <path class="ln" d="M330 760 L360 744 H400 L430 760 L452 800 L428 812 L420 796 V880 H340 V796 L332 812 L308 800 Z" />
+            <text class="precio" x="262" y="930">$ 690</text>
+          </g>
+          <g class="s10-prod2">
+            <rect class="ln-4" x="560" y="716" width="280" height="270" rx="16" />
+            <path class="ln" d="M640 790 H760 L748 880 H652 Z M672 790 V770 Q672 746 700 746 Q728 746 728 770 V790" />
+            <text class="precio" x="582" y="930">$ 1.290</text>
+            <path class="ln-ac s10-tilde2" d="M780 912 L794 926 L818 900" />
+          </g>
+          <g class="s10-pago">
+            <rect class="ln-ac" x="300" y="1050" width="480" height="80" rx="40" />
+            <path class="ln-ac s10-tilde" d="M340 1090 L356 1106 L384 1074" />
+            <text class="mono-ac" x="412" y="1099">PAGO APROBADO</text>
+          </g>
+          <g class="s10-playa">
+            <path class="ln" d="M-70 -120 Q0 -180 70 -120 Z" />
+            <path class="ln" d="M-70 -120 q17.5 11 35 0 q17.5 11 35 0 q17.5 11 35 0 q17.5 11 35 0" />
+            <path class="ln" d="M0 -120 L-10 0 M-60 0 H60" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Scalerics Puntos</span><span class="s10-e2">Tienda online</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-puntos-tienda";
+      const DUR = 7.54;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const PUNTOS = 0.14;
+      const AVISO = 1.84;
+      const DEJO = 2.74;
+      const VENIR = 3.04;
+      const Y = 3.62;
+      const TIENDA = 3.94;
+      const VENDE = 4.84;
+      const COBRA = 5.24;
+      const MERCADO = 5.74;
+      const ESTES = 6.64;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // ---------- A: Puntos ----------
+      tl.fromTo(q(".s10-a"), { scale: 0.98, svgOrigin: "540 900" }, { scale: 1.02, svgOrigin: "540 900", duration: Y, ease: "none" }, 0);
+      dibujar(qa(".s10-dib-tel"), 0, 0.5, 0.5);
+      dibujar([q(".s10-dib-card")], 0.05, 0.45, 0.4);
+      gsap.set(qa(".s10-n1, .s10-n2, .s10-sello"), { opacity: 0 });
+      tl.fromTo(q(".s10-card .mono"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.1);
+      qa(".s10-sello").forEach((s, i) => tl.fromTo(s, { opacity: 0, scale: 0.3, svgOrigin: (257 + i * 34) + " 940" }, { opacity: 1, scale: 1, svgOrigin: (257 + i * 34) + " 940", duration: 0.25, ease: "back.out(2.4)" }, PUNTOS + 0.1 + i * 0.12));
+      tl.fromTo(q(".s10-n1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power3.out" }, PUNTOS + 0.1);
+      tl.to(q(".s10-n1"), { opacity: 0, y: -14, duration: 0.12 }, PUNTOS + 0.5);
+      tl.fromTo(q(".s10-n2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, ease: "power3.out" }, PUNTOS + 0.6);
+      tl.to(q(".s10-card"), { scale: 1.06, svgOrigin: "325 865", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, PUNTOS + 0.62);
+      tl.fromTo(q(".s10-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, PUNTOS);
+
+      // el cliente que dejó de venir: apagado a la derecha
+      gsap.set(q(".s10-cli"), { x: 800, y: 1110 });
+      gsap.set(q(".s10-cli-in"), { scale: 1.6, svgOrigin: "0 0" });
+      tl.fromTo(q(".s10-cli"), { opacity: 0 }, { opacity: 0.35, duration: 0.4 }, 0.6);
+
+      // "aviso": la burbuja sale del celular y viaja al cliente
+      gsap.set(q(".s10-aviso"), { opacity: 0 });
+      tl.fromTo(q(".s10-aviso"), { x: 330, y: 720, opacity: 0, scale: 0.6 }, { x: 420, y: 700, opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.8)" }, AVISO - 0.25);
+      tl.to(q(".s10-aviso"), { x: 760, y: 840, duration: 0.6, ease: "power2.inOut" }, AVISO + 0.15);
+      tl.to(q(".s10-aviso"), { scale: 1.1, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, AVISO + 0.75);
+
+      // "dejó de venir": se prende y vuelve
+      tl.to(q(".s10-cli"), { opacity: 1, duration: 0.25 }, DEJO);
+      tl.to(q(".s10-cli-in"), { y: -14, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, DEJO);
+      tl.to(q(".s10-aviso"), { opacity: 0, y: 800, duration: 0.3 }, VENIR);
+      tl.to(q(".s10-cli"), { x: 640, duration: 0.5, ease: "power1.inOut" }, VENIR);
+      tl.fromTo(q(".s10-cli-cuerpo"), { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, VENIR);
+      dibujar([q(".s10-vuelve")], DEJO + 0.1, 0.4);
+      gsap.set(q(".s10-vuelve-p"), { opacity: 0 });
+      tl.to(q(".s10-vuelve-p"), { opacity: 1, duration: 0.1 }, DEJO + 0.45);
+
+      // transición
+      tl.to(q(".s10-a"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, Y - 0.2);
+      tl.to(q(".s10-e1"), { opacity: 0, duration: 0.2 }, Y - 0.2);
+
+      // ---------- B: tienda online ----------
+      gsap.set(qa(".s10-prod1, .s10-prod2, .s10-pago, .s10-playa"), { opacity: 0 });
+      tl.fromTo(q(".s10-b"), { scale: 0.98, svgOrigin: "540 900" }, { scale: 1.02, svgOrigin: "540 900", duration: DUR - Y, ease: "none" }, Y);
+      dibujar(qa(".s10-dib-nav"), Y + 0.05, 0.45);
+      pop(q(".s10-prod1"), TIENDA, "380 986");
+      pop(q(".s10-prod2"), TIENDA + 0.15, "700 986");
+      gsap.set(q(".s10-tilde2"), { opacity: 0 });
+      tl.fromTo(q(".s10-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, TIENDA);
+
+      // "vende": el producto 1 salta
+      tl.to(q(".s10-prod1"), { y: -16, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, VENDE);
+      // "cobra": pago aprobado
+      pop(q(".s10-pago"), COBRA, "540 1090");
+      dibujar([q(".s10-tilde")], COBRA + 0.2, 0.3);
+      // "Mercado Pago": el tilde late y vende otro
+      tl.to(q(".s10-pago"), { scale: 1.06, svgOrigin: "540 1090", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, MERCADO);
+      tl.to(q(".s10-tilde2"), { opacity: 1, duration: 0.05 }, MERCADO + 0.3);
+      tl.fromTo(q(".s10-tilde2"), { scale: 0.4, svgOrigin: "799 913" }, { scale: 1, svgOrigin: "799 913", duration: 0.3, ease: "back.out(2.4)", immediateRender: false }, MERCADO + 0.3);
+      tl.to(q(".s10-prod2"), { y: -16, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, MERCADO + 0.3);
+
+      // "aunque estés en la playa": la sombrilla chica al lado
+      gsap.set(q(".s10-playa"), { x: 900, y: 1190 });
+      tl.fromTo(q(".s10-playa"), { opacity: 0, y: 1230 }, { opacity: 1, y: 1190, duration: 0.35, ease: "back.out(2)" }, ESTES - 0.3);
+      tl.to(q(".s10-playa"), { y: 1180, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, ESTES + 0.2);
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

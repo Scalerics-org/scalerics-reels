@@ -1,0 +1,10 @@
+[
+  {"t": 0.07, "sfx": "pop", "vol": 0.3},
+  {"t": 1.47, "sfx": "click-soft", "vol": 0.22},
+  {"t": 2.5, "sfx": "whoosh-short", "vol": 0.2},
+  {"t": 3.02, "sfx": "pop", "vol": 0.22},
+  {"t": 3.37, "sfx": "notification", "vol": 0.3, "max": 0.6},
+  {"t": 4.77, "sfx": "click", "vol": 0.22},
+  {"t": 5.57, "sfx": "pop", "vol": 0.26},
+  {"t": 5.97, "sfx": "ping", "vol": 0.28, "max": 0.6}
+]

@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-sistema"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-sistema"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-sistema"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-une { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 4 14; }
+    [data-composition-id="s08-sistema"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s08-sistema"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s08-sistema"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-sistema"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-sistema" data-width="1080" data-height="1920" data-duration="4.52">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.52" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- la playa: sombrilla y reposera -->
+        <g class="s08-playa"><g class="s08-playa-in">
+          <path class="ln s08-dib-p" d="M-200 -250 Q-60 -370 80 -250 Z" />
+          <path class="ln s08-dib-p" d="M-200 -250 q35 22 70 0 q35 22 70 0 q35 22 70 0 q35 22 70 0" />
+          <path class="ln s08-dib-p" d="M-60 -310 Q-80 -280 -90 -250 M-60 -310 Q-40 -280 -30 -250" />
+          <path class="ln s08-dib-p" d="M-58 -250 L-80 0" />
+          <path class="ln s08-dib-p" d="M-40 0 L0 -50 H110 L140 -100" />
+          <path class="ln s08-dib-p" d="M20 -50 L60 0 M100 -50 L80 0" />
+          <path class="ln s08-dib-p" d="M-240 0 H240" />
+          <g class="s08-lujo">
+            <path class="ln" d="M190 0 V-150" />
+            <rect class="ln" x="110" y="-250" width="160" height="70" rx="12" />
+            <text class="cartel" x="190" y="-203" text-anchor="middle">LUJO</text>
+          </g>
+          <g class="s08-badge"><circle class="ln-badge" cx="270" cy="-250" r="18" /><path class="ln-badge" d="M263 -257 L277 -243 M277 -257 L263 -243" /></g>
+        </g></g>
+
+        <!-- engranaje -->
+        <g class="s08-engranaje">
+          <path class="ln s08-dib-g s08-dientes" d="" />
+          <circle class="ln-ac s08-dib-g" cx="540" cy="880" r="42" />
+        </g>
+
+        <!-- tu local, prendido -->
+        <g class="s08-local">
+          <path class="ln s08-dib-l" d="M-120 0 V-170 H120 V0" />
+          <path class="ln s08-dib-l" d="M-140 -170 H140 L122 -222 H-122 Z" />
+          <path class="ln s08-dib-l" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+          <rect class="ln s08-dib-l" x="-100" y="-122" width="58" height="52" rx="5" />
+          <rect class="ln s08-dib-l" x="42" y="-122" width="58" height="52" rx="5" />
+          <rect class="vidrio s08-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+          <rect class="vidrio s08-luz" x="50" y="-114" width="42" height="36" rx="3" />
+          <path class="ln s08-dib-l" d="M-24 0 V-96 H24 V0" />
+        </g>
+
+        <!-- el engranaje une las dos cosas -->
+        <path class="ln-une s08-une" d="M410 940 Q340 990 270 1000" />
+        <path class="ln-une s08-une" d="M670 940 Q740 990 800 1000" />
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">No es un lujo</span><span class="s08-e2">Un sistema que trabaja</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-sistema";
+      const DUR = 4.52;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const LUJO = 0.89;
+      const ES = 1.72;
+      const SISTEMA = 2.09;
+      const TRABAJE = 2.59;
+      const CUANDO = 2.99;
+      const ESTAS = 3.69;
+
+      // dientes del engranaje (geometría fija)
+      const CX = 540, CY = 880, RIN = 96, ROUT = 128, N = 9;
+      const pt = (r, a) => (CX + r * Math.cos(a)).toFixed(1) + " " + (CY + r * Math.sin(a)).toFixed(1);
+      let d = "";
+      for (let i = 0; i < N; i++) {
+        const a = -Math.PI / 2 + (i * 2 * Math.PI) / N;
+        const p0 = pt(RIN, a - 0.2), p1 = pt(ROUT, a - 0.12), p2 = pt(ROUT, a + 0.12), p3 = pt(RIN, a + 0.2);
+        const sig = pt(RIN, a + (2 * Math.PI) / N - 0.2);
+        d += (i === 0 ? "M" + p0 : "") + " L" + p1 + " L" + p2 + " L" + p3 + " A" + RIN + " " + RIN + " 0 0 1 " + sig;
+      }
+      q(".s08-dientes").setAttribute("d", d + " Z");
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // la playa grande al centro, arranca medio dibujada
+      gsap.set(q(".s08-playa"), { x: 520, y: 1140 });
+      dibujar(qa(".s08-dib-p"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s08-playa-in"), { rotation: -1.5, svgOrigin: "0 0" }, { rotation: 1.5, svgOrigin: "0 0", duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+      tl.fromTo(q(".s08-lujo"), { opacity: 0, scale: 0.7, svgOrigin: "190 0" }, { opacity: 1, scale: 1, svgOrigin: "190 0", duration: 0.35, ease: "back.out(2)" }, 0.3);
+      tl.fromTo(q(".s08-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.5);
+
+      // "lujo": badge X y tiembla
+      gsap.set(q(".s08-badge"), { opacity: 0 });
+      tl.fromTo(q(".s08-badge"), { opacity: 0, scale: 0.4, svgOrigin: "270 -250" }, { opacity: 1, scale: 1, svgOrigin: "270 -250", duration: 0.35, ease: "back.out(2.2)" }, LUJO);
+      tl.to(q(".s08-lujo"), { x: 6, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, LUJO + 0.05);
+
+      // "Es": el cartel se va y la playa se achica a la izquierda
+      tl.to(qa(".s08-lujo, .s08-badge"), { opacity: 0, duration: 0.25 }, ES - 0.1);
+      tl.to(q(".s08-playa"), { x: 250, y: 1120, duration: 0.5, ease: "power3.inOut" }, ES - 0.1);
+      tl.to(q(".s08-playa-in"), { scale: 0.5, svgOrigin: "0 0", duration: 0.5, ease: "power3.inOut" }, ES - 0.1);
+      tl.to(q(".s08-e1"), { opacity: 0, duration: 0.2 }, ES - 0.1);
+
+      // "sistema": el engranaje se dibuja y gira
+      dibujar(qa(".s08-dib-g"), SISTEMA - 0.3, 0.5);
+      tl.fromTo(q(".s08-engranaje"), { rotation: -30, svgOrigin: "540 880" }, { rotation: 120, svgOrigin: "540 880", duration: DUR - SISTEMA + 0.3, ease: "none" }, SISTEMA - 0.3);
+      tl.fromTo(q(".s08-engranaje"), { scale: 1 }, { scale: 1.12, svgOrigin: "540 880", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, SISTEMA + 0.1);
+      tl.fromTo(q(".s08-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, SISTEMA);
+
+      // "trabaje cuando vos no estás": el local aparece prendido y el engranaje une todo
+      gsap.set(q(".s08-local"), { x: 850, y: 1120, scale: 0.62, svgOrigin: "0 0" });
+      dibujar(qa(".s08-dib-l"), TRABAJE, 0.4);
+      gsap.set(qa(".s08-luz"), { opacity: 0 });
+      tl.to(qa(".s08-luz"), { opacity: 0.85, duration: 0.2 }, TRABAJE + 0.35);
+      gsap.set(qa(".s08-une"), { opacity: 0 });
+      tl.to(qa(".s08-une"), { opacity: 1, duration: 0.3, stagger: 0.12 }, CUANDO);
+      tl.fromTo(qa(".s08-une"), { strokeDashoffset: 0 }, { strokeDashoffset: -54, duration: DUR - CUANDO, ease: "none", immediateRender: false }, CUANDO);
+      tl.to(qa(".s08-luz"), { opacity: 0.4, duration: 0.1, ease: "none", yoyo: true, repeat: 1 }, ESTAS);
+
+      // salida
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

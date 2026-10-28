@@ -1,0 +1,168 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-todo-vos"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-todo-vos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-todo-vos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-todo-vos"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-todo-vos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-todo-vos"] .ln-hilo { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2 10; }
+    [data-composition-id="s04-todo-vos"] .relleno { fill: #5ce611; }
+    [data-composition-id="s04-todo-vos"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.62); }
+    [data-composition-id="s04-todo-vos"] .vos { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; fill: #5ce611; }
+    [data-composition-id="s04-todo-vos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-todo-vos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-todo-vos" data-width="1080" data-height="1920" data-duration="7.64">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="7.64" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s04-todo">
+          <!-- hilos: todo cuelga de vos -->
+          <path class="ln-hilo s04-hilo" d="M260 840 L478 948" />
+          <path class="ln-hilo s04-hilo" d="M540 830 L540 892" />
+          <path class="ln-hilo s04-hilo" d="M820 840 L602 948" />
+
+          <g transform="translate(0 40)">
+          <!-- celular -->
+          <g class="s04-tel">
+            <rect class="ln s04-dib-tel" x="205" y="610" width="110" height="180" rx="22" />
+            <path class="ln s04-dib-tel" d="M245 628 H275" />
+            <g class="s04-msg1"><rect class="relleno" x="222" y="650" width="62" height="28" rx="10" /></g>
+            <g class="s04-msg2"><rect class="ln-4" x="238" y="690" width="62" height="28" rx="10" /></g>
+            <g class="s04-msg3"><rect class="relleno" x="222" y="730" width="48" height="28" rx="10" /></g>
+            <text class="rotulo s04-r1" x="260" y="580" text-anchor="middle">MENSAJES</text>
+          </g>
+          <!-- cuaderno -->
+          <g class="s04-cua">
+            <rect class="ln s04-dib-cua" x="470" y="616" width="140" height="170" rx="10" />
+            <path class="ln s04-dib-cua" d="M500 616 V786" />
+            <path class="ln-4 s04-renglon" d="M518 660 H590" />
+            <path class="ln-4 s04-renglon" d="M518 696 H580" />
+            <path class="ln-4 s04-renglon" d="M518 732 H592" />
+            <path class="ln-ac s04-renglon" d="M518 764 L530 774 L552 752" />
+            <text class="rotulo s04-r2" x="540" y="580" text-anchor="middle">PEDIDOS</text>
+          </g>
+          <!-- ficha de clientes -->
+          <g class="s04-fic">
+            <rect class="ln s04-dib-fic" x="740" y="626" width="160" height="160" rx="14" />
+            <g class="s04-cara s04-c1"><circle class="ln-4" cx="776" cy="666" r="13" /><path class="ln-4" d="M800 666 H872" /></g>
+            <g class="s04-cara s04-c2"><circle class="ln-4" cx="776" cy="706" r="13" /><path class="ln-4" d="M800 706 H860" /></g>
+            <g class="s04-cara s04-c3"><circle class="ln-ac" cx="776" cy="746" r="13" /><path class="ln-ac" d="M800 746 H868" /></g>
+            <text class="rotulo s04-r3" x="820" y="580" text-anchor="middle">CLIENTES</text>
+          </g>
+          </g>
+
+          <!-- vos -->
+          <g class="s04-vos">
+            <circle class="ln s04-dib-vos" cx="540" cy="930" r="34" />
+            <path class="ln s04-dib-vos" d="M540 964 V1070" />
+            <path class="ln s04-brazo-i" d="M540 990 L478 948" />
+            <path class="ln s04-brazo-d" d="M540 990 L602 948" />
+            <path class="ln s04-dib-vos" d="M540 1070 L506 1176 M540 1070 L574 1176" />
+            <path class="ln-4 s04-gota" d="M598 900 q8 14 0 20 q-8 -6 0 -20 Z" />
+            <path class="ln-4 s04-gota" d="M484 892 q8 14 0 20 q-8 -6 0 -20 Z" />
+            <text class="vos s04-vos-txt" x="540" y="1226" text-anchor="middle">VOS</text>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Todo depende de vos</span><span class="s04-e2">Vos · vos · vos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-todo-vos";
+      const DUR = 7.64;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const TODO = 0.5;
+      const DEPENDE = 0.8;
+      const VOS = 1.2;
+      const CONTESTAS = 2.2;
+      const MENSAJES = 3.0;
+      const ANOTAS = 4.1;
+      const PEDIDOS = 4.7;
+      const ACORDAS = 5.9;
+      const CLIENTE = 6.6;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const golpe = (el, origen, t) => tl.to(el, { scale: 1.1, svgOrigin: origen, duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t) => tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+
+      tl.fromTo(q(".s04-todo"), { scale: 0.97, svgOrigin: "540 900" }, { scale: 1.02, svgOrigin: "540 900", duration: DUR, ease: "none" }, 0);
+
+      // vos arranca medio dibujado, con los brazos abajo
+      dibujar(qa(".s04-dib-vos"), 0, 0.5, 0.45);
+      tl.fromTo(q(".s04-brazo-i"), { rotation: -95, svgOrigin: "540 990", opacity: 1 }, { rotation: 0, svgOrigin: "540 990", duration: 0.4, ease: "back.out(1.6)" }, DEPENDE + 0.1);
+      tl.fromTo(q(".s04-brazo-d"), { rotation: 95, svgOrigin: "540 990", opacity: 1 }, { rotation: 0, svgOrigin: "540 990", duration: 0.4, ease: "back.out(1.6)" }, DEPENDE + 0.1);
+      gsap.set(q(".s04-vos-txt"), { opacity: 0 });
+      gsap.set(qa(".s04-gota"), { opacity: 0 });
+
+      // "todo": aparecen los tres íconos
+      gsap.set(qa(".s04-msg1, .s04-msg2, .s04-msg3, .s04-cara, .s04-r1, .s04-r2, .s04-r3"), { opacity: 0 });
+      dibujar(qa(".s04-dib-tel"), TODO - 0.2, 0.4);
+      dibujar(qa(".s04-dib-cua"), TODO - 0.1, 0.4);
+      dibujar(qa(".s04-dib-fic"), TODO, 0.4);
+      tl.fromTo(q(".s04-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, TODO);
+      // "depende": bajan los hilos hasta vos
+      qa(".s04-hilo").forEach((h, i) => tl.fromTo(h, { opacity: 0 }, { opacity: 1, duration: 0.3 }, DEPENDE + i * 0.08));
+      // "vos": rótulo VOS
+      tl.fromTo(q(".s04-vos-txt"), { opacity: 0, scale: 0.6, svgOrigin: "540 1216" }, { opacity: 1, scale: 1, svgOrigin: "540 1216", duration: 0.3, ease: "back.out(2)" }, VOS);
+      golpe(q(".s04-vos"), "540 1176", VOS);
+      tl.to(q(".s04-vos"), { y: -6, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, VOS + 0.4);
+
+      // "contestás los mensajes"
+      tl.to(qa(".s04-e1, .s04-vos-txt"), { opacity: 0, duration: 0.2 }, CONTESTAS - 0.15);
+      tl.fromTo(q(".s04-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, CONTESTAS - 0.05);
+      aparecer(q(".s04-r1"), CONTESTAS);
+      golpe(q(".s04-tel"), "260 700", CONTESTAS);
+      pop(q(".s04-msg1"), CONTESTAS + 0.1, "253 664");
+      pop(q(".s04-msg2"), CONTESTAS + 0.45, "269 704");
+      pop(q(".s04-msg3"), MENSAJES, "246 744");
+      tl.to(q(".s04-brazo-i"), { rotation: -12, svgOrigin: "540 990", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 3 }, CONTESTAS + 0.1);
+
+      // "anotás los pedidos"
+      aparecer(q(".s04-r2"), ANOTAS);
+      golpe(q(".s04-cua"), "540 700", ANOTAS);
+      dibujar(qa(".s04-renglon"), ANOTAS + 0.05, 0.3);
+      tl.to(q(".s04-cua"), { rotation: 3, svgOrigin: "540 786", duration: 0.15, ease: "sine.inOut", yoyo: true, repeat: 1 }, PEDIDOS);
+
+      // "te acordás de cada cliente"
+      aparecer(q(".s04-r3"), ACORDAS - 0.2);
+      golpe(q(".s04-fic"), "820 706", ACORDAS);
+      [q(".s04-c1"), q(".s04-c2"), q(".s04-c3")].forEach((c, i) => {
+        tl.fromTo(c, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, ACORDAS + 0.1 + i * 0.22);
+      });
+      tl.to(q(".s04-brazo-d"), { rotation: 12, svgOrigin: "540 990", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 3 }, ACORDAS + 0.1);
+
+      // sobrecarga: vos tiembla, transpira y los tres íconos tiran
+      tl.to(qa(".s04-gota"), { opacity: 1, duration: 0.15 }, CLIENTE);
+      tl.fromTo(qa(".s04-gota"), { y: 0 }, { y: 30, duration: 0.6, ease: "power1.in", immediateRender: false }, CLIENTE);
+      tl.to(q(".s04-vos"), { x: 5, duration: 0.05, ease: "none", yoyo: true, repeat: 9 }, CLIENTE);
+      tl.to(qa(".s04-tel, .s04-cua, .s04-fic"), { y: -8, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, stagger: 0.06 }, CLIENTE + 0.1);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

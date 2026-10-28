@@ -1,0 +1,139 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-no-es"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-no-es"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-no-es"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-no-es"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-no-es"] .s03-cal-txt { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; fill: #efeee5; }
+    [data-composition-id="s03-no-es"] .s03-nombre { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.62); }
+    [data-composition-id="s03-no-es"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-no-es"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-no-es" data-width="1080" data-height="1920" data-duration="3.68">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.68" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s03-fila">
+          <!-- 1: empleados -->
+          <g class="s03-ico s03-ico1">
+            <g class="s03-dib">
+              <circle class="ln s03-d1" cx="-32" cy="-58" r="18" />
+              <path class="ln s03-d1" d="M-32 -40 V12 M-32 -26 L-54 -4 M-32 -26 L-10 -4 M-32 12 L-48 68 M-32 12 L-16 68" />
+              <circle class="ln s03-d1" cx="36" cy="-48" r="16" />
+              <path class="ln s03-d1" d="M36 -32 V18 M36 -20 L16 0 M36 -20 L56 0 M36 18 L22 68 M36 18 L50 68" />
+            </g>
+            <text data-layout-ignore class="s03-nombre s03-n" x="0" y="150" text-anchor="middle">EMPLEADOS</text>
+          </g>
+          <!-- 2: temporada -->
+          <g class="s03-ico s03-ico2">
+            <g class="s03-dib">
+              <rect class="ln s03-d2" x="-60" y="-30" width="96" height="96" rx="12" />
+              <path class="ln s03-d2" d="M-60 0 H36 M-38 -42 V-18 M14 -42 V-18" />
+              <circle class="ln s03-d2" cx="44" cy="-46" r="22" />
+              <path class="ln s03-d2" d="M44 -84 V-78 M82 -46 H76 M71 -73 L67 -69 M71 -19 L67 -23" />
+            </g>
+            <text class="s03-cal-txt s03-ene" x="-12" y="44" text-anchor="middle">ENE</text>
+            <text data-layout-ignore class="s03-nombre s03-n" x="0" y="150" text-anchor="middle">TEMPORADA</text>
+          </g>
+          <!-- 3: trébol -->
+          <g class="s03-ico s03-ico3">
+            <g class="s03-dib">
+              <path class="ln s03-d3" d="M0 -10 C-12 -18 -40 -26 -34 -50 C-28 -66 -6 -64 0 -48 C6 -64 28 -66 34 -50 C40 -26 12 -18 0 -10 Z" />
+              <path class="ln s03-d3" transform="rotate(90)" d="M0 -10 C-12 -18 -40 -26 -34 -50 C-28 -66 -6 -64 0 -48 C6 -64 28 -66 34 -50 C40 -26 12 -18 0 -10 Z" />
+              <path class="ln s03-d3" transform="rotate(180)" d="M0 -10 C-12 -18 -40 -26 -34 -50 C-28 -66 -6 -64 0 -48 C6 -64 28 -66 34 -50 C40 -26 12 -18 0 -10 Z" />
+              <path class="ln s03-d3" transform="rotate(270)" d="M0 -10 C-12 -18 -40 -26 -34 -50 C-28 -66 -6 -64 0 -48 C6 -64 28 -66 34 -50 C40 -26 12 -18 0 -10 Z" />
+              <path class="ln s03-d3" d="M46 46 Q 58 66 76 78" />
+            </g>
+            <text data-layout-ignore class="s03-nombre s03-n" x="0" y="150" text-anchor="middle">SUERTE</text>
+          </g>
+        </g>
+        <g class="s03-badge s03-b1"><g class="s03-b-in"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        <g class="s03-badge s03-b2"><g class="s03-b-in"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+        <g class="s03-badge s03-b3"><g class="s03-b-in"><circle class="ln-ac" cx="0" cy="0" r="18" /><path class="ln-ac" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">No es eso</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-no-es";
+      const DUR = 3.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const EMPLEADOS = 0.78;
+      const NI1 = 1.58;
+      const TEMPORADA = 2.08;
+      const NI2 = 2.68;
+      const SUERTE = 3.18;
+
+      const Y = 920;
+      const XS = [270, 540, 810];
+      const BADGE = [[70, -90], [80, -96], [64, -90]];
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const badge = (el, t) => {
+        const inn = el.querySelector(".s03-b-in");
+        tl.fromTo(inn, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const sacudir = (el, t) => tl.to(el, { x: -6, duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 3 }, t);
+      const nombre = (el, t) => tl.fromTo(el, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+
+      const icos = [q(".s03-ico1"), q(".s03-ico2"), q(".s03-ico3")];
+      icos.forEach((g, i) => gsap.set(g, { x: XS[i], y: Y }));
+      qa(".s03-dib").forEach((d) => gsap.set(d, { scale: 1.12, svgOrigin: "0 0" }));
+      [q(".s03-b1"), q(".s03-b2"), q(".s03-b3")].forEach((b, i) => gsap.set(b, { x: XS[i] + BADGE[i][0] * 1.12, y: Y + BADGE[i][1] * 1.12 }));
+      qa(".s03-b-in").forEach((b) => gsap.set(b, { opacity: 0 }));
+      qa(".s03-n").forEach((n) => gsap.set(n, { opacity: 0 }));
+      gsap.set(q(".s03-ene"), { opacity: 0 });
+
+      tl.fromTo(q(".s03-fila"), { scale: 1.05, svgOrigin: "540 " + Y }, { scale: 1, svgOrigin: "540 " + Y, duration: DUR, ease: "none" }, 0);
+
+      // 1. empleados (arranca medio dibujado)
+      dibujar(qa(".s03-d1"), 0, 0.45, 0.5);
+      tl.fromTo(q(".s03-ico1 .s03-dib"), { y: 20 }, { y: 0, duration: 0.45, ease: "power3.out" }, 0);
+      nombre(q(".s03-ico1 .s03-n"), EMPLEADOS - 0.2);
+      badge(q(".s03-b1"), EMPLEADOS + 0.12);
+      sacudir(q(".s03-ico1 .s03-dib"), EMPLEADOS + 0.14);
+
+      // 2. temporada
+      tl.to(q(".s03-ico1"), { opacity: 0.4, duration: 0.3 }, NI1);
+      dibujar(qa(".s03-d2"), NI1 + 0.04, 0.4);
+      tl.fromTo(q(".s03-ene"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, NI1 + 0.3);
+      tl.fromTo(q(".s03-ico2 .s03-dib"), { rotation: -12, svgOrigin: "0 66" }, { rotation: 0, svgOrigin: "0 66", duration: 0.5, ease: "back.out(2)" }, NI1 + 0.04);
+      nombre(q(".s03-ico2 .s03-n"), TEMPORADA);
+      badge(q(".s03-b2"), TEMPORADA + 0.12);
+      sacudir(q(".s03-ico2 .s03-dib"), TEMPORADA + 0.14);
+
+      // 3. suerte
+      tl.to(q(".s03-ico2"), { opacity: 0.4, duration: 0.3 }, NI2);
+      dibujar(qa(".s03-d3"), NI2 + 0.04, 0.4);
+      tl.fromTo(q(".s03-ico3 .s03-dib"), { rotation: -30, svgOrigin: "0 0" }, { rotation: 0, svgOrigin: "0 0", duration: 0.5, ease: "back.out(1.8)" }, NI2 + 0.04);
+      nombre(q(".s03-ico3 .s03-n"), SUERTE - 0.1);
+      badge(q(".s03-b3"), SUERTE);
+      sacudir(q(".s03-ico3 .s03-dib"), SUERTE + 0.04);
+
+      tl.fromTo(q(".s03-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, SUERTE - 0.15);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

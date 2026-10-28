@@ -1,0 +1,136 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-playa"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-playa"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-playa"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-playa"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-playa"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-playa"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s05-playa"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: #efeee5; }
+    [data-composition-id="s05-playa"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s05-playa"] .num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s05-playa"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-playa"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-playa" data-width="1080" data-height="1920" data-duration="3.80">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.80" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s05-todo">
+          <!-- la playa -->
+          <g class="s05-playa">
+            <circle class="ln s05-dib-sol" cx="110" cy="720" r="30" />
+            <path class="ln s05-sol-rayos" d="M110 670 V658 M110 770 V782 M60 720 H48 M160 720 H172 M75 685 L66 676 M145 685 L154 676 M75 755 L66 764 M145 755 L154 764" />
+            <path class="ln s05-dib-som" d="M150 900 Q290 780 430 900 Z" />
+            <path class="ln s05-dib-som" d="M150 900 q35 22 70 0 q35 22 70 0 q35 22 70 0 q35 22 70 0" />
+            <path class="ln s05-dib-som" d="M290 820 Q270 860 260 900 M290 820 Q310 860 320 900" />
+            <path class="ln s05-dib-som" d="M292 900 L270 1150" />
+            <path class="ln s05-dib-rep" d="M300 1150 L340 1100 H450 L480 1050" />
+            <path class="ln s05-dib-rep" d="M360 1100 L400 1150 M440 1100 L420 1150" />
+            <line class="ln s05-dib-suelo" x1="60" y1="1150" x2="520" y2="1150" />
+            <path class="ln-4 s05-ola" d="M80 1192 q25 -16 50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0 t50 0" />
+            <path class="ln-4 s05-ola" d="M120 1226 q25 -16 50 0 t50 0 t50 0 t50 0 t50 0 t50 0" />
+          </g>
+
+          <!-- el celular del local -->
+          <g class="s05-tel">
+            <rect class="ln s05-dib-tel" x="580" y="620" width="380" height="600" rx="52" />
+            <line class="ln s05-dib-tel" x1="740" y1="648" x2="800" y2="648" />
+            <circle class="ln s05-cab" cx="632" cy="704" r="18" />
+            <text class="ui-nombre s05-cab" x="662" y="713">Tu local</text>
+            <line class="ln-tenue s05-cab" x1="606" y1="742" x2="934" y2="742" />
+            <g class="s05-msg"><rect class="ln-4" x="606" y="766" width="150" height="54" rx="18" /><text class="ui" x="624" y="802">¿Precio?</text></g>
+            <g class="s05-msg"><rect class="ln-4" x="606" y="836" width="180" height="54" rx="18" /><text class="ui" x="624" y="872">¿Abren hoy?</text></g>
+            <g class="s05-msg"><rect class="ln-4" x="606" y="906" width="222" height="54" rx="18" /><text class="ui" x="624" y="942">¿Hacen envíos?</text></g>
+            <g class="s05-msg"><rect class="ln-4" x="606" y="976" width="114" height="54" rx="18" /><text class="ui" x="624" y="1012">¿Hola?</text></g>
+            <g class="s05-msg"><rect class="ln-4" x="606" y="1046" width="250" height="54" rx="18" /><text class="ui" x="624" y="1082">¿Me contestan?</text></g>
+          </g>
+          <!-- contador de no leídos -->
+          <g class="s05-cont">
+            <circle class="ln-ac" cx="956" cy="628" r="32" />
+            <text class="num s05-n" x="956" y="638" text-anchor="middle">1</text>
+            <text class="num s05-n" x="956" y="638" text-anchor="middle">2</text>
+            <text class="num s05-n" x="956" y="638" text-anchor="middle">3</text>
+            <text class="num s05-n" x="956" y="638" text-anchor="middle">4</text>
+            <text class="num s05-n" x="956" y="638" text-anchor="middle">5</text>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Vos en la playa</span><span class="s05-e2">Sin respuesta</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-playa";
+      const DUR = 3.8;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const PLAYA = 0.36;
+      const WHATSAPP = 1.16;
+      const LLENA = 1.76;
+      const SIN = 2.66;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.3, ease: "back.out(1.6)" }, t);
+      };
+
+      tl.fromTo(q(".s05-todo"), { scale: 0.97, svgOrigin: "540 920" }, { scale: 1.02, svgOrigin: "540 920", duration: DUR, ease: "none" }, 0);
+
+      // la playa arranca medio dibujada
+      dibujar(qa(".s05-dib-som, .s05-dib-suelo"), 0, 0.5, 0.5);
+      dibujar([q(".s05-dib-sol")], 0.1, 0.4);
+      dibujar(qa(".s05-dib-rep"), PLAYA - 0.1, 0.45);
+      dibujar(qa(".s05-ola"), PLAYA, 0.6);
+      gsap.set(q(".s05-sol-rayos"), { opacity: 0 });
+      tl.to(q(".s05-sol-rayos"), { opacity: 1, duration: 0.2 }, PLAYA);
+      tl.fromTo(q(".s05-sol-rayos"), { rotation: 0, svgOrigin: "110 720" }, { rotation: 60, svgOrigin: "110 720", duration: DUR - PLAYA, ease: "none", immediateRender: false }, PLAYA);
+      tl.fromTo(qa(".s05-ola"), { x: 0 }, { x: 22, duration: DUR - PLAYA, ease: "sine.inOut", immediateRender: false }, PLAYA);
+      tl.fromTo(q(".s05-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, PLAYA);
+
+      // "WhatsApp": el celular del local
+      dibujar(qa(".s05-dib-tel"), WHATSAPP - 0.35, 0.45);
+      gsap.set(qa(".s05-cab, .s05-msg, .s05-cont, .s05-n"), { opacity: 0 });
+      tl.to(qa(".s05-cab"), { opacity: 1, duration: 0.25 }, WHATSAPP);
+
+      // "se llena de preguntas": caen las burbujas y sube el contador
+      const msgs = qa(".s05-msg");
+      const ns = qa(".s05-n");
+      msgs.forEach((m, i) => {
+        const t = LLENA - 0.3 + i * 0.22;
+        tl.fromTo(m, { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(1.8)" }, t);
+        if (i > 0) tl.to(ns[i - 1], { opacity: 0, duration: 0.05 }, t);
+        tl.to(ns[i], { opacity: 1, duration: 0.05 }, t);
+        tl.fromTo(q(".s05-cont"), { scale: 1.25, svgOrigin: "956 628" }, { scale: 1, svgOrigin: "956 628", duration: 0.2, ease: "power2.out", immediateRender: false }, t);
+      });
+      pop(q(".s05-cont"), LLENA - 0.3, "956 628");
+
+      // "sin respuesta": el celular se apaga
+      tl.to(q(".s05-tel"), { opacity: 0.4, duration: 0.4 }, SIN + 0.1);
+      tl.to(q(".s05-tel"), { x: 5, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, SIN);
+      tl.to(q(".s05-e1"), { opacity: 0, duration: 0.2 }, SIN - 0.15);
+      tl.fromTo(q(".s05-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, SIN);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
