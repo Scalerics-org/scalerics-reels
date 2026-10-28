@@ -1,0 +1,142 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-anuncio"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-anuncio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-anuncio"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-anuncio"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-anuncio"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-anuncio"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s01-anuncio"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s01-anuncio"] .ui-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 24px; fill: #5ce611; }
+    [data-composition-id="s01-anuncio"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s01-anuncio"] .peso { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; fill: #5ce611; }
+    [data-composition-id="s01-anuncio"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-anuncio"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-anuncio" data-width="1080" data-height="1920" data-duration="3.82">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="3.82" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s01-todo">
+          <!-- tu celular con el anuncio -->
+          <g class="s01-tel">
+            <rect class="ln s01-dib" x="200" y="620" width="360" height="580" rx="52" />
+            <line class="ln s01-dib" x1="350" y1="648" x2="410" y2="648" />
+            <text class="rotulo s01-txt" x="380" y="704" text-anchor="middle">PUBLICIDAD</text>
+            <g class="s01-post">
+              <rect class="ln-fino s01-dib" x="240" y="728" width="280" height="250" rx="16" />
+              <!-- la remera del posteo -->
+              <path class="ln s01-dib" d="M342 790 L366 776 Q380 792 394 792 Q408 792 422 776 L446 790 L470 826 L446 842 L436 828 V926 H352 V828 L342 842 L318 826 Z" />
+            </g>
+            <line class="ln-tenue s01-dib" x1="244" y1="1012" x2="476" y2="1012" />
+            <line class="ln-tenue s01-dib" x1="244" y1="1042" x2="410" y2="1042" />
+            <g class="s01-boton">
+              <rect class="ln-ac" x="240" y="1080" width="280" height="66" rx="33" />
+              <text class="ui-ac" x="380" y="1121" text-anchor="middle">Enviar mensaje</text>
+            </g>
+          </g>
+          <!-- la moneda de la publicidad -->
+          <g class="s01-moneda">
+            <circle class="ln-ac" cx="380" cy="0" r="36" />
+            <text class="peso" x="380" y="16" text-anchor="middle">$</text>
+          </g>
+          <!-- los mensajes que llegan -->
+          <g class="s01-msg s01-m1"><g class="s01-msg-in">
+            <rect class="ln-fino" x="620" y="720" width="250" height="68" rx="24" />
+            <text class="ui" x="644" y="764">¿Precio?</text>
+            <path class="ln-fino s01-tilde" d="M816 808 L824 816 L838 800 M830 814 L832 816 L846 800" />
+          </g>
+          </g>
+          <g class="s01-msg s01-m2"><g class="s01-msg-in">
+            <rect class="ln-fino" x="620" y="850" width="250" height="68" rx="24" />
+            <text class="ui" x="644" y="894">¿Talle?</text>
+            <path class="ln-fino s01-tilde" d="M816 938 L824 946 L838 930 M830 944 L832 946 L846 930" />
+          </g>
+          </g>
+          <g class="s01-msg s01-m3"><g class="s01-msg-in">
+            <rect class="ln-fino" x="620" y="980" width="250" height="68" rx="24" />
+            <text class="ui" x="644" y="1024">¿Envíos?</text>
+            <path class="ln-fino s01-tilde" d="M816 1068 L824 1076 L838 1060 M830 1074 L832 1076 L846 1060" />
+          </g>
+          </g>
+          <!-- badge de no -->
+          <g class="s01-badge"><circle class="ln-ac" cx="884" cy="700" r="22" /><path class="ln-ac" d="M875 691 L893 709 M893 691 L875 709" /></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Pagás publicidad</span><span class="s01-e2">Y no contestás</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-anuncio";
+      const DUR = 3.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const PUBLICIDAD = 0.2;
+      const TE = 1.3;
+      const NO = 2.6;
+      const CONTESTAS = 2.7;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t + i * 0.04 === 0 ? 1 : 0 });
+          if (t + i * 0.04 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // todo se acerca despacio (nunca queda quieto)
+      tl.fromTo(q(".s01-todo"), { scale: 0.97, svgOrigin: "540 910" }, { scale: 1.02, svgOrigin: "540 910", duration: DUR, ease: "none" }, 0);
+
+      // el celular arranca medio dibujado (el cuadro 0 no puede ser negro)
+      dibujar(qa(".s01-dib"), 0, 0.55, 0.45);
+      tl.fromTo(q(".s01-txt"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.2);
+      pop(q(".s01-boton"), 0.3, "380 1113");
+
+      // "publicidad": cae la moneda y entra al anuncio
+      tl.fromTo(q(".s01-moneda"), { opacity: 0, y: 620 }, { opacity: 1, y: 660, duration: 0.15, ease: "power2.out" }, PUBLICIDAD);
+      tl.to(q(".s01-moneda"), { y: 850, duration: 0.4, ease: "power2.in" }, PUBLICIDAD + 0.15);
+      tl.to(q(".s01-moneda"), { opacity: 0, scale: 0.5, svgOrigin: "380 0", duration: 0.12 }, PUBLICIDAD + 0.52);
+      tl.to(q(".s01-post"), { scale: 1.06, svgOrigin: "380 853", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, PUBLICIDAD + 0.55);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, PUBLICIDAD + 0.1);
+      // el botón late: invita a escribir
+      tl.to(q(".s01-boton"), { scale: 1.07, svgOrigin: "380 1113", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, 0.95);
+
+      // "te escriban": salen los mensajes del celular y se apilan a la derecha
+      qa(".s01-msg").forEach((m, i) => {
+        const t = TE - 0.05 + i * 0.22;
+        tl.fromTo(m, { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.38, ease: "back.out(1.5)" }, t);
+        tl.fromTo(m.querySelector(".s01-msg-in"), { scale: 0.6, svgOrigin: "620 " + (754 + i * 130) },
+          { scale: 1, svgOrigin: "620 " + (754 + i * 130), duration: 0.38, ease: "back.out(1.5)" }, t);
+      });
+      gsap.set(qa(".s01-tilde"), { opacity: 0 });
+
+      // "no contestás": quedan en visto, se apagan, badge X
+      qa(".s01-tilde").forEach((t, i) => tl.to(t, { opacity: 0.6, duration: 0.12 }, NO - 0.1 + i * 0.08));
+      tl.to(qa(".s01-msg"), { opacity: 0.4, duration: 0.35, stagger: 0.06 }, CONTESTAS);
+      tl.fromTo(q(".s01-badge"), { opacity: 0, scale: 0.3, svgOrigin: "884 700" }, { opacity: 1, scale: 1, svgOrigin: "884 700", duration: 0.3, ease: "back.out(2.2)" }, CONTESTAS + 0.05);
+      tl.to(q(".s01-tel"), { opacity: 0.5, duration: 0.4 }, CONTESTAS + 0.2);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, NO - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, NO);
+      tl.to(q(".s01-badge"), { rotation: 12, svgOrigin: "884 700", duration: 0.08, ease: "power1.inOut", yoyo: true, repeat: 3 }, CONTESTAS + 0.45);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

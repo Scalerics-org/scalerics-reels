@@ -1,0 +1,137 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-tres-horas"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-tres-horas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-tres-horas"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-tres-horas"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-tres-horas"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-tres-horas"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-tres-horas"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s04-tres-horas"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s04-tres-horas"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s04-tres-horas"] .ui-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s04-tres-horas"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s04-tres-horas"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s04-tres-horas"] .peso { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; fill: #5ce611; }
+    [data-composition-id="s04-tres-horas"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-tres-horas"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s04-tres-horas"] .s04-grande { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 64px; fill: #5ce611; }
+    [data-composition-id="s04-tres-horas"] .s04-cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s04-tres-horas" data-width="1080" data-height="1920" data-duration="3.80">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.80" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s04-todo">
+          <g class="s04-reloj">
+            <g class="s04-reloj-in">
+              <circle class="ln s04-cd" cx="540" cy="880" r="160" />
+                <line class="ln-fino s04-cd" x1="540.0" y1="762.0" x2="540.0" y2="740.0" />
+                <line class="ln-fino s04-cd" x1="604.0" y1="769.1" x2="610.0" y2="758.8" />
+                <line class="ln-fino s04-cd" x1="650.9" y1="816.0" x2="661.2" y2="810.0" />
+                <line class="ln-fino s04-cd" x1="658.0" y1="880.0" x2="680.0" y2="880.0" />
+                <line class="ln-fino s04-cd" x1="650.9" y1="944.0" x2="661.2" y2="950.0" />
+                <line class="ln-fino s04-cd" x1="604.0" y1="990.9" x2="610.0" y2="1001.2" />
+                <line class="ln-fino s04-cd" x1="540.0" y1="998.0" x2="540.0" y2="1020.0" />
+                <line class="ln-fino s04-cd" x1="476.0" y1="990.9" x2="470.0" y2="1001.2" />
+                <line class="ln-fino s04-cd" x1="429.1" y1="944.0" x2="418.8" y2="950.0" />
+                <line class="ln-fino s04-cd" x1="422.0" y1="880.0" x2="400.0" y2="880.0" />
+                <line class="ln-fino s04-cd" x1="429.1" y1="816.0" x2="418.8" y2="810.0" />
+                <line class="ln-fino s04-cd" x1="476.0" y1="769.1" x2="470.0" y2="758.8" />
+              <line class="ln s04-hora" x1="540" y1="880" x2="540" y2="810" />
+              <line class="ln-ac s04-min" x1="540" y1="880" x2="540" y2="760" />
+              <circle class="relleno-ac" cx="540" cy="880" r="9" />
+            </g>
+          </g>
+          <text class="s04-grande s04-mas" x="730" y="902">+3 H</text>
+          <!-- tu local, cerrado -->
+          <g class="s04-local">
+            <path class="ln s04-ld" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s04-ld" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s04-ld" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s04-ld" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="s04-cartel s04-lt" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+            <g class="s04-persiana">
+              <rect class="ln-fino" x="-100" y="-140" width="200" height="140" />
+              <path class="ln-tenue" d="M-100 -112 H100 M-100 -84 H100 M-100 -56 H100 M-100 -28 H100" />
+            </g>
+            <g class="s04-cerrado">
+              <rect class="ln-fino-ac" x="-78" y="-104" width="156" height="48" rx="8" />
+              <text class="rotulo-ac" x="0" y="-71" text-anchor="middle">CERRADO</text>
+            </g>
+          </g>
+          <path class="ln s04-luna" d="M880 770 A44 44 0 1 0 924 830 A34 34 0 1 1 880 770 Z" />
+          <line class="ln s04-suelo" x1="560" y1="1140" x2="1000" y2="1140" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">3 horas después</span><span class="s04-e2">Al otro día</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-tres-horas";
+      const DUR = 3.8;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * 0.04;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t0 === 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.08, svgOrigin: origen, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      const etiq = (el, t) => tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      const sacar = (el, t) => tl.to(el, { opacity: 0, duration: 0.2 }, t);
+
+      const CONTESTASTE = 0.18, TRES = 0.88, O = 1.48, OTRO = 2.08, CERRASTE = 2.68;
+      tl.fromTo(q(".s04-todo"), { scale: 0.98, svgOrigin: "540 900" }, { scale: 1.02, svgOrigin: "540 900", duration: DUR, ease: "none" }, 0);
+
+      // el reloj arranca medio dibujado
+      dibujar(qa(".s04-cd"), 0, 0.45, 0.4);
+      // "contestaste": las agujas vuelan tres horas
+      tl.fromTo(q(".s04-min"), { rotation: 0, svgOrigin: "540 880" }, { rotation: 1080, svgOrigin: "540 880", duration: 0.8, ease: "power2.inOut" }, CONTESTASTE);
+      tl.fromTo(q(".s04-hora"), { rotation: 0, svgOrigin: "540 880" }, { rotation: 90, svgOrigin: "540 880", duration: 0.8, ease: "power2.inOut" }, CONTESTASTE);
+      tl.fromTo(q(".s04-mas"), { opacity: 0, scale: 0.6, svgOrigin: "790 880" }, { opacity: 1, scale: 1, svgOrigin: "790 880", duration: 0.35, ease: "back.out(2)" }, TRES);
+      punch(q(".s04-reloj-in"), TRES + 0.05, "540 880", 1.05);
+      etiq(q(".s04-e1"), TRES);
+
+      // "o al otro día": el reloj se corre y aparece tu local
+      tl.to(q(".s04-mas"), { opacity: 0, duration: 0.2 }, O);
+      tl.to(q(".s04-reloj"), { x: -250, y: -20, duration: 0.45, ease: "power3.inOut" }, O);
+      tl.to(q(".s04-reloj-in"), { scale: 0.6, svgOrigin: "540 880", opacity: 0.45, duration: 0.45, ease: "power3.inOut" }, O);
+      gsap.set(q(".s04-local"), { x: 780, y: 1140 });
+      dibujar(qa(".s04-ld"), O + 0.1, 0.5);
+      dibujar([q(".s04-suelo")], O + 0.05, 0.5);
+      tl.fromTo(q(".s04-lt"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, O + 0.45);
+      dibujar([q(".s04-luna")], OTRO - 0.1, 0.45);
+      sacar(q(".s04-e1"), OTRO - 0.15);
+      etiq(q(".s04-e2"), OTRO);
+
+      // "cerraste": baja la persiana y cuelga el cartel
+      tl.fromTo(q(".s04-persiana"), { scaleY: 0, opacity: 0, svgOrigin: "0 -140" }, { scaleY: 1, opacity: 1, svgOrigin: "0 -140", duration: 0.4, ease: "bounce.out" }, CERRASTE - 0.25);
+      tl.fromTo(q(".s04-cerrado"), { opacity: 0, rotation: -14, svgOrigin: "0 -104" }, { opacity: 1, rotation: 0, svgOrigin: "0 -104", duration: 0.5, ease: "elastic.out(1, 0.5)" }, CERRASTE + 0.1);
+      tl.to(qa(".s04-ld"), { opacity: 0.5, duration: 0.4 }, CERRASTE + 0.3);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,132 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-te-escriben"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-te-escriben"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-te-escriben"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-te-escriben"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-te-escriben"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-te-escriben"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-te-escriben"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s03-te-escriben"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s03-te-escriben"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s03-te-escriben"] .ui-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s03-te-escriben"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s03-te-escriben"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s03-te-escriben"] .peso { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; fill: #5ce611; }
+    [data-composition-id="s03-te-escriben"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-te-escriben"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s03-te-escriben"] .s03-num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 26px; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s03-te-escriben" data-width="1080" data-height="1920" data-duration="6.19">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="6.19" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s03-todo">
+          <!-- el posteo -->
+          <g class="s03-post">
+            <text class="rotulo s03-ptxt" x="245" y="700" text-anchor="middle">PUBLICIDAD</text>
+            <rect class="ln s03-pd" x="120" y="720" width="250" height="250" rx="20" />
+            <path class="ln s03-pd" d="M212 780 L232 768 Q245 782 258 768 L278 780 L300 812 L280 826 L272 814 V900 H218 V814 L210 826 L190 812 Z" />
+          </g>
+          <g class="s03-ok"><circle class="ln-ac" cx="350" cy="730" r="34" /><path class="ln-ac" d="M334 731 L346 744 L368 718" /></g>
+          <!-- flecha al celular -->
+          <path class="ln-ac s03-flecha" d="M390 900 Q450 940 505 900" />
+          <path class="ln-ac s03-punta" d="M480 894 L507 899 L496 924" />
+          <!-- tu WhatsApp -->
+          <g class="s03-tel">
+            <rect class="ln s03-td" x="520" y="610" width="380" height="590" rx="52" />
+            <line class="ln s03-td" x1="680" y1="638" x2="740" y2="638" />
+            <circle class="ln s03-td" cx="572" cy="702" r="18" />
+            <text class="ui s03-cab" x="604" y="711">Tu local</text>
+            <line class="ln-tenue s03-td" x1="546" y1="742" x2="874" y2="742" />
+            <g class="s03-cont">
+              <circle class="ln-fino-ac" cx="848" cy="702" r="22" />
+              <text class="s03-num s03-n1" x="848" y="711" text-anchor="middle">1</text>
+              <text class="s03-num s03-n2" x="848" y="711" text-anchor="middle">2</text>
+              <text class="s03-num s03-n3" x="848" y="711" text-anchor="middle">3</text>
+            </g>
+            <g class="s03-tipeo"><circle class="relleno-ac" cx="572" cy="800" r="7" /><circle class="relleno-ac" cx="596" cy="800" r="7" /><circle class="relleno-ac" cx="620" cy="800" r="7" /></g>
+            <g class="s03-m s03-m1"><rect class="ln-fino" x="548" y="770" width="170" height="66" rx="22" /><text class="ui" x="570" y="813">¿Precio?</text></g>
+            <g class="s03-m s03-m2"><rect class="ln-fino" x="548" y="866" width="236" height="66" rx="22" /><text class="ui" x="570" y="909">¿Tienen talle?</text></g>
+            <g class="s03-m s03-m3"><rect class="ln-fino" x="548" y="962" width="250" height="66" rx="22" /><text class="ui" x="570" y="1005">¿Hacen envíos?</text></g>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">Funcionó</span><span class="s03-e2">Te escribieron</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-te-escriben";
+      const DUR = 6.19;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * 0.04;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t0 === 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.08, svgOrigin: origen, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      const etiq = (el, t) => tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      const sacar = (el, t) => tl.to(el, { opacity: 0, duration: 0.2 }, t);
+
+      const FUNCIONO = 0.47, TE = 0.97, ESCRIBIERON = 1.57, WHATSAPP = 2.17, PRECIO = 3.2, TIENEN = 3.98, HACEN = 4.98;
+      tl.fromTo(q(".s03-todo"), { scale: 0.97, svgOrigin: "540 905" }, { scale: 1.02, svgOrigin: "540 905", duration: DUR, ease: "none" }, 0);
+
+      // el posteo arranca medio dibujado
+      dibujar(qa(".s03-pd"), 0, 0.5, 0.45);
+      tl.fromTo(q(".s03-ptxt"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.1);
+      // "funcionó": tilde verde
+      tl.fromTo(q(".s03-ok"), { opacity: 0, scale: 0.3, svgOrigin: "350 730" }, { opacity: 1, scale: 1, svgOrigin: "350 730", duration: 0.32, ease: "back.out(2.2)" }, FUNCIONO);
+      punch(q(".s03-post"), FUNCIONO + 0.05, "245 845", 1.05);
+      etiq(q(".s03-e1"), FUNCIONO);
+
+      // "te escribieron": el celular y la flecha
+      dibujar(qa(".s03-td"), TE - 0.1, 0.55);
+      tl.fromTo(q(".s03-cab"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, TE + 0.3);
+      dibujar([q(".s03-flecha")], ESCRIBIERON - 0.1, 0.45);
+      tl.fromTo(q(".s03-punta"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, ESCRIBIERON + 0.3);
+      sacar(q(".s03-e1"), ESCRIBIERON - 0.15);
+      etiq(q(".s03-e2"), ESCRIBIERON);
+      // "WhatsApp": punch del celular y tipeo
+      punch(q(".s03-tel"), WHATSAPP, "710 905", 1.04);
+      gsap.set(q(".s03-tipeo"), { opacity: 0 });
+      tl.to(q(".s03-tipeo"), { opacity: 1, duration: 0.1 }, WHATSAPP + 0.3);
+      qa(".s03-tipeo circle").forEach((c, i) => tl.fromTo(c, { y: 0 }, { y: -8, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 3 }, WHATSAPP + 0.3 + i * 0.1));
+      tl.to(q(".s03-tipeo"), { opacity: 0, duration: 0.1 }, PRECIO - 0.1);
+
+      // los mensajes, uno por uno, y el contador
+      gsap.set(qa(".s03-num, .s03-cont"), { opacity: 0 });
+      [[".s03-m1", PRECIO, 803], [".s03-m2", TIENEN, 899], [".s03-m3", HACEN, 995]].forEach(([s, t, y], i) => {
+        pop(q(s), t, "548 " + y);
+        if (i === 0) pop(q(".s03-cont"), t + 0.05, "848 702");
+        tl.to(q(".s03-n" + (i + 1)), { opacity: 1, duration: 0.08 }, t + 0.05);
+        if (i > 0) tl.to(q(".s03-n" + i), { opacity: 0, duration: 0.08 }, t + 0.05);
+        punch(q(".s03-cont"), t + 0.1, "848 702", 1.25);
+      });
+      tl.to(qa(".s03-flecha, .s03-punta"), { opacity: 0.4, duration: 0.3 }, PRECIO);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

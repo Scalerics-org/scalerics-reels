@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-basura"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-basura"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-basura"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-basura"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-basura"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-basura"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-basura"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s07-basura"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s07-basura"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s07-basura"] .ui-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s07-basura"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s07-basura"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s07-basura"] .peso { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; fill: #5ce611; }
+    [data-composition-id="s07-basura"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-basura"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s07-basura"] .s07-peso { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 38px; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s07-basura" data-width="1080" data-height="1920" data-duration="5.26">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.26" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s07-todo">
+          <g class="s07-m s07-m1"><rect class="ln-fino" x="150" y="660" width="220" height="70" rx="24" /><text class="ui" x="260" y="704" text-anchor="middle">¿Precio?</text><path class="ln-tenue" d="M326 750 L334 758 L348 742 M340 756 L342 758 L356 742" /></g>
+          <g class="s07-m s07-m2"><rect class="ln-fino" x="430" y="660" width="220" height="70" rx="24" /><text class="ui" x="540" y="704" text-anchor="middle">¿Talle?</text><path class="ln-tenue" d="M606 750 L614 758 L628 742 M620 756 L622 758 L636 742" /></g>
+          <g class="s07-m s07-m3"><rect class="ln-fino" x="710" y="660" width="220" height="70" rx="24" /><text class="ui" x="820" y="704" text-anchor="middle">¿Envíos?</text><path class="ln-tenue" d="M886 750 L894 758 L908 742 M900 756 L902 758 L916 742" /></g>
+          <!-- los billetes -->
+          <g class="s07-b"><g class="s07-b-in"><rect class="ln-ac" x="180" y="660" width="160" height="72" rx="10" /><circle class="ln-fino-ac" cx="260" cy="696" r="24" /><text class="s07-peso" x="260" y="709" text-anchor="middle">$</text></g></g>
+          <g class="s07-b"><g class="s07-b-in"><rect class="ln-ac" x="460" y="660" width="160" height="72" rx="10" /><circle class="ln-fino-ac" cx="540" cy="696" r="24" /><text class="s07-peso" x="540" y="709" text-anchor="middle">$</text></g></g>
+          <g class="s07-b"><g class="s07-b-in"><rect class="ln-ac" x="740" y="660" width="160" height="72" rx="10" /><circle class="ln-fino-ac" cx="820" cy="696" r="24" /><text class="s07-peso" x="820" y="709" text-anchor="middle">$</text></g></g>
+          <!-- el tacho -->
+          <g class="s07-tacho">
+            <path class="ln s07-td" d="M450 970 L472 1190 H608 L630 970" />
+            <path class="ln-tenue s07-td" d="M500 1000 L510 1160 M540 1000 V1160 M580 1000 L570 1160" />
+            <g class="s07-tapa">
+              <path class="ln s07-td" d="M430 950 H650" />
+              <path class="ln s07-td" d="M510 950 V930 H570 V950" />
+            </g>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">Sin respuesta</span><span class="s07-e2">Plata tirada</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-basura";
+      const DUR = 5.26;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * 0.04;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t0 === 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, origen, s) => {
+        tl.to(el, { scale: s ?? 1.08, svgOrigin: origen, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      };
+      const etiq = (el, t) => tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      const sacar = (el, t) => tl.to(el, { opacity: 0, duration: 0.2 }, t);
+
+      const QUEDA = 0.8, SIN = 1.1, PUBLICIDAD = 2.4, PAGASTE = 3.1, TIRASTE = 3.8, BASURA = 4.4;
+      tl.fromTo(q(".s07-todo"), { scale: 0.98, svgOrigin: "540 920" }, { scale: 1.02, svgOrigin: "540 920", duration: DUR, ease: "none" }, 0);
+
+      // los mensajes: el primero ya está, los otros entran
+      const ms = qa(".s07-m");
+      gsap.set(ms[0], { opacity: 1 });
+      tl.fromTo(ms[0].querySelector("rect"), { scale: 0.9, svgOrigin: "260 695" }, { scale: 1, svgOrigin: "260 695", duration: 0.3, ease: "back.out(1.6)" }, 0);
+      pop(ms[1], 0.18, "540 695");
+      pop(ms[2], 0.36, "820 695");
+      // "queda sin respuesta": se apagan
+      tl.to(ms, { opacity: 0.5, duration: 0.3, stagger: 0.1 }, QUEDA);
+      etiq(q(".s07-e1"), SIN);
+
+      // "publicidad que pagaste": cada mensaje se vuelve billete
+      const bs = qa(".s07-b");
+      gsap.set(bs, { opacity: 0 });
+      bs.forEach((b, i) => {
+        const t = PUBLICIDAD + i * 0.3;
+        tl.to(ms[i], { opacity: 0, duration: 0.2 }, t);
+        tl.fromTo(b.querySelector(".s07-b-in"), { scale: 0.7, svgOrigin: [260, 540, 820][i] + " 696" }, { scale: 1, svgOrigin: [260, 540, 820][i] + " 696", duration: 0.35, ease: "back.out(2)" }, t);
+        tl.to(b, { opacity: 1, duration: 0.15 }, t);
+      });
+      sacar(q(".s07-e1"), PAGASTE - 0.15);
+      etiq(q(".s07-e2"), PAGASTE);
+      punch(bs[1].querySelector(".s07-b-in"), PAGASTE + 0.1, "540 696", 1.1);
+
+      // "tiraste": aparece el tacho; "basura": los billetes caen adentro
+      dibujar(qa(".s07-td"), TIRASTE - 0.35, 0.45);
+      tl.to(q(".s07-tapa"), { rotation: -28, svgOrigin: "430 950", duration: 0.25, ease: "power2.out" }, BASURA - 0.3);
+      bs.forEach((b, i) => {
+        const t = BASURA - 0.15 + i * 0.12;
+        const cx = [260, 540, 820][i];
+        tl.to(b, { x: 540 - cx, y: 330, duration: 0.42, ease: "power2.in" }, t);
+        tl.to(b.querySelector(".s07-b-in"), { rotation: [-40, 15, 50][i], scale: 0.6, svgOrigin: cx + " 696", duration: 0.42, ease: "power1.in" }, t);
+        tl.to(b, { opacity: 0, duration: 0.08 }, t + 0.36);
+      });
+      tl.to(q(".s07-tapa"), { rotation: 0, svgOrigin: "430 950", duration: 0.35, ease: "bounce.out" }, BASURA + 0.5);
+      punch(q(".s07-tacho"), BASURA + 0.6, "540 1190", 1.05);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

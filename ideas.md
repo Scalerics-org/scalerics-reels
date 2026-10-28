@@ -10,9 +10,9 @@
 - 28-10 · `tu-instagram-no-es-tuyo` · Tienda online · "Tu Instagram no es tuyo. Es de Meta, y te lo puede cerrar mañana." · Comentá TIENDA
 - 28-10 · `cerraste-a-las-8` · Tienda online · "Bajás la cortina a las ocho y hasta mañana vendés cero." · Comentá VENDER
 - 28-10 · `el-cuaderno` · Bot + Puntos · "Tu cuaderno de pedidos te cuesta más que un sistema." · Comentá SISTEMA
+- 28-10 · `publicidad-sin-respuesta` · Bot · "Pagás publicidad para que te escriban. Y después no contestás." · Comentá BOT
 
 ## En curso
-- 28-10 · `publicidad-sin-respuesta` · Bot · pagás publicidad para que te escriban y después no contestás · Comentá BOT
 
 ## Banco de ideas (tomá uno o inventá otro en la misma línea)
 - "Tu mejor cliente se fue y no te diste cuenta": nadie le escribió en 2 meses. (Puntos, avisos)
