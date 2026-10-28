@@ -1,0 +1,150 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-bot"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-bot"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-bot"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-bot"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-bot"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s09-bot"] .marca { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 72px; letter-spacing: -0.02em; fill: #efeee5; }
+    [data-composition-id="s09-bot"] .bajada { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; fill: #5ce611; }
+    [data-composition-id="s09-bot"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 25px; fill: #efeee5; }
+    [data-composition-id="s09-bot"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 27px; fill: #efeee5; }
+    [data-composition-id="s09-bot"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s09-bot"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.06em; fill: #efeee5; }
+    [data-composition-id="s09-bot"] .dia { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s09-bot"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-bot"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s09-bot" data-width="1080" data-height="1920" data-duration="7.02">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="7.02" data-track-index="0">
+      <!-- A: Scalerics para comercios -->
+      <div id="s09-a" class="s09-capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <rect class="ln s09-caja" x="270" y="790" width="540" height="150" rx="34" />
+          <text class="marca s09-marca" x="540" y="890" text-anchor="middle">Scalerics</text>
+          <text class="bajada s09-bajada" x="540" y="1010" text-anchor="middle">PARA COMERCIOS</text>
+        </svg>
+      </div>
+      <!-- B: el bot -->
+      <div id="s09-b" class="s09-capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s09-tel">
+            <rect class="ln s09-dib-t" x="230" y="580" width="370" height="650" rx="52" />
+            <line class="ln s09-dib-t" x1="380" y1="606" x2="450" y2="606" />
+            <circle class="ln s09-dib-t" cx="282" cy="652" r="20" />
+            <text class="ui-nombre s09-cab" x="314" y="662">Tu comercio</text>
+            <line class="ln-tenue s09-dib-t" x1="252" y1="694" x2="578" y2="694" />
+            <!-- pedido -->
+            <g class="s09-m1">
+              <rect class="ln" x="370" y="714" width="210" height="92" rx="22" />
+              <text class="ui" x="390" y="752">2 milanesas</text>
+              <text class="ui" x="390" y="786">para las 21</text>
+            </g>
+            <g class="s09-r1">
+              <rect class="ln-ac" x="252" y="822" width="220" height="92" rx="22" />
+              <text class="ui" x="272" y="860">¡Listo!</text>
+              <text class="ui" x="272" y="894">Pedido <tspan class="ui-ac">#128</tspan></text>
+            </g>
+            <!-- turno -->
+            <g class="s09-m2">
+              <rect class="ln" x="370" y="930" width="210" height="92" rx="22" />
+              <text class="ui" x="390" y="968">¿Turno el</text>
+              <text class="ui" x="390" y="1002">jueves?</text>
+            </g>
+            <g class="s09-r2">
+              <rect class="ln-ac" x="252" y="1038" width="236" height="92" rx="22" />
+              <text class="ui" x="272" y="1076">Jueves <tspan class="ui-ac">10:00</tspan></text>
+              <text class="ui" x="272" y="1110">agendado</text>
+            </g>
+            <rect class="ln-tenue s09-dib-t" x="252" y="1158" width="326" height="48" rx="24" />
+          </g>
+          <!-- agenda prolija -->
+          <g class="s09-agenda">
+            <text class="dia s09-dia" x="760" y="776" text-anchor="middle">JUEVES</text>
+            <g class="s09-slot"><rect class="ln" x="650" y="800" width="220" height="74" rx="14" /><text class="hora" x="672" y="847">10:00</text><path class="ln-ac s09-tilde" d="M812 838 L826 852 L850 822" /></g>
+            <g class="s09-slot"><rect class="ln" x="650" y="894" width="220" height="74" rx="14" /><text class="hora" x="672" y="941">11:00</text><path class="ln-ac s09-tilde" d="M812 932 L826 946 L850 916" /></g>
+            <g class="s09-slot"><rect class="ln" x="650" y="988" width="220" height="74" rx="14" /><text class="hora" x="672" y="1035">12:00</text><path class="ln-ac s09-tilde" d="M812 1026 L826 1040 L850 1010" /></g>
+          </g>
+        </svg>
+      </div>
+      <div class="etiqueta"><span class="s09-e1">Para comercios</span><span class="s09-e2">Bot de WhatsApp</span><span class="s09-e3">Sin que se pisen</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-bot";
+      const DUR = 7.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const SCALERICS = 0.48;
+      const ARMAMOS = 1.6;
+      const COMERCIOS = 2.1;
+      const BOT = 3.2;
+      const TOMA = 4.3;
+      const AGENDA = 5.2;
+      const SIN = 5.9;
+      const PISEN = 6.6;
+
+      const dibujar = (els, t, dur, desde, ease, escalon) => {
+        const E = escalon ?? 0.05;
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * E <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * E); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: ease ?? "power2.inOut" }, t + i * E);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // A: la caja se dibuja (ya visible en el cuadro 0), "Scalerics" entra con golpe
+      dibujar([q(".s09-caja")], 0, 0.6, 0.5);
+      tl.fromTo(q(".s09-marca"), { opacity: 0, scale: 1.2, svgOrigin: "540 865", filter: "blur(8px)" }, { opacity: 1, scale: 1, svgOrigin: "540 865", filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, SCALERICS - 0.1);
+      tl.fromTo(q("#s09-a"), { scale: 1 }, { scale: 1.05, transformOrigin: "540px 880px", duration: BOT - 0.3, ease: "none" }, 0);
+      // "armamos": la caja late
+      tl.fromTo(q(".s09-caja"), { scale: 1 }, { scale: 1.04, svgOrigin: "540 865", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ARMAMOS);
+      tl.fromTo(q(".s09-bajada"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, COMERCIOS);
+      tl.to(q("#s09-a"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, BOT - 0.35);
+
+      // B: el celular con el bot
+      gsap.set(qa(".s09-m1, .s09-r1, .s09-m2, .s09-r2, .s09-agenda, .s09-cab"), { opacity: 0 });
+      dibujar(qa(".s09-dib-t"), BOT - 0.15, 0.5, 1, null, 0.03);
+      tl.to(q(".s09-cab"), { opacity: 1, duration: 0.25 }, BOT + 0.2);
+      tl.fromTo(q(".s09-tel"), { y: 30 }, { y: 0, duration: 0.5, ease: "power3.out" }, BOT - 0.15);
+      tl.fromTo(q(".s09-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, BOT);
+      // "toma pedidos"
+      pop(q(".s09-m1"), TOMA - 0.35, "580 806");
+      pop(q(".s09-r1"), TOMA + 0.25, "252 914");
+      // "agenda turnos"
+      pop(q(".s09-m2"), AGENDA - 0.35, "580 1022");
+      pop(q(".s09-r2"), AGENDA + 0.2, "252 1130");
+      // "sin que se pisen": la agenda prolija, cada turno en su lugar
+      tl.to(q(".s09-agenda"), { opacity: 1, duration: 0.01 }, SIN - 0.4);
+      tl.fromTo(q(".s09-dia"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, SIN - 0.4);
+      qa(".s09-slot").forEach((s, i) => {
+        tl.fromTo(s, { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, SIN - 0.35 + i * 0.1);
+      });
+      gsap.set(qa(".s09-tilde"), { opacity: 0 });
+      dibujar(qa(".s09-tilde"), SIN + 0.1, 0.2, 1, "power2.out", 0.2);
+      tl.to(q(".s09-e2"), { opacity: 0, duration: 0.2 }, SIN - 0.2);
+      tl.fromTo(q(".s09-e3"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, SIN);
+      tl.fromTo(q(".s09-agenda"), { scale: 1 }, { scale: 1.05, svgOrigin: "760 930", duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, PISEN);
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,8 @@
+[
+  {"t": 0.6, "sfx": "key-press", "vol": 0.25},
+  {"t": 1.3, "sfx": "chime", "vol": 0.22, "max": 0.8},
+  {"t": 2.2, "sfx": "whoosh", "vol": 0.18, "max": 0.6},
+  {"t": 3.49, "sfx": "pop", "vol": 0.26},
+  {"t": 4.59, "sfx": "whoosh", "vol": 0.18, "max": 0.6},
+  {"t": 5.0, "sfx": "whoosh-short", "vol": 0.22}
+]

@@ -1,0 +1,171 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-pasa-por-vos"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-pasa-por-vos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-pasa-por-vos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pasa-por-vos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pasa-por-vos"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pasa-por-vos"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 10 12; }
+    [data-composition-id="s03-pasa-por-vos"] .preg { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 170px; fill: #5ce611; }
+    [data-composition-id="s03-pasa-por-vos"] .signo { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; fill: #efeee5; }
+    [data-composition-id="s03-pasa-por-vos"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s03-pasa-por-vos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-pasa-por-vos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-pasa-por-vos" data-width="1080" data-height="1920" data-duration="7.62">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="7.62" data-track-index="0">
+      <!-- A: no crecés -->
+      <div id="s03-a" class="s03-capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <line class="ln s03-base" x1="260" y1="1120" x2="760" y2="1120" />
+          <path class="ln s03-barra" d="M300 1120 V1030 H360 V1120" />
+          <path class="ln s03-barra" d="M400 1120 V950 H460 V1120" />
+          <path class="ln s03-barra" d="M500 1120 V860 H560 V1120" />
+          <path class="ln s03-barra" d="M600 1120 V850 H660 V1120" />
+          <path class="ln s03-barra" d="M700 1120 V850 H760 V1120" />
+          <line class="ln-tenue s03-techo" x1="480" y1="826" x2="790" y2="826" />
+          <text class="preg s03-preg" x="860" y="900" text-anchor="middle">?</text>
+        </svg>
+      </div>
+      <!-- B: no es nada de eso -->
+      <div id="s03-b" class="s03-capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 910) scale(1.25) translate(-540 -910)">
+          <g class="s03-i1">
+            <circle class="ln" cx="290" cy="862" r="16" /><path class="ln" d="M290 878 V922 M290 892 L270 910 M290 892 L310 910 M290 922 L276 960 M290 922 L304 960" />
+            <circle class="ln" cx="350" cy="862" r="16" /><path class="ln" d="M350 878 V922 M350 892 L330 910 M350 892 L370 910 M350 922 L336 960 M350 922 L364 960" />
+            <text class="rotulo" x="320" y="1020" text-anchor="middle">CLIENTES</text>
+          </g>
+          <g class="s03-b1"><circle class="ln-badge" cx="384" cy="836" r="18" /><path class="ln-badge" d="M377 829 L391 843 M391 829 L377 843" /></g>
+          <g class="s03-i2">
+            <path class="ln" d="M556 836 L512 914 H548 L524 970 L586 886 H550 L572 836 Z" />
+            <text class="rotulo" x="540" y="1020" text-anchor="middle">GANAS</text>
+          </g>
+          <g class="s03-b2"><circle class="ln-badge" cx="604" cy="836" r="18" /><path class="ln-badge" d="M597 829 L611 843 M611 829 L597 843" /></g>
+          <g class="s03-i3">
+            <path class="ln" d="M716 880 H804 L818 960 H702 Z" />
+            <path class="ln" d="M736 880 Q730 850 760 846 Q790 850 784 880" />
+            <text class="signo" x="760" y="940" text-anchor="middle">$</text>
+            <text class="rotulo" x="760" y="1020" text-anchor="middle">PLATA</text>
+          </g>
+          <g class="s03-b3"><circle class="ln-badge" cx="824" cy="836" r="18" /><path class="ln-badge" d="M817 829 L831 843 M831 829 L817 843" /></g>
+          </g>
+        </svg>
+      </div>
+      <!-- C: todo pasa por vos -->
+      <div id="s03-c" class="s03-capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s03-vos">
+            <circle class="ln" cx="540" cy="866" r="24" />
+            <path class="ln" d="M540 890 V950 M540 910 L512 936 M540 910 L568 936 M540 950 L520 1000 M540 950 L560 1000" />
+          </g>
+          <g class="s03-flechas"></g>
+          <g class="s03-rotulos">
+            <text class="rotulo s03-rot" x="0" y="0" text-anchor="middle">CAJA</text>
+            <text class="rotulo s03-rot" x="0" y="0" text-anchor="middle">TURNOS</text>
+            <text class="rotulo s03-rot" x="0" y="0" text-anchor="middle">WHATSAPP</text>
+            <text class="rotulo s03-rot" x="0" y="0" text-anchor="middle">PEDIDOS</text>
+            <text class="rotulo s03-rot" x="0" y="0" text-anchor="middle">STOCK</text>
+            <text class="rotulo s03-rot" x="0" y="0" text-anchor="middle">CUENTAS</text>
+          </g>
+        </svg>
+      </div>
+      <div class="etiqueta"><span class="s03-e1">No crecés</span><span class="s03-e2">Nada de eso</span><span class="s03-e3">Todo pasa por vos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-pasa-por-vos";
+      const DUR = 7.62;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CRECES = 0.9;
+      const NO = 1.5;
+      const CLIENTES = 2.5;
+      const GANAS = 3.7;
+      const PLATA = 4.6;
+      const TODO = 5.9;
+      const PASA = 6.3;
+      const VOS = 6.7;
+
+      // flechas que llegan de todos lados (geometría fija)
+      const CX = 540, CY = 920;
+      const NS = "http://www.w3.org/2000/svg";
+      const ANG = [0, 60, 120, 180, 240, 300];
+      const caja = q(".s03-flechas");
+      ANG.forEach((g, i) => {
+        const a = (g * Math.PI) / 180;
+        const c = Math.cos(a), s = Math.sin(a);
+        const x1 = CX + 270 * c, y1 = CY + 225 * s, x2 = CX + 140 * c, y2 = CY + 125 * s;
+        const ang = Math.atan2(y2 - y1, x2 - x1);
+        const p = document.createElementNS(NS, "path");
+        p.setAttribute("class", "ln-ac s03-fl");
+        const h = (da) => (x2 - 22 * Math.cos(ang + da)).toFixed(1) + " " + (y2 - 22 * Math.sin(ang + da)).toFixed(1);
+        p.setAttribute("d", `M${x1.toFixed(1)} ${y1.toFixed(1)} L${x2.toFixed(1)} ${y2.toFixed(1)} M${h(0.5)} L${x2.toFixed(1)} ${y2.toFixed(1)} L${h(-0.5)}`);
+        caja.appendChild(p);
+        const r = qa(".s03-rot")[i];
+        r.setAttribute("x", (CX + 345 * c).toFixed(1));
+        r.setAttribute("y", (CY + 290 * s + 9).toFixed(1));
+      });
+
+      const dibujar = (els, t, dur, desde, ease, escalon) => {
+        const E = escalon ?? 0.05;
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * E <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * E); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: ease ?? "power2.inOut" }, t + i * E);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // A: barras que suben y se aplanan
+      dibujar([q(".s03-base")], 0, 0.4, 0.4);
+      dibujar(qa(".s03-barra"), 0, 0.4, 0.5, null, 0.12);
+      dibujar([q(".s03-techo")], CRECES - 0.1, 0.4);
+      tl.fromTo(q(".s03-preg"), { opacity: 0, scale: 1.5, svgOrigin: "860 840" }, { opacity: 1, scale: 1, svgOrigin: "860 840", duration: 0.35, ease: "power3.out" }, CRECES);
+      tl.to(q(".s03-preg"), { rotation: 10, svgOrigin: "860 900", duration: 0.15, ease: "sine.inOut", yoyo: true, repeat: 3 }, CRECES + 0.35);
+      tl.fromTo(q(".s03-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, CRECES);
+      tl.to(q("#s03-a"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, NO + 0.2);
+      tl.to(q(".s03-e1"), { opacity: 0, duration: 0.2 }, NO + 0.3);
+
+      // B: tres íconos, cada uno con su badge X en su palabra
+      [[".s03-i1", ".s03-b1", CLIENTES, "320 910", "384 836"], [".s03-i2", ".s03-b2", GANAS, "540 910", "604 836"], [".s03-i3", ".s03-b3", PLATA, "760 910", "824 836"]].forEach(([ic, b, t, o, ob]) => {
+        pop(q(ic), t - 0.25, o);
+        tl.fromTo(q(b), { opacity: 0, scale: 0.5, svgOrigin: ob }, { opacity: 1, scale: 1, svgOrigin: ob, duration: 0.35, ease: "back.out(2.2)" }, t + 0.1);
+        tl.to(q(ic), { opacity: 0.4, duration: 0.3 }, t + 0.3);
+      });
+      tl.fromTo(q(".s03-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, PLATA + 0.1);
+      tl.to(q("#s03-b"), { opacity: 0, scale: 0.9, transformOrigin: "540px 910px", filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, TODO - 0.3);
+      tl.to(q(".s03-e2"), { opacity: 0, duration: 0.2 }, TODO - 0.2);
+
+      // C: vos al centro y todo llega a vos
+      pop(q(".s03-vos"), TODO - 0.1, "540 1000");
+      tl.fromTo(q(".s03-e3"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, TODO);
+      qa(".s03-rot").forEach((r, i) => {
+        tl.fromTo(r, { opacity: 0 }, { opacity: 0.85, duration: 0.2 }, PASA - 0.3 + i * 0.07);
+      });
+      dibujar(qa(".s03-fl"), PASA - 0.15, 0.3, 1, "power3.out", 0.07);
+      // "vos": la figurita queda aplastada
+      tl.to(q(".s03-vos"), { scaleY: 0.82, scaleX: 1.1, svgOrigin: "540 1000", duration: 0.18, ease: "power3.out" }, VOS);
+      tl.to(q(".s03-vos"), { x: 4, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, VOS + 0.18);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

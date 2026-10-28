@@ -1,0 +1,140 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-pedido-turno"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-pedido-turno"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-pedido-turno"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-pedido-turno"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-pedido-turno"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-pedido-turno"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.3); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s04-pedido-turno"] .ln-mano { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-pedido-turno"] .fondo-card { fill: #07111f; }
+    [data-composition-id="s04-pedido-turno"] .mano { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s04-pedido-turno"] .hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.06em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s04-pedido-turno"] .alerta { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 110px; fill: #5ce611; }
+    [data-composition-id="s04-pedido-turno"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-pedido-turno"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-pedido-turno" data-width="1080" data-height="1920" data-duration="3.68">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.68" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- la hoja del cuaderno -->
+        <g class="s04-hoja">
+          <rect class="ln s04-dib" x="220" y="660" width="460" height="520" rx="18" />
+          <path class="ln s04-dib" d="M256 680 V652 Q256 636 270 636 Q284 636 284 652 V666 M316 680 V652 Q316 636 330 636 Q344 636 344 652 V666 M376 680 V652 Q376 636 390 636 Q404 636 404 652 V666 M436 680 V652 Q436 636 450 636 Q464 636 464 652 V666 M496 680 V652 Q496 636 510 636 Q524 636 524 652 V666 M556 680 V652 Q556 636 570 636 Q584 636 584 652 V666 M616 680 V652 Q616 636 630 636 Q644 636 644 652 V666" />
+        </g>
+        <!-- A: el pedido -->
+        <g class="s04-a">
+          <text class="mano s04-tit" x="260" y="760">PEDIDO 14</text>
+          <line class="ln-tenue" x1="240" y1="790" x2="660" y2="790" />
+          <path class="ln-mano s04-esc" d="M262 852 q9 -12 18 0 q9 -9 18 0 q9 -14 18 0 q9 -10 18 0 M350 852 q9 -12 18 0 q9 -8 18 0 q9 -13 18 0 q9 -10 18 0 q9 -12 18 0 M470 852 q9 -9 18 0 q9 -13 18 0 q9 -10 18 0" />
+          <path class="ln-mano s04-esc" d="M262 922 q9 -10 18 0 q9 -13 18 0 q9 -8 18 0 M332 922 q9 -12 18 0 q9 -9 18 0 q9 -13 18 0 q9 -10 18 0 q9 -12 18 0 q9 -9 18 0" />
+          <line class="ln-tenue" x1="240" y1="880" x2="660" y2="880" />
+          <line class="ln-tenue" x1="240" y1="950" x2="660" y2="950" />
+          <line class="ln-tenue" x1="240" y1="1020" x2="660" y2="1020" />
+          <line class="ln-tenue" x1="240" y1="1090" x2="660" y2="1090" />
+          <path class="ln s04-tachon" d="M254 870 L640 828 L262 900 L630 862 L270 936 L600 904" />
+          <!-- la caja que nunca salió -->
+          <g class="s04-caja">
+            <path class="ln" d="M740 930 L830 900 L920 930 V1040 L830 1070 L740 1040 Z" />
+            <path class="ln" d="M740 930 L830 960 L920 930 M830 960 V1070" />
+            <g class="s04-badge"><circle class="ln-badge" cx="920" cy="894" r="18" /><path class="ln-badge" d="M913 887 L927 901 M927 887 L913 901" /></g>
+          </g>
+        </g>
+        <!-- B: la agenda -->
+        <g class="s04-b">
+          <text class="mano s04-tit2" x="260" y="760">TURNOS</text>
+          <line class="ln-tenue" x1="240" y1="790" x2="660" y2="790" />
+          <text class="hora" x="250" y="866">10:00</text>
+          <line class="ln-tenue" x1="240" y1="910" x2="660" y2="910" />
+          <text class="hora" x="250" y="986">11:00</text>
+          <line class="ln-tenue" x1="240" y1="1030" x2="660" y2="1030" />
+          <text class="hora" x="250" y="1106">12:00</text>
+          <line class="ln-tenue" x1="240" y1="1150" x2="660" y2="1150" />
+          <g class="s04-t1">
+            <rect class="fondo-card" x="360" y="934" width="270" height="72" rx="14" />
+            <rect class="ln" x="360" y="934" width="270" height="72" rx="14" />
+            <text class="mano" x="384" y="980">ANA</text>
+          </g>
+          <g class="s04-t2">
+            <rect class="fondo-card" x="460" y="968" width="200" height="72" rx="14" />
+            <rect class="ln" x="460" y="968" width="200" height="72" rx="14" />
+            <text class="mano" x="484" y="1014">PABLO</text>
+          </g>
+          <text class="alerta s04-alerta" x="790" y="1030" text-anchor="middle">!</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">No salió</span><span class="s04-e2">Se pisan</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-pedido-turno";
+      const DUR = 3.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const PEDIDO = 0.08;
+      const MAL = 0.98;
+      const SALIO = 1.42;
+      const DOS = 2.34;
+      const TURNOS = 2.48;
+      const MISMA = 3.08;
+
+      const dibujar = (els, t, dur, desde, ease, escalon) => {
+        const E = escalon ?? 0.05;
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * E <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * E); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: ease ?? "power2.inOut" }, t + i * E);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // la hoja entra dibujándose (ya visible en el cuadro 0)
+      dibujar(qa(".s04-dib"), 0, 0.5, 0.5, null, 0);
+      tl.fromTo(q(".s04-hoja"), { scale: 0.97, svgOrigin: "450 920" }, { scale: 1.02, svgOrigin: "450 920", duration: DUR, ease: "none" }, 0);
+      gsap.set(q(".s04-b"), { opacity: 0 });
+
+      // "pedido": título y renglones a mano
+      tl.fromTo(q(".s04-tit"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, PEDIDO);
+      dibujar(qa(".s04-esc"), PEDIDO + 0.1, 0.35, 1, "none", 0.3);
+      // "mal": tachón torcido
+      dibujar([q(".s04-tachon")], MAL - 0.08, 0.35, 1, "power2.out");
+      tl.to(qa(".s04-esc"), { opacity: 0.4, duration: 0.25 }, MAL + 0.2);
+      // "no salió": la caja con su X
+      pop(q(".s04-caja"), SALIO - 0.25, "830 985");
+      tl.fromTo(q(".s04-badge"), { opacity: 0, scale: 0.5, svgOrigin: "920 894" }, { opacity: 1, scale: 1, svgOrigin: "920 894", duration: 0.35, ease: "back.out(2.2)" }, SALIO + 0.05);
+      tl.to(q(".s04-caja"), { x: 5, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, SALIO + 0.15);
+      tl.fromTo(q(".s04-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, SALIO);
+
+      // "dos turnos": la página pasa a la agenda
+      tl.to(q(".s04-a"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DOS - 0.25);
+      tl.to(q(".s04-e1"), { opacity: 0, duration: 0.2 }, DOS - 0.2);
+      tl.to(q(".s04-b"), { opacity: 1, duration: 0.2 }, DOS - 0.05);
+      gsap.set(qa(".s04-t1, .s04-t2, .s04-alerta"), { opacity: 0 });
+      tl.fromTo(q(".s04-t1"), { opacity: 0, y: -90 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, TURNOS - 0.1);
+      tl.fromTo(q(".s04-t2"), { opacity: 0, y: -110 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, TURNOS + 0.3);
+      // "misma hora": chocan, tiemblan, alerta
+      tl.to(qa(".s04-t1, .s04-t2"), { x: 6, duration: 0.05, ease: "none", yoyo: true, repeat: 7 }, MISMA);
+      tl.fromTo(q(".s04-alerta"), { opacity: 0, scale: 0.5, svgOrigin: "790 990" }, { opacity: 1, scale: 1, svgOrigin: "790 990", duration: 0.3, ease: "back.out(2.4)" }, MISMA);
+      tl.fromTo(q(".s04-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, MISMA - 0.1);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

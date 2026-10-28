@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-sistema"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-sistema"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-sistema"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-sistema"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-sistema" data-width="1080" data-height="1920" data-duration="3.00">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="3.00" data-track-index="0">
+      <!-- el reloj de las horas de más -->
+      <div id="s08-reloj-capa" class="s08-capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s08-reloj">
+            <circle class="ln s08-dib-r" cx="540" cy="910" r="170" />
+            <path class="ln s08-dib-r s08-marcas" d="" />
+            <line class="ln s08-hor" x1="540" y1="910" x2="540" y2="820" />
+            <line class="ln-ac s08-min" x1="540" y1="910" x2="540" y2="770" />
+            <circle class="ln-ac" cx="540" cy="910" r="8" />
+          </g>
+          <g class="s08-badge"><circle class="ln-badge" cx="672" cy="780" r="22" /><path class="ln-badge" d="M664 772 L680 788 M680 772 L664 788" /></g>
+        </svg>
+      </div>
+      <!-- engranaje -->
+      <div id="s08-sis-capa" class="s08-capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s08-engranaje">
+            <path class="ln s08-dib-g s08-dientes" d="" />
+            <circle class="ln-ac s08-dib-g" cx="540" cy="910" r="54" />
+          </g>
+        </svg>
+      </div>
+      <div class="etiqueta"><span class="s08-e1">No es más horas</span><span class="s08-e2">Es un sistema</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-sistema";
+      const DUR = 3.0;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const TRABAJAR = 0.83;
+      const HORAS = 1.2;
+      const ES = 2.08;
+      const SISTEMA = 2.7;
+
+      // marcas del reloj y dientes del engranaje (geometría fija)
+      let m = "";
+      for (let i = 0; i < 12; i++) {
+        const a = (i * Math.PI) / 6;
+        const r1 = i % 3 === 0 ? 130 : 145;
+        m += `M${(540 + r1 * Math.cos(a)).toFixed(1)} ${(910 + r1 * Math.sin(a)).toFixed(1)} L${(540 + 155 * Math.cos(a)).toFixed(1)} ${(910 + 155 * Math.sin(a)).toFixed(1)} `;
+      }
+      q(".s08-marcas").setAttribute("d", m);
+      const CX = 540, CY = 910, RIN = 128, ROUT = 168, N = 9;
+      const pt = (r, a) => (CX + r * Math.cos(a)).toFixed(1) + " " + (CY + r * Math.sin(a)).toFixed(1);
+      let d = "";
+      for (let i = 0; i < N; i++) {
+        const a = -Math.PI / 2 + (i * 2 * Math.PI) / N;
+        const sig = pt(RIN, a + (2 * Math.PI) / N - 0.2);
+        d += (i === 0 ? "M" + pt(RIN, a - 0.2) : "") + " L" + pt(ROUT, a - 0.12) + " L" + pt(ROUT, a + 0.12) + " L" + pt(RIN, a + 0.2) + " A" + RIN + " " + RIN + " 0 0 1 " + sig;
+      }
+      q(".s08-dientes").setAttribute("d", d + " Z");
+
+      const dibujar = (els, t, dur, desde, ease, escalon) => {
+        const E = escalon ?? 0.05;
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * E <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * E); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: ease ?? "power2.inOut" }, t + i * E);
+        });
+      };
+
+      // el reloj entra medio dibujado y las agujas ya corren
+      dibujar(qa(".s08-dib-r"), 0, 0.5, 0.45, null, 0);
+      tl.fromTo(q(".s08-min"), { rotation: 0, svgOrigin: "540 910" }, { rotation: 300, svgOrigin: "540 910", duration: TRABAJAR, ease: "none" }, 0);
+      // "trabajar más horas": las agujas vuelan
+      tl.to(q(".s08-min"), { rotation: 1800, svgOrigin: "540 910", duration: HORAS + 0.3 - TRABAJAR, ease: "power1.in" }, TRABAJAR);
+      tl.fromTo(q(".s08-hor"), { rotation: 0, svgOrigin: "540 910" }, { rotation: 200, svgOrigin: "540 910", duration: HORAS + 0.3, ease: "power1.in" }, 0);
+      tl.fromTo(q(".s08-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, TRABAJAR - 0.2);
+      // "horas": badge X, tiembla y se apaga
+      tl.fromTo(q(".s08-badge"), { opacity: 0, scale: 0.5, svgOrigin: "672 780" }, { opacity: 1, scale: 1, svgOrigin: "672 780", duration: 0.35, ease: "back.out(2.2)" }, HORAS);
+      tl.to(q(".s08-reloj"), { x: 6, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, HORAS + 0.3);
+      tl.to(q(".s08-reloj"), { opacity: 0.4, duration: 0.35 }, HORAS + 0.4);
+
+      // "Es": el reloj se va girando; el engranaje se dibuja en su lugar
+      tl.to(q("#s08-reloj-capa"), { opacity: 0, scale: 0.7, rotation: -40, filter: "blur(6px)", transformOrigin: "540px 910px", duration: 0.4, ease: "power2.in" }, ES - 0.3);
+      tl.to(q(".s08-e1"), { opacity: 0, duration: 0.2 }, ES - 0.2);
+      dibujar(qa(".s08-dib-g"), ES - 0.1, 0.5);
+      tl.fromTo(q(".s08-engranaje"), { rotation: -30, svgOrigin: "540 910" }, { rotation: 50, svgOrigin: "540 910", duration: DUR - ES + 0.1, ease: "none" }, ES - 0.1);
+      tl.fromTo(q(".s08-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, ES);
+      // "sistema": punch
+      tl.fromTo(q("#s08-sis-capa"), { scale: 1 }, { scale: 1.12, transformOrigin: "540px 910px", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, SISTEMA);
+
+      // salida
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

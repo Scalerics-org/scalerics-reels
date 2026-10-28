@@ -1,0 +1,165 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-te-va-bien"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-te-va-bien"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-te-va-bien"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-te-va-bien"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-te-va-bien"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.3); stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s02-te-va-bien"] .ln-mano { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-te-va-bien"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s02-te-va-bien"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s02-te-va-bien"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s02-te-va-bien"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-te-va-bien"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-te-va-bien" data-width="1080" data-height="1920" data-duration="6.22">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="6.22" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- el local (suelo en y 1160) -->
+        <g class="s02-local">
+          <line class="ln s02-dib-l" x1="160" y1="1160" x2="920" y2="1160" />
+          <g transform="translate(470 1160) scale(1.0)">
+            <path class="ln s02-dib-l" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s02-dib-l" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s02-dib-l" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s02-dib-l" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="cartel s02-txt" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s02-dib-l" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s02-dib-l" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="vidrio s02-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="vidrio s02-luz" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s02-dib-l" d="M-24 0 V-96 H24 V0" />
+          </g>
+          <!-- gráfico que sube -->
+          <path class="ln-tenue s02-ejes" d="M700 900 V1100 H900" />
+          <path class="ln-ac s02-sube" d="M712 1080 L760 1040 L800 1056 L880 940" />
+          <path class="ln-ac s02-punta" d="M852 942 L882 936 L878 968" />
+        </g>
+        <!-- pedidos, turnos, clientes -->
+        <g transform="translate(0 -40)">
+        <g class="s02-ico s02-bolsa">
+          <path class="ln" d="M346 700 H414 L420 770 H340 Z" />
+          <path class="ln" d="M364 700 V686 Q364 668 380 668 Q396 668 396 686 V700" />
+        </g>
+        <g class="s02-ico s02-reloj">
+          <circle class="ln" cx="540" cy="720" r="44" />
+          <path class="ln-ac" d="M540 720 V694 M540 720 L560 732" />
+        </g>
+        <g class="s02-ico s02-cli">
+          <circle class="ln" cx="700" cy="680" r="18" />
+          <path class="ln" d="M700 698 V738 M700 712 L678 730 M700 712 L722 730 M700 738 L684 774 M700 738 L716 774" />
+        </g>
+        <text class="rotulo s02-r s02-r1" x="380" y="820" text-anchor="middle">PEDIDOS</text>
+        <text class="rotulo s02-r s02-r2" x="540" y="820" text-anchor="middle">TURNOS</text>
+        <text class="rotulo s02-r s02-r3" x="700" y="820" text-anchor="middle">CLIENTES</text>
+        </g>
+        <!-- el cuaderno chico -->
+        <g class="s02-cuad">
+          <rect class="ln s02-dib-c" x="190" y="800" width="280" height="340" rx="16" />
+          <path class="ln s02-dib-c" d="M222 812 V788 Q222 774 234 774 Q246 774 246 788 V800 M272 812 V788 Q272 774 284 774 Q296 774 296 788 V800 M322 812 V788 Q322 774 334 774 Q346 774 346 788 V800 M372 812 V788 Q372 774 384 774 Q396 774 396 788 V800 M422 812 V788 Q422 774 434 774 Q446 774 446 788 V800" />
+          <line class="ln-tenue s02-dib-c" x1="210" y1="880" x2="450" y2="880" />
+          <line class="ln-tenue s02-dib-c" x1="210" y1="940" x2="450" y2="940" />
+          <line class="ln-tenue s02-dib-c" x1="210" y1="1000" x2="450" y2="1000" />
+          <line class="ln-tenue s02-dib-c" x1="210" y1="1060" x2="450" y2="1060" />
+          <path class="ln-mano s02-mano" d="M222 866 q9 -10 18 0 q9 -13 18 0 q9 -8 18 0 q9 -12 18 0 M302 866 q9 -10 18 0 q9 -13 18 0 q9 -9 18 0" />
+          <path class="ln-mano s02-mano" d="M222 926 q9 -12 18 0 q9 -9 18 0 q9 -13 18 0 M286 926 q9 -10 18 0 q9 -12 18 0 q9 -8 18 0 q9 -12 18 0 q9 -9 18 0" />
+          <path class="ln-mano s02-mano" d="M222 986 q9 -9 18 0 q9 -13 18 0 q9 -10 18 0 q9 -12 18 0 q9 -8 18 0 M340 986 q9 -12 18 0 q9 -10 18 0" />
+          <path class="ln-mano s02-mano" d="M222 1046 q9 -12 18 0 q9 -8 18 0 M276 1046 q9 -13 18 0 q9 -10 18 0 q9 -12 18 0" />
+        </g>
+        <!-- la cabeza -->
+        <g class="s02-cabeza">
+          <path class="ln s02-dib-h" d="M710 1150 V1070 Q650 1064 660 1010 L636 986 L662 968 Q646 830 770 816 Q900 812 900 940 Q900 1020 850 1060 V1150" />
+          <path class="ln s02-dib-h s02-lio" d="M720 920 c 30 -50 90 -10 50 20 c -40 25 -70 -40 -10 -55 c 60 -12 100 45 50 70 c -40 18 -90 -10 -60 -40 c 25 -25 90 -20 100 15 c 8 30 -40 50 -70 30" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Te va bien</span><span class="s02-e2">Todo anotado</span><span class="s02-e3">O en tu cabeza</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-te-va-bien";
+      const DUR = 6.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const BIEN = 0.42;
+      const PEDIDOS = 1.32;
+      const TURNOS = 2.26;
+      const CLIENTES = 2.72;
+      const TODO = 3.92;
+      const ANOTADO = 4.42;
+      const CABEZA = 5.72;
+
+      const dibujar = (els, t, dur, desde, ease, escalon) => {
+        const E = escalon ?? 0.04;
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * E);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: ease ?? "power2.inOut" }, t + i * E);
+        });
+      };
+      const pop = (el, t, origen) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // el local entra dibujándose
+      dibujar(qa(".s02-dib-l"), 0, 0.5, 0.6, null, 0.02);
+      tl.fromTo(q(".s02-txt"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.2);
+      tl.fromTo(qa(".s02-luz"), { opacity: 0 }, { opacity: 0.85, duration: 0.25 }, 0.3);
+      tl.fromTo(q(".s02-local"), { scale: 0.97, svgOrigin: "540 1160" }, { scale: 1.02, svgOrigin: "540 1160", duration: TODO, ease: "none" }, 0);
+
+      // "bien": el gráfico sube
+      dibujar([q(".s02-ejes")], BIEN - 0.2, 0.3);
+      dibujar([q(".s02-sube")], BIEN, 0.5);
+      tl.fromTo(q(".s02-punta"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, BIEN + 0.45);
+      tl.fromTo(q(".s02-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, BIEN);
+
+      // pedidos, turnos, clientes: uno por palabra
+      pop(q(".s02-bolsa"), PEDIDOS, "380 730");
+      pop(q(".s02-r1"), PEDIDOS + 0.08, "380 810");
+      pop(q(".s02-reloj"), TURNOS, "540 720");
+      pop(q(".s02-r2"), TURNOS + 0.08, "540 810");
+      tl.fromTo(q(".s02-reloj path"), { rotation: 0, svgOrigin: "540 720" }, { rotation: 360, svgOrigin: "540 720", duration: 1.2, ease: "power2.inOut" }, TURNOS + 0.1);
+      pop(q(".s02-cli"), CLIENTES, "700 730");
+      pop(q(".s02-r3"), CLIENTES + 0.08, "700 810");
+      tl.fromTo(q(".s02-cli"), { y: 0 }, { y: -10, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, CLIENTES + 0.4);
+
+      // "todo": se va el local; aparece el cuaderno a la izquierda
+      tl.to(q(".s02-local"), { opacity: 0, filter: "blur(6px)", duration: 0.35, ease: "power2.in" }, TODO - 0.2);
+      tl.to(qa(".s02-r"), { opacity: 0, duration: 0.2 }, TODO - 0.1);
+      tl.to(q(".s02-e1"), { opacity: 0, duration: 0.2 }, TODO);
+      dibujar(qa(".s02-dib-c"), TODO, 0.45, 1, null, 0.03);
+      // "anotado ahí": los tres íconos vuelan adentro del cuaderno y se escriben los renglones
+      const destino = [[330, 940], [330, 1000], [330, 1060]];
+      [".s02-bolsa", ".s02-reloj", ".s02-cli"].forEach((s, i) => {
+        const [ox, oy] = [[380, 730], [540, 720], [700, 730]][i];
+        tl.to(q(s), { x: destino[i][0] - ox, y: destino[i][1] - oy, scale: 0.3, opacity: 0, svgOrigin: ox + " " + oy, duration: 0.45, ease: "power2.in" }, ANOTADO - 0.2 + i * 0.1);
+      });
+      dibujar(qa(".s02-mano"), ANOTADO + 0.1, 0.35, 1, "none", 0.18);
+      tl.fromTo(q(".s02-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, ANOTADO);
+      tl.fromTo(q(".s02-cuad"), { rotation: 0, svgOrigin: "330 970" }, { rotation: -3, svgOrigin: "330 970", duration: 1.4, ease: "sine.inOut" }, ANOTADO);
+
+      // "o en tu cabeza": la cabeza a la derecha, con el lío adentro
+      dibujar([q(".s02-dib-h")], 5.0, 0.5);
+      dibujar([q(".s02-lio")], CABEZA - 0.35, 0.5);
+      tl.to(q(".s02-e2"), { opacity: 0, duration: 0.2 }, CABEZA - 0.3);
+      tl.fromTo(q(".s02-e3"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, CABEZA - 0.2);
+      tl.fromTo(q(".s02-lio"), { rotation: 0, svgOrigin: "770 920" }, { rotation: 25, svgOrigin: "770 920", duration: 0.5, ease: "sine.inOut" }, CABEZA - 0.1);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
