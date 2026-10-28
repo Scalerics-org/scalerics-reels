@@ -76,7 +76,10 @@ if (ESTADO_TT && accesoTT) {
 let pub = (await estadoJson("publicados.json")) || {};
 if (Array.isArray(pub)) pub = { tiktok: pub, instagram: pub };
 const igOn = !!process.env.IG_TOKEN || !!(await estadoJson("ig.json"));
-const redes = [...(accesoTT ? ["tiktok"] : []), ...(igOn ? ["instagram"] : [])];
+// TikTok en pausa (TIKTOK_PAUSADO=1) mientras la app no esté auditada: sin auditoría los envíos no le
+// llegan a la cuenta. Al reactivar, sacar ojala-te-fundas de publicados.json (tiktok): no salió.
+const ttOn = !!accesoTT && process.env.TIKTOK_PAUSADO !== "1";
+const redes = [...(ttOn ? ["tiktok"] : []), ...(igOn ? ["instagram"] : [])];
 const falta = (sl) => redes.filter((r) => !(pub[r] || []).includes(sl));
 
 // 1. El aprobado más viejo
@@ -153,10 +156,10 @@ async function guardarEstado(estado) {
 let estado = await leerEstado();
 if (!estado?.token && process.env.IG_TOKEN) estado = { token: process.env.IG_TOKEN, renovado: 0 };
 const hayIG = !!estado?.token && falta(slug).includes("instagram");
-const hacerTT = !!accesoTT && falta(slug).includes("tiktok");
+const hacerTT = ttOn && falta(slug).includes("tiktok");
 const hechoEn = [];
 if (!hayIG) console.log("instagram: sin IG_TOKEN todavía, se saltea");
-if (!hayIG && !hacerTT) throw new Error(`no hay a dónde publicar ${slug}`);
+if (!hayIG && !hacerTT) { console.log(`nada que hacer: ninguna red activa para ${slug}`); process.exit(0); }
 let tk, igBase, uid;
 if (hayIG) {
   tk = estado.token;

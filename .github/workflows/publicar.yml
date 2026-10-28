@@ -38,5 +38,6 @@ jobs:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           IG_USER_ID: ${{ vars.IG_USER_ID }}
+          TIKTOK_PAUSADO: "1"
           DRIVE_APROBADOS: 1VRxt08EiUNDxKDrJk5ugXzsRCRZKedGK
           DRIVE_PUBLICADOS: 1QGCBFfdUfWAF7hCHfgYJfMXfd_CUzh2p
