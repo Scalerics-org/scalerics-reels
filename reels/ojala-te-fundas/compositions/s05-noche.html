@@ -1,0 +1,149 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-noche"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-noche"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-noche"] .s05-mon { position: absolute; left: 60px; top: 600px; width: 960px; height: 820px; border: 6px solid #2b302b; border-radius: 12px; background: #0f1a0c; overflow: hidden; }
+    [data-composition-id="s05-noche"] .s05-mitad { position: absolute; top: 0; width: 474px; height: 808px; }
+    [data-composition-id="s05-noche"] .s05-izq { left: 0; }
+    [data-composition-id="s05-noche"] .s05-der { left: 474px; }
+    [data-composition-id="s05-noche"] .s05-div { position: absolute; left: 471px; top: 0; width: 6px; height: 808px; background: #2b302b; }
+    [data-composition-id="s05-noche"] .s05-head { position: absolute; left: 0; right: 0; top: 18px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; color: #b6ff3b; }
+    [data-composition-id="s05-noche"] .s05-der .s05-head { color: #ff3344; }
+    [data-composition-id="s05-noche"] .s05-cel { position: absolute; left: 77px; top: 70px; width: 320px; height: 640px; border: 5px solid #b6ff3b; border-radius: 44px; box-sizing: border-box; }
+    [data-composition-id="s05-noche"] .s05-notch { position: absolute; left: 115px; top: 16px; width: 80px; height: 10px; border-radius: 5px; background: #b6ff3b; opacity: 0.6; }
+    [data-composition-id="s05-noche"] .s05-luna { position: absolute; left: 125px; top: 44px; width: 60px; height: 60px; }
+    [data-composition-id="s05-noche"] .s05-hora { position: absolute; left: 0; right: 0; top: 110px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 56px; line-height: 1; color: #f4f6ee; }
+    [data-composition-id="s05-noche"] .s05-burbuja { position: absolute; left: 22px; top: 236px; padding: 14px 18px; border: 4px solid #b6ff3b; border-radius: 22px 22px 22px 6px; background: #0f1a0c; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; line-height: 1.1; color: #f4f6ee; white-space: nowrap; }
+    [data-composition-id="s05-noche"] .s05-vuela { left: 104px; top: 311px; }
+    [data-composition-id="s05-noche"] .s05-sinresp { position: absolute; left: 24px; top: 330px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #ff3344; }
+    [data-composition-id="s05-noche"] .s05-x { position: absolute; left: 228px; top: 210px; width: 56px; height: 56px; }
+    [data-composition-id="s05-noche"] .s05-resp { position: absolute; right: 22px; top: 326px; padding: 14px 18px; border-radius: 22px 22px 6px 22px; background: #b6ff3b; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1; color: #050605; white-space: nowrap; box-shadow: 0 0 24px rgba(182, 255, 59, 0.5); }
+    [data-composition-id="s05-noche"] .s05-check { position: absolute; right: 26px; top: 396px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #b6ff3b; }
+    [data-composition-id="s05-noche"] .s05-banda { position: absolute; left: -40px; top: 1150px; width: 1160px; height: 272px; background: rgba(6, 8, 6, 0.82); }
+    [data-composition-id="s05-noche"] .s05-ami { position: absolute; left: 0; right: 0; top: 1172px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 224px; letter-spacing: -0.03em; line-height: 1; color: #ff3344; text-shadow: 0 0 48px rgba(255, 51, 68, 0.65); white-space: nowrap; }
+    [data-composition-id="s05-noche"] .s05-etiqueta { position: absolute; left: 0; right: 0; top: 1450px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.34em; color: #b6ff3b; }
+  </style>
+  <div id="root" data-composition-id="s05-noche" data-width="1080" data-height="1920" data-duration="4.82">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.82" data-track-index="0">
+      <div class="s05-escenario">
+        <div class="s05-mon">
+          <!-- IZQUIERDA: tu celular, de noche, sin contestar -->
+          <div class="s05-mitad s05-izq">
+            <div class="s05-head">TU CELULAR</div>
+            <div class="s05-cel s05-cel-izq">
+              <div class="s05-notch"></div>
+              <svg class="s05-luna" viewBox="0 0 60 60" aria-hidden="true">
+                <path d="M40 8 C24 10 14 22 14 34 C14 46 26 54 38 52 C26 46 22 26 40 8 Z" fill="none" stroke="#b6ff3b" stroke-width="4" stroke-linejoin="round" />
+              </svg>
+              <div class="s05-hora">22:47</div>
+              <div class="s05-burbuja s05-preg">¿Hacen envíos?</div>
+              <svg class="s05-x" viewBox="0 0 56 56" aria-hidden="true">
+                <circle cx="28" cy="28" r="22" fill="#0f1a0c" stroke="#ff3344" stroke-width="5" />
+                <path d="M19 19 L37 37 M37 19 L19 37" stroke="#ff3344" stroke-width="5" stroke-linecap="round" />
+              </svg>
+              <div class="s05-sinresp">sin respuesta</div>
+            </div>
+          </div>
+          <div class="s05-div"></div>
+          <!-- DERECHA: el mío, que contesta al toque -->
+          <div class="s05-mitad s05-der">
+            <div class="s05-head">EL MÍO</div>
+            <div class="s05-cel s05-cel-der">
+              <div class="s05-notch"></div>
+              <svg class="s05-luna" viewBox="0 0 60 60" aria-hidden="true">
+                <path d="M40 8 C24 10 14 22 14 34 C14 46 26 54 38 52 C26 46 22 26 40 8 Z" fill="none" stroke="#b6ff3b" stroke-width="4" stroke-linejoin="round" />
+              </svg>
+              <div class="s05-hora">22:47</div>
+              <div class="s05-resp">¡Sí! Hoy mismo.</div>
+              <div class="s05-check" data-layout-ignore>22:47 · al toque</div>
+            </div>
+          </div>
+          <!-- la burbuja que se cruza de celular -->
+          <div class="s05-burbuja s05-vuela">¿Hacen envíos?</div>
+        </div>
+        <div class="s05-banda"></div>
+        <div class="s05-ami">A MÍ.</div>
+        <div class="s05-etiqueta">CAM 05 · 22:47</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-noche";
+      const DUR = 4.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const CLIENTE = 0.78;
+      const ESCRIBE = 1.38;
+      const NOCHE = 1.96;
+      const CONTESTAS = 2.42;
+      const ME = 3.52;
+      const MI = 4.2;
+
+      function sacudon(t, f) {
+        [[-18, 10], [14, -8], [-8, 4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s05-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      }
+      function aparece(el, t, extra) {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.7 }, extra && extra.from), Object.assign({ opacity: 1, scale: 1, duration: 0.26, ease: "back.out(2)", immediateRender: false }, extra && extra.to), t);
+      }
+
+      // cuadro 0: el monitor partido ya prendido, cada mitad con su parpadeo
+      tl.fromTo(q(".s05-mon"), { scale: 1.08 }, { scale: 1, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s05-izq"), { opacity: 0.4 }, { opacity: 1, duration: 0.08, ease: "steps(2)" }, 0);
+      tl.fromTo(q(".s05-der"), { opacity: 0.3 }, { opacity: 1, duration: 0.08, ease: "steps(2)" }, 0.12);
+      tl.fromTo(q(".s05-izq"), { x: 0 }, { x: 12, duration: 0.03, yoyo: true, repeat: 3, ease: "none" }, 0.2);
+      tl.fromTo(qa(".s05-cel"), { y: 40 }, { y: 0, duration: 0.45, ease: "power3.out", stagger: 0.08 }, 0);
+
+      // "cliente": el celular vibra
+      tl.to(q(".s05-cel-izq"), { x: 7, duration: 0.03, yoyo: true, repeat: 7, ease: "none" }, CLIENTE);
+      // "te escribe": la burbuja
+      aparece(q(".s05-preg"), ESCRIBE - 0.04, { from: { y: 20, transformOrigin: "0% 100%" } });
+      // "a la noche": la luna late, la pantalla se apaga un poco
+      tl.to(q(".s05-izq .s05-luna"), { scale: 1.5, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", transformOrigin: "50% 50%" }, NOCHE);
+      tl.to(q(".s05-cel-izq"), { opacity: 0.75, duration: 0.2 }, NOCHE + 0.1);
+      // "no contestás": X roja, "sin respuesta", glitch de la mitad izquierda
+      aparece(q(".s05-x"), CONTESTAS, { from: { scale: 2.2, rotation: -90, transformOrigin: "50% 50%" }, to: { rotation: 0, duration: 0.18, ease: "power3.out" } });
+      gsap.set(q(".s05-sinresp"), { opacity: 0 });
+      tl.fromTo(q(".s05-sinresp"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.15, ease: "steps(3)", immediateRender: false }, CONTESTAS + 0.12);
+      [[-16, 0.04], [12, 0.08], [-6, 0.12], [0, 0.16]].forEach(([x, t]) => tl.to(q(".s05-izq"), { x, duration: 0.03, ease: "none" }, CONTESTAS + t));
+      tl.to(q(".s05-izq"), { scaleY: 0.05, duration: 0.04, yoyo: true, repeat: 1, ease: "none" }, CONTESTAS + 0.5);
+      tl.to(q(".s05-x"), { scale: 1.2, duration: 0.14, yoyo: true, repeat: 3, ease: "sine.inOut" }, 2.9);
+      tl.to(q(".s05-cel-izq"), { opacity: 0.55, duration: 0.6 }, 2.8);
+
+      // "me escribe a mí": la MISMA burbuja vuela al celular del villano
+      const vuela = q(".s05-vuela");
+      gsap.set(vuela, { opacity: 0 });
+      tl.set(vuela, { opacity: 1 }, ME - 0.06);
+      tl.set(q(".s05-preg"), { opacity: 0.2 }, ME - 0.06);
+      tl.to(vuela, { keyframes: [{ x: 237, y: -150, rotation: 8, duration: 0.18, ease: "power2.out" }, { x: 474, y: 0, rotation: 0, duration: 0.18, ease: "power2.in" }] }, ME - 0.04);
+      tl.to(q(".s05-cel-der"), { scale: 1.04, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, ME + 0.24);
+      aparece(q(".s05-resp"), ME + 0.26, { from: { y: 20, transformOrigin: "100% 100%" } });
+      gsap.set(q(".s05-check"), { opacity: 0 });
+      tl.to(q(".s05-check"), { opacity: 1, duration: 0.08, ease: "steps(2)" }, ME + 0.42);
+
+      // "A MÍ." gigante rojo, sacudón
+      gsap.set([q(".s05-banda"), q(".s05-ami")], { opacity: 0 });
+      tl.fromTo(q(".s05-banda"), { opacity: 0, scaleY: 0.1 }, { opacity: 1, scaleY: 1, duration: 0.1, ease: "power3.out", immediateRender: false }, 3.96);
+      tl.fromTo(q(".s05-ami"), { opacity: 0, scale: 2.8, rotation: -6 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.14, ease: "power4.in", immediateRender: false }, MI - 0.12);
+      sacudon(MI + 0.04, 1.3);
+      tl.to(q(".s05-ami"), { x: 10, duration: 0.03, yoyo: true, repeat: 3, ease: "none" }, MI + 0.26);
+
+      gsap.set(q(".s05-etiqueta"), { opacity: 0 });
+      tl.fromTo(q(".s05-etiqueta"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, 0.2);
+
+      // salida: corte de monitor
+      tl.to(q("#s05-escena"), { scaleY: 0.02, opacity: 0, duration: 0.18, ease: "power3.in", transformOrigin: "50% 50%" }, DUR - 0.18);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

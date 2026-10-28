@@ -1,0 +1,163 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-google"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-google"] .s06-escenario { position: absolute; inset: 0; }
+    /* el monitor grande: una búsqueda en vivo */
+    [data-composition-id="s06-google"] .s06-mon { position: absolute; left: 60px; top: 800px; width: 960px; height: 640px; border: 6px solid #2b302b; border-radius: 14px; background: #0f1a0c; overflow: hidden; }
+    [data-composition-id="s06-google"] .s06-cam { position: absolute; left: 16px; top: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 18px; color: #b6ff3b; opacity: 0.75; letter-spacing: 0.1em; }
+    [data-composition-id="s06-google"] .s06-barra { position: absolute; left: 40px; top: 40px; width: 868px; height: 92px; border: 5px solid #b6ff3b; border-radius: 46px; box-sizing: border-box; }
+    [data-composition-id="s06-google"] .s06-lupa { position: absolute; left: 26px; top: 18px; width: 48px; height: 48px; }
+    [data-composition-id="s06-google"] .s06-tipeo { position: absolute; left: 96px; top: 14px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 46px; line-height: 56px; color: #f4f6ee; white-space: pre; }
+    [data-composition-id="s06-google"] .s06-cursor { display: inline-block; width: 4px; height: 46px; background: #b6ff3b; vertical-align: -6px; margin-left: 4px; }
+    [data-composition-id="s06-google"] .s06-res { position: absolute; left: 40px; width: 868px; height: 104px; border: 3px solid rgba(182, 255, 59, 0.55); border-radius: 14px; box-sizing: border-box; background: #0f1a0c; }
+    [data-composition-id="s06-google"] .s06-res svg.s06-ico { position: absolute; left: 22px; top: 18px; width: 82px; height: 64px; }
+    [data-composition-id="s06-google"] .s06-tit { position: absolute; left: 130px; top: 14px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; color: #b6ff3b; white-space: nowrap; }
+    [data-composition-id="s06-google"] .s06-sub { position: absolute; left: 130px; top: 58px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #f4f6ee; opacity: 0.75; white-space: nowrap; }
+    [data-composition-id="s06-google"] .s06-bar { position: absolute; left: 130px; height: 16px; border-radius: 8px; background: #b6ff3b; opacity: 0.3; }
+    [data-composition-id="s06-google"] .s06-hueco { border: 4px dashed rgba(182, 255, 59, 0.6); background: transparent; }
+    [data-composition-id="s06-google"] .s06-hueco .s06-tit { color: #b6ff3b; opacity: 0.45; }
+    [data-composition-id="s06-google"] .s06-preg { position: absolute; right: 50px; top: -6px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 100px; line-height: 1; color: #ff3344; text-shadow: 0 0 30px rgba(255, 51, 68, 0.6); }
+    [data-composition-id="s06-google"] .s06-corona { position: absolute; left: 324px; top: 104px; width: 300px; height: 120px; overflow: visible; }
+    [data-composition-id="s06-google"] .s06-pin { position: absolute; left: 800px; top: 136px; width: 70px; height: 96px; }
+    /* las palabras que caen, arriba del monitor */
+    [data-composition-id="s06-google"] .s06-txt { position: absolute; left: 0; right: 0; text-align: center; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s06-google"] .s06-google { top: 585px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 160px; letter-spacing: 0.06em; color: #b6ff3b; text-shadow: 0 0 36px rgba(182, 255, 59, 0.5); }
+    [data-composition-id="s06-google"] .s06-noap { top: 610px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 116px; letter-spacing: -0.02em; color: #f4f6ee; }
+    [data-composition-id="s06-google"] .s06-meenc { top: 566px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 54px; letter-spacing: 0.2em; color: #b6ff3b; }
+    [data-composition-id="s06-google"] .s06-ami { top: 650px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 140px; letter-spacing: -0.02em; color: #ff3344; text-shadow: 0 0 40px rgba(255, 51, 68, 0.6); }
+    [data-composition-id="s06-google"] .s06-etiqueta { position: absolute; left: 0; right: 0; top: 1462px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #b6ff3b; }
+  </style>
+  <div id="root" data-composition-id="s06-google" data-width="1080" data-height="1920" data-duration="4.68">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="4.68" data-track-index="0">
+      <div class="s06-escenario">
+        <div class="s06-mon">
+          <div class="s06-cam" data-layout-ignore>CAM 06 · 22:51</div>
+          <div class="s06-barra">
+            <svg class="s06-lupa" viewBox="0 0 48 48" aria-hidden="true"><circle cx="20" cy="20" r="14" fill="none" stroke="#b6ff3b" stroke-width="5" /><path d="M31 31 L44 44" stroke="#b6ff3b" stroke-width="5" stroke-linecap="round" /></svg>
+            <div class="s06-tipeo"><span class="s06-ch">l</span><span class="s06-ch">o</span><span class="s06-ch">c</span><span class="s06-ch">a</span><span class="s06-ch">l</span><span class="s06-ch"> </span><span class="s06-ch">c</span><span class="s06-ch">e</span><span class="s06-ch">r</span><span class="s06-ch">c</span><span class="s06-ch">a</span><span class="s06-cursor"></span></div>
+          </div>
+          <!-- resultado 1: el villano -->
+          <div class="s06-res s06-r1" style="top:160px;">
+            <svg class="s06-ico" viewBox="0 0 82 64" aria-hidden="true"><path d="M10 60 V26 H72 V60 M4 26 L12 8 H70 L78 26 Z M34 60 V40 H48 V60" fill="none" stroke="#b6ff3b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <div class="s06-tit">EL DE ENFRENTE</div>
+            <div class="s06-sub">ABIERTO AHORA · 4,9</div>
+          </div>
+          <div class="s06-res s06-r2" style="top:276px;">
+            <svg class="s06-ico" viewBox="0 0 82 64" aria-hidden="true"><path d="M10 60 V26 H72 V60 M4 26 L12 8 H70 L78 26 Z" fill="none" stroke="#b6ff3b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" /></svg>
+            <div class="s06-bar" style="top:28px;width:380px;"></div>
+            <div class="s06-bar" style="top:62px;width:260px;opacity:0.18;"></div>
+          </div>
+          <div class="s06-res s06-r3" style="top:392px;">
+            <svg class="s06-ico" viewBox="0 0 82 64" aria-hidden="true"><path d="M10 60 V26 H72 V60 M4 26 L12 8 H70 L78 26 Z" fill="none" stroke="#b6ff3b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" /></svg>
+            <div class="s06-bar" style="top:28px;width:440px;"></div>
+            <div class="s06-bar" style="top:62px;width:300px;opacity:0.18;"></div>
+          </div>
+          <!-- el hueco: acá irías vos -->
+          <div class="s06-res s06-hueco" style="top:508px;">
+            <div class="s06-tit" style="left:40px;top:28px;">TU LOCAL</div>
+            <div class="s06-preg">?</div>
+          </div>
+          <!-- corona y pin sobre el resultado del villano -->
+          <svg class="s06-corona" viewBox="0 0 300 120" aria-hidden="true">
+            <path class="s06-trazo" pathLength="1" d="M40 108 L20 24 L95 70 L150 6 L205 70 L280 24 L260 108 Z" fill="none" stroke="#b6ff3b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+            <path class="s06-trazo" pathLength="1" d="M40 108 H260" fill="none" stroke="#b6ff3b" stroke-width="7" stroke-linecap="round" />
+          </svg>
+          <svg class="s06-pin" viewBox="0 0 70 96" aria-hidden="true">
+            <path d="M35 92 C35 92 6 56 6 34 C6 17 19 5 35 5 C51 5 64 17 64 34 C64 56 35 92 35 92 Z" fill="#ff3344" />
+            <circle cx="35" cy="34" r="11" fill="#0f1a0c" />
+          </svg>
+        </div>
+        <div class="s06-txt s06-google">GOOGLE</div>
+        <div class="s06-txt s06-noap">NO APARECÉS</div>
+        <div class="s06-txt s06-meenc">ME ENCUENTRA</div>
+        <div class="s06-txt s06-ami">A MÍ.</div>
+        <div class="s06-etiqueta">CAM 06 · BÚSQUEDAS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-google";
+      const DUR = 4.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const BUSCA = 0.84;
+      const GOOGLE = 1.28;
+      const NO = 1.78;
+      const ME = 2.98;
+      const AMI = 3.64;
+      const MI = 3.88;
+      const temblor = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s06-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const aparece = (el, t, from, to) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 0 }, from), Object.assign({ opacity: 1, immediateRender: false }, to), t); };
+
+      // cuadro 0: el monitor se prende con glitch, la barra vacía con el cursor
+      tl.fromTo(q(".s06-mon"), { scaleY: 0.5, opacity: 0.7 }, { scaleY: 1, opacity: 1, duration: 0.12, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s06-mon"), { scale: 1.0 }, { scale: 1.035, duration: DUR, ease: "none" }, 0.18);
+      tl.fromTo(q(".s06-etiqueta"), { opacity: 0.3, x: -20 }, { opacity: 1, x: 0, duration: 0.25, ease: "steps(3)" }, 0);
+      // cursor que titila hasta que se tipea
+      [0.25, 0.5, 0.75].forEach((t, i) => tl.set(q(".s06-cursor"), { opacity: i % 2 ? 1 : 0 }, t));
+      tl.set(q(".s06-cursor"), { opacity: 1 }, BUSCA - 0.02);
+      gsap.set(qa(".s06-ch"), { display: "none" });
+      qa(".s06-ch").forEach((c, i) => tl.set(c, { display: "inline" }, BUSCA + i * 0.042));
+      // los resultados están ocultos hasta Google
+      gsap.set(qa(".s06-res"), { opacity: 0 });
+      gsap.set([q(".s06-corona"), q(".s06-pin")], { opacity: 0 });
+
+      // ambiente parpadea en 1.12 (19.9 global): salto de señal
+      tl.to(q(".s06-mon"), { x: 22, duration: 0.03, ease: "none" }, 1.1);
+      tl.to(q(".s06-mon"), { x: -10, duration: 0.03, ease: "none" }, 1.14);
+      tl.to(q(".s06-mon"), { x: 0, duration: 0.03, ease: "none" }, 1.18);
+
+      // "GOOGLE": cae enorme, y los resultados caen
+      aparece(q(".s06-google"), GOOGLE - 0.12, { scale: 2.6, rotation: -4 }, { scale: 1, rotation: 0, duration: 0.14, ease: "power4.in" });
+      temblor(GOOGLE + 0.04, 1);
+      tl.set(q(".s06-cursor"), { opacity: 0 }, GOOGLE + 0.2);
+      qa(".s06-res").forEach((r, i) => {
+        tl.fromTo(r, { opacity: 0, y: -90 }, { opacity: 1, y: 0, duration: 0.24, ease: "back.out(1.8)", immediateRender: false }, GOOGLE + 0.08 + i * 0.09);
+      });
+      [[-14, 0], [10, 0], [0, 0]].forEach(([x], i) => tl.to(q(".s06-google"), { x, duration: 0.03, ease: "none" }, GOOGLE + 0.25 + i * 0.04));
+
+      // "NO APARECÉS": se va Google cortado, el hueco tiembla con un "?" rojo
+      tl.to(q(".s06-google"), { scaleY: 0.03, opacity: 0, duration: 0.08, ease: "power3.in" }, NO - 0.1);
+      aparece(q(".s06-noap"), NO - 0.08, { scale: 2.4 }, { scale: 1, duration: 0.12, ease: "power4.in" });
+      temblor(NO + 0.05, 0.8);
+      tl.to(q(".s06-hueco"), { borderColor: "#ff3344", duration: 0.05 }, NO);
+      tl.fromTo(q(".s06-preg"), { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, NO + 0.04);
+      [[-12], [10], [-8], [6], [0]].forEach(([x], i) => tl.to(q(".s06-hueco"), { x, duration: 0.05, ease: "none" }, NO + 0.08 + i * 0.06));
+      tl.to(q(".s06-preg"), { rotation: 14, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 3 }, NO + 0.4);
+      tl.to(q(".s06-hueco"), { opacity: 0.45, duration: 0.05, ease: "steps(1)", yoyo: true, repeat: 3 }, 2.3);
+      tl.to(q(".s06-noap"), { x: 18, duration: 0.03, ease: "none" }, 2.55);
+      tl.to(q(".s06-noap"), { x: -8, duration: 0.03, ease: "none" }, 2.59);
+      tl.to(q(".s06-noap"), { x: 0, duration: 0.03, ease: "none" }, 2.63);
+
+      // "ME ENCUENTRA A MÍ": el primer resultado se agranda, corona y pin
+      tl.to(q(".s06-noap"), { scaleY: 0.03, opacity: 0, duration: 0.08, ease: "power3.in" }, ME - 0.1);
+      aparece(q(".s06-meenc"), ME, { y: 20 }, { y: 0, duration: 0.16, ease: "power3.out" });
+      tl.to([q(".s06-r2"), q(".s06-r3"), q(".s06-hueco")], { opacity: 0.25, duration: 0.2 }, ME);
+      tl.to(q(".s06-barra"), { opacity: 0.12, y: -30, duration: 0.2, ease: "power2.in" }, ME);
+      tl.to(q(".s06-r1"), { scale: 1.06, y: 70, borderColor: "#b6ff3b", borderWidth: 5, zIndex: 3, duration: 0.3, ease: "back.out(1.6)" }, ME);
+      gsap.set(qa(".s06-trazo"), { strokeDasharray: 1, strokeDashoffset: 1 });
+      tl.set(q(".s06-corona"), { opacity: 1 }, ME + 0.12);
+      tl.to(qa(".s06-trazo"), { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut", stagger: 0.12 }, ME + 0.12);
+      tl.fromTo(q(".s06-pin"), { opacity: 0, y: -220 }, { opacity: 1, y: 0, duration: 0.3, ease: "bounce.out", immediateRender: false }, ME + 0.32);
+      aparece(q(".s06-ami"), MI - 0.12, { scale: 2.8, rotation: -6 }, { scale: 1, rotation: -3, duration: 0.14, ease: "power4.in" });
+      temblor(MI + 0.04, 1.1);
+      tl.to(q(".s06-corona"), { scale: 1.12, transformOrigin: "50% 100%", duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 2 }, MI + 0.1);
+      tl.to(q(".s06-pin"), { y: -24, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, MI + 0.2);
+      tl.to(q(".s06-mon"), { scale: 1.06, transformOrigin: "50% 100%", duration: 0.5, ease: "power2.inOut" }, MI);
+
+      // salida: corte de monitor
+      tl.to(q("#s06-escena"), { scaleY: 0.02, opacity: 0, duration: 0.18, ease: "power3.in", transformOrigin: "50% 50%" }, DUR - 0.18);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

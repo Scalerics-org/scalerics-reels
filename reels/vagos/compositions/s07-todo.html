@@ -1,0 +1,177 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-todo"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-todo"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-todo"] .s07-atienden { position: absolute; left: 0; right: 0; top: 960px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 150px; letter-spacing: -0.02em; line-height: 1; text-transform: uppercase; color: #f4f1ea; }
+    [data-composition-id="s07-todo"] .s07-celda { position: absolute; width: 470px; height: 390px; }
+    [data-composition-id="s07-todo"] .s07-icono { position: absolute; left: 115px; top: 10px; width: 240px; height: 220px; }
+    [data-composition-id="s07-todo"] .s07-palabra { position: absolute; left: -100px; right: -100px; top: 262px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; line-height: 1; text-transform: uppercase; color: #f4f1ea; white-space: nowrap; }
+    [data-composition-id="s07-todo"] .s07-c1 { left: 60px; top: 650px; }
+    [data-composition-id="s07-todo"] .s07-c2 { left: 550px; top: 650px; }
+    [data-composition-id="s07-todo"] .s07-c3 { left: 60px; top: 1080px; }
+    [data-composition-id="s07-todo"] .s07-c4 { left: 550px; top: 1080px; }
+    [data-composition-id="s07-todo"] .s07-c1 .s07-palabra { font-size: 66px; top: 272px; }
+    [data-composition-id="s07-todo"] .s07-c2 .s07-palabra { font-size: 96px; top: 258px; color: #ffd60a; }
+    [data-composition-id="s07-todo"] .s07-c3 .s07-palabra { font-size: 56px; top: 276px; }
+    [data-composition-id="s07-todo"] .s07-c4 .s07-palabra { font-size: 76px; top: 266px; color: #ffd60a; }
+    [data-composition-id="s07-todo"] .s07-banda { position: absolute; left: -40px; top: 870px; width: 1160px; height: 420px; background: #09090a; }
+    [data-composition-id="s07-todo"] .s07-todo-l { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; letter-spacing: -0.03em; text-transform: uppercase; color: #ffd60a; white-space: nowrap; }
+    [data-composition-id="s07-todo"] .s07-todo1 { top: 890px; font-size: 230px; }
+    [data-composition-id="s07-todo"] .s07-todo2 { top: 1120px; font-size: 112px; }
+    [data-composition-id="s07-todo"] .s07-etiqueta { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #ffd60a; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s07-todo" data-width="1080" data-height="1920" data-duration="5.62">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.62" data-track-index="0">
+      <div class="s07-escenario">
+        <div class="s07-etiqueta">Atienden</div>
+        <div class="s07-atienden">Atienden</div>
+
+        <div class="s07-grilla">
+          <div class="s07-celda s07-c1">
+            <svg class="s07-icono" viewBox="0 0 240 220" width="240" height="220">
+              <rect x="10" y="70" width="220" height="26" rx="6" fill="#f4f1ea" />
+              <rect x="24" y="96" width="192" height="114" fill="#8a8f98" />
+              <g stroke="#09090a" stroke-width="5"><line x1="24" y1="134" x2="216" y2="134" /><line x1="24" y1="172" x2="216" y2="172" /></g>
+              <rect x="150" y="30" width="56" height="40" rx="6" fill="#ffd60a" />
+              <rect x="40" y="44" width="30" height="26" rx="4" fill="#f4f1ea" />
+            </svg>
+            <div class="s07-palabra">Mostrador</div>
+          </div>
+          <div class="s07-celda s07-c2">
+            <svg class="s07-icono" viewBox="0 0 240 220" width="240" height="220">
+              <rect x="130" y="14" width="80" height="50" rx="6" fill="#f4f1ea" />
+              <rect x="140" y="24" width="60" height="22" fill="#09090a" />
+              <rect x="164" y="64" width="12" height="30" fill="#f4f1ea" />
+              <rect x="20" y="90" width="200" height="90" rx="10" fill="#ffd60a" />
+              <g fill="#09090a">
+                <rect x="40" y="106" width="26" height="18" rx="3" /><rect x="76" y="106" width="26" height="18" rx="3" /><rect x="112" y="106" width="26" height="18" rx="3" />
+                <rect x="40" y="136" width="26" height="18" rx="3" /><rect x="76" y="136" width="26" height="18" rx="3" /><rect x="112" y="136" width="26" height="18" rx="3" />
+                <rect x="156" y="106" width="46" height="48" rx="4" />
+              </g>
+              <rect x="10" y="180" width="220" height="30" rx="4" fill="#f4f1ea" />
+              <rect x="100" y="190" width="40" height="8" rx="4" fill="#09090a" />
+            </svg>
+            <div class="s07-palabra">Caja</div>
+          </div>
+          <div class="s07-celda s07-c3">
+            <svg class="s07-icono" viewBox="0 0 240 220" width="240" height="220">
+              <path d="M30 80 L120 50 L210 80 L210 196 L30 196 Z" fill="#8a8f98" />
+              <path d="M30 80 L120 110 L210 80" fill="none" stroke="#09090a" stroke-width="5" />
+              <line x1="120" y1="110" x2="120" y2="196" stroke="#09090a" stroke-width="5" />
+              <rect x="56" y="130" width="40" height="10" fill="#ffd60a" />
+              <path class="s07-flecha" d="M150 30 L200 30 L200 10 L236 44 L200 78 L200 58 L150 58 Z" fill="#ffd60a" />
+            </svg>
+            <div class="s07-palabra">Proveedores</div>
+          </div>
+          <div class="s07-celda s07-c4">
+            <svg class="s07-icono" viewBox="0 0 240 220" width="240" height="220">
+              <g class="s07-ondas" fill="none" stroke="#ffd60a" stroke-width="7" stroke-linecap="round">
+                <path d="M54 70 Q36 110 54 150" /><path d="M30 54 Q4 110 30 166" />
+                <path d="M186 70 Q204 110 186 150" /><path d="M210 54 Q236 110 210 166" />
+              </g>
+              <g class="s07-tel">
+                <rect x="78" y="14" width="84" height="192" rx="18" fill="#09090a" stroke="#f4f1ea" stroke-width="8" />
+                <rect x="104" y="26" width="32" height="7" rx="3" fill="#f4f1ea" />
+                <circle cx="120" cy="110" r="20" fill="#ff2d2d" />
+              </g>
+            </svg>
+            <div class="s07-palabra">Celular</div>
+          </div>
+        </div>
+
+        <div class="s07-banda"></div>
+        <div class="s07-todo-l s07-todo1">Todo</div>
+        <div class="s07-todo-l s07-todo2">a la vez</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-todo";
+      const DUR = 5.62;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const TODO = 4.11;
+      const VEZ = 4.6;
+
+      const sacudon = (t, f) => [[-18, 10], [14, -8], [-9, 5], [5, -3], [0, 0]].forEach(([x, y], i) =>
+        tl.to(q(".s07-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      // cuadro 0: "ATIENDEN" gigante, que sube a etiqueta
+      gsap.set(q(".s07-etiqueta"), { opacity: 0 });
+      tl.fromTo(q(".s07-atienden"), { scale: 1.4, opacity: 0.6 }, { scale: 1, opacity: 1, duration: 0.2, ease: "power4.out" }, 0);
+      [14, -10, 0].forEach((x, i) => tl.to(q(".s07-atienden"), { x, duration: 0.03, ease: "none" }, 0.22 + i * 0.05));
+      tl.to(q(".s07-atienden"), { scale: 1.08, duration: 0.25, ease: "sine.out" }, 0.3);
+      tl.to(q(".s07-atienden"), { opacity: 0, y: -360, scale: 0.3, duration: 0.15, ease: "power3.in" }, 0.45);
+      tl.to(q(".s07-etiqueta"), { opacity: 1, duration: 0.1 }, 0.58);
+
+      // cada palabra: entra gigante al centro desde su lado, se queda un instante y va a su celda
+      const CX = 540, CY = 1040;
+      const items = [
+        { c: ".s07-c1", t: 0.6, desde: { x: -1100, y: 0 }, cx: 295, cy: 950 },
+        { c: ".s07-c2", t: 1.4, desde: { x: 0, y: -900 }, cx: 785, cy: 940 },
+        { c: ".s07-c3", t: 2.2, desde: { x: 0, y: 900 }, cx: 295, cy: 1380 },
+        { c: ".s07-c4", t: 3.2, desde: { x: 1100, y: 0 }, cx: 785, cy: 1370 },
+      ];
+      items.forEach((it, i) => {
+        const pal = q(it.c + " .s07-palabra");
+        const ico = q(it.c + " .s07-icono");
+        const dx = CX - it.cx, dy = CY - it.cy;
+        gsap.set([pal, ico], { opacity: 0 });
+        tl.fromTo(pal, { opacity: 1, x: dx + it.desde.x, y: dy + it.desde.y, scale: 2, rotation: i % 2 ? 6 : -6 },
+          { x: dx, y: dy, rotation: 0, duration: 0.15, ease: "power4.out", immediateRender: false }, it.t - 0.12);
+        sacudon(it.t + 0.02, 0.8);
+        tl.to(pal, { x: 0, y: 0, scale: 1, duration: 0.22, ease: "power3.inOut" }, it.t + 0.3);
+        tl.fromTo(ico, { opacity: 0, scale: 0.4, rotation: i % 2 ? 20 : -20 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, it.t + 0.42);
+        // las que ya están se apagan un poco cuando entra la siguiente al centro
+        items.slice(0, i).forEach((p) => tl.to(q(p.c), { opacity: 0.2, duration: 0.1 }, it.t - 0.12));
+        items.slice(0, i).forEach((p) => tl.to(q(p.c), { opacity: 1, duration: 0.15 }, it.t + 0.5));
+      });
+      // detalles vivos: la flecha de proveedores empuja, el celular vibra
+      tl.to(q(".s07-flecha"), { x: 10, duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, 2.8);
+      gsap.set(q(".s07-ondas"), { opacity: 0 });
+      tl.to(q(".s07-ondas"), { opacity: 1, duration: 0.1 }, 3.62);
+      tl.to(q(".s07-tel"), { x: 5, duration: 0.03, yoyo: true, repeat: 15, ease: "none" }, 3.62);
+      tl.to(q(".s07-ondas"), { opacity: 0.3, duration: 0.12, yoyo: true, repeat: 3, ease: "none" }, 3.7);
+      // mientras tanto la grilla respira
+      tl.to(q(".s07-c1"), { rotation: -2, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.0);
+      tl.to(q(".s07-c2"), { rotation: 2, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.8);
+
+      // "TODO A LA VEZ": la grilla hace malabares, cada vez más rápido
+      const celdas = [".s07-c1", ".s07-c2", ".s07-c3", ".s07-c4"].map(q);
+      celdas.forEach((c, i) => gsap.set(c, { transformOrigin: "50% 50%" }));
+      let t = TODO - 0.1;
+      let d = 0.22;
+      let k = 0;
+      while (t < DUR - 0.25) {
+        celdas.forEach((c, i) => tl.to(c, { rotation: ((i + k) % 2 ? 1 : -1) * (6 + k * 1.5), y: ((i + k) % 2 ? -1 : 1) * (10 + k * 3), duration: d, ease: "sine.inOut" }, t));
+        t += d;
+        d = Math.max(0.07, d * 0.78);
+        k++;
+      }
+      tl.to(celdas, { opacity: 0.55, duration: 0.15 }, TODO);
+
+      gsap.set([q(".s07-banda"), q(".s07-todo1"), q(".s07-todo2")], { opacity: 0 });
+      gsap.set(q(".s07-banda"), { rotation: -4 });
+      tl.fromTo(q(".s07-banda"), { opacity: 0, scaleY: 0 }, { opacity: 0.85, scaleY: 1, duration: 0.12, ease: "power3.out", immediateRender: false }, TODO - 0.08);
+      tl.fromTo(q(".s07-todo1"), { opacity: 0, scale: 3.2, rotation: -10 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.15, ease: "power4.in", immediateRender: false }, TODO - 0.12);
+      sacudon(TODO + 0.03, 1.2);
+      tl.fromTo(q(".s07-todo2"), { opacity: 0, scale: 2.6, rotation: 6 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.14, ease: "power4.in", immediateRender: false }, VEZ - 0.12);
+      sacudon(VEZ + 0.03, 1);
+      [16, -12, 8, 0].forEach((x, i) => tl.to(q(".s07-todo1"), { x, duration: 0.03, ease: "none" }, 4.95 + i * 0.05));
+      tl.to([q(".s07-todo1"), q(".s07-todo2")], { scale: 1.07, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut" }, 5.1);
+
+      // salida
+      tl.to(q("#s07-escena"), { scale: 1.25, opacity: 0, filter: "blur(6px)", transformOrigin: "50% 55%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,193 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-super"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-super"] .s06-cinta { position: absolute; width: 150px; height: 46px; background: rgba(242, 222, 160, 0.82); }
+    /* tira de papel "Mientras tanto..." */
+    [data-composition-id="s06-super"] .s06-tira { position: absolute; left: 70px; top: 572px; width: 600px; height: 124px; background: #f3ead8; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.42); }
+    [data-composition-id="s06-super"] .s06-tira .s06-cinta { left: -40px; top: -14px; }
+    [data-composition-id="s06-super"] .s06-mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #2346a8; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s06-super"] .s06-mientras { left: 36px; top: 14px; font-size: 96px; }
+    /* el súper: edificio de papel prolijo */
+    [data-composition-id="s06-super"] .s06-super { position: absolute; left: 50px; top: 760px; width: 500px; height: 420px; }
+    [data-composition-id="s06-super"] .s06-cuerpo { position: absolute; left: 0; top: 70px; width: 500px; height: 350px; background: #3b6e8f; box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s06-super"] .s06-letrero { position: absolute; left: 60px; top: 0; width: 380px; height: 110px; background: #3b6e8f; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4); border: 6px solid #f3ead8; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 76px; letter-spacing: 0.08em; color: #ffffff; }
+    [data-composition-id="s06-super"] .s06-ventana { position: absolute; top: 160px; width: 96px; height: 80px; background: #f3ead8; }
+    [data-composition-id="s06-super"] .s06-w1 { left: 36px; } [data-composition-id="s06-super"] .s06-w2 { left: 146px; }
+    [data-composition-id="s06-super"] .s06-w3 { left: 258px; } [data-composition-id="s06-super"] .s06-w4 { left: 368px; }
+    [data-composition-id="s06-super"] .s06-puertas { position: absolute; left: 170px; top: 270px; width: 160px; height: 150px; background: #a8c3d6; border-left: 8px solid #f3ead8; border-right: 8px solid #f3ead8; }
+    [data-composition-id="s06-super"] .s06-puertas::after { content: ""; position: absolute; left: 68px; top: 0; width: 8px; height: 150px; background: #f3ead8; }
+    /* el celular de papel */
+    [data-composition-id="s06-super"] .s06-cel { position: absolute; left: 640px; top: 690px; width: 360px; height: 680px; border-radius: 46px; background: #f3ead8; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s06-super"] .s06-pantalla { position: absolute; left: 20px; top: 54px; right: 20px; bottom: 54px; border-radius: 24px; background: #1d2430; overflow: hidden; }
+    [data-composition-id="s06-super"] .s06-hora { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 72px; color: #f3ead8; }
+    [data-composition-id="s06-super"] .s06-fecha { position: absolute; left: 0; right: 0; top: 130px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: rgba(243, 234, 216, 0.6); }
+    [data-composition-id="s06-super"] .s06-noti { position: absolute; left: 14px; right: 14px; top: 210px; height: 170px; border-radius: 22px; background: #f3ead8; padding: 16px 18px; box-sizing: border-box; }
+    [data-composition-id="s06-super"] .s06-noti-de { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #3b6e8f; letter-spacing: 0.1em; }
+    [data-composition-id="s06-super"] .s06-noti-txt { margin-top: 6px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; line-height: 1.15; color: #1d2430; }
+    [data-composition-id="s06-super"] .s06-noti2 { top: 396px; height: 110px; }
+    /* ticket de oferta */
+    [data-composition-id="s06-super"] .s06-ticket { position: absolute; left: 330px; top: 960px; width: 330px; height: 330px; background: #f3ead8; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+      clip-path: polygon(0 0, 100% 0, 100% 94%, 92% 100%, 84% 94%, 76% 100%, 68% 94%, 60% 100%, 52% 94%, 44% 100%, 36% 94%, 28% 100%, 20% 94%, 12% 100%, 4% 94%, 0 100%); }
+    [data-composition-id="s06-super"] .s06-tk { position: absolute; left: 24px; right: 24px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; color: #1d2430; white-space: nowrap; }
+    [data-composition-id="s06-super"] .s06-tk0 { top: 22px; text-align: center; color: #3b6e8f; font-size: 34px; letter-spacing: 0.14em; }
+    [data-composition-id="s06-super"] .s06-tk1 { top: 92px; } [data-composition-id="s06-super"] .s06-tk2 { top: 148px; } [data-composition-id="s06-super"] .s06-tk3 { top: 204px; }
+    [data-composition-id="s06-super"] .s06-tk b { color: #e0342b; font-weight: 500; float: right; }
+    /* tarjeta de puntos */
+    [data-composition-id="s06-super"] .s06-puntos { position: absolute; left: 110px; top: 1040px; width: 820px; height: 330px; background: #f3ead8; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); border-top: 22px solid #3b6e8f; }
+    [data-composition-id="s06-super"] .s06-puntos .s06-cinta { right: -36px; top: -30px; }
+    [data-composition-id="s06-super"] .s06-pt-tit { position: absolute; left: 40px; top: 26px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; letter-spacing: 0.06em; color: #3b6e8f; }
+    [data-composition-id="s06-super"] .s06-casilla { position: absolute; top: 112px; width: 118px; height: 118px; border-radius: 50%; border: 5px dashed rgba(59, 110, 143, 0.55); box-sizing: border-box; }
+    [data-composition-id="s06-super"] .s06-sello { position: absolute; top: 112px; width: 118px; height: 118px; border-radius: 50%; background: #3b6e8f; box-shadow: inset 0 0 0 9px #f3ead8, inset 0 0 0 14px #3b6e8f; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; color: #f3ead8; }
+    [data-composition-id="s06-super"] .s06-mas { position: absolute; left: 520px; top: 1290px; padding: 12px 26px; background: #f2b632; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; color: #1d2430; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4); white-space: nowrap; }
+    /* la casita y la moto */
+    [data-composition-id="s06-super"] .s06-casa { position: absolute; left: 700px; top: 1030px; width: 320px; height: 350px; }
+    [data-composition-id="s06-super"] .s06-techo { position: absolute; left: 0; top: 0; width: 320px; height: 140px; background: #e0342b; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+    [data-composition-id="s06-super"] .s06-pared { position: absolute; left: 30px; top: 138px; width: 260px; height: 212px; background: #e9dcc0; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s06-super"] .s06-cpuerta { position: absolute; left: 100px; top: 62px; width: 70px; height: 150px; background: #6b4a2e; }
+    [data-composition-id="s06-super"] .s06-cvent { position: absolute; left: 186px; top: 40px; width: 56px; height: 56px; background: #a8c3d6; }
+    [data-composition-id="s06-super"] .s06-moto { position: absolute; left: 0; top: 1180px; width: 380px; height: 220px; }
+    [data-composition-id="s06-super"] .s06-rueda { position: absolute; top: 140px; width: 84px; height: 84px; border-radius: 50%; background: #1d2430; box-shadow: inset 0 0 0 14px #1d2430, inset 0 0 0 26px #e9dcc0; }
+    [data-composition-id="s06-super"] .s06-r1 { left: 20px; } [data-composition-id="s06-super"] .s06-r2 { left: 270px; }
+    [data-composition-id="s06-super"] .s06-chasis { position: absolute; left: 50px; top: 110px; width: 290px; height: 60px; border-radius: 30px 30px 10px 10px; background: #3b6e8f; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4); }
+    [data-composition-id="s06-super"] .s06-manubrio { position: absolute; left: 300px; top: 50px; width: 18px; height: 80px; background: #1d2430; transform-origin: 50% 100%; }
+    [data-composition-id="s06-super"] .s06-chofer { position: absolute; left: 180px; top: 10px; width: 90px; height: 110px; border-radius: 40px 40px 10px 10px; background: #3b6e8f; box-shadow: inset 0 -40px 0 #2a5570; }
+    [data-composition-id="s06-super"] .s06-casco { position: absolute; left: 190px; top: -50px; width: 70px; height: 70px; border-radius: 50%; background: #f3ead8; box-shadow: inset -18px 0 0 #3b6e8f; }
+    [data-composition-id="s06-super"] .s06-bolsa { position: absolute; left: 40px; top: -8px; width: 128px; height: 124px; background: #e9dcc0; box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4); display: flex; align-items: center; justify-content: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #3b6e8f; }
+    [data-composition-id="s06-super"] .s06-bolsa::before { content: ""; position: absolute; left: 34px; top: -26px; width: 60px; height: 30px; border: 6px solid #6b4a2e; border-bottom: none; border-radius: 30px 30px 0 0; box-sizing: border-box; }
+    [data-composition-id="s06-super"] .s06-etiqueta { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #f2b632; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s06-super" data-width="1080" data-height="1920" data-duration="5.82">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.82" data-track-index="0">
+      <div class="s06-super">
+        <div class="s06-cuerpo">
+          <div class="s06-ventana s06-w1"></div><div class="s06-ventana s06-w2"></div>
+          <div class="s06-ventana s06-w3"></div><div class="s06-ventana s06-w4"></div>
+          <div class="s06-puertas"></div>
+        </div>
+        <div class="s06-letrero">SÚPER</div>
+      </div>
+      <div class="s06-cel">
+        <div class="s06-pantalla">
+          <div class="s06-hora">09:30</div>
+          <div class="s06-fecha">jueves</div>
+          <div class="s06-noti"><div class="s06-noti-de">SÚPER</div><div class="s06-noti-txt">Ofertas de la semana</div></div>
+        </div>
+      </div>
+      <div class="s06-ticket">
+        <div class="s06-tk s06-tk0">OFERTAS</div>
+        <div class="s06-tk s06-tk1">YERBA <b>-30%</b></div>
+        <div class="s06-tk s06-tk2">LECHE <b>2X1</b></div>
+        <div class="s06-tk s06-tk3">PAN <b>-20%</b></div>
+      </div>
+      <div class="s06-puntos">
+        <div class="s06-cinta"></div>
+        <div class="s06-pt-tit">TARJETA SÚPER</div>
+        <div class="s06-casilla" style="left: 40px"></div><div class="s06-casilla" style="left: 195px"></div><div class="s06-casilla" style="left: 350px"></div>
+        <div class="s06-casilla" style="left: 505px"></div><div class="s06-casilla" style="left: 660px"></div>
+        <div class="s06-sello" style="left: 40px">S</div><div class="s06-sello" style="left: 195px">S</div><div class="s06-sello" style="left: 350px">S</div>
+        <div class="s06-sello" style="left: 505px">S</div><div class="s06-sello" style="left: 660px">S</div>
+      </div>
+      <div class="s06-mas">+10 puntos</div>
+      <div class="s06-casa">
+        <div class="s06-techo"></div>
+        <div class="s06-pared"><div class="s06-cpuerta"></div><div class="s06-cvent"></div></div>
+      </div>
+      <div class="s06-moto">
+        <div class="s06-chasis"></div>
+        <div class="s06-manubrio"></div>
+        <div class="s06-chofer"></div>
+        <div class="s06-casco"></div>
+        <div class="s06-bolsa">SÚPER</div>
+        <div class="s06-rueda s06-r1"></div><div class="s06-rueda s06-r2"></div>
+      </div>
+      <div class="s06-tira"><div class="s06-cinta"></div><div class="s06-mano s06-mientras">Mientras tanto...</div></div>
+      <div class="s06-etiqueta">Mientras tanto</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-super";
+      const DUR = 5.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const SUPER = 0.82;
+      const MANDA = 1.32;
+      const OFERTAS = 1.72;
+      const SUMA = 3.24;
+      const PUNTOS = 3.62;
+      const TRAE = 4.62;
+      const CASA = 5.42;
+
+      const escribir = (el, t, dur, desde = 100) => {
+        gsap.set(el, { clipPath: "inset(0 " + desde + "% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+      };
+      const entra = (el, t, from, to, dur = 0.34, ease = "back.out(1.7)") => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0 }, from), Object.assign({ opacity: 1, duration: dur, ease, immediateRender: false }, to), t);
+      };
+      const sacudon = (el, t, a = 10) => {
+        [[-a, a * 0.5], [a * 0.8, -a * 0.4], [-a * 0.4, a * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(el, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+
+      // cuadro 0: la tira ya está cayendo y se escribe "Mientras tanto..."
+      gsap.set(q(".s06-tira .s06-cinta"), { rotation: -16 });
+      tl.fromTo(q(".s06-tira"), { rotation: -9, scale: 1.1, y: -30 }, { rotation: -3, scale: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, 0);
+      escribir(q(".s06-mientras"), 0, 0.7, 55);
+      tl.fromTo(q(".s06-etiqueta"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.2);
+
+      // el SÚPER cae, grande y prolijo
+      entra(q(".s06-super"), SUPER - 0.3, { y: -520, rotation: -12, scale: 0.9 }, { y: 0, rotation: -2, scale: 1, duration: 0.36, ease: "back.out(1.4)" });
+      sacudon(q("#s06-escena"), SUPER + 0.05, 12);
+      tl.fromTo(q(".s06-letrero"), { rotation: -4 }, { rotation: 3, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, SUPER + 0.1);
+
+      // el celular entra y le llega la notificación
+      entra(q(".s06-cel"), MANDA - 0.32, { x: 420, rotation: 16 }, { x: 0, rotation: 4, duration: 0.32, ease: "back.out(1.4)" });
+      gsap.set(q(".s06-noti"), { transformOrigin: "50% 0%" });
+      entra(q(".s06-noti"), MANDA + 0.02, { scale: 0.6, y: -40 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(2)" });
+      tl.to(q(".s06-cel"), { rotation: 7, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, MANDA + 0.05);
+
+      // el ticket de oferta sale del celular
+      entra(q(".s06-ticket"), OFERTAS, { x: 420, y: -260, rotation: 30, scale: 0.4 }, { x: 0, y: 0, rotation: -8, scale: 1, duration: 0.42, ease: "back.out(1.5)" });
+      tl.to(q(".s06-ticket"), { rotation: -4, y: -10, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, OFERTAS + 0.45);
+      tl.to(q(".s06-hora"), { scale: 1.08, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 2.3);
+
+      // "me suma puntos": el ticket se va y la tarjeta se estampa
+      tl.to(q(".s06-ticket"), { x: -700, rotation: -40, opacity: 0, duration: 0.3, ease: "power3.in" }, SUMA - 0.35);
+      entra(q(".s06-puntos"), SUMA - 0.12, { y: 380, rotation: 12, scale: 1.15 }, { y: 0, rotation: 3, scale: 1, duration: 0.3, ease: "back.out(1.6)" });
+      sacudon(q("#s06-escena"), SUMA + 0.16, 9);
+      qa(".s06-sello").forEach((el, i) => {
+        entra(el, SUMA + 0.08 + i * 0.13, { scale: 2.2, rotation: -40 }, { scale: 1, rotation: -12 + i * 6, duration: 0.14, ease: "power4.in" });
+      });
+      entra(q(".s06-mas"), PUNTOS + 0.1, { scale: 0.5, rotation: -20 }, { scale: 1, rotation: -5, duration: 0.3, ease: "back.out(2.2)" });
+      tl.to(q(".s06-mas"), { scale: 1.08, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, PUNTOS + 0.45);
+
+      // "me trae el pedido a casa": se va la tarjeta y el celular, entra la casita y la moto
+      tl.to(q(".s06-puntos"), { y: 900, opacity: 0, rotation: -14, duration: 0.3, ease: "power3.in" }, TRAE - 0.4);
+      tl.to(q(".s06-mas"), { y: 700, opacity: 0, rotation: 20, duration: 0.3, ease: "power3.in" }, TRAE - 0.38);
+      tl.to(q(".s06-cel"), { x: 520, rotation: 20, opacity: 0, duration: 0.3, ease: "power3.in" }, TRAE - 0.36);
+      entra(q(".s06-casa"), TRAE - 0.2, { y: -500, rotation: 14 }, { y: 0, rotation: 2, duration: 0.34, ease: "back.out(1.5)" });
+      gsap.set(q(".s06-moto"), { x: -460 });
+      tl.to(q(".s06-moto"), { x: 300, duration: CASA - TRAE + 0.05, ease: "power2.out" }, TRAE - 0.05);
+      tl.fromTo(q(".s06-moto"), { y: 0 }, { y: -10, duration: 0.08, yoyo: true, repeat: 9, ease: "sine.inOut", immediateRender: false }, TRAE - 0.05);
+      tl.fromTo(qa(".s06-rueda"), { rotation: 0 }, { rotation: 720, duration: CASA - TRAE + 0.05, ease: "power2.out", immediateRender: false }, TRAE - 0.05);
+      // la bolsa salta a la puerta de la casa
+      tl.to(q(".s06-bolsa"), { x: 330, y: -10, rotation: 10, duration: 0.18, ease: "power2.out" }, CASA - 0.02);
+      tl.to(q(".s06-casa"), { scaleY: 0.94, transformOrigin: "50% 100%", duration: 0.06, yoyo: true, repeat: 1 }, CASA + 0.14);
+
+      // salida
+      tl.to(q("#s06-escena"), { y: -120, opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

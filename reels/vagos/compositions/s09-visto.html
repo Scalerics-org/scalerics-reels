@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-visto"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-visto"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-visto"] .s09-linea { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s09-visto"] .s09-cliente { top: 640px; font-weight: 800; font-size: 120px; letter-spacing: -0.02em; color: #f4f1ea; }
+    [data-composition-id="s09-visto"] .s09-nove { top: 780px; font-weight: 900; font-size: 140px; letter-spacing: -0.02em; color: #f4f1ea; }
+    [data-composition-id="s09-visto"] .s09-rojo { color: #ff2d2d; }
+    [data-composition-id="s09-visto"] .s09-ojo { position: absolute; left: 240px; top: 1000px; width: 600px; height: 300px; }
+    [data-composition-id="s09-visto"] .s09-ojo svg { width: 600px; height: 300px; overflow: visible; }
+    [data-composition-id="s09-visto"] .s09-etiqueta { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #ffd60a; text-transform: uppercase; }
+    /* EL CELULAR (igual en s09 y s10) */
+    [data-composition-id="s09-visto"] .s09-cel { position: absolute; left: 330px; top: 700px; width: 420px; height: 820px; box-sizing: border-box; border: 6px solid #f4f1ea; border-radius: 52px; background: #09090a; overflow: hidden; }
+    [data-composition-id="s09-visto"] .s09-notch { position: absolute; left: 144px; top: 18px; width: 120px; height: 14px; border-radius: 7px; background: #f4f1ea; }
+    [data-composition-id="s09-visto"] .s09-avatar { position: absolute; left: 26px; top: 54px; width: 60px; height: 60px; border-radius: 50%; background: #8a8f98; }
+    [data-composition-id="s09-visto"] .s09-nombre { position: absolute; left: 102px; top: 52px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; color: #f4f1ea; white-space: nowrap; }
+    [data-composition-id="s09-visto"] .s09-estado { position: absolute; left: 102px; top: 92px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #8a8f98; white-space: nowrap; }
+    [data-composition-id="s09-visto"] .s09-div { position: absolute; left: 0; right: 0; top: 140px; height: 3px; background: #8a8f98; opacity: 0.4; }
+    [data-composition-id="s09-visto"] .s09-burbuja { position: absolute; right: 22px; top: 186px; width: 300px; box-sizing: border-box; padding: 18px 22px; border-radius: 26px 26px 6px 26px; background: #f4f1ea; color: #09090a; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 31px; line-height: 1.25; }
+    [data-composition-id="s09-visto"] .s09-meta { position: absolute; right: 24px; top: 316px; height: 30px; display: flex; align-items: center; gap: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #8a8f98; white-space: nowrap; }
+    [data-composition-id="s09-visto"] .s09-tildes { position: relative; width: 40px; height: 26px; }
+    [data-composition-id="s09-visto"] .s09-tildes svg { position: absolute; inset: 0; width: 40px; height: 26px; }
+    [data-composition-id="s09-visto"] .s09-vistochico { position: absolute; right: 24px; top: 360px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #ff2d2d; white-space: nowrap; }
+    [data-composition-id="s09-visto"] .s09-input { position: absolute; left: 22px; right: 22px; bottom: 26px; height: 64px; box-sizing: border-box; border: 3px solid #8a8f98; border-radius: 32px; }
+    [data-composition-id="s09-visto"] .s09-visto { top: 1120px; font-weight: 900; font-size: 230px; letter-spacing: -0.03em; color: #ff2d2d; text-shadow: 0 0 40px rgba(255, 45, 45, 0.45); }
+  </style>
+  <div id="root" data-composition-id="s09-visto" data-width="1080" data-height="1920" data-duration="3.44">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="3.44" data-track-index="0">
+      <div class="s09-escenario">
+        <div class="s09-etiqueta s09-et1">Lo que ve él</div>
+        <div class="s09-etiqueta s09-et2">Hace 1 hora</div>
+        <div class="s09-linea s09-cliente">El cliente</div>
+        <div class="s09-linea s09-nove"><span class="s09-rojo">no</span> ve eso</div>
+        <div class="s09-ojo">
+          <svg viewBox="0 0 600 300">
+            <path d="M20 150 Q300 -40 580 150 Q300 340 20 150 Z" fill="none" stroke="#f4f1ea" stroke-width="14" stroke-linejoin="round" />
+            <g class="s09-iris">
+              <circle cx="300" cy="150" r="88" fill="#f4f1ea" />
+              <circle cx="300" cy="150" r="40" fill="#09090a" />
+              <circle cx="322" cy="128" r="12" fill="#f4f1ea" />
+            </g>
+          </svg>
+        </div>
+        <div class="s09-cel">
+          <div class="s09-notch"></div>
+          <div class="s09-avatar"></div>
+          <div class="s09-nombre">Almacén</div>
+          <div class="s09-estado">en línea</div>
+          <div class="s09-div"></div>
+          <div class="s09-burbuja">Hola, ¿tienen stock?</div>
+          <div class="s09-meta">21:47
+            <div class="s09-tildes">
+              <svg class="s09-tgris" viewBox="0 0 40 26"><path d="M2 14 L9 21 L22 5 M17 19 L19 21 L34 5" fill="none" stroke="#8a8f98" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <svg class="s09-trojo" viewBox="0 0 40 26"><path d="M2 14 L9 21 L22 5 M17 19 L19 21 L34 5" fill="none" stroke="#ff2d2d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </div>
+          </div>
+          <div class="s09-vistochico">Visto 21:48</div>
+          <div class="s09-input"></div>
+        </div>
+        <div class="s09-linea s09-visto">visto</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-visto";
+      const DUR = 3.44;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const CLIENTE = 0.35;
+      const NO = 0.45;
+      const ESO = 0.95;
+      const VE = 1.25;
+      const MENSAJE = 1.95;
+      const VISTO = 2.45;
+
+      // cuadro 0: el ojo ya está, abierto, mirando
+      tl.fromTo(q(".s09-ojo"), { scale: 0.7, opacity: 0.5 }, { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(1.8)" }, 0);
+      tl.fromTo(q(".s09-et1"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 0.05);
+      tl.to(q(".s09-iris"), { x: -70, duration: 0.18, ease: "power3.inOut" }, 0.1);
+      tl.to(q(".s09-iris"), { x: 70, duration: 0.2, ease: "power3.inOut" }, 0.35);
+      tl.to(q(".s09-iris"), { x: 0, duration: 0.15, ease: "power3.inOut" }, 0.6);
+
+      // "el cliente"
+      gsap.set(q(".s09-cliente"), { opacity: 0 });
+      tl.fromTo(q(".s09-cliente"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, CLIENTE - 0.14);
+      // "no ve eso"
+      gsap.set(q(".s09-nove"), { opacity: 0 });
+      tl.fromTo(q(".s09-nove"), { opacity: 0, scale: 2.8, rotation: -5 }, { opacity: 1, scale: 1, rotation: -2, duration: 0.14, ease: "power4.in", immediateRender: false }, NO - 0.06);
+      [[-14, 8], [12, -6], [-6, 4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s09-escenario"), { x, y, duration: 0.04, ease: "none" }, NO + 0.08 + i * 0.045));
+      // el ojo se cierra en "eso"
+      tl.to(q(".s09-ojo"), { scaleY: 0.05, duration: 0.14, ease: "power4.in" }, ESO - 0.16);
+      tl.to(q(".s09-cliente"), { opacity: 0.22, duration: 0.12 }, ESO);
+      tl.to(q(".s09-nove"), { x: 16, duration: 0.03, ease: "none" }, ESO);
+      tl.to(q(".s09-nove"), { x: -10, duration: 0.03, ease: "none" }, ESO + 0.04);
+      tl.to(q(".s09-nove"), { x: 0, duration: 0.03, ease: "none" }, ESO + 0.08);
+
+      // "ve": todo se va hacia arriba, el celular sube desde abajo
+      tl.to([q(".s09-cliente"), q(".s09-nove"), q(".s09-ojo"), q(".s09-et1")], { y: -260, opacity: 0, duration: 0.2, ease: "power3.in" }, VE - 0.15);
+      gsap.set(q(".s09-cel"), { opacity: 0 });
+      tl.fromTo(q(".s09-cel"), { opacity: 1, y: 1100, rotation: 8 }, { y: 0, rotation: -2, duration: 0.3, ease: "power4.out", immediateRender: false }, VE);
+      tl.to(q(".s09-cel"), { rotation: 0, duration: 0.5, ease: "sine.inOut" }, VE + 0.3);
+      gsap.set(q(".s09-et2"), { opacity: 0 });
+      tl.fromTo(q(".s09-et2"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, VE + 0.2);
+
+      // "mensaje": la burbuja del cliente
+      gsap.set([q(".s09-burbuja"), q(".s09-meta")], { opacity: 0 });
+      tl.fromTo(q(".s09-burbuja"), { opacity: 0, scale: 0.6, y: 30 }, { opacity: 1, scale: 1, y: 0, transformOrigin: "100% 100%", duration: 0.25, ease: "back.out(2)", immediateRender: false }, MENSAJE - 0.1);
+      tl.fromTo(q(".s09-meta"), { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: false }, MENSAJE + 0.05);
+      tl.to(q(".s09-cel"), { scale: 1.04, duration: 0.3, ease: "sine.inOut" }, MENSAJE + 0.1);
+
+      // "visto": tildes rojos y VISTO gigante cruzado
+      gsap.set([q(".s09-trojo"), q(".s09-vistochico")], { opacity: 0 });
+      tl.to(q(".s09-trojo"), { opacity: 1, duration: 0.06 }, VISTO);
+      tl.to(q(".s09-tgris"), { opacity: 0, duration: 0.06 }, VISTO);
+      tl.fromTo(q(".s09-vistochico"), { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.15, immediateRender: false }, VISTO);
+      gsap.set(q(".s09-visto"), { opacity: 0 });
+      tl.fromTo(q(".s09-visto"), { opacity: 0, scale: 3.2, rotation: -14 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.16, ease: "power4.in", immediateRender: false }, VISTO - 0.12);
+      tl.to(q(".s09-cel"), { opacity: 0.55, duration: 0.15 }, VISTO);
+      [[-24, 12], [20, -10], [-12, 8], [8, -4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s09-escenario"), { x, y, duration: 0.04, ease: "none" }, VISTO + 0.04 + i * 0.045));
+      // glitch de "visto"
+      [[2.75, 18], [2.79, -12], [2.83, 0], [3.05, -20], [3.09, 14], [3.13, 0]].forEach(([t, x]) => tl.to(q(".s09-visto"), { x, duration: 0.03, ease: "none" }, t));
+      tl.to(q(".s09-visto"), { scale: 1.06, duration: 0.22, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.8);
+
+      // salida
+      tl.to(q("#s09-escena"), { scale: 1.2, opacity: 0, filter: "blur(6px)", transformOrigin: "50% 55%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

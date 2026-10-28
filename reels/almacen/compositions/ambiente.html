@@ -1,0 +1,53 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* la luz de la lamparita del almacén, que se hamaca */
+    [data-composition-id="ambiente"] .amb-luz { position: absolute; left: 140px; top: -120px; width: 800px; height: 1900px; transform-origin: 50% 0%;
+      background: radial-gradient(ellipse 50% 100% at 50% 0%, rgba(255, 214, 140, 0.13) 0%, rgba(255, 214, 140, 0.04) 45%, rgba(255, 214, 140, 0) 75%); mix-blend-mode: screen; }
+    /* polvito que flota en la luz */
+    [data-composition-id="ambiente"] .amb-polvo { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #ffe7b8; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1120px at 540px 920px, rgba(20, 14, 9, 0) 55%, rgba(20, 14, 9, 0.85) 100%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #fff3dc; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="59.01">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="59.01" data-track-index="0">
+      <div class="amb-luz"></div>
+      <div class="amb-polvo"></div><div class="amb-polvo"></div><div class="amb-polvo"></div><div class="amb-polvo"></div>
+      <div class="amb-polvo"></div><div class="amb-polvo"></div><div class="amb-polvo"></div><div class="amb-polvo"></div>
+      <div class="amb-polvo"></div><div class="amb-polvo"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 59.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(q(".amb-luz"), { rotation: -6 }, { rotation: 6, duration: 3.2, ease: "sine.inOut", yoyo: true, repeat: Math.floor(DUR / 3.2) - 1 }, 0);
+
+      // polvo: posiciones fijas, sube y baja despacio
+      const P = [[260, 700], [820, 640], [380, 1180], [700, 1040], [520, 820], [900, 1320], [180, 1420], [610, 1500], [440, 600], [760, 1240]];
+      qa(".amb-polvo").forEach((p, i) => {
+        gsap.set(p, { x: P[i][0], y: P[i][1], opacity: 0 });
+        const per = 3 + (i % 4) * 0.7;
+        tl.fromTo(p, { y: P[i][1], opacity: 0 }, { y: P[i][1] - 90, opacity: 0.35 + (i % 3) * 0.15, duration: per, ease: "sine.inOut", yoyo: true, repeat: Math.floor((DUR - 1) / per) - 1 }, (i * 0.41) % 2);
+      });
+
+      // flashes cálidos (segundos globales): "almacén", "flaco", "perder", "vuelvo"
+      [3.0, 19.7, 39.8, 43.37].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.5, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

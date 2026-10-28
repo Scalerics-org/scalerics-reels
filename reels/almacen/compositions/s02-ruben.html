@@ -1,0 +1,195 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-ruben"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-ruben"] .s02-cinta { position: absolute; width: 150px; height: 46px; background: rgba(242, 222, 160, 0.82); }
+    [data-composition-id="s02-ruben"] .s02-mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #2346a8; white-space: nowrap; line-height: 1; }
+    /* el almacén grande (el de s01 a 600 px) */
+    [data-composition-id="s02-ruben"] .s02-local { position: absolute; left: 240px; top: 590px; width: 600px; height: 540px; }
+    [data-composition-id="s02-ruben"] .s02-frente { position: absolute; left: 28px; top: 157px; width: 544px; height: 372px; background: #e9dcc0; box-shadow: 0 14px 32px rgba(0, 0, 0, 0.42); }
+    [data-composition-id="s02-ruben"] .s02-toldo { position: absolute; left: 0; top: 100px; width: 600px; height: 100px; background: repeating-linear-gradient(90deg, #e0342b 0 60px, #f3ead8 60px 120px); clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%); }
+    [data-composition-id="s02-ruben"] .s02-cartel { position: absolute; left: 86px; top: 0; width: 428px; height: 90px; background: #f2b632; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 48px; letter-spacing: 0.06em; color: #2a1d12; box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s02-ruben"] .s02-puerta { position: absolute; left: 214px; top: 257px; width: 172px; height: 272px; background: #6b4a2e; }
+    [data-composition-id="s02-ruben"] .s02-vidriera { position: absolute; top: 257px; width: 128px; height: 128px; background: #a8c3d6; }
+    [data-composition-id="s02-ruben"] .s02-v1 { left: 57px; }
+    [data-composition-id="s02-ruben"] .s02-v2 { left: 414px; }
+    /* Rubén sale de atrás del almacén: ventana que lo recorta */
+    [data-composition-id="s02-ruben"] .s02-hueco { position: absolute; left: 190px; top: 60px; width: 220px; height: 469px; overflow: hidden; }
+    [data-composition-id="s02-ruben"] .s02-rubenwrap { position: absolute; left: 0; top: 89px; width: 220px; height: 380px; }
+    [data-composition-id="s02-ruben"] .s02-nombre { position: absolute; left: 394px; top: 400px; width: 170px; height: 88px; background: #f3ead8; box-shadow: 0 8px 18px rgba(0, 0, 0, 0.38); }
+    [data-composition-id="s02-ruben"] .s02-nombre .s02-mano { left: 14px; top: 10px; font-size: 68px; }
+    [data-composition-id="s02-ruben"] .s02-nombre .s02-cinta { left: 40px; top: -22px; width: 90px; height: 36px; }
+    /* RUBÉN (igual en s04) */
+    [data-composition-id="s02-ruben"] .rb { position: absolute; width: 220px; height: 380px; }
+    [data-composition-id="s02-ruben"] .rb > div { position: absolute; }
+    [data-composition-id="s02-ruben"] .rb-torso { left: 15px; top: 118px; width: 190px; height: 262px; border-radius: 70px 70px 12px 12px; background: #6b4a2e; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4); }
+    [data-composition-id="s02-ruben"] .rb-delantal { left: 48px; top: 150px; width: 124px; height: 230px; border-radius: 10px 10px 4px 4px; background: #f3ead8; }
+    [data-composition-id="s02-ruben"] .rb-oreja { top: 50px; width: 30px; height: 38px; border-radius: 50%; background: #d9a77c; }
+    [data-composition-id="s02-ruben"] .rb-o1 { left: 38px; }
+    [data-composition-id="s02-ruben"] .rb-o2 { left: 152px; }
+    [data-composition-id="s02-ruben"] .rb-cabeza { left: 45px; top: 0; width: 130px; height: 134px; border-radius: 50%; background: #d9a77c; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3); }
+    [data-composition-id="s02-ruben"] .rb-pelo { left: 52px; top: 8px; width: 116px; height: 30px; border-radius: 60px 60px 6px 6px; background: #6b4a2e; }
+    [data-composition-id="s02-ruben"] .rb-ojo { top: 56px; width: 13px; height: 13px; border-radius: 50%; background: #2a1d12; }
+    [data-composition-id="s02-ruben"] .rb-oj1 { left: 84px; }
+    [data-composition-id="s02-ruben"] .rb-oj2 { left: 123px; }
+    [data-composition-id="s02-ruben"] .rb-ceja { top: 42px; width: 30px; height: 8px; border-radius: 4px; background: #6b4a2e; }
+    [data-composition-id="s02-ruben"] .rb-c1 { left: 76px; }
+    [data-composition-id="s02-ruben"] .rb-c2 { left: 115px; }
+    [data-composition-id="s02-ruben"] .rb-bigote { left: 68px; top: 84px; width: 84px; height: 26px; border-radius: 40px 40px 12px 12px; background: #6b4a2e; }
+    [data-composition-id="s02-ruben"] .rb-brazo { left: 6px; width: 208px; height: 50px; border-radius: 25px; background: #d9a77c; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); }
+    [data-composition-id="s02-ruben"] .rb-b1 { top: 214px; }
+    [data-composition-id="s02-ruben"] .rb-b2 { top: 236px; }
+    /* foto vieja */
+    [data-composition-id="s02-ruben"] .s02-foto { position: absolute; left: 60px; top: 1030px; width: 330px; height: 340px; background: #f3ead8; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s02-ruben"] .s02-sepia { position: absolute; left: 20px; top: 20px; width: 290px; height: 220px; background: #d8c3a0; overflow: hidden; }
+    [data-composition-id="s02-ruben"] .s02-sepia > div { position: absolute; }
+    [data-composition-id="s02-ruben"] .sp-frente { left: 30px; top: 70px; width: 230px; height: 150px; background: #c7ab82; }
+    [data-composition-id="s02-ruben"] .sp-toldo { left: 18px; top: 52px; width: 254px; height: 34px; background: repeating-linear-gradient(90deg, #9c7a55 0 26px, #e9dcc0 26px 52px); }
+    [data-composition-id="s02-ruben"] .sp-cartel { left: 70px; top: 14px; width: 150px; height: 32px; background: #b8956a; }
+    [data-composition-id="s02-ruben"] .sp-puerta { left: 120px; top: 110px; width: 56px; height: 110px; background: #8a6844; }
+    [data-composition-id="s02-ruben"] .sp-cabeza { left: 190px; top: 102px; width: 50px; height: 52px; border-radius: 50%; background: #b8936b; }
+    [data-composition-id="s02-ruben"] .sp-cuerpo { left: 180px; top: 150px; width: 70px; height: 80px; border-radius: 26px 26px 0 0; background: #e9dcc0; }
+    [data-composition-id="s02-ruben"] .s02-foto .s02-mano { left: 22px; top: 252px; font-size: 64px; color: #2346a8; }
+    [data-composition-id="s02-ruben"] .s02-foto .s02-cinta { left: 90px; top: -24px; }
+    /* el vecino */
+    [data-composition-id="s02-ruben"] .s02-vecino { position: absolute; left: 730px; top: 1060px; width: 240px; height: 360px; }
+    [data-composition-id="s02-ruben"] .s02-vecino > div { position: absolute; }
+    [data-composition-id="s02-ruben"] .vc-torso { left: 20px; top: 128px; width: 200px; height: 232px; border-radius: 70px 70px 10px 10px; background: #2346a8; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.42); }
+    [data-composition-id="s02-ruben"] .vc-cabeza { left: 58px; top: 6px; width: 124px; height: 130px; border-radius: 50%; background: #d9a77c; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3); }
+    [data-composition-id="s02-ruben"] .vc-pelo { left: 54px; top: 0; width: 132px; height: 50px; border-radius: 66px 66px 14px 14px; background: #2a1d12; }
+    [data-composition-id="s02-ruben"] .vc-ojo { top: 70px; width: 26px; height: 7px; border-radius: 4px; background: #2a1d12; }
+    [data-composition-id="s02-ruben"] .vc-oj1 { left: 84px; }
+    [data-composition-id="s02-ruben"] .vc-oj2 { left: 130px; }
+    [data-composition-id="s02-ruben"] .vc-boca { left: 104px; top: 104px; width: 32px; height: 8px; border-radius: 4px; background: #6b4a2e; }
+    [data-composition-id="s02-ruben"] .vc-mano { left: 60px; top: 200px; width: 150px; height: 46px; border-radius: 23px; background: #d9a77c; }
+    [data-composition-id="s02-ruben"] .s02-corazon { position: absolute; left: 770px; top: 1170px; width: 150px; height: 140px; }
+    [data-composition-id="s02-ruben"] .s02-corazon .s02-cinta { left: 20px; top: 50px; width: 120px; height: 40px; }
+    [data-composition-id="s02-ruben"] .s02-etiqueta { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #f2b632; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s02-ruben" data-width="1080" data-height="1920" data-duration="5.60">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="5.60" data-track-index="0">
+      <div class="s02-local">
+        <div class="s02-frente"></div>
+        <div class="s02-toldo"></div>
+        <div class="s02-vidriera s02-v1"></div>
+        <div class="s02-vidriera s02-v2"></div>
+        <div class="s02-puerta"></div>
+        <div class="s02-hueco">
+          <div class="s02-rubenwrap">
+            <div class="rb">
+              <div class="rb-torso"></div>
+              <div class="rb-delantal"></div>
+              <div class="rb-oreja rb-o1"></div>
+              <div class="rb-oreja rb-o2"></div>
+              <div class="rb-cabeza"></div>
+              <div class="rb-pelo"></div>
+              <div class="rb-ceja rb-c1"></div>
+              <div class="rb-ceja rb-c2"></div>
+              <div class="rb-ojo rb-oj1"></div>
+              <div class="rb-ojo rb-oj2"></div>
+              <div class="rb-bigote"></div>
+              <div class="rb-brazo rb-b1"></div>
+              <div class="rb-brazo rb-b2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="s02-cartel">ALMACÉN</div>
+        <div class="s02-nombre"><div class="s02-cinta"></div><div class="s02-mano">Rubén</div></div>
+      </div>
+      <div class="s02-foto">
+        <div class="s02-sepia">
+          <div class="sp-frente"></div>
+          <div class="sp-toldo"></div>
+          <div class="sp-cartel"></div>
+          <div class="sp-puerta"></div>
+          <div class="sp-cuerpo"></div>
+          <div class="sp-cabeza"></div>
+        </div>
+        <div class="s02-mano s02-fototxt">de toda la vida</div>
+        <div class="s02-cinta"></div>
+      </div>
+      <div class="s02-vecino">
+        <div class="vc-torso"></div>
+        <div class="vc-cabeza"></div>
+        <div class="vc-pelo"></div>
+        <div class="vc-ojo vc-oj1"></div>
+        <div class="vc-ojo vc-oj2"></div>
+        <div class="vc-boca"></div>
+        <div class="vc-mano"></div>
+      </div>
+      <div class="s02-corazon">
+        <svg width="150" height="140" viewBox="0 0 150 140"><path d="M75 132 C30 100 6 74 6 44 C6 20 24 6 44 6 C58 6 69 14 75 26 C81 14 92 6 106 6 C126 6 144 20 144 44 C144 74 120 100 75 132 Z" fill="#e0342b" /></svg>
+        <div class="s02-cinta"></div>
+      </div>
+      <div class="s02-etiqueta">El de siempre</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-ruben";
+      const DUR = 5.6;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const RUBEN = 0.81;
+      const TODA = 1.21;
+      const VIDA = 2.41;
+      const DUELE = 3.31;
+      const QUIERO = 4.21;
+
+      const escribir = (el, t, dur, desde = 100) => {
+        gsap.set(el, { clipPath: "inset(0 " + desde + "% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+      };
+      const sacudir = (el, t, f = 1) => {
+        [[-12, 6], [10, -5], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const entra = (el, t, desde, hasta, dur = 0.32) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0 }, desde), Object.assign({ opacity: 1, duration: dur, ease: "back.out(1.7)", immediateRender: false }, hasta), t);
+      };
+
+      // cuadro 0: el almacén grande ya cae sobre la mesa
+      tl.fromTo(q(".s02-local"), { y: -60, rotation: -6, scale: 1.08 }, { y: 0, rotation: -1.5, scale: 1, duration: 0.42, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s02-cartel"), { rotation: -5 }, { rotation: 4, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.2);
+      // "Rubén": sube desde atrás del almacén
+      gsap.set(q(".s02-rubenwrap"), { y: 400 });
+      tl.to(q(".s02-rubenwrap"), { y: 0, duration: 0.38, ease: "back.out(1.5)" }, RUBEN - 0.12);
+      tl.to(q(".s02-rubenwrap"), { rotation: 3, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, RUBEN + 0.3);
+      gsap.set(q(".s02-nombre"), { rotation: 7 });
+      entra(q(".s02-nombre"), RUBEN + 0.12, { scale: 1.5, rotation: 18 }, { scale: 1, rotation: 7, duration: 0.28 });
+      escribir(q(".s02-nombre .s02-mano"), RUBEN + 0.25, 0.4);
+      // "toda la vida": la foto vieja se pega al costado
+      gsap.set(q(".s02-foto"), { rotation: -7 });
+      entra(q(".s02-foto"), TODA, { y: -300, x: -120, rotation: -30, scale: 1.2 }, { y: 0, x: 0, rotation: -7, scale: 1, duration: 0.36 });
+      sacudir(q(".s02-local"), TODA + 0.3, 0.8);
+      escribir(q(".s02-fototxt"), TODA + 0.5, 0.75);
+      tl.to(q(".s02-foto"), { rotation: -4, y: -8, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, VIDA);
+      // "me duele": el vecino entra y se agarra el pecho
+      entra(q(".s02-vecino"), DUELE - 0.35, { x: 300, rotation: 14 }, { x: 0, rotation: 2, duration: 0.3 });
+      gsap.set(q(".vc-mano"), { x: 90, rotation: 30 });
+      tl.to(q(".vc-mano"), { x: 0, rotation: -6, duration: 0.18, ease: "power3.out" }, DUELE);
+      tl.to(q(".s02-vecino"), { scaleY: 0.94, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1, transformOrigin: "50% 100%" }, DUELE + 0.05);
+      // corazón rojo con curita
+      gsap.set(q(".s02-corazon"), { rotation: -8 });
+      entra(q(".s02-corazon"), DUELE + 0.12, { scale: 2.2, rotation: -40 }, { scale: 1, rotation: -8, duration: 0.3, ease: "back.out(2.2)" });
+      gsap.set(q(".s02-corazon .s02-cinta"), { rotation: -32, scaleX: 0 });
+      tl.to(q(".s02-corazon .s02-cinta"), { scaleX: 1, duration: 0.16, ease: "power3.out" }, DUELE + 0.5);
+      sacudir(q("#s02-escena"), DUELE + 0.14, 1.2);
+      // "lo quiero": el corazón late
+      tl.to(q(".s02-corazon"), { scale: 1.18, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 3 }, QUIERO);
+      tl.to(q(".s02-local"), { rotation: 1, duration: 0.6, ease: "sine.inOut" }, QUIERO);
+      tl.fromTo(q(".s02-etiqueta"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.3);
+
+      tl.to(q("#s02-escena"), { y: -120, opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

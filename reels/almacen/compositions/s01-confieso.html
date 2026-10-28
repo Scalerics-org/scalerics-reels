@@ -1,0 +1,104 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-confieso"] .s01-capa { position: absolute; inset: 0; }
+    /* la hoja de la libreta del almacén */
+    [data-composition-id="s01-confieso"] .s01-hoja { position: absolute; left: 150px; top: 600px; width: 780px; height: 720px; background-color: #f3ead8;
+      background-image: repeating-linear-gradient(180deg, transparent 0 58px, rgba(35, 70, 168, 0.28) 58px 60px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s01-confieso"] .s01-margen { position: absolute; left: 92px; top: 0; bottom: 0; width: 3px; background: rgba(224, 52, 43, 0.6); }
+    [data-composition-id="s01-confieso"] .s01-cinta { position: absolute; width: 190px; height: 56px; background: rgba(242, 222, 160, 0.82); }
+    [data-composition-id="s01-confieso"] .s01-t1 { left: -40px; top: -20px; }
+    [data-composition-id="s01-confieso"] .s01-t2 { right: -40px; top: -18px; }
+    [data-composition-id="s01-confieso"] .s01-mano { position: absolute; left: 124px; font-family: "Caveat", cursive; font-weight: 700; color: #2346a8; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s01-confieso"] .s01-titulo { top: 44px; font-size: 118px; color: #e0342b; }
+    [data-composition-id="s01-confieso"] .s01-l1 { top: 214px; font-size: 76px; }
+    [data-composition-id="s01-confieso"] .s01-l2 { top: 300px; font-size: 76px; }
+    [data-composition-id="s01-confieso"] .s01-raya { position: absolute; left: 118px; top: 182px; width: 560px; height: 8px; border-radius: 4px; background: #e0342b; transform-origin: 0% 50%; }
+    /* el almacén recortado de papel */
+    [data-composition-id="s01-confieso"] .s01-local { position: absolute; left: 560px; top: 1030px; width: 420px; height: 380px; }
+    [data-composition-id="s01-confieso"] .s01-frente { position: absolute; left: 20px; top: 110px; width: 380px; height: 260px; background: #e9dcc0; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4); }
+    [data-composition-id="s01-confieso"] .s01-toldo { position: absolute; left: 0; top: 70px; width: 420px; height: 70px; background: repeating-linear-gradient(90deg, #e0342b 0 42px, #f3ead8 42px 84px); clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%); }
+    [data-composition-id="s01-confieso"] .s01-cartel { position: absolute; left: 60px; top: 0; width: 300px; height: 64px; background: #f2b632; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; letter-spacing: 0.06em; color: #2a1d12; }
+    [data-composition-id="s01-confieso"] .s01-puerta { position: absolute; left: 150px; top: 180px; width: 100px; height: 190px; background: #6b4a2e; }
+    [data-composition-id="s01-confieso"] .s01-vidriera { position: absolute; top: 180px; width: 90px; height: 90px; background: #a8c3d6; }
+    [data-composition-id="s01-confieso"] .s01-v1 { left: 40px; }
+    [data-composition-id="s01-confieso"] .s01-v2 { left: 290px; }
+    [data-composition-id="s01-confieso"] .s01-etiqueta { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #f2b632; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s01-confieso" data-width="1080" data-height="1920" data-duration="4.79">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.79" data-track-index="0">
+      <div class="s01-hoja">
+        <div class="s01-margen"></div>
+        <div class="s01-cinta s01-t1"></div>
+        <div class="s01-cinta s01-t2"></div>
+        <div class="s01-mano s01-titulo">Confesión</div>
+        <div class="s01-raya"></div>
+        <div class="s01-mano s01-l1">Dejé de comprar en</div>
+        <div class="s01-mano s01-l2">el almacén del barrio...</div>
+      </div>
+      <div class="s01-local">
+        <div class="s01-frente"></div>
+        <div class="s01-toldo"></div>
+        <div class="s01-vidriera s01-v1"></div>
+        <div class="s01-vidriera s01-v2"></div>
+        <div class="s01-puerta"></div>
+        <div class="s01-cartel">ALMACÉN</div>
+      </div>
+      <div class="s01-etiqueta">Lo tenía que decir</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-confieso";
+      const DUR = 4.79;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CONFESAR = 0.5;
+      const DEJE = 1.7;
+      const ALMACEN = 3.0;
+
+      // escribir a mano = destapar el texto de izquierda a derecha
+      const escribir = (el, t, dur, desde = 100) => {
+        gsap.set(el, { clipPath: "inset(0 " + desde + "% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+      };
+
+      // cuadro 0: la hoja ya está, cayendo sobre la mesa
+      tl.fromTo(q(".s01-hoja"), { rotation: -9, scale: 1.08, y: -40 }, { rotation: -3, scale: 1, y: 0, duration: 0.45, ease: "back.out(1.5)" }, 0);
+      tl.fromTo([q(".s01-t1"), q(".s01-t2")], { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power3.out", stagger: 0.08 }, 0.2);
+      gsap.set(q(".s01-t1"), { rotation: -18 });
+      gsap.set(q(".s01-t2"), { rotation: 14 });
+
+      // "Confesión" se escribe en rojo y se subraya
+      escribir(q(".s01-titulo"), 0, CONFESAR + 0.4, 62);
+      gsap.set(q(".s01-raya"), { scaleX: 0 });
+      tl.to(q(".s01-raya"), { scaleX: 1, duration: 0.3, ease: "power2.out" }, CONFESAR + 0.55);
+
+      // "Dejé de comprar en el almacén del barrio"
+      escribir(q(".s01-l1"), DEJE, 0.75);
+      escribir(q(".s01-l2"), DEJE + 0.85, 0.95);
+
+      // el almacén de papel entra pegado, con un golpe
+      gsap.set(q(".s01-local"), { opacity: 0 });
+      tl.fromTo(q(".s01-local"), { opacity: 0, y: 260, rotation: 10, scale: 0.8 }, { opacity: 1, y: 0, rotation: 4, scale: 1, duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, ALMACEN - 0.1);
+      [[-10, 5], [8, -4], [-4, 2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-hoja"), { x, y, duration: 0.04, ease: "none" }, ALMACEN + 0.22 + i * 0.045));
+      // el cartel se hamaca
+      tl.fromTo(q(".s01-cartel"), { rotation: -6 }, { rotation: 5, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 2 }, ALMACEN + 0.25);
+      tl.fromTo(q(".s01-etiqueta"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.3);
+
+      // salida: la hoja se arranca hacia arriba
+      tl.to(q("#s01-escena"), { y: -120, opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

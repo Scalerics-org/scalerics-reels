@@ -1,0 +1,209 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-olvida"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-olvida"] .s07-escenario { position: absolute; inset: 0; }
+    /* el monitor: la vereda, tu local, el de enfrente y el cliente */
+    [data-composition-id="s07-olvida"] .s07-mon { position: absolute; left: 60px; top: 596px; width: 960px; height: 560px; border: 6px solid #2b302b; border-radius: 14px; background: #0f1a0c; overflow: hidden; }
+    [data-composition-id="s07-olvida"] .s07-mon > svg { position: absolute; left: 0; top: 0; width: 948px; height: 548px; }
+    [data-composition-id="s07-olvida"] .s07-cam { position: absolute; left: 16px; top: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 18px; color: #b6ff3b; opacity: 0.75; letter-spacing: 0.1em; }
+    [data-composition-id="s07-olvida"] .s07-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    /* las tarjetas de puntos */
+    [data-composition-id="s07-olvida"] .s07-tarjeta { position: absolute; top: 1192px; width: 440px; height: 220px; border: 4px solid #b6ff3b; border-radius: 18px; box-sizing: border-box; background: #0f1a0c; }
+    [data-composition-id="s07-olvida"] .s07-tuya { left: 70px; border-color: rgba(182, 255, 59, 0.5); }
+    [data-composition-id="s07-olvida"] .s07-suya { left: 570px; }
+    [data-composition-id="s07-olvida"] .s07-brillo { position: absolute; left: 570px; top: 1192px; width: 440px; height: 220px; border-radius: 18px; box-shadow: 0 0 60px 10px rgba(182, 255, 59, 0.55); opacity: 0; }
+    [data-composition-id="s07-olvida"] .s07-ttit { position: absolute; left: 26px; top: 16px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; color: #b6ff3b; }
+    [data-composition-id="s07-olvida"] .s07-tarjeta svg { position: absolute; left: 24px; top: 70px; width: 392px; height: 130px; overflow: visible; }
+    [data-composition-id="s07-olvida"] .s07-equis { position: absolute; left: 110px; top: 1170px; width: 360px; height: 264px; }
+    /* textos gigantes */
+    [data-composition-id="s07-olvida"] .s07-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s07-olvida"] .s07-olvida { top: 1230px; font-size: 136px; color: #b6ff3b; text-shadow: 0 0 34px rgba(182, 255, 59, 0.45); }
+    [data-composition-id="s07-olvida"] .s07-banda { position: absolute; left: -40px; top: 740px; width: 1160px; height: 290px; background: rgba(6, 8, 6, 0.8); }
+    [data-composition-id="s07-olvida"] .s07-motivo { top: 790px; font-size: 128px; color: #f4f6ee; }
+    [data-composition-id="s07-olvida"] .s07-paravolver { position: absolute; left: 0; right: 0; top: 942px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 44px; letter-spacing: 0.3em; color: #b6ff3b; }
+    [data-composition-id="s07-olvida"] .s07-ami { top: 1214px; font-size: 200px; color: #ff3344; text-shadow: 0 0 44px rgba(255, 51, 68, 0.6); }
+    [data-composition-id="s07-olvida"] .s07-etiqueta { position: absolute; left: 0; right: 0; top: 1458px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #b6ff3b; }
+  </style>
+  <div id="root" data-composition-id="s07-olvida" data-width="1080" data-height="1920" data-duration="6.26">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="6.26" data-track-index="0">
+      <div class="s07-escenario">
+        <div class="s07-mon">
+          <svg viewBox="0 0 948 548" aria-hidden="true">
+            <defs>
+              <filter id="s07-blur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="22" /></filter>
+            </defs>
+            <g fill="none" stroke="#b6ff3b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 500 H928" opacity="0.5" />
+              <!-- tu local -->
+              <g class="s07-tulocal">
+                <path d="M60 500 V262 H300 V500" />
+                <path d="M44 262 L60 212 H300 L316 262 Z" />
+                <path d="M152 500 V384 H206 V500" />
+                <path d="M78 292 H136 V350 H78 Z M224 292 H282 V350 H224 Z" />
+              </g>
+              <!-- el de enfrente -->
+              <g class="s07-suyo">
+                <path d="M640 500 V250 H900 V500" />
+                <path d="M624 250 L640 196 H900 L916 250 Z" />
+                <path d="M660 282 H716 V338 H660 Z M824 282 H880 V338 H824 Z" />
+                <path d="M732 500 V372 H808 V500" />
+              </g>
+            </g>
+            <text data-layout-ignore class="s07-mono" x="180" y="248" text-anchor="middle" font-size="26" fill="#b6ff3b" opacity="0.8" letter-spacing="3">TU LOCAL</text>
+            <text data-layout-ignore class="s07-mono" x="770" y="234" text-anchor="middle" font-size="26" fill="#b6ff3b" letter-spacing="3">ENFRENTE</text>
+            <!-- la puerta del villano: se abre con luz -->
+            <rect class="s07-luzhalo" x="712" y="352" width="116" height="168" fill="#b6ff3b" filter="url(#s07-blur)" opacity="0" />
+            <rect class="s07-luz" x="734" y="374" width="72" height="124" fill="#b6ff3b" opacity="0" />
+            <rect class="s07-puerta" x="734" y="374" width="72" height="124" fill="#0f1a0c" stroke="#b6ff3b" stroke-width="4" />
+            <!-- el globo de pensamiento -->
+            <g class="s07-globo">
+              <ellipse cx="420" cy="118" rx="150" ry="86" fill="#0f1a0c" stroke="#b6ff3b" stroke-width="4" />
+              <circle cx="436" cy="226" r="14" fill="#0f1a0c" stroke="#b6ff3b" stroke-width="4" />
+              <circle cx="444" cy="262" r="8" fill="#0f1a0c" stroke="#b6ff3b" stroke-width="4" />
+              <g class="s07-recuerdo">
+                <path d="M350 160 V100 H490 V160 M340 100 L350 72 H490 L500 100 Z M405 160 V128 H435 V160" fill="none" stroke="#b6ff3b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <text data-layout-ignore class="s07-mono" x="420" y="94" text-anchor="middle" font-size="18" fill="#b6ff3b">TU LOCAL</text>
+              </g>
+              <text class="s07-preg" x="420" y="150" text-anchor="middle" font-family="Lexend, sans-serif" font-weight="900" font-size="96" fill="#ff3344" opacity="0">?</text>
+            </g>
+            <!-- el cliente, de perfil mirando tu local -->
+            <g class="s07-cliente">
+              <g class="s07-cuerpo" fill="#0f1a0c" stroke="#b6ff3b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M-14 -36 L-18 0 M14 -36 L18 0" fill="none" />
+                <path d="M-34 -36 L-28 -128 Q0 -142 28 -128 L34 -36 Z" />
+                <circle cx="0" cy="-168" r="28" />
+                <path d="M-27 -172 L-40 -160 L-26 -156" fill="none" />
+              </g>
+            </g>
+          </svg>
+          <div class="s07-cam" data-layout-ignore>CAM 07 · 18:20</div>
+        </div>
+        <div class="s07-txt s07-olvida"><span class="s07-l">S</span><span class="s07-l">E</span> <span class="s07-l">O</span><span class="s07-l">L</span><span class="s07-l">V</span><span class="s07-l">I</span><span class="s07-l">D</span><span class="s07-l">A</span></div>
+        <!-- tus puntos: vacíos. los suyos: llenos -->
+        <div class="s07-brillo"></div>
+        <div class="s07-tarjeta s07-tuya">
+          <div class="s07-ttit" style="opacity:0.7;">TU LOCAL · 0</div>
+          <svg viewBox="0 0 392 130" aria-hidden="true">
+            <g fill="none" stroke="#b6ff3b" stroke-width="4" stroke-dasharray="8 8" opacity="0.5">
+              <circle cx="46" cy="32" r="24" /><circle cx="146" cy="32" r="24" /><circle cx="246" cy="32" r="24" /><circle cx="346" cy="32" r="24" />
+              <circle cx="46" cy="100" r="24" /><circle cx="146" cy="100" r="24" /><circle cx="246" cy="100" r="24" /><circle cx="346" cy="100" r="24" />
+            </g>
+          </svg>
+        </div>
+        <div class="s07-tarjeta s07-suya">
+          <div class="s07-ttit">ENFRENTE · 8</div>
+          <svg viewBox="0 0 392 130" aria-hidden="true">
+            <g fill="none" stroke="#b6ff3b" stroke-width="4">
+              <circle cx="46" cy="32" r="24" /><circle cx="146" cy="32" r="24" /><circle cx="246" cy="32" r="24" /><circle cx="346" cy="32" r="24" />
+              <circle cx="46" cy="100" r="24" /><circle cx="146" cy="100" r="24" /><circle cx="246" cy="100" r="24" /><circle cx="346" cy="100" r="24" />
+            </g>
+            <g fill="#b6ff3b">
+              <circle class="s07-sello" cx="46" cy="32" r="17" /><circle class="s07-sello" cx="146" cy="32" r="17" /><circle class="s07-sello" cx="246" cy="32" r="17" /><circle class="s07-sello" cx="346" cy="32" r="17" />
+              <circle class="s07-sello" cx="46" cy="100" r="17" /><circle class="s07-sello" cx="146" cy="100" r="17" /><circle class="s07-sello" cx="246" cy="100" r="17" /><circle class="s07-sello" cx="346" cy="100" r="17" />
+            </g>
+          </svg>
+        </div>
+        <svg class="s07-equis" viewBox="0 0 360 264" aria-hidden="true">
+          <path class="s07-x" pathLength="1" d="M30 30 L330 234" fill="none" stroke="#ff3344" stroke-width="16" stroke-linecap="round" />
+          <path class="s07-x" pathLength="1" d="M330 30 L30 234" fill="none" stroke="#ff3344" stroke-width="16" stroke-linecap="round" />
+        </svg>
+        <div class="s07-banda"></div>
+        <div class="s07-txt s07-motivo">UN MOTIVO</div>
+        <div class="s07-paravolver">PARA VOLVER</div>
+        <div class="s07-txt s07-ami">A MÍ.</div>
+        <div class="s07-etiqueta">CAM 07 · FIDELIDAD</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-olvida";
+      const DUR = 6.26;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const OLVIDA = 0.94;
+      const VOS = 1.5;
+      const PORQUE = 2.3;
+      const MOTIVO = 3.18;
+      const VOLVER = 3.8;
+      const VUELVE = 4.7;
+      const MI = 5.3;
+      const temblor = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const aparece = (el, t, from, to) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 0 }, from), Object.assign({ opacity: 1, immediateRender: false }, to), t); };
+      const ocultos = [".s07-olvida", ".s07-tuya", ".s07-suya", ".s07-equis", ".s07-banda", ".s07-motivo", ".s07-paravolver", ".s07-ami"].map(q);
+      gsap.set(ocultos, { opacity: 0 });
+
+      // cuadro 0: el monitor prendido, el cliente frente a tu local, pensándote
+      tl.fromTo(q(".s07-mon"), { scaleY: 0.05, opacity: 0.6 }, { scaleY: 1, opacity: 1, duration: 0.18, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s07-mon"), { scale: 1 }, { scale: 1.03, duration: VUELVE, ease: "none" }, 0.18);
+      tl.fromTo(q(".s07-etiqueta"), { opacity: 0.3, x: -20 }, { opacity: 1, x: 0, duration: 0.25, ease: "steps(3)" }, 0);
+      gsap.set(q(".s07-cliente"), { x: 350, y: 500 });
+      tl.to(q(".s07-cliente"), { x: 420, duration: 0.8, ease: "power1.out" }, 0);
+      [0, 1, 2, 3].forEach((i) => tl.to(q(".s07-cuerpo"), { y: i % 2 ? 0 : -8, duration: 0.1, ease: "sine.inOut" }, i * 0.2));
+      tl.fromTo(q(".s07-globo"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.8)" }, 0.1);
+
+      // "se olvida de vos": el recuerdo de tu local se borra con glitch
+      aparece(q(".s07-olvida"), OLVIDA - 0.1, { scale: 2.4 }, { scale: 1, duration: 0.12, ease: "power4.in" });
+      temblor(OLVIDA + 0.03, 0.7);
+      [[0.25, 14], [1, -10], [0.15, 18], [0.7, -6], [0.1, 10], [0.4, 0], [0.05, -14], [0, 0]].forEach(([o, x], i) => {
+        tl.to(q(".s07-recuerdo"), { opacity: o, x, duration: 0.03, ease: "none" }, OLVIDA + 0.02 + i * 0.07);
+      });
+      tl.fromTo(q(".s07-preg"), { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "none", immediateRender: false }, VOS + 0.05);
+      tl.to(q(".s07-preg"), { opacity: 0.3, duration: 0.05, ease: "steps(1)", yoyo: true, repeat: 3 }, VOS + 0.3);
+      // la palabra también se olvida: se le caen las letras
+      [3, 0, 6, 2, 5, 1, 7, 4].forEach((n, i) => tl.to(qa(".s07-l")[n], { opacity: 0, y: 30, duration: 0.06, ease: "power2.in" }, VOS + 0.12 + i * 0.07));
+      tl.to(q(".s07-tulocal"), { opacity: 0.35, duration: 0.05, ease: "steps(1)" }, VOS + 0.3);
+      tl.to(q(".s07-globo"), { opacity: 0, y: -24, duration: 0.2, ease: "power2.in" }, PORQUE - 0.12);
+
+      // "porque no le diste un motivo": tu tarjeta vacía con X roja, la suya llena que brilla
+      tl.fromTo(q(".s07-tuya"), { opacity: 0, y: 80, rotation: -4 }, { opacity: 1, y: 0, rotation: -2, duration: 0.25, ease: "back.out(1.6)", immediateRender: false }, PORQUE);
+      tl.fromTo(q(".s07-suya"), { opacity: 0, y: 80, rotation: 4 }, { opacity: 1, y: 0, rotation: 2, duration: 0.25, ease: "back.out(1.6)", immediateRender: false }, PORQUE + 0.1);
+      gsap.set(qa(".s07-sello"), { opacity: 0 });
+      qa(".s07-sello").forEach((s, i) => tl.fromTo(s, { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.12, ease: "back.out(3)", immediateRender: false }, 2.5 + i * 0.07));
+      tl.to(q(".s07-brillo"), { opacity: 1, duration: 0.2 }, 3.05);
+      tl.set(q(".s07-equis"), { opacity: 1 }, 2.78);
+      gsap.set(qa(".s07-x"), { strokeDasharray: 1, strokeDashoffset: 1 });
+      tl.to(qa(".s07-x"), { strokeDashoffset: 0, duration: 0.16, ease: "power3.in", stagger: 0.12 }, 2.78);
+      [[-10], [8], [0]].forEach(([x], i) => tl.to(q(".s07-tuya"), { x, duration: 0.04, ease: "none" }, 3.08 + i * 0.05));
+
+      // "UN MOTIVO / PARA VOLVER" cae sobre el monitor
+      tl.to(q(".s07-banda"), { opacity: 1, duration: 0.06 }, MOTIVO - 0.1);
+      aparece(q(".s07-motivo"), MOTIVO - 0.1, { scale: 2.5 }, { scale: 1, duration: 0.12, ease: "power4.in" });
+      temblor(MOTIVO + 0.03, 0.8);
+      aparece(q(".s07-paravolver"), 3.54, { y: 24 }, { y: 0, duration: 0.15, ease: "power3.out" });
+      tl.to(q(".s07-brillo"), { opacity: 0.4, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, 3.3);
+      // parpadeo de ambiente en 3.94: la banda se corta
+      tl.to([q(".s07-banda"), q(".s07-motivo"), q(".s07-paravolver")], { scaleY: 0.03, opacity: 0, duration: 0.08, ease: "power3.in" }, 3.92);
+      tl.to(q(".s07-cuerpo"), { rotation: -6, transformOrigin: "50% 100%", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, 4.05);
+
+      // "vuelve a mí": las tarjetas se van, el cliente se da vuelta y cruza; la puerta se abre con luz
+      tl.to([q(".s07-tuya"), q(".s07-equis")], { opacity: 0, y: 60, duration: 0.2, ease: "power2.in" }, VUELVE - 0.15);
+      tl.to([q(".s07-suya"), q(".s07-brillo")], { opacity: 0, y: 60, duration: 0.2, ease: "power2.in" }, VUELVE - 0.1);
+      tl.to(q(".s07-cuerpo"), { scaleX: -1, transformOrigin: "50% 100%", duration: 0.12, ease: "power2.inOut" }, VUELVE);
+      tl.to(q(".s07-cliente"), { x: 770, duration: 0.85, ease: "power1.inOut" }, VUELVE + 0.12);
+      [0, 1, 2, 3, 4, 5].forEach((i) => tl.to(q(".s07-cuerpo"), { y: i % 2 ? 0 : -10, duration: 0.07, ease: "sine.inOut" }, VUELVE + 0.12 + i * 0.14));
+      tl.to(q(".s07-puerta"), { scaleX: 0.12, transformOrigin: "0% 50%", duration: 0.3, ease: "power3.out" }, VUELVE + 0.2);
+      tl.to(q(".s07-luz"), { opacity: 0.95, duration: 0.25 }, VUELVE + 0.2);
+      tl.to(q(".s07-luzhalo"), { opacity: 0.8, duration: 0.35 }, VUELVE + 0.25);
+      tl.to(q(".s07-tulocal"), { opacity: 0.15, duration: 0.4 }, VUELVE + 0.2);
+      tl.to(q(".s07-cliente"), { opacity: 0, duration: 0.2 }, 5.85);
+      tl.to(q(".s07-mon"), { scale: 1.1, transformOrigin: "75% 70%", duration: 0.9, ease: "power2.inOut" }, VUELVE + 0.3);
+      aparece(q(".s07-ami"), MI - 0.12, { scale: 2.8, rotation: -6 }, { scale: 1, rotation: -3, duration: 0.14, ease: "power4.in" });
+      temblor(MI + 0.04, 1.1);
+      tl.to(q(".s07-luzhalo"), { opacity: 0.4, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, 5.55);
+
+      // salida: corte de monitor
+      tl.to(q("#s07-escena"), { scaleY: 0.02, opacity: 0, duration: 0.18, ease: "power3.in", transformOrigin: "50% 50%" }, DUR - 0.18);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

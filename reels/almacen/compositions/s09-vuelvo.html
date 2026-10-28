@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-vuelvo"] .s09-capa { position: absolute; inset: 0; }
+    /* el celular de papel con el chat */
+    [data-composition-id="s09-vuelvo"] .s09-cel { position: absolute; left: 340px; top: 610px; width: 400px; height: 740px; border-radius: 46px; background: #f3ead8; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s09-vuelvo"] .s09-pantalla { position: absolute; left: 20px; top: 56px; right: 20px; bottom: 56px; border-radius: 24px; background: #1d2430; overflow: hidden; }
+    [data-composition-id="s09-vuelvo"] .s09-head { position: absolute; left: 0; right: 0; top: 0; height: 104px; background: #25d366; }
+    [data-composition-id="s09-vuelvo"] .s09-avatar { position: absolute; left: 18px; top: 20px; width: 64px; height: 64px; border-radius: 50%; background: #f2b632; }
+    [data-composition-id="s09-vuelvo"] .s09-nombre { position: absolute; left: 96px; top: 14px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 30px; color: #0e2a17; white-space: nowrap; }
+    [data-composition-id="s09-vuelvo"] .s09-estado { position: absolute; left: 96px; top: 56px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #0e2a17; white-space: nowrap; }
+    [data-composition-id="s09-vuelvo"] .s09-burbuja { position: absolute; padding: 14px 18px; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.2; box-sizing: border-box; }
+    [data-composition-id="s09-vuelvo"] .s09-yo { right: 14px; top: 136px; width: 270px; background: #f3ead8; color: #1d2430; border-radius: 22px 22px 6px 22px; }
+    [data-composition-id="s09-vuelvo"] .s09-hora { display: block; margin-top: 6px; text-align: right; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: rgba(29, 36, 48, 0.55); }
+    [data-composition-id="s09-vuelvo"] .s09-puntos { left: 14px; top: 330px; width: 130px; height: 64px; background: #f3ead8; border-radius: 22px 22px 22px 6px; }
+    [data-composition-id="s09-vuelvo"] .s09-punto { position: absolute; top: 24px; width: 16px; height: 16px; border-radius: 50%; background: #1d2430; }
+    [data-composition-id="s09-vuelvo"] .s09-resp { left: 14px; top: 330px; width: 300px; background: #25d366; color: #0e2a17; border-radius: 22px 22px 22px 6px; }
+    /* VUELVO. */
+    [data-composition-id="s09-vuelvo"] .s09-tira { position: absolute; left: 120px; top: 580px; width: 840px; height: 230px; background: #f3ead8; box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s09-vuelvo"] .s09-cinta { position: absolute; width: 170px; height: 50px; background: rgba(242, 222, 160, 0.82); }
+    [data-composition-id="s09-vuelvo"] .s09-tira .s09-cinta { left: -40px; top: -16px; }
+    [data-composition-id="s09-vuelvo"] .s09-vuelvo { position: absolute; left: 0; right: 0; top: 10px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 220px; line-height: 1; color: #e0342b; white-space: nowrap; }
+    /* el almacén de papel con la puerta abierta */
+    [data-composition-id="s09-vuelvo"] .s09-local { position: absolute; left: 560px; top: 990px; width: 420px; height: 380px; }
+    [data-composition-id="s09-vuelvo"] .s09-frente { position: absolute; left: 20px; top: 110px; width: 380px; height: 260px; background: #e9dcc0; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4); }
+    [data-composition-id="s09-vuelvo"] .s09-toldo { position: absolute; left: 0; top: 70px; width: 420px; height: 70px; background: repeating-linear-gradient(90deg, #e0342b 0 42px, #f3ead8 42px 84px); clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%); }
+    [data-composition-id="s09-vuelvo"] .s09-cartel { position: absolute; left: 60px; top: 0; width: 300px; height: 64px; background: #f2b632; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; letter-spacing: 0.06em; color: #2a1d12; }
+    [data-composition-id="s09-vuelvo"] .s09-hueco { position: absolute; left: 150px; top: 180px; width: 100px; height: 190px; background: #f2b632; box-shadow: inset 0 0 0 6px #6b4a2e; }
+    [data-composition-id="s09-vuelvo"] .s09-puerta { position: absolute; left: 150px; top: 180px; width: 100px; height: 190px; background: #6b4a2e; transform-origin: 0% 50%; }
+    [data-composition-id="s09-vuelvo"] .s09-vidriera { position: absolute; top: 180px; width: 90px; height: 90px; background: #a8c3d6; }
+    [data-composition-id="s09-vuelvo"] .s09-v1 { left: 40px; } [data-composition-id="s09-vuelvo"] .s09-v2 { left: 290px; }
+    /* el vecino */
+    [data-composition-id="s09-vuelvo"] .s09-vecino { position: absolute; left: 0; top: 1040px; width: 170px; height: 340px; }
+    [data-composition-id="s09-vuelvo"] .s09-vcab { position: absolute; left: 40px; top: 0; width: 96px; height: 96px; border-radius: 50%; background: #d9a77c; box-shadow: inset 0 22px 0 #2a1d12, 0 6px 14px rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s09-vuelvo"] .s09-vojo { position: absolute; left: 66px; top: 44px; width: 10px; height: 10px; border-radius: 50%; background: #2a1d12; }
+    [data-composition-id="s09-vuelvo"] .s09-vsonrisa { position: absolute; left: 52px; top: 62px; width: 30px; height: 14px; border-bottom: 5px solid #2a1d12; border-radius: 0 0 16px 16px; box-sizing: border-box; }
+    [data-composition-id="s09-vuelvo"] .s09-vremera { position: absolute; left: 25px; top: 90px; width: 126px; height: 150px; border-radius: 40px 40px 8px 8px; background: #2346a8; box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4); }
+    [data-composition-id="s09-vuelvo"] .s09-pierna { position: absolute; top: 230px; width: 40px; height: 110px; border-radius: 8px; background: #6b4a2e; transform-origin: 50% 0%; }
+    [data-composition-id="s09-vuelvo"] .s09-p1 { left: 46px; } [data-composition-id="s09-vuelvo"] .s09-p2 { left: 92px; }
+    [data-composition-id="s09-vuelvo"] .s09-etiqueta { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #f2b632; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s09-vuelvo" data-width="1080" data-height="1920" data-duration="3.56">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="3.56" data-track-index="0">
+      <div class="s09-local">
+        <div class="s09-frente"></div>
+        <div class="s09-toldo"></div>
+        <div class="s09-vidriera s09-v1"></div>
+        <div class="s09-vidriera s09-v2"></div>
+        <div class="s09-hueco"></div>
+        <div class="s09-puerta"></div>
+        <div class="s09-cartel">ALMACÉN</div>
+      </div>
+      <div class="s09-vecino">
+        <div class="s09-pierna s09-p1"></div><div class="s09-pierna s09-p2"></div>
+        <div class="s09-vremera"></div>
+        <div class="s09-vcab"><div class="s09-vojo"></div><div class="s09-vsonrisa"></div></div>
+      </div>
+      <div class="s09-cel">
+        <div class="s09-pantalla">
+          <div class="s09-head"><div class="s09-avatar"></div><div class="s09-nombre">Almacén Rubén</div><div class="s09-estado s09-est1">en línea</div><div class="s09-estado s09-est2">escribiendo...</div></div>
+          <div class="s09-burbuja s09-yo">¿Tenés pan de campo?<span class="s09-hora">08:12</span></div>
+          <div class="s09-burbuja s09-puntos"><div class="s09-punto" style="left: 28px"></div><div class="s09-punto" style="left: 57px"></div><div class="s09-punto" style="left: 86px"></div></div>
+          <div class="s09-burbuja s09-resp">¡Sí! Te lo guardo. Abrimos 8 a 21.</div>
+        </div>
+      </div>
+      <div class="s09-tira"><div class="s09-cinta"></div><div class="s09-vuelvo">VUELVO.</div></div>
+      <div class="s09-etiqueta">Prometido</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-vuelvo";
+      const DUR = 3.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const DIA = 0.12;
+      const WHATSAPP = 1.22;
+      const VUELVO = 2.29; // flash del ambiente
+
+      const entra = (el, t, from, to, dur = 0.3, ease = "back.out(1.8)") => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0 }, from), Object.assign({ opacity: 1, duration: dur, ease, immediateRender: false }, to), t);
+      };
+      const sacudon = (el, t, a = 10) => {
+        [[-a, a * 0.5], [a * 0.8, -a * 0.4], [-a * 0.4, a * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(el, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+
+      // cuadro 0: el celular ya está, cayendo sobre la mesa
+      tl.fromTo(q(".s09-cel"), { rotation: 8, scale: 1.08, y: -40 }, { rotation: -3, scale: 1, y: 0, duration: 0.4, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".s09-etiqueta"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.2);
+      gsap.set(q(".s09-yo"), { transformOrigin: "100% 100%" });
+      entra(q(".s09-yo"), DIA, { scale: 0.5 }, { scale: 1, duration: 0.28 });
+
+      // "escribiendo..." que late
+      gsap.set(q(".s09-est2"), { opacity: 0 });
+      tl.to(q(".s09-est1"), { opacity: 0, duration: 0.05 }, 0.45);
+      tl.to(q(".s09-est2"), { opacity: 1, duration: 0.05 }, 0.45);
+      gsap.set(q(".s09-puntos"), { transformOrigin: "0% 100%" });
+      entra(q(".s09-puntos"), 0.45, { scale: 0.4 }, { scale: 1, duration: 0.22 });
+      qa(".s09-punto").forEach((el, i) => {
+        tl.fromTo(el, { y: 0 }, { y: -10, duration: 0.14, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, 0.6 + i * 0.09);
+      });
+      tl.to(q(".s09-cel"), { rotation: -1, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.4);
+
+      // "WhatsApp": la respuesta verde
+      tl.to(q(".s09-puntos"), { opacity: 0, scale: 0.6, duration: 0.08 }, WHATSAPP - 0.06);
+      tl.to(q(".s09-est2"), { opacity: 0, duration: 0.05 }, WHATSAPP);
+      tl.to(q(".s09-est1"), { opacity: 1, duration: 0.05 }, WHATSAPP);
+      gsap.set(q(".s09-resp"), { transformOrigin: "0% 100%" });
+      entra(q(".s09-resp"), WHATSAPP, { scale: 0.3, rotation: -8 }, { scale: 1, rotation: 0, duration: 0.32, ease: "back.out(2.4)" });
+      tl.to(q(".s09-cel"), { scale: 1.05, rotation: 2, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, WHATSAPP + 0.05);
+      tl.to(q(".s09-resp"), { scale: 1.04, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, WHATSAPP + 0.55);
+
+      // "vuelvo.": el celular se va, VUELVO se estampa y el vecino camina al almacén
+      tl.to(q(".s09-cel"), { x: -1150, y: 160, rotation: -50, opacity: 0, duration: 0.3, ease: "power3.in" }, VUELVO - 0.24);
+      entra(q(".s09-tira"), VUELVO - 0.04, { scale: 1.9, rotation: 12 }, { scale: 1, rotation: -3, duration: 0.2, ease: "power4.in" }, 0.2, "power4.in");
+      sacudon(q("#s09-escena"), VUELVO + 0.16, 18);
+      tl.to(q(".s09-vuelvo"), { scale: 1.06, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, VUELVO + 0.4);
+      entra(q(".s09-local"), VUELVO - 0.1, { y: 420, rotation: 10, scale: 0.8 }, { y: 0, rotation: 2, scale: 1, duration: 0.3, ease: "back.out(1.7)" });
+      tl.to(q(".s09-puerta"), { scaleX: 0.15, duration: 0.3, ease: "power2.out" }, VUELVO + 0.25);
+      tl.fromTo(q(".s09-cartel"), { rotation: -5 }, { rotation: 4, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, VUELVO + 0.2);
+      gsap.set(q(".s09-vecino"), { opacity: 0, x: -200 });
+      tl.to(q(".s09-vecino"), { opacity: 1, duration: 0.05 }, VUELVO + 0.05);
+      tl.to(q(".s09-vecino"), { x: 640, duration: DUR - VUELVO - 0.2, ease: "power1.inOut" }, VUELVO + 0.05);
+      tl.fromTo(q(".s09-vecino"), { y: 0 }, { y: -14, duration: 0.12, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, VUELVO + 0.05);
+      tl.fromTo(q(".s09-p1"), { rotation: 22 }, { rotation: -22, duration: 0.12, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, VUELVO + 0.05);
+      tl.fromTo(q(".s09-p2"), { rotation: -22 }, { rotation: 22, duration: 0.12, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, VUELVO + 0.05);
+
+      // salida
+      tl.to(q("#s09-escena"), { y: -120, opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

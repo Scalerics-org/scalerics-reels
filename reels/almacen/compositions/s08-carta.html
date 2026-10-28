@@ -1,0 +1,152 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-carta"] .s08-capa { position: absolute; inset: 0; }
+    /* la carta: hoja de libreta que se despliega */
+    [data-composition-id="s08-carta"] .s08-hoja { position: absolute; left: 60px; top: 590px; width: 660px; height: 780px; background-color: #f3ead8;
+      background-image: repeating-linear-gradient(180deg, transparent 0 58px, rgba(35, 70, 168, 0.28) 58px 60px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s08-carta"] .s08-margen { position: absolute; left: 70px; top: 0; bottom: 0; width: 3px; background: rgba(224, 52, 43, 0.6); }
+    [data-composition-id="s08-carta"] .s08-doblez { position: absolute; left: 0; right: 0; top: 389px; height: 4px; background: rgba(107, 74, 46, 0.22); }
+    [data-composition-id="s08-carta"] .s08-cinta { position: absolute; width: 170px; height: 52px; background: rgba(242, 222, 160, 0.82); }
+    [data-composition-id="s08-carta"] .s08-t1 { left: -46px; top: -18px; }
+    [data-composition-id="s08-carta"] .s08-t2 { right: -46px; top: -16px; }
+    [data-composition-id="s08-carta"] .s08-mano { position: absolute; left: 96px; font-family: "Caveat", cursive; font-weight: 700; color: #2346a8; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s08-carta"] .s08-l0 { top: 40px; font-size: 90px; }
+    [data-composition-id="s08-carta"] .s08-l1 { top: 210px; font-size: 80px; }
+    [data-composition-id="s08-carta"] .s08-l2 { top: 300px; font-size: 80px; }
+    [data-composition-id="s08-carta"] .s08-l3 { top: 450px; font-size: 92px; }
+    [data-composition-id="s08-carta"] .s08-l4 { top: 550px; font-size: 104px; }
+    [data-composition-id="s08-carta"] .s08-sub { position: absolute; left: 90px; top: 660px; width: 300px; height: 10px; border-radius: 5px; background: #e0342b; transform-origin: 0% 50%; }
+    [data-composition-id="s08-carta"] .s08-sub2 { top: 678px; left: 110px; width: 260px; }
+    [data-composition-id="s08-carta"] .s08-mancha { position: absolute; left: 400px; top: 560px; width: 150px; height: 110px; border-radius: 50%; background: rgba(168, 195, 214, 0.75); }
+    [data-composition-id="s08-carta"] .s08-gota { position: absolute; left: 0; top: 0; width: 44px; height: 60px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: #a8c3d6; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s08-carta"] .s08-gota::before { content: ""; position: absolute; left: 10px; top: -18px; width: 24px; height: 30px; background: #a8c3d6; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+    /* Rubén con el celular en la mano */
+    [data-composition-id="s08-carta"] .s08-ruben { position: absolute; left: 730px; top: 880px; width: 300px; height: 520px; }
+    [data-composition-id="s08-carta"] .s08-torso { position: absolute; left: 25px; top: 128px; width: 250px; height: 392px; border-radius: 70px 70px 10px 10px; background: #6b4a2e; box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s08-carta"] .s08-delantal { position: absolute; left: 70px; top: 176px; width: 160px; height: 344px; background: #f3ead8; }
+    [data-composition-id="s08-carta"] .s08-delantal::before { content: ""; position: absolute; left: 20px; top: -40px; width: 120px; height: 44px; border: 10px solid #f3ead8; border-bottom: none; border-radius: 40px 40px 0 0; box-sizing: border-box; }
+    [data-composition-id="s08-carta"] .s08-cabeza { position: absolute; left: 80px; top: 0; width: 140px; height: 140px; border-radius: 50%; background: #d9a77c; box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s08-carta"] .s08-ojo { position: absolute; top: 54px; width: 14px; height: 14px; border-radius: 50%; background: #2a1d12; }
+    [data-composition-id="s08-carta"] .s08-ceja { position: absolute; top: 34px; width: 34px; height: 8px; border-radius: 4px; background: #6b4a2e; }
+    [data-composition-id="s08-carta"] .s08-bigote { position: absolute; left: 24px; top: 82px; width: 84px; height: 26px; border-radius: 12px 12px 18px 18px; background: #6b4a2e; }
+    [data-composition-id="s08-carta"] .s08-brazo { position: absolute; left: 10px; top: 270px; width: 200px; height: 58px; border-radius: 29px; background: #6b4a2e; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35); transform-origin: 90% 50%; }
+    [data-composition-id="s08-carta"] .s08-brazo::before { content: ""; position: absolute; left: -4px; top: 4px; width: 50px; height: 50px; border-radius: 50%; background: #d9a77c; }
+    [data-composition-id="s08-carta"] .s08-cel { position: absolute; left: -10px; top: 160px; width: 92px; height: 164px; border-radius: 18px; background: #f3ead8; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); }
+    [data-composition-id="s08-carta"] .s08-cel::before { content: ""; position: absolute; left: 8px; top: 16px; right: 8px; bottom: 16px; border-radius: 8px; background: #1d2430; }
+    [data-composition-id="s08-carta"] .s08-cel::after { content: ""; position: absolute; left: 18px; top: 40px; width: 56px; height: 10px; border-radius: 5px; background: rgba(243, 234, 216, 0.6); box-shadow: 0 22px 0 rgba(243, 234, 216, 0.6), 0 44px 0 rgba(243, 234, 216, 0.6); }
+    [data-composition-id="s08-carta"] .s08-etiqueta { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #f2b632; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s08-carta" data-width="1080" data-height="1920" data-duration="4.37">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.37" data-track-index="0">
+      <div class="s08-hoja">
+        <div class="s08-margen"></div>
+        <div class="s08-doblez"></div>
+        <div class="s08-cinta s08-t1"></div>
+        <div class="s08-cinta s08-t2"></div>
+        <div class="s08-mano s08-l0">Querido Rubén:</div>
+        <div class="s08-mano s08-l1">si estás viendo</div>
+        <div class="s08-mano s08-l2">esto...</div>
+        <div class="s08-mancha"></div>
+        <div class="s08-mano s08-l3">no te quiero</div>
+        <div class="s08-mano s08-l4">perder.</div>
+        <div class="s08-sub"></div>
+        <div class="s08-sub s08-sub2"></div>
+      </div>
+      <div class="s08-ruben">
+        <div class="s08-torso"></div>
+        <div class="s08-delantal"></div>
+        <div class="s08-cabeza">
+          <div class="s08-ceja" style="left: 30px"></div><div class="s08-ceja" style="left: 76px"></div>
+          <div class="s08-ojo" style="left: 36px"></div><div class="s08-ojo" style="left: 82px"></div>
+          <div class="s08-bigote"></div>
+        </div>
+        <div class="s08-cel"></div>
+        <div class="s08-brazo"></div>
+      </div>
+      <div class="s08-gota"></div>
+      <div class="s08-etiqueta">Carta abierta</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-carta";
+      const DUR = 4.37;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const SI = 0.95;
+      const NO = 2.55;
+      const PERDER = 3.09; // flash del ambiente
+
+      const escribir = (el, t, dur, desde = 100) => {
+        gsap.set(el, { clipPath: "inset(0 " + desde + "% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+      };
+      const sacudon = (el, t, a = 10) => {
+        [[-a, a * 0.5], [a * 0.8, -a * 0.4], [-a * 0.4, a * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(el, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+
+      // cuadro 0: la carta doblada que se despliega en dos tiempos
+      gsap.set(q(".s08-hoja"), { transformOrigin: "50% 0%", rotation: -2 });
+      gsap.set(q(".s08-t1"), { rotation: -16 });
+      gsap.set(q(".s08-t2"), { rotation: 14 });
+      tl.fromTo(q(".s08-hoja"), { scaleY: 0.12, y: -30, rotation: -6 }, { scaleY: 0.5, y: 0, rotation: -3, duration: 0.14, ease: "power2.out" }, 0);
+      tl.to(q(".s08-hoja"), { scaleY: 1, rotation: -2, duration: 0.3, ease: "back.out(1.6)" }, 0.2);
+      tl.fromTo([q(".s08-t1"), q(".s08-t2")], { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power3.out", stagger: 0.07, immediateRender: false }, 0.45);
+      gsap.set([q(".s08-t1"), q(".s08-t2")], { opacity: 0 });
+      tl.fromTo(q(".s08-etiqueta"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.25);
+
+      // "Querido Rubén:"
+      escribir(q(".s08-l0"), 0, 0.8, 72);
+
+      // Rubén se asoma desde abajo, con el celular
+      gsap.set(q(".s08-ruben"), { opacity: 0 });
+      tl.fromTo(q(".s08-ruben"), { opacity: 0, y: 420, rotation: 8 }, { opacity: 1, y: 0, rotation: 3, duration: 0.4, ease: "back.out(1.5)", immediateRender: false }, 0.15);
+      tl.to(q(".s08-cabeza"), { rotation: -8, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.6);
+      tl.to(q(".s08-cel"), { rotation: -12, y: -10, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.9);
+      tl.to(qa(".s08-ojo"), { x: -6, duration: 0.2, ease: "power2.out" }, 0.9);
+
+      // "si estás viendo esto..."
+      escribir(q(".s08-l1"), SI, 0.55);
+      escribir(q(".s08-l2"), SI + 0.6, 0.3);
+      tl.to(q(".s08-hoja"), { rotation: -1, y: -6, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 1.6);
+      tl.to(qa(".s08-ceja"), { y: -8, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, 1.45);
+      tl.to(q(".s08-ruben"), { x: -14, rotation: 0, duration: 0.6, ease: "sine.inOut" }, 1.8);
+
+      // "no te quiero perder." con subrayado rojo y sacudón en el flash
+      escribir(q(".s08-l3"), NO, 0.45);
+      escribir(q(".s08-l4"), PERDER - 0.12, 0.3);
+      gsap.set(qa(".s08-sub"), { scaleX: 0 });
+      tl.to(q(".s08-sub"), { scaleX: 1, duration: 0.16, ease: "power2.out" }, PERDER + 0.12);
+      tl.to(q(".s08-sub2"), { scaleX: 1, duration: 0.16, ease: "power2.out" }, PERDER + 0.24);
+      sacudon(q("#s08-escena"), PERDER, 14);
+      tl.to(q(".s08-l4"), { scale: 1.08, transformOrigin: "0% 50%", duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, PERDER + 0.15);
+      // Rubén se conmueve: baja el celular, el bigote tiembla
+      tl.to(q(".s08-cabeza"), { rotation: 10, y: 8, duration: 0.3, ease: "power2.out" }, NO + 0.2);
+      tl.to(q(".s08-bigote"), { scaleY: 0.7, duration: 0.06, yoyo: true, repeat: 7, ease: "none" }, PERDER + 0.05);
+
+      // la gota de llanto sale del ojo de Rubén y cae sobre la carta
+      gsap.set(q(".s08-gota"), { opacity: 0, x: 830, y: 920 });
+      tl.to(q(".s08-gota"), { opacity: 1, duration: 0.05 }, PERDER + 0.25);
+      tl.to(q(".s08-gota"), { x: 470, duration: 0.5, ease: "power1.out" }, PERDER + 0.25);
+      tl.to(q(".s08-gota"), { y: 1150, rotation: -20, duration: 0.5, ease: "back.in(2)" }, PERDER + 0.25);
+      tl.to(q(".s08-gota"), { scaleY: 0.2, scaleX: 1.8, opacity: 0, duration: 0.1, ease: "power2.out" }, PERDER + 0.75);
+      gsap.set(q(".s08-mancha"), { scale: 0, opacity: 0 });
+      tl.to(q(".s08-mancha"), { scale: 1, opacity: 1, duration: 0.18, ease: "back.out(2)" }, PERDER + 0.75);
+
+      // salida
+      tl.to(q("#s08-escena"), { y: -120, opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

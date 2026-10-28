@@ -1,0 +1,70 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* la guarida: líneas de monitor viejo, el verde de las pantallas, viñeta */
+    [data-composition-id="ambiente"] .amb-villano { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-scan { position: absolute; left: 0; top: -40px; width: 1080px; height: 2000px; opacity: 0.08;
+      background: repeating-linear-gradient(0deg, #b6ff3b 0 2px, transparent 2px 5px); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 720px 1080px at 540px 920px, rgba(6, 8, 6, 0) 50%, rgba(6, 8, 6, 0.9) 100%); }
+    [data-composition-id="ambiente"] .amb-rec { position: absolute; right: 70px; top: 120px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; color: #ff3344; }
+    [data-composition-id="ambiente"] .amb-punto { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: #ff3344; margin-right: 12px; }
+    [data-composition-id="ambiente"] .amb-cam { position: absolute; left: 70px; top: 1600px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.2em; color: #b6ff3b; opacity: 0.7; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-rojo { background: #ff3344; mix-blend-mode: screen; }
+    [data-composition-id="ambiente"] .amb-blanco { background: #f4f6ee; }
+    /* cuando entra Scalerics: se prende la luz */
+    [data-composition-id="ambiente"] .amb-luz { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 700px 900px at 540px 900px, rgba(92, 230, 17, 0.14) 0%, rgba(92, 230, 17, 0.04) 50%, rgba(92, 230, 17, 0) 80%); }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="54.02">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="54.02" data-track-index="0">
+      <div class="amb-luz"></div>
+      <div class="amb-villano">
+        <div class="amb-scan"></div>
+        <div class="amb-vineta"></div>
+        <div class="amb-rec" data-layout-ignore><span class="amb-punto"></span>REC</div>
+        <div class="amb-cam" data-layout-ignore>CAM 01 · ENFRENTE</div>
+      </div>
+      <div class="amb-flash amb-rojo"></div>
+      <div class="amb-flash amb-blanco"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 54.02;
+      const CAMBIO = 41.44; // "O cambiá todo": se termina la guarida
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(q(".amb-scan"), { y: 0 }, { y: 30, duration: 1, ease: "none", repeat: Math.floor(CAMBIO) - 1 }, 0);
+      // el punto de REC titila
+      tl.fromTo(q(".amb-punto"), { opacity: 1 }, { opacity: 0.15, duration: 0.5, ease: "steps(1)", yoyo: true, repeat: Math.floor(CAMBIO / 0.5) - 1 }, 0);
+      // parpadeo de monitor viejo, cada tanto
+      [2.9, 11.3, 19.9, 27.4, 33.6].forEach((t) => {
+        tl.to(q(".amb-villano"), { opacity: 0.55, duration: 0.03 }, t);
+        tl.to(q(".amb-villano"), { opacity: 1, duration: 0.05 }, t + 0.06);
+        tl.to(q(".amb-villano"), { opacity: 0.7, duration: 0.03 }, t + 0.14);
+        tl.to(q(".amb-villano"), { opacity: 1, duration: 0.05 }, t + 0.18);
+      });
+
+      // flashes rojos (segundos globales): "fundas" las dos veces, "nada"
+      [0.6, 7.86, 38.38].forEach((t) => {
+        tl.to(q(".amb-rojo"), { opacity: 0.5, duration: 0.03 }, t);
+        tl.to(q(".amb-rojo"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.04);
+      });
+
+      // el cambio: flash blanco, se apaga la guarida y se prende la luz verde de Scalerics
+      tl.to(q(".amb-blanco"), { opacity: 0.85, duration: 0.03 }, CAMBIO);
+      tl.to(q(".amb-blanco"), { opacity: 0, duration: 0.5, ease: "power2.out" }, CAMBIO + 0.05);
+      tl.to(q(".amb-villano"), { opacity: 0, duration: 0.1 }, CAMBIO);
+      tl.to(q(".amb-luz"), { opacity: 1, duration: 0.6, ease: "power2.out" }, CAMBIO + 0.05);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

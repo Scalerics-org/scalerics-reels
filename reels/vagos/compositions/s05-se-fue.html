@@ -1,0 +1,175 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-se-fue"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-se-fue"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-se-fue"] .s05-etiqueta { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #ffd60a; text-transform: uppercase; }
+    [data-composition-id="s05-se-fue"] .s05-num { display: inline-block; color: #ff2d2d; }
+    [data-composition-id="s05-se-fue"] .s05-sello { position: absolute; top: 622px; width: 190px; height: 132px; box-sizing: border-box; border: 6px solid #ff2d2d; border-radius: 14px; display: flex; align-items: center; justify-content: center; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 28px; line-height: 1.0; letter-spacing: -0.02em; color: #ff2d2d; text-transform: uppercase; }
+    [data-composition-id="s05-se-fue"] .s05-palabra { position: absolute; left: 0; right: 0; top: 800px; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.02em; }
+    [data-composition-id="s05-se-fue"] .s05-cada { font-size: 128px; color: #f4f1ea; top: 812px; }
+    [data-composition-id="s05-se-fue"] .s05-uncliente { font-size: 132px; color: #f4f1ea; top: 810px; }
+    [data-composition-id="s05-se-fue"] .s05-sefue { font-size: 200px; color: #ff2d2d; top: 776px; text-shadow: 0 0 40px rgba(255, 45, 45, 0.45); }
+    [data-composition-id="s05-se-fue"] .s05-novolvio { font-size: 124px; color: #ff2d2d; top: 816px; }
+    [data-composition-id="s05-se-fue"] .s05-local { position: absolute; left: 80px; top: 1010px; width: 440px; height: 480px; }
+    [data-composition-id="s05-se-fue"] .s05-cartel { position: absolute; left: 0; top: 0; width: 440px; height: 76px; background: #ffd60a; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; letter-spacing: 0.06em; color: #09090a; }
+    [data-composition-id="s05-se-fue"] .s05-hueco { position: absolute; left: 20px; top: 76px; width: 400px; height: 400px; overflow: hidden; background: #09090a; border: 6px solid #8a8f98; border-top: 0; box-sizing: border-box; }
+    [data-composition-id="s05-se-fue"] .s05-persiana { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+    [data-composition-id="s05-se-fue"] .s05-puerta { position: absolute; left: 760px; top: 1060px; width: 240px; height: 430px; }
+    [data-composition-id="s05-se-fue"] .s05-abierto { position: absolute; left: 10px; top: 0; width: 220px; height: 64px; background: #ffd60a; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 36px; letter-spacing: 0.04em; color: #09090a; }
+    [data-composition-id="s05-se-fue"] .s05-marco { position: absolute; left: 0; top: 90px; width: 240px; height: 340px; box-sizing: border-box; border: 8px solid #f4f1ea; border-bottom: 0; border-radius: 10px 10px 0 0; overflow: hidden; }
+    [data-composition-id="s05-se-fue"] .s05-luz { position: absolute; inset: 0; background: #ffd60a; }
+    [data-composition-id="s05-se-fue"] .s05-hoja { position: absolute; inset: 0; background: #09090a; border-right: 8px solid #f4f1ea; }
+    [data-composition-id="s05-se-fue"] .s05-cliente { position: absolute; left: 500px; top: 1180px; width: 160px; height: 310px; }
+    [data-composition-id="s05-se-fue"] .s05-piso { position: absolute; left: 60px; top: 1490px; width: 960px; height: 8px; background: #f4f1ea; opacity: 0.5; }
+  </style>
+  <div id="root" data-composition-id="s05-se-fue" data-width="1080" data-height="1920" data-duration="4.63">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.63" data-track-index="0">
+      <div class="s05-escenario">
+        <div class="s05-etiqueta">Clientes perdidos: <span class="s05-num">4</span></div>
+
+        <div class="s05-sello s05-sello1" style="left: 100px">Cerrado<br>por<br>almuerzo</div>
+        <div class="s05-sello s05-sello2" style="left: 320px">Te<br>contesto<br>mañana</div>
+        <div class="s05-sello s05-sello3" style="left: 540px">Solo<br>efectivo</div>
+        <div class="s05-sello s05-sello4" style="left: 760px">No hay<br>cambio</div>
+
+        <div class="s05-palabra s05-cada">Cada frase</div>
+        <div class="s05-palabra s05-uncliente">Un cliente</div>
+        <div class="s05-palabra s05-sefue">Se fue</div>
+        <div class="s05-palabra s05-novolvio">No volvió.</div>
+
+        <div class="s05-piso"></div>
+
+        <div class="s05-local">
+          <div class="s05-cartel">ALMACÉN</div>
+          <div class="s05-hueco">
+            <svg class="s05-persiana" viewBox="0 0 400 400" width="400" height="400">
+              <rect x="0" y="0" width="400" height="400" fill="#8a8f98" />
+              <g stroke="#09090a" stroke-width="5">
+                <line x1="0" y1="34" x2="400" y2="34" /><line x1="0" y1="68" x2="400" y2="68" />
+                <line x1="0" y1="102" x2="400" y2="102" /><line x1="0" y1="136" x2="400" y2="136" />
+                <line x1="0" y1="170" x2="400" y2="170" /><line x1="0" y1="204" x2="400" y2="204" />
+                <line x1="0" y1="238" x2="400" y2="238" /><line x1="0" y1="272" x2="400" y2="272" />
+                <line x1="0" y1="306" x2="400" y2="306" /><line x1="0" y1="340" x2="400" y2="340" />
+                <line x1="0" y1="374" x2="400" y2="374" />
+              </g>
+              <rect x="0" y="384" width="400" height="16" fill="#f4f1ea" />
+              <rect x="180" y="384" width="40" height="16" fill="#09090a" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="s05-puerta">
+          <div class="s05-abierto">ABIERTO</div>
+          <div class="s05-marco">
+            <div class="s05-luz"></div>
+            <div class="s05-hoja"></div>
+          </div>
+        </div>
+
+        <svg class="s05-cliente" viewBox="0 0 160 310" width="160" height="310">
+          <g class="s05-cuerpo" fill="#8a8f98">
+            <circle cx="80" cy="46" r="42" />
+            <path d="M10 310 L10 168 Q10 104 80 104 Q150 104 150 168 L150 310 Z" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-se-fue";
+      const DUR = 4.63;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const CLIENTE = 1.47;
+      const SEFUE = 2.07;
+      const LADO = 2.47;
+      const NOVOLVIO = 3.47;
+
+      const sacudon = (t, f) => [[-20, 10], [16, -9], [-10, 6], [6, -3], [0, 0]].forEach(([x, y], i) =>
+        tl.to(q(".s05-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      // cuadro 0: el local con la persiana a medio bajar, la etiqueta y "CADA FRASE" con glitch
+      gsap.set(q(".s05-persiana"), { y: -220 });
+      gsap.set(q(".s05-hoja"), { scaleX: 0, transformOrigin: "0% 50%" });
+      tl.fromTo(q(".s05-local"), { y: 30, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s05-piso"), { scaleX: 0.4 }, { scaleX: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s05-etiqueta"), { opacity: 0.3, y: 10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s05-cada"), { scale: 1.12, opacity: 0.6 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.out" }, 0);
+      [16, -12, 10, 0].forEach((x, i) => tl.to(q(".s05-cada"), { x, duration: 0.03, ease: "none" }, 0.24 + i * 0.05));
+      tl.to(q(".s05-cada"), { scale: 1.05, duration: 0.7, ease: "sine.inOut" }, 0.5);
+      tl.to(q(".s05-persiana"), { y: -200, duration: 1.0, ease: "sine.inOut" }, 0.2);
+
+      // los 4 sellos chiquitos caen en fila, uno por palabra
+      const ROT = [-10, 8, -6, 11];
+      [0.0, 0.17, 0.37, 0.67].forEach((t, i) => {
+        const el = q(".s05-sello" + (i + 1));
+        gsap.set(el, { rotation: ROT[i] });
+        if (i === 0) {
+          tl.fromTo(el, { scale: 1.4, opacity: 0.5 }, { scale: 1, opacity: 1, duration: 0.14, ease: "power4.in" }, 0);
+        } else {
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { scale: 2.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+        }
+        tl.to(el, { y: -6, duration: 0.05, yoyo: true, repeat: 1, ease: "none" }, t + 0.04);
+      });
+
+      // "UN CLIENTE": aparece la silueta en la vereda, gris, y se vuelve hueso
+      tl.to(q(".s05-cada"), { opacity: 0, y: -60, duration: 0.12, ease: "power3.in" }, CLIENTE - 0.14);
+      gsap.set(q(".s05-uncliente"), { opacity: 0 });
+      tl.fromTo(q(".s05-uncliente"), { opacity: 0, scale: 3, rotation: 4 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.14, ease: "power4.in", immediateRender: false }, CLIENTE - 0.12);
+      sacudon(CLIENTE + 0.02, 0.6);
+      gsap.set(q(".s05-cliente"), { opacity: 0, transformOrigin: "50% 100%" });
+      tl.fromTo(q(".s05-cliente"), { opacity: 0, scaleY: 0.6 }, { opacity: 1, scaleY: 1, duration: 0.22, ease: "back.out(2)", immediateRender: false }, CLIENTE);
+      tl.to(q(".s05-cuerpo"), { fill: "#f4f1ea", duration: 0.25, ease: "none" }, CLIENTE + 0.15);
+      gsap.set(q(".s05-puerta"), { opacity: 0 });
+      tl.fromTo(q(".s05-puerta"), { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, CLIENTE + 0.08);
+      tl.fromTo(q(".s05-abierto"), { rotation: -8 }, { rotation: 6, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, CLIENTE + 0.2);
+
+      // camina hacia la puerta (balanceo de pasos)
+      tl.to(q(".s05-cliente"), { x: 300, duration: 0.85, ease: "power1.in" }, 1.67);
+      [0, 1, 2, 3].forEach((i) => tl.to(q(".s05-cliente"), { y: -14, rotation: i % 2 ? 4 : -4, duration: 0.1, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.67 + i * 0.21));
+
+      // "SE FUE": rojo, golpe, glitch
+      tl.to(q(".s05-uncliente"), { opacity: 0, scale: 0.8, duration: 0.1, ease: "power2.in" }, SEFUE - 0.1);
+      gsap.set(q(".s05-sefue"), { opacity: 0 });
+      tl.fromTo(q(".s05-sefue"), { opacity: 0, scale: 3.2, rotation: -9 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.14, ease: "power4.in", immediateRender: false }, SEFUE - 0.12);
+      sacudon(SEFUE + 0.02, 1);
+      [18, -14, 10, 0].forEach((x, i) => tl.to(q(".s05-sefue"), { x, duration: 0.03, ease: "none" }, SEFUE + 0.3 + i * 0.05));
+      tl.to(q(".s05-local"), { opacity: 0.45, duration: 0.2 }, SEFUE);
+
+      // entra por la puerta de enfrente y desaparece; la puerta se cierra
+      tl.to(q(".s05-cliente"), { x: 380, scale: 0.86, opacity: 0, duration: 0.2, ease: "power2.in" }, LADO + 0.05);
+      tl.to(q(".s05-hoja"), { scaleX: 1, duration: 0.2, ease: "power3.in" }, LADO + 0.4);
+      tl.to(q(".s05-puerta"), { x: 6, duration: 0.04, yoyo: true, repeat: 3, ease: "none" }, LADO + 0.6);
+      tl.to(q(".s05-sefue"), { scale: 1.08, rotation: -2, duration: 0.6, ease: "sine.inOut" }, LADO + 0.1);
+      [-16, 12, 0].forEach((x, i) => tl.to(q(".s05-sefue"), { x, duration: 0.03, ease: "none" }, 3.05 + i * 0.05));
+
+      // "Y NO VOLVIÓ.": la persiana de nuestro local baja de golpe
+      tl.to(q(".s05-sefue"), { opacity: 0, y: -40, duration: 0.1, ease: "power2.in" }, NOVOLVIO - 0.12);
+      tl.to(q(".s05-local"), { opacity: 1, duration: 0.1 }, NOVOLVIO - 0.15);
+      tl.to(q(".s05-persiana"), { y: 0, duration: 0.12, ease: "power4.in" }, NOVOLVIO - 0.1);
+      tl.to(q(".s05-persiana"), { y: -14, duration: 0.07, yoyo: true, repeat: 1, ease: "power2.out" }, NOVOLVIO + 0.02);
+      gsap.set(q(".s05-novolvio"), { opacity: 0 });
+      tl.fromTo(q(".s05-novolvio"), { opacity: 0, scale: 3, rotation: 6 }, { opacity: 1, scale: 1, rotation: 2, duration: 0.14, ease: "power4.in", immediateRender: false }, NOVOLVIO - 0.12);
+      sacudon(NOVOLVIO + 0.02, 1.3);
+      tl.to(q(".s05-puerta"), { opacity: 0.3, duration: 0.15 }, NOVOLVIO);
+      tl.to(root.querySelectorAll(".s05-sello"), { opacity: 0.3, duration: 0.15 }, NOVOLVIO);
+      tl.fromTo(q(".s05-num"), { scale: 1 }, { scale: 1.6, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, NOVOLVIO + 0.05);
+      tl.to(q(".s05-novolvio"), { scale: 1.07, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, NOVOLVIO + 0.3);
+      [14, -10, 0].forEach((x, i) => tl.to(q(".s05-novolvio"), { x, duration: 0.03, ease: "none" }, NOVOLVIO + 0.82 + i * 0.05));
+
+      // salida
+      tl.to(q("#s05-escena"), { scale: 1.25, opacity: 0, filter: "blur(6px)", transformOrigin: "50% 55%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

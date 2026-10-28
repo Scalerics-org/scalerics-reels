@@ -1,0 +1,150 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-jueves"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-jueves"] .s04-cinta { position: absolute; width: 150px; height: 46px; background: rgba(242, 222, 160, 0.82); }
+    [data-composition-id="s04-jueves"] .s04-mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #2346a8; white-space: nowrap; line-height: 1; }
+    /* tira de libreta con el día */
+    [data-composition-id="s04-jueves"] .s04-tira { position: absolute; left: 90px; top: 590px; width: 470px; height: 190px; background-color: #f3ead8;
+      background-image: repeating-linear-gradient(180deg, transparent 0 58px, rgba(35, 70, 168, 0.28) 58px 60px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s04-jueves"] .s04-tira .s04-mano { left: 50px; top: 22px; font-size: 140px; }
+    [data-composition-id="s04-jueves"] .s04-tira .s04-cinta { left: 160px; top: -22px; }
+    /* mostrador */
+    [data-composition-id="s04-jueves"] .s04-mostrador { position: absolute; left: 60px; top: 1200px; width: 960px; height: 210px; background: #6b4a2e; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s04-jueves"] .s04-tapa { position: absolute; left: -20px; top: -24px; width: 1000px; height: 34px; background: #e9dcc0; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s04-jueves"] .s04-tabla { position: absolute; top: 46px; width: 4px; height: 150px; background: rgba(42, 29, 18, 0.45); }
+    /* Rubén detrás del mostrador */
+    [data-composition-id="s04-jueves"] .s04-hueco { position: absolute; left: 560px; top: 760px; width: 260px; height: 420px; overflow: hidden; }
+    [data-composition-id="s04-jueves"] .s04-rubenwrap { position: absolute; left: 20px; top: 40px; width: 220px; height: 380px; }
+    /* RUBÉN (igual que en s02) */
+    [data-composition-id="s04-jueves"] .rb { position: absolute; width: 220px; height: 380px; }
+    [data-composition-id="s04-jueves"] .rb > div { position: absolute; }
+    [data-composition-id="s04-jueves"] .rb-torso { left: 15px; top: 118px; width: 190px; height: 262px; border-radius: 70px 70px 12px 12px; background: #6b4a2e; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4); }
+    [data-composition-id="s04-jueves"] .rb-delantal { left: 48px; top: 150px; width: 124px; height: 230px; border-radius: 10px 10px 4px 4px; background: #f3ead8; }
+    [data-composition-id="s04-jueves"] .rb-oreja { top: 50px; width: 30px; height: 38px; border-radius: 50%; background: #d9a77c; }
+    [data-composition-id="s04-jueves"] .rb-o1 { left: 38px; }
+    [data-composition-id="s04-jueves"] .rb-o2 { left: 152px; }
+    [data-composition-id="s04-jueves"] .rb-cabeza { left: 45px; top: 0; width: 130px; height: 134px; border-radius: 50%; background: #d9a77c; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3); }
+    [data-composition-id="s04-jueves"] .rb-pelo { left: 52px; top: 8px; width: 116px; height: 30px; border-radius: 60px 60px 6px 6px; background: #6b4a2e; }
+    [data-composition-id="s04-jueves"] .rb-ojo { top: 56px; width: 13px; height: 13px; border-radius: 50%; background: #2a1d12; }
+    [data-composition-id="s04-jueves"] .rb-oj1 { left: 84px; }
+    [data-composition-id="s04-jueves"] .rb-oj2 { left: 123px; }
+    [data-composition-id="s04-jueves"] .rb-ceja { top: 42px; width: 30px; height: 8px; border-radius: 4px; background: #6b4a2e; }
+    [data-composition-id="s04-jueves"] .rb-c1 { left: 76px; }
+    [data-composition-id="s04-jueves"] .rb-c2 { left: 115px; }
+    [data-composition-id="s04-jueves"] .rb-bigote { left: 68px; top: 84px; width: 84px; height: 26px; border-radius: 40px 40px 12px 12px; background: #6b4a2e; }
+    [data-composition-id="s04-jueves"] .rb-brazo { left: 6px; width: 208px; height: 50px; border-radius: 25px; background: #d9a77c; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); }
+    [data-composition-id="s04-jueves"] .rb-b1 { top: 214px; }
+    [data-composition-id="s04-jueves"] .rb-b2 { top: 236px; }
+    /* tarjeta */
+    [data-composition-id="s04-jueves"] .s04-tarjeta { position: absolute; left: 130px; top: 1000px; width: 320px; height: 200px; border-radius: 18px; background: #3b6e8f; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s04-jueves"] .s04-chip { position: absolute; left: 30px; top: 50px; width: 62px; height: 48px; border-radius: 8px; background: #f2b632; }
+    [data-composition-id="s04-jueves"] .s04-banda { position: absolute; left: 0; top: 112px; width: 320px; height: 10px; background: rgba(243, 234, 216, 0.35); }
+    [data-composition-id="s04-jueves"] .s04-num { position: absolute; left: 30px; top: 140px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; color: #f3ead8; white-space: nowrap; }
+    /* cartel de cartón */
+    [data-composition-id="s04-jueves"] .s04-carton { position: absolute; left: 470px; top: 990px; width: 470px; height: 210px; background: #e9dcc0; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    [data-composition-id="s04-jueves"] .s04-carton .s04-mano { position: static; font-size: 92px; color: #2a1d12; line-height: 0.92; text-align: center; }
+    [data-composition-id="s04-jueves"] .s04-carton .s04-cinta { position: absolute; left: 160px; top: -22px; }
+    [data-composition-id="s04-jueves"] .s04-flaco { position: absolute; left: 420px; top: 570px; font-family: "Caveat", cursive; font-weight: 700; font-size: 200px; line-height: 1; color: #e0342b; white-space: nowrap; text-shadow: 0 10px 24px rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s04-jueves"] .s04-etiqueta { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #f2b632; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s04-jueves" data-width="1080" data-height="1920" data-duration="4.13">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.13" data-track-index="0">
+      <div class="s04-tira"><div class="s04-cinta"></div><div class="s04-mano s04-dia">Jueves</div></div>
+      <div class="s04-hueco">
+        <div class="s04-rubenwrap">
+          <div class="rb">
+            <div class="rb-torso"></div>
+            <div class="rb-delantal"></div>
+            <div class="rb-oreja rb-o1"></div>
+            <div class="rb-oreja rb-o2"></div>
+            <div class="rb-cabeza"></div>
+            <div class="rb-pelo"></div>
+            <div class="rb-ceja rb-c1"></div>
+            <div class="rb-ceja rb-c2"></div>
+            <div class="rb-ojo rb-oj1"></div>
+            <div class="rb-ojo rb-oj2"></div>
+            <div class="rb-bigote"></div>
+            <div class="rb-brazo rb-b1"></div>
+            <div class="rb-brazo rb-b2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="s04-mostrador">
+        <div class="s04-tapa"></div>
+        <div class="s04-tabla" style="left: 240px"></div>
+        <div class="s04-tabla" style="left: 480px"></div>
+        <div class="s04-tabla" style="left: 720px"></div>
+      </div>
+      <div class="s04-carton"><div class="s04-cinta"></div><div class="s04-mano">SOLO</div><div class="s04-mano">EFECTIVO</div></div>
+      <div class="s04-tarjeta">
+        <div class="s04-chip"></div>
+        <div class="s04-banda"></div>
+        <div class="s04-num">**** 4021</div>
+      </div>
+      <div class="s04-flaco">FLACO.</div>
+      <div class="s04-etiqueta">Jueves</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-jueves";
+      const DUR = 4.13;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const FUI = 0.79;
+      const TARJETA = 1.14;
+      const SOLO = 2.29;
+      const EFECTIVO = 2.54;
+      const FLACO = 2.84;
+
+      const escribir = (el, t, dur, desde = 100) => {
+        gsap.set(el, { clipPath: "inset(0 " + desde + "% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+      };
+      const sacudir = (el, t, f = 1) => {
+        [[-14, 7], [12, -6], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+
+      // cuadro 0: la tira de libreta y el mostrador ya están, "Jueves" se escribe
+      tl.fromTo(q(".s04-tira"), { rotation: -9, scale: 1.1, y: -40 }, { rotation: -3, scale: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s04-mostrador"), { y: 50 }, { y: 0, duration: 0.4, ease: "back.out(1.4)" }, 0);
+      escribir(q(".s04-dia"), 0, 0.6, 70);
+      gsap.set(q(".s04-tira .s04-cinta"), { rotation: -10 });
+      // la tarjeta entra deslizando hasta el mostrador
+      gsap.set(q(".s04-tarjeta"), { opacity: 0 });
+      tl.fromTo(q(".s04-tarjeta"), { opacity: 0, x: -520, y: -120, rotation: -40 }, { opacity: 1, x: 0, y: 0, rotation: -6, duration: 0.4, ease: "back.out(1.5)", immediateRender: false }, FUI);
+      tl.to(q(".s04-tarjeta"), { x: 40, rotation: 3, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, TARJETA + 0.1);
+      // Rubén aparece detrás del mostrador
+      gsap.set(q(".s04-rubenwrap"), { y: 420 });
+      tl.to(q(".s04-rubenwrap"), { y: 0, duration: 0.3, ease: "back.out(1.6)" }, SOLO - 0.2);
+      tl.to(q(".s04-rubenwrap"), { rotation: -3, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 3 }, SOLO + 0.15);
+      // "efectivo": el cartón golpea el mostrador y rebota
+      gsap.set(q(".s04-carton"), { opacity: 0 });
+      tl.fromTo(q(".s04-carton"), { opacity: 0, y: -520, rotation: 14 }, { opacity: 1, y: 0, rotation: 4, duration: 0.24, ease: "power3.in", immediateRender: false }, EFECTIVO - 0.22);
+      tl.to(q(".s04-carton"), { y: -26, rotation: 1, duration: 0.1, ease: "power2.out" }, EFECTIVO + 0.02);
+      tl.to(q(".s04-carton"), { y: 0, rotation: 3, duration: 0.12, ease: "bounce.out" }, EFECTIVO + 0.12);
+      sacudir(q(".s04-mostrador"), EFECTIVO + 0.02, 0.9);
+      // "FLACO.": gigante con sacudón y la tarjeta sale volando
+      gsap.set(q(".s04-flaco"), { opacity: 0, rotation: -6 });
+      tl.fromTo(q(".s04-flaco"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.out", immediateRender: false }, FLACO - 0.04);
+      tl.to(q(".s04-flaco"), { rotation: -2, scale: 1.05, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, FLACO + 0.3);
+      sacudir(q("#s04-escena"), FLACO + 0.12, 1.6);
+      tl.to(q(".s04-tarjeta"), { x: -700, y: -500, rotation: -420, duration: 0.6, ease: "power2.in" }, FLACO + 0.05);
+      tl.to(q(".s04-tira"), { x: -620, y: -80, rotation: -30, duration: 0.3, ease: "power3.in" }, FLACO - 0.08);
+      tl.fromTo(q(".s04-etiqueta"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.3);
+
+      tl.to(q("#s04-escena"), { y: -120, opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

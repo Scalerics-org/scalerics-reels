@@ -1,0 +1,109 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-carino"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-carino"] .s03-escenario { position: absolute; inset: 0; }
+    /* pared chica de fondo: 4x3 monitores */
+    [data-composition-id="s03-carino"] .s03-pared { position: absolute; left: 70px; top: 600px; width: 940px; height: 660px; }
+    [data-composition-id="s03-carino"] .s03-mon { position: absolute; width: 214px; height: 200px; border: 5px solid #2b302b; border-radius: 8px; background: #0f1a0c; overflow: hidden; }
+    [data-composition-id="s03-carino"] .s03-mon svg { position: absolute; left: 0; top: 0; width: 204px; height: 190px; }
+    [data-composition-id="s03-carino"] .s03-mon .cam { position: absolute; left: 8px; top: 4px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 14px; color: #b6ff3b; opacity: 0.7; }
+    [data-composition-id="s03-carino"] .s03-banda { position: absolute; left: -40px; top: 600px; width: 1160px; height: 660px; background: rgba(6, 8, 6, 0.6); }
+    [data-composition-id="s03-carino"] .s03-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.03em; }
+    [data-composition-id="s03-carino"] .s03-ojala { top: 612px; font-size: 150px; color: #b6ff3b; text-shadow: 0 0 34px rgba(182, 255, 59, 0.45); }
+    [data-composition-id="s03-carino"] .s03-te { top: 790px; font-size: 200px; color: #ff3344; text-shadow: 0 0 44px rgba(255, 51, 68, 0.6); }
+    [data-composition-id="s03-carino"] .s03-fundas { top: 1000px; font-size: 190px; color: #ff3344; text-shadow: 0 0 44px rgba(255, 51, 68, 0.6); }
+    [data-composition-id="s03-carino"] .s03-plana { position: absolute; left: 60px; top: 1300px; width: 960px; height: 200px; }
+  </style>
+  <div id="root" data-composition-id="s03-carino" data-width="1080" data-height="1920" data-duration="1.94">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="1.94" data-track-index="0">
+      <div class="s03-escenario">
+        <div class="s03-pared">
+          <div class="s03-mon" style="left:0;top:0;"><svg viewBox="0 0 204 190"><use href="#s03-local" /></svg><div class="cam" data-layout-ignore>CAM 01</div></div>
+          <div class="s03-mon" style="left:242px;top:0;"><svg viewBox="0 0 204 190"><use href="#s03-local" /></svg><div class="cam" data-layout-ignore>CAM 02</div></div>
+          <div class="s03-mon" style="left:484px;top:0;"><svg viewBox="0 0 204 190"><use href="#s03-local" /></svg><div class="cam" data-layout-ignore>CAM 03</div></div>
+          <div class="s03-mon" style="left:726px;top:0;"><svg viewBox="0 0 204 190"><use href="#s03-local" /></svg><div class="cam" data-layout-ignore>CAM 04</div></div>
+          <div class="s03-mon" style="left:726px;top:230px;"><svg viewBox="0 0 204 190"><use href="#s03-local" /></svg><div class="cam" data-layout-ignore>CAM 08</div></div>
+          <div class="s03-mon" style="left:484px;top:230px;"><svg viewBox="0 0 204 190"><use href="#s03-local" /></svg><div class="cam" data-layout-ignore>CAM 07</div></div>
+          <div class="s03-mon" style="left:242px;top:230px;"><svg viewBox="0 0 204 190"><use href="#s03-local" /></svg><div class="cam" data-layout-ignore>CAM 06</div></div>
+          <div class="s03-mon" style="left:0;top:230px;"><svg viewBox="0 0 204 190"><use href="#s03-local" /></svg><div class="cam" data-layout-ignore>CAM 05</div></div>
+          <div class="s03-mon" style="left:0;top:460px;"><svg viewBox="0 0 204 190"><use href="#s03-local" /></svg><div class="cam" data-layout-ignore>CAM 09</div></div>
+          <div class="s03-mon" style="left:242px;top:460px;"><svg viewBox="0 0 204 190"><use href="#s03-local" /></svg><div class="cam" data-layout-ignore>CAM 10</div></div>
+          <div class="s03-mon" style="left:484px;top:460px;"><svg viewBox="0 0 204 190"><use href="#s03-local" /></svg><div class="cam" data-layout-ignore>CAM 11</div></div>
+          <div class="s03-mon" style="left:726px;top:460px;"><svg viewBox="0 0 204 190"><use href="#s03-local" /></svg><div class="cam" data-layout-ignore>CAM 12</div></div>
+        </div>
+        <svg width="0" height="0" style="position:absolute;" aria-hidden="true">
+          <defs>
+            <g id="s03-local" fill="none" stroke="#b6ff3b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+              <path d="M44 160 V86 H160 V160" />
+              <path d="M36 86 L46 62 H158 L168 86 Z" />
+              <path d="M90 160 V118 H114 V160" />
+              <path d="M56 98 H80 V124 H56 Z M124 98 H148 V124 H124 Z" />
+              <path d="M14 160 H190" opacity="0.5" />
+            </g>
+          </defs>
+        </svg>
+        <div class="s03-banda"></div>
+        <div class="s03-txt s03-ojala">Ojalá</div>
+        <div class="s03-txt s03-te">te</div>
+        <div class="s03-txt s03-fundas">fundas.</div>
+        <!-- la línea plana del monitor, al final -->
+        <svg class="s03-plana" viewBox="0 0 960 200" aria-hidden="true">
+          <path class="s03-pulso" d="M0 100 H300 L330 100 L350 30 L374 170 L396 70 L414 100 H960" fill="none" stroke="#b6ff3b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 10px rgba(182,255,59,0.7));" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-carino";
+      const DUR = 1.94;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const TE = 0.46;
+      const FUNDAS = 0.6;
+
+      // cuadro 0: pared prendida, "OJALÁ" cae
+      tl.fromTo(q(".s03-pared"), { scale: 1.06 }, { scale: 1, duration: DUR, ease: "none" }, 0);
+      qa(".s03-mon").forEach((m, i) => tl.fromTo(m, { opacity: 0.45 }, { opacity: 1, duration: 0.06, ease: "steps(2)" }, (i * 0.029) % 0.25));
+      tl.fromTo(q(".s03-ojala"), { scale: 1.5, opacity: 0.6 }, { scale: 1, opacity: 1, duration: 0.18, ease: "power4.out" }, 0);
+      [[14, 0.22], [-10, 0.26], [6, 0.3], [0, 0.34]].forEach(([x, t]) => tl.to(q(".s03-ojala"), { x, duration: 0.03, ease: "none" }, t));
+
+      // "te fundas": cae enorme en rojo, todo tiembla
+      gsap.set([q(".s03-te"), q(".s03-fundas")], { opacity: 0 });
+      tl.fromTo(q(".s03-te"), { opacity: 0, scale: 3 }, { opacity: 1, scale: 1, duration: 0.1, ease: "power4.in", immediateRender: false }, TE - 0.08);
+      tl.fromTo(q(".s03-fundas"), { opacity: 0, scale: 3.2, rotation: -8 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.12, ease: "power4.in", immediateRender: false }, FUNDAS - 0.1);
+      tl.to(q(".s03-ojala"), { opacity: 0.45, duration: 0.1 }, FUNDAS);
+      [[-26, 14], [20, -12], [-14, 8], [10, -4], [-5, 2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s03-escenario"), { x, y, duration: 0.04, ease: "none" }, FUNDAS + 0.04 + i * 0.045));
+      tl.to(q(".s03-fundas"), { x: 8, duration: 0.03, yoyo: true, repeat: 5, ease: "none" }, 1.0);
+
+      // los monitores se apagan de a uno, como fichas de dominó
+      qa(".s03-mon").forEach((m, i) => {
+        const t = FUNDAS + 0.12 + i * 0.065;
+        tl.to(m, { scaleY: 0.02, duration: 0.06, ease: "power3.in" }, t);
+        tl.to(m, { opacity: 0, duration: 0.04, ease: "none" }, t + 0.06);
+      });
+      tl.to(q(".s03-banda"), { opacity: 0, duration: 0.2 }, 1.3);
+
+      // la línea plana: un último latido y nada
+      const p = q(".s03-pulso");
+      const L = p.getTotalLength() + 2;
+      gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+      tl.set(p, { opacity: 1 }, 1.18);
+      tl.to(p, { strokeDashoffset: 0, duration: 0.45, ease: "power1.inOut" }, 1.18);
+      tl.to(p, { opacity: 0.5, duration: 0.03, yoyo: true, repeat: 3, ease: "none" }, 1.64);
+
+      // salida: corte de monitor
+      tl.to(q("#s03-escena"), { scaleY: 0.02, opacity: 0, duration: 0.16, ease: "power3.in", transformOrigin: "50% 50%" }, DUR - 0.16);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

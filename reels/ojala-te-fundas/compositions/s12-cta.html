@@ -1,0 +1,130 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] .s12-arroba { position: absolute; left: 0; right: 0; top: 540px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 360px; line-height: 1; color: #5ce611; text-shadow: 0 0 50px rgba(92, 230, 17, 0.5); }
+    [data-composition-id="s12-cta"] .s12-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s12-cta"] .s12-etiqueta-t { top: 930px; font-size: 150px; letter-spacing: -0.03em; color: #f4f6ee; }
+    [data-composition-id="s12-cta"] .s12-competencia { top: 1090px; font-size: 70px; letter-spacing: -0.01em; color: #f4f6ee; font-weight: 800; }
+    [data-composition-id="s12-cta"] .s12-quese { top: 920px; font-size: 130px; letter-spacing: -0.03em; color: #f4f6ee; }
+    [data-composition-id="s12-cta"] .s12-entere { top: 1040px; font-size: 170px; letter-spacing: -0.035em; color: #5ce611; text-shadow: 0 0 44px rgba(92, 230, 17, 0.55); }
+    /* el comentario de Instagram */
+    [data-composition-id="s12-cta"] .s12-coment { position: absolute; left: 70px; top: 1250px; width: 720px; height: 130px; border-radius: 34px; background: #f4f6ee; }
+    [data-composition-id="s12-cta"] .s12-avatar { position: absolute; left: 22px; top: 25px; width: 80px; height: 80px; border-radius: 50%; background: #050605; border: 5px solid #5ce611; }
+    [data-composition-id="s12-cta"] .s12-quien { position: absolute; left: 124px; top: 18px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 28px; color: #050605; opacity: 0.6; }
+    [data-composition-id="s12-cta"] .s12-texto { position: absolute; left: 124px; top: 56px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 44px; color: #050605; white-space: nowrap; }
+    [data-composition-id="s12-cta"] .s12-texto .s12-at { color: #5ce611; font-weight: 500; }
+    [data-composition-id="s12-cta"] .s12-cursor { display: inline-block; width: 4px; height: 44px; background: #050605; vertical-align: -6px; margin-left: 2px; }
+    [data-composition-id="s12-cta"] .s12-corazon { position: absolute; left: 640px; top: 38px; width: 56px; height: 52px; }
+    /* el monitor viejo roto, con el villano que se tapa la cara */
+    [data-composition-id="s12-cta"] .s12-viejo { position: absolute; left: 820px; top: 1300px; width: 200px; height: 156px; border: 6px solid #2b302b; border-radius: 10px; background: #0f1a0c; overflow: hidden; }
+    [data-composition-id="s12-cta"] .s12-viejo svg { position: absolute; left: 0; top: 0; width: 188px; height: 144px; }
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="5.72">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="5.72" data-track-index="0">
+      <div class="s12-escenario">
+        <div class="s12-arroba">@</div>
+        <div class="s12-txt s12-etiqueta-t">Etiquetá</div>
+        <div class="s12-txt s12-competencia">a tu competencia</div>
+        <div class="s12-txt s12-quese">Que se</div>
+        <div class="s12-txt s12-entere">entere.</div>
+        <div class="s12-coment">
+          <div class="s12-avatar"></div>
+          <div class="s12-quien">tu_local</div>
+          <div class="s12-texto"><span class="s12-at">@</span><span class="s12-l">t</span><span class="s12-l">u</span><span class="s12-l">_</span><span class="s12-l">c</span><span class="s12-l">o</span><span class="s12-l">m</span><span class="s12-l">p</span><span class="s12-l">e</span><span class="s12-l">t</span><span class="s12-l">e</span><span class="s12-l">n</span><span class="s12-l">c</span><span class="s12-l">i</span><span class="s12-l">a</span></div>
+          <svg class="s12-corazon" viewBox="0 0 56 52" aria-hidden="true">
+            <path class="s12-cor-borde" d="M28 48 C 10 34 4 26 4 16 A 12 12 0 0 1 28 10 A 12 12 0 0 1 52 16 C 52 26 46 34 28 48 Z" fill="none" stroke="#050605" stroke-width="4" stroke-linejoin="round" />
+            <path class="s12-cor-lleno" d="M28 48 C 10 34 4 26 4 16 A 12 12 0 0 1 28 10 A 12 12 0 0 1 52 16 C 52 26 46 34 28 48 Z" fill="#5ce611" stroke="#5ce611" stroke-width="4" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="s12-viejo">
+          <svg viewBox="0 0 188 144" aria-hidden="true">
+            <!-- el villano: cabeza y hombros, las dos manos sobre la cara -->
+            <path d="M30 144 C 34 112 60 100 94 100 C 128 100 154 112 158 144 Z" fill="#050605" stroke="#f4f6ee" stroke-width="3" stroke-opacity="0.6" />
+            <circle cx="94" cy="66" r="34" fill="#050605" stroke="#f4f6ee" stroke-width="3" stroke-opacity="0.6" />
+            <g class="s12-manos">
+              <path d="M58 92 C 56 70 62 52 76 50 C 88 50 92 62 90 80 L 86 100 Z" fill="#050605" stroke="#f4f6ee" stroke-width="3" stroke-opacity="0.8" />
+              <path d="M130 92 C 132 70 126 52 112 50 C 100 50 96 62 98 80 L 102 100 Z" fill="#050605" stroke="#f4f6ee" stroke-width="3" stroke-opacity="0.8" />
+            </g>
+            <!-- la pantalla rota -->
+            <path d="M120 30 L 100 10 M120 30 L 160 18 M120 30 L 176 56 M120 30 L 136 74 M120 30 L 92 40" fill="none" stroke="#f4f6ee" stroke-width="2.5" stroke-linecap="round" opacity="0.8" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 5.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const COMPETENCIA = 0.72;
+      const QUE = 1.88;
+      const ENTERE = 2.06;
+
+      function golpe(t, f) {
+        const s = f || 1;
+        [[-16 * s, 9 * s], [12 * s, -7 * s], [-6 * s, 3 * s], [0, 0]].forEach(([x, y], i) => tl.to(q(".s12-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      }
+
+      // cuadro 0: el "@" ya está cayendo, girando
+      tl.fromTo(q(".s12-arroba"), { y: -260, rotation: -200, scale: 1.3, opacity: 0.7 }, { y: 0, rotation: 0, scale: 1, opacity: 1, duration: 0.36, ease: "power3.in" }, 0);
+      tl.to(q(".s12-arroba"), { scaleY: 0.82, scaleX: 1.14, duration: 0.06, yoyo: true, repeat: 1, ease: "power2.out", transformOrigin: "50% 90%" }, 0.36);
+      golpe(0.37);
+      // "ETIQUETÁ" en hueso, "A TU COMPETENCIA" en la palabra
+      gsap.set(q(".s12-etiqueta-t"), { opacity: 0 });
+      tl.fromTo(q(".s12-etiqueta-t"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, 0.1);
+      gsap.set(q(".s12-competencia"), { opacity: 0 });
+      tl.fromTo(q(".s12-competencia"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, COMPETENCIA - 0.1);
+
+      // 0.72 el comentario que se escribe solo
+      gsap.set(q(".s12-coment"), { opacity: 0 });
+      tl.fromTo(q(".s12-coment"), { opacity: 0, scale: 0.6, y: 60 }, { opacity: 1, scale: 1, y: 0, duration: 0.28, ease: "back.out(1.8)", immediateRender: false }, COMPETENCIA);
+      gsap.set(qa(".s12-l"), { opacity: 0 });
+      qa(".s12-l").forEach((l, i) => tl.set(l, { opacity: 1 }, COMPETENCIA + 0.22 + i * 0.05));
+      // el corazón se llena y late
+      gsap.set(q(".s12-cor-lleno"), { opacity: 0 });
+      tl.fromTo(q(".s12-cor-lleno"), { opacity: 0 }, { opacity: 1, duration: 0.05, immediateRender: false }, 1.5);
+      tl.fromTo(q(".s12-corazon"), { scale: 1 }, { scale: 1.45, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 1.5);
+      tl.to(q(".s12-corazon"), { scale: 1.2, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 15 }, 1.9);
+
+      // 1.88 "QUE SE ENTERE.": se va lo de arriba, cae lo nuevo con sacudón
+      tl.to([q(".s12-etiqueta-t"), q(".s12-competencia")], { opacity: 0, y: -60, duration: 0.1, ease: "power2.in" }, QUE - 0.1);
+      gsap.set(q(".s12-quese"), { opacity: 0 });
+      tl.fromTo(q(".s12-quese"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.12, ease: "power4.in", immediateRender: false }, QUE - 0.06);
+      gsap.set(q(".s12-entere"), { opacity: 0 });
+      tl.fromTo(q(".s12-entere"), { opacity: 0, scale: 2.6, rotation: -5 }, { opacity: 1, scale: 1, rotation: -2, duration: 0.14, ease: "power4.in", immediateRender: false }, ENTERE - 0.1);
+      golpe(ENTERE + 0.05, 1.4);
+      tl.to(q(".s12-arroba"), { rotation: 360, duration: 0.5, ease: "power3.out" }, ENTERE);
+
+      // el monitor viejo roto aparece en la esquina, con interferencia
+      gsap.set(q(".s12-viejo"), { opacity: 0 });
+      tl.fromTo(q(".s12-viejo"), { opacity: 0, scaleY: 0.04 }, { opacity: 1, scaleY: 1, duration: 0.16, ease: "power3.out", immediateRender: false }, 2.6);
+      [3.4, 4.5].forEach((t) => {
+        tl.to(q(".s12-viejo"), { scaleY: 0.05, x: 10, duration: 0.04, ease: "none" }, t);
+        tl.to(q(".s12-viejo"), { scaleY: 1, x: 0, duration: 0.06, ease: "none" }, t + 0.06);
+      });
+      // el villano se tapa la cara, y tiembla de vergüenza
+      gsap.set(q(".s12-manos"), { opacity: 0 });
+      tl.fromTo(q(".s12-manos"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, 2.9);
+      tl.to(q(".s12-manos"), { x: 3, duration: 0.05, yoyo: true, repeat: 41, ease: "none" }, 3.25);
+
+      // después de la voz: todo late suave hasta el final
+      tl.to(q(".s12-entere"), { scale: 1.06, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 7 }, 2.4);
+      tl.to(q(".s12-arroba"), { y: -16, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 5 }, 2.6);
+      tl.to(q(".s12-coment"), { y: -8, rotation: -1, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 4 }, 2.4);
+      tl.to(q(".s12-quese"), { scale: 1.03, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 7 }, 2.4);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

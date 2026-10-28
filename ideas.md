@@ -34,6 +34,9 @@
 - 28-10 · `negocio-zombi` · Todo Scalerics · especial Halloween 2, más color y efectos: "Tu negocio no está muerto. Es peor: es un zombi." · Comentá ZOMBI [formato H · estilo zombi con ambiente]
 - 28-10 · `tu-jarvis` · Todo Scalerics · "¿Y si tu comercio tuviera su propio JARVIS?" · Comentá JARVIS [formato B+G · estilo HUD, dos voces]
 - 28-10 · `infiel` · Todo Scalerics · "Tu cliente te está siendo infiel. Y tengo las pruebas." · Comentá INFIEL si te pasó [formato D telenovela · estilo polaroids/sellos rosa-dorado]
+- 28-10 · `vagos` · Bot de WhatsApp · "Los comerciantes uruguayos son unos vagos." Giro: no son vagos, están solos · ¿Son vagos o no tienen quién les conteste? Te leemos en los comentarios [formato A polémica con giro · estilo tipografía gigante negro/amarillo/rojo]
+- 28-10 · `almacen` · Todo Scalerics · "Tengo que confesar algo: dejé de comprar en el almacén del barrio." Confesión de un vecino a Rubén · Mandáselo a tu almacenero [formato D confesión · estilo papel y collage, libreta del almacén]
+- 28-10 · `ojala-te-fundas` · Todo Scalerics · "Ojalá te fundas." Monólogo del villano de enfrente (dos voces) · Etiquetá a tu competencia [formato B monólogo de villano · estilo guarida con monitores de vigilancia verde ácido]
 
 ## En curso
 

@@ -1,0 +1,132 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-cambia"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-cambia"] .s10-escenario { position: absolute; inset: 0; }
+    /* la pared del villano, que se rompe */
+    [data-composition-id="s10-cambia"] .s10-pared { position: absolute; left: 90px; top: 600px; width: 900px; height: 680px; }
+    [data-composition-id="s10-cambia"] .s10-mon { position: absolute; width: 280px; height: 210px; border: 6px solid #2b302b; border-radius: 10px; background: #0f1a0c; overflow: hidden; }
+    [data-composition-id="s10-cambia"] .s10-mon svg { position: absolute; left: 0; top: 0; width: 268px; height: 198px; }
+    [data-composition-id="s10-cambia"] .s10-mon .cam { position: absolute; left: 10px; top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 16px; color: #b6ff3b; opacity: 0.8; }
+    [data-composition-id="s10-cambia"] .s10-mon .grieta { opacity: 0; }
+    /* el sillón vacío del villano */
+    [data-composition-id="s10-cambia"] .s10-sillon { position: absolute; left: 370px; top: 1130px; width: 340px; height: 360px; }
+    [data-composition-id="s10-cambia"] .s10-mira { position: absolute; left: 400px; top: 1150px; width: 280px; height: 280px; }
+    [data-composition-id="s10-cambia"] .s10-mitad { position: absolute; top: 0; width: 140px; height: 280px; overflow: hidden; }
+    [data-composition-id="s10-cambia"] .s10-mitad svg { position: absolute; top: 0; width: 280px; height: 280px; }
+    [data-composition-id="s10-cambia"] .s10-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s10-cambia"] .s10-cambia { top: 610px; font-size: 220px; letter-spacing: -0.035em; color: #f4f6ee; }
+    [data-composition-id="s10-cambia"] .s10-todo { top: 840px; font-size: 250px; letter-spacing: -0.03em; color: #5ce611; text-shadow: 0 0 44px rgba(92, 230, 17, 0.5); }
+    [data-composition-id="s10-cambia"] .s10-gusto { position: absolute; left: 0; right: 0; top: 1100px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.24em; color: #f4f6ee; }
+  </style>
+  <div id="root" data-composition-id="s10-cambia" data-width="1080" data-height="1920" data-duration="2.84">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="2.84" data-track-index="0">
+      <div class="s10-escenario">
+        <svg width="0" height="0" style="position:absolute;" aria-hidden="true">
+          <defs>
+            <g id="s10-local" fill="none" stroke="#b6ff3b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+              <path d="M64 168 V92 H204 V168" />
+              <path d="M54 92 L64 66 H204 L214 92 Z" />
+              <path d="M120 168 V122 H148 V168" />
+              <path d="M78 104 H108 V134 H78 Z M160 104 H190 V134 H160 Z" />
+              <path d="M24 168 H244" opacity="0.5" />
+            </g>
+            <g id="s10-crack" fill="none" stroke="#f4f6ee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M134 99 L96 40 L70 18 M134 99 L190 60 L250 50 M134 99 L170 150 L200 196 M134 99 L80 128 L20 150 M134 99 L120 190" />
+            </g>
+          </defs>
+        </svg>
+        <div class="s10-pared">
+          <div class="s10-mon" style="left:0;top:0;"><svg viewBox="0 0 268 198"><use href="#s10-local" /><use class="grieta" href="#s10-crack" /></svg><div class="cam" data-layout-ignore>CAM 01</div></div>
+          <div class="s10-mon" style="left:310px;top:0;"><svg viewBox="0 0 268 198"><use href="#s10-local" /><use class="grieta" href="#s10-crack" /></svg><div class="cam" data-layout-ignore>CAM 02</div></div>
+          <div class="s10-mon" style="left:620px;top:0;"><svg viewBox="0 0 268 198"><use href="#s10-local" /><use class="grieta" href="#s10-crack" /></svg><div class="cam" data-layout-ignore>CAM 03</div></div>
+          <div class="s10-mon" style="left:0;top:235px;"><svg viewBox="0 0 268 198"><use href="#s10-local" /><use class="grieta" href="#s10-crack" /></svg><div class="cam" data-layout-ignore>CAM 04</div></div>
+          <div class="s10-mon" style="left:310px;top:235px;"><svg viewBox="0 0 268 198"><use href="#s10-local" /><use class="grieta" href="#s10-crack" /></svg><div class="cam" data-layout-ignore>CAM 05</div></div>
+          <div class="s10-mon" style="left:620px;top:235px;"><svg viewBox="0 0 268 198"><use href="#s10-local" /><use class="grieta" href="#s10-crack" /></svg><div class="cam" data-layout-ignore>CAM 06</div></div>
+          <div class="s10-mon" style="left:0;top:470px;"><svg viewBox="0 0 268 198"><use href="#s10-local" /><use class="grieta" href="#s10-crack" /></svg><div class="cam" data-layout-ignore>CAM 07</div></div>
+          <div class="s10-mon" style="left:310px;top:470px;"><svg viewBox="0 0 268 198"><use href="#s10-local" /><use class="grieta" href="#s10-crack" /></svg><div class="cam" data-layout-ignore>CAM 08</div></div>
+          <div class="s10-mon" style="left:620px;top:470px;"><svg viewBox="0 0 268 198"><use href="#s10-local" /><use class="grieta" href="#s10-crack" /></svg><div class="cam" data-layout-ignore>CAM 09</div></div>
+        </div>
+        <!-- el sillón vacío: el villano se fue -->
+        <svg class="s10-sillon" viewBox="0 0 400 420" aria-hidden="true">
+          <path d="M60 420 V120 C60 40 120 0 200 0 C280 0 340 40 340 120 V420 Z" fill="#050605" stroke="#f4f6ee" stroke-width="4" stroke-opacity="0.6" />
+          <path d="M10 420 V250 C10 225 30 210 60 210 V420 Z M390 420 V250 C390 225 370 210 340 210 V420 Z" fill="#050605" stroke="#f4f6ee" stroke-width="4" stroke-opacity="0.45" />
+        </svg>
+        <!-- la mira roja, en dos mitades para partirse -->
+        <div class="s10-mira">
+          <div class="s10-mitad s10-izq" style="left:0;"><svg viewBox="0 0 400 400" style="left:0;"><circle cx="200" cy="200" r="170" fill="none" stroke="#ff3344" stroke-width="10" /><circle cx="200" cy="200" r="16" fill="#ff3344" /><path d="M200 0 V90 M200 310 V400 M0 200 H90 M310 200 H400" stroke="#ff3344" stroke-width="10" stroke-linecap="round" /></svg></div>
+          <div class="s10-mitad s10-der" style="left:140px;"><svg viewBox="0 0 400 400" style="left:-140px;"><circle cx="200" cy="200" r="170" fill="none" stroke="#ff3344" stroke-width="10" /><circle cx="200" cy="200" r="16" fill="#ff3344" /><path d="M200 0 V90 M200 310 V400 M0 200 H90 M310 200 H400" stroke="#ff3344" stroke-width="10" stroke-linecap="round" /></svg></div>
+        </div>
+        <div class="s10-txt s10-cambia">Cambiá</div>
+        <div class="s10-txt s10-todo">todo</div>
+        <div class="s10-gusto">NO LE DES EL GUSTO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-cambia";
+      const DUR = 2.84;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const CAMBIA = 0.5;
+      const TODO = 0.84;
+      const NO = 1.52;
+      const GUSTO = 2.08;
+
+      // cuadro 0: la pared del villano, recién golpeada por el flash: se agrieta
+      tl.set(qa(".s10-mon .grieta"), { opacity: 1 }, 0.02);
+      [[-20, 8], [16, -10], [-8, 4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-escenario"), { x, y, duration: 0.03, ease: "none" }, 0.02 + i * 0.035));
+      // y sale volando para afuera, cada monitor hacia su borde, y se apaga
+      qa(".s10-mon").forEach((m, i) => {
+        const col = i % 3, fila = Math.floor(i / 3);
+        const dx = (col - 1) * 820 + (col === 1 ? (fila - 1) * 260 : 0);
+        const dy = (fila - 1) * 900 + (fila === 1 && col === 1 ? 0 : 60);
+        const rot = (i % 2 ? 1 : -1) * (30 + i * 9);
+        if (col === 1 && fila === 1) {
+          tl.to(m, { scale: 4, opacity: 0, duration: 0.32, ease: "power2.in" }, 0.14);
+        } else {
+          tl.to(m, { x: dx, y: dy, rotation: rot, duration: 0.42, ease: "power3.in" }, 0.12 + (i % 4) * 0.02);
+          tl.to(m, { scaleY: 0.04, opacity: 0, duration: 0.12, ease: "power2.in" }, 0.4 + (i % 3) * 0.03);
+        }
+      });
+      tl.fromTo(q(".s10-sillon"), { y: 0 }, { y: 14, duration: 0.5, ease: "sine.inOut" }, 0);
+
+      // "CAMBIÁ" cae de golpe en hueso
+      gsap.set(q(".s10-cambia"), { opacity: 0 });
+      tl.fromTo(q(".s10-cambia"), { opacity: 0, scale: 2.6, rotation: -4 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.14, ease: "power4.in", immediateRender: false }, CAMBIA - 0.1);
+      [[-18, 10], [14, -8], [-6, 4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-escenario"), { x, y, duration: 0.04, ease: "none" }, CAMBIA + 0.05 + i * 0.045));
+      // "TODO" en verde, desde abajo
+      gsap.set(q(".s10-todo"), { opacity: 0 });
+      tl.fromTo(q(".s10-todo"), { opacity: 0, scale: 0.4, y: 120 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, TODO - 0.06);
+      tl.to(q(".s10-todo"), { scale: 1.06, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut" }, TODO + 0.22);
+      tl.fromTo(q(".s10-cambia"), { y: 0 }, { y: -10, duration: DUR - CAMBIA, ease: "none", immediateRender: false }, CAMBIA + 0.1);
+
+      // "no le des el gusto": aparece la mira sobre el sillón vacío...
+      gsap.set(q(".s10-mira"), { opacity: 0 });
+      tl.fromTo(q(".s10-mira"), { opacity: 0, scale: 1.8, rotation: -60 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, NO - 0.06);
+      gsap.set(q(".s10-gusto"), { opacity: 0 });
+      tl.fromTo(q(".s10-gusto"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.15, ease: "power3.out", immediateRender: false }, NO);
+      tl.to(q(".s10-mira"), { x: 8, duration: 0.04, yoyo: true, repeat: 5, ease: "none" }, NO + 0.3);
+      // ...y en "gusto" la mira se parte en dos y el sillón cae para atrás
+      tl.to(q(".s10-izq"), { x: -260, y: 120, rotation: -70, opacity: 0, duration: 0.45, ease: "power3.in" }, GUSTO);
+      tl.to(q(".s10-der"), { x: 260, y: 160, rotation: 80, opacity: 0, duration: 0.45, ease: "power3.in" }, GUSTO);
+      tl.to(q(".s10-sillon"), { rotation: 78, transformOrigin: "90% 100%", y: 60, duration: 0.4, ease: "power2.in" }, GUSTO + 0.02);
+      tl.to(q(".s10-sillon"), { opacity: 0, duration: 0.15 }, GUSTO + 0.34);
+      [[-16, 8], [12, -6], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-escenario"), { x, y, duration: 0.04, ease: "none" }, GUSTO + 0.05 + i * 0.045));
+      tl.to(q(".s10-gusto"), { scale: 1.12, color: "#5ce611", duration: 0.12, ease: "power3.out" }, GUSTO);
+
+      // salida: blur
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
