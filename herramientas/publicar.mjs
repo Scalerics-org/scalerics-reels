@@ -143,19 +143,33 @@ const hacerTT = !!accesoTT && falta(slug).includes("tiktok");
 const hechoEn = [];
 if (!hayIG) console.log("instagram: sin IG_TOKEN todavía, se saltea");
 if (!hayIG && !hacerTT) throw new Error(`no hay a dónde publicar ${slug}`);
-let tk, yo;
+let tk, base, uid;
 if (hayIG) {
-if (Date.now() - (estado.renovado || 0) > 7 * 864e5) {
-  const r = await pedir(`${IG}/refresh_access_token?grant_type=ig_refresh_token&access_token=${estado.token}`);
-  estado = { token: r.access_token, renovado: Date.now() };
-  await guardarEstado(estado);
-  console.log(`token de Instagram renovado (vence en ${Math.round(r.expires_in / 86400)} días)`);
+  tk = estado.token;
+  if (tk.startsWith("IG")) {
+    // token de "inicio de sesión con Instagram": graph.instagram.com, vence a los 60 días y se renueva
+    base = IG;
+    if (Date.now() - (estado.renovado || 0) > 7 * 864e5) {
+      const r = await pedir(`${IG}/refresh_access_token?grant_type=ig_refresh_token&access_token=${tk}`);
+      estado = { token: r.access_token, renovado: Date.now() };
+      await guardarEstado(estado);
+      tk = estado.token;
+      console.log(`token de Instagram renovado (vence en ${Math.round(r.expires_in / 86400)} días)`);
+    }
+    uid = (await pedir(`${IG}/me?fields=user_id&access_token=${tk}`)).user_id;
+  } else {
+    // token de usuario del sistema del porfolio (no vence): graph.facebook.com + el id de la cuenta de Instagram
+    base = "https://graph.facebook.com/v21.0";
+    uid = process.env.IG_USER_ID;
+    if (!uid) {
+      const pags = await pedir(`${base}/me/accounts?fields=instagram_business_account&access_token=${tk}`);
+      uid = pags.data?.map((p) => p.instagram_business_account?.id).find(Boolean);
+    }
+    if (!uid) throw new Error("no encontré el id de la cuenta de Instagram: cargalo como IG_USER_ID en el workflow");
+  }
+  const cuenta = await pedir(`${base}/${uid}?fields=username&access_token=${tk}`);
+  console.log(`instagram: @${cuenta.username}`);
 }
-tk = estado.token;
-yo = await pedir(`${IG}/me?fields=user_id,username&access_token=${tk}`);
-console.log(`cuenta: @${yo.username}`);
-}
-
 if (hacerTT && PRUEBA) await publicarTikTok(accesoTT, bytes, caption, true);
 console.log(`redes para ${slug}: ${[hayIG && "instagram", hacerTT && "tiktok"].filter(Boolean).join(", ")}`);
 if (PRUEBA) {
@@ -166,20 +180,20 @@ if (PRUEBA) {
 if (hayIG) {
 // 5. Publicar: crear el contenedor, esperar a que Instagram procese el video, publicar
 const form = (o) => new URLSearchParams({ ...o, access_token: tk });
-const cont = await pedir(`${IG}/${yo.user_id}/media`, {
+const cont = await pedir(`${base}/${uid}/media`, {
   method: "POST",
   body: form({ media_type: "REELS", video_url: videoUrl, caption, share_to_feed: "true" }),
 });
 let st;
 for (let i = 0; i < 60; i++) {
   await espera(10000);
-  st = await pedir(`${IG}/${cont.id}?fields=status_code,status&access_token=${tk}`);
+  st = await pedir(`${base}/${cont.id}?fields=status_code,status&access_token=${tk}`);
   if (st.status_code === "FINISHED") break;
   if (st.status_code === "ERROR" || st.status_code === "EXPIRED") throw new Error("Instagram no pudo procesar el video: " + JSON.stringify(st));
 }
 if (st.status_code !== "FINISHED") throw new Error("Instagram tardó más de 10 minutos en procesar el video");
-const pub = await pedir(`${IG}/${yo.user_id}/media_publish`, { method: "POST", body: form({ creation_id: cont.id }) });
-const info = await pedir(`${IG}/${pub.id}?fields=permalink&access_token=${tk}`);
+const pub = await pedir(`${base}/${uid}/media_publish`, { method: "POST", body: form({ creation_id: cont.id }) });
+const info = await pedir(`${base}/${pub.id}?fields=permalink&access_token=${tk}`);
 console.log("PUBLICADO: " + info.permalink);
 hechoEn.push("instagram");
 }
