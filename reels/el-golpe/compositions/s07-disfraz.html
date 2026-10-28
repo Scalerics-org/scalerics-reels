@@ -1,0 +1,174 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-disfraz"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-disfraz"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-disfraz"] .s07-paso, [data-composition-id="s07-disfraz"] .s07-local { position: absolute; inset: 0; }
+    [data-composition-id="s07-disfraz"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-disfraz"] .plano { fill: none; stroke: #7fd4ff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-disfraz"] .plano-fino { fill: none; stroke: #7fd4ff; stroke-width: 3; opacity: 0.55; }
+    [data-composition-id="s07-disfraz"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #7fd4ff; }
+    [data-composition-id="s07-disfraz"] .s07-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s07-disfraz"] .s07-paso-palabra { top: 600px; font-weight: 900; font-size: 170px; letter-spacing: 0.04em; color: #f2f4f8; }
+    [data-composition-id="s07-disfraz"] .s07-paso-num { top: 770px; font-weight: 900; font-size: 470px; color: #ffd23f; text-shadow: 0 0 48px rgba(255, 210, 63, 0.45); }
+    [data-composition-id="s07-disfraz"] .s07-sello { position: absolute; left: 0; right: 0; top: 1290px; text-align: center; }
+    [data-composition-id="s07-disfraz"] .s07-sello span { display: inline-block; padding: 12px 30px; border: 6px solid #ff3b30; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 60px; letter-spacing: 0.12em; color: #ff3b30; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-disfraz"] .s07-impecable { position: absolute; left: 0; right: 0; top: 1436px; text-align: center; }
+    [data-composition-id="s07-disfraz"] .s07-impecable span { display: inline-block; padding: 8px 26px; border: 4px solid #ffd23f; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 46px; letter-spacing: 0.3em; color: #ffd23f; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s07-disfraz" data-width="1080" data-height="1920" data-duration="5.12">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.12" data-track-index="0">
+      <div class="s07-escenario">
+        <!-- CARTEL "PASO 3" -->
+        <div class="s07-paso">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s07-marco">
+              <path class="plano" d="M90 640 V580 H150 M930 580 H990 V640 M990 1420 V1480 H930 M150 1480 H90 V1420" />
+              <path class="plano-fino" d="M130 1000 H300 M780 1000 H950 M215 980 V1020 M865 980 V1020" />
+              <text class="rotulo" x="110" y="1530" data-layout-ignore>CAP. 03 · HOJA 7</text>
+            </g>
+          </svg>
+          <div class="s07-txt s07-paso-palabra">Paso</div>
+          <div class="s07-txt s07-paso-num">3</div>
+          <div class="s07-sello"><span>El disfraz</span></div>
+        </div>
+
+        <!-- EL LOCAL DEL LADRÓN que se viste -->
+        <div class="s07-local">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <!-- barra de búsqueda -->
+            <g class="s07-busca">
+              <rect x="110" y="590" width="860" height="84" rx="42" fill="#06142e" stroke="#7fd4ff" stroke-width="5" />
+              <circle cx="170" cy="632" r="18" fill="none" stroke="#7fd4ff" stroke-width="5" />
+              <path d="M183 645 L198 660" stroke="#7fd4ff" stroke-width="5" stroke-linecap="round" />
+              <text x="222" y="644" font-family="IBM Plex Mono" font-weight="500" font-size="32" fill="#f2f4f8" letter-spacing="2">local cerca de mí</text>
+            </g>
+            <g class="s07-resultado">
+              <rect x="110" y="692" width="860" height="78" rx="14" fill="#06142e" stroke="#ffd23f" stroke-width="5" />
+              <text x="140" y="744" font-family="Lexend" font-weight="900" font-size="38" fill="#ffd23f">1°</text>
+              <text x="200" y="744" font-family="Lexend" font-weight="700" font-size="36" fill="#f2f4f8">SU LOCAL</text>
+              <text x="760" y="744" font-family="Lexend" font-weight="900" font-size="34" fill="#ffd23f" letter-spacing="4">★★★★★</text>
+            </g>
+            <!-- fachada del local del ladrón -->
+            <g class="s07-fachada">
+              <path class="plano" d="M330 1060 V1390 H750 V1060" />
+              <path class="plano" d="M300 1060 H780 L760 1120 Q740 1150 720 1120 Q700 1150 680 1120 Q660 1150 640 1120 Q620 1150 600 1120 Q580 1150 560 1120 Q540 1150 520 1120 Q500 1150 480 1120 Q460 1150 440 1120 Q420 1150 400 1120 Q380 1150 360 1120 Q340 1150 320 1120 Z" />
+              <rect x="360" y="970" width="360" height="80" rx="8" fill="#06142e" stroke="#7fd4ff" stroke-width="5" />
+              <text x="390" y="1022" font-family="Lexend" font-weight="900" font-size="36" fill="#f2f4f8">MI LOCAL</text>
+              <!-- antifaz chiquito en el cartel -->
+              <path d="M598 1010 C610 990 640 992 652 1004 C664 992 694 990 706 1010 C700 1032 672 1036 660 1024 C656 1020 648 1020 644 1024 C632 1036 604 1032 598 1010 Z" fill="#050b18" stroke="#ff3b30" stroke-width="3" />
+              <path class="plano" d="M380 1180 H540 V1320 H380 Z" />
+              <path class="plano-fino" d="M380 1250 H540 M460 1180 V1320" />
+              <path class="plano" d="M600 1180 H710 V1390 H600 Z" />
+              <circle cx="690" cy="1290" r="6" fill="#7fd4ff" />
+              <path class="plano-fino" d="M250 1390 H830" />
+            </g>
+            <!-- pin de mapa rojo -->
+            <g class="s07-pin">
+              <path d="M540 960 C540 960 470 880 470 842 A70 70 0 0 1 610 842 C610 880 540 960 540 960 Z" fill="#ff3b30" stroke="#f2f4f8" stroke-width="4" />
+              <circle cx="540" cy="842" r="24" fill="#06142e" />
+            </g>
+            <!-- ventana de navegador con su local -->
+            <g class="s07-web">
+              <rect x="60" y="1040" width="260" height="210" rx="14" fill="#06142e" stroke="#7fd4ff" stroke-width="5" />
+              <path d="M60 1078 H320" stroke="#7fd4ff" stroke-width="4" />
+              <circle cx="84" cy="1059" r="6" fill="#ff3b30" /><circle cx="104" cy="1059" r="6" fill="#ffd23f" /><circle cx="124" cy="1059" r="6" fill="#7fd4ff" />
+              <rect x="82" y="1098" width="216" height="64" rx="6" fill="none" stroke="#f2f4f8" stroke-width="4" />
+              <text x="104" y="1141" font-family="Lexend" font-weight="900" font-size="28" fill="#f2f4f8">SU LOCAL</text>
+              <path d="M84 1186 H250 M84 1214 H210" stroke="#7fd4ff" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+              <rect x="212" y="1196" width="86" height="34" rx="17" fill="#ffd23f" />
+            </g>
+            <!-- tarjeta de puntos llena -->
+            <g class="s07-puntos">
+              <rect x="755" y="1080" width="245" height="160" rx="16" fill="#06142e" stroke="#ffd23f" stroke-width="5" />
+              <text x="777" y="1124" font-family="Lexend" font-weight="900" font-size="28" fill="#ffd23f">PUNTOS</text>
+              <g fill="#ffd23f">
+                <circle class="s07-p" cx="793" cy="1160" r="15" /><circle class="s07-p" cx="837" cy="1160" r="15" /><circle class="s07-p" cx="881" cy="1160" r="15" /><circle class="s07-p" cx="925" cy="1160" r="15" /><circle class="s07-p" cx="969" cy="1160" r="15" />
+                <circle class="s07-p" cx="793" cy="1204" r="15" /><circle class="s07-p" cx="837" cy="1204" r="15" /><circle class="s07-p" cx="881" cy="1204" r="15" /><circle class="s07-p" cx="925" cy="1204" r="15" /><circle class="s07-p" cx="969" cy="1204" r="15" />
+              </g>
+            </g>
+            <!-- brillos -->
+            <g class="s07-brillo s07-b1" stroke="#ffd23f" stroke-width="5" stroke-linecap="round"><path d="M540 760 V730 M590 780 L612 758 M490 780 L468 758" /></g>
+            <g class="s07-brillo s07-b2" stroke="#ffd23f" stroke-width="5" stroke-linecap="round"><path d="M60 1020 L40 1000 M120 1010 V984 M330 1020 L350 1000" /></g>
+            <g class="s07-brillo s07-b3" stroke="#ffd23f" stroke-width="5" stroke-linecap="round"><path d="M780 1060 L760 1040 M900 1052 V1026 M1000 1060 L1018 1042" /></g>
+          </svg>
+          <div class="s07-impecable"><span>IMPECABLE</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-disfraz";
+      const DUR = 5.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, from, rot) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), Object.assign({ opacity: 0, scale: 2.4, transformOrigin: "50% 50%" }, from || {}), { opacity: 1, scale: 1, rotation: rot || 0, transformOrigin: "50% 50%", duration: 0.14, ease: "power4.in", immediateRender: false }, t);
+      };
+
+      const TRES = 0.4, DISFRAZ = 1.12, MI = 2.02, GOOGLE = 2.88, WEB = 3.42, PUNTOS = 4.02, PUNTOS2 = 4.26;
+
+      // ---- PASO 3: el cartel entra de golpe en el cuadro 0
+      tl.fromTo(q(".s07-paso-palabra"), { opacity: 0.6, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.out" }, 0);
+      tl.fromTo(q(".s07-marco"), { opacity: 0.4, scale: 1.1, transformOrigin: "50% 55%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s07-paso"), { scale: 1 }, { scale: 1.07, duration: 1.9, ease: "none", transformOrigin: "50% 55%" }, 0);
+      golpe(".s07-paso-num", TRES - 0.12, { scale: 3.2, rotation: -12 });
+      sacudon(TRES + 0.02, 1.3);
+      tl.to(q(".s07-paso-num"), { rotation: 3, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, TRES + 0.2);
+      gsap.set(q(".s07-sello"), { rotation: -7 });
+      golpe(".s07-sello", DISFRAZ - 0.12, { scale: 2.6, rotation: -20 }, -7);
+      sacudon(DISFRAZ + 0.03, 1);
+      // salida del cartel: se va hacia arriba con blur
+      tl.to(q(".s07-paso"), { y: -260, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, MI - 0.2);
+
+      // ---- el local del ladrón aparece y se viste
+      gsap.set(q(".s07-local"), { opacity: 0 });
+      tl.fromTo(q(".s07-local"), { opacity: 0, y: 220 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, MI - 0.06);
+      ["s07-busca", "s07-resultado", "s07-pin", "s07-web", "s07-puntos", "s07-b1", "s07-b2", "s07-b3"].forEach((c) => gsap.set(q("." + c), { opacity: 0 }));
+      gsap.set(q(".s07-impecable"), { opacity: 0 });
+      tl.fromTo(q(".s07-fachada"), { scale: 0.85, transformOrigin: "50% 100%" }, { scale: 1, transformOrigin: "50% 100%", duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, MI - 0.06);
+      // la cámara se acerca despacio
+      tl.fromTo(q(".s07-local"), { scale: 1 }, { scale: 1.05, transformOrigin: "50% 60%", duration: DUR - MI, ease: "none", immediateRender: false }, MI);
+
+      // "sale en": la barra de búsqueda se tipea
+      tl.fromTo(q(".s07-busca"), { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, 2.34);
+      // "Google": pin rojo que cae y el resultado primero
+      tl.fromTo(q(".s07-pin"), { opacity: 0, y: -340, scale: 1.3, transformOrigin: "50% 100%" }, { opacity: 1, y: 0, scale: 1, transformOrigin: "50% 100%", duration: 0.16, ease: "power4.in", immediateRender: false }, GOOGLE - 0.14);
+      tl.fromTo(q(".s07-pin"), { scaleY: 0.8 }, { scaleY: 1, transformOrigin: "50% 100%", duration: 0.3, ease: "back.out(3)", immediateRender: false }, GOOGLE + 0.02);
+      golpe(".s07-resultado", GOOGLE - 0.06, { scale: 1.5 });
+      tl.fromTo(q(".s07-b1"), { opacity: 0, scale: 0.4, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1.2, transformOrigin: "50% 100%", duration: 0.18, ease: "back.out(2)", immediateRender: false }, GOOGLE + 0.04);
+      tl.to(q(".s07-b1"), { opacity: 0, duration: 0.25 }, GOOGLE + 0.35);
+      sacudon(GOOGLE + 0.02, 0.9);
+
+      // "web": la ventana se le pega de costado
+      tl.fromTo(q(".s07-web"), { opacity: 0, x: -360, rotation: -25, transformOrigin: "50% 50%" }, { opacity: 1, x: 0, rotation: -5, transformOrigin: "50% 50%", duration: 0.16, ease: "power4.in", immediateRender: false }, WEB - 0.14);
+      tl.fromTo(q(".s07-b2"), { opacity: 0, scale: 0.4, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1.2, transformOrigin: "50% 100%", duration: 0.18, ease: "back.out(2)", immediateRender: false }, WEB + 0.04);
+      tl.to(q(".s07-b2"), { opacity: 0, duration: 0.25 }, WEB + 0.35);
+      sacudon(WEB + 0.02, 0.9);
+
+      // "tiene puntos": la tarjeta entra y se llena punto por punto
+      tl.fromTo(q(".s07-puntos"), { opacity: 0, x: 360, rotation: 25, transformOrigin: "50% 50%" }, { opacity: 1, x: 0, rotation: 5, transformOrigin: "50% 50%", duration: 0.16, ease: "power4.in", immediateRender: false }, PUNTOS - 0.12);
+      tl.fromTo(root.querySelectorAll(".s07-p"), { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.12, ease: "back.out(3)", stagger: 0.025, immediateRender: false }, PUNTOS + 0.04);
+      gsap.set(root.querySelectorAll(".s07-p"), { scale: 0, transformOrigin: "50% 50%" });
+      tl.fromTo(q(".s07-b3"), { opacity: 0, scale: 0.4, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1.2, transformOrigin: "50% 100%", duration: 0.18, ease: "back.out(2)", immediateRender: false }, PUNTOS2 + 0.02);
+      sacudon(PUNTOS2 + 0.02, 1.1);
+
+      // "IMPECABLE"
+      golpe(".s07-impecable", PUNTOS2 + 0.2, { scale: 2 });
+      tl.to(q(".s07-pin"), { y: -14, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, PUNTOS2 + 0.2);
+
+      // salida: barrido a la izquierda
+      tl.to(q("#s07-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

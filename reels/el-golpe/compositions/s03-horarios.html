@@ -1,0 +1,180 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-horarios"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-horarios"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-horarios"] .s03-ficha { position: absolute; inset: 0; }
+    [data-composition-id="s03-horarios"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-horarios"] .plano { fill: none; stroke: #7fd4ff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-horarios"] .plano-fino { fill: none; stroke: #7fd4ff; stroke-width: 3; opacity: 0.55; }
+    [data-composition-id="s03-horarios"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #7fd4ff; }
+    [data-composition-id="s03-horarios"] .s03-mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s03-horarios"] .s03-lab { font-size: 36px; letter-spacing: 0.1em; color: #7fd4ff; }
+    [data-composition-id="s03-horarios"] .s03-val { font-size: 60px; letter-spacing: 0.04em; color: #ffd23f; }
+    [data-composition-id="s03-horarios"] .s03-val3 { font-size: 46px; letter-spacing: 0.04em; color: #ffd23f; }
+    [data-composition-id="s03-horarios"] .s03-val span, [data-composition-id="s03-horarios"] .s03-val3 span { display: inline-block; }
+    [data-composition-id="s03-horarios"] .s03-sujeto { position: absolute; left: 420px; top: 768px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 56px; color: #f2f4f8; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s03-horarios"] .s03-sello { position: absolute; left: 0; right: 0; top: 960px; text-align: center; }
+    [data-composition-id="s03-horarios"] .s03-sello span { display: inline-block; padding: 16px 30px; border: 8px solid #ff3b30; border-radius: 14px; background: rgba(5, 11, 24, 0.82); font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 72px; letter-spacing: 0.08em; color: #ff3b30; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+  </style>
+  <div id="root" data-composition-id="s03-horarios" data-width="1080" data-height="1920" data-duration="5.22">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="5.22" data-track-index="0">
+      <div class="s03-escenario">
+        <div class="s03-ficha">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <!-- el expediente -->
+            <path class="s03-hoja" d="M90 590 H990 V1460 H90 Z" fill="#06142e" fill-opacity="0.55" stroke="#7fd4ff" stroke-width="5" stroke-linejoin="round" />
+            <path class="plano s03-clip" d="M168 650 V572 Q168 552 188 552 Q208 552 208 572 V680 Q208 700 188 700 Q178 700 178 690 V590" />
+            <text x="240" y="648" font-family="IBM Plex Mono" font-weight="500" font-size="30" letter-spacing="4" fill="#f2f4f8">EXPEDIENTE 047</text>
+            <text x="950" y="648" text-anchor="end" font-family="IBM Plex Mono" font-weight="500" font-size="30" letter-spacing="4" fill="#ff3b30">CONFIDENCIAL</text>
+            <path class="plano-fino" d="M120 676 H960" />
+            <!-- foto de vigilancia de tu local -->
+            <g class="s03-foto">
+              <rect x="130" y="700" width="260" height="210" fill="#050b18" stroke="#7fd4ff" stroke-width="4" />
+              <path class="plano" d="M160 760 H360 L350 790 H170 Z M180 790 V880 H340 V790 M200 815 H260 V860 H200 Z M290 820 H325 V880 H290" stroke-width="4" />
+              <path d="M172 790 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0 q11 12 22 0" fill="none" stroke="#7fd4ff" stroke-width="3" />
+              <path d="M140 712 h22 M140 712 v22 M380 712 h-22 M380 712 v22 M140 898 h22 M140 898 v-22 M380 898 h-22 M380 898 v-22" stroke="#ff3b30" stroke-width="3" />
+              <rect class="s03-flash" x="130" y="700" width="260" height="210" fill="#f2f4f8" opacity="0" />
+            </g>
+            <text class="rotulo" x="420" y="738">SUJETO</text>
+            <text x="420" y="880" font-family="IBM Plex Mono" font-weight="500" font-size="28" letter-spacing="3" fill="#ff3b30">ESTADO: VIGILADO</text>
+            <path class="plano-fino" d="M120 940 H960 M120 1070 H960 M120 1200 H960" />
+            <!-- reloj -->
+            <g class="s03-reloj">
+              <circle cx="880" cy="1006" r="48" fill="none" stroke="#ffd23f" stroke-width="5" />
+              <path d="M880 962 V970 M880 1042 V1050 M836 1006 H844 M916 1006 H924" stroke="#ffd23f" stroke-width="4" />
+              <line class="s03-hora" x1="880" y1="1006" x2="880" y2="980" stroke="#ffd23f" stroke-width="6" stroke-linecap="round" />
+              <line class="s03-min" x1="880" y1="1006" x2="880" y2="970" stroke="#ffd23f" stroke-width="4" stroke-linecap="round" />
+              <circle cx="880" cy="1006" r="6" fill="#ffd23f" />
+            </g>
+            <!-- hoja de calendario -->
+            <g class="s03-cal">
+              <rect x="820" y="1090" width="120" height="100" rx="8" fill="#050b18" stroke="#7fd4ff" stroke-width="4" />
+              <path d="M820 1120 H940 M850 1080 V1098 M910 1080 V1098" stroke="#7fd4ff" stroke-width="4" stroke-linecap="round" />
+              <text x="880" y="1166" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="32" fill="#f2f4f8">DOM</text>
+              <path class="s03-cal-x" d="M828 1098 L932 1186 M932 1098 L828 1186" fill="none" stroke="#ff3b30" stroke-width="8" stroke-linecap="round" />
+            </g>
+            <!-- celular con tildes grises -->
+            <g class="s03-cel">
+              <rect x="770" y="1222" width="190" height="220" rx="26" fill="#050b18" stroke="#7fd4ff" stroke-width="5" />
+              <path d="M840 1238 H890" stroke="#7fd4ff" stroke-width="4" stroke-linecap="round" />
+              <g class="s03-b1">
+                <rect x="786" y="1258" width="150" height="40" rx="12" fill="#7fd4ff" fill-opacity="0.18" />
+                <path d="M900 1284 l6 6 l10 -12 M910 1290 l3 3 l10 -12" fill="none" stroke="#f2f4f8" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+              <g class="s03-b2">
+                <rect x="786" y="1306" width="120" height="40" rx="12" fill="#7fd4ff" fill-opacity="0.18" />
+                <path d="M870 1332 l6 6 l10 -12 M880 1338 l3 3 l10 -12" fill="none" stroke="#f2f4f8" stroke-opacity="0.45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+              <text class="s03-visto" x="865" y="1386" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="26" fill="#f2f4f8" fill-opacity="0.7">visto</text>
+              <text class="s03-visto" x="865" y="1420" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="26" fill="#f2f4f8" fill-opacity="0.7">hace 3 h</text>
+            </g>
+          </svg>
+          <div class="s03-sujeto">Tu local</div>
+          <div class="s03-mono s03-lab" style="left:130px; top:984px">Cierra:</div>
+          <div class="s03-mono s03-val s03-v1" style="left:420px; top:972px">20:00</div>
+          <div class="s03-mono s03-lab" style="left:130px; top:1114px">Domingos:</div>
+          <div class="s03-mono s03-val s03-v2" style="left:420px; top:1102px">No existe</div>
+          <div class="s03-mono s03-lab" style="left:130px; top:1236px">WhatsApp:</div>
+          <div class="s03-mono s03-val3 s03-v3" style="left:130px; top:1300px">Cuando se acuerda</div>
+        </div>
+        <div class="s03-sello"><span>Objetivo fácil</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-horarios";
+      const DUR = 5.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s03-escenario");
+
+      const golpe = (el, t, s = 2.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t) => {
+        gsap.set(el, { opacity: 0, transformOrigin: "50% 50%" });
+        tl.fromTo(el, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)", immediateRender: false }, t);
+      };
+      const dibujar = (el, t, d = 0.5) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // la máquina de escribir: cada letra en su span
+      const tipear = (el, t, paso = 0.04) => {
+        const txt = el.textContent;
+        el.textContent = "";
+        const spans = [];
+        for (const ch of txt) {
+          const s = document.createElement("span");
+          s.textContent = ch === " " ? " " : ch;
+          el.appendChild(s);
+          spans.push(s);
+        }
+        gsap.set(spans, { opacity: 0 });
+        spans.forEach((s, i) => tl.fromTo(s, { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.06, ease: "power2.out", immediateRender: false }, t + i * paso));
+      };
+
+      const OCHO = 0.6, DOMINGOS = 1.38, EXISTIS = 1.94, WHATSAPP = 3.0, CONTESTAS = 3.44, CUANDO = 3.88, ACORDAS = 4.26, SELLO = 4.62;
+
+      // cámara: se acerca y baja siguiendo los renglones
+      tl.fromTo(ESC, { scale: 1.07 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      tl.fromTo(q(".s03-ficha"), { y: 40 }, { y: -30, duration: DUR, ease: "none" }, 0);
+
+      // cuadro 0: la ficha cae sobre la mesa
+      tl.fromTo(q(".s03-ficha"), { opacity: 0.55, rotation: -4, scale: 1.08 }, { opacity: 1, rotation: 0, scale: 1, duration: 0.3, ease: "power3.out" }, 0);
+      dibujar(q(".s03-clip"), 0.05, 0.35);
+      tl.fromTo(q(".s03-flash"), { opacity: 0 }, { opacity: 0.85, duration: 0.03, immediateRender: false }, 0.22);
+      tl.to(q(".s03-flash"), { opacity: 0, duration: 0.25 }, 0.26);
+      tl.fromTo(q(".s03-sujeto"), { opacity: 0.4, x: -30 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, 0.1);
+
+      // CIERRA: 20:00
+      tipear(q(".s03-v1"), OCHO - 0.1, 0.05);
+      tl.fromTo(q(".s03-min"), { rotation: 0 }, { rotation: 720, transformOrigin: "50% 100%", duration: 0.6, ease: "power2.out" }, OCHO - 0.1);
+      tl.fromTo(q(".s03-hora"), { rotation: 0 }, { rotation: 240, transformOrigin: "50% 100%", duration: 0.6, ease: "power2.out" }, OCHO - 0.1);
+      tl.to(q(".s03-reloj"), { scale: 1.15, transformOrigin: "50% 50%", duration: 0.1, yoyo: true, repeat: 1 }, OCHO + 0.5);
+      sacudon(OCHO, 0.5);
+
+      // DOMINGOS: NO EXISTE
+      pop(q(".s03-cal"), DOMINGOS - 0.1);
+      tipear(q(".s03-v2"), DOMINGOS, 0.045);
+      dibujar(q(".s03-cal-x"), EXISTIS - 0.06, 0.2);
+      sacudon(EXISTIS + 0.1, 0.8);
+      tl.to(q(".s03-cal"), { rotation: -8, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1 }, EXISTIS + 0.1);
+
+      // pausa: la ficha "respira" (el renglón de abajo late)
+      tl.to(q(".s03-v2"), { scale: 1.06, transformOrigin: "0% 50%", duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.4);
+
+      // WHATSAPP: el celular con tildes grises
+      pop(q(".s03-cel"), WHATSAPP - 0.1);
+      pop(q(".s03-b1"), CONTESTAS - 0.1);
+      pop(q(".s03-b2"), CONTESTAS + 0.08);
+      gsap.set(qa(".s03-visto"), { opacity: 0 });
+      tl.fromTo(qa(".s03-visto"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.15, stagger: 0.08, immediateRender: false }, ACORDAS - 0.1);
+      tipear(q(".s03-v3"), CUANDO - 0.1, 0.03);
+      tl.to(q(".s03-cel"), { rotation: 6, transformOrigin: "50% 50%", duration: 0.1, yoyo: true, repeat: 3, ease: "sine.inOut" }, ACORDAS);
+
+      // OBJETIVO FÁCIL: cae el sello
+      gsap.set(q(".s03-sello"), { rotation: -11 });
+      golpe(q(".s03-sello"), SELLO, 3.2);
+      sacudon(SELLO + 0.04, 1.6);
+      tl.to(q(".s03-ficha"), { opacity: 0.6, duration: 0.12 }, SELLO);
+
+      // salida
+      tl.to(q("#s03-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

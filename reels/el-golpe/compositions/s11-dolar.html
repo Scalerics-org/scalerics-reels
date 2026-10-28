@@ -1,0 +1,120 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-dolar"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-dolar"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-dolar"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-dolar"] .plano-fino { fill: none; stroke: #7fd4ff; stroke-width: 3; opacity: 0.55; }
+    [data-composition-id="s11-dolar"] .s11-linea { fill: none; stroke: #ffd23f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dolar"] .s11-linea-fina { fill: none; stroke: #ffd23f; stroke-width: 3; opacity: 0.6; }
+    [data-composition-id="s11-dolar"] .s11-num { font-family: "Lexend", sans-serif; font-weight: 900; fill: #ffd23f; }
+    [data-composition-id="s11-dolar"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #7fd4ff; }
+    [data-composition-id="s11-dolar"] .ruta { fill: none; stroke: #ff3b30; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dolar"] .s11-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s11-dolar"] .s11-sospechoso { top: 592px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.22em; color: #7fd4ff; }
+    [data-composition-id="s11-dolar"] .s11-aldolar { top: 1270px; font-weight: 900; font-size: 150px; letter-spacing: -0.02em; color: #f2f4f8; }
+    [data-composition-id="s11-dolar"] .s11-preg { position: absolute; left: 880px; top: 640px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 124px; line-height: 1; color: #ffd23f; text-shadow: 0 0 30px rgba(255, 210, 63, 0.45); white-space: nowrap; }
+    [data-composition-id="s11-dolar"] .s11-sello { position: absolute; left: 290px; top: 960px; width: 500px; padding: 12px 0; border: 7px solid #ff3b30; border-radius: 12px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 88px; line-height: 1; letter-spacing: 0.04em; color: #ff3b30; text-transform: uppercase; background: rgba(5, 11, 24, 0.55); }
+  </style>
+  <div id="root" data-composition-id="s11-dolar" data-width="1080" data-height="1920" data-duration="2.38">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="2.38" data-track-index="0">
+      <div class="s11-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- cotas del plano alrededor del sospechoso -->
+          <g class="s11-cotas">
+            <path class="plano-fino" d="M120 700 V1220 M100 700 H140 M100 1220 H140" />
+            <path class="plano-fino" d="M160 1250 H920 M160 1230 V1270 M920 1230 V1270" />
+            <text class="rotulo" x="160" y="694" data-layout-ignore>PRUEBA A · BILLETE</text>
+          </g>
+          <!-- los bracitos que se encogen de hombros (detrás del billete) -->
+          <g class="s11-brazos">
+            <path class="s11-linea s11-brazo-i" d="M170 1000 L110 960 L86 880" />
+            <path class="s11-linea s11-mano-i" d="M86 880 l-22 -22 M86 880 l0 -32 M86 880 l22 -20" />
+            <path class="s11-linea s11-brazo-d" d="M910 1000 L970 960 L994 880" />
+            <path class="s11-linea s11-mano-d" d="M994 880 l22 -22 M994 880 l0 -32 M994 880 l-22 -20" />
+          </g>
+          <!-- el billete genérico, sin retrato -->
+          <g class="s11-billete">
+            <rect x="160" y="760" width="760" height="420" rx="18" fill="#050b18" stroke="#ffd23f" stroke-width="6" />
+            <rect class="s11-linea-fina" x="186" y="786" width="708" height="368" rx="10" />
+            <path class="s11-linea-fina" d="M186 840 Q540 800 894 840 M186 1100 Q540 1140 894 1100" />
+            <circle cx="540" cy="970" r="128" fill="#06142e" stroke="#ffd23f" stroke-width="5" />
+            <circle class="s11-linea-fina" cx="540" cy="970" r="108" />
+            <text class="s11-num" data-layout-ignore x="540" y="1022" font-size="150" text-anchor="middle">$</text>
+            <text class="s11-num" data-layout-ignore x="214" y="866" font-size="72">1</text>
+            <text class="s11-num" data-layout-ignore x="866" y="866" font-size="72" text-anchor="end">1</text>
+            <text class="s11-num" data-layout-ignore x="214" y="1140" font-size="72">1</text>
+            <text class="s11-num" data-layout-ignore x="866" y="1140" font-size="72" text-anchor="end">1</text>
+            <path class="s11-linea-fina" d="M300 960 H380 M300 990 H360 M700 960 H780 M720 990 H780" />
+          </g>
+          <!-- el dedo acusador: flecha roja de marcador desde la derecha -->
+          <g class="s11-dedo">
+            <path class="ruta s11-flecha" d="M1060 1500 C980 1420 900 1360 800 1200" />
+            <path class="ruta s11-punta" d="M770 1240 L800 1196 L844 1222" />
+          </g>
+        </svg>
+        <div class="s11-txt s11-sospechoso">Sospechoso n.º 1</div>
+        <div class="s11-sello">Culpable</div>
+        <div class="s11-txt s11-aldolar">Al dólar</div>
+        <div class="s11-preg">¿?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-dolar";
+      const DUR = 2.38;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const ECHAS = 0.82;
+      const CULPA = 1.22;
+      const DOLAR = 1.68;
+
+      // cuadro 0: el billete ya está y la cámara se le acerca
+      tl.fromTo(q(".s11-escenario"), { scale: 1.08 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s11-billete"), { scale: 0.86, rotation: -6, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s11-sospechoso"), { opacity: 0.4, y: -20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s11-cotas"), { opacity: 0.3 }, { opacity: 1, duration: 0.3 }, 0);
+      // "vos": el billete se ilumina un toque, como un foco de interrogatorio
+      tl.to(q(".s11-billete"), { y: -10, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.2);
+
+      // "echás ... culpa": el dedo rojo entra y apunta
+      const flecha = q(".s11-flecha");
+      gsap.set([flecha, q(".s11-punta")], { opacity: 0 });
+      gsap.set(flecha, { clipPath: "inset(0 0 0 100%)" });
+      tl.to(flecha, { opacity: 1, duration: 0.03 }, ECHAS);
+      tl.to(flecha, { clipPath: "inset(0 0 0 0%)", duration: 0.35, ease: "power2.inOut" }, ECHAS);
+      tl.to(q(".s11-punta"), { opacity: 1, duration: 0.03 }, CULPA - 0.06);
+      tl.to(q(".s11-dedo"), { x: -14, y: -14, duration: 0.08, yoyo: true, repeat: 3, ease: "sine.inOut" }, CULPA);
+
+      // "culpa": cae el sello CULPABLE sobre el billete
+      gsap.set(q(".s11-sello"), { opacity: 0, rotation: -12 });
+      tl.fromTo(q(".s11-sello"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.12, ease: "power4.in", immediateRender: false }, CULPA - 0.08);
+      sacudon(CULPA + 0.04, 1);
+
+      // "dólar": el billete se encoge de hombros (se inclina y salen los bracitos) + AL DÓLAR ¿?
+      gsap.set(q(".s11-brazos"), { opacity: 0 });
+      tl.fromTo(q(".s11-brazos"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.16, ease: "back.out(2)", immediateRender: false }, DOLAR - 0.04);
+      tl.to([q(".s11-billete"), q(".s11-sello")], { rotation: "-=7", y: -24, duration: 0.18, ease: "back.out(2)" }, DOLAR - 0.02);
+      tl.to(q(".s11-brazos"), { y: -22, duration: 0.14, yoyo: true, repeat: 3, ease: "sine.inOut" }, DOLAR + 0.16);
+      gsap.set(q(".s11-aldolar"), { opacity: 0 });
+      tl.fromTo(q(".s11-aldolar"), { opacity: 0, scale: 2.6 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, DOLAR - 0.08);
+      gsap.set(q(".s11-preg"), { opacity: 0 });
+      tl.fromTo(q(".s11-preg"), { opacity: 0, scale: 0.2, rotation: -40 }, { opacity: 1, scale: 1, rotation: 12, duration: 0.2, ease: "back.out(3)", immediateRender: false }, DOLAR + 0.08);
+      tl.to(q(".s11-dedo"), { opacity: 0, x: 120, y: 120, duration: 0.15 }, DOLAR);
+      sacudon(DOLAR + 0.04, 1.2);
+
+      // salida: barrido hacia la izquierda, como pasar la hoja del plan
+      tl.to(q("#s11-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

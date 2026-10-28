@@ -1,0 +1,166 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-fuga"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-fuga"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-fuga"] .s09-paso, [data-composition-id="s09-fuga"] .s09-calle { position: absolute; inset: 0; }
+    [data-composition-id="s09-fuga"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-fuga"] .plano { fill: none; stroke: #7fd4ff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-fuga"] .plano-fino { fill: none; stroke: #7fd4ff; stroke-width: 3; opacity: 0.55; }
+    [data-composition-id="s09-fuga"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #7fd4ff; }
+    [data-composition-id="s09-fuga"] .s09-cuerpo { fill: none; stroke: #ffd23f; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-fuga"] .s09-flecha { fill: none; stroke: #ff3b30; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-fuga"] .s09-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s09-fuga"] .s09-paso-palabra { top: 600px; font-weight: 900; font-size: 170px; letter-spacing: 0.04em; color: #f2f4f8; }
+    [data-composition-id="s09-fuga"] .s09-paso-num { top: 770px; font-weight: 900; font-size: 470px; color: #ffd23f; text-shadow: 0 0 48px rgba(255, 210, 63, 0.45); }
+    [data-composition-id="s09-fuga"] .s09-sello { position: absolute; left: 0; right: 0; top: 1290px; text-align: center; }
+    [data-composition-id="s09-fuga"] .s09-sello span { display: inline-block; padding: 12px 30px; border: 6px solid #ff3b30; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 60px; letter-spacing: 0.12em; color: #ff3b30; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-fuga"] .s09-mira { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.24em; color: #7fd4ff; white-space: nowrap; }
+    [data-composition-id="s09-fuga"] .s09-largo { top: 600px; font-weight: 900; font-size: 92px; letter-spacing: -0.02em; color: #f2f4f8; }
+    [data-composition-id="s09-fuga"] .s09-largo b { color: #ff3b30; font-weight: 900; }
+  </style>
+  <div id="root" data-composition-id="s09-fuga" data-width="1080" data-height="1920" data-duration="5.72">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="5.72" data-track-index="0">
+      <div class="s09-escenario">
+        <!-- CARTEL "PASO 4" -->
+        <div class="s09-paso">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s09-marco">
+              <path class="plano" d="M90 640 V580 H150 M930 580 H990 V640 M990 1420 V1480 H930 M150 1480 H90 V1420" />
+              <path class="plano-fino" d="M130 1000 H300 M780 1000 H950 M215 980 V1020 M865 980 V1020" />
+              <text class="rotulo" x="110" y="1530" data-layout-ignore>CAP. 04 · HOJA 9</text>
+            </g>
+          </svg>
+          <div class="s09-txt s09-paso-palabra">Paso</div>
+          <div class="s09-txt s09-paso-num">4</div>
+          <div class="s09-sello"><span>La fuga</span></div>
+        </div>
+
+        <!-- TU VIDRIERA, de frente, y el cliente que pasa -->
+        <div class="s09-calle">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s09-local">
+              <rect class="s09-cartel" x="300" y="740" width="480" height="96" rx="10" fill="#06142e" stroke="#7fd4ff" stroke-width="5" />
+              <text x="540" y="805" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="48" fill="#f2f4f8">TU LOCAL</text>
+              <path class="plano" d="M120 850 H960 L940 910 Q920 940 900 910 Q880 940 860 910 Q840 940 820 910 Q800 940 780 910 Q760 940 740 910 Q720 940 700 910 Q680 940 660 910 Q640 940 620 910 Q600 940 580 910 Q560 940 540 910 Q520 940 500 910 Q480 940 460 910 Q440 940 420 910 Q400 940 380 910 Q360 940 340 910 Q320 940 300 910 Q280 940 260 910 Q240 940 220 910 Q200 940 180 910 Q160 940 140 910 Z" />
+              <path class="plano" d="M150 910 V1340 H930 V910" />
+              <rect x="190" y="960" width="700" height="330" rx="6" fill="none" stroke="#7fd4ff" stroke-width="5" />
+              <!-- lo que hay en la vidriera -->
+              <path class="plano-fino" d="M210 1130 H870 M210 1250 H870" />
+              <path class="plano-fino" d="M250 1130 V1070 H320 V1130 M380 1130 V1050 H430 V1130 M640 1130 V1080 H740 V1130 M480 1250 V1180 H560 V1250 M770 1250 V1190 H830 V1250" />
+              <!-- reflejos del vidrio -->
+              <g class="s09-reflejo"><path d="M300 980 L230 1080 M360 980 L250 1140 M720 1160 L640 1270" stroke="#f2f4f8" stroke-width="4" stroke-linecap="round" opacity="0.4" /></g>
+              <path class="plano-fino" d="M60 1410 H1020" />
+              <text class="rotulo" x="190" y="1384" data-layout-ignore>VIDRIERA · 7,00 M</text>
+            </g>
+            <!-- el cliente de cuerpo entero (de perfil, camina a la izquierda) -->
+            <g class="s09-cli">
+              <g class="s09-flechas">
+                <path class="s09-flecha" d="M640 1150 H760 M650 1230 H800 M640 1310 H740" />
+              </g>
+              <g class="s09-pierna s09-pA"><path class="s09-cuerpo" d="M540 1270 L540 1405" /></g>
+              <g class="s09-pierna s09-pB"><path class="s09-cuerpo" d="M540 1270 L540 1405" /></g>
+              <g class="s09-brazo s09-bA"><path class="s09-cuerpo" d="M540 1150 L540 1250" /></g>
+              <path class="s09-cuerpo" d="M540 1132 V1275" />
+              <g class="s09-brazo s09-bB"><path class="s09-cuerpo" d="M540 1150 L540 1250" /></g>
+              <circle cx="540" cy="1086" r="42" fill="#06142e" stroke="#ffd23f" stroke-width="9" />
+              <g class="s09-perfil">
+                <circle cx="516" cy="1080" r="7" fill="#ffd23f" />
+                <path d="M498 1084 L486 1096 L500 1098" fill="none" stroke="#ffd23f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+              <g class="s09-frente">
+                <circle cx="526" cy="1080" r="7" fill="#ffd23f" />
+                <circle cx="556" cy="1080" r="7" fill="#ffd23f" />
+                <path d="M528 1104 H554" stroke="#ffd23f" stroke-width="6" stroke-linecap="round" />
+              </g>
+            </g>
+          </svg>
+          <div class="s09-mira">TE MIRA...</div>
+          <div class="s09-txt s09-largo">Sigue <b>de largo</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-fuga";
+      const DUR = 5.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s09-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, from, rot) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), Object.assign({ opacity: 0, scale: 2.4, transformOrigin: "50% 50%" }, from || {}), { opacity: 1, scale: 1, rotation: rot || 0, transformOrigin: "50% 50%", duration: 0.14, ease: "power4.in", immediateRender: false }, t);
+      };
+
+      const CUATRO = 0.46, FUGA = 1.26, CLIENTE = 2.22, PASA = 2.72, VIDRIERA = 3.36, MIRA = 4.24, SIGUE = 4.72;
+
+      // ---- PASO 4
+      tl.fromTo(q(".s09-paso-palabra"), { opacity: 0.6, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.out" }, 0);
+      tl.fromTo(q(".s09-marco"), { opacity: 0.4, scale: 1.1, transformOrigin: "50% 55%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s09-paso"), { scale: 1 }, { scale: 1.07, duration: 2.1, ease: "none", transformOrigin: "50% 55%" }, 0);
+      golpe(".s09-paso-num", CUATRO - 0.12, { scale: 3.2, rotation: 12 });
+      sacudon(CUATRO + 0.02, 1.3);
+      tl.to(q(".s09-paso-num"), { rotation: -3, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, CUATRO + 0.2);
+      gsap.set(q(".s09-sello"), { rotation: -7 });
+      golpe(".s09-sello", FUGA - 0.12, { scale: 2.6, rotation: -20 }, -7);
+      sacudon(FUGA + 0.03, 1);
+      // el sello se escapa un poquito, como queriendo irse
+      tl.to(q(".s09-sello"), { x: -40, duration: 0.3, ease: "power2.inOut", yoyo: true, repeat: 1 }, FUGA + 0.3);
+      tl.to(q(".s09-paso"), { x: -320, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, 2.14 - 0.2);
+
+      // ---- la vidriera
+      gsap.set(q(".s09-calle"), { opacity: 0 });
+      tl.fromTo(q(".s09-calle"), { opacity: 0, x: 320 }, { opacity: 1, x: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, 2.0);
+      tl.fromTo(q(".s09-local"), { scale: 1.04, transformOrigin: "50% 60%" }, { scale: 1, transformOrigin: "50% 60%", duration: DUR - 2.0, ease: "none", immediateRender: false }, 2.0);
+      // "vidriera": el cartel late y el reflejo barre el vidrio
+      tl.fromTo(q(".s09-reflejo"), { x: 0 }, { x: 160, duration: 0.5, ease: "power2.inOut", immediateRender: false }, VIDRIERA - 0.05);
+      tl.to(q(".s09-cartel"), { scale: 1.06, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1 }, VIDRIERA);
+
+      // el cliente: entra por la derecha, camina, te mira, sigue de largo
+      gsap.set(q(".s09-frente"), { opacity: 0 });
+      gsap.set(q(".s09-cli"), { x: 700 });
+      gsap.set(q(".s09-flechas"), { opacity: 0 });
+      tl.to(q(".s09-cli"), { x: 60, duration: MIRA - CLIENTE, ease: "none" }, CLIENTE);
+      tl.to(q(".s09-cli"), { x: 0, duration: SIGUE - MIRA, ease: "power1.out" }, MIRA);
+      tl.to(q(".s09-cli"), { x: -760, duration: 0.7, ease: "power2.in" }, SIGUE + 0.05);
+      // pasos: piernas y brazos que van y vienen (finito)
+      const N = 16, P = 0.2;
+      gsap.set(q(".s09-pA"), { rotation: 22, transformOrigin: "50% 0%" });
+      gsap.set(q(".s09-pB"), { rotation: -22, transformOrigin: "50% 0%" });
+      gsap.set(q(".s09-bA"), { rotation: -26, transformOrigin: "50% 0%" });
+      gsap.set(q(".s09-bB"), { rotation: 26, transformOrigin: "50% 0%" });
+      tl.to(q(".s09-pA"), { rotation: -22, duration: P, ease: "sine.inOut", yoyo: true, repeat: N - 1 }, CLIENTE - 0.1);
+      tl.to(q(".s09-pB"), { rotation: 22, duration: P, ease: "sine.inOut", yoyo: true, repeat: N - 1 }, CLIENTE - 0.1);
+      tl.to(q(".s09-bA"), { rotation: 26, duration: P, ease: "sine.inOut", yoyo: true, repeat: N - 1 }, CLIENTE - 0.1);
+      tl.to(q(".s09-bB"), { rotation: -26, duration: P, ease: "sine.inOut", yoyo: true, repeat: N - 1 }, CLIENTE - 0.1);
+      // "pasa": flechas de movimiento
+      tl.fromTo(q(".s09-flechas"), { opacity: 0, x: 60 }, { opacity: 0.9, x: 0, duration: 0.2, ease: "power2.out", immediateRender: false }, PASA - 0.06);
+      tl.to(q(".s09-flechas"), { opacity: 0.25, duration: 0.3 }, 3.6);
+      // "te mira": gira la cabeza hacia vos
+      tl.to(q(".s09-perfil"), { opacity: 0, duration: 0.05 }, MIRA - 0.02);
+      tl.to(q(".s09-frente"), { opacity: 1, duration: 0.05 }, MIRA - 0.02);
+      golpe(".s09-mira", MIRA - 0.04, { scale: 1.6 });
+      tl.to(q(".s09-escenario"), { scale: 1.06, transformOrigin: "50% 58%", duration: 0.4, ease: "power2.out" }, MIRA);
+      // "sigue de largo": vuelve a perfil y se va
+      tl.to(q(".s09-frente"), { opacity: 0, duration: 0.05 }, SIGUE - 0.02);
+      tl.to(q(".s09-perfil"), { opacity: 1, duration: 0.05 }, SIGUE - 0.02);
+      tl.to(q(".s09-flechas"), { opacity: 1, scaleX: 1.8, transformOrigin: "0% 50%", duration: 0.2 }, SIGUE);
+      tl.to(q(".s09-escenario"), { scale: 1, duration: 0.3, ease: "power2.inOut" }, SIGUE);
+      tl.to(q(".s09-mira"), { opacity: 0, duration: 0.15 }, SIGUE);
+      golpe(".s09-largo", SIGUE - 0.1, { scale: 2.4 });
+      sacudon(SIGUE + 0.05, 1.2);
+      sacudon(5.1, 0.8);
+
+      // salida
+      tl.to(q("#s09-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

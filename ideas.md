@@ -37,6 +37,7 @@
 - 28-10 · `vagos` · Bot de WhatsApp · "Los comerciantes uruguayos son unos vagos." Giro: no son vagos, están solos · ¿Son vagos o no tienen quién les conteste? Te leemos en los comentarios [formato A polémica con giro · estilo tipografía gigante negro/amarillo/rojo]
 - 28-10 · `almacen` · Todo Scalerics · "Tengo que confesar algo: dejé de comprar en el almacén del barrio." Confesión de un vecino a Rubén · Mandáselo a tu almacenero [formato D confesión · estilo papel y collage, libreta del almacén]
 - 28-10 · `ojala-te-fundas` · Todo Scalerics · "Ojalá te fundas." Monólogo del villano de enfrente (dos voces) · Etiquetá a tu competencia [formato B monólogo de villano · estilo guarida con monitores de vigilancia verde ácido]
+- 28-10 · `el-golpe` · Todo Scalerics · "Te voy a robar los clientes. Y te aviso antes, porque soy así de pillo." Plan de atraco en pasos con referencias (La Casa de Papel, Heisenberg, "qué mirás bobo", el dólar) · Mandáselo al que dice "a mí no me roba nadie" [formato C lista en pasos + B dos voces · estilo plano de atraco azul]
 
 ## En curso
 

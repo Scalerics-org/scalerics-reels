@@ -1,0 +1,188 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-heisenberg"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-heisenberg"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-heisenberg"] .s06-parte { position: absolute; inset: 0; }
+    [data-composition-id="s06-heisenberg"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-heisenberg"] .plano { fill: none; stroke: #7fd4ff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-heisenberg"] .plano-fino { fill: none; stroke: #7fd4ff; stroke-width: 3; opacity: 0.55; }
+    [data-composition-id="s06-heisenberg"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #7fd4ff; }
+    [data-composition-id="s06-heisenberg"] .s06-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s06-heisenberg"] svg.s06-sombrero { left: 330px; top: 640px; width: 420px; height: 200px; }
+    [data-composition-id="s06-heisenberg"] svg.s06-lentes { left: 400px; top: 880px; width: 280px; height: 80px; }
+    [data-composition-id="s06-heisenberg"] .s06-comilla { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 380px; line-height: 1; color: #ffd23f; text-shadow: 0 0 40px rgba(255, 210, 63, 0.4); }
+    [data-composition-id="s06-heisenberg"] .s06-cita { position: absolute; left: 0; right: 0; top: 1330px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; letter-spacing: 0.24em; color: #7fd4ff; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s06-heisenberg"] .s06-toc { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 72px; letter-spacing: 0.06em; color: #ff3b30; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s06-heisenberg"] .s06-nosoy { top: 1296px; font-weight: 800; font-size: 64px; color: #f2f4f8; }
+    [data-composition-id="s06-heisenberg"] .s06-golpea { top: 1372px; font-weight: 900; font-size: 136px; letter-spacing: -0.01em; color: #f2f4f8; }
+    [data-composition-id="s06-heisenberg"] svg.s06-tachon { left: 220px; top: 1380px; width: 640px; height: 120px; }
+    [data-composition-id="s06-heisenberg"] .s06-soy { top: 590px; font-weight: 900; font-size: 112px; letter-spacing: -0.01em; color: #f2f4f8; }
+    [data-composition-id="s06-heisenberg"] .s06-contesta { top: 1250px; font-weight: 900; font-size: 140px; letter-spacing: -0.02em; color: #ffd23f; text-shadow: 0 0 44px rgba(255, 210, 63, 0.5); }
+    [data-composition-id="s06-heisenberg"] svg.s06-resp { left: 430px; top: 1020px; width: 230px; height: 90px; }
+  </style>
+  <div id="root" data-composition-id="s06-heisenberg" data-width="1080" data-height="1920" data-duration="5.56">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.56" data-track-index="0">
+      <div class="s06-escenario">
+        <!-- PARTE 1: el ladrón se pone el sombrero y los lentes -->
+        <div class="s06-parte s06-p1">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s06-ladron">
+              <path d="M300 1270 Q310 1070 540 1056 Q770 1070 780 1270 Z" fill="#050b18" stroke="#7fd4ff" stroke-width="6" stroke-linejoin="round" />
+              <circle cx="540" cy="920" r="130" fill="#050b18" stroke="#7fd4ff" stroke-width="6" />
+              <path class="plano-fino" d="M250 1290 H830" />
+              <text class="rotulo" x="540" y="1250" text-anchor="middle" data-layout-ignore>SUJETO: EL LADRÓN</text>
+            </g>
+          </svg>
+          <!-- sombrero negro de ala corta, genérico -->
+          <svg class="s06-sombrero" viewBox="0 0 420 200" aria-hidden="true">
+            <path d="M120 140 L132 40 Q210 10 288 40 L300 140 Z" fill="#050b18" stroke="#7fd4ff" stroke-width="6" stroke-linejoin="round" />
+            <path d="M128 112 H292 L296 140 H124 Z" fill="#7fd4ff" fill-opacity="0.35" />
+            <ellipse cx="210" cy="150" rx="200" ry="34" fill="#050b18" stroke="#7fd4ff" stroke-width="6" />
+            <path d="M120 140 Q210 160 300 140" fill="none" stroke="#7fd4ff" stroke-width="4" />
+          </svg>
+          <!-- lentes de sol -->
+          <svg class="s06-lentes" viewBox="0 0 280 80" aria-hidden="true">
+            <path d="M14 14 H124 Q122 70 70 70 Q16 70 14 14 Z M156 14 H266 Q264 70 210 70 Q158 70 156 14 Z" fill="#050b18" stroke="#7fd4ff" stroke-width="5" stroke-linejoin="round" />
+            <path d="M124 22 Q140 12 156 22" fill="none" stroke="#7fd4ff" stroke-width="5" />
+            <path d="M36 26 L60 26 M178 26 L202 26" stroke="#f2f4f8" stroke-width="4" stroke-linecap="round" opacity="0.8" />
+          </svg>
+          <div class="s06-comilla s06-c-izq" style="left:70px; top:560px">“</div>
+          <div class="s06-comilla s06-c-der" style="left:790px; top:1010px">”</div>
+          <div class="s06-cita">CITA CÉLEBRE</div>
+        </div>
+
+        <!-- PARTE 2: la puerta que nadie abre -->
+        <div class="s06-parte s06-p2">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <path class="plano s06-marco" d="M370 1250 V690 H710 V1250" />
+            <path class="plano-fino" d="M240 1250 H840" />
+            <g class="s06-hoja">
+              <rect x="388" y="708" width="304" height="540" fill="#06142e" stroke="#7fd4ff" stroke-width="5" />
+              <path class="plano-fino" d="M420 740 H660 V950 H420 Z M420 990 H660 V1210 H420 Z" />
+              <circle cx="655" cy="980" r="12" fill="#7fd4ff" />
+            </g>
+          </svg>
+          <div class="s06-toc s06-toc1" style="left:110px; top:780px">TOC</div>
+          <div class="s06-toc s06-toc2" style="left:740px; top:900px">TOC</div>
+          <div class="s06-toc s06-toc3" style="left:110px; top:1040px">TOC</div>
+          <div class="s06-txt s06-nosoy">No soy el que</div>
+          <div class="s06-txt s06-golpea">Golpea</div>
+          <svg class="s06-tachon" viewBox="0 0 640 120" aria-hidden="true">
+            <path class="s06-tachon-l" d="M10 76 L630 48" fill="none" stroke="#ff3b30" stroke-width="14" stroke-linecap="round" />
+          </svg>
+        </div>
+
+        <!-- PARTE 3: soy el que contesta -->
+        <div class="s06-parte s06-p3">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s06-tel">
+              <rect x="400" y="740" width="280" height="440" rx="40" fill="#050b18" stroke="#7fd4ff" stroke-width="6" />
+              <path d="M510 764 H570" stroke="#7fd4ff" stroke-width="5" stroke-linecap="round" />
+              <circle cx="436" cy="840" r="18" fill="#ffd23f" />
+              <rect x="462" y="812" width="196" height="58" rx="18" fill="#7fd4ff" fill-opacity="0.18" />
+              <text x="560" y="851" text-anchor="middle" font-family="Lexend" font-weight="600" font-size="27" fill="#f2f4f8">¿Hay stock?</text>
+              <text x="540" y="1150" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="26" fill="#7fd4ff">23:04</text>
+            </g>
+          </svg>
+          <!-- la respuesta del ladrón -->
+          <svg class="s06-resp" viewBox="0 0 230 90" aria-hidden="true">
+            <path d="M6 10 Q6 4 12 4 H218 Q224 4 224 10 V68 Q224 74 218 74 H40 L14 88 L22 74 H12 Q6 74 6 68 Z" fill="#ff3b30" />
+            <text x="115" y="50" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="30" fill="#f2f4f8">¡Sí, hay!</text>
+          </svg>
+          <div class="s06-txt s06-soy">Soy el que</div>
+          <div class="s06-txt s06-contesta">Contesta.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-heisenberg";
+      const DUR = 5.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s06-escenario");
+
+      const golpe = (el, t, s = 2.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (el, t, d = 0.5) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+
+      const DIJO = 0.58, HEIS = 0.9, YO = 1.98, NO = 2.08, SOY = 2.22, GOLPEA = 2.74, PUERTA = 3.28, SOY2 = 3.88, CONTESTA = 4.48;
+
+      // cámara
+      tl.fromTo(ESC, { scale: 1.06 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+
+      // ---- parte 1: el sombrero cae (ya está a la vista en el cuadro 0) ----
+      tl.fromTo(q(".s06-ladron"), { opacity: 0.6, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s06-sombrero"), { y: -170, rotation: -18, opacity: 0.7 }, { y: 0, rotation: 0, opacity: 1, duration: 0.36, ease: "bounce.out" }, 0);
+      sacudon(0.2, 0.6);
+      gsap.set(q(".s06-lentes"), { opacity: 0 });
+      tl.fromTo(q(".s06-lentes"), { opacity: 0, y: -320, rotation: 20 }, { opacity: 1, y: 0, rotation: 0, duration: 0.24, ease: "back.out(2)", immediateRender: false }, DIJO - 0.12);
+      sacudon(DIJO + 0.1, 0.7);
+      // Heisenberg: flash (lo pone ambiente), comillas gigantes y cita célebre
+      golpe(q(".s06-c-izq"), HEIS, 3);
+      golpe(q(".s06-c-der"), HEIS + 0.08, 3);
+      sacudon(HEIS, 1.6);
+      gsap.set(q(".s06-cita"), { opacity: 0 });
+      tl.fromTo(q(".s06-cita"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out", immediateRender: false }, HEIS + 0.1);
+      tl.to([q(".s06-ladron"), q(".s06-sombrero"), q(".s06-lentes")], { scale: 1.08, transformOrigin: "50% 50%", duration: 0.9, ease: "power1.out" }, HEIS);
+      tl.to(q(".s06-sombrero"), { rotation: -6, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.2);
+      tl.to(q(".s06-c-izq"), { y: -16, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.0);
+      tl.to(q(".s06-c-der"), { y: 16, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.0);
+      tl.to(q(".s06-p1"), { x: -400, opacity: 0, duration: 0.18, ease: "power3.in" }, YO - 0.16);
+
+      // ---- parte 2: la puerta ----
+      const p2 = q(".s06-p2");
+      gsap.set(p2, { opacity: 0 });
+      tl.fromTo(p2, { opacity: 0, x: 400 }, { opacity: 1, x: 0, duration: 0.18, ease: "power3.out", immediateRender: false }, YO - 0.08);
+      [[q(".s06-toc1"), NO], [q(".s06-toc2"), SOY + 0.06], [q(".s06-toc3"), GOLPEA]].forEach(([el, t]) => {
+        golpe(el, t, 2);
+        tl.to(q(".s06-hoja"), { x: 10, duration: 0.03, yoyo: true, repeat: 3, ease: "none" }, t);
+        sacudon(t + 0.02, 0.6);
+      });
+      gsap.set(q(".s06-nosoy"), { opacity: 0 });
+      tl.fromTo(q(".s06-nosoy"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.18, immediateRender: false }, NO);
+      golpe(q(".s06-golpea"), GOLPEA, 2.4);
+      dibujar(q(".s06-tachon-l"), 3.16, 0.16);
+      sacudon(3.2, 1);
+      tl.to([q(".s06-toc1"), q(".s06-toc2"), q(".s06-toc3")], { opacity: 0.25, duration: 0.2 }, PUERTA);
+      tl.to(p2, { x: -400, opacity: 0, duration: 0.18, ease: "power3.in" }, SOY2 - 0.2);
+
+      // ---- parte 3: soy el que contesta ----
+      const p3 = q(".s06-p3");
+      gsap.set(p3, { opacity: 0 });
+      tl.set(p3, { opacity: 1 }, SOY2 - 0.1);
+      golpe(q(".s06-soy"), SOY2, 2.4);
+      tl.fromTo(q(".s06-tel"), { y: 700 }, { y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, SOY2 - 0.06);
+      tl.to(q(".s06-tel"), { rotation: -3, transformOrigin: "50% 50%", duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, 4.0);
+      // la respuesta sale disparada
+      const resp = q(".s06-resp");
+      gsap.set(resp, { opacity: 0 });
+      tl.fromTo(resp, { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.12, ease: "back.out(3)", immediateRender: false }, CONTESTA - 0.14);
+      tl.to(resp, { x: 270, y: -150, scale: 1.5, rotation: 8, duration: 0.3, ease: "power3.out" }, CONTESTA + 0.02);
+      tl.to(resp, { y: -135, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, CONTESTA + 0.34);
+      golpe(q(".s06-contesta"), CONTESTA, 3);
+      sacudon(CONTESTA + 0.04, 1.8);
+      tl.to(q(".s06-contesta"), { scale: 1.05, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, CONTESTA + 0.2);
+
+      // salida
+      tl.to(q("#s06-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,183 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-banco"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-banco"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-banco"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-banco"] .plano { fill: none; stroke: #7fd4ff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-banco"] .plano-fino { fill: none; stroke: #7fd4ff; stroke-width: 3; opacity: 0.55; }
+    [data-composition-id="s02-banco"] .cliente { fill: #ffd23f; }
+    [data-composition-id="s02-banco"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #7fd4ff; }
+    [data-composition-id="s02-banco"] .s02-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s02-banco"] .s02-paso { top: 596px; font-weight: 900; font-size: 150px; letter-spacing: 0.06em; color: #f2f4f8; }
+    [data-composition-id="s02-banco"] .s02-num { top: 700px; font-weight: 900; font-size: 520px; color: #ffd23f; text-shadow: 0 0 50px rgba(255, 210, 63, 0.35); }
+    [data-composition-id="s02-banco"] .s02-sello { position: absolute; left: 0; right: 0; top: 1290px; text-align: center; }
+    [data-composition-id="s02-banco"] .s02-sello span { display: inline-block; padding: 12px 26px; border: 6px solid #ff3b30; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 46px; letter-spacing: 0.12em; color: #ff3b30; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-banco"] .s02-ref { position: absolute; left: 0; right: 0; top: 1236px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.12em; color: #7fd4ff; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-banco"] .s02-mascara { position: absolute; left: 350px; top: 640px; width: 380px; height: 500px; overflow: visible; }
+    [data-composition-id="s02-banco"] .s02-vos { top: 1250px; font-weight: 900; font-size: 230px; letter-spacing: -0.02em; color: #f2f4f8; }
+  </style>
+  <div id="root" data-composition-id="s02-banco" data-width="1080" data-height="1920" data-duration="5.18">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="5.18" data-track-index="0">
+      <div class="s02-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- marco del cartel PASO 1 -->
+          <g class="s02-marco">
+            <path class="plano-fino" d="M110 640 V590 H190 M970 640 V590 H890 M110 1210 V1260 H190 M970 1210 V1260 H890" />
+            <text class="rotulo" x="124" y="630" data-layout-ignore>CAP. 01</text>
+            <text class="rotulo" x="956" y="630" text-anchor="end" data-layout-ignore>EL GOLPE</text>
+          </g>
+          <!-- EL BANCO, de frente -->
+          <g class="s02-banco">
+            <path class="plano s02-b-fronton" d="M230 820 L540 680 L850 820 Z" />
+            <path class="plano s02-b-viga" d="M240 860 H840 V820 H240 Z" />
+            <path class="plano s02-b-cols" d="M300 1130 V860 M340 1130 V860 M440 1130 V860 M480 1130 V860 M600 1130 V860 M640 1130 V860 M740 1130 V860 M780 1130 V860" />
+            <path class="plano-fino s02-b-capit" d="M290 878 H350 M430 878 H490 M590 878 H650 M730 878 H790 M290 1112 H350 M430 1112 H490 M590 1112 H650 M730 1112 H790" />
+            <path class="plano s02-b-base" d="M250 1130 H830 V1150 H250 Z M220 1150 H860 V1180 H220 Z" />
+            <text class="s02-b-letrero" x="540" y="806" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="52" letter-spacing="10" fill="#f2f4f8">BANCO</text>
+            <text class="rotulo s02-b-rot" x="220" y="1226">OBJETIVO 01 · ESC 1:200</text>
+          </g>
+          <!-- TU LOCAL, en el mismo lugar -->
+          <g class="s02-local">
+            <path class="plano" d="M330 650 H750 V720 H330 Z" />
+            <text x="540" y="701" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="44" letter-spacing="6" fill="#f2f4f8">TU LOCAL</text>
+            <path class="plano" d="M230 740 H850 L830 820 H250 Z" />
+            <path class="plano" d="M250 820 q29 34 58 0 q29 34 58 0 q29 34 58 0 q29 34 58 0 q29 34 58 0 q29 34 58 0 q29 34 58 0 q29 34 58 0 q29 34 58 0 q29 34 58 0" />
+            <path class="plano-fino" d="M308 740 L304 820 M366 740 L362 820 M424 740 L420 820 M482 740 L478 820 M540 740 V820 M598 740 L602 820 M656 740 L660 820 M714 740 L718 820 M772 740 L776 820" />
+            <path class="plano" d="M265 840 V1170 H815 V840" />
+            <path class="plano" d="M300 880 H520 V1080 H300 Z M610 910 H760 V1170 H610 Z" />
+            <circle cx="740" cy="1045" r="7" fill="#7fd4ff" />
+            <path class="plano-fino" d="M200 1170 H880" />
+            <circle class="cliente" cx="370" cy="1010" r="16" />
+            <circle class="cliente" cx="450" cy="1030" r="16" />
+            <text class="rotulo" x="220" y="1226">OBJETIVO 01 · ESC 1:50</text>
+          </g>
+          <!-- la mira -->
+          <g class="s02-mira">
+            <circle cx="540" cy="960" r="140" fill="none" stroke="#ff3b30" stroke-width="6" />
+            <circle cx="540" cy="960" r="12" fill="#ff3b30" />
+            <path d="M540 790 V880 M540 1040 V1130 M370 960 H460 M620 960 H710" stroke="#ff3b30" stroke-width="6" stroke-linecap="round" />
+          </g>
+        </svg>
+        <!-- PASO 1 -->
+        <div class="s02-txt s02-paso">Paso</div>
+        <div class="s02-txt s02-num">1</div>
+        <div class="s02-sello"><span>Estudiar el banco</span></div>
+        <!-- máscara de teatro genérica -->
+        <svg class="s02-mascara" viewBox="0 0 380 500" aria-hidden="true">
+          <path d="M190 18 C305 18 362 105 357 220 C352 345 285 462 190 482 C95 462 28 345 23 220 C18 105 75 18 190 18 Z" fill="#f2f4f8" stroke="#7fd4ff" stroke-width="6" />
+          <path d="M88 180 Q132 140 172 176 M208 176 Q248 140 292 180" fill="none" stroke="#06142e" stroke-width="9" stroke-linecap="round" />
+          <path d="M92 218 Q132 188 172 218 Q132 244 92 218 Z M208 218 Q248 188 288 218 Q248 244 208 218 Z" fill="#050b18" />
+          <path d="M190 226 L178 312 Q190 324 204 314" fill="none" stroke="#06142e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="98" cy="320" r="26" fill="#ff3b30" opacity="0.35" />
+          <circle cx="282" cy="320" r="26" fill="#ff3b30" opacity="0.35" />
+          <path d="M108 362 Q190 446 272 362" fill="none" stroke="#06142e" stroke-width="9" stroke-linecap="round" />
+          <path d="M100 352 Q104 366 116 370 M280 352 Q276 366 264 370" fill="none" stroke="#06142e" stroke-width="6" stroke-linecap="round" />
+          <rect class="s02-scan" x="-30" y="0" width="440" height="4" fill="#ff3b30" opacity="0.8" />
+        </svg>
+        <div class="s02-ref">Referencia: La Casa de Papel</div>
+        <div class="s02-txt s02-vos">Vos.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-banco";
+      const DUR = 5.18;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s02-escenario");
+
+      const golpe = (el, t, s = 2.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (el, t, d = 0.5) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+
+      const UNO = 0.42, COMO = 0.82, CASA = 1.26, PAPEL = 1.66, ESTUDIAR = 2.34, BANCO = 3.14, OSEA = 3.86, VOS = 4.32;
+
+      // cámara que se acerca todo el tiempo
+      tl.fromTo(ESC, { scale: 1.06 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+
+      // ---- PASO 1 (cuadro 0 ya lleno) ----
+      tl.fromTo(q(".s02-paso"), { opacity: 0.5, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.out" }, 0);
+      tl.fromTo(q(".s02-marco"), { opacity: 0.4, scale: 1.1, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out" }, 0);
+      golpe(q(".s02-num"), UNO, 3.2);
+      sacudon(UNO + 0.04, 1.4);
+      gsap.set(q(".s02-sello"), { rotation: -7 });
+      golpe(q(".s02-sello"), 0.56, 2.4);
+      sacudon(0.5, 0.8);
+      tl.to(q(".s02-num"), { scale: 1.06, duration: 0.12, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0.56);
+      // se va el cartel
+      tl.to(q(".s02-sello"), { y: 150, scale: 0.75, duration: 0.2, ease: "power3.out" }, COMO - 0.08);
+      tl.to(q(".s02-sello"), { opacity: 0, y: 200, duration: 0.16, ease: "power3.in" }, ESTUDIAR - 0.2);
+      tl.to([q(".s02-paso"), q(".s02-num"), q(".s02-marco")], { opacity: 0, y: -140, duration: 0.16, ease: "power3.in" }, COMO - 0.08);
+
+      // ---- la máscara de teatro ----
+      const masc = q(".s02-mascara");
+      gsap.set(masc, { opacity: 0 });
+      tl.fromTo(masc, { opacity: 0, y: -320, rotation: -28 }, { opacity: 1, y: 0, rotation: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, COMO);
+      tl.to(masc, { rotation: 7, duration: 0.42, ease: "sine.inOut" }, COMO + 0.3);
+      tl.to(masc, { rotation: -6, duration: 0.5, ease: "sine.inOut" }, COMO + 0.72);
+      tl.to(masc, { scale: 1.08, duration: 0.1, yoyo: true, repeat: 1 }, CASA);
+      tl.fromTo(q(".s02-scan"), { y: 0 }, { y: 496, duration: 1.2, ease: "none" }, COMO + 0.1);
+      sacudon(COMO + 0.26, 0.7);
+      gsap.set(q(".s02-ref"), { opacity: 0 });
+      tl.fromTo(q(".s02-ref"), { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, CASA - 0.06);
+      tl.to(q(".s02-ref"), { opacity: 0.4, duration: 0.05, yoyo: true, repeat: 3, ease: "steps(1)" }, PAPEL + 0.1);
+      // la máscara se va a la esquina
+      tl.to(masc, { opacity: 0, scale: 0.3, x: -340, y: -200, rotation: -40, duration: 0.22, ease: "power3.in" }, ESTUDIAR - 0.2);
+      tl.to(q(".s02-ref"), { opacity: 0, y: 30, duration: 0.16 }, ESTUDIAR - 0.2);
+
+      // ---- el banco se dibuja ----
+      ["s02-b-fronton", "s02-b-viga", "s02-b-cols", "s02-b-capit", "s02-b-base"].forEach((c, i) => dibujar(q("." + c), ESTUDIAR + i * 0.1, 0.5));
+      gsap.set(q(".s02-b-rot"), { opacity: 0 });
+      tl.to(q(".s02-b-rot"), { opacity: 1, duration: 0.2 }, ESTUDIAR + 0.4);
+      golpe(q(".s02-b-letrero"), BANCO, 2.4);
+      gsap.set(q(".s02-b-letrero"), { transformOrigin: "50% 50%" });
+      sacudon(BANCO + 0.04, 1);
+
+      // la mira busca y encuentra
+      const mira = q(".s02-mira");
+      gsap.set(mira, { opacity: 0, transformOrigin: "50% 50%" });
+      tl.fromTo(mira, { opacity: 0, x: 220, y: 150, scale: 0.7 }, { opacity: 1, x: 160, y: 120, scale: 0.7, duration: 0.15, immediateRender: false }, 2.9);
+      tl.to(mira, { x: -180, y: -60, duration: 0.45, ease: "power2.inOut" }, 3.05);
+      tl.to(mira, { x: 60, y: 30, duration: 0.35, ease: "power2.inOut" }, 3.5);
+      tl.to(mira, { x: 0, y: 0, scale: 1, duration: 0.2, ease: "power3.out" }, 3.9);
+      tl.to(mira, { rotation: 90, duration: 0.3, ease: "power3.out" }, VOS - 0.1);
+
+      // ---- "o sea, vos": el banco se vuelve tu local (glitch) ----
+      const banco = q(".s02-banco"), local = q(".s02-local");
+      gsap.set(local, { opacity: 0 });
+      [[0, -26, 0.3, 0.8, 18], [0.05, 20, 1, 0, 0], [0.1, -12, 0.2, 1, -14], [0.15, 30, 0.8, 0.3, 10], [0.2, 0, 0, 1, 0]].forEach(([d, x, ob, ol, xl]) => {
+        tl.set(banco, { x, opacity: ob }, OSEA + d);
+        tl.set(local, { x: xl, opacity: ol }, OSEA + d);
+      });
+      sacudon(OSEA, 0.8);
+      tl.fromTo(local, { scale: 1.05, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.5, ease: "power2.out", immediateRender: false }, OSEA + 0.2);
+
+      // VOS.
+      golpe(q(".s02-vos"), VOS, 2.8);
+      sacudon(VOS + 0.04, 1.5);
+      tl.to(local, { opacity: 0.55, duration: 0.15 }, VOS);
+      tl.to(q(".s02-vos"), { scale: 1.05, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, VOS + 0.12);
+
+      // salida
+      tl.to(q("#s02-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

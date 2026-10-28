@@ -1,0 +1,54 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* papel de plano: grilla fina y grilla gruesa */
+    [data-composition-id="ambiente"] .amb-grilla { position: absolute; left: -60px; top: -60px; width: 1200px; height: 2040px; opacity: 0.16;
+      background-image: linear-gradient(rgba(127, 212, 255, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(127, 212, 255, 0.5) 1px, transparent 1px),
+        linear-gradient(rgba(127, 212, 255, 0.25) 1px, transparent 1px), linear-gradient(90deg, rgba(127, 212, 255, 0.25) 1px, transparent 1px);
+      background-size: 120px 120px, 120px 120px, 30px 30px, 30px 30px; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1120px at 540px 920px, rgba(6, 20, 46, 0) 55%, rgba(6, 20, 46, 0.88) 100%); }
+    /* rótulo de plano abajo a la derecha */
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 60px; top: 1600px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; color: #7fd4ff; opacity: 0.6; text-align: right; line-height: 1.5; }
+    /* la alarma roja que gira en las esquinas cuando algo sale mal (para vos) */
+    [data-composition-id="ambiente"] .amb-alarma { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 600px 600px at 0% 0%, rgba(255, 59, 48, 0.35), rgba(255, 59, 48, 0) 70%), radial-gradient(ellipse 600px 600px at 100% 100%, rgba(255, 59, 48, 0.35), rgba(255, 59, 48, 0) 70%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #f2f4f8; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="67.82">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="67.82" data-track-index="0">
+      <div class="amb-grilla"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-alarma"></div>
+      <div class="amb-rotulo" data-layout-ignore>PLAN: EL GOLPE<br />HOJA 1 DE 1</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 67.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // la grilla se desliza despacio en diagonal (cámara sobre el plano)
+      tl.fromTo(q(".amb-grilla"), { x: 0, y: 0 }, { x: 60, y: 60, duration: DUR, ease: "none" }, 0);
+
+      // alarma (segundos globales): "robar", "bobo", "dólar"
+      [[0.3, 1.2], [44.9, 1.0], [48.2, 0.8]].forEach(([t, d]) => {
+        tl.to(q(".amb-alarma"), { opacity: 1, duration: 0.1, yoyo: true, repeat: Math.max(1, Math.round(d / 0.2)) * 2 - 1, ease: "steps(1)" }, t);
+      });
+
+      // flashes de foto de vigilancia: "pillo", "Heisenberg", "bóveda"
+      [3.58, 25.7, 59.72].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.6, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
