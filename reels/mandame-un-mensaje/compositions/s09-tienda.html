@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-tienda"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-tienda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-tienda"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tienda"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tienda"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tienda"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tienda"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tienda"] .ln-navy { fill: none; stroke: #0b1d35; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tienda"] .punto { fill: #efeee5; }
+    [data-composition-id="s09-tienda"] .relleno { fill: #5ce611; }
+    [data-composition-id="s09-tienda"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s09-tienda"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s09-tienda"] .ui-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s09-tienda"] .lx-boton { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #0b1d35; }
+    [data-composition-id="s09-tienda"] .pesos { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s09-tienda"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s09-tienda"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #5ce611; }
+    [data-composition-id="s09-tienda"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-tienda"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s09-tienda"] .s09-nombre { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 58px; letter-spacing: -0.01em; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s09-tienda" data-width="1080" data-height="1920" data-duration="3.08">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="3.08" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s09-marca"><rect class="ln s09-dm" x="340" y="620" width="400" height="100" rx="24" /><text class="s09-nombre" x="540" y="690" text-anchor="middle">Scalerics</text></g>
+        <g class="s09-web">
+        <rect class="ln s09-db" x="270" y="760" width="540" height="410" rx="24" />
+        <line class="ln-4 s09-db" x1="270" y1="812" x2="810" y2="812" />
+        <circle class="ln-4 s09-db" cx="302" cy="786" r="7" /><circle class="ln-4 s09-db" cx="328" cy="786" r="7" /><circle class="ln-4 s09-db" cx="354" cy="786" r="7" />
+        <g class="s09-card s09-c1"><rect class="ln-4 s09-dd" x="300" y="845" width="140" height="140" rx="14" /><g class="s09-dd-g" transform="translate(370 915)"><path class="ln-4" d="M-48 22 V2 Q-46 -18 -28 -20 L-10 -22 Q0 -6 18 -2 L34 2 Q48 6 48 18 V22 Z M-48 14 H48" /></g><path class="ln-ac4 s09-dd" d="M300 1018 H370" /><path class="ln-tenue s09-dd" d="M300 1048 H410" /></g>
+        <g class="s09-card s09-c2"><rect class="ln-4 s09-dd" x="470" y="845" width="140" height="140" rx="14" /><g class="s09-dd-g" transform="translate(540 915)"><path class="ln-4" d="M-40 -22 L-16 -34 Q0 -24 16 -34 L40 -22 L32 -4 L22 -8 V34 H-22 V-8 L-32 -4 Z" /></g><path class="ln-ac4 s09-dd" d="M470 1018 H540" /><path class="ln-tenue s09-dd" d="M470 1048 H580" /></g>
+        <g class="s09-card s09-c3"><rect class="ln-4 s09-dd" x="640" y="845" width="140" height="140" rx="14" /><g class="s09-dd-g" transform="translate(710 915)"><path class="ln-4" d="M-32 -14 H32 L26 36 H-26 Z M-14 -14 V-22 Q-14 -38 0 -38 Q14 -38 14 -22 V-14" /></g><path class="ln-ac4 s09-dd" d="M640 1018 H710" /><path class="ln-tenue s09-dd" d="M640 1048 H750" /></g>
+        <g class="s09-venta"><rect class="relleno" x="430" y="1084" width="220" height="58" rx="29" /><text class="lx-boton" x="540" y="1123" text-anchor="middle">+1 venta</text></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">Vende sola</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-tienda";
+      const DUR = 3.08;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      // etiqueta: et(n, t) muestra la n y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s09-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+      const SCALERICS = 0.15, TIENDA = 1.25, VENDE = 2.05, SOLA = 2.35;
+      dibujar([q(".s09-dm")], 0, 0.5, 0.45);
+      tl.fromTo(q(".s09-nombre"), { opacity: 0.2, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, SCALERICS);
+      punch(q(".s09-marca"), SCALERICS + 0.35, 540, 670, 1.05);
+      dibujar(qa(".s09-db"), TIENDA - 0.55, 0.5);
+      qa(".s09-card").forEach((c, i) => {
+      dibujar(Array.from(c.querySelectorAll(".s09-dd")), TIENDA - 0.1 + i * 0.15, 0.4);
+      const g = c.querySelector(".s09-dd-g");
+      gsap.set(g, { opacity: 0 });
+      tl.to(g, { opacity: 1, duration: 0.25 }, TIENDA + 0.1 + i * 0.15);
+      });
+      pop(q(".s09-venta"), VENDE, 540, 1113);
+      punch(q(".s09-venta"), SOLA, 540, 1113, 1.12);
+      punch(q(".s09-c1"), VENDE + 0.1, 370, 915, 1.06);
+      et(1, VENDE);
+      tl.fromTo(q(".s09-web"), { y: 10 }, { y: 0, duration: 2.5, ease: "power1.out" }, 0.5);
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

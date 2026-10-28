@@ -1,0 +1,10 @@
+[
+  {"t":0.4,"sfx":"notification","vol":0.25,"max":0.6},
+  {"t":1.5,"sfx":"click-soft","vol":0.2},
+  {"t":2.41,"sfx":"pop","vol":0.22},
+  {"t":3.76,"sfx":"notification","vol":0.22,"max":0.6},
+  {"t":4.9,"sfx":"click-soft","vol":0.2},
+  {"t":6.86,"sfx":"pop","vol":0.22},
+  {"t":7.86,"sfx":"pop","vol":0.22},
+  {"t":8.76,"sfx":"notification","vol":0.22,"max":0.6}
+]

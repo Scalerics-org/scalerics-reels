@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-sistema"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-sistema"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-sistema"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-navy { fill: none; stroke: #0b1d35; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .punto { fill: #efeee5; }
+    [data-composition-id="s08-sistema"] .relleno { fill: #5ce611; }
+    [data-composition-id="s08-sistema"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s08-sistema"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s08-sistema"] .ui-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s08-sistema"] .lx-boton { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #0b1d35; }
+    [data-composition-id="s08-sistema"] .pesos { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s08-sistema"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s08-sistema"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #5ce611; }
+    [data-composition-id="s08-sistema"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-sistema"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s08-sistema"] .s08-pesos { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 60px; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s08-sistema" data-width="1080" data-height="1920" data-duration="3.18">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="3.18" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s08-no"><g class="s08-tag">
+        <path class="ln s08-dt" d="M400 900 L464 836 H640 Q656 836 656 852 V948 Q656 964 640 964 H464 Z" />
+        <circle class="ln-4 s08-dt" cx="458" cy="900" r="11" />
+        <text class="s08-pesos" x="568" y="921" text-anchor="middle">$</text>
+        <g class="s08-b"><circle class="ln-ac4" cx="656" cy="836" r="18" /><path class="ln-ac4" d="M648 828 L664 844 M664 828 L648 844" /></g>
+        </g></g>
+        <g class="s08-eng">
+        <path class="ln s08-dg" d="M673.3 882.8 L710.6 888.4 L710.6 931.6 L673.3 937.2 L663.8 966.4 L690.7 992.9 L665.4 1027.7 L631.8 1010.3 L607.0 1028.3 L613.2 1065.6 L572.2 1079.0 L555.3 1045.1 L524.7 1045.1 L507.8 1079.0 L466.8 1065.6 L473.0 1028.3 L448.2 1010.3 L414.6 1027.7 L389.3 992.9 L416.2 966.4 L406.7 937.2 L369.4 931.6 L369.4 888.4 L406.7 882.8 L416.2 853.6 L389.3 827.1 L414.6 792.3 L448.2 809.7 L473.0 791.7 L466.8 754.4 L507.8 741.0 L524.7 774.9 L555.3 774.9 L572.2 741.0 L613.2 754.4 L607.0 791.7 L631.8 809.7 L665.4 792.3 L690.7 827.1 L663.8 853.6 Z" />
+        <circle class="ln-ac s08-dg" cx="540" cy="910" r="56" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">No es caro</span><span class="s08-e2">Es un sistema</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-sistema";
+      const DUR = 3.18;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      // etiqueta: et(n, t) muestra la n y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s08-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+      const ARREGLARLO = 0.13, CARO = 0.93, SISTEMA = 2.13;
+      dibujar(qa(".s08-dt"), 0, 0.45, 0.4);
+      tl.fromTo(q(".s08-pesos"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.2);
+      tl.fromTo(q(".s08-tag"), { rotation: -6, svgOrigin: "400 900" }, { rotation: 5, svgOrigin: "400 900", duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1 }, ARREGLARLO);
+      pop(q(".s08-b"), CARO, 656, 836);
+      et(1, CARO);
+      punch(q(".s08-b"), CARO + 0.5, 656, 836, 1.2);
+      tl.to(q(".s08-no"), { opacity: 0, scale: 0.8, filter: "blur(6px)", svgOrigin: "540 900", duration: 0.3, ease: "power2.in" }, SISTEMA - 0.45);
+      dibujar(qa(".s08-dg"), SISTEMA - 0.2, 0.5);
+      tl.fromTo(q(".s08-eng"), { rotation: -40, svgOrigin: "540 910" }, { rotation: 60, svgOrigin: "540 910", duration: DUR - SISTEMA + 0.2, ease: "power2.out" }, SISTEMA - 0.2);
+      punch(q(".s08-eng"), SISTEMA + 0.1, 540, 910, 1.08);
+      et(2, SISTEMA);
+
+      // salida
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

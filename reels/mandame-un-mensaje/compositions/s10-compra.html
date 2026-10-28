@@ -1,0 +1,161 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-compra"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-compra"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-compra"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-compra"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-compra"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-compra"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-compra"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-compra"] .ln-navy { fill: none; stroke: #0b1d35; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-compra"] .punto { fill: #efeee5; }
+    [data-composition-id="s10-compra"] .relleno { fill: #5ce611; }
+    [data-composition-id="s10-compra"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s10-compra"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s10-compra"] .ui-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s10-compra"] .lx-boton { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #0b1d35; }
+    [data-composition-id="s10-compra"] .pesos { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s10-compra"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s10-compra"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #5ce611; }
+    [data-composition-id="s10-compra"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-compra"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s10-compra"] .s10-precio { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 46px; fill: #5ce611; }
+
+    [data-composition-id="s10-compra"] .s10-ok-txt { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; fill: #5ce611; }
+
+    [data-composition-id="s10-compra"] .s10-mp { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; opacity: 0.75; }
+
+    [data-composition-id="s10-compra"] .s10-ticket-txt { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.08em; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s10-compra" data-width="1080" data-height="1920" data-duration="7.62">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="7.62" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s10-cel">
+        <rect class="ln s10-dc" x="330" y="600" width="420" height="620" rx="52" />
+        <line class="ln s10-dc" x1="510" y1="628" x2="570" y2="628" />
+        <g class="s10-cont">
+        <rect class="ln-4 s10-dc" x="362" y="650" width="356" height="240" rx="18" />
+        <g transform="translate(540 772) scale(1.45) translate(-436 -859)">
+        <path class="ln s10-dz" vector-effect="non-scaling-stroke" d="M340 900 V858 Q342 826 372 822 L404 818 Q420 846 452 852 L500 860 Q530 866 532 888 V900 Z" />
+        <path class="ln-4 s10-dz" vector-effect="non-scaling-stroke" d="M340 884 H532" />
+        <path class="ln-4 s10-dz" vector-effect="non-scaling-stroke" d="M392 834 L402 848 M410 828 L420 844" />
+        </g>
+        <text class="ui s10-nom" x="366" y="938">Zapatilla urbana</text>
+        <text class="s10-precio" x="366" y="998">$ 2.490</text>
+        <g class="s10-boton"><rect class="relleno" x="362" y="1040" width="356" height="80" rx="40" /><text class="lx-boton" x="540" y="1091" text-anchor="middle">Pagar</text></g>
+        </g>
+        <g class="s10-ok">
+        <circle class="ln-ac s10-dok" cx="540" cy="850" r="84" />
+        <path class="ln-ac s10-dok" d="M500 852 L530 882 L584 822" />
+        <text class="s10-ok-txt" x="540" y="1000" text-anchor="middle">Pago aprobado</text>
+        <text class="s10-mp" x="540" y="1048" text-anchor="middle">Mercado Pago</text>
+        </g>
+        </g>
+        <g class="s10-dedo"><circle class="ln" cx="0" cy="0" r="26" /><circle class="ln-4 s10-onda" cx="0" cy="0" r="26" /></g>
+        <g class="s10-chat"><path class="ln" d="M806 690 H920 Q940 690 940 710 V750 Q940 770 920 770 H850 L826 790 L830 770 H806 Q786 770 786 750 V710 Q786 690 806 690 Z" /><circle class="punto" cx="830" cy="730" r="7" /><circle class="punto" cx="863" cy="730" r="7" /><circle class="punto" cx="896" cy="730" r="7" /></g>
+        <g class="s10-x"><circle class="ln-ac4" cx="940" cy="690" r="18" /><path class="ln-ac4" d="M932 682 L948 698 M948 682 L932 698" /></g>
+        <g transform="translate(770 790) scale(0.8)"><g class="s10-caja">
+        <path class="ln s10-dk" d="M-100 -50 H100 V90 H-100 Z" />
+        <path class="ln s10-dk" d="M-100 -50 L-60 -100 H140 L100 -50" />
+        <path class="ln s10-dk" d="M100 90 L140 40 V-100" />
+        <path class="ln-ac s10-dk" d="M-20 -50 V90 M-20 -50 L20 -100" />
+        </g></g>
+        <g transform="translate(620 930)"><g class="s10-ticket s10-t1"><path class="ln" d="M0 -38 H300 V-14 Q286 -14 286 0 Q286 14 300 14 V38 H0 V14 Q14 14 14 0 Q14 -14 0 -14 Z" /><text class="s10-ticket-txt" x="150" y="11" text-anchor="middle">DAC</text></g></g>
+        <g transform="translate(620 1020)"><g class="s10-ticket s10-t2"><path class="ln" d="M0 -38 H300 V-14 Q286 -14 286 0 Q286 14 300 14 V38 H0 V14 Q14 14 14 0 Q14 -14 0 -14 Z" /><text class="s10-ticket-txt" x="150" y="11" text-anchor="middle">Correo</text></g></g>
+        <g transform="translate(620 1110)"><g class="s10-ticket s10-t3"><path class="ln" d="M0 -38 H300 V-14 Q286 -14 286 0 Q286 14 300 14 V38 H0 V14 Q14 14 14 0 Q14 -14 0 -14 Z" /><text class="s10-ticket-txt" x="150" y="11" text-anchor="middle">PedidosYa</text></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Elige · ve · paga</span><span class="s10-e2">Sin preguntar nada</span><span class="s10-e3">Envíos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-compra";
+      const DUR = 7.62;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      // etiqueta: et(n, t) muestra la n y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s10-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+      const ELIGE = 0.47, PRECIO = 1.27, PAGA = 1.87, MERCADO = 2.47, SIN = 2.87, NADA = 3.87, ENVIO = 4.67, DAC = 5.37, CORREO = 5.77, PEDIDOSYA = 6.57;
+      dibujar(qa(".s10-dc"), 0, 0.5, 0.45);
+      dibujar(qa(".s10-dz"), 0.1, 0.5, 0.5);
+      gsap.set(qa(".s10-nom, .s10-precio"), { opacity: 0 });
+      tl.to(q(".s10-nom"), { opacity: 1, duration: 0.25 }, 0.25);
+      pop(q(".s10-boton"), 0.3, 540, 1080);
+      // el dedo: "elige"
+      const dedo = q(".s10-dedo"), onda = q(".s10-onda");
+      gsap.set(dedo, { x: 680, y: 1240, opacity: 0 });
+      tl.to(dedo, { opacity: 1, duration: 0.15 }, 0.1);
+      tl.to(dedo, { x: 620, y: 800, duration: 0.35, ease: "power2.out" }, 0.1);
+      const toque = (t) => {
+      tl.to(dedo, { scale: 0.85, duration: 0.08, yoyo: true, repeat: 1 }, t);
+      tl.fromTo(onda, { scale: 1, opacity: 0.9 }, { scale: 2.2, opacity: 0, duration: 0.4, ease: "power2.out" }, t);
+      };
+      toque(ELIGE);
+      punch(q(".s10-cont"), ELIGE + 0.05, 540, 770, 1.03);
+      et(1, ELIGE);
+      // "precio"
+      tl.fromTo(q(".s10-precio"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, PRECIO - 0.1);
+      punch(q(".s10-precio"), PRECIO + 0.2, 430, 985, 1.1);
+      // "paga"
+      tl.to(dedo, { x: 620, y: 1082, duration: 0.3, ease: "power2.inOut" }, PAGA - 0.35);
+      toque(PAGA);
+      punch(q(".s10-boton"), PAGA, 540, 1080, 1.06);
+      tl.to(dedo, { opacity: 0, duration: 0.2 }, PAGA + 0.3);
+      // "Mercado Pago": pago aprobado
+      tl.to(q(".s10-cont"), { opacity: 0, duration: 0.2 }, MERCADO - 0.2);
+      gsap.set(qa(".s10-ok-txt, .s10-mp"), { opacity: 0 });
+      dibujar(qa(".s10-dok"), MERCADO - 0.1, 0.4);
+      tl.fromTo(q(".s10-ok-txt"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, MERCADO + 0.1);
+      tl.to(q(".s10-mp"), { opacity: 1, duration: 0.3 }, MERCADO + 0.2);
+      // "sin preguntar nada"
+      pop(q(".s10-chat"), SIN, 826, 790);
+      pop(q(".s10-x"), NADA - 0.1, 940, 690);
+      tl.to(q(".s10-chat"), { opacity: 0.35, duration: 0.3 }, NADA);
+      et(2, SIN);
+      // "el envío": el celular se corre y sale la caja
+      tl.to(qa(".s10-chat, .s10-x"), { opacity: 0, duration: 0.25 }, ENVIO - 0.3);
+      tl.to(q(".s10-cel"), { scale: 0.72, x: -190, svgOrigin: "540 910", duration: 0.5, ease: "power3.inOut" }, ENVIO - 0.3);
+      dibujar(qa(".s10-dk"), ENVIO, 0.45);
+      tl.fromTo(q(".s10-caja"), { y: 0 }, { y: -8, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 3 }, ENVIO + 0.5);
+      et(3, ENVIO);
+      [[1, DAC], [2, CORREO], [3, PEDIDOSYA]].forEach(([k, t]) => {
+      const el = q(".s10-t" + k);
+      gsap.set(el, { opacity: 0 });
+      tl.fromTo(el, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.6)" }, t - 0.1);
+      });
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

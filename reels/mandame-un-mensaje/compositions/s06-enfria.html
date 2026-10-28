@@ -1,0 +1,109 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-enfria"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-enfria"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-enfria"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-enfria"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-enfria"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-enfria"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-enfria"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-enfria"] .ln-navy { fill: none; stroke: #0b1d35; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-enfria"] .punto { fill: #efeee5; }
+    [data-composition-id="s06-enfria"] .relleno { fill: #5ce611; }
+    [data-composition-id="s06-enfria"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s06-enfria"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s06-enfria"] .ui-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s06-enfria"] .lx-boton { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #0b1d35; }
+    [data-composition-id="s06-enfria"] .pesos { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s06-enfria"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s06-enfria"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #5ce611; }
+    [data-composition-id="s06-enfria"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-enfria"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s06-enfria" data-width="1080" data-height="1920" data-duration="4.01">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="4.01" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s06-termo">
+        <path class="ln s06-dt" d="M352 1056 V730 Q352 702 380 702 Q408 702 408 730 V1056 A50 50 0 1 1 352 1056 Z" />
+        <path class="ln-4 s06-dt" d="M424 760 H452 M424 840 H446 M424 920 H452 M424 1000 H446" />
+        <rect class="relleno s06-col" x="369" y="726" width="22" height="364" rx="11" />
+        <circle class="relleno s06-bulbo" cx="380" cy="1097" r="32" />
+        </g>
+        <g class="s06-r1"><circle class="ln-ac4" cx="680" cy="760" r="34" /><path class="ln-ac4 s06-r1-aguja" d="M680 760 V732" /><path class="ln-ac4" d="M680 760 L697 764" /></g>
+        <g class="s06-r2"><circle class="ln-ac4" cx="680" cy="880" r="34" /><path class="ln-ac4 s06-r2-aguja" d="M680 880 V852" /><path class="ln-ac4" d="M680 880 L697 884" /></g>
+        <g class="s06-r3"><circle class="ln-ac4" cx="680" cy="1000" r="34" /><path class="ln-ac4 s06-r3-aguja" d="M680 1000 V972" /><path class="ln-ac4" d="M680 1000 L697 1004" /></g>
+        <g class="s06-burbuja"><path class="ln" d="M600 860 H840 Q864 860 864 884 V936 Q864 960 840 960 H660 L630 984 L636 960 H600 Q576 960 576 936 V884 Q576 860 600 860 Z" /><circle class="punto" cx="676" cy="910" r="10" /><circle class="punto" cx="720" cy="910" r="10" /><circle class="punto" cx="764" cy="910" r="10" /></g>
+        <g class="s06-x"><circle class="ln-ac4" cx="864" cy="860" r="18" /><path class="ln-ac4" d="M856 852 L872 868 M872 852 L856 868" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Se enfría</span><span class="s06-e2">No contesta más</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-enfria";
+      const DUR = 4.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      // etiqueta: et(n, t) muestra la n y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s06-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+      const ESPERA = 0.36, ENFRIA = 1.06, POCO = 1.56, HASTA = 2.33, DEJA = 2.56, CONTESTAR = 2.96;
+      dibujar(qa(".s06-dt"), 0, 0.5, 0.45);
+      const col = q(".s06-col");
+      tl.fromTo(q(".s06-termo"), { x: -10 }, { x: 0, duration: 0.5, ease: "power3.out" }, 0);
+      // el nivel arranca alto y baja un escalón en cada espera
+      [[ESPERA, 0.72], [ENFRIA, 0.48], [POCO, 0.3], [DEJA, 0.08]].forEach(([t, s], i) => {
+      tl.fromTo(col, { scaleY: i === 0 ? 1 : [1, 0.72, 0.48, 0.3][i], svgOrigin: "380 1090" }, { scaleY: s, svgOrigin: "380 1090", duration: 0.35, ease: "power2.out" }, t);
+      });
+      tl.to(q(".s06-bulbo"), { scale: 0.7, svgOrigin: "380 1097", duration: 0.4, ease: "power2.out" }, DEJA);
+      // relojes de espera, uno por baja
+      [0.0, ESPERA, ENFRIA].forEach((t, i) => {
+      const r = q(".s06-r" + (i + 1));
+      pop(r, t, 680, 760 + i * 120);
+      tl.fromTo(r.querySelector(".s06-r" + (i + 1) + "-aguja"), { rotation: 0, svgOrigin: "680 " + (760 + i * 120) }, { rotation: 540, svgOrigin: "680 " + (760 + i * 120), duration: HASTA - t, ease: "none" }, t);
+      });
+      et(1, ENFRIA);
+      // "hasta que deja de contestar"
+      tl.to(qa(".s06-r1, .s06-r2, .s06-r3"), { opacity: 0, x: 30, duration: 0.25, ease: "power2.in" }, HASTA - 0.2);
+      pop(q(".s06-burbuja"), HASTA + 0.05, 630, 984);
+      const pts = qa(".s06-burbuja .punto");
+      pts.forEach((p, i) => tl.fromTo(p, { opacity: 0.3 }, { opacity: 1, duration: 0.12, yoyo: true, repeat: 1 }, HASTA + 0.3 + i * 0.1));
+      tl.to(q(".s06-burbuja"), { opacity: 0.3, duration: 0.35 }, CONTESTAR);
+      pop(q(".s06-x"), CONTESTAR + 0.05, 864, 860);
+      et(2, CONTESTAR);
+      punch(q(".s06-x"), CONTESTAR + 0.6, 864, 860, 1.2);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

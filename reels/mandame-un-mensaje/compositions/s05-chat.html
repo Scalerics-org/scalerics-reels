@@ -1,0 +1,129 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-chat"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-chat"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-chat"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-chat"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-chat"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-chat"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-chat"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-chat"] .ln-navy { fill: none; stroke: #0b1d35; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-chat"] .punto { fill: #efeee5; }
+    [data-composition-id="s05-chat"] .relleno { fill: #5ce611; }
+    [data-composition-id="s05-chat"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s05-chat"] .ui-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s05-chat"] .ui-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s05-chat"] .lx-boton { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #0b1d35; }
+    [data-composition-id="s05-chat"] .pesos { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 26px; fill: #5ce611; }
+    [data-composition-id="s05-chat"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s05-chat"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #5ce611; }
+    [data-composition-id="s05-chat"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-chat"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s05-chat"] .s05-chat { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 24px; fill: #efeee5; }
+
+    [data-composition-id="s05-chat"] .s05-mio { opacity: 0.55; }
+
+    [data-composition-id="s05-chat"] .s05-chat-mio { opacity: 0.75; }
+  </style>
+  <div id="root" data-composition-id="s05-chat" data-width="1080" data-height="1920" data-duration="10.50">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="10.50" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s05-recorte"><rect x="336" y="714" width="408" height="492" /></clipPath></defs>
+        <g class="s05-cel">
+        <rect class="ln s05-dc" x="330" y="600" width="420" height="620" rx="52" />
+        <line class="ln s05-dc" x1="510" y1="628" x2="570" y2="628" />
+        <circle class="ln-4 s05-dc" cx="380" cy="672" r="18" />
+        <text class="ui-nombre s05-cab" x="410" y="681">tu_comercio</text>
+        <line class="ln-tenue s05-dc" x1="350" y1="706" x2="730" y2="706" />
+        <g clip-path="url(#s05-recorte)"><g class="s05-hilo">
+        <g class="s05-m s05-m1"><rect class="ln-4" x="586" y="730" width="140" height="60" rx="22" /><text class="s05-chat" x="606" y="769">¿Precio?</text></g>
+        <g class="s05-c1"><circle class="ln-ac4" cx="550" cy="760" r="20" /><path class="ln-ac4 s05-c1-aguja" d="M550 760 V746" /><path class="ln-ac4" d="M550 760 L560 764" /></g>
+        <g class="s05-m s05-m2"><rect class="ln-4 s05-mio" x="354" y="810" width="290" height="60" rx="22" /><text class="s05-chat s05-chat-mio" x="374" y="849">¡Hola! Sale $ 2.490</text></g>
+        <g class="s05-m s05-m3"><rect class="ln-4" x="506" y="890" width="220" height="60" rx="22" /><text class="s05-chat" x="526" y="929">¿Hay talle 40?</text></g>
+        <g class="s05-c2"><circle class="ln-ac4" cx="470" cy="920" r="20" /><path class="ln-ac4 s05-c2-aguja" d="M470 920 V906" /><path class="ln-ac4" d="M470 920 L480 924" /></g>
+        <g class="s05-m s05-m4"><rect class="ln-4" x="506" y="970" width="220" height="60" rx="22" /><text class="s05-chat" x="526" y="1009">¿Hacen envíos?</text></g>
+        <g class="s05-m s05-m5"><rect class="ln-4 s05-mio" x="354" y="1050" width="344" height="60" rx="22" /><text class="s05-chat s05-chat-mio" x="374" y="1089">Te paso el nº de cuenta</text></g>
+        <g class="s05-m s05-m6"><rect class="ln-4" x="586" y="1130" width="140" height="124" rx="22" /><path class="ln-4" d="M630 1150 H682 V1230 L672 1222 L662 1230 L652 1222 L642 1230 L630 1222 Z" /><path class="ln-ac4" d="M642 1174 H670 M642 1192 H662" /></g>
+        <g class="s05-c3"><circle class="ln-ac4" cx="550" cy="1192" r="20" /><path class="ln-ac4 s05-c3-aguja" d="M550 1192 V1178" /><path class="ln-ac4" d="M550 1192 L560 1196" /></g>
+        </g></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Espera</span><span class="s05-e2">Espera otra vez</span><span class="s05-e3">Un mensaje más</span><span class="s05-e4">Y otro más</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-chat";
+      const DUR = 10.5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      // etiqueta: et(n, t) muestra la n y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s05-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+      const PRECIO = 0.46, ESPERA = 1.66, CONTESTAS = 2.46, PREGUNTA = 3.51, TALLE = 4.06, ESPERA2 = 5.13, ENVIO = 6.96, CUENTA = 7.96, FOTO = 8.76;
+      tl.fromTo(q(".s05-cel"), { scale: 0.96, svgOrigin: "540 910" }, { scale: 1.03, svgOrigin: "540 910", duration: DUR, ease: "none" }, 0);
+      dibujar(qa(".s05-dc"), 0, 0.5, 0.45);
+      gsap.set(q(".s05-cab"), { opacity: 0 });
+      tl.to(q(".s05-cab"), { opacity: 1, duration: 0.25 }, 0.2);
+      const m = (k, t, ox, oy) => pop(q(".s05-m" + k), t, ox, oy);
+      const reloj = (k, t, vueltas) => {
+      pop(q(".s05-c" + k), t, k === 2 ? 470 : 550, [0, 760, 920, 1192][k]);
+      tl.fromTo(q(".s05-c" + k + "-aguja"), { rotation: 0, svgOrigin: (k === 2 ? 470 : 550) + " " + [0, 760, 920, 1192][k] }, { rotation: 360 * vueltas, svgOrigin: (k === 2 ? 470 : 550) + " " + [0, 760, 920, 1192][k], duration: 1.2 * vueltas, ease: "none" }, t);
+      };
+      // "¿precio?" y espera
+      m(1, PRECIO - 0.05, 726, 790);
+      reloj(1, ESPERA - 0.2, 2);
+      et(1, ESPERA);
+      // "contestás"
+      m(2, CONTESTAS - 0.05, 354, 870);
+      tl.to(q(".s05-c1"), { opacity: 0.35, duration: 0.3 }, CONTESTAS);
+      // "pregunta si hay talle" y espera otra vez
+      m(3, TALLE - 0.3, 726, 950);
+      reloj(2, ESPERA2 - 0.25, 2);
+      et(2, ESPERA2);
+      // "el envío", "el número de cuenta", "la foto del comprobante"
+      tl.to(q(".s05-c2"), { opacity: 0.35, duration: 0.3 }, ENVIO - 0.3);
+      m(4, ENVIO - 0.1, 726, 1030);
+      et(3, ENVIO);
+      m(5, CUENTA - 0.1, 354, 1110);
+      tl.to(q(".s05-hilo"), { y: -70, duration: 0.45, ease: "power2.inOut" }, FOTO - 0.35);
+      m(6, FOTO, 726, 1254);
+      et(4, FOTO);
+      reloj(3, FOTO + 0.7, 1.2);
+      // la pila entera tiembla un poco: otra espera más
+      tl.to(q(".s05-hilo"), { x: -4, duration: 0.06, ease: "power1.inOut", yoyo: true, repeat: 5 }, FOTO + 1.2);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

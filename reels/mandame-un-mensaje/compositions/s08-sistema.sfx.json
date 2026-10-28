@@ -1,0 +1,6 @@
+[
+  {"t":0,"sfx":"click-soft","vol":0.2},
+  {"t":0.93,"sfx":"glitch-1","vol":0.22,"max":0.35},
+  {"t":2.3,"sfx":"sparkle","vol":0.2,"max":0.6},
+  {"t":2.15,"sfx":"impact-bass-1","vol":0.28,"max":0.6}
+]
