@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-calendario"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-calendario"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-calendario"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-calendario"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-calendario"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-calendario"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-calendario"] .relleno { fill: #5ce611; }
+    [data-composition-id="s02-calendario"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s02-calendario"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-calendario"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s02-calendario"] .s02-plata { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s02-calendario" data-width="1080" data-height="1920" data-duration="7.63">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="7.63" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s02-cal">
+          <rect class="ln s02-dib" x="300" y="650" width="480" height="500" rx="26" />
+          <path class="ln s02-dib" d="M300 730 H780" />
+          <path class="ln s02-dib" d="M400 620 V676 M680 620 V676" />
+          <text class="cartel s02-mes" x="540" y="702" text-anchor="middle">ESTE MES</text>
+          <g class="s02-grilla"></g>
+          <g class="s02-cruces"></g>
+          <circle class="ln s02-uno" cx="334" cy="783" r="30" />
+        </g>
+        <g class="s02-billete">
+          <rect class="ln-4" x="806" y="738" width="130" height="72" rx="10" />
+          <circle class="ln-4" cx="871" cy="774" r="18" />
+          <text class="s02-plata" x="871" y="785" text-anchor="middle">$</text>
+        </g>
+        <g class="s02-fig"></g>
+        <g class="s02-ojo">
+          <path class="ln s02-ojo-l" d="M420 880 Q540 960 660 880" />
+          <path class="ln s02-ojo-l" d="M450 902 L432 936 M495 918 L486 956 M540 922 V962 M585 918 L594 956 M630 902 L648 936" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Una vez por mes</span><span class="s02-e2">Todos los días</span><span class="s02-e3">Sin enterarte</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-calendario";
+      const DUR = 7.63;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const nuevo = (padre, tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); padre.appendChild(e); return e; };
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t > 0 ? t + i * (paso ?? 0.04) : 0;
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const ETQ = qa(".etiqueta span");
+      const etiqueta = (k, t) => {
+        if (k > 0) tl.to(ETQ[k - 1], { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(ETQ[k], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // figurita de palo: pies en (x, y)
+      const FIG = (x, y) => '<circle class="ln" cx="' + x + '" cy="' + (y - 96) + '" r="14" /><path class="ln" d="M' + x + ' ' + (y - 82) + ' V' + (y - 40) + ' M' + x + ' ' + (y - 70) + ' L' + (x - 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 70) + ' L' + (x + 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 40) + ' L' + (x - 14) + ' ' + y + ' M' + x + ' ' + (y - 40) + ' L' + (x + 14) + ' ' + y + '" />';
+      const caminar = (g, t, pasos) => tl.fromTo(g, { rotation: -4, svgOrigin: "0 0" }, { rotation: 4, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: pasos }, t);
+
+
+      const UNA = 1.7, VEZ = 2.0, ALQUILER = 0.9, PAGAS = 1.4, AL = 2.4, VUELVE = 3.4, PERDES = 4.2, TODOS = 4.9, NI = 6.2;
+      q(".s02-fig").innerHTML = FIG(820, 1150);
+      // grilla 7x5
+      const G = q(".s02-grilla"), C = q(".s02-cruces");
+      const celdas = [], cruces = [];
+      for (let f = 0; f < 5; f++) for (let c = 0; c < 7; c++) {
+        const x = 300 + 34 + c * 68.6 - 17, y = 760 + f * 76;
+        celdas.push(nuevo(G, "rect", { class: "ln-4", x: x - 8, y: y, width: 50, height: 46, rx: 8, opacity: 0.55 }));
+        if (f + c > 0) cruces.push(nuevo(C, "path", { class: "ln-ac", d: "M" + (x + 3) + " " + (y + 9) + " L" + (x + 31) + " " + (y + 37) + " M" + (x + 31) + " " + (y + 9) + " L" + (x + 3) + " " + (y + 37) }));
+      }
+      gsap.set(qa(".s02-mes, .s02-billete, .s02-fig, .s02-ojo, .s02-uno"), { opacity: 0 });
+      gsap.set(cruces, { opacity: 0 });
+
+      // el calendario entra medio dibujado
+      dibujar(qa(".s02-dib"), 0, 0.5, 0.4);
+      tl.fromTo(celdas, { opacity: 0 }, { opacity: 0.55, duration: 0.2, stagger: 0.012 }, 0.1);
+      tl.to(q(".s02-mes"), { opacity: 1, duration: 0.3 }, 0.3);
+      tl.fromTo(q(".s02-cal"), { scale: 0.97, svgOrigin: "540 900" }, { scale: 1, svgOrigin: "540 900", duration: 2.2, ease: "sine.out" }, 0);
+
+      // "alquiler" / "pagás": el día 1 se marca y aparece el billete
+      tl.set(q(".s02-uno"), { opacity: 1 }, ALQUILER);
+      dibujar([q(".s02-uno")], ALQUILER, 0.45);
+      pop(q(".s02-billete"), PAGAS, "871 774");
+      etiqueta(0, PAGAS);
+      // "una vez por mes": el círculo late
+      tl.to(q(".s02-uno"), { scale: 1.2, svgOrigin: "334 783", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, UNA);
+      tl.to(q(".s02-billete"), { y: -10, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, VEZ);
+
+      // "Al que no vuelve": una figurita se va caminando por la derecha
+      tl.to(q(".s02-billete"), { opacity: 0, y: -20, duration: 0.3 }, AL);
+      tl.fromTo(q(".s02-fig"), { opacity: 0, x: 0 }, { opacity: 1, duration: 0.2 }, AL);
+      tl.to(q(".s02-fig"), { x: 170, duration: 1.4, ease: "none" }, AL + 0.1);
+      tl.to(q(".s02-fig"), { opacity: 0, duration: 0.3 }, AL + 1.25);
+      tl.fromTo(q(".s02-fig path"), { rotation: -5, svgOrigin: "820 1110" }, { rotation: 5, svgOrigin: "820 1110", duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 6 }, AL + 0.1);
+
+      // "perdés todos los días": X verdes en cascada
+      cruces.forEach((x, i) => {
+        tl.fromTo(x, { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.2)" }, PERDES + 0.1 + i * 0.04);
+      });
+      etiqueta(1, TODOS);
+      tl.to(q(".s02-cal"), { scale: 1.04, svgOrigin: "540 900", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, TODOS + 0.5);
+
+      // "ni te enterás": el calendario se apaga y un ojo cerrado baja encima
+      tl.to(q(".s02-cal"), { opacity: 0.25, duration: 0.4 }, NI - 0.2);
+      tl.set(q(".s02-ojo"), { opacity: 1 }, NI - 0.2);
+      dibujar(qa(".s02-ojo-l"), NI - 0.2, 0.4);
+      tl.fromTo(q(".s02-ojo"), { y: -30 }, { y: 0, duration: 0.6, ease: "power3.out" }, NI - 0.2);
+      etiqueta(2, NI);
+      tl.to(q(".s02-ojo"), { y: 8, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, NI + 0.45);
+
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

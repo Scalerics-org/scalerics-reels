@@ -1,0 +1,40 @@
+[
+ {
+  "t": 0.4,
+  "sfx": "click-soft",
+  "vol": 0.2
+ },
+ {
+  "t": 1.15,
+  "sfx": "notification",
+  "vol": 0.32,
+  "max": 0.8
+ },
+ {
+  "t": 2.55,
+  "sfx": "pop",
+  "vol": 0.22
+ },
+ {
+  "t": 3.1,
+  "sfx": "whoosh",
+  "vol": 0.16,
+  "max": 0.5
+ },
+ {
+  "t": 4.15,
+  "sfx": "typing",
+  "vol": 0.2,
+  "max": 0.6
+ },
+ {
+  "t": 5.1,
+  "sfx": "click-soft",
+  "vol": 0.2
+ },
+ {
+  "t": 5.95,
+  "sfx": "ping",
+  "vol": 0.25
+ }
+]

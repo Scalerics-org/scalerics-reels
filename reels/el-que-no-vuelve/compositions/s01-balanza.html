@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-balanza"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-balanza"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-balanza"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-balanza"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-balanza"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-balanza"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s01-balanza"] .plata { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efeee5; }
+    [data-composition-id="s01-balanza"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-balanza"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-balanza" data-width="1080" data-height="1920" data-duration="2.7">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="2.7" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- poste y base -->
+        <path class="ln s01-dib" d="M540 672 V1150" />
+        <path class="ln s01-dib" d="M430 1160 H650 M470 1160 Q540 1120 610 1160" />
+        <!-- brazo (gira sobre 540 660) -->
+        <g class="s01-brazo">
+          <path class="ln s01-dib" d="M330 660 H750" />
+          <circle class="ln s01-dib" cx="540" cy="660" r="14" />
+        </g>
+        <!-- platillo izquierdo: el alquiler -->
+        <g class="s01-plato-a">
+          <path class="ln-4 s01-dib" d="M330 660 L220 900 M330 660 L440 900" />
+          <path class="ln s01-dib" d="M210 900 H450 Q420 946 330 946 Q240 946 210 900" />
+          <g class="s01-recibo">
+            <path class="ln-4" d="M276 896 V800 H384 V896" />
+            <path class="ln-4" d="M296 826 H364 M296 848 H344" />
+            <text class="plata" x="330" y="886" text-anchor="middle">$</text>
+          </g>
+          <text class="cartel s01-txt-a" x="330" y="992" text-anchor="middle">ALQUILER</text>
+        </g>
+        <!-- platillo derecho: el cliente que se va -->
+        <g class="s01-plato-b">
+          <path class="ln-4 s01-dib" d="M750 660 L640 900 M750 660 L860 900" />
+          <path class="ln s01-dib" d="M630 900 H870 Q840 946 750 946 Q660 946 630 900" />
+          <g class="s01-cliente">
+            <circle class="ln" cx="750" cy="786" r="15" />
+            <path class="ln" d="M750 801 V848 M750 814 L732 834 M750 814 L768 834 M750 848 L736 894 M750 848 L764 894" />
+          </g>
+          <text class="cartel s01-txt-b" x="750" y="992" text-anchor="middle">CLIENTE</text>
+          <path class="ln-ac s01-flecha" d="M800 806 H880" />
+          <path class="ln-ac s01-punta" d="M862 790 L882 806 L862 822" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">El que no vuelve</span><span class="s01-e2">Pesa más</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-balanza";
+      const DUR = 2.7;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CLIENTE = 0.1;
+      const VUELVE = 0.7;
+      const CUESTA = 1.6;
+      const ALQUILER = 2.4;
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t > 0 ? t + i * (paso ?? 0.04) : 0;
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const ETQ = qa(".etiqueta span");
+      const etiqueta = (k, t) => {
+        if (k > 0) tl.to(ETQ[k - 1], { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(ETQ[k], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      gsap.set(qa(".s01-recibo, .s01-cliente, .s01-txt-a, .s01-txt-b, .s01-flecha, .s01-punta"), { opacity: 0 });
+
+      // la balanza arranca medio dibujada (el cuadro 0 no puede ser negro)
+      dibujar(qa(".s01-dib"), 0, 0.55, 0.45);
+      // el recibo del alquiler cae en su platillo
+      pop(q(".s01-recibo"), 0.05, "330 896");
+      tl.to(q(".s01-txt-a"), { opacity: 1, duration: 0.25 }, 0.25);
+
+      // "cliente": aparece la figurita en el otro platillo
+      pop(q(".s01-cliente"), CLIENTE + 0.1, "750 894");
+      tl.to(q(".s01-txt-b"), { opacity: 1, duration: 0.25 }, CLIENTE + 0.3);
+      etiqueta(0, CLIENTE + 0.1);
+
+      // "no vuelve": se da vuelta (inclinada) y sale una flecha verde hacia afuera
+      tl.to(q(".s01-cliente"), { rotation: 8, svgOrigin: "750 894", duration: 0.25, ease: "power2.out" }, VUELVE);
+      tl.to(q(".s01-cliente"), { x: 14, duration: 0.6, ease: "sine.inOut" }, VUELVE);
+      dibujar([q(".s01-flecha")], VUELVE + 0.05, 0.3);
+      tl.to(q(".s01-punta"), { opacity: 1, duration: 0.1 }, VUELVE + 0.3);
+      tl.fromTo(qa(".s01-flecha, .s01-punta"), { x: 0 }, { x: 18, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 3 }, VUELVE + 0.35);
+
+      // "cuesta": la balanza empieza a caer para el lado del cliente
+      const ANG = 14;
+      const DY = 210 * Math.sin((ANG * Math.PI) / 180);
+      tl.to(q(".s01-brazo"), { rotation: ANG * 0.35, svgOrigin: "540 660", duration: 0.5, ease: "power2.inOut" }, CUESTA);
+      tl.to(q(".s01-plato-b"), { y: DY * 0.35, duration: 0.5, ease: "power2.inOut" }, CUESTA);
+      tl.to(q(".s01-plato-a"), { y: -DY * 0.35, duration: 0.5, ease: "power2.inOut" }, CUESTA);
+      etiqueta(1, CUESTA);
+      // "alquiler": termina de caer con golpe
+      tl.to(q(".s01-brazo"), { rotation: ANG, svgOrigin: "540 660", duration: 0.28, ease: "back.out(2.2)" }, ALQUILER - 0.15);
+      tl.to(q(".s01-plato-b"), { y: DY, duration: 0.28, ease: "back.out(2.2)" }, ALQUILER - 0.15);
+      tl.to(q(".s01-plato-a"), { y: -DY, duration: 0.28, ease: "back.out(2.2)" }, ALQUILER - 0.15);
+      tl.to(q(".s01-recibo"), { y: -10, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, ALQUILER);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

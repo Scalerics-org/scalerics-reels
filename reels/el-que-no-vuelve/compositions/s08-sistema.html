@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-sistema"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-sistema"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-sistema"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .relleno { fill: #5ce611; }
+    [data-composition-id="s08-sistema"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s08-sistema"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-sistema"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s08-sistema"] .s08-signo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 48px; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s08-sistema" data-width="1080" data-height="1920" data-duration="2.71">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="2.71" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s08-cubo">
+          
+          <g class="s08-balde">
+            <path class="ln s08-bd" d="M376 800 Q540 540 704 800" />
+            <ellipse class="ln s08-bd" cx="540" cy="760" rx="170" ry="34" />
+            <path class="ln s08-bd" d="M370 760 L420 1100 Q540 1140 660 1100 L710 760" />
+            <circle class="ln-4 s08-bd" cx="376" cy="800" r="8" />
+            <circle class="ln-4 s08-bd" cx="704" cy="800" r="8" />
+            <path class="ln-4 s08-nivel" d="M412 960 q32.5 -12 65 0 t65 0 t65 0 t65 0" opacity="0.5" />
+          </g>
+          <g><path class="ln-4" d="M480 988 Q496 1010 480 1022 Q464 1010 480 988 Z" /><path class="ln-4" d="M540 1018 Q556 1040 540 1052 Q524 1040 540 1018 Z" /><path class="ln-4" d="M600 983 Q616 1005 600 1017 Q584 1005 600 983 Z" /><path class="ln-4" d="M510 1053 Q526 1075 510 1087 Q494 1075 510 1053 Z" /><path class="ln-4" d="M575 1048 Q591 1070 575 1082 Q559 1070 575 1048 Z" /></g>
+          <ellipse class="relleno s08-agujero" cx="570" cy="1119" rx="16" ry="7" />
+          <path class="ln-ac s08-sale" d="M570 1128 Q586 1150 570 1162 Q554 1150 570 1128 Z" /><path class="ln-ac s08-sale" d="M570 1128 Q586 1150 570 1162 Q554 1150 570 1128 Z" />
+          <g class="s08-parche">
+            <rect class="ln-ac" x="526" y="1098" width="88" height="40" rx="9" />
+            <path class="ln-badge" d="M548 1110 L560 1126 M560 1110 L548 1126 M580 1110 L592 1126 M592 1110 L580 1126" />
+          </g>
+          <g class="s08-plata">
+            <circle class="ln" cx="800" cy="820" r="44" />
+            <text class="s08-signo" x="800" y="836" text-anchor="middle">$</text>
+            <path class="ln-ac s08-tacha" d="M748 872 L852 768" />
+          </g>
+        </g>
+        <g class="s08-engranaje">
+          <path class="ln s08-dg s08-dientes" d="" />
+          <circle class="ln-ac s08-dg" cx="540" cy="900" r="54" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">Tapá el agujero</span><span class="s08-e2">Es un sistema</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-sistema";
+      const DUR = 2.71;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const nuevo = (padre, tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); padre.appendChild(e); return e; };
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t > 0 ? t + i * (paso ?? 0.04) : 0;
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const ETQ = qa(".etiqueta span");
+      const etiqueta = (k, t) => {
+        if (k > 0) tl.to(ETQ[k - 1], { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(ETQ[k], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // figurita de palo: pies en (x, y)
+      const FIG = (x, y) => '<circle class="ln" cx="' + x + '" cy="' + (y - 96) + '" r="14" /><path class="ln" d="M' + x + ' ' + (y - 82) + ' V' + (y - 40) + ' M' + x + ' ' + (y - 70) + ' L' + (x - 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 70) + ' L' + (x + 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 40) + ' L' + (x - 14) + ' ' + y + ' M' + x + ' ' + (y - 40) + ' L' + (x + 14) + ' ' + y + '" />';
+      const caminar = (g, t, pasos) => tl.fromTo(g, { rotation: -4, svgOrigin: "0 0" }, { rotation: 4, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: pasos }, t);
+
+
+      const TAPAR = 0.0, CARO = 1.22, ES = 1.85, SISTEMA = 2.41;
+      const CX = 540, CY = 900, RIN = 128, ROUT = 168, N = 9;
+      const pt = (r, a) => (CX + r * Math.cos(a)).toFixed(1) + " " + (CY + r * Math.sin(a)).toFixed(1);
+      let d = "";
+      for (let i = 0; i < N; i++) {
+        const a = -Math.PI / 2 + (i * 2 * Math.PI) / N;
+        d += (i === 0 ? "M" + pt(RIN, a - 0.2) : "") + " L" + pt(ROUT, a - 0.12) + " L" + pt(ROUT, a + 0.12) + " L" + pt(RIN, a + 0.2) + " A" + RIN + " " + RIN + " 0 0 1 " + pt(RIN, a + (2 * Math.PI) / N - 0.2);
+      }
+      q(".s08-dientes").setAttribute("d", d + " Z");
+      gsap.set(qa(".s08-plata, .s08-sale"), { opacity: 0 });
+      // el balde está, perdiendo
+      dibujar(qa(".s08-bd"), 0, 0.3, 0.4, 0.02);
+      qa(".s08-sale").forEach((g, i) => {
+        tl.fromTo(g, { opacity: 1, y: 0 }, { y: 70, duration: 0.35, ease: "power2.in" }, i * 0.18);
+        tl.to(g, { opacity: 0, duration: 0.08 }, i * 0.18 + 0.3);
+      });
+      // "tapar": baja el parche y tapa el agujero
+      tl.fromTo(q(".s08-parche"), { opacity: 0, y: -220, rotation: -12, svgOrigin: "570 1118" }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "570 1118", duration: 0.45, ease: "back.out(1.4)" }, TAPAR + 0.05);
+      tl.to(q(".s08-agujero"), { opacity: 0, duration: 0.1 }, TAPAR + 0.45);
+      tl.to(q(".s08-cubo"), { y: 8, duration: 0.1, ease: "power2.out", yoyo: true, repeat: 1 }, TAPAR + 0.48);
+      tl.to(q(".s08-nivel"), { y: -30, duration: 0.6, ease: "power2.out" }, TAPAR + 0.55);
+      etiqueta(0, TAPAR + 0.05);
+      // "caro": $ tachado
+      pop(q(".s08-plata"), CARO - 0.3, "800 820");
+      gsap.set(q(".s08-tacha"), { opacity: 0 });
+      dibujar([q(".s08-tacha")], CARO, 0.25);
+      // "Es": el balde se va y se dibuja el engranaje
+      tl.to(q(".s08-cubo"), { opacity: 0, scale: 0.8, filter: "blur(6px)", transformOrigin: "540px 900px", duration: 0.35, ease: "power2.in" }, ES - 0.25);
+      dibujar(qa(".s08-dg"), ES - 0.05, 0.5);
+      tl.fromTo(q(".s08-engranaje"), { rotation: -30, svgOrigin: "540 900" }, { rotation: 40, svgOrigin: "540 900", duration: DUR - ES, ease: "none" }, ES - 0.05);
+      tl.to(q(".s08-engranaje"), { scale: 1.12, svgOrigin: "540 900", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, SISTEMA);
+      etiqueta(1, ES);
+
+
+      // salida
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-no-volvio"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-no-volvio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-no-volvio"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-no-volvio"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-no-volvio"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-no-volvio"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-no-volvio"] .relleno { fill: #5ce611; }
+    [data-composition-id="s06-no-volvio"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s06-no-volvio"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-no-volvio"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s06-no-volvio"] .s06-preg { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 96px; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s06-no-volvio" data-width="1080" data-height="1920" data-duration="7.83">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="7.83" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s06-lugar">
+          <path class="ln s06-d" d="M150 1100 H940" />
+          <path class="ln s06-d" d="M190 1100 V820 H330 V1100" />
+          <path class="ln-4 s06-puerta" d="M200 1098 V830 H320 V1098" />
+          <path class="ln s06-d" d="M600 1000 H920 M620 1000 V1100 M900 1000 V1100" />
+          <path class="ln s06-d" d="M780 1000 V950 H880 V1000 M800 950 L812 920 H848 L860 950" />
+        </g>
+        <g class="s06-fig"></g>
+        <g class="s06-globo">
+          <path class="ln" d="M490 820 H590 Q610 820 610 840 V880 Q610 900 590 900 H560 L540 920 L530 900 H490 Q470 900 470 880 V840 Q470 820 490 820 Z" />
+          <path class="ln-ac" d="M515 862 L533 878 L566 844" />
+        </g>
+        <g class="s06-bien">
+          <circle class="ln" cx="760" cy="860" r="44" />
+          <path class="ln" d="M740 848 V852 M780 848 V852 M738 874 Q760 894 782 874" />
+          <circle class="ln-badge" cx="806" cy="822" r="18" />
+          <path class="ln-badge" d="M797 822 L803 829 L815 815" />
+        </g>
+        <g class="s06-regalo">
+          <path class="ln" d="M380 920 H560 V1080 H380 Z" />
+          <path class="ln" d="M470 920 V1080" />
+          <path class="ln s06-tapa" d="M370 890 H570 V920 H370 Z" />
+          <text class="s06-preg" x="470" y="860" text-anchor="middle">?</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Le gustó</span><span class="s06-e2">No volvió</span><span class="s06-e3">Sin un motivo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-no-volvio";
+      const DUR = 7.83;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const nuevo = (padre, tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); padre.appendChild(e); return e; };
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t > 0 ? t + i * (paso ?? 0.04) : 0;
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const ETQ = qa(".etiqueta span");
+      const etiqueta = (k, t) => {
+        if (k > 0) tl.to(ETQ[k - 1], { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(ETQ[k], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // figurita de palo: pies en (x, y)
+      const FIG = (x, y) => '<circle class="ln" cx="' + x + '" cy="' + (y - 96) + '" r="14" /><path class="ln" d="M' + x + ' ' + (y - 82) + ' V' + (y - 40) + ' M' + x + ' ' + (y - 70) + ' L' + (x - 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 70) + ' L' + (x + 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 40) + ' L' + (x - 14) + ' ' + y + ' M' + x + ' ' + (y - 40) + ' L' + (x + 14) + ' ' + y + '" />';
+      const caminar = (g, t, pasos) => tl.fromTo(g, { rotation: -4, svgOrigin: "0 0" }, { rotation: 4, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: pasos }, t);
+
+
+      const VINO = 0.6, GUSTO = 1.6, NO = 2.5, ATENDIERAS = 4.0, NADIE = 5.5, MOTIVO = 6.5;
+      const fig = q(".s06-fig");
+      fig.innerHTML = FIG(0, 1100);
+      gsap.set(qa(".s06-globo, .s06-bien, .s06-regalo, .s06-preg"), { opacity: 0 });
+      dibujar(qa(".s06-d"), 0, 0.5, 0.45, 0.03);
+      dibujar([q(".s06-puerta")], 0, 0.4, 0.4);
+      // la puerta se abre (se angosta) y entra uno
+      tl.to(q(".s06-puerta"), { scaleX: 0.2, svgOrigin: "200 960", duration: 0.25, ease: "power2.out" }, 0.05);
+      tl.fromTo(fig, { x: 260, opacity: 0 }, { opacity: 1, duration: 0.15 }, 0.1);
+      tl.to(fig, { x: 520, duration: VINO + 0.5, ease: "power1.out" }, 0.1);
+      tl.fromTo(fig.querySelector("path"), { rotation: -5, svgOrigin: "0 1060" }, { rotation: 5, svgOrigin: "0 1060", duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 4 }, 0.1);
+      tl.to(q(".s06-puerta"), { scaleX: 1, svgOrigin: "200 960", duration: 0.3, ease: "power2.inOut" }, 0.7);
+      // "gustó": globito con tilde
+      pop(q(".s06-globo"), GUSTO - 0.1, "540 920");
+      dibujar([q(".s06-globo .ln-ac")], GUSTO, 0.3);
+      etiqueta(0, GUSTO - 0.1);
+      // "no volvió": se da vuelta, se va y la puerta se cierra
+      tl.to(q(".s06-globo"), { opacity: 0, y: -16, duration: 0.25 }, NO - 0.1);
+      tl.to(q(".s06-puerta"), { scaleX: 0.2, svgOrigin: "200 960", duration: 0.25, ease: "power2.out" }, NO);
+      tl.to(fig, { x: 260, duration: 0.75, ease: "power1.in" }, NO);
+      tl.fromTo(fig.querySelector("path"), { rotation: 5, svgOrigin: "0 1060" }, { rotation: -5, svgOrigin: "0 1060", duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, NO);
+      tl.to(fig, { opacity: 0, duration: 0.15 }, NO + 0.65);
+      tl.to(q(".s06-puerta"), { scaleX: 1, svgOrigin: "200 960", duration: 0.3, ease: "back.out(2)" }, NO + 0.85);
+      etiqueta(1, NO);
+      // "no porque lo atendieras mal": carita contenta con tilde arriba del mostrador
+      pop(q(".s06-bien"), ATENDIERAS - 0.3, "760 860");
+      tl.to(q(".s06-bien"), { y: -10, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, ATENDIERAS + 0.2);
+      // "nadie le dio un motivo": todo se apaga, regalo vacío y "?"
+      tl.to(qa(".s06-lugar, .s06-bien"), { opacity: 0.25, duration: 0.4 }, NADIE - 0.25);
+      pop(q(".s06-regalo"), NADIE - 0.1, "470 1080");
+      tl.fromTo(q(".s06-tapa"), { rotation: 0, svgOrigin: "370 920" }, { rotation: -18, svgOrigin: "370 920", y: -10, duration: 0.4, ease: "back.out(2)" }, NADIE + 0.3);
+      tl.to(q(".s06-preg"), { opacity: 1, duration: 0.01 }, MOTIVO - 0.1);
+      tl.fromTo(q(".s06-preg"), { scale: 0.4, svgOrigin: "470 840" }, { scale: 1, svgOrigin: "470 840", duration: 0.35, ease: "back.out(2.4)" }, MOTIVO - 0.1);
+      tl.to(q(".s06-preg"), { rotation: 8, svgOrigin: "470 840", duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, MOTIVO + 0.35);
+      etiqueta(2, NADIE);
+
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

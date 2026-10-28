@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-vuelve"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-vuelve"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-vuelve"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-vuelve"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-vuelve"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-vuelve"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-vuelve"] .relleno { fill: #5ce611; }
+    [data-composition-id="s10-vuelve"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s10-vuelve"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-vuelve"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s10-vuelve"] .ln-sello { fill: none; stroke: rgba(239, 238, 229, 0.55); stroke-width: 3; }
+    [data-composition-id="s10-vuelve"] .s10-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; fill: #efeee5; }
+    [data-composition-id="s10-vuelve"] .s10-falta { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s10-vuelve" data-width="1080" data-height="1920" data-duration="3.97">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="3.97" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s10-tarjeta">
+          <rect class="ln s10-dk" x="250" y="640" width="440" height="250" rx="28" />
+          <circle class="ln-4 s10-dk" cx="300" cy="692" r="22" />
+          <path class="ln-4 s10-dk" d="M288 702 Q300 688 312 702" />
+          <circle class="ln-4 s10-dk" cx="300" cy="684" r="6" />
+          <text class="s10-nombre" x="336" y="703">Lucía</text>
+          <g class="s10-sellos"></g>
+          <rect class="ln-sello" x="285" y="830" width="370" height="22" rx="11" />
+          <rect class="relleno s10-barra" x="285" y="830" width="370" height="22" rx="11" />
+        </g>
+        <g class="s10-regalo">
+          <path class="ln" d="M745 740 H885 V860 H745 Z" />
+          <path class="ln" d="M735 712 H895 V740 H735 Z" />
+          <path class="ln-ac" d="M815 712 V860" />
+          <path class="ln-ac" d="M815 712 Q785 672 770 692 Q765 712 815 712 Q845 672 860 692 Q865 712 815 712" />
+        </g>
+        <text class="s10-falta" x="470" y="935" text-anchor="middle">TE FALTA 1</text>
+        <g class="s10-lugar">
+          <path class="ln s10-dl" d="M200 1180 H900" />
+          <path class="ln s10-dl" d="M290 1180 V990 H410 V1180" />
+        </g>
+        <g class="s10-fig"></g>
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Canjea premios</span><span class="s10-e2">Y vuelve</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-vuelve";
+      const DUR = 3.97;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const nuevo = (padre, tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); padre.appendChild(e); return e; };
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const ti = t > 0 ? t + i * (paso ?? 0.04) : 0;
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti > 0 ? 0 : 1 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const pop = (el, t, origen) => tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const ETQ = qa(".etiqueta span");
+      const etiqueta = (k, t) => {
+        if (k > 0) tl.to(ETQ[k - 1], { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(ETQ[k], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // figurita de palo: pies en (x, y)
+      const FIG = (x, y) => '<circle class="ln" cx="' + x + '" cy="' + (y - 96) + '" r="14" /><path class="ln" d="M' + x + ' ' + (y - 82) + ' V' + (y - 40) + ' M' + x + ' ' + (y - 70) + ' L' + (x - 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 70) + ' L' + (x + 18) + ' ' + (y - 52) + ' M' + x + ' ' + (y - 40) + ' L' + (x - 14) + ' ' + y + ' M' + x + ' ' + (y - 40) + ' L' + (x + 14) + ' ' + y + '" />';
+      const caminar = (g, t, pasos) => tl.fromTo(g, { rotation: -4, svgOrigin: "0 0" }, { rotation: 4, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: pasos }, t);
+
+
+      const JUNTA = 0.0, CANJEA = 0.41, PREMIOS = 0.91, VUELVE = 1.81, FALTA = 2.61, POCO = 3.01;
+      const capa = q(".s10-sellos"), llenos = [];
+      for (let i = 0; i < 10; i++) {
+        const cx = 290 + i * 40;
+        nuevo(capa, "circle", { class: "ln-sello", cx, cy: 775, r: 14 });
+        llenos.push(nuevo(capa, "circle", { class: "relleno", cx, cy: 775, r: 14 }));
+      }
+      q(".s10-fig").innerHTML = FIG(0, 1180);
+      const fig = q(".s10-fig");
+      gsap.set(llenos.slice(6), { opacity: 0 });
+      gsap.set(qa(".s10-regalo, .s10-falta"), { opacity: 0 });
+      // la tarjeta entra medio dibujada
+      dibujar(qa(".s10-dk"), 0, 0.4, 0.4);
+      tl.fromTo(q(".s10-tarjeta"), { scale: 0.94, svgOrigin: "470 765" }, { scale: 1, svgOrigin: "470 765", duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s10-barra"), { scaleX: 0.55, svgOrigin: "285 841" }, { scaleX: 0.75, svgOrigin: "285 841", duration: 0.8, ease: "power2.out" }, JUNTA + 0.1);
+      // "junta": se llenan sellos en cascada
+      llenos.slice(6, 9).forEach((c, i) => tl.fromTo(c, { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.4)" }, JUNTA + 0.1 + i * 0.12));
+      // "canjea premios": el regalo
+      pop(q(".s10-regalo"), CANJEA, "815 860");
+      tl.to(q(".s10-regalo"), { rotation: -6, svgOrigin: "815 860", duration: 0.1, yoyo: true, repeat: 3 }, PREMIOS);
+      etiqueta(0, CANJEA);
+      // "vuelve": camina hacia la puerta, entrando
+      dibujar(qa(".s10-dl"), VUELVE - 0.5, 0.4);
+      tl.fromTo(fig, { x: 820, opacity: 0 }, { opacity: 1, duration: 0.15 }, VUELVE - 0.3);
+      tl.to(fig, { x: 350, duration: 1.6, ease: "none" }, VUELVE - 0.3);
+      tl.fromTo(fig.querySelector("path"), { rotation: -5, svgOrigin: "0 1140" }, { rotation: 5, svgOrigin: "0 1140", duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 7 }, VUELVE - 0.3);
+      tl.to(fig, { opacity: 0.0, duration: 0.25 }, VUELVE + 1.2);
+      etiqueta(1, VUELVE);
+      // "falta poco": la barra casi llena
+      tl.to(q(".s10-barra"), { scaleX: 0.92, svgOrigin: "285 841", duration: 0.4, ease: "back.out(1.6)" }, FALTA);
+      tl.fromTo(q(".s10-falta"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, FALTA);
+      tl.to(llenos[9], { opacity: 0.35, duration: 0.15, yoyo: true, repeat: 3 }, POCO);
+
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
