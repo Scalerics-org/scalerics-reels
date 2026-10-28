@@ -36,5 +36,5 @@
 
 ## En curso
 
-## Banco de ideas (tomá uno o inventá otro en la misma línea)
+## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
 - "Vendés por Instagram y anotás los pedidos en un cuaderno." (Tienda + envíos)

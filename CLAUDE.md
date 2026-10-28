@@ -5,51 +5,90 @@ Montevideo que vende a comercios: bots de WhatsApp, Scalerics Puntos (fidelizaci
 online y sitios web. Los hace un agente, de punta a punta: guion, voz, escenas animadas con
 HyperFrames, render. Este archivo es el proceso; seguilo en orden.
 
-Ejemplos aprobados por Juan (mirarlos antes de hacer uno nuevo): `reels/puntos-que-vuelven`,
-`reels/bot-whatsapp`, `reels/descuentos`, `reels/el-de-enfrente`. El último es el formato actual
-(reel.json); los otros tres tienen su `armar.mjs` viejo con los tiempos adentro.
+Ejemplos aprobados por Juan (mirarlos antes de hacer uno nuevo):
+- Estilo de líneas sobrio: `reels/puntos-que-vuelven`, `reels/bot-whatsapp`, `reels/descuentos`,
+  `reels/el-de-enfrente`, `reels/clientes-fantasma`.
+- **Estilo cargado (el que más le gustó, 28-10: "quedó muy bueno")**: `reels/negocio-zombi` (paleta
+  propia, capa `compositions/ambiente.html` con niebla, chispas y rayos, glitch, rellenos y brillos) y
+  `reels/tu-jarvis` (interfaz holográfica tipo asistente de IA, dos voces: narrador y asistente).
+  Los dos cambian su `armar.mjs` local (fondo, color de acento de los subtítulos y la capa de
+  ambiente): copiá esa forma de hacerlo.
 
-## El estilo (no se negocia)
+## LA REGLA NÚMERO UNO: que no sean todos iguales
+
+Los 25 reels de la primera noche (28-10) salieron con el mismo arco, el mismo estilo y el mismo cierre,
+y Juan dijo: "quedaron muy parecidos, todos iguales, hablando de lo mismo y mismo formato... mucho más
+originalidad". Variar el tema NO alcanza: cada reel de una tanda tiene que ser distinto en **formato
+de guion**, **estilo visual** y **cierre**, y distinto de los de las últimas dos noches (mirá "Hechos"
+en `ideas.md`, que ahora anota formato y estilo).
+
+**Formatos de guion** (cada uno a lo sumo 1 vez por tanda):
+- A. **Verdad incómoda**: el arco clásico (gancho polémico, "no es X ni Y", la verdad, el sistema,
+  el producto). Es el de los ejemplos sobrios. Máximo 1 por tanda.
+- B. **Escena con diálogo**: dos voces (`--voz Kore`, `Aoede`, `Puck`, `Charon`… además de Orus):
+  un cliente que escribe y un comercio que no contesta; dos dueños charlando; un asistente que habla
+  (como `tu-jarvis`). Las voces se generan por partes y se pegan con ffmpeg (ver tu-jarvis).
+- C. **Lista**: "3 señales de que…", "Las 4 cosas que hace distinto el comercio que…". Números
+  grandes en pantalla, cada ítem una escena.
+- D. **Historia de un cliente**: un personaje con nombre ("Lucía entra a tu local un martes…") y lo
+  que le pasa en dos versiones de la misma historia.
+- E. **Pregunta al que mira**: "¿Cuál de estos dos locales vende más?", se muestran los dos, se deja
+  pensar y se revela. Pide comentar la respuesta.
+- F. **Mito o verdad**: 3 frases que todo dueño dice, cada una con sello MITO / VERDAD.
+- G. **Simulación de pantalla**: la interfaz del producto contando la historia (HUD, celular a
+  pantalla completa, el panel del dueño), como `tu-jarvis`.
+- H. **Fecha del calendario**: si hay una fecha cerca (Halloween, Día de la Madre, Black Friday,
+  Navidad, vacaciones de julio), un reel temático con doble sentido, como `clientes-fantasma` o
+  `negocio-zombi`.
+
+**Estilos visuales** (no repetir en la misma tanda): líneas crema clásico; paleta temática con capa
+de ambiente (zombi); interfaz holográfica (jarvis); tipografía gigante (kinetic type: las palabras
+clave enormes ocupando la pantalla, cortes en cada palabra); celular a pantalla completa con UI real
+dibujada; papel/collage (recortes, cinta, sellos, texturas planas). Cada estilo con su paleta de 3 a 5
+colores en el SPEC, su fondo en `armar.mjs` y, si suma, una `compositions/ambiente.html`.
+
+**El gancho**: lo que más funcionó es el doble sentido ("Tu local está lleno de fantasmas", "Tu
+negocio no está muerto: es peor, es un zombi"). Que pique en 2 segundos.
+
+**Muletillas prohibidas de tanto usarlas**: "No es X. Ni Y. Ni Z." solo en el formato A; "es tener un
+sistema" como mucho una vez por tanda; variar el cierre (además de "Comentá PALABRA", por ejemplo
+"Guardalo para cuando…", "Mandáselo al dueño que…", "Respondé en los comentarios cuál…"), pero
+siempre con una sola acción clara.
+
+## El estilo de base (cuando toca el clásico)
 
 - Fondo navy casi negro con brillo verde suave; ilustraciones de líneas crema `#efeee5` que se
   dibujan solas; un solo acento verde `#5ce611`; subtítulos karaoke arriba a la izquierda
   (Lexend 600); una etiqueta mono verde y espaciada debajo del dibujo; logo de Scalerics abajo.
-  Todo eso ya lo arman `molde/armar.mjs` y `molde/SPEC-base.md`.
-- Nada de emojis, degradés, glow, sombras, fotos ni otros colores. Nada de rayas largas (—) en
-  textos visibles: usar ":" o "·".
-- Voz: Gemini TTS, voz Orus, acento uruguayo (`herramientas/voz.mjs`). Juan rechazó edge-tts y las
-  voces Chirp de Google ("horribles").
+  Todo eso ya lo arman `molde/armar.mjs` y `molde/SPEC-base.md`. En los otros estilos, el SPEC del
+  reel dice qué cambia y manda sobre SPEC-base.
+- Siempre: nada de emojis ni fotos; nada de rayas largas (—) en textos visibles: usar ":" o "·".
+- Voz: Gemini TTS, voz Orus, acento uruguayo (`herramientas/voz.mjs`); otras voces de Gemini para
+  diálogos. Juan rechazó edge-tts y las voces Chirp de Google ("horribles").
 
 ## El guion (lo más importante)
 
 Público: dueños de comercios de Uruguay **a los que les va bien o regular y quieren crecer**. NO
 apuntar a los que se están fundiendo (no tienen plata y no compran: decisión de Juan, 27-10).
 
-Estructura (la del reel de LaCarta que Juan tomó de referencia, y la de los 4 ejemplos):
-1. **Gancho polémico** (0-5 s): una verdad incómoda o una pregunta que pica, en una o dos frases
-   cortas. Tiene que hacer que el dueño quiera discutir en los comentarios. Ej.: "Hacer descuentos
-   es la forma más cara de vender." / "El de enfrente te está robando clientes."
-2. **"No es X. Ni Y. Ni Z."**: descartar las explicaciones fáciles.
-3. **La verdad**, con contraste concreto (él/vos, antes/después, lo que pierde) y escenas que se
-   puedan dibujar.
-4. **"No es suerte / no es caro: es tener un sistema."**
-5. **El producto**: qué hace Scalerics, en 2-3 cosas concretas. Solo lo que de verdad se vende:
-   - Bot de WhatsApp: contesta al instante a cualquier hora con tus precios y horarios, agenda
-     turnos, toma pedidos y te pasa la consulta cuando es para vos.
-   - Scalerics Puntos: el cliente suma con cada compra, lleva la tarjeta en el celular, canjea
-     premios; si deja de venir le llega un aviso; el dueño ve quiénes son y cada cuánto vienen.
-   - Tienda online: vende sola, con envíos (DAC, Correo, PedidosYa) y Mercado Pago.
-6. **Cierre**: "Comentá PALABRA y te contamos cómo." (PALABRA en mayúsculas, una sola).
+Lo que se vende (no prometer nada fuera de esto):
+- Bot de WhatsApp: contesta al instante a cualquier hora con tus precios y horarios, agenda
+  turnos, toma pedidos y te pasa la consulta cuando es para vos.
+- Scalerics Puntos: el cliente suma con cada compra, lleva la tarjeta en el celular, canjea
+  premios; si deja de venir le llega un aviso; el dueño ve quiénes son y cada cuánto vienen.
+- Tienda online: vende sola, con envíos (DAC, Correo, PedidosYa) y Mercado Pago.
+- Sitio web: rápido en el celular, con horarios, ubicación y botón a WhatsApp o a la tienda.
 
-Reglas: voseo uruguayo; Scalerics habla en plural ("hacemos", "te contamos"); 150-175 palabras
-(con Orus son ~50-58 s); frases cortas; sin cifras ni estadísticas inventadas; polémico sin
-insultar ni burlarse.
+Reglas: voseo uruguayo; Scalerics habla en plural ("hacemos", "te contamos"); 130-175 palabras
+(con Orus son ~45-58 s); frases cortas; sin cifras ni estadísticas inventadas; polémico sin
+insultar ni burlarse. Cada reel lleva `reels/<slug>/descripcion.txt`: la descripción para
+Instagram/TikTok (gancho, 2-3 líneas, la acción del cierre y 5-6 hashtags), que usa el publicador.
 
 ## Cuántos por corrida: 5, en paralelo
 
 Cada corrida de la rutina hace **5 reels** (pedido de Juan, 27-10). Vos sos el coordinador:
 
-1. Elegí los 5 temas (paso 1) distintos entre sí y reservalos los 5 juntos en `ideas.md`, en un
+1. Elegí los 5 temas (paso 1) distintos entre sí, **cada uno con un formato y un estilo distintos** (ver "La regla número uno"), y reservalos los 5 juntos en `ideas.md`, en un
    solo commit y push a `main`. **Variedad** (pedido de Juan: "que no sean todos de bots"): en
    cada tanda, ningún producto más de 2 veces, y al menos 3 distintos entre Puntos, Bot de
    WhatsApp, Tienda online, Sitio web y "todo Scalerics" (como `el-de-enfrente`). Mirá también
@@ -114,7 +153,7 @@ Todo desde la raíz del repo salvo donde dice. `<slug>` = nombre corto del reel 
     y mirala.
 11. **Entrega.**
     - En `main`: todo `reels/<slug>/` **menos** `renders/` (lo ignora `.gitignore`), y en
-      `ideas.md` pasá el tema de "En curso" a "Hechos" con una línea de qué dice el gancho.
+      `ideas.md` pasá el tema de "En curso" a "Hechos" con una línea de qué dice el gancho, y entre corchetes el formato y el estilo (ej. `[formato B · estilo HUD]`).
     - En una rama `reel/<slug>`: lo mismo más `renders/<slug>-final.mp4`
       (`git add -f`). Así el mp4 no engorda `main`.
     - Push de las dos.
