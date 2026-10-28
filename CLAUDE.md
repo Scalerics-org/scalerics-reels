@@ -6,58 +6,97 @@ online y sitios web. Los hace un agente, de punta a punta: guion, voz, escenas a
 HyperFrames, render. Este archivo es el proceso; seguilo en orden.
 
 Ejemplos aprobados por Juan (mirarlos antes de hacer uno nuevo):
-- Estilo de líneas sobrio: `reels/puntos-que-vuelven`, `reels/bot-whatsapp`, `reels/descuentos`,
+- **LO QUE MÁS LE GUSTÓ (28-10, "me encantaron", "muy buenos", "pa me encantó"): polémicos de
+  verdad, con personajes, referencias y edición cargada.** Copiá el NIVEL de estos:
+  - `reels/vagos`: "Los comerciantes uruguayos son unos vagos." (gancho que ofende al que mira) y
+    GIRO a favor del dueño ("no es ser vago: es estar solo"). Tipografía gigante negro/amarillo/rojo.
+  - `reels/almacen`: CONFESIÓN de un vecino: "Dejé de comprar en el almacén del barrio. El de
+    Rubén." Papel y collage, letra manuscrita (Caveat). Cierre: "Mandáselo a tu almacenero."
+  - `reels/ojala-te-fundas`: MONÓLOGO DEL VILLANO (la competencia) con voz grave (Gemini Algenib)
+    desde una guarida de monitores de vigilancia; corte a la luz cuando entra el narrador.
+    Cierre: "Etiquetá a tu competencia. Que se entere."
+  - `reels/el-golpe`: un PILLO explica en PASOS cómo te va a robar los clientes, como en una
+    película de atracos, lleno de REFERENCIAS (La Casa de Papel, Heisenberg, "¿qué mirás, bobo?",
+    la culpa al dólar, "no hay paso cinco"). Plano de atraco azul. Dos voces (Fenrir + Orus).
+  - `reels/el-juicio`: PROGRAMA DE JUICIOS DE TV (estilo Caso Cerrado, personajes inventados):
+    la clienta demanda a tu local, el dueño se defiende con "una tarjetita de cartón", abucheo,
+    CULPABLE, "¡caso cerrado!", "o apelá". Cuatro voces (Kore, Leda, Charon, Orus).
+  - También le gustaron: `reels/infiel` (telenovela: "tu cliente te está siendo infiel"),
+    `reels/negocio-zombi`, `reels/tu-jarvis`.
+- Estilo de líneas sobrio (el viejo, máximo 1 por tanda o ninguno): `reels/puntos-que-vuelven`,
   `reels/el-de-enfrente`, `reels/clientes-fantasma`.
-- **Estilo cargado (el que más le gustó, 28-10: "quedó muy bueno")**: `reels/negocio-zombi` (paleta
-  propia, capa `compositions/ambiente.html` con niebla, chispas y rayos, glitch, rellenos y brillos) y
-  `reels/tu-jarvis` (interfaz holográfica tipo asistente de IA, dos voces: narrador y asistente).
-  Los dos cambian su `armar.mjs` local (fondo, color de acento de los subtítulos y la capa de
-  ambiente): copiá esa forma de hacerlo.
+- Todos los cargados cambian su `armar.mjs` local (fondo, color de acento de los subtítulos y la
+  capa `compositions/ambiente.html`): copiá esa forma de hacerlo.
 
-## LA REGLA NÚMERO UNO: que no sean todos iguales
+## LA REGLA NÚMERO UNO: polémico, con personajes, y que no sean todos iguales
 
-Los 25 reels de la primera noche (28-10) salieron con el mismo arco, el mismo estilo y el mismo cierre,
-y Juan dijo: "quedaron muy parecidos, todos iguales, hablando de lo mismo y mismo formato... mucho más
-originalidad". Variar el tema NO alcanza: cada reel de una tanda tiene que ser distinto en **formato
-de guion**, **estilo visual** y **cierre**, y distinto de los de las últimas dos noches (mirá "Hechos"
-en `ideas.md`, que ahora anota formato y estilo).
+Juan, 28-10: los 25 reels de la primera noche salieron "todos iguales, hablando de lo mismo y mismo
+formato". Después pidió, una y otra vez, **"mucho más polémico"**, "bien viral", "gancho fuerte",
+"tipo pillo, con referencias". Lo que le encanta:
+1. **Un gancho de UNA frase que pica** en el primer segundo: ofende, acusa, da culpa o da
+   morbo ("son unos vagos", "ojalá te fundas", "te voy a robar los clientes", "tu cliente te está
+   siendo infiel", "dejé de comprar en el almacén"). Hablale al dueño en la cara.
+2. **Un PERSONAJE que habla** (no un narrador que explica): el villano de enfrente, el pillo, la
+   jueza, la clienta indignada, el vecino que confiesa, el asistente de IA. Con su voz propia de
+   Gemini, y nuestro narrador (Orus) solo al final, cuando entra Scalerics.
+3. **Un formato reconocible de la cultura popular** que el que mira ya conoce: película de
+   atracos, programa de juicios, telenovela, monólogo de villano, confesión, stream o podcast,
+   documental de crímenes, reality, noticiero de último momento, partido con relator, entrevista
+   de trabajo, cita a ciegas, sesión de terapia, examen, subasta, el "roast".
+4. **Referencias** (series, películas, fútbol, memes, cosas uruguayas: el dólar, el "solo
+   efectivo", el posnet que no anda, el "pasá el lunes", el almacén, la feria) **solo
+   nombradas**: nunca logos, caras, música ni imágenes de la obra; personajes dibujados genéricos.
+5. **Un GIRO** a la mitad (el dueño no es vago: está solo; el súper no es mejor: le hace caso) y
+   **un cierre que da para comentar o compartir**: "¿culpable o inocente?", "etiquetá a tu
+   competencia", "mandáselo al que dice...", "te leemos en los comentarios".
+6. **Humor**: lo polémico funciona porque es gracioso, no porque es agresivo.
 
-**Formatos de guion** (cada uno a lo sumo 1 vez por tanda):
-- A. **Verdad incómoda**: gancho polémico, la verdad con un contraste concreto, el producto. Máximo 1
-  por tanda. SIN el "no es X, ni Y, ni Z" (ver abajo).
-  un cliente que escribe y un comercio que no contesta; dos dueños charlando; un asistente que habla
-  (como `tu-jarvis`). Las voces se generan por partes y se pegan con ffmpeg (ver tu-jarvis).
-- C. **Lista**: "3 señales de que…", "Las 4 cosas que hace distinto el comercio que…". Números
-  grandes en pantalla, cada ítem una escena.
-- D. **Historia de un cliente**: un personaje con nombre ("Lucía entra a tu local un martes…") y lo
-  que le pasa en dos versiones de la misma historia.
-- E. **Pregunta al que mira**: "¿Cuál de estos dos locales vende más?", se muestran los dos, se deja
-  pensar y se revela. Pide comentar la respuesta.
-- F. **Mito o verdad**: 3 frases que todo dueño dice, cada una con sello MITO / VERDAD.
-- G. **Simulación de pantalla**: la interfaz del producto contando la historia (HUD, celular a
-  pantalla completa, el panel del dueño), como `tu-jarvis`.
+Y además, dentro de cada tanda, cada reel distinto en **formato**, **estilo visual** y **cierre**, y
+distinto de los de las últimas dos noches (mirá "Hechos" en `ideas.md`, que anota formato y estilo).
+
+**Formatos de guion** (cada uno a lo sumo 1 vez por tanda; preferí los de personaje):
+- P. **Personaje de la cultura popular** (EL PREFERIDO): un formato de TV, cine o internet con
+  personajes que hablan (ver la lista del punto 3). Como `el-juicio`, `el-golpe`,
+  `ojala-te-fundas`, `infiel`. Puede haber hasta 2 de este tipo por tanda si los formatos de
+  cultura popular son distintos.
+- A. **Polémica con giro**: un gancho que ofende al que mira y un giro que lo defiende, como
+  `vagos`. SIN el "no es X, ni Y, ni Z" (ver abajo).
+- B. **Diálogo** de dos o más voces: un cliente que escribe y un comercio que no contesta, el
+  dueño contra su conciencia, un asistente que habla (como `tu-jarvis`).
+- C. **Lista en pasos**: "Cómo te robo los clientes en 4 pasos", con números gigantes de capítulo,
+  como `el-golpe`.
+- D. **Confesión o historia de un cliente** con nombre ("el de Rubén", "Lucía"), como `almacen`.
+- E. **Pregunta al que mira**: se muestran dos locales, se deja pensar y se revela; pide votar.
+- G. **Simulación de pantalla**: la interfaz contando la historia (HUD, celular a pantalla completa).
 - H. **Fecha del calendario**: si hay una fecha cerca (Halloween, Día de la Madre, Black Friday,
-  Navidad, vacaciones de julio), un reel temático con doble sentido, como `clientes-fantasma` o
-  `negocio-zombi`.
+  Navidad, vacaciones de julio), con doble sentido, como `clientes-fantasma` o `negocio-zombi`.
 
-**Lo que quiere Juan (28-10, después de ver el zombi y JARVIS): "ese tipo de contenido quiero hacer, variado, viral, no siempre lo mismo".** O sea: TODOS los reels con edición cargada como `negocio-zombi` y `tu-jarvis` (paleta propia, capa de ambiente, efectos, cortes rápidos, contadores, glitch, nada quieto), cada uno con su propia idea visual. El estilo de líneas sobrio queda como máximo 1 por tanda.
+**Varias voces** (cómo se hizo en `el-golpe` y `el-juicio`): un .txt por parlamento en
+`reels/<slug>/partes/`, cada uno con su voz y su tono
+(`node ../../herramientas/voz.mjs partes/01.txt partes/01.wav --voz Kore --tono "..."`; voces que
+anduvieron: Orus narrador, Kore jueza o asistente, Leda clienta joven, Charon dueño cansado, Fenrir
+pillo canchero, Algenib villano grave). Recortá silencios con ffmpeg `silenceremove`, pegalos con
+0.35-0.6 s de silencio entre parlamentos (1 s si hay una reacción del público), y armá `guion.txt`
+con todos los parlamentos en orden. Los tiempos por palabra sacalos con `tiempos.mjs`; con varias
+voces suelen desfasarse: verificalos y, si hace falta, armá `palabras.json` a mano con los tiempos
+que oíste. Si una palabra clave sale mal pronunciada ("bobo" sonaba "vos"), regenerá SOLO esa
+frase y pegala en su lugar con ffmpeg.
 
-**Estilos visuales** (no repetir en la misma tanda): líneas crema clásico (máximo 1); paleta temática con capa
-de ambiente (zombi); interfaz holográfica (jarvis); tipografía gigante (kinetic type: las palabras
-clave enormes ocupando la pantalla, cortes en cada palabra); celular a pantalla completa con UI real
-dibujada; papel/collage (recortes, cinta, sellos, texturas planas). Cada estilo con su paleta de 3 a 5
-colores en el SPEC, su fondo en `armar.mjs` y, si suma, una `compositions/ambiente.html`.
-
-**El gancho**: lo que más funcionó es el doble sentido ("Tu local está lleno de fantasmas", "Tu
-negocio no está muerto: es peor, es un zombi"). Que pique en 2 segundos.
+**Estilos visuales** (no repetir en la misma tanda; cada uno con paleta propia de 3 a 6 colores en
+el SPEC, fondo en `armar.mjs` y `compositions/ambiente.html`): tipografía gigante; papel y
+collage; guarida con monitores de vigilancia; plano de atraco; estudio de TV; telenovela con
+polaroids; HUD holográfico; paleta temática con ambiente (zombi); celular a pantalla completa; y
+los que pida el formato (noticiero con zócalos, transmisión de fútbol con marcador, documental de
+crímenes con expedientes, reality con confesionario, VHS, cómic con viñetas, videojuego retro...).
+Líneas crema clásico: máximo 1 por tanda (mejor ninguno).
 
 **Muletillas PROHIBIDAS** (Juan, 28-10: "cansa siempre lo de no es la crisis, siempre lo mismo"):
 - Descartar explicaciones en fila: "No es la crisis. Ni el barrio. Ni la competencia.", "No es
   suerte, ni el local, ni la plata" y cualquier variante. En ningún formato.
 - "No es suerte / no es caro: es tener un sistema" y "es tener un sistema" en general.
-- Cerrar siempre con "Comentá PALABRA y te contamos cómo": variar ("Guardalo para cuando…",
-  "Mandáselo al dueño que…", "Respondé en los comentarios cuál…", o "Comentá PALABRA" con otra
-  frase), siempre con una sola acción clara.
+- Cerrar siempre con "Comentá PALABRA y te contamos cómo": variar, siempre con una sola acción
+  clara que invite a comentar o compartir.
+- Repetir una idea ya hecha: antes de elegir, leé TODOS los ganchos de "Hechos".
 
 ## El estilo de base (cuando toca el clásico)
 
@@ -84,8 +123,10 @@ Lo que se vende (no prometer nada fuera de esto):
 - Sitio web: rápido en el celular, con horarios, ubicación y botón a WhatsApp o a la tienda.
 
 Reglas: voseo uruguayo; Scalerics habla en plural ("hacemos", "te contamos"); 130-175 palabras
-(con Orus son ~45-58 s); frases cortas; sin cifras ni estadísticas inventadas; polémico sin
-insultar ni burlarse. Cada reel lleva `reels/<slug>/descripcion.txt`: la descripción para
+(con Orus son ~45-58 s; con diálogos y personajes se acepta hasta ~190 y ~70 s); frases cortas;
+sin cifras ni estadísticas inventadas; polémico y filoso (se puede pinchar al dueño en la cara,
+como `vagos`), pero con humor y con un giro que lo deja bien parado: nunca insultos de verdad,
+nada sobre personas reales con nombre propio, ni marcas reales atacadas. Cada reel lleva `reels/<slug>/descripcion.txt`: la descripción para
 Instagram/TikTok (gancho, 2-3 líneas, la acción del cierre y 5-6 hashtags), que usa el publicador.
 
 ## Cuántos por corrida: 5, en paralelo
