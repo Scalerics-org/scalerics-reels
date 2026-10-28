@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-no-gana"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-no-gana"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-no-gana"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-no-gana"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-no-gana"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-no-gana"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-no-gana"] .relleno { fill: #5ce611; }
+    [data-composition-id="s03-no-gana"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s03-no-gana"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s03-no-gana"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s03-no-gana"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s03-no-gana"] .lx-ac { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; fill: #5ce611; }
+    [data-composition-id="s03-no-gana"] .lx-boton { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #0b1d35; }
+    [data-composition-id="s03-no-gana"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-no-gana"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s03-no-gana"] .s03-num { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 64px; fill: #5ce611; }
+    [data-composition-id="s03-no-gana"] .s03-pesos { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 52px; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s03-no-gana" data-width="1080" data-height="1920" data-duration="5.25">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="5.25" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s03-podio">
+        <path class="ln s03-dp" d="M330 1080 V990 H450 V900 H630 V1030 H750 V1080 Z" />
+        <line class="ln s03-dp" x1="290" y1="1080" x2="790" y2="1080" />
+        <text class="s03-num" x="540" y="870" text-anchor="middle">1</text>
+        </g>
+        <g class="s03-i1">
+        <path class="ln s03-d1" d="M130 860 H250 L295 905 L250 950 H130 Z" />
+        <circle class="ln-4 s03-d1" cx="262" cy="905" r="9" />
+        <text class="s03-pesos s03-t1" x="190" y="924" text-anchor="middle">$</text>
+        <path class="ln-ac4 s03-d1" d="M212 990 V1050 M192 1030 L212 1052 L232 1030" />
+        
+        <g class="s03-b1"><circle class="ln-ac4" cx="292" cy="852" r="18" /><path class="ln-ac4" d="M284 844 L300 860 M300 844 L284 860" /></g>
+        </g>
+        <g class="s03-i2">
+        <g class="s03-loc" transform="translate(540 1010) scale(0.6)">
+        <path class="ln s03-d2" d="M-120 0 V-170 H120 V0" />
+        <path class="ln s03-d2" d="M-140 -170 H140 L122 -222 H-122 Z" />
+        <path class="ln s03-d2" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+        
+        <rect class="ln s03-d2" x="-100" y="-122" width="58" height="52" rx="5" />
+        <rect class="ln s03-d2" x="42" y="-122" width="58" height="52" rx="5" />
+        
+        <path class="ln s03-d2" d="M-24 0 V-96 H24 V0" /></g>
+        <path class="ln-ac4 s03-est" d="M470 814 L475 825 L486 830 L475 835 L470 846 L465 835 L454 830 L465 825 Z" /><path class="ln-ac4 s03-est" d="M540 789 L545 800 L556 805 L545 810 L540 821 L535 810 L524 805 L535 800 Z" /><path class="ln-ac4 s03-est" d="M610 814 L615 825 L626 830 L615 835 L610 846 L605 835 L594 830 L605 825 Z" />
+        
+        <g class="s03-b2"><circle class="ln-ac4" cx="652" cy="884" r="18" /><path class="ln-ac4" d="M644 876 L660 892 M660 876 L644 892" /></g>
+        </g>
+        <g class="s03-i3">
+        <circle class="ln-4 s03-d3" cx="860" cy="790" r="8" />
+        <path class="ln-4 s03-d3" d="M854 796 L770 870 M866 796 L950 870" />
+        <rect class="ln s03-d3" x="742" y="870" width="236" height="84" rx="12" />
+        <text class="cartel s03-t3" x="860" y="922" text-anchor="middle">DESDE 1985</text>
+        
+        <g class="s03-b3"><circle class="ln-ac4" cx="978" cy="862" r="18" /><path class="ln-ac4" d="M970 854 L986 870 M986 854 L970 870" /></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">¿Quién gana?</span><span class="s03-e2">Ni el precio</span><span class="s03-e3">Ni el local</span><span class="s03-e4">Ni los años</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-no-gana";
+      const DUR = 5.25;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      // etiqueta: et(n, t) muestra la n (1, 2, ...) y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s03-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+
+      const PRECIO = 1.5, LOCAL = 2.5, LINDO = 2.9, NI3 = 3.3, ANOS = 4.3;
+      // arranca el podio medio dibujado
+      dibujar(qa(".s03-dp"), 0, 0.5, 0.45);
+      pop(q(".s03-num"), 0.35, 540, 850);
+      et(1, 0.2);
+      punch(q(".s03-num"), 0.9, 540, 850, 1.25);
+      tl.to(q(".s03-podio"), { opacity: 0, scale: 0.9, svgOrigin: "540 1000", duration: 0.3, ease: "power2.in" }, 1.1);
+      // precio
+      dibujar(qa(".s03-d1"), 1.2, 0.45);
+      gsap.set(q(".s03-t1"), { opacity: 0 });
+      tl.fromTo(q(".s03-t1"), { opacity: 0, scale: 0.6, svgOrigin: "190 905" }, { opacity: 1, scale: 1, svgOrigin: "190 905", duration: 0.3, ease: "back.out(2)" }, PRECIO - 0.1);
+      pop(q(".s03-b1"), PRECIO + 0.1, 292, 852);
+      et(2, PRECIO);
+      // local lindo
+      dibujar(qa(".s03-d2"), LOCAL - 0.3, 0.45);
+      qa(".s03-est").forEach((e, i) => pop(e, LINDO - 0.25 + i * 0.1, [470, 540, 610][i], [830, 805, 830][i]));
+      pop(q(".s03-b2"), LINDO + 0.15, 652, 884);
+      et(3, LINDO);
+      tl.to(qa(".s03-i1"), { opacity: 0.4, duration: 0.3 }, LINDO);
+      // años
+      dibujar(qa(".s03-d3"), NI3, 0.45);
+      gsap.set(q(".s03-t3"), { opacity: 0 });
+      tl.to(q(".s03-t3"), { opacity: 1, duration: 0.3 }, NI3 + 0.35);
+      tl.fromTo(q(".s03-i3"), { rotation: -4, svgOrigin: "860 790" }, { rotation: 0, svgOrigin: "860 790", duration: 0.8, ease: "elastic.out(1, 0.4)" }, NI3 + 0.3);
+      pop(q(".s03-b3"), ANOS, 978, 862);
+      et(4, ANOS);
+      tl.to(qa(".s03-i2"), { opacity: 0.4, duration: 0.3 }, ANOS);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

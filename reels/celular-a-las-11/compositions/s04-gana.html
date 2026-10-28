@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-gana"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-gana"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-gana"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-gana"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-gana"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-gana"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-gana"] .relleno { fill: #5ce611; }
+    [data-composition-id="s04-gana"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s04-gana"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s04-gana"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s04-gana"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s04-gana"] .lx-ac { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; fill: #5ce611; }
+    [data-composition-id="s04-gana"] .lx-boton { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #0b1d35; }
+    [data-composition-id="s04-gana"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-gana"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s04-gana"] .s04-btn-txt { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 48px; fill: #0b1d35; }
+    [data-composition-id="s04-gana"] .s04-hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 44px; letter-spacing: 0.06em; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s04-gana" data-width="1080" data-height="1920" data-duration="2.8">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="2.8" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s04-copa">
+        <path class="ln s04-dc" d="M480 640 H600 V690 Q600 760 540 766 Q480 760 480 690 Z" />
+        <path class="ln s04-dc" d="M480 660 H448 Q440 712 486 722 M600 660 H632 Q640 712 594 722" />
+        <path class="ln s04-dc" d="M540 766 V800 M500 812 H580" />
+        <path class="ln-ac4 s04-dc" d="M540 676 L548 694 L566 696 L552 708 L556 726 L540 716 L524 726 L528 708 L514 696 L532 694 Z" />
+        </g>
+        <g class="s04-btn">
+        <rect class="relleno" x="320" y="870" width="440" height="120" rx="60" />
+        <text class="s04-btn-txt" x="540" y="946" text-anchor="middle">Comprar</text>
+        </g>
+        
+        <circle class="ln s04-dedo" cx="650" cy="930" r="26" />
+        <circle class="ln-4 s04-dedo-onda" cx="650" cy="930" r="26" />
+        <g class="s04-reloj">
+        <text class="s04-hora" x="500" y="1112" text-anchor="middle">23:00</text>
+        <circle class="ln-ac s04-dk" cx="640" cy="1097" r="28" />
+        <path class="ln-ac s04-dk" d="M626 1098 L637 1109 L656 1086" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Comprar ya</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-gana";
+      const DUR = 2.8;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      // etiqueta: et(n, t) muestra la n (1, 2, ...) y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s04-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+
+      const GANA = 0.0, COMPRAR = 0.85, MOMENTO = 1.65;
+      dibujar(qa(".s04-dc"), 0, 0.45, 0.4);
+      punch(q(".s04-copa"), 0.45, 540, 720, 1.1);
+      pop(q(".s04-btn"), GANA + 0.15, 540, 930);
+      et(1, 0.3);
+      
+      gsap.set(qa(".s04-dedo, .s04-dedo-onda"), { opacity: 0 });
+      tl.fromTo(q(".s04-dedo"), { opacity: 0, x: 70, y: 90 }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out" }, COMPRAR - 0.3);
+      tl.fromTo(q(".s04-dedo-onda"), { opacity: 0.9, scale: 1, svgOrigin: "650 930" }, { opacity: 0, scale: 2.4, svgOrigin: "650 930", duration: 0.45, ease: "power2.out", immediateRender: false }, COMPRAR);
+      tl.to(q(".s04-dedo"), { opacity: 0, duration: 0.2 }, COMPRAR + 0.35);
+      tl.to(q(".s04-btn"), { scale: 0.94, svgOrigin: "540 930", duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1 }, COMPRAR);
+      gsap.set(q(".s04-hora"), { opacity: 0 });
+      tl.fromTo(q(".s04-hora"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, MOMENTO - 0.25);
+      dibujar(qa(".s04-dk"), MOMENTO, 0.35);
+      punch(q(".s04-reloj"), MOMENTO + 0.4, 560, 1097, 1.08);
+      tl.fromTo(q(".s04-copa"), { y: 0 }, { y: -10, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 2.0);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

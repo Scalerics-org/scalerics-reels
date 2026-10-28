@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-cobra"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-cobra"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-cobra"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-cobra"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-cobra"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-cobra"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-cobra"] .relleno { fill: #5ce611; }
+    [data-composition-id="s10-cobra"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s10-cobra"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s10-cobra"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s10-cobra"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s10-cobra"] .lx-ac { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; fill: #5ce611; }
+    [data-composition-id="s10-cobra"] .lx-boton { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #0b1d35; }
+    [data-composition-id="s10-cobra"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-cobra"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s10-cobra" data-width="1080" data-height="1920" data-duration="4.31">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="4.31" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s10-noti">
+        <rect class="ln s10-dn" x="290" y="616" width="500" height="112" rx="26" />
+        <circle class="ln-ac s10-dk" cx="350" cy="672" r="28" />
+        <path class="ln-ac s10-dk" d="M336 673 L347 684 L366 661" />
+        <text class="lx s10-t1" x="400" y="664">+1 venta · pagada</text>
+        <text class="mono-ac s10-t2" x="400" y="704">MERCADO PAGO</text>
+        </g>
+        <g class="s10-van">
+        <rect class="ln-4 s10-caja" x="440" y="900" width="96" height="70" rx="6" />
+        <path class="ln-4 s10-caja" d="M488 900 V930" />
+        <path class="ln s10-dv" d="M400 990 V870 H600 V990 Z" />
+        <path class="ln s10-dv" d="M600 990 V912 H664 L708 956 V990 Z" />
+        <circle class="ln s10-dv" cx="452" cy="996" r="22" />
+        <circle class="ln s10-dv" cx="652" cy="996" r="22" />
+        </g>
+        <path class="ln-ac s10-vel" d="M330 900 H380 M310 940 H370 M340 980 H378" />
+        <g class="s10-pill"><rect class="ln-4" x="210" y="1080" width="140" height="64" rx="32" /><text class="mono-ac" x="280" y="1121" text-anchor="middle">DAC</text></g>
+        <g class="s10-pill"><rect class="ln-4" x="380" y="1080" width="200" height="64" rx="32" /><text class="mono-ac" x="480" y="1121" text-anchor="middle">CORREO</text></g>
+        <g class="s10-pill"><rect class="ln-4" x="610" y="1080" width="260" height="64" rx="32" /><text class="mono-ac" x="740" y="1121" text-anchor="middle">PEDIDOSYA</text></g>
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Cobra sola</span><span class="s10-e2">Y sale el envío</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-cobra";
+      const DUR = 4.31;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      // etiqueta: et(n, t) muestra la n (1, 2, ...) y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s10-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+
+      const MP = 0.36, ENVIO = 1.46, DAC = 2.06, CORREO = 2.66, PY = 3.16;
+      // la notificación de venta arranca con el marco a medio dibujar
+      dibujar([q(".s10-dn")], 0, 0.45, 0.45);
+      dibujar(qa(".s10-dk"), 0.1, 0.35);
+      gsap.set(qa(".s10-t1, .s10-t2"), { opacity: 0 });
+      tl.fromTo(q(".s10-t1"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.3 }, 0.15);
+      tl.fromTo(q(".s10-t2"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.3 }, MP);
+      punch(q(".s10-noti"), MP + 0.3, 540, 672, 1.05);
+      et(1, MP);
+      // el paquete y la camioneta
+      dibujar(qa(".s10-caja"), 0.7, 0.35);
+      dibujar(qa(".s10-dv"), 0.95, 0.45);
+      tl.to(q(".s10-noti"), { opacity: 0.5, duration: 0.3 }, ENVIO);
+      tl.to(q(".s10-van"), { x: 150, duration: 0.6, ease: "power2.in" }, ENVIO);
+      dibujar([q(".s10-vel")], ENVIO + 0.1, 0.3);
+      tl.to(q(".s10-vel"), { x: 150, opacity: 0, duration: 0.5, ease: "power2.in" }, ENVIO + 0.4);
+      tl.to(q(".s10-van"), { x: 0, duration: 0.01 }, ENVIO + 0.62);
+      tl.fromTo(q(".s10-van"), { opacity: 1 }, { opacity: 0, duration: 0.01, immediateRender: false }, ENVIO + 0.6);
+      tl.fromTo(q(".s10-van"), { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, ENVIO + 0.65);
+      et(2, ENVIO);
+      // las tres empresas
+      const ps = qa(".s10-pill");
+      [[DAC, 280], [CORREO, 480], [PY, 740]].forEach(([t, cx], i) => pop(ps[i], t - 0.05, cx, 1112));
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

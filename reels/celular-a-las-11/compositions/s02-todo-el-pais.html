@@ -1,0 +1,178 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-todo-el-pais"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-todo-el-pais"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-todo-el-pais"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-todo-el-pais"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-todo-el-pais"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-todo-el-pais"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-todo-el-pais"] .relleno { fill: #5ce611; }
+    [data-composition-id="s02-todo-el-pais"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s02-todo-el-pais"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s02-todo-el-pais"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s02-todo-el-pais"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s02-todo-el-pais"] .lx-ac { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; fill: #5ce611; }
+    [data-composition-id="s02-todo-el-pais"] .lx-boton { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #0b1d35; }
+    [data-composition-id="s02-todo-el-pais"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-todo-el-pais"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s02-todo-el-pais" data-width="1080" data-height="1920" data-duration="4.99">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.99" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s02-cuadra">
+        <line class="ln s02-dib" x1="120" y1="1120" x2="960" y2="1120" />
+        <g class="s02-l1" transform="translate(250 1120) scale(0.62)">
+        <path class="ln s02-dib" d="M-120 0 V-170 H120 V0" />
+        <path class="ln s02-dib" d="M-140 -170 H140 L122 -222 H-122 Z" />
+        <path class="ln s02-dib" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+        
+        <rect class="ln s02-dib" x="-100" y="-122" width="58" height="52" rx="5" />
+        <rect class="ln s02-dib" x="42" y="-122" width="58" height="52" rx="5" />
+        
+        <path class="ln s02-dib" d="M-24 0 V-96 H24 V0" /></g>
+        <g class="s02-l2" transform="translate(450 1120) scale(0.62)">
+        <path class="ln s02-dib" d="M-120 0 V-170 H120 V0" />
+        <path class="ln s02-dib" d="M-140 -170 H140 L122 -222 H-122 Z" />
+        <path class="ln s02-dib" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+        <rect class="ln s02-dib" x="-80" y="-290" width="160" height="50" rx="10" />
+        <text class="cartel s02-dib-txt" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+        <rect class="ln s02-dib" x="-100" y="-122" width="58" height="52" rx="5" />
+        <rect class="ln s02-dib" x="42" y="-122" width="58" height="52" rx="5" />
+        <rect class="vidrio s02-dib-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+        <rect class="vidrio s02-dib-luz" x="50" y="-114" width="42" height="36" rx="3" />
+        <path class="ln s02-dib" d="M-24 0 V-96 H24 V0" /></g>
+        <g class="s02-l3" transform="translate(650 1120) scale(0.62)">
+        <path class="ln s02-dib" d="M-120 0 V-170 H120 V0" />
+        <path class="ln s02-dib" d="M-140 -170 H140 L122 -222 H-122 Z" />
+        <path class="ln s02-dib" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+        
+        <rect class="ln s02-dib" x="-100" y="-122" width="58" height="52" rx="5" />
+        <rect class="ln s02-dib" x="42" y="-122" width="58" height="52" rx="5" />
+        
+        <path class="ln s02-dib" d="M-24 0 V-96 H24 V0" /></g>
+        <path class="ln s02-dib" d="M860 1120 V704" />
+        <rect class="ln s02-dib" x="740" y="640" width="240" height="64" rx="10" />
+        <text class="cartel s02-cartel" x="860" y="682" text-anchor="middle">TU CUADRA</text>
+        
+        <g class="s02-badge"><circle class="ln-ac4" cx="978" cy="642" r="18" /><path class="ln-ac4" d="M970 634 L986 650 M986 634 L970 650" /></g>
+        </g>
+        <g class="s02-cel">
+        
+        <rect class="ln s02-dc" x="350" y="600" width="380" height="620" rx="52" />
+        <line class="ln s02-dc" x1="510" y1="630" x2="570" y2="630" />
+        <text class="mono-ac s02-dc-hora" x="392" y="676">23:00</text>
+        <g class="s02-card">
+        <rect class="ln-4" x="380" y="712" width="320" height="104" rx="20" />
+        <rect class="ln-ac4" x="398" y="730" width="68" height="68" rx="12" />
+        <line class="ln-4" x1="486" y1="746" x2="640" y2="746" />
+        <text class="mono-ac" x="486" y="792">$ 1.290</text>
+        </g>
+        <g class="s02-card">
+        <rect class="ln-4" x="380" y="830" width="320" height="104" rx="20" />
+        <rect class="ln-ac4" x="398" y="848" width="68" height="68" rx="12" />
+        <line class="ln-4" x1="486" y1="864" x2="622" y2="864" />
+        <text class="mono-ac" x="486" y="910">$ 990</text>
+        </g>
+        <g class="s02-card">
+        <rect class="ln-4" x="380" y="948" width="320" height="104" rx="20" />
+        <rect class="ln-ac4" x="398" y="966" width="68" height="68" rx="12" />
+        <line class="ln-4" x1="486" y1="982" x2="604" y2="982" />
+        <text class="mono-ac" x="486" y="1028">$ 2.450</text>
+        </g>
+        <g class="s02-card">
+        <rect class="ln-4" x="380" y="1066" width="320" height="104" rx="20" />
+        <rect class="ln-ac4" x="398" y="1084" width="68" height="68" rx="12" />
+        <line class="ln-4" x1="486" y1="1100" x2="586" y2="1100" />
+        <text class="mono-ac" x="486" y="1146">$ 1.790</text>
+        </g>
+        </g>
+        <g class="s02-pin">
+        <path class="ln-ac" d="M870 880 C840 840 820 820 820 790 A50 50 0 0 1 920 790 C920 820 900 840 870 880 Z" />
+        <circle class="ln-ac4" cx="870" cy="790" r="16" />
+        <path class="ln-4" d="M780 930 Q870 900 960 930" />
+        </g>
+        
+        <circle class="ln s02-dedo" cx="432" cy="764" r="26" />
+        <circle class="ln-4 s02-dedo-onda" cx="432" cy="764" r="26" />
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">No es tu cuadra</span><span class="s02-e2">Tiendas de todo el país</span><span class="s02-e3">A un toque</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-todo-el-pais";
+      const DUR = 4.99;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const punch = (el, t, ox, oy, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: ox + " " + oy, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      // etiqueta: et(n, t) muestra la n (1, 2, ...) y esconde la anterior
+      let etPrev = null;
+      const et = (k, t) => {
+        const el = q(".s02-e" + k);
+        if (etPrev) tl.to(etPrev, { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etPrev = el;
+      };
+
+      const CUADRA = 0.79, COMPITEN = 1.7, TIENDAS = 1.89, PAIS = 2.73, TOQUE = 3.89;
+      dibujar(qa(".s02-dib"), 0, 0.5, 0.4);
+      tl.fromTo(qa(".s02-dib-txt, .s02-cartel"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.2);
+      tl.fromTo(qa(".s02-dib-luz"), { opacity: 0 }, { opacity: 0.85, duration: 0.25 }, 0.3);
+      // "cuadra": badge X en el cartel
+      pop(q(".s02-badge"), CUADRA, 978, 642);
+      punch(q(".s02-cuadra"), CUADRA + 0.1, 540, 1000, 1.04);
+      et(1, CUADRA - 0.2);
+      tl.to(qa(".s02-dib-luz"), { opacity: 0, duration: 0.25 }, CUADRA + 0.3);
+      // "compiten": la cuadra se va, entra el celular
+      tl.to(q(".s02-cuadra"), { opacity: 0, filter: "blur(6px)", y: 30, duration: 0.3, ease: "power2.in" }, COMPITEN - 0.35);
+      dibujar(qa(".s02-dc"), COMPITEN - 0.05, 0.4);
+      gsap.set(q(".s02-dc-hora"), { opacity: 0 });
+      tl.to(q(".s02-dc-hora"), { opacity: 1, duration: 0.2 }, COMPITEN + 0.2);
+      tl.fromTo(q(".s02-cel"), { scale: 1.1, svgOrigin: "540 910" }, { scale: 1, svgOrigin: "540 910", duration: 0.4, ease: "power3.out" }, COMPITEN - 0.05);
+      // "tiendas": caen las tarjetas una tras otra
+      qa(".s02-card").forEach((c, i) => {
+      gsap.set(c, { opacity: 0 });
+      tl.fromTo(c, { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, TIENDAS + i * 0.16);
+      });
+      et(2, TIENDAS);
+      // "todo el país": el pin
+      pop(q(".s02-pin"), PAIS, 870, 880);
+      tl.fromTo(q(".s02-pin"), { y: 0 }, { y: -14, duration: 0.25, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, PAIS + 0.4);
+      // "toque": el dedo toca la primera tarjeta
+      
+      gsap.set(qa(".s02-dedo, .s02-dedo-onda"), { opacity: 0 });
+      tl.fromTo(q(".s02-dedo"), { opacity: 0, x: 70, y: 90 }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out" }, TOQUE - 0.3);
+      tl.fromTo(q(".s02-dedo-onda"), { opacity: 0.9, scale: 1, svgOrigin: "432 764" }, { opacity: 0, scale: 2.4, svgOrigin: "432 764", duration: 0.45, ease: "power2.out", immediateRender: false }, TOQUE);
+      tl.to(q(".s02-dedo"), { opacity: 0, duration: 0.2 }, TOQUE + 0.35);
+      punch(q(".s02-card"), TOQUE, 540, 764, 1.06);
+      et(3, TOQUE);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,190 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-celular"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-celular"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-celular"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-celular"] .ln-4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-celular"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-celular"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-celular"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s01-celular"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s01-celular"] .s01-vs { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 44px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s01-celular"] .s01-hora-chica { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; fill: #5ce611; }
+    [data-composition-id="s01-celular"] .s01-hora { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 104px; letter-spacing: -0.02em; fill: #5ce611; }
+    [data-composition-id="s01-celular"] .s01-fecha { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s01-celular"] .s01-zz { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s01-celular"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-celular"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-celular" data-width="1080" data-height="1920" data-duration="5.71">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.71" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s01-clip-hora"><rect x="372" y="760" width="336" height="130" /></clipPath></defs>
+        <line class="ln s01-suelo" x1="60" y1="1150" x2="1020" y2="1150" />
+        <!-- tu local (izquierda) -->
+        <g class="s01-tuyo" transform="translate(290 1150) scale(0.85)">
+          <g class="s01-tuyo-in">
+            <path class="ln s01-dib-a" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s01-dib-a" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s01-dib-a" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s01-dib-a" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="cartel s01-txt-a" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+            <rect class="ln s01-dib-a" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s01-dib-a" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="vidrio s01-luz-a" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="vidrio s01-luz-a" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s01-dib-a" d="M-24 0 V-96 H24 V0" />
+          </g>
+        </g>
+        <!-- el de enfrente (derecha) -->
+        <g class="s01-otro" transform="translate(790 1150) scale(0.85)">
+          <g class="s01-otro-in">
+            <path class="ln s01-dib-b" d="M-120 0 V-170 H120 V0" />
+            <path class="ln s01-dib-b" d="M-140 -170 H140 L122 -222 H-122 Z" />
+            <path class="ln s01-dib-b" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s01-dib-b" x="-80" y="-290" width="160" height="50" rx="10" />
+            <text class="cartel s01-txt-b" x="0" y="-257" text-anchor="middle">ENFRENTE</text>
+            <rect class="ln s01-dib-b" x="-100" y="-122" width="58" height="52" rx="5" />
+            <rect class="ln s01-dib-b" x="42" y="-122" width="58" height="52" rx="5" />
+            <rect class="vidrio s01-luz-b" x="-92" y="-114" width="42" height="36" rx="3" />
+            <rect class="vidrio s01-luz-b" x="50" y="-114" width="42" height="36" rx="3" />
+            <path class="ln s01-dib-b" d="M-24 0 V-96 H24 V0" />
+            <!-- badge de "no" -->
+            <g class="s01-badge">
+              <circle class="ln-ac4" cx="118" cy="-268" r="18" />
+              <path class="ln-ac4" d="M110 -276 L126 -260 M126 -276 L110 -260" />
+            </g>
+          </g>
+        </g>
+        <text class="s01-vs" x="540" y="1060" text-anchor="middle">VS</text>
+        <!-- el celular -->
+        <g class="s01-cel">
+          <rect class="ln s01-dib-c" x="350" y="600" width="380" height="620" rx="52" />
+          <line class="ln s01-dib-c" x1="510" y1="630" x2="570" y2="630" />
+          <text class="s01-hora-chica s01-barra" x="392" y="676">23:00</text>
+          <path class="ln-4 s01-barra" d="M650 672 V662 M664 672 V656 M678 672 V650 M692 672 V644" />
+          <!-- pantalla de bloqueo: la hora grande -->
+          <g clip-path="url(#s01-clip-hora)">
+            <g class="s01-rueda">
+              <text class="s01-hora" x="540" y="864" text-anchor="middle">22:59</text>
+              <text class="s01-hora" x="540" y="984" text-anchor="middle">23:00</text>
+            </g>
+          </g>
+          <text class="s01-fecha" x="540" y="918" text-anchor="middle">MARTES</text>
+          <!-- notificaciones de tiendas -->
+          <g class="s01-noti">
+            <rect class="ln-4" x="380" y="960" width="320" height="96" rx="22" />
+            <rect class="ln-ac4" x="400" y="980" width="56" height="56" rx="12" />
+            <line class="ln-4" x1="476" y1="994" x2="664" y2="994" />
+            <line class="ln-4" x1="476" y1="1022" x2="610" y2="1022" />
+          </g>
+          <g class="s01-noti">
+            <rect class="ln-4" x="380" y="1072" width="320" height="96" rx="22" />
+            <rect class="ln-ac4" x="400" y="1092" width="56" height="56" rx="12" />
+            <line class="ln-4" x1="476" y1="1106" x2="650" y2="1106" />
+            <line class="ln-4" x1="476" y1="1134" x2="590" y2="1134" />
+          </g>
+        </g>
+        <!-- la luna -->
+        <g class="s01-luna">
+          <path class="ln s01-dib-luna" d="M880 650 A56 56 0 1 0 930 740 A46 46 0 1 1 880 650 Z" />
+          <text class="s01-zz" x="790" y="780">z</text>
+          <text class="s01-zz" x="812" y="752">z</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Tu competencia</span><span class="s01-e2">23:00 · en su celular</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-celular";
+      const DUR = 5.71;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const COMPETENCIA = 0.3;
+      const NO_ES = 1.29;
+      const ENFRENTE = 2.0;
+      const CELULAR = 3.1;
+      const CLIENTE = 3.8;
+      const ONCE = 4.4;
+      const NOCHE = 4.8;
+
+      const SUELO = 1150;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if ((desde ?? 1) < 1) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, ox, oy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+
+      // los dos locales: el tuyo arranca medio dibujado (cuadro 0 no negro)
+      dibujar(qa(".s01-dib-a"), 0, 0.55, 0.45);
+      tl.fromTo(q(".s01-txt-a"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.25);
+      tl.fromTo(qa(".s01-luz-a"), { opacity: 0 }, { opacity: 0.85, duration: 0.25 }, 0.35);
+      tl.fromTo(q(".s01-suelo"), { scaleX: 0.5, svgOrigin: "540 1150" }, { scaleX: 1, svgOrigin: "540 1150", duration: 0.7, ease: "power3.out" }, 0);
+      dibujar(qa(".s01-dib-b"), 0.15, 0.55);
+      tl.fromTo(q(".s01-txt-b"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.5);
+      tl.fromTo(qa(".s01-luz-b"), { opacity: 0 }, { opacity: 0.85, duration: 0.25 }, 0.6);
+
+      // "competencia": VS entre los dos
+      pop(q(".s01-vs"), COMPETENCIA, 540, 1045);
+      tl.to(q(".s01-vs"), { scale: 1.15, svgOrigin: "540 1045", duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, COMPETENCIA + 0.6);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, COMPETENCIA);
+
+      // "no es el de enfrente": badge X, y el de enfrente se apaga
+      pop(q(".s01-badge"), NO_ES + 0.2, 118, -268);
+      tl.to(q(".s01-otro-in"), { x: 8, duration: 0.06, yoyo: true, repeat: 3, ease: "none" }, NO_ES + 0.25);
+      tl.to(qa(".s01-luz-b"), { opacity: 0, duration: 0.25 }, ENFRENTE);
+      tl.to(qa(".s01-dib-b, .s01-txt-b"), { opacity: 0.4, duration: 0.3 }, ENFRENTE);
+      tl.to(q(".s01-vs"), { opacity: 0, duration: 0.25 }, ENFRENTE + 0.2);
+      tl.to(q(".s01-e1"), { opacity: 0.45, duration: 0.3 }, ENFRENTE + 0.3);
+
+      // "celular": los locales se hacen a un lado y entra el celular con golpe
+      tl.to(q(".s01-otro"), { opacity: 0, attr: { transform: "translate(990 1150) scale(0.85)" }, duration: 0.35, ease: "power2.in" }, CELULAR - 0.3);
+      tl.to(q(".s01-tuyo"), { attr: { transform: "translate(175 1150) scale(0.5)" }, duration: 0.45, ease: "power3.inOut" }, CELULAR - 0.3);
+      tl.to(qa(".s01-dib-a, .s01-txt-a"), { opacity: 0.4, duration: 0.3 }, CELULAR);
+      tl.to(qa(".s01-luz-a"), { opacity: 0, duration: 0.3 }, CELULAR);
+      tl.to(q(".s01-suelo"), { opacity: 0, duration: 0.3 }, CELULAR - 0.3);
+      dibujar(qa(".s01-dib-c"), CELULAR - 0.1, 0.45);
+      tl.fromTo(q(".s01-cel"), { scale: 1.12, svgOrigin: "540 910" }, { scale: 1, svgOrigin: "540 910", duration: 0.45, ease: "power3.out" }, CELULAR - 0.1);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, CELULAR - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, CELULAR);
+
+      // "cliente": la pantalla se prende (barra y hora 22:59, notificaciones)
+      gsap.set(qa(".s01-barra, .s01-rueda, .s01-fecha"), { opacity: 0 });
+      tl.to(qa(".s01-barra, .s01-rueda, .s01-fecha"), { opacity: 1, duration: 0.25 }, CLIENTE - 0.25);
+      qa(".s01-noti").forEach((n, i) => pop(n, CLIENTE + 0.15 + i * 0.22, 540, 1010 + i * 112));
+
+      // "once": la hora rueda a 23:00
+      tl.to(q(".s01-rueda"), { y: -120, duration: 0.3, ease: "back.out(1.4)" }, ONCE);
+      tl.fromTo(q(".s01-hora-chica"), { opacity: 1 }, { scale: 1.2, svgOrigin: "424 668", duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, ONCE + 0.1);
+
+      // "noche": la luna
+      dibujar([q(".s01-dib-luna")], NOCHE - 0.1, 0.45);
+      gsap.set(qa(".s01-zz"), { opacity: 0 });
+      qa(".s01-zz").forEach((z, i) => tl.fromTo(z, { opacity: 0, y: 10 }, { opacity: 0.7, y: 0, duration: 0.3, ease: "power2.out" }, NOCHE + 0.2 + i * 0.15));
+      tl.to(q(".s01-luna"), { rotation: -6, svgOrigin: "880 700", duration: 0.6, ease: "sine.inOut" }, NOCHE + 0.3);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -18,9 +18,9 @@
 - 28-10 · `contestar-rapido` · Bot · "Contestar rápido vende más que bajar el precio." · Comentá PRIMERO
 - 28-10 · `regalar-un-cafe` · Puntos · "Regalar un café te sale más barato que conseguir un cliente nuevo." · Comentá CAFÉ
 - 28-10 · `te-recomendaron` · Sitio web · "Te recomendaron. Te buscaron. Y no te encontraron." · Comentá SITIO
+- 28-10 · `celular-a-las-11` · Tienda online · "Tu competencia no es el de enfrente: es el celular de tu cliente a las once de la noche." · Comentá TIENDA
 
 ## En curso
-- 28-10 · `celular-a-las-11` · Tienda online · "Tu competencia no es el de enfrente: es el celular de tu cliente a las 11 de la noche."
 - 28-10 · `deja-el-whatsapp` · Bot · "Dejá de atender el WhatsApp vos."
 - 28-10 · `mas-horas-lo-mismo` · Todo Scalerics · "Trabajás más horas que nunca y vendés lo mismo."
 
