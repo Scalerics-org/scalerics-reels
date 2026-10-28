@@ -1,0 +1,147 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-decidido"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-decidido"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-decidido"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-decidido"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-decidido"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-decidido"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-decidido"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-decidido"] .ln-tenue2 { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-decidido"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-decidido"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s11-decidido"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s11-decidido"] .relleno { fill: #efeee5; }
+    [data-composition-id="s11-decidido"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s11-decidido"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s11-decidido"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s11-decidido"] .pag-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s11-decidido"] .pag-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s11-decidido"] .pag-ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s11-decidido"] .pag-btn-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s11-decidido"] .signo { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 64px; fill: #5ce611; }
+    [data-composition-id="s11-decidido"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-decidido"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s11-decidido" data-width="1080" data-height="1920" data-duration="6.86">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="6.86" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s11-a">
+          <g transform="translate(290 930) scale(0.85)"><g class="s11-tel">
+            <rect class="ln s11-dt" x="-170" y="-300" width="340" height="600" rx="52" />
+        <line class="ln s11-dt" x1="-40" y1="-268" x2="40" y2="-268" />
+            <g class="s11-f0"><path class="ln-fino" d="M-124 -204 V-234 H-72 V-204 M-130 -234 H-66 L-72 -250 H-124 Z M-104 -204 V-220 H-92 V-204" /><text class="pag-nom" x="-52" y="-214">Tu Local</text><line class="ln-tenue" x1="-130" y1="-176" x2="130" y2="-176" /></g>
+            <g class="s11-f1"><path class="ln-tenue2" d="M-124 -130 H110 M-124 -90 H60" /></g>
+            <g class="s11-b1"><rect class="ln-ac" x="-124" y="-20" width="248" height="76" rx="38" /><text class="pag-btn-ac" x="0" y="28" text-anchor="middle">Escribinos</text></g>
+            <g class="s11-b2"><rect class="ln" x="-124" y="90" width="248" height="76" rx="38" /><text class="pag-nom" x="0" y="139" text-anchor="middle">Comprar</text></g>
+          </g></g>
+          <g class="s11-vuela"><path class="ln-ac" d="M-34 -24 H34 Q44 -24 44 -14 V10 Q44 20 34 20 H-10 L-26 34 L-24 20 H-34 Q-44 20 -44 10 V-14 Q-44 -24 -34 -24 Z" /></g>
+          <g class="s11-chat">
+            <g class="s11-g1"><path class="ln" d="M600 700 H840 Q860 700 860 720 V770 Q860 790 840 790 H630 L606 812 L610 790 H600 Q580 790 580 770 V720 Q580 700 600 700 Z" /><path class="ln-tenue2" d="M610 732 H820 M610 760 H740" /></g>
+            <g class="s11-g2"><path class="ln-ac" d="M700 830 H940 Q960 830 960 850 V900 Q960 920 940 920 H930 L934 942 L910 920 H700 Q680 920 680 900 V850 Q680 830 700 830 Z" /><path class="ln-fino-ac" d="M710 862 H900 M710 890 H820" /></g>
+            <g class="s11-g3"><path class="ln" d="M600 960 H780 Q800 960 800 980 V1020 Q800 1040 780 1040 H630 L606 1062 L610 1040 H600 Q580 1040 580 1020 V980 Q580 960 600 960 Z" /><path class="ln-tenue2" d="M610 990 H760" /><path class="ln-fino-ac" d="M700 1014 L712 1026 L736 1004 M724 1014 L736 1026 L760 1004" /></g>
+          </g>
+          <g class="s11-compra">
+            <g class="s11-bolsa"><path class="ln" d="M680 800 H860 L840 1010 H700 Z" /><path class="ln" d="M730 800 V770 A40 40 0 0 1 810 770 V800" /><path class="ln-ac s11-bt" style="stroke-width:8" d="M732 906 L762 936 L812 876" /></g>
+            <g class="s11-ticket"><rect class="ln-ac" x="660" y="1060" width="220" height="56" rx="10" /><text class="rotulo-ac" x="770" y="1097" text-anchor="middle">PEDIDO</text></g>
+          </g>
+        </g>
+        <g class="s11-b">
+          <line class="ln s11-suelo" x1="120" y1="1130" x2="960" y2="1130" />
+          <g transform="translate(790 1130) scale(0.9)"><g class="s11-loc"><path class="ln s11-dl" d="M-120 0 V-170 H120 V0" />
+        <path class="ln s11-dl" d="M-140 -170 H140 L122 -222 H-122 Z" />
+        <path class="ln s11-dl" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+        <rect class="ln s11-dl" x="-80" y="-290" width="160" height="50" rx="10" />
+        <text class="cartel s11-dl-txt" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+        <rect class="ln s11-dl" x="-100" y="-122" width="58" height="52" rx="5" />
+        <rect class="ln s11-dl" x="42" y="-122" width="58" height="52" rx="5" />
+        <rect class="vidrio s11-dl-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+        <rect class="vidrio s11-dl-luz" x="50" y="-114" width="42" height="36" rx="3" />
+        <path class="ln s11-dl" d="M-24 0 V-96 H24 V0" /></g></g>
+          <g transform="translate(260 1130)"><g class="s11-cli"><g class="s11-cuerpo"><circle class="ln s11-dc" cx="0" cy="-200" r="22" />
+        <path class="ln s11-dc" d="M0 -178 V-90 M0 -90 L-24 0 M0 -90 L24 0" />
+        <path class="ln s11-dc" d="M0 -160 L-26 -112 M0 -160 L28 -132 L36 -150" />
+        <rect class="ln-fino s11-dc" x="28" y="-190" width="28" height="46" rx="6" /></g>
+            <g class="s11-globo"><path class="ln" d="M-56 -350 H56 Q72 -350 72 -334 V-276 Q72 -260 56 -260 H10 L-10 -236 L-8 -260 H-56 Q-72 -260 -72 -276 V-334 Q-72 -350 -56 -350 Z" /><path class="ln-ac s11-gt" style="stroke-width:7" d="M-26 -306 L-6 -286 L28 -324" /></g>
+          </g></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Te escriben</span><span class="s11-e2">Te compran</span><span class="s11-e3">Ya decidido</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-decidido";
+      const DUR = 6.86;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const ESCRIBAN = 0.99, WHATSAPP = 1.49, COMPREN = 2.29, TIENDA = 2.89, ASI = 4.06, LLEGA = 4.79, DECIDIDO = 5.69;
+      // A: la página con los dos botones
+      dibujar(qa(".s11-dt"), 0, 0.45, 0.4);
+      ["f0", "f1", "b1", "b2"].forEach((f, i) => tl.fromTo(q(".s11-" + f), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.05 + i * 0.1));
+      // "escriban": el botón late y sale un globo volando
+      tl.fromTo(q(".s11-b1"), { scale: 1 }, { scale: 1.1, svgOrigin: "0 18", duration: 0.13, yoyo: true, repeat: 1, immediateRender: false }, ESCRIBAN - 0.1);
+      tl.fromTo(q(".s11-vuela"), { opacity: 0, x: 400, y: 930, scale: 0.6 }, { opacity: 1, x: 560, y: 820, scale: 1, duration: 0.35, ease: "power2.out" }, ESCRIBAN);
+      tl.to(q(".s11-vuela"), { opacity: 0, x: 640, y: 760, duration: 0.2 }, ESCRIBAN + 0.35);
+      etiqueta(q(".s11-e1"), ESCRIBAN);
+      // "WhatsApp": la conversación
+      ["g1", "g2", "g3"].forEach((g, i) => tl.fromTo(q(".s11-" + g), { opacity: 0, scale: 0.7, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1, transformOrigin: "50% 100%", duration: 0.3, ease: "back.out(2)" }, WHATSAPP - 0.15 + i * 0.22));
+      tl.to(q(".s11-chat"), { opacity: 0, y: -20, duration: 0.25, ease: "power2.in" }, COMPREN - 0.15);
+      // "compren": el botón comprar late; "tienda online": bolsa con tilde y pedido
+      tl.fromTo(q(".s11-b2"), { scale: 1 }, { scale: 1.1, svgOrigin: "0 128", duration: 0.13, yoyo: true, repeat: 1, immediateRender: false }, COMPREN);
+      tl.fromTo(q(".s11-b2 rect"), { stroke: "#efeee5" }, { stroke: "#5ce611", duration: 0.15 }, COMPREN);
+      tl.fromTo(q(".s11-bolsa"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.8)" }, COMPREN + 0.1);
+      dibujar([q(".s11-bt")], TIENDA, 0.3);
+      tl.fromTo(q(".s11-ticket"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, TIENDA + 0.3);
+      etiqueta(q(".s11-e2"), COMPREN, q(".s11-e1"));
+      tl.to(q(".s11-a"), { opacity: 0, y: 20, duration: 0.3, ease: "power2.in" }, ASI - 0.2);
+      // B: el cliente llega decidido
+      gsap.set(q(".s11-b"), { opacity: 0 });
+      tl.to(q(".s11-b"), { opacity: 1, duration: 0.2 }, ASI);
+      dibujar(qa(".s11-dl"), ASI, 0.45);
+      gsap.set(qa(".s11-dl-luz"), { opacity: 0 });
+      gsap.set(q(".s11-loc"), { opacity: 0.55 });
+      dibujar(qa(".s11-dc"), ASI + 0.05, 0.4);
+      tl.fromTo(q(".s11-suelo"), { scaleX: 0.5, svgOrigin: "540 1130" }, { scaleX: 1, svgOrigin: "540 1130", duration: 0.4, ease: "power3.out" }, ASI);
+      tl.to(q(".s11-cli"), { x: 330, duration: 0.9, ease: "power2.out" }, LLEGA - 0.2);
+      tl.fromTo(q(".s11-cuerpo"), { y: 0 }, { y: -6, duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, LLEGA - 0.2);
+      tl.fromTo(q(".s11-globo"), { opacity: 0, scale: 0.5, svgOrigin: "-10 -236" }, { opacity: 1, scale: 1, svgOrigin: "-10 -236", duration: 0.35, ease: "back.out(2)" }, DECIDIDO - 0.15);
+      dibujar([q(".s11-gt")], DECIDIDO + 0.05, 0.25);
+      tl.to(q(".s11-loc"), { opacity: 1, duration: 0.2 }, DECIDIDO);
+      tl.to(qa(".s11-dl-luz"), { opacity: 0.85, duration: 0.2 }, DECIDIDO);
+      tl.fromTo(q(".s11-loc"), { scale: 1 }, { scale: 1.06, svgOrigin: "0 -120", duration: 0.13, yoyo: true, repeat: 1, immediateRender: false }, DECIDIDO);
+      etiqueta(q(".s11-e3"), LLEGA, q(".s11-e2"));
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-sillon"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-sillon"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-sillon"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-sillon"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-sillon"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-sillon"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-sillon"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-sillon"] .ln-tenue2 { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-sillon"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-sillon"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s02-sillon"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s02-sillon"] .relleno { fill: #efeee5; }
+    [data-composition-id="s02-sillon"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s02-sillon"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s02-sillon"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s02-sillon"] .pag-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s02-sillon"] .pag-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s02-sillon"] .pag-ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s02-sillon"] .pag-btn-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s02-sillon"] .signo { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 64px; fill: #5ce611; }
+    [data-composition-id="s02-sillon"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-sillon"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-sillon" data-width="1080" data-height="1920" data-duration="3.36">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="3.36" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s02-suelo" x1="180" y1="1130" x2="900" y2="1130" />
+        <!-- la casa alrededor -->
+        <path class="ln s02-casa" d="M200 830 L540 640 L880 830" />
+        <path class="ln s02-casa" d="M250 802 V1130 M830 802 V1130" />
+        <g class="s02-ventana"><rect class="ln-fino s02-dv" x="276" y="850" width="88" height="88" rx="6" /><path class="ln-fino s02-dv" d="M320 850 V938 M276 894 H364" /></g>
+        <g class="s02-lampara"><path class="ln-fino s02-dlm" d="M770 1130 V896 M742 1130 H798" /><path class="ln-fino s02-dlm" d="M730 896 H810 L790 846 H750 Z" /><path class="ln-fino-ac s02-luz" d="M740 912 L724 948 M770 916 V956 M800 912 L816 948" /></g>
+        <!-- el cliente en el sillón -->
+        <g transform="translate(500 1130) scale(1.6)"><g class="s02-cli">
+          <path class="ln s02-ds" style="stroke-width:4" d="M-72 -60 V-196 Q-72 -236 -44 -236 Q-22 -236 -22 -200 V-104" />
+          <path class="ln s02-ds" style="stroke-width:4" d="M-72 -60 H72 Q84 -60 84 -74 V-90 Q84 -104 70 -104 H-22" />
+          <path class="ln s02-ds" style="stroke-width:4" d="M-60 -60 L-66 0 M70 -60 L76 0" />
+          <path class="ln s02-ds" style="stroke-width:4" d="M-58 -150 H30 Q46 -150 46 -134 V-104" />
+          <circle class="ln s02-dc" style="stroke-width:4" cx="-4" cy="-212" r="22" />
+          <path class="ln s02-dc" style="stroke-width:4" d="M-6 -190 L0 -112 L92 -114 L98 -8" />
+          <path class="ln s02-dc" style="stroke-width:4" d="M-4 -172 L40 -138 L54 -178" />
+          <g class="s02-tel"><rect class="ln-fino s02-dc" style="stroke-width:3" x="44" y="-228" width="28" height="46" rx="6" /><rect class="vidrio s02-pant" x="50" y="-220" width="16" height="28" rx="2" /></g>
+        </g></g>
+        <circle class="ln-ac s02-aro" style="stroke-width:6" cx="593" cy="802" r="58" />
+        <path class="ln-fino-ac s02-onda" d="M664 770 Q680 800 664 830" />
+        <path class="ln-fino-ac s02-onda" d="M688 752 Q712 800 688 848" />
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">En su casa</span><span class="s02-e2">Con el celular</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-sillon";
+      const DUR = 3.36;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const SILLON = 0.61, CASA = 1.11, CELULAR = 1.91;
+      dibujar(qa(".s02-ds"), 0, 0.5, 0.5);
+      dibujar(qa(".s02-dc"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s02-suelo"), { scaleX: 0.5, svgOrigin: "540 1130" }, { scaleX: 1, svgOrigin: "540 1130", duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s02-pant"), { opacity: 0 }, { opacity: 0.85, duration: 0.2 }, 0.2);
+      // "sillón": golpe
+      tl.fromTo(q(".s02-cli"), { scale: 1 }, { scale: 1.05, svgOrigin: "0 0", duration: 0.13, yoyo: true, repeat: 1 }, SILLON);
+      // "casa": la casa alrededor, la ventana y la lámpara
+      dibujar(qa(".s02-casa"), CASA - 0.2, 0.55);
+      dibujar(qa(".s02-dv"), CASA + 0.05, 0.35);
+      dibujar(qa(".s02-dlm"), CASA + 0.15, 0.35);
+      dibujar(qa(".s02-luz"), CASA + 0.45, 0.2);
+      etiqueta(q(".s02-e1"), SILLON);
+      // "celular": el celular se agranda con aro y ondas
+      tl.fromTo(q(".s02-tel"), { scale: 1 }, { scale: 1.5, svgOrigin: "58 -205", duration: 0.35, ease: "back.out(2)" }, CELULAR - 0.05);
+      dibujar([q(".s02-aro")], CELULAR, 0.4);
+      qa(".s02-onda").forEach((o, i) => dibujar([o], CELULAR + 0.25 + i * 0.12, 0.3));
+      tl.to(qa(".s02-onda"), { opacity: 0.35, duration: 0.3, yoyo: true, repeat: 1 }, CELULAR + 0.7);
+      tl.to(q(".s02-casa"), { opacity: 0.5, duration: 0.4 }, CELULAR);
+      tl.to(qa(".s02-casa, .s02-ventana, .s02-lampara"), { opacity: 0.45, duration: 0.4 }, CELULAR);
+      etiqueta(q(".s02-e2"), CELULAR, q(".s02-e1"));
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

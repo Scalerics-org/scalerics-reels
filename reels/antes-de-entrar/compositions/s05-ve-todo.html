@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-ve-todo"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-ve-todo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-ve-todo"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-ve-todo"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-ve-todo"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-ve-todo"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-ve-todo"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-ve-todo"] .ln-tenue2 { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-ve-todo"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-ve-todo"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s05-ve-todo"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s05-ve-todo"] .relleno { fill: #efeee5; }
+    [data-composition-id="s05-ve-todo"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s05-ve-todo"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s05-ve-todo"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s05-ve-todo"] .pag-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s05-ve-todo"] .pag-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s05-ve-todo"] .pag-ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s05-ve-todo"] .pag-btn-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s05-ve-todo"] .signo { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 64px; fill: #5ce611; }
+    [data-composition-id="s05-ve-todo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-ve-todo"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-ve-todo" data-width="1080" data-height="1920" data-duration="5.96">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="5.96" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s05-b">
+          <line class="ln s05-suelo" x1="150" y1="1130" x2="960" y2="1130" />
+          <g transform="translate(790 1130) scale(0.85)"><g class="s05-loc"><path class="ln s05-dl" d="M-120 0 V-170 H120 V0" />
+        <path class="ln s05-dl" d="M-140 -170 H140 L122 -222 H-122 Z" />
+        <path class="ln s05-dl" d="M-140 -170 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+        <rect class="ln s05-dl" x="-80" y="-290" width="160" height="50" rx="10" />
+        <text class="cartel s05-dl-txt" x="0" y="-257" text-anchor="middle">TU LOCAL</text>
+        <rect class="ln s05-dl" x="-100" y="-122" width="58" height="52" rx="5" />
+        <rect class="ln s05-dl" x="42" y="-122" width="58" height="52" rx="5" />
+        <rect class="vidrio s05-dl-luz" x="-92" y="-114" width="42" height="36" rx="3" />
+        <rect class="vidrio s05-dl-luz" x="50" y="-114" width="42" height="36" rx="3" />
+        <path class="ln s05-dl" d="M-24 0 V-96 H24 V0" /></g></g>
+          <g class="s05-pasos"><circle class="relleno-ac s05-paso" cx="340" cy="1162" r="6" /><circle class="relleno-ac s05-paso" cx="390" cy="1162" r="6" /><circle class="relleno-ac s05-paso" cx="440" cy="1162" r="6" /><circle class="relleno-ac s05-paso" cx="490" cy="1162" r="6" /><circle class="relleno-ac s05-paso" cx="540" cy="1162" r="6" /></g>
+          <g transform="translate(300 1130)"><g class="s05-cli"><g class="s05-cuerpo"><circle class="ln s05-dc" cx="0" cy="-200" r="22" />
+        <path class="ln s05-dc" d="M0 -178 V-90 M0 -90 L-24 0 M0 -90 L24 0" />
+        <path class="ln s05-dc" d="M0 -160 L-26 -112 M0 -160 L28 -132 L36 -150" />
+        <rect class="ln-fino s05-dc" x="28" y="-190" width="28" height="46" rx="6" /></g>
+            <g class="s05-globo"><path class="ln" d="M-56 -350 H56 Q72 -350 72 -334 V-276 Q72 -260 56 -260 H10 L-10 -236 L-8 -260 H-56 Q-72 -260 -72 -276 V-334 Q-72 -350 -56 -350 Z" /><path class="ln-ac s05-gt" style="stroke-width:7" d="M-26 -306 L-6 -286 L28 -324" /></g>
+          </g></g>
+        </g>
+        <g transform="translate(540 930)"><g class="s05-tel" data-layout-ignore>
+          <rect class="ln s05-dt" x="-170" y="-300" width="340" height="600" rx="52" />
+        <line class="ln s05-dt" x1="-40" y1="-268" x2="40" y2="-268" />
+          <g class="s05-f0"><path class="ln-fino" d="M-124 -204 V-234 H-72 V-204 M-130 -234 H-66 L-72 -250 H-124 Z M-104 -204 V-220 H-92 V-204" /><text class="pag-nom" x="-52" y="-214">Tu Local</text><line class="ln-tenue" x1="-130" y1="-176" x2="130" y2="-176" /></g>
+        <g class="s05-f1"><path class="ln-fino-ac" d="M-124 -132 H-92 L-96 -94 H-120 Z M-116 -132 V-140 A8 8 0 0 1 -100 -140 V-132" /><text class="pag-ui" x="-74" y="-104">Lo que vendés</text></g>
+        <g class="s05-f2"><circle class="ln-fino-ac" cx="-108" cy="-36" r="18" /><path class="ln-fino-ac" d="M-108 -36 V-48 M-108 -36 L-99 -31" /><text class="pag-ui" x="-74" y="-27">Abierto hoy</text></g>
+        <g class="s05-f3"><path class="ln-fino-ac" d="M-108 70 C-116 60 -126 50 -126 38 A18 18 0 0 1 -90 38 C-90 50 -100 60 -108 70 Z" /><circle class="relleno-ac" cx="-108" cy="38" r="6" /><text class="pag-ui" x="-74" y="51">Cómo llegar</text></g>
+        <g class="s05-f4"><rect class="ln-ac" x="-124" y="160" width="248" height="76" rx="38" /><text class="pag-btn-ac" x="0" y="208" text-anchor="middle">Escribinos</text></g>
+          <g class="s05-t1"><path class="ln-ac" style="stroke-width:6" d="M118 -114 L130 -102 L150 -126" /></g>
+          <g class="s05-t2"><path class="ln-ac" style="stroke-width:6" d="M118 -38 L130 -26 L150 -50" /></g>
+          <g class="s05-t3"><path class="ln-ac" style="stroke-width:6" d="M118 38 L130 50 L150 26" /></g>
+        </g></g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Ve todo</span><span class="s05-e2">Sale con ganas</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-ve-todo";
+      const DUR = 5.96;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const VENDES = 0.43, HORA = 1.43, LLEGAR = 2.53, SALE = 3.39, GANAS = 4.53, COMPRARTE = 4.83;
+      // A: la página completa se arma fila por fila
+      dibujar(qa(".s05-dt"), 0, 0.4, 0.4);
+      tl.fromTo(q(".s05-f0"), { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3 }, 0.05);
+      [["f1", VENDES], ["f2", HORA], ["f3", LLEGAR]].forEach(([f, t], i) => {
+        tl.fromTo(q(".s05-" + f), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.8)" }, t - 0.1);
+        tl.fromTo(q(".s05-t" + (i + 1)), { opacity: 0, scale: 0.3, svgOrigin: "134 " + [-114, -38, 38][i] }, { opacity: 1, scale: 1, svgOrigin: "134 " + [-114, -38, 38][i], duration: 0.3, ease: "back.out(2.4)" }, t + 0.15);
+      });
+      tl.fromTo(q(".s05-f4"), { opacity: 0, scale: 0.8, svgOrigin: "0 198" }, { opacity: 1, scale: 1, svgOrigin: "0 198", duration: 0.35, ease: "back.out(2)" }, LLEGAR + 0.4);
+      etiqueta(q(".s05-e1"), VENDES);
+      // B: el celular se achica arriba a la izquierda, el cliente sale hacia el local
+      tl.to(q(".s05-tel"), { x: -340, y: -170, scale: 0.4, svgOrigin: "0 0", duration: 0.45, ease: "power3.inOut" }, SALE - 0.25);
+      gsap.set(q(".s05-b"), { opacity: 0 });
+      tl.to(q(".s05-b"), { opacity: 1, duration: 0.2 }, SALE - 0.1);
+      dibujar(qa(".s05-dl"), SALE - 0.1, 0.4);
+      gsap.set(qa(".s05-dl-luz"), { opacity: 0 });
+      gsap.set(q(".s05-loc"), { opacity: 0.5 });
+      dibujar(qa(".s05-dc"), SALE - 0.1, 0.35);
+      tl.fromTo(q(".s05-suelo"), { scaleX: 0.5, svgOrigin: "540 1130" }, { scaleX: 1, svgOrigin: "540 1130", duration: 0.4, ease: "power3.out" }, SALE - 0.1);
+      tl.to(q(".s05-cli"), { x: 250, duration: 1.1, ease: "power1.inOut" }, SALE + 0.15);
+      tl.fromTo(q(".s05-cuerpo"), { y: 0 }, { y: -6, duration: 0.14, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, SALE + 0.15);
+      tl.fromTo(qa(".s05-paso"), { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 0.9, scale: 1, transformOrigin: "50% 50%", duration: 0.2, stagger: 0.16, ease: "back.out(2)" }, SALE + 0.25);
+      etiqueta(q(".s05-e2"), SALE, q(".s05-e1"));
+      // "ganas": el globo con tilde
+      tl.fromTo(q(".s05-globo"), { opacity: 0, scale: 0.5, svgOrigin: "-10 -236" }, { opacity: 1, scale: 1, svgOrigin: "-10 -236", duration: 0.35, ease: "back.out(2)" }, GANAS - 0.1);
+      dibujar([q(".s05-gt")], GANAS + 0.1, 0.25);
+      // "comprarte": el local se prende
+      tl.to(q(".s05-loc"), { opacity: 1, duration: 0.2 }, COMPRARTE);
+      tl.to(qa(".s05-dl-luz"), { opacity: 0.85, duration: 0.2 }, COMPRARTE);
+      tl.fromTo(q(".s05-loc"), { scale: 1 }, { scale: 1.06, svgOrigin: "0 -120", duration: 0.13, yoyo: true, repeat: 1, immediateRender: false }, COMPRARTE);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

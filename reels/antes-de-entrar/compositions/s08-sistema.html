@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-sistema"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-sistema"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-sistema"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-tenue2 { fill: none; stroke: rgba(239, 238, 229, 0.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sistema"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s08-sistema"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s08-sistema"] .relleno { fill: #efeee5; }
+    [data-composition-id="s08-sistema"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s08-sistema"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s08-sistema"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s08-sistema"] .pag-tit { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s08-sistema"] .pag-nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s08-sistema"] .pag-ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 26px; fill: #efeee5; }
+    [data-composition-id="s08-sistema"] .pag-btn-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s08-sistema"] .signo { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 64px; fill: #5ce611; }
+    [data-composition-id="s08-sistema"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-sistema"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s08-sistema"] .s08-peso { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 64px; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s08-sistema" data-width="1080" data-height="1920" data-duration="6.73">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="6.73" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s08-trebol"><g class="s08-tr"><circle class="ln s08-dtr" cx="380" cy="850" r="42" /><circle class="ln s08-dtr" cx="430" cy="900" r="42" /><circle class="ln s08-dtr" cx="380" cy="950" r="42" /><circle class="ln s08-dtr" cx="330" cy="900" r="42" /><path class="ln s08-dtr" d="M380 900 Q400 990 360 1060" /></g></g>
+        <g transform="translate(465 820)"><g class="s08-x1"><g><circle class="ln-badge" cx="0" cy="0" r="20" /><path class="ln-badge" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g></g>
+        <text class="rotulo s08-r1" x="380" y="1120" text-anchor="middle">SUERTE</text>
+        <g transform="translate(720 920)"><g class="s08-tag"><path class="ln s08-dtg" d="M-90 -60 H30 L90 0 L30 60 H-90 Z" /><circle class="ln-fino s08-dtg" cx="52" cy="0" r="10" /><text class="s08-peso" x="-34" y="24" text-anchor="middle">$</text></g></g>
+        <g transform="translate(820 840)"><g class="s08-x2"><g><circle class="ln-badge" cx="0" cy="0" r="20" /><path class="ln-badge" d="M-7 -7 L7 7 M7 -7 L-7 7" /></g></g></g>
+        <text class="rotulo s08-r2" x="720" y="1120" text-anchor="middle">CARO</text>
+        <g class="s08-gpos"><g class="s08-gear"><path class="ln s08-gl" d="M629.7 899.5 L658.9 903.5 L658.9 936.5 L629.7 940.5 L624.6 956.1 L645.9 976.5 L626.4 1003.2 L600.5 989.3 L587.2 999.0 L592.5 1027.9 L561.0 1038.1 L548.2 1011.6 L531.8 1011.6 L519.0 1038.1 L487.5 1027.9 L492.8 999.0 L479.5 989.3 L453.6 1003.2 L434.1 976.5 L455.4 956.1 L450.3 940.5 L421.1 936.5 L421.1 903.5 L450.3 899.5 L455.4 883.9 L434.1 863.5 L453.6 836.8 L479.5 850.7 L492.8 841.0 L487.5 812.1 L519.0 801.9 L531.8 828.4 L548.2 828.4 L561.0 801.9 L592.5 812.1 L587.2 841.0 L600.5 850.7 L626.4 836.8 L645.9 863.5 L624.6 883.9 Z" /><circle class="ln-ac s08-gl" cx="540" cy="920" r="38" /></g></g>
+        <!-- tu local abierto en el celular de todos -->
+        <g transform="translate(540 1010) scale(0.5)"><g class="s08-tc" data-layout-ignore><rect class="ln" style="stroke-width:10" x="-170" y="-300" width="340" height="600" rx="52" /><g transform="translate(0 110) scale(0.95)"><path class="ln" style="stroke-width:10" d="M-120 0 V-170 H120 V0 M-140 -170 H140 L122 -222 H-122 Z M-24 0 V-96 H24 V0" /><rect class="vidrio" x="-100" y="-122" width="58" height="52" rx="5" /><rect class="vidrio" x="42" y="-122" width="58" height="52" rx="5" /></g></g></g>
+        <g class="s08-cartel"><path class="ln-fino-ac" d="M486 780 V800 M594 780 V800" /><rect class="ln-ac" x="450" y="800" width="180" height="46" rx="10" /><text class="rotulo-ac" x="540" y="832" text-anchor="middle">ABIERTO</text></g>
+        <g transform="translate(250 1050) scale(0.36)"><g class="s08-ti" data-layout-ignore><rect class="ln" style="stroke-width:10" x="-170" y="-300" width="340" height="600" rx="52" /><g transform="translate(0 110) scale(0.95)"><path class="ln" style="stroke-width:10" d="M-120 0 V-170 H120 V0 M-140 -170 H140 L122 -222 H-122 Z M-24 0 V-96 H24 V0" /><rect class="vidrio" x="-100" y="-122" width="58" height="52" rx="5" /><rect class="vidrio" x="42" y="-122" width="58" height="52" rx="5" /></g></g></g>
+        <g transform="translate(830 1050) scale(0.36)"><g class="s08-td" data-layout-ignore><rect class="ln" style="stroke-width:10" x="-170" y="-300" width="340" height="600" rx="52" /><g transform="translate(0 110) scale(0.95)"><path class="ln" style="stroke-width:10" d="M-120 0 V-170 H120 V0 M-140 -170 H140 L122 -222 H-122 Z M-24 0 V-96 H24 V0" /><rect class="vidrio" x="-100" y="-122" width="58" height="52" rx="5" /><rect class="vidrio" x="42" y="-122" width="58" height="52" rx="5" /></g></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">No es suerte</span><span class="s08-e2">Es un sistema</span><span class="s08-e3">Abierto en todos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-sistema";
+      const DUR = 6.73;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: hasta ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const badge = (el, t) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const SUERTE = 1.1, CARO = 2.0, SISTEMA = 3.3, LOCAL = 4.3, ABIERTO = 4.6, CELULAR = 5.2, TODOS = 5.8;
+      // suerte: el trébol
+      dibujar(qa(".s08-dtr"), 0, 0.5, 0.45);
+      tl.fromTo(q(".s08-r1"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.3);
+      tl.fromTo(q(".s08-tr"), { rotation: 0 }, { rotation: 8, svgOrigin: "380 1060", duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0.5);
+      badge(q(".s08-x1"), SUERTE);
+      tl.to([q(".s08-trebol"), q(".s08-r1")], { opacity: 0.4, duration: 0.3 }, SUERTE + 0.15);
+      etiqueta(q(".s08-e1"), SUERTE);
+      // caro: la etiqueta de precio
+      dibujar(qa(".s08-dtg"), CARO - 0.55, 0.4);
+      tl.fromTo(q(".s08-peso"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, CARO - 0.25);
+      tl.fromTo(q(".s08-r2"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, CARO - 0.4);
+      badge(q(".s08-x2"), CARO);
+      tl.to([q(".s08-tag"), q(".s08-r2")], { opacity: 0.4, duration: 0.3 }, CARO + 0.15);
+      // sistema: se van y aparece el engranaje
+      tl.to(qa(".s08-trebol, .s08-tag, .s08-r1, .s08-r2, .s08-x1, .s08-x2"), { opacity: 0, y: 20, duration: 0.3, ease: "power2.in" }, SISTEMA - 0.45);
+      dibujar(qa(".s08-gl"), SISTEMA - 0.25, 0.5);
+      tl.fromTo(q(".s08-gear"), { rotation: 0, svgOrigin: "540 920" }, { rotation: 260, svgOrigin: "540 920", duration: DUR - SISTEMA + 0.25, ease: "none" }, SISTEMA - 0.25);
+      etiqueta(q(".s08-e2"), SISTEMA, q(".s08-e1"));
+      // "tu local": el engranaje sube chico y aparece el celular con el local
+      tl.to(q(".s08-gpos"), { scale: 0.42, y: -232, svgOrigin: "540 920", duration: 0.45, ease: "power3.inOut" }, LOCAL - 0.6);
+      tl.fromTo(q(".s08-tc"), { opacity: 0, scale: 0.7, svgOrigin: "0 0" }, { opacity: 1, scale: 1, svgOrigin: "0 0", duration: 0.4, ease: "back.out(1.8)" }, LOCAL - 0.25);
+      // "abierto": el cartel cuelga y se balancea
+      tl.fromTo(q(".s08-cartel"), { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, ABIERTO - 0.05);
+      tl.fromTo(q(".s08-cartel"), { rotation: 0 }, { rotation: 5, svgOrigin: "540 780", duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, ABIERTO + 0.25);
+      // "celular de todos": dos celulares más
+      tl.fromTo(q(".s08-ti"), { opacity: 0, scale: 0.6, svgOrigin: "0 0" }, { opacity: 1, scale: 1, svgOrigin: "0 0", duration: 0.35, ease: "back.out(2)" }, CELULAR);
+      tl.fromTo(q(".s08-td"), { opacity: 0, scale: 0.6, svgOrigin: "0 0" }, { opacity: 1, scale: 1, svgOrigin: "0 0", duration: 0.35, ease: "back.out(2)" }, CELULAR + 0.25);
+      etiqueta(q(".s08-e3"), TODOS - 0.3, q(".s08-e2"));
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
