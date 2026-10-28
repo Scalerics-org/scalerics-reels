@@ -95,19 +95,18 @@
 
       // el local arranca medio dibujado (el cuadro 0 no puede ser negro), con la luz prendida
       gsap.set(q(".s01-local"), { x: 540, y: SUELO, scale: 1.2 });
-      dibujar(qa(".s01-dib"), 0, 0.6, 0.45);
-      tl.fromTo(q(".s01-txt"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.3);
-      tl.fromTo(qa(".s01-luz"), { opacity: 0 }, { opacity: 0.85, duration: 0.25 }, 0.4);
+      // el local ya está entero en el cuadro 0 y entra con un golpe (dibujarlo en pedazos se veía roto)
+      tl.fromTo(q(".s01-local-in"), { scale: 0.88, svgOrigin: "0 -110" }, { scale: 1, svgOrigin: "0 -110", duration: 0.5, ease: "back.out(1.6)" }, 0);
+      gsap.set(qa(".s01-luz"), { opacity: 0.85 });
       tl.fromTo(q(".s01-suelo"), { scaleX: 0.5, svgOrigin: "540 1150" }, { scaleX: 1, svgOrigin: "540 1150", duration: 0.7, ease: "power3.out" }, 0);
 
       // "fantasmas": aparecen tres alrededor del local, de a uno, flotando
       const lugares = [[250, 900], [835, 860], [540, 680]];
       qa(".s01-fan-1, .s01-fan-2, .s01-fan-3").forEach((g, i) => {
         const t0 = FANTASMAS - 0.1 + i * 0.16;
-        gsap.set(g, { x: lugares[i][0], y: lugares[i][1], opacity: 0.55 });
-        dibujar([g.querySelector(".s01-sabana")], t0, 0.5);
-        tl.fromTo(g.querySelectorAll(".s01-ojos"), { opacity: 0 }, { opacity: 1, duration: 0.15 }, t0 + 0.4);
-        tl.fromTo(g, { scale: 0.7 }, { scale: 1, duration: 0.5, ease: "back.out(1.6)" }, t0);
+        gsap.set(g, { x: lugares[i][0], y: lugares[i][1], opacity: 0 });
+        // el fantasma aparece entero (sin trazo a medias), subiendo con un pop
+        tl.fromTo(g, { opacity: 0, scale: 0.6 }, { opacity: 0.55, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, t0);
         flotar(g.querySelector(".s01-flota"), t0, 4);
       });
       tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, FANTASMAS);
