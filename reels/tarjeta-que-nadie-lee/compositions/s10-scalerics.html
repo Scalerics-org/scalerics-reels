@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-scalerics"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-scalerics"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-scalerics"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-scalerics"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .t-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 50px; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .t-dir { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .t-btn { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s10-scalerics"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s10-scalerics"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-scalerics"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s10-scalerics"] .s10-marca { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 64px; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s10-scalerics" data-width="1080" data-height="1920" data-duration="5.68">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="5.68" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect class="ln s10-caja" x="290" y="620" width="500" height="124" rx="30" />
+        <text class="s10-marca s10-nom" x="540" y="704" text-anchor="middle">Scalerics</text>
+        <text class="rotulo-ac s10-bajada" x="540" y="800" text-anchor="middle">SITIOS WEB PARA COMERCIOS</text>
+        <path class="ln-tenue s10-arbol" d="M540 826 V860 M270 860 H810 M270 860 V892 M540 860 V892 M810 860 V892" />
+        <g class="s10-i1"><rect class="ln s10-ic" x="222" y="906" width="96" height="130" rx="10" /><path class="ln-fino s10-ic" d="M244 942 H296 M244 972 H296 M244 1002 H280" /></g>
+        <g class="s10-i2"><path class="ln s10-ic" d="M468 972 L510 920 H612 V1024 H510 Z" /><circle class="ln-fino s10-ic" cx="506" cy="972" r="8" /><text class="ui-b ui-ac" x="566" y="990" text-anchor="middle" style="font-size:50px">$</text></g>
+        <g class="s10-i3"><circle class="ln s10-ic" cx="810" cy="970" r="60" /><path class="ln s10-ic s10-ag" d="M810 970 V934 M810 970 L836 986" /></g>
+        <text class="rotulo s10-r1" x="270" y="1095" text-anchor="middle">CARTA</text>
+        <text class="rotulo s10-r1b" x="270" y="1095" text-anchor="middle">CATÁLOGO</text>
+        <text class="rotulo s10-r2" x="540" y="1095" text-anchor="middle">PRECIOS</text>
+        <text class="rotulo s10-r3" x="810" y="1095" text-anchor="middle">HORARIOS</text>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-scalerics";
+      const DUR = 5.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // pop de un elemento SVG alrededor de (ox, oy)
+      const pop = (el, t, ox, oy, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: hasta ?? 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const golpe = (el, t, ox, oy, k) => {
+        tl.to(el, { scale: k ?? 1.08, svgOrigin: ox + " " + oy, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+      };
+      const badge = (el, t, x, y) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, svgOrigin: x + " " + y }, { scale: 1, opacity: 1, y: 0, svgOrigin: x + " " + y, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const SCALERICS = 0.08, SITIOS = 0.98, COMERCIOS = 1.48, CARTA = 2.68, CATALOGO = 3.38, PRECIOS = 4.48, HORARIOS = 4.98, VISTA = 5.38;
+      dibujar([q(".s10-caja")], 0, 0.5, 0.5);
+      tl.fromTo(q(".s10-nom"), { opacity: 0, scale: 0.85, svgOrigin: "540 684" }, { opacity: 1, scale: 1, svgOrigin: "540 684", duration: 0.4, ease: "back.out(1.8)" }, SCALERICS);
+      golpe(q(".s10-nom"), SITIOS, 540, 684, 1.06);
+      tl.fromTo(q(".s10-bajada"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, COMERCIOS - 0.2);
+      dibujar([q(".s10-arbol")], COMERCIOS + 0.4, 0.6);
+      gsap.set(qa(".s10-i1, .s10-i2, .s10-i3, .s10-r1, .s10-r1b, .s10-r2, .s10-r3"), { opacity: 0 });
+      pop(q(".s10-i1"), CARTA - 0.1, 270, 970);
+      tl.to(q(".s10-r1"), { opacity: 1, duration: 0.2 }, CARTA);
+      tl.to(q(".s10-r1"), { opacity: 0, duration: 0.15 }, CATALOGO - 0.1);
+      tl.to(q(".s10-r1b"), { opacity: 1, duration: 0.2 }, CATALOGO);
+      golpe(q(".s10-i1"), CATALOGO, 270, 970, 1.1);
+      pop(q(".s10-i2"), PRECIOS - 0.1, 540, 970);
+      tl.to(q(".s10-r2"), { opacity: 1, duration: 0.2 }, PRECIOS);
+      pop(q(".s10-i3"), HORARIOS - 0.15, 810, 970);
+      tl.to(q(".s10-r3"), { opacity: 1, duration: 0.2 }, HORARIOS);
+      tl.fromTo(q(".s10-ag"), { rotation: -90, svgOrigin: "810 970" }, { rotation: 0, svgOrigin: "810 970", duration: 0.4, ease: "back.out(2)" }, HORARIOS);
+      tl.to(qa(".s10-ic"), { stroke: "#5ce611", duration: 0.2 }, VISTA - 0.1);
+      golpe(q(".s10-i1"), VISTA - 0.1, 270, 970, 1.1);
+      golpe(q(".s10-i2"), VISTA - 0.1, 540, 970, 1.1);
+      golpe(q(".s10-i3"), VISTA - 0.1, 810, 970, 1.1);
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

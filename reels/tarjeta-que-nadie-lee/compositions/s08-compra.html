@@ -1,0 +1,112 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-compra"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-compra"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-compra"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-compra"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-compra"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-compra"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-compra"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-compra"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-compra"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s08-compra"] .t-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 50px; fill: #efeee5; }
+    [data-composition-id="s08-compra"] .t-dir { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s08-compra"] .t-btn { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s08-compra"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s08-compra"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efeee5; }
+    [data-composition-id="s08-compra"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s08-compra"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s08-compra"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s08-compra"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-compra"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s08-compra"] .s08-pedir-t { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 38px; fill: #0b1d35; }
+    [data-composition-id="s08-compra"] .s08-res-t { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s08-compra" data-width="1080" data-height="1920" data-duration="4.29">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.29" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s08-tel">
+        <rect class="ln s08-marco" x="330" y="610" width="420" height="590" rx="52" /><line class="ln s08-marco" x1="500" y1="640" x2="580" y2="640" />
+        <g class="s08-cab"><text class="ui-b" x="365" y="706">Tu Local</text><line class="ln-tenue" x1="365" y1="728" x2="715" y2="728" />
+        <rect class="ln-tenue" x="365" y="760" width="100" height="100" rx="14" /><rect class="ln-tenue" x="490" y="760" width="100" height="100" rx="14" /><rect class="ln-tenue" x="615" y="760" width="100" height="100" rx="14" /></g>
+        <g class="s08-pedir"><rect class="relleno-ac" x="380" y="910" width="320" height="88" rx="44" /><text class="s08-pedir-t" x="540" y="967" text-anchor="middle">Pedir</text></g>
+        <g class="s08-res"><rect class="ln-ac" x="380" y="1030" width="320" height="88" rx="44" /><text class="s08-res-t" x="540" y="1087" text-anchor="middle">Reservar</text></g>
+        <circle class="ln-ac s08-onda" cx="655" cy="962" r="20" />
+        <g class="s08-cursor"><path class="ln" d="M0 0 L0 64 L16 48 L28 76 L40 70 L28 44 L50 44 Z" /></g>
+        </g>
+        <g class="s08-tj"><rect class="ln-fino" x="700" y="690" width="270" height="150" rx="14" /><text class="ui-b" x="724" y="745" style="font-size:30px">Tu Local</text><line class="ln-tenue" x1="724" y1="764" x2="946" y2="764" /><rect class="ln-fino" x="724" y="784" width="130" height="36" rx="18" /></g>
+        <line class="ln-ac s08-tacha" x1="690" y1="852" x2="980" y2="680" />
+        <g class="s08-bolsa"><path class="ln" d="M775 960 H905 L893 1110 H787 Z M808 960 V940 Q808 905 840 905 Q872 905 872 940 V960" /><path class="ln-ac" d="M810 1035 L832 1057 L874 1012" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">En un toque</span><span class="s08-e2">No lee · compra</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-compra";
+      const DUR = 4.29;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // pop de un elemento SVG alrededor de (ox, oy)
+      const pop = (el, t, ox, oy, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: hasta ?? 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const golpe = (el, t, ox, oy, k) => {
+        tl.to(el, { scale: k ?? 1.08, svgOrigin: ox + " " + oy, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+      };
+      const badge = (el, t, x, y) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, svgOrigin: x + " " + y }, { scale: 1, opacity: 1, y: 0, svgOrigin: x + " " + y, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const PEDIR = 0.59, RESERVAR = 0.99, TOQUE = 1.49, CLIENTE = 2.59, LEE = 3.09, COMPRA = 3.8;
+      dibujar(qa(".s08-marco"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s08-cab"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.05);
+      pop(q(".s08-pedir"), PEDIR - 0.1, 540, 954);
+      pop(q(".s08-res"), RESERVAR - 0.1, 540, 1074);
+      // el dedo toca "Pedir"
+      tl.fromTo(q(".s08-cursor"), { x: 760, y: 1200, opacity: 0 }, { x: 655, y: 962, opacity: 1, duration: 0.4, ease: "power2.out" }, TOQUE - 0.4);
+      tl.to(q(".s08-cursor"), { scale: 0.85, svgOrigin: "0 0", duration: 0.08, yoyo: true, repeat: 1 }, TOQUE);
+      golpe(q(".s08-pedir"), TOQUE, 540, 954, 0.94);
+      tl.fromTo(q(".s08-onda"), { opacity: 0 }, { opacity: 1, duration: 0.01 }, TOQUE);
+      tl.fromTo(q(".s08-onda"), { scale: 0.5, svgOrigin: "655 962" }, { scale: 3.2, svgOrigin: "655 962", duration: 0.5, ease: "power2.out" }, TOQUE);
+      tl.to(q(".s08-onda"), { opacity: 0, duration: 0.3 }, TOQUE + 0.2);
+      tl.to(q(".s08-cursor"), { opacity: 0, duration: 0.2 }, TOQUE + 0.5);
+      etiqueta(q(".s08-e1"), TOQUE);
+      // "el cliente no lee: compra"
+      tl.to(q(".s08-tel"), { x: -170, scale: 0.85, svgOrigin: "540 905", duration: 0.45, ease: "power3.inOut" }, CLIENTE - 0.3);
+      tl.fromTo(q(".s08-tj"), { opacity: 0, y: 14 }, { opacity: 0.6, y: 0, duration: 0.35, ease: "power3.out" }, CLIENTE);
+      gsap.set(q(".s08-tacha"), { opacity: 0 });
+      dibujar([q(".s08-tacha")], LEE - 0.05, 0.3);
+      tl.to(q(".s08-tj"), { opacity: 0.35, duration: 0.3 }, LEE + 0.2);
+      gsap.set(q(".s08-bolsa"), { opacity: 0 });
+      pop(q(".s08-bolsa"), COMPRA - 0.15, 840, 1010);
+      golpe(q(".s08-bolsa"), COMPRA + 0.2, 840, 1010, 1.12);
+      etiqueta(q(".s08-e2"), LEE, q(".s08-e1"));
+
+      // salida
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

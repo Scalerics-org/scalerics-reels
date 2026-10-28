@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-se-va"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-se-va"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-se-va"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-se-va"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-se-va"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-se-va"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-se-va"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-se-va"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-se-va"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s06-se-va"] .t-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 50px; fill: #efeee5; }
+    [data-composition-id="s06-se-va"] .t-dir { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s06-se-va"] .t-btn { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s06-se-va"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s06-se-va"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efeee5; }
+    [data-composition-id="s06-se-va"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s06-se-va"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s06-se-va"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s06-se-va"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-se-va"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s06-se-va" data-width="1080" data-height="1920" data-duration="2.59">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="2.59" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s06-tuyo"><rect class="ln s06-m1" x="130" y="640" width="290" height="440" rx="44" /><line class="ln s06-m1" x1="245" y1="668" x2="305" y2="668" />
+        <text class="ui-b" x="160" y="760">Tu Local</text><line class="ln-tenue" x1="160" y1="784" x2="390" y2="784" />
+        <rect class="ln-fino" x="160" y="980" width="190" height="52" rx="26" /><text class="ui" x="255" y="1015" text-anchor="middle" style="font-size:24px">Contactanos</text>
+        </g>
+        <path class="ln s06-x" d="M380 700 L404 724 M404 700 L380 724" />
+        <g class="s06-otro"><rect class="ln s06-m2" x="660" y="640" width="290" height="440" rx="44" /><line class="ln s06-m2" x1="775" y1="668" x2="835" y2="668" /></g>
+        <g class="s06-cont">
+        <text class="ui-b" x="690" y="760">Su Local</text><line class="ln-tenue" x1="690" y1="784" x2="920" y2="784" />
+        <g class="s06-f"><text class="ui" x="690" y="836">Café</text><text class="ui ui-ac" x="920" y="836" text-anchor="end">$ 90</text></g>
+        <g class="s06-f"><text class="ui" x="690" y="886">Medialunas</text><text class="ui ui-ac" x="920" y="886" text-anchor="end">$ 60</text></g>
+        <g class="s06-f"><text class="ui" x="690" y="936">Abierto</text><text class="ui ui-ac" x="920" y="936" text-anchor="end">8 a 20</text></g>
+        <g class="s06-pedir"><rect class="relleno-ac" x="690" y="980" width="230" height="56" rx="28" /><text class="t-btn" x="805" y="1018" text-anchor="middle" style="fill:#0b1d35">Pedir</text></g>
+        </g>
+        <g class="s06-cli"><circle class="ln" cx="0" cy="-96" r="14" /><path class="ln" d="M0 -82 V-40 M0 -70 L-18 -52 M0 -70 L18 -52 M0 -40 L-14 0 M0 -40 L14 0" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Se va al otro</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-se-va";
+      const DUR = 2.59;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // pop de un elemento SVG alrededor de (ox, oy)
+      const pop = (el, t, ox, oy, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: hasta ?? 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const golpe = (el, t, ox, oy, k) => {
+        tl.to(el, { scale: k ?? 1.08, svgOrigin: ox + " " + oy, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+      };
+      const badge = (el, t, x, y) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, svgOrigin: x + " " + y }, { scale: 1, opacity: 1, y: 0, svgOrigin: x + " " + y, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const CIERRA = 0.0, VA = 0.59, MUESTRA = 0.89, TODO = 1.19, UNA = 1.49;
+      dibujar(qa(".s06-m1"), 0, 0.4, 0.5);
+      dibujar(qa(".s06-m2"), 0.05, 0.4, 0.5);
+      dibujar([q(".s06-x")], CIERRA + 0.15, 0.25);
+      tl.to(qa(".s06-tuyo, .s06-x"), { opacity: 0.35, duration: 0.3 }, CIERRA + 0.4);
+      // la figurita camina de tu celular al otro
+      tl.fromTo(q(".s06-cli"), { x: 280, y: 1215, opacity: 0 }, { x: 330, opacity: 1, duration: 0.2, ease: "none" }, VA - 0.25);
+      tl.to(q(".s06-cli"), { x: 800, duration: 1.0, ease: "power1.inOut" }, VA - 0.05);
+      tl.fromTo(q(".s06-cli path"), { rotation: -4, svgOrigin: "0 -40" }, { rotation: 4, svgOrigin: "0 -40", duration: 0.17, ease: "sine.inOut", yoyo: true, repeat: 5 }, VA - 0.05);
+      // el otro lo muestra todo
+      gsap.set(qa(".s06-cont > *"), { opacity: 0 });
+      tl.to(qa(".s06-cont > text, .s06-cont > line"), { opacity: 1, duration: 0.2 }, MUESTRA - 0.2);
+      tl.fromTo(qa(".s06-f"), { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.25, stagger: 0.1, ease: "power3.out" }, MUESTRA);
+      pop(q(".s06-pedir"), TODO, 805, 1008);
+      golpe(q(".s06-otro"), UNA, 805, 860, 1.05);
+      golpe(q(".s06-cont"), UNA, 805, 860, 1.05);
+      etiqueta(q(".s06-e1"), VA);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

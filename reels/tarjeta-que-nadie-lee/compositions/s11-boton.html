@@ -1,0 +1,111 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-boton"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-boton"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-boton"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boton"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boton"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boton"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boton"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boton"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boton"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s11-boton"] .t-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 50px; fill: #efeee5; }
+    [data-composition-id="s11-boton"] .t-dir { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s11-boton"] .t-btn { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s11-boton"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s11-boton"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efeee5; }
+    [data-composition-id="s11-boton"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s11-boton"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s11-boton"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s11-boton"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-boton"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s11-boton"] .s11-t { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 48px; fill: #5ce611; }
+    [data-composition-id="s11-boton"] .s11-t2 { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 48px; fill: #0b1d35; }
+  </style>
+  <div id="root" data-composition-id="s11-boton" data-width="1080" data-height="1920" data-duration="4.51">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.51" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s11-btn"><rect class="relleno-ac s11-fill" x="290" y="630" width="500" height="110" rx="55" /><rect class="ln-ac s11-bl" x="290" y="630" width="500" height="110" rx="55" />
+        <text class="s11-t" x="540" y="702" text-anchor="middle">Hacer pedido</text><text class="s11-t2" x="540" y="702" text-anchor="middle">Hacer pedido</text></g>
+        <path class="ln s11-tronco" d="M540 752 V815" />
+        <path class="ln s11-izq" d="M540 815 H300 V870 M284 854 L300 872 L316 854" />
+        <path class="ln s11-der" d="M540 815 H780 V870 M764 854 L780 872 L796 854" />
+        <g class="s11-wa"><rect class="ln s11-wl" x="195" y="895" width="210" height="290" rx="36" /><line class="ln s11-wl" x1="270" y1="918" x2="330" y2="918" />
+        <g class="s11-hola"><rect class="ln-fino" x="215" y="950" width="104" height="48" rx="18" /><text class="ui" x="267" y="983" text-anchor="middle" style="font-size:24px">Hola</text></g>
+        <g class="s11-ped"><rect class="ln-fino-ac" x="245" y="1020" width="140" height="56" rx="18" /><text class="ui ui-ac" x="315" y="1057" text-anchor="middle" style="font-size:26px">Pedido</text></g></g>
+        <g class="s11-tienda"><path class="ln s11-tl" d="M715 960 H845 L833 1120 H727 Z M748 960 V938 Q748 903 780 903 Q812 903 812 938 V960" /><path class="ln-ac s11-chk" d="M752 1040 L772 1060 L810 1018" /></g>
+        <text class="rotulo s11-r1" x="300" y="1228" text-anchor="middle">WHATSAPP</text>
+        <text class="rotulo s11-r2" x="780" y="1228" text-anchor="middle">TIENDA ONLINE</text>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-boton";
+      const DUR = 4.51;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // pop de un elemento SVG alrededor de (ox, oy)
+      const pop = (el, t, ox, oy, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: hasta ?? 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const golpe = (el, t, ox, oy, k) => {
+        tl.to(el, { scale: k ?? 1.08, svgOrigin: ox + " " + oy, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+      };
+      const badge = (el, t, x, y) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, svgOrigin: x + " " + y }, { scale: 1, opacity: 1, y: 0, svgOrigin: x + " " + y, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const BOTON = 0.6, PEDIDO = 1.4, DIRECTO = 2.07, WHATSAPP = 2.6, TIENDA = 3.4, ONLINE = 3.6;
+      gsap.set(qa(".s11-fill, .s11-t2"), { opacity: 0 });
+      dibujar([q(".s11-bl")], 0, 0.55, 0.5);
+      tl.fromTo(q(".s11-t"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.15);
+      golpe(q(".s11-btn"), BOTON, 540, 685, 1.08);
+      // "pedido": se aprieta y se llena
+      tl.to(q(".s11-btn"), { scale: 0.92, svgOrigin: "540 685", duration: 0.1, ease: "power2.in" }, PEDIDO - 0.05);
+      tl.to(q(".s11-btn"), { scale: 1, svgOrigin: "540 685", duration: 0.35, ease: "back.out(2.5)" }, PEDIDO + 0.05);
+      tl.to(qa(".s11-fill, .s11-t2"), { opacity: 1, duration: 0.12 }, PEDIDO + 0.05);
+      tl.to(q(".s11-t"), { opacity: 0, duration: 0.12 }, PEDIDO + 0.05);
+      dibujar([q(".s11-tronco")], PEDIDO + 0.2, 0.3);
+      // WhatsApp
+      dibujar([q(".s11-izq")], DIRECTO - 0.1, 0.4);
+      dibujar(qa(".s11-wl"), DIRECTO + 0.15, 0.4);
+      gsap.set(qa(".s11-hola, .s11-ped, .s11-r1, .s11-r2, .s11-chk"), { opacity: 0 });
+      pop(q(".s11-hola"), DIRECTO + 0.4, 267, 974);
+      pop(q(".s11-ped"), WHATSAPP, 315, 1048);
+      golpe(q(".s11-ped"), WHATSAPP + 0.4, 315, 1048, 1.1);
+      tl.to(q(".s11-r1"), { opacity: 1, duration: 0.25 }, WHATSAPP);
+      // tienda
+      dibujar([q(".s11-der")], TIENDA - 0.45, 0.35);
+      dibujar(qa(".s11-tl"), TIENDA - 0.2, 0.4);
+      dibujar([q(".s11-chk")], ONLINE, 0.3);
+      tl.to(q(".s11-r2"), { opacity: 1, duration: 0.25 }, TIENDA);
+      golpe(q(".s11-tienda"), ONLINE + 0.3, 780, 1010, 1.1);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

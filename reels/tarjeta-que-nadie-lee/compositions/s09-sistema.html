@@ -1,0 +1,107 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-sistema"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-sistema"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-sistema"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sistema"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s09-sistema"] .t-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 50px; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .t-dir { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .t-btn { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s09-sistema"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s09-sistema"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s09-sistema"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-sistema"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s09-sistema"] .s09-peso { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 110px; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s09-sistema" data-width="1080" data-height="1920" data-duration="6.62">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="6.62" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s09-bolsa"><path class="ln s09-bl" d="M450 1060 Q410 930 490 870 L465 815 H615 L590 870 Q670 930 630 1060 Z" /><path class="ln s09-bl" d="M490 870 H590" /><text class="s09-peso" x="540" y="1010" text-anchor="middle">$</text></g>
+        <g class="s09-b1"><g><circle class="ln-badge" cx="650" cy="820" r="20" /><path class="ln-badge" d="M643 813 L657 827 M657 813 L643 827" /></g></g>
+        <g class="s09-gpos"><g class="s09-gear"><path class="ln s09-gl" d="M629.7 899.5 L658.9 903.5 L658.9 936.5 L629.7 940.5 L624.6 956.1 L645.9 976.5 L626.4 1003.2 L600.5 989.3 L587.2 999.0 L592.5 1027.9 L561.0 1038.1 L548.2 1011.6 L531.8 1011.6 L519.0 1038.1 L487.5 1027.9 L492.8 999.0 L479.5 989.3 L453.6 1003.2 L434.1 976.5 L455.4 956.1 L450.3 940.5 L421.1 936.5 L421.1 903.5 L450.3 899.5 L455.4 883.9 L434.1 863.5 L453.6 836.8 L479.5 850.7 L492.8 841.0 L487.5 812.1 L519.0 801.9 L531.8 828.4 L548.2 828.4 L561.0 801.9 L592.5 812.1 L587.2 841.0 L600.5 850.7 L626.4 836.8 L645.9 863.5 L624.6 883.9 Z" /><circle class="ln-ac s09-gl" cx="540" cy="920" r="38" /></g></g>
+        <g class="s09-cuadro"><path class="ln-fino" d="M240 840 L320 790 L400 840" /><circle class="relleno-ac" cx="320" cy="788" r="7" />
+        <rect class="ln" x="220" y="840" width="200" height="170" rx="6" /><rect class="ln-tenue" x="242" y="862" width="156" height="126" rx="4" />
+        <path class="ln-fino" d="M252 978 L298 918 L332 958 L356 932 L388 978" /><circle class="ln-fino" cx="370" cy="890" r="12" /></g>
+        <text class="rotulo s09-r1" x="320" y="1070" text-anchor="middle">ADORNA</text>
+        <text class="rotulo-ac s09-r2" x="760" y="1070" text-anchor="middle">TRABAJA</text>
+        <g class="s09-b2"><g><circle class="ln-badge" cx="425" cy="835" r="20" /><path class="ln-badge" d="M418 828 L432 842 M432 828 L418 842" /></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">No es una fortuna</span><span class="s09-e2">Es un sistema</span><span class="s09-e3">Que trabaje</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-sistema";
+      const DUR = 6.62;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // pop de un elemento SVG alrededor de (ox, oy)
+      const pop = (el, t, ox, oy, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: hasta ?? 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const golpe = (el, t, ox, oy, k) => {
+        tl.to(el, { scale: k ?? 1.08, svgOrigin: ox + " " + oy, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+      };
+      const badge = (el, t, x, y) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, svgOrigin: x + " " + y }, { scale: 1, opacity: 1, y: 0, svgOrigin: x + " " + y, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const GASTAR = 1.1, FORTUNA = 1.6, HACE = 2.54, SISTEMA = 3.1, TRABAJE = 4.6, ADORNE = 5.5;
+      dibujar(qa(".s09-bl"), 0, 0.55, 0.5);
+      tl.fromTo(q(".s09-peso"), { opacity: 0, scale: 0.6, svgOrigin: "540 975" }, { opacity: 1, scale: 1, svgOrigin: "540 975", duration: 0.4, ease: "back.out(2)" }, 0.2);
+      tl.to(q(".s09-bolsa"), { rotation: 5, svgOrigin: "540 1060", duration: 0.1, yoyo: true, repeat: 3, ease: "sine.inOut" }, GASTAR);
+      badge(q(".s09-b1"), FORTUNA, 650, 820);
+      tl.to(q(".s09-bolsa"), { opacity: 0.4, duration: 0.3 }, FORTUNA + 0.2);
+      etiqueta(q(".s09-e1"), FORTUNA);
+      tl.to(qa(".s09-bolsa, .s09-b1"), { opacity: 0, scale: 0.7, svgOrigin: "540 940", duration: 0.35, ease: "power2.in" }, HACE);
+      // "sistema": el engranaje se dibuja y gira
+      dibujar(qa(".s09-gl"), SISTEMA - 0.4, 0.55);
+      tl.fromTo(q(".s09-gear"), { rotation: 0, svgOrigin: "540 920" }, { rotation: 300, svgOrigin: "540 920", duration: DUR - SISTEMA + 0.4, ease: "none" }, SISTEMA - 0.4);
+      golpe(q(".s09-gpos"), SISTEMA + 0.15, 540, 920, 1.12);
+      etiqueta(q(".s09-e2"), SISTEMA, q(".s09-e1"));
+      // "una web que trabaje, no que adorne"
+      tl.to(q(".s09-gpos"), { x: 220, scale: 0.72, svgOrigin: "540 920", duration: 0.45, ease: "power3.inOut" }, TRABAJE - 0.4);
+      tl.fromTo(q(".s09-r2"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, TRABAJE);
+      gsap.set(qa(".s09-cuadro, .s09-r1"), { opacity: 0 });
+      pop(q(".s09-cuadro"), TRABAJE + 0.3, 320, 900);
+      tl.to(q(".s09-r1"), { opacity: 1, duration: 0.3 }, TRABAJE + 0.4);
+      tl.to(q(".s09-cuadro"), { rotation: -4, svgOrigin: "320 788", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, TRABAJE + 0.65);
+      badge(q(".s09-b2"), ADORNE, 425, 835);
+      tl.to(qa(".s09-cuadro, .s09-r1"), { opacity: 0.4, duration: 0.3 }, ADORNE + 0.1);
+      etiqueta(q(".s09-e3"), TRABAJE, q(".s09-e2"));
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

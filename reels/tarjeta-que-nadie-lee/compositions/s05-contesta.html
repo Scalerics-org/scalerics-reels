@@ -1,0 +1,107 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-contesta"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-contesta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-contesta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-contesta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-contesta"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-contesta"] .ln-fino-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-contesta"] .ln-tenue { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-contesta"] .ln-badge { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-contesta"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s05-contesta"] .t-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 50px; fill: #efeee5; }
+    [data-composition-id="s05-contesta"] .t-dir { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 30px; fill: #efeee5; }
+    [data-composition-id="s05-contesta"] .t-btn { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s05-contesta"] .ui { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s05-contesta"] .ui-b { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efeee5; }
+    [data-composition-id="s05-contesta"] .ui-ac { fill: #5ce611; }
+    [data-composition-id="s05-contesta"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s05-contesta"] .rotulo-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #5ce611; }
+    [data-composition-id="s05-contesta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-contesta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s05-contesta" data-width="1080" data-height="1920" data-duration="4.46">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.46" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s05-tel">
+        <rect class="ln s05-marco" x="450" y="610" width="400" height="600" rx="52" />
+        <line class="ln s05-marco" x1="610" y1="640" x2="690" y2="640" />
+        <g class="s05-cab"><text class="ui-b" x="490" y="730">Tu Local</text><line class="ln-tenue" x1="490" y1="756" x2="810" y2="756" />
+        <path class="ln-fino" d="M506 822 C500 814 492 806 492 796 A14 14 0 0 1 520 796 C520 806 512 814 506 822 Z" /><text class="ui" x="534" y="808">Av. Rivera 2450</text>
+        <line class="ln-tenue" x1="490" y1="870" x2="810" y2="870" stroke-dasharray="6 20" /><line class="ln-tenue" x1="490" y1="920" x2="760" y2="920" stroke-dasharray="6 20" /></g>
+        <g class="s05-btn"><rect class="ln s05-btn-r" x="500" y="1010" width="300" height="80" rx="40" /><text class="t-btn" x="650" y="1060" text-anchor="middle">Contactanos</text></g>
+        </g>
+        <g class="s05-p1"><rect class="ln-fino" x="70" y="700" width="300" height="64" rx="22" /><text class="ui" x="92" y="742">¿Qué vendés?</text></g>
+        <g class="s05-p2"><rect class="ln-fino" x="70" y="790" width="300" height="64" rx="22" /><text class="ui" x="92" y="832">¿Cuánto sale?</text></g>
+        <g class="s05-p3"><rect class="ln-fino" x="70" y="880" width="300" height="64" rx="22" /><text class="ui" x="92" y="922">¿A qué hora?</text></g>
+        <path class="ln-tenue s05-flecha" d="M300 990 Q360 1070 480 1050" />
+        <g class="s05-cursor"><path class="ln" d="M0 0 L0 64 L16 48 L28 76 L40 70 L28 44 L50 44 Z" /></g>
+        <g class="s05-b1"><g><circle class="ln-badge" cx="806" cy="1006" r="20" /><path class="ln-badge" d="M799 999 L813 1013 M813 999 L799 1013" /></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Toda la respuesta</span><span class="s05-e2">No contacta</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-contesta";
+      const DUR = 4.46;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          if (t + i * 0.04 <= 0.001) gsap.set(el, { opacity: 1 });
+          else { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // pop de un elemento SVG alrededor de (ox, oy)
+      const pop = (el, t, ox, oy, hasta) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: ox + " " + oy }, { opacity: hasta ?? 1, scale: 1, svgOrigin: ox + " " + oy, duration: 0.35, ease: "back.out(1.6)" }, t);
+      };
+      const golpe = (el, t, ox, oy, k) => {
+        tl.to(el, { scale: k ?? 1.08, svgOrigin: ox + " " + oy, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+      };
+      const badge = (el, t, x, y) => {
+        tl.fromTo(el.firstElementChild, { scale: 0.4, opacity: 0, y: -26, svgOrigin: x + " " + y }, { scale: 1, opacity: 1, y: 0, svgOrigin: x + " " + y, duration: 0.35, ease: "back.out(2.2)" }, t);
+      };
+      const etiqueta = (el, t, antes) => {
+        if (antes) tl.to(antes, { opacity: 0, y: -10, duration: 0.2 }, t - 0.15);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+
+      const CONTESTA = 0.65, CONTACTANOS = 1.6, EL = 2.65, NO = 3.1, CONTACTA = 3.55;
+      dibujar(qa(".s05-marco"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s05-cab"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.1);
+      tl.fromTo(q(".s05-btn"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.25);
+      tl.fromTo(qa(".s05-p1, .s05-p2, .s05-p3"), { opacity: 0, x: -20 }, { opacity: 0.85, x: 0, duration: 0.3, stagger: 0.1, ease: "power3.out" }, 0.05);
+      // "contesta: contactanos": todo se apaga menos el botón, que late grande
+      dibujar([q(".s05-flecha")], CONTESTA, 0.5);
+      tl.to(qa(".s05-cab, .s05-p1, .s05-p2, .s05-p3"), { opacity: 0.4, duration: 0.3 }, CONTACTANOS - 0.1);
+      tl.to(q(".s05-btn"), { scale: 1.18, svgOrigin: "650 1050", duration: 0.3, ease: "back.out(2.4)" }, CONTACTANOS);
+      tl.to(q(".s05-btn"), { scale: 1.12, svgOrigin: "650 1050", duration: 0.2, yoyo: true, repeat: 1 }, CONTACTANOS + 0.5);
+      etiqueta(q(".s05-e1"), CONTACTANOS);
+      // "él no contacta": el cursor se acerca, se frena y se va
+      tl.fromTo(q(".s05-cursor"), { x: 960, y: 1260, opacity: 0 }, { x: 760, y: 1080, opacity: 1, duration: 0.45, ease: "power2.out" }, EL);
+      tl.to(q(".s05-cursor"), { x: 745, y: 1070, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, NO);
+      tl.to(q(".s05-cursor"), { x: 980, y: 1300, opacity: 0, duration: 0.45, ease: "power2.in" }, CONTACTA + 0.05);
+      badge(q(".s05-b1"), CONTACTA, 806, 1006);
+      tl.to(q(".s05-tel"), { opacity: 0.45, duration: 0.3 }, CONTACTA + 0.3);
+      etiqueta(q(".s05-e2"), NO, q(".s05-e1"));
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
