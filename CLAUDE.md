@@ -40,7 +40,9 @@ en `ideas.md`, que ahora anota formato y estilo).
   Navidad, vacaciones de julio), un reel temático con doble sentido, como `clientes-fantasma` o
   `negocio-zombi`.
 
-**Estilos visuales** (no repetir en la misma tanda): líneas crema clásico; paleta temática con capa
+**Lo que quiere Juan (28-10, después de ver el zombi y JARVIS): "ese tipo de contenido quiero hacer, variado, viral, no siempre lo mismo".** O sea: TODOS los reels con edición cargada como `negocio-zombi` y `tu-jarvis` (paleta propia, capa de ambiente, efectos, cortes rápidos, contadores, glitch, nada quieto), cada uno con su propia idea visual. El estilo de líneas sobrio queda como máximo 1 por tanda.
+
+**Estilos visuales** (no repetir en la misma tanda): líneas crema clásico (máximo 1); paleta temática con capa
 de ambiente (zombi); interfaz holográfica (jarvis); tipografía gigante (kinetic type: las palabras
 clave enormes ocupando la pantalla, cortes en cada palabra); celular a pantalla completa con UI real
 dibujada; papel/collage (recortes, cinta, sellos, texturas planas). Cada estilo con su paleta de 3 a 5
