@@ -23,9 +23,8 @@ de guion**, **estilo visual** y **cierre**, y distinto de los de las últimas do
 en `ideas.md`, que ahora anota formato y estilo).
 
 **Formatos de guion** (cada uno a lo sumo 1 vez por tanda):
-- A. **Verdad incómoda**: el arco clásico (gancho polémico, "no es X ni Y", la verdad, el sistema,
-  el producto). Es el de los ejemplos sobrios. Máximo 1 por tanda.
-- B. **Escena con diálogo**: dos voces (`--voz Kore`, `Aoede`, `Puck`, `Charon`… además de Orus):
+- A. **Verdad incómoda**: gancho polémico, la verdad con un contraste concreto, el producto. Máximo 1
+  por tanda. SIN el "no es X, ni Y, ni Z" (ver abajo).
   un cliente que escribe y un comercio que no contesta; dos dueños charlando; un asistente que habla
   (como `tu-jarvis`). Las voces se generan por partes y se pegan con ffmpeg (ver tu-jarvis).
 - C. **Lista**: "3 señales de que…", "Las 4 cosas que hace distinto el comercio que…". Números
@@ -50,10 +49,13 @@ colores en el SPEC, su fondo en `armar.mjs` y, si suma, una `compositions/ambien
 **El gancho**: lo que más funcionó es el doble sentido ("Tu local está lleno de fantasmas", "Tu
 negocio no está muerto: es peor, es un zombi"). Que pique en 2 segundos.
 
-**Muletillas prohibidas de tanto usarlas**: "No es X. Ni Y. Ni Z." solo en el formato A; "es tener un
-sistema" como mucho una vez por tanda; variar el cierre (además de "Comentá PALABRA", por ejemplo
-"Guardalo para cuando…", "Mandáselo al dueño que…", "Respondé en los comentarios cuál…"), pero
-siempre con una sola acción clara.
+**Muletillas PROHIBIDAS** (Juan, 28-10: "cansa siempre lo de no es la crisis, siempre lo mismo"):
+- Descartar explicaciones en fila: "No es la crisis. Ni el barrio. Ni la competencia.", "No es
+  suerte, ni el local, ni la plata" y cualquier variante. En ningún formato.
+- "No es suerte / no es caro: es tener un sistema" y "es tener un sistema" en general.
+- Cerrar siempre con "Comentá PALABRA y te contamos cómo": variar ("Guardalo para cuando…",
+  "Mandáselo al dueño que…", "Respondé en los comentarios cuál…", o "Comentá PALABRA" con otra
+  frase), siempre con una sola acción clara.
 
 ## El estilo de base (cuando toca el clásico)
 
