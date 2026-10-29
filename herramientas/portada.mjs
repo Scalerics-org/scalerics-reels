@@ -1,6 +1,7 @@
 // Arma reels/<slug>/portada.png (1080x1920) con reels/<slug>/portada.json:
 //   { "t": 5.5, "chica": "Te voy a robar", "grande": "tus clientes", "sello": "Plan: el golpe",
-//     "acento": "#f5c518", "sello_color": "#e5484d", "zoom": 1.12, "foco": "40%" }
+//     "acento": "#f5c518", "sello_color": "#e5484d", "zoom": 1.12, "foco": "40%",
+//     "velo": "6,16,31" (color RGB de las bandas oscuras, el del fondo del reel), "fondo": "#06101f" }
 // El cuadro sale del render del reel (renders/<slug>-final.mp4 o su rama reel/<slug>).
 // Uso, desde la raíz: node herramientas/portada.mjs <slug>
 import { execFileSync } from "node:child_process";
@@ -30,7 +31,7 @@ let html = fs.readFileSync(path.resolve("herramientas/portada.html"), "utf8")
   .replace("__SELLO__", esc(cfg.sello))
   .replace("__CHICA__", esc(cfg.chica))
   .replace("__GRANDE__", esc(cfg.grande));
-const vars = [["--acento", cfg.acento], ["--sello", cfg.sello_color], ["--zoom", cfg.zoom], ["--foco", cfg.foco]]
+const vars = [["--acento", cfg.acento], ["--sello", cfg.sello_color], ["--zoom", cfg.zoom], ["--foco", cfg.foco], ["--velo", cfg.velo], ["--fondo", cfg.fondo]]
   .filter(([, v]) => v != null).map(([k, v]) => `${k}: ${v};`).join(" ");
 if (vars) html = html.replace("</style>", `:root { ${vars} }\n</style>`);
 const pagina = path.join(tmp, "portada.html");
