@@ -1,0 +1,111 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-foto"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-foto"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-foto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-foto"] .s06-mini { position: absolute; width: 330px; height: 220px; background: #f6efe4; border: 6px solid #0b0708; border-radius: 18px; box-shadow: 10px 10px 0 #0b0708; }
+    [data-composition-id="s06-foto"] .s06-mini b { position: absolute; left: 22px; top: 22px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; color: #0b0708; }
+    [data-composition-id="s06-foto"] .s06-mini i { position: absolute; left: 22px; top: 110px; padding: 6px 16px; border: 5px solid #c1122f; border-radius: 10px; font-style: normal; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; color: #c1122f; }
+    [data-composition-id="s06-foto"] .s06-todos { position: absolute; left: 0; right: 0; top: 1320px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 120px; line-height: 1; color: #ff3d9a; text-transform: uppercase; -webkit-text-stroke: 10px #0b0708; paint-order: stroke fill; text-shadow: 0 0 34px rgba(255, 61, 154, 0.55); }
+    [data-composition-id="s06-foto"] .s06-pie { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.1em; fill: #0b0708; }
+    [data-composition-id="s06-foto"] .s06-nota { position: absolute; left: 0; right: 0; top: 1330px; text-align: center; white-space: nowrap; }
+    [data-composition-id="s06-foto"] .s06-nota span { display: inline-block; margin: 0 3px; padding: 4px 10px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; border: 4px solid #0b0708; }
+  </style>
+  <div id="root" data-composition-id="s06-foto" data-width="1080" data-height="1920" data-duration="7.46">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="7.46" data-track-index="0">
+      <div class="s06-escenario">
+        <div class="s06-mini" style="left: 130px; top: 620px"><b>La Panadería</b><i>CERRADO</i></div>
+        <div class="s06-mini" style="left: 620px; top: 700px"><b>El Kiosco</b><i>CERRADO</i></div>
+        <div class="s06-mini" style="left: 160px; top: 960px"><b>La Peluquería</b><i>CERRADO</i></div>
+        <div class="s06-mini" style="left: 600px; top: 1040px"><b>El Taller</b><i>CERRADO</i></div>
+        <div class="s06-todos">A todos</div>
+        <svg class="s06-polaroid" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs><clipPath id="s06-clip"><rect x="240" y="660" width="600" height="500" /></clipPath></defs>
+          <g>
+            <rect x="200" y="620" width="680" height="680" fill="#f6efe4" stroke="#0b0708" stroke-width="7" />
+            <rect x="240" y="660" width="600" height="500" fill="#3a1712" />
+            <g clip-path="url(#s06-clip)">
+              <g class="s06-foto">
+                <circle cx="760" cy="730" r="36" fill="#f6efe4" opacity="0.8" />
+                <rect x="300" y="820" width="480" height="340" fill="#6e2a1f" stroke="#f6efe4" stroke-width="5" />
+                <rect x="290" y="780" width="500" height="54" fill="#0b0708" stroke="#f6efe4" stroke-width="5" />
+                <rect x="330" y="880" width="220" height="160" fill="#ffd23f" opacity="0.85" stroke="#0b0708" stroke-width="5" />
+                <rect x="610" y="900" width="120" height="260" fill="#0b0708" stroke="#f6efe4" stroke-width="5" />
+                <path d="M240 1160 H840" stroke="#0b0708" stroke-width="20" />
+                <!-- el perro -->
+                <g class="s06-perro">
+                  <path d="M650 1150 Q640 1080 670 1060 L690 1060 Q715 1080 705 1150 Z" fill="#0b0708" stroke="#f6efe4" stroke-width="4" />
+                  <circle cx="680" cy="1040" r="28" fill="#0b0708" stroke="#f6efe4" stroke-width="4" />
+                  <path d="M656 1030 L650 1000 L670 1018 M704 1030 L710 1000 L690 1018" fill="#0b0708" stroke="#f6efe4" stroke-width="4" stroke-linejoin="round" />
+                  <circle class="s06-ojos" cx="671" cy="1040" r="5" fill="#ffd23f" /><circle class="s06-ojos" cx="689" cy="1040" r="5" fill="#ffd23f" />
+                </g>
+              </g>
+              <g class="s06-fantasma" opacity="0.45">
+                <rect x="330" y="820" width="480" height="340" fill="none" stroke="#f6efe4" stroke-width="5" />
+                <rect x="360" y="880" width="220" height="160" fill="#ffd23f" opacity="0.5" />
+                <rect x="640" y="900" width="120" height="260" fill="none" stroke="#f6efe4" stroke-width="5" />
+              </g>
+              <rect class="s06-oscuro" x="240" y="660" width="600" height="500" fill="#0b0708" opacity="0" />
+            </g>
+            <text class="s06-pie" x="540" y="1250" text-anchor="middle">NUESTRO LOCAL</text>
+          </g>
+        </svg>
+        <div class="s06-nota">
+          <span style="background: #f6efe4; color: #0b0708; font-size: 78px; transform: rotate(-6deg)">P</span><span style="background: #c1122f; color: #f6efe4; font-size: 64px; transform: rotate(4deg)">R</span><span style="background: #ffd23f; color: #0b0708; font-size: 82px; transform: rotate(-3deg)">U</span><span style="background: #f6efe4; color: #0b0708; font-size: 60px; transform: rotate(7deg)">E</span><span style="background: #ff3d9a; color: #0b0708; font-size: 76px; transform: rotate(-5deg)">B</span><span style="background: #f6efe4; color: #c1122f; font-size: 66px; transform: rotate(3deg)">A</span>
+          <br /><span style="background: #ffd23f; color: #0b0708; font-size: 62px; transform: rotate(5deg); margin-top: 12px">D</span><span style="background: #f6efe4; color: #0b0708; font-size: 74px; transform: rotate(-4deg)">E</span>
+          <span style="background: #c1122f; color: #f6efe4; font-size: 80px; transform: rotate(-7deg); margin-left: 24px">V</span><span style="background: #f6efe4; color: #0b0708; font-size: 64px; transform: rotate(5deg)">I</span><span style="background: #ff3d9a; color: #0b0708; font-size: 72px; transform: rotate(-3deg)">D</span><span style="background: #ffd23f; color: #0b0708; font-size: 66px; transform: rotate(6deg)">A</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-foto";
+      const DUR = 7.46;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s06-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const PASA = 0.55, TODOS = 0.82, FOTO = 1.82, NOCHE = 3.18, MOVIDA = 3.86, PERRO = 4.82, PARECE = 5.55, SECUESTRO = 6.37;
+
+      // "le pasa a todos": fichas cerradas que caen una tras otra
+      const minis = [...qa(".s06-mini")];
+      minis.forEach((m, i) => tl.fromTo(m, { opacity: i === 0 ? 0.6 : 0, y: -300, rotation: (i % 2 ? 1 : -1) * 20 }, { opacity: 1, y: 0, rotation: (i % 2 ? 1 : -1) * 5, duration: 0.22, ease: "back.out(1.8)", immediateRender: i === 0 }, i === 0 ? 0 : 0.12 + i * 0.16));
+      minis.slice(1).forEach((m) => gsap.set(m, { opacity: 0 }));
+      gsap.set(q(".s06-todos"), { opacity: 0 });
+      tl.fromTo(q(".s06-todos"), { opacity: 0, scale: 2.6 }, { opacity: 1, scale: 1, duration: 0.13, ease: "power4.in", immediateRender: false }, TODOS - 0.1);
+      sacudon(TODOS + 0.03, 1.4);
+      tl.to(minis, { x: (i) => (i % 2 ? 900 : -900), rotation: 30, opacity: 0, duration: 0.3, ease: "power3.in", stagger: 0.04 }, FOTO - 0.45);
+      tl.to(q(".s06-todos"), { opacity: 0, y: 200, duration: 0.25, ease: "power2.in" }, FOTO - 0.4);
+
+      // "la foto del local": la polaroid entra girando
+      gsap.set(q(".s06-polaroid"), { opacity: 0 });
+      tl.fromTo(q(".s06-polaroid"), { opacity: 1, y: 900, rotation: 25, transformOrigin: "540px 960px" }, { opacity: 1, y: 0, rotation: -4, transformOrigin: "540px 960px", duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, FOTO - 0.15);
+      gsap.set([q(".s06-fantasma"), q(".s06-perro")], { opacity: 0 });
+      // "de noche": se oscurece
+      tl.to(q(".s06-oscuro"), { opacity: 0.45, duration: 0.3 }, NOCHE);
+      // "movida": se duplica corrida y se desenfoca
+      tl.to(q(".s06-fantasma"), { opacity: 0.45, duration: 0.05 }, MOVIDA);
+      tl.to(q(".s06-foto"), { filter: "blur(4px)", duration: 0.15 }, MOVIDA);
+      tl.to(q(".s06-polaroid"), { x: 14, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, MOVIDA);
+      // "perro"
+      tl.fromTo(q(".s06-perro"), { opacity: 0, scale: 0.3, svgOrigin: "680 1150" }, { opacity: 1, scale: 1, svgOrigin: "680 1150", duration: 0.25, ease: "back.out(3)", immediateRender: false }, PERRO - 0.05);
+      tl.to(qa(".s06-ojos"), { scale: 1.6, transformOrigin: "50% 50%", duration: 0.1, yoyo: true, repeat: 3 }, PERRO + 0.3);
+      // "parece de un secuestro": la polaroid se pone seria y aparece la nota
+      tl.to(q(".s06-polaroid"), { rotation: 3, scale: 0.92, transformOrigin: "540px 960px", y: -40, duration: 0.3, ease: "power2.out" }, PARECE);
+      const letras = [...qa(".s06-nota span")];
+      gsap.set(letras, { opacity: 0 });
+      letras.forEach((l, i) => tl.fromTo(l, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.08, ease: "power4.in", immediateRender: false }, PARECE + i * 0.06));
+      sacudon(SECUESTRO + 0.15, 1.8);
+
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

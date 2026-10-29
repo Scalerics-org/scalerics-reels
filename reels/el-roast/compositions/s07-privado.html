@@ -1,0 +1,86 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-privado"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-privado"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-privado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-privado"] .s07-etiqueta { position: absolute; left: 250px; top: 610px; width: 580px; height: 330px; }
+    [data-composition-id="s07-privado"] .s07-cara { position: absolute; inset: 0; background: #f6efe4; border: 8px solid #0b0708; border-radius: 30px 30px 30px 30px; box-shadow: 12px 12px 0 #0b0708; text-align: center; }
+    [data-composition-id="s07-privado"] .s07-agujero { position: absolute; left: 260px; top: 22px; width: 44px; height: 44px; border-radius: 50%; background: #3a1712; border: 6px solid #0b0708; }
+    [data-composition-id="s07-privado"] .s07-precio { position: absolute; left: 0; right: 0; top: 96px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 160px; line-height: 1; color: #0b0708; }
+    [data-composition-id="s07-privado"] .s07-consulta { position: absolute; left: 0; right: 0; top: 98px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; line-height: 1.05; color: #ff3d9a; -webkit-text-stroke: 6px #0b0708; paint-order: stroke fill; }
+    [data-composition-id="s07-privado"] .s07-chat { position: absolute; left: 160px; top: 990px; width: 760px; height: 460px; background: #0b0708; border: 7px solid #f6efe4; border-radius: 34px; }
+    [data-composition-id="s07-privado"] .s07-hora { position: absolute; left: 0; right: 0; top: 18px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; color: #f6efe4; opacity: 0.85; }
+    [data-composition-id="s07-privado"] .s07-yo { position: absolute; right: 30px; top: 90px; padding: 18px 28px; background: #ffd23f; border-radius: 26px 26px 6px 26px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 50px; color: #0b0708; }
+    [data-composition-id="s07-privado"] .s07-tilde { position: absolute; left: auto; right: 36px; top: 200px; width: 70px; height: 34px; }
+    [data-composition-id="s07-privado"] .s07-escribe { position: absolute; left: 30px; top: 270px; padding: 16px 26px; background: #f6efe4; border-radius: 26px 26px 26px 6px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; color: #0b0708; }
+    [data-composition-id="s07-privado"] .s07-visto { position: absolute; left: 330px; top: 1150px; padding: 8px 34px; border: 10px solid #c1122f; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 120px; line-height: 1; color: #c1122f; background: rgba(11, 7, 8, 0.6); }
+  </style>
+  <div id="root" data-composition-id="s07-privado" data-width="1080" data-height="1920" data-duration="4.33">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.33" data-track-index="0">
+      <div class="s07-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true"><path class="s07-hilo" d="M540 540 L540 660" stroke="#f6efe4" stroke-width="5" /></svg>
+        <div class="s07-etiqueta">
+          <div class="s07-cara">
+            <div class="s07-agujero"></div>
+            <div class="s07-precio">$ ???</div>
+            <div class="s07-consulta">CONSULTAS<br />POR PRIVADO</div>
+          </div>
+        </div>
+        <div class="s07-chat">
+          <div class="s07-hora">10:02</div>
+          <div class="s07-yo">¿Precio?</div>
+          <svg class="s07-tilde" viewBox="0 0 70 34" aria-hidden="true"><path d="M4 18 L14 28 L34 6 M30 22 L36 28 L60 4" fill="none" stroke="#ffd23f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <div class="s07-escribe">escribiendo...</div>
+        </div>
+        <div class="s07-visto">VISTO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-privado";
+      const DUR = 4.33;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const CONSULTAS = 0.66, EL = 2.16, NO = 2.54, CONTESTAS = 2.73;
+
+      // la etiqueta cae colgada y se hamaca
+      tl.fromTo(q(".s07-etiqueta"), { opacity: 0.6, y: -260, rotation: -14 }, { opacity: 1, y: 0, rotation: 6, duration: 0.35, ease: "back.out(2)", transformOrigin: "50% 0%" }, 0);
+      tl.fromTo(q(".s07-hilo"), { opacity: 0.6 }, { opacity: 1, duration: 0.2 }, 0);
+      tl.to(q(".s07-etiqueta"), { rotation: -4, transformOrigin: "50% 0%", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.35);
+      // "consultas por privado": se da vuelta
+      gsap.set(q(".s07-consulta"), { opacity: 0 });
+      tl.to(q(".s07-etiqueta"), { scaleX: 0, duration: 0.12, ease: "power2.in" }, CONSULTAS - 0.12);
+      tl.set(q(".s07-precio"), { opacity: 0 }, CONSULTAS);
+      tl.set(q(".s07-consulta"), { opacity: 1 }, CONSULTAS);
+      tl.to(q(".s07-etiqueta"), { scaleX: 1, duration: 0.15, ease: "back.out(2)" }, CONSULTAS);
+      tl.to(q(".s07-etiqueta"), { rotation: 3, transformOrigin: "50% 0%", duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, CONSULTAS + 0.2);
+
+      // "y el privado": el chat
+      gsap.set(q(".s07-chat"), { opacity: 0 });
+      tl.to([q(".s07-etiqueta"), q(".s07-hilo")], { y: -40, scale: 0.85, duration: 0.3, ease: "power2.out" }, EL - 0.3);
+      tl.fromTo(q(".s07-chat"), { opacity: 1, y: 700 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, EL - 0.3);
+      tl.fromTo(q(".s07-yo"), { scale: 0.3, transformOrigin: "100% 100%" }, { scale: 1, transformOrigin: "100% 100%", duration: 0.2, ease: "back.out(3)" }, EL);
+      tl.fromTo(q(".s07-escribe"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, EL + 0.15);
+      tl.to(q(".s07-escribe"), { opacity: 0.3, duration: 0.08, yoyo: true, repeat: 3 }, EL + 0.25);
+      // "no lo contestás": se apaga, la hora corre, sello VISTO
+      tl.to(q(".s07-escribe"), { opacity: 0, x: -40, duration: 0.15 }, NO);
+      tl.set(q(".s07-hora"), { textContent: "15:40" }, NO + 0.05);
+      tl.set(q(".s07-hora"), { textContent: "19:13" }, NO + 0.15);
+      tl.set(q(".s07-hora"), { textContent: "23:59" }, NO + 0.25);
+      gsap.set(q(".s07-visto"), { opacity: 0 });
+      tl.fromTo(q(".s07-visto"), { opacity: 0, scale: 2.6, rotation: -20 }, { opacity: 1, scale: 1, rotation: -10, duration: 0.13, ease: "power4.in", immediateRender: false }, CONTESTAS - 0.08);
+      sacudon(CONTESTAS + 0.05, 2);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,108 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-para"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-para"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-para"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-para"] .s10-oscuro { position: absolute; inset: 0; background: radial-gradient(ellipse 420px 520px at 540px 1000px, rgba(11, 7, 8, 0) 35%, rgba(11, 7, 8, 0.9) 100%); }
+    [data-composition-id="s10-para"] .s10-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.02em; -webkit-text-stroke: 12px #0b0708; paint-order: stroke fill; }
+    [data-composition-id="s10-para"] .s10-para { top: 576px; font-size: 176px; color: #f6efe4; }
+    [data-composition-id="s10-para"] .s10-nadie { top: 1260px; font-size: 190px; color: #c1122f; text-shadow: 0 0 40px rgba(193, 18, 47, 0.5); }
+    [data-composition-id="s10-para"] .s10-medalla-txt { font-family: "Lexend", sans-serif; font-weight: 900; fill: #0b0708; text-anchor: middle; }
+    [data-composition-id="s10-para"] .s10-preg { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 130px; line-height: 1; color: #ff3d9a; -webkit-text-stroke: 8px #0b0708; paint-order: stroke fill; text-shadow: 0 0 26px rgba(255, 61, 154, 0.6); }
+  </style>
+  <div id="root" data-composition-id="s10-para" data-width="1080" data-height="1920" data-duration="7.75">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="7.75" data-track-index="0">
+      <div class="s10-oscuro"></div>
+      <div class="s10-escenario">
+        <svg class="s10-comico" viewBox="0 0 1080 1920" aria-hidden="true">
+          <circle cx="540" cy="900" r="66" fill="#0b0708" stroke="#f6efe4" stroke-width="6" />
+          <path d="M568 866 Q582 878 580 900" fill="none" stroke="#ffd23f" stroke-width="5" stroke-linecap="round" opacity="0.8" />
+          <path d="M440 1500 L452 1070 Q462 990 540 982 Q618 990 628 1070 L640 1500 Z" fill="#0b0708" stroke="#f6efe4" stroke-width="6" stroke-linejoin="round" />
+          <path d="M510 986 L540 1086 L570 986" fill="none" stroke="#f6efe4" stroke-width="5" stroke-linejoin="round" />
+          <path d="M540 1330 V1500" fill="none" stroke="#f6efe4" stroke-width="5" stroke-linecap="round" />
+          <!-- brazo con el tenedor, quieto -->
+          <path d="M620 1060 Q700 1130 720 1010" fill="none" stroke="#0b0708" stroke-width="44" stroke-linecap="round" />
+          <path d="M620 1060 Q700 1130 720 1010" fill="none" stroke="#f6efe4" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+          <circle cx="722" cy="996" r="24" fill="#0b0708" stroke="#f6efe4" stroke-width="5" />
+          <path d="M728 980 L760 860 M748 862 L752 830 M760 864 L766 832 M772 866 L780 834" stroke="#f6efe4" stroke-width="8" stroke-linecap="round" />
+          <g class="s10-puntos" fill="#f6efe4">
+            <circle class="s10-p" cx="490" cy="808" r="13" /><circle class="s10-p" cx="540" cy="800" r="13" /><circle class="s10-p" cx="590" cy="808" r="13" />
+          </g>
+        </svg>
+        <svg data-layout-ignore class="s10-medalla" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path d="M440 1060 L370 1400 L450 1350 L490 1430 L540 1120 Z" fill="#c1122f" stroke="#0b0708" stroke-width="7" stroke-linejoin="round" />
+          <path d="M640 1060 L710 1400 L630 1350 L590 1430 L540 1120 Z" fill="#c1122f" stroke="#0b0708" stroke-width="7" stroke-linejoin="round" />
+          <circle cx="540" cy="950" r="250" fill="#ffd23f" stroke="#0b0708" stroke-width="9" />
+          <circle cx="540" cy="950" r="214" fill="none" stroke="#0b0708" stroke-width="4" stroke-dasharray="4 14" />
+          <text class="s10-medalla-txt" x="540" y="880" font-size="44">LA MEJOR</text>
+          <text class="s10-medalla-txt" x="540" y="975" font-size="84">MILANESA</text>
+          <text class="s10-medalla-txt" x="540" y="1050" font-size="44">DEL BARRIO</text>
+          <g class="s10-brillos" fill="#f6efe4">
+            <path d="M260 700 l12 36 l36 12 l-36 12 l-12 36 l-12 -36 l-36 -12 l36 -12 Z" />
+            <path d="M820 760 l10 30 l30 10 l-30 10 l-10 30 l-10 -30 l-30 -10 l30 -10 Z" />
+            <path d="M800 1160 l9 26 l26 9 l-26 9 l-9 26 l-9 -26 l-26 -9 l26 -9 Z" />
+          </g>
+        </svg>
+        <div class="s10-txt s10-para">Pará.</div>
+        <div class="s10-preg" style="left: 170px; top: 640px">?</div>
+        <div class="s10-preg" style="left: 820px; top: 700px">?</div>
+        <div class="s10-preg" style="left: 250px; top: 1060px">?</div>
+        <div class="s10-preg" style="left: 760px; top: 1100px">?</div>
+        <div class="s10-txt s10-nadie">Nadie</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-para";
+      const DUR = 7.75;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const PARA2 = 0.19, POCO = 1.52, ESTA = 2.99, MEJOR = 3.33, MILANESA = 3.61, BARRIO = 4.47, Y = 4.85, NADIE = 5.9, SABE = 6.28;
+
+      // cuadro 0: el comediante quieto en el foco, con el tenedor
+      tl.fromTo(q(".s10-comico"), { opacity: 0.6, scale: 1.05, transformOrigin: "540px 1200px" }, { opacity: 1, scale: 1, transformOrigin: "540px 1200px", duration: 0.25 }, 0);
+      tl.to(q(".s10-comico"), { scale: 1.08, transformOrigin: "540px 1000px", duration: 2.7, ease: "sine.inOut" }, 0.25);
+      // "PARÁ"
+      gsap.set(q(".s10-para"), { opacity: 0 });
+      tl.fromTo(q(".s10-para"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, 0.02);
+      tl.to(q(".s10-para"), { scale: 1.12, duration: 0.12, ease: "power2.out" }, PARA2);
+      tl.to(q(".s10-para"), { x: 5, duration: 0.04, yoyo: true, repeat: 23, ease: "none" }, PARA2 + 0.15);
+      // los tres puntitos
+      const ps = [...qa(".s10-p")];
+      gsap.set(ps, { opacity: 0 });
+      ps.forEach((p, i) => tl.to(p, { opacity: 1, duration: 0.1 }, 0.5 + i * 0.3));
+      tl.to(ps, { y: -10, duration: 0.2, yoyo: true, repeat: 5, stagger: 0.1, ease: "sine.inOut" }, 1.4);
+      tl.to(q(".s10-para"), { opacity: 0, y: -40, duration: 0.25, ease: "power2.in" }, ESTA - 0.3);
+      tl.to(q(".s10-comico"), { opacity: 0, x: -700, duration: 0.3, ease: "power3.in" }, ESTA - 0.1);
+
+      // "la mejor milanesa del barrio": medalla
+      gsap.set(q(".s10-medalla"), { opacity: 0 });
+      tl.fromTo(q(".s10-medalla"), { opacity: 1, scale: 0.1, rotation: -90, transformOrigin: "540px 950px" }, { opacity: 1, scale: 1, rotation: 0, transformOrigin: "540px 950px", duration: 0.4, ease: "back.out(1.6)", immediateRender: false }, MEJOR - 0.1);
+      tl.fromTo(q(".s10-brillos"), { opacity: 0 }, { opacity: 1, duration: 0.1, yoyo: true, repeat: 7 }, MILANESA);
+      tl.to(q(".s10-medalla"), { rotation: 4, transformOrigin: "540px 950px", duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, MILANESA);
+      tl.to(q(".s10-medalla"), { scale: 1.08, transformOrigin: "540px 950px", duration: 0.12, yoyo: true, repeat: 1 }, BARRIO);
+      // "¿y por qué nadie lo sabe?": se achica en lo oscuro
+      tl.to(q(".s10-medalla"), { scale: 0.42, y: -60, transformOrigin: "540px 950px", duration: 0.5, ease: "power3.inOut" }, Y);
+      tl.to(q(".s10-oscuro"), { opacity: 1, duration: 0.4 }, Y);
+      const pregs = [...qa(".s10-preg")];
+      gsap.set(pregs, { opacity: 0 });
+      pregs.forEach((p, i) => tl.fromTo(p, { opacity: 0, y: -300, rotation: (i % 2 ? 1 : -1) * 30 }, { opacity: 1, y: 0, rotation: (i % 2 ? 1 : -1) * 10, duration: 0.3, ease: "bounce.out", immediateRender: false }, Y + 0.25 + i * 0.15));
+      gsap.set(q(".s10-nadie"), { opacity: 0 });
+      tl.fromTo(q(".s10-nadie"), { opacity: 0, scale: 2.8 }, { opacity: 1, scale: 1, duration: 0.13, ease: "power4.in", immediateRender: false }, NADIE - 0.1);
+      sacudon(NADIE + 0.03, 2);
+      tl.to(q(".s10-nadie"), { x: -12, skewX: -12, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, SABE);
+      tl.to(pregs, { rotation: 0, scale: 1.15, duration: 0.15, yoyo: true, repeat: 3, stagger: 0.05 }, SABE);
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

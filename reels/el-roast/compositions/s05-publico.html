@@ -1,0 +1,71 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-publico"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-publico"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-publico"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-publico"] .s05-globo { position: absolute; left: 120px; top: 590px; width: 840px; height: 420px; }
+    [data-composition-id="s05-publico"] .s05-grito { position: absolute; left: 150px; top: 680px; width: 780px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 92px; line-height: 1.02; letter-spacing: -0.02em; color: #0b0708; text-transform: uppercase; }
+    [data-composition-id="s05-publico"] .s05-grito span { display: inline-block; }
+    [data-composition-id="s05-publico"] .s05-grito .ro { color: #ff3d9a; }
+  </style>
+  <div id="root" data-composition-id="s05-publico" data-width="1080" data-height="1920" data-duration="2.17">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="2.17" data-track-index="0">
+      <div class="s05-escenario">
+        <svg class="s05-globo" viewBox="0 0 840 420" aria-hidden="true">
+          <path d="M40 30 H800 Q820 30 820 50 V330 Q820 350 800 350 H360 L250 420 L270 350 H40 Q20 350 20 330 V50 Q20 30 40 30 Z" fill="#f6efe4" stroke="#ff3d9a" stroke-width="10" stroke-linejoin="round" style="filter: drop-shadow(0 0 18px rgba(255, 61, 154, 0.7))" />
+        </svg>
+        <div class="s05-grito"><span>¡A</span> <span>mí</span> <span>me</span> <span class="ro">pasó</span><br /><span>lo</span> <span class="ro">mismo!</span></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la que se para: pelo largo -->
+          <g class="s05-ella">
+            <path d="M300 1180 Q300 1080 370 1070 Q440 1080 440 1180 L450 1260 L290 1260 Z" fill="#0b0708" stroke="#ff3d9a" stroke-width="6" stroke-linejoin="round" />
+            <circle cx="370" cy="1130" r="56" fill="#0b0708" stroke="#f6efe4" stroke-width="6" />
+            <path d="M250 1520 L270 1290 Q290 1230 370 1222 Q450 1230 470 1290 L490 1520 Z" fill="#0b0708" stroke="#f6efe4" stroke-width="6" stroke-linejoin="round" />
+            <g class="s05-brazo"><path d="M455 1300 L540 1180" stroke="#0b0708" stroke-width="40" stroke-linecap="round" /><path d="M455 1300 L540 1180" stroke="#f6efe4" stroke-width="5" stroke-linecap="round" opacity="0.6" /><circle cx="545" cy="1170" r="24" fill="#0b0708" stroke="#f6efe4" stroke-width="5" /></g>
+          </g>
+          <!-- el resto del público, de espaldas -->
+          <g class="s05-cabezas">
+            <g class="s05-cab"><path d="M80 1540 Q90 1440 170 1430 Q250 1440 260 1540 Z" fill="#0b0708" stroke="#6e2a1f" stroke-width="5" /><circle cx="170" cy="1390" r="52" fill="#0b0708" stroke="#6e2a1f" stroke-width="5" /><circle class="s05-ojo" cx="148" cy="1386" r="7" fill="#f6efe4" /><circle class="s05-ojo" cx="128" cy="1386" r="7" fill="#f6efe4" /></g>
+            <g class="s05-cab"><path d="M560 1540 Q570 1430 660 1420 Q750 1430 760 1540 Z" fill="#0b0708" stroke="#6e2a1f" stroke-width="5" /><circle cx="660" cy="1374" r="58" fill="#0b0708" stroke="#6e2a1f" stroke-width="5" /><circle class="s05-ojo" cx="620" cy="1366" r="7" fill="#f6efe4" /><circle class="s05-ojo" cx="642" cy="1366" r="7" fill="#f6efe4" /></g>
+            <g class="s05-cab"><path d="M780 1540 Q790 1450 870 1440 Q950 1450 960 1540 Z" fill="#0b0708" stroke="#6e2a1f" stroke-width="5" /><circle cx="870" cy="1398" r="50" fill="#0b0708" stroke="#6e2a1f" stroke-width="5" /><circle class="s05-ojo" cx="832" cy="1392" r="7" fill="#f6efe4" /><circle class="s05-ojo" cx="852" cy="1392" r="7" fill="#f6efe4" /></g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-publico";
+      const DUR = 2.17;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s05-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const T = [0, 0, 0.2, 0.4, 0.7, 0.8];
+
+      // cuadro 0: público ya está; ella se para de un salto
+      tl.fromTo(q(".s05-cabezas"), { opacity: 0.6, y: 40 }, { opacity: 1, y: 0, duration: 0.2 }, 0);
+      tl.fromTo(q(".s05-ella"), { y: 260, opacity: 0.7 }, { y: 0, opacity: 1, duration: 0.22, ease: "back.out(2.2)" }, 0);
+      tl.to(q(".s05-brazo"), { rotation: -14, svgOrigin: "455 1300", duration: 0.1, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0.25);
+      tl.fromTo(q(".s05-globo"), { opacity: 0.6, scale: 0.4, transformOrigin: "35% 100%" }, { opacity: 1, scale: 1, transformOrigin: "35% 100%", duration: 0.2, ease: "back.out(2)" }, 0);
+      // el grito, palabra por palabra
+      const ws = [...qa(".s05-grito span")];
+      gsap.set(ws, { opacity: 0 });
+      ws.forEach((w, i) => tl.fromTo(w, { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.1, ease: "power4.in", immediateRender: false }, Math.max(0.02, T[i] - 0.05)));
+      // las cabezas se dan vuelta a mirarla (aparecen los ojitos)
+      gsap.set(qa(".s05-ojo"), { opacity: 0 });
+      tl.to(qa(".s05-ojo"), { opacity: 1, duration: 0.05, stagger: 0.04 }, 0.45);
+      tl.to(qa(".s05-cab"), { x: -16, rotation: -6, duration: 0.15, ease: "power2.out", stagger: 0.05, transformOrigin: "50% 100%" }, 0.45);
+      sacudon(0.82, 1.6);
+      tl.to(q(".s05-globo"), { scale: 1.05, transformOrigin: "35% 100%", duration: 0.1, yoyo: true, repeat: 3 }, 0.85);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
