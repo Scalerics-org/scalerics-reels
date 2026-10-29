@@ -20,6 +20,10 @@ on:
         description: "Lo manda el panel de aprobación (no tocar a mano)"
         type: string
         default: ""
+      tiktok_inbox:
+        description: "Prueba: manda ese reel (slug) a la bandeja de TikTok, sin anotar nada"
+        type: string
+        default: ""
       tiktok_estado:
         description: "Diagnóstico: publish_id de TikTok para ver en qué quedó (no publica nada)"
         type: string
@@ -53,7 +57,7 @@ jobs:
         with:
           node-version: 22
       - if: steps.toca.outputs.si == 'true'
-        run: node herramientas/publicar.mjs ${{ inputs.prueba && '--prueba' || '' }} ${{ inputs.tiktok_code && format('--tiktok-code={0}', inputs.tiktok_code) || '' }} ${{ inputs.tiktok_estado && format('--tiktok-estado={0}', inputs.tiktok_estado) || '' }}
+        run: node herramientas/publicar.mjs ${{ inputs.prueba && '--prueba' || '' }} ${{ inputs.tiktok_code && format('--tiktok-code={0}', inputs.tiktok_code) || '' }} ${{ inputs.tiktok_estado && format('--tiktok-estado={0}', inputs.tiktok_estado) || '' }} ${{ inputs.tiktok_inbox && format('--tiktok-inbox={0}', inputs.tiktok_inbox) || '' }}
         env:
           GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
           IG_TOKEN: ${{ secrets.IG_TOKEN }}

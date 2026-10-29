@@ -75,6 +75,14 @@ if (ESTADO_TT && accesoTT) {
 }
 
 
+// --tiktok-inbox=<slug>: prueba la bandeja de TikTok con ese reel (no anota nada) y termina
+const INBOX_PRUEBA = (process.argv.find((a) => a.startsWith("--tiktok-inbox=")) || "").split("=")[1] || "";
+if (INBOX_PRUEBA && accesoTT) {
+  const b = execFileSync("git", ["show", `origin/reel/${INBOX_PRUEBA}:reels/${INBOX_PRUEBA}/renders/${INBOX_PRUEBA}-final.mp4`], { maxBuffer: 200e6 });
+  console.log("TIKTOK (prueba de bandeja): " + (await mandarAlInboxTikTok(accesoTT, b)));
+  process.exit(0);
+}
+
 // Lo publicado, por red: { tiktok: [slugs], instagram: [slugs] }
 let pub = (await estadoJson("publicados.json")) || {};
 if (Array.isArray(pub)) pub = { tiktok: pub, instagram: pub };
