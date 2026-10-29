@@ -1,0 +1,82 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* grano de película: ruido SVG que salta de lugar */
+    [data-composition-id="ambiente"] .amb-grano { position: absolute; left: -120px; top: -120px; width: 1320px; height: 2160px; opacity: 0.07; mix-blend-mode: screen; }
+    /* líneas de escaneo de documental */
+    [data-composition-id="ambiente"] .amb-scan { position: absolute; inset: 0; opacity: 0.18;
+      background-image: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0px, rgba(0, 0, 0, 0.55) 2px, transparent 2px, transparent 5px); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 720px 1080px at 540px 930px, rgba(7, 11, 18, 0) 52%, rgba(7, 11, 18, 0.92) 100%); }
+    /* luces de patrullero */
+    [data-composition-id="ambiente"] .amb-rojo { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 760px 900px at 0% 30%, rgba(224, 49, 59, 0.42), rgba(224, 49, 59, 0) 70%); }
+    [data-composition-id="ambiente"] .amb-azul { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 760px 900px at 100% 30%, rgba(61, 123, 255, 0.42), rgba(61, 123, 255, 0) 70%); }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 60px; top: 1600px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; color: #c9a26b; opacity: 0.75; text-align: right; line-height: 1.5; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-rotulo .amb-rojo-txt { color: #e0313b; }
+    [data-composition-id="ambiente"] .amb-rotulo span { display: block; }
+    [data-composition-id="ambiente"] .amb-resuelto { position: absolute; right: 0; bottom: 0; color: #ffd23f; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-rec { position: absolute; left: 60px; top: 1600px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; color: #f1ece0; opacity: 0.6; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-rec i { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: #e0313b; margin-right: 12px; vertical-align: 1px; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #f1ece0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="72.7">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="72.7" data-track-index="0">
+      <svg class="amb-grano" viewBox="0 0 1320 2160" aria-hidden="true">
+        <filter id="amb-ruido"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" /><feColorMatrix type="saturate" values="0" /></filter>
+        <rect width="1320" height="2160" filter="url(#amb-ruido)" />
+      </svg>
+      <div class="amb-scan"></div>
+      <div class="amb-rojo"></div>
+      <div class="amb-azul"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-rec" data-layout-ignore><i class="amb-punto"></i>ARCHIVO · CASO 2340</div>
+      <div class="amb-rotulo" data-layout-ignore><span>EXP. N° 2340</span><span class="amb-estado amb-rojo-txt">CASO ABIERTO</span><span class="amb-resuelto">CASO RESUELTO</span></div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 72.7;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // el grano salta de lugar 12 veces por segundo (determinista)
+      const pasos = Math.floor(DUR * 12);
+      for (let i = 0; i < pasos; i++) {
+        const x = ((i * 53) % 110) - 55;
+        const y = ((i * 97) % 110) - 55;
+        tl.set(q(".amb-grano"), { x, y }, i / 12);
+      }
+      // el punto rojo de "archivo" titila
+      tl.to(q(".amb-punto"), { opacity: 0.2, duration: 0.5, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 0.5) - 1), ease: "steps(1)" }, 0);
+
+      // luces de patrullero (segundos globales): el arranque y "el dueño"
+      [[0.0, 1.6], [47.3, 1.2]].forEach(([t, d]) => {
+        const n = Math.round(d / 0.4);
+        for (let k = 0; k < n; k++) {
+          tl.to(q(".amb-rojo"), { opacity: 1, duration: 0.08 }, t + k * 0.4);
+          tl.to(q(".amb-rojo"), { opacity: 0, duration: 0.12 }, t + k * 0.4 + 0.18);
+          tl.to(q(".amb-azul"), { opacity: 1, duration: 0.08 }, t + k * 0.4 + 0.2);
+          tl.to(q(".amb-azul"), { opacity: 0, duration: 0.12 }, t + k * 0.4 + 0.38);
+        }
+      });
+
+      // flashes de cámara forense: "murió", "coartada", "dueño", "caso resuelto"
+      [2.3, 21.76, 47.32, 51.03].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.55, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.04);
+      });
+
+      // el expediente cambia de estado
+      tl.to(q(".amb-estado"), { opacity: 0, duration: 0.1 }, 51.0);
+      tl.to(q(".amb-resuelto"), { opacity: 1, duration: 0.1 }, 51.1);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

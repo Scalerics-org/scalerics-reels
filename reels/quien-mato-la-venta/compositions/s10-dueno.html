@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-dueno"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-dueno"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s10-dueno"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-dueno"] .linea { fill: none; stroke: #f1ece0; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-dueno"] .fina { fill: none; stroke: #f1ece0; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.5; }
+    [data-composition-id="s10-dueno"] .roja { fill: none; stroke: #e0313b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-dueno"] .ocre { fill: none; stroke: #c9a26b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-dueno"] .verde { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-dueno"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #c9a26b; }
+    [data-composition-id="s10-dueno"] .abs { position: absolute; white-space: nowrap; }
+    [data-composition-id="s10-dueno"] .centro { left: 0; right: 0; text-align: center; }
+    [data-composition-id="s10-dueno"] .maq { font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.06em; }
+    [data-composition-id="s10-dueno"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+    [data-composition-id="s10-dueno"] .gorda { font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1; }
+    [data-composition-id="s10-dueno"] .letra { opacity: 0; }
+    [data-composition-id="s10-dueno"] .sello { padding: 12px 30px 10px; border: 8px solid #e0313b; border-radius: 14px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: 0.02em; color: #e0313b; background: rgba(7, 11, 18, 0.75); filter: drop-shadow(0 0 16px rgba(224, 49, 59, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s10-dueno"] .sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; margin-top: 2px; }
+    /* foto de frente de sospechoso */
+    [data-composition-id="s10-dueno"] .foto { position: absolute; left: 170px; top: 590px; width: 740px; height: 760px; background: #0d1520; border: 6px solid #f1ece0; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.4); overflow: hidden; }
+    [data-composition-id="s10-dueno"] .foto svg { position: absolute; left: 0; top: 0; width: 728px; height: 748px; overflow: visible; }
+    [data-composition-id="s10-dueno"] .cartel { position: absolute; left: 154px; top: 560px; width: 420px; padding: 12px 0 10px; background: #070b12; border: 4px solid #f1ece0; text-align: center; }
+    [data-composition-id="s10-dueno"] .cartel b { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; letter-spacing: 0.12em; color: #ffd23f; }
+    [data-composition-id="s10-dueno"] .cartel i { display: block; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.04em; color: #f1ece0; margin-top: 2px; }
+    [data-composition-id="s10-dueno"] .etq { position: absolute; left: 0; right: 0; top: 1392px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #c9a26b; text-transform: uppercase; white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="s10-dueno" data-width="1080" data-height="1920" data-duration="2.57">
+    <div id="s10-dueno-capa" class="capa clip" data-start="0" data-duration="2.57" data-track-index="0">
+      <div class="esc">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="duenio">
+            <path d="M210 1400 C210 1150 300 1070 440 1070 C580 1070 670 1150 670 1400 Z" fill="#0d1520" stroke="#f1ece0" stroke-width="6" />
+            <path class="fina" d="M260 1080 V1400" style="opacity:0.35" /><path class="fina" d="M300 1080 V1400" style="opacity:0.35" /><path class="fina" d="M340 1080 V1400" style="opacity:0.35" /><path class="fina" d="M380 1080 V1400" style="opacity:0.35" /><path class="fina" d="M420 1080 V1400" style="opacity:0.35" /><path class="fina" d="M460 1080 V1400" style="opacity:0.35" /><path class="fina" d="M500 1080 V1400" style="opacity:0.35" /><path class="fina" d="M540 1080 V1400" style="opacity:0.35" /><path class="fina" d="M580 1080 V1400" style="opacity:0.35" /><path class="fina" d="M620 1080 V1400" style="opacity:0.35" />
+            <circle cx="440" cy="930" r="125" fill="#0d1520" stroke="#f1ece0" stroke-width="6" />
+            <g class="gorro"><path d="M318 900 C330 760 520 730 590 820 L700 900" fill="#e0313b" fill-opacity="0.85" stroke="#f1ece0" stroke-width="6" stroke-linejoin="round" /><path class="linea" d="M312 900 C380 870 500 870 570 905" /><circle cx="706" cy="908" r="26" fill="#f1ece0" /></g>
+            <g class="ojos-d"><path class="linea" d="M370 950 Q395 935 420 950" /><path class="linea" d="M460 950 Q485 935 510 950" />
+              <ellipse cx="395" cy="958" rx="18" ry="9" fill="#f1ece0" /><ellipse cx="485" cy="958" rx="18" ry="9" fill="#f1ece0" /></g>
+            <path class="linea cejas" d="M360 915 L420 930 M520 915 L460 930" />
+            <ellipse class="boca" cx="440" cy="1010" rx="22" ry="16" fill="#070b12" stroke="#f1ece0" stroke-width="5" />
+            <g class="almohada"><rect x="600" y="1150" width="260" height="170" rx="60" fill="#f1ece0" transform="rotate(-12 730 1235)" /><path d="M640 1210 Q730 1240 820 1190" fill="none" stroke="#c9a26b" stroke-width="5" transform="rotate(-12 730 1235)" /></g>
+          </g>
+        </svg>
+        <div class="abs gorda yo" style="left:560px;top:600px;font-size:170px;color:#f1ece0;text-shadow:0 0 40px rgba(241,236,224,0.25)">¿YO?</div>
+        <div class="abs gorda z z1" style="left:250px;top:700px;font-size:70px;color:#ffd23f">Z</div>
+        <div class="abs gorda z z2" style="left:190px;top:640px;font-size:56px;color:#ffd23f">Z</div>
+        <div class="abs gorda z z3" style="left:140px;top:590px;font-size:44px;color:#ffd23f">Z</div>
+        <div class="etq e1" style="top:1440px">ESTABA DURMIENDO</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-dueno";
+      const DUR = 2.57;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde = 0) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - desde), opacity: desde > 0 ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const tipear = (el, texto, t, paso) => {
+        el.innerHTML = [...texto].map((c) => '<span class="letra">' + (c === " " ? "&nbsp;" : c) + "</span>").join("");
+        [...el.querySelectorAll(".letra")].forEach((s, i) => tl.set(s, { opacity: 1 }, t + i * paso));
+      };
+      const golpe = (t, k = 1) => [[-14, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot = -6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.3, rotation: rot - 10 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12);
+        golpe(t + 0.05);
+      };
+      const pop = (el, t, extra = {}) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.8, ...extra }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, t);
+      };
+      const entra = (el, t, desde = { y: 24 }) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+      const parpadeo = (el, ts) => ts.forEach((t) => tl.to(el, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t));
+
+
+      const YO = 0.0, SI = 0.16, DURMIENDO = 0.96;
+      tl.fromTo(q(".duenio"), { y: 60, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".yo"), { opacity: 0.3, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in" }, 0);
+      golpe(0.14, 1.2);
+      // indignado: tiembla
+      tl.to(q(".duenio"), { x: 8, duration: 0.05, yoyo: true, repeat: 7, ease: "none" }, SI);
+      tl.fromTo(q(".boca"), { scaleY: 1 }, { scaleY: 1.6, svgOrigin: "440 1010", duration: 0.12, yoyo: true, repeat: 3 }, SI);
+      tl.fromTo(q(".cejas"), { y: 0 }, { y: -12, duration: 0.1, yoyo: true, repeat: 3 }, SI);
+      // "durmiendo": Zzz
+      qa(".z").forEach((z, i) => { gsap.set(z, { opacity: 0 }); tl.fromTo(z, { opacity: 0, y: 30 }, { opacity: 1, y: -40, duration: 0.6, ease: "power1.out", immediateRender: false }, DURMIENDO + i * 0.15); tl.to(z, { opacity: 0.4, y: -70, duration: 0.6 }, DURMIENDO + 0.6 + i * 0.15); });
+      tl.to(q(".gorro"), { rotation: 6, svgOrigin: "440 880", duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, DURMIENDO);
+      entra(q(".e1"), DURMIENDO);
+      tl.to(q(".esc"), { scale: 1.05, duration: DUR - 0.3, ease: "none", transformOrigin: "45% 55%" }, 0.3);
+
+      tl.to(q(".capa"), { scale: 1.1, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

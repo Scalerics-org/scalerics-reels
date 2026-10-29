@@ -1,0 +1,129 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-privado"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-privado"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s05-privado"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-privado"] .linea { fill: none; stroke: #f1ece0; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-privado"] .fina { fill: none; stroke: #f1ece0; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.5; }
+    [data-composition-id="s05-privado"] .roja { fill: none; stroke: #e0313b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-privado"] .ocre { fill: none; stroke: #c9a26b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-privado"] .verde { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-privado"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #c9a26b; }
+    [data-composition-id="s05-privado"] .abs { position: absolute; white-space: nowrap; }
+    [data-composition-id="s05-privado"] .centro { left: 0; right: 0; text-align: center; }
+    [data-composition-id="s05-privado"] .maq { font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.06em; }
+    [data-composition-id="s05-privado"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+    [data-composition-id="s05-privado"] .gorda { font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1; }
+    [data-composition-id="s05-privado"] .letra { opacity: 0; }
+    [data-composition-id="s05-privado"] .sello { padding: 12px 30px 10px; border: 8px solid #e0313b; border-radius: 14px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: 0.02em; color: #e0313b; background: rgba(7, 11, 18, 0.75); filter: drop-shadow(0 0 16px rgba(224, 49, 59, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s05-privado"] .sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; margin-top: 2px; }
+    /* foto de frente de sospechoso */
+    [data-composition-id="s05-privado"] .foto { position: absolute; left: 170px; top: 590px; width: 740px; height: 760px; background: #0d1520; border: 6px solid #f1ece0; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.4); overflow: hidden; }
+    [data-composition-id="s05-privado"] .foto svg { position: absolute; left: 0; top: 0; width: 728px; height: 748px; overflow: visible; }
+    [data-composition-id="s05-privado"] .cartel { position: absolute; left: 154px; top: 560px; width: 420px; padding: 12px 0 10px; background: #070b12; border: 4px solid #f1ece0; text-align: center; }
+    [data-composition-id="s05-privado"] .cartel b { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; letter-spacing: 0.12em; color: #ffd23f; }
+    [data-composition-id="s05-privado"] .cartel i { display: block; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.04em; color: #f1ece0; margin-top: 2px; }
+    [data-composition-id="s05-privado"] .etq { position: absolute; left: 0; right: 0; top: 1392px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #c9a26b; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s05-privado"] .cel { left: 600px; top: 760px; width: 380px; height: 640px; border: 6px solid #f1ece0; border-radius: 48px; background: #0d1520; }
+    [data-composition-id="s05-privado"] .cab { position: absolute; left: 0; right: 0; top: 30px; text-align: center; font-size: 30px; color: #c9a26b; letter-spacing: 0.12em; }
+    [data-composition-id="s05-privado"] .cab span { position: absolute; left: 0; right: 0; }
+    [data-composition-id="s05-privado"] .burbuja { position: absolute; right: 26px; top: 150px; padding: 18px 26px; background: #f1ece0; border-radius: 26px 26px 6px 26px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 40px; color: #070b12; }
+    [data-composition-id="s05-privado"] .burbuja small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; color: #8a6a3e; text-align: right; }
+    [data-composition-id="s05-privado"] .puntos { position: absolute; left: 30px; top: 330px; padding: 22px 26px; background: #1c2838; border-radius: 26px 26px 26px 6px; }
+    [data-composition-id="s05-privado"] .puntos i { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: #f1ece0; margin: 0 5px; }
+
+  </style>
+  <div id="root" data-composition-id="s05-privado" data-width="1080" data-height="1920" data-duration="5.9">
+    <div id="s05-privado-capa" class="capa clip" data-start="0" data-duration="5.9" data-track-index="0">
+      <div class="esc">
+
+        <div class="foto"><svg viewBox="0 0 728 748" aria-hidden="true"><g class="altura"><path class="fina" d="M0 80 H728" /><text class="rotulo" x="16" y="70" style="font-size:22px" data-layout-ignore>190</text><path class="fina" d="M0 140 H728" /><path class="fina" d="M0 200 H728" /><text class="rotulo" x="16" y="190" style="font-size:22px" data-layout-ignore>170</text><path class="fina" d="M0 260 H728" /><path class="fina" d="M0 320 H728" /><text class="rotulo" x="16" y="310" style="font-size:22px" data-layout-ignore>150</text><path class="fina" d="M0 380 H728" /><path class="fina" d="M0 440 H728" /><text class="rotulo" x="16" y="430" style="font-size:22px" data-layout-ignore>130</text><path class="fina" d="M0 500 H728" /></g><g class="sosp"><path class="linea" d="M170 130 H560 Q590 130 590 160 V420 Q590 450 560 450 H330 L250 520 L262 450 H170 Q140 450 140 420 V160 Q140 130 170 130 Z" fill="#0d1520" /><g class="ojos"><ellipse cx="328.0" cy="215" rx="22" ry="26" fill="#f1ece0" /><ellipse cx="402.0" cy="215" rx="22" ry="26" fill="#f1ece0" /><circle class="pupila" cx="334.0" cy="221" r="9.9" fill="#070b12" /><circle class="pupila" cx="408.0" cy="221" r="9.9" fill="#070b12" /></g><path class="linea" d="M306.0 179 L346.0 189" /><path class="linea" d="M424.0 179 L384.0 189" /></g></svg><div class="cartel"><b>SOSPECHOSO 02</b><i>ALIAS: "POR PRIVADO"</i></div></div>
+        <div class="abs maq frase" style="left:330px;top:870px;width:420px;font-size:34px;line-height:1.3;color:#f1ece0;text-align:center;white-space:normal"><div class="l1"></div><div class="l2"></div><div class="l3"></div></div>
+        <div class="abs cel">
+          <div class="cab mono"><span class="h1">23:14</span><span class="h2">23:31</span><span class="h3">23:52</span></div>
+          <div class="burbuja">¿Precio?<small>23:14</small></div>
+          <div class="puntos"><i></i><i></i><i></i></div>
+        </div>
+        <div class="abs mono cero" style="left:560px;top:1440px;font-size:34px;color:#e0313b;letter-spacing:0.16em">0 RESPUESTAS</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-privado";
+      const DUR = 5.9;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde = 0) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - desde), opacity: desde > 0 ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const tipear = (el, texto, t, paso) => {
+        el.innerHTML = [...texto].map((c) => '<span class="letra">' + (c === " " ? "&nbsp;" : c) + "</span>").join("");
+        [...el.querySelectorAll(".letra")].forEach((s, i) => tl.set(s, { opacity: 1 }, t + i * paso));
+      };
+      const golpe = (t, k = 1) => [[-14, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot = -6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.3, rotation: rot - 10 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12);
+        golpe(t + 0.05);
+      };
+      const pop = (el, t, extra = {}) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.8, ...extra }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, t);
+      };
+      const entra = (el, t, desde = { y: 24 }) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+      const parpadeo = (el, ts) => ts.forEach((t) => tl.to(el, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t));
+
+
+      const DOS = 0.4, CONSULTA = 1.85, PRIVADO = 2.8, ELLA = 3.72, NUNCA = 5.1, RESPONDIO = 5.4;
+      tl.fromTo(q(".foto"), { scale: 1.08, rotation: 3 }, { scale: 1, rotation: 0, duration: 0.35, ease: "power3.out" }, 0);
+      dibujar(qa(".sosp .linea"), 0, 0.5, 0.5);
+      tl.fromTo(q(".cartel"), { y: 140 }, { y: 0, duration: 0.3, ease: "back.out(1.6)" }, DOS - 0.2);
+      parpadeo(q(".sosp .ojos"), [1.0, 2.5]);
+      // la frase del sospechoso se tipea adentro del globo
+      tipear(q(".l1"), "CONSULTÁ", CONSULTA - 0.2, 0.04);
+      tipear(q(".l2"), "PRECIO POR", CONSULTA + 0.3, 0.04);
+      tipear(q(".l3"), "PRIVADO", PRIVADO - 0.1, 0.05);
+      tl.to(qa(".sosp .pupila"), { x: 10, y: -4, duration: 0.15 }, PRIVADO);
+      // "ella consultó": la foto se corre y aparece el celular
+      tl.to(q(".foto"), { scale: 0.6, x: -190, y: -150, rotation: -3, duration: 0.4, ease: "power3.inOut", transformOrigin: "50% 50%" }, ELLA - 0.45);
+      tl.to(q(".frase"), { scale: 0.6, x: -190, y: -150, rotation: -3, duration: 0.4, ease: "power3.inOut", transformOrigin: "210px 100px" }, ELLA - 0.45);
+      pop(q(".cel"), ELLA - 0.25, { y: 100 });
+      pop(q(".burbuja"), ELLA + 0.15, { x: 40 });
+      gsap.set([q(".h2"), q(".h3"), q(".puntos")], { opacity: 0 });
+      // "el privado nunca respondió": los puntitos aparecen y se apagan, el reloj corre
+      tl.to(q(".puntos"), { opacity: 1, duration: 0.1 }, 4.4);
+      qa(".puntos i").forEach((p, i) => tl.to(p, { y: -8, duration: 0.15, yoyo: true, repeat: 1 }, 4.5 + i * 0.1));
+      tl.to(q(".puntos"), { opacity: 0, duration: 0.15 }, NUNCA);
+      tl.set(q(".h1"), { opacity: 0 }, NUNCA);
+      tl.set(q(".h2"), { opacity: 1 }, NUNCA);
+      tl.set(q(".h2"), { opacity: 0 }, NUNCA + 0.25);
+      tl.set(q(".h3"), { opacity: 1, color: "#e0313b" }, NUNCA + 0.25);
+      entra(q(".cero"), RESPONDIO - 0.1);
+      golpe(RESPONDIO, 0.7);
+      tl.to(q(".esc"), { scale: 1.04, duration: DUR - ELLA, ease: "none", transformOrigin: "60% 60%" }, ELLA);
+
+      tl.to(q(".capa"), { scale: 1.1, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

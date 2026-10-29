@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-huellas"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-huellas"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s09-huellas"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-huellas"] .linea { fill: none; stroke: #f1ece0; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-huellas"] .fina { fill: none; stroke: #f1ece0; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.5; }
+    [data-composition-id="s09-huellas"] .roja { fill: none; stroke: #e0313b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-huellas"] .ocre { fill: none; stroke: #c9a26b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-huellas"] .verde { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-huellas"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #c9a26b; }
+    [data-composition-id="s09-huellas"] .abs { position: absolute; white-space: nowrap; }
+    [data-composition-id="s09-huellas"] .centro { left: 0; right: 0; text-align: center; }
+    [data-composition-id="s09-huellas"] .maq { font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.06em; }
+    [data-composition-id="s09-huellas"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+    [data-composition-id="s09-huellas"] .gorda { font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1; }
+    [data-composition-id="s09-huellas"] .letra { opacity: 0; }
+    [data-composition-id="s09-huellas"] .sello { padding: 12px 30px 10px; border: 8px solid #e0313b; border-radius: 14px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: 0.02em; color: #e0313b; background: rgba(7, 11, 18, 0.75); filter: drop-shadow(0 0 16px rgba(224, 49, 59, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s09-huellas"] .sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; margin-top: 2px; }
+    /* foto de frente de sospechoso */
+    [data-composition-id="s09-huellas"] .foto { position: absolute; left: 170px; top: 590px; width: 740px; height: 760px; background: #0d1520; border: 6px solid #f1ece0; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.4); overflow: hidden; }
+    [data-composition-id="s09-huellas"] .foto svg { position: absolute; left: 0; top: 0; width: 728px; height: 748px; overflow: visible; }
+    [data-composition-id="s09-huellas"] .cartel { position: absolute; left: 154px; top: 560px; width: 420px; padding: 12px 0 10px; background: #070b12; border: 4px solid #f1ece0; text-align: center; }
+    [data-composition-id="s09-huellas"] .cartel b { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; letter-spacing: 0.12em; color: #ffd23f; }
+    [data-composition-id="s09-huellas"] .cartel i { display: block; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.04em; color: #f1ece0; margin-top: 2px; }
+    [data-composition-id="s09-huellas"] .etq { position: absolute; left: 0; right: 0; top: 1392px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #c9a26b; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s09-huellas"] .corcho { left: 60px; top: 590px; width: 960px; height: 820px; background: #8a6a3e; border: 10px solid #5a4428; border-radius: 6px; box-shadow: 0 16px 0 rgba(0,0,0,0.4);
+      background-image: radial-gradient(rgba(7,11,18,0.25) 2px, transparent 2.5px), radial-gradient(rgba(201,162,107,0.35) 2px, transparent 2.5px); background-size: 22px 22px, 31px 31px; background-position: 0 0, 9px 13px; }
+    [data-composition-id="s09-huellas"] .mini { width: 230px; height: 210px; background: #f1ece0; padding: 10px; box-shadow: 0 8px 0 rgba(0,0,0,0.35); }
+    [data-composition-id="s09-huellas"] .mini svg { width: 210px; height: 140px; background: #0d1520; display: block; }
+    [data-composition-id="s09-huellas"] .mn { font-size: 20px; color: #070b12; text-align: center; margin-top: 12px; letter-spacing: 0.06em; }
+    [data-composition-id="s09-huellas"] .chinche { position: absolute; left: 50%; top: -10px; width: 26px; height: 26px; margin-left: -13px; border-radius: 50%; background: #e0313b; box-shadow: 0 4px 0 rgba(0,0,0,0.4); }
+    [data-composition-id="s09-huellas"] .central { left: 380px; top: 860px; width: 320px; height: 380px; background: #f1ece0; padding: 10px; box-shadow: 0 10px 0 rgba(0,0,0,0.4); }
+    [data-composition-id="s09-huellas"] .cara { position: absolute; left: 10px; top: 10px; width: 300px; height: 360px; background: #0d1520; }
+    [data-composition-id="s09-huellas"] .cara svg { width: 300px; height: 300px; display: block; }
+    [data-composition-id="s09-huellas"] .nombre { position: absolute; left: 0; right: 0; bottom: 14px; text-align: center; font-size: 40px; color: #ffd23f; }
+    [data-composition-id="s09-huellas"] .lupa { left: 330px; top: 760px; width: 420px; height: 520px; }
+    [data-composition-id="s09-huellas"] .lupa svg { width: 420px; height: 520px; }
+
+  </style>
+  <div id="root" data-composition-id="s09-huellas" data-width="1080" data-height="1920" data-duration="6.37">
+    <div id="s09-huellas-capa" class="capa clip" data-start="0" data-duration="6.37" data-track-index="0">
+      <div class="esc">
+
+        <div class="abs corcho"></div>
+        <div class="abs mini m01" style="left:110px;top:620px"><svg viewBox="0 0 230 150" aria-hidden="true"><rect class="linea" x="80" y="30" width="70" height="95" rx="5" /><circle class="linea" cx="80" cy="50" r="5"/><circle class="linea" cx="80" cy="80" r="5"/><circle class="linea" cx="80" cy="110" r="5"/></svg><div class="mn mono">01 · CUADERNO</div><i class="chinche"></i></div><div class="abs mini m02" style="left:740px;top:620px"><svg viewBox="0 0 230 150" aria-hidden="true"><path class="linea" d="M60 35 H170 V105 H95 L75 125 V105 H60 Z" /></svg><div class="mn mono">02 · PRIVADO</div><i class="chinche"></i></div><div class="abs mini m03" style="left:110px;top:1110px"><svg viewBox="0 0 230 150" aria-hidden="true"><path class="linea" d="M85 25 H145 V120 L135 128 L125 120 L115 128 L105 120 L95 128 L85 120 Z" /></svg><div class="mn mono">03 · COMPROBANTE</div><i class="chinche"></i></div><div class="abs mini m04" style="left:740px;top:1110px"><svg viewBox="0 0 230 150" aria-hidden="true"><rect class="linea" x="70" y="35" width="90" height="90" rx="6" /><path class="linea" d="M70 60 H160" /></svg><div class="mn mono">04 · LUNES</div><i class="chinche"></i></div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="roja hilo" d="M225 640 L540 980" style="stroke-width:5" /><path class="roja hilo" d="M855 640 L540 980" style="stroke-width:5" /><path class="roja hilo" d="M225 1130 L540 1120" style="stroke-width:5" /><path class="roja hilo" d="M855 1130 L540 1120" style="stroke-width:5" /></svg>
+        <div class="abs central"><i class="chinche"></i>
+          <div class="cara c-puerta"><svg viewBox="0 0 300 300" aria-hidden="true"><path class="linea" d="M90 280 V60 H210 V280" /><path class="linea" d="M60 280 H240" /><rect class="ocre" x="105" y="110" width="90" height="34" rx="5" /><text x="150" y="134" text-anchor="middle" class="rotulo" style="font-size:18px;letter-spacing:0.06em" data-layout-ignore>CERRADO</text>
+            <g class="candado"><path class="linea" d="M170 190 V172 a16 16 0 0 1 32 0 V190" stroke="#ffd23f" /><rect x="162" y="190" width="48" height="40" rx="6" fill="#ffd23f" /></g></svg></div>
+          <div class="cara c-duenio"><svg viewBox="0 0 300 300" aria-hidden="true"><path d="M70 300 C70 220 110 200 150 200 C190 200 230 220 230 300 Z" fill="#0d1520" stroke="#ffd23f" stroke-width="5" /><circle cx="150" cy="150" r="50" fill="#0d1520" stroke="#ffd23f" stroke-width="5" /><path d="M100 128 C110 70 190 60 215 110 L250 150" fill="none" stroke="#ffd23f" stroke-width="5" stroke-linecap="round" /><circle cx="252" cy="156" r="12" fill="#ffd23f" /></svg><div class="nombre gorda">EL DUEÑO</div></div>
+        </div>
+        <div class="abs lupa"><svg viewBox="0 0 420 520" aria-hidden="true">
+          <circle cx="200" cy="200" r="170" fill="#0d1520" fill-opacity="0.85" stroke="#f1ece0" stroke-width="12" />
+          <path d="M320 320 L400 500" stroke="#c9a26b" stroke-width="34" stroke-linecap="round" />
+          <g class="huella" fill="none" stroke="#ffd23f" stroke-width="5" stroke-linecap="round">
+            <path d="M200 200 m-20 0 a20 26 0 1 1 40 0" /><path d="M200 200 m-45 10 a45 56 0 1 1 90 0" /><path d="M200 200 m-70 20 a70 86 0 1 1 140 0" /><path d="M200 200 m-95 35 a95 112 0 1 1 190 -10" /><path d="M160 210 C150 260 170 300 200 320 M240 205 C250 260 235 300 215 330" />
+          </g></svg></div>
+        <div class="abs mono csi" style="left:0;right:0;text-align:center;top:1340px;font-size:30px;color:#ffd23f">COMO EN CSI</div>
+        <svg class="abs llave" viewBox="0 0 200 90" style="left:690px;top:1000px;width:220px;height:100px" aria-hidden="true"><circle cx="40" cy="45" r="28" fill="none" stroke="#ffd23f" stroke-width="10" /><path d="M68 45 H190 M160 45 V70 M180 45 V65" stroke="#ffd23f" stroke-width="10" stroke-linecap="round" /></svg>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-huellas";
+      const DUR = 6.37;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde = 0) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - desde), opacity: desde > 0 ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const tipear = (el, texto, t, paso) => {
+        el.innerHTML = [...texto].map((c) => '<span class="letra">' + (c === " " ? "&nbsp;" : c) + "</span>").join("");
+        [...el.querySelectorAll(".letra")].forEach((s, i) => tl.set(s, { opacity: 1 }, t + i * paso));
+      };
+      const golpe = (t, k = 1) => [[-14, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot = -6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.3, rotation: rot - 10 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12);
+        golpe(t + 0.05);
+      };
+      const pop = (el, t, extra = {}) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.8, ...extra }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, t);
+      };
+      const entra = (el, t, desde = { y: 24 }) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+      const parpadeo = (el, ts) => ts.forEach((t) => tl.to(el, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t));
+
+
+      const HUELLAS = 0.33, CSI = 1.93, PUERTA = 2.63, CERRADA = 3.23, LLAVE = 4.13, DUENO = 5.23;
+      tl.fromTo(q(".esc"), { scale: 1.06 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      qa(".mini").forEach((m, i) => tl.fromTo(m, { opacity: 0.3, y: -30, rotation: (i % 2 ? 6 : -6) }, { opacity: 1, y: 0, rotation: (i % 2 ? 2 : -2), duration: 0.3, ease: "back.out(1.6)" }, i * 0.06));
+      gsap.set(q(".c-duenio"), { opacity: 0 });
+      gsap.set(q(".central"), { opacity: 0 });
+      // "huellas": la lupa barre y aparece la huella
+      gsap.set(q(".lupa"), { opacity: 0 });
+      tl.fromTo(q(".lupa"), { opacity: 1, x: 500, y: 200, rotation: 20 }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, HUELLAS - 0.25);
+      dibujar(qa(".huella path"), HUELLAS + 0.15, 0.6);
+      tl.to(q(".lupa"), { x: -30, y: 15, duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, HUELLAS + 0.5);
+      entra(q(".csi"), CSI - 0.15);
+      tl.to(q(".lupa"), { x: -700, y: 300, rotation: -25, opacity: 0, duration: 0.35, ease: "power3.in" }, PUERTA - 0.4);
+      tl.to(q(".csi"), { opacity: 0, duration: 0.2 }, PUERTA - 0.3);
+      // "la puerta estaba cerrada"
+      pop(q(".central"), PUERTA - 0.1, { rotation: -10 });
+      tl.fromTo(q(".candado"), { y: -60 }, { y: 0, duration: 0.2, ease: "bounce.out" }, CERRADA - 0.1);
+      // "la llave": aparece la llave y vuela hacia la foto
+      pop(q(".llave"), LLAVE - 0.1, { rotation: -30 });
+      tl.to(q(".llave"), { x: -240, y: -200, rotation: -20, scale: 0.6, opacity: 0, duration: 0.45, ease: "power2.in" }, LLAVE + 0.45);
+      // los hilos rojos convergen en la foto del centro
+      dibujar(qa(".hilo"), LLAVE + 0.2, 0.45);
+      // "el dueño": la foto se da vuelta
+      tl.to(q(".central"), { scaleX: 0, duration: 0.12, ease: "power2.in" }, DUENO - 0.2);
+      tl.set(q(".c-puerta"), { opacity: 0 }, DUENO - 0.08);
+      tl.set(q(".c-duenio"), { opacity: 1 }, DUENO - 0.08);
+      tl.to(q(".central"), { scaleX: 1, scale: 1.12, duration: 0.14, ease: "power2.out" }, DUENO - 0.08);
+      golpe(DUENO + 0.05, 1.3);
+      tl.to(qa(".mini"), { opacity: 0.4, duration: 0.2 }, DUENO);
+
+      tl.to(q(".capa"), { scale: 1.1, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

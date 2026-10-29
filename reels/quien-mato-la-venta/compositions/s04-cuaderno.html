@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-cuaderno"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-cuaderno"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-cuaderno"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-cuaderno"] .linea { fill: none; stroke: #f1ece0; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cuaderno"] .fina { fill: none; stroke: #f1ece0; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.5; }
+    [data-composition-id="s04-cuaderno"] .roja { fill: none; stroke: #e0313b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cuaderno"] .ocre { fill: none; stroke: #c9a26b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cuaderno"] .verde { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cuaderno"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #c9a26b; }
+    [data-composition-id="s04-cuaderno"] .abs { position: absolute; white-space: nowrap; }
+    [data-composition-id="s04-cuaderno"] .centro { left: 0; right: 0; text-align: center; }
+    [data-composition-id="s04-cuaderno"] .maq { font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.06em; }
+    [data-composition-id="s04-cuaderno"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+    [data-composition-id="s04-cuaderno"] .gorda { font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1; }
+    [data-composition-id="s04-cuaderno"] .letra { opacity: 0; }
+    [data-composition-id="s04-cuaderno"] .sello { padding: 12px 30px 10px; border: 8px solid #e0313b; border-radius: 14px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: 0.02em; color: #e0313b; background: rgba(7, 11, 18, 0.75); filter: drop-shadow(0 0 16px rgba(224, 49, 59, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s04-cuaderno"] .sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; margin-top: 2px; }
+    /* foto de frente de sospechoso */
+    [data-composition-id="s04-cuaderno"] .foto { position: absolute; left: 170px; top: 590px; width: 740px; height: 760px; background: #0d1520; border: 6px solid #f1ece0; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.4); overflow: hidden; }
+    [data-composition-id="s04-cuaderno"] .foto svg { position: absolute; left: 0; top: 0; width: 728px; height: 748px; overflow: visible; }
+    [data-composition-id="s04-cuaderno"] .cartel { position: absolute; left: 154px; top: 560px; width: 420px; padding: 12px 0 10px; background: #070b12; border: 4px solid #f1ece0; text-align: center; }
+    [data-composition-id="s04-cuaderno"] .cartel b { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; letter-spacing: 0.12em; color: #ffd23f; }
+    [data-composition-id="s04-cuaderno"] .cartel i { display: block; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.04em; color: #f1ece0; margin-top: 2px; }
+    [data-composition-id="s04-cuaderno"] .etq { position: absolute; left: 0; right: 0; top: 1392px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #c9a26b; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s04-cuaderno"] .inset { left: 470px; top: 920px; width: 540px; height: 470px; background: #f1ece0; padding: 18px; transform: rotate(3deg); box-shadow: 0 12px 0 rgba(0,0,0,0.35); }
+    [data-composition-id="s04-cuaderno"] .inset svg { width: 504px; height: 380px; background: #0d1520; overflow: hidden; display: block; }
+    [data-composition-id="s04-cuaderno"] .inset .pie { text-align: center; font-size: 26px; color: #070b12; margin-top: 12px; }
+
+  </style>
+  <div id="root" data-composition-id="s04-cuaderno" data-width="1080" data-height="1920" data-duration="6.4">
+    <div id="s04-cuaderno-capa" class="capa clip" data-start="0" data-duration="6.4" data-track-index="0">
+      <div class="esc">
+
+        <div class="foto"><svg viewBox="0 0 728 748" aria-hidden="true"><g class="altura"><path class="fina" d="M0 80 H728" /><text class="rotulo" x="16" y="70" style="font-size:22px" data-layout-ignore>190</text><path class="fina" d="M0 140 H728" /><path class="fina" d="M0 200 H728" /><text class="rotulo" x="16" y="190" style="font-size:22px" data-layout-ignore>170</text><path class="fina" d="M0 260 H728" /><path class="fina" d="M0 320 H728" /><text class="rotulo" x="16" y="310" style="font-size:22px" data-layout-ignore>150</text><path class="fina" d="M0 380 H728" /><path class="fina" d="M0 440 H728" /><text class="rotulo" x="16" y="430" style="font-size:22px" data-layout-ignore>130</text><path class="fina" d="M0 500 H728" /></g><g class="sosp"><rect class="linea" x="230" y="130" width="280" height="390" rx="10" fill="#0d1520" /><circle class="linea" cx="230" cy="170" r="14" /><circle class="linea" cx="230" cy="220" r="14" /><circle class="linea" cx="230" cy="270" r="14" /><circle class="linea" cx="230" cy="320" r="14" /><circle class="linea" cx="230" cy="370" r="14" /><circle class="linea" cx="230" cy="420" r="14" /><circle class="linea" cx="230" cy="470" r="14" /><path class="fina" d="M270 210 H480 M270 250 H480 M270 380 H480 M270 420 H480 M270 460 H440" /><path class="roja tachon" d="M280 380 L320 405 L360 378 L400 410 L440 380 L470 402" style="stroke-width:5" /><path class="roja tachon" d="M280 448 L330 470 L380 446 L430 472" style="stroke-width:5" /><g class="ojos"><ellipse cx="335.0" cy="300" rx="22" ry="26" fill="#f1ece0" /><ellipse cx="405.0" cy="300" rx="22" ry="26" fill="#f1ece0" /><circle class="pupila" cx="341.0" cy="306" r="9.9" fill="#070b12" /><circle class="pupila" cx="411.0" cy="306" r="9.9" fill="#070b12" /></g><path class="linea" d="M313.0 264 L353.0 274" /><path class="linea" d="M427.0 264 L387.0 274" /><path class="linea" d="M345 352 Q370 342 395 352" /></g></svg><div class="cartel"><b>SOSPECHOSO 01</b><i>ALIAS: "EL CUADERNO"</i></div></div>
+        <div class="abs inset"><svg viewBox="0 0 500 420" aria-hidden="true"><g class="caja"><path class="linea" d="M60 240 H440 V330 H60 Z" fill="#0d1520" /><path class="linea" d="M120 240 V130 H330 V240" fill="#0d1520" /><rect class="linea" x="150" y="150" width="150" height="50" fill="#070b12" /><path class="fina" d="M170 220 h20 M210 220 h20 M250 220 h20" /><path class="ocre" d="M300 330 L330 362 H470 L440 330" fill="#0d1520" /><path class="fina" d="M340 346 h90" /><path class="roja circulo" d="M392 300 C470 300 500 350 470 380 C430 410 320 400 300 370 C285 340 320 300 392 300" /></g></svg><div class="pie mono">ÚLTIMA VEZ VISTO</div></div>
+        <div class="abs sello s1" style="left:150px;top:1000px;font-size:80px">SIN COARTADA</div>
+        <div class="etq e1">DEBAJO DE LA CAJA</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-cuaderno";
+      const DUR = 6.4;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde = 0) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - desde), opacity: desde > 0 ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const tipear = (el, texto, t, paso) => {
+        el.innerHTML = [...texto].map((c) => '<span class="letra">' + (c === " " ? "&nbsp;" : c) + "</span>").join("");
+        [...el.querySelectorAll(".letra")].forEach((s, i) => tl.set(s, { opacity: 1 }, t + i * paso));
+      };
+      const golpe = (t, k = 1) => [[-14, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot = -6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.3, rotation: rot - 10 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12);
+        golpe(t + 0.05);
+      };
+      const pop = (el, t, extra = {}) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.8, ...extra }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, t);
+      };
+      const entra = (el, t, desde = { y: 24 }) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+      const parpadeo = (el, ts) => ts.forEach((t) => tl.to(el, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t));
+
+
+      const UNO = 0.8, CUADERNO = 1.5, VISTO = 3.06, CAJA = 4.8, COARTADA = 5.7;
+      // cuadro 0: la foto ya está, flash de foto policial
+      tl.fromTo(q(".foto"), { scale: 1.08, rotation: -3 }, { scale: 1, rotation: 0, duration: 0.35, ease: "power3.out" }, 0);
+      dibujar(qa(".sosp .linea"), 0, 0.5, 0.5);
+      dibujar(qa(".tachon"), 0.4, 0.4);
+      tl.fromTo(q(".cartel"), { y: 140 }, { y: 0, duration: 0.3, ease: "back.out(1.6)" }, UNO - 0.3);
+      tl.fromTo(q(".cartel b"), { scale: 1.4, color: "#f1ece0" }, { scale: 1, color: "#ffd23f", duration: 0.2 }, UNO);
+      parpadeo(q(".sosp .ojos"), [1.2, 2.6]);
+      tl.to(qa(".sosp .pupila"), { x: -10, duration: 0.15 }, CUADERNO);
+      tl.to(qa(".sosp .pupila"), { x: 8, duration: 0.15 }, CUADERNO + 0.6);
+      tl.to(q(".foto"), { x: -8, duration: 0.05, yoyo: true, repeat: 5 }, CUADERNO);
+      // "visto por última vez": la foto se corre y entra la foto de la caja
+      tl.to(q(".foto"), { scale: 0.62, x: -170, y: -170, rotation: -4, duration: 0.4, ease: "power3.inOut" }, VISTO - 0.3);
+      pop(q(".inset"), VISTO - 0.1, { rotation: 12, y: 80 });
+      dibujar([q(".circulo")], CAJA - 0.3, 0.5);
+      entra(q(".e1"), CAJA - 0.2);
+      tl.to(q(".esc"), { scale: 1.04, duration: DUR - VISTO, ease: "none", transformOrigin: "60% 60%" }, VISTO);
+      // "sin coartada"
+      sello(q(".s1"), COARTADA - 0.05, -7);
+
+      tl.to(q(".capa"), { scale: 1.1, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

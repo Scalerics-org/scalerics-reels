@@ -1,0 +1,45 @@
+[
+{
+"t": 0.02,
+"sfx": "flash",
+"vol": 0.4
+},
+{
+"t": 0.4,
+"sfx": "click",
+"vol": 0.35
+},
+{
+"t": 1.65,
+"sfx": "typing",
+"vol": 0.3,
+"max": 1.4
+},
+{
+"t": 3.3,
+"sfx": "whoosh",
+"vol": 0.3
+},
+{
+"t": 3.87,
+"sfx": "notification",
+"vol": 0.35
+},
+{
+"t": 4.45,
+"sfx": "click-soft",
+"vol": 0.25
+},
+{
+"t": 5.1,
+"sfx": "glitch-1",
+"vol": 0.2,
+"max": 0.3
+},
+{
+"t": 5.35,
+"sfx": "impact-bass-1",
+"vol": 0.4,
+"max": 0.5
+}
+]

@@ -1,0 +1,1034 @@
+[
+{
+"id": 0,
+"text": "Martes,",
+"start": 0.228,
+"end": 0.6
+},
+{
+"id": 1,
+"text": "veintitrés",
+"start": 0.6,
+"end": 1.2
+},
+{
+"id": 2,
+"text": "cuarenta.",
+"start": 1.2,
+"end": 1.8
+},
+{
+"id": 3,
+"text": "Una",
+"start": 1.8,
+"end": 2
+},
+{
+"id": 4,
+"text": "venta",
+"start": 2,
+"end": 2.3
+},
+{
+"id": 5,
+"text": "murió",
+"start": 2.3,
+"end": 2.7
+},
+{
+"id": 6,
+"text": "en",
+"start": 2.7,
+"end": 3
+},
+{
+"id": 7,
+"text": "un",
+"start": 3,
+"end": 3.1
+},
+{
+"id": 8,
+"text": "comercio",
+"start": 3.1,
+"end": 3.6
+},
+{
+"id": 9,
+"text": "de",
+"start": 3.6,
+"end": 3.7
+},
+{
+"id": 10,
+"text": "Montevideo.",
+"start": 3.7,
+"end": 4.2
+},
+{
+"id": 11,
+"text": "Nadie",
+"start": 4.2,
+"end": 4.8
+},
+{
+"id": 12,
+"text": "la",
+"start": 4.8,
+"end": 4.9
+},
+{
+"id": 13,
+"text": "vio",
+"start": 4.9,
+"end": 5.2
+},
+{
+"id": 14,
+"text": "morir.",
+"start": 5.2,
+"end": 5.4
+},
+{
+"id": 15,
+"text": "La",
+"start": 5.758,
+"end": 5.9
+},
+{
+"id": 16,
+"text": "víctima:",
+"start": 5.9,
+"end": 6.2
+},
+{
+"id": 17,
+"text": "una",
+"start": 6.645,
+"end": 6.8
+},
+{
+"id": 18,
+"text": "venta",
+"start": 6.8,
+"end": 7.1
+},
+{
+"id": 19,
+"text": "joven,",
+"start": 7.1,
+"end": 7.5
+},
+{
+"id": 20,
+"text": "con",
+"start": 7.736,
+"end": 7.8
+},
+{
+"id": 21,
+"text": "la",
+"start": 7.8,
+"end": 7.9
+},
+{
+"id": 22,
+"text": "tarjeta",
+"start": 7.9,
+"end": 8.2
+},
+{
+"id": 23,
+"text": "en",
+"start": 8.2,
+"end": 8.4
+},
+{
+"id": 24,
+"text": "la",
+"start": 8.4,
+"end": 8.4
+},
+{
+"id": 25,
+"text": "mano.",
+"start": 8.4,
+"end": 8.5
+},
+{
+"id": 0,
+"text": "Yo",
+"start": 9.428,
+"end": 9.628
+},
+{
+"id": 1,
+"text": "quería",
+"start": 9.628,
+"end": 9.928
+},
+{
+"id": 2,
+"text": "comprar,",
+"start": 9.928,
+"end": 10.328
+},
+{
+"id": 3,
+"text": "eh.",
+"start": 10.328,
+"end": 11.622
+},
+{
+"id": 4,
+"text": "Eran",
+"start": 11.622,
+"end": 11.728
+},
+{
+"id": 5,
+"text": "las",
+"start": 11.728,
+"end": 11.928
+},
+{
+"id": 6,
+"text": "once",
+"start": 11.928,
+"end": 12.628
+},
+{
+"id": 7,
+"text": "y",
+"start": 12.628,
+"end": 12.828
+},
+{
+"id": 8,
+"text": "pico",
+"start": 13.377,
+"end": 13.428
+},
+{
+"id": 9,
+"text": "y",
+"start": 13.858,
+"end": 13.928
+},
+{
+"id": 10,
+"text": "quería",
+"start": 13.928,
+"end": 14.228
+},
+{
+"id": 11,
+"text": "esa",
+"start": 14.228,
+"end": 14.683
+},
+{
+"id": 12,
+"text": "campera.",
+"start": 14.683,
+"end": 15.139
+},
+{
+"id": 13,
+"text": "Ya.",
+"start": 15.139,
+"end": 15.328
+},
+{
+"id": 0,
+"text": "Sospechoso",
+"start": 16.059,
+"end": 16.859
+},
+{
+"id": 1,
+"text": "uno:",
+"start": 16.859,
+"end": 17.159
+},
+{
+"id": 2,
+"text": "el",
+"start": 17.159,
+"end": 17.559
+},
+{
+"id": 3,
+"text": "cuaderno",
+"start": 17.559,
+"end": 18.159
+},
+{
+"id": 4,
+"text": "de",
+"start": 18.159,
+"end": 18.259
+},
+{
+"id": 5,
+"text": "pedidos.",
+"start": 18.259,
+"end": 18.459
+},
+{
+"id": 6,
+"text": "Visto",
+"start": 19.123,
+"end": 19.359
+},
+{
+"id": 7,
+"text": "por",
+"start": 19.359,
+"end": 19.559
+},
+{
+"id": 8,
+"text": "última",
+"start": 19.559,
+"end": 19.659
+},
+{
+"id": 9,
+"text": "vez",
+"start": 19.659,
+"end": 19.859
+},
+{
+"id": 10,
+"text": "debajo",
+"start": 19.859,
+"end": 20.659
+},
+{
+"id": 11,
+"text": "de",
+"start": 20.659,
+"end": 20.759
+},
+{
+"id": 12,
+"text": "la",
+"start": 20.759,
+"end": 20.859
+},
+{
+"id": 13,
+"text": "caja.",
+"start": 20.859,
+"end": 21.059
+},
+{
+"id": 14,
+"text": "Sin",
+"start": 21.059,
+"end": 21.759
+},
+{
+"id": 15,
+"text": "coartada.",
+"start": 21.759,
+"end": 22.459
+},
+{
+"id": 16,
+"text": "Sospechoso",
+"start": 22.459,
+"end": 22.859
+},
+{
+"id": 17,
+"text": "dos:",
+"start": 22.859,
+"end": 22.859
+},
+{
+"id": 18,
+"text": "el",
+"start": 22.859,
+"end": 23.959
+},
+{
+"id": 19,
+"text": "\"consultá",
+"start": 24.306,
+"end": 24.759
+},
+{
+"id": 20,
+"text": "precio",
+"start": 24.759,
+"end": 25.159
+},
+{
+"id": 21,
+"text": "por",
+"start": 25.159,
+"end": 25.259
+},
+{
+"id": 22,
+"text": "privado\".",
+"start": 25.259,
+"end": 25.359
+},
+{
+"id": 23,
+"text": "Ella",
+"start": 26.177,
+"end": 26.359
+},
+{
+"id": 24,
+"text": "consultó.",
+"start": 26.359,
+"end": 26.759
+},
+{
+"id": 25,
+"text": "El",
+"start": 26.759,
+"end": 27.059
+},
+{
+"id": 26,
+"text": "privado",
+"start": 27.059,
+"end": 27.559
+},
+{
+"id": 27,
+"text": "nunca",
+"start": 27.559,
+"end": 27.859
+},
+{
+"id": 28,
+"text": "respondió.",
+"start": 27.859,
+"end": 28.359
+},
+{
+"id": 29,
+"text": "Sospechoso",
+"start": 28.359,
+"end": 28.659
+},
+{
+"id": 30,
+"text": "tres:",
+"start": 28.659,
+"end": 29.868
+},
+{
+"id": 31,
+"text": "el",
+"start": 29.868,
+"end": 29.959
+},
+{
+"id": 32,
+"text": "\"mandame",
+"start": 29.959,
+"end": 30.659
+},
+{
+"id": 33,
+"text": "el",
+"start": 30.659,
+"end": 30.759
+},
+{
+"id": 34,
+"text": "comprobante\".",
+"start": 30.759,
+"end": 30.959
+},
+{
+"id": 35,
+"text": "Tiene",
+"start": 30.959,
+"end": 31.859
+},
+{
+"id": 36,
+"text": "antecedentes.",
+"start": 31.859,
+"end": 32.659
+},
+{
+"id": 37,
+"text": "Sospechoso",
+"start": 32.659,
+"end": 33.059
+},
+{
+"id": 38,
+"text": "cuatro:",
+"start": 33.059,
+"end": 33.859
+},
+{
+"id": 39,
+"text": "el",
+"start": 33.859,
+"end": 34.159
+},
+{
+"id": 40,
+"text": "\"pasá",
+"start": 34.159,
+"end": 34.659
+},
+{
+"id": 41,
+"text": "el",
+"start": 34.659,
+"end": 34.759
+},
+{
+"id": 42,
+"text": "lunes\".",
+"start": 34.759,
+"end": 34.859
+},
+{
+"id": 43,
+"text": "El",
+"start": 34.859,
+"end": 35.459
+},
+{
+"id": 44,
+"text": "lunes,",
+"start": 35.459,
+"end": 35.659
+},
+{
+"id": 45,
+"text": "la",
+"start": 36.259,
+"end": 36.359
+},
+{
+"id": 46,
+"text": "venta",
+"start": 36.359,
+"end": 36.759
+},
+{
+"id": 47,
+"text": "ya",
+"start": 36.759,
+"end": 37.159
+},
+{
+"id": 48,
+"text": "estaba",
+"start": 37.159,
+"end": 37.559
+},
+{
+"id": 49,
+"text": "enterrada.",
+"start": 37.559,
+"end": 38.159
+},
+{
+"id": 0,
+"text": "Al",
+"start": 38.86,
+"end": 39.16
+},
+{
+"id": 1,
+"text": "final",
+"start": 39.16,
+"end": 39.46
+},
+{
+"id": 2,
+"text": "compré",
+"start": 39.46,
+"end": 39.76
+},
+{
+"id": 3,
+"text": "en",
+"start": 39.76,
+"end": 39.86
+},
+{
+"id": 4,
+"text": "otro",
+"start": 39.86,
+"end": 40.06
+},
+{
+"id": 5,
+"text": "lado.",
+"start": 40.06,
+"end": 40.26
+},
+{
+"id": 6,
+"text": "Me",
+"start": 40.467,
+"end": 40.56
+},
+{
+"id": 7,
+"text": "llegó",
+"start": 40.56,
+"end": 40.76
+},
+{
+"id": 8,
+"text": "el",
+"start": 40.76,
+"end": 40.86
+},
+{
+"id": 9,
+"text": "jueves.",
+"start": 40.86,
+"end": 41.06
+},
+{
+"id": 0,
+"text": "Pero",
+"start": 42.088,
+"end": 42.219
+},
+{
+"id": 1,
+"text": "las",
+"start": 42.219,
+"end": 42.419
+},
+{
+"id": 2,
+"text": "huellas",
+"start": 42.419,
+"end": 42.419
+},
+{
+"id": 3,
+"text": "no",
+"start": 42.419,
+"end": 42.819
+},
+{
+"id": 4,
+"text": "mienten,",
+"start": 42.819,
+"end": 43.419
+},
+{
+"id": 5,
+"text": "como",
+"start": 43.707,
+"end": 43.819
+},
+{
+"id": 6,
+"text": "en",
+"start": 43.819,
+"end": 44.019
+},
+{
+"id": 7,
+"text": "CSI.",
+"start": 44.019,
+"end": 44.219
+},
+{
+"id": 8,
+"text": "La",
+"start": 44.219,
+"end": 44.719
+},
+{
+"id": 9,
+"text": "puerta",
+"start": 44.719,
+"end": 45.119
+},
+{
+"id": 10,
+"text": "estaba",
+"start": 45.119,
+"end": 45.319
+},
+{
+"id": 11,
+"text": "cerrada.",
+"start": 45.319,
+"end": 45.519
+},
+{
+"id": 12,
+"text": "Y",
+"start": 45.519,
+"end": 46.019
+},
+{
+"id": 13,
+"text": "la",
+"start": 46.019,
+"end": 46.219
+},
+{
+"id": 14,
+"text": "llave",
+"start": 46.219,
+"end": 46.519
+},
+{
+"id": 15,
+"text": "la",
+"start": 46.519,
+"end": 46.919
+},
+{
+"id": 16,
+"text": "tenía",
+"start": 46.919,
+"end": 47.119
+},
+{
+"id": 17,
+"text": "el",
+"start": 47.119,
+"end": 47.319
+},
+{
+"id": 18,
+"text": "dueño.",
+"start": 47.319,
+"end": 47.419
+},
+{
+"id": 0,
+"text": "¿Yo?",
+"start": 48.455,
+"end": 48.622
+},
+{
+"id": 1,
+"text": "¡Si",
+"start": 48.622,
+"end": 49.122
+},
+{
+"id": 2,
+"text": "yo",
+"start": 49.122,
+"end": 49.222
+},
+{
+"id": 3,
+"text": "estaba",
+"start": 49.222,
+"end": 49.422
+},
+{
+"id": 4,
+"text": "durmiendo!",
+"start": 49.422,
+"end": 49.622
+},
+{
+"id": 0,
+"text": "Caso",
+"start": 51.03,
+"end": 51.321
+},
+{
+"id": 1,
+"text": "resuelto.",
+"start": 51.321,
+"end": 51.621
+},
+{
+"id": 2,
+"text": "Inocente",
+"start": 52.218,
+"end": 52.321
+},
+{
+"id": 3,
+"text": "de",
+"start": 52.321,
+"end": 52.921
+},
+{
+"id": 4,
+"text": "atender",
+"start": 52.921,
+"end": 53.421
+},
+{
+"id": 5,
+"text": "mal.",
+"start": 53.421,
+"end": 53.621
+},
+{
+"id": 6,
+"text": "Culpable",
+"start": 53.621,
+"end": 54.321
+},
+{
+"id": 7,
+"text": "de",
+"start": 54.321,
+"end": 54.421
+},
+{
+"id": 8,
+"text": "no",
+"start": 54.421,
+"end": 54.621
+},
+{
+"id": 9,
+"text": "tener",
+"start": 54.621,
+"end": 54.921
+},
+{
+"id": 10,
+"text": "puerta",
+"start": 54.921,
+"end": 55.321
+},
+{
+"id": 11,
+"text": "en",
+"start": 55.321,
+"end": 55.421
+},
+{
+"id": 12,
+"text": "internet.",
+"start": 55.421,
+"end": 55.821
+},
+{
+"id": 0,
+"text": "En",
+"start": 56.853,
+"end": 57.253
+},
+{
+"id": 1,
+"text": "Scalerics",
+"start": 57.253,
+"end": 57.653
+},
+{
+"id": 2,
+"text": "te",
+"start": 57.653,
+"end": 58.053
+},
+{
+"id": 3,
+"text": "hacemos",
+"start": 58.064,
+"end": 58.353
+},
+{
+"id": 4,
+"text": "la",
+"start": 58.353,
+"end": 58.453
+},
+{
+"id": 5,
+"text": "tienda",
+"start": 58.453,
+"end": 58.853
+},
+{
+"id": 6,
+"text": "online:",
+"start": 58.853,
+"end": 58.953
+},
+{
+"id": 7,
+"text": "vende",
+"start": 58.953,
+"end": 59.753
+},
+{
+"id": 8,
+"text": "sola",
+"start": 59.753,
+"end": 60.153
+},
+{
+"id": 9,
+"text": "a",
+"start": 60.153,
+"end": 60.153
+},
+{
+"id": 10,
+"text": "cualquier",
+"start": 60.153,
+"end": 60.453
+},
+{
+"id": 11,
+"text": "hora,",
+"start": 60.453,
+"end": 60.753
+},
+{
+"id": 12,
+"text": "cobra",
+"start": 61.26,
+"end": 61.453
+},
+{
+"id": 13,
+"text": "con",
+"start": 61.453,
+"end": 61.653
+},
+{
+"id": 14,
+"text": "Mercado",
+"start": 61.653,
+"end": 61.853
+},
+{
+"id": 15,
+"text": "Pago",
+"start": 61.853,
+"end": 62.053
+},
+{
+"id": 16,
+"text": "y",
+"start": 62.053,
+"end": 62.453
+},
+{
+"id": 17,
+"text": "despacha",
+"start": 62.453,
+"end": 62.653
+},
+{
+"id": 18,
+"text": "por",
+"start": 62.653,
+"end": 63.053
+},
+{
+"id": 19,
+"text": "DAC,",
+"start": 63.053,
+"end": 63.453
+},
+{
+"id": 20,
+"text": "Correo",
+"start": 63.886,
+"end": 64.253
+},
+{
+"id": 21,
+"text": "o",
+"start": 64.253,
+"end": 64.353
+},
+{
+"id": 22,
+"text": "PedidosYa.",
+"start": 64.353,
+"end": 64.953
+},
+{
+"id": 23,
+"text": "¿Y",
+"start": 64.953,
+"end": 65.653
+},
+{
+"id": 24,
+"text": "vos,",
+"start": 65.653,
+"end": 65.853
+},
+{
+"id": 25,
+"text": "quién",
+"start": 66.206,
+"end": 66.353
+},
+{
+"id": 26,
+"text": "creés",
+"start": 66.353,
+"end": 66.653
+},
+{
+"id": 27,
+"text": "que",
+"start": 66.653,
+"end": 66.753
+},
+{
+"id": 28,
+"text": "fue?",
+"start": 66.753,
+"end": 66.753
+},
+{
+"id": 29,
+"text": "Dejá",
+"start": 66.753,
+"end": 67.353
+},
+{
+"id": 30,
+"text": "tu",
+"start": 67.353,
+"end": 67.553
+},
+{
+"id": 31,
+"text": "sospechoso",
+"start": 67.553,
+"end": 68.153
+},
+{
+"id": 32,
+"text": "en",
+"start": 68.153,
+"end": 68.553
+},
+{
+"id": 33,
+"text": "los",
+"start": 68.553,
+"end": 68.653
+},
+{
+"id": 34,
+"text": "comentarios.",
+"start": 68.653,
+"end": 69.353
+}
+]

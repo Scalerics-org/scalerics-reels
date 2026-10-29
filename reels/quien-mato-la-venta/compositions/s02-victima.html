@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-victima"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-victima"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s02-victima"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-victima"] .linea { fill: none; stroke: #f1ece0; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-victima"] .fina { fill: none; stroke: #f1ece0; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.5; }
+    [data-composition-id="s02-victima"] .roja { fill: none; stroke: #e0313b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-victima"] .ocre { fill: none; stroke: #c9a26b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-victima"] .verde { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-victima"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #c9a26b; }
+    [data-composition-id="s02-victima"] .abs { position: absolute; white-space: nowrap; }
+    [data-composition-id="s02-victima"] .centro { left: 0; right: 0; text-align: center; }
+    [data-composition-id="s02-victima"] .maq { font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.06em; }
+    [data-composition-id="s02-victima"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+    [data-composition-id="s02-victima"] .gorda { font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1; }
+    [data-composition-id="s02-victima"] .letra { opacity: 0; }
+    [data-composition-id="s02-victima"] .sello { padding: 12px 30px 10px; border: 8px solid #e0313b; border-radius: 14px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: 0.02em; color: #e0313b; background: rgba(7, 11, 18, 0.75); filter: drop-shadow(0 0 16px rgba(224, 49, 59, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s02-victima"] .sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; margin-top: 2px; }
+    /* foto de frente de sospechoso */
+    [data-composition-id="s02-victima"] .foto { position: absolute; left: 170px; top: 590px; width: 740px; height: 760px; background: #0d1520; border: 6px solid #f1ece0; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.4); overflow: hidden; }
+    [data-composition-id="s02-victima"] .foto svg { position: absolute; left: 0; top: 0; width: 728px; height: 748px; overflow: visible; }
+    [data-composition-id="s02-victima"] .cartel { position: absolute; left: 154px; top: 560px; width: 420px; padding: 12px 0 10px; background: #070b12; border: 4px solid #f1ece0; text-align: center; }
+    [data-composition-id="s02-victima"] .cartel b { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; letter-spacing: 0.12em; color: #ffd23f; }
+    [data-composition-id="s02-victima"] .cartel i { display: block; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.04em; color: #f1ece0; margin-top: 2px; }
+    [data-composition-id="s02-victima"] .etq { position: absolute; left: 0; right: 0; top: 1392px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #c9a26b; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s02-victima"] .carpeta { position: absolute; left: 90px; top: 690px; width: 900px; height: 640px; background: #c9a26b; border-radius: 10px; box-shadow: 0 20px 0 rgba(0,0,0,0.4), inset 0 0 0 4px #8a6a3e; }
+    [data-composition-id="s02-victima"] .solapa { position: absolute; left: 30px; top: -50px; width: 380px; height: 56px; background: #c9a26b; border-radius: 10px 10px 0 0; box-shadow: inset 0 0 0 4px #8a6a3e; font-size: 26px; color: #070b12; text-align: center; line-height: 56px; letter-spacing: 0.12em; }
+    [data-composition-id="s02-victima"] .polaroid { position: absolute; left: 40px; top: 50px; width: 380px; height: 470px; background: #f1ece0; transform: rotate(-4deg); box-shadow: 0 10px 0 rgba(0,0,0,0.3); }
+    [data-composition-id="s02-victima"] .polaroid svg { position: absolute; left: 20px; top: 20px; width: 340px; height: 380px; background: #0d1520; overflow: hidden; }
+    [data-composition-id="s02-victima"] .pie { position: absolute; left: 0; right: 0; bottom: 18px; text-align: center; font-size: 26px; color: #070b12; }
+    [data-composition-id="s02-victima"] .clipito { position: absolute; left: 180px; top: 0px; width: 60px; height: 140px; }
+    [data-composition-id="s02-victima"] .ficha { position: absolute; left: 460px; top: 70px; width: 420px; font-size: 32px; line-height: 1.25; color: #070b12; }
+    [data-composition-id="s02-victima"] .ficha div { margin-bottom: 34px; white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="s02-victima" data-width="1080" data-height="1920" data-duration="3.67">
+    <div id="s02-victima-capa" class="capa clip" data-start="0" data-duration="3.67" data-track-index="0">
+      <div class="esc">
+
+        <div class="carpeta">
+          <div class="solapa mono">VÍCTIMA · EXP. 2340</div>
+          <div class="polaroid"><svg viewBox="0 0 340 380" aria-hidden="true"><g class="bolsa"><path class="linea" d="M60 120 L240 120 L260 310 L40 310 Z" fill="#0d1520" /><path class="linea" d="M100 120 C100 50 200 50 200 120" /><g class="ojos"><ellipse cx="120.0" cy="205" rx="20" ry="24" fill="#f1ece0" /><ellipse cx="180.0" cy="205" rx="20" ry="24" fill="#f1ece0" /><circle class="pupila" cx="126.0" cy="211" r="9.0" fill="#070b12" /><circle class="pupila" cx="186.0" cy="211" r="9.0" fill="#070b12" /></g><path class="linea" d="M100.0 175 L138.0 167" /><path class="linea" d="M200.0 175 L162.0 167" /><path class="linea" d="M130 260 Q150 272 170 260" /></g><g class="tarjeta"><path class="linea" d="M340 330 C320 320 300 318 285 322" /><rect class="ocre" x="200" y="262" width="130" height="84" rx="10" fill="#0d1520" transform="rotate(10 265 304)" /><rect x="216" y="280" width="26" height="20" rx="4" fill="#ffd23f" transform="rotate(10 265 304)" /><path class="fina" d="M216 326 h96" transform="rotate(10 265 304)" /></g></svg><div class="pie mono">FOTO 1</div></div>
+          <svg class="clipito" viewBox="0 0 60 140" aria-hidden="true"><path d="M20 130 V30 a14 14 0 0 1 28 0 V110 a8 8 0 0 1 -16 0 V40" fill="none" stroke="#f1ece0" stroke-width="6" stroke-linecap="round" /></svg>
+          <div class="ficha maq"><div class="f1"></div><div class="f2"></div><div class="f3"></div><div class="f4"></div></div>
+        </div>
+        <div class="abs sello s-victima" style="left:600px;top:600px;font-size:72px">VÍCTIMA</div>
+        <div class="etq e1">TENÍA CON QUÉ PAGAR</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-victima";
+      const DUR = 3.67;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde = 0) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - desde), opacity: desde > 0 ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const tipear = (el, texto, t, paso) => {
+        el.innerHTML = [...texto].map((c) => '<span class="letra">' + (c === " " ? "&nbsp;" : c) + "</span>").join("");
+        [...el.querySelectorAll(".letra")].forEach((s, i) => tl.set(s, { opacity: 1 }, t + i * paso));
+      };
+      const golpe = (t, k = 1) => [[-14, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot = -6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.3, rotation: rot - 10 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12);
+        golpe(t + 0.05);
+      };
+      const pop = (el, t, extra = {}) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.8, ...extra }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, t);
+      };
+      const entra = (el, t, desde = { y: 24 }) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+      const parpadeo = (el, ts) => ts.forEach((t) => tl.to(el, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t));
+
+
+      const VICTIMA = 0.14, JOVEN = 1.34, TARJETA = 2.14, MANO = 2.64;
+      tl.fromTo(q(".carpeta"), { y: 120, rotation: 6, opacity: 0.6 }, { y: 0, rotation: -2, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+      dibujar(qa(".bolsa .linea"), 0.05, 0.45, 0.4);
+            tipear(q(".f1"), "NOMBRE: LA VENTA", 0.35, 0.035);
+      sello(q(".s-victima"), VICTIMA + 0.25, 8);
+      tipear(q(".f2"), "EDAD: 4 MINUTOS", JOVEN - 0.1, 0.035);
+      tl.fromTo(qa(".bolsa .pupila"), { x: 0 }, { x: -8, duration: 0.2, yoyo: true, repeat: 1 }, JOVEN);
+      parpadeo(q(".bolsa .ojos"), [1.0, 3.0]);
+      tipear(q(".f3"), "LLEVABA: TARJETA", TARJETA - 0.1, 0.035);
+      tipear(q(".f4"), "ESTADO: MUERTA", MANO + 0.2, 0.035);
+      gsap.set(q(".tarjeta"), { opacity: 0 });
+      tl.fromTo(q(".tarjeta"), { opacity: 0, x: 140 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, TARJETA);
+      entra(q(".e1"), MANO);
+
+      tl.to(q(".capa"), { scale: 1.1, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

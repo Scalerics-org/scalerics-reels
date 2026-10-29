@@ -1,0 +1,148 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-tienda"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-tienda"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s12-tienda"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-tienda"] .linea { fill: none; stroke: #f1ece0; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tienda"] .fina { fill: none; stroke: #f1ece0; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.5; }
+    [data-composition-id="s12-tienda"] .roja { fill: none; stroke: #e0313b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tienda"] .ocre { fill: none; stroke: #c9a26b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tienda"] .verde { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tienda"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #c9a26b; }
+    [data-composition-id="s12-tienda"] .abs { position: absolute; white-space: nowrap; }
+    [data-composition-id="s12-tienda"] .centro { left: 0; right: 0; text-align: center; }
+    [data-composition-id="s12-tienda"] .maq { font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.06em; }
+    [data-composition-id="s12-tienda"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+    [data-composition-id="s12-tienda"] .gorda { font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1; }
+    [data-composition-id="s12-tienda"] .letra { opacity: 0; }
+    [data-composition-id="s12-tienda"] .sello { padding: 12px 30px 10px; border: 8px solid #e0313b; border-radius: 14px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: 0.02em; color: #e0313b; background: rgba(7, 11, 18, 0.75); filter: drop-shadow(0 0 16px rgba(224, 49, 59, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s12-tienda"] .sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; margin-top: 2px; }
+    /* foto de frente de sospechoso */
+    [data-composition-id="s12-tienda"] .foto { position: absolute; left: 170px; top: 590px; width: 740px; height: 760px; background: #0d1520; border: 6px solid #f1ece0; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.4); overflow: hidden; }
+    [data-composition-id="s12-tienda"] .foto svg { position: absolute; left: 0; top: 0; width: 728px; height: 748px; overflow: visible; }
+    [data-composition-id="s12-tienda"] .cartel { position: absolute; left: 154px; top: 560px; width: 420px; padding: 12px 0 10px; background: #070b12; border: 4px solid #f1ece0; text-align: center; }
+    [data-composition-id="s12-tienda"] .cartel b { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; letter-spacing: 0.12em; color: #ffd23f; }
+    [data-composition-id="s12-tienda"] .cartel i { display: block; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.04em; color: #f1ece0; margin-top: 2px; }
+    [data-composition-id="s12-tienda"] .etq { position: absolute; left: 0; right: 0; top: 1392px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #c9a26b; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s12-tienda"] .ventana { left: 110px; top: 590px; width: 860px; height: 760px; border: 6px solid #f1ece0; border-radius: 22px; background: #0d1520; overflow: hidden; }
+    [data-composition-id="s12-tienda"] .barra { position: absolute; left: 0; right: 0; top: 0; height: 90px; border-bottom: 5px solid #f1ece0; }
+    [data-composition-id="s12-tienda"] .barra i { display: inline-block; width: 22px; height: 22px; border-radius: 50%; margin: 34px 0 0 22px; }
+    [data-composition-id="s12-tienda"] .url { position: absolute; left: 150px; top: 18px; width: 560px; height: 54px; border-radius: 27px; background: #070b12; color: #f1ece0; font-size: 28px; line-height: 54px; text-align: center; letter-spacing: 0.06em; text-transform: none; }
+    [data-composition-id="s12-tienda"] .luz { position: absolute; left: 0; right: 0; top: 95px; bottom: 0; background: radial-gradient(ellipse 300px 360px at 430px 390px, rgba(92, 230, 17, 0.45), rgba(92, 230, 17, 0) 75%); opacity: 0; }
+    [data-composition-id="s12-tienda"] .puerta-svg { position: absolute; left: 0; top: 90px; width: 860px; height: 650px; overflow: visible; }
+    [data-composition-id="s12-tienda"] .tienda { position: absolute; left: 30px; top: 150px; width: 800px; display: flex; gap: 24px; }
+    [data-composition-id="s12-tienda"] .prod { width: 250px; height: 440px; border: 4px solid #f1ece0; border-radius: 16px; text-align: center; padding-top: 20px; }
+    [data-composition-id="s12-tienda"] .p1 { border-color: #ffd23f; }
+    [data-composition-id="s12-tienda"] .prod svg { width: 200px; height: 170px; }
+    [data-composition-id="s12-tienda"] .prod b { display: block; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 30px; color: #f1ece0; margin: 20px 0; }
+    [data-composition-id="s12-tienda"] .btn { display: inline-block; padding: 14px 26px; border-radius: 30px; background: #5ce611; color: #070b12; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 28px; }
+    [data-composition-id="s12-tienda"] .toast { left: 520px; top: 700px; width: 480px; padding: 20px 26px; background: #070b12; border: 5px solid #5ce611; border-radius: 22px; box-shadow: 0 0 30px rgba(92, 230, 17, 0.35); }
+    [data-composition-id="s12-tienda"] .toast .tt { font-size: 26px; color: #5ce611; letter-spacing: 0.1em; }
+    [data-composition-id="s12-tienda"] .toast .tx { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 40px; color: #f1ece0; margin-top: 4px; }
+    [data-composition-id="s12-tienda"] .chip { left: 150px; top: 1220px; padding: 16px 28px; background: #5ce611; color: #070b12; border-radius: 40px; font-size: 30px; letter-spacing: 0.08em; }
+    [data-composition-id="s12-tienda"] .envio { top: 1370px; width: 280px; padding: 16px 0; text-align: center; background: #c9a26b; color: #070b12; font-size: 34px; letter-spacing: 0.12em; box-shadow: inset 0 0 0 4px #8a6a3e, 0 8px 0 rgba(0,0,0,0.4); }
+    [data-composition-id="s12-tienda"] .e1 { left: 90px; } [data-composition-id="s12-tienda"] .e2 { left: 400px; } [data-composition-id="s12-tienda"] .e3 { left: 710px; }
+
+  </style>
+  <div id="root" data-composition-id="s12-tienda" data-width="1080" data-height="1920" data-duration="8.1">
+    <div id="s12-tienda-capa" class="capa clip" data-start="0" data-duration="8.1" data-track-index="0">
+      <div class="esc">
+
+        <div class="abs ventana">
+          <div class="barra"><i style="background:#e0313b"></i><i style="background:#ffd23f"></i><i style="background:#5ce611"></i><div class="url mono">tutienda.com.uy</div></div>
+          <div class="luz"></div>
+          <svg class="puerta-svg" viewBox="0 0 860 650" aria-hidden="true">
+            <path class="linea marco" d="M330 600 V170 H530 V600" /><path class="linea" d="M260 600 H600" />
+            <g class="hoja-p"><rect x="333" y="173" width="194" height="425" fill="#0d1520" stroke="#f1ece0" stroke-width="5" /><circle cx="505" cy="400" r="9" fill="#f1ece0" /></g>
+          </svg>
+          <div class="tienda">
+            <div class="prod p1"><svg viewBox="0 0 200 170" aria-hidden="true"><path d="M70 30 L40 45 L25 110 L45 114 L55 75 L56 155 H144 L145 75 L155 114 L175 110 L160 45 L130 30 C122 46 78 46 70 30 Z" fill="none" stroke="#ffd23f" stroke-width="5" stroke-linejoin="round" /></svg><b>CAMPERA</b><span class="btn">COMPRAR</span></div>
+            <div class="prod p2"><svg viewBox="0 0 200 170" aria-hidden="true"><path d="M60 40 H140 L150 150 H50 Z M80 40 C80 10 120 10 120 40" fill="none" stroke="#f1ece0" stroke-width="5" stroke-linejoin="round" /></svg><b>BOLSO</b><span class="btn">COMPRAR</span></div>
+            <div class="prod p3"><svg viewBox="0 0 200 170" aria-hidden="true"><path d="M40 120 C40 80 80 70 110 90 L170 100 C180 110 180 125 170 130 H40 Z" fill="none" stroke="#f1ece0" stroke-width="5" stroke-linejoin="round" /></svg><b>CHAMPIONES</b><span class="btn">COMPRAR</span></div>
+          </div>
+        </div>
+        <div class="abs toast"><div class="tt mono">23:40 · VENTA NUEVA</div><div class="tx">Campera · pagada</div></div>
+        <div class="abs chip mono">PAGO APROBADO · MERCADO PAGO</div>
+        <div class="abs envio e1 mono">DAC</div>
+        <div class="abs envio e2 mono">CORREO</div>
+        <div class="abs envio e3 mono">PEDIDOSYA</div>
+        <div class="abs mono rot" style="left:0;right:0;text-align:center;top:1480px;font-size:30px;color:#5ce611">ABIERTA A CUALQUIER HORA</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-tienda";
+      const DUR = 8.1;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde = 0) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - desde), opacity: desde > 0 ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const tipear = (el, texto, t, paso) => {
+        el.innerHTML = [...texto].map((c) => '<span class="letra">' + (c === " " ? "&nbsp;" : c) + "</span>").join("");
+        [...el.querySelectorAll(".letra")].forEach((s, i) => tl.set(s, { opacity: 1 }, t + i * paso));
+      };
+      const golpe = (t, k = 1) => [[-14, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot = -6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.3, rotation: rot - 10 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12);
+        golpe(t + 0.05);
+      };
+      const pop = (el, t, extra = {}) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.8, ...extra }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, t);
+      };
+      const entra = (el, t, desde = { y: 24 }) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+      const parpadeo = (el, ts) => ts.forEach((t) => tl.to(el, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t));
+
+
+      const SCALERICS = 0.4, TIENDA = 1.6, SOLA = 2.9, HORA = 3.6, MP = 4.8, DAC = 6.2, CORREO = 7.04, PYA = 7.5;
+      tl.fromTo(q(".ventana"), { scale: 0.9, opacity: 0.6 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.04, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      // la puerta se abre: luz verde
+      tl.to(q(".hoja-p"), { scaleX: 0.12, svgOrigin: "333 400", duration: 0.5, ease: "power2.inOut" }, SCALERICS);
+      tl.to(q(".luz"), { opacity: 1, duration: 0.4 }, SCALERICS + 0.1);
+      tl.to(q(".marco"), { stroke: "#5ce611", duration: 0.3 }, SCALERICS + 0.1);
+      // se arma la tienda
+      tl.to([q(".puerta-svg")], { opacity: 0, scale: 1.4, duration: 0.3, ease: "power2.in", transformOrigin: "50% 50%" }, TIENDA - 0.45);
+      tl.to(q(".luz"), { opacity: 0.35, duration: 0.3 }, TIENDA - 0.3);
+      qa(".prod").forEach((p, i) => pop(p, TIENDA - 0.2 + i * 0.12, { y: 60 }));
+      tl.to(q(".p1 .btn"), { scale: 1.15, duration: 0.15, yoyo: true, repeat: 1 }, SOLA - 0.2);
+      // "vende sola": entra la notificación
+      gsap.set(q(".toast"), { opacity: 0 });
+      tl.fromTo(q(".toast"), { opacity: 1, x: 600 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, SOLA);
+      entra(q(".rot"), HORA - 0.2);
+      // "Mercado Pago"
+      pop(q(".chip"), MP - 0.1, { y: 30 });
+      tl.to(q(".toast"), { opacity: 0.0, x: 300, duration: 0.3 }, MP + 0.6);
+      // envíos
+      [[".e1", DAC], [".e2", CORREO], [".e3", PYA]].forEach(([s, t], i) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 1, y: -300, rotation: i % 2 ? 8 : -8 }, { opacity: 1, y: 0, rotation: i % 2 ? 2 : -2, duration: 0.25, ease: "bounce.out", immediateRender: false }, t - 0.3);
+      });
+
+      tl.to(q(".capa"), { scale: 1.1, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

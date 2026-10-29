@@ -1,0 +1,142 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-escena"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-escena"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-escena"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-escena"] .linea { fill: none; stroke: #f1ece0; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-escena"] .fina { fill: none; stroke: #f1ece0; stroke-width: 3; stroke-linecap: round; opacity: 0.5; }
+    [data-composition-id="s01-escena"] .tiza { fill: none; stroke: #f1ece0; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 14 12; opacity: 0.85; }
+    [data-composition-id="s01-escena"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #c9a26b; }
+    /* máquina de escribir */
+    [data-composition-id="s01-escena"] .s01-maquina { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; white-space: nowrap; }
+    [data-composition-id="s01-escena"] .s01-hora { top: 586px; font-weight: 600; font-size: 84px; letter-spacing: 0.04em; color: #ffd23f; text-shadow: 0 0 30px rgba(255, 210, 63, 0.28); }
+    [data-composition-id="s01-escena"] .s01-lugar { top: 704px; font-weight: 500; font-size: 36px; letter-spacing: 0.3em; color: #c9a26b; }
+    [data-composition-id="s01-escena"] .letra { opacity: 0; }
+    [data-composition-id="s01-escena"] .s01-cursor { display: inline-block; width: 0.55em; height: 0.12em; background: currentColor; vertical-align: -0.05em; margin-left: 0.05em; }
+    /* cinta policial */
+    [data-composition-id="s01-escena"] .s01-cinta { position: absolute; left: -260px; width: 1600px; height: 78px; background: #ffd23f; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.35); display: flex; align-items: center; overflow: hidden; }
+    [data-composition-id="s01-escena"] .s01-cinta span { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 38px; letter-spacing: 0.06em; color: #070b12; white-space: nowrap; padding-left: 40px; }
+    [data-composition-id="s01-escena"] .s01-cinta1 { top: 1050px; transform: rotate(-11deg); }
+    [data-composition-id="s01-escena"] .s01-cinta2 { top: 1180px; transform: rotate(7deg); }
+    /* sello */
+    [data-composition-id="s01-escena"] .s01-sello { position: absolute; left: 230px; top: 880px; width: 620px; padding: 16px 0 14px; border: 8px solid #e0313b; border-radius: 14px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 86px; letter-spacing: 0.02em; color: #e0313b; white-space: nowrap; background: rgba(7, 11, 18, 0.72); filter: drop-shadow(0 0 18px rgba(224, 49, 59, 0.45)); }
+    [data-composition-id="s01-escena"] .s01-sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.28em; margin-top: 4px; }
+  </style>
+  <div id="root" data-composition-id="s01-escena" data-width="1080" data-height="1920" data-duration="5.76">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.76" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la luz de la vidriera (se apaga en "nadie") -->
+          <rect class="s01-luz" x="250" y="1000" width="340" height="240" fill="#c9a26b" opacity="0.28" />
+          <!-- la fachada del comercio -->
+          <g class="s01-fachada">
+            <path class="linea s01-t" d="M170 1300 V900 H910 V1300" />
+            <path class="linea s01-t" d="M120 1300 H960" />
+            <!-- toldo a rayas -->
+            <path class="linea s01-t" d="M150 900 L190 820 H890 L930 900 Z" />
+            <path class="fina s01-t" d="M280 820 L260 900 M370 820 L360 900 M460 820 L455 900 M550 820 L550 900 M640 820 L645 900 M730 820 L740 900 M820 820 L840 900" />
+            <!-- vidriera y puerta -->
+            <path class="linea s01-t" d="M250 1000 H590 V1240 H250 Z" />
+            <path class="fina s01-t" d="M290 1240 V1170 H360 V1240 M400 1240 V1130 H470 V1240 M500 1240 V1190 H560 V1240" />
+            <path class="linea s01-t" d="M660 990 H840 V1300 M660 1300 V990" />
+            <path class="linea s01-t" d="M810 1150 v26" />
+            <!-- cartel colgado en la puerta -->
+            <path class="fina s01-t" d="M720 1040 L750 1010 L780 1040" />
+            <rect class="linea s01-t" x="680" y="1040" width="140" height="44" rx="6" />
+          </g>
+          <text class="rotulo s01-cerrado" x="750" y="1070" text-anchor="middle" style="font-size:22px;letter-spacing:0.08em" data-layout-ignore>CERRADO</text>
+          <!-- la silueta de tiza de la víctima: una bolsa de compras tirada -->
+          <g class="s01-silueta">
+            <path class="tiza s01-tz" d="M380 1350 L640 1330 L670 1460 L400 1490 Z" />
+            <path class="tiza s01-tz" d="M450 1346 C455 1290 520 1285 530 1340 M560 1336 C565 1282 625 1280 610 1333" />
+          </g>
+          <text class="rotulo s01-victima" x="690" y="1430">LA VENTA</text>
+          <path class="linea s01-flecha" d="M688 1420 C660 1420 650 1410 640 1400" stroke="#c9a26b" />
+        </svg>
+        <div class="s01-maquina s01-hora"><span class="s01-tipeo1"></span><span class="s01-cursor"></span></div>
+        <div class="s01-maquina s01-lugar"><span class="s01-tipeo2"></span></div>
+        <div class="s01-cinta s01-cinta1" data-layout-allow-overlap><span>ESCENA DEL CRIMEN · NO PASAR · ESCENA DEL CRIMEN · NO PASAR · ESCENA DEL CRIMEN</span></div>
+        <div class="s01-cinta s01-cinta2" data-layout-allow-overlap><span>NO PASAR · ESCENA DEL CRIMEN · NO PASAR · ESCENA DEL CRIMEN · NO PASAR</span></div>
+        <div class="s01-sello">0 TESTIGOS<small>NADIE LA VIO</small></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-escena";
+      const DUR = 5.76;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const MARTES = 0.23;
+      const MURIO = 2.3;
+      const MONTEVIDEO = 3.7;
+      const NADIE = 4.2;
+      const MORIR = 5.2;
+
+      // dibuja trazos; "desde" = cuánto ya está dibujado en el cuadro 0
+      const dibujar = (els, t, dur, desde = 0) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - desde), opacity: desde > 0 ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // máquina de escribir: arma spans por letra y los prende uno por uno
+      const tipear = (el, texto, t, paso) => {
+        el.innerHTML = [...texto].map((c) => `<span class="letra">${c === " " ? "&nbsp;" : c}</span>`).join("");
+        qa("." + el.className.split(" ")[0] + " .letra").forEach((s, i) => tl.set(s, { opacity: 1 }, t + i * paso));
+      };
+
+      // cuadro 0: la fachada ya está a medio dibujar y la cámara se acerca
+      dibujar(qa(".s01-t"), 0, 0.7, 0.45);
+      tl.fromTo(q(".s01-escenario"), { scale: 1.0 }, { scale: 1.06, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      tl.fromTo(q(".s01-luz"), { opacity: 0 }, { opacity: 0.28, duration: 0.4 }, 0.1);
+      tl.fromTo(q(".s01-cerrado"), { opacity: 0 }, { opacity: 0.9, duration: 0.2 }, 0.7);
+
+      // "martes, 23:40": se tipea
+      tipear(q(".s01-tipeo1"), "MARTES · 23:40", MARTES, 0.07);
+      tl.to(q(".s01-cursor"), { opacity: 0, duration: 0.2, yoyo: true, repeat: 12, ease: "steps(1)" }, 0);
+
+      // "murió": cinta policial cruzando, silueta de tiza (el flash lo pone ambiente)
+      gsap.set([q(".s01-cinta1"), q(".s01-cinta2")], { opacity: 0 });
+      tl.fromTo(q(".s01-cinta1"), { opacity: 1, x: -1700 }, { opacity: 1, x: 0, duration: 0.28, ease: "power3.out", immediateRender: false }, MURIO - 0.12);
+      tl.fromTo(q(".s01-cinta2"), { opacity: 1, x: 1700 }, { opacity: 1, x: 0, duration: 0.28, ease: "power3.out", immediateRender: false }, MURIO + 0.12);
+      [[-14, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x, y, duration: 0.04, ease: "none" }, MURIO + 0.1 + i * 0.045));
+      dibujar(qa(".s01-tz"), MURIO + 0.25, 0.6);
+      gsap.set([q(".s01-victima"), q(".s01-flecha")], { opacity: 0 });
+      tl.to(q(".s01-victima"), { opacity: 1, duration: 0.2 }, MURIO + 0.8);
+      dibujar([q(".s01-flecha")], MURIO + 0.8, 0.3);
+      // las cintas se mecen apenas
+      tl.to(q(".s01-cinta1 span"), { x: -120, duration: 3, ease: "none" }, MURIO);
+      tl.to(q(".s01-cinta2 span"), { x: 120, duration: 3, ease: "none" }, MURIO);
+
+      // "Montevideo": se tipea abajo
+      tipear(q(".s01-tipeo2"), "MONTEVIDEO", MONTEVIDEO - 0.15, 0.045);
+
+      // "nadie la vio morir": la luz se apaga y cae el sello
+      tl.to(q(".s01-luz"), { opacity: 0, duration: 0.05, ease: "steps(1)" }, NADIE);
+      tl.to(q(".s01-luz"), { opacity: 0.2, duration: 0.05, ease: "steps(1)" }, NADIE + 0.12);
+      tl.to(q(".s01-luz"), { opacity: 0, duration: 0.05, ease: "steps(1)" }, NADIE + 0.22);
+      tl.to([q(".s01-fachada"), q(".s01-cinta1"), q(".s01-cinta2")], { opacity: 0.35, duration: 0.3 }, NADIE + 0.2);
+      gsap.set(q(".s01-sello"), { opacity: 0 });
+      tl.fromTo(q(".s01-sello"), { opacity: 0, scale: 2.3, rotation: -14 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.16, ease: "power4.in", immediateRender: false }, MORIR - 0.35);
+      [[-12, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x, y, duration: 0.04, ease: "none" }, MORIR - 0.17 + i * 0.045));
+
+      // salida: corte con zoom y blur
+      tl.to(q("#s01-escena"), { scale: 1.12, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

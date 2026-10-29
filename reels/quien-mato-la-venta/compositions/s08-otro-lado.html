@@ -1,0 +1,112 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-otro-lado"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-otro-lado"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s08-otro-lado"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-otro-lado"] .linea { fill: none; stroke: #f1ece0; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-otro-lado"] .fina { fill: none; stroke: #f1ece0; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.5; }
+    [data-composition-id="s08-otro-lado"] .roja { fill: none; stroke: #e0313b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-otro-lado"] .ocre { fill: none; stroke: #c9a26b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-otro-lado"] .verde { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-otro-lado"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #c9a26b; }
+    [data-composition-id="s08-otro-lado"] .abs { position: absolute; white-space: nowrap; }
+    [data-composition-id="s08-otro-lado"] .centro { left: 0; right: 0; text-align: center; }
+    [data-composition-id="s08-otro-lado"] .maq { font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.06em; }
+    [data-composition-id="s08-otro-lado"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+    [data-composition-id="s08-otro-lado"] .gorda { font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1; }
+    [data-composition-id="s08-otro-lado"] .letra { opacity: 0; }
+    [data-composition-id="s08-otro-lado"] .sello { padding: 12px 30px 10px; border: 8px solid #e0313b; border-radius: 14px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: 0.02em; color: #e0313b; background: rgba(7, 11, 18, 0.75); filter: drop-shadow(0 0 16px rgba(224, 49, 59, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s08-otro-lado"] .sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; margin-top: 2px; }
+    /* foto de frente de sospechoso */
+    [data-composition-id="s08-otro-lado"] .foto { position: absolute; left: 170px; top: 590px; width: 740px; height: 760px; background: #0d1520; border: 6px solid #f1ece0; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.4); overflow: hidden; }
+    [data-composition-id="s08-otro-lado"] .foto svg { position: absolute; left: 0; top: 0; width: 728px; height: 748px; overflow: visible; }
+    [data-composition-id="s08-otro-lado"] .cartel { position: absolute; left: 154px; top: 560px; width: 420px; padding: 12px 0 10px; background: #070b12; border: 4px solid #f1ece0; text-align: center; }
+    [data-composition-id="s08-otro-lado"] .cartel b { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; letter-spacing: 0.12em; color: #ffd23f; }
+    [data-composition-id="s08-otro-lado"] .cartel i { display: block; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.04em; color: #f1ece0; margin-top: 2px; }
+    [data-composition-id="s08-otro-lado"] .etq { position: absolute; left: 0; right: 0; top: 1392px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #c9a26b; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s08-otro-lado"] .caja { left: 560px; top: 820px; width: 420px; height: 340px; background: #c9a26b; box-shadow: inset 0 0 0 5px #8a6a3e, 0 16px 0 rgba(0,0,0,0.4); }
+    [data-composition-id="s08-otro-lado"] .caja .cinta { position: absolute; left: 180px; top: 0; width: 60px; height: 340px; background: #8a6a3e; }
+    [data-composition-id="s08-otro-lado"] .etiqueta { position: absolute; left: 50px; top: 90px; width: 320px; padding: 16px 0; background: #f1ece0; text-align: center; font-size: 30px; color: #070b12; line-height: 1.4; }
+    [data-composition-id="s08-otro-lado"] .etiqueta span { font-size: 22px; color: #8a6a3e; letter-spacing: 0.04em; }
+
+  </style>
+  <div id="root" data-composition-id="s08-otro-lado" data-width="1080" data-height="1920" data-duration="3.23">
+    <div id="s08-otro-lado-capa" class="capa clip" data-start="0" data-duration="3.23" data-track-index="0">
+      <div class="esc">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><g class="tw" transform="translate(-60 120) scale(0.85)"><g class="testigo">
+            <circle cx="400" cy="1000" r="330" fill="#c9a26b" opacity="0.08" />
+            <path class="fina silla" d="M250 880 V1320 M560 900 V1200 M250 1180 H600 M290 1180 V1320 M600 1180 V1320" />
+            <path class="cuerpo" d="M300 1010 C300 905 345 868 400 868 C455 868 500 905 510 1010 L522 1160 H288 Z" fill="#0d1520" stroke="#c9a26b" stroke-width="5" />
+            <path class="cuerpo" d="M292 1150 H560 C585 1150 592 1170 590 1190 L600 1320 H556 L546 1200 H300 Z" fill="#0d1520" stroke="#c9a26b" stroke-width="5" />
+            <path d="M336 770 C320 690 480 690 470 770 C478 820 470 860 470 880 L330 880 C332 850 326 810 336 770 Z" fill="#0d1520" stroke="#c9a26b" stroke-width="5" />
+            <ellipse cx="403" cy="795" rx="58" ry="70" fill="#0d1520" stroke="#c9a26b" stroke-width="5" />
+            <g class="brazo"><path d="M480 905 C540 960 560 1030 520 1075" fill="none" stroke="#c9a26b" stroke-width="30" stroke-linecap="round" /><path d="M480 905 C540 960 560 1030 520 1075" fill="none" stroke="#0d1520" stroke-width="20" stroke-linecap="round" /></g>
+          </g></g></svg>
+        <div class="abs caja"><div class="cinta"></div><div class="etiqueta mono">OTRA TIENDA<br/><span>ENVÍO A DOMICILIO</span></div></div>
+        <div class="abs sello s1" style="left:470px;top:1180px;font-size:56px">ENTREGADO<small>EL JUEVES</small></div>
+        <div class="etq e1" style="top:600px">LA VENTA SE FUE CON OTRO</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-otro-lado";
+      const DUR = 3.23;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde = 0) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - desde), opacity: desde > 0 ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const tipear = (el, texto, t, paso) => {
+        el.innerHTML = [...texto].map((c) => '<span class="letra">' + (c === " " ? "&nbsp;" : c) + "</span>").join("");
+        [...el.querySelectorAll(".letra")].forEach((s, i) => tl.set(s, { opacity: 1 }, t + i * paso));
+      };
+      const golpe = (t, k = 1) => [[-14, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot = -6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.3, rotation: rot - 10 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12);
+        golpe(t + 0.05);
+      };
+      const pop = (el, t, extra = {}) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.8, ...extra }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, t);
+      };
+      const entra = (el, t, desde = { y: 24 }) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+      const parpadeo = (el, ts) => ts.forEach((t) => tl.to(el, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t));
+
+
+      const COMPRE = 0.6, OTRO = 1.0, LLEGO = 1.7, JUEVES = 2.0;
+      tl.fromTo(q(".tw"), { opacity: 0.4, x: -40 }, { opacity: 1, x: 0, duration: 0.35 }, 0);
+      tl.to(q(".brazo"), { rotation: -50, svgOrigin: "480 905", duration: 0.25, ease: "back.out(2)" }, COMPRE);
+      gsap.set(q(".caja"), { opacity: 0 });
+      tl.fromTo(q(".caja"), { opacity: 1, x: 700, rotation: 12 }, { opacity: 1, x: 0, rotation: -3, duration: 0.4, ease: "back.out(1.3)", immediateRender: false }, OTRO - 0.2);
+      entra(q(".e1"), OTRO);
+      tl.to(q(".caja"), { y: -20, duration: 0.15, yoyo: true, repeat: 1 }, LLEGO);
+      sello(q(".s1"), JUEVES, -6);
+      tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "60% 60%" }, 0);
+
+      tl.to(q(".capa"), { scale: 1.1, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

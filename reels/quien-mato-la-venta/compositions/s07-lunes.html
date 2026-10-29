@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-lunes"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-lunes"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s07-lunes"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-lunes"] .linea { fill: none; stroke: #f1ece0; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-lunes"] .fina { fill: none; stroke: #f1ece0; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.5; }
+    [data-composition-id="s07-lunes"] .roja { fill: none; stroke: #e0313b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-lunes"] .ocre { fill: none; stroke: #c9a26b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-lunes"] .verde { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-lunes"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #c9a26b; }
+    [data-composition-id="s07-lunes"] .abs { position: absolute; white-space: nowrap; }
+    [data-composition-id="s07-lunes"] .centro { left: 0; right: 0; text-align: center; }
+    [data-composition-id="s07-lunes"] .maq { font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.06em; }
+    [data-composition-id="s07-lunes"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+    [data-composition-id="s07-lunes"] .gorda { font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1; }
+    [data-composition-id="s07-lunes"] .letra { opacity: 0; }
+    [data-composition-id="s07-lunes"] .sello { padding: 12px 30px 10px; border: 8px solid #e0313b; border-radius: 14px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: 0.02em; color: #e0313b; background: rgba(7, 11, 18, 0.75); filter: drop-shadow(0 0 16px rgba(224, 49, 59, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s07-lunes"] .sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; margin-top: 2px; }
+    /* foto de frente de sospechoso */
+    [data-composition-id="s07-lunes"] .foto { position: absolute; left: 170px; top: 590px; width: 740px; height: 760px; background: #0d1520; border: 6px solid #f1ece0; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.4); overflow: hidden; }
+    [data-composition-id="s07-lunes"] .foto svg { position: absolute; left: 0; top: 0; width: 728px; height: 748px; overflow: visible; }
+    [data-composition-id="s07-lunes"] .cartel { position: absolute; left: 154px; top: 560px; width: 420px; padding: 12px 0 10px; background: #070b12; border: 4px solid #f1ece0; text-align: center; }
+    [data-composition-id="s07-lunes"] .cartel b { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; letter-spacing: 0.12em; color: #ffd23f; }
+    [data-composition-id="s07-lunes"] .cartel i { display: block; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.04em; color: #f1ece0; margin-top: 2px; }
+    [data-composition-id="s07-lunes"] .etq { position: absolute; left: 0; right: 0; top: 1392px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #c9a26b; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s07-lunes"] .hoja { position: absolute; left: 420px; top: 900px; width: 240px; height: 200px; background: #f1ece0; color: #070b12; font-size: 56px; text-align: center; line-height: 200px; letter-spacing: 0.08em; box-shadow: 0 6px 0 rgba(0,0,0,0.35); }
+
+  </style>
+  <div id="root" data-composition-id="s07-lunes" data-width="1080" data-height="1920" data-duration="6.2">
+    <div id="s07-lunes-capa" class="capa clip" data-start="0" data-duration="6.2" data-track-index="0">
+      <div class="esc">
+
+        <div class="foto"><svg viewBox="0 0 728 748" aria-hidden="true"><g class="altura"><path class="fina" d="M0 80 H728" /><text class="rotulo" x="16" y="70" style="font-size:22px" data-layout-ignore>190</text><path class="fina" d="M0 140 H728" /><path class="fina" d="M0 200 H728" /><text class="rotulo" x="16" y="190" style="font-size:22px" data-layout-ignore>170</text><path class="fina" d="M0 260 H728" /><path class="fina" d="M0 320 H728" /><text class="rotulo" x="16" y="310" style="font-size:22px" data-layout-ignore>150</text><path class="fina" d="M0 380 H728" /><path class="fina" d="M0 440 H728" /><text class="rotulo" x="16" y="430" style="font-size:22px" data-layout-ignore>130</text><path class="fina" d="M0 500 H728" /></g><g class="sosp"><rect class="linea" x="200" y="140" width="330" height="380" rx="14" fill="#0d1520" /><path class="linea" d="M200 230 H530" /><rect x="203" y="143" width="324" height="85" rx="12" fill="#e0313b" opacity="0.85" /><path class="linea" d="M280 110 V170 M450 110 V170" /><g class="ojos"><ellipse cx="330.0" cy="400" rx="21" ry="25" fill="#f1ece0" /><ellipse cx="400.0" cy="400" rx="21" ry="25" fill="#f1ece0" /><circle class="pupila" cx="336.0" cy="406" r="9.450000000000001" fill="#070b12" /><circle class="pupila" cx="406.0" cy="406" r="9.450000000000001" fill="#070b12" /></g><path class="linea" d="M308.0 364 L348.0 374" /><path class="linea" d="M422.0 364 L382.0 374" /><path class="linea" d="M340 462 Q365 452 390 462" /></g></svg><div class="cartel"><b>SOSPECHOSO 04</b><i>ALIAS: "PASÁ EL LUNES"</i></div></div>
+        <div class="abs gorda lun" style="left:376px;top:836px;width:330px;text-align:center;font-size:60px;color:#f1ece0">LUNES</div>
+        <div class="hoja h0 mono">MAR</div><div class="hoja h1 mono">MIÉ</div><div class="hoja h2 mono">JUE</div><div class="hoja h3 mono">VIE</div><div class="hoja h4 mono">SÁB</div><div class="hoja h5 mono">DOM</div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><g class="lapida"><path class="tierra" d="M200 1330 C300 1290 780 1290 880 1330" fill="none" stroke="#8a6a3e" stroke-width="6" stroke-linecap="round" /><path d="M330 1320 V860 C330 720 750 720 750 860 V1320 Z" fill="#0d1520" stroke="#f1ece0" stroke-width="6" /><path class="fina" d="M370 1300 V870 C370 770 710 770 710 870 V1300" /><g class="flor"><path class="linea" d="M800 1320 C790 1270 800 1240 810 1220" stroke="#c9a26b" /><circle cx="810" cy="1205" r="16" fill="#ffd23f" /><circle cx="810" cy="1205" r="6" fill="#e0313b" /></g></g></svg>
+        <div class="abs txt-lap centro maq" style="top:900px;font-size:36px;line-height:1.45;color:#f1ece0"><div>AQUÍ YACE</div><div class="gorda" style="font-size:46px;color:#ffd23f;margin:10px 0">UNA VENTA</div><div style="font-size:28px;color:#c9a26b">MARTES · 23:40</div><div style="font-size:26px;color:#c9a26b;margin-top:16px">Q.E.P.D.</div></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-lunes";
+      const DUR = 6.2;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde = 0) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - desde), opacity: desde > 0 ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.03 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const tipear = (el, texto, t, paso) => {
+        el.innerHTML = [...texto].map((c) => '<span class="letra">' + (c === " " ? "&nbsp;" : c) + "</span>").join("");
+        [...el.querySelectorAll(".letra")].forEach((s, i) => tl.set(s, { opacity: 1 }, t + i * paso));
+      };
+      const golpe = (t, k = 1) => [[-14, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot = -6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.3, rotation: rot - 10 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12);
+        golpe(t + 0.05);
+      };
+      const pop = (el, t, extra = {}) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.8, ...extra }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, t);
+      };
+      const entra = (el, t, desde = { y: 24 }) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+      const parpadeo = (el, ts) => ts.forEach((t) => tl.to(el, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t));
+
+
+      const CUATRO = 0.4, PASA = 1.5, LUNES = 2.8, ENTERRADA = 4.9;
+      tl.fromTo(q(".foto"), { scale: 1.08, rotation: 3 }, { scale: 1, rotation: 0, duration: 0.35, ease: "power3.out" }, 0);
+      dibujar(qa(".sosp .linea"), 0, 0.5, 0.5);
+      tl.fromTo(q(".cartel"), { y: 140 }, { y: 0, duration: 0.3, ease: "back.out(1.6)" }, CUATRO - 0.2);
+      tl.fromTo(q(".lun"), { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.2 }, 0.1);
+      parpadeo(q(".sosp .ojos"), [1.1, 2.3]);
+      tl.to(qa(".sosp .pupila"), { x: 10, duration: 0.15, yoyo: true, repeat: 1 }, PASA);
+      // "el lunes": las hojas de la semana se arrancan y vuelan
+      qa(".hoja").forEach((h, i) => {
+        gsap.set(h, { opacity: 0 });
+        const t = LUNES - 0.4 + i * 0.22;
+        tl.set(h, { opacity: 1 }, t);
+        tl.fromTo(h, { x: 0, y: 0, rotation: 0 }, { x: 420 - i * 60, y: -260 + i * 40, rotation: 35 + i * 12, opacity: 0, duration: 0.55, ease: "power2.in", immediateRender: false }, t + 0.05);
+      });
+      // "enterrada": todo se apaga y sube la lápida
+      tl.to([q(".foto"), q(".lun")], { opacity: 0.12, scale: 0.92, duration: 0.4 }, ENTERRADA - 0.8);
+      gsap.set([q(".lapida"), q(".txt-lap")], { opacity: 0 });
+      tl.fromTo(q(".lapida"), { opacity: 1, y: 520 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", immediateRender: false }, ENTERRADA - 0.75);
+      tl.fromTo(q(".txt-lap"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out", immediateRender: false }, ENTERRADA - 0.25);
+      tl.fromTo(q(".flor"), { rotation: -8 }, { rotation: 8, svgOrigin: "800 1320", duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut" }, ENTERRADA - 0.1);
+      tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.06, duration: DUR - ENTERRADA + 0.8, ease: "none", transformOrigin: "50% 60%" }, ENTERRADA - 0.8);
+
+      tl.to(q(".capa"), { scale: 1.1, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
