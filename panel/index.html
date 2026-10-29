@@ -15,6 +15,7 @@
     --rojo: #ff5a5f; --amarillo: #ffd23f; --radio: 14px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  [hidden] { display: none !important; }
   body { background: var(--fondo); color: var(--texto); font: 15px/1.5 "Lexend", system-ui, sans-serif; min-height: 100vh; }
   button, input, select, textarea { font: inherit; color: inherit; }
   .mono { font-family: "IBM Plex Mono", monospace; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px; }
@@ -242,7 +243,7 @@ async function cargarReels() {
       const t = document.createElement("article");
       t.className = "tarjeta";
       t.innerHTML = `
-        <video src="/api/video?slug=${r.slug}" preload="none" controls playsinline></video>
+        <video src="/api/video?slug=${r.slug}#t=1.5" preload="metadata" controls playsinline></video>
         <div class="cuerpo">
           <div class="meta"><span class="etiqueta">${r.fecha}</span>
             <span class="etiqueta ${r.enTikTok ? "ok" : ""}">${r.enTikTok ? "Ya en TikTok" : "Sin publicar en TikTok"}</span></div>
