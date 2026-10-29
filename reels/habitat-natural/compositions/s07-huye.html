@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-huye"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-huye"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-huye"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* rótulo manuscrito (Caveat) */
+    [data-composition-id="s07-huye"] .rot { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+    /* palabra grande impresa / sello */
+    [data-composition-id="s07-huye"] .g { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s07-huye"] .sello { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; color: #b8432f; border: 7px solid #b8432f; border-radius: 12px; padding: 12px 22px; background: rgba(241, 230, 200, 0.6); }
+    [data-composition-id="s07-huye"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.22em; text-transform: uppercase; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+
+  </style>
+  <div id="root" data-composition-id="s07-huye" data-width="1080" data-height="1920" data-duration="8.48">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="8.48" data-track-index="0">
+      <div class="s07-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+  <path class="s07-suelo" d="M100 1300 H980" stroke="#4a2f1a" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 16" />
+  <g class="s07-izq"><g transform="translate(250 1150) scale(0.62)">
+  <path d="M-170 -10 V-220 H170 V-10 Z" fill="#f1e6c8" stroke="#4a2f1a" stroke-width="6" stroke-linejoin="round" />
+  <path d="M-190 -220 L-160 -290 H160 L190 -220 Z" fill="#d6a85a" fill-opacity="0.75" stroke="#4a2f1a" stroke-width="6" stroke-linejoin="round" />
+  <path d="M-110 -290 L-120 -220 M-50 -290 L-55 -220 M10 -290 L10 -220 M70 -290 L75 -220 M130 -290 L140 -220" stroke="#4a2f1a" stroke-width="4" />
+  <rect x="-140" y="-190" width="140" height="110" fill="#d6a85a" fill-opacity="0.35" stroke="#4a2f1a" stroke-width="5" />
+  <rect x="40" y="-190" width="100" height="180" fill="#d6a85a" fill-opacity="0.55" stroke="#4a2f1a" stroke-width="5" />
+  <circle cx="122" cy="-100" r="6" fill="#4a2f1a" />
+  <path d="M-200 -10 H200" stroke="#4a2f1a" stroke-width="6" stroke-linecap="round" /></g></g>
+  <g class="s07-der"><g transform="translate(820 1150) scale(0.62)">
+  <path d="M-170 -10 V-220 H170 V-10 Z" fill="#f1e6c8" stroke="#4a2f1a" stroke-width="6" stroke-linejoin="round" />
+  <path d="M-190 -220 L-160 -290 H160 L190 -220 Z" fill="#4f8a3c" fill-opacity="0.75" stroke="#4a2f1a" stroke-width="6" stroke-linejoin="round" />
+  <path d="M-110 -290 L-120 -220 M-50 -290 L-55 -220 M10 -290 L10 -220 M70 -290 L75 -220 M130 -290 L140 -220" stroke="#4a2f1a" stroke-width="4" />
+  <rect x="-140" y="-190" width="140" height="110" fill="#d6a85a" fill-opacity="0.35" stroke="#4a2f1a" stroke-width="5" />
+  <rect x="40" y="-190" width="100" height="180" fill="#d6a85a" fill-opacity="0.55" stroke="#4a2f1a" stroke-width="5" />
+  <circle cx="122" cy="-100" r="6" fill="#4a2f1a" />
+  <path d="M-200 -10 H200" stroke="#4a2f1a" stroke-width="6" stroke-linecap="round" /></g></g>
+  <g class="s07-rayos" stroke="#d6a85a" stroke-width="6" stroke-linecap="round"><path d="M780 1000 l-14 -26 M808 994 V964 M836 1000 l14 -26 M760 1024 h-26 M856 1024 h26" /></g>
+  <rect class="s07-cel" x="790" y="1010" width="36" height="58" rx="7" fill="#4a2f1a" stroke="#d6a85a" stroke-width="5" />
+  <path class="s07-huellas" d="M330 1268 Q520 1200 740 1268" fill="none" stroke="#b8432f" stroke-width="7" stroke-linecap="round" stroke-dasharray="4 22" />
+  <g class="s07-manada" fill="#4f8a3c" stroke="#4a2f1a" stroke-width="4">
+    <g class="s07-m"><circle cx="680" cy="1196" r="20" /><path d="M662 1290 Q660 1222 680 1218 Q700 1222 698 1290 Z" /></g>
+    <g class="s07-m"><circle cx="960" cy="1196" r="20" /><path d="M942 1290 Q940 1222 960 1218 Q980 1222 978 1290 Z" /></g>
+    <g class="s07-m"><circle cx="930" cy="1226" r="16" /><path d="M916 1294 Q914 1246 930 1244 Q946 1246 944 1294 Z" /></g>
+  </g>
+  <g class="s07-presa"><g transform="translate(400 1290) scale(0.6)">
+  <path class="s07-patas" d="M-16 0 L-8 -84 M16 0 L8 -84" fill="none" stroke="#4a2f1a" stroke-width="6" stroke-linecap="round" />
+  <path d="M-36 -80 Q-40 -196 0 -200 Q40 -196 36 -80 Z" fill="#4f8a3c" fill-opacity="0.75" stroke="#4a2f1a" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-24 -274 Q-52 -326 -34 -330 Q-14 -306 -12 -276 Z M24 -274 Q52 -326 34 -330 Q14 -306 12 -276 Z" fill="#4f8a3c" fill-opacity="0.6" stroke="#4a2f1a" stroke-width="4" stroke-linejoin="round" />
+  <circle cx="0" cy="-240" r="40" fill="#4f8a3c" fill-opacity="0.45" stroke="#4a2f1a" stroke-width="5" />
+  <circle cx="14" cy="-244" r="6" fill="#4a2f1a" />
+  <path d="M30 -160 Q60 -150 56 -126" fill="none" stroke="#4a2f1a" stroke-width="5" stroke-linecap="round" />
+  <rect x="34" y="-130" width="54" height="58" rx="5" fill="#d6a85a" fill-opacity="0.75" stroke="#4a2f1a" stroke-width="4" />
+  <path d="M46 -130 q15 -22 30 0" fill="none" stroke="#4a2f1a" stroke-width="4" /></g></g>
+  <ellipse class="s07-circ" cx="820" cy="1090" rx="200" ry="200" fill="none" stroke="#4a2f1a" stroke-width="6" stroke-linecap="round" />
+  <path class="s07-fl" d="M700 800 Q760 830 790 890" fill="none" stroke="#4a2f1a" stroke-width="5" stroke-linecap="round" />
+  <g class="s07-arb"><g transform="translate(690 1440) scale(0.55)">
+  <g class="s07a-cam">
+    <rect x="-150" y="-176" width="96" height="64" rx="8" fill="#4a2f1a" />
+    <circle cx="-120" cy="-194" r="20" fill="none" stroke="#4a2f1a" stroke-width="5" /><circle cx="-80" cy="-194" r="20" fill="none" stroke="#4a2f1a" stroke-width="5" />
+    <path d="M-150 -160 L-188 -176 V-112 L-150 -128 Z" fill="#4a2f1a" />
+    <circle cx="-174" cy="-144" r="10" fill="#f1e6c8" />
+  </g>
+  <g class="s07a-ojos"><ellipse cx="6" cy="-216" rx="15" ry="18" fill="#f1e6c8" stroke="#4a2f1a" stroke-width="4" /><ellipse cx="44" cy="-216" rx="15" ry="18" fill="#f1e6c8" stroke="#4a2f1a" stroke-width="4" />
+    <circle class="s07a-pupila" cx="2" cy="-214" r="7" fill="#4a2f1a" /><circle class="s07a-pupila" cx="40" cy="-214" r="7" fill="#4a2f1a" /></g>
+  <g class="s07a-mata">
+    <g fill="#4a2f1a" stroke="#4a2f1a" stroke-width="10"><circle cx="-96" cy="-66" r="70" /><circle cx="96" cy="-66" r="70" /><circle cx="0" cy="-118" r="82" /><circle cx="-46" cy="-36" r="62" /><circle cx="52" cy="-36" r="62" /></g>
+    <g fill="#4f8a3c"><circle cx="-96" cy="-66" r="70" /><circle cx="96" cy="-66" r="70" /><circle cx="0" cy="-118" r="82" /><circle cx="-46" cy="-36" r="62" /><circle cx="52" cy="-36" r="62" /></g>
+  <path d="M-70 -90 q20 -20 40 0 M30 -130 q20 -20 40 0 M60 -60 q16 -16 32 0" fill="none" stroke="#4a2f1a" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+  </g></g></g>
+  <path class="s07-lagrima" d="M693 1322 Q681 1342 693 1352 Q705 1342 693 1322 Z" fill="#f1e6c8" stroke="#4a2f1a" stroke-width="3" />
+</svg>
+<div class="rot s07-r1" style="left: 130px; top: 640px; font-size: 54px; transform: rotate(-2deg)">la manada del de enfrente</div>
+<div class="rot s07-r2" style="left: 440px; top: 730px; font-size: 56px; transform: rotate(-3deg)">especie más evolucionada</div>
+<div class="rot s07-zas" style="left: 560px; top: 1100px; font-size: 90px; color: #b8432f; transform: rotate(-10deg)">¡zas!</div>
+<div class="mono s07-cartel" style="left: 120px; top: 1330px; font-size: 26px" data-layout-ignore>TERRITORIO DEL EJEMPLAR</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-huye";
+      const DUR = 8.48;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const L = (s) => (typeof s === "string" ? qa(s) : [s].flat());
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s07-escenario");
+      const sacudon = (t, f = 1) => [[-12 * f, 7 * f], [9 * f, -5 * f], [-4 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece entero: pop (queda invisible hasta su tiempo)
+      const pop = (el, t, d = 0.32, desde = 0.6) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: desde, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // mancha de acuarela: fade suave que se expande
+      const acuarela = (el, t, d = 0.45) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: 0.94, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "power2.out", immediateRender: false }, t); };
+      // sello que cae torcido
+      const cae = (el, t, rot = -6) => { const e = L(el); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: 2.2, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      // trazo que se dibuja (opacity 0 hasta que arranca, sin puntitos)
+      const dibujar = (sel, t, d = 0.6) => L(sel).forEach((p) => { const Lg = Math.ceil(p.getTotalLength()) + 2; gsap.set(p, { strokeDasharray: Lg, strokeDashoffset: Lg, opacity: 0 }); tl.set(p, { opacity: 1 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      // escribir a mano = destapar el texto de izquierda a derecha
+      const escribir = (el, t, d = 0.5) => L(el).forEach((e) => { gsap.set(e, { clipPath: "inset(-20% 100% -20% -2%)" }); tl.to(e, { clipPath: "inset(-20% 0% -20% -2%)", duration: d, ease: "none" }, t); });
+      const sale = (el, t, d = 0.22) => tl.to(L(el), { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const vaiven = (el, props, d, t0, t1 = DUR) => tl.to(L(el), Object.assign({ duration: d, yoyo: true, repeat: Math.max(1, Math.floor((t1 - t0) / d) - 1), ease: "sine.inOut" }, props), t0);
+const HUYE = 0.43, MANADA = 1.28, ENF = 1.96, ESPECIE = 3.85, EVO = 4.44, ATRAPA = 5.3, SEG = 5.9, POBRE = 7.05;
+      tl.fromTo(ESC, { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+      tl.fromTo([q(".s07-izq"), q(".s07-der")], { opacity: 0.6, y: 30 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.08, ease: "back.out(1.5)" }, 0);
+      dibujar(".s07-suelo", 0, 0.5);
+      pop(".s07-cartel", 0.2, 0.3);
+      // la presa huye dejando huellas
+      tl.fromTo(q(".s07-presa"), { x: 0 }, { x: 330, duration: 1.4, ease: "power1.inOut" }, HUYE);
+      [0, 1, 2, 3, 4, 5, 6, 7, 8].forEach((i) => tl.to(q(".s07-presa"), { y: i % 2 ? 0 : -22, duration: 0.15, ease: "sine.inOut" }, HUYE + i * 0.155));
+      dibujar(".s07-huellas", HUYE + 0.1, 1.3);
+      // la manada
+      pop(".s07-m", MANADA, 0.3, 0.3);
+      tl.from(qa(".s07-m"), { y: 30, stagger: 0.1, duration: 0.3, immediateRender: false }, MANADA);
+      vaiven(".s07-m", { y: -6 }, 0.35, MANADA + 0.4, ATRAPA + 1);
+      escribir(".s07-r1", MANADA - 0.1, 0.8);
+      sale(".s07-r1", ESPECIE - 0.5, 0.25);
+      // especie más evolucionada: se marca el local
+      dibujar(".s07-circ", ESPECIE - 0.1, 0.5);
+      escribir(".s07-r2", ESPECIE, 0.7);
+      dibujar(".s07-fl", EVO + 0.3, 0.3);
+      pop(".s07-cel", EVO - 0.1, 0.3);
+      gsap.set(q(".s07-rayos"), { opacity: 0 });
+      tl.to(q(".s07-rayos"), { opacity: 1, duration: 0.2 }, EVO);
+      vaiven(".s07-rayos", { opacity: 0.3 }, 0.25, EVO + 0.2, POBRE);
+      // la atrapa en segundos
+      tl.to(q(".s07-presa"), { x: 420, scale: 0.4, opacity: 0, svgOrigin: "400 1290", duration: 0.35, ease: "power3.in" }, ATRAPA - 0.1);
+      pop(".s07-zas", ATRAPA + 0.2, 0.25);
+      sacudon(ATRAPA + 0.25, 0.9);
+      // pobre bicho: el camarógrafo asoma con una lágrima
+      gsap.set(q(".s07-arb"), { y: 160, opacity: 0 });
+      tl.set(q(".s07-arb"), { opacity: 1 }, POBRE - 0.4);
+      tl.to(q(".s07-arb"), { y: 0, duration: 0.4, ease: "back.out(1.6)" }, POBRE - 0.4);
+      gsap.set(q(".s07-lagrima"), { opacity: 0 });
+      tl.fromTo(q(".s07-lagrima"), { opacity: 1, y: 0 }, { opacity: 0, y: 70, duration: 0.8, ease: "power1.in", immediateRender: false }, POBRE + 0.2);
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

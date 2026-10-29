@@ -1,0 +1,118 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-ejemplar"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-ejemplar"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-ejemplar"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* rótulo manuscrito (Caveat) */
+    [data-composition-id="s02-ejemplar"] .rot { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+    /* palabra grande impresa / sello */
+    [data-composition-id="s02-ejemplar"] .g { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s02-ejemplar"] .sello { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; color: #b8432f; border: 7px solid #b8432f; border-radius: 12px; padding: 12px 22px; background: rgba(241, 230, 200, 0.6); }
+    [data-composition-id="s02-ejemplar"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.22em; text-transform: uppercase; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+
+  </style>
+  <div id="root" data-composition-id="s02-ejemplar" data-width="1080" data-height="1920" data-duration="6.18">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="6.18" data-track-index="0">
+      <div class="s02-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+  <defs>
+    <mask id="s02-m" maskUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1920">
+      <rect x="0" y="0" width="1080" height="1920" fill="#fff" />
+      <g class="s02-agujeros"><circle cx="420" cy="1000" r="250" fill="#000" /><circle cx="660" cy="1000" r="250" fill="#000" /></g>
+    </mask>
+  </defs>
+  <g class="s02-ej"><g transform="translate(540 870)">
+  <g class="s02-cuerpo">
+    <path d="M-150 330 Q-140 140 -60 108 Q0 132 60 108 Q140 140 150 330 Z" fill="#f1e6c8" stroke="#4a2f1a" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-48 116 L-62 330 M48 116 L62 330" fill="none" stroke="#4a2f1a" stroke-width="4" stroke-linecap="round" />
+    <rect x="-36" y="220" width="72" height="56" rx="6" fill="#d6a85a" fill-opacity="0.45" stroke="#4a2f1a" stroke-width="4" />
+  </g>
+  <g class="s02-cabeza">
+    <circle cx="-74" cy="6" r="15" fill="#d6a85a" fill-opacity="0.6" stroke="#4a2f1a" stroke-width="5" />
+    <circle cx="74" cy="6" r="15" fill="#d6a85a" fill-opacity="0.6" stroke="#4a2f1a" stroke-width="5" />
+    <circle cx="0" cy="0" r="74" fill="#ead2a2" stroke="#4a2f1a" stroke-width="6" />
+    <path d="M-30 -70 q6 -20 13 -4 M-6 -75 q6 -20 13 -4 M18 -70 q6 -18 13 -2" fill="none" stroke="#4a2f1a" stroke-width="4" stroke-linecap="round" />
+    <path class="s02-cejas" d="M-44 -30 L-12 -22 M44 -30 L12 -22" fill="none" stroke="#4a2f1a" stroke-width="6" stroke-linecap="round" />
+    <g class="s02-ojos"><circle cx="-26" cy="-6" r="7" fill="#4a2f1a" /><circle cx="26" cy="-6" r="7" fill="#4a2f1a" /></g>
+    <path d="M-50 28 Q-26 8 0 22 Q26 8 50 28 Q26 40 0 30 Q-26 40 -50 28 Z" fill="#4a2f1a" />
+    <path class="s02-boca" d="M-14 50 Q0 54 14 50" fill="none" stroke="#4a2f1a" stroke-width="4" stroke-linecap="round" />
+  </g>
+  <g class="s02-mostrador">
+    <rect x="-280" y="196" width="560" height="190" rx="6" fill="#e2c48c" stroke="#4a2f1a" stroke-width="6" />
+    <path d="M-280 236 H280" stroke="#4a2f1a" stroke-width="5" />
+    <path d="M-240 280 q60 -12 120 0 M-40 320 q70 -14 140 0 M150 290 q40 -10 90 0" fill="none" stroke="#4a2f1a" stroke-width="3" stroke-linecap="round" opacity="0.5" />
+  </g></g></g>
+  <g class="s02-cel">
+    <rect x="690" y="1020" width="64" height="104" rx="12" fill="#4a2f1a" stroke="#4a2f1a" stroke-width="4" transform="rotate(12 722 1072)" />
+    <rect x="700" y="1034" width="44" height="70" rx="4" fill="#d6a85a" transform="rotate(12 722 1072)" />
+  </g>
+  <path class="s02-vib" d="M666 1030 l-22 -10 M662 1070 h-26 M666 1110 l-22 10 M790 1040 l22 -12 M796 1080 h26 M790 1120 l22 10" fill="none" stroke="#b8432f" stroke-width="6" stroke-linecap="round" />
+  <rect class="s02-vin" x="40" y="500" width="1000" height="1040" fill="#17251a" fill-opacity="0.9" mask="url(#s02-m)" />
+  <path class="s02-fl1" d="M320 690 Q380 720 420 790" fill="none" stroke="#f1e6c8" stroke-width="5" stroke-linecap="round" />
+  <path class="s02-fl2" d="M620 1330 Q580 1300 560 1230" fill="none" stroke="#f1e6c8" stroke-width="5" stroke-linecap="round" />
+</svg>
+<div class="rot s02-r1" style="left: 96px; top: 612px; font-size: 62px; color: #f1e6c8">ejemplar macho, adulto</div>
+<div class="rot s02-r2" style="left: 560px; top: 1330px; font-size: 58px; color: #f1e6c8">Mostradorus vulgaris</div>
+<div class="rot s02-r3" style="left: 760px; top: 700px; font-size: 64px; color: #e2b25a; transform: rotate(-6deg)">shhh...</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-ejemplar";
+      const DUR = 6.18;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const L = (s) => (typeof s === "string" ? qa(s) : [s].flat());
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s02-escenario");
+      const sacudon = (t, f = 1) => [[-12 * f, 7 * f], [9 * f, -5 * f], [-4 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece entero: pop (queda invisible hasta su tiempo)
+      const pop = (el, t, d = 0.32, desde = 0.6) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: desde, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // mancha de acuarela: fade suave que se expande
+      const acuarela = (el, t, d = 0.45) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: 0.94, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "power2.out", immediateRender: false }, t); };
+      // sello que cae torcido
+      const cae = (el, t, rot = -6) => { const e = L(el); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: 2.2, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      // trazo que se dibuja (opacity 0 hasta que arranca, sin puntitos)
+      const dibujar = (sel, t, d = 0.6) => L(sel).forEach((p) => { const Lg = Math.ceil(p.getTotalLength()) + 2; gsap.set(p, { strokeDasharray: Lg, strokeDashoffset: Lg, opacity: 0 }); tl.set(p, { opacity: 1 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      // escribir a mano = destapar el texto de izquierda a derecha
+      const escribir = (el, t, d = 0.5) => L(el).forEach((e) => { gsap.set(e, { clipPath: "inset(-20% 100% -20% -2%)" }); tl.to(e, { clipPath: "inset(-20% 0% -20% -2%)", duration: d, ease: "none" }, t); });
+      const sale = (el, t, d = 0.22) => tl.to(L(el), { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const vaiven = (el, props, d, t0, t1 = DUR) => tl.to(L(el), Object.assign({ duration: d, yoyo: true, repeat: Math.max(1, Math.floor((t1 - t0) / d) - 1), ease: "sine.inOut" }, props), t0);
+const EJ = 0.08, MACHO = 0.6, ACECHA = 1.35, MOST = 2.39, SIL = 3.45, CEL = 4.74, VIB = 4.96;
+      // los prismáticos enfocan: los agujeros se acomodan
+      tl.fromTo(q(".s02-agujeros"), { x: -120, y: 40, scale: 0.85, svgOrigin: "540 1000" }, { x: 0, y: 0, scale: 1, svgOrigin: "540 1000", duration: 0.6, ease: "power3.out" }, 0);
+            tl.fromTo(q(".s02-ej"), { filter: "blur(6px)" }, { filter: "blur(0px)", duration: 0.5, ease: "power2.out" }, 0.05);
+      [[8, -4], [-6, 5], [5, 2], [-3, -4], [4, 3], [-2, 2], [3, -3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s02-agujeros"), { x, y, duration: 0.6, ease: "sine.inOut" }, 0.7 + i * 0.6));
+      escribir(".s02-r1", EJ + 0.05, 0.7);
+      dibujar(".s02-fl1", MACHO + 0.2, 0.35);
+      // acecha: se agacha y entrecierra los ojos
+      tl.to(q(".s02-ej"), { y: 26, duration: 0.5, ease: "power2.inOut" }, ACECHA);
+      tl.to(q(".s02-cejas"), { y: 8, duration: 0.3 }, ACECHA);
+      tl.to(q(".s02-ojos"), { scaleY: 0.35, svgOrigin: "0 -6", duration: 0.3 }, ACECHA);
+      tl.to(q(".s02-ojos"), { x: 12, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, ACECHA + 0.4);
+      escribir(".s02-r2", MOST - 0.1, 0.6);
+      dibujar(".s02-fl2", MOST + 0.3, 0.3);
+      // silencio
+      pop(".s02-r3", SIL, 0.35);
+      tl.to(q(".s02-r3"), { opacity: 0, duration: 0.3 }, CEL - 0.4);
+      // el celular vibra
+      gsap.set(q(".s02-vib"), { opacity: 0 });
+      [0, 0.25, 0.5, 0.75].forEach((d) => { tl.set(q(".s02-vib"), { opacity: 1 }, CEL + d); tl.set(q(".s02-vib"), { opacity: 0 }, CEL + d + 0.14); });
+      [-6, 6, -6, 6, -4, 4, -3, 3, 0].forEach((x, i) => tl.to(q(".s02-cel"), { x, duration: 0.05, ease: "none" }, CEL + i * 0.05));
+      [-6, 6, -6, 6, 0].forEach((x, i) => tl.to(q(".s02-cel"), { x, duration: 0.05, ease: "none" }, VIB + 0.3 + i * 0.05));
+      tl.to(q(".s02-ojos"), { scaleY: 1.3, x: 26, svgOrigin: "0 -6", duration: 0.2 }, VIB);
+      tl.to(q(".s02-cejas"), { y: -10, duration: 0.2 }, VIB);
+      sacudon(VIB, 0.5);
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

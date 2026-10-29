@@ -1,0 +1,89 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-intervenimos"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-intervenimos"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-intervenimos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* rótulo manuscrito (Caveat) */
+    [data-composition-id="s05-intervenimos"] .rot { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+    /* palabra grande impresa / sello */
+    [data-composition-id="s05-intervenimos"] .g { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s05-intervenimos"] .sello { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; color: #b8432f; border: 7px solid #b8432f; border-radius: 12px; padding: 12px 22px; background: rgba(241, 230, 200, 0.6); }
+    [data-composition-id="s05-intervenimos"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.22em; text-transform: uppercase; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+
+  </style>
+  <div id="root" data-composition-id="s05-intervenimos" data-width="1080" data-height="1920" data-duration="3.23">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.23" data-track-index="0">
+      <div class="s05-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+  <g class="s05-arb"><g transform="translate(600 1290) scale(1.5)">
+  <g class="s05-cam">
+    <rect x="-150" y="-176" width="96" height="64" rx="8" fill="#4a2f1a" />
+    <circle cx="-120" cy="-194" r="20" fill="none" stroke="#4a2f1a" stroke-width="5" /><circle cx="-80" cy="-194" r="20" fill="none" stroke="#4a2f1a" stroke-width="5" />
+    <path d="M-150 -160 L-188 -176 V-112 L-150 -128 Z" fill="#4a2f1a" />
+    <circle cx="-174" cy="-144" r="10" fill="#f1e6c8" />
+  </g>
+  <g class="s05-ojos"><ellipse cx="6" cy="-216" rx="15" ry="18" fill="#f1e6c8" stroke="#4a2f1a" stroke-width="4" /><ellipse cx="44" cy="-216" rx="15" ry="18" fill="#f1e6c8" stroke="#4a2f1a" stroke-width="4" />
+    <circle class="s05-pupila" cx="2" cy="-214" r="7" fill="#4a2f1a" /><circle class="s05-pupila" cx="40" cy="-214" r="7" fill="#4a2f1a" /></g>
+  <g class="s05-mata">
+    <g fill="#4a2f1a" stroke="#4a2f1a" stroke-width="10"><circle cx="-96" cy="-66" r="70" /><circle cx="96" cy="-66" r="70" /><circle cx="0" cy="-118" r="82" /><circle cx="-46" cy="-36" r="62" /><circle cx="52" cy="-36" r="62" /></g>
+    <g fill="#4f8a3c"><circle cx="-96" cy="-66" r="70" /><circle cx="96" cy="-66" r="70" /><circle cx="0" cy="-118" r="82" /><circle cx="-46" cy="-36" r="62" /><circle cx="52" cy="-36" r="62" /></g>
+  <path d="M-70 -90 q20 -20 40 0 M30 -130 q20 -20 40 0 M60 -60 q16 -16 32 0" fill="none" stroke="#4a2f1a" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+  </g></g></g>
+  <path class="s05-cola" d="M560 770 L610 850 L630 770" fill="#f1e6c8" stroke="#4a2f1a" stroke-width="5" stroke-linejoin="round" />
+  <path class="s05-sub" d="M320 800 Q540 784 760 800 M330 826 Q540 810 740 826" fill="none" stroke="#b8432f" stroke-width="7" stroke-linecap="round" />
+</svg>
+<div class="s05-burb" style="position: absolute; left: 170px; top: 640px; width: 740px; padding: 24px 30px; background: #f1e6c8; border: 5px solid #4a2f1a; border-radius: 40px; font-family: 'Caveat', cursive; font-weight: 700; font-size: 72px; color: #4a2f1a; text-align: center; white-space: nowrap; line-height: 1.1">¿no lo vamos a ayudar?</div>
+<div class="s05-regla" style="position: absolute; left: 150px; top: 610px; width: 780px; height: 260px; background: #f1e6c8; border: 4px solid #4a2f1a; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25); transform: rotate(-2deg)">
+  <div class="mono" style="left: 0; right: 0; top: 34px; text-align: center">Reglamento del documental</div>
+  <div class="rot s05-r1" style="left: 0; right: 0; top: 100px; text-align: center; font-size: 76px">Regla 1: nunca intervenimos.</div>
+</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-intervenimos";
+      const DUR = 3.23;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const L = (s) => (typeof s === "string" ? qa(s) : [s].flat());
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s05-escenario");
+      const sacudon = (t, f = 1) => [[-12 * f, 7 * f], [9 * f, -5 * f], [-4 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece entero: pop (queda invisible hasta su tiempo)
+      const pop = (el, t, d = 0.32, desde = 0.6) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: desde, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // mancha de acuarela: fade suave que se expande
+      const acuarela = (el, t, d = 0.45) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: 0.94, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "power2.out", immediateRender: false }, t); };
+      // sello que cae torcido
+      const cae = (el, t, rot = -6) => { const e = L(el); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: 2.2, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      // trazo que se dibuja (opacity 0 hasta que arranca, sin puntitos)
+      const dibujar = (sel, t, d = 0.6) => L(sel).forEach((p) => { const Lg = Math.ceil(p.getTotalLength()) + 2; gsap.set(p, { strokeDasharray: Lg, strokeDashoffset: Lg, opacity: 0 }); tl.set(p, { opacity: 1 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      // escribir a mano = destapar el texto de izquierda a derecha
+      const escribir = (el, t, d = 0.5) => L(el).forEach((e) => { gsap.set(e, { clipPath: "inset(-20% 100% -20% -2%)" }); tl.to(e, { clipPath: "inset(-20% 0% -20% -2%)", duration: d, ease: "none" }, t); });
+      const sale = (el, t, d = 0.22) => tl.to(L(el), { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const vaiven = (el, props, d, t0, t1 = DUR) => tl.to(L(el), Object.assign({ duration: d, yoyo: true, repeat: Math.max(1, Math.floor((t1 - t0) / d) - 1), ease: "sine.inOut" }, props), t0);
+const AYUDAR = 0.66, NUNCA = 1.49, INTERV = 1.92;
+      tl.fromTo(q(".s05-arb"), { y: 60, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      [[-6, 0], [6, 0], [-5, 0], [5, 0], [-3, 0], [0, 0]].forEach(([x], i) => tl.to(q(".s05-mata"), { x, duration: 0.06, ease: "none" }, 0.05 + i * 0.06));
+      vaiven(".s05-pupila", { x: -6 }, 0.35, 0.3, 1.4);
+      pop([q(".s05-burb"), q(".s05-cola")], 0.05, 0.3);
+      tl.to(q(".s05-burb"), { scale: 1.05, duration: 0.15, yoyo: true, repeat: 1 }, AYUDAR);
+      sale([q(".s05-burb"), q(".s05-cola")], NUNCA - 0.3, 0.2);
+      gsap.set(q(".s05-regla"), { opacity: 0 });
+      tl.fromTo(q(".s05-regla"), { opacity: 0, y: -80, rotation: -8 }, { opacity: 1, y: 0, rotation: -2, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, NUNCA - 0.1);
+      escribir(".s05-r1", NUNCA, 0.75);
+      dibujar(".s05-sub", INTERV + 0.3, 0.3);
+      tl.to(q(".s05-arb"), { y: 50, duration: 0.3, ease: "power2.in" }, INTERV);
+      tl.to(q(".s05-arb"), { y: 30, duration: 0.5, ease: "sine.inOut" }, INTERV + 0.4);
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

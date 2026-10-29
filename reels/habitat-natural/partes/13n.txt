@@ -1,0 +1,1 @@
+Tiene un agente de IA. Atiende por WhatsApp a cualquier hora, con sus precios y su stock. Agenda turnos. Y le escribe al que preguntó y no compró.

@@ -1,0 +1,97 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-enfrente"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-enfrente"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-enfrente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* rótulo manuscrito (Caveat) */
+    [data-composition-id="s10-enfrente"] .rot { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+    /* palabra grande impresa / sello */
+    [data-composition-id="s10-enfrente"] .g { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s10-enfrente"] .sello { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; color: #b8432f; border: 7px solid #b8432f; border-radius: 12px; padding: 12px 22px; background: rgba(241, 230, 200, 0.6); }
+    [data-composition-id="s10-enfrente"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.22em; text-transform: uppercase; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+
+  </style>
+  <div id="root" data-composition-id="s10-enfrente" data-width="1080" data-height="1920" data-duration="3.11">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="3.11" data-track-index="0">
+      <div class="s10-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+  <defs>
+    <mask id="s10-m" maskUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1920">
+      <rect x="0" y="0" width="1080" height="1920" fill="#fff" />
+      <g class="s10-agujeros"><circle cx="420" cy="1010" r="250" fill="#000" /><circle cx="660" cy="1010" r="250" fill="#000" /></g>
+    </mask>
+  </defs>
+  <g class="s10-mundo">
+    <g transform="translate(520 1230) scale(1.05)">
+  <path d="M-170 -10 V-220 H170 V-10 Z" fill="#f1e6c8" stroke="#4a2f1a" stroke-width="6" stroke-linejoin="round" />
+  <path d="M-190 -220 L-160 -290 H160 L190 -220 Z" fill="#4f8a3c" fill-opacity="0.75" stroke="#4a2f1a" stroke-width="6" stroke-linejoin="round" />
+  <path d="M-110 -290 L-120 -220 M-50 -290 L-55 -220 M10 -290 L10 -220 M70 -290 L75 -220 M130 -290 L140 -220" stroke="#4a2f1a" stroke-width="4" />
+  <rect x="-140" y="-190" width="140" height="110" fill="#d6a85a" fill-opacity="0.35" stroke="#4a2f1a" stroke-width="5" />
+  <rect x="40" y="-190" width="100" height="180" fill="#d6a85a" fill-opacity="0.55" stroke="#4a2f1a" stroke-width="5" />
+  <circle cx="122" cy="-100" r="6" fill="#4a2f1a" />
+  <path d="M-200 -10 H200" stroke="#4a2f1a" stroke-width="6" stroke-linecap="round" /></g>
+    <circle class="s10-glow" cx="700" cy="1090" r="110" fill="#5ce611" fill-opacity="0.22" />
+    <g class="s10-cel">
+      <rect x="640" y="980" width="124" height="220" rx="20" fill="#4a2f1a" />
+      <rect x="652" y="1000" width="100" height="180" rx="8" fill="#17251a" />
+      <circle cx="702" cy="1070" r="34" fill="none" stroke="#5ce611" stroke-width="6" />
+      <circle class="s10-ojo" cx="690" cy="1066" r="6" fill="#5ce611" /><circle class="s10-ojo" cx="714" cy="1066" r="6" fill="#5ce611" />
+      <path d="M672 1130 H732 M672 1152 H716" stroke="#5ce611" stroke-width="6" stroke-linecap="round" />
+    </g>
+  </g>
+  <rect x="40" y="500" width="1000" height="1040" fill="#17251a" fill-opacity="0.9" mask="url(#s10-m)" />
+  <path class="s10-fl" d="M560 720 Q680 760 700 950" fill="none" stroke="#f1e6c8" stroke-width="5" stroke-linecap="round" />
+</svg>
+<div class="rot s10-r0" style="left: 100px; top: 1330px; font-size: 58px; color: #f1e6c8">el de enfrente...</div>
+<div class="rot s10-r1" style="left: 200px; top: 620px; font-size: 70px; color: #5ce611">Agentis intelligens</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-enfrente";
+      const DUR = 3.11;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const L = (s) => (typeof s === "string" ? qa(s) : [s].flat());
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s10-escenario");
+      const sacudon = (t, f = 1) => [[-12 * f, 7 * f], [9 * f, -5 * f], [-4 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece entero: pop (queda invisible hasta su tiempo)
+      const pop = (el, t, d = 0.32, desde = 0.6) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: desde, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // mancha de acuarela: fade suave que se expande
+      const acuarela = (el, t, d = 0.45) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: 0.94, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "power2.out", immediateRender: false }, t); };
+      // sello que cae torcido
+      const cae = (el, t, rot = -6) => { const e = L(el); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: 2.2, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      // trazo que se dibuja (opacity 0 hasta que arranca, sin puntitos)
+      const dibujar = (sel, t, d = 0.6) => L(sel).forEach((p) => { const Lg = Math.ceil(p.getTotalLength()) + 2; gsap.set(p, { strokeDasharray: Lg, strokeDashoffset: Lg, opacity: 0 }); tl.set(p, { opacity: 1 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      // escribir a mano = destapar el texto de izquierda a derecha
+      const escribir = (el, t, d = 0.5) => L(el).forEach((e) => { gsap.set(e, { clipPath: "inset(-20% 100% -20% -2%)" }); tl.to(e, { clipPath: "inset(-20% 0% -20% -2%)", duration: d, ease: "none" }, t); });
+      const sale = (el, t, d = 0.22) => tl.to(L(el), { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const vaiven = (el, props, d, t0, t1 = DUR) => tl.to(L(el), Object.assign({ duration: d, yoyo: true, repeat: Math.max(1, Math.floor((t1 - t0) / d) - 1), ease: "sine.inOut" }, props), t0);
+const ENF = 0.34, HACE = 0.86, TIENE = 1.65, AGENTE = 1.9, IA = 2.5;
+      // los prismáticos giran hacia el de enfrente
+      tl.fromTo(q(".s10-mundo"), { x: -420 }, { x: 0, duration: 0.7, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s10-mundo"), { filter: "blur(5px)" }, { filter: "blur(0px)", duration: 0.5 }, 0.2);
+      [[6, -3], [-5, 4], [4, 2], [-3, -3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-agujeros"), { x, y, duration: 0.5, ease: "sine.inOut" }, 0.7 + i * 0.48));
+      escribir(".s10-r0", ENF, 0.55);
+      // el agente se prende
+      gsap.set([q(".s10-cel"), q(".s10-glow")], { opacity: 0 });
+      tl.fromTo(q(".s10-cel"), { opacity: 0, scale: 0.6, svgOrigin: "702 1090" }, { opacity: 1, scale: 1, svgOrigin: "702 1090", duration: 0.35, ease: "back.out(2)", immediateRender: false }, TIENE);
+      tl.fromTo(q(".s10-glow"), { opacity: 0, scale: 0.5, svgOrigin: "700 1090" }, { opacity: 1, scale: 1.2, svgOrigin: "700 1090", duration: 0.4, ease: "power2.out", immediateRender: false }, IA - 0.1);
+      vaiven(".s10-glow", { scale: 0.95, svgOrigin: "700 1090" }, 0.3, IA + 0.3);
+      tl.to(qa(".s10-ojo"), { scaleY: 0.2, svgOrigin: "702 1066", duration: 0.08, yoyo: true, repeat: 1 }, IA + 0.2);
+      escribir(".s10-r1", AGENTE - 0.05, 0.6);
+      dibujar(".s10-fl", IA, 0.3);
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

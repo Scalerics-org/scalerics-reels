@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-abrevadero"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-abrevadero"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-abrevadero"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* rótulo manuscrito (Caveat) */
+    [data-composition-id="s03-abrevadero"] .rot { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+    /* palabra grande impresa / sello */
+    [data-composition-id="s03-abrevadero"] .g { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s03-abrevadero"] .sello { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; color: #b8432f; border: 7px solid #b8432f; border-radius: 12px; padding: 12px 22px; background: rgba(241, 230, 200, 0.6); }
+    [data-composition-id="s03-abrevadero"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.22em; text-transform: uppercase; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+
+  </style>
+  <div id="root" data-composition-id="s03-abrevadero" data-width="1080" data-height="1920" data-duration="4.5">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="4.5" data-track-index="0">
+      <div class="s03-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+  <g class="s03-charco">
+    <path d="M300 1100 Q260 1110 250 1160 L230 1260 Q226 1300 270 1306 H800 Q850 1300 840 1260 L800 1140 Q790 1100 740 1100 Z" fill="#4f8a3c" fill-opacity="0.35" stroke="#4a2f1a" stroke-width="6" stroke-linejoin="round" />
+    <path d="M500 1112 H580" stroke="#4a2f1a" stroke-width="6" stroke-linecap="round" />
+    <path d="M310 1150 Q400 1140 470 1170 M620 1240 Q700 1230 780 1260" fill="none" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" opacity="0.8" />
+  </g>
+  <g class="s03-ondas" fill="none" stroke="#4a2f1a" stroke-width="4">
+    <ellipse class="s03-o" cx="560" cy="1210" rx="60" ry="16" /><ellipse class="s03-o" cx="560" cy="1210" rx="120" ry="32" /><ellipse class="s03-o" cx="560" cy="1210" rx="190" ry="50" />
+  </g>
+  <g class="s03-presa"><g transform="translate(250 1190)">
+  <path class="s03-patas" d="M-16 0 L-8 -84 M16 0 L8 -84" fill="none" stroke="#4a2f1a" stroke-width="6" stroke-linecap="round" />
+  <path d="M-36 -80 Q-40 -196 0 -200 Q40 -196 36 -80 Z" fill="#4f8a3c" fill-opacity="0.75" stroke="#4a2f1a" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-24 -274 Q-52 -326 -34 -330 Q-14 -306 -12 -276 Z M24 -274 Q52 -326 34 -330 Q14 -306 12 -276 Z" fill="#4f8a3c" fill-opacity="0.6" stroke="#4a2f1a" stroke-width="4" stroke-linejoin="round" />
+  <circle cx="0" cy="-240" r="40" fill="#4f8a3c" fill-opacity="0.45" stroke="#4a2f1a" stroke-width="5" />
+  <circle cx="14" cy="-244" r="6" fill="#4a2f1a" />
+  <path d="M30 -160 Q60 -150 56 -126" fill="none" stroke="#4a2f1a" stroke-width="5" stroke-linecap="round" />
+  <rect x="34" y="-130" width="54" height="58" rx="5" fill="#d6a85a" fill-opacity="0.75" stroke="#4a2f1a" stroke-width="4" />
+  <path d="M46 -130 q15 -22 30 0" fill="none" stroke="#4a2f1a" stroke-width="4" /></g></g>
+  <path class="s03-fl" d="M420 690 Q360 760 350 880" fill="none" stroke="#4a2f1a" stroke-width="5" stroke-linecap="round" />
+</svg>
+<div class="rot s03-r1" style="left: 330px; top: 612px; font-size: 66px">Clientis fugax</div>
+<div class="rot s03-r2" style="left: 600px; top: 1330px; font-size: 50px; transform: rotate(-3deg)">el abrevadero</div>
+<div class="s03-burbuja" style="position: absolute; left: 520px; top: 760px; padding: 18px 30px; background: #f1e6c8; border: 6px solid #4a2f1a; border-radius: 30px 30px 30px 6px; font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 56px; color: #4a2f1a; white-space: nowrap; line-height: 1">¿precio?</div>
+<!--CSS-->
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-abrevadero";
+      const DUR = 4.5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const L = (s) => (typeof s === "string" ? qa(s) : [s].flat());
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s03-escenario");
+      const sacudon = (t, f = 1) => [[-12 * f, 7 * f], [9 * f, -5 * f], [-4 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece entero: pop (queda invisible hasta su tiempo)
+      const pop = (el, t, d = 0.32, desde = 0.6) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: desde, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // mancha de acuarela: fade suave que se expande
+      const acuarela = (el, t, d = 0.45) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: 0.94, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "power2.out", immediateRender: false }, t); };
+      // sello que cae torcido
+      const cae = (el, t, rot = -6) => { const e = L(el); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: 2.2, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      // trazo que se dibuja (opacity 0 hasta que arranca, sin puntitos)
+      const dibujar = (sel, t, d = 0.6) => L(sel).forEach((p) => { const Lg = Math.ceil(p.getTotalLength()) + 2; gsap.set(p, { strokeDasharray: Lg, strokeDashoffset: Lg, opacity: 0 }); tl.set(p, { opacity: 1 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      // escribir a mano = destapar el texto de izquierda a derecha
+      const escribir = (el, t, d = 0.5) => L(el).forEach((e) => { gsap.set(e, { clipPath: "inset(-20% 100% -20% -2%)" }); tl.to(e, { clipPath: "inset(-20% 0% -20% -2%)", duration: d, ease: "none" }, t); });
+      const sale = (el, t, d = 0.22) => tl.to(L(el), { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const vaiven = (el, props, d, t0, t1 = DUR) => tl.to(L(el), Object.assign({ duration: d, yoyo: true, repeat: Math.max(1, Math.floor((t1 - t0) / d) - 1), ease: "sine.inOut" }, props), t0);
+const CLI = 0.08, ACERCA = 1.02, ABREV = 1.7, PREG = 2.9, PRECIO = 3.58;
+      tl.fromTo(ESC, { scale: 1.04 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+      tl.fromTo(q(".s03-charco"), { opacity: 0.5, scale: 0.92, svgOrigin: "540 1200" }, { opacity: 1, scale: 1, svgOrigin: "540 1200", duration: 0.4, ease: "power2.out" }, 0);
+      vaiven(".s03-charco", { scaleX: 1.015, svgOrigin: "540 1200" }, 0.9, 0.4);
+      // entra la presa en puntas de pie
+      tl.fromTo(q(".s03-presa"), { x: -300 }, { x: 0, duration: 0.9, ease: "power1.out" }, CLI - 0.08);
+      [0, 1, 2, 3, 4, 5].forEach((i) => tl.to(q(".s03-presa"), { y: i % 2 ? 0 : -16, duration: 0.15, ease: "sine.inOut" }, CLI + i * 0.15));
+      escribir(".s03-r1", CLI + 0.2, 0.6);
+      dibujar(".s03-fl", CLI + 0.75, 0.35);
+      // se acerca y se agacha a beber
+      tl.to(q(".s03-presa"), { x: 110, duration: 0.6, ease: "power1.inOut" }, ACERCA);
+      tl.to(q(".s03-presa"), { rotation: 24, svgOrigin: "250 1190", duration: 0.5, ease: "power2.inOut" }, ABREV);
+      escribir(".s03-r2", ABREV, 0.5);
+      // la pregunta cae al abrevadero
+      pop(".s03-burbuja", PREG, 0.35);
+      tl.to(q(".s03-burbuja"), { y: 380, scale: 0.4, opacity: 0, duration: 0.45, ease: "power2.in" }, PRECIO + 0.15);
+      gsap.set(qa(".s03-o"), { opacity: 0 });
+      tl.fromTo(qa(".s03-o"), { opacity: 0.9, scale: 0.3, svgOrigin: "560 1210" }, { opacity: 0, scale: 1.2, svgOrigin: "560 1210", duration: 0.7, stagger: 0.12, ease: "power1.out", immediateRender: false }, PRECIO + 0.55);
+      tl.to(q(".s03-presa"), { rotation: 0, svgOrigin: "250 1190", duration: 0.35, ease: "power2.out" }, PRECIO + 0.2);
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

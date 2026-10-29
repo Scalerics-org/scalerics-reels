@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-cta"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* rótulo manuscrito (Caveat) */
+    [data-composition-id="s13-cta"] .rot { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+    /* palabra grande impresa / sello */
+    [data-composition-id="s13-cta"] .g { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s13-cta"] .sello { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; color: #b8432f; border: 7px solid #b8432f; border-radius: 12px; padding: 12px 22px; background: rgba(241, 230, 200, 0.6); }
+    [data-composition-id="s13-cta"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.22em; text-transform: uppercase; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+
+  </style>
+  <div id="root" data-composition-id="s13-cta" data-width="1080" data-height="1920" data-duration="9.31">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="9.31" data-track-index="0">
+      <div class="s13-escenario">
+<div class="s13-ficha" style="position: absolute; left: 120px; top: 596px; width: 840px; height: 860px; background: #f1e6c8; border: 5px solid #4a2f1a; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3); transform: rotate(-1deg)"></div>
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+  <path d="M150 680 H930" stroke="#4a2f1a" stroke-width="3" />
+  <circle class="s13-glow" cx="540" cy="830" r="150" fill="#5ce611" fill-opacity="0.18" />
+  <g class="s13-cel">
+    <rect x="455" y="700" width="170" height="270" rx="26" fill="#4a2f1a" />
+    <rect x="469" y="724" width="142" height="222" rx="10" fill="#17251a" />
+    <circle cx="540" cy="806" r="42" fill="none" stroke="#5ce611" stroke-width="7" />
+    <circle class="s13-ojo" cx="525" cy="800" r="7" fill="#5ce611" /><circle class="s13-ojo" cx="555" cy="800" r="7" fill="#5ce611" />
+    <path d="M504 880 H576 M504 906 H556" stroke="#5ce611" stroke-width="7" stroke-linecap="round" />
+  </g>
+  <path class="s13-hilo" d="M540 1170 Q520 1200 470 1226" fill="none" stroke="#4a2f1a" stroke-width="4" stroke-linecap="round" />
+</svg>
+<div class="mono s13-cab" style="left: 0; right: 0; top: 626px; text-align: center">Ficha de especie</div>
+<div class="rot s13-lat" style="left: 0; right: 0; top: 984px; text-align: center; font-size: 66px">Agentis intelligens</div>
+<div class="g s13-marca" style="left: 0; right: 0; top: 1062px; text-align: center; font-size: 96px; color: #4a2f1a; letter-spacing: 0.02em">Scalerics</div>
+<div class="s13-tag" style="position: absolute; left: 160px; top: 1222px; width: 780px; height: 176px; background: #d6a85a; border: 5px solid #4a2f1a; border-radius: 14px 40px 40px 14px; transform: rotate(2deg)">
+  <div style="position: absolute; left: 22px; top: 70px; width: 30px; height: 30px; border-radius: 50%; background: #f1e6c8; border: 4px solid #4a2f1a"></div>
+  <div class="g" style="left: 72px; top: 30px; font-size: 50px; color: #4a2f1a; font-weight: 800">Etiquetá al ejemplar</div>
+  <div class="g" style="left: 72px; top: 96px; font-size: 50px; color: #4a2f1a; font-weight: 800">que deja en <span style="color: #b8432f">visto</span></div>
+</div>
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+  <path class="s13-tilde" d="M812 1352 L830 1372 L864 1328 M848 1352 L866 1372 L900 1328" fill="none" stroke="#b8432f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-cta";
+      const DUR = 9.31;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const L = (s) => (typeof s === "string" ? qa(s) : [s].flat());
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s13-escenario");
+      const sacudon = (t, f = 1) => [[-12 * f, 7 * f], [9 * f, -5 * f], [-4 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece entero: pop (queda invisible hasta su tiempo)
+      const pop = (el, t, d = 0.32, desde = 0.6) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: desde, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // mancha de acuarela: fade suave que se expande
+      const acuarela = (el, t, d = 0.45) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: 0.94, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "power2.out", immediateRender: false }, t); };
+      // sello que cae torcido
+      const cae = (el, t, rot = -6) => { const e = L(el); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: 2.2, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      // trazo que se dibuja (opacity 0 hasta que arranca, sin puntitos)
+      const dibujar = (sel, t, d = 0.6) => L(sel).forEach((p) => { const Lg = Math.ceil(p.getTotalLength()) + 2; gsap.set(p, { strokeDasharray: Lg, strokeDashoffset: Lg, opacity: 0 }); tl.set(p, { opacity: 1 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      // escribir a mano = destapar el texto de izquierda a derecha
+      const escribir = (el, t, d = 0.5) => L(el).forEach((e) => { gsap.set(e, { clipPath: "inset(-20% 100% -20% -2%)" }); tl.to(e, { clipPath: "inset(-20% 0% -20% -2%)", duration: d, ease: "none" }, t); });
+      const sale = (el, t, d = 0.22) => tl.to(L(el), { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const vaiven = (el, props, d, t0, t1 = DUR) => tl.to(L(el), Object.assign({ duration: d, yoyo: true, repeat: Math.max(1, Math.floor((t1 - t0) / d) - 1), ease: "sine.inOut" }, props), t0);
+const AG = 0.19, IA = 0.77, HAC = 1.43, SCA = 2.73, ETI = 3.95, EJ = 4.58, VISTO = 5.43;
+      tl.fromTo(q(".s13-ficha"), { opacity: 0.6, y: 50, rotation: -5 }, { opacity: 1, y: 0, rotation: -1, duration: 0.4, ease: "back.out(1.5)" }, 0);
+      pop(".s13-cab", 0.1, 0.3);
+      pop(".s13-cel", AG, 0.4, 0.5);
+      acuarela(".s13-glow", IA - 0.1, 0.4);
+      vaiven(".s13-glow", { scale: 1.08, svgOrigin: "540 830" }, 0.6, IA + 0.4);
+      vaiven(".s13-cel", { y: -8 }, 0.8, AG + 0.5);
+      tl.to(qa(".s13-ojo"), { scaleY: 0.15, svgOrigin: "540 800", duration: 0.08, yoyo: true, repeat: 1 }, 2.0);
+      tl.to(qa(".s13-ojo"), { scaleY: 0.15, svgOrigin: "540 800", duration: 0.08, yoyo: true, repeat: 1 }, 6.6);
+      escribir(".s13-lat", HAC - 0.2, 0.7);
+      cae(".s13-marca", SCA + 0.05, 0);
+      sacudon(SCA + 0.1, 0.6);
+      // la etiqueta colgante
+      dibujar(".s13-hilo", ETI - 0.25, 0.25);
+      gsap.set(q(".s13-tag"), { opacity: 0 });
+      tl.fromTo(q(".s13-tag"), { opacity: 0, y: -60, rotation: -10 }, { opacity: 1, y: 0, rotation: 2, duration: 0.45, ease: "back.out(2)", immediateRender: false }, ETI - 0.1);
+      vaiven(".s13-tag", { rotation: 0 }, 0.9, ETI + 0.45);
+      dibujar(".s13-tilde", VISTO, 0.3);
+      vaiven(".s13-tilde", { opacity: 0.5 }, 0.4, VISTO + 0.4);
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

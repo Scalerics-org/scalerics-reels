@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-agente"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-agente"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-agente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* rótulo manuscrito (Caveat) */
+    [data-composition-id="s11-agente"] .rot { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+    /* palabra grande impresa / sello */
+    [data-composition-id="s11-agente"] .g { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s11-agente"] .sello { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; color: #b8432f; border: 7px solid #b8432f; border-radius: 12px; padding: 12px 22px; background: rgba(241, 230, 200, 0.6); }
+    [data-composition-id="s11-agente"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.22em; text-transform: uppercase; color: #4a2f1a; white-space: nowrap; line-height: 1; }
+
+  </style>
+  <div id="root" data-composition-id="s11-agente" data-width="1080" data-height="1920" data-duration="7.34">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="7.34" data-track-index="0">
+      <div class="s11-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+  <g class="s11-tel">
+    <rect x="370" y="700" width="340" height="610" rx="44" fill="#f1e6c8" stroke="#4a2f1a" stroke-width="7" />
+    <rect x="388" y="740" width="304" height="540" rx="14" fill="#4a2f1a" />
+    <circle cx="420" cy="778" r="20" fill="none" stroke="#5ce611" stroke-width="5" />
+    <circle cx="413" cy="775" r="4" fill="#5ce611" /><circle cx="427" cy="775" r="4" fill="#5ce611" />
+  </g>
+  <g class="s11-sol"><circle cx="170" cy="700" r="26" fill="#d6a85a" stroke="#4a2f1a" stroke-width="4" /><path d="M170 660 V648 M170 740 V752 M130 700 H118 M210 700 H222 M142 672 l-8 -8 M198 728 l8 8 M198 672 l8 -8 M142 728 l-8 8" stroke="#4a2f1a" stroke-width="4" stroke-linecap="round" /></g>
+  <path class="s11-luna" d="M270 676 A30 30 0 1 0 296 726 A24 24 0 1 1 270 676 Z" fill="#f1e6c8" stroke="#4a2f1a" stroke-width="4" />
+  <g fill="none" stroke="#4a2f1a" stroke-width="5" stroke-linecap="round">
+    <path class="s11-f f1" d="M290 830 Q340 820 380 840" />
+    <path class="s11-f f2" d="M790 940 Q750 940 700 960" />
+    <path class="s11-f f3" d="M300 1090 Q340 1080 380 1070" />
+    <path class="s11-f f4" d="M790 1190 Q750 1200 700 1190" />
+  </g>
+</svg>
+<div class="rot s11-tit" style="left: 0; right: 0; top: 604px; text-align: center; font-size: 58px; color: #4a2f1a">Agentis intelligens: anatomía</div>
+<div class="mono" style="left: 452px; top: 766px; font-size: 26px; color: #f1e6c8; letter-spacing: 0.12em" data-layout-ignore>AGENTE</div>
+<div class="s11-b s11-b1" style="position: absolute; left: 404px; top: 830px; padding: 12px 18px; background: #f1e6c8; border-radius: 18px 18px 18px 4px; font-family: 'Lexend', sans-serif; font-weight: 600; font-size: 28px; color: #4a2f1a; white-space: nowrap; line-height: 1.1">¿Tienen stock?</div>
+<div class="s11-b s11-b2" style="position: absolute; right: 404px; top: 910px; padding: 12px 18px; background: #5ce611; border-radius: 18px 18px 4px 18px; font-family: 'Lexend', sans-serif; font-weight: 600; font-size: 28px; color: #17251a; white-space: nowrap; line-height: 1.2; text-align: right">Sí, hay. Precio<br>y fotos acá.</div>
+<div class="s11-b s11-b3" style="position: absolute; left: 404px; top: 1030px; padding: 12px 18px; border: 4px solid #5ce611; border-radius: 14px; font-family: 'Lexend', sans-serif; font-weight: 600; font-size: 28px; color: #f1e6c8; white-space: nowrap; line-height: 1">Turno: jueves 10 h</div>
+<div class="mono s11-b s11-b4t" style="left: 404px; top: 1116px; font-size: 26px; color: #d6a85a; letter-spacing: 0.1em" data-layout-ignore>DOS DÍAS DESPUÉS</div>
+<div class="s11-b s11-b4" style="position: absolute; right: 404px; top: 1156px; padding: 12px 18px; background: #5ce611; border-radius: 18px 18px 4px 18px; font-family: 'Lexend', sans-serif; font-weight: 600; font-size: 28px; color: #17251a; white-space: nowrap; line-height: 1.2; text-align: right">¿Lo seguís<br>pensando?</div>
+<div class="rot s11-a a1" style="left: 96px; top: 770px; font-size: 46px; line-height: 0.95">a cualquier<br>hora</div>
+<div class="rot s11-a a2" style="left: 770px; top: 880px; font-size: 44px; line-height: 0.95">precios<br>y stock</div>
+<div class="rot s11-a a3" style="left: 110px; top: 1030px; font-size: 46px; line-height: 0.95">agenda<br>turnos</div>
+<div class="rot s11-a a4" style="left: 770px; top: 1130px; font-size: 42px; line-height: 0.95">le escribe<br>al que<br>no compró</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-agente";
+      const DUR = 7.34;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const L = (s) => (typeof s === "string" ? qa(s) : [s].flat());
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s11-escenario");
+      const sacudon = (t, f = 1) => [[-12 * f, 7 * f], [9 * f, -5 * f], [-4 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece entero: pop (queda invisible hasta su tiempo)
+      const pop = (el, t, d = 0.32, desde = 0.6) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: desde, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // mancha de acuarela: fade suave que se expande
+      const acuarela = (el, t, d = 0.45) => { const els = L(el); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: 0.94, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "power2.out", immediateRender: false }, t); };
+      // sello que cae torcido
+      const cae = (el, t, rot = -6) => { const e = L(el); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: 2.2, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      // trazo que se dibuja (opacity 0 hasta que arranca, sin puntitos)
+      const dibujar = (sel, t, d = 0.6) => L(sel).forEach((p) => { const Lg = Math.ceil(p.getTotalLength()) + 2; gsap.set(p, { strokeDasharray: Lg, strokeDashoffset: Lg, opacity: 0 }); tl.set(p, { opacity: 1 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      // escribir a mano = destapar el texto de izquierda a derecha
+      const escribir = (el, t, d = 0.5) => L(el).forEach((e) => { gsap.set(e, { clipPath: "inset(-20% 100% -20% -2%)" }); tl.to(e, { clipPath: "inset(-20% 0% -20% -2%)", duration: d, ease: "none" }, t); });
+      const sale = (el, t, d = 0.22) => tl.to(L(el), { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const vaiven = (el, props, d, t0, t1 = DUR) => tl.to(L(el), Object.assign({ duration: d, yoyo: true, repeat: Math.max(1, Math.floor((t1 - t0) / d) - 1), ease: "sine.inOut" }, props), t0);
+const WA = 0.59, CUAL = 1.19, HORA = 1.62, PREC = 2.47, STOCK = 2.98, AGENDA = 3.82, TURN = 4.09, ESCR = 5.32, PREG = 5.63, COMPRO = 6.49;
+      tl.fromTo(q(".s11-tel"), { opacity: 0.7, y: 40, scale: 0.96, svgOrigin: "540 1000" }, { opacity: 1, y: 0, scale: 1, svgOrigin: "540 1000", duration: 0.35, ease: "back.out(1.6)" }, 0);
+      escribir(".s11-tit", 0.05, 0.8);
+      pop(".s11-b1", 0.3, 0.3);
+      // a cualquier hora: el sol y la luna giran
+      pop([q(".s11-sol"), q(".s11-luna")], WA, 0.3);
+      tl.to(q(".s11-sol"), { rotation: 180, svgOrigin: "170 700", duration: DUR - WA, ease: "none" }, WA);
+      vaiven(".s11-luna", { rotation: 14, svgOrigin: "280 706" }, 0.5, WA + 0.3);
+      escribir(".s11-a.a1", CUAL - 0.1, 0.5); dibujar(".s11-f.f1", HORA, 0.25);
+      // precios y stock: responde
+      pop(".s11-b2", STOCK - 0.25, 0.3);
+      escribir(".s11-a.a2", PREC - 0.1, 0.5); dibujar(".s11-f.f2", STOCK, 0.25);
+      // agenda turnos
+      pop(".s11-b3", AGENDA, 0.3);
+      escribir(".s11-a.a3", AGENDA, 0.45); dibujar(".s11-f.f3", TURN + 0.1, 0.25);
+      // le escribe al que preguntó y no compró
+      pop(".s11-b4t", ESCR - 0.1, 0.25);
+      pop(".s11-b4", PREG, 0.3);
+      escribir(".s11-a.a4", ESCR, 0.8); dibujar(".s11-f.f4", COMPRO - 0.2, 0.25);
+      vaiven(".s11-tel", { y: -6 }, 0.7, 0.4);
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
