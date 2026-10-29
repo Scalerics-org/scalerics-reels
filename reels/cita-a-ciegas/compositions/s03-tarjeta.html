@@ -1,0 +1,121 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-tarjeta"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-tarjeta"] svg { position: absolute; overflow: visible; }
+    [data-composition-id="s03-tarjeta"] .s03-full { left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s03-tarjeta"] .s03-loc { position: absolute; left: 590px; top: 900px; width: 340px; height: 440px; }
+    [data-composition-id="s03-tarjeta"] .s03-loc svg { left: 0; top: 0; width: 100%; height: 100%; }
+    [data-composition-id="s03-tarjeta"] .s03-cartel { position: absolute; left: 540px; top: 606px; width: 380px; height: 300px; }
+    [data-composition-id="s03-tarjeta"] .s03-hilo { position: absolute; left: 0; top: 0; width: 380px; height: 300px; }
+    [data-composition-id="s03-tarjeta"] .s03-carton { position: absolute; left: 20px; top: 104px; width: 340px; height: 150px; background: #fff3e0; border: 6px solid #120a22; border-radius: 10px; text-align: center; }
+    [data-composition-id="s03-tarjeta"] .s03-carton div { font-family: "Caveat", cursive; font-weight: 700; font-size: 64px; line-height: 0.95; color: #120a22; padding-top: 10px; }
+    [data-composition-id="s03-tarjeta"] .s03-carton b { color: #ff6f59; font-weight: 700; }
+    [data-composition-id="s03-tarjeta"] .s03-rotulo { position: absolute; left: 150px; top: 1380px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; color: #120a22; }
+  </style>
+  <div id="root" data-composition-id="s03-tarjeta" data-width="1080" data-height="1920" data-duration="4.05">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="4.05" data-track-index="0">
+      <div class="s03-capa s03-set">
+        <svg class="s03-full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- foto de recuerdo de la cita -->
+          <rect x="110" y="600" width="860" height="840" rx="10" fill="#fff3e0" stroke="#120a22" stroke-width="6" />
+          <rect x="140" y="630" width="800" height="730" fill="#241238" />
+          <ellipse cx="760" cy="1250" rx="260" ry="60" fill="#3b1d5a" />
+        </svg>
+        <div class="s03-loc"><svg class="s03-l-svg" viewBox="-170 -430 340 440" aria-hidden="true">
+            <g class="s03-l-todo">
+              <rect x="-150" y="-418" width="300" height="70" rx="12" fill="#fff3e0" stroke="#120a22" stroke-width="6" />
+              <text x="0" y="-370" text-anchor="middle" font-family="Lexend, sans-serif" font-weight="800" font-size="36" letter-spacing="1" fill="#120a22">TU LOCAL</text>
+              <rect x="-140" y="-346" width="280" height="346" fill="#3b1d5a" stroke="#fff3e0" stroke-width="6" />
+              <path d="M-152 -346 H152 L142 -292 H-142 Z" fill="#fff3e0" />
+              <path d="M-130 -346 L-134 -292 H-104 L-100 -346 Z" fill="#ff6f59" /><path d="M-70 -346 L-74 -292 H-44 L-40 -346 Z" fill="#ff6f59" /><path d="M-10 -346 L-14 -292 H16 L20 -346 Z" fill="#ff6f59" /><path d="M50 -346 L46 -292 H76 L80 -346 Z" fill="#ff6f59" /><path d="M110 -346 L106 -292 H136 L140 -346 Z" fill="#ff6f59" />
+              <path d="M-140 -292 a14 14 0 0 0 28 0" fill="#fff3e0" stroke="#120a22" stroke-width="4" /><path d="M-112 -292 a14 14 0 0 0 28 0" fill="#ff6f59" stroke="#120a22" stroke-width="4" /><path d="M-84 -292 a14 14 0 0 0 28 0" fill="#fff3e0" stroke="#120a22" stroke-width="4" /><path d="M-56 -292 a14 14 0 0 0 28 0" fill="#ff6f59" stroke="#120a22" stroke-width="4" /><path d="M-28 -292 a14 14 0 0 0 28 0" fill="#fff3e0" stroke="#120a22" stroke-width="4" /><path d="M0 -292 a14 14 0 0 0 28 0" fill="#ff6f59" stroke="#120a22" stroke-width="4" /><path d="M28 -292 a14 14 0 0 0 28 0" fill="#fff3e0" stroke="#120a22" stroke-width="4" /><path d="M56 -292 a14 14 0 0 0 28 0" fill="#ff6f59" stroke="#120a22" stroke-width="4" /><path d="M84 -292 a14 14 0 0 0 28 0" fill="#fff3e0" stroke="#120a22" stroke-width="4" /><path d="M112 -292 a14 14 0 0 0 28 0" fill="#ff6f59" stroke="#120a22" stroke-width="4" />
+              <path d="M-152 -346 H152 L142 -292 H-142 Z" fill="none" stroke="#120a22" stroke-width="5" stroke-linejoin="round" />
+              <rect class="s03-l-vidriera" x="-120" y="-262" width="152" height="122" rx="8" fill="#120a22" stroke="#fff3e0" stroke-width="5" />
+              <g class="s03-l-ojos"><ellipse cx="-72" cy="-214" rx="13" ry="18" fill="#fff3e0" /><ellipse cx="-16" cy="-214" rx="13" ry="18" fill="#fff3e0" /></g>
+              <path class="s03-l-boca" d="M-64 -174 Q-44 -156 -24 -174" fill="none" stroke="#fff3e0" stroke-width="6" stroke-linecap="round" />
+              <g class="s03-l-mono"><path d="M-44 -112 L-80 -130 L-80 -94 Z M-44 -112 L-8 -130 L-8 -94 Z" fill="#ffc857" stroke="#120a22" stroke-width="4" stroke-linejoin="round" /><circle cx="-44" cy="-112" r="9" fill="#ffc857" stroke="#120a22" stroke-width="4" /></g>
+              <rect class="s03-l-puerta" x="50" y="-252" width="76" height="252" rx="4" fill="#241238" stroke="#fff3e0" stroke-width="5" />
+              <circle class="s03-l-pomo" cx="112" cy="-124" r="7" fill="#ffc857" />
+              <path d="M-162 0 H162" stroke="#fff3e0" stroke-width="7" stroke-linecap="round" />
+            </g>
+          </svg></div>
+        <svg class="s03-full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el brazo de ella con la tarjeta -->
+          <g class="s03-mano">
+            <path d="M60 1210 Q260 1180 430 1130" fill="none" stroke="#120a22" stroke-width="56" stroke-linecap="round" />
+            <path d="M60 1210 Q260 1180 430 1130" fill="none" stroke="#fff3e0" stroke-width="40" stroke-linecap="round" />
+            <path d="M60 1222 Q200 1200 300 1180" fill="none" stroke="#ff6f59" stroke-width="44" stroke-linecap="round" />
+            <g class="s03-tarjeta">
+              <rect x="392" y="1010" width="210" height="134" rx="16" fill="#fff3e0" stroke="#120a22" stroke-width="6" />
+              <rect x="392" y="1034" width="210" height="26" fill="#ff6f59" />
+              <rect x="418" y="1078" width="44" height="34" rx="6" fill="#ffc857" stroke="#120a22" stroke-width="4" />
+              <path d="M480 1118 H580" stroke="#120a22" stroke-width="6" stroke-linecap="round" opacity="0.5" />
+              <rect x="392" y="1010" width="210" height="134" rx="16" fill="none" stroke="#120a22" stroke-width="6" />
+            </g>
+            <circle cx="436" cy="1128" r="30" fill="#fff3e0" stroke="#120a22" stroke-width="6" />
+            <path class="s03-brillo" d="M620 1000 L640 980 M630 1060 H660 M600 980 V952" fill="none" stroke="#ffc857" stroke-width="7" stroke-linecap="round" />
+          </g>
+          <path class="s03-x1" d="M380 1000 L620 1160" fill="none" stroke="#ff6f59" stroke-width="20" stroke-linecap="round" />
+          <path class="s03-x2" d="M620 1000 L380 1160" fill="none" stroke="#ff6f59" stroke-width="20" stroke-linecap="round" />
+        </svg>
+        <div class="s03-cartel">
+          <svg class="s03-hilo" viewBox="0 0 380 300" aria-hidden="true">
+            <path d="M190 0 L60 116 M190 0 L320 116" fill="none" stroke="#fff3e0" stroke-width="4" />
+            <circle cx="190" cy="4" r="8" fill="#ffc857" />
+          </svg>
+          <div class="s03-carton"><div>SOLO<br /><b>EFECTIVO</b></div></div>
+        </div>
+      </div>
+      <div class="s03-rotulo">LA CITA · PRIMER INTENTO</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-tarjeta";
+      const DUR = 4.05;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (el, t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(el, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t, d) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d || 0.32, ease: "back.out(2)", immediateRender: false }, t); };
+      const golpe = (el, t, rot) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.6, rotation: (rot || 0) * 2 }, { opacity: 1, scale: 1, rotation: rot || 0, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const dibujar = (els, t, d) => { [].concat(els).forEach((el) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t); }); };
+      const parpadeo = (el, ts) => ts.forEach((t) => tl.to(el, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1 }, t));
+
+      const PREGUNTE = 0.07, TARJETA = 1.25, SOLO = 2.04, EFECTIVO = 2.53;
+      tl.fromTo(q(".s03-set"), { rotation: -4, scale: 1.08, opacity: 0.5 }, { rotation: -1.5, scale: 1, opacity: 1, duration: 0.35, ease: "power3.out", transformOrigin: "50% 55%" }, 0);
+      tl.to(q(".s03-set"), { rotation: 0, duration: DUR - 0.35, ease: "none", transformOrigin: "50% 55%" }, 0.35);
+      tl.fromTo(q(".s03-rotulo"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+      // la mano entra con la tarjeta
+      tl.fromTo(q(".s03-mano"), { x: -420 }, { x: 0, duration: 0.5, ease: "back.out(1.4)" }, PREGUNTE);
+      parpadeo(q(".s03-l-ojos"), [0.9, 3.4]);
+      // "tarjeta": brilla
+      gsap.set(q(".s03-brillo"), { opacity: 0 });
+      tl.to(q(".s03-brillo"), { opacity: 1, duration: 0.1 }, TARJETA);
+      tl.fromTo(q(".s03-tarjeta"), { scale: 1, svgOrigin: "497 1077" }, { scale: 1.15, svgOrigin: "497 1077", duration: 0.15, yoyo: true, repeat: 1, ease: "sine.inOut" }, TARJETA);
+      tl.to(q(".s03-brillo"), { opacity: 0, duration: 0.15 }, SOLO);
+      // "solo efectivo": cae el cartelito y se hamaca
+      gsap.set(q(".s03-cartel"), { opacity: 0 });
+      tl.fromTo(q(".s03-cartel"), { opacity: 1, y: -500, rotation: 0 }, { opacity: 1, y: 0, duration: 0.22, ease: "power3.in", immediateRender: false }, SOLO - 0.22);
+      tl.to(q(".s03-cartel"), { rotation: 9, transformOrigin: "50% 0%", duration: 0.22, ease: "sine.out" }, SOLO);
+      [[-7, 0.4], [5, 0.38], [-3, 0.36], [2, 0.34], [0, 0.3]].reduce((t, [r, d]) => { tl.to(q(".s03-cartel"), { rotation: r, transformOrigin: "50% 0%", duration: d, ease: "sine.inOut" }, t); return t + d; }, SOLO + 0.22);
+      sacudon(q(".s03-set"), SOLO, 1);
+      tl.to(q(".s03-l-boca"), { attr: { d: "M-64 -170 L-24 -170" }, duration: 0.15 }, SOLO);
+      // "efectivo": la tarjeta tachada, la mano se va
+      dibujar(q(".s03-x1"), EFECTIVO - 0.05, 0.15);
+      dibujar(q(".s03-x2"), EFECTIVO + 0.1, 0.15);
+      tl.to(q(".s03-tarjeta"), { rotation: -25, y: 120, opacity: 0.5, svgOrigin: "497 1077", duration: 0.5, ease: "power2.in" }, EFECTIVO + 0.35);
+      tl.to(q(".s03-mano"), { x: -160, duration: 0.6, ease: "power2.inOut" }, EFECTIVO + 0.5);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

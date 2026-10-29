@@ -1,0 +1,153 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-bombita { fill: #ffc857; }
+    [data-composition-id="ambiente"] .amb-marquee { position: absolute; left: 0; right: 0; top: 98px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 74px; line-height: 1; letter-spacing: 0.02em; color: #fff3e0; white-space: nowrap; -webkit-text-stroke: 6px #120a22; paint-order: stroke fill; }
+    [data-composition-id="ambiente"] .amb-marquee b { color: #ff6f59; font-weight: 900; }
+    [data-composition-id="ambiente"] .amb-rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #fff3e0; }
+    [data-composition-id="ambiente"] .amb-caja { position: absolute; left: 76px; top: 1556px; width: 320px; height: 124px; border-radius: 18px; background: #241238; border: 5px solid #fff3e0; overflow: hidden; }
+    [data-composition-id="ambiente"] .amb-caja-txt { position: absolute; left: 30px; right: 0; top: 40px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 42px; line-height: 1; letter-spacing: 0.02em; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-vivo { top: 40px; padding-left: 20px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; letter-spacing: 0.2em; color: rgba(255, 243, 224, 0.55); }
+    [data-composition-id="ambiente"] .amb-punto { position: absolute; left: 38px; top: 50px; width: 22px; height: 22px; border-radius: 50%; background: #ff6f59; }
+    [data-composition-id="ambiente"] .amb-c-coral { color: #ff6f59; text-shadow: 0 0 22px rgba(255, 111, 89, 0.7); }
+    [data-composition-id="ambiente"] .amb-c-amar { color: #ffc857; text-shadow: 0 0 22px rgba(255, 200, 87, 0.7); }
+    [data-composition-id="ambiente"] .amb-c-turq { color: #22d1c3; text-shadow: 0 0 22px rgba(34, 209, 195, 0.7); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #fff3e0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="70.46">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="70.46" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- cartel del programa con bombitas -->
+        <g class="amb-cartel">
+          <rect x="140" y="58" width="800" height="156" rx="30" fill="#3b1d5a" stroke="#ff6f59" stroke-width="7" />
+          <rect x="176" y="90" width="728" height="92" rx="16" fill="#241238" />
+          <circle class="amb-bombita" cx="176" cy="72" r="9" />
+          <circle class="amb-bombita" cx="228" cy="72" r="9" />
+          <circle class="amb-bombita" cx="280" cy="72" r="9" />
+          <circle class="amb-bombita" cx="332" cy="72" r="9" />
+          <circle class="amb-bombita" cx="384" cy="72" r="9" />
+          <circle class="amb-bombita" cx="436" cy="72" r="9" />
+          <circle class="amb-bombita" cx="488" cy="72" r="9" />
+          <circle class="amb-bombita" cx="540" cy="72" r="9" />
+          <circle class="amb-bombita" cx="592" cy="72" r="9" />
+          <circle class="amb-bombita" cx="644" cy="72" r="9" />
+          <circle class="amb-bombita" cx="696" cy="72" r="9" />
+          <circle class="amb-bombita" cx="748" cy="72" r="9" />
+          <circle class="amb-bombita" cx="800" cy="72" r="9" />
+          <circle class="amb-bombita" cx="852" cy="72" r="9" />
+          <circle class="amb-bombita" cx="904" cy="72" r="9" />
+          <circle class="amb-bombita" cx="904" cy="200" r="9" />
+          <circle class="amb-bombita" cx="852" cy="200" r="9" />
+          <circle class="amb-bombita" cx="800" cy="200" r="9" />
+          <circle class="amb-bombita" cx="748" cy="200" r="9" />
+          <circle class="amb-bombita" cx="696" cy="200" r="9" />
+          <circle class="amb-bombita" cx="644" cy="200" r="9" />
+          <circle class="amb-bombita" cx="592" cy="200" r="9" />
+          <circle class="amb-bombita" cx="540" cy="200" r="9" />
+          <circle class="amb-bombita" cx="488" cy="200" r="9" />
+          <circle class="amb-bombita" cx="436" cy="200" r="9" />
+          <circle class="amb-bombita" cx="384" cy="200" r="9" />
+          <circle class="amb-bombita" cx="332" cy="200" r="9" />
+          <circle class="amb-bombita" cx="280" cy="200" r="9" />
+          <circle class="amb-bombita" cx="228" cy="200" r="9" />
+          <circle class="amb-bombita" cx="176" cy="200" r="9" />
+          <circle class="amb-bombita" cx="158" cy="110" r="9" />
+          <circle class="amb-bombita" cx="158" cy="162" r="9" />
+          <circle class="amb-bombita" cx="922" cy="110" r="9" />
+          <circle class="amb-bombita" cx="922" cy="162" r="9" />
+        </g>
+        <!-- medidor de química -->
+        <g class="amb-medidor">
+          <rect x="782" y="1532" width="226" height="170" rx="22" fill="#241238" stroke="#fff3e0" stroke-width="5" />
+          <text class="amb-rot" x="895" y="1568" text-anchor="middle">QUÍMICA</text>
+          <path d="M817 1680 A78 78 0 0 1 856 1612" fill="none" stroke="#ff6f59" stroke-width="16" />
+          <path d="M860 1610 A78 78 0 0 1 930 1610" fill="none" stroke="#ffc857" stroke-width="16" />
+          <path d="M934 1612 A78 78 0 0 1 973 1680" fill="none" stroke="#22d1c3" stroke-width="16" />
+          <g class="amb-aguja">
+            <path d="M895 1680 L895 1612" stroke="#fff3e0" stroke-width="8" stroke-linecap="round" />
+          </g>
+          <circle cx="895" cy="1680" r="12" fill="#fff3e0" stroke="#120a22" stroke-width="4" />
+        </g>
+      </svg>
+      <div class="amb-marquee">CITA A <b>CIEGAS</b></div>
+      <div class="amb-caja">
+        <div class="amb-punto"></div>
+        <div class="amb-caja-txt amb-vivo">EN VIVO</div>
+        <div class="amb-caja-txt amb-c-coral k0">UUUH</div>
+        <div class="amb-caja-txt amb-c-amar k1">JAJAJA</div>
+        <div class="amb-caja-txt amb-c-amar k2">JAJAJA</div>
+        <div class="amb-caja-txt amb-c-coral k3">UUUH</div>
+        <div class="amb-caja-txt amb-c-amar k4">JAJAJA</div>
+        <div class="amb-caja-txt amb-c-turq k5">APLAUSOS</div>
+        <div class="amb-caja-txt amb-c-coral k6">AWWW</div>
+        <div class="amb-caja-txt amb-c-turq k7">APLAUSOS</div>
+      </div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 70.46;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // bombitas: corren en dos tandas alternadas todo el reel
+      const bombitas = [...qa(".amb-bombita")];
+      const pares = bombitas.filter((b, i) => i % 2 === 0), impares = bombitas.filter((b, i) => i % 2 === 1);
+      gsap.set(impares, { opacity: 0.3 });
+      const PASO = 0.45, N = Math.floor(DUR / PASO) - 1;
+      tl.to(pares, { opacity: 0.3, duration: 0.05, yoyo: true, repeat: N, repeatDelay: PASO - 0.05, ease: "none" }, 0);
+      tl.to(impares, { opacity: 1, duration: 0.05, yoyo: true, repeat: N, repeatDelay: PASO - 0.05, ease: "none" }, 0);
+      // el cartel entra al arrancar
+      tl.fromTo(q(".amb-cartel"), { y: -30, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.8)" }, 0);
+      tl.fromTo(q(".amb-marquee"), { y: -30, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.8)" }, 0);
+      tl.to(q(".amb-punto"), { opacity: 0.25, duration: 0.4, yoyo: true, repeat: Math.max(1, Math.floor(DUR / 0.4) - 1), ease: "sine.inOut" }, 0);
+
+      // ---------- medidor de química: ángulo -90 (cero) a 90 (por las nubes) ----------
+      const aguja = q(".amb-aguja");
+      gsap.set(aguja, { rotation: 0, svgOrigin: "895 1680" });
+      const MIDE = [
+        [0.3, 15], [6.9, 45], [10.85, 0], [14.4, -35], [18.3, -62], [21.85, -40], [22.4, -62],
+        [26.06, -90], [32.4, -55], [34.05, -15], [35.7, 25], [38.37, 55], [41.39, 90],
+        [45.6, 35], [49.1, 5], [51.84, -25], [53.1, -5], [55.8, 20], [57.1, 45], [58.6, 65], [61.6, 90]
+      ];
+      MIDE.forEach(([t, a]) => tl.to(aguja, { rotation: a, svgOrigin: "895 1680", duration: a === -90 || a === 90 ? 0.35 : 0.5, ease: a === -90 ? "bounce.out" : "back.out(2)" }, t));
+      // tiembla cuando toca los topes
+      tl.to(aguja, { rotation: 84, svgOrigin: "895 1680", duration: 0.07, yoyo: true, repeat: 9, ease: "sine.inOut" }, 41.8);
+      tl.to(aguja, { rotation: 85, svgOrigin: "895 1680", duration: 0.08, yoyo: true, repeat: 7, ease: "sine.inOut" }, 62.0);
+      // tiembla el medidor entero en el cero y en las nubes
+      [[26.1, 1], [41.4, 1.4], [61.65, 1]].forEach(([t, f]) => [[-8 * f, 4 * f], [6 * f, -3 * f], [-3 * f, 2 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".amb-medidor"), { x, y, duration: 0.05, ease: "none" }, t + i * 0.055)));
+
+      // ---------- la caja del público ----------
+      const REACC = [4.2, 18.95, 23.6, 26.1, 39.55, 41.45, 51.95, 62.3];
+      REACC.forEach((t, k) => {
+        const el = q(".k" + k);
+        gsap.set(el, { opacity: 0 });
+        tl.to(q(".amb-vivo"), { opacity: 0, duration: 0.08 }, t);
+        tl.fromTo(el, { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(3)", immediateRender: false }, t);
+        const largo = Math.min(2.2, (REACC[k + 1] ?? 99) - t - 0.2);
+        tl.to(el, { opacity: 0.45, duration: 0.12, yoyo: true, repeat: Math.max(1, Math.floor(largo / 0.24) * 2 - 3), ease: "none" }, t + 0.25);
+        tl.to(el, { opacity: 0, duration: 0.15 }, t + largo);
+        if (largo >= 2.2) tl.to(q(".amb-vivo"), { opacity: 1, duration: 0.2 }, t + largo + 0.1);
+        tl.to(q(".amb-caja"), { rotation: k % 2 ? 3 : -3, duration: 0.08, yoyo: true, repeat: 3, ease: "sine.inOut" }, t);
+      });
+
+      // ---------- flashes de estudio: "desastre", "cero", "nubes" ----------
+      [4.15, 26.06, 41.39].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.4, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

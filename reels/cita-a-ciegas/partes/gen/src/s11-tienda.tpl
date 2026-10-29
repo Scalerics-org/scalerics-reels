@@ -1,0 +1,125 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    /*@FONTS*/
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-tienda"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-tienda"] svg { position: absolute; overflow: visible; }
+    [data-composition-id="s11-tienda"] .s11-full { left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s11-tienda"] .s11-loc { position: absolute; left: 60px; top: 960px; width: 330px; height: 427px; }
+    [data-composition-id="s11-tienda"] .s11-loc svg { left: 0; top: 0; width: 100%; height: 100%; }
+    [data-composition-id="s11-tienda"] .s11-tit { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 29px; fill: #120a22; }
+    [data-composition-id="s11-tienda"] .s11-precio { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; fill: #120a22; }
+    [data-composition-id="s11-tienda"] .s11-boton { position: absolute; left: 490px; top: 1236px; width: 420px; height: 100px; border-radius: 24px; background: #5ce611; border: 6px solid #120a22; }
+    [data-composition-id="s11-tienda"] .s11-boton div { position: absolute; left: 30px; right: 0; top: 18px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 28px; line-height: 1.05; color: #120a22; }
+    [data-composition-id="s11-tienda"] .s11-boton svg { left: 20px; top: 24px; width: 52px; height: 52px; }
+    [data-composition-id="s11-tienda"] .s11-etq { position: absolute; left: 0; right: 0; top: 600px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 100px; line-height: 1; color: #fff3e0; -webkit-text-stroke: 10px #120a22; paint-order: stroke fill; white-space: nowrap; }
+    [data-composition-id="s11-tienda"] .s11-etq b { color: #5ce611; font-weight: 900; text-shadow: 0 0 30px rgba(92, 230, 17, 0.45); }
+    [data-composition-id="s11-tienda"] .s11-est-txt { position: absolute; left: 75px; top: 870px; width: 180px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 28px; line-height: 1.05; color: #120a22; }
+  </style>
+  <div id="root" data-composition-id="s11-tienda" data-width="1080" data-height="1920" data-duration="8.23">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="8.23" data-track-index="0">
+      <div class="s11-capa s11-set">
+        <svg class="s11-full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <rect class="s11-luz" x="273" y="1133" width="74" height="244" fill="#ffc857" opacity="0" />
+        </svg>
+        <div class="s11-loc"><!--@LOCAL s11-l--></div>
+        <svg class="s11-full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- hilo del local al celular -->
+          <path class="s11-hilo" d="M330 1080 Q400 960 460 960" fill="none" stroke="#5ce611" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 18" />
+          <!-- el celular con la tienda -->
+          <g class="s11-cel">
+            <rect x="470" y="740" width="460" height="640" rx="50" fill="#241238" stroke="#fff3e0" stroke-width="7" />
+            <path d="M480 790 Q480 750 520 750 H880 Q920 750 920 790 V840 H480 Z" fill="#fff3e0" />
+            <path d="M510 750 H540 L536 840 H506 Z M570 750 H600 L596 840 H566 Z M630 750 H660 L656 840 H626 Z M690 750 H720 L716 840 H686 Z M750 750 H780 L776 840 H746 Z M810 750 H840 L836 840 H806 Z M870 750 H900 L896 840 H866 Z" fill="#ff6f59" opacity="0.9" />
+            <rect x="530" y="770" width="340" height="56" rx="12" fill="#fff3e0" stroke="#120a22" stroke-width="4" />
+            <text class="s11-tit" x="700" y="810" text-anchor="middle">TU TIENDA ONLINE</text>
+            <g class="s11-prods">
+              <g class="s11-prod"><rect x="495" y="860" width="195" height="170" rx="16" fill="#fff3e0" stroke="#120a22" stroke-width="5" /><circle cx="592" cy="925" r="40" fill="#ff6f59" stroke="#120a22" stroke-width="5" /></g>
+              <g class="s11-prod"><rect x="710" y="860" width="195" height="170" rx="16" fill="#fff3e0" stroke="#120a22" stroke-width="5" /><rect x="770" y="890" width="76" height="72" rx="10" fill="#22d1c3" stroke="#120a22" stroke-width="5" /></g>
+              <g class="s11-prod"><rect x="495" y="1045" width="195" height="170" rx="16" fill="#fff3e0" stroke="#120a22" stroke-width="5" /><path d="M550 1150 L592 1072 L634 1150 Z" fill="#ffc857" stroke="#120a22" stroke-width="5" stroke-linejoin="round" /></g>
+              <g class="s11-prod"><rect x="710" y="1045" width="195" height="170" rx="16" fill="#fff3e0" stroke="#120a22" stroke-width="5" /><rect x="772" y="1072" width="72" height="80" rx="34" fill="#3b1d5a" stroke="#120a22" stroke-width="5" /></g>
+            </g>
+            <g class="s11-precios">
+              <rect x="522" y="978" width="140" height="44" rx="10" fill="#ffc857" stroke="#120a22" stroke-width="4" /><text class="s11-precio" x="592" y="1010" text-anchor="middle">$ 390</text>
+              <rect x="737" y="978" width="140" height="44" rx="10" fill="#ffc857" stroke="#120a22" stroke-width="4" /><text class="s11-precio" x="807" y="1010" text-anchor="middle">$ 850</text>
+              <rect x="522" y="1163" width="140" height="44" rx="10" fill="#ffc857" stroke="#120a22" stroke-width="4" /><text class="s11-precio" x="592" y="1195" text-anchor="middle">$ 520</text>
+              <rect x="737" y="1163" width="140" height="44" rx="10" fill="#ffc857" stroke="#120a22" stroke-width="4" /><text class="s11-precio" x="807" y="1195" text-anchor="middle">$ 1.400</text>
+            </g>
+          </g>
+          <!-- la cajita que sale para la casa -->
+          <g class="s11-caja">
+            <rect x="660" y="1390" width="90" height="76" rx="8" fill="#ffc857" stroke="#120a22" stroke-width="6" />
+            <path d="M705 1390 V1466 M660 1420 H750" stroke="#ff6f59" stroke-width="8" />
+          </g>
+          <g class="s11-casita">
+            <path d="M880 1400 L950 1340 L1020 1400 Z" fill="#22d1c3" stroke="#120a22" stroke-width="6" stroke-linejoin="round" />
+            <rect x="895" y="1400" width="110" height="96" fill="#fff3e0" stroke="#120a22" stroke-width="6" />
+            <rect x="935" y="1436" width="30" height="60" fill="#3b1d5a" stroke="#120a22" stroke-width="5" />
+          </g>
+          <g class="s11-estrella"><path d="M312.0 870.0 L292.0 890.3 L302.7 916.7 L276.5 927.8 L276.3 956.3 L247.8 956.5 L236.7 982.7 L210.3 972.0 L190.0 992.0 L169.7 972.0 L143.3 982.7 L132.2 956.5 L103.7 956.3 L103.5 927.8 L77.3 916.7 L88.0 890.3 L68.0 870.0 L88.0 849.7 L77.3 823.3 L103.5 812.2 L103.7 783.7 L132.2 783.5 L143.3 757.3 L169.7 768.0 L190.0 748.0 L210.3 768.0 L236.7 757.3 L247.8 783.5 L276.3 783.7 L276.5 812.2 L302.7 823.3 L292.0 849.7 Z" fill="#ffc857" stroke="#120a22" stroke-width="5" stroke-linejoin="round" /><text x="190" y="864" text-anchor="middle" font-family="Lexend, sans-serif" font-weight="900" font-size="28" fill="#120a22">LO MEJOR</text><text x="190" y="898" text-anchor="middle" font-family="Lexend, sans-serif" font-weight="900" font-size="28" fill="#120a22">DEL BARRIO</text></g>
+          <!--@CORAZON s11-k 540 1470 44 #ff6f59-->
+        </svg>
+        <div class="s11-boton">
+          <svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="23" fill="#120a22" /><path class="s11-tilde" d="M14 27 L23 36 L39 17" fill="none" stroke="#5ce611" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <div>PAGAR CON<br />MERCADO PAGO</div>
+        </div>
+      </div>
+      <div class="s11-etq">TU TIENDA <b>ONLINE</b></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-tienda";
+      const DUR = 8.23;
+      //@HELPERS
+
+      const TIENDA = 0.46, PRECIO = 2.14, MP = 2.87, ENVIO = 3.77, CASA = 4.26, MEJOR = 5.09, COMPRAR = 6.39, SILLON = 7.31;
+      tl.fromTo(q(".s11-loc"), { opacity: 0.6, x: -120 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 0);
+      parpadeo(q(".s11-l-ojos"), [1.4, 4.8, 7.6]);
+      // "tienda online"
+      golpe(q(".s11-etq"), TIENDA + 0.1, -2);
+      gsap.set(q(".s11-cel"), { opacity: 0 });
+      tl.fromTo(q(".s11-cel"), { opacity: 0, scale: 0.6, svgOrigin: "700 1380" }, { opacity: 1, scale: 1, svgOrigin: "700 1380", duration: 0.4, ease: "back.out(1.8)", immediateRender: false }, TIENDA);
+      gsap.set(q(".s11-hilo"), { opacity: 0 });
+      tl.fromTo(q(".s11-hilo"), { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, TIENDA + 0.3);
+      tl.to(q(".s11-l-boca"), { attr: { d: "M-70 -178 Q-44 -146 -18 -178" }, duration: 0.2 }, TIENDA + 0.3);
+      const prods = [...qa(".s11-prod")];
+      gsap.set(prods, { opacity: 0 });
+      prods.forEach((p, i) => tl.fromTo(p, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, 1.4 + i * 0.08));
+      tl.to(q(".s11-etq"), { y: -30, opacity: 0, duration: 0.25 }, 1.95);
+      // "precio"
+      gsap.set(q(".s11-precios"), { opacity: 0 });
+      tl.fromTo(q(".s11-precios"), { opacity: 0, scale: 1.3, svgOrigin: "700 1090" }, { opacity: 1, scale: 1, svgOrigin: "700 1090", duration: 0.22, ease: "back.out(3)", immediateRender: false }, PRECIO - 0.1);
+      // "Mercado Pago": el botón con la tilde
+      gsap.set(q(".s11-boton"), { opacity: 0 });
+      tl.fromTo(q(".s11-boton"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, MP - 0.2);
+      dibujar(q(".s11-tilde"), MP + 0.25, 0.3);
+      tl.to(q(".s11-boton"), { scale: 0.93, duration: 0.08, yoyo: true, repeat: 1 }, MP + 0.2);
+      // "envío a la casa": la cajita viaja a la casita
+      gsap.set([q(".s11-caja"), q(".s11-casita")], { opacity: 0 });
+      tl.fromTo(q(".s11-casita"), { opacity: 0, scale: 0.5, svgOrigin: "950 1496" }, { opacity: 1, scale: 1, svgOrigin: "950 1496", duration: 0.25, ease: "back.out(2)", immediateRender: false }, ENVIO - 0.25);
+      tl.fromTo(q(".s11-caja"), { opacity: 1, x: 0, y: -120, scale: 0.4, svgOrigin: "705 1466" }, { opacity: 1, x: 0, y: 0, scale: 1, svgOrigin: "705 1466", duration: 0.25, ease: "power2.out", immediateRender: false }, ENVIO);
+      tl.to(q(".s11-caja"), { x: 200, duration: 0.45, ease: "power2.inOut" }, ENVIO + 0.25);
+      tl.to(q(".s11-caja"), { y: -40, duration: 0.22, yoyo: true, repeat: 1, ease: "sine.out" }, ENVIO + 0.25);
+      tl.to(q(".s11-caja"), { opacity: 0, scale: 0.6, svgOrigin: "705 1466", duration: 0.15 }, CASA + 0.3);
+      tl.to(q(".s11-casita"), { scale: 1.12, svgOrigin: "950 1496", duration: 0.12, yoyo: true, repeat: 1 }, CASA + 0.3);
+      // "lo mejor del barrio": estrella en el local
+      const est = q(".s11-estrella");
+      gsap.set(est, { opacity: 0 });
+      tl.fromTo(est, { opacity: 0, scale: 2.4, rotation: -30, svgOrigin: "190 870" }, { opacity: 1, scale: 1, rotation: -8, svgOrigin: "190 870", duration: 0.18, ease: "power4.in", immediateRender: false }, MEJOR - 0.1);
+      // "comprar": la puerta del local se abre
+      tl.to(q(".s11-l-puerta"), { scaleX: 0.2, svgOrigin: "50 -126", duration: 0.3, ease: "power2.out" }, COMPRAR - 0.1);
+      tl.to(q(".s11-luz"), { opacity: 0.85, duration: 0.25 }, COMPRAR - 0.05);
+      tl.to(q(".s11-luz"), { opacity: 0.6, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, COMPRAR + 0.3);
+      // "sillón": corazón grande
+      gsap.set(q(".s11-k"), { opacity: 0 });
+      tl.fromTo(q(".s11-k"), { opacity: 0, scale: 0.2, svgOrigin: "540 1525" }, { opacity: 1, scale: 1, svgOrigin: "540 1525", duration: 0.3, ease: "back.out(3)", immediateRender: false }, SILLON - 0.3);
+      tl.to(q(".s11-k"), { scale: 1.2, svgOrigin: "540 1525", duration: 0.14, yoyo: true, repeat: 3, ease: "sine.inOut" }, SILLON);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
