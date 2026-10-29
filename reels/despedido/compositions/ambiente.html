@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* empapelado: rayas verticales muy suaves */
+    [data-composition-id="ambiente"] .amb-papel { position: absolute; inset: 0; opacity: 0.05;
+      background-image: repeating-linear-gradient(90deg, rgba(246, 243, 234, 0.9) 0px, rgba(246, 243, 234, 0.9) 2px, transparent 2px, transparent 60px); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1120px at 540px 940px, rgba(18, 19, 24, 0) 58%, rgba(18, 19, 24, 0.85) 100%); }
+    /* la tira roja del almanaque, con el clavo y el hilo */
+    [data-composition-id="ambiente"] .amb-colgante { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-tira { position: absolute; left: 130px; top: 556px; width: 820px; height: 70px; background: #e63228; border-radius: 10px 10px 4px 4px; box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35); }
+    [data-composition-id="ambiente"] .amb-tira-txt { position: absolute; left: 0; right: 0; top: 0; line-height: 70px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #f6f3ea; text-transform: uppercase; }
+    [data-composition-id="ambiente"] .amb-ojal { position: absolute; top: 579px; width: 24px; height: 24px; border-radius: 50%; background: #121318; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* el celular con el contador de mensajes sin leer */
+    [data-composition-id="ambiente"] .amb-cel { position: absolute; left: 952px; top: 620px; width: 74px; height: 128px; border: 5px solid #f6f3ea; border-radius: 16px; }
+    [data-composition-id="ambiente"] .amb-cel::after { content: ""; position: absolute; left: 22px; top: 8px; width: 20px; height: 5px; border-radius: 3px; background: #f6f3ea; }
+    [data-composition-id="ambiente"] .amb-burbuja { position: absolute; left: 960px; top: 556px; width: 104px; height: 104px; margin-left: -52px; margin-top: -52px; border-radius: 50%; background: #e63228; border: 5px solid #1a1c22; }
+    [data-composition-id="ambiente"] .amb-verde { position: absolute; inset: -5px; border-radius: 50%; background: #5ce611; border: 5px solid #1a1c22; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-num { position: absolute; left: 0; right: 0; top: 0; line-height: 94px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; color: #f6f3ea; letter-spacing: -0.02em; }
+    [data-composition-id="ambiente"] .amb-sinleer { position: absolute; left: 930px; top: 760px; width: 120px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; line-height: 1.1; letter-spacing: 0.04em; color: #f6f3ea; opacity: 0.8; }
+    /* post-its */
+    [data-composition-id="ambiente"] .amb-post { position: absolute; width: 206px; height: 168px; padding: 18px 14px 0 16px; background: #ffd84a; box-shadow: 0 10px 18px rgba(0, 0, 0, 0.4); font-family: "Caveat", cursive; font-weight: 700; font-size: 44px; line-height: 0.98; color: #2f5bd3; }
+    [data-composition-id="ambiente"] .amb-post::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 22px; background: rgba(22, 24, 29, 0.06); }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.69">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="73.69" data-track-index="0">
+      <div class="amb-papel"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-colgante">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path d="M300 560 L540 516 L780 560" fill="none" stroke="#c4beae" stroke-width="3" />
+          <circle cx="540" cy="514" r="11" fill="#0c0d10" stroke="#c4beae" stroke-width="3" />
+        </svg>
+        <div class="amb-tira"><div class="amb-tira-txt">Almanaque del local</div></div>
+      </div>
+      <div class="amb-contador">
+        <div class="amb-cel"></div>
+        <div class="amb-burbuja"><div class="amb-verde"></div><div class="amb-num">0</div></div>
+        <div class="amb-sinleer">SIN<br />LEER</div>
+      </div>
+      <div class="amb-post amb-p1" style="left: 56px; top: 1372px">contestar WhatsApp!!</div>
+      <div class="amb-post amb-p2" style="left: 300px; top: 1398px">llamar a Marta</div>
+      <div class="amb-post amb-p3" style="left: 566px; top: 1378px">arreglar el posnet</div>
+      <div class="amb-post amb-p4" style="left: 818px; top: 1384px">ver pedidos!!</div>
+      <div class="amb-post amb-p5" style="left: 176px; top: 1530px">dormir???</div>
+      <div class="amb-post amb-p6" style="left: 700px; top: 1532px">llamarlo de vuelta</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.69;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // el almanaque se balancea apenas, colgado del clavo
+      tl.fromTo(q(".amb-tira"), { rotation: -0.6, transformOrigin: "50% -60px" }, { rotation: 0.6, transformOrigin: "50% -60px", duration: 2.2, ease: "sine.inOut", yoyo: true, repeat: 33 }, 0);
+      tl.fromTo(q(".amb-papel"), { x: 0 }, { x: 30, duration: DUR, ease: "none" }, 0);
+
+      // ---------- contador de mensajes sin leer (segundos globales) ----------
+      const num = q(".amb-num");
+      const cuenta = { v: 0 };
+      const mostrar = () => { num.textContent = cuenta.v >= 99 ? "99+" : String(Math.round(cuenta.v)); };
+      const contador = q(".amb-contador");
+      gsap.set(contador, { opacity: 0 });
+      tl.fromTo(contador, { opacity: 0, scale: 0.6, transformOrigin: "980px 640px" }, { opacity: 1, scale: 1, transformOrigin: "980px 640px", duration: 0.3, ease: "back.out(2)", immediateRender: false }, 7.7);
+      // [tiempo, valor, duración]
+      [[8.03, 40, 0.5], [10.3, 41, 0.1], [11.15, 42, 0.1], [12.8, 43, 0.1], [17.0, 51, 0.7], [25.2, 67, 0.8], [33.0, 84, 0.8], [39.3, 93, 0.6], [41.6, 99, 0.4]].forEach(([t, v, d]) => {
+        tl.to(cuenta, { v, duration: d, ease: "power1.out", onUpdate: mostrar }, t);
+        tl.fromTo(q(".amb-burbuja"), { scale: 1.3 }, { scale: 1, duration: 0.3, ease: "back.out(3)", immediateRender: false }, t);
+        tl.fromTo(q(".amb-cel"), { rotation: -8 }, { rotation: 0, duration: 0.3, ease: "elastic.out(1, 0.3)", immediateRender: false }, t);
+      });
+      // "Volví": baja a 0 y se pone verde
+      tl.to(cuenta, { v: 0, duration: 0.6, ease: "power2.in", onUpdate: () => { num.textContent = String(Math.round(cuenta.v)); } }, 48.95);
+      tl.to(q(".amb-verde"), { opacity: 1, duration: 0.2 }, 49.4);
+      tl.fromTo(q(".amb-burbuja"), { scale: 1.35 }, { scale: 1, duration: 0.4, ease: "back.out(3)", immediateRender: false }, 49.55);
+      tl.to(contador, { opacity: 0, y: -20, duration: 0.4, ease: "power2.in" }, 60.5);
+
+      // ---------- post-its: uno por día ----------
+      [[".amb-p1", 7.3, -6], [".amb-p2", 17.0, 4], [".amb-p3", 25.2, -3], [".amb-p4", 33.0, 6], [".amb-p5", 39.3, 3], [".amb-p6", 45.0, -5]].forEach(([s, t, r]) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, scale: 1.5, rotation: r * 3 }, { opacity: 1, scale: 1, rotation: r, duration: 0.3, ease: "back.out(2)", immediateRender: false }, t);
+      });
+      // "Volví": se caen todos
+      [".amb-p1", ".amb-p4", ".amb-p2", ".amb-p6", ".amb-p3", ".amb-p5"].forEach((s, i) => {
+        tl.to(q(s), { y: 620, rotation: i % 2 ? 40 : -40, opacity: 0, duration: 0.7, ease: "power2.in" }, 49.0 + i * 0.07);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

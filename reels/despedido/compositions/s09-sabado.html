@@ -1,0 +1,176 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-sabado"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-sabado"] .s09-escenario { position: absolute; inset: 0; }
+    /* el taco de hojas de abajo */
+    [data-composition-id="s09-sabado"] .s09-pad2 { position: absolute; left: 162px; top: 640px; width: 756px; height: 712px; background: #c4beae; border-radius: 0 0 8px 8px; }
+    [data-composition-id="s09-sabado"] .s09-pad1 { position: absolute; left: 156px; top: 630px; width: 768px; height: 712px; background: #dcd6c6; border-radius: 0 0 7px 7px; }
+    /* la hoja del día (y la vieja que se arranca) */
+    [data-composition-id="s09-sabado"] .s09-hoja, [data-composition-id="s09-sabado"] .s09-vieja { position: absolute; left: 150px; top: 620px; width: 780px; height: 710px; background: #f6f3ea; border-radius: 0 0 6px 6px; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s09-sabado"] .s09-vieja { border-top: 4px dashed #dcd6c6; }
+    [data-composition-id="s09-sabado"] .s09-dia { position: absolute; left: 0; right: 0; top: 34px; height: 140px; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; letter-spacing: -0.02em; color: #16181d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-sabado"] .s09-sub { position: absolute; left: 0; right: 0; top: 182px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #16181d; opacity: 0.7; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-sabado"] .s09-linea { position: absolute; left: 40px; right: 40px; top: 226px; height: 4px; background: #e63228; }
+    [data-composition-id="s09-sabado"] .s09-contenido { position: absolute; inset: 0; }
+    [data-composition-id="s09-sabado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-sabado"] .tinta { fill: none; stroke: #16181d; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sabado"] .tinta.fina { stroke-width: 4; }
+    [data-composition-id="s09-sabado"] .roja { fill: none; stroke: #e63228; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sabado"] .azul { fill: none; stroke: #2f5bd3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sabado"] .verde { fill: none; stroke: #5ce611; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sabado"] .s09-txt { position: absolute; font-family: "Lexend", sans-serif; font-weight: 800; line-height: 1; white-space: nowrap; color: #16181d; }
+    [data-composition-id="s09-sabado"] .s09-birome { position: absolute; font-family: "Caveat", cursive; font-weight: 700; font-size: 54px; line-height: 1; white-space: nowrap; color: #2f5bd3; }
+    [data-composition-id="s09-sabado"] .s09-sello { position: absolute; padding: 10px 24px 8px; border: 7px solid #e63228; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; color: #e63228; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.02em; background: rgba(246, 243, 234, 0.75); }
+
+    [data-composition-id="s09-sabado"] .s09-zzz { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #2f5bd3; line-height: 1; }
+    [data-composition-id="s09-sabado"] .s09-z1 { left: 380px; top: 1000px; font-size: 54px; }
+    [data-composition-id="s09-sabado"] .s09-z2 { left: 420px; top: 940px; font-size: 70px; }
+    [data-composition-id="s09-sabado"] .s09-z3 { left: 470px; top: 870px; font-size: 90px; }
+    [data-composition-id="s09-sabado"] .s09-audio { position: absolute; left: 470px; top: 890px; width: 420px; height: 110px; border: 6px solid #16181d; border-radius: 40px; background: #f6f3ea; }
+    [data-composition-id="s09-sabado"] .s09-dur { position: absolute; left: 300px; top: 30px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; line-height: 1; color: #e63228; }
+  
+  </style>
+  <div id="root" data-composition-id="s09-sabado" data-width="1080" data-height="1920" data-duration="5.88">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="5.88" data-track-index="0">
+      <div class="s09-escenario">
+        <div class="s09-pad2"></div>
+        <div class="s09-pad1"></div>
+        <div class="s09-hoja" data-layout-allow-overlap><div class="s09-dia" style="font-size: 136px">Sábado</div><div class="s09-sub">Día 6 · Plan ahorro</div><div class="s09-linea"></div></div>
+        <div class="s09-contenido">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+    <path class="tinta s09-cama" d="M196 1290 V1170 M196 1220 H880 V1290 M880 1220 V1180" />
+    <path class="tinta" fill="#f6f3ea" d="M210 1170 H300 Q312 1170 312 1182 V1206 Q312 1218 300 1218 H210 Z" />
+    <g transform="translate(600 1170) rotate(-90)"><g class="s09-dupos">
+  <g class="s09-dueno ">
+    <path class="tinta s09-du-cuerpo" fill="#f6f3ea" d="M-62 -200 Q-74 -110 -56 -40 H56 Q74 -110 62 -200 Q0 -218 -62 -200 Z" />
+    <path class="tinta fina s09-du-delantal" d="M-38 -150 H38 V-44 H-38 Z M-38 -150 L-30 -198 M38 -150 L30 -198 M-16 -110 H16" />
+    <path class="tinta s09-du-piernas" d="M-28 -40 V-4 M28 -40 V-4 M-44 -2 H-20 M20 -2 H44" />
+    <path class="tinta s09-du-brazos" d="M-60 -186 L-80 -110 M60 -186 L80 -110" />
+    <circle class="tinta s09-du-cabeza" cx="0" cy="-262" r="52" fill="#f6f3ea" />
+    <path class="tinta fina s09-du-pelo" d="M-14 -313 q5 -14 0 -24 M0 -314 q5 -16 0 -28 M14 -313 q5 -14 0 -24" />
+    <circle class="s09-ojo" cx="-18" cy="-270" r="6" fill="#16181d" />
+    <circle class="s09-ojo" cx="18" cy="-270" r="6" fill="#16181d" />
+    <path class="tinta fina s09-du-cejas" d="M-30 -288 L-8 -284 M30 -288 L8 -284" />
+    <path class="s09-du-bigote" fill="#16181d" d="M-32 -240 Q-16 -254 0 -245 Q16 -254 32 -240 Q16 -230 0 -237 Q-16 -230 -32 -240 Z" />
+    <path class="tinta fina s09-du-boca" d="M-12 -222 Q0 -214 12 -222" />
+    
+  </g></g></g>
+    <path class="tinta s09-sabana" fill="#f6f3ea" d="M430 1110 Q520 1096 620 1110 L870 1110 Q884 1110 884 1124 V1220 H430 Z" />
+    <g class="s09-celcara"><rect class="tinta" x="318" y="1112" width="78" height="120" rx="14" fill="#f6f3ea" transform="rotate(-90 357 1172)" /></g>
+    <path class="azul s09-luna" d="M846 900 a46 46 0 1 0 30 70 a36 36 0 1 1 -30 -70 Z" />
+  
+          </svg>
+
+          <div class="s09-zzz s09-z1">z</div>
+          <div class="s09-zzz s09-z2">z</div>
+          <div class="s09-zzz s09-z3">Z</div>
+          <div class="s09-audio">
+            <svg viewBox="0 0 420 110" style="width: 420px; height: 110px; position: absolute; left: -6px; top: -6px">
+              <path d="M40 34 L40 76 L74 55 Z" fill="#16181d" />
+              <path class="s09-onda" d="M100 55 v0 M118 40 v30 M136 30 v50 M154 44 v22 M172 26 v58 M190 38 v34 M208 30 v50 M226 46 v18 M244 34 v42 M262 42 v26 M280 50 v10" stroke="#16181d" stroke-width="7" stroke-linecap="round" />
+            </svg>
+            <div class="s09-dur">4:00</div>
+          </div>
+  
+          <svg class="s09-arriba" viewBox="0 0 1080 1920" aria-hidden="true">
+    <ellipse class="roja s09-circ" cx="830" cy="944" rx="70" ry="44" />
+    <path class="tinta s09-salto" d="M250 1040 l-30 -30 M290 1020 l-6 -42 M330 1040 l26 -32" />
+  
+          </svg>
+        </div>
+        <div class="s09-vieja" data-layout-allow-overlap><div class="s09-dia" style="font-size: 128px">Viernes</div><div class="s09-sub">Día 5 · Plan ahorro</div><div class="s09-linea"></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-sabado";
+      const DUR = 5.88;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const lista = (s) => (typeof s === "string" ? qa(s) : Array.isArray(s) ? s : [s]);
+      const esSVG = (el) => el instanceof SVGElement;
+      const centro = (el) => { const b = el.getBBox(); return (b.x + b.width / 2) + " " + (b.y + b.height / 2); };
+      const origen = (el, o) => (esSVG(el) && !(o && o.includes("%")) ? { svgOrigin: o || centro(el) } : { transformOrigin: o || "50% 50%" });
+      // trazo que se dibuja; desde = fracción ya dibujada en el cuadro 0
+      const dibujar = (s, t, d = 0.6, desde = 0) => lista(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const ya = t <= 0 && desde > 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - desde), opacity: ya ? 1 : 0 });
+        if (!ya) tl.to(el, { opacity: 1, duration: 0.01 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de = 0.6, o) => lista(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: de, ...origen(el, o) }, { opacity: 1, scale: 1, ...origen(el, o), duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe (palabra clave)
+      const golpe = (s, t, de = 2.4, o) => lista(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: de, ...origen(el, o) }, { opacity: 1, scale: 1, ...origen(el, o), duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const sacudon = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s09-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // sello de marcador: golpe + sacudón
+      const sello = (s, t, rot = -7) => { lista(s).forEach((el) => gsap.set(el, { rotation: rot })); golpe(s, t, 2.2); sacudon(t + 0.04, 0.9); };
+      // birome que escribe de izquierda a derecha
+      const escribir = (s, t, d = 0.5) => lista(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% -8%)", opacity: 0 });
+        tl.to(el, { opacity: 1, duration: 0.01 }, t);
+        tl.to(el, { clipPath: "inset(-30% -12% -30% -8%)", duration: d, ease: "power1.inOut" }, t);
+      });
+      // respiración (algo se mueve siempre)
+      const flotar = (s, t, d, y = -8) => lista(s).forEach((el) => tl.to(el, { y, duration: d / 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, t));
+
+      // la hoja de ayer se arranca: se despega de la esquina izquierda y cae girando
+      const vieja = q(".s09-vieja");
+      tl.fromTo(vieja, { rotation: 0, transformOrigin: "100% 0%" }, { rotation: -4, transformOrigin: "100% 0%", duration: 0.12, ease: "power2.out" }, 0);
+      tl.to(vieja, { rotation: 28, x: -260, y: 1250, transformOrigin: "100% 0%", duration: 0.62, ease: "power2.in" }, 0.12);
+      tl.to(vieja, { opacity: 0, duration: 0.1 }, 0.66);
+      // el día nuevo entra de golpe
+      golpe(q(".s09-hoja .s09-dia"), 0.22, 1.8);
+      sacudon(0.16, 0.7);
+
+
+      dibujar(qa(".s09-cama, .s09-sabana"), 0.3, 0.6);
+      pop(q(".s09-dupos"), 0.4, 0.8, "50% 50%");
+      dibujar(q(".s09-luna"), 0.6, 0.6);
+      // Zzz que suben
+      qa(".s09-zzz").forEach((z, i) => {
+        gsap.set(z, { opacity: 0 });
+        tl.fromTo(z, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out", immediateRender: false }, 1.0 + i * 0.3);
+        tl.to(z, { y: -14, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, 1.4 + i * 0.3);
+      });
+      // "cara": el celular le cae en la cara
+      gsap.set(q(".s09-celcara"), { opacity: 0 });
+      tl.fromTo(q(".s09-celcara"), { opacity: 0, y: -220, rotation: 30, svgOrigin: "357 1172" }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "357 1172", duration: 0.3, ease: "bounce.out", immediateRender: false }, 1.95);
+      // "Me despertó un audio"
+      tl.to(qa(".s09-zzz"), { opacity: 0, duration: 0.15 }, 2.95);
+      tl.to(q(".s09-luna"), { opacity: 0.35, duration: 0.2 }, 2.95);
+      pop(q(".s09-audio"), 3.0, 0.5, "100% 100%");
+      tl.fromTo(q(".s09-onda"), { scaleY: 0.4, transformOrigin: "50% 50%" }, { scaleY: 1.15, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 9, ease: "sine.inOut", immediateRender: false }, 3.2);
+      // "cuatro minutos": 4:00 con círculo, se despierta de un salto
+      golpe(q(".s09-dur"), 4.13, 2.2);
+      dibujar(q(".s09-circ"), 4.25, 0.35);
+      tl.to(q(".s09-dupos"), { y: -50, duration: 0.14, ease: "power3.out" }, 4.6);
+      tl.to(q(".s09-dupos"), { y: 0, duration: 0.3, ease: "bounce.out" }, 4.74);
+      tl.to(q(".s09-celcara"), { y: -260, x: 80, rotation: -60, opacity: 0, svgOrigin: "357 1172", duration: 0.45, ease: "power2.out" }, 4.6);
+      dibujar(q(".s09-salto"), 4.65, 0.2);
+      sacudon(4.62, 1.4);
+  
+
+      // salida: se borra lo dibujado; la hoja queda (la escena siguiente arranca con ella)
+      tl.to(q(".s09-contenido"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

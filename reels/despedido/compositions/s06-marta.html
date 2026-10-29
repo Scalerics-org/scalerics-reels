@@ -1,0 +1,136 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-marta"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-marta"] .s06-escenario { position: absolute; inset: 0; }
+    /* el taco de hojas de abajo */
+    [data-composition-id="s06-marta"] .s06-pad2 { position: absolute; left: 162px; top: 640px; width: 756px; height: 712px; background: #c4beae; border-radius: 0 0 8px 8px; }
+    [data-composition-id="s06-marta"] .s06-pad1 { position: absolute; left: 156px; top: 630px; width: 768px; height: 712px; background: #dcd6c6; border-radius: 0 0 7px 7px; }
+    /* la hoja del día (y la vieja que se arranca) */
+    [data-composition-id="s06-marta"] .s06-hoja, [data-composition-id="s06-marta"] .s06-vieja { position: absolute; left: 150px; top: 620px; width: 780px; height: 710px; background: #f6f3ea; border-radius: 0 0 6px 6px; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s06-marta"] .s06-vieja { border-top: 4px dashed #dcd6c6; }
+    [data-composition-id="s06-marta"] .s06-dia { position: absolute; left: 0; right: 0; top: 34px; height: 140px; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; letter-spacing: -0.02em; color: #16181d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-marta"] .s06-sub { position: absolute; left: 0; right: 0; top: 182px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #16181d; opacity: 0.7; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-marta"] .s06-linea { position: absolute; left: 40px; right: 40px; top: 226px; height: 4px; background: #e63228; }
+    [data-composition-id="s06-marta"] .s06-contenido { position: absolute; inset: 0; }
+    [data-composition-id="s06-marta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-marta"] .tinta { fill: none; stroke: #16181d; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-marta"] .tinta.fina { stroke-width: 4; }
+    [data-composition-id="s06-marta"] .roja { fill: none; stroke: #e63228; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-marta"] .azul { fill: none; stroke: #2f5bd3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-marta"] .verde { fill: none; stroke: #5ce611; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-marta"] .s06-txt { position: absolute; font-family: "Lexend", sans-serif; font-weight: 800; line-height: 1; white-space: nowrap; color: #16181d; }
+    [data-composition-id="s06-marta"] .s06-birome { position: absolute; font-family: "Caveat", cursive; font-weight: 700; font-size: 54px; line-height: 1; white-space: nowrap; color: #2f5bd3; }
+    [data-composition-id="s06-marta"] .s06-sello { position: absolute; padding: 10px 24px 8px; border: 7px solid #e63228; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; color: #e63228; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.02em; background: rgba(246, 243, 234, 0.75); }
+
+    [data-composition-id="s06-marta"] .s06-globo { position: absolute; left: 470px; top: 890px; width: 420px; padding: 26px 28px; border: 7px solid #16181d; border-radius: 40px; background: #f6f3ea; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 58px; line-height: 1.02; color: #16181d; text-transform: uppercase; }
+    [data-composition-id="s06-marta"] .s06-querido { left: 560px; top: 1130px; font-size: 84px; }
+  
+  </style>
+  <div id="root" data-composition-id="s06-marta" data-width="1080" data-height="1920" data-duration="2.34">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="2.34" data-track-index="0">
+      <div class="s06-escenario">
+        <div class="s06-pad2"></div>
+        <div class="s06-pad1"></div>
+        <div class="s06-hoja" data-layout-allow-overlap><div class="s06-dia" style="font-size: 104px">Miércoles</div><div class="s06-sub">Día 3 · Plan ahorro</div><div class="s06-linea"></div></div>
+        <div class="s06-contenido">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+    <path class="tinta s06-cola" fill="#f6f3ea" d="M500 1040 L440 1080 L490 1010" />
+    <g transform="translate(300 1300) scale(1.2)"><g class="s06-mpos">
+  <g class="s06-marta ">
+    <path class="tinta" fill="#f6f3ea" d="M-46 -200 L-80 -34 H80 L46 -200 Q0 -214 -46 -200 Z" />
+    <path class="tinta fina" d="M-62 -110 H62 M-70 -72 H70" />
+    <path class="tinta" d="M-26 -34 V-4 M26 -34 V-4 M-40 -2 H-18 M18 -2 H40" />
+    <path class="tinta" d="M-46 -188 L-80 -120 M46 -188 L86 -132" />
+    <path class="tinta" fill="#f6f3ea" d="M66 -132 H130 L124 -64 H72 Z" />
+    <path class="tinta fina" d="M80 -132 Q98 -162 116 -132" />
+    <circle class="tinta" cx="0" cy="-306" r="22" fill="#f6f3ea" />
+    <circle class="tinta" cx="0" cy="-250" r="46" fill="#f6f3ea" />
+    <circle class="tinta fina" cx="-18" cy="-254" r="13" />
+    <circle class="tinta fina" cx="18" cy="-254" r="13" />
+    <path class="tinta fina" d="M-5 -254 H5 M-14 -222 Q0 -216 14 -222" />
+    <circle cx="-18" cy="-254" r="4" fill="#16181d" />
+    <circle cx="18" cy="-254" r="4" fill="#16181d" />
+    
+  </g></g></g>
+    <path class="roja s06-subraya" d="M560 1222 Q700 1236 860 1214" />
+  
+          </svg>
+
+          <div class="s06-globo">Allá me <span class="s06-cont">contestan.</span></div>
+          <div class="s06-birome s06-querido">querido.</div>
+  
+          <svg class="s06-arriba" viewBox="0 0 1080 1920" aria-hidden="true">
+          </svg>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-marta";
+      const DUR = 2.34;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const lista = (s) => (typeof s === "string" ? qa(s) : Array.isArray(s) ? s : [s]);
+      const esSVG = (el) => el instanceof SVGElement;
+      const centro = (el) => { const b = el.getBBox(); return (b.x + b.width / 2) + " " + (b.y + b.height / 2); };
+      const origen = (el, o) => (esSVG(el) && !(o && o.includes("%")) ? { svgOrigin: o || centro(el) } : { transformOrigin: o || "50% 50%" });
+      // trazo que se dibuja; desde = fracción ya dibujada en el cuadro 0
+      const dibujar = (s, t, d = 0.6, desde = 0) => lista(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const ya = t <= 0 && desde > 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - desde), opacity: ya ? 1 : 0 });
+        if (!ya) tl.to(el, { opacity: 1, duration: 0.01 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de = 0.6, o) => lista(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: de, ...origen(el, o) }, { opacity: 1, scale: 1, ...origen(el, o), duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe (palabra clave)
+      const golpe = (s, t, de = 2.4, o) => lista(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: de, ...origen(el, o) }, { opacity: 1, scale: 1, ...origen(el, o), duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const sacudon = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s06-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // sello de marcador: golpe + sacudón
+      const sello = (s, t, rot = -7) => { lista(s).forEach((el) => gsap.set(el, { rotation: rot })); golpe(s, t, 2.2); sacudon(t + 0.04, 0.9); };
+      // birome que escribe de izquierda a derecha
+      const escribir = (s, t, d = 0.5) => lista(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% -8%)", opacity: 0 });
+        tl.to(el, { opacity: 1, duration: 0.01 }, t);
+        tl.to(el, { clipPath: "inset(-30% -12% -30% -8%)", duration: d, ease: "power1.inOut" }, t);
+      });
+      // respiración (algo se mueve siempre)
+      const flotar = (s, t, d, y = -8) => lista(s).forEach((el) => tl.to(el, { y, duration: d / 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, t));
+
+
+      pop(q(".s06-mpos"), 0, 0.7, "50% 100%");
+      pop([q(".s06-globo"), q(".s06-cola")], 0.1, 0.6, "0% 100%");
+      gsap.set(q(".s06-cont"), { display: "inline-block", color: "#e63228" });
+      golpe(q(".s06-cont"), 0.48, 1.8);
+      sacudon(0.52, 0.8);
+      escribir(q(".s06-querido"), 1.1, 0.4);
+      dibujar(q(".s06-subraya"), 1.45, 0.3);
+      // Marta levanta la nariz, digna
+      tl.to(q(".s06-mpos"), { rotation: -4, transformOrigin: "50% 100%", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, 1.2);
+      flotar(q(".s06-globo"), 0.6, 1.4, -6);
+  
+
+      // salida: se borra lo dibujado; la hoja queda (la escena siguiente arranca con ella)
+      tl.to(q(".s06-contenido"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

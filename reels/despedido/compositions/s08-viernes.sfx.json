@@ -1,0 +1,8 @@
+[
+  {"t":0.02,"sfx":"arranque","vol":0.45},
+  {"t":0.79,"sfx":"pop","vol":0.25},
+  {"t":1.76,"sfx":"whoosh-short","vol":0.3},
+  {"t":2.95,"sfx":"click-soft","vol":0.3},
+  {"t":4.4,"sfx":"click","vol":0.3},
+  {"t":5.1,"sfx":"impact-bass-1","vol":0.45,"max":0.6}
+]

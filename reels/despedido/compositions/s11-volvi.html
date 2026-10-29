@@ -1,0 +1,159 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-volvi"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-volvi"] .s11-escenario { position: absolute; inset: 0; }
+    /* el taco de hojas de abajo */
+    [data-composition-id="s11-volvi"] .s11-pad2 { position: absolute; left: 162px; top: 640px; width: 756px; height: 712px; background: #c4beae; border-radius: 0 0 8px 8px; }
+    [data-composition-id="s11-volvi"] .s11-pad1 { position: absolute; left: 156px; top: 630px; width: 768px; height: 712px; background: #dcd6c6; border-radius: 0 0 7px 7px; }
+    /* la hoja del día (y la vieja que se arranca) */
+    [data-composition-id="s11-volvi"] .s11-hoja, [data-composition-id="s11-volvi"] .s11-vieja { position: absolute; left: 150px; top: 620px; width: 780px; height: 710px; background: #f6f3ea; border-radius: 0 0 6px 6px; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s11-volvi"] .s11-vieja { border-top: 4px dashed #dcd6c6; }
+    [data-composition-id="s11-volvi"] .s11-dia { position: absolute; left: 0; right: 0; top: 34px; height: 140px; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; letter-spacing: -0.02em; color: #16181d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-volvi"] .s11-sub { position: absolute; left: 0; right: 0; top: 182px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #16181d; opacity: 0.7; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-volvi"] .s11-linea { position: absolute; left: 40px; right: 40px; top: 226px; height: 4px; background: #e63228; }
+    [data-composition-id="s11-volvi"] .s11-contenido { position: absolute; inset: 0; }
+    [data-composition-id="s11-volvi"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-volvi"] .tinta { fill: none; stroke: #16181d; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-volvi"] .tinta.fina { stroke-width: 4; }
+    [data-composition-id="s11-volvi"] .roja { fill: none; stroke: #e63228; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-volvi"] .azul { fill: none; stroke: #2f5bd3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-volvi"] .verde { fill: none; stroke: #5ce611; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-volvi"] .s11-txt { position: absolute; font-family: "Lexend", sans-serif; font-weight: 800; line-height: 1; white-space: nowrap; color: #16181d; }
+    [data-composition-id="s11-volvi"] .s11-birome { position: absolute; font-family: "Caveat", cursive; font-weight: 700; font-size: 54px; line-height: 1; white-space: nowrap; color: #2f5bd3; }
+    [data-composition-id="s11-volvi"] .s11-sello { position: absolute; padding: 10px 24px 8px; border: 7px solid #e63228; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; color: #e63228; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.02em; background: rgba(246, 243, 234, 0.75); }
+
+    [data-composition-id="s11-volvi"] .s11-globo { position: absolute; left: 466px; top: 872px; padding: 18px 28px; border: 6px solid #16181d; border-radius: 34px; background: #f6f3ea; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 48px; line-height: 1; color: #16181d; white-space: nowrap; }
+  
+  </style>
+  <div id="root" data-composition-id="s11-volvi" data-width="1080" data-height="1920" data-duration="3.72">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="3.72" data-track-index="0">
+      <div class="s11-escenario">
+        <div class="s11-pad2"></div>
+        <div class="s11-pad1"></div>
+        <div class="s11-hoja" data-layout-allow-overlap><div class="s11-dia" style="font-size: 128px; color: #e63228">Domingo</div><div class="s11-sub">Día 7 · Plan ahorro</div><div class="s11-linea"></div></div>
+        <div class="s11-contenido">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+    <g transform="translate(320 1300)"><g class="s11-dupos">
+  <g class="s11-dueno ">
+    <path class="tinta s11-du-cuerpo" fill="#f6f3ea" d="M-62 -200 Q-74 -110 -56 -40 H56 Q74 -110 62 -200 Q0 -218 -62 -200 Z" />
+    <path class="tinta fina s11-du-delantal" d="M-38 -150 H38 V-44 H-38 Z M-38 -150 L-30 -198 M38 -150 L30 -198 M-16 -110 H16" />
+    <path class="tinta s11-du-piernas" d="M-28 -40 V-4 M28 -40 V-4 M-44 -2 H-20 M20 -2 H44" />
+    <path class="tinta s11-du-brazos" d="M-60 -186 L-104 -110 M60 -186 L110 -230" />
+    <circle class="tinta s11-du-cabeza" cx="0" cy="-262" r="52" fill="#f6f3ea" />
+    <path class="tinta fina s11-du-pelo" d="M-14 -313 q5 -14 0 -24 M0 -314 q5 -16 0 -28 M14 -313 q5 -14 0 -24" />
+    <circle class="s11-ojo" cx="-18" cy="-270" r="6" fill="#16181d" />
+    <circle class="s11-ojo" cx="18" cy="-270" r="6" fill="#16181d" />
+    <path class="tinta fina s11-du-cejas" d="M-30 -288 L-8 -284 M30 -288 L8 -284" />
+    <path class="s11-du-bigote" fill="#16181d" d="M-32 -240 Q-16 -254 0 -245 Q16 -254 32 -240 Q16 -230 0 -237 Q-16 -230 -32 -240 Z" />
+    <path class="tinta fina s11-du-boca" d="M-16 -228 Q0 -212 16 -228" />
+    <path class="azul s11-lagri" d="M-24 -258 q-8 14 0 20 q8 -6 0 -20 M24 -258 q-8 14 0 20 q8 -6 0 -20" />
+  </g></g></g>
+    <g transform="translate(730 1300)"><g class="s11-agpos">
+  <g class="s11-agente ">
+    <path class="tinta s11-ag-cuerpo" fill="#f6f3ea" d="M-60 -262 H60 Q82 -262 82 -240 V-142 Q82 -120 60 -120 H-14 L-48 -92 L-42 -120 H-60 Q-82 -120 -82 -142 V-240 Q-82 -262 -60 -262 Z" />
+    <path class="tinta s11-ag-antena" d="M0 -262 V-292" />
+    <circle class="tinta s11-ag-bolita" cx="0" cy="-302" r="10" fill="#f6f3ea" />
+    <circle class="s11-ojo s11-ag-ojo1" cx="-28" cy="-200" r="10" fill="#16181d" />
+    <circle class="s11-ojo s11-ag-ojo2" cx="28" cy="-200" r="10" fill="#16181d" />
+    <path class="tinta s11-ag-boca" d="M-24 -164 Q0 -144 24 -164" />
+    <path class="tinta s11-ag-piernas" d="M-4 -120 L-16 -12 M40 -120 L50 -12 M-30 -10 H-6 M40 -10 H64" />
+    <path class="tinta s11-ag-brazos" d="M-82 -192 L-122 -150 M82 -192 L122 -150" />
+    
+  </g><g transform="translate(0 58)">
+  <g class="s11-caja ">
+    <path class="tinta fina" d="M-8 -175 V-215 M-8 -196 Q-30 -210 -36 -228 M-8 -186 Q14 -204 24 -220" />
+    <path class="tinta" fill="#f6f3ea" d="M-90 -175 H90 V-70 H-90 Z" />
+    <path class="tinta" d="M-90 -175 L-112 -198 M90 -175 L112 -198 M-40 -130 H40" />
+  </g></g></g></g>
+    <path class="verde s11-brillo" d="M600 1000 l-30 -20 M610 960 l-20 -40 M860 1000 l30 -20 M850 960 l20 -40" />
+    <path class="roja s11-corazon" fill="#e63228" d="M525 1040 C525 1000 470 990 470 1035 C470 1070 525 1100 525 1110 C525 1100 580 1070 580 1035 C580 990 525 1000 525 1040 Z" />
+  
+          </svg>
+
+          <div class="s11-globo">¿Me extrañaste?</div>
+  
+          <svg class="s11-arriba" viewBox="0 0 1080 1920" aria-hidden="true">
+          </svg>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-volvi";
+      const DUR = 3.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const lista = (s) => (typeof s === "string" ? qa(s) : Array.isArray(s) ? s : [s]);
+      const esSVG = (el) => el instanceof SVGElement;
+      const centro = (el) => { const b = el.getBBox(); return (b.x + b.width / 2) + " " + (b.y + b.height / 2); };
+      const origen = (el, o) => (esSVG(el) && !(o && o.includes("%")) ? { svgOrigin: o || centro(el) } : { transformOrigin: o || "50% 50%" });
+      // trazo que se dibuja; desde = fracción ya dibujada en el cuadro 0
+      const dibujar = (s, t, d = 0.6, desde = 0) => lista(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const ya = t <= 0 && desde > 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - desde), opacity: ya ? 1 : 0 });
+        if (!ya) tl.to(el, { opacity: 1, duration: 0.01 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de = 0.6, o) => lista(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: de, ...origen(el, o) }, { opacity: 1, scale: 1, ...origen(el, o), duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe (palabra clave)
+      const golpe = (s, t, de = 2.4, o) => lista(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: de, ...origen(el, o) }, { opacity: 1, scale: 1, ...origen(el, o), duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const sacudon = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // sello de marcador: golpe + sacudón
+      const sello = (s, t, rot = -7) => { lista(s).forEach((el) => gsap.set(el, { rotation: rot })); golpe(s, t, 2.2); sacudon(t + 0.04, 0.9); };
+      // birome que escribe de izquierda a derecha
+      const escribir = (s, t, d = 0.5) => lista(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% -8%)", opacity: 0 });
+        tl.to(el, { opacity: 1, duration: 0.01 }, t);
+        tl.to(el, { clipPath: "inset(-30% -12% -30% -8%)", duration: d, ease: "power1.inOut" }, t);
+      });
+      // respiración (algo se mueve siempre)
+      const flotar = (s, t, d, y = -8) => lista(s).forEach((el) => tl.to(el, { y, duration: d / 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, t));
+
+
+      // "Volví": el agente vuelve con su caja, ojos y antena en verde
+      gsap.set([q(".s11-ag-ojo1"), q(".s11-ag-ojo2")], { fill: "#5ce611" });
+      gsap.set(q(".s11-ag-bolita"), { fill: "#5ce611" });
+      gsap.set(q(".s11-agpos"), { opacity: 0 });
+      tl.fromTo(q(".s11-agpos"), { opacity: 0, x: 300 }, { opacity: 1, x: 0, duration: 0.45, ease: "back.out(1.6)", immediateRender: false }, 0.0);
+      dibujar(q(".s11-brillo"), 0.4, 0.3);
+      tl.to(q(".s11-brillo"), { opacity: 0, duration: 0.3 }, 1.2);
+      pop(q(".s11-dupos"), 0.15, 0.7, "50% 100%");
+      // la caja se va: vuelve a trabajar
+      tl.to(q(".s11-caja"), { y: 200, opacity: 0, duration: 0.4, ease: "power2.in" }, 0.9);
+      tl.to(q(".s11-ag-brazos"), { attr: { d: "M-82 -192 L-130 -240 M82 -192 L122 -150" }, duration: 0.2 }, 1.1);
+      // "¿Me extrañaste?"
+      pop(q(".s11-globo"), 1.1, 0.5, "60% 100%");
+      tl.to(q(".s11-agente"), { rotation: -6, transformOrigin: "50% 100%", duration: 0.2, yoyo: true, repeat: 1 }, 1.3);
+      // "Un montón": abrazo y corazón que late
+      tl.to(q(".s11-dupos"), { x: 90, duration: 0.3, ease: "back.out(2)" }, 2.5);
+      tl.to(q(".s11-agpos"), { x: -70, duration: 0.3, ease: "back.out(2)" }, 2.5);
+      golpe(q(".s11-corazon"), 2.75, 2.0);
+      tl.to(q(".s11-corazon"), { scale: 1.2, svgOrigin: "525 1050", duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, 2.9);
+      tl.to(q(".s11-globo"), { opacity: 0.4, duration: 0.2 }, 2.6);
+  
+
+      // salida: se borra lo dibujado; la hoja queda (la escena siguiente arranca con ella)
+      tl.to(q(".s11-contenido"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

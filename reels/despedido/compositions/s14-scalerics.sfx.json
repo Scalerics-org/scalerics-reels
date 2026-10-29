@@ -1,0 +1,9 @@
+[
+  {"t":0.02,"sfx":"arranque","vol":0.45},
+  {"t":0.3,"sfx":"sparkle","vol":0.3},
+  {"t":2.38,"sfx":"pop","vol":0.25},
+  {"t":3.52,"sfx":"pop","vol":0.25},
+  {"t":4.09,"sfx":"pop","vol":0.25},
+  {"t":5.71,"sfx":"pop","vol":0.25},
+  {"t":7.23,"sfx":"chime","vol":0.3}
+]
