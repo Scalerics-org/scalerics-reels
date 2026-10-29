@@ -23,15 +23,46 @@ if (!fs.existsSync(video)) {
 const cuadro = path.join(tmp, "cuadro.png");
 execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-ss", String(cfg.t ?? 2), "-i", video, "-frames:v", "1", cuadro]);
 
+// Círculo rojo alrededor de lo importante: "circulo": { "x": 540, "y": 760, "r": 220 } (centro y radio, en px
+// de la portada). Flecha roja: "flecha": { "x": 120, "y": 1000, "rot": -35 } (x, y = donde arranca la cola;
+// rot = grados, 0 apunta a la derecha, negativo sube). Las dos son opcionales.
+function extras(c) {
+  let h = "";
+  if (c.circulo) {
+    const { x, y, r } = c.circulo;
+    h += `<div class="circulo" style="left:${x - r}px;top:${y - r * 0.85}px;width:${2 * r}px;height:${1.7 * r}px"></div>`;
+  }
+  if (c.flecha) {
+    const { x, y, rot = 0 } = c.flecha;
+    h += `<svg class="flecha" viewBox="0 0 260 120" style="left:${x}px;top:${y - 60}px;transform:rotate(${rot}deg)">` +
+      `<path d="M8 60 C 80 50, 140 70, 190 60" stroke="#000" stroke-width="40" fill="none" stroke-linecap="round"/>` +
+      `<path d="M8 60 C 80 50, 140 70, 190 60" stroke="#ff2d2d" stroke-width="26" fill="none" stroke-linecap="round"/>` +
+      `<path d="M170 14 L252 60 L170 106 Z" fill="#ff2d2d" stroke="#000" stroke-width="10" stroke-linejoin="round"/></svg>`;
+  }
+  return h;
+}
+// Tamaño de letra para que el renglón más largo entre en 960 px (Lexend 900 en mayúsculas ≈ 0,7 em por letra)
+// sin pasar del máximo: así "ES UNA IA" no deja el "IA" solo abajo.
+function tam(texto, maximo) {
+  const palabras = String(texto || "").split(/\s+/);
+  const largo = palabras.join(" ").length;
+  // En un solo renglón si no hay que achicar más de un 30 %
+  const unRenglon = Math.floor(960 / (largo * 0.7));
+  if (unRenglon >= maximo * 0.7) return Math.min(maximo, unRenglon);
+  const renglones = Math.max(1, Math.ceil((largo * 0.7 * maximo) / 960));
+  const porRenglon = Math.max(...palabras.map((p) => p.length), Math.ceil(largo / renglones));
+  return Math.min(maximo, Math.floor(960 / (porRenglon * 0.7)));
+}
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const url = (p) => "file:///" + p.replace(/\\/g, "/");
 let html = fs.readFileSync(path.resolve("herramientas/portada.html"), "utf8")
   .replaceAll("__FUENTES__", url(path.join(dir, "assets", "fonts")))
   .replaceAll("__CUADRO__", url(cuadro))
   .replace("__SELLO__", esc(cfg.sello))
-  .replace("__CHICA__", esc(cfg.chica))
-  .replace("__GRANDE__", esc(cfg.grande));
-const vars = [["--acento", cfg.acento], ["--sello", cfg.sello_color], ["--zoom", cfg.zoom], ["--foco", cfg.foco], ["--velo", cfg.velo], ["--fondo", cfg.fondo]]
+  .replace("__CHICA__", `<span style="font-size:${tam(cfg.chica, 112)}px">${esc(cfg.chica)}</span>`)
+  .replace("__GRANDE__", `<span style="font-size:${tam(cfg.grande, 190)}px">${esc(cfg.grande)}</span>`)
+  .replace("__EXTRAS__", extras(cfg));
+const vars = [["--acento", cfg.acento], ["--sello", cfg.sello_color], ["--zoom", cfg.zoom], ["--foco", cfg.foco], ["--velo", cfg.velo], ["--fondo", cfg.fondo], ["--foco-x", cfg.foco_x], ["--brillo-y", cfg.brillo_y]]
   .filter(([, v]) => v != null).map(([k, v]) => `${k}: ${v};`).join(" ");
 if (vars) html = html.replace("</style>", `:root { ${vars} }\n</style>`);
 const pagina = path.join(tmp, "portada.html");

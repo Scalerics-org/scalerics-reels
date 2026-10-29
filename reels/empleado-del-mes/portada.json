@@ -1,1 +1,2 @@
-{ "t": 37.6, "chica": "Marcelo, empleado del mes:", "grande": "no sos vos", "sello": "Gala del local", "acento": "#f5c518", "sello_color": "#f5c518", "velo": "28,6,10", "fondo": "#1c060a", "zoom": 1.3, "foco": "68%" }
+{ "t": 6.5, "chica": "El empleado del mes", "grande": "es una IA", "sello": "¡No sos vos, Marcelo!", "acento": "#ffd60a", "sello_color": "#ffd60a", "velo": "28,6,10", "fondo": "#1c060a", "zoom": 1.9, "foco": "70%", "brillo_y": "38%",
+  "circulo": { "x": 545, "y": 720, "r": 240 }, "flecha": { "x": 110, "y": 1010, "rot": -38 } }

@@ -1,30 +1,41 @@
 <!doctype html>
-<!-- Portada de un reel (1080x1920). La llena herramientas/portada.mjs con reels/<slug>/portada.json:
-     un cuadro del propio reel de fondo y el gancho en letras gigantes. Todo lo importante va dentro
-     del recorte 4:5 que muestra la grilla de Instagram (y de 285 a 1635). -->
+<!-- Portada CLICKBAIT de un reel (1080x1920). La llena herramientas/portada.mjs con reels/<slug>/portada.json:
+     un cuadro del propio reel, con zoom al personaje, el gancho gigante con borde negro, una etiqueta
+     que pica y, si se pide, una flecha y un círculo rojos señalando lo importante. Todo lo importante
+     va dentro del recorte 4:5 que muestra la grilla de Instagram (y de 285 a 1635). -->
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <style>
   @font-face { font-family: "Lexend"; font-weight: 100 900; src: url("__FUENTES__/Lexend-var.woff2") format("woff2"); }
   @font-face { font-family: "Plex"; font-weight: 500; src: url("__FUENTES__/IBMPlexMono-500.woff2") format("woff2"); }
-  :root { --acento: #f5c518; --sello: #e5484d; --texto: #ffffff; --fondo: #06101f; --velo: 6,16,31; }
+  :root { --acento: #ffd60a; --sello: #e5484d; --texto: #ffffff; --fondo: #06101f; --velo: 6,16,31; --rojo: #ff2d2d; }
   html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--fondo); }
-  .cuadro { position: absolute; inset: 0; background: center / cover no-repeat url("__CUADRO__"); transform: scale(var(--zoom, 1.12)); transform-origin: 50% var(--foco, 40%); }
+  .cuadro { position: absolute; inset: 0; background: center / cover no-repeat url("__CUADRO__"); transform: scale(var(--zoom, 1.12)); transform-origin: var(--foco-x, 50%) var(--foco, 40%);
+    filter: saturate(1.35) contrast(1.12); }
   .velo { position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(var(--velo),1) 0%, rgba(var(--velo),1) 18%, rgba(var(--velo),0) 32%, rgba(var(--velo),0) 46%, rgba(var(--velo),1) 60%, rgba(var(--velo),1) 100%); }
-  .sello { position: absolute; left: 90px; top: 330px; font: 500 34px/1 "Plex", monospace; letter-spacing: .18em; text-transform: uppercase;
-    color: var(--sello); border: 4px solid var(--sello); padding: 14px 22px 12px; transform: rotate(-4deg); background: rgba(var(--velo),.55); }
-  .titulo { position: absolute; left: 80px; right: 80px; bottom: 330px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase;
-    line-height: .92; letter-spacing: -.02em; color: var(--texto); text-shadow: 0 8px 40px rgba(0,0,0,.6); }
-  .titulo .chica { display: block; font-size: 104px; }
-  .titulo .grande { display: block; font-size: 172px; color: var(--acento); margin-top: 10px; }
-  .marca { position: absolute; left: 0; right: 0; bottom: 250px; text-align: center; font: 500 26px/1 "Plex", monospace; letter-spacing: .3em; color: rgba(255,255,255,.7); text-transform: uppercase; }
+    background: linear-gradient(180deg, rgba(var(--velo),1) 0%, rgba(var(--velo),.9) 13%, rgba(var(--velo),0) 26%, rgba(var(--velo),0) 50%, rgba(var(--velo),.96) 64%, rgba(var(--velo),1) 100%); }
+  /* Brillo de fondo detrás del personaje: lo despega, como en las miniaturas de YouTube */
+  .brillo { position: absolute; left: 50%; top: var(--brillo-y, 40%); width: 1100px; height: 1100px; transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 60%); mix-blend-mode: screen; }
+  .sello { position: absolute; left: 70px; top: 310px; font: 900 54px/1 "Lexend", sans-serif; text-transform: uppercase; letter-spacing: -.01em;
+    color: #111; background: var(--sello); padding: 16px 26px 14px; transform: rotate(-5deg); box-shadow: 0 10px 0 rgba(0,0,0,.45); }
+  .titulo { position: absolute; left: 60px; right: 60px; bottom: 320px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase;
+    line-height: .9; letter-spacing: -.03em; color: var(--texto); transform: rotate(-2deg); transform-origin: left bottom;
+    -webkit-text-stroke: 14px #000; paint-order: stroke fill; text-shadow: 0 14px 0 rgba(0,0,0,.55); }
+  .titulo .chica { display: block; }
+  .titulo .grande { display: block; color: var(--acento); margin-top: 6px; }
+  .marca { position: absolute; left: 0; right: 0; bottom: 250px; text-align: center; font: 500 26px/1 "Plex", monospace; letter-spacing: .3em; color: rgba(255,255,255,.75); text-transform: uppercase; }
+  /* Círculo y flecha rojos, a mano alzada */
+  .circulo { position: absolute; border: 16px solid var(--rojo); border-radius: 50%; transform: rotate(-8deg); box-shadow: 0 0 0 6px rgba(0,0,0,.35), inset 0 0 0 6px rgba(0,0,0,.25); }
+  .flecha { position: absolute; width: 260px; height: 120px; transform-origin: 0 50%; }
 </style>
 </head>
 <body>
   <div class="cuadro"></div>
+  <div class="brillo"></div>
   <div class="velo"></div>
+  __EXTRAS__
   <div class="sello">__SELLO__</div>
   <div class="titulo"><span class="chica">__CHICA__</span><span class="grande">__GRANDE__</span></div>
   <div class="marca">Scalerics</div>
