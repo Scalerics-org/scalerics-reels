@@ -1,0 +1,73 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-a-esta-hora"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-a-esta-hora"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-a-esta-hora"] .s07-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 0.95; white-space: nowrap; }
+    [data-composition-id="s07-a-esta-hora"] .s07-me { line-height: 1.12; top: 580px; font-weight: 900; font-size: 100px; letter-spacing: -0.02em; color: #e8f0ff; }
+    [data-composition-id="s07-a-esta-hora"] .s07-hora { top: 600px; font-weight: 200; font-size: 250px; letter-spacing: -0.03em; color: #ffb547; text-shadow: 0 0 50px rgba(255, 181, 71, 0.5); }
+    [data-composition-id="s07-a-esta-hora"] .s07-esta { top: 860px; font-weight: 800; font-size: 72px; color: #e8f0ff; }
+    [data-composition-id="s07-a-esta-hora"] .s07-b { position: absolute; left: 80px; padding: 24px 34px 22px; border-radius: 36px 36px 36px 10px; background: #232a5e; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 48px; line-height: 1.2; color: #e8f0ff; white-space: nowrap; }
+    [data-composition-id="s07-a-esta-hora"] .s07-h { display: block; text-align: right; margin-top: 4px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; color: #b9c3f0; }
+    [data-composition-id="s07-a-esta-hora"] .s07-b1 { top: 1010px; }
+    [data-composition-id="s07-a-esta-hora"] .s07-b2 { top: 1190px; }
+    [data-composition-id="s07-a-esta-hora"] .s07-x2 { position: absolute; left: 660px; top: 930px; width: 360px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 240px; line-height: 1; color: #ffb547; text-shadow: 0 0 50px rgba(255, 181, 71, 0.55); }
+    [data-composition-id="s07-a-esta-hora"] .s07-madre { position: absolute; left: 600px; top: 1360px; padding: 10px 22px; border: 5px solid #a78bfa; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.14em; color: #a78bfa; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s07-a-esta-hora" data-width="1080" data-height="1920" data-duration="5.55">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.55" data-track-index="0">
+      <div class="s07-escenario">
+        <div class="s07-txt s07-me">¿¡Me<br />contestaron!?</div>
+        <div class="s07-txt s07-hora">3:47</div>
+        <div class="s07-txt s07-esta">¿A esta hora?</div>
+        <div class="s07-b s07-b1">Bueno, mandame dos<span class="s07-h">3:48</span></div>
+        <div class="s07-b s07-b2">Una es para mi madre<span class="s07-h">3:48</span></div>
+        <div class="s07-x2">x2</div>
+        <div class="s07-madre">REGALO PARA MAMÁ</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-a-esta-hora";
+      const DUR = 5.55;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const ESTA = 1.33, MANDAME = 2.76, DOS = 3.58, UNA = 4.22;
+      const sacudon = (t, f = 1) => [[-14, 7], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      // "¿me contestaron?": golpe de sorpresa
+      tl.fromTo(q(".s07-me"), { opacity: 0.4, scale: 1.8, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 0);
+      sacudon(0.15);
+      tl.to(q(".s07-me"), { scale: 1.04, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0.4);
+      tl.to(q(".s07-me"), { opacity: 0, y: -40, filter: "blur(8px)", duration: 0.15 }, ESTA - 0.2);
+
+      // "¿a esta hora?": vuelve la hora gigante
+      gsap.set([q(".s07-hora"), q(".s07-esta")], { opacity: 0 });
+      tl.fromTo(q(".s07-hora"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(1.8)", immediateRender: false }, ESTA - 0.1);
+      tl.fromTo(q(".s07-esta"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, ESTA + 0.2);
+      tl.to(q(".s07-hora"), { rotation: -3, duration: 0.08, yoyo: true, repeat: 5, ease: "none" }, ESTA + 0.4);
+
+      // "bueno, mandame dos"
+      gsap.set([q(".s07-b1"), q(".s07-b2")], { opacity: 0 });
+      tl.fromTo(q(".s07-b1"), { opacity: 0, y: 30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.8)", immediateRender: false, transformOrigin: "0% 100%" }, MANDAME - 0.1);
+      gsap.set(q(".s07-x2"), { opacity: 0 });
+      tl.fromTo(q(".s07-x2"), { opacity: 0, scale: 3, rotation: -12 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.14, ease: "power4.in", immediateRender: false }, DOS - 0.08);
+      sacudon(DOS + 0.08, 1.2);
+      tl.to(q(".s07-x2"), { scale: 1.08, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, DOS + 0.3);
+
+      // "una es para mi madre"
+      tl.fromTo(q(".s07-b2"), { opacity: 0, y: 30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.8)", immediateRender: false, transformOrigin: "0% 100%" }, UNA - 0.1);
+      gsap.set(q(".s07-madre"), { opacity: 0, rotation: 6 });
+      tl.fromTo(q(".s07-madre"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, 4.78);
+
+      tl.to(q("#s07-escena"), { opacity: 0, y: -60, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

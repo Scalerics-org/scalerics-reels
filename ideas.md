@@ -39,6 +39,7 @@
 - 28-10 · `ojala-te-fundas` · Todo Scalerics · "Ojalá te fundas." Monólogo del villano de enfrente (dos voces) · Etiquetá a tu competencia [formato B monólogo de villano · estilo guarida con monitores de vigilancia verde ácido]
 - 28-10 · `el-golpe` · Todo Scalerics · "Te voy a robar los clientes. Y te aviso antes, porque soy así de pillo." Plan de atraco en pasos con referencias (La Casa de Papel, Heisenberg, "qué mirás bobo", el dólar) · Mandáselo al que dice "a mí no me roba nadie" [formato C lista en pasos + B dos voces · estilo plano de atraco azul]
 - 29-10 · `el-examen` · Sitio web · "Tu negocio se sacó un dos. Y lo corregí yo." Un profesor corrige tu negocio como un examen y te manda a marzo; giro: reprobás la vidriera online, no la mercadería · Ponete nota del 1 al 12 en los comentarios [formato A polémica con giro (examen) · estilo pizarrón y tiza con hoja de examen]
+- 29-10 · `las-3-47` · Agente de IA · "Son las 3:47 de la mañana. Vos estás roncando. Y alguien está vendiendo en tu local." El agente (susurrando) le vende dos freidoras a una clienta insomne mientras el dueño duerme; a las 7: "Vos roncaste. Yo vendí." · Guardalo y mostráselo a tu socio, si se despierta [formato G simulación de pantalla · estilo celular a pantalla completa nocturno, cuatro voces]
 
 ## En curso
 
@@ -46,7 +47,6 @@
 - 29-10 · `pelea-de-gallos` · Agente de IA · batalla de freestyle dueño vs agente de IA [formato P batalla de freestyle · estilo batalla callejera graffiti y neón] · corrida 29-10
 - 29-10 · `el-relator` · Agente de IA · relator de fútbol narra cómo tu cliente se escapa al de enfrente por el visto [formato P partido con relator · estilo transmisión de fútbol con marcador] · corrida 29-10
 - 29-10 · `entrevista-de-trabajo` · Agente de IA · el dueño entrevista al agente de IA como nuevo empleado [formato B diálogo entrevista · estilo oficina de RRHH con ficha y currículum] · corrida 29-10
-- 29-10 · `las-3-47` · Agente de IA · 3:47 de la mañana, el dueño duerme y el agente vende [formato G simulación de pantalla · estilo celular a pantalla completa nocturno] · corrida 29-10
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
 

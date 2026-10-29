@@ -1,0 +1,108 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-retiro"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-retiro"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-retiro"] .s08-card { position: absolute; left: 90px; top: 580px; width: 900px; height: 920px; border-radius: 48px; background: rgba(20, 26, 70, 0.92); border: 2px solid rgba(167, 139, 250, 0.4); }
+    [data-composition-id="s08-retiro"] .s08-check { position: absolute; left: 50px; top: 46px; width: 100px; height: 100px; }
+    [data-composition-id="s08-retiro"] .s08-tit { position: absolute; left: 176px; top: 50px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 54px; color: #e8f0ff; }
+    [data-composition-id="s08-retiro"] .s08-por { position: absolute; left: 176px; top: 116px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; color: #a78bfa; }
+    [data-composition-id="s08-retiro"] .s08-fila { position: absolute; left: 50px; width: 800px; border-top: 2px solid rgba(167, 139, 250, 0.22); }
+    [data-composition-id="s08-retiro"] .s08-f1 { top: 190px; height: 150px; }
+    [data-composition-id="s08-retiro"] .s08-cant { position: absolute; left: 0; top: 24px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 96px; line-height: 1; color: #ffb547; }
+    [data-composition-id="s08-retiro"] .s08-prod { position: absolute; left: 130px; top: 44px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 44px; color: #e8f0ff; }
+    [data-composition-id="s08-retiro"] .s08-f2 { top: 350px; height: 250px; }
+    [data-composition-id="s08-retiro"] .s08-cal { position: absolute; left: 0; top: 30px; width: 190px; height: 190px; border-radius: 30px; background: #e8f0ff; overflow: hidden; }
+    [data-composition-id="s08-retiro"] .s08-cal-top { position: absolute; left: 0; right: 0; top: 0; height: 52px; background: #ffb547; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; color: #0a0f2c; text-align: center; line-height: 52px; }
+    [data-composition-id="s08-retiro"] .s08-cal-num { position: absolute; left: 0; right: 0; top: 60px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 96px; line-height: 1.1; color: #0a0f2c; }
+    [data-composition-id="s08-retiro"] .s08-ret1 { position: absolute; left: 230px; top: 40px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.16em; color: #b9c3f0; }
+    [data-composition-id="s08-retiro"] .s08-ret2 { position: absolute; left: 230px; top: 86px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 120px; line-height: 1; color: #ffb547; text-shadow: 0 0 40px rgba(255, 181, 71, 0.45); }
+    [data-composition-id="s08-retiro"] .s08-f3 { top: 610px; height: 270px; }
+    [data-composition-id="s08-retiro"] .s08-mapa { position: absolute; left: 0; top: 30px; width: 800px; height: 230px; border-radius: 30px; background: #0a0f2c; overflow: hidden; }
+    [data-composition-id="s08-retiro"] .s08-dir { position: absolute; left: 30px; top: 170px; padding: 8px 18px; border-radius: 14px; background: rgba(30, 38, 90, 0.95); font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; color: #e8f0ff; }
+  </style>
+  <div id="root" data-composition-id="s08-retiro" data-width="1080" data-height="1920" data-duration="5.12">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="5.12" data-track-index="0">
+      <div class="s08-escenario">
+        <div class="s08-card">
+          <svg class="s08-check" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="46" fill="#8b5cf6" />
+            <path class="s08-tilde" d="M28 52 L44 67 L73 35" fill="none" stroke="#e8f0ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div class="s08-tit">Pedido listo</div>
+          <div class="s08-por">TOMADO POR TU AGENTE · 3:48</div>
+          <div class="s08-fila s08-f1">
+            <div class="s08-cant">2x</div>
+            <div class="s08-prod">Freidora de aire grande</div>
+          </div>
+          <div class="s08-fila s08-f2">
+            <div class="s08-cal"><div class="s08-cal-top">MAÑANA</div><div class="s08-cal-num">VIE</div></div>
+            <div class="s08-ret1">RETIRO EN EL LOCAL</div>
+            <div class="s08-ret2">10:00</div>
+          </div>
+          <div class="s08-fila s08-f3">
+            <div class="s08-mapa">
+              <svg width="800" height="230" viewBox="0 0 800 230" aria-hidden="true">
+                <path class="s08-calle" d="M0 70 H800 M0 160 H800 M180 0 V230 M430 0 V230 M650 0 V230" fill="none" stroke="#3a4170" stroke-width="22" />
+                <path class="s08-ruta" d="M60 160 H430 V70 H560" fill="none" stroke="#a78bfa" stroke-width="7" stroke-linecap="round" stroke-dasharray="4 16" />
+                <g class="s08-pin">
+                  <path d="M560 70 C530 40 530 6 560 0 C590 6 590 40 560 70 Z" fill="#ffb547" />
+                  <circle cx="560" cy="24" r="10" fill="#0a0f2c" />
+                </g>
+              </svg>
+              <div class="s08-dir">Dirección del local</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-retiro";
+      const DUR = 5.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const DOS = 0.73, RETIRAS = 1.8, DIEZ = 2.8, DIRECCION = 4.1;
+
+      // "listo": la tarjeta entra y se dibuja el tilde
+      tl.fromTo(q(".s08-card"), { y: 120, opacity: 0.3, scale: 0.94 }, { y: 0, opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.5)" }, 0);
+      const tilde = q(".s08-tilde");
+      const L = tilde.getTotalLength();
+      gsap.set(tilde, { strokeDasharray: L, strokeDashoffset: L });
+      tl.to(tilde, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 0.15);
+      tl.fromTo(q(".s08-check"), { scale: 0.5 }, { scale: 1, duration: 0.3, ease: "back.out(3)", transformOrigin: "50% 50%" }, 0.1);
+
+      // las filas en su palabra
+      const fila = (sel, t) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+      fila(".s08-f1", DOS - 0.15);
+      tl.fromTo(q(".s08-cant"), { scale: 1.8 }, { scale: 1, duration: 0.2, ease: "power4.in", immediateRender: false, transformOrigin: "0% 50%" }, DOS - 0.1);
+      fila(".s08-f2", RETIRAS - 0.2);
+      gsap.set(q(".s08-ret2"), { opacity: 0 });
+      tl.fromTo(q(".s08-ret2"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false, transformOrigin: "0% 50%" }, DIEZ - 0.08);
+      [[-10, 5], [8, -4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s08-escenario"), { x, y, duration: 0.04, ease: "none" }, DIEZ + 0.08 + i * 0.045));
+      tl.fromTo(q(".s08-cal"), { rotation: 0 }, { rotation: -6, duration: 0.1, yoyo: true, repeat: 3, immediateRender: false }, DIEZ);
+
+      // "te dejo la dirección": mapa, ruta y pin que cae
+      fila(".s08-f3", 3.3);
+      const ruta = q(".s08-ruta");
+      gsap.set(ruta, { clipPath: "inset(0 100% 0 0)" });
+      tl.to(ruta, { clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "power2.inOut" }, 3.5);
+      gsap.set(q(".s08-pin"), { opacity: 0 });
+      tl.fromTo(q(".s08-pin"), { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.35, ease: "bounce.out", immediateRender: false }, DIRECCION - 0.15);
+
+      // cámara
+      tl.fromTo(q(".s08-escenario"), { scale: 1.0 }, { scale: 1.03, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.to(q("#s08-escena"), { opacity: 0, y: -60, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

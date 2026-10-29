@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-alarma"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-alarma"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-alarma"] .s11-lbl { position: absolute; left: 0; right: 0; top: 580px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.3em; color: #ffb547; }
+    [data-composition-id="s11-alarma"] .s11-hora { position: absolute; left: 0; right: 0; top: 630px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 200; font-size: 300px; line-height: 1; letter-spacing: -0.03em; color: #e8f0ff; text-shadow: 0 0 60px rgba(255, 181, 71, 0.55); }
+    [data-composition-id="s11-alarma"] .s11-que { position: absolute; left: 0; right: 0; top: 980px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 128px; line-height: 1.05; letter-spacing: -0.02em; color: #ffb547; text-transform: uppercase; white-space: nowrap; text-shadow: 0 0 40px rgba(255, 181, 71, 0.45); }
+    [data-composition-id="s11-alarma"] .s11-btn { position: absolute; top: 1330px; width: 400px; height: 130px; border-radius: 65px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 130px; text-align: center; }
+    [data-composition-id="s11-alarma"] .s11-pos { left: 90px; background: #232a5e; color: #e8f0ff; }
+    [data-composition-id="s11-alarma"] .s11-det { left: 590px; background: #ffb547; color: #0a0f2c; }
+    [data-composition-id="s11-alarma"] svg.s11-ondas { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s11-alarma" data-width="1080" data-height="1920" data-duration="4.21">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.21" data-track-index="0">
+      <div class="s11-escenario">
+        <svg class="s11-ondas" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g fill="none" stroke="#ffb547" stroke-width="6" stroke-linecap="round">
+            <path class="s11-o1" d="M110 700 C80 740 80 800 110 840 M60 670 C20 730 20 810 60 870" />
+            <path class="s11-o2" d="M970 700 C1000 740 1000 800 970 840 M1020 670 C1060 730 1060 810 1020 870" />
+          </g>
+        </svg>
+        <div class="s11-lbl">ALARMA · ARRIBA</div>
+        <div class="s11-hora">7:00</div>
+        <div class="s11-que s11-q1">¿Qué me<br />perdí?</div>
+        <div class="s11-btn s11-pos">Posponer</div>
+        <div class="s11-btn s11-det">Detener</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-alarma";
+      const DUR = 4.21;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const QUE1 = 1.62, QUE2 = 3.17;
+
+      // la alarma: vibra el celular entero
+      tl.fromTo(q(".s11-hora"), { scale: 1.4, opacity: 0.5 }, { scale: 1, opacity: 1, duration: 0.2, ease: "power4.out" }, 0);
+      for (let i = 0; i < 28; i++) tl.to(q(".s11-escenario"), { x: i % 2 ? 9 : -9, rotation: i % 2 ? 0.6 : -0.6, duration: 0.04, ease: "none" }, i * 0.05);
+      tl.to(q(".s11-escenario"), { x: 0, rotation: 0, duration: 0.04 }, 1.42);
+      tl.fromTo([q(".s11-o1"), q(".s11-o2")], { opacity: 0.2 }, { opacity: 1, duration: 0.12, yoyo: true, repeat: 11, ease: "steps(1)" }, 0);
+      tl.fromTo(q(".s11-lbl"), { opacity: 0 }, { opacity: 1, duration: 0.1, yoyo: true, repeat: 6, ease: "steps(1)" }, 0);
+      tl.fromTo([q(".s11-pos"), q(".s11-det")], { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)", stagger: 0.06 }, 0.15);
+
+      // "¿qué me perdí?" dos veces, la segunda más fuerte
+      gsap.set(q(".s11-q1"), { opacity: 0 });
+      tl.fromTo(q(".s11-q1"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, QUE1 - 0.08);
+      [[-14, 7], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-escenario"), { x, y, duration: 0.04, ease: "none" }, QUE1 + 0.08 + i * 0.045));
+      tl.to(q(".s11-hora"), { opacity: 0.35, scale: 0.92, duration: 0.2 }, QUE1);
+      tl.fromTo(q(".s11-q1"), { scale: 1 }, { scale: 1.12, rotation: -3, duration: 0.12, ease: "power4.out", immediateRender: false }, QUE2 - 0.05);
+      [[-20, 10], [16, -9], [-8, 4], [5, -2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-escenario"), { x, y, duration: 0.04, ease: "none" }, QUE2 + 0.05 + i * 0.045));
+      tl.to(q(".s11-q1"), { color: "#e8f0ff", duration: 0.05, yoyo: true, repeat: 3, ease: "steps(1)" }, QUE2 + 0.1);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(8px)", scale: 1.05, duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

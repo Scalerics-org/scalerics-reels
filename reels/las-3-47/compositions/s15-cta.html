@@ -1,0 +1,92 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-cta"] .s15-capa { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-a { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-pill { position: absolute; left: 240px; top: 760px; width: 600px; height: 110px; border-radius: 55px; background: #8b5cf6; box-shadow: 0 0 60px rgba(139, 92, 246, 0.5); font-family: "Lexend", sans-serif; font-weight: 800; font-size: 52px; line-height: 110px; text-align: center; color: #e8f0ff; }
+    [data-composition-id="s15-cta"] .s15-hacemos { position: absolute; left: 0; right: 0; top: 920px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 96px; line-height: 1.05; color: #e8f0ff; text-transform: uppercase; }
+    [data-composition-id="s15-cta"] .s15-marca { color: #ffb547; text-transform: none; }
+    [data-composition-id="s15-cta"] .s15-b { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-ico { position: absolute; left: 400px; top: 580px; width: 280px; height: 340px; }
+    [data-composition-id="s15-cta"] .s15-guarda { position: absolute; left: 0; right: 0; top: 960px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 150px; line-height: 1; letter-spacing: -0.02em; color: #ffb547; text-transform: uppercase; text-shadow: 0 0 50px rgba(255, 181, 71, 0.45); }
+    [data-composition-id="s15-cta"] .s15-socio { position: absolute; left: 0; right: 0; top: 1150px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 58px; line-height: 1.15; color: #e8f0ff; }
+    [data-composition-id="s15-cta"] .s15-despierta { position: absolute; left: 0; right: 0; top: 1330px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; letter-spacing: 0.2em; color: #a78bfa; }
+    [data-composition-id="s15-cta"] .s15-z { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; color: #a78bfa; }
+  </style>
+  <div id="root" data-composition-id="s15-cta" data-width="1080" data-height="1920" data-duration="8.43">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="8.43" data-track-index="0">
+      <div class="s15-escenario">
+        <div class="s15-a">
+          <div class="s15-pill">Tu agente de IA</div>
+          <div class="s15-hacemos">Lo hacemos<br />en <span class="s15-marca">Scalerics</span></div>
+        </div>
+        <div class="s15-b">
+          <svg class="s15-ico" viewBox="0 0 280 340" aria-hidden="true">
+            <path class="s15-relleno" d="M30 20 H250 V320 L140 240 L30 320 Z" fill="#ffb547" />
+            <path class="s15-marco" d="M30 20 H250 V320 L140 240 L30 320 Z" fill="none" stroke="#ffb547" stroke-width="12" stroke-linejoin="round" />
+          </svg>
+          <div class="s15-guarda">Guardalo</div>
+          <div class="s15-socio">y mostráselo mañana<br />a tu socio.</div>
+          <div class="s15-despierta">SI SE DESPIERTA</div>
+          <div class="s15-z" style="left: 820px; top: 1290px; font-size: 70px">Z</div>
+          <div class="s15-z" style="left: 880px; top: 1240px; font-size: 52px">z</div>
+          <div class="s15-z" style="left: 925px; top: 1200px; font-size: 40px">z</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-cta";
+      const DUR = 8.43;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const SCALERICS = 1.27, GUARDALO = 2.34, MOSTRASELO = 2.78, SI = 4.51;
+
+      // "lo hacemos nosotros, en Scalerics"
+      tl.fromTo(q(".s15-pill"), { opacity: 0.4, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s15-hacemos"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.15);
+      tl.fromTo(q(".s15-marca"), { textShadow: "0 0 0px rgba(255,181,71,0)" }, { textShadow: "0 0 36px rgba(255,181,71,0.9)", duration: 0.25, yoyo: true, repeat: 1, immediateRender: false }, SCALERICS);
+      tl.to(q(".s15-a"), { opacity: 0, y: -60, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, GUARDALO - 0.25);
+
+      // "guardalo": el ícono de guardar se dibuja y se llena
+      gsap.set(q(".s15-b"), { opacity: 0 });
+      tl.to(q(".s15-b"), { opacity: 1, duration: 0.05 }, GUARDALO - 0.1);
+      const marco = q(".s15-marco");
+      const L = marco.getTotalLength();
+      gsap.set(marco, { strokeDasharray: L, strokeDashoffset: L });
+      tl.to(marco, { strokeDashoffset: 0, duration: 0.35, ease: "power2.out" }, GUARDALO - 0.1);
+      gsap.set(q(".s15-relleno"), { opacity: 0 });
+      tl.fromTo(q(".s15-relleno"), { opacity: 0, scaleY: 0, svgOrigin: "140 320" }, { opacity: 1, scaleY: 1, svgOrigin: "140 320", duration: 0.3, ease: "power2.out", immediateRender: false }, GUARDALO + 0.25);
+      gsap.set(q(".s15-guarda"), { opacity: 0 });
+      tl.fromTo(q(".s15-guarda"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, GUARDALO - 0.08);
+      [[-14, 7], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s15-escenario"), { x, y, duration: 0.04, ease: "none" }, GUARDALO + 0.08 + i * 0.045));
+
+      // "y mostráselo mañana a tu socio"
+      gsap.set(q(".s15-socio"), { opacity: 0 });
+      tl.fromTo(q(".s15-socio"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, MOSTRASELO - 0.1);
+
+      // "si se despierta"
+      gsap.set(q(".s15-despierta"), { opacity: 0 });
+      tl.fromTo(q(".s15-despierta"), { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out", immediateRender: false }, SI - 0.1);
+      gsap.set(qa(".s15-z"), { opacity: 0 });
+      qa(".s15-z").forEach((z, i) => {
+        tl.fromTo(z, { opacity: 0, y: 30, scale: 0.6 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, SI + 0.2 + i * 0.15);
+        tl.to(z, { y: -20, rotation: i % 2 ? 8 : -8, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut" }, SI + 0.55 + i * 0.15);
+      });
+
+      // cola: el ícono late suave hasta el final
+      tl.to(q(".s15-ico"), { scale: 1.06, transformOrigin: "50% 50%", duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut" }, 3.0);
+      tl.fromTo(q(".s15-escenario"), { scale: 1 }, { scale: 1.03, duration: DUR, ease: "none", transformOrigin: "50% 55%", immediateRender: false }, 0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

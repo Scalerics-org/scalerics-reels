@@ -1,0 +1,82 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-encargo"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-encargo"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-encargo"] .s04-orbe { position: absolute; left: 340px; top: 600px; width: 400px; height: 400px; }
+    [data-composition-id="s04-encargo"] .s04-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s04-encargo"] .s04-shh { top: 1040px; font-weight: 900; font-size: 190px; letter-spacing: 0.04em; color: #a78bfa; text-shadow: 0 0 50px rgba(139, 92, 246, 0.7); }
+    [data-composition-id="s04-encargo"] .s04-dormi { top: 1040px; font-weight: 900; font-size: 190px; color: #e8f0ff; }
+    [data-composition-id="s04-encargo"] .s04-tarjeta { position: absolute; left: 120px; top: 1080px; width: 840px; height: 300px; border-radius: 44px; background: rgba(30, 38, 90, 0.9); border: 2px solid rgba(139, 92, 246, 0.6); box-shadow: 0 0 60px rgba(139, 92, 246, 0.3); }
+    [data-composition-id="s04-encargo"] .s04-t1 { position: absolute; left: 50px; top: 44px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; color: #a78bfa; }
+    [data-composition-id="s04-encargo"] .s04-t2 { position: absolute; left: 50px; top: 100px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 76px; color: #e8f0ff; }
+    [data-composition-id="s04-encargo"] .s04-t3 { position: absolute; left: 50px; top: 206px; font-family: "Lexend", sans-serif; font-weight: 400; font-size: 34px; color: #b9c3f0; }
+    [data-composition-id="s04-encargo"] .s04-switch { position: absolute; right: 50px; top: 120px; width: 150px; height: 84px; border-radius: 42px; background: #3a4170; }
+    [data-composition-id="s04-encargo"] .s04-switch-on { position: absolute; inset: 0; border-radius: 42px; background: #ffb547; opacity: 0; }
+    [data-composition-id="s04-encargo"] .s04-bola { position: absolute; left: 8px; top: 8px; width: 68px; height: 68px; border-radius: 34px; background: #e8f0ff; }
+  </style>
+  <div id="root" data-composition-id="s04-encargo" data-width="1080" data-height="1920" data-duration="3.37">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.37" data-track-index="0">
+      <div class="s04-escenario">
+        <svg class="s04-orbe" viewBox="0 0 400 400" aria-hidden="true">
+          <defs>
+            <radialGradient id="s04-g" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.9" />
+              <stop offset="60%" stop-color="#8b5cf6" stop-opacity="0.35" />
+              <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <circle class="s04-halo" cx="200" cy="200" r="190" fill="url(#s04-g)" />
+          <circle class="s04-anillo" cx="200" cy="200" r="120" fill="none" stroke="#e8f0ff" stroke-width="5" />
+          <circle class="s04-anillo2" cx="200" cy="200" r="150" fill="none" stroke="#a78bfa" stroke-width="3" stroke-dasharray="10 16" />
+          <path class="s04-ondita" d="M130 200 C150 160 170 160 185 200 C200 240 215 240 230 200 C245 160 260 160 270 200" fill="none" stroke="#e8f0ff" stroke-width="8" stroke-linecap="round" />
+        </svg>
+        <div class="s04-txt s04-shh">Shh.</div>
+        <div class="s04-txt s04-dormi">Dormí.</div>
+        <div class="s04-tarjeta">
+          <div class="s04-t1">AGENTE DE IA</div>
+          <div class="s04-t2">Me encargo</div>
+          <div class="s04-t3">Atendiendo el local mientras dormís</div>
+          <div class="s04-switch"><div class="s04-switch-on"></div><div class="s04-bola"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-encargo";
+      const DUR = 3.37;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const DORMI = 0.96, YO = 1.98, ENCARGO = 2.23;
+
+      // el agente "despierta": orbe que late y gira
+      tl.fromTo(q(".s04-orbe"), { scale: 0.6, opacity: 0.3 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s04-anillo2"), { rotation: 0 }, { rotation: 180, svgOrigin: "200 200", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s04-halo"), { scale: 0.9 }, { scale: 1.08, svgOrigin: "200 200", duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".s04-ondita"), { scaleY: 0.3 }, { scaleY: 1.2, svgOrigin: "200 200", duration: 0.18, yoyo: true, repeat: 15, ease: "sine.inOut" }, 0);
+
+      // "Shh." / "Dormí."
+      tl.fromTo(q(".s04-shh"), { opacity: 0, scale: 1.6, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.25, ease: "power3.out" }, 0.02);
+      tl.to(q(".s04-shh"), { opacity: 0, y: -30, filter: "blur(8px)", duration: 0.15 }, DORMI - 0.12);
+      gsap.set(q(".s04-dormi"), { opacity: 0 });
+      tl.fromTo(q(".s04-dormi"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, DORMI - 0.05);
+      tl.to(q(".s04-dormi"), { opacity: 0, scale: 0.9, filter: "blur(8px)", duration: 0.15 }, YO - 0.15);
+
+      // "yo me encargo": tarjeta del agente y el interruptor que se prende
+      gsap.set(q(".s04-tarjeta"), { opacity: 0 });
+      tl.fromTo(q(".s04-tarjeta"), { opacity: 0, y: 80, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, YO - 0.08);
+      tl.to(q(".s04-bola"), { x: 66, duration: 0.2, ease: "power2.out" }, ENCARGO + 0.1);
+      tl.to(q(".s04-switch-on"), { opacity: 1, duration: 0.2 }, ENCARGO + 0.1);
+      tl.to(q(".s04-orbe"), { y: -20, scale: 1.08, duration: 0.2, yoyo: true, repeat: 1 }, ENCARGO + 0.1);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(8px)", y: -80, duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

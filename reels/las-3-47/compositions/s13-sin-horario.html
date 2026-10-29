@@ -1,0 +1,86 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-sin-horario"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-sin-horario"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-sin-horario"] svg.s13-dib { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-sin-horario"] .s13-centro { position: absolute; left: 0; right: 0; top: 820px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 150px; line-height: 1; color: #e8f0ff; }
+    [data-composition-id="s13-sin-horario"] .s13-centro2 { position: absolute; left: 0; right: 0; top: 975px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; color: #a78bfa; }
+    [data-composition-id="s13-sin-horario"] .s13-badge { position: absolute; left: 130px; top: 1240px; width: 820px; height: 120px; border-radius: 60px; background: #8b5cf6; box-shadow: 0 0 60px rgba(139, 92, 246, 0.5); }
+    [data-composition-id="s13-sin-horario"] .s13-luz { position: absolute; left: 40px; top: 38px; width: 44px; height: 44px; border-radius: 22px; background: #e8f0ff; }
+    [data-composition-id="s13-sin-horario"] .s13-bt { position: absolute; left: 110px; top: 30px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 52px; line-height: 1.1; color: #e8f0ff; white-space: nowrap; }
+    [data-composition-id="s13-sin-horario"] .s13-tag { position: absolute; left: 0; right: 0; top: 1400px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; letter-spacing: 0.2em; color: #ffb547; }
+  </style>
+  <div id="root" data-composition-id="s13-sin-horario" data-width="1080" data-height="1920" data-duration="4.37">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="4.37" data-track-index="0">
+      <div class="s13-escenario">
+        <svg class="s13-dib" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la noche (sector violeta: de 22 a 7) -->
+          <path class="s13-noche" d="M540 910 L390 650.2 A300 300 0 0 1 829.8 987.6 Z" fill="#8b5cf6" opacity="0.18" />
+          <circle class="s13-aro" cx="540" cy="910" r="300" fill="none" stroke="#3a4170" stroke-width="14" />
+          <circle class="s13-aro2" cx="540" cy="910" r="300" fill="none" stroke="#a78bfa" stroke-width="14" stroke-linecap="round" transform="rotate(-90 540 910)" />
+          <g class="s13-puntos" fill="#ffb547"></g>
+          <text x="540" y="670" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#b9c3f0">00</text>
+          <text x="790" y="920" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#b9c3f0">06</text>
+          <text x="540" y="1178" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#b9c3f0">12</text>
+          <text x="290" y="920" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#b9c3f0">18</text>
+        </svg>
+        <div class="s13-centro">24 h</div>
+        <div class="s13-centro2">COMPRAN A CUALQUIER HORA</div>
+        <div class="s13-badge"><div class="s13-luz"></div><div class="s13-bt">Agente de IA · en línea</div></div>
+        <div class="s13-tag">CONTESTA AL INSTANTE</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-sin-horario";
+      const DUR = 4.37;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const COMPRAN = 0.85, CUALQUIER = 1.17, AGENTE = 2.37, INSTANTE = 3.77;
+
+      // el reloj de 24 h se llena
+      const aro = q(".s13-aro2");
+      const L = 2 * Math.PI * 300;
+      gsap.set(aro, { strokeDasharray: L, strokeDashoffset: L });
+      tl.to(aro, { strokeDashoffset: 0, duration: 1.7, ease: "power1.inOut" }, 0.05);
+      tl.fromTo(q(".s13-aro"), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+      tl.fromTo(q(".s13-centro"), { opacity: 0.3, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      gsap.set(q(".s13-centro2"), { opacity: 0 });
+      tl.fromTo(q(".s13-centro2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, COMPRAN - 0.1);
+      // ventas (puntos ámbar) a toda hora, también de madrugada
+      const g = q(".s13-puntos");
+      const horas = [3.78, 9.5, 11, 13.2, 15, 17.5, 19, 20.5, 22.3, 0.8, 2.2, 5.6, 7.4];
+      horas.forEach((h, i) => {
+        const a = (h / 24) * 2 * Math.PI - Math.PI / 2;
+        const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        c.setAttribute("cx", 540 + 300 * Math.cos(a));
+        c.setAttribute("cy", 910 + 300 * Math.sin(a));
+        c.setAttribute("r", i === 0 ? 26 : 16);
+        g.appendChild(c);
+        gsap.set(c, { scale: 0, svgOrigin: `${540 + 300 * Math.cos(a)} ${910 + 300 * Math.sin(a)}` });
+        tl.to(c, { scale: 1, duration: 0.2, ease: "back.out(3)" }, (i === 0 ? CUALQUIER : 0.3 + i * 0.11));
+      });
+      tl.fromTo(q(".s13-noche"), { opacity: 0 }, { opacity: 0.18, duration: 0.4, immediateRender: false }, CUALQUIER);
+
+      // "un agente de IA"
+      gsap.set(q(".s13-badge"), { opacity: 0 });
+      tl.fromTo(q(".s13-badge"), { opacity: 0, scale: 0.7, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, AGENTE - 0.15);
+      tl.fromTo(q(".s13-luz"), { opacity: 1 }, { opacity: 0.3, duration: 0.25, yoyo: true, repeat: 5, ease: "steps(1)", immediateRender: false }, AGENTE + 0.2);
+
+      // "al instante"
+      gsap.set(q(".s13-tag"), { opacity: 0 });
+      tl.fromTo(q(".s13-tag"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, INSTANTE - 0.3);
+      [[-10, 5], [8, -4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s13-escenario"), { x, y, duration: 0.04, ease: "none" }, INSTANTE - 0.15 + i * 0.045));
+
+      tl.to(q("#s13-escena"), { opacity: 0, x: -200, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
