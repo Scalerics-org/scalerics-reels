@@ -1,0 +1,85 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-instrucciones"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-instrucciones"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-instrucciones"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-instrucciones"] .s03-pict { fill: #0f4c5c; }
+    [data-composition-id="s03-instrucciones"] .s03-miembro { fill: none; stroke: #0f4c5c; stroke-linecap: round; stroke-linejoin: round; stroke-width: 44; }
+    [data-composition-id="s03-instrucciones"] .s03-flecha { fill: #f26b1d; }
+    [data-composition-id="s03-instrucciones"] .s03-tarjeta { position: absolute; left: 150px; top: 1316px; width: 780px; height: 176px; border-radius: 22px; background: #fffaf0; border: 6px solid #0f4c5c; overflow: hidden; text-align: center; }
+    [data-composition-id="s03-instrucciones"] .s03-banda { height: 64px; background: #f26b1d; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 38px; line-height: 64px; letter-spacing: 0.04em; color: #fffaf0; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s03-instrucciones"] .s03-lea { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; line-height: 100px; letter-spacing: 0.1em; color: #0f4c5c; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s03-instrucciones" data-width="1080" data-height="1920" data-duration="2.85">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="2.85" data-track-index="0">
+      <div class="s03-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- flechas de las salidas -->
+          <path class="s03-flecha s03-fl" d="M300 930 L190 1000 L300 1070 L300 1030 L360 1030 L360 970 L300 970 Z" />
+          <path class="s03-flecha s03-fr" d="M780 930 L890 1000 L780 1070 L780 1030 L720 1030 L720 970 L780 970 Z" />
+          <!-- la azafata -->
+          <g class="s03-azafata">
+            <path class="s03-miembro s03-brazo-i" d="M452 866 L400 1030" />
+            <path class="s03-miembro s03-brazo-d" d="M628 866 L680 1030" />
+            <path class="s03-miembro" d="M500 1180 L500 1272 M580 1180 L580 1272" />
+            <rect class="s03-pict" x="460" y="834" width="160" height="240" rx="52" />
+            <path class="s03-pict" d="M452 1040 L628 1040 L660 1196 L420 1196 Z" />
+            <path d="M494 838 L586 838 L540 898 Z" fill="#f26b1d" />
+            <circle class="s03-pict" cx="540" cy="752" r="68" />
+            <g class="s03-gorro">
+              <rect x="478" y="664" width="110" height="38" rx="14" fill="#0f4c5c" />
+              <rect x="478" y="684" width="110" height="12" fill="#f26b1d" />
+            </g>
+          </g>
+        </svg>
+        <div class="s03-tarjeta"><div class="s03-banda">Instrucciones de seguridad</div><div class="s03-lea">LÉALAS ANTES DE COMPRAR</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-instrucciones";
+      const DUR = 2.85;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s03-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const INSTR = 0.74;
+      const SEG = 1.64;
+
+      // cuadro 0: la azafata entra de abajo con la sonrisa de manual
+      tl.fromTo(q(".s03-azafata"), { y: 80, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s03-escenario"), { scale: 1.04 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+
+      // "atención": los dos brazos a los costados, como en la demo
+      tl.to(q(".s03-brazo-i"), { rotation: 75, svgOrigin: "452 866", duration: 0.25, ease: "back.out(2)" }, 0.12);
+      tl.to(q(".s03-brazo-d"), { rotation: -75, svgOrigin: "628 866", duration: 0.25, ease: "back.out(2)" }, 0.12);
+      [".s03-fl", ".s03-fr"].forEach((f) => tl.fromTo(q(f), { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.25, ease: "back.out(3)", immediateRender: false }, 0.3));
+      gsap.set([q(".s03-fl"), q(".s03-fr")], { opacity: 0 });
+      tl.to(q(".s03-fl"), { x: -22, duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.6);
+      tl.to(q(".s03-fr"), { x: 22, duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.6);
+
+      // "instrucciones": un brazo arriba, al techo (el cartel)
+      tl.to(q(".s03-brazo-d"), { rotation: -150, svgOrigin: "628 866", duration: 0.22, ease: "back.out(2)" }, INSTR);
+      tl.to(q(".s03-gorro"), { rotation: -8, svgOrigin: "533 702", duration: 0.15, yoyo: true, repeat: 1 }, INSTR);
+
+      // "seguridad": la tarjeta sube de golpe
+      gsap.set(q(".s03-tarjeta"), { opacity: 0 });
+      tl.fromTo(q(".s03-tarjeta"), { opacity: 0, y: 160, rotation: 4 }, { opacity: 1, y: 0, rotation: -2, duration: 0.22, ease: "back.out(1.8)", immediateRender: false }, SEG - 0.1);
+      sacudon(SEG + 0.1, 0.7);
+      tl.to(q(".s03-brazo-d"), { rotation: -30, svgOrigin: "628 866", duration: 0.25, ease: "power2.out" }, SEG);
+      tl.to(q(".s03-tarjeta"), { rotation: 1, scale: 1.03, duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut" }, SEG + 0.3);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

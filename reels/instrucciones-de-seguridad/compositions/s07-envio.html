@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-envio"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-envio"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-envio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-envio"] .s07-pict { fill: #0f4c5c; }
+    [data-composition-id="s07-envio"] .s07-miembro { fill: none; stroke: #0f4c5c; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-envio"] .s07-num { position: absolute; left: 410px; top: 560px; width: 260px; height: 260px; border-radius: 50%; background: #e0571a; border: 10px solid #0f4c5c; color: #fffaf0; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 190px; line-height: 236px; text-align: center; }
+    [data-composition-id="s07-envio"] .s07-titulo { position: absolute; left: 310px; top: 634px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; line-height: 1.05; color: #0f4c5c; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-envio"] .s07-busque { position: absolute; left: 110px; top: 830px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.1em; color: #0f4c5c; white-space: nowrap; }
+    [data-composition-id="s07-envio"] .s07-cal { position: absolute; left: 270px; top: 830px; width: 540px; height: 480px; border-radius: 26px; background: #fffaf0; border: 10px solid #0f4c5c; overflow: hidden; text-align: center; }
+    [data-composition-id="s07-envio"] .s07-cal-banda { height: 120px; background: #d7262e; }
+    [data-composition-id="s07-envio"] .s07-cal-dia { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 140px; line-height: 250px; color: #0f4c5c; text-transform: uppercase; letter-spacing: -0.02em; }
+    [data-composition-id="s07-envio"] .s07-cal-pie { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.12em; color: #d7262e; }
+  </style>
+  <div id="root" data-composition-id="s07-envio" data-width="1080" data-height="1920" data-duration="5.22">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.22" data-track-index="0">
+      <div class="s07-escenario">
+        <div class="s07-busque">ENVÍOS: NO HAY</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la cinta de equipaje -->
+          <g class="s07-cinta">
+            <rect x="80" y="1300" width="920" height="54" rx="27" fill="#0f4c5c" />
+            <path class="s07-rayas" d="M110 1327 H970" fill="none" stroke="#fffaf0" stroke-width="6" stroke-dasharray="18 30" stroke-linecap="round" opacity="0.6" />
+            <rect x="140" y="1354" width="24" height="110" fill="#0f4c5c" />
+            <rect x="916" y="1354" width="24" height="110" fill="#0f4c5c" />
+          </g>
+          <!-- la caja -->
+          <g class="s07-caja">
+            <rect x="100" y="1196" width="120" height="104" rx="10" fill="#f26b1d" stroke="#0f4c5c" stroke-width="7" />
+            <rect x="150" y="1196" width="20" height="104" fill="#0f4c5c" opacity="0.7" />
+          </g>
+          <!-- el cliente que la viene a buscar -->
+          <g class="s07-cliente">
+            <path class="s07-miembro s07-brazo-i" d="M772 1218 L740 1320" stroke-width="28" />
+            <path class="s07-miembro s07-brazo-d" d="M868 1218 L900 1320" stroke-width="28" />
+            <path class="s07-miembro s07-pierna-i" d="M796 1356 L796 1458" stroke-width="34" />
+            <path class="s07-miembro s07-pierna-d" d="M844 1356 L844 1458" stroke-width="34" />
+            <rect class="s07-pict" x="772" y="1200" width="96" height="164" rx="32" />
+            <circle class="s07-pict" cx="820" cy="1146" r="41" />
+          </g>
+        </svg>
+        <div class="s07-cal"><div class="s07-cal-banda"></div><div class="s07-cal-dia">Lunes</div><div class="s07-cal-pie">PASE A BUSCARLO</div></div>
+        <div class="s07-num">4</div>
+        <div class="s07-titulo">El envío</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-envio";
+      const DUR = 5.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const ENVIO = 0.88;
+      const PASE = 1.97;
+      const LUNES = 3.78;
+
+      // "cuatro"
+      tl.fromTo(q(".s07-num"), { opacity: 0.3, scale: 2.2, rotation: -20 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.18, ease: "power4.in" }, 0);
+      sacudon(0.18, 1.2);
+      tl.to(q(".s07-num"), { x: -340, scale: 0.62, duration: 0.3, ease: "power3.inOut" }, 0.45);
+      gsap.set(q(".s07-titulo"), { opacity: 0 });
+      tl.fromTo(q(".s07-titulo"), { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, ENVIO - 0.12);
+
+      // la cinta gira y la caja da vueltas
+      tl.fromTo(q(".s07-rayas"), { strokeDashoffset: 0 }, { strokeDashoffset: -240, duration: 2.4, ease: "none" }, 0);
+      tl.fromTo(q(".s07-cinta"), { opacity: 0.5, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s07-caja"), { x: -60 }, { x: 540, duration: 2.0, ease: "power1.inOut" }, 0);
+      // "envío": rótulo NO HAY
+      gsap.set(q(".s07-busque"), { opacity: 0 });
+      tl.fromTo(q(".s07-busque"), { opacity: 0, scale: 1.8, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, transformOrigin: "0% 50%", duration: 0.14, ease: "power4.in", immediateRender: false }, ENVIO + 0.4);
+
+      // "pase a buscarlo": el cliente entra caminando y levanta la caja
+      tl.fromTo(q(".s07-cliente"), { x: 320 }, { x: 0, duration: 0.5, ease: "power2.out" }, PASE - 0.2);
+      tl.to(q(".s07-pierna-i"), { rotation: 18, svgOrigin: "796 1356", duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, PASE - 0.2);
+      tl.to(q(".s07-pierna-d"), { rotation: -18, svgOrigin: "844 1356", duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, PASE - 0.2);
+      tl.to(q(".s07-brazo-i"), { rotation: 165, svgOrigin: "772 1218", duration: 0.25, ease: "power2.out" }, PASE + 0.4);
+      tl.to(q(".s07-brazo-d"), { rotation: -165, svgOrigin: "868 1218", duration: 0.25, ease: "power2.out" }, PASE + 0.4);
+      tl.to(q(".s07-caja"), { x: 660, y: -250, duration: 0.3, ease: "back.out(1.6)" }, PASE + 0.4);
+      // la carga le pesa
+      tl.to([q(".s07-cliente"), q(".s07-caja")], { y: "+=14", duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, PASE + 0.75);
+
+      // "el lunes": el calendario cae de golpe
+      gsap.set(q(".s07-cal"), { opacity: 0, rotation: -6 });
+      tl.fromTo(q(".s07-cal"), { opacity: 0, y: -600 }, { opacity: 1, y: 0, duration: 0.2, ease: "power4.in", immediateRender: false }, LUNES - 0.18);
+      sacudon(LUNES + 0.04, 1.6);
+      tl.to([q(".s07-cinta"), q(".s07-caja"), q(".s07-cliente")], { opacity: 0.35, duration: 0.15 }, LUNES);
+      tl.to(q(".s07-cal"), { rotation: -2, scale: 1.04, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, LUNES + 0.3);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

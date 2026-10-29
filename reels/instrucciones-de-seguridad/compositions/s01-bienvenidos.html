@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-bienvenidos"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-bienvenidos"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-bienvenidos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-bienvenidos"] .s01-pict { fill: #0f4c5c; }
+    [data-composition-id="s01-bienvenidos"] .s01-estela { fill: none; stroke: #0f4c5c; stroke-width: 8; stroke-linecap: round; stroke-dasharray: 2 26; opacity: 0.5; }
+    [data-composition-id="s01-bienvenidos"] .s01-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s01-bienvenidos"] .s01-vuelo { top: 600px; font-weight: 900; font-size: 96px; letter-spacing: -0.02em; color: #0f4c5c; }
+    [data-composition-id="s01-bienvenidos"] .s01-compra { top: 708px; font-weight: 900; font-size: 128px; letter-spacing: -0.02em; color: #f26b1d; }
+    [data-composition-id="s01-bienvenidos"] .s01-tablero { position: absolute; left: 140px; top: 1290px; width: 800px; height: 120px; border-radius: 18px; background: #16313a; display: flex; align-items: center; justify-content: space-between; padding: 0 34px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.1em; color: #fffaf0; white-space: nowrap; }
+    [data-composition-id="s01-bienvenidos"] .s01-estado { color: #ffc42e; }
+  </style>
+  <div id="root" data-composition-id="s01-bienvenidos" data-width="1080" data-height="1920" data-duration="2.93">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="2.93" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s01-estela" d="M-200 1130 C 0 1120 120 1090 230 1060" />
+          <g class="s01-avion">
+            <g transform="translate(560 1040) rotate(-6)">
+              <!-- cola -->
+              <path class="s01-pict" d="M-280 -30 L-330 -165 L-262 -165 L-196 -40 Z" />
+              <!-- ala de atrás -->
+              <path class="s01-pict" d="M-20 -30 L-100 -110 L-50 -110 L60 -30 Z" opacity="0.55" />
+              <!-- fuselaje -->
+              <path class="s01-pict" d="M-310 0 Q-310 -48 -250 -50 L210 -50 Q300 -48 340 2 Q300 44 230 46 L-250 46 Q-310 44 -310 0 Z" />
+              <!-- ventanillas -->
+              <g fill="#fffaf0">
+                <circle cx="-200" cy="-14" r="11" /><circle cx="-160" cy="-14" r="11" /><circle cx="-120" cy="-14" r="11" /><circle cx="-80" cy="-14" r="11" />
+                <circle cx="-40" cy="-14" r="11" /><circle cx="0" cy="-14" r="11" /><circle cx="40" cy="-14" r="11" /><circle cx="80" cy="-14" r="11" />
+                <circle cx="120" cy="-14" r="11" /><circle cx="160" cy="-14" r="11" />
+                <path d="M248 -26 Q290 -26 312 -4 L262 -4 Q250 -4 248 -14 Z" />
+              </g>
+              <!-- franja naranja -->
+              <rect x="-300" y="14" width="590" height="12" rx="6" fill="#f26b1d" />
+              <!-- ala de adelante -->
+              <path class="s01-pict" d="M-40 20 L-150 150 L-80 150 L80 20 Z" />
+              <!-- turbina -->
+              <rect class="s01-pict" x="-90" y="66" width="90" height="40" rx="20" />
+              <text class="s01-local" x="175" y="-62" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="52" fill="#0f4c5c" letter-spacing="2">TU LOCAL</text>
+            </g>
+          </g>
+        </svg>
+        <div class="s01-txt s01-vuelo">Vuelo de</div>
+        <div class="s01-txt s01-compra">Compra</div>
+        <div class="s01-tablero"><span>SALIDA: HOY</span><span class="s01-estado">DEMORADO</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-bienvenidos";
+      const DUR = 2.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      };
+
+      const VUELO = 0.8;
+      const COMPRA = 1.3;
+      const LOCAL = 2.0;
+
+      // cuadro 0: el avión ya está entrando, la estela se dibuja detrás
+      tl.fromTo(q(".s01-avion"), { x: -260, y: 40 }, { x: 0, y: 0, duration: 1.2, ease: "power2.out" }, 0);
+      tl.to(q(".s01-avion"), { y: -10, duration: 0.5, yoyo: true, repeat: 2, ease: "sine.inOut" }, 1.2);
+      tl.fromTo(q(".s01-estela"), { opacity: 0.2 }, { opacity: 0.5, duration: 0.4 }, 0);
+      tl.fromTo(q(".s01-estela"), { x: -260, y: 40 }, { x: 0, y: 0, duration: 1.2, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s01-escenario"), { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+
+      // "vuelo de compra"
+      golpe(q(".s01-vuelo"), VUELO);
+      golpe(q(".s01-compra"), COMPRA);
+      sacudon(COMPRA + 0.06, 0.7);
+
+      // "tu local": se pinta en el fuselaje
+      gsap.set(q(".s01-local"), { opacity: 0 });
+      tl.fromTo(q(".s01-local"), { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, LOCAL - 0.1);
+
+      // el tablero: DEMORADO titila
+      gsap.set(q(".s01-tablero"), { opacity: 0 });
+      tl.fromTo(q(".s01-tablero"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, 1.6);
+      tl.to(q(".s01-estado"), { opacity: 0.2, duration: 0.1, yoyo: true, repeat: 5, ease: "steps(1)" }, 2.05);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

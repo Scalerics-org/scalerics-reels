@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-pago"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-pago"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-pago"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-pago"] .s13-pict { fill: #0f4c5c; }
+    [data-composition-id="s13-pago"] .s13-boton { position: absolute; left: 150px; top: 600px; width: 640px; height: 120px; border-radius: 60px; background: #0f4c5c; color: #fffaf0; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; line-height: 120px; text-align: center; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-pago"] .s13-pagado { position: absolute; left: 160px; top: 742px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.14em; color: #2f9e0f; white-space: nowrap; }
+    [data-composition-id="s13-pago"] .s13-ruta { fill: none; stroke: #0f4c5c; stroke-width: 9; stroke-linecap: round; stroke-dasharray: 2 24; }
+    [data-composition-id="s13-pago"] .s13-et { position: absolute; top: 880px; padding: 8px 18px; border: 5px solid #0f4c5c; border-radius: 12px; background: #fffaf0; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.08em; color: #0f4c5c; white-space: nowrap; }
+    [data-composition-id="s13-pago"] .s13-sin { position: absolute; left: 470px; top: 1290px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 54px; line-height: 1.05; color: #0f4c5c; text-transform: uppercase; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s13-pago" data-width="1080" data-height="1920" data-duration="5.68">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="5.68" data-track-index="0">
+      <div class="s13-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el tilde del pago -->
+          <g class="s13-tilde">
+            <circle cx="880" cy="660" r="62" fill="#2f9e0f" />
+            <path d="M852 662 L874 686 L912 638" fill="none" stroke="#fffaf0" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <!-- el local y la casa del cliente, con la ruta -->
+          <g class="s13-local">
+            <rect class="s13-pict" x="100" y="1040" width="170" height="130" rx="10" />
+            <path d="M90 1040 L120 990 H250 L280 1040 Z" fill="#f26b1d" />
+            <rect x="160" y="1090" width="50" height="80" fill="#fffaf0" />
+          </g>
+          <g class="s13-casa">
+            <path class="s13-pict" d="M830 1040 L905 980 L980 1040 V1170 H830 Z" />
+            <rect x="885" y="1100" width="40" height="70" fill="#fffaf0" />
+          </g>
+          <path class="s13-ruta" d="M290 1150 C420 1210 560 1080 700 1140 C760 1166 790 1160 815 1150" />
+          <!-- la camioneta -->
+          <g class="s13-camion">
+            <rect x="-70" y="-60" width="90" height="70" rx="8" fill="#f26b1d" />
+            <path d="M20 -40 H50 L70 -14 V10 H20 Z" fill="#0f4c5c" />
+            <circle cx="-44" cy="14" r="15" fill="#16313a" /><circle cx="44" cy="14" r="15" fill="#16313a" />
+          </g>
+          <!-- el chat que no hace falta -->
+          <g class="s13-chat">
+            <path d="M150 1260 H400 Q430 1260 430 1290 V1380 Q430 1410 400 1410 H230 L180 1450 L190 1410 H150 Q120 1410 120 1380 V1290 Q120 1260 150 1260 Z" fill="#fffaf0" stroke="#0f4c5c" stroke-width="8" />
+            <circle cx="210" cy="1335" r="14" fill="#0f4c5c" /><circle cx="275" cy="1335" r="14" fill="#0f4c5c" /><circle cx="340" cy="1335" r="14" fill="#0f4c5c" />
+          </g>
+          <g class="s13-cruz">
+            <circle cx="275" cy="1345" r="120" fill="none" stroke="#d7262e" stroke-width="20" />
+            <path d="M190 1260 L360 1430" stroke="#d7262e" stroke-width="20" stroke-linecap="round" />
+          </g>
+        </svg>
+        <div class="s13-boton">Pagar con <span class="s13-mp">Mercado Pago</span></div>
+        <div class="s13-pagado">PAGO APROBADO</div>
+        <div class="s13-et s13-dac" style="left: 120px">DAC</div>
+        <div class="s13-et s13-correo" style="left: 360px">CORREO</div>
+        <div class="s13-et s13-pya" style="left: 650px">PEDIDOSYA</div>
+        <div class="s13-sin">Sin escribirle<br />a nadie</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-pago";
+      const DUR = 5.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s13-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.5)", immediateRender: false }, t);
+      };
+
+      const PAGO = 0.6;
+      const ENVIO = 1.9;
+      const SIN = 4.24;
+      const NADIE = 4.8;
+
+      // cuadro 0: el botón ya está; se aprieta en "Mercado Pago"
+      tl.fromTo(q(".s13-boton"), { opacity: 0.5, y: 40 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 0);
+      tl.to(q(".s13-boton"), { scale: 0.92, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.in" }, PAGO);
+      tl.to(q(".s13-mp"), { color: "#ffc42e", duration: 0.1 }, PAGO);
+      gsap.set([q(".s13-tilde"), q(".s13-pagado")], { opacity: 0 });
+      tl.fromTo(q(".s13-tilde"), { opacity: 0, scale: 0.3, svgOrigin: "880 660" }, { opacity: 1, scale: 1, svgOrigin: "880 660", duration: 0.3, ease: "back.out(3)", immediateRender: false }, PAGO + 0.15);
+      tl.fromTo(q(".s13-pagado"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.2, immediateRender: false }, PAGO + 0.2);
+
+      // "le llega el envío": local, ruta, camioneta
+      pop(q(".s13-local"), 1.2);
+      pop(q(".s13-casa"), 1.35);
+      const ruta = q(".s13-ruta");
+      const L = ruta.getTotalLength();
+      gsap.set(ruta, { opacity: 0, clipPath: "inset(0 100% 0 0)" });
+      tl.to(ruta, { opacity: 1, duration: 0.02 }, 1.4);
+      tl.to(ruta, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power2.inOut" }, 1.4);
+      const cam = q(".s13-camion");
+      const prog = { p: 0 };
+      const ubicar = () => { const a = ruta.getPointAtLength(prog.p * L); cam.setAttribute("transform", "translate(" + a.x + " " + (a.y - 12) + ")"); };
+      ubicar();
+      gsap.set(cam, { opacity: 0 });
+      tl.to(cam, { opacity: 1, duration: 0.1 }, ENVIO - 0.1);
+      tl.to(prog, { p: 1, duration: 1.8, ease: "power1.inOut", onUpdate: ubicar }, ENVIO - 0.1);
+      // DAC · Correo · PedidosYa
+      pop(q(".s13-dac"), 2.3 - 0.08);
+      pop(q(".s13-correo"), 2.5 - 0.02);
+      pop(q(".s13-pya"), 3.2 - 0.08);
+      tl.to(q(".s13-casa"), { scale: 1.12, svgOrigin: "905 1170", duration: 0.12, yoyo: true, repeat: 1 }, 3.7);
+
+      // "sin escribirle a nadie": chat tachado (ahora a favor)
+      pop(q(".s13-chat"), SIN - 0.15);
+      gsap.set(q(".s13-sin"), { opacity: 0 });
+      tl.fromTo(q(".s13-sin"), { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, SIN);
+      gsap.set(q(".s13-cruz"), { opacity: 0 });
+      tl.fromTo(q(".s13-cruz"), { opacity: 0, scale: 2, svgOrigin: "275 1345" }, { opacity: 1, scale: 1, svgOrigin: "275 1345", duration: 0.14, ease: "power4.in", immediateRender: false }, NADIE - 0.08);
+      sacudon(NADIE + 0.06, 1.1);
+
+      // salida
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

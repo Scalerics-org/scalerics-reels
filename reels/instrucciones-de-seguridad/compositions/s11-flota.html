@@ -1,0 +1,181 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-flota"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-flota"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-flota"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-flota"] .s11-pict { fill: #0f4c5c; }
+    [data-composition-id="s11-flota"] .s11-miembro { fill: none; stroke: #0f4c5c; stroke-linecap: round; stroke-linejoin: round; stroke-width: 44; }
+    [data-composition-id="s11-flota"] .s11-secreto { position: absolute; left: 90px; top: 1104px; padding: 8px 18px; border: 4px dashed #0f4c5c; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; color: #0f4c5c; white-space: nowrap; }
+    [data-composition-id="s11-flota"] .s11-banda { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s11-flota"] .s11-mejor { top: 1010px; font-size: 76px; color: #f26b1d; }
+    [data-composition-id="s11-flota"] .s11-buenisima { top: 1010px; font-size: 76px; color: #f26b1d; }
+    [data-composition-id="s11-flota"] .s11-falla { top: 1010px; font-size: 76px; color: #d7262e; }
+    [data-composition-id="s11-flota"] .s11-lista { position: absolute; left: 470px; top: 1200px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.08em; color: #0f4c5c; line-height: 1.7; white-space: nowrap; }
+    [data-composition-id="s11-flota"] .s11-ok { color: #0f4c5c; }
+    [data-composition-id="s11-flota"] .s11-mal { color: #d7262e; }
+    [data-composition-id="s11-flota"] .s11-marca { display: inline-block; width: 46px; font-family: "Lexend", sans-serif; font-weight: 900; }
+  </style>
+  <div id="root" data-composition-id="s11-flota" data-width="1080" data-height="1920" data-duration="7.48">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="7.48" data-track-index="0">
+      <div class="s11-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- A: el avión, el mejor de la flota -->
+          <g class="s11-a">
+            <g class="s11-avion">
+              <g transform="translate(540 820) scale(0.78) rotate(-4)">
+                <path class="s11-pict" d="M-280 -30 L-330 -165 L-262 -165 L-196 -40 Z" />
+                <path class="s11-pict" d="M-20 -30 L-100 -110 L-50 -110 L60 -30 Z" opacity="0.55" />
+                <path class="s11-pict" d="M-310 0 Q-310 -48 -250 -50 L210 -50 Q300 -48 340 2 Q300 44 230 46 L-250 46 Q-310 44 -310 0 Z" />
+                <g fill="#fffaf0"><circle cx="-200" cy="-14" r="11" /><circle cx="-150" cy="-14" r="11" /><circle cx="-100" cy="-14" r="11" /><circle cx="-50" cy="-14" r="11" /><circle cx="0" cy="-14" r="11" /><circle cx="50" cy="-14" r="11" /><circle cx="100" cy="-14" r="11" /><circle cx="150" cy="-14" r="11" /><path d="M248 -26 Q290 -26 312 -4 L262 -4 Q250 -4 248 -14 Z" /></g>
+                <rect x="-300" y="14" width="590" height="12" rx="6" fill="#f26b1d" />
+                <path class="s11-pict" d="M-40 20 L-150 150 L-80 150 L80 20 Z" />
+              </g>
+            </g>
+            <!-- la medalla -->
+            <g class="s11-medalla">
+              <path d="M820 640 L790 740 L826 724 L846 758 L866 650 Z M880 640 L910 740 L874 724 L854 758 L834 650 Z" fill="#d7262e" />
+              <circle cx="850" cy="630" r="66" fill="#ffc42e" stroke="#0f4c5c" stroke-width="8" />
+              <path d="M850 588 L862 616 L892 618 L869 637 L877 666 L850 650 L823 666 L831 637 L808 618 L838 616 Z" fill="#0f4c5c" />
+            </g>
+            <g class="s11-brillos" fill="#f26b1d">
+              <path d="M240 640 l10 24 l24 10 l-24 10 l-10 24 l-10 -24 l-24 -10 l24 -10 Z" />
+              <path d="M720 940 l8 18 l18 8 l-18 8 l-8 18 l-8 -18 l-18 -8 l18 -8 Z" />
+              <path d="M330 940 l7 16 l16 7 l-16 7 l-7 16 l-7 -16 l-16 -7 l16 -7 Z" />
+            </g>
+          </g>
+          <!-- B: la mercadería -->
+          <g class="s11-b">
+            <g class="s11-cajas">
+              <rect x="350" y="820" width="180" height="150" rx="12" fill="#f26b1d" stroke="#0f4c5c" stroke-width="8" />
+              <rect x="550" y="820" width="180" height="150" rx="12" fill="#f26b1d" stroke="#0f4c5c" stroke-width="8" />
+              <rect x="450" y="664" width="180" height="150" rx="12" fill="#f26b1d" stroke="#0f4c5c" stroke-width="8" />
+              <rect x="426" y="820" width="28" height="150" fill="#0f4c5c" opacity="0.6" /><rect x="626" y="820" width="28" height="150" fill="#0f4c5c" opacity="0.6" /><rect x="526" y="664" width="28" height="150" fill="#0f4c5c" opacity="0.6" />
+            </g>
+            <g class="s11-tilde">
+              <circle cx="790" cy="700" r="64" fill="#0f4c5c" />
+              <path d="M760 702 L782 726 L824 678" fill="none" stroke="#fffaf0" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+          </g>
+          <!-- C: el embarque -->
+          <g class="s11-c">
+            <rect x="260" y="700" width="560" height="140" rx="20" fill="#16313a" />
+            <text x="470" y="796" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="66" fill="#fffaf0">EMBARQUE</text>
+            <circle class="s11-luz" cx="750" cy="770" r="30" fill="#d7262e" />
+            <g class="s11-fila" fill="#0f4c5c">
+              <circle cx="380" cy="890" r="22" /><rect x="360" y="916" width="40" height="70" rx="16" />
+              <circle cx="460" cy="890" r="22" /><rect x="440" y="916" width="40" height="70" rx="16" />
+              <circle cx="540" cy="890" r="22" /><rect x="520" y="916" width="40" height="70" rx="16" />
+              <circle cx="620" cy="890" r="22" /><rect x="600" y="916" width="40" height="70" rx="16" />
+              <circle cx="700" cy="890" r="22" /><rect x="680" y="916" width="40" height="70" rx="16" />
+            </g>
+            <g class="s11-cruz">
+              <circle cx="540" cy="830" r="168" fill="none" stroke="#d7262e" stroke-width="22" />
+              <path d="M421 711 L659 949" stroke="#d7262e" stroke-width="22" stroke-linecap="round" />
+            </g>
+          </g>
+          <!-- la azafata, abajo a la izquierda, en voz baja -->
+          <g class="s11-azafata">
+            <g transform="translate(220 1480) scale(0.52) translate(-540 -1290)">
+              <path class="s11-miembro" d="M452 866 L400 1030" />
+              <path class="s11-miembro s11-mano" d="M628 866 L680 1030" />
+              <path class="s11-miembro" d="M500 1180 L500 1272 M580 1180 L580 1272" />
+              <rect class="s11-pict" x="460" y="834" width="160" height="240" rx="52" />
+              <path class="s11-pict" d="M452 1040 L628 1040 L660 1196 L420 1196 Z" />
+              <path d="M494 838 L586 838 L540 898 Z" fill="#f26b1d" />
+              <circle class="s11-pict" cx="540" cy="752" r="68" />
+              <rect x="478" y="664" width="110" height="38" rx="14" fill="#0f4c5c" />
+              <rect x="478" y="684" width="110" height="12" fill="#f26b1d" />
+            </g>
+          </g>
+        </svg>
+        <div class="s11-secreto">ENTRE NOSOTROS</div>
+        <div class="s11-banda s11-mejor">Mejor de la flota</div>
+        <div class="s11-banda s11-buenisima">Buenísima</div>
+        <div class="s11-banda s11-falla">Falla el embarque</div>
+        <div class="s11-lista">
+          <div class="s11-l1 s11-ok"><span class="s11-marca">✓</span> AVIÓN</div>
+          <div class="s11-l2 s11-ok"><span class="s11-marca">✓</span> MERCADERÍA</div>
+          <div class="s11-l3 s11-mal"><span class="s11-marca">✕</span> EMBARQUE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-flota";
+      const DUR = 7.48;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      };
+      const item = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.22, ease: "back.out(2)", immediateRender: false }, t);
+      };
+
+      const AVION = 1.25;
+      const MEJOR = 2.05;
+      const MERC = 3.6;
+      const BUENA = 4.15;
+      const FALLA = 5.45;
+      const EMB = 6.05;
+
+      // cuadro 0: la azafata se acerca y baja la voz
+      tl.fromTo(q(".s11-azafata"), { x: -120, opacity: 0.5 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.to(q(".s11-azafata"), { rotation: 8, svgOrigin: "220 1480", duration: 0.35, ease: "sine.inOut" }, 0.1);
+      tl.fromTo(q(".s11-secreto"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25 }, 0.12);
+      tl.to(q(".s11-secreto"), { y: -6, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.4);
+
+      // A: "este avión": entra el avión; "mejor de la flota": medalla
+      gsap.set(q(".s11-a"), { opacity: 0 });
+      tl.fromTo(q(".s11-a"), { opacity: 0 }, { opacity: 1, duration: 0.1, immediateRender: false }, AVION - 0.3);
+      tl.fromTo(q(".s11-avion"), { x: -400 }, { x: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, AVION - 0.3);
+      tl.to(q(".s11-avion"), { y: -10, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, AVION + 0.2);
+      gsap.set([q(".s11-medalla"), q(".s11-brillos")], { opacity: 0 });
+      tl.fromTo(q(".s11-medalla"), { opacity: 0, scale: 2.2, rotation: -30, svgOrigin: "850 660" }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: "850 660", duration: 0.18, ease: "power4.in", immediateRender: false }, MEJOR - 0.1);
+      golpe(q(".s11-mejor"), 2.65);
+      sacudon(MEJOR + 0.08, 0.8);
+      tl.fromTo(q(".s11-brillos"), { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(3)", immediateRender: false }, MEJOR + 0.1);
+      tl.to(q(".s11-medalla"), { rotation: 8, svgOrigin: "850 640", duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, MEJOR + 0.3);
+      item(q(".s11-l1"), 2.75);
+      tl.to([q(".s11-a"), q(".s11-mejor")], { opacity: 0, y: -60, duration: 0.2, ease: "power2.in" }, MERC - 0.3);
+
+      // B: "la mercadería es buenísima"
+      gsap.set(q(".s11-b"), { opacity: 0 });
+      tl.fromTo(q(".s11-b"), { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, MERC - 0.12);
+      gsap.set(q(".s11-tilde"), { opacity: 0 });
+      tl.fromTo(q(".s11-tilde"), { opacity: 0, scale: 2.2, svgOrigin: "790 700" }, { opacity: 1, scale: 1, svgOrigin: "790 700", duration: 0.14, ease: "power4.in", immediateRender: false }, BUENA - 0.08);
+      golpe(q(".s11-buenisima"), BUENA);
+      sacudon(BUENA + 0.06, 0.8);
+      tl.to(q(".s11-cajas"), { y: -10, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, BUENA + 0.2);
+      item(q(".s11-l2"), BUENA + 0.3);
+      tl.to([q(".s11-b"), q(".s11-buenisima")], { opacity: 0, y: -60, duration: 0.2, ease: "power2.in" }, FALLA - 0.3);
+
+      // C: "lo que falla es el embarque"
+      gsap.set(q(".s11-c"), { opacity: 0 });
+      tl.fromTo(q(".s11-c"), { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, FALLA - 0.15);
+      tl.to(q(".s11-luz"), { opacity: 0.2, duration: 0.12, yoyo: true, repeat: 13, ease: "steps(1)" }, FALLA);
+      tl.to(q(".s11-fila"), { x: 8, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, FALLA + 0.2);
+      gsap.set(q(".s11-cruz"), { opacity: 0 });
+      tl.fromTo(q(".s11-cruz"), { opacity: 0, scale: 2, svgOrigin: "540 830" }, { opacity: 1, scale: 1, svgOrigin: "540 830", duration: 0.14, ease: "power4.in", immediateRender: false }, EMB - 0.08);
+      golpe(q(".s11-falla"), EMB);
+      sacudon(EMB + 0.06, 1.4);
+      item(q(".s11-l3"), EMB + 0.15);
+      tl.to(q(".s11-l3"), { x: 8, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, EMB + 0.45);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

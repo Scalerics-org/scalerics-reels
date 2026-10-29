@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-comandante"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-comandante"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-comandante"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-comandante"] .s09-pict { fill: #0f4c5c; }
+    [data-composition-id="s09-comandante"] .s09-onda { fill: none; stroke: #f26b1d; stroke-width: 12; stroke-linecap: round; }
+    [data-composition-id="s09-comandante"] .s09-rotulo { position: absolute; left: 400px; top: 640px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.14em; color: #0f4c5c; white-space: nowrap; }
+    [data-composition-id="s09-comandante"] .s09-comandante { position: absolute; left: 400px; top: 690px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 76px; line-height: 1; color: #0f4c5c; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-comandante"] .s09-caja-txt { position: absolute; left: 0; right: 0; top: 1424px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; letter-spacing: 0.14em; color: #d7262e; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s09-comandante" data-width="1080" data-height="1920" data-duration="3.81">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="3.81" data-track-index="0">
+      <div class="s09-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- parlante de cabina -->
+          <g class="s09-parlante">
+            <circle cx="190" cy="700" r="92" fill="#16313a" />
+            <g fill="#fffaf0" opacity="0.6">
+              <circle cx="160" cy="670" r="10" /><circle cx="190" cy="670" r="10" /><circle cx="220" cy="670" r="10" />
+              <circle cx="160" cy="700" r="10" /><circle cx="190" cy="700" r="10" /><circle cx="220" cy="700" r="10" />
+              <circle cx="160" cy="730" r="10" /><circle cx="190" cy="730" r="10" /><circle cx="220" cy="730" r="10" />
+            </g>
+          </g>
+          <path class="s09-onda s09-o1" d="M300 650 Q324 700 300 750" />
+          <path class="s09-onda s09-o2" d="M330 620 Q368 700 330 780" opacity="0.6" />
+          <!-- la gorra de comandante -->
+          <g class="s09-gorra">
+            <path class="s09-pict" d="M360 930 Q360 830 540 820 Q720 830 720 930 Z" />
+            <rect class="s09-pict" x="350" y="920" width="380" height="56" rx="18" />
+            <path d="M380 976 Q540 1040 700 976 Z" fill="#16313a" />
+            <rect x="350" y="930" width="380" height="14" fill="#f26b1d" />
+            <!-- alitas -->
+            <path d="M540 862 L470 846 L486 878 Z M540 862 L610 846 L594 878 Z" fill="#ffc42e" />
+            <circle cx="540" cy="866" r="18" fill="#ffc42e" />
+          </g>
+          <!-- la caja registradora -->
+          <g class="s09-registradora">
+            <rect x="470" y="1086" width="140" height="70" rx="10" fill="#16313a" />
+            <text x="540" y="1136" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#ffc42e" data-layout-ignore>$ 0</text>
+            <rect x="520" y="1156" width="40" height="30" fill="#0f4c5c" />
+            <path class="s09-pict" d="M360 1186 H720 L760 1380 H320 Z" />
+            <g fill="#fffaf0" opacity="0.75">
+              <rect x="420" y="1216" width="50" height="34" rx="6" /><rect x="490" y="1216" width="50" height="34" rx="6" /><rect x="560" y="1216" width="50" height="34" rx="6" />
+              <rect x="410" y="1268" width="50" height="34" rx="6" /><rect x="482" y="1268" width="50" height="34" rx="6" /><rect x="554" y="1268" width="50" height="34" rx="6" /><rect x="626" y="1216" width="50" height="86" rx="6" fill="#f26b1d" />
+            </g>
+            <rect class="s09-cajon" x="330" y="1330" width="420" height="50" rx="8" fill="#16313a" />
+          </g>
+        </svg>
+        <div class="s09-rotulo">LES HABLA EL</div>
+        <div class="s09-comandante">Comandante</div>
+        <div class="s09-caja-txt">CABINA VACÍA · ESTABA EN LA CAJA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-comandante";
+      const DUR = 3.81;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s09-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const COMANDANTE = 0.51;
+      const PERDON = 1.57;
+      const CAJA = 2.81;
+
+      // cuadro 0: el parlante y las ondas al ritmo de la voz
+      tl.fromTo(q(".s09-parlante"), { scale: 0.6, opacity: 0.4, svgOrigin: "190 700" }, { scale: 1, opacity: 1, svgOrigin: "190 700", duration: 0.25, ease: "back.out(2)" }, 0);
+      [".s09-o1", ".s09-o2"].forEach((o, i) => tl.fromTo(q(o), { opacity: 0.1 }, { opacity: 1, duration: 0.18, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0.05 + i * 0.09));
+      tl.to(q(".s09-parlante"), { scale: 1.06, svgOrigin: "190 700", duration: 0.14, yoyo: true, repeat: 11, ease: "sine.inOut" }, 0.25);
+      tl.fromTo(q(".s09-rotulo"), { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.2, ease: "power3.out" }, 0.05);
+
+      // "comandante": cae la gorra, con su rótulo
+      gsap.set(q(".s09-comandante"), { opacity: 0 });
+      tl.fromTo(q(".s09-comandante"), { opacity: 0, scale: 2.2, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, transformOrigin: "0% 50%", duration: 0.14, ease: "power4.in", immediateRender: false }, COMANDANTE - 0.08);
+      gsap.set(q(".s09-gorra"), { opacity: 0 });
+      tl.fromTo(q(".s09-gorra"), { opacity: 0, y: -200, rotation: -14, svgOrigin: "540 900" }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "540 900", duration: 0.3, ease: "back.out(2)", immediateRender: false }, COMANDANTE);
+      sacudon(COMANDANTE + 0.1, 0.7);
+      // "perdón la demora": la gorra se ladea, cansada
+      tl.to(q(".s09-gorra"), { rotation: -8, svgOrigin: "540 960", duration: 0.4, ease: "sine.inOut" }, PERDON);
+
+      // "estaba en la caja": sube la registradora y la gorra cae encima
+      gsap.set(q(".s09-registradora"), { opacity: 0 });
+      tl.fromTo(q(".s09-registradora"), { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, 2.0);
+      tl.to(q(".s09-gorra"), { y: 96, rotation: 6, svgOrigin: "540 960", scale: 0.72, duration: 0.25, ease: "power4.in" }, CAJA - 0.22);
+      sacudon(CAJA + 0.04, 1.4);
+      tl.fromTo(q(".s09-cajon"), { y: 0 }, { y: 40, duration: 0.12, ease: "power4.out", immediateRender: false }, CAJA + 0.02);
+      gsap.set(q(".s09-caja-txt"), { opacity: 0 });
+      tl.fromTo(q(".s09-caja-txt"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, CAJA + 0.05);
+      tl.to(q(".s09-gorra"), { rotation: 0, duration: 0.3, ease: "back.out(3)" }, CAJA + 0.1);
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

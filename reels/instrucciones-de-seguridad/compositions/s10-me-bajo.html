@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-me-bajo"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-me-bajo"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-me-bajo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-me-bajo"] .s10-pict { fill: #0f4c5c; }
+    [data-composition-id="s10-me-bajo"] .s10-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s10-me-bajo"] .s10-bajo { top: 590px; font-weight: 900; font-size: 120px; letter-spacing: -0.02em; color: #0f4c5c; }
+    [data-composition-id="s10-me-bajo"] .s10-enfrente { position: absolute; left: 700px; top: 1384px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.1em; color: #0f4c5c; white-space: nowrap; }
+    [data-composition-id="s10-me-bajo"] .s10-solo { position: absolute; left: 470px; top: 760px; padding: 14px 26px; background: #f26b1d; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 54px; color: #fffaf0; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-me-bajo"] .s10-estela { fill: none; stroke: #f26b1d; stroke-width: 8; stroke-linecap: round; stroke-dasharray: 2 24; }
+  </style>
+  <div id="root" data-composition-id="s10-me-bajo" data-width="1080" data-height="1920" data-duration="3.95">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="3.95" data-track-index="0">
+      <div class="s10-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- tu avión: el costado con la puerta abierta -->
+          <g class="s10-tuyo">
+            <rect class="s10-pict" x="-40" y="760" width="500" height="300" rx="70" />
+            <g fill="#fffaf0"><circle cx="80" cy="850" r="20" /><circle cx="160" cy="850" r="20" /><circle cx="420" cy="850" r="20" /></g>
+            <rect x="-40" y="1000" width="500" height="16" fill="#f26b1d" />
+            <rect class="s10-puerta-hueco" x="270" y="820" width="100" height="186" rx="16" fill="#16313a" />
+            <rect class="s10-puerta" x="270" y="820" width="100" height="186" rx="16" fill="#fffaf0" stroke="#0f4c5c" stroke-width="6" />
+          </g>
+          <!-- el tobogán inflable -->
+          <g class="s10-tobogan">
+            <path d="M270 1006 L370 1006 L700 1330 L580 1350 Z" fill="#f26b1d" />
+            <path d="M270 1006 L580 1350 M370 1006 L700 1330" fill="none" stroke="#0f4c5c" stroke-opacity="0.3" stroke-width="12" stroke-linecap="round" />
+          </g>
+          <!-- el pasajero que se baja -->
+          <g class="s10-pasajero">
+            <circle class="s10-pict" cx="320" cy="930" r="28" />
+            <rect class="s10-pict" x="294" y="962" width="54" height="80" rx="22" />
+            <path d="M330 1030 L372 1040" fill="none" stroke="#0f4c5c" stroke-width="22" stroke-linecap="round" />
+          </g>
+          <!-- el avión de enfrente -->
+          <path class="s10-estela" d="M860 1250 C 900 1100 960 1000 1060 900" />
+          <g class="s10-otro">
+            <g transform="translate(860 1240) scale(0.42)">
+              <path class="s10-pict" d="M-280 -30 L-330 -165 L-262 -165 L-196 -40 Z" />
+              <path class="s10-pict" d="M-310 0 Q-310 -48 -250 -50 L210 -50 Q300 -48 340 2 Q300 44 230 46 L-250 46 Q-310 44 -310 0 Z" />
+              <g fill="#fffaf0"><circle cx="-160" cy="-14" r="12" /><circle cx="-100" cy="-14" r="12" /><circle cx="-40" cy="-14" r="12" /><circle cx="20" cy="-14" r="12" /><circle cx="80" cy="-14" r="12" /><circle cx="140" cy="-14" r="12" /></g>
+              <rect x="-300" y="14" width="590" height="14" rx="7" fill="#f26b1d" />
+              <path class="s10-pict" d="M-40 20 L-150 150 L-80 150 L80 20 Z" />
+            </g>
+          </g>
+          <rect x="60" y="1352" width="960" height="10" rx="5" fill="#0f4c5c" opacity="0.4" />
+        </svg>
+        <div class="s10-txt s10-bajo">Me bajo.</div>
+        <div class="s10-enfrente">EL DE ENFRENTE</div>
+        <div class="s10-solo">Despega solo</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-me-bajo";
+      const DUR = 3.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const BAJO = 0.3;
+      const ENFRENTE = 1.9;
+      const DESPEGA = 2.5;
+      const SOLO = 2.8;
+
+      // cuadro 0: tu avión y la puerta que se abre
+      tl.fromTo(q(".s10-tuyo"), { x: -60, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.to(q(".s10-puerta"), { x: -96, duration: 0.2, ease: "power2.in" }, 0.05);
+      // "me bajo": el tobogán se infla de golpe
+      gsap.set(q(".s10-tobogan"), { opacity: 0, clipPath: "inset(0 100% 100% 0)" });
+      tl.to(q(".s10-tobogan"), { opacity: 1, duration: 0.02 }, BAJO - 0.1);
+      tl.to(q(".s10-tobogan"), { clipPath: "inset(0 0% 0% 0)", duration: 0.25, ease: "back.out(1.4)" }, BAJO - 0.1);
+      gsap.set(q(".s10-bajo"), { opacity: 0 });
+      tl.fromTo(q(".s10-bajo"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, BAJO - 0.08);
+      sacudon(BAJO + 0.06, 1);
+      // se tira por el tobogán
+      tl.fromTo(q(".s10-pasajero"), { x: 0, y: 0, rotation: 0 }, { x: 290, y: 300, rotation: -20, svgOrigin: "320 990", duration: 0.7, ease: "power2.in" }, 0.45);
+      // y se va caminando para el otro lado
+      tl.to(q(".s10-pasajero"), { x: 400, y: 280, rotation: 0, duration: 0.5, ease: "power1.out" }, 1.15);
+      tl.to(q(".s10-pasajero"), { opacity: 0, duration: 0.2 }, 1.55);
+
+      // "vuelo de enfrente"
+      gsap.set([q(".s10-otro"), q(".s10-enfrente")], { opacity: 0 });
+      tl.fromTo(q(".s10-otro"), { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 1.5);
+      tl.fromTo(q(".s10-enfrente"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, ENFRENTE);
+      tl.to(q(".s10-bajo"), { opacity: 0.25, duration: 0.2 }, 1.6);
+
+      // "despega solo": el otro se va al cielo
+      const est = q(".s10-estela");
+      gsap.set(est, { opacity: 0, clipPath: "inset(100% 0 0 0)" });
+      tl.to(est, { opacity: 1, duration: 0.02 }, DESPEGA);
+      tl.to(est, { clipPath: "inset(0% 0 0 0)", duration: 0.7, ease: "power2.in" }, DESPEGA);
+      tl.to(q(".s10-otro"), { x: 240, y: -420, rotation: -32, svgOrigin: "860 1240", duration: 0.9, ease: "power2.in" }, DESPEGA);
+      gsap.set(q(".s10-solo"), { opacity: 0, rotation: -4 });
+      tl.fromTo(q(".s10-solo"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, SOLO - 0.08);
+      sacudon(SOLO + 0.05, 0.8);
+      tl.to(q(".s10-solo"), { scale: 1.05, duration: 0.2, yoyo: true, repeat: 1 }, SOLO + 0.3);
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

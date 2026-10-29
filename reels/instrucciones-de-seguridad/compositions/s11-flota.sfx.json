@@ -1,0 +1,11 @@
+[
+  {"t": 0.1, "sfx": "click-soft", "vol": 0.25},
+  {"t": 0.95, "sfx": "whoosh", "vol": 0.25},
+  {"t": 1.95, "sfx": "impact-bass-1", "vol": 0.35, "max": 0.5},
+  {"t": 2.15, "sfx": "sparkle", "vol": 0.3, "max": 1.0},
+  {"t": 3.48, "sfx": "pop", "vol": 0.3},
+  {"t": 4.07, "sfx": "chime", "vol": 0.25, "max": 0.8},
+  {"t": 5.4, "sfx": "beep", "vol": 0.25},
+  {"t": 5.97, "sfx": "impact-bass-2", "vol": 0.45, "max": 0.7},
+  {"t": 6.02, "sfx": "glitch-1", "vol": 0.25, "max": 0.5}
+]
