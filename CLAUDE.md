@@ -207,6 +207,24 @@ Todo desde la raíz del repo salvo donde dice. `<slug>` = nombre corto del reel 
     ```
     Sacá una hoja de cuadros del final (`ffmpeg -i renders/<slug>-final.mp4 -vf "fps=1/3,scale=240:-1,tile=6x3" -frames:v 1 renders/hoja.png`)
     y mirala.
+10b. **Portada (obligatoria, pedido de Juan 29-10: "portadas llamativas").** Instagram la usa en
+    vez del primer cuadro. Escribí `reels/<slug>/portada.json` y corré, desde la raíz,
+    `node herramientas/portada.mjs <slug>` (con el candado de Chrome): arma
+    `reels/<slug>/portada.png` con un cuadro del reel de fondo y el gancho en letras gigantes.
+    ```
+    { "t": 5.6, "chica": "Te voy a robar", "grande": "tus clientes", "sello": "Plan: el golpe",
+      "acento": "#f5c518", "sello_color": "#e5484d", "zoom": 1.15, "foco": "35%" }
+    ```
+    - `t`: el segundo del cuadro de fondo. Elegí el dibujo más fuerte del reel (un personaje, el
+      objeto central), mirando la hoja de cuadros; mejor uno sin mucho texto propio.
+    - `chica` + `grande`: el gancho partido en dos, 2 a 6 palabras en total, que se entienda solo
+      y pique (`grande` es lo que tiene que agarrar el ojo). `sello`: el formato o el personaje
+      ("Plan: el golpe", "Caso cerrado", "Confesión").
+    - `acento` y `sello_color`: los colores del estilo del reel.
+    - MIRÁ la portada (achicala con ffmpeg y abrila): sin subtítulos del video asomando, sin texto
+      encimado, todo lo importante entre y 285 y 1635 (el recorte 4:5 de la grilla de Instagram).
+      Ejemplo aprobado: `reels/el-golpe/portada.png`.
+    - `portada.png` va en `main` con el resto del reel (el publicador la toma de ahí).
 11. **Entrega.**
     - En `main`: todo `reels/<slug>/` **menos** `renders/` (lo ignora `.gitignore`), y en
       `ideas.md` pasá el tema de "En curso" a "Hechos" con una línea de qué dice el gancho, y entre corchetes el formato y el estilo (ej. `[formato B · estilo HUD]`).

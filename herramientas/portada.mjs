@@ -36,7 +36,26 @@ if (vars) html = html.replace("</style>", `:root { ${vars} }\n</style>`);
 const pagina = path.join(tmp, "portada.html");
 fs.writeFileSync(pagina, html);
 
-const chrome = process.env.CHROME || ["/c/Program Files/Google/Chrome/Application/chrome.exe", "C:/Program Files/Google/Chrome/Application/chrome.exe", "google-chrome", "chromium"].find((c) => !c.includes("/") || fs.existsSync(c));
+// En la nube no hay Chrome instalado: se usa el que bajó HyperFrames (puppeteer) en ~/.cache
+function chromeDePuppeteer() {
+  const raiz = path.join(os.homedir(), ".cache", "puppeteer");
+  const pila = [raiz];
+  while (pila.length) {
+    const d = pila.pop();
+    let hijos = [];
+    try { hijos = fs.readdirSync(d, { withFileTypes: true }); } catch { continue; }
+    for (const h of hijos) {
+      const p = path.join(d, h.name);
+      if (h.isDirectory()) pila.push(p);
+      else if (/^(chrome|chrome-headless-shell)(\.exe)?$/.test(h.name)) return p;
+    }
+  }
+  return null;
+}
+const chrome = process.env.CHROME
+  || ["C:/Program Files/Google/Chrome/Application/chrome.exe", "/usr/bin/google-chrome", "/usr/bin/chromium", "/usr/bin/chromium-browser"].find((c) => fs.existsSync(c))
+  || chromeDePuppeteer();
+if (!chrome) throw new Error("no encontré Chrome: corré antes un snapshot de HyperFrames o poné CHROME=<ruta>");
 const salida = path.join(dir, "portada.png");
 execFileSync(chrome, ["--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=1",
   "--window-size=1080,1920", "--virtual-time-budget=3000", `--screenshot=${salida}`, url(pagina)], { stdio: "ignore" });
