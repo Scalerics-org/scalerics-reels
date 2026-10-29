@@ -1,0 +1,6 @@
+[
+  {"t": 0.0, "sfx": "click", "vol": 0.3},
+  {"t": 0.3, "sfx": "subida", "vol": 0.3, "max": 1.6},
+  {"t": 1.7, "sfx": "impact-bass-1", "vol": 0.45, "max": 0.6},
+  {"t": 1.75, "sfx": "aplausos", "vol": 0.18, "max": 1.4}
+]

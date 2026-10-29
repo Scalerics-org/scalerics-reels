@@ -1,0 +1,128 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-pregunta"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-pregunta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-pregunta"] .s01-grande { position: absolute; left: 0; right: 0; top: 566px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 116px; line-height: 1; letter-spacing: -0.01em; color: #f2c14e; white-space: nowrap; -webkit-text-stroke: 12px #070b24; paint-order: stroke fill; text-shadow: 0 0 30px rgba(242, 193, 78, 0.45); }
+    /* rombo de la pregunta */
+    [data-composition-id="s01-pregunta"] .s01-linea { position: absolute; left: 0; width: 1080px; top: 828px; height: 4px; background: #f2c14e; }
+    [data-composition-id="s01-pregunta"] .s01-rombo { position: absolute; left: 50px; top: 730px; width: 980px; height: 200px; }
+    [data-composition-id="s01-pregunta"] .s01-rb-b { position: absolute; inset: 0; background: #f2c14e; clip-path: polygon(56px 0, calc(100% - 56px) 0, 100% 50%, calc(100% - 56px) 100%, 56px 100%, 0 50%); }
+    [data-composition-id="s01-pregunta"] .s01-rb-f { position: absolute; inset: 6px; background: linear-gradient(180deg, #1e46c8 0%, #0a1135 70%); clip-path: polygon(53px 0, calc(100% - 53px) 0, 100% 50%, calc(100% - 53px) 100%, 53px 100%, 0 50%); }
+    [data-composition-id="s01-pregunta"] .s01-preg { position: absolute; left: 70px; right: 70px; top: 0; height: 200px; display: flex; align-items: center; justify-content: center; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; line-height: 1.18; color: #f4f1e8; }
+    [data-composition-id="s01-pregunta"] .s01-preg .p { display: inline-block; }
+    [data-composition-id="s01-pregunta"] .s01-preg .dor { color: #f2c14e; }
+    /* escalera de premios */
+    [data-composition-id="s01-pregunta"] .s01-escalera { position: absolute; left: 560px; top: 980px; width: 460px; height: 470px; }
+    [data-composition-id="s01-pregunta"] .s01-marco { position: absolute; inset: 0; border: 5px solid #f2c14e; border-radius: 18px; background: rgba(7, 11, 36, 0.85); }
+    [data-composition-id="s01-pregunta"] .s01-luz { position: absolute; left: 16px; right: 16px; top: 372px; height: 72px; border-radius: 12px; background: rgba(242, 193, 78, 0.3); border: 4px solid #f2c14e; box-shadow: 0 0 24px rgba(242, 193, 78, 0.5); }
+    [data-composition-id="s01-pregunta"] .s01-esc { position: absolute; left: 16px; right: 16px; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.06em; color: #f4f1e8; }
+    [data-composition-id="s01-pregunta"] .s01-esc b { font-weight: 500; color: #f2c14e; }
+    [data-composition-id="s01-pregunta"] .s01-esc.top { color: #f2c14e; font-size: 34px; }
+  </style>
+  <div id="root" data-composition-id="s01-pregunta" data-width="1080" data-height="1920" data-duration="4.15">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.15" data-track-index="0">
+      <div class="s01-capa s01-todo">
+        <div class="s01-linea"></div>
+        <div class="s01-rombo">
+          <div class="s01-rb-b"></div>
+          <div class="s01-rb-f"></div>
+          <div class="s01-preg"><div><span class="p">¿Por</span> <span class="p">qué</span> <span class="p">tu</span> <span class="p dor">cliente</span> <span class="p">le</span> <span class="p">compró</span><br /><span class="p">al</span> <span class="p">de</span> <span class="p dor">enfrente?</span></div></div>
+        </div>
+        <div class="s01-escalera">
+          <div class="s01-marco"></div>
+          <div class="s01-luz"></div>
+          <div class="s01-esc top" style="top: 20px"><span>5</span><span>EL MILLÓN</span></div>
+          <div class="s01-esc" style="top: 108px"><span>4</span><span>EL CLIENTE</span></div>
+          <div class="s01-esc" style="top: 196px"><span>3</span><span>LA VENTA</span></div>
+          <div class="s01-esc" style="top: 284px"><span>2</span><span>LA CONSULTA</span></div>
+          <div class="s01-esc" style="top: 372px"><span>1</span><span>UN CAFÉ</span></div>
+        </div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- conductor -->
+          <g class="s01-conductor">
+            <path d="M70 1500 Q80 1180 250 1150 Q420 1180 430 1500 Z" fill="#070b24" stroke="#f4f1e8" stroke-width="6" stroke-linejoin="round" />
+            <!-- solapas y camisa -->
+            <path d="M210 1158 L250 1260 L290 1158" fill="#f4f1e8" stroke="#f4f1e8" stroke-width="4" stroke-linejoin="round" />
+            <path d="M190 1160 L240 1300 L170 1250 Z M310 1160 L260 1300 L330 1250 Z" fill="#0a1135" stroke="#f4f1e8" stroke-width="5" stroke-linejoin="round" />
+            <path d="M250 1180 L236 1200 L250 1290 L264 1200 Z" fill="#f2c14e" stroke="#070b24" stroke-width="3" />
+            <!-- cuello y cabeza -->
+            <rect x="225" y="1110" width="50" height="50" fill="#070b24" stroke="#f4f1e8" stroke-width="5" />
+            <ellipse cx="250" cy="1050" rx="62" ry="72" fill="#070b24" stroke="#f4f1e8" stroke-width="6" />
+            <path d="M190 1030 Q196 970 250 966 Q310 966 316 1026 Q290 990 250 994 Q214 996 190 1030 Z" fill="#f4f1e8" />
+            <path d="M232 978 Q262 968 290 984" stroke="#f2c14e" stroke-width="5" fill="none" stroke-linecap="round" />
+            <!-- cejas de suspenso -->
+            <path class="s01-cejas" d="M214 1036 L240 1030 M262 1030 L288 1036" stroke="#f4f1e8" stroke-width="6" stroke-linecap="round" fill="none" />
+          </g>
+          <g class="s01-brazo">
+            <path d="M380 1240 Q450 1150 440 1060" fill="none" stroke="#070b24" stroke-width="44" stroke-linecap="round" />
+            <path d="M380 1240 Q450 1150 440 1060" fill="none" stroke="#f4f1e8" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+            <rect x="404" y="944" width="84" height="116" rx="8" fill="#f4f1e8" stroke="#070b24" stroke-width="4" transform="rotate(10 446 1002)" />
+            <path d="M420 970 H470 M418 990 H466 M416 1010 H458" stroke="#1e46c8" stroke-width="5" stroke-linecap="round" transform="rotate(10 446 1002)" />
+            <circle cx="440" cy="1062" r="22" fill="#070b24" stroke="#f4f1e8" stroke-width="5" />
+          </g>
+          <!-- destellos -->
+          <g class="s01-dest" fill="#f2c14e">
+            <path d="M120 560 L128 586 L154 594 L128 602 L120 628 L112 602 L86 594 L112 586 Z" />
+            <path d="M960 640 L966 660 L986 666 L966 672 L960 692 L954 672 L934 666 L954 660 Z" />
+            <path d="M880 548 L885 563 L900 568 L885 573 L880 588 L875 573 L860 568 L875 563 Z" />
+          </g>
+        </svg>
+        <div class="s01-grande">POR EL MILLÓN</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-pregunta";
+      const DUR = 4.15;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-todo"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const MILLON = 0.36, PORQUE = 1.0, CLIENTE = 1.7, ENFRENTE = 3.32;
+
+      // cuadro 0: conductor ya está, tarjetita en alto
+      tl.fromTo(q(".s01-todo"), { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+      tl.fromTo([q(".s01-conductor"), q(".s01-brazo")], { opacity: 0.6, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-brazo"), { rotation: -8, svgOrigin: "380 1240" }, { rotation: 4, svgOrigin: "380 1240", duration: 0.35, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0);
+      tl.to(q(".s01-cejas"), { y: -10, duration: 0.12, yoyo: true, repeat: 3, ease: "power2.out" }, MILLON);
+
+      // POR EL MILLÓN cae
+      gsap.set(q(".s01-grande"), { opacity: 0 });
+      tl.fromTo(q(".s01-grande"), { opacity: 0, scale: 2.6 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, MILLON - 0.12);
+      sacudon(MILLON + 0.04, 1.4);
+      tl.to(q(".s01-grande"), { scale: 1.04, duration: 0.3, yoyo: true, repeat: 9, ease: "sine.inOut" }, MILLON + 0.3);
+      gsap.set(q(".s01-dest"), { opacity: 0 });
+      tl.fromTo(q(".s01-dest"), { opacity: 1, scale: 0.2, svgOrigin: "540 620" }, { opacity: 1, scale: 1, svgOrigin: "540 620", duration: 0.3, ease: "back.out(2)", immediateRender: false }, MILLON);
+      tl.to(q(".s01-dest"), { opacity: 0.3, duration: 0.2, yoyo: true, repeat: 7 }, MILLON + 0.4);
+
+      // el rombo de la pregunta se arma desde el centro
+      gsap.set([q(".s01-linea"), q(".s01-rombo")], { opacity: 0 });
+      tl.fromTo(q(".s01-linea"), { opacity: 1, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, PORQUE - 0.3);
+      tl.fromTo(q(".s01-rombo"), { opacity: 1, scaleX: 0.05 }, { opacity: 1, scaleX: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, PORQUE - 0.2);
+      const ps = qa(".s01-preg .p");
+      const T = [1.0, 1.25, 1.51, 1.7, 2.39, 2.56, 2.97, 3.14, 3.32];
+      gsap.set(ps, { opacity: 0 });
+      ps.forEach((p, i) => tl.fromTo(p, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out", immediateRender: false }, T[i] - 0.05));
+      [[3, CLIENTE], [8, ENFRENTE]].forEach(([i, t]) => tl.fromTo(ps[i], { scale: 1.5 }, { scale: 1, duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, t));
+
+      // escalera: aparece y la luz sube hasta EL MILLÓN
+      gsap.set(q(".s01-escalera"), { opacity: 0 });
+      tl.fromTo(q(".s01-escalera"), { opacity: 1, x: 500 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.5)", immediateRender: false }, 1.5);
+      [2.0, 2.4, 2.8, ENFRENTE].forEach((t, i) => tl.to(q(".s01-luz"), { y: -88 * (i + 1), duration: 0.16, ease: "power3.out" }, t));
+      tl.to(q(".s01-luz"), { opacity: 0.55, duration: 0.12, yoyo: true, repeat: 3 }, ENFRENTE + 0.2);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

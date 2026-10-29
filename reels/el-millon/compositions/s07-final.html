@@ -1,0 +1,136 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-final"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-final"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-final"] .s07-linea { position: absolute; left: 0; width: 1080px; height: 4px; background: #f2c14e; }
+    [data-composition-id="s07-final"] .s07-rb { position: absolute; left: 70px; width: 940px; height: 108px; }
+    [data-composition-id="s07-final"] .s07-b { position: absolute; inset: 0; background: #f2c14e; clip-path: polygon(44px 0, calc(100% - 44px) 0, 100% 50%, calc(100% - 44px) 100%, 44px 100%, 0 50%); }
+    [data-composition-id="s07-final"] .s07-f { position: absolute; inset: 5px; background: linear-gradient(180deg, #16328f 0%, #0a1135 75%); clip-path: polygon(41px 0, calc(100% - 41px) 0, 100% 50%, calc(100% - 41px) 100%, 41px 100%, 0 50%); }
+    [data-composition-id="s07-final"] .s07-o { position: absolute; inset: 5px; opacity: 0; clip-path: polygon(41px 0, calc(100% - 41px) 0, 100% 50%, calc(100% - 41px) 100%, 41px 100%, 0 50%); }
+    [data-composition-id="s07-final"] .s07-na { background: #ff8a1f; }
+    [data-composition-id="s07-final"] .s07-ve { background: #5ce611; }
+    [data-composition-id="s07-final"] .s07-ap { background: #070b24; }
+    [data-composition-id="s07-final"] .s07-t { position: absolute; left: 64px; right: 50px; top: 0; bottom: 0; display: flex; align-items: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 40px; line-height: 1; color: #f4f1e8; white-space: nowrap; }
+    [data-composition-id="s07-final"] .s07-t b { color: #f2c14e; font-weight: 800; font-size: 44px; margin-right: 22px; }
+    [data-composition-id="s07-final"] .s07-t.osc { color: #070b24; }
+    [data-composition-id="s07-final"] .s07-t.osc b { color: #070b24; }
+    [data-composition-id="s07-final"] .s07-vacio .s07-b { opacity: 0.3; }
+    [data-composition-id="s07-final"] .s07-vacio .s07-f { background: #070b24; }
+    [data-composition-id="s07-final"] .s07-final { position: absolute; left: 620px; top: 1330px; padding: 14px 22px; border: 5px solid #ff8a1f; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; line-height: 1.1; letter-spacing: 0.14em; color: #ff8a1f; background: rgba(7, 11, 36, 0.9); white-space: nowrap; }
+    [data-composition-id="s07-final"] .s07-sello { position: absolute; left: 0; right: 0; top: 572px; text-align: center; }
+    [data-composition-id="s07-final"] .s07-sello span { display: inline-block; padding: 8px 30px; border: 9px solid #ff8a1f; border-radius: 16px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 92px; line-height: 1; color: #ff8a1f; background: rgba(7, 11, 36, 0.92); white-space: nowrap; }
+    [data-composition-id="s07-final"] .s07-oscuro { position: absolute; inset: 0; background: #070b24; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-final" data-width="1080" data-height="1920" data-duration="7.12">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="7.12" data-track-index="0">
+      <div class="s07-capa s07-todo">
+        <div class="s07-oscuro"></div>
+        <div class="s07-linea" style="top: 772px"></div>
+        <div class="s07-linea" style="top: 902px"></div>
+        <div class="s07-linea" style="top: 1032px"></div>
+        <div class="s07-linea" style="top: 1162px"></div>
+        <div class="s07-rb s07-vacio" style="top: 720px"><div class="s07-b"></div><div class="s07-f"></div></div>
+        <div class="s07-rb rB" style="top: 850px"><div class="s07-b"></div><div class="s07-f"></div><div class="s07-o s07-na"></div><div class="s07-o s07-ap"></div><div class="s07-t"><b>B:</b>El precio</div><div class="s07-t osc"><b>B:</b>El precio</div></div>
+        <div class="s07-rb s07-vacio" style="top: 980px"><div class="s07-b"></div><div class="s07-f"></div></div>
+        <div class="s07-rb rD" style="top: 1110px"><div class="s07-b"></div><div class="s07-f"></div><div class="s07-o s07-ve"></div><div class="s07-t"><b>D:</b>Le contestaron primero</div><div class="s07-t osc"><b>D:</b>Le contestaron primero</div></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el dueño se tapa los ojos -->
+          <g class="s07-duenio">
+            <path d="M430 1500 L444 1430 M530 1500 L516 1430" stroke="#f2c14e" stroke-width="10" stroke-linecap="round" />
+            <rect x="412" y="1414" width="136" height="24" rx="10" fill="#1e46c8" stroke="#f4f1e8" stroke-width="4" />
+            <path d="M386 1424 Q392 1316 480 1308 Q568 1316 574 1424 Z" fill="#070b24" stroke="#f4f1e8" stroke-width="5" stroke-linejoin="round" />
+            <path d="M434 1334 Q480 1344 526 1334 L534 1420 L426 1420 Z" fill="#f4f1e8" />
+            <circle cx="480" cy="1268" r="44" fill="#070b24" stroke="#f4f1e8" stroke-width="5" />
+            <path d="M438 1258 Q434 1238 446 1230 M522 1258 Q526 1238 514 1230" stroke="#f4f1e8" stroke-width="5" fill="none" stroke-linecap="round" />
+            <circle cx="466" cy="1264" r="5" fill="#f4f1e8" />
+            <circle cx="496" cy="1264" r="5" fill="#f4f1e8" />
+          </g>
+          <g class="s07-manos">
+            <path d="M400 1360 Q400 1300 456 1266 M560 1360 Q560 1300 504 1266" stroke="#070b24" stroke-width="24" fill="none" stroke-linecap="round" />
+            <circle cx="458" cy="1262" r="20" fill="#070b24" stroke="#f4f1e8" stroke-width="4" />
+            <circle cx="502" cy="1262" r="20" fill="#070b24" stroke="#f4f1e8" stroke-width="4" />
+          </g>
+          <g class="s07-gotas" fill="#f4f1e8">
+            <path d="M416 1240 Q426 1258 416 1266 Q406 1258 416 1240 Z" />
+            <path d="M552 1236 Q562 1254 552 1262 Q542 1254 552 1236 Z" />
+          </g>
+          <!-- destellos verdes -->
+          <g class="s07-dest" fill="#5ce611">
+            <path d="M120 1060 L128 1084 L152 1092 L128 1100 L120 1124 L112 1100 L88 1092 L112 1084 Z" />
+            <path d="M980 1060 L986 1080 L1006 1086 L986 1092 L980 1112 L974 1092 L954 1086 L974 1080 Z" />
+            <path d="M900 1250 L905 1265 L920 1270 L905 1275 L900 1290 L895 1275 L880 1270 L895 1265 Z" />
+            <path d="M180 1250 L185 1265 L200 1270 L185 1275 L180 1290 L175 1275 L160 1270 L175 1265 Z" />
+          </g>
+        </svg>
+        <div class="s07-final">RESPUESTA<br />FINAL</div>
+        <div class="s07-sello"><span>INCORRECTA</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-final";
+      const DUR = 7.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-todo"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const B = 0.23, PRECIO = 0.63, FINAL = 1.92, RESP = 3.03, INCORRECTA = 4.41, D = 6.25;
+
+      // cuadro 0: quedan B y D (A y C vacías por el 50:50)
+      tl.fromTo(qa(".s07-rb"), { scale: 1.04 }, { scale: 1, duration: 0.3, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s07-duenio"), { opacity: 0.4, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      gsap.set(qa(".s07-t.osc"), { opacity: 0 });
+      // la B se pone NARANJA (elegida)
+      tl.to(q(".rB .s07-na"), { opacity: 1, duration: 0.06 }, B - 0.05);
+      tl.to(q(".rB .s07-t.osc"), { opacity: 1, duration: 0.06 }, B - 0.05);
+      tl.to(q(".rB .s07-t:not(.osc)"), { opacity: 0, duration: 0.06 }, B - 0.05);
+      tl.fromTo(q(".rB"), { scale: 1.08 }, { scale: 1, duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, B);
+      tl.to(q(".rB"), { scale: 1.03, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, PRECIO);
+      // "Respuesta final": se tapa los ojos, cartel
+      gsap.set([q(".s07-manos"), q(".s07-final")], { opacity: 0 });
+      tl.fromTo(q(".s07-manos"), { opacity: 1, y: 80 }, { opacity: 1, y: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, FINAL - 0.3);
+      tl.fromTo(q(".s07-final"), { opacity: 1, scale: 0.3, rotation: -10 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.25, ease: "back.out(2.5)", immediateRender: false }, FINAL - 0.1);
+      tl.to(q(".s07-duenio"), { x: 4, duration: 0.05, yoyo: true, repeat: 30, ease: "none" }, FINAL);
+      tl.to(q(".s07-manos"), { x: 4, duration: 0.05, yoyo: true, repeat: 30, ease: "none" }, FINAL);
+      gsap.set(q(".s07-gotas"), { opacity: 0 });
+      [2.2, 3.0, 3.8].forEach((t) => tl.fromTo(q(".s07-gotas"), { opacity: 1, y: 0, scale: 0.8, svgOrigin: "484 1220" }, { opacity: 0, y: -10, scale: 1.5, svgOrigin: "484 1220", duration: 0.6, ease: "power2.out", immediateRender: false }, t));
+      // "Respuesta...": suspenso, bajan las luces, la B titila
+      tl.to(q(".s07-oscuro"), { opacity: 0.45, duration: 0.6, ease: "power2.inOut" }, RESP);
+      tl.to(q(".rB .s07-na"), { opacity: 0.45, duration: 0.15, yoyo: true, repeat: 7, ease: "none" }, RESP + 0.1);
+      tl.fromTo(q(".s07-todo"), { scale: 1 }, { scale: 1.05, duration: INCORRECTA - RESP, ease: "power1.in", transformOrigin: "50% 55%" }, RESP);
+      // "incorrecta": la B se apaga, sello
+      tl.set(q(".rB .s07-na"), { opacity: 0 }, INCORRECTA - 0.02);
+      tl.to(q(".rB .s07-ap"), { opacity: 1, duration: 0.05 }, INCORRECTA - 0.02);
+      tl.to(q(".rB .s07-t.osc"), { opacity: 0, duration: 0.05 }, INCORRECTA - 0.02);
+      tl.to(q(".rB .s07-t:not(.osc)"), { opacity: 0.35, duration: 0.05 }, INCORRECTA - 0.02);
+      tl.to(q(".s07-final"), { opacity: 0, duration: 0.15 }, INCORRECTA);
+      tl.to(q(".s07-todo"), { scale: 1, duration: 0.2, ease: "power2.out" }, INCORRECTA);
+      tl.to(q(".s07-oscuro"), { opacity: 0.2, duration: 0.3 }, INCORRECTA);
+      gsap.set(q(".s07-sello"), { opacity: 0 });
+      tl.fromTo(q(".s07-sello"), { opacity: 0, scale: 2.4, rotation: -20 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.16, ease: "power4.in", immediateRender: false }, INCORRECTA - 0.1);
+      sacudon(INCORRECTA + 0.07, 1.5);
+      tl.to(q(".s07-manos"), { y: 90, opacity: 0, duration: 0.2 }, INCORRECTA + 0.2);
+      // "Es la D": la D se pone VERDE y titila
+      tl.to(q(".s07-oscuro"), { opacity: 0, duration: 0.3 }, D - 0.3);
+      tl.to(q(".rD .s07-ve"), { opacity: 1, duration: 0.05 }, D - 0.05);
+      tl.to(q(".rD .s07-t.osc"), { opacity: 1, duration: 0.05 }, D - 0.05);
+      tl.to(q(".rD .s07-t:not(.osc)"), { opacity: 0, duration: 0.05 }, D - 0.05);
+      tl.to(q(".rD .s07-ve"), { opacity: 0.4, duration: 0.1, yoyo: true, repeat: 5, ease: "none" }, D + 0.1);
+      tl.fromTo(q(".rD"), { scale: 1.08 }, { scale: 1, duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, D);
+      tl.to(q(".s07-sello"), { opacity: 0.4, duration: 0.2 }, D);
+      gsap.set(q(".s07-dest"), { opacity: 0 });
+      tl.fromTo(q(".s07-dest"), { opacity: 1, scale: 0.2, svgOrigin: "540 1164" }, { opacity: 1, scale: 1.1, svgOrigin: "540 1164", duration: 0.35, ease: "back.out(2)", immediateRender: false }, D);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

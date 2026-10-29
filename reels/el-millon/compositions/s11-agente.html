@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-agente"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-agente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-agente"] .s11-cel { position: absolute; left: 70px; top: 600px; width: 500px; height: 880px; border: 7px solid #f4f1e8; border-radius: 56px; background: #070b24; box-shadow: 0 0 60px rgba(92, 230, 17, 0.35); }
+    [data-composition-id="s11-agente"] .s11-pant { position: absolute; inset: 14px; border-radius: 40px; background: #0d1745; overflow: hidden; }
+    [data-composition-id="s11-agente"] .s11-barra { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #1e46c8; }
+    [data-composition-id="s11-agente"] .s11-avatar { position: absolute; left: 18px; top: 16px; width: 76px; height: 64px; }
+    [data-composition-id="s11-agente"] .s11-nombre { position: absolute; left: 106px; top: 22px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 26px; line-height: 1; color: #f4f1e8; white-space: nowrap; }
+    [data-composition-id="s11-agente"] .s11-estado { position: absolute; left: 108px; top: 60px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.1em; color: #5ce611; white-space: nowrap; }
+    [data-composition-id="s11-agente"] .s11-hora { position: absolute; right: 18px; top: 24px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; color: #f2c14e; white-space: nowrap; }
+    [data-composition-id="s11-agente"] .s11-msg { position: absolute; max-width: 400px; padding: 14px 20px; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; line-height: 1.2; white-space: nowrap; }
+    [data-composition-id="s11-agente"] .s11-cli { left: 16px; background: #f4f1e8; color: #070b24; border-bottom-left-radius: 6px; }
+    [data-composition-id="s11-agente"] .s11-ag { right: 16px; background: #5ce611; color: #070b24; border-bottom-right-radius: 6px; }
+    [data-composition-id="s11-agente"] .s11-lista div { display: flex; align-items: center; gap: 12px; }
+    [data-composition-id="s11-agente"] .s11-lista svg { position: relative; width: 30px; height: 24px; }
+    [data-composition-id="s11-agente"] .s11-pase { position: absolute; left: 620px; top: 1290px; padding: 12px 18px; border: 5px solid #5ce611; border-radius: 14px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; line-height: 1.15; letter-spacing: 0.1em; color: #5ce611; background: rgba(7, 11, 36, 0.9); white-space: nowrap; }
+    [data-composition-id="s11-agente"] .s11-etq { position: absolute; left: 600px; top: 640px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; line-height: 1.02; color: #5ce611; white-space: nowrap; -webkit-text-stroke: 8px #070b24; paint-order: stroke fill; }
+  </style>
+  <div id="root" data-composition-id="s11-agente" data-width="1080" data-height="1920" data-duration="9.43">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="9.43" data-track-index="0">
+      <div class="s11-capa s11-todo">
+        <div class="s11-cel">
+          <div class="s11-pant">
+            <div class="s11-barra">
+              <svg class="s11-avatar" viewBox="0 0 76 64" style="left: 18px; top: 16px; width: 76px; height: 64px" aria-hidden="true">
+                <path d="M10 4 H66 Q72 4 72 10 V40 Q72 46 66 46 H28 L14 60 L18 46 H10 Q4 46 4 40 V10 Q4 4 10 4 Z" fill="#5ce611" stroke="#f4f1e8" stroke-width="3" />
+                <ellipse class="s11-ojo" cx="28" cy="24" rx="5" ry="8" fill="#070b24" />
+                <ellipse class="s11-ojo" cx="48" cy="24" rx="5" ry="8" fill="#070b24" />
+              </svg>
+              <div class="s11-nombre">Tu agente de IA</div>
+              <div class="s11-estado">EN LÍNEA</div>
+              <div class="s11-hora h1">21:40</div>
+              <div class="s11-hora h2">03:12</div>
+            </div>
+            <div class="s11-msg s11-cli m1" style="top: 124px">¿Abren mañana?</div>
+            <div class="s11-msg s11-ag m2" style="top: 206px">Sí, de 9 a 19. ¿Te espero?</div>
+            <div class="s11-msg s11-cli m3" style="top: 300px">¿Precio y stock del rojo?</div>
+            <div class="s11-msg s11-ag s11-lista m4" style="top: 382px">
+              <div><svg viewBox="0 0 30 24" aria-hidden="true"><path d="M3 12 L11 20 L27 4" stroke="#070b24" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>Precio de tu lista</div>
+              <div><svg viewBox="0 0 30 24" aria-hidden="true"><path d="M3 12 L11 20 L27 4" stroke="#070b24" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>Hay stock</div>
+              <div><svg viewBox="0 0 30 24" aria-hidden="true"><path d="M3 12 L11 20 L27 4" stroke="#070b24" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>Te lo guardo</div>
+            </div>
+            <div class="s11-msg s11-cli m5" style="top: 560px">¿Hacen por mayor?</div>
+            <div class="s11-msg s11-ag m6" style="top: 642px">Te paso con el dueño.</div>
+          </div>
+        </div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- flecha del pase -->
+          <path class="s11-flecha" d="M560 1270 Q680 1200 780 1180" stroke="#5ce611" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="260" />
+          <path class="s11-punta" d="M752 1160 L786 1180 L756 1206" stroke="#5ce611" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          <!-- el dueño con delantal y su celular -->
+          <g class="s11-duenio">
+            <path d="M780 1270 Q786 1150 880 1140 Q974 1150 980 1270 Z" fill="#070b24" stroke="#f4f1e8" stroke-width="5" stroke-linejoin="round" />
+            <path d="M836 1166 Q880 1176 924 1166 L934 1270 L826 1270 Z" fill="#f4f1e8" />
+            <circle cx="880" cy="1092" r="48" fill="#070b24" stroke="#f4f1e8" stroke-width="5" />
+            <path d="M834 1080 Q830 1058 842 1048 M926 1080 Q930 1058 918 1048" stroke="#f4f1e8" stroke-width="5" fill="none" stroke-linecap="round" />
+            <circle cx="864" cy="1090" r="5" fill="#f4f1e8" />
+            <circle cx="896" cy="1090" r="5" fill="#f4f1e8" />
+            <path d="M864 1112 Q880 1124 896 1112" stroke="#f4f1e8" stroke-width="5" fill="none" stroke-linecap="round" />
+          </g>
+        </svg>
+        <div class="s11-etq">TU<br />AGENTE<br />DE IA</div>
+        <div class="s11-pase">ESTA ES<br />PARA VOS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-agente";
+      const DUR = 9.43;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, dx) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 1, scale: 0.4, x: dx, y: 20 }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, t); };
+
+      const AGENTE = 1.57, CONTESTA = 2.68, INSTANTE = 3.82, CUALQUIER = 4.51, CON = 5.45, PRECIOS = 5.88, STOCK = 6.57, Y = 7.16, PASA = 7.42, CHARLA = 7.82, VOS = 8.94;
+
+      // cuadro 0: el celular entra con luz verde
+      tl.fromTo(q(".s11-cel"), { opacity: 0.5, y: 200, rotation: -6 }, { opacity: 1, y: 0, rotation: 0, duration: 0.45, ease: "back.out(1.4)" }, 0);
+      tl.to(q(".s11-cel"), { y: -8, duration: 0.6, yoyo: true, repeat: 13, ease: "sine.inOut" }, 0.5);
+      tl.to(qa(".s11-ojo"), { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.08, yoyo: true, repeat: 1 }, 1.2);
+      tl.to(qa(".s11-ojo"), { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.08, yoyo: true, repeat: 1 }, 5.2);
+      // TU AGENTE DE IA
+      gsap.set(q(".s11-etq"), { opacity: 0 });
+      tl.fromTo(q(".s11-etq"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, AGENTE - 0.1);
+      tl.to(q(".s11-etq"), { scale: 1.04, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, AGENTE + 0.2);
+      tl.to(q(".s11-etq"), { opacity: 0, y: -30, duration: 0.25 }, 6.9);
+      // contesta al instante
+      pop(q(".m1"), CONTESTA - 0.1, -60);
+      pop(q(".m2"), INSTANTE - 0.25, 60);
+      // a cualquier hora: el reloj salta a la madrugada
+      gsap.set(q(".h2"), { opacity: 0 });
+      tl.to(q(".h1"), { opacity: 0, y: -20, duration: 0.12 }, CUALQUIER);
+      tl.fromTo(q(".h2"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.18, ease: "back.out(2)", immediateRender: false }, CUALQUIER + 0.1);
+      tl.to(q(".h2"), { scale: 1.2, duration: 0.15, yoyo: true, repeat: 3 }, CUALQUIER + 0.35);
+      // precios y stock
+      pop(q(".m3"), CON - 0.1, -60);
+      pop(q(".m4"), PRECIOS, 60);
+      const filas = qa(".m4 > div");
+      filas.forEach((f, i) => tl.fromTo(f, { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.2, immediateRender: false }, PRECIOS + 0.15 + i * 0.25));
+      gsap.set(filas, { opacity: 0 });
+      // te pasa la charla
+      pop(q(".m5"), Y - 0.1, -60);
+      pop(q(".m6"), PASA, 60);
+      gsap.set([q(".s11-flecha"), q(".s11-punta"), q(".s11-duenio"), q(".s11-pase")], { opacity: 0 });
+      tl.fromTo(q(".s11-flecha"), { opacity: 1, strokeDashoffset: 260 }, { opacity: 1, strokeDashoffset: 0, duration: 0.4, ease: "power2.inOut", immediateRender: false }, CHARLA - 0.1);
+      tl.fromTo(q(".s11-punta"), { opacity: 0 }, { opacity: 1, duration: 0.1, immediateRender: false }, CHARLA + 0.25);
+      tl.fromTo(q(".s11-duenio"), { opacity: 0, scale: 0.4, svgOrigin: "880 1270" }, { opacity: 1, scale: 1, svgOrigin: "880 1270", duration: 0.35, ease: "back.out(2)", immediateRender: false }, CHARLA - 0.2);
+      tl.fromTo(q(".s11-pase"), { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)", immediateRender: false }, 8.3);
+      tl.to(q(".s11-duenio"), { y: -12, duration: 0.12, yoyo: true, repeat: 3 }, VOS - 0.3);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,110 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-reloj"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-reloj"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-reloj"] .s06-num { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 150px; fill: #f4f1e8; }
+    [data-composition-id="s06-reloj"] .s06-rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; fill: #f2c14e; }
+    [data-composition-id="s06-reloj"] .s06-letra { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; fill: #f2c14e; }
+    [data-composition-id="s06-reloj"] .s06-grande { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 120px; line-height: 1; color: #f2c14e; white-space: nowrap; -webkit-text-stroke: 12px #070b24; paint-order: stroke fill; text-shadow: 0 0 30px rgba(242, 193, 78, 0.4); }
+  </style>
+  <div id="root" data-composition-id="s06-reloj" data-width="1080" data-height="1920" data-duration="5.41">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.41" data-track-index="0">
+      <div class="s06-capa s06-todo">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- reloj de cuenta regresiva -->
+          <g class="s06-reloj">
+            <circle cx="540" cy="870" r="190" fill="#0a1135" stroke="#1e46c8" stroke-width="14" />
+            <circle class="s06-arco" cx="540" cy="870" r="168" fill="none" stroke="#f2c14e" stroke-width="22" stroke-linecap="round" transform="rotate(-90 540 870)" stroke-dasharray="1055.6" stroke-dashoffset="0" />
+            <circle cx="540" cy="870" r="140" fill="none" stroke="#f4f1e8" stroke-width="3" opacity="0.4" />
+            <text class="s06-rot" x="540" y="790" text-anchor="middle">TIEMPO</text>
+            <text class="s06-num n15" x="540" y="930" text-anchor="middle">15</text>
+            <text class="s06-num nd" x="540" y="930" text-anchor="middle">5</text>
+            <text class="s06-num nd" x="540" y="930" text-anchor="middle">4</text>
+            <text class="s06-num nd" x="540" y="930" text-anchor="middle">3</text>
+            <text class="s06-num nd" x="540" y="930" text-anchor="middle">2</text>
+            <text class="s06-num nd" x="540" y="930" text-anchor="middle">1</text>
+            <text class="s06-num nd" x="540" y="930" text-anchor="middle" fill="#ff8a1f">0</text>
+          </g>
+          <!-- rombitos A B C D -->
+          <g class="s06-rombitos">
+            <g class="s06-rbt"><path d="M150 1110 L178 1080 H282 L310 1110 L282 1140 H178 Z" fill="#0a1135" stroke="#f2c14e" stroke-width="5" /><text class="s06-letra" x="230" y="1126" text-anchor="middle">A</text></g>
+            <g class="s06-rbt"><path d="M350 1110 L378 1080 H482 L510 1110 L482 1140 H378 Z" fill="#0a1135" stroke="#f2c14e" stroke-width="5" /><text class="s06-letra" x="430" y="1126" text-anchor="middle">B</text></g>
+            <g class="s06-rbt"><path d="M570 1110 L598 1080 H702 L730 1110 L702 1140 H598 Z" fill="#0a1135" stroke="#f2c14e" stroke-width="5" /><text class="s06-letra" x="650" y="1126" text-anchor="middle">C</text></g>
+            <g class="s06-rbt"><path d="M770 1110 L798 1080 H902 L930 1110 L902 1140 H798 Z" fill="#0a1135" stroke="#f2c14e" stroke-width="5" /><text class="s06-letra" x="850" y="1126" text-anchor="middle">D</text></g>
+          </g>
+          <!-- el conductor mira a cámara y señala -->
+          <g class="s06-conductor">
+            <path d="M380 1500 Q390 1300 540 1280 Q690 1300 700 1500 Z" fill="#070b24" stroke="#f4f1e8" stroke-width="6" stroke-linejoin="round" />
+            <path d="M510 1286 L540 1360 L570 1286" fill="#f4f1e8" />
+            <path d="M540 1300 L530 1316 L540 1380 L550 1316 Z" fill="#f2c14e" />
+            <ellipse cx="540" cy="1222" rx="54" ry="62" fill="#070b24" stroke="#f4f1e8" stroke-width="6" />
+            <path d="M488 1206 Q492 1156 540 1154 Q592 1156 594 1204 Q570 1176 540 1180 Q508 1182 488 1206 Z" fill="#f4f1e8" />
+            <path class="s06-cejas" d="M512 1214 L532 1220 M548 1220 L568 1214" stroke="#f4f1e8" stroke-width="6" stroke-linecap="round" />
+            <circle cx="522" cy="1232" r="6" fill="#f4f1e8" />
+            <circle cx="558" cy="1232" r="6" fill="#f4f1e8" />
+          </g>
+          <path class="s06-brazo" d="M660 1420 Q740 1370 780 1300" stroke="#070b24" stroke-width="40" fill="none" stroke-linecap="round" />
+          <g class="s06-mano">
+            <circle cx="790" cy="1286" r="40" fill="#070b24" stroke="#f4f1e8" stroke-width="6" />
+            <circle cx="790" cy="1286" r="16" fill="#f4f1e8" />
+            <path d="M770 1258 Q790 1246 810 1258" stroke="#f4f1e8" stroke-width="5" fill="none" stroke-linecap="round" />
+          </g>
+        </svg>
+        <div class="s06-grande">¿Y VOS?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-reloj";
+      const DUR = 5.41;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s06-todo"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const VOS = 1.52, QUE = 2.37, RESP = 3.05, CUENTA = 3.45;
+
+      // cuadro 0: el reloj corriendo, se congela en "Tiempo"
+      tl.fromTo(q(".s06-reloj"), { scale: 1.25, svgOrigin: "540 870" }, { scale: 1, svgOrigin: "540 870", duration: 0.18, ease: "power4.in" }, 0);
+      sacudon(0.18, 1.2);
+      tl.fromTo(q(".s06-arco"), { strokeDashoffset: 300 }, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, 0);
+      tl.fromTo(q(".n15"), { opacity: 1 }, { opacity: 0.4, duration: 0.15, yoyo: true, repeat: 5 }, 0.3);
+      // el conductor y los rombitos
+      tl.fromTo(q(".s06-conductor"), { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.4);
+      tl.fromTo(qa(".s06-rbt"), { opacity: 0, scale: 0.4, svgOrigin: "540 1110" }, { opacity: 1, scale: 1, svgOrigin: "540 1110", duration: 0.3, stagger: 0.08, ease: "back.out(2)" }, 0.6);
+      // "¿Y vos?": señala a cámara, la mano crece hacia el que mira
+      gsap.set([q(".s06-mano"), q(".s06-brazo")], { opacity: 0 });
+      tl.fromTo([q(".s06-mano"), q(".s06-brazo")], { opacity: 1, scale: 0.6, svgOrigin: "660 1420" }, { opacity: 1, scale: 1, svgOrigin: "660 1420", duration: 0.2, ease: "back.out(2)", immediateRender: false }, VOS - 0.1);
+      tl.to(q(".s06-mano"), { scale: 1.7, svgOrigin: "790 1286", duration: 0.5, ease: "power2.out" }, VOS + 0.2);
+      tl.to(q(".s06-mano"), { scale: 1.55, svgOrigin: "790 1286", duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, VOS + 0.75);
+      tl.to(q(".s06-cejas"), { y: -8, duration: 0.12, yoyo: true, repeat: 3 }, VOS);
+      gsap.set(q(".s06-grande"), { opacity: 0 });
+      tl.fromTo(q(".s06-grande"), { opacity: 0, scale: 2.6 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, QUE - 0.1);
+      sacudon(QUE + 0.05, 0.9);
+      tl.to(q(".s06-grande"), { scale: 1.05, duration: 0.3, yoyo: true, repeat: 9, ease: "sine.inOut" }, QUE + 0.2);
+      // la cuenta: 5 a 0 en el silencio
+      const nd = qa(".s06-num.nd");
+      gsap.set(nd, { opacity: 0 });
+      tl.to(q(".n15"), { opacity: 0, duration: 0.05 }, CUENTA);
+      const PASO = 0.36;
+      nd.forEach((n, i) => {
+        const t = CUENTA + i * PASO;
+        tl.fromTo(n, { opacity: 1, scale: 1.4, svgOrigin: "540 880" }, { opacity: 1, scale: 1, svgOrigin: "540 880", duration: 0.15, ease: "back.out(2)", immediateRender: false }, t);
+        if (i < nd.length - 1) tl.to(n, { opacity: 0, duration: 0.03 }, t + PASO - 0.02);
+      });
+      tl.to(q(".s06-arco"), { strokeDashoffset: 1055.6, duration: PASO * 5, ease: "none" }, CUENTA);
+      tl.to(qa(".s06-rbt"), { y: -10, duration: 0.18, yoyo: true, repeat: 1, stagger: 0.36, ease: "power2.out" }, CUENTA);
+      tl.to(q(".s06-reloj"), { scale: 1.06, svgOrigin: "540 870", duration: 0.18, yoyo: true, repeat: 9, ease: "sine.inOut" }, CUENTA);
+
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

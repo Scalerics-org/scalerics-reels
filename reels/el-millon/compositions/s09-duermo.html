@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-duermo"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-duermo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-duermo"] .s09-txt { position: absolute; left: 0; right: 0; top: 574px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 104px; line-height: 1; white-space: nowrap; -webkit-text-stroke: 11px #070b24; paint-order: stroke fill; }
+    [data-composition-id="s09-duermo"] .s09-z { font-family: "Lexend", sans-serif; font-weight: 900; fill: #f4f1e8; }
+    [data-composition-id="s09-duermo"] .s09-rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s09-duermo" data-width="1080" data-height="1920" data-duration="4.21">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.21" data-track-index="0">
+      <div class="s09-capa s09-todo">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el dueño indignado -->
+          <g class="s09-duenio">
+            <path d="M90 1490 Q100 1090 290 1066 Q480 1090 490 1490 Z" fill="#070b24" stroke="#f4f1e8" stroke-width="6" stroke-linejoin="round" />
+            <path d="M200 1120 Q290 1140 380 1120 L404 1490 L176 1490 Z" fill="#f4f1e8" stroke="#070b24" stroke-width="4" />
+            <rect x="240" y="1250" width="100" height="60" rx="8" fill="none" stroke="#1e46c8" stroke-width="5" />
+            <circle cx="290" cy="950" r="92" fill="#070b24" stroke="#f4f1e8" stroke-width="6" />
+            <path d="M204 930 Q196 892 216 878 M376 930 Q384 892 364 878" stroke="#f4f1e8" stroke-width="7" fill="none" stroke-linecap="round" />
+            <path d="M240 918 L276 934 M340 918 L304 934" stroke="#f4f1e8" stroke-width="7" stroke-linecap="round" />
+            <circle cx="262" cy="948" r="8" fill="#f4f1e8" />
+            <circle cx="318" cy="948" r="8" fill="#f4f1e8" />
+            <ellipse cx="290" cy="996" rx="26" ry="18" fill="#f4f1e8" />
+            <path d="M120 1180 Q60 1080 120 990 M460 1180 Q520 1080 460 990" stroke="#070b24" stroke-width="40" fill="none" stroke-linecap="round" />
+            <path d="M120 1180 Q60 1080 120 990 M460 1180 Q520 1080 460 990" stroke="#f4f1e8" stroke-width="4" fill="none" opacity="0.6" />
+            <!-- gorro de dormir -->
+            <g class="s09-gorro">
+              <path d="M206 900 Q220 820 300 830 Q380 836 420 900 Q440 960 470 940 Q420 990 400 900 Q330 870 206 900 Z" fill="#1e46c8" stroke="#f4f1e8" stroke-width="5" stroke-linejoin="round" />
+              <path d="M200 900 Q290 880 386 900" stroke="#f4f1e8" stroke-width="14" stroke-linecap="round" fill="none" />
+              <circle cx="474" cy="944" r="18" fill="#f4f1e8" />
+            </g>
+          </g>
+          <!-- el de enfrente durmiendo -->
+          <g class="s09-cama">
+            <path d="M560 1420 V1160 M900 1420 V1220" stroke="#f2c14e" stroke-width="12" stroke-linecap="round" />
+            <rect x="560" y="1230" width="340" height="80" rx="14" fill="#0a1135" stroke="#f4f1e8" stroke-width="5" />
+            <rect x="580" y="1160" width="110" height="60" rx="26" fill="#f4f1e8" />
+            <circle cx="640" cy="1158" r="42" fill="#070b24" stroke="#f4f1e8" stroke-width="5" />
+            <path d="M602 1140 Q610 1100 650 1102 Q680 1106 684 1136 Z M680 1134 L716 1140" fill="#ff8a1f" stroke="#f4f1e8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" />
+            <path d="M620 1166 Q630 1172 640 1166 M648 1166 Q658 1172 668 1166" stroke="#f4f1e8" stroke-width="4" fill="none" stroke-linecap="round" />
+            <path class="s09-manta" d="M660 1180 Q760 1150 900 1190 L900 1240 L660 1240 Z" fill="#1e46c8" stroke="#f4f1e8" stroke-width="5" stroke-linejoin="round" />
+          </g>
+          <g class="s09-zz">
+            <text class="s09-z" x="700" y="1080" font-size="44">z</text>
+            <text class="s09-z" x="740" y="1030" font-size="58">z</text>
+            <text class="s09-z" x="790" y="970" font-size="72">Z</text>
+          </g>
+          <!-- mesita de luz con el celular y el agente despierto -->
+          <g class="s09-mesita">
+            <rect x="920" y="1250" width="130" height="170" rx="10" fill="#0a1135" stroke="#f4f1e8" stroke-width="5" />
+            <path d="M940 1320 H1030" stroke="#f4f1e8" stroke-width="4" />
+          </g>
+          <g class="s09-cel">
+            <rect x="930" y="1056" width="110" height="196" rx="20" fill="#070b24" stroke="#f4f1e8" stroke-width="5" />
+            <rect class="s09-pant" x="940" y="1068" width="90" height="172" rx="12" fill="#5ce611" />
+            <ellipse class="s09-ojo" cx="968" cy="1140" rx="9" ry="13" fill="#070b24" />
+            <ellipse class="s09-ojo s09-guino" cx="1002" cy="1140" rx="9" ry="13" fill="#070b24" />
+            <path d="M966 1174 Q985 1190 1004 1174" stroke="#070b24" stroke-width="5" fill="none" stroke-linecap="round" />
+          </g>
+          <g class="s09-rayos" stroke="#5ce611" stroke-width="6" stroke-linecap="round">
+            <path d="M985 1030 V1000 M920 1060 L898 1040 M1050 1060 L1068 1040" />
+          </g>
+        </svg>
+        <div class="s09-txt t1" style="color: #f4f1e8">¡YO DUERMO!</div>
+        <div class="s09-txt t2" style="color: #f2c14e">ÉL TAMBIÉN.</div>
+        <div class="s09-txt t3" style="color: #5ce611">SU AGENTE, NO.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-duermo";
+      const DUR = 4.21;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s09-todo"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const cae = (el, t) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, t - 0.1); };
+
+      const ONCE = 0.38, DUERMO = 0.84, EL = 1.83, SU = 2.95, NO = 3.44;
+
+      // cuadro 0: el dueño ya está, indignado
+      tl.fromTo(q(".s09-duenio"), { opacity: 0.6, y: 80 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.to(q(".s09-duenio"), { y: -14, duration: 0.1, yoyo: true, repeat: 5, ease: "power2.out" }, ONCE);
+      // gorro de dormir en "duermo"
+      gsap.set(q(".s09-gorro"), { opacity: 0 });
+      tl.fromTo(q(".s09-gorro"), { opacity: 1, y: -300, rotation: -30, svgOrigin: "300 880" }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "300 880", duration: 0.25, ease: "back.out(1.8)", immediateRender: false }, DUERMO - 0.1);
+      tl.to(q(".s09-gorro"), { rotation: 6, svgOrigin: "300 880", duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, DUERMO + 0.2);
+      cae(q(".t1"), DUERMO);
+      sacudon(DUERMO + 0.05, 0.9);
+      tl.to(q(".t1"), { opacity: 0, y: -30, duration: 0.15 }, EL - 0.15);
+      // "Él también": la cama del de enfrente
+      gsap.set([q(".s09-cama"), q(".s09-zz"), q(".s09-mesita"), q(".s09-cel"), q(".s09-rayos")], { opacity: 0 });
+      tl.fromTo(q(".s09-cama"), { opacity: 1, x: 500 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, EL - 0.3);
+      tl.fromTo(q(".s09-mesita"), { opacity: 1, x: 500 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, EL - 0.25);
+      tl.fromTo(q(".s09-cel"), { opacity: 1, x: 500 }, { opacity: 0.5, x: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, EL - 0.25);
+      tl.to(q(".s09-manta"), { y: -6, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, EL);
+      const zs = qa(".s09-zz text");
+      tl.set(q(".s09-zz"), { opacity: 1 }, EL);
+      zs.forEach((z, i) => tl.fromTo(z, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, EL + 0.1 + i * 0.15));
+      tl.to(q(".s09-zz"), { y: -20, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, EL + 0.5);
+      cae(q(".t2"), EL + 0.12);
+      tl.to(q(".t2"), { opacity: 0, y: -30, duration: 0.15 }, SU - 0.15);
+      // "Su agente no": el celular se prende verde, guiña
+      tl.to(q(".s09-cel"), { opacity: 1, scale: 1.3, svgOrigin: "985 1250", duration: 0.25, ease: "back.out(2.5)" }, SU);
+      tl.fromTo(q(".s09-rayos"), { opacity: 1, scale: 0.4, svgOrigin: "985 1150" }, { opacity: 1, scale: 1.25, svgOrigin: "985 1150", duration: 0.3, ease: "back.out(2)", immediateRender: false }, SU + 0.1);
+      tl.to(q(".s09-rayos"), { opacity: 0.3, duration: 0.15, yoyo: true, repeat: 5 }, SU + 0.4);
+      tl.to(q(".s09-guino"), { scaleY: 0.1, svgOrigin: "1002 1140", duration: 0.1, yoyo: true, repeat: 1 }, NO + 0.2);
+      cae(q(".t3"), NO - 0.3);
+      tl.to(q(".t3"), { scale: 1.04, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, NO + 0.1);
+      tl.to(q(".s09-duenio"), { x: -10, duration: 0.06, yoyo: true, repeat: 5, ease: "none" }, NO);
+
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
