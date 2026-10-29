@@ -92,6 +92,27 @@ export async function publicarTikTokPanel(acceso, bytes, o) {
   throw new Error("TikTok tardó más de 10 minutos");
 }
 
+// Mientras la app no está auditada: el video va a la bandeja de la app de TikTok (notificación de
+// "tenés un video para editar"); lo publica una persona desde ahí, pegando la descripción.
+export async function mandarAlInboxTikTok(acceso, bytes) {
+  const ini = await api(acceso, "/post/publish/inbox/video/init/", {
+    source_info: { source: "FILE_UPLOAD", video_size: bytes.length, chunk_size: bytes.length, total_chunk_count: 1 },
+  });
+  const sub = await fetch(ini.upload_url, {
+    method: "PUT",
+    headers: { "Content-Type": "video/mp4", "Content-Length": String(bytes.length), "Content-Range": `bytes 0-${bytes.length - 1}/${bytes.length}` },
+    body: bytes,
+  });
+  if (!sub.ok) throw new Error("TikTok no aceptó el video: " + sub.status);
+  for (let i = 0; i < 60; i++) {
+    await espera(10000);
+    const st = await api(acceso, "/post/publish/status/fetch/", { publish_id: ini.publish_id });
+    if (st.status === "SEND_TO_USER_INBOX" || st.status === "PUBLISH_COMPLETE") return `en la bandeja de TikTok (publish_id ${ini.publish_id}, ${st.status})`;
+    if (st.status === "FAILED") throw new Error("TikTok falló: " + st.fail_reason);
+  }
+  throw new Error("TikTok tardó más de 10 minutos");
+}
+
 export async function publicarTikTok(acceso, bytes, caption, prueba) {
   const creador = await api(acceso, "/post/publish/creator_info/query/");
   console.log(`tiktok: @${creador.creator_username}`);

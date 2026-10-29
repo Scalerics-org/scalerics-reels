@@ -11,7 +11,7 @@ export default function handler(req, res) {
   const state = firmarState(String(Date.now()));
   const url = "https://www.tiktok.com/v2/auth/authorize/?" + new URLSearchParams({
     client_key: TIKTOK_CLIENT_KEY,
-    scope: "user.info.basic,video.publish",
+    scope: "user.info.basic,video.publish,video.upload",
     response_type: "code",
     redirect_uri: REDIRECT,
     state,

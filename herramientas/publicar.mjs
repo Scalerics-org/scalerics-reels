@@ -15,7 +15,7 @@
 import fs from "node:fs";
 import { execFileSync } from "node:child_process";
 import { tokenGoogle } from "./google.mjs";
-import { accesoTikTok, publicarTikTok, publicarTikTokPanel } from "./tiktok.mjs";
+import { accesoTikTok, mandarAlInboxTikTok, publicarTikTok, publicarTikTokPanel } from "./tiktok.mjs";
 
 const PRUEBA = process.argv.includes("--prueba");
 // PANEL (variable de entorno) = base64url de un JSON: lo eligió una persona en el panel de aprobación
@@ -114,7 +114,8 @@ if (!redes.length) {
   console.log(`a esta hora no le toca a ninguna red activa (${deHora.join(", ") || "ninguna"})`);
   process.exit(0);
 }
-const falta = (sl) => redes.filter((r) => !(pub[r] || []).includes(sl));
+// Lo que ya se mandó a la bandeja de TikTok cuenta como hecho en TikTok (lo publicó una persona desde ahí)
+const falta = (sl) => redes.filter((r) => !(pub[r] || []).includes(sl) && !(r === "tiktok" && (pub.tiktok_inbox || []).includes(sl)));
 
 // 1. El aprobado más viejo
 const q = encodeURIComponent(`'${APROBADOS}' in parents and trashed = false`);
@@ -290,6 +291,18 @@ if (hacerTT) {
   } catch (e) {
     console.log("TIKTOK FALLÓ: " + e.message);
     if (!hayIG) throw e;
+  }
+}
+
+// Mientras TikTok está en pausa (la app sin auditar), lo que sale en Instagram va también a la bandeja
+// de la app de TikTok, para publicarlo a mano desde el celular. Se anota en tiktok_inbox.
+const yaEnTikTok = (pub.tiktok || []).includes(slug) || (pub.tiktok_inbox || []).includes(slug);
+if (accesoTT && !ttOn && hechoEn.includes("instagram") && !yaEnTikTok) {
+  try {
+    console.log("TIKTOK: " + (await mandarAlInboxTikTok(accesoTT, bytes)));
+    pub.tiktok_inbox = [...(pub.tiktok_inbox || []), slug];
+  } catch (e) {
+    console.log("TIKTOK (bandeja) FALLÓ: " + e.message);
   }
 }
 
