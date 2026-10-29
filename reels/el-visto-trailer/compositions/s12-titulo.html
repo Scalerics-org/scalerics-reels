@@ -1,0 +1,78 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-titulo"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-titulo"] .s12-placa { position: absolute; left: 0; top: 480px; width: 1080px; height: 960px; background: radial-gradient(ellipse 560px 380px at 540px 520px, rgba(255, 138, 42, 0.25) 0%, rgba(255, 138, 42, 0) 100%), #030405; }
+    [data-composition-id="s12-titulo"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-titulo"] .s12-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Outfit", sans-serif; font-weight: 800; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s12-titulo"] .oro { background: linear-gradient(180deg, #fff3c8 0%, #f2c45a 38%, #b07a1f 62%, #f7d98a 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 26px rgba(242, 196, 90, 0.5)); }
+    [data-composition-id="s12-titulo"] .s12-visto { top: 570px; font-size: 170px; letter-spacing: 0.06em; }
+    [data-composition-id="s12-titulo"] .s12-dos { top: 750px; font-size: 330px; }
+    [data-composition-id="s12-titulo"] .s12-ven { top: 1110px; font-weight: 700; font-size: 66px; letter-spacing: 0.2em; color: #f3ead8; }
+    [data-composition-id="s12-titulo"] .s12-del { top: 1196px; font-weight: 700; font-size: 66px; letter-spacing: 0.12em; color: #f2c45a; text-shadow: 0 0 20px rgba(242, 196, 90, 0.5); }
+    [data-composition-id="s12-titulo"] .brillo { color: #fffbe8; }
+    [data-composition-id="s12-titulo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-titulo"] .chispa { fill: #ff8a2a; }
+  </style>
+  <div id="root" data-composition-id="s12-titulo" data-width="1080" data-height="1920" data-duration="4.37">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="4.37" data-track-index="0">
+      <div class="s12-placa"></div>
+      <div class="s12-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true"><g class="s12-chispas"></g></svg>
+        <div class="s12-txt oro s12-visto">El Visto</div>
+        <div class="s12-txt brillo s12-visto b1" aria-hidden="true">El Visto</div>
+        <div class="s12-txt oro s12-dos">2</div>
+        <div class="s12-txt s12-ven">La venganza</div>
+        <div class="s12-txt s12-del">del que contesta</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-titulo";
+      const DUR = 4.37;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const DOS = 0.66, VENGANZA = 1.78, CONTESTA = 2.55;
+
+      // chispas que suben (deterministas)
+      const g = q(".s12-chispas");
+      for (let i = 0; i < 34; i++) {
+        const c = document.createElementNS(NS, "circle");
+        const x = 60 + (i * 149) % 960, y = 1300 + (i * 61) % 160;
+        c.setAttribute("cx", x); c.setAttribute("cy", y); c.setAttribute("r", 2 + (i % 3));
+        c.setAttribute("class", "chispa");
+        g.appendChild(c);
+        const d = 1.6 + (i % 5) * 0.3;
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { y: 0, x: 0 }, { y: -(420 + (i * 37) % 300), x: ((i * 23) % 80) - 40, duration: d, ease: "power1.out" }, 0.1 + ((i * 7) % 20) * 0.12);
+        tl.to(c, { opacity: 0.9, duration: 0.15 }, 0.1 + ((i * 7) % 20) * 0.12);
+        tl.to(c, { opacity: 0, duration: 0.5 }, 0.1 + ((i * 7) % 20) * 0.12 + d - 0.5);
+      }
+
+      tl.fromTo(q(".s12-escenario"), { scale: 1 }, { scale: 1.06, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      // "El Visto": aparece con el destello
+      tl.fromTo(q(".s12-visto.oro"), { opacity: 0.3, scale: 1.25, filter: "blur(10px) drop-shadow(0 0 26px rgba(242, 196, 90, 0.5))" }, { opacity: 1, scale: 1, filter: "blur(0px) drop-shadow(0 0 26px rgba(242, 196, 90, 0.5))", duration: 0.4, ease: "power3.out" }, 0);
+      // "2": cae enorme
+      gsap.set(q(".s12-dos"), { opacity: 0 });
+      tl.fromTo(q(".s12-dos"), { opacity: 0, scale: 3, y: -60 }, { opacity: 1, scale: 1, y: 0, duration: 0.18, ease: "power4.in", immediateRender: false }, DOS - 0.12);
+      [[-18, 10], [14, -8], [-6, 4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s12-escenario"), { x, y, duration: 0.04, ease: "none" }, DOS + 0.08 + i * 0.045));
+      tl.to(q(".s12-dos"), { scale: 1.06, duration: DUR - DOS - 0.3, ease: "none" }, DOS + 0.1);
+      // subtítulo de la película
+      gsap.set([q(".s12-ven"), q(".s12-del")], { opacity: 0 });
+      tl.fromTo(q(".s12-ven"), { opacity: 0, y: 20, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, immediateRender: false }, VENGANZA - 0.1);
+      tl.fromTo(q(".s12-del"), { opacity: 0, y: 20, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, immediateRender: false }, CONTESTA - 0.1);
+      // brillo que barre el título
+      gsap.set(q(".b1"), { opacity: 0.9, clipPath: "polygon(-20% 0%, -12% 0%, -22% 100%, -30% 100%)" });
+      tl.to(q(".b1"), { clipPath: "polygon(120% 0%, 128% 0%, 118% 100%, 110% 100%)", duration: 1.0, ease: "power2.inOut" }, 2.9);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

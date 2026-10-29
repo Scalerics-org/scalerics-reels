@@ -1,0 +1,97 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-agente"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-agente"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-agente"] .s13-halo { position: absolute; left: 140px; top: 560px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(92, 230, 17, 0.16) 0%, rgba(92, 230, 17, 0) 70%); }
+    [data-composition-id="s13-agente"] .s13-cel { position: absolute; left: 250px; top: 520px; width: 580px; height: 840px; border-radius: 56px; border: 6px solid #5ce611; background: #071a20; box-shadow: 0 0 50px rgba(92, 230, 17, 0.25); }
+    [data-composition-id="s13-agente"] .s13-cab { position: absolute; left: 256px; top: 526px; width: 568px; height: 120px; border-radius: 50px 50px 0 0; background: #0b2c35; }
+    [data-composition-id="s13-agente"] .s13-nombre { position: absolute; left: 300px; top: 552px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; color: #f3ead8; }
+    [data-composition-id="s13-agente"] .s13-estado { position: absolute; left: 330px; top: 598px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; color: #5ce611; }
+    [data-composition-id="s13-agente"] .s13-punto { position: absolute; left: 302px; top: 607px; width: 16px; height: 16px; border-radius: 50%; background: #5ce611; box-shadow: 0 0 10px #5ce611; }
+    [data-composition-id="s13-agente"] .s13-hora { position: absolute; left: 660px; top: 560px; width: 140px; text-align: right; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; color: #f3ead8; }
+    [data-composition-id="s13-agente"] .s13-msg { position: absolute; max-width: 440px; padding: 16px 24px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.25; }
+    [data-composition-id="s13-agente"] .entra { left: 280px; border-radius: 26px 26px 26px 8px; background: #f3ead8; color: #08161b; white-space: nowrap; }
+    [data-composition-id="s13-agente"] .sale { right: 280px; border-radius: 26px 26px 8px 26px; background: #5ce611; color: #06210a; }
+    [data-composition-id="s13-agente"] .s13-m1 { top: 680px; }
+    [data-composition-id="s13-agente"] .s13-m2 { top: 760px; white-space: nowrap; }
+    [data-composition-id="s13-agente"] .s13-chips { position: absolute; right: 280px; top: 842px; display: flex; gap: 12px; }
+    [data-composition-id="s13-agente"] .s13-chip { padding: 8px 18px; border: 3px solid #5ce611; border-radius: 30px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; color: #5ce611; }
+    [data-composition-id="s13-agente"] .s13-m3 { top: 910px; white-space: nowrap; }
+    [data-composition-id="s13-agente"] .s13-m4 { top: 990px; white-space: nowrap; }
+    [data-composition-id="s13-agente"] .s13-sep { position: absolute; left: 256px; width: 568px; top: 1086px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; color: #7fd9e3; }
+    [data-composition-id="s13-agente"] .s13-m5 { top: 1136px; }
+    [data-composition-id="s13-agente"] .s13-etiqueta { position: absolute; left: 0; right: 0; top: 1384px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s13-agente" data-width="1080" data-height="1920" data-duration="8.42">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="8.42" data-track-index="0">
+      <div class="s13-escenario">
+        <div class="s13-halo"></div>
+        <div class="s13-cel"></div>
+        <div class="s13-cab"></div>
+        <div class="s13-nombre">Tu local</div>
+        <div class="s13-punto"></div>
+        <div class="s13-estado">en línea</div>
+        <div class="s13-hora s13-h1">23:47</div>
+        <div class="s13-hora s13-h2">03:12</div>
+        <div class="s13-msg entra s13-m1">¿Tenés en talle M?</div>
+        <div class="s13-msg sale s13-m2">¡Sí! Queda una en negro.</div>
+        <div class="s13-chips"><div class="s13-chip s13-c1">PRECIO</div><div class="s13-chip s13-c2">STOCK</div></div>
+        <div class="s13-msg sale s13-m3">Pedido tomado.</div>
+        <div class="s13-msg sale s13-m4">Retirás mañana a las 10.</div>
+        <div class="s13-sep">· DOS DÍAS DESPUÉS ·</div>
+        <div class="s13-msg sale s13-m5">Hola, ¿seguís interesada en la campera?</div>
+        <div class="s13-etiqueta">AGENTE DE IA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-agente";
+      const DUR = 8.42;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const IA = 0.6, CUALQUIER = 3.23, PRECIOS = 4.32, STOCK = 5.04, PEDIDOS = 5.41, AGENDA = 6.04, ESCRIBE = 6.78;
+
+      const pop = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, transformOrigin: origen }, { opacity: 1, scale: 1, duration: 0.28, ease: "back.out(2.2)", immediateRender: false }, t);
+      };
+
+      // entra: el celular sube a cuadro
+      tl.fromTo(q(".s13-escenario"), { y: 120, scale: 0.96 }, { y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 0);
+      tl.to(q(".s13-escenario"), { scale: 1.04, duration: DUR - 0.5, ease: "none", transformOrigin: "50% 60%" }, 0.45);
+      tl.fromTo(q(".s13-halo"), { opacity: 0.4 }, { opacity: 1, duration: 0.6, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".s13-punto"), { scale: 1 }, { scale: 1.5, duration: 0.3, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0.3);
+
+      pop(q(".s13-m1"), 0.05, "0% 100%");
+      // la respuesta del agente, al instante
+      pop(q(".s13-m2"), IA, "100% 100%");
+      // "a cualquier hora": la hora gira a la madrugada
+      gsap.set(q(".s13-h2"), { opacity: 0 });
+      tl.to(q(".s13-h1"), { opacity: 0, y: -24, duration: 0.2 }, CUALQUIER - 0.05);
+      tl.fromTo(q(".s13-h2"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, CUALQUIER);
+      tl.fromTo(q(".s13-h2"), { color: "#f3ead8" }, { color: "#5ce611", duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, CUALQUIER + 0.2);
+      // precios y stock
+      pop(q(".s13-c1"), PRECIOS - 0.05, "50% 50%");
+      pop(q(".s13-c2"), STOCK - 0.05, "50% 50%");
+      // pedidos, agenda
+      pop(q(".s13-m3"), PEDIDOS, "100% 100%");
+      pop(q(".s13-m4"), AGENDA, "100% 100%");
+      // le escribe al que preguntó y no compró
+      gsap.set(q(".s13-sep"), { opacity: 0 });
+      tl.fromTo(q(".s13-sep"), { opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: false }, ESCRIBE - 0.3);
+      pop(q(".s13-m5"), ESCRIBE, "100% 100%");
+      gsap.set(q(".s13-etiqueta"), { opacity: 0 });
+      tl.fromTo(q(".s13-etiqueta"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, 0.5);
+
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

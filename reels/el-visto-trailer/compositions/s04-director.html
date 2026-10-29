@@ -1,0 +1,55 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-director"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-director"] .s04-placa { position: absolute; left: 0; top: 480px; width: 1080px; height: 960px; background: radial-gradient(ellipse 520px 300px at 540px 560px, rgba(255, 138, 42, 0.22) 0%, rgba(255, 138, 42, 0) 100%), #030405; }
+    [data-composition-id="s04-director"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-director"] .s04-del { position: absolute; left: 0; right: 0; top: 700px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 600; font-size: 46px; letter-spacing: 0.3em; color: #f3ead8; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-director"] .s04-titulo { position: absolute; left: 0; right: 0; top: 800px; text-align: center; }
+    [data-composition-id="s04-director"] .s04-l { font-family: "Outfit", sans-serif; font-weight: 800; text-transform: uppercase; white-space: nowrap; line-height: 1.02; font-size: 168px; letter-spacing: 0.04em; }
+    [data-composition-id="s04-director"] .oro { background: linear-gradient(180deg, #fff3c8 0%, #f2c45a 38%, #b07a1f 62%, #f7d98a 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 26px rgba(242, 196, 90, 0.45)); }
+    [data-composition-id="s04-director"] .s04-brillo { position: absolute; left: 0; right: 0; top: 0; text-align: center; color: #fffbe8; }
+    [data-composition-id="s04-director"] .s04-pie { position: absolute; left: 0; right: 0; top: 1220px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 500; font-size: 30px; letter-spacing: 0.34em; color: #f2c45a; opacity: 0.8; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s04-director" data-width="1080" data-height="1920" data-duration="3.39">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.39" data-track-index="0">
+      <div class="s04-placa"></div>
+      <div class="s04-escenario">
+        <div class="s04-del">Del director de</div>
+        <div class="s04-titulo">
+          <div class="oro"><div class="s04-l">Pasá el</div><div class="s04-l">lunes</div></div>
+          <div class="s04-brillo" aria-hidden="true"><div class="s04-l">Pasá el</div><div class="s04-l">lunes</div></div>
+        </div>
+        <div class="s04-pie">y de "Volvé mañana"</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-director";
+      const DUR = 3.39;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const PASA = 1.61, LUNES = 2.07;
+
+      tl.fromTo(q(".s04-escenario"), { scale: 1 }, { scale: 1.08, duration: DUR, ease: "none", transformOrigin: "50% 45%" }, 0);
+      tl.fromTo(q(".s04-del"), { opacity: 0.2, filter: "blur(8px)", y: 120 }, { opacity: 1, filter: "blur(0px)", y: 120, duration: 0.5, ease: "power2.out" }, 0);
+      tl.to(q(".s04-del"), { y: 0, duration: 0.3, ease: "power3.out" }, PASA - 0.2);
+
+      gsap.set(q(".s04-titulo"), { opacity: 0 });
+      tl.fromTo(q(".s04-titulo"), { opacity: 0, scale: 0.6, filter: "blur(14px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.35, ease: "power3.out", immediateRender: false }, PASA - 0.1);
+      [[-12, 7], [10, -6], [-4, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x, y, duration: 0.04, ease: "none" }, PASA + 0.15 + i * 0.045));
+      gsap.set(q(".s04-brillo"), { opacity: 0.9, clipPath: "polygon(-20% 0%, -12% 0%, -22% 100%, -30% 100%)" });
+      tl.to(q(".s04-brillo"), { clipPath: "polygon(120% 0%, 128% 0%, 118% 100%, 110% 100%)", duration: 0.9, ease: "power2.inOut" }, LUNES);
+      gsap.set(q(".s04-pie"), { opacity: 0 });
+      tl.fromTo(q(".s04-pie"), { opacity: 0, y: 16 }, { opacity: 0.8, y: 0, duration: 0.35, immediateRender: false }, LUNES + 0.05);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

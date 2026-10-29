@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-cta"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-cta"] .silueta { fill: #060d10; }
+    [data-composition-id="s14-cta"] .borde-n { fill: none; stroke: #ff8a2a; stroke-width: 6; filter: drop-shadow(0 0 14px rgba(255, 138, 42, 0.9)); }
+    [data-composition-id="s14-cta"] .borde-t { fill: none; stroke: #7fd9e3; stroke-width: 5; filter: drop-shadow(0 0 12px rgba(127, 217, 227, 0.8)); }
+    [data-composition-id="s14-cta"] .s14-prod { position: absolute; left: 0; right: 0; top: 530px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 600; font-size: 34px; letter-spacing: 0.3em; color: #f2c45a; }
+    [data-composition-id="s14-cta"] .s14-titulo { position: absolute; left: 0; right: 0; top: 600px; text-align: center; }
+    [data-composition-id="s14-cta"] .s14-l { font-family: "Outfit", sans-serif; font-weight: 800; text-transform: uppercase; white-space: nowrap; line-height: 1.02; font-size: 112px; letter-spacing: 0.03em;
+      background: linear-gradient(180deg, #fff3c8 0%, #f2c45a 38%, #b07a1f 62%, #f7d98a 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    [data-composition-id="s14-cta"] .s14-oro { filter: drop-shadow(0 0 24px rgba(242, 196, 90, 0.45)); }
+    [data-composition-id="s14-cta"] .s14-preg { position: absolute; left: 0; right: 0; top: 1030px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 110px; color: #f3ead8; line-height: 1; text-shadow: 0 0 24px rgba(255, 138, 42, 0.7); }
+    [data-composition-id="s14-cta"] .s14-com { position: absolute; left: 140px; top: 1300px; width: 800px; padding: 18px 26px 18px 92px; border-radius: 30px; background: rgba(3, 4, 5, 0.85); border: 3px solid #f2c45a; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; color: #f3ead8; white-space: nowrap; }
+    [data-composition-id="s14-cta"] .s14-ico { position: absolute; left: 30px; top: 18px; width: 46px; height: 40px; }
+  </style>
+  <div id="root" data-composition-id="s14-cta" data-width="1080" data-height="1920" data-duration="7.7">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="7.7" data-track-index="0">
+      <div class="s14-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el reflector naranja sobre el protagonista -->
+          <path class="s14-cono" d="M440 480 L640 480 L900 1440 L180 1440 Z" fill="#ff8a2a" opacity="0.12" />
+          <ellipse cx="540" cy="1200" rx="380" ry="300" fill="#ff8a2a" opacity="0.12" />
+          <g class="s14-prota">
+            <path class="silueta" d="M250 1440 C260 1290 330 1230 440 1206 C404 1176 388 1130 390 1080 C394 1000 456 950 540 950 C624 950 686 1000 690 1080 C692 1130 676 1176 640 1206 C750 1230 820 1290 830 1440 Z" />
+            <path class="borde-n" d="M540 950 C624 950 686 1000 690 1080 C692 1130 676 1176 640 1206 C750 1230 820 1290 830 1440" />
+            <path class="borde-t" d="M540 950 C456 950 394 1000 390 1080 C388 1130 404 1176 440 1206 C330 1230 260 1290 250 1440" />
+          </g>
+        </svg>
+        <div class="s14-preg">?</div>
+        <div class="s14-prod">UNA PRODUCCIÓN SCALERICS</div>
+        <div class="s14-titulo s14-oro">
+          <div class="s14-l s14-l1">¿Qué actor</div>
+          <div class="s14-l s14-l2">haría de vos?</div>
+        </div>
+        <div class="s14-com">
+          <svg class="s14-ico" viewBox="0 0 46 40" aria-hidden="true"><path d="M4 4 H42 V28 H18 L8 37 V28 H4 Z" fill="none" stroke="#f2c45a" stroke-width="4" stroke-linejoin="round" /></svg>
+          Te leemos en los comentarios
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-cta";
+      const DUR = 7.7;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const SCALERICS = 0.27, QUE = 1.9, VOS = 2.81, TE = 3.02;
+
+      tl.fromTo(q(".s14-escenario"), { scale: 1.08 }, { scale: 1, duration: DUR, ease: "sine.out", transformOrigin: "50% 60%" }, 0);
+      tl.fromTo(q(".s14-prota"), { opacity: 0.5, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s14-cono"), { opacity: 0.05 }, { opacity: 0.16, duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+      gsap.set(q(".s14-prod"), { opacity: 0 });
+      tl.fromTo(q(".s14-prod"), { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.4, immediateRender: false }, SCALERICS - 0.1);
+      tl.fromTo(q(".s14-preg"), { opacity: 0.2, scale: 0.8 }, { opacity: 0.9, scale: 1, duration: 0.4, ease: "back.out(2)" }, 0.2);
+      tl.to(q(".s14-preg"), { rotation: 8, duration: 0.5, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0.6);
+
+      // el título del póster
+      gsap.set([q(".s14-l1"), q(".s14-l2")], { opacity: 0 });
+      tl.fromTo(q(".s14-l1"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, QUE - 0.1);
+      tl.fromTo(q(".s14-l2"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, VOS - 0.45);
+      [[-12, 7], [10, -6], [-4, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s14-escenario"), { x, y, duration: 0.04, ease: "none" }, VOS - 0.3 + i * 0.045));
+
+      // te leemos en los comentarios
+      gsap.set(q(".s14-com"), { opacity: 0 });
+      tl.fromTo(q(".s14-com"), { opacity: 0, y: 30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: false }, TE);
+      tl.to(q(".s14-ico"), { scale: 1.25, transformOrigin: "50% 50%", duration: 0.35, yoyo: true, repeat: 7, ease: "sine.inOut" }, TE + 0.5);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* polvo en el aire, iluminado por el proyector */
+    [data-composition-id="ambiente"] .amb-polvo { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-mota { position: absolute; border-radius: 50%; background: #f3ead8; }
+    /* grano de película: ruido fijo que salta de lugar */
+    [data-composition-id="ambiente"] .amb-grano { position: absolute; left: -100px; top: 380px; width: 1280px; height: 1160px; opacity: 0.07; }
+    /* gradación teal arriba / naranja abajo y viñeta del cuadro */
+    [data-composition-id="ambiente"] .amb-grade { position: absolute; left: 0; top: 480px; width: 1080px; height: 960px;
+      background: linear-gradient(180deg, rgba(20, 110, 125, 0.16) 0%, rgba(20, 110, 125, 0) 40%, rgba(255, 138, 42, 0) 65%, rgba(255, 138, 42, 0.12) 100%); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; left: 0; top: 480px; width: 1080px; height: 960px;
+      background: radial-gradient(ellipse 680px 560px at 540px 480px, rgba(5, 7, 10, 0) 55%, rgba(5, 7, 10, 0.75) 100%); }
+    /* destello de lente anamórfico */
+    [data-composition-id="ambiente"] .amb-flare { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-raya { position: absolute; left: -400px; width: 1880px; height: 6px; border-radius: 3px;
+      background: linear-gradient(90deg, rgba(120, 220, 235, 0) 0%, rgba(140, 230, 245, 0.85) 50%, rgba(120, 220, 235, 0) 100%); filter: blur(2px); }
+    [data-composition-id="ambiente"] .amb-nucleo { position: absolute; width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 246, 220, 0.95) 0%, rgba(255, 190, 110, 0.45) 22%, rgba(255, 138, 42, 0) 70%); }
+    [data-composition-id="ambiente"] .amb-fantasma { position: absolute; border-radius: 50%; border: 3px solid rgba(140, 230, 245, 0.35); background: rgba(140, 230, 245, 0.06); }
+    /* franjas negras (letterbox) */
+    [data-composition-id="ambiente"] .amb-franja { position: absolute; left: 0; width: 1080px; background: #030405; }
+    [data-composition-id="ambiente"] .amb-arriba { top: 0; height: 480px; }
+    [data-composition-id="ambiente"] .amb-abajo { top: 1440px; height: 480px; }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; left: 0; right: 0; top: 1500px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.42em; color: #e8b64c; opacity: 0.5; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; left: 0; top: 480px; width: 1080px; height: 960px; background: #fff6e2; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.49">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="73.49" data-track-index="0">
+      <div class="amb-grade"></div>
+      <div class="amb-polvo"></div>
+      <svg class="amb-grano" viewBox="0 0 1280 1160" aria-hidden="true">
+        <filter id="amb-ruido"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" /><feColorMatrix type="saturate" values="0" /></filter>
+        <rect width="1280" height="1160" filter="url(#amb-ruido)" />
+      </svg>
+      <div class="amb-vineta"></div>
+      <div class="amb-flare">
+        <div class="amb-raya"></div>
+        <div class="amb-nucleo"></div>
+        <div class="amb-fantasma amb-f1" style="width: 70px; height: 70px"></div>
+        <div class="amb-fantasma amb-f2" style="width: 120px; height: 120px"></div>
+        <div class="amb-fantasma amb-f3" style="width: 40px; height: 40px"></div>
+      </div>
+      <div class="amb-flash"></div>
+      <div class="amb-franja amb-arriba"></div>
+      <div class="amb-franja amb-abajo"></div>
+      <div class="amb-rotulo" data-layout-ignore>TRÁILER OFICIAL</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.49;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // polvo: posiciones deterministas (sin Math.random), cada mota flota despacio
+      const polvo = q(".amb-polvo");
+      for (let i = 0; i < 46; i++) {
+        const m = document.createElement("div");
+        m.className = "amb-mota";
+        const s = 2 + (i * 7) % 5;
+        const x = (i * 197 + 61) % 1080, y = 500 + (i * 331 + 17) % 920;
+        m.style.width = s + "px"; m.style.height = s + "px"; m.style.left = x + "px"; m.style.top = y + "px";
+        m.style.filter = i % 3 === 0 ? "blur(1.5px)" : "none";
+        polvo.appendChild(m);
+        const dx = 40 + (i * 13) % 70, dy = -(60 + (i * 29) % 140);
+        tl.fromTo(m, { x: 0, y: 0, opacity: 0.12 + ((i * 11) % 30) / 100 }, { x: dx, y: dy, opacity: 0.08 + ((i * 17) % 35) / 100, duration: DUR, ease: "none" }, 0);
+      }
+
+      // grano: salta de lugar 12 veces por segundo
+      tl.to(q(".amb-grano"), { x: 90, y: -70, duration: DUR, ease: "steps(" + Math.round(DUR * 12) + ")" }, 0);
+
+      // destellos de lente (segundos globales): jueves, PASÁ EL LUNES, nadie contesta, secuela, EL VISTO 2, Scalerics
+      [[6.6, 760], [16.5, 820], [35.6, 760], [49.3, 820], [53.1, 820], [66.0, 820]].forEach(([t, y], k) => {
+        const dir = k % 2 ? -1 : 1;
+        tl.set(q(".amb-raya"), { y: y - 3 }, t);
+        tl.set(q(".amb-nucleo"), { y: y - 110 }, t);
+        tl.set([q(".amb-f1"), q(".amb-f2"), q(".amb-f3")], { y: y - 40 }, t);
+        tl.fromTo(q(".amb-nucleo"), { x: dir > 0 ? -120 : 980 }, { x: dir > 0 ? 980 : -120, duration: 1.6, ease: "power1.inOut" }, t);
+        tl.fromTo(q(".amb-raya"), { x: dir * -200, scaleX: 0.6 }, { x: dir * 200, scaleX: 1, duration: 1.6, ease: "power1.inOut" }, t);
+        tl.fromTo(q(".amb-f1"), { x: dir > 0 ? 900 : 100 }, { x: dir > 0 ? 200 : 800, duration: 1.6, ease: "power1.inOut" }, t);
+        tl.fromTo(q(".amb-f2"), { x: dir > 0 ? 760 : 240 }, { x: dir > 0 ? 340 : 640, duration: 1.6, ease: "power1.inOut" }, t);
+        tl.fromTo(q(".amb-f3"), { x: dir > 0 ? 640 : 380 }, { x: dir > 0 ? 440 : 560, duration: 1.6, ease: "power1.inOut" }, t);
+        tl.fromTo(q(".amb-flare"), { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out", immediateRender: false }, t);
+        tl.to(q(".amb-flare"), { opacity: 0, duration: 0.5, ease: "power2.in" }, t + 1.1);
+      });
+
+      // cortes con flash (segundos globales)
+      [8.01, 25.22, 28.95, 47.76, 53.0, 57.37].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.75, duration: 0.03 }, t - 0.02);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.02);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

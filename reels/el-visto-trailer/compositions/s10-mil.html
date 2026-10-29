@@ -1,0 +1,94 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-mil"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-mil"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-mil"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-mil"] .silueta { fill: #060d10; }
+    [data-composition-id="s10-mil"] .borde-n { fill: none; stroke: #ff8a2a; stroke-width: 5; filter: drop-shadow(0 0 12px rgba(255, 138, 42, 0.9)); }
+    [data-composition-id="s10-mil"] .s10-solo { position: absolute; left: 0; right: 0; top: 1360px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #f3ead8; }
+    [data-composition-id="s10-mil"] .s10-titulo { position: absolute; left: 0; right: 0; top: 600px; text-align: center; }
+    [data-composition-id="s10-mil"] .s10-fondo { position: absolute; left: 90px; top: 580px; width: 900px; height: 250px; border-radius: 24px; background: rgba(3, 4, 5, 0.82); }
+    [data-composition-id="s10-mil"] .s10-l { font-family: "Outfit", sans-serif; font-weight: 800; text-transform: uppercase; white-space: nowrap; line-height: 1.02; letter-spacing: 0.04em; }
+    [data-composition-id="s10-mil"] .s10-l1 { font-size: 70px; color: #f3ead8; letter-spacing: 0.2em; }
+    [data-composition-id="s10-mil"] .oro { font-size: 106px; background: linear-gradient(180deg, #fff3c8 0%, #f2c45a 38%, #b07a1f 62%, #f7d98a 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 26px rgba(242, 196, 90, 0.45)); }
+  </style>
+  <div id="root" data-composition-id="s10-mil" data-width="1080" data-height="1920" data-duration="5.03">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="5.03" data-track-index="0">
+      <div class="s10-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <ellipse class="s10-luz" cx="540" cy="1180" rx="260" ry="200" fill="#ff8a2a" opacity="0.2" />
+          <!-- el dueño, chiquito, solo en el medio -->
+          <g class="s10-duenio">
+            <path class="silueta" d="M450 1320 C455 1250 485 1220 520 1210 C508 1198 502 1180 503 1160 C505 1130 522 1112 540 1112 C558 1112 575 1130 577 1160 C578 1180 572 1198 560 1210 C595 1220 625 1250 630 1320 Z" />
+            <path class="borde-n" d="M540 1112 C558 1112 575 1130 577 1160 C578 1180 572 1198 560 1210 C595 1220 625 1250 630 1320" />
+          </g>
+          <path d="M60 1320 H1020" stroke="#ff8a2a" stroke-width="3" opacity="0.6" />
+          <g class="s10-lluvia"></g>
+        </svg>
+        <div class="s10-solo">UN HOMBRE. SOLO.</div>
+        <div class="s10-fondo"></div>
+        <div class="s10-titulo">
+          <div class="s10-l s10-l1">Contra</div>
+          <div class="s10-l oro">mil mensajes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-mil";
+      const DUR = 5.03;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const SOLO = 1.6, CONTRA = 2.49, MIL = 2.89;
+
+      // una lluvia de burbujas y notificaciones, en tandas cada vez más grandes (determinista)
+      const g = q(".s10-lluvia");
+      const COL = ["#f3ead8", "#1f8a96", "#ff8a2a", "#f3ead8", "#7fd9e3"];
+      const burbujas = [];
+      for (let i = 0; i < 60; i++) {
+        const w = 90 + (i * 37) % 110, h = 50 + (i * 11) % 20;
+        const x = 40 + (i * 167) % (1000 - w), y = 520 + (i * 283) % 800;
+        // no taparlo a él del todo hasta el final
+        const b = document.createElementNS(NS, "g");
+        b.innerHTML = `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${h / 2}" fill="${COL[i % 5]}" />` +
+          `<circle cx="${x + w * 0.3}" cy="${y + h / 2}" r="6" fill="#05070a" opacity="0.6" /><circle cx="${x + w * 0.5}" cy="${y + h / 2}" r="6" fill="#05070a" opacity="0.6" /><circle cx="${x + w * 0.7}" cy="${y + h / 2}" r="6" fill="#05070a" opacity="0.6" />` +
+          (i % 4 === 0 ? `<circle cx="${x + w - 4}" cy="${y + 4}" r="14" fill="#ff8a2a" stroke="#05070a" stroke-width="3" />` : "");
+        g.appendChild(b);
+        burbujas.push([b, x + w / 2, y + h / 2]);
+      }
+
+      tl.fromTo(q(".s10-escenario"), { scale: 1.06 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 65%" }, 0);
+      // entrada: arranca con unas pocas
+      burbujas.forEach(([b, cx, cy], i) => {
+        // se aceleran: t = curva que se aprieta
+        const t = 0.05 + 4.2 * Math.sqrt(i / 60) * (i / 60 + 0.4) / 1.4;
+        gsap.set(b, { opacity: 0 });
+        tl.fromTo(b, { opacity: 0, scale: 0.3, y: -40, svgOrigin: `${cx} ${cy}` }, { opacity: 0.95, scale: 1, y: 0, svgOrigin: `${cx} ${cy}`, duration: 0.25, ease: "back.out(2.4)", immediateRender: false }, t);
+      });
+      // la cámara tiembla con las tandas
+      [0.9, 1.9, MIL, 3.7, 4.3].forEach((t, k) => [[-8, 5], [7, -4], [-3, 2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-escenario"), { x: x * (1 + k * 0.3), y: y * (1 + k * 0.3), duration: 0.04, ease: "none" }, t + i * 0.045)));
+      tl.to(q(".s10-duenio"), { scale: 0.92, svgOrigin: "540 1320", duration: DUR, ease: "none" }, 0);
+
+      gsap.set(q(".s10-solo"), { opacity: 0 });
+      tl.fromTo(q(".s10-solo"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, SOLO - 0.1);
+
+      // "contra mil mensajes": título con fondo para que se lea sobre la lluvia
+      gsap.set([q(".s10-fondo"), q(".s10-l1"), q(".oro")], { opacity: 0 });
+      tl.fromTo(q(".s10-fondo"), { opacity: 0, scaleY: 0.4 }, { opacity: 1, scaleY: 1, duration: 0.2, immediateRender: false }, CONTRA - 0.15);
+      tl.fromTo(q(".s10-l1"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, CONTRA - 0.1);
+      tl.fromTo(q(".oro"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, MIL - 0.1);
+      tl.to(q(".s10-titulo"), { scale: 1.06, duration: DUR - MIL, ease: "none" }, MIL + 0.1);
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

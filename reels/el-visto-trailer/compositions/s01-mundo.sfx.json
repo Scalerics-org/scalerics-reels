@@ -1,0 +1,9 @@
+[
+  {"t": 0.1, "sfx": "bombo", "vol": 0.5},
+  {"t": 1.55, "sfx": "notification", "vol": 0.22},
+  {"t": 1.9, "sfx": "pop", "vol": 0.2},
+  {"t": 2.8, "sfx": "click", "vol": 0.3},
+  {"t": 4.1, "sfx": "whoosh-cinematic", "vol": 0.3, "max": 1.2},
+  {"t": 5.15, "sfx": "bombo", "vol": 0.4},
+  {"t": 6.62, "sfx": "braaam", "vol": 0.65}
+]

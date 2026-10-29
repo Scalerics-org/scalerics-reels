@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-secuela"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-secuela"] .s11-a, [data-composition-id="s11-secuela"] .s11-b { position: absolute; inset: 0; }
+    [data-composition-id="s11-secuela"] .s11-placa { position: absolute; left: 0; top: 480px; width: 1080px; height: 960px; background: #030405; }
+    [data-composition-id="s11-secuela"] .s11-prox { position: absolute; left: 0; right: 0; top: 700px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 50px; letter-spacing: 0.3em; color: #f3ead8; }
+    [data-composition-id="s11-secuela"] .s11-sec { position: absolute; left: 0; right: 0; top: 820px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 150px; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; line-height: 1;
+      background: linear-gradient(180deg, #fff3c8 0%, #f2c45a 38%, #b07a1f 62%, #f7d98a 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 26px rgba(242, 196, 90, 0.45)); }
+    [data-composition-id="s11-secuela"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-secuela"] .silueta { fill: #060d10; }
+    [data-composition-id="s11-secuela"] .borde-n { fill: none; stroke: #ff8a2a; stroke-width: 7; filter: drop-shadow(0 0 16px rgba(255, 138, 42, 0.95)); }
+    [data-composition-id="s11-secuela"] .holo { fill: rgba(127, 217, 227, 0.12); stroke: #7fd9e3; stroke-width: 5; filter: drop-shadow(0 0 18px rgba(127, 217, 227, 0.9)); }
+    [data-composition-id="s11-secuela"] .scan { stroke: #7fd9e3; stroke-width: 2; opacity: 0.35; }
+    [data-composition-id="s11-secuela"] .s11-ref { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 700; font-size: 52px; letter-spacing: 0.26em; color: #7fd9e3; text-shadow: 0 0 22px rgba(127, 217, 227, 0.7); }
+  </style>
+  <div id="root" data-composition-id="s11-secuela" data-width="1080" data-height="1920" data-duration="5.24">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="5.24" data-track-index="0">
+      <!-- A: placa PRÓXIMAMENTE / LA SECUELA -->
+      <div class="s11-a">
+        <div class="s11-placa"></div>
+        <div class="s11-prox">PRÓXIMAMENTE</div>
+        <div class="s11-sec">La secuela</div>
+      </div>
+      <!-- B: el dueño, ahora héroe, y su refuerzo -->
+      <div class="s11-b">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <ellipse cx="420" cy="1000" rx="360" ry="420" fill="#ff8a2a" opacity="0.22" />
+          <ellipse class="s11-luzholo" cx="760" cy="1060" rx="300" ry="380" fill="#7fd9e3" opacity="0" />
+          <g class="s11-heroe">
+            <path class="silueta" d="M150 1440 C160 1240 240 1160 340 1136 C306 1104 290 1060 292 1010 C296 932 350 884 412 884 C474 884 528 932 532 1010 C534 1060 518 1104 484 1136 C584 1160 664 1240 674 1440 Z" />
+            <path class="borde-n" d="M412 884 C350 884 296 932 292 1010 C290 1060 306 1104 340 1136 C240 1160 160 1240 150 1440" />
+          </g>
+          <!-- el refuerzo: una figura de luz, el agente -->
+          <g class="s11-agente">
+            <path class="holo" d="M600 1440 C608 1270 670 1206 746 1188 C720 1162 708 1128 710 1088 C714 1026 756 990 804 990 C852 990 894 1026 898 1088 C900 1128 888 1162 862 1188 C938 1206 1000 1270 1008 1440 Z" />
+            <clipPath id="s11-clip"><path d="M600 1440 C608 1270 670 1206 746 1188 C720 1162 708 1128 710 1088 C714 1026 756 990 804 990 C852 990 894 1026 898 1088 C900 1128 888 1162 862 1188 C938 1206 1000 1270 1008 1440 Z" /></clipPath>
+            <g clip-path="url(#s11-clip)"><g class="s11-scans"></g></g>
+            <rect x="720" y="1250" width="64" height="110" rx="12" fill="#7fd9e3" opacity="0.9" />
+          </g>
+        </svg>
+        <div class="s11-ref">REFUERZOS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-secuela";
+      const DUR = 5.24;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const SECUELA = 1.59, CORTE = 2.95, TENGO = 3.4, REFUERZOS = 3.68;
+
+      // líneas de escaneo dentro del holograma
+      const sc = q(".s11-scans");
+      for (let y = 1010; y < 1440; y += 22) {
+        const l = document.createElementNS(NS, "line");
+        l.setAttribute("x1", 640); l.setAttribute("x2", 970); l.setAttribute("y1", y); l.setAttribute("y2", y);
+        l.setAttribute("class", "scan");
+        sc.appendChild(l);
+      }
+
+      // A
+      tl.fromTo(q(".s11-a"), { scale: 1 }, { scale: 1.07, duration: CORTE, ease: "none", transformOrigin: "50% 45%" }, 0);
+      tl.fromTo(q(".s11-prox"), { opacity: 0.15, filter: "blur(10px)", y: 100 }, { opacity: 1, filter: "blur(0px)", y: 100, duration: 0.7, ease: "power2.out" }, 0);
+      tl.to(q(".s11-prox"), { y: 0, duration: 0.3, ease: "power3.out" }, SECUELA - 0.25);
+      gsap.set(q(".s11-sec"), { opacity: 0 });
+      tl.fromTo(q(".s11-sec"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, SECUELA - 0.1);
+      [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-a"), { x, y, duration: 0.04, ease: "none" }, SECUELA + 0.08 + i * 0.045));
+      tl.to(q(".s11-a"), { opacity: 0, duration: 0.15 }, CORTE);
+
+      // B: el héroe de frente; "refuerzos": se enciende la figura de luz
+      gsap.set(q(".s11-b"), { opacity: 0 });
+      tl.to(q(".s11-b"), { opacity: 1, duration: 0.12 }, CORTE);
+      tl.fromTo(q(".s11-b svg"), { scale: 1.12 }, { scale: 1.02, transformOrigin: "50% 60%", duration: DUR - CORTE, ease: "power2.out", immediateRender: false }, CORTE);
+      tl.fromTo(q(".s11-heroe"), { x: 120 }, { x: 0, duration: 0.6, ease: "power3.out", immediateRender: false }, CORTE);
+      gsap.set(q(".s11-agente"), { opacity: 0 });
+      // parpadeo de holograma que se enciende
+      [[0, 0.6], [0.06, 0.1], [0.12, 0.9], [0.18, 0.3], [0.24, 1]].forEach(([d, o]) => tl.to(q(".s11-agente"), { opacity: o, duration: 0.03 }, REFUERZOS - 0.15 + d));
+      tl.fromTo(q(".s11-agente"), { y: 20 }, { y: 0, duration: 0.4, ease: "power2.out", immediateRender: false }, REFUERZOS - 0.15);
+      tl.to(q(".s11-luzholo"), { opacity: 0.2, duration: 0.3 }, REFUERZOS);
+      tl.fromTo(q(".s11-scans"), { y: 0 }, { y: 22, duration: 0.5, ease: "none", repeat: 2, immediateRender: false }, REFUERZOS);
+      gsap.set(q(".s11-ref"), { opacity: 0 });
+      tl.fromTo(q(".s11-ref"), { opacity: 0, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, REFUERZOS + 0.05);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

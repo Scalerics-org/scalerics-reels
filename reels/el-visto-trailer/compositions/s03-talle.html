@@ -1,0 +1,115 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-talle"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-talle"] .s03-panel { position: absolute; inset: 0; }
+    [data-composition-id="s03-talle"] .s03-arriba { clip-path: polygon(0 480px, 1080px 480px, 1080px 930px, 0 990px); }
+    [data-composition-id="s03-talle"] .s03-abajo { clip-path: polygon(0 1002px, 1080px 942px, 1080px 1440px, 0 1440px); }
+    [data-composition-id="s03-talle"] .s03-mov { position: absolute; inset: 0; }
+    [data-composition-id="s03-talle"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-talle"] .silueta { fill: #060d10; }
+    [data-composition-id="s03-talle"] .borde-t { fill: none; stroke: #7fd9e3; stroke-width: 5; filter: drop-shadow(0 0 12px rgba(127, 217, 227, 0.85)); }
+    [data-composition-id="s03-talle"] .borde-n { fill: none; stroke: #ff8a2a; stroke-width: 6; filter: drop-shadow(0 0 14px rgba(255, 138, 42, 0.9)); }
+    [data-composition-id="s03-talle"] .s03-burbuja { position: absolute; left: 410px; top: 600px; width: 570px; padding: 26px 30px; border-radius: 34px 34px 34px 8px; background: #f3ead8; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; color: #08161b; white-space: nowrap; }
+    [data-composition-id="s03-talle"] .s03-hora { position: absolute; left: 410px; top: 740px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.1em; color: #7fd9e3; }
+    [data-composition-id="s03-talle"] .s03-rotulo { position: absolute; left: 70px; top: 1370px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; color: #ff8a2a; }
+    [data-composition-id="s03-talle"] .s03-oscuro { position: absolute; inset: 0; background: #030405; opacity: 0; clip-path: polygon(0 480px, 1080px 480px, 1080px 930px, 0 990px); }
+    [data-composition-id="s03-talle"] .s03-caja-txt { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.16em; fill: #05070a; }
+  </style>
+  <div id="root" data-composition-id="s03-talle" data-width="1080" data-height="1920" data-duration="3.87">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.87" data-track-index="0">
+      <!-- ARRIBA: la clienta, a la noche, con el celular -->
+      <div class="s03-panel s03-arriba">
+        <div class="s03-mov s03-mov-a">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <rect x="0" y="480" width="1080" height="520" fill="#0a262e" />
+            <ellipse class="s03-luzcel" cx="300" cy="760" rx="220" ry="180" fill="#7fd9e3" opacity="0.18" />
+            <!-- pelo largo, cabeza y hombros -->
+            <path class="silueta" d="M120 1000 C130 900 150 860 170 830 C150 760 160 640 250 610 C340 590 390 660 380 740 C376 790 360 830 345 850 C380 880 410 930 420 1000 Z" />
+            <path class="borde-t" d="M250 610 C340 590 390 660 380 740 C376 790 360 830 345 850 C380 880 410 930 420 1000" />
+            <!-- el celular en la mano -->
+            <rect class="s03-cel" x="372" y="770" width="54" height="96" rx="10" fill="#7fd9e3" />
+            <path class="silueta" d="M330 900 C350 870 380 860 400 860 L410 880 C390 900 370 920 350 940 Z" />
+          </svg>
+          <div class="s03-burbuja">Hola, ¿tenés en talle M?</div>
+          <div class="s03-hora">23:12 · ENVIADO</div>
+        </div>
+      </div>
+      <!-- ABAJO: el dueño en la caja -->
+      <div class="s03-panel s03-abajo">
+        <div class="s03-mov s03-mov-b">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <rect x="0" y="930" width="1080" height="520" fill="#1a0f08" />
+            <ellipse class="s03-luzcaja" cx="880" cy="1200" rx="300" ry="220" fill="#ff8a2a" opacity="0.2" />
+            <!-- el dueño, de perfil de tres cuartos, mirando la caja -->
+            <path class="silueta" d="M520 1440 C530 1310 580 1260 640 1240 C620 1210 610 1170 616 1130 C626 1070 670 1040 712 1044 C760 1048 790 1090 786 1140 C783 1180 770 1210 750 1236 C820 1256 880 1320 890 1440 Z" />
+            <path class="borde-n" d="M712 1044 C760 1048 790 1090 786 1140 C783 1180 770 1210 750 1236 C820 1256 880 1320 890 1440" />
+            <!-- mostrador, caja registradora y el celular -->
+            <rect x="0" y="1330" width="1080" height="120" fill="#0d1a1e" />
+            <path d="M0 1330 H1080" stroke="#ff8a2a" stroke-width="4" opacity="0.7" />
+            <g class="s03-caja">
+              <rect x="820" y="1240" width="190" height="92" rx="10" fill="#0d1a1e" stroke="#ff8a2a" stroke-width="4" />
+              <rect class="s03-pantalla" x="842" y="1258" width="146" height="50" rx="6" fill="#ff8a2a" />
+              <text class="s03-caja-txt" x="915" y="1294" text-anchor="middle">CAJA</text>
+            </g>
+            <g class="s03-celmesa">
+              <rect x="250" y="1296" width="120" height="30" rx="8" fill="#08161b" stroke="#1f8a96" stroke-width="3" />
+              <rect class="s03-celpant" x="258" y="1300" width="104" height="22" rx="5" fill="#7fd9e3" />
+            </g>
+            <path class="s03-vibra" d="M232 1290 l-14 -12 M232 1312 h-18 M388 1290 l14 -12 M388 1312 h18" stroke="#7fd9e3" stroke-width="4" stroke-linecap="round" />
+          </svg>
+        </div>
+      </div>
+      <div class="s03-oscuro"></div>
+      <div class="s03-rotulo">MIENTRAS TANTO, EN LA CAJA</div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="s03-corte" d="M0 996 L1080 936" stroke="#f2c45a" stroke-width="5" />
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-talle";
+      const DUR = 3.87;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const AHORA = 1.83, NO = 2.02, CAJA = 2.87;
+
+      // cámara: dos push-in en sentidos contrarios
+      tl.fromTo(q(".s03-mov-a"), { x: 0, scale: 1 }, { x: -10, scale: 1.05, duration: DUR, ease: "none", transformOrigin: "30% 40%" }, 0);
+      tl.fromTo(q(".s03-mov-b"), { x: 0, scale: 1.04 }, { x: -30, scale: 1.1, duration: DUR, ease: "none", transformOrigin: "70% 70%" }, 0);
+      tl.fromTo(q(".s03-corte"), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+
+      // la burbuja de ella se escribe
+      tl.fromTo(q(".s03-burbuja"), { opacity: 0.4, scale: 0.85, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s03-burbuja"), { clipPath: "inset(0 75% 0 0 round 34px)" }, { clipPath: "inset(0 0% 0 0 round 34px)", duration: 0.85, ease: "steps(12)" }, 0);
+      gsap.set(q(".s03-hora"), { opacity: 0 });
+      tl.to(q(".s03-hora"), { opacity: 1, duration: 0.2 }, 0.95);
+      tl.to(q(".s03-luzcel"), { opacity: 0.32, duration: 0.3, yoyo: true, repeat: 3 }, 0.1);
+
+      // abajo: el celular vibra en el mostrador
+      gsap.set(q(".s03-vibra"), { opacity: 0 });
+      gsap.set(q(".s03-celpant"), { opacity: 0.15 });
+      tl.to(q(".s03-celpant"), { opacity: 1, duration: 0.05 }, 1.0);
+      tl.to(q(".s03-vibra"), { opacity: 1, duration: 0.05, yoyo: true, repeat: 7 }, 1.0);
+      [[-6], [6], [-6], [6], [-4], [4], [0]].forEach(([x], i) => tl.to(q(".s03-celmesa"), { x, duration: 0.05, ease: "none" }, 1.0 + i * 0.06));
+      [[-6], [6], [-6], [6], [0]].forEach(([x], i) => tl.to(q(".s03-celmesa"), { x, duration: 0.05, ease: "none" }, AHORA - 0.1 + i * 0.06));
+      // "ahora no…": la pantalla del celular se apaga, ella queda a oscuras
+      tl.to(q(".s03-celpant"), { opacity: 0.08, duration: 0.25 }, NO + 0.2);
+      tl.to(q(".s03-oscuro"), { opacity: 0.45, duration: 0.5 }, NO + 0.2);
+      // "caja": la caja se ilumina
+      tl.fromTo(q(".s03-pantalla"), { opacity: 0.55 }, { opacity: 1, duration: 0.1, immediateRender: false }, CAJA - 0.05);
+      tl.to(q(".s03-luzcaja"), { opacity: 0.45, duration: 0.15, yoyo: true, repeat: 1 }, CAJA - 0.05);
+      tl.fromTo(q(".s03-caja"), { scale: 1 }, { scale: 1.08, svgOrigin: "915 1290", duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, CAJA);
+      tl.fromTo(q(".s03-rotulo"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3 }, 0.6);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

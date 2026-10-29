@@ -1,0 +1,95 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-villano"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-villano"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-villano"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-villano"] .silueta { fill: #060d10; }
+    [data-composition-id="s09-villano"] .borde-n { fill: none; stroke: #ff8a2a; stroke-width: 6; filter: drop-shadow(0 0 14px rgba(255, 138, 42, 0.9)); }
+    [data-composition-id="s09-villano"] .estante { fill: none; stroke: #1f8a96; stroke-width: 5; }
+    [data-composition-id="s09-villano"] .prenda { stroke: #05070a; stroke-width: 3; }
+    [data-composition-id="s09-villano"] .s09-cartel { position: absolute; left: 340px; top: 560px; width: 400px; padding: 14px 0; text-align: center; border: 5px solid #f3ead8; border-radius: 8px; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 70px; letter-spacing: 0.14em; color: #f3ead8; }
+    [data-composition-id="s09-villano"] .s09-otro { position: absolute; left: 0; right: 0; top: 690px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.28em; color: #ff8a2a; }
+    [data-composition-id="s09-villano"] .s09-rotulo { position: absolute; left: 0; right: 0; top: 1376px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #f2c45a; text-shadow: 0 0 16px rgba(242, 196, 90, 0.6); }
+  </style>
+  <div id="root" data-composition-id="s09-villano" data-width="1080" data-height="1920" data-duration="4.81">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.81" data-track-index="0">
+      <div class="s09-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <ellipse cx="540" cy="1080" rx="520" ry="360" fill="#ff8a2a" opacity="0.14" />
+          <!-- estantes con ropa doblada, a los dos lados -->
+          <g class="s09-est s09-e1">
+            <path class="estante" d="M60 900 H330" />
+            <rect class="prenda" x="80" y="850" width="70" height="48" rx="6" fill="#ff8a2a" /><rect class="prenda" x="160" y="850" width="70" height="48" rx="6" fill="#1f8a96" /><rect class="prenda" x="240" y="850" width="70" height="48" rx="6" fill="#f3ead8" />
+          </g>
+          <g class="s09-est s09-e2">
+            <path class="estante" d="M60 1040 H330" />
+            <rect class="prenda" x="80" y="990" width="70" height="48" rx="6" fill="#f2c45a" /><rect class="prenda" x="160" y="990" width="70" height="48" rx="6" fill="#ff8a2a" /><rect class="prenda" x="240" y="990" width="70" height="48" rx="6" fill="#1f8a96" />
+          </g>
+          <g class="s09-est s09-e3">
+            <path class="estante" d="M750 900 H1020" />
+            <rect class="prenda" x="770" y="850" width="70" height="48" rx="6" fill="#f3ead8" /><rect class="prenda" x="850" y="850" width="70" height="48" rx="6" fill="#f2c45a" /><rect class="prenda" x="930" y="850" width="70" height="48" rx="6" fill="#ff8a2a" />
+          </g>
+          <g class="s09-est s09-e4">
+            <path class="estante" d="M750 1040 H1020" />
+            <rect class="prenda" x="770" y="990" width="70" height="48" rx="6" fill="#1f8a96" /><rect class="prenda" x="850" y="990" width="70" height="48" rx="6" fill="#f3ead8" /><rect class="prenda" x="930" y="990" width="70" height="48" rx="6" fill="#f2c45a" />
+          </g>
+          <!-- el dueño, de frente, solo detrás del mostrador -->
+          <g class="s09-duenio">
+            <path class="silueta" d="M330 1340 C340 1200 400 1140 480 1120 C456 1096 444 1062 446 1024 C450 964 492 930 540 930 C588 930 630 964 634 1024 C636 1062 624 1096 600 1120 C680 1140 740 1200 750 1340 Z" />
+            <path class="borde-n" d="M540 930 C588 930 630 964 634 1024 C636 1062 624 1096 600 1120 C680 1140 740 1200 750 1340" />
+          </g>
+          <rect x="120" y="1300" width="840" height="140" fill="#0d1a1e" />
+          <path d="M120 1300 H960" stroke="#ff8a2a" stroke-width="4" opacity="0.8" />
+          <path class="s09-tacha" d="M320 630 L760 600" stroke="#ff8a2a" stroke-width="12" stroke-linecap="round" />
+        </svg>
+        <div class="s09-cartel">VILLANO</div>
+        <div class="s09-otro">ES OTRO</div>
+        <div class="s09-rotulo">LA MEJOR DEL BARRIO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-villano";
+      const DUR = 4.81;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const VILLANO = 0.29, OTRO = 0.89, MEJOR = 2.62, BARRIO = 4.0;
+
+      // push-in lento, más íntimo
+      tl.fromTo(q(".s09-escenario"), { scale: 1.02 }, { scale: 1.1, duration: DUR, ease: "none", transformOrigin: "50% 65%" }, 0);
+      tl.fromTo(q(".s09-duenio"), { opacity: 0.6, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0);
+      tl.fromTo(root.querySelectorAll(".s09-est"), { opacity: 0.3 }, { opacity: 0.45, duration: 0.3 }, 0);
+
+      // "villano": el cartel cae sobre él y "es otro" lo tacha
+      gsap.set(q(".s09-cartel"), { opacity: 0 });
+      tl.fromTo(q(".s09-cartel"), { opacity: 0, y: -80, rotation: -8 }, { opacity: 1, y: 0, rotation: -3, duration: 0.25, ease: "back.out(2)", immediateRender: false }, VILLANO - 0.1);
+      const t = q(".s09-tacha");
+      gsap.set(t, { strokeDasharray: 460, strokeDashoffset: 460, opacity: 0 });
+      tl.to(t, { opacity: 1, duration: 0.01 }, OTRO - 0.2);
+      tl.to(t, { strokeDashoffset: 0, duration: 0.25, ease: "power3.out" }, OTRO - 0.2);
+      gsap.set(q(".s09-otro"), { opacity: 0 });
+      tl.fromTo(q(".s09-otro"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, OTRO);
+      tl.to([q(".s09-cartel"), t, q(".s09-otro")], { opacity: 0, y: -30, filter: "blur(6px)", duration: 0.4 }, 1.9);
+
+      // "la mejor mercadería": los estantes se encienden de a uno
+      ["s09-e1", "s09-e3", "s09-e2", "s09-e4"].forEach((c, i) => {
+        tl.to(q("." + c), { opacity: 1, duration: 0.12 }, MEJOR - 0.1 + i * 0.14);
+        tl.fromTo(q("." + c), { scale: 1.08 }, { scale: 1, svgOrigin: i % 2 ? "885 960" : "195 960", duration: 0.25, ease: "back.out(2)", immediateRender: false }, MEJOR - 0.1 + i * 0.14);
+      });
+      gsap.set(q(".s09-rotulo"), { opacity: 0 });
+      tl.fromTo(q(".s09-rotulo"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, MEJOR + 0.3);
+      // "barrio": luz cálida sobre él
+      tl.to(q(".borde-n"), { opacity: 0.5, duration: 0.25, yoyo: true, repeat: 1 }, BARRIO);
+
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

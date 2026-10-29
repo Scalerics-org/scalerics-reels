@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-hechos"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-hechos"] .s02-placa { position: absolute; left: 0; top: 480px; width: 1080px; height: 960px; background: #030405; }
+    [data-composition-id="s02-hechos"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-hechos"] .s02-basada { position: absolute; left: 0; right: 0; top: 700px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 600; font-size: 50px; letter-spacing: 0.26em; line-height: 1.35; color: #f3ead8; text-transform: uppercase; }
+    [data-composition-id="s02-hechos"] .s02-tuyos-caja { position: absolute; left: 0; right: 0; top: 930px; text-align: center; }
+    [data-composition-id="s02-hechos"] .oro { font-family: "Outfit", sans-serif; font-weight: 800; text-transform: uppercase; white-space: nowrap; line-height: 1;
+      background: linear-gradient(180deg, #fff3c8 0%, #f2c45a 38%, #b07a1f 62%, #f7d98a 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    [data-composition-id="s02-hechos"] .s02-tuyos { font-size: 136px; letter-spacing: 0.03em; filter: drop-shadow(0 0 26px rgba(242, 196, 90, 0.45)); }
+    [data-composition-id="s02-hechos"] .s02-brillo { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 136px; letter-spacing: 0.03em; text-transform: uppercase; white-space: nowrap; line-height: 1; color: #fffbe8; }
+    [data-composition-id="s02-hechos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-hechos"] .s02-linea { fill: none; stroke: #f2c45a; stroke-width: 4; stroke-linecap: round; }
+  </style>
+  <div id="root" data-composition-id="s02-hechos" data-width="1080" data-height="1920" data-duration="3.06">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="3.06" data-track-index="0">
+      <div class="s02-placa"></div>
+      <div class="s02-escenario">
+        <div class="s02-basada">Basada en<br />hechos reales</div>
+        <div class="s02-tuyos-caja">
+          <div class="oro s02-tuyos">Los tuyos.</div>
+          <div class="s02-brillo" aria-hidden="true">Los tuyos.</div>
+        </div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s02-linea" d="M240 1160 H840" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-hechos";
+      const DUR = 3.06;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const TUYOS = 1.62;
+
+      // la placa se acerca lento
+      tl.fromTo(q(".s02-escenario"), { scale: 1 }, { scale: 1.07, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s02-basada"), { opacity: 0.25, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "power2.out" }, 0);
+      tl.to(q(".s02-basada"), { y: -90, opacity: 0.6, duration: 0.3, ease: "power2.out" }, TUYOS - 0.15);
+
+      // "los tuyos": golpe de oro
+      gsap.set(q(".s02-tuyos-caja"), { opacity: 0 });
+      tl.fromTo(q(".s02-tuyos-caja"), { opacity: 0, scale: 2.6 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, TUYOS - 0.1);
+      [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s02-escenario"), { x, y, duration: 0.04, ease: "none" }, TUYOS + 0.08 + i * 0.045));
+      gsap.set(q(".s02-brillo"), { opacity: 0.9, clipPath: "polygon(-20% 0%, -12% 0%, -22% 100%, -30% 100%)" });
+      tl.to(q(".s02-brillo"), { clipPath: "polygon(120% 0%, 128% 0%, 118% 100%, 110% 100%)", duration: 0.8, ease: "power2.inOut" }, TUYOS + 0.3);
+
+      // línea dorada que se dibuja
+      const l = q(".s02-linea");
+      gsap.set(l, { strokeDasharray: 600, strokeDashoffset: 600, opacity: 0 });
+      tl.to(l, { opacity: 1, duration: 0.01 }, TUYOS + 0.1);
+      tl.to(l, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, TUYOS + 0.1);
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
