@@ -1,0 +1,95 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-cta"] .s15-capa { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-esc { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s15-cta"] .trazo { fill: none; stroke: #2b1d2e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .s15-stk { position: absolute; padding: 10px 26px; background: #fff; border: 5px solid #2b1d2e; border-radius: 20px; box-shadow: 7px 7px 0 #2b1d2e; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; color: #2b1d2e; white-space: nowrap; }
+    [data-composition-id="s15-cta"] .s15-big { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #2b1d2e; paint-order: stroke fill; }
+    [data-composition-id="s15-cta"] .s15-rot { font-family: "Lexend", sans-serif; font-weight: 800; fill: #2b1d2e; }
+    [data-composition-id="s15-cta"] .s15-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; fill: #2b1d2e; }
+
+    [data-composition-id="s15-cta"] .s15-card { position: absolute; left: 110px; top: 610px; width: 860px; height: 520px; background: #fff; border: 7px solid #2b1d2e; border-radius: 44px; box-shadow: 12px 12px 0 #2b1d2e; overflow: hidden; }
+    [data-composition-id="s15-cta"] .s15-banda { position: absolute; left: 0; right: 0; top: 0; height: 330px; background: #a78bfa; border-bottom: 6px solid #2b1d2e; }
+    [data-composition-id="s15-cta"] .s15-preg { position: absolute; left: 40px; right: 40px; top: 74px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 56px; line-height: 1.12; color: #2b1d2e; }
+    [data-composition-id="s15-cta"] .s15-preg b { color: #fff3e6; -webkit-text-stroke: 9px #2b1d2e; paint-order: stroke fill; }
+    [data-composition-id="s15-cta"] .s15-input { position: absolute; left: 50px; right: 50px; top: 380px; height: 96px; border-radius: 26px; background: #fff3e6; border: 5px solid #2b1d2e; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; line-height: 86px; padding-left: 34px; color: rgba(43, 29, 46, 0.5); white-space: nowrap; }
+    [data-composition-id="s15-cta"] .s15-cursor { position: absolute; left: 380px; top: 22px; width: 5px; height: 46px; background: #ff3b5c; }
+    [data-composition-id="s15-cta"] .s15-avatar { position: absolute; left: 50%; top: 554px; width: 112px; height: 112px; margin-left: -56px; border-radius: 50%; background: #ff3b5c; border: 7px solid #2b1d2e; }
+    [data-composition-id="s15-cta"] .s15-comenta { left: 0; right: 0; margin: 0 auto; width: max-content; top: 1295px; font-size: 44px; background: #f5b83d; }
+
+  </style>
+  <div id="root" data-composition-id="s15-cta" data-width="1080" data-height="1920" data-duration="7.9">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="7.9" data-track-index="0">
+      <div class="s15-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s15-burbuja">
+            <path d="M930 1150 H1030 Q1050 1150 1050 1170 V1230 Q1050 1250 1030 1250 H980 L955 1278 V1250 H930 Q910 1250 910 1230 V1170 Q910 1150 930 1150 Z" fill="#fff" stroke="#2b1d2e" stroke-width="6" stroke-linejoin="round" />
+            <circle class="s15-p1" cx="950" cy="1200" r="9" fill="#2b1d2e" /><circle class="s15-p2" cx="980" cy="1200" r="9" fill="#2b1d2e" /><circle class="s15-p3" cx="1010" cy="1200" r="9" fill="#2b1d2e" />
+          </g>
+          <path class="trazo s15-fl" d="M130 1385 Q110 1405 120 1430 M100 1412 L120 1430 L142 1414" stroke="#ff3b5c" stroke-width="9" />
+        </svg>
+        <div class="s15-card">
+          <div class="s15-banda"></div>
+          <div class="s15-preg">¿Qué lugar <b>buenísimo</b> casi te perdiste por su página?</div>
+          <div class="s15-input">Contanos acá...<div class="s15-cursor"></div></div>
+        </div>
+        <div class="s15-stk s15-comenta">CONTANOS EN LOS COMENTARIOS</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-cta";
+      const DUR = 7.9;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazo que se dibuja solo (invisible hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 600;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // aparece con rebote; o.svg = svgOrigin para grupos SVG
+      const pop = (el, t, o = {}) => {
+        const og = o.svg ? { svgOrigin: o.svg } : {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: o.s ?? 0.5, rotation: o.r0 ?? 0, x: o.x0 ?? 0, y: o.y0 ?? 0, ...og }, { opacity: 1, scale: 1, rotation: o.r ?? 0, x: 0, y: 0, duration: o.d ?? 0.35, ease: o.ease ?? "back.out(2)", immediateRender: false, ...og }, t);
+      };
+      // texto gigante que cae de golpe
+      const golpe = (el, t, r = -4) => pop(el, t - 0.1, { s: 2.4, r0: r * 4, r, d: 0.15, ease: "power4.in" });
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const sacudon = (t, f = 1) => [[-12 * f, 6 * f], [9 * f, -5 * f], [-4 * f, 2 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s15-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const bambolea = (el, t, a = 3, d = 0.4, n = 5, og = {}) => tl.to(el, { rotation: a, duration: d, yoyo: true, repeat: n, ease: "sine.inOut", ...og }, t);
+
+      const BUENISIMO = 0.46, PERDISTE = 1.58, PAGINA = 2.22, CONTANOS = 3.24, COMENTARIOS = 3.8;
+      // cuadro 0: el sticker de pregunta ya está entrando
+      tl.fromTo(q(".s15-card"), { scale: 0.6, rotation: -8, opacity: 0.4 }, { scale: 1, rotation: -2, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }, 0);
+      tl.fromTo(q(".s15-preg b"), { scale: 1 }, { scale: 1.08, duration: 0.15, yoyo: true, repeat: 3, immediateRender: false }, BUENISIMO);
+      bambolea(q(".s15-card"), 0.5, 1, 0.6, 4);
+      tl.to(q(".s15-card"), { x: 6, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, PAGINA);
+      // cursor que titila
+      tl.fromTo(q(".s15-cursor"), { opacity: 1 }, { opacity: 0, duration: 0.3, yoyo: true, repeat: Math.max(1, Math.floor(DUR / 0.3) - 1), ease: "steps(1)" }, 0);
+      // contanos
+      pop(q(".s15-comenta"), CONTANOS - 0.05, { r0: -8, r: -2, y0: 40 });
+      pop(q(".s15-burbuja"), COMENTARIOS - 0.1, { svg: "980 1250", s: 0.3 });
+      ["s15-p1", "s15-p2", "s15-p3"].forEach((c, i) => tl.to(q("." + c), { y: -10, duration: 0.2, yoyo: true, repeat: 9, ease: "sine.inOut" }, COMENTARIOS + 0.2 + i * 0.1));
+      dibujar(q(".s15-fl"), COMENTARIOS + 0.2, 0.4);
+      tl.to(q(".s15-comenta"), { scale: 1.05, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, COMENTARIOS + 0.4);
+
+      // salida
+      // el CTA queda hasta el final, sin salida
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

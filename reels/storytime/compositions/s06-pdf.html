@@ -1,0 +1,98 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-pdf"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-pdf"] .s06-esc { position: absolute; inset: 0; }
+    [data-composition-id="s06-pdf"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-pdf"] .trazo { fill: none; stroke: #2b1d2e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-pdf"] .s06-stk { position: absolute; padding: 10px 26px; background: #fff; border: 5px solid #2b1d2e; border-radius: 20px; box-shadow: 7px 7px 0 #2b1d2e; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; color: #2b1d2e; white-space: nowrap; }
+    [data-composition-id="s06-pdf"] .s06-big { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #2b1d2e; paint-order: stroke fill; }
+    [data-composition-id="s06-pdf"] .s06-rot { font-family: "Lexend", sans-serif; font-weight: 800; fill: #2b1d2e; }
+    [data-composition-id="s06-pdf"] .s06-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; fill: #2b1d2e; }
+
+    [data-composition-id="s06-pdf"] .s06-epoca { left: 380px; top: 1285px; font-size: 56px; color: #fff3e6; background: #ff3b5c; }
+    [data-composition-id="s06-pdf"] .s06-menu { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; fill: #2b1d2e; }
+
+  </style>
+  <div id="root" data-composition-id="s06-pdf" data-width="1080" data-height="1920" data-duration="2.69">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="2.69" data-track-index="0">
+      <div class="s06-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s06-doc">
+            <path d="M320 640 H680 L760 720 V1260 H320 Z" fill="#fff" stroke="#2b1d2e" stroke-width="7" stroke-linejoin="round" />
+            <path d="M680 640 V720 H760" fill="#ffe3d3" stroke="#2b1d2e" stroke-width="6" stroke-linejoin="round" />
+            <text class="s06-menu" x="380" y="760">MENÚ</text>
+            <path d="M380 820 H640 M380 870 H700 M380 920 H600 M380 970 H680 M380 1020 H620 M380 1070 H700 M380 1120 H580" stroke="#2b1d2e" stroke-width="8" stroke-linecap="round" opacity="0.25" />
+            <rect class="s06-viejo" x="324" y="644" width="432" height="612" fill="#d9a441" opacity="0" />
+            <rect x="560" y="1170" width="160" height="70" rx="12" fill="#ff3b5c" stroke="#2b1d2e" stroke-width="5" />
+            <text class="s06-rot" x="640" y="1218" text-anchor="middle" font-size="38" fill="#fff3e6" style="fill:#fff3e6">PDF</text>
+          </g>
+          <g class="s06-desc">
+            <rect x="250" y="560" width="580" height="44" rx="22" fill="#fff" stroke="#2b1d2e" stroke-width="4" />
+            <text data-layout-ignore class="s06-mono" x="540" y="591" text-anchor="middle" font-size="26">menu_final_FINAL2.pdf</text>
+          </g>
+          <g class="s06-polvo" fill="#fff3e6" stroke="#2b1d2e" stroke-width="4">
+            <circle cx="300" cy="1240" r="26" /><circle cx="270" cy="1210" r="18" /><circle cx="780" cy="700" r="24" /><circle cx="810" cy="735" r="16" /><circle cx="790" cy="1180" r="20" />
+          </g>
+          <g class="s06-tela">
+            <path class="trazo" d="M324 644 L404 644 M324 644 L324 724 M324 644 L384 704" stroke-width="3" />
+            <path class="trazo" d="M364 644 Q360 664 324 668 M394 644 Q384 690 324 696" stroke-width="3" />
+          </g>
+        </svg>
+        <div class="s06-stk s06-epoca">DE OTRA ÉPOCA</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-pdf";
+      const DUR = 2.69;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazo que se dibuja solo (invisible hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 600;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // aparece con rebote; o.svg = svgOrigin para grupos SVG
+      const pop = (el, t, o = {}) => {
+        const og = o.svg ? { svgOrigin: o.svg } : {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: o.s ?? 0.5, rotation: o.r0 ?? 0, x: o.x0 ?? 0, y: o.y0 ?? 0, ...og }, { opacity: 1, scale: 1, rotation: o.r ?? 0, x: 0, y: 0, duration: o.d ?? 0.35, ease: o.ease ?? "back.out(2)", immediateRender: false, ...og }, t);
+      };
+      // texto gigante que cae de golpe
+      const golpe = (el, t, r = -4) => pop(el, t - 0.1, { s: 2.4, r0: r * 4, r, d: 0.15, ease: "power4.in" });
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const sacudon = (t, f = 1) => [[-12 * f, 6 * f], [9 * f, -5 * f], [-4 * f, 2 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s06-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const bambolea = (el, t, a = 3, d = 0.4, n = 5, og = {}) => tl.to(el, { rotation: a, duration: d, yoyo: true, repeat: n, ease: "sine.inOut", ...og }, t);
+
+      const MENU = 0.17, PDF = 0.92, PANDEMIA = 1.84;
+      tl.fromTo(q(".s06-doc"), { y: 260, rotation: -10, opacity: 0.5, svgOrigin: "540 950" }, { y: 0, rotation: -3, opacity: 1, svgOrigin: "540 950", duration: 0.35, ease: "back.out(1.6)" }, 0);
+      pop(q(".s06-desc"), MENU, { svg: "540 582", s: 0.4 });
+      tl.to(q(".s06-doc"), { rotation: 3, svgOrigin: "540 950", duration: 0.12, yoyo: true, repeat: 1 }, PDF);
+      tl.to(q(".s06-doc"), { scale: 1.06, svgOrigin: "640 1205", duration: 0.12, yoyo: true, repeat: 1 }, PDF);
+      // se pone amarillo de viejo, polvo y telaraña
+      tl.to(q(".s06-viejo"), { opacity: 0.28, duration: 0.4 }, PANDEMIA - 0.3);
+      const pol = qa(".s06-polvo circle");
+      gsap.set(pol, { opacity: 0 });
+      pol.forEach((c, i) => { tl.fromTo(c, { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 0.9, scale: 1, transformOrigin: "50% 50%", duration: 0.25, ease: "back.out(2)", immediateRender: false }, PANDEMIA - 0.2 + i * 0.05); tl.to(c, { y: -40, opacity: 0, duration: 0.6 }, PANDEMIA + 0.3 + i * 0.04); });
+      qa(".s06-tela path").forEach((p, i) => dibujar(p, PANDEMIA - 0.1 + i * 0.1, 0.35));
+      golpe(q(".s06-epoca"), PANDEMIA + 0.05, -6);
+      sacudon(PANDEMIA + 0.06, 0.8);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

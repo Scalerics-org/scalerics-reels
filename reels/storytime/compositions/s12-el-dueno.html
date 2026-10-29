@@ -1,0 +1,120 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-el-dueno"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-el-dueno"] .s12-esc { position: absolute; inset: 0; }
+    [data-composition-id="s12-el-dueno"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-el-dueno"] .trazo { fill: none; stroke: #2b1d2e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-el-dueno"] .s12-stk { position: absolute; padding: 10px 26px; background: #fff; border: 5px solid #2b1d2e; border-radius: 20px; box-shadow: 7px 7px 0 #2b1d2e; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; color: #2b1d2e; white-space: nowrap; }
+    [data-composition-id="s12-el-dueno"] .s12-big { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #2b1d2e; paint-order: stroke fill; }
+    [data-composition-id="s12-el-dueno"] .s12-rot { font-family: "Lexend", sans-serif; font-weight: 800; fill: #2b1d2e; }
+    [data-composition-id="s12-el-dueno"] .s12-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; fill: #2b1d2e; }
+
+    [data-composition-id="s12-el-dueno"] .s12-preg { left: 440px; top: 600px; font-size: 84px; color: #a78bfa; }
+    [data-composition-id="s12-el-dueno"] .s12-paraque { left: 600px; top: 720px; font-size: 52px; background: #fff; }
+    [data-composition-id="s12-el-dueno"] .s12-barrio { left: 90px; top: 1340px; font-size: 40px; background: #f5b83d; }
+
+  </style>
+  <div id="root" data-composition-id="s12-el-dueno" data-width="1080" data-height="1920" data-duration="7.57">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="7.57" data-track-index="0">
+      <div class="s12-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s12-casas">
+            <g transform="translate(560 680)"><g class="s12-casa"><path d="M0 60 L50 10 L100 60 V130 H0 Z" fill="#ffe3d3" stroke="#2b1d2e" stroke-width="5" stroke-linejoin="round" /><rect x="38" y="80" width="24" height="50" fill="#2b1d2e" /><path d="M50 -14 C38 -26 30 -30 30 -38 C30 -46 38 -48 44 -44 C46 -42 48 -40 50 -38 C52 -40 54 -42 56 -44 C62 -48 70 -46 70 -38 C70 -30 62 -26 50 -14 Z" fill="#ff3b5c" stroke="#2b1d2e" stroke-width="3" class="s12-cor" /></g></g><g transform="translate(680 650)"><g class="s12-casa"><path d="M0 60 L50 10 L100 60 V130 H0 Z" fill="#e6dcfb" stroke="#2b1d2e" stroke-width="5" stroke-linejoin="round" /><rect x="38" y="80" width="24" height="50" fill="#2b1d2e" /><path d="M50 -14 C38 -26 30 -30 30 -38 C30 -46 38 -48 44 -44 C46 -42 48 -40 50 -38 C52 -40 54 -42 56 -44 C62 -48 70 -46 70 -38 C70 -30 62 -26 50 -14 Z" fill="#ff3b5c" stroke="#2b1d2e" stroke-width="3" class="s12-cor" /></g></g><g transform="translate(800 680)"><g class="s12-casa"><path d="M0 60 L50 10 L100 60 V130 H0 Z" fill="#d8f0d0" stroke="#2b1d2e" stroke-width="5" stroke-linejoin="round" /><rect x="38" y="80" width="24" height="50" fill="#2b1d2e" /><path d="M50 -14 C38 -26 30 -30 30 -38 C30 -46 38 -48 44 -44 C46 -42 48 -40 50 -38 C52 -40 54 -42 56 -44 C62 -48 70 -46 70 -38 C70 -30 62 -26 50 -14 Z" fill="#ff3b5c" stroke="#2b1d2e" stroke-width="3" class="s12-cor" /></g></g><g transform="translate(920 650)"><g class="s12-casa"><path d="M0 60 L50 10 L100 60 V130 H0 Z" fill="#ffe3d3" stroke="#2b1d2e" stroke-width="5" stroke-linejoin="round" /><rect x="38" y="80" width="24" height="50" fill="#2b1d2e" /><path d="M50 -14 C38 -26 30 -30 30 -38 C30 -46 38 -48 44 -44 C46 -42 48 -40 50 -38 C52 -40 54 -42 56 -44 C62 -48 70 -46 70 -38 C70 -30 62 -26 50 -14 Z" fill="#ff3b5c" stroke="#2b1d2e" stroke-width="3" class="s12-cor" /></g></g>
+          </g>
+          <g transform="translate(-170 40) scale(1)"><g class="s12-vale" transform="translate(0 0)">
+            <circle cx="340" cy="860" r="150" fill="none" stroke="#f5b83d" stroke-width="18" class="s12-aro" />
+            <path d="M200 1400 Q205 1130 340 1110 Q475 1130 480 1400 Z" fill="#a78bfa" stroke="#2b1d2e" stroke-width="6" stroke-linejoin="round" />
+            <path d="M300 1112 L340 1170 L380 1112" fill="none" stroke="#2b1d2e" stroke-width="5" stroke-linejoin="round" />
+            <circle cx="340" cy="1010" r="82" fill="#2b1d2e" />
+            <circle cx="340" cy="910" r="42" fill="#2b1d2e" />
+            <path d="M282 952 Q340 924 398 952" fill="none" stroke="#ff9a78" stroke-width="16" stroke-linecap="round" />
+            <circle cx="262" cy="1046" r="14" fill="none" stroke="#f5b83d" stroke-width="6" />
+            <circle cx="418" cy="1046" r="14" fill="none" stroke="#f5b83d" stroke-width="6" />
+          </g></g>
+          <!-- su celular con CERRADO -->
+          <g class="s12-cel">
+            <rect x="300" y="900" width="190" height="320" rx="30" fill="#fff" stroke="#2b1d2e" stroke-width="6" />
+            <rect x="318" y="1020" width="154" height="70" rx="12" fill="#ff3b5c" stroke="#2b1d2e" stroke-width="4" />
+            <text class="s12-rot" x="395" y="1067" text-anchor="middle" font-size="28" style="fill:#fff3e6">CERRADO</text>
+            <path d="M330 960 H460 M330 1130 H440 M330 1170 H460" stroke="#2b1d2e" stroke-width="5" opacity="0.15" />
+          </g>
+          <path d="M210 1160 Q280 1110 320 1070" fill="none" stroke="#2b1d2e" stroke-width="30" stroke-linecap="round" />
+          <!-- el dueño detrás del mostrador -->
+          <g class="s12-duenio">
+            <path d="M620 1340 Q630 1060 790 1040 Q950 1060 960 1340 Z" fill="#2b1d2e" />
+            <path d="M700 1100 H880 V1340 H700 Z" fill="#fff" stroke="#2b1d2e" stroke-width="5" />
+            <path d="M700 1100 Q690 1060 730 1052 M880 1100 Q890 1060 850 1052" fill="none" stroke="#fff" stroke-width="7" />
+            <path d="M650 1070 L620 1200" stroke="#ff3b5c" stroke-width="22" stroke-linecap="round" opacity="0.9" />
+            <circle cx="790" cy="960" r="82" fill="#2b1d2e" />
+            <path d="M745 990 Q768 974 790 986 Q812 974 835 990" fill="none" stroke="#fff3e6" stroke-width="10" stroke-linecap="round" />
+            <path d="M740 900 Q790 880 840 900" fill="none" stroke="#fff3e6" stroke-width="6" stroke-linecap="round" opacity="0.6" />
+          </g>
+          <rect x="560" y="1240" width="470" height="100" rx="10" fill="#ff9a78" stroke="#2b1d2e" stroke-width="7" />
+          <path d="M560 1280 H1030" stroke="#2b1d2e" stroke-width="4" opacity="0.3" />
+        </svg>
+        <div class="s12-big s12-preg">¿¿PÁGINA??</div>
+        <div class="s12-stk s12-paraque">¿PARA QUÉ?</div>
+        <div class="s12-stk s12-barrio">NOS CONOCE TODO EL BARRIO</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-el-dueno";
+      const DUR = 7.57;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazo que se dibuja solo (invisible hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 600;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // aparece con rebote; o.svg = svgOrigin para grupos SVG
+      const pop = (el, t, o = {}) => {
+        const og = o.svg ? { svgOrigin: o.svg } : {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: o.s ?? 0.5, rotation: o.r0 ?? 0, x: o.x0 ?? 0, y: o.y0 ?? 0, ...og }, { opacity: 1, scale: 1, rotation: o.r ?? 0, x: 0, y: 0, duration: o.d ?? 0.35, ease: o.ease ?? "back.out(2)", immediateRender: false, ...og }, t);
+      };
+      // texto gigante que cae de golpe
+      const golpe = (el, t, r = -4) => pop(el, t - 0.1, { s: 2.4, r0: r * 4, r, d: 0.15, ease: "power4.in" });
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const sacudon = (t, f = 1) => [[-12 * f, 6 * f], [9 * f, -5 * f], [-4 * f, 2 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s12-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const bambolea = (el, t, a = 3, d = 0.4, n = 5, og = {}) => tl.to(el, { rotation: a, duration: d, yoyo: true, repeat: n, ease: "sine.inOut", ...og }, t);
+
+      const DUENO = 0.41, PAGINA = 1.44, CERRADO = 2.33, PREG = 3.24, PARAQUE = 4.29, SI = 5.13, TODO = 5.9, BARRIO = 6.19;
+      tl.fromTo(q(".s12-vale"), { x: -200, opacity: 0.5 }, { x: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s12-cel"), { x: -200, opacity: 0.5 }, { x: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      pop(q(".s12-duenio"), DUENO - 0.1, { svg: "790 1340", s: 0.5, y0: 100 });
+      // le muestra el celular
+      tl.to(q(".s12-cel"), { x: 60, rotation: 8, svgOrigin: "395 1060", duration: 0.3, ease: "back.out(2)" }, PAGINA - 0.1);
+      tl.to(q(".s12-cel"), { scale: 1.12, svgOrigin: "395 1060", duration: 0.12, yoyo: true, repeat: 3 }, CERRADO);
+      // ¿página?
+      golpe(q(".s12-preg"), PREG, 4);
+      bambolea(q(".s12-duenio"), PREG + 0.1, 4, 0.3, 3, { svgOrigin: "790 1340" });
+      pop(q(".s12-paraque"), PARAQUE - 0.1, { r0: -14, r: -4 });
+      tl.to(q(".s12-preg"), { opacity: 0, y: -40, duration: 0.25 }, SI - 0.3);
+      tl.to(q(".s12-paraque"), { opacity: 0, y: -40, duration: 0.25 }, SI - 0.2);
+      // el barrio aparece detrás de él
+      gsap.set(qa(".s12-casa"), { opacity: 0 });
+      qa(".s12-casa").forEach((c, i) => tl.fromTo(c, { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, SI + i * 0.15));
+      qa(".s12-cor").forEach((c, i) => tl.to(c, { y: -12, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, TODO + i * 0.08));
+      pop(q(".s12-barrio"), BARRIO - 0.1, { r0: 10, r: -3 });
+      tl.to(q(".s12-duenio"), { y: -10, duration: 0.18, yoyo: true, repeat: 5, ease: "sine.inOut" }, BARRIO);
+
+      // salida
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

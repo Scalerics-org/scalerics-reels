@@ -1,0 +1,109 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-milanesa"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-milanesa"] .s11-esc { position: absolute; inset: 0; }
+    [data-composition-id="s11-milanesa"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-milanesa"] .trazo { fill: none; stroke: #2b1d2e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-milanesa"] .s11-stk { position: absolute; padding: 10px 26px; background: #fff; border: 5px solid #2b1d2e; border-radius: 20px; box-shadow: 7px 7px 0 #2b1d2e; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; color: #2b1d2e; white-space: nowrap; }
+    [data-composition-id="s11-milanesa"] .s11-big { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #2b1d2e; paint-order: stroke fill; }
+    [data-composition-id="s11-milanesa"] .s11-rot { font-family: "Lexend", sans-serif; font-weight: 800; fill: #2b1d2e; }
+    [data-composition-id="s11-milanesa"] .s11-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; fill: #2b1d2e; }
+
+    [data-composition-id="s11-milanesa"] .s11-locos { left: 0; right: 0; top: 590px; text-align: center; font-size: 82px; color: #f5b83d; }
+    [data-composition-id="s11-milanesa"] .s11-lloro { left: 230px; top: 1300px; font-size: 48px; background: #a78bfa; }
+
+  </style>
+  <div id="root" data-composition-id="s11-milanesa" data-width="1080" data-height="1920" data-duration="5.05">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="5.05" data-track-index="0">
+      <div class="s11-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-plato">
+            <ellipse cx="540" cy="1020" rx="440" ry="230" fill="#fff" stroke="#2b1d2e" stroke-width="7" />
+            <ellipse cx="540" cy="1020" rx="370" ry="186" fill="none" stroke="#2b1d2e" stroke-width="3" opacity="0.2" />
+          </g>
+          <g transform="translate(540 1010) scale(1.15)"><g class="s11-mila">
+            <path d="M-300 -10 Q-290 -120 -150 -138 Q0 -160 150 -140 Q300 -120 310 -10 Q318 110 160 136 Q0 160 -160 138 Q-318 110 -300 -10 Z" fill="#f5b83d" stroke="#2b1d2e" stroke-width="7" stroke-linejoin="round" />
+            <path d="M-250 -20 Q-240 -96 -130 -110 Q0 -128 130 -112" fill="none" stroke="#fff3a0" stroke-width="12" stroke-linecap="round" opacity="0.8" class="s11-brillo" />
+            <g fill="#c98a1f"><circle cx="-200" cy="10" r="9" /><circle cx="-120" cy="60" r="8" /><circle cx="-40" cy="-40" r="9" /><circle cx="40" cy="40" r="8" /><circle cx="120" cy="-30" r="9" /><circle cx="200" cy="50" r="8" /><circle cx="-80" cy="100" r="7" /><circle cx="90" cy="100" r="7" /><circle cx="230" cy="-60" r="6" /><circle cx="-230" cy="-60" r="6" /></g>
+          </g></g>
+          <path class="s11-limon" d="M780 880 A80 80 0 0 1 900 980 L780 880 Z" fill="#fff3a0" stroke="#2b1d2e" stroke-width="6" stroke-linejoin="round" />
+          <g class="s11-chispas"><path class="trazo" d="M180 820 v-60 M150 790 h60 M920 1180 v-50 M895 1155 h50 M560 800 v-46 M537 777 h46" stroke="#2b1d2e" stroke-width="8" /></g>
+          <!-- medida: del tamaño del plato -->
+          <g class="s11-medida">
+            <path class="trazo s11-m1" d="M110 1290 H970" stroke="#ff3b5c" stroke-width="7" />
+            <path class="trazo s11-m2" d="M140 1265 L110 1290 L140 1315 M940 1265 L970 1290 L940 1315" stroke="#ff3b5c" stroke-width="7" />
+            <rect x="420" y="1262" width="240" height="56" rx="14" fill="#fff" stroke="#2b1d2e" stroke-width="5" />
+            <text class="s11-rot" x="540" y="1302" text-anchor="middle" font-size="32">= PLATO</text>
+          </g>
+          <g class="s11-lagrima"><path d="M960 700 C940 740 930 760 930 776 A30 30 0 0 0 990 776 C990 760 980 740 960 700 Z" fill="#a78bfa" stroke="#2b1d2e" stroke-width="5" /></g>
+        </svg>
+        <div class="s11-big s11-locos">UNA COSA DE LOCOS</div>
+        <div class="s11-stk s11-lloro">CASI LLORO EN VIVO</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-milanesa";
+      const DUR = 5.05;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazo que se dibuja solo (invisible hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 600;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // aparece con rebote; o.svg = svgOrigin para grupos SVG
+      const pop = (el, t, o = {}) => {
+        const og = o.svg ? { svgOrigin: o.svg } : {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: o.s ?? 0.5, rotation: o.r0 ?? 0, x: o.x0 ?? 0, y: o.y0 ?? 0, ...og }, { opacity: 1, scale: 1, rotation: o.r ?? 0, x: 0, y: 0, duration: o.d ?? 0.35, ease: o.ease ?? "back.out(2)", immediateRender: false, ...og }, t);
+      };
+      // texto gigante que cae de golpe
+      const golpe = (el, t, r = -4) => pop(el, t - 0.1, { s: 2.4, r0: r * 4, r, d: 0.15, ease: "power4.in" });
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const sacudon = (t, f = 1) => [[-12 * f, 6 * f], [9 * f, -5 * f], [-4 * f, 2 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const bambolea = (el, t, a = 3, d = 0.4, n = 5, og = {}) => tl.to(el, { rotation: a, duration: d, yoyo: true, repeat: n, ease: "sine.inOut", ...og }, t);
+
+      const LOCOS = 0.71, DORADA = 1.55, TAMANO = 2.3, PLATO = 2.96, LLORO = 3.96;
+      // cuadro 0: el platazo entra grande
+      tl.fromTo([q(".s11-plato"), q(".s11-limon")], { scale: 0.7, opacity: 0.6, svgOrigin: "540 1020" }, { scale: 1, opacity: 1, svgOrigin: "540 1020", duration: 0.4, ease: "back.out(1.7)" }, 0);
+      tl.to([q(".s11-plato"), q(".s11-limon")], { scale: 1.04, svgOrigin: "540 1020", duration: 0.6, yoyo: true, repeat: 6, ease: "sine.inOut" }, 0.45);
+      tl.fromTo(q(".s11-mila"), { scale: 0.7, opacity: 0.6, svgOrigin: "0 9" }, { scale: 1, opacity: 1, svgOrigin: "0 9", duration: 0.4, ease: "back.out(1.7)" }, 0);
+      tl.to(q(".s11-mila"), { scale: 1.04, svgOrigin: "0 9", duration: 0.6, yoyo: true, repeat: 6, ease: "sine.inOut" }, 0.45);
+      golpe(q(".s11-locos"), LOCOS, -3);
+      sacudon(LOCOS + 0.05, 1);
+      tl.to(q(".s11-locos"), { scale: 1.05, duration: 0.2, yoyo: true, repeat: 7, ease: "sine.inOut" }, LOCOS + 0.2);
+      // dorada: brillos
+      qa(".s11-chispas path").forEach((p) => dibujar(p, DORADA - 0.1, 0.35));
+      tl.to(q(".s11-chispas"), { opacity: 0.25, duration: 0.12, yoyo: true, repeat: 9 }, DORADA + 0.3);
+      tl.fromTo(q(".s11-brillo"), { opacity: 0.2 }, { opacity: 1, duration: 0.15, yoyo: true, repeat: 5, immediateRender: false }, DORADA);
+      // del tamaño del plato
+      dibujar(q(".s11-m1"), TAMANO - 0.1, 0.45);
+      dibujar(q(".s11-m2"), TAMANO + 0.3, 0.25);
+      gsap.set(qa(".s11-medida rect, .s11-medida text"), { opacity: 0 });
+      tl.to(qa(".s11-medida rect, .s11-medida text"), { opacity: 1, duration: 0.15 }, PLATO - 0.05);
+      tl.fromTo(qa(".s11-medida rect, .s11-medida text"), { scale: 1.5, svgOrigin: "540 1290" }, { scale: 1, svgOrigin: "540 1290", duration: 0.3, ease: "back.out(2)", immediateRender: false }, PLATO - 0.05);
+      // casi lloro
+      tl.to(q(".s11-medida"), { opacity: 0, duration: 0.2 }, LLORO - 0.35);
+      pop(q(".s11-lloro"), LLORO - 0.2, { r0: -12, r: -3 });
+      pop(q(".s11-lagrima"), LLORO, { svg: "960 776", s: 0.2 });
+      tl.to(q(".s11-lagrima"), { y: 60, duration: 0.6, ease: "power1.in", yoyo: true, repeat: 1 }, LLORO + 0.3);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

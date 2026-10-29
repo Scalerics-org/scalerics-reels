@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-en-vivo"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-en-vivo"] .s02-esc { position: absolute; inset: 0; }
+    [data-composition-id="s02-en-vivo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-en-vivo"] .trazo { fill: none; stroke: #2b1d2e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-en-vivo"] .s02-stk { position: absolute; padding: 10px 26px; background: #fff; border: 5px solid #2b1d2e; border-radius: 20px; box-shadow: 7px 7px 0 #2b1d2e; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; color: #2b1d2e; white-space: nowrap; }
+    [data-composition-id="s02-en-vivo"] .s02-big { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #2b1d2e; paint-order: stroke fill; }
+    [data-composition-id="s02-en-vivo"] .s02-rot { font-family: "Lexend", sans-serif; font-weight: 800; fill: #2b1d2e; }
+    [data-composition-id="s02-en-vivo"] .s02-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; fill: #2b1d2e; }
+
+        [data-composition-id="s02-en-vivo"] .s02-envivo { left: 150px; top: 590px; font-size: 64px; background: #ff3b5c; color: #fff3e6; }
+        [data-composition-id="s02-en-vivo"] .s02-barrio { left: 700px; top: 1330px; font-size: 44px; background: #a78bfa; }
+        [data-composition-id="s02-en-vivo"] .s02-dm { position: absolute; left: 560px; top: 610px; width: 450px; padding: 20px 26px; background: #fff; border: 5px solid #2b1d2e; border-radius: 30px 30px 30px 6px; box-shadow: 7px 7px 0 #2b1d2e; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; line-height: 1.2; color: #2b1d2e; }
+        [data-composition-id="s02-en-vivo"] .s02-dm b { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #7c5ce0; margin-bottom: 6px; }
+    
+  </style>
+  <div id="root" data-composition-id="s02-en-vivo" data-width="1080" data-height="1920" data-duration="4.54">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.54" data-track-index="0">
+      <div class="s02-esc">
+
+            <svg viewBox="0 0 1080 1920" aria-hidden="true">
+              <g class="s02-vale" transform="translate(-60 0)">
+            <circle cx="340" cy="860" r="150" fill="none" stroke="#f5b83d" stroke-width="18" class="s02-aro" />
+            <path d="M200 1400 Q205 1130 340 1110 Q475 1130 480 1400 Z" fill="#a78bfa" stroke="#2b1d2e" stroke-width="6" stroke-linejoin="round" />
+            <path d="M300 1112 L340 1170 L380 1112" fill="none" stroke="#2b1d2e" stroke-width="5" stroke-linejoin="round" />
+            <circle cx="340" cy="1010" r="82" fill="#2b1d2e" />
+            <circle cx="340" cy="910" r="42" fill="#2b1d2e" />
+            <path d="M282 952 Q340 924 398 952" fill="none" stroke="#ff9a78" stroke-width="16" stroke-linecap="round" />
+            <circle cx="262" cy="1046" r="14" fill="none" stroke="#f5b83d" stroke-width="6" />
+            <circle cx="418" cy="1046" r="14" fill="none" stroke="#f5b83d" stroke-width="6" />
+          </g>
+              <!-- brazo que saluda -->
+              <g class="s02-mano">
+                <path d="M175 1220 Q130 1120 150 1010" fill="none" stroke="#2b1d2e" stroke-width="34" stroke-linecap="round" />
+                <circle cx="150" cy="990" r="30" fill="#2b1d2e" />
+              </g>
+              <path class="trazo s02-ola" d="M95 960 Q80 990 95 1020 M70 940 Q48 990 70 1040" stroke="#ff3b5c" />
+              <!-- el bodegón -->
+              <g class="s02-bodegon">
+                <rect x="640" y="1020" width="340" height="300" fill="#fff3e6" stroke="#2b1d2e" stroke-width="6" />
+                <path d="M620 1020 H1000 L980 1090 H640 Z" fill="#ff3b5c" stroke="#2b1d2e" stroke-width="6" stroke-linejoin="round" />
+                <path d="M688 1020 L684 1090 M756 1020 L754 1090 M824 1020 L824 1090 M892 1020 L894 1090 M960 1020 L964 1090" stroke="#fff3e6" stroke-width="22" />
+                <path d="M620 1020 H1000 L980 1090 H640 Z" fill="none" stroke="#2b1d2e" stroke-width="6" stroke-linejoin="round" />
+                <rect x="680" y="950" width="260" height="60" rx="10" fill="#f5b83d" stroke="#2b1d2e" stroke-width="5" />
+                <text class="s02-rot" x="810" y="992" text-anchor="middle" font-size="32">BODEGÓN</text>
+                <rect x="680" y="1130" width="130" height="110" rx="8" fill="#f5b83d" stroke="#2b1d2e" stroke-width="5" opacity="0.9" />
+                <rect x="850" y="1130" width="90" height="190" rx="6" fill="#ff9a78" stroke="#2b1d2e" stroke-width="5" />
+                <circle cx="926" cy="1230" r="6" fill="#2b1d2e" />
+              </g>
+            </svg>
+            <div class="s02-stk s02-envivo">● EN VIVO</div>
+            <div class="s02-dm"><b data-layout-ignore>@mati_uy</b>tenés que ir a este bodegón</div>
+            <div class="s02-stk s02-barrio">DE BARRIO</div>
+    
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-en-vivo";
+      const DUR = 4.54;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazo que se dibuja solo (invisible hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 600;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // aparece con rebote; o.svg = svgOrigin para grupos SVG
+      const pop = (el, t, o = {}) => {
+        const og = o.svg ? { svgOrigin: o.svg } : {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: o.s ?? 0.5, rotation: o.r0 ?? 0, x: o.x0 ?? 0, y: o.y0 ?? 0, ...og }, { opacity: 1, scale: 1, rotation: o.r ?? 0, x: 0, y: 0, duration: o.d ?? 0.35, ease: o.ease ?? "back.out(2)", immediateRender: false, ...og }, t);
+      };
+      // texto gigante que cae de golpe
+      const golpe = (el, t, r = -4) => pop(el, t - 0.1, { s: 2.4, r0: r * 4, r, d: 0.15, ease: "power4.in" });
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const sacudon = (t, f = 1) => [[-12 * f, 6 * f], [9 * f, -5 * f], [-4 * f, 2 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s02-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const bambolea = (el, t, a = 3, d = 0.4, n = 5, og = {}) => tl.to(el, { rotation: a, duration: d, yoyo: true, repeat: n, ease: "sine.inOut", ...og }, t);
+
+          const VIVO = 1.5, RECOMIENDAN = 2.59, BODEGON = 3.34, BARRIO = 3.75;
+          // cuadro 0: Vale ya está, el aro de luz se prende
+          tl.fromTo(q(".s02-vale"), { y: 60, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+          tl.fromTo(q(".s02-aro"), { scale: 0.6, opacity: 0, svgOrigin: "340 860" }, { scale: 1, opacity: 1, svgOrigin: "340 860", duration: 0.4, ease: "back.out(2)" }, 0.05);
+          // saluda
+          tl.fromTo(q(".s02-mano"), { rotation: -10, svgOrigin: "175 1220" }, { rotation: 14, svgOrigin: "175 1220", duration: 0.22, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+          dibujar(q(".s02-ola"), 0.2, 0.35);
+          // EN VIVO
+          golpe(q(".s02-envivo"), VIVO, -5);
+          tl.to(q(".s02-envivo"), { scale: 1.06, duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, VIVO + 0.2);
+          tl.to(q(".s02-aro"), { opacity: 0.3, duration: 0.08, yoyo: true, repeat: 3 }, VIVO);
+          // el mensaje de la recomendación
+          pop(q(".s02-dm"), RECOMIENDAN - 0.1, { y0: 40, r0: 6, r: -2 });
+          // el bodegón
+          pop(q(".s02-bodegon"), BODEGON - 0.15, { svg: "810 1320", s: 0.3 });
+          bambolea(q(".s02-bodegon"), BODEGON + 0.25, 1.5, 0.3, 2, { svgOrigin: "810 1320" });
+          pop(q(".s02-barrio"), BARRIO, { r0: 18, r: 6 });
+    
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

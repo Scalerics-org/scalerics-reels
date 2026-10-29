@@ -1,0 +1,125 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-carga"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-carga"] .s03-esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-carga"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-carga"] .trazo { fill: none; stroke: #2b1d2e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-carga"] .s03-stk { position: absolute; padding: 10px 26px; background: #fff; border: 5px solid #2b1d2e; border-radius: 20px; box-shadow: 7px 7px 0 #2b1d2e; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; color: #2b1d2e; white-space: nowrap; }
+    [data-composition-id="s03-carga"] .s03-big { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #2b1d2e; paint-order: stroke fill; }
+    [data-composition-id="s03-carga"] .s03-rot { font-family: "Lexend", sans-serif; font-weight: 800; fill: #2b1d2e; }
+    [data-composition-id="s03-carga"] .s03-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; fill: #2b1d2e; }
+
+        [data-composition-id="s03-carga"] .s03-c1 { left: 70px; top: 700px; font-size: 58px; background: #fff; }
+        [data-composition-id="s03-carga"] .s03-c2 { left: 700px; top: 860px; font-size: 58px; background: #fff; }
+        [data-composition-id="s03-carga"] .s03-c3 { left: 80px; top: 1060px; font-size: 52px; background: #ff9a78; }
+        [data-composition-id="s03-carga"] .s03-mate { left: 600px; top: 1290px; font-size: 44px; background: #f5b83d; }
+        [data-composition-id="s03-carga"] .s03-pct { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; fill: #2b1d2e; }
+    
+  </style>
+  <div id="root" data-composition-id="s03-carga" data-width="1080" data-height="1920" data-duration="7.94">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="7.94" data-track-index="0">
+      <div class="s03-esc">
+
+            <svg viewBox="0 0 1080 1920" aria-hidden="true">
+              <g class="s03-cel">
+                <rect x="310" y="590" width="460" height="800" rx="56" fill="#fff" stroke="#2b1d2e" stroke-width="7" />
+                <path d="M490 618 H590" stroke="#2b1d2e" stroke-width="8" stroke-linecap="round" />
+                <rect x="340" y="650" width="400" height="56" rx="14" fill="#ffe3d3" stroke="#2b1d2e" stroke-width="4" />
+                <text data-layout-ignore class="s03-mono" x="540" y="687" text-anchor="middle" font-size="26">www.bodegon...</text>
+                <g class="s03-rueda"><circle cx="540" cy="960" r="90" fill="none" stroke="#2b1d2e" stroke-width="14" opacity="0.12" /><path d="M540 870 A90 90 0 0 1 630 960" fill="none" stroke="#ff3b5c" stroke-width="14" stroke-linecap="round" /></g>
+                <rect x="370" y="1150" width="340" height="26" rx="13" fill="#fff3e6" stroke="#2b1d2e" stroke-width="4" />
+                <rect class="s03-barra" x="373" y="1153" width="334" height="20" rx="10" fill="#ff3b5c" />
+                <text class="s03-pct s03-p1" x="540" y="1230" text-anchor="middle">cargando</text>
+                <text class="s03-pct s03-p2" x="540" y="1230" text-anchor="middle">cargando...</text>
+                <text class="s03-pct s03-p3" x="540" y="1230" text-anchor="middle">sigue cargando</text>
+                <text class="s03-pct s03-p4" x="540" y="1230" text-anchor="middle">casi... (mentira)</text>
+                <!-- telaraña en la esquina -->
+                <g class="s03-tela">
+                  <path class="trazo" d="M746 720 L680 720 M746 720 L746 790 M746 720 L690 776" stroke-width="3" />
+                  <path class="trazo" d="M712 720 Q716 738 746 742 M690 720 Q696 760 746 764" stroke-width="3" />
+                </g>
+              </g>
+              <!-- el mate y el termo -->
+              <g class="s03-matazo">
+                <path d="M120 1180 Q100 1290 160 1340 H260 Q320 1290 300 1180 Z" fill="#a78bfa" stroke="#2b1d2e" stroke-width="6" stroke-linejoin="round" />
+                <ellipse cx="210" cy="1180" rx="92" ry="22" fill="#2f7a3a" stroke="#2b1d2e" stroke-width="6" />
+                <path d="M230 1186 L300 1050" stroke="#f5b83d" stroke-width="12" stroke-linecap="round" />
+                <path d="M120 1250 Q210 1270 300 1250" fill="none" stroke="#2b1d2e" stroke-width="4" opacity="0.4" />
+                <path class="trazo s03-vapor" d="M170 1140 Q150 1110 172 1080 Q192 1050 170 1020 M222 1130 Q206 1100 226 1070" stroke="#2b1d2e" stroke-width="5" opacity="0.5" />
+              </g>
+            </svg>
+            <div class="s03-stk s03-c1">CARGA...</div>
+            <div class="s03-stk s03-c2">CARGA...</div>
+            <div class="s03-stk s03-c3">SIGUE CARGANDO</div>
+            <div class="s03-stk s03-mate">PAUSA MATE</div>
+    
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-carga";
+      const DUR = 7.94;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazo que se dibuja solo (invisible hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 600;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // aparece con rebote; o.svg = svgOrigin para grupos SVG
+      const pop = (el, t, o = {}) => {
+        const og = o.svg ? { svgOrigin: o.svg } : {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: o.s ?? 0.5, rotation: o.r0 ?? 0, x: o.x0 ?? 0, y: o.y0 ?? 0, ...og }, { opacity: 1, scale: 1, rotation: o.r ?? 0, x: 0, y: 0, duration: o.d ?? 0.35, ease: o.ease ?? "back.out(2)", immediateRender: false, ...og }, t);
+      };
+      // texto gigante que cae de golpe
+      const golpe = (el, t, r = -4) => pop(el, t - 0.1, { s: 2.4, r0: r * 4, r, d: 0.15, ease: "power4.in" });
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const sacudon = (t, f = 1) => [[-12 * f, 6 * f], [9 * f, -5 * f], [-4 * f, 2 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s03-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const bambolea = (el, t, a = 3, d = 0.4, n = 5, og = {}) => tl.to(el, { rotation: a, duration: d, yoyo: true, repeat: n, ease: "sine.inOut", ...og }, t);
+
+          const PAGINA = 0.71, CELULAR = 1.3, C1 = 2.19, C2 = 3.51, SIGUE = 4.89, MATE = 6.73;
+          // el celular entra (ya a medio entrar en el cuadro 0)
+          tl.fromTo(q(".s03-cel"), { y: 300, opacity: 0.4, rotation: 8, svgOrigin: "540 990" }, { y: 0, opacity: 1, rotation: 0, svgOrigin: "540 990", duration: 0.45, ease: "back.out(1.5)" }, 0);
+          tl.fromTo(q(".s03-rueda"), { rotation: 0, svgOrigin: "540 960" }, { rotation: 360 * 9, svgOrigin: "540 960", duration: DUR, ease: "none" }, 0);
+          // la barra de carga casi no avanza
+          tl.fromTo(q(".s03-barra"), { scaleX: 0.02, svgOrigin: "373 1163" }, { scaleX: 0.05, svgOrigin: "373 1163", duration: 2, ease: "power1.out" }, CELULAR);
+          tl.to(q(".s03-barra"), { scaleX: 0.07, svgOrigin: "373 1163", duration: 1.2, ease: "power1.out" }, C2);
+          tl.to(q(".s03-barra"), { scaleX: 0.04, svgOrigin: "373 1163", duration: 0.3, ease: "power2.in" }, SIGUE + 0.4);
+          const ps = [".s03-p1", ".s03-p2", ".s03-p3", ".s03-p4"].map(q);
+          gsap.set(ps.slice(1), { opacity: 0 });
+          [[C2, 0], [SIGUE, 1], [MATE - 0.4, 2]].forEach(([t, i]) => { tl.to(ps[i], { opacity: 0, duration: 0.1 }, t); tl.to(ps[i + 1], { opacity: 1, duration: 0.1 }, t + 0.1); });
+          // los CARGA...
+          pop(q(".s03-c1"), C1 - 0.08, { r0: -16, r: -6 });
+          bambolea(q(".s03-c1"), C1 + 0.3, -3, 0.5, 3);
+          pop(q(".s03-c2"), C2 - 0.08, { r0: 16, r: 5 });
+          bambolea(q(".s03-c2"), C2 + 0.3, 2, 0.5, 2);
+          pop(q(".s03-c3"), SIGUE - 0.05, { r0: -10, r: -3, s: 1.6, ease: "power3.in", d: 0.2 });
+          // se aburre: telaraña
+          gsap.set(q(".s03-tela"), { opacity: 0 });
+          tl.to(q(".s03-tela"), { opacity: 1, duration: 0.1 }, SIGUE + 0.3);
+          qa(".s03-tela path").forEach((p, i) => dibujar(p, SIGUE + 0.3 + i * 0.12, 0.4));
+          // se ceba un mate: todo se corre
+          tl.to([q(".s03-c1"), q(".s03-c2"), q(".s03-c3")], { opacity: 0, y: -30, duration: 0.25, stagger: 0.05 }, MATE - 0.45);
+          tl.to(q(".s03-cel"), { x: 150, scale: 0.86, rotation: 6, svgOrigin: "540 990", duration: 0.4, ease: "power2.inOut" }, MATE - 0.4);
+          pop(q(".s03-matazo"), MATE - 0.2, { svg: "210 1340", x0: -300, r0: -20, s: 0.8 });
+          dibujar(q(".s03-vapor"), MATE + 0.2, 0.6);
+          tl.to(q(".s03-vapor"), { y: -14, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, MATE + 0.7);
+          pop(q(".s03-mate"), MATE + 0.35, { r0: 14, r: 4 });
+    
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
