@@ -45,7 +45,13 @@
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
 
-**Polémicos con personaje (el tipo que más le gusta a Juan, 28-10). Elegí de acá primero:**
+**Polémicos con personaje (el tipo que más le gusta a Juan, 28-10). Elegí de acá primero. Todos
+venden el AGENTE DE IA salvo que se diga otra cosa; puntos casi nunca:**
+- **El agente que no duerme**: 3:47 de la mañana, el local cerrado, el dueño roncando, y el agente de IA atendiendo a un cliente insomne, cerrando una venta y dejándole una nota al dueño: "Vendí 2. Dormí tranquilo."
+- **El empleado del mes**: ceremonia de premiación del local; el empleado del mes no es Marcelo (que deja en visto), es el agente de IA. Marcelo se ofende en cámara.
+- **Despedido**: el dueño despide al agente de IA para "ahorrar"… y el local se cae a pedazos en una semana. Vuelve a contratarlo de rodillas.
+- **Pelea de gallos**: batalla de freestyle entre el dueño ("yo contesto cuando puedo") y el agente de IA ("yo contesto cuando querés").
+- **Conversación espiada**: dos agentes de IA de comercios distintos charlando en el grupo de WhatsApp de "los agentes", burlándose de los dueños que todavía contestan a mano.
 - **El roast**: un jurado de tres le da con todo al Instagram de un comercio ("último posteo hace 8 meses", "consultas por privado y no contestás el privado"), puntaje que baja a 0. Cierre: "Dejá el @ de tu local y te lo roasteamos". Estudio de TV con tarjetas de puntaje.
 - **Tu hijo no quiere el negocio**: el hijo le dice al padre que no lo va a seguir… así como está. Emocional, para negocios familiares. Giro: lo quiere si se moderniza.
 - **Último momento**: noticiero con zócalos rojos: "URGENTE: comercio pierde 40 clientes y culpa al dólar" (sin cifras reales: el número es parte del chiste), periodista en el lugar, entrevista al vecino.
@@ -53,7 +59,7 @@
 - **Cita a ciegas**: tu cliente y tu local en una cita; el local no contesta, llega tarde, solo acepta efectivo; el cliente se va con el de enfrente. Reality de citas.
 - **Terapia de pareja**: el dueño y su cliente en el consultorio de una terapeuta: "siento que ya no me escucha". Dos voces + terapeuta.
 - **Documental de crímenes**: "Esta es la historia de cómo un comercio perdió a su mejor cliente sin darse cuenta." Expedientes, cinta policial, voz en off seria.
-- **Entrevista de trabajo**: el dueño entrevista al "nuevo empleado" (el bot): "¿Trabajás domingos?" "Sí." "¿A las 3 de la mañana?" "Sí." "¿Cuánto querés ganar?"… Comedia.
+- **Entrevista de trabajo**: el dueño entrevista al "nuevo empleado" (el agente de IA): "¿Trabajás domingos?" "Sí." "¿A las 3 de la mañana?" "Sí." "¿Cuánto querés ganar?"… Comedia.
 - **El examen**: un profesor corrige el negocio del que mira como un examen: "Horario en Google: 0. Contestar WhatsApp: 0. Fidelización: tarjetita de cartón, 1". Nota final y "a marzo".
 - **Subasta**: un rematador subasta a tu mejor cliente: "¿Quién da más? ¡Vendido al de enfrente, que contestó primero!"
 - "Vendés por Instagram y anotás los pedidos en un cuaderno." (Tienda + envíos)

@@ -1,8 +1,8 @@
 # Reels de Scalerics
 
 Reels verticales (1080x1920, ~50-60 s) para el Instagram de Scalerics, la software factory de
-Montevideo que vende a comercios: bots de WhatsApp, Scalerics Puntos (fidelización), tiendas
-online y sitios web. Los hace un agente, de punta a punta: guion, voz, escenas animadas con
+Montevideo que vende a comercios: **agentes de IA** (el producto estrella), Scalerics Puntos
+(fidelización), tiendas online y sitios web. Los hace un agente, de punta a punta: guion, voz, escenas animadas con
 HyperFrames, render. Este archivo es el proceso; seguilo en orden.
 
 Ejemplos aprobados por Juan (mirarlos antes de hacer uno nuevo):
@@ -97,6 +97,10 @@ Líneas crema clásico: máximo 1 por tanda (mejor ninguno).
 - Cerrar siempre con "Comentá PALABRA y te contamos cómo": variar, siempre con una sola acción
   clara que invite a comentar o compartir.
 - Repetir una idea ya hecha: antes de elegir, leé TODOS los ganchos de "Hechos".
+- El cierre con la lista de productos ("bot que contesta, puntos que retienen, web que te pone en
+  el mapa"): cansa y ya se usó en varios. Cada reel vende UNA cosa (casi siempre el agente de IA)
+  y la nombra una vez.
+- Decir "bot" o "chatbot": es "agente de IA".
 
 ## El estilo de base (cuando toca el clásico)
 
@@ -115,8 +119,15 @@ Público: dueños de comercios de Uruguay **a los que les va bien o regular y qu
 apuntar a los que se están fundiendo (no tienen plata y no compran: decisión de Juan, 27-10).
 
 Lo que se vende (no prometer nada fuera de esto):
-- Bot de WhatsApp: contesta al instante a cualquier hora con tus precios y horarios, agenda
-  turnos, toma pedidos y te pasa la consulta cuando es para vos.
+- **Agentes de IA (EL FOCO, pedido de Juan 28-10: "más que de bots, que sean de agentes de IA")**:
+  un agente que trabaja para el comercio como un empleado más, sin horario: atiende por WhatsApp
+  (e Instagram) al instante y a cualquier hora con tus precios, stock y horarios, agenda turnos,
+  toma pedidos y reservas, hace el seguimiento del cliente que preguntó y no compró, le escribe al
+  que dejó de venir, y te pasa la conversación cuando es para vos. Se habla de **"agente de IA"**,
+  "tu empleado de IA", "un agente que atiende por vos": NUNCA "bot" ni "chatbot" (suena a
+  respuesta automática barata). Ángulos que dan juego: el agente como personaje (habla, tiene
+  personalidad, como `tu-jarvis`), el agente en una entrevista de trabajo, el agente que trabaja
+  a las 3 de la mañana mientras el dueño duerme, el agente contra el empleado que deja en visto.
 - Scalerics Puntos: el cliente suma con cada compra, lleva la tarjeta en el celular, canjea
   premios; si deja de venir le llega un aviso; el dueño ve quiénes son y cada cuánto vienen.
 - Tienda online: vende sola, con envíos (DAC, Correo, PedidosYa) y Mercado Pago.
@@ -134,10 +145,10 @@ Instagram/TikTok (gancho, 2-3 líneas, la acción del cierre y 5-6 hashtags), qu
 Cada corrida de la rutina hace **5 reels** (pedido de Juan, 27-10). Vos sos el coordinador:
 
 1. Elegí los 5 temas (paso 1) distintos entre sí, **cada uno con un formato y un estilo distintos** (ver "La regla número uno"), y reservalos los 5 juntos en `ideas.md`, en un
-   solo commit y push a `main`. **Variedad** (pedido de Juan: "que no sean todos de bots"): en
-   cada tanda, ningún producto más de 2 veces, y al menos 3 distintos entre Puntos, Bot de
-   WhatsApp, Tienda online, Sitio web y "todo Scalerics" (como `el-de-enfrente`). Mirá también
-   las últimas tandas en "Hechos" para no repetir el mismo producto noche tras noche.
+   solo commit y push a `main`. **Productos** (Juan, 28-10): la mayoría de cada tanda (3 o 4
+   de 5) sobre **agentes de IA**, cada uno con un ángulo distinto; los otros, tienda online o sitio
+   web. **Puntos: como mucho 1 por tanda y solo si el reel es de puntos** ("lo de los puntos en
+   todos los videos cansa"). Mirá las últimas tandas en "Hechos" para no repetir ángulos.
 2. Lanzá 5 subagentes con la herramienta Agent, **todos en el mismo mensaje** para que corran a la
    vez, uno por reel. A cada uno le pasás el `<slug>` y el tema, y le decís que haga los pasos 2 a 9
    de este archivo en `reels/<slug>/` (sin renderizar ni commitear) y que te devuelva el gancho y
