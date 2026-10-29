@@ -36,7 +36,7 @@ jobs:
           if [ "${{ github.event_name }}" != "schedule" ]; then echo "si=true" >> "$GITHUB_OUTPUT"; exit 0; fi
           HORA=$(TZ=America/Montevideo date +%-H)
           H=$(curl -sf --max-time 20 https://reels.scalerics.com/api/horarios || echo '{"instagram":[12,18,21],"tiktok":[12,18,21]}')
-          REDES=$(echo "$H" | jq -r --argjson h "$HORA" '[to_entries[] | select((.value|type)=="array" and (.value|index($h)) != null) | .key] | join(",")')
+          REDES=$(echo "$H" | jq -r --argjson h "$HORA" '[to_entries[] | select((.value|type)=="array" and any(.value[]; . == $h)) | .key] | join(",")')
           echo "hora $HORA: ${REDES:-ninguna red}"
           if [ -n "$REDES" ]; then echo "si=true" >> "$GITHUB_OUTPUT"; echo "redes=$REDES" >> "$GITHUB_OUTPUT"; fi
       - if: steps.toca.outputs.si == 'true'
