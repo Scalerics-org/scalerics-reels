@@ -97,7 +97,15 @@ const igOn = !!process.env.IG_TOKEN || !!(await estadoJson("ig.json"));
 // (privacidad, interacciones) la eligió y la aceptó una persona ahí.
 const autoTT = (await estadoJson("tiktok-auto.json")) || {};
 const ttOn = !!accesoTT && process.env.TIKTOK_PAUSADO !== "1" && !!autoTT.activo;
-const redes = [...(ttOn ? ["tiktok"] : []), ...(igOn ? ["instagram"] : [])];
+// En la corrida de cada hora, el workflow manda en REDES_HORA a qué redes les toca ahora (según
+// horarios.json, que se edita en el CRM). A mano, sin REDES_HORA, van todas.
+const deHora = (process.env.REDES_HORA || "").split(",").filter(Boolean);
+const toca = (r) => !deHora.length || deHora.includes(r);
+const redes = [...(ttOn && toca("tiktok") ? ["tiktok"] : []), ...(igOn && toca("instagram") ? ["instagram"] : [])];
+if (!redes.length) {
+  console.log(`a esta hora no le toca a ninguna red activa (${deHora.join(", ") || "ninguna"})`);
+  process.exit(0);
+}
 const falta = (sl) => redes.filter((r) => !(pub[r] || []).includes(sl));
 
 // 1. El aprobado más viejo
@@ -118,13 +126,14 @@ if (video) {
 } else {
   // Solo los que alguien aprobó en el panel de Reels del CRM (o en reels.scalerics.com):
   // revision.json = { slug: { estado: "en_cola" | "descartado", fecha } }. Sin entrada = por revisar.
-  // Sale primero el que se aprobó antes.
+  // Sale en el orden de la cola (`orden`, que se edita en el CRM); si falta, el que se aprobó antes.
   const revision = (await estadoJson("revision.json")) || {};
   const veto = fs.existsSync("no-publicar.txt") ? fs.readFileSync("no-publicar.txt", "utf8").split(/\s+/).filter(Boolean) : [];
   const hechos = [...fs.readFileSync("ideas.md", "utf8").matchAll(/^- \d\d-\d\d · `([a-z0-9-]+)`/gm)].map((m) => m[1]);
+  const lugar = (s) => (Number.isFinite(revision[s].orden) ? revision[s].orden : Infinity);
   const pendientes = hechos
     .filter((h) => revision[h]?.estado === "en_cola" && falta(h).length && !veto.includes(h))
-    .sort((a, b) => String(revision[a].fecha || "").localeCompare(String(revision[b].fecha || "")));
+    .sort((a, b) => lugar(a) - lugar(b) || String(revision[a].fecha || "").localeCompare(String(revision[b].fecha || "")));
   for (const s2 of pendientes) {
     try {
       bytesRepo = execFileSync("git", ["show", `origin/reel/${s2}:reels/${s2}/renders/${s2}-final.mp4`], { maxBuffer: 200e6 });

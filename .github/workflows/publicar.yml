@@ -1,11 +1,11 @@
-# Publica en Instagram el reel aprobado más viejo (ver herramientas/publicar.mjs).
-# 12:00, 18:00 y 21:00 de Uruguay (3 por día). A mano: Actions → "Publicar reel" → Run workflow (con "prueba" no publica).
+# Publica el reel aprobado más viejo de la cola (ver herramientas/publicar.mjs).
+# Corre cada hora, pero solo sigue si la hora de Uruguay está en los horarios de alguna red, que se
+# editan en el CRM (panel Reels) y viven en horarios.json (reels.scalerics.com/api/horarios).
+# A mano: Actions → "Publicar reel" → Run workflow (con "prueba" no publica).
 name: Publicar reel
 on:
   schedule:
-    - cron: "0 15 * * *"
-    - cron: "0 21 * * *"
-    - cron: "0 0 * * *"
+    - cron: "7 * * * *"
   workflow_dispatch:
     inputs:
       prueba:
@@ -30,13 +30,26 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      # Barato: si es una corrida de la hora y no toca en ninguna red, termina acá (sin bajar los videos)
+      - id: toca
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then echo "si=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          HORA=$(TZ=America/Montevideo date +%-H)
+          H=$(curl -sf --max-time 20 https://reels.scalerics.com/api/horarios || echo '{"instagram":[12,18,21],"tiktok":[12,18,21]}')
+          REDES=$(echo "$H" | jq -r --argjson h "$HORA" '[to_entries[] | select((.value|type)=="array" and (.value|index($h)) != null) | .key] | join(",")')
+          echo "hora $HORA: ${REDES:-ninguna red}"
+          if [ -n "$REDES" ]; then echo "si=true" >> "$GITHUB_OUTPUT"; echo "redes=$REDES" >> "$GITHUB_OUTPUT"; fi
+      - if: steps.toca.outputs.si == 'true'
+        uses: actions/checkout@v4
       # las ramas reel/* tienen los mp4: la cola automática los saca de ahí
-      - run: git fetch --no-tags --depth=1 origin "+refs/heads/reel/*:refs/remotes/origin/reel/*"
-      - uses: actions/setup-node@v4
+      - if: steps.toca.outputs.si == 'true'
+        run: git fetch --no-tags --depth=1 origin "+refs/heads/reel/*:refs/remotes/origin/reel/*"
+      - if: steps.toca.outputs.si == 'true'
+        uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node herramientas/publicar.mjs ${{ inputs.prueba && '--prueba' || '' }} ${{ inputs.tiktok_code && format('--tiktok-code={0}', inputs.tiktok_code) || '' }} ${{ inputs.tiktok_estado && format('--tiktok-estado={0}', inputs.tiktok_estado) || '' }}
+      - if: steps.toca.outputs.si == 'true'
+        run: node herramientas/publicar.mjs ${{ inputs.prueba && '--prueba' || '' }} ${{ inputs.tiktok_code && format('--tiktok-code={0}', inputs.tiktok_code) || '' }} ${{ inputs.tiktok_estado && format('--tiktok-estado={0}', inputs.tiktok_estado) || '' }}
         env:
           GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
@@ -44,5 +57,6 @@ jobs:
           IG_USER_ID: ${{ vars.IG_USER_ID }}
           TIKTOK_PAUSADO: "1"
           PANEL: ${{ inputs.panel }}
+          REDES_HORA: ${{ steps.toca.outputs.redes }}
           DRIVE_APROBADOS: 1VRxt08EiUNDxKDrJk5ugXzsRCRZKedGK
           DRIVE_PUBLICADOS: 1QGCBFfdUfWAF7hCHfgYJfMXfd_CUzh2p

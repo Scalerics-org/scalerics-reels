@@ -29,7 +29,7 @@ export default async function handler(req, res) {
       h.enInstagram = (pub.instagram || []).includes(h.slug);
       // Estado de revisión: publicado (en las dos), en_cola, descartado o por_revisar
       const r = rev[h.slug];
-      h.revisado = r ? { fecha: r.fecha, quien: r.quien || "" } : null;
+      h.revisado = r ? { fecha: r.fecha, quien: r.quien || "", orden: Number.isFinite(r.orden) ? r.orden : null } : null;
       if (veto.includes(h.slug) || r?.estado === "descartado") h.estado = "descartado";
       else if (h.enInstagram && h.enTikTok) h.estado = "publicado";
       else if (r?.estado === "en_cola") h.estado = "en_cola";
