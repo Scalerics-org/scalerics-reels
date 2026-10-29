@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-toque"] .s09-capa, [data-composition-id="s09-toque"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-toque"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-toque"] .b { fill: #0b1d4a; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-toque"] .l { fill: none; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-toque"] .r { fill: #e3212d; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-toque"] .m { fill: #1f4fa8; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-toque"] .y { fill: #ffd21f; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-toque"] .g { fill: #0b1d4a; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-toque"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-toque"] .w { fill: #f4f6fb; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-toque"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s09-toque"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-toque"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s09-toque"] .s09-tel { position: absolute; left: 300px; top: 580px; width: 500px; height: 800px; border: 7px solid #f4f6fb; border-radius: 56px; background: #0b1d4a; overflow: hidden; }
+    [data-composition-id="s09-toque"] .s09-barra { position: absolute; left: 187px; top: 18px; width: 126px; height: 12px; border-radius: 6px; background: #f4f6fb; opacity: 0.6; }
+    [data-composition-id="s09-toque"] .s09-head { position: absolute; left: 0; right: 0; top: 46px; padding: 0 30px 16px; border-bottom: 3px solid rgba(244, 246, 251, 0.25); font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; color: #f4f6fb; white-space: nowrap; }
+    [data-composition-id="s09-toque"] .s09-head small { display: block; margin-top: 4px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #f4f6fb; opacity: 0.7; }
+    [data-composition-id="s09-toque"] .s09-burb { position: absolute; padding: 16px 22px 12px; border-radius: 24px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; line-height: 1.2; max-width: 400px; }
+    [data-composition-id="s09-toque"] .s09-burb small { display: block; margin-top: 6px; text-align: right; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; opacity: 0.8; }
+    [data-composition-id="s09-toque"] .s09-out { right: 24px; background: #f4f6fb; color: #050d22; border-bottom-right-radius: 6px; }
+    [data-composition-id="s09-toque"] .s09-in { left: 24px; background: #1f4fa8; color: #f4f6fb; border: 3px solid #f4f6fb; border-bottom-left-radius: 6px; }
+
+    [data-composition-id="s09-toque"] .s09-tel { left: 120px; }
+    [data-composition-id="s09-toque"] .s09-dots { position: absolute; left: 24px; top: 400px; padding: 18px 26px; border-radius: 24px; background: #1f4fa8; border: 3px solid #f4f6fb; display: flex; gap: 12px; }
+    [data-composition-id="s09-toque"] .s09-dots i { width: 16px; height: 16px; border-radius: 50%; background: #f4f6fb; }
+    [data-composition-id="s09-toque"] .s09-sello { position: absolute; left: 580px; top: 640px; padding: 16px 28px 12px; border: 8px solid #ffd21f; border-radius: 14px; color: #ffd21f; background: rgba(5, 13, 34, 0.85); font-family: "Lexend", sans-serif; font-weight: 900; font-size: 70px; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s09-toque"] .s09-precio { position: absolute; left: 700px; top: 1020px; padding: 20px 34px 16px 56px; background: #ffd21f; color: #050d22; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; line-height: 1; border-radius: 10px 30px 30px 10px; transform-origin: 20px 50%; }
+    [data-composition-id="s09-toque"] .s09-precio::before { content: ""; position: absolute; left: 18px; top: 50%; width: 20px; height: 20px; margin-top: -10px; border-radius: 50%; background: #050d22; }
+    [data-composition-id="s09-toque"] .s09-todo { left: 470px; top: 1300px; background: #f4f6fb; color: #0b1d4a; font-size: 44px; box-shadow: 8px 8px 0 #ffd21f; }
+
+  </style>
+  <div id="root" data-composition-id="s09-toque" data-width="1080" data-height="1920" data-duration="4.35">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.35" data-track-index="0">
+      <div class="s09-escenario">
+
+        <div class="s09-tel">
+          <div class="s09-barra"></div>
+          <div class="s09-head">Autoservicio Enfrente<small>en línea</small></div>
+          <div class="s09-burb s09-out s09-b1" style="top: 200px">¿Tenés pañales?<small>23:01</small></div>
+          <div class="s09-dots"><i></i><i></i><i></i></div>
+          <div class="s09-burb s09-in s09-b2" style="top: 360px">¡Sí! Talle G, a $ 690. ¿Te lo guardo?<small>23:01</small></div>
+          <div class="s09-burb s09-out s09-b3" style="top: 600px">¡Sí! Paso mañana<small>23:02</small></div>
+        </div>
+        <div class="s09-sello">AL TOQUE</div>
+        <div class="s09-precio">$ 690</div>
+        <div class="cartela s09-todo">CON PRECIO Y TODO</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-toque";
+      const DUR = 4.35;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s09-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const ESCRIBI = 0.08, CONTESTO = 1.51, TOQUE = 1.98, PRECIO = 2.75, TODO = 3.32;
+      // cuadro 0: celular de enfrente ya entrando
+      tl.fromTo(q(".s09-tel"), { y: 200, opacity: 0.8 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      pop(".s09-b1", ESCRIBI + 0.1);
+      // escribiendo... y contesta al instante
+      gsap.set(q(".s09-dots"), { opacity: 0 });
+      tl.to(q(".s09-dots"), { opacity: 1, duration: 0.1 }, 0.7);
+      qa(".s09-dots i").forEach((d, i) => tl.fromTo(d, { y: 0 }, { y: -10, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, 0.75 + i * 0.08));
+      tl.to(q(".s09-dots"), { opacity: 0, duration: 0.05 }, CONTESTO - 0.1);
+      pop(".s09-b2", CONTESTO - 0.08);
+      gsap.set(q(".s09-sello"), { opacity: 0 });
+      tl.fromTo(q(".s09-sello"), { opacity: 0, scale: 2.6, rotation: -20 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.14, ease: "power4.in", immediateRender: false }, TOQUE - 0.1);
+      sacudon(TOQUE + 0.05, 1.2);
+      // el precio se balancea
+      gsap.set(q(".s09-precio"), { opacity: 0 });
+      tl.fromTo(q(".s09-precio"), { opacity: 1, rotation: -50, x: 200 }, { opacity: 1, rotation: 0, x: 0, duration: 0.35, ease: "back.out(2)", immediateRender: false }, PRECIO - 0.15);
+      tl.to(q(".s09-precio"), { rotation: 10, duration: 0.25, yoyo: true, repeat: 4, ease: "sine.inOut" }, PRECIO + 0.2);
+      pop(".s09-b3", TODO - 0.2);
+      pop(".s09-todo", TODO);
+
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

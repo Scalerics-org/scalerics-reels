@@ -1,0 +1,34 @@
+[
+ {
+  "t": 0.0,
+  "sfx": "whoosh-cinematic",
+  "vol": 0.25,
+  "max": 0.8
+ },
+ {
+  "t": 0.3,
+  "sfx": "ping",
+  "vol": 0.22
+ },
+ {
+  "t": 0.52,
+  "sfx": "ping",
+  "vol": 0.18
+ },
+ {
+  "t": 0.74,
+  "sfx": "ping",
+  "vol": 0.18
+ },
+ {
+  "t": 1.3,
+  "sfx": "impact-bass-2",
+  "vol": 0.45,
+  "max": 0.8
+ },
+ {
+  "t": 1.86,
+  "sfx": "sparkle",
+  "vol": 0.25
+ }
+]

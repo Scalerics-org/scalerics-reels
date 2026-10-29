@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-dolar"] .s12-capa, [data-composition-id="s12-dolar"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-dolar"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-dolar"] .b { fill: #0b1d4a; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dolar"] .l { fill: none; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dolar"] .r { fill: #e3212d; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dolar"] .m { fill: #1f4fa8; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dolar"] .y { fill: #ffd21f; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dolar"] .g { fill: #0b1d4a; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dolar"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dolar"] .w { fill: #f4f6fb; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dolar"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s12-dolar"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s12-dolar"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s12-dolar"] .s12-lbl { position: absolute; top: 1110px; width: 220px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.14em; color: #f4f6fb; }
+    [data-composition-id="s12-dolar"] .s12-igual { position: absolute; left: 640px; top: 470px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 230px; line-height: 1; color: #ffd21f; text-shadow: 8px 8px 0 #e3212d; }
+    [data-composition-id="s12-dolar"] .s12-dos { left: 470px; top: 1250px; background: #ffd21f; color: #050d22; font-size: 48px; box-shadow: 8px 8px 0 #e3212d; }
+
+  </style>
+  <div id="root" data-composition-id="s12-dolar" data-width="1080" data-height="1920" data-duration="4.33">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="4.33" data-track-index="0">
+      <div class="s12-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s12-raul">
+            <g transform="translate(-30 880) scale(0.95)">
+              <path class="b" d="M30 520 C30 400 90 360 180 360 C270 360 330 400 330 520 Z" />
+              <path d="M110 372 H250 V520 H110 Z" fill="#f4f6fb" stroke="#f4f6fb" stroke-width="7" stroke-linejoin="round" />
+              <ellipse class="b" cx="180" cy="230" rx="80" ry="90" />
+              <path class="l" d="M104 250 C98 214 104 186 118 170 M256 250 C262 214 256 186 242 170 M128 166 C160 150 214 150 240 168" />
+              <path class="l" d="M134 186 L166 196 M226 186 L194 196" stroke-width="6" />
+              <circle cx="154" cy="222" r="11" fill="#f4f6fb" /><circle cx="206" cy="222" r="11" fill="#f4f6fb" />
+              <ellipse class="b s12-boca" cx="180" cy="298" rx="14" ry="18" />
+              <path d="M136 266 C156 248 204 248 224 266 C206 282 192 272 180 268 C168 272 154 282 136 266 Z" fill="#f4f6fb" />
+              <path class="s12-gota" d="M268 170 C258 190 254 204 268 208 C282 204 278 190 268 170 Z" fill="#f4f6fb" stroke="#f4f6fb" stroke-width="4" />
+            </g>
+          </g>
+          <text class="s12-signo" x="320" y="980" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="170" fill="#ff5a5f" stroke="#050d22" stroke-width="4">?</text>
+          <g class="s12-balanza">
+            <path class="l" d="M720 760 V1240 M620 1250 H820" stroke-width="12" />
+            <circle cx="720" cy="740" r="18" fill="#ffd21f" stroke="#f4f6fb" stroke-width="5" />
+            <path class="s12-viga" d="M520 760 H920" stroke="#f4f6fb" stroke-width="12" stroke-linecap="round" />
+            <g class="s12-plato-i">
+              <path class="l" d="M520 760 L450 940 M520 760 L590 940" stroke-width="4" />
+              <path class="m" d="M430 940 H610 C600 990 440 990 430 940 Z" />
+              <g><rect x="430" y="830" width="180" height="96" rx="10" fill="#0b1d4a" stroke="#ff5a5f" stroke-width="6"/><text x="520" y="894" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="40" fill="#ff5a5f">US$</text></g>
+            </g>
+            <g class="s12-plato-d">
+              <path class="l" d="M920 760 L850 940 M920 760 L990 940" stroke-width="4" />
+              <path class="m" d="M830 940 H1010 C1000 990 840 990 830 940 Z" />
+              <g><rect x="830" y="830" width="180" height="96" rx="10" fill="#0b1d4a" stroke="#ff5a5f" stroke-width="6"/><text x="920" y="894" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="40" fill="#ff5a5f">US$</text></g>
+            </g>
+          </g>
+        </svg>
+        <div class="s12-lbl s12-lbl-i" style="left: 410px">RAÚL</div>
+        <div class="s12-lbl s12-lbl-d" style="left: 810px">ENFRENTE</div>
+        <div class="s12-igual">=</div>
+        <div class="cartela s12-dos">IGUAL PARA LOS DOS</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-dolar";
+      const DUR = 4.33;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s12-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const DOLAR = 0.2, EL = 1.13, IGUAL = 2.13, DOS = 2.73, RAUL = 2.83;
+      // cuadro 0: Raúl desconcertado
+      tl.fromTo(q(".s12-raul"), { x: -80, opacity: 0.8 }, { x: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, 0);
+      habla(".s12-boca", 0, 0.6, "180 298");
+      pop(".s12-signo", DOLAR, { svgOrigin: "320 920" });
+      tl.to(q(".s12-signo"), { rotation: 12, svgOrigin: "320 920", duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, DOLAR + 0.3);
+      // la balanza: arranca torcida y se equilibra en "igual"
+      gsap.set(q(".s12-balanza"), { opacity: 0 });
+      gsap.set([q(".s12-lbl-i"), q(".s12-lbl-d")], { opacity: 0 });
+      tl.fromTo(q(".s12-balanza"), { opacity: 1, y: 300 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, EL - 0.1);
+      tl.to([q(".s12-lbl-i"), q(".s12-lbl-d")], { opacity: 1, duration: 0.2 }, EL + 0.2);
+      gsap.set(q(".s12-viga"), { rotation: -14, svgOrigin: "720 760" });
+      gsap.set(q(".s12-plato-i"), { y: 48 });
+      gsap.set(q(".s12-plato-d"), { y: -48 });
+      gsap.set(q(".s12-lbl-i"), { y: 48 });
+      gsap.set(q(".s12-lbl-d"), { y: -48 });
+      // se mueve, duda...
+      tl.to(q(".s12-viga"), { rotation: 8, svgOrigin: "720 760", duration: 0.35, ease: "sine.inOut" }, EL + 0.35);
+      tl.to([q(".s12-plato-i"), q(".s12-lbl-i")], { y: -28, duration: 0.35, ease: "sine.inOut" }, EL + 0.35);
+      tl.to([q(".s12-plato-d"), q(".s12-lbl-d")], { y: 28, duration: 0.35, ease: "sine.inOut" }, EL + 0.35);
+      // ... y queda pareja
+      tl.to(q(".s12-viga"), { rotation: 0, svgOrigin: "720 760", duration: 0.5, ease: "elastic.out(1, 0.5)" }, IGUAL);
+      tl.to([q(".s12-plato-i"), q(".s12-lbl-i"), q(".s12-plato-d"), q(".s12-lbl-d")], { y: 0, duration: 0.5, ease: "elastic.out(1, 0.5)" }, IGUAL);
+      golpe(".s12-igual", IGUAL + 0.1, 2.4);
+      pop(".s12-dos", DOS);
+      sacudon(DOS + 0.05);
+      // Raúl se queda duro: gota de sudor
+      gsap.set(q(".s12-gota"), { opacity: 0 });
+      tl.fromTo(q(".s12-gota"), { opacity: 1, y: -20 }, { opacity: 1, y: 60, duration: 0.8, ease: "power1.in", immediateRender: false }, RAUL);
+      tl.to(q(".s12-signo"), { opacity: 0, duration: 0.2 }, RAUL);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

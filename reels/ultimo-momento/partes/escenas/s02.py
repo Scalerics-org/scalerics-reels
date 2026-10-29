@@ -1,0 +1,70 @@
+ID = "s02-movil"; DUR = 2.1
+CSS = """
+    $ .s02-caja { position: absolute; top: 660px; width: 470px; height: 640px; border: 7px solid #f4f6fb; border-radius: 14px; overflow: hidden; background: #0b1d4a; }
+    $ .s02-izq { left: 40px; } $ .s02-der { left: 570px; }
+    $ .s02-barras { position: absolute; inset: 0; display: flex; }
+    $ .s02-barras i { flex: 1; }
+    $ .s02-sin { position: absolute; left: 0; right: 0; top: 280px; text-align: center; font-size: 34px; color: #f4f6fb; background: #050d22; padding: 10px 0; letter-spacing: 0.2em; }
+    $ .s02-rot { position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 0 10px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; color: #050d22; }
+    $ .s02-rot-e { background: #f4f6fb; } $ .s02-rot-m { background: #ffd21f; }
+    $ .s02-movil { left: 570px; top: 570px; width: 470px; text-align: center; background: #ffd21f; color: #050d22; box-shadow: 8px 8px 0 #e3212d; font-size: 40px; }
+"""
+HTML = """
+        <div class="s02-caja s02-izq">
+          <svg viewBox="0 0 470 640" style="width:470px;height:640px" aria-hidden="true">
+            <g transform="translate(55 150)">
+              <path class="m" d="M70 160 C50 40 310 40 290 160 L300 300 C260 312 240 290 240 270 L120 270 C120 290 100 312 60 300 Z" />
+              <path class="r" d="M30 470 C30 360 90 320 180 320 C270 320 330 360 330 470 Z" />
+              <path class="l" d="M150 324 L180 400 L210 324" />
+              <path class="b" d="M155 260 V325 H205 V260" />
+              <ellipse class="b" cx="180" cy="190" rx="76" ry="90" />
+              <path class="m" d="M104 170 C110 100 250 92 258 172 C220 140 150 136 104 170 Z" />
+              <path class="l" d="M146 196 h18 M198 196 h18" stroke-width="8" />
+              <path class="l s02-boca" d="M160 240 C172 246 190 246 202 240" stroke-width="6" />
+              <circle cx="100" cy="226" r="9" fill="#ffd21f" /><circle cx="260" cy="226" r="9" fill="#ffd21f" />
+            </g>
+            <path class="m" d="M0 540 H470 V640 H0 Z" />
+          </svg>
+          <div class="s02-rot s02-rot-e">ESTUDIO</div>
+        </div>
+        <div class="s02-caja s02-der">
+          <svg class="s02-calle" viewBox="0 0 470 640" style="width:470px;height:640px" aria-hidden="true">
+            <path class="l" d="M0 470 H470" opacity="0.6" />
+            <rect class="b" x="40" y="150" width="390" height="320" />
+            <path class="r" d="M20 150 L50 90 H420 L450 150 Z" />
+            <path class="l" d="M110 90 L95 150 M190 90 L185 150 M270 90 L275 150 M350 90 L365 150" stroke-width="5" />
+            <rect class="m" x="80" y="200" width="160" height="200" />
+            <rect class="b" x="280" y="200" width="110" height="270" />
+            <g transform="translate(150 240) scale(0.75)">
+              <path class="m" d="M30 520 C30 400 90 360 180 360 C270 360 330 400 330 520 Z" />
+              <ellipse class="b" cx="180" cy="230" rx="74" ry="86" />
+              <path d="M108 196 L116 128 L142 168 L158 112 L184 160 L206 108 L222 160 L248 122 L254 196 C220 176 140 176 108 196 Z" fill="#f4f6fb" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" />
+              <path class="l" d="M148 226 h16 M196 226 h16" stroke-width="8" />
+              <path class="b" d="M150 262 C165 290 195 290 210 262 Z" />
+              <g transform="translate(330 330)"><rect class="b" x="-14" y="0" width="28" height="130" rx="10"/><rect x="-46" y="-80" width="92" height="80" rx="8" fill="#ffd21f" stroke="#f4f6fb" stroke-width="6"/><circle cx="0" cy="-112" r="38" fill="#0b1d4a" stroke="#f4f6fb" stroke-width="7"/></g>
+            </g>
+          </svg>
+          <div class="s02-barras"><i style="background:#f4f6fb"></i><i style="background:#ffd21f"></i><i style="background:#1f4fa8"></i><i style="background:#e3212d"></i><i style="background:#0b1d4a"></i><i style="background:#f4f6fb"></i></div>
+          <div class="s02-sin mono">CONECTANDO</div>
+          <div class="s02-rot s02-rot-m">MÓVIL 3</div>
+        </div>
+        <div class="cartela s02-movil">MÓVIL 3 · EN VIVO</div>
+"""
+JS = """
+      const MOVIL = 0.68;
+      // pantalla dividida: entran las dos cajas
+      tl.fromTo(q(".s02-izq"), { x: -40, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, 0);
+      entra(".s02-der", 0.12, { x: 520 });
+      habla(".s02-boca", 0, 1.2, "181 243");
+      tl.fromTo(q(".s02-sin"), { opacity: 1 }, { opacity: 0.2, duration: 0.1, yoyo: true, repeat: 3, ease: "steps(1)" }, 0.2);
+      // en "móvil": de las barras a la calle
+      tl.to([q(".s02-barras"), q(".s02-sin")], { opacity: 0, duration: 0.05 }, MOVIL - 0.05);
+      tl.fromTo(q(".s02-calle"), { scale: 1.2 }, { scale: 1, duration: 0.5, ease: "power3.out", transformOrigin: "50% 50%" }, MOVIL);
+      golpe(".s02-movil", MOVIL + 0.08, 2);
+      sacudon(MOVIL + 0.1);
+      // la caja del móvil crece y se come la pantalla
+      tl.to(q(".s02-izq"), { x: -500, opacity: 0, duration: 0.3, ease: "power2.in" }, 1.5);
+      tl.to(q(".s02-der"), { x: -260, scale: 1.12, duration: 0.4, ease: "power2.inOut" }, 1.5);
+      tl.to(q(".s02-movil"), { x: -260, duration: 0.4, ease: "power2.inOut" }, 1.5);
+"""
+SFX = [{"t": 0.12, "sfx": "glitch-1", "vol": 0.25, "max": 0.5}, {"t": 0.65, "sfx": "impact-bass-1", "vol": 0.35, "max": 0.6}, {"t": 1.5, "sfx": "whoosh-short", "vol": 0.2}]
