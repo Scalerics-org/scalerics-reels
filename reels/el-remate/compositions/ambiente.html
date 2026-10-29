@@ -1,0 +1,153 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* luz del galpón: lamparita colgada y cono cálido */
+    [data-composition-id="ambiente"] .amb-cono { position: absolute; inset: 0; clip-path: polygon(500px 210px, 580px 210px, 960px 1520px, 120px 1520px);
+      background: linear-gradient(180deg, rgba(242, 182, 50, 0.14) 0%, rgba(242, 182, 50, 0.05) 50%, rgba(242, 182, 50, 0.01) 100%); mix-blend-mode: screen; }
+    /* cartel colgado */
+    [data-composition-id="ambiente"] .amb-cartel { position: absolute; left: 150px; top: 0; width: 780px; height: 210px; }
+    [data-composition-id="ambiente"] .amb-soga { position: absolute; top: 0; width: 6px; height: 74px; background: repeating-linear-gradient(180deg, #a8703a 0px, #a8703a 8px, #6b3f1f 8px, #6b3f1f 12px); }
+    [data-composition-id="ambiente"] .amb-tabla { position: absolute; left: 0; top: 66px; width: 780px; height: 132px; border-radius: 10px;
+      background: repeating-linear-gradient(180deg, #f3e6c8 0px, #f3e6c8 42px, #e3d2ae 42px, #e3d2ae 44px); border: 7px solid #6b3f1f; box-shadow: 0 10px 0 #1a0f08, 0 16px 30px rgba(26, 15, 8, 0.6); }
+    [data-composition-id="ambiente"] .amb-titulo { position: absolute; left: 0; right: 0; top: 10px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 66px; line-height: 1; letter-spacing: 0.02em; color: #d23a22; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-sub { position: absolute; left: 0; right: 0; top: 82px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; line-height: 1; letter-spacing: 0.28em; color: #6b3f1f; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-clavo { position: absolute; top: 72px; width: 14px; height: 14px; border-radius: 50%; background: #1a0f08; }
+    /* público */
+    [data-composition-id="ambiente"] .amb-publico { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="ambiente"] .amb-publico svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-num { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 34px; fill: #1a0f08; }
+    /* tablero del lote */
+    [data-composition-id="ambiente"] .amb-tablero { position: absolute; left: 772px; top: 1534px; width: 240px; height: 176px; }
+    [data-composition-id="ambiente"] .amb-pizarra { position: absolute; inset: 0; background: #2f5d34; border: 10px solid #a8703a; border-radius: 10px; box-shadow: inset 0 0 0 3px #6b3f1f, 0 8px 0 #1a0f08; overflow: hidden; }
+    [data-composition-id="ambiente"] .amb-lote { position: absolute; left: 0; right: 0; top: 10px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.12em; color: #d23a22; line-height: 1; }
+    [data-composition-id="ambiente"] .amb-rot { position: absolute; left: 0; right: 0; top: 46px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 18px; letter-spacing: 0.24em; color: rgba(243, 230, 200, 0.7); line-height: 1; }
+    [data-composition-id="ambiente"] .amb-of { position: absolute; left: 0; right: 0; top: 74px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 50px; line-height: 1; color: #f3e6c8; filter: blur(0.4px); white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-of.chico { font-size: 34px; top: 84px; }
+    [data-composition-id="ambiente"] .amb-sello { position: absolute; left: 6px; right: 6px; top: 74px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 38px; line-height: 1.1; color: #d23a22; border: 5px solid #d23a22; border-radius: 8px; background: rgba(243, 230, 200, 0.92); }
+    /* onomatopeyas del público */
+    [data-composition-id="ambiente"] .amb-ono { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 78px; line-height: 1; letter-spacing: -0.01em; white-space: nowrap; -webkit-text-stroke: 8px #1a0f08; paint-order: stroke fill; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #fff1cf; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="71.54">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="71.54" data-track-index="0">
+      <div class="amb-cono"></div>
+      <div class="amb-cartel">
+        <div class="amb-soga" style="left: 90px"></div>
+        <div class="amb-soga" style="left: 684px"></div>
+        <div class="amb-tabla">
+          <div class="amb-titulo">GRAN REMATE</div>
+          <div class="amb-sub">FERIA DEL SÁBADO</div>
+        </div>
+        <div class="amb-clavo" style="left: 86px"></div>
+        <div class="amb-clavo" style="left: 680px"></div>
+      </div>
+      <div class="amb-publico">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- paletas que se levantan (detrás de las cabezas) -->
+          <g class="amb-pal p0"><path d="M150 1700 V1590" stroke="#a8703a" stroke-width="12" stroke-linecap="round" /><circle cx="150" cy="1560" r="40" fill="#f3e6c8" stroke="#1a0f08" stroke-width="5" /><text class="amb-num" x="150" y="1572" text-anchor="middle">7</text></g>
+          <g class="amb-pal p1"><path d="M430 1700 V1590" stroke="#a8703a" stroke-width="12" stroke-linecap="round" /><circle cx="430" cy="1560" r="40" fill="#f3e6c8" stroke="#1a0f08" stroke-width="5" /><text class="amb-num" x="430" y="1572" text-anchor="middle">12</text></g>
+          <g class="amb-pal p2"><path d="M680 1700 V1590" stroke="#a8703a" stroke-width="12" stroke-linecap="round" /><circle cx="680" cy="1560" r="40" fill="#f2b632" stroke="#1a0f08" stroke-width="5" /><text class="amb-num" x="680" y="1572" text-anchor="middle">3</text></g>
+          <!-- cabezas de espaldas -->
+          <g class="amb-cab c0"><path d="M30 1730 Q40 1660 100 1652 Q160 1660 170 1730 Z" fill="#1a0f08" stroke="#f3e6c8" stroke-width="4" /><circle cx="100" cy="1622" r="36" fill="#1a0f08" stroke="#f3e6c8" stroke-width="4" /><path d="M56 1610 Q100 1560 144 1610 Z" fill="#6b3f1f" stroke="#f3e6c8" stroke-width="4" stroke-linejoin="round" /><circle cx="100" cy="1580" r="6" fill="#f3e6c8" /></g>
+          <g class="amb-cab c1"><path d="M160 1730 Q172 1670 232 1664 Q292 1670 304 1730 Z" fill="#1a0f08" stroke="#f3e6c8" stroke-width="4" /><circle cx="232" cy="1630" r="34" fill="#1a0f08" stroke="#f3e6c8" stroke-width="4" /><path d="M166 1616 H298 M196 1616 Q200 1572 232 1570 Q264 1572 268 1616" fill="#a8703a" stroke="#f3e6c8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" /></g>
+          <g class="amb-cab c2"><path d="M290 1730 Q300 1664 362 1658 Q424 1664 434 1730 Z" fill="#1a0f08" stroke="#f3e6c8" stroke-width="4" /><circle cx="362" cy="1624" r="35" fill="#1a0f08" stroke="#f3e6c8" stroke-width="4" /><circle cx="362" cy="1580" r="17" fill="#1a0f08" stroke="#f3e6c8" stroke-width="4" /></g>
+          <g class="amb-cab c3"><path d="M420 1730 Q430 1668 492 1662 Q554 1668 564 1730 Z" fill="#1a0f08" stroke="#f3e6c8" stroke-width="4" /><circle cx="492" cy="1628" r="35" fill="#1a0f08" stroke="#f3e6c8" stroke-width="4" /><path d="M454 1612 Q492 1574 530 1612 Q520 1600 492 1598 Q464 1600 454 1612 Z" fill="#6b3f1f" stroke="#f3e6c8" stroke-width="4" stroke-linejoin="round" /></g>
+          <g class="amb-cab c4"><path d="M550 1730 Q562 1670 622 1664 Q682 1670 694 1730 Z" fill="#1a0f08" stroke="#f3e6c8" stroke-width="4" /><circle cx="622" cy="1630" r="34" fill="#1a0f08" stroke="#f3e6c8" stroke-width="4" /><path d="M556 1616 H688 M586 1616 Q590 1574 622 1572 Q654 1574 658 1616" fill="#6b3f1f" stroke="#f3e6c8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" /></g>
+        </svg>
+      </div>
+      <div class="amb-tablero">
+        <div class="amb-pizarra">
+          <div class="amb-lote">LOTE 1</div>
+          <div class="amb-rot" data-layout-ignore>OFERTA</div>
+          <div class="amb-of o0">· · ·</div>
+          <div class="amb-of o1">1 MIN</div>
+          <div class="amb-of o2">ENVÍO</div>
+          <div class="amb-of o3">3 AM</div>
+          <div class="amb-sello o4">VENDIDO</div>
+          <div class="amb-of chico o5">¿TU OFERTA?</div>
+        </div>
+      </div>
+      <div class="amb-ono u0" style="left: 70px; top: 1440px; color: #d23a22">UUUH</div>
+      <div class="amb-ono u1" style="left: 300px; top: 1420px; color: #f2b632">¡OOOH!</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 71.54;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // el cartel se balancea suave todo el reel, y fuerte en los martillazos
+      tl.fromTo(q(".amb-cartel"), { rotation: -1.2, transformOrigin: "50% 0%" }, { rotation: 1.2, transformOrigin: "50% 0%", duration: 1.6, yoyo: true, repeat: Math.max(1, Math.floor((DUR - 1) / 1.6) - 1), ease: "sine.inOut" }, 0);
+      const golpe = (t) => {
+        tl.to(q(".amb-tabla"), { y: 10, duration: 0.06, yoyo: true, repeat: 3, ease: "power2.out" }, t);
+      };
+      golpe(0.3); golpe(37.36);
+      // la luz respira
+      tl.fromTo(q(".amb-cono"), { opacity: 0.8 }, { opacity: 1, duration: 1.3, yoyo: true, repeat: Math.max(1, Math.floor(DUR / 1.3) - 1), ease: "sine.inOut" }, 0);
+
+      // ---------- público ----------
+      const cabs = [...qa(".amb-cab")];
+      cabs.forEach((c, i) => tl.to(c, { y: -6, duration: 0.5 + (i % 3) * 0.13, yoyo: true, repeat: Math.max(1, Math.floor((DUR - 1) / (0.5 + (i % 3) * 0.13)) - 1), ease: "sine.inOut" }, 0.2 + i * 0.17));
+      const pals = [...qa(".amb-pal")];
+      gsap.set(pals, { y: 170, opacity: 0 });
+      // cada uno levanta su paleta cuando puja
+      [[0, 21.03, 24.6], [1, 25.6, 30.4], [2, 31.3, 39.6]].forEach(([i, a, b]) => {
+        tl.to(pals[i], { y: -50, opacity: 1, duration: 0.22, ease: "back.out(2)" }, a);
+        tl.to(pals[i], { rotation: 8, svgOrigin: (i === 0 ? "150" : i === 1 ? "430" : "680") + " 1700", duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, a + 0.25);
+        tl.to(pals[i], { y: 170, opacity: 0, duration: 0.25, ease: "power2.in" }, b);
+      });
+      // todos miran: saltito en cada puja y en el martillazo
+      [21.03, 25.6, 31.3, 37.36, 40.34].forEach((t) => tl.to(cabs, { y: -16, duration: 0.1, yoyo: true, repeat: 1, stagger: 0.03, ease: "power2.out" }, t));
+
+      // ---------- tablero ----------
+      const ofs = [...qa(".amb-tablero .amb-of, .amb-tablero .amb-sello")];
+      gsap.set(ofs, { opacity: 0 });
+      gsap.set(q(".amb-tablero"), { opacity: 0 });
+      tl.fromTo(q(".amb-tablero"), { opacity: 0, y: 240, rotation: 8 }, { opacity: 1, y: 0, rotation: -3, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, 6.44);
+      tl.to(ofs[0], { opacity: 1, duration: 0.1 }, 6.6);
+      const CAMBIA = [22.13, 26.4, 32.8];
+      CAMBIA.forEach((t, i) => {
+        tl.to(ofs[i], { opacity: 0, duration: 0.1 }, t);
+        tl.fromTo(ofs[i + 1], { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.2)", immediateRender: false }, t + 0.05);
+        tl.to(q(".amb-tablero"), { rotation: i % 2 ? -6 : 1, duration: 0.08, yoyo: true, repeat: 1 }, t + 0.05);
+      });
+      // VENDIDO
+      tl.to(ofs[3], { opacity: 0, duration: 0.08 }, 37.3);
+      tl.fromTo(ofs[4], { opacity: 0, scale: 2.4, rotation: -30 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.18, ease: "power4.in", immediateRender: false }, 37.3);
+      tl.to(q(".amb-tablero"), { y: 8, duration: 0.05, yoyo: true, repeat: 3 }, 37.48);
+      // se va con Orus, vuelve en "Ofertá"
+      tl.to(q(".amb-tablero"), { y: 240, opacity: 0, duration: 0.35, ease: "power2.in" }, 54.5);
+      tl.set([ofs[3], ofs[4]], { opacity: 0 }, 55);
+      tl.to(q(".amb-tablero"), { y: 0, opacity: 1, rotation: -3, duration: 0.35, ease: "back.out(1.7)" }, 66.8);
+      tl.fromTo(ofs[5], { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, 67.05);
+      tl.to(q(".amb-tablero"), { rotation: 2, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 67.4);
+
+      // ---------- onomatopeyas ----------
+      [[".u0", 18.85], [".u1", 37.5]].forEach(([s, t]) => {
+        const el = q(s);
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.4, y: 40, rotation: -8 }, { opacity: 1, scale: 1, y: 0, rotation: -4, duration: 0.25, ease: "back.out(2.4)", immediateRender: false }, t);
+        tl.to(el, { rotation: 3, duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut" }, t + 0.25);
+        tl.to(el, { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, t + 1.4);
+      });
+
+      // flash del martillazo
+      [0.3, 37.36].forEach((t) => {
+        tl.fromTo(q(".amb-flash"), { opacity: 0 }, { opacity: 0.55, duration: 0.04, immediateRender: false }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.05);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

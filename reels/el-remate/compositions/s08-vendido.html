@@ -1,0 +1,119 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-vendido"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-vendido"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-vendido"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-vendido"] .trazo { fill: none; stroke: #f3e6c8; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-vendido"] .s08-n { position: absolute; top: 600px; width: 300px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 300px; line-height: 1; color: #f3e6c8; -webkit-text-stroke: 12px #1a0f08; paint-order: stroke fill; }
+    [data-composition-id="s08-vendido"] .s08-n3 { color: #f2b632; }
+    [data-composition-id="s08-vendido"] .s08-sello { position: absolute; left: 90px; top: 760px; width: 900px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 150px; line-height: 1; color: #d23a22; border: 16px solid #d23a22; border-radius: 24px; padding: 22px 0 16px; background: rgba(243, 230, 200, 0.95); white-space: nowrap; box-shadow: 0 14px 0 #1a0f08; }
+    [data-composition-id="s08-vendido"] .s08-num { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 72px; fill: #1a0f08; }
+    [data-composition-id="s08-vendido"] .s08-lote { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 22px; fill: #f3e6c8; }
+    [data-composition-id="s08-vendido"] .s08-fondo { position: absolute; left: 640px; top: 1010px; width: 380px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.08em; line-height: 1.1; color: #f3e6c8; filter: blur(0.4px); }
+  </style>
+  <div id="root" data-composition-id="s08-vendido" data-width="1080" data-height="1920" data-duration="6.57">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="6.57" data-track-index="0">
+      <div class="s08-escenario">
+        <div class="s08-n s08-n1" style="left: 50px">1</div>
+        <div class="s08-n s08-n2" style="left: 330px">2</div>
+        <div class="s08-n s08-n3" style="left: 620px">3</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s08-lunita">
+            <path d="M960 620 A60 60 0 1 0 1010 720 A46 46 0 1 1 960 620 Z" fill="#f3e6c8" stroke="#1a0f08" stroke-width="4" />
+          </g>
+          <!-- taco -->
+          <g class="s08-taco">
+            <ellipse cx="540" cy="1360" rx="220" ry="50" fill="#6b3f1f" stroke="#f3e6c8" stroke-width="6" />
+            <path d="M320 1360 V1400 Q540 1460 760 1400 V1360" fill="#6b3f1f" stroke="#f3e6c8" stroke-width="6" />
+          </g>
+          <g class="s08-chispas">
+            <path class="trazo" d="M300 1300 L230 1250 M330 1250 L290 1170 M780 1300 L850 1250 M750 1250 L790 1170 M540 1240 V1160" stroke="#f2b632" stroke-width="10" />
+          </g>
+          <!-- martillo gigante -->
+          <g class="s08-martillo">
+            <path d="M540 700 V1180" stroke="#a8703a" stroke-width="44" stroke-linecap="round" />
+            <path d="M540 700 V1180" stroke="#1a0f08" stroke-width="4" opacity="0.4" />
+            <rect x="380" y="1170" width="320" height="150" rx="40" fill="#6b3f1f" stroke="#f3e6c8" stroke-width="8" />
+            <path d="M430 1170 V1320 M650 1170 V1320" stroke="#a8703a" stroke-width="16" />
+          </g>
+          <!-- clienta chica que se va al fondo -->
+          <g class="s08-cli">
+            <g transform="translate(200 1460) scale(0.6)">
+              <path d="M-85 0 L-62 -230 Q-52 -282 0 -288 Q52 -282 62 -230 L85 0 Z" fill="#1a0f08" stroke="#f3e6c8" stroke-width="8" stroke-linejoin="round" />
+              <circle cx="0" cy="-334" r="46" fill="#1a0f08" stroke="#f3e6c8" stroke-width="8" />
+              <circle cx="0" cy="-392" r="22" fill="#1a0f08" stroke="#f3e6c8" stroke-width="8" />
+              <rect x="66" y="-172" width="86" height="96" rx="12" fill="#a8703a" stroke="#f3e6c8" stroke-width="6" />
+              <rect x="-58" y="-224" width="116" height="52" rx="6" fill="#d23a22" stroke="#f3e6c8" stroke-width="5" />
+              <text data-layout-ignore class="s08-lote" x="0" y="-190" text-anchor="middle" style="font-size: 30px">LOTE 1</text>
+            </g>
+          </g>
+          <g class="s08-pal3">
+            <path d="M880 1460 V1300" stroke="#a8703a" stroke-width="16" stroke-linecap="round" />
+            <circle cx="880" cy="1240" r="70" fill="#f2b632" stroke="#1a0f08" stroke-width="8" />
+            <text class="s08-num" x="880" y="1266" text-anchor="middle">3</text>
+          </g>
+          <path class="trazo s08-flecha" d="M330 1180 Q560 1080 780 1180 M744 1150 L784 1184 L740 1206" stroke="#f3e6c8" stroke-width="8" />
+        </svg>
+        <div class="s08-sello">¡VENDIDO!</div>
+        <div class="s08-fondo">AL DEL FONDO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-vendido";
+      const DUR = 6.57;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s08-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const UNA = 0.28, DOS = 1.19, TRES = 2.19, MANANA = 2.76, VENDIDO = 3.59, AL = 4.19, FONDO = 5.23;
+
+      // el martillo en alto y el taco desde el cuadro 0
+      tl.fromTo(q(".s08-taco"), { y: 120, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      gsap.set(q(".s08-martillo"), { rotation: -62, svgOrigin: "540 700", y: -60 });
+      tl.fromTo(q(".s08-martillo"), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+      // la cuenta: amaga en cada número
+      [[UNA, ".s08-n1"], [DOS, ".s08-n2"], [TRES, ".s08-n3"]].forEach(([t, s], i) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, scale: 2.4, rotation: i % 2 ? 14 : -14 }, { opacity: 1, scale: 1, rotation: i % 2 ? 6 : -6, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+        tl.to(q(".s08-martillo"), { rotation: -40, svgOrigin: "540 700", duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, t - 0.05);
+        sacudon(t + 0.04, 0.5 + i * 0.3);
+      });
+      gsap.set(q(".s08-lunita"), { opacity: 0 });
+      tl.fromTo(q(".s08-lunita"), { opacity: 0, scale: 0.3, svgOrigin: "960 680" }, { opacity: 1, scale: 1, svgOrigin: "960 680", duration: 0.25, ease: "back.out(2.4)", immediateRender: false }, MANANA - 0.1);
+      tl.to(q(".s08-n3"), { scale: 1.12, duration: 0.14, yoyo: true, repeat: 3, ease: "sine.inOut" }, MANANA);
+      // VENDIDO: martillazo gigante
+      tl.to(q(".s08-martillo"), { rotation: -90, svgOrigin: "540 700", duration: 0.3, ease: "power2.out" }, VENDIDO - 0.45);
+      tl.to(q(".s08-martillo"), { rotation: 0, y: 0, svgOrigin: "540 700", duration: 0.12, ease: "power4.in" }, VENDIDO - 0.12);
+      tl.to([q(".s08-n1"), q(".s08-n2"), q(".s08-n3"), q(".s08-lunita")], { opacity: 0, y: -80, duration: 0.15 }, VENDIDO - 0.05);
+      gsap.set(q(".s08-chispas"), { opacity: 0 });
+      tl.fromTo(q(".s08-chispas"), { opacity: 1, scale: 0.5, svgOrigin: "540 1330" }, { opacity: 0, scale: 1.5, svgOrigin: "540 1330", duration: 0.45, ease: "power2.out", immediateRender: false }, VENDIDO);
+      tl.to(q(".s08-taco"), { scaleY: 0.85, svgOrigin: "540 1420", duration: 0.06, yoyo: true, repeat: 1 }, VENDIDO);
+      gsap.set(q(".s08-sello"), { opacity: 0 });
+      tl.fromTo(q(".s08-sello"), { opacity: 0, scale: 3, rotation: -40 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.18, ease: "power4.in", immediateRender: false }, VENDIDO - 0.06);
+      sacudon(VENDIDO + 0.02, 2.4);
+      sacudon(VENDIDO + 0.22, 1);
+      // "al señor del fondo": se levanta el martillo, la clienta se va con el 3
+      tl.to(q(".s08-martillo"), { rotation: -70, y: -200, opacity: 0, svgOrigin: "540 700", duration: 0.35, ease: "power2.in" }, AL - 0.1);
+      tl.to(q(".s08-sello"), { y: -150, scale: 0.7, duration: 0.35, ease: "power2.inOut" }, AL - 0.1);
+      tl.to(q(".s08-taco"), { opacity: 0, y: 100, duration: 0.25 }, AL);
+      gsap.set([q(".s08-cli"), q(".s08-pal3"), q(".s08-flecha"), q(".s08-fondo")], { opacity: 0 });
+      tl.fromTo(q(".s08-pal3"), { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, AL + 0.1);
+      tl.to(q(".s08-pal3"), { rotation: 8, svgOrigin: "880 1460", duration: 0.16, yoyo: true, repeat: 5, ease: "sine.inOut" }, AL + 0.45);
+      tl.fromTo(q(".s08-cli"), { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, AL + 0.2);
+      tl.to(q(".s08-cli"), { x: 480, duration: DUR - AL - 0.7, ease: "none" }, AL + 0.5);
+      tl.to(q(".s08-cli"), { y: -10, duration: 0.12, yoyo: true, repeat: 7, ease: "sine.inOut" }, AL + 0.5);
+      tl.fromTo(q(".s08-flecha"), { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.25, immediateRender: false }, FONDO - 0.6);
+      tl.fromTo(q(".s08-fondo"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, FONDO - 0.1);
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

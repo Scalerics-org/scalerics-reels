@@ -1,0 +1,121 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-enfrente"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-enfrente"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-enfrente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-enfrente"] .trazo { fill: none; stroke: #f3e6c8; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-enfrente"] .s05-num { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 76px; fill: #1a0f08; }
+    [data-composition-id="s05-enfrente"] .s05-toldo-txt { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; fill: #f3e6c8; letter-spacing: 0.08em; }
+    [data-composition-id="s05-enfrente"] .s05-reloj-txt { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 88px; fill: #f3e6c8; }
+    [data-composition-id="s05-enfrente"] .s05-globo { position: absolute; left: 520px; top: 1040px; width: 470px; padding: 24px 10px 20px; text-align: center; background: #f3e6c8; border: 7px solid #1a0f08; border-radius: 30px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 66px; line-height: 1; color: #d23a22; white-space: nowrap; box-shadow: 0 10px 0 #1a0f08; }
+    [data-composition-id="s05-enfrente"] .s05-preg { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 120px; line-height: 1; color: #f2b632; -webkit-text-stroke: 9px #1a0f08; paint-order: stroke fill; }
+  </style>
+  <div id="root" data-composition-id="s05-enfrente" data-width="1080" data-height="1920" data-duration="4.57">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.57" data-track-index="0">
+      <div class="s05-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- toldo de "enfrente" -->
+          <g class="s05-toldo">
+            <path d="M70 640 H520 L500 720 H90 Z" fill="#f3e6c8" stroke="#1a0f08" stroke-width="6" stroke-linejoin="round" />
+            <path d="M120 640 L114 720 H160 L170 640 Z M230 640 L226 720 H272 L280 640 Z M340 640 L338 720 H384 L390 640 Z M450 640 L450 720 H494 L500 640 Z" fill="#d23a22" />
+            <rect x="110" y="580" width="370" height="62" rx="8" fill="#6b3f1f" stroke="#f3e6c8" stroke-width="5" />
+            <text class="s05-toldo-txt" x="295" y="626" text-anchor="middle">ENFRENTE</text>
+          </g>
+          <!-- el de enfrente -->
+          <g class="s05-tipo">
+            <g transform="translate(290 1480)">
+              <path d="M-100 0 L-84 -240 Q-74 -300 0 -306 Q74 -300 84 -240 L100 0 Z" fill="#1a0f08" stroke="#f3e6c8" stroke-width="6" stroke-linejoin="round" />
+              <path d="M0 -300 V0" stroke="#f3e6c8" stroke-width="3" opacity="0.4" />
+              <circle cx="0" cy="-356" r="52" fill="#1a0f08" stroke="#f3e6c8" stroke-width="6" />
+              <path d="M-52 -368 Q-48 -420 0 -422 Q48 -420 52 -368 Z" fill="#d23a22" stroke="#f3e6c8" stroke-width="5" stroke-linejoin="round" />
+              <path d="M30 -368 H104" stroke="#f3e6c8" stroke-width="8" stroke-linecap="round" />
+              <path d="M-26 -330 Q0 -318 26 -330" fill="none" stroke="#f3e6c8" stroke-width="6" stroke-linecap="round" />
+            </g>
+            <g class="s05-brazo">
+              <path d="M360 1210 Q420 1110 410 980" fill="none" stroke="#1a0f08" stroke-width="40" stroke-linecap="round" />
+              <path d="M360 1210 Q420 1110 410 980" fill="none" stroke="#f3e6c8" stroke-width="4" stroke-linecap="round" opacity="0.7" />
+              <path d="M410 990 V860" stroke="#a8703a" stroke-width="16" stroke-linecap="round" />
+              <circle cx="410" cy="800" r="74" fill="#f3e6c8" stroke="#1a0f08" stroke-width="8" />
+              <text class="s05-num" x="410" y="827" text-anchor="middle">7</text>
+            </g>
+          </g>
+          <!-- cronómetro -->
+          <g class="s05-reloj">
+            <rect x="740" y="590" width="60" height="40" rx="8" fill="#a8703a" stroke="#1a0f08" stroke-width="5" />
+            <circle cx="770" cy="820" r="190" fill="#1a0f08" stroke="#f3e6c8" stroke-width="10" />
+            <circle cx="770" cy="820" r="160" fill="none" stroke="#f2b632" stroke-width="8" stroke-dasharray="6 20" opacity="0.8" />
+            <text class="s05-reloj-txt" x="770" y="850" text-anchor="middle">1:00</text>
+            <path class="s05-aguja" d="M770 820 V680" stroke="#d23a22" stroke-width="8" stroke-linecap="round" />
+          </g>
+          <!-- rematador chico que repite -->
+          <g class="s05-rem">
+            <g transform="translate(860 1480) scale(0.62) translate(-790 -1480)">
+              <circle cx="790" cy="980" r="58" fill="#1a0f08" stroke="#f3e6c8" stroke-width="8" />
+              <path d="M700 960 Q790 940 880 960 L866 944 Q850 880 790 880 Q730 880 714 944 Z" fill="#6b3f1f" stroke="#f3e6c8" stroke-width="7" stroke-linejoin="round" />
+              <path d="M690 962 H890" stroke="#f3e6c8" stroke-width="8" stroke-linecap="round" />
+              <path d="M762 1006 Q776 996 790 1004 Q804 996 818 1006" fill="none" stroke="#f3e6c8" stroke-width="9" stroke-linecap="round" />
+              <path d="M690 1180 Q700 1060 790 1046 Q880 1060 890 1180 Z" fill="#1a0f08" stroke="#f3e6c8" stroke-width="8" stroke-linejoin="round" />
+              <g class="s05-mart">
+                <path d="M710 1100 Q640 1060 600 1010" fill="none" stroke="#1a0f08" stroke-width="44" stroke-linecap="round" />
+                <path d="M710 1100 Q640 1060 600 1010" fill="none" stroke="#f3e6c8" stroke-width="5" stroke-linecap="round" opacity="0.7" />
+                <path d="M600 1010 L530 980" stroke="#a8703a" stroke-width="16" stroke-linecap="round" />
+                <rect x="470" y="930" width="60" height="100" rx="12" fill="#6b3f1f" stroke="#f3e6c8" stroke-width="7" transform="rotate(-20 500 980)" />
+              </g>
+              <path d="M620 1160 H960 L940 1480 H640 Z" fill="#6b3f1f" stroke="#f3e6c8" stroke-width="8" stroke-linejoin="round" />
+              <rect x="600" y="1140" width="380" height="34" rx="6" fill="#a8703a" stroke="#f3e6c8" stroke-width="7" />
+            </g>
+          </g>
+        </svg>
+        <div class="s05-globo">¡1 MINUTO!</div>
+        <div class="s05-preg s05-p0" style="left: 120px; top: 980px">?</div>
+        <div class="s05-preg s05-p1" style="left: 560px; top: 960px">?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-enfrente";
+      const DUR = 4.57;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s05-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const MINUTO = 1.1, UN = 2.21, ENFRENTE = 3.02, MEJORA = 3.57;
+
+      // se para de golpe y levanta la paleta
+      tl.fromTo(q(".s05-tipo"), { y: 180 }, { y: 0, duration: 0.22, ease: "back.out(2.2)" }, 0);
+      tl.fromTo(q(".s05-brazo"), { rotation: 70, svgOrigin: "360 1210" }, { rotation: 0, svgOrigin: "360 1210", duration: 0.25, ease: "back.out(2.4)" }, 0.05);
+      tl.to(q(".s05-brazo"), { rotation: 8, svgOrigin: "360 1210", duration: 0.14, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.35);
+      tl.fromTo(q(".s05-toldo"), { y: -200, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0.08);
+      // cronómetro 1:00
+      gsap.set(q(".s05-reloj"), { opacity: 0 });
+      tl.fromTo(q(".s05-reloj"), { opacity: 0, scale: 0.3, svgOrigin: "770 820" }, { opacity: 1, scale: 1, svgOrigin: "770 820", duration: 0.28, ease: "back.out(2)", immediateRender: false }, MINUTO - 0.25);
+      tl.fromTo(q(".s05-aguja"), { rotation: 0, svgOrigin: "770 820" }, { rotation: 360, svgOrigin: "770 820", duration: DUR - MINUTO, ease: "steps(24)" }, MINUTO);
+      gsap.set(q(".s05-globo"), { opacity: 0 });
+      tl.fromTo(q(".s05-globo"), { opacity: 0, scale: 0.4, rotation: 8 }, { opacity: 1, scale: 1, rotation: 3, duration: 0.25, ease: "back.out(2.2)", immediateRender: false }, MINUTO);
+      sacudon(MINUTO + 0.1, 0.8);
+      // el rematador repite y apunta
+      tl.to(q(".s05-globo"), { opacity: 0, y: -30, duration: 0.2 }, UN - 0.2);
+      gsap.set(q(".s05-rem"), { opacity: 0 });
+      tl.fromTo(q(".s05-rem"), { opacity: 0, x: 400 }, { opacity: 1, x: 0, duration: 0.28, ease: "power3.out", immediateRender: false }, UN - 0.2);
+      tl.to(q(".s05-reloj"), { x: 60, y: -40, scale: 0.75, svgOrigin: "770 820", duration: 0.3, ease: "power2.inOut" }, UN - 0.2);
+      tl.fromTo(q(".s05-mart"), { rotation: 0, svgOrigin: "710 1100" }, { rotation: 12, svgOrigin: "710 1100", duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut" }, UN + 0.1);
+      sacudon(ENFRENTE, 0.8);
+      // ¿quién mejora?
+      [".s05-p0", ".s05-p1"].forEach((s, i) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, scale: 0.3, rotation: -20 }, { opacity: 1, scale: 1, rotation: i ? 12 : -10, duration: 0.22, ease: "back.out(2.6)", immediateRender: false }, ENFRENTE + 0.1 + i * 0.25);
+        tl.to(q(s), { y: -14, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, MEJORA + i * 0.1);
+      });
+      tl.to(q(".s05-mart"), { rotation: -18, svgOrigin: "710 1100", duration: 0.4, ease: "power2.inOut" }, MEJORA - 0.2);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

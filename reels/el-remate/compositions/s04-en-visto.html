@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-en-visto"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-en-visto"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-en-visto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-en-visto"] .s04-detalle { position: absolute; left: 0; right: 0; top: 900px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 74px; line-height: 1; color: #f3e6c8; white-space: nowrap; -webkit-text-stroke: 8px #1a0f08; paint-order: stroke fill; }
+    [data-composition-id="s04-en-visto"] .s04-cal { position: absolute; left: 70px; top: 610px; width: 250px; height: 220px; background: #f3e6c8; border: 6px solid #1a0f08; border-radius: 12px; box-shadow: 0 8px 0 #1a0f08; overflow: hidden; }
+    [data-composition-id="s04-en-visto"] .s04-cal-top { height: 62px; background: #d23a22; border-bottom: 5px solid #1a0f08; }
+    [data-composition-id="s04-en-visto"] .s04-cal-txt { position: absolute; left: 0; right: 0; top: 104px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 52px; line-height: 1; color: #1a0f08; }
+    [data-composition-id="s04-en-visto"] .s04-cel { position: absolute; left: 320px; top: 660px; width: 460px; height: 800px; background: #1a0f08; border: 10px solid #f3e6c8; border-radius: 56px; box-shadow: 0 14px 0 #0d0704; overflow: hidden; }
+    [data-composition-id="s04-en-visto"] .s04-barra { position: absolute; left: 0; right: 0; top: 0; height: 120px; background: #6b3f1f; border-bottom: 4px solid #f3e6c8; }
+    [data-composition-id="s04-en-visto"] .s04-avatar { position: absolute; left: 34px; top: 40px; width: 58px; height: 58px; border-radius: 50%; background: #a8703a; border: 4px solid #f3e6c8; }
+    [data-composition-id="s04-en-visto"] .s04-nombre { position: absolute; left: 110px; top: 50px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 36px; line-height: 1; color: #f3e6c8; white-space: nowrap; }
+    [data-composition-id="s04-en-visto"] .s04-burbuja { position: absolute; right: 26px; top: 190px; width: 360px; padding: 22px 24px 18px; background: #f3e6c8; border-radius: 26px 26px 6px 26px; }
+    [data-composition-id="s04-en-visto"] .s04-msg { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; line-height: 1.2; color: #1a0f08; }
+    [data-composition-id="s04-en-visto"] .s04-hora { margin-top: 10px; text-align: right; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; line-height: 1; color: #6b3f1f; white-space: nowrap; }
+    [data-composition-id="s04-en-visto"] .s04-hora svg.s04-tildes { position: relative; display: inline-block; vertical-align: -3px; margin-left: 10px; width: 54px; height: 28px; }
+    [data-composition-id="s04-en-visto"] .s04-escr { position: absolute; left: 26px; top: 480px; width: 150px; height: 70px; background: #6b3f1f; border-radius: 26px 26px 26px 6px; border: 3px solid rgba(243, 230, 200, 0.4); }
+    [data-composition-id="s04-en-visto"] .s04-punto { position: absolute; top: 26px; width: 18px; height: 18px; border-radius: 50%; background: #f3e6c8; }
+    [data-composition-id="s04-en-visto"] .s04-sello { position: absolute; left: 190px; top: 1110px; width: 700px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 110px; line-height: 1; color: #d23a22; border: 12px solid #d23a22; border-radius: 18px; padding: 16px 0 12px; background: rgba(243, 230, 200, 0.94); white-space: nowrap; }
+    [data-composition-id="s04-en-visto"] .s04-quien { position: absolute; left: 0; right: 0; top: 700px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 150px; line-height: 1.02; color: #f2b632; -webkit-text-stroke: 12px #1a0f08; paint-order: stroke fill; }
+  </style>
+  <div id="root" data-composition-id="s04-en-visto" data-width="1080" data-height="1920" data-duration="6.34">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.34" data-track-index="0">
+      <div class="s04-escenario">
+        <div class="s04-cel">
+          <div class="s04-barra"><div class="s04-avatar"></div><div class="s04-nombre">TU LOCAL</div></div>
+          <div class="s04-burbuja">
+            <div class="s04-msg">¡Hola! ¿Tienen para el sábado?</div>
+            <div class="s04-hora" data-layout-ignore>MAR 10:14<svg class="s04-tildes" viewBox="0 0 54 28" aria-hidden="true"><path d="M3 15 L11 23 L25 5 M21 19 L25 23 L41 5" fill="none" stroke="#d23a22" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+          </div>
+          <div class="s04-escr"><div class="s04-punto" style="left: 30px"></div><div class="s04-punto" style="left: 66px"></div><div class="s04-punto" style="left: 102px"></div></div>
+        </div>
+        <div class="s04-cal"><div class="s04-cal-top"></div><div class="s04-cal-txt">MARTES</div></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s04-lupa">
+            <circle cx="540" cy="940" r="190" fill="rgba(243, 230, 200, 0.08)" stroke="#f3e6c8" stroke-width="16" />
+            <circle cx="540" cy="940" r="190" fill="none" stroke="#1a0f08" stroke-width="5" />
+            <path d="M676 1076 L820 1220" stroke="#6b3f1f" stroke-width="44" stroke-linecap="round" />
+            <path d="M676 1076 L820 1220" stroke="#f3e6c8" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+            <path d="M440 860 Q470 820 520 812" fill="none" stroke="#f3e6c8" stroke-width="10" stroke-linecap="round" opacity="0.7" />
+          </g>
+        </svg>
+        <div class="s04-detalle">¿EL DETALLE?</div>
+        <div class="s04-sello">EN VISTO</div>
+        <div class="s04-quien">¿QUIÉN<br />DA MÁS?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-en-visto";
+      const DUR = 6.34;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const DETALLE = 0.09, MARTES = 1.13, ESCRIBIO = 1.74, Y = 2.7, DEJARON = 3.39, VISTO = 4.09, QUIEN = 5.17;
+
+      // la lupa entra con "¿el detalle?"
+      tl.fromTo(q(".s04-lupa"), { x: 300, y: 200, rotation: 20, svgOrigin: "540 940", opacity: 0.6 }, { x: 0, y: 0, rotation: 0, svgOrigin: "540 940", opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s04-detalle"), { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, DETALLE);
+      tl.to(q(".s04-lupa"), { x: 20, y: -14, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.35);
+      tl.to([q(".s04-lupa"), q(".s04-detalle")], { opacity: 0, scale: 1.6, svgOrigin: "540 940", transformOrigin: "50% 50%", duration: 0.22, ease: "power2.in" }, MARTES - 0.2);
+      // MARTES
+      gsap.set(q(".s04-cal"), { opacity: 0 });
+      tl.fromTo(q(".s04-cal"), { opacity: 0, y: -300, rotation: 30 }, { opacity: 1, y: 0, rotation: -8, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, MARTES - 0.12);
+      tl.to(q(".s04-cal"), { rotation: -4, duration: 0.2, yoyo: true, repeat: 7, ease: "sine.inOut" }, MARTES + 0.3);
+      // el celular y el mensaje
+      gsap.set(q(".s04-cel"), { opacity: 0 });
+      tl.fromTo(q(".s04-cel"), { opacity: 0, y: 500, rotation: 8 }, { opacity: 1, y: 0, rotation: 2, duration: 0.32, ease: "back.out(1.4)", immediateRender: false }, MARTES + 0.05);
+      gsap.set(q(".s04-burbuja"), { opacity: 0 });
+      tl.fromTo(q(".s04-burbuja"), { opacity: 0, scale: 0.5, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, ESCRIBIO);
+      tl.to(q(".s04-cel"), { rotation: -2, duration: 0.5, ease: "sine.inOut" }, ESCRIBIO + 0.3);
+      // "escribiendo..." del local que nunca llega
+      gsap.set(q(".s04-escr"), { opacity: 0 });
+      tl.fromTo(q(".s04-escr"), { opacity: 0, scale: 0.6, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, Y);
+      tl.to(qa(".s04-punto"), { y: -10, duration: 0.12, yoyo: true, repeat: 3, stagger: 0.07, ease: "sine.inOut" }, Y + 0.1);
+      tl.to(q(".s04-escr"), { scale: 0.2, opacity: 0, duration: 0.3, ease: "power2.in" }, DEJARON);
+      // visto: los tildes laten y el sello
+      tl.to(q(".s04-tildes"), { scale: 1.8, duration: 0.15, yoyo: true, repeat: 3, ease: "power2.out", transformOrigin: "50% 50%" }, DEJARON + 0.2);
+      gsap.set(q(".s04-sello"), { opacity: 0 });
+      tl.fromTo(q(".s04-sello"), { opacity: 0, scale: 2.6, rotation: -24 }, { opacity: 1, scale: 1, rotation: -9, duration: 0.16, ease: "power4.in", immediateRender: false }, VISTO - 0.12);
+      sacudon(VISTO + 0.04, 1.5);
+      tl.to(q(".s04-sello"), { rotation: -7, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, VISTO + 0.25);
+      // ¿QUIÉN DA MÁS?
+      tl.to([q(".s04-cel"), q(".s04-sello"), q(".s04-cal")], { y: 900, rotation: 12, opacity: 0, duration: 0.3, ease: "power3.in" }, QUIEN - 0.3);
+      gsap.set(q(".s04-quien"), { opacity: 0 });
+      tl.fromTo(q(".s04-quien"), { opacity: 0, scale: 2.4, rotation: 6 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.15, ease: "power4.in", immediateRender: false }, QUIEN - 0.05);
+      sacudon(QUIEN + 0.1, 1.2);
+      tl.to(q(".s04-quien"), { scale: 1.06, duration: 0.14, yoyo: true, repeat: 3, ease: "sine.inOut" }, QUIEN + 0.35);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

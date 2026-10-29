@@ -1,0 +1,139 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-agente"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-agente"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-agente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-agente"] .trazo { fill: none; stroke: #f3e6c8; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-agente"] .s12-z { font-family: "Lexend", sans-serif; font-weight: 900; fill: #f3e6c8; }
+    [data-composition-id="s12-agente"] .s12-cel { position: absolute; left: 570px; top: 600px; width: 430px; height: 800px; background: #0d0704; border: 10px solid #f3e6c8; border-radius: 54px; box-shadow: 0 0 0 4px #1a0f08, 0 0 60px rgba(92, 230, 17, 0.25), 0 14px 0 #0d0704; overflow: hidden; }
+    [data-composition-id="s12-agente"] .s12-barra { position: absolute; left: 0; right: 0; top: 0; height: 112px; background: #12240a; border-bottom: 4px solid #5ce611; }
+    [data-composition-id="s12-agente"] .s12-punto { position: absolute; left: 30px; top: 38px; width: 36px; height: 36px; border-radius: 50%; background: #5ce611; box-shadow: 0 0 18px #5ce611; }
+    [data-composition-id="s12-agente"] .s12-tit { position: absolute; left: 82px; top: 38px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; line-height: 1; color: #5ce611; white-space: nowrap; }
+    [data-composition-id="s12-agente"] .s12-b { position: absolute; padding: 14px 18px 12px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 27px; line-height: 1.2; }
+    [data-composition-id="s12-agente"] .s12-b small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; opacity: 0.75; }
+    [data-composition-id="s12-agente"] .s12-cli { right: 16px; width: 270px; background: #f3e6c8; color: #1a0f08; border-radius: 22px 22px 6px 22px; text-align: left; }
+    [data-composition-id="s12-agente"] .s12-ag { left: 16px; width: 300px; background: #5ce611; color: #0d0704; border-radius: 22px 22px 22px 6px; }
+    [data-composition-id="s12-agente"] .s12-tarjeta { position: absolute; left: 70px; width: 420px; height: 120px; background: #f3e6c8; border: 6px solid #1a0f08; border-radius: 18px; box-shadow: 0 8px 0 #1a0f08; }
+    [data-composition-id="s12-agente"] .s12-tarjeta-txt { position: absolute; left: 110px; top: 34px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; line-height: 1; color: #1a0f08; white-space: nowrap; }
+    [data-composition-id="s12-agente"] .s12-paravos { position: absolute; left: 60px; top: 850px; padding: 12px 22px 10px; background: #0d0704; border: 5px solid #5ce611; border-radius: 16px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; color: #5ce611; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s12-agente" data-width="1080" data-height="1920" data-duration="8.00">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="8.00" data-track-index="0">
+      <div class="s12-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- luna que después es sol -->
+          <g class="s12-luna">
+            <path d="M200 620 A80 80 0 1 0 270 740 A62 62 0 1 1 200 620 Z" fill="#f3e6c8" stroke="#1a0f08" stroke-width="4" />
+          </g>
+          <g class="s12-sol">
+            <circle cx="210" cy="690" r="56" fill="#f2b632" stroke="#1a0f08" stroke-width="5" />
+            <path class="trazo" d="M210 600 V615 M210 765 V780 M120 690 H135 M285 690 H300 M146 626 L157 637 M263 743 L274 754 M274 626 L263 637 M157 743 L146 754" stroke="#f2b632" stroke-width="8" />
+          </g>
+          <!-- el del fondo, durmiendo en su silla -->
+          <path d="M120 1440 L140 1300 M300 1440 L280 1300 M110 1300 H330 M130 1300 L110 1120" stroke="#a8703a" stroke-width="16" stroke-linecap="round" fill="none" />
+          <g class="s12-tipo">
+            <path d="M130 1290 L140 1150 Q150 1090 210 1080 Q260 1080 280 1130 L310 1280 Z" fill="#1a0f08" stroke="#f3e6c8" stroke-width="6" stroke-linejoin="round" />
+            <path d="M290 1270 L460 1300 L520 1300" fill="none" stroke="#1a0f08" stroke-width="54" stroke-linecap="round" />
+            <path d="M290 1244 L460 1274 L520 1274" fill="none" stroke="#f3e6c8" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+            <g class="s12-cabeza">
+              <circle cx="180" cy="1030" r="52" fill="#1a0f08" stroke="#f3e6c8" stroke-width="6" />
+              <path class="s12-ojos" d="M158 1030 Q166 1038 174 1030 M190 1030 Q198 1038 206 1030" fill="none" stroke="#f3e6c8" stroke-width="5" stroke-linecap="round" />
+            </g>
+          </g>
+          <g class="s12-zzz">
+            <text class="s12-z" x="250" y="970" font-size="54">Z</text>
+            <text class="s12-z" x="300" y="910" font-size="44" opacity="0.8">z</text>
+            <text class="s12-z" x="340" y="860" font-size="36" opacity="0.6">z</text>
+          </g>
+          <!-- flecha verde: le pasa la charla -->
+          <path class="s12-flecha" d="M570 1120 Q420 1060 300 980" fill="none" stroke="#5ce611" stroke-width="12" stroke-linecap="round" />
+          <path class="s12-punta" d="M330 962 L296 978 L318 1012" fill="none" stroke="#5ce611" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="s12-cel">
+          <div class="s12-barra"><div class="s12-punto"></div><div class="s12-tit">AGENTE DE IA</div></div>
+          <div class="s12-b s12-cli c1" style="top: 140px">¿Abren mañana?<small data-layout-ignore>03:12</small></div>
+          <div class="s12-b s12-ag a1" style="top: 252px">¡Sí! De 9 a 20. ¿Te reservo algo?<small data-layout-ignore>03:12</small></div>
+          <div class="s12-b s12-cli c2" style="top: 420px">¿Cuánto sale la docena?<small data-layout-ignore>03:13</small></div>
+          <div class="s12-b s12-ag a2" style="top: 568px">Te paso la lista de precios.<small data-layout-ignore>03:13</small></div>
+        </div>
+        <div class="s12-tarjeta t1" style="top: 610px">
+          <svg viewBox="0 0 420 120" style="width: 420px; height: 120px" aria-hidden="true">
+            <path d="M30 30 H80 L100 60 L80 90 H30 Z" fill="#f2b632" stroke="#1a0f08" stroke-width="5" stroke-linejoin="round" />
+            <circle cx="44" cy="60" r="7" fill="#1a0f08" />
+            <path d="M360 62 L376 78 L402 44" fill="none" stroke="#5ce611" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div class="s12-tarjeta-txt">PRECIOS</div>
+        </div>
+        <div class="s12-tarjeta t2" style="top: 770px">
+          <svg viewBox="0 0 420 120" style="width: 420px; height: 120px" aria-hidden="true">
+            <circle cx="62" cy="60" r="34" fill="#f3e6c8" stroke="#1a0f08" stroke-width="5" />
+            <path d="M62 60 V40 M62 60 L78 66" stroke="#1a0f08" stroke-width="5" stroke-linecap="round" />
+            <path d="M360 62 L376 78 L402 44" fill="none" stroke="#5ce611" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div class="s12-tarjeta-txt">HORARIOS</div>
+        </div>
+        <div class="s12-paravos">PARA VOS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-agente";
+      const DUR = 8.0;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s12-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const AGENTE = 1.08, IA = 1.71, ATIENDE = 2.02, HORA = 3.43, PRECIOS = 4.1, HORARIOS = 4.86, PASA = 5.81, CHARLA = 6.2, EL = 7.05;
+
+      // el del fondo durmiendo
+      tl.fromTo([q(".s12-tipo"), q(".s12-luna")], { opacity: 0.5, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s12-cabeza"), { rotation: 0, svgOrigin: "200 1080" }, { rotation: 8, svgOrigin: "200 1080", duration: 0.7, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0);
+      [...qa(".s12-z")].forEach((z, i) => tl.fromTo(z, { opacity: 0, y: 20 }, { opacity: 0.9, y: -20, duration: 0.8, repeat: 3, ease: "sine.out" }, 0.1 + i * 0.25));
+      // el celular con el agente
+      gsap.set(q(".s12-cel"), { opacity: 0 });
+      tl.fromTo(q(".s12-cel"), { opacity: 0, y: 400, rotation: 6 }, { opacity: 1, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, 0.3);
+      tl.fromTo(q(".s12-barra"), { opacity: 0.4 }, { opacity: 1, duration: 0.15 }, AGENTE);
+      tl.fromTo(q(".s12-tit"), { scale: 1.4, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, AGENTE);
+      tl.fromTo(q(".s12-punto"), { scale: 0.6 }, { scale: 1.2, duration: 0.25, yoyo: true, repeat: 9, ease: "sine.inOut" }, IA);
+      // las burbujas, al instante y a las tres de la mañana
+      [[".c1", ATIENDE - 0.1, "100% 100%"], [".a1", ATIENDE + 0.35, "0% 100%"], [".c2", HORA - 0.35, "100% 100%"], [".a2", HORA + 0.05, "0% 100%"]].forEach(([s, t, o]) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, scale: 0.5, transformOrigin: o }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2)", immediateRender: false }, t);
+      });
+      // precios y horarios
+      [[".t1", PRECIOS], [".t2", HORARIOS]].forEach(([s, t], i) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, x: 380, rotation: 10 }, { opacity: 1, x: 0, rotation: i ? 2 : -3, duration: 0.28, ease: "back.out(1.8)", immediateRender: false }, t - 0.15);
+        tl.to(q(s), { y: -8, duration: 0.15, yoyo: true, repeat: 1 }, t + 0.2);
+      });
+      tl.to([q(".s12-luna"), q(".s12-zzz")], { opacity: 0, duration: 0.2 }, PRECIOS - 0.3);
+      // le pasa la charla: flecha verde y se despierta
+      tl.to([q(".t1"), q(".t2")], { opacity: 0, x: -200, duration: 0.25, ease: "power2.in" }, PASA - 0.3);
+      const fl = q(".s12-flecha");
+      const L = fl.getTotalLength();
+      gsap.set(fl, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+      tl.set(fl, { opacity: 1 }, PASA);
+      tl.to(fl, { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" }, PASA);
+      gsap.set(q(".s12-punta"), { opacity: 0 });
+      tl.to(q(".s12-punta"), { opacity: 1, duration: 0.1 }, PASA + 0.4);
+            tl.to(q(".s12-ojos"), { attr: { d: "M158 1026 Q166 1018 174 1026 M190 1026 Q198 1018 206 1026" }, duration: 0.15 }, CHARLA);
+      tl.to(q(".s12-cabeza"), { rotation: -6, y: -20, svgOrigin: "200 1080", duration: 0.25, ease: "back.out(2)" }, CHARLA);
+      gsap.set(q(".s12-sol"), { opacity: 0 });
+      tl.fromTo(q(".s12-sol"), { opacity: 0, y: 140, scale: 0.5, svgOrigin: "210 690" }, { opacity: 1, y: 0, scale: 1, svgOrigin: "210 690", duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, CHARLA);
+      tl.to(q(".s12-sol"), { rotation: 30, svgOrigin: "210 690", duration: DUR - CHARLA, ease: "none" }, CHARLA + 0.3);
+      gsap.set(q(".s12-paravos"), { opacity: 0 });
+      tl.fromTo(q(".s12-paravos"), { opacity: 0, scale: 0.4, rotation: -10 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.25, ease: "back.out(2.4)", immediateRender: false }, EL - 0.15);
+      sacudon(EL, 0.7);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,88 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-el-del-fondo"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-el-del-fondo"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-el-del-fondo"] .s07-sombra { position: absolute; left: 40px; top: 560px; width: 1000px; height: 960px; border-radius: 40px; background: radial-gradient(ellipse 480px 440px at 50% 60%, rgba(26, 15, 8, 0.55) 0%, rgba(26, 15, 8, 0.85) 70%, rgba(26, 15, 8, 0) 100%); }
+    [data-composition-id="s07-el-del-fondo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-el-del-fondo"] .s07-num { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 84px; fill: #1a0f08; }
+    [data-composition-id="s07-el-del-fondo"] .s07-hora { position: absolute; left: 90px; top: 640px; padding: 16px 28px 12px; background: #1a0f08; border: 6px solid #f2b632; border-radius: 18px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 76px; line-height: 1; color: #f2b632; white-space: nowrap; }
+    [data-composition-id="s07-el-del-fondo"] .s07-rot { position: absolute; left: 0; right: 0; top: 1470px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: rgba(243, 230, 200, 0.75); white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s07-el-del-fondo" data-width="1080" data-height="1920" data-duration="2.46">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="2.46" data-track-index="0">
+      <div class="s07-escenario">
+        <div class="s07-sombra"></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <radialGradient id="s07-brillo" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f2b632" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="#f2b632" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <!-- luna -->
+          <g class="s07-luna">
+            <path d="M900 600 A110 110 0 1 0 1000 760 A86 86 0 1 1 900 600 Z" fill="#f3e6c8" stroke="#1a0f08" stroke-width="5" />
+            <circle cx="760" cy="640" r="6" fill="#f3e6c8" /><circle cx="700" cy="720" r="4" fill="#f3e6c8" /><circle cx="1010" cy="890" r="5" fill="#f3e6c8" />
+          </g>
+          <!-- sillas -->
+          <path d="M260 1440 L280 1300 M440 1440 L420 1300 M250 1300 H470 M270 1300 L250 1120" stroke="#a8703a" stroke-width="16" stroke-linecap="round" fill="none" />
+          <path d="M700 1440 V1330 M860 1440 V1330 M680 1330 H880" stroke="#a8703a" stroke-width="16" stroke-linecap="round" fill="none" />
+          <!-- el del fondo, tirado -->
+          <g class="s07-tipo">
+            <path d="M270 1290 L280 1150 Q290 1090 350 1080 Q400 1080 420 1130 L450 1280 Z" fill="#1a0f08" stroke="#f3e6c8" stroke-width="6" stroke-linejoin="round" />
+            <path d="M420 1270 L700 1300 L780 1300" fill="none" stroke="#1a0f08" stroke-width="56" stroke-linecap="round" />
+            <path d="M420 1244 L700 1274 L780 1274" fill="none" stroke="#f3e6c8" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+            <path d="M770 1260 Q830 1250 840 1290 L790 1320 Z" fill="#6b3f1f" stroke="#f3e6c8" stroke-width="5" stroke-linejoin="round" />
+            <circle cx="420" cy="1250" r="0" />
+            <circle cx="330" cy="1030" r="54" fill="#1a0f08" stroke="#f3e6c8" stroke-width="6" />
+            <path d="M282 1012 Q300 960 350 966 Q392 974 384 1010" fill="#1a0f08" stroke="#f3e6c8" stroke-width="5" />
+            <circle class="s07-glow" cx="420" cy="1060" r="120" fill="url(#s07-brillo)" />
+            <path d="M390 1150 Q440 1120 440 1080" fill="none" stroke="#1a0f08" stroke-width="30" stroke-linecap="round" />
+            <rect x="420" y="1030" width="34" height="62" rx="8" fill="#f2b632" stroke="#1a0f08" stroke-width="4" transform="rotate(-20 437 1061)" />
+          </g>
+          <g class="s07-brazo">
+            <path d="M300 1150 Q220 1080 210 960" fill="none" stroke="#1a0f08" stroke-width="34" stroke-linecap="round" />
+            <path d="M300 1150 Q220 1080 210 960" fill="none" stroke="#f3e6c8" stroke-width="4" stroke-linecap="round" opacity="0.7" />
+            <path d="M210 970 V860" stroke="#a8703a" stroke-width="16" stroke-linecap="round" />
+            <circle class="s07-paleta" cx="210" cy="800" r="76" fill="#f2b632" stroke="#1a0f08" stroke-width="8" />
+            <text class="s07-num" x="210" y="830" text-anchor="middle">3</text>
+          </g>
+        </svg>
+        <div class="s07-hora">3:00 AM</div>
+        <div class="s07-rot">LA ÚLTIMA FILA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-el-del-fondo";
+      const DUR = 2.46;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const TRES = 0.89, MANANA = 1.5;
+
+      // se prende el celular en la oscuridad
+      tl.fromTo(q(".s07-escenario"), { opacity: 0.4, scale: 1.08, transformOrigin: "50% 60%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s07-glow"), { opacity: 0.5 }, { opacity: 1, duration: 0.2, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0);
+      // levanta la paleta sin ganas
+      tl.fromTo(q(".s07-brazo"), { rotation: -80, svgOrigin: "300 1150" }, { rotation: 0, svgOrigin: "300 1150", duration: 0.5, ease: "power2.out" }, 0.05);
+      tl.to(q(".s07-brazo"), { rotation: -5, svgOrigin: "300 1150", duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.6);
+      // TRES: la paleta se agranda; la luna y la hora
+      tl.to(q(".s07-paleta"), { scale: 1.3, svgOrigin: "210 800", duration: 0.15, yoyo: true, repeat: 1, ease: "back.out(3)" }, TRES);
+      gsap.set([q(".s07-luna"), q(".s07-hora")], { opacity: 0 });
+      tl.fromTo(q(".s07-luna"), { opacity: 0, y: 200, rotation: -30, svgOrigin: "900 720" }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "900 720", duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, TRES - 0.1);
+      tl.fromTo(q(".s07-hora"), { opacity: 0, scale: 0.4, rotation: -10 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.22, ease: "back.out(2.4)", immediateRender: false }, MANANA - 0.15);
+      tl.to(q(".s07-hora"), { scale: 1.06, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, MANANA + 0.15);
+      tl.fromTo(q(".s07-rot"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.2);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
