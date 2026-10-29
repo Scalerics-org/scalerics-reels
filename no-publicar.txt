@@ -7,3 +7,6 @@ pelea-de-gallos
 
 # 29-10: Juan, "el ojalá te fundas no lo subas"
 ojala-te-fundas
+
+# 29-10: Juan, "descartá el de truco, es cualquiera"
+el-truco
