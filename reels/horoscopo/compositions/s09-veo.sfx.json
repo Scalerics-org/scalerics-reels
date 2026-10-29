@@ -1,0 +1,10 @@
+[
+  {"t": 0.0, "sfx": "gong", "vol": 0.35, "max": 2.5},
+  {"t": 0.2, "sfx": "magia", "vol": 0.3},
+  {"t": 1.15, "sfx": "pop", "vol": 0.25},
+  {"t": 2.45, "sfx": "sparkle", "vol": 0.3},
+  {"t": 3.5, "sfx": "whoosh", "vol": 0.2},
+  {"t": 4.1, "sfx": "notification", "vol": 0.3},
+  {"t": 5.45, "sfx": "ping", "vol": 0.35},
+  {"t": 5.55, "sfx": "impact-bass-2", "vol": 0.3, "max": 0.4}
+]

@@ -1,0 +1,167 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* telones de terciopelo con flecos dorados */
+    [data-composition-id="ambiente"] .amb-telon { position: absolute; top: -20px; width: 96px; height: 1560px;
+      background: repeating-linear-gradient(90deg, #3d1a6e 0px, #5b2a9c 14px, #3d1a6e 30px); }
+    [data-composition-id="ambiente"] .amb-telon.izq { left: -24px; border-right: 8px solid #e8b64a; border-bottom-right-radius: 60px; }
+    [data-composition-id="ambiente"] .amb-telon.der { right: -24px; border-left: 8px solid #e8b64a; border-bottom-left-radius: 60px; }
+    [data-composition-id="ambiente"] .amb-fleco { position: absolute; top: 0; bottom: 30px; width: 10px; background: repeating-linear-gradient(180deg, #e8b64a 0px, #e8b64a 6px, rgba(232, 182, 74, 0) 6px, rgba(232, 182, 74, 0) 14px); }
+    /* logo del programa */
+    [data-composition-id="ambiente"] .amb-logo { position: absolute; left: 140px; top: 52px; width: 800px; height: 160px; }
+    [data-composition-id="ambiente"] .amb-titulo { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 78px; line-height: 1; letter-spacing: 0.03em; color: #e8b64a; white-space: nowrap; -webkit-text-stroke: 8px #160a2e; paint-order: stroke fill; }
+    [data-composition-id="ambiente"] .amb-sub { position: absolute; left: 0; right: 0; top: 92px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; line-height: 1; letter-spacing: 0.34em; color: #f5ecd7; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-vivo { position: absolute; left: 618px; top: 132px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.2em; color: #f5ecd7; background: #e0457b; padding: 4px 12px 4px 34px; border-radius: 8px; white-space: nowrap; display: none; }
+    /* zócalo */
+    [data-composition-id="ambiente"] .amb-zocalo { position: absolute; left: 70px; top: 1556px; width: 940px; height: 130px; background: #5b2a9c; border: 5px solid #e8b64a; border-radius: 18px; box-shadow: 0 8px 0 #160a2e; overflow: hidden; }
+    [data-composition-id="ambiente"] .amb-pill { position: absolute; left: 14px; top: 14px; width: 300px; height: 92px; border-radius: 12px; background: #e8b64a; color: #160a2e; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 92px; text-align: center; white-space: nowrap; letter-spacing: 0.02em; }
+    [data-composition-id="ambiente"] .amb-pill.aire { background: #e0457b; color: #f5ecd7; font-size: 38px; }
+    [data-composition-id="ambiente"] .amb-der { position: absolute; left: 336px; right: 16px; top: 0; height: 120px; display: flex; flex-direction: column; justify-content: center; }
+    [data-composition-id="ambiente"] .amb-rot { position: absolute; left: 336px; right: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.12em; color: #f5ecd7; white-space: nowrap; line-height: 1; }
+    [data-composition-id="ambiente"] .amb-rot .ac { color: #e8b64a; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="74.23">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="74.23" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="amb-rueda" opacity="0.2">
+          <circle cx="540" cy="960" r="470" fill="none" stroke="#e8b64a" stroke-width="4" />
+          <circle cx="540" cy="960" r="400" fill="none" stroke="#e8b64a" stroke-width="3" />
+          <circle cx="540" cy="960" r="250" fill="none" stroke="#e8b64a" stroke-width="2" stroke-dasharray="6 14" />
+          <path d="M643.5 573.6 L661.6 506.0" stroke="#e8b64a" stroke-width="3" />
+          <path d="M822.8 677.2 L872.3 627.7" stroke="#e8b64a" stroke-width="3" />
+          <path d="M926.4 856.5 L994.0 838.4" stroke="#e8b64a" stroke-width="3" />
+          <path d="M926.4 1063.5 L994.0 1081.6" stroke="#e8b64a" stroke-width="3" />
+          <path d="M822.8 1242.8 L872.3 1292.3" stroke="#e8b64a" stroke-width="3" />
+          <path d="M643.5 1346.4 L661.6 1414.0" stroke="#e8b64a" stroke-width="3" />
+          <path d="M436.5 1346.4 L418.4 1414.0" stroke="#e8b64a" stroke-width="3" />
+          <path d="M257.2 1242.8 L207.7 1292.3" stroke="#e8b64a" stroke-width="3" />
+          <path d="M153.6 1063.5 L86.0 1081.6" stroke="#e8b64a" stroke-width="3" />
+          <path d="M153.6 856.5 L86.0 838.4" stroke="#e8b64a" stroke-width="3" />
+          <path d="M257.2 677.2 L207.7 627.7" stroke="#e8b64a" stroke-width="3" />
+          <path d="M436.5 573.6 L418.4 506.0" stroke="#e8b64a" stroke-width="3" />
+          <path class="amb-g amb-g-aries" d="M0 50 V-5 C0 -45 -48 -55 -48 -20 C-48 0 -30 4 -24 -8 M0 -5 C0 -45 48 -55 48 -20 C48 0 30 4 24 -8" transform="translate(540.0 525.0) scale(0.36)" fill="none" stroke="#e8b64a" stroke-width="13.89" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="amb-g amb-g-tauro" d="M-46 -48 C-40 -12 40 -12 46 -48 M-30 20 a30 30 0 1 0 60 0 a30 30 0 1 0 -60 0" transform="translate(757.5 583.3) scale(0.36)" fill="none" stroke="#e8b64a" stroke-width="13.89" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="amb-g amb-g-geminis" d="M-40 -46 Q0 -30 40 -46 M-40 46 Q0 30 40 46 M-16 -38 V38 M16 -38 V38" transform="translate(916.7 742.5) scale(0.36)" fill="none" stroke="#e8b64a" stroke-width="13.89" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="amb-g amb-g-cancer" d="M44 -18 C30 -46 -30 -46 -44 -14 M-44 18 C-30 46 30 46 44 14 M-32 -14 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0 M8 14 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0" transform="translate(975.0 960.0) scale(0.36)" fill="none" stroke="#e8b64a" stroke-width="13.89" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="amb-g amb-g-leo" d="M-34 20 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0 M-6 18 C-14 -30 10 -50 26 -36 C40 -24 30 -6 20 10 C12 26 22 44 44 34" transform="translate(916.7 1177.5) scale(0.36)" fill="none" stroke="#e8b64a" stroke-width="13.89" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="amb-g amb-g-virgo" d="M-44 -30 Q-38 -40 -32 -30 V40 M-32 -24 Q-22 -42 -12 -24 V40 M-12 -24 Q-2 -42 8 -24 V30 Q12 48 30 30 Q44 14 30 4 Q18 0 14 20 Q12 40 30 48" transform="translate(757.5 1336.7) scale(0.36)" fill="none" stroke="#e8b64a" stroke-width="13.89" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="amb-g amb-g-libra" d="M-46 40 H46 M-46 16 H-18 C-30 -10 -16 -36 0 -36 C16 -36 30 -10 18 16 H46" transform="translate(540.0 1395.0) scale(0.36)" fill="none" stroke="#e8b64a" stroke-width="13.89" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="amb-g amb-g-escorpio" d="M-44 -30 Q-38 -40 -32 -30 V36 M-32 -24 Q-22 -42 -12 -24 V36 M-12 -24 Q-2 -42 8 -24 V30 Q10 42 24 40 L42 30 M32 22 L42 30 L36 42" transform="translate(322.5 1336.7) scale(0.36)" fill="none" stroke="#e8b64a" stroke-width="13.89" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="amb-g amb-g-sagitario" d="M-40 40 L36 -36 M6 -38 H38 V-6 M-26 -4 L4 26" transform="translate(163.3 1177.5) scale(0.36)" fill="none" stroke="#e8b64a" stroke-width="13.89" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="amb-g amb-g-capricornio" d="M-44 -34 L-24 30 L-6 -30 Q4 46 26 30 C46 18 36 -8 20 2 C6 12 8 36 -6 46" transform="translate(105.0 960.0) scale(0.36)" fill="none" stroke="#e8b64a" stroke-width="13.89" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="amb-g amb-g-acuario" d="M-44 -6 L-29 -22 L-14 -6 L1 -22 L16 -6 L31 -22 L44 -8 M-44 26 L-29 10 L-14 26 L1 10 L16 26 L31 10 L44 24" transform="translate(163.3 742.5) scale(0.36)" fill="none" stroke="#e8b64a" stroke-width="13.89" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="amb-g amb-g-piscis" d="M-36 -44 Q-8 0 -36 44 M36 -44 Q8 0 36 44 M-30 0 H30" transform="translate(322.5 583.3) scale(0.36)" fill="none" stroke="#e8b64a" stroke-width="13.89" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <g class="amb-estrellas">
+          <path class="amb-e e0" d="M210 511 Q211.44 518.56 219 520 Q211.44 521.44 210 529 Q208.56 521.44 201 520 Q208.56 518.56 210 511 Z" fill="#e8b64a" />
+          <path class="amb-e e1" d="M880 489 Q881.76 498.24 891 500 Q881.76 501.76 880 511 Q878.24 501.76 869 500 Q878.24 498.24 880 489 Z" fill="#f5ecd7" />
+          <path class="amb-e e2" d="M180 462 Q181.28 468.72 188 470 Q181.28 471.28 180 478 Q178.72 471.28 172 470 Q178.72 468.72 180 462 Z" fill="#f5ecd7" />
+          <path class="amb-e e3" d="M900 511 Q901.44 518.56 909 520 Q901.44 521.44 900 529 Q898.56 521.44 891 520 Q898.56 518.56 900 511 Z" fill="#e8b64a" />
+          <path class="amb-e e4" d="M110 693 Q111.12 698.88 117 700 Q111.12 701.12 110 707 Q108.88 701.12 103 700 Q108.88 698.88 110 693 Z" fill="#f5ecd7" />
+          <path class="amb-e e5" d="M985 749 Q986.76 758.24 996 760 Q986.76 761.76 985 771 Q983.24 761.76 974 760 Q983.24 758.24 985 749 Z" fill="#f5ecd7" />
+          <path class="amb-e e6" d="M150 1031 Q151.44 1038.56 159 1040 Q151.44 1041.44 150 1049 Q148.56 1041.44 141 1040 Q148.56 1038.56 150 1031 Z" fill="#e8b64a" />
+          <path class="amb-e e7" d="M940 1072 Q941.28 1078.72 948 1080 Q941.28 1081.28 940 1088 Q938.72 1081.28 932 1080 Q938.72 1078.72 940 1072 Z" fill="#f5ecd7" />
+          <path class="amb-e e8" d="M125 1320 Q126.6 1328.4 135 1330 Q126.6 1331.6 125 1340 Q123.4 1331.6 115 1330 Q123.4 1328.4 125 1320 Z" fill="#f5ecd7" />
+          <path class="amb-e e9" d="M960 1371 Q961.44 1378.56 969 1380 Q961.44 1381.44 960 1389 Q958.56 1381.44 951 1380 Q958.56 1378.56 960 1371 Z" fill="#e8b64a" />
+          <path class="amb-e e10" d="M300 554 Q300.96 559.04 306 560 Q300.96 560.96 300 566 Q299.04 560.96 294 560 Q299.04 559.04 300 554 Z" fill="#f5ecd7" />
+          <path class="amb-e e11" d="M790 593 Q791.12 598.88 797 600 Q791.12 601.12 790 607 Q788.88 601.12 783 600 Q788.88 598.88 790 593 Z" fill="#f5ecd7" />
+          <path class="amb-e e12" d="M260 1453 Q261.12 1458.88 267 1460 Q261.12 1461.12 260 1467 Q258.88 1461.12 253 1460 Q258.88 1458.88 260 1453 Z" fill="#e8b64a" />
+          <path class="amb-e e13" d="M830 1462 Q831.28 1468.72 838 1470 Q831.28 1471.28 830 1478 Q828.72 1471.28 822 1470 Q828.72 1468.72 830 1462 Z" fill="#f5ecd7" />
+          <path class="amb-e e14" d="M540 514 Q540.96 519.04 546 520 Q540.96 520.96 540 526 Q539.04 520.96 534 520 Q539.04 519.04 540 514 Z" fill="#f5ecd7" />
+          <path class="amb-e e15" d="M420 1494 Q420.96 1499.04 426 1500 Q420.96 1500.96 420 1506 Q419.04 1500.96 414 1500 Q419.04 1499.04 420 1494 Z" fill="#e8b64a" />
+        </g>
+        <g class="amb-luna">
+          <path d="M248 78 A52 52 0 1 0 300 170 A42 42 0 1 1 248 78 Z" fill="#e8b64a" stroke="#160a2e" stroke-width="5" />
+        </g>
+        <path class="amb-est-logo" d="M850 70 Q854.16 91.84 876 96 Q854.16 100.16 850 122 Q845.84 100.16 824 96 Q845.84 91.84 850 70 Z" fill="#e8b64a" />
+      </svg>
+      <div class="amb-telon izq"><div class="amb-fleco" style="right: 6px"></div></div>
+      <div class="amb-telon der"><div class="amb-fleco" style="left: 6px"></div></div>
+      <div class="amb-logo">
+        <div class="amb-titulo">HORÓSCOPO</div>
+        <div class="amb-sub">DEL COMERCIANTE</div>
+      </div>
+      <div class="amb-zocalo">
+        <div class="amb-pill p0">TU SIGNO</div>
+        <div class="amb-pill p1">ARIES</div>
+        <div class="amb-pill p2">TAURO</div>
+        <div class="amb-pill p3">GÉMINIS</div>
+        <div class="amb-pill aire p4">EN EL AIRE</div>
+        <div class="amb-rot r0" style="top: 30px">LLAMÁ AL</div>
+        <div class="amb-rot r0b" style="top: 70px"><span class="ac">0800-ESTRELLA</span></div>
+        <div class="amb-rot r1" style="top: 30px">LLAMADA EN VIVO</div>
+        <div class="amb-rot r1b" style="top: 70px"><span class="ac">UN DUEÑO DE LOCAL</span></div>
+        <div class="amb-rot r2b" style="top: 70px"><span class="ac">DUEÑO · TAURO</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 74.23;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const vaiven = (el, props, d, t0) => tl.to(el, Object.assign({ duration: d, yoyo: true, repeat: Math.max(1, Math.floor((DUR - t0) / d) - 1), ease: "sine.inOut" }, props), t0);
+
+      // la rueda gira lenta todo el reel
+      tl.fromTo(q(".amb-rueda"), { rotation: 0, svgOrigin: "540 960" }, { rotation: 75, svgOrigin: "540 960", duration: DUR, ease: "none" }, 0);
+      // telones que se mecen, estrellas que titilan
+      vaiven(q(".amb-telon.izq"), { x: -10 }, 1.9, 0);
+      vaiven(q(".amb-telon.der"), { x: 10 }, 2.1, 0.3);
+      qa(".amb-e").forEach((e, k) => {
+        const d = 0.7 + (k % 5) * 0.23;
+        tl.fromTo(e, { opacity: 0.25, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1.1, transformOrigin: "50% 50%", duration: d, yoyo: true, repeat: Math.max(1, Math.floor((DUR - 0.2) / d) - 1), ease: "sine.inOut", immediateRender: true }, (k * 0.17) % 1.2);
+      });
+      vaiven(q(".amb-luna"), { rotation: 10, svgOrigin: "260 124" }, 1.6, 0);
+      tl.fromTo(q(".amb-est-logo"), { rotation: 0, scale: 0.8, svgOrigin: "850 96" }, { rotation: 90, scale: 1.15, svgOrigin: "850 96", duration: 1.2, yoyo: true, repeat: Math.max(1, Math.floor(DUR / 1.2) - 1), ease: "sine.inOut" }, 0);
+      vaiven(q(".amb-titulo"), { y: -4 }, 1.4, 0);
+
+      // el glifo del signo que se lee se ilumina en la rueda
+      const brilla = (n, a, b) => {
+        tl.to(q(".amb-rueda"), { opacity: 0.42, duration: 0.3 }, a);
+        tl.fromTo(q(".amb-g-" + n), { stroke: "#e8b64a" }, { stroke: "#f5ecd7", duration: 0.25, immediateRender: false }, a);
+        tl.to(q(".amb-rueda"), { opacity: 0.2, duration: 0.4 }, b);
+        tl.to(q(".amb-g-" + n), { stroke: "#e8b64a", duration: 0.3 }, b);
+      };
+      brilla("aries", 7.69, 13.4);
+      brilla("tauro", 13.7, 19.8);
+      brilla("geminis", 20.07, 25.2);
+      brilla("tauro", 31.78, 33.5);
+      // "los astros no tienen nada que ver": la rueda se apaga
+      tl.to(q(".amb-rueda"), { opacity: 0.06, duration: 0.5 }, 35.1);
+      tl.to(q(".amb-rueda"), { opacity: 0.2, duration: 0.8 }, 41.5);
+      // con Orus se apaga del todo (el CTA trae su rueda)
+      tl.to(q(".amb-rueda"), { opacity: 0, duration: 0.5 }, 64.6);
+
+      // ---------- zócalo ----------
+      const pills = qa(".amb-pill");
+      gsap.set(pills.slice(1), { opacity: 0 });
+      vaiven(q(".amb-pill.p0"), { scale: 1.05 }, 0.4, 0.2, 7.4);
+      const cambia = (de, a, t) => {
+        tl.to(pills[de], { opacity: 0, rotationX: 90, duration: 0.12, ease: "power2.in" }, t - 0.12);
+        tl.fromTo(pills[a], { opacity: 0, rotationX: -90 }, { opacity: 1, rotationX: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      cambia(0, 1, 7.69); cambia(1, 2, 13.7); cambia(2, 3, 20.07); cambia(3, 4, 27.17);
+      // EN EL AIRE titila
+      tl.to(pills[4], { opacity: 0.55, duration: 0.45, yoyo: true, repeat: 39, ease: "sine.inOut" }, 27.6);
+      const rots = (s) => qa(s);
+      gsap.set(rots(".r1, .r1b, .r2b"), { opacity: 0 });
+      tl.to(rots(".r0, .r0b"), { opacity: 0, y: -20, duration: 0.2 }, 27.9);
+      tl.fromTo(rots(".r1, .r1b"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, stagger: 0.08, immediateRender: false }, 28.05);
+      tl.to(q(".r1b"), { opacity: 0, y: -16, duration: 0.15 }, 31.7);
+      tl.fromTo(q(".r2b"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, 31.82);
+      // se va con Orus
+      tl.to(q(".amb-zocalo"), { y: 240, opacity: 0, duration: 0.35, ease: "power2.in" }, 64.5);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

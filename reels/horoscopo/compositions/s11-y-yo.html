@@ -1,0 +1,95 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-y-yo"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-y-yo"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-y-yo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-y-yo"] .g { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; -webkit-text-stroke: 12px #160a2e; paint-order: stroke fill; }
+    [data-composition-id="s11-y-yo"] .r { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.28em; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s11-y-yo"] .t { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s11-y-yo"] .m { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+  </style>
+  <div id="root" data-composition-id="s11-y-yo" data-width="1080" data-height="1920" data-duration="4.02">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.02" data-track-index="0">
+      <div class="s11-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-luna"><path d="M190 640 A70 70 0 1 0 260 760 A56 56 0 1 1 190 640 Z" fill="#e8b64a" /></g>
+          <g class="s11-sol">
+            <circle cx="220" cy="720" r="56" fill="#e8b64a" stroke="#160a2e" stroke-width="5" />
+            <path d="M220 640 v-24 M220 800 v24 M140 720 h-24 M300 720 h24 M164 664 l-16 -16 M276 776 l16 16 M276 664 l16 -16 M164 776 l-16 16" stroke="#e8b64a" stroke-width="7" stroke-linecap="round" />
+          </g>
+          <g class="s11-cama">
+            <rect x="110" y="1240" width="520" height="70" rx="16" fill="#5b2a9c" stroke="#f5ecd7" stroke-width="6" />
+            <path d="M122 1310 v80 M618 1310 v80 M110 1240 v-150" stroke="#f5ecd7" stroke-width="12" stroke-linecap="round" />
+            <path d="M230 1240 Q360 1150 630 1210 L630 1240 Z" fill="#7d47c4" stroke="#f5ecd7" stroke-width="6" stroke-linejoin="round" />
+            <g class="s11-cabeza">
+              <circle cx="200" cy="1196" r="52" fill="#160a2e" stroke="#f5ecd7" stroke-width="6" />
+              <path d="M178 1220 Q190 1212 200 1218 Q210 1212 222 1220 Q210 1228 200 1224 Q190 1228 178 1220 Z" fill="#f5ecd7" />
+              <path d="M156 1168 Q200 1080 268 1130 L290 1100" fill="#5b2a9c" stroke="#f5ecd7" stroke-width="6" stroke-linejoin="round" />
+              <circle cx="292" cy="1094" r="14" fill="#e8b64a" />
+            </g>
+            <text class="s11-z" x="320" y="1110" font-family="Lexend" font-weight="900" font-size="54" fill="#f5ecd7">Z</text>
+            <text class="s11-z" x="370" y="1050" font-family="Lexend" font-weight="900" font-size="70" fill="#e8b64a">Z</text>
+            <text class="s11-excl" x="250" y="1080" font-family="Lexend" font-weight="900" font-size="110" fill="#5ce611" stroke="#160a2e" stroke-width="6" paint-order="stroke">!</text>
+          </g>
+          <g class="s11-cel">
+            <rect x="700" y="760" width="250" height="440" rx="36" fill="#160a2e" stroke="#f5ecd7" stroke-width="6" />
+            <rect x="718" y="810" width="214" height="370" rx="18" fill="#5ce611" opacity="0.18" />
+            <path class="s11-ia" d="M825 840 Q831.4 873.6 865 880 Q831.4 886.4 825 920 Q818.6 886.4 785 880 Q818.6 873.6 825 840 Z" fill="#5ce611" />
+            <rect x="720" y="960" width="210" height="64" rx="18" fill="#f5ecd7" /><text x="825" y="1002" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="30" fill="#160a2e">¿Por mayor?</text>
+          </g>
+          <path class="s11-flecha" d="M760 1220 Q640 1380 330 1160 M360 1150 L326 1158 L340 1194" fill="none" stroke="#5ce611" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+          <g class="s11-paravos"><rect x="560" y="1330" width="300" height="84" rx="20" fill="#5ce611" stroke="#160a2e" stroke-width="5" /><text x="710" y="1386" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="46" fill="#160a2e">PARA VOS</text></g>
+        </svg>
+        <div class="g s11-yyo" style="top: 590px; font-size: 140px; color: #e8b64a">¿Y yo?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-y-yo";
+      const DUR = 4.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s11-escenario");
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece entero: pop (queda invisible hasta su tiempo)
+      const pop = (el, t, d = 0.32, desde = 0.6) => { const els = typeof el === "string" ? qa(el) : [el].flat(); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: desde, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // cae de grande (palabra gigante)
+      const cae = (el, t, rot = 0) => { const e = q(el); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: 2.4, rotation: rot - 10 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      // trazo que se dibuja (opacity 0 hasta que arranca, sin puntitos)
+      const dibujar = (sel, t, d = 0.6) => qa(sel).forEach((p) => { const L = Math.ceil(p.getTotalLength()) + 2; gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(p, { opacity: 1 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      const sale = (el, t, d = 0.22) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, scale: 0.8, duration: d, ease: "power2.in" }, t);
+      const vaiven = (el, props, d, t0, t1 = DUR) => tl.to(typeof el === "string" ? qa(el) : el, Object.assign({ duration: d, yoyo: true, repeat: Math.max(1, Math.floor((t1 - t0) / d) - 1), ease: "sine.inOut" }, props), t0);
+      const YO = 0.11, VOS = 0.72, CUANDO = 1.79, PARAVOS = 2.33, PASA = 2.69, CHARLA = 3.04;
+      cae(".s11-yyo", 0.05, -4);
+      tl.to(q(".s11-yyo"), { rotation: 3, duration: 0.1, yoyo: true, repeat: 3 }, 0.2);
+      tl.to(q(".s11-yyo"), { opacity: 0, y: -40, duration: 0.2 }, VOS + 0.35);
+      tl.fromTo(q(".s11-cama"), { opacity: 0.7, y: 120 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".s11-luna"), { opacity: 0, y: 100 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, VOS - 0.2);
+      qa(".s11-z").forEach((z, i) => tl.fromTo(z, { opacity: 0, y: 30 }, { opacity: 1, y: -30, duration: 0.6, ease: "sine.out" }, VOS + i * 0.25));
+      vaiven(".s11-cabeza", { y: 4 }, 0.5, 0.3, 2.8);
+      // el agente atiende, y lo que es para vos te lo pasa
+      tl.fromTo(q(".s11-cel"), { opacity: 0, x: 300 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.4)" }, 1.1);
+      tl.to(qa(".s11-ia"), { scale: 1.2, rotation: 45, transformOrigin: "50% 50%", duration: 0.3, yoyo: true, repeat: 7 }, 1.5);
+      dibujar(".s11-flecha", PARAVOS - 0.2, 0.45);
+      pop(".s11-paravos", PARAVOS, 0.3, 0.4);
+      // se despierta: sale el sol
+      tl.to(q(".s11-luna"), { opacity: 0, y: 100, duration: 0.3 }, PASA);
+      tl.fromTo(q(".s11-sol"), { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.5)" }, PASA);
+      tl.to(qa(".s11-z"), { opacity: 0, duration: 0.15 }, CHARLA - 0.2);
+      tl.to(q(".s11-cabeza"), { y: -40, rotation: 20, svgOrigin: "200 1240", duration: 0.2, ease: "back.out(2)" }, CHARLA);
+      pop(".s11-excl", CHARLA + 0.05, 0.25, 0.3);
+      tl.to(q(".s11-sol"), { rotation: 30, svgOrigin: "220 720", duration: 0.8, ease: "none" }, PASA + 0.4);
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
