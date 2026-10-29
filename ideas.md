@@ -61,6 +61,11 @@
 
 ## En curso
 
+- 29-10 · `habitat-natural` · Agente de IA · documental de naturaleza: "Observen al comerciante uruguayo en su hábitat natural. Está a punto de perder a su presa." [formato P documental de naturaleza · estilo lámina de naturalista: papel ocre, acuarela verde selva, rótulos en latín] (corrida 29-10 9h)
+- 29-10 · `el-truco` · Agente de IA · partida de truco en el boliche: el dueño contra el de enfrente, que tiene el ancho de espadas: un agente de IA [formato B diálogo (truco) · estilo boliche: paño verde, cartas españolas dibujadas, pizarra de tantos con palitos] (corrida 29-10 9h)
+- 29-10 · `el-visto-trailer` · Agente de IA · tráiler de película épica: "En un mundo donde los clientes escriben a las once de la noche, un solo hombre se atrevió… a contestar el jueves." [formato P tráiler de cine · estilo cine épico letterbox, teal y naranja, títulos dorados] (corrida 29-10 9h)
+- 29-10 · `instrucciones-de-seguridad` · Tienda online · la azafata explica cómo sobrevivir a comprarle a tu local [formato C lista en pasos (instrucciones de seguridad de avión) · estilo tarjeta de seguridad de avión plana: crema, naranja, azul petróleo] (corrida 29-10 9h)
+- 29-10 · `recalculando` · Sitio web · "Recalculando. Tu cliente te estaba buscando y el GPS lo mandó al de enfrente." [formato G simulación de pantalla (navegador GPS) · estilo app de navegación nocturna] (corrida 29-10 9h)
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
