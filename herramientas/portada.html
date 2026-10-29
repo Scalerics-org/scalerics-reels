@@ -1,0 +1,32 @@
+<!doctype html>
+<!-- Portada de un reel (1080x1920). La llena herramientas/portada.mjs con reels/<slug>/portada.json:
+     un cuadro del propio reel de fondo y el gancho en letras gigantes. Todo lo importante va dentro
+     del recorte 4:5 que muestra la grilla de Instagram (y de 285 a 1635). -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Lexend"; font-weight: 100 900; src: url("__FUENTES__/Lexend-var.woff2") format("woff2"); }
+  @font-face { font-family: "Plex"; font-weight: 500; src: url("__FUENTES__/IBMPlexMono-500.woff2") format("woff2"); }
+  :root { --acento: #f5c518; --sello: #e5484d; --texto: #ffffff; --fondo: #06101f; }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--fondo); }
+  .cuadro { position: absolute; inset: 0; background: center / cover no-repeat url("__CUADRO__"); transform: scale(var(--zoom, 1.12)); transform-origin: 50% var(--foco, 40%); }
+  .velo { position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(6,16,31,1) 0%, rgba(6,16,31,1) 18%, rgba(6,16,31,0) 32%, rgba(6,16,31,0) 46%, rgba(6,16,31,1) 60%, rgba(6,16,31,1) 100%); }
+  .sello { position: absolute; left: 90px; top: 330px; font: 500 34px/1 "Plex", monospace; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--sello); border: 4px solid var(--sello); padding: 14px 22px 12px; transform: rotate(-4deg); background: rgba(6,16,31,.55); }
+  .titulo { position: absolute; left: 80px; right: 80px; bottom: 330px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase;
+    line-height: .92; letter-spacing: -.02em; color: var(--texto); text-shadow: 0 8px 40px rgba(0,0,0,.6); }
+  .titulo .chica { display: block; font-size: 104px; }
+  .titulo .grande { display: block; font-size: 172px; color: var(--acento); margin-top: 10px; }
+  .marca { position: absolute; left: 0; right: 0; bottom: 250px; text-align: center; font: 500 26px/1 "Plex", monospace; letter-spacing: .3em; color: rgba(255,255,255,.7); text-transform: uppercase; }
+</style>
+</head>
+<body>
+  <div class="cuadro"></div>
+  <div class="velo"></div>
+  <div class="sello">__SELLO__</div>
+  <div class="titulo"><span class="chica">__CHICA__</span><span class="grande">__GRANDE__</span></div>
+  <div class="marca">Scalerics</div>
+</body>
+</html>

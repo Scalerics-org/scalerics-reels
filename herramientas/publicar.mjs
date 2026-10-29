@@ -178,6 +178,19 @@ await pedir(`https://storage.googleapis.com/upload/storage/v1/b/${BUCKET_VIDEOS}
 });
 const videoUrl = `https://storage.googleapis.com/${BUCKET_VIDEOS}/${encodeURIComponent(objeto)}`;
 console.log(`subido (${(bytes.length / 1e6).toFixed(1)} MB): ${videoUrl}`);
+// La portada (herramientas/portada.mjs), si el reel tiene: Instagram la usa en vez del primer cuadro
+let portadaUrl = "";
+const portada = `reels/${slug}/portada.png`;
+if (fs.existsSync(portada)) {
+  const nombre = `${base}-${Date.now()}-portada.png`;
+  await pedir(`https://storage.googleapis.com/upload/storage/v1/b/${BUCKET_VIDEOS}/o?uploadType=media&name=${encodeURIComponent(nombre)}`, {
+    method: "POST",
+    headers: { ...conG, "Content-Type": "image/png" },
+    body: fs.readFileSync(portada),
+  });
+  portadaUrl = `https://storage.googleapis.com/${BUCKET_VIDEOS}/${encodeURIComponent(nombre)}`;
+  console.log("portada:", portadaUrl);
+}
 
 // 4. El token de Instagram: el guardado si hay, si no el de la variable; se renueva cada 7 días
 async function leerEstado() {
@@ -255,7 +268,7 @@ if (hayIG) {
 const form = (o) => new URLSearchParams({ ...o, access_token: tk });
 const cont = await pedir(`${igBase}/${uid}/media`, {
   method: "POST",
-  body: form({ media_type: "REELS", video_url: videoUrl, caption, share_to_feed: "true" }),
+  body: form({ media_type: "REELS", video_url: videoUrl, caption, share_to_feed: "true", ...(portadaUrl ? { cover_url: portadaUrl } : {}) }),
 });
 let st;
 for (let i = 0; i < 60; i++) {
