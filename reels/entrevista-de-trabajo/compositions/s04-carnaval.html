@@ -1,0 +1,145 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-carnaval"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-carnaval"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-carnaval"] svg.s04-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-carnaval"] .ab { position: absolute; }
+    [data-composition-id="s04-carnaval"] .ab > svg.llena { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s04-carnaval"] .ln { fill: none; stroke: #efe4cc; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-carnaval"] .tinta { fill: none; stroke: #1d1b19; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-carnaval"] .papel { background: #efe4cc; border-radius: 10px; box-shadow: 0 18px 0 rgba(5, 10, 20, 0.35); }
+    [data-composition-id="s04-carnaval"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f6f1e4; }
+    [data-composition-id="s04-carnaval"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-carnaval"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s04-carnaval"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #e23a2e; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #e23a2e; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s04-carnaval"] .sello.azul { border-color: #2f6fe0; color: #2f6fe0; }
+    [data-composition-id="s04-carnaval"] .etiqueta { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #efe4cc; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s04-carnaval"] .s04-cal { left: 170px; top: 630px; width: 740px; height: 720px; }
+    [data-composition-id="s04-carnaval"] .s04-mini { left: 740px; top: 1080px; width: 270px; height: 260px; }
+    [data-composition-id="s04-carnaval"] .s04-sobre { top: 1380px; font-size: 120px; color: #ffd94a; }
+  </style>
+  <div id="root" data-composition-id="s04-carnaval" data-width="1080" data-height="1920" data-duration="3.33">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.33" data-track-index="0">
+      <div class="s04-escenario">
+
+        <div class="ab s04-cal">
+          <svg class="llena" viewBox="0 0 740 720" aria-hidden="true">
+            <rect x="0" y="0" width="740" height="720" rx="18" fill="#efe4cc" />
+            <path d="M18 0 H722 Q740 0 740 18 V120 H0 V18 Q0 0 18 0 Z" fill="#e23a2e" />
+            <text x="370" y="82" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="64" letter-spacing="6" fill="#efe4cc">FEBRERO</text>
+            <text x="88" y="182" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="30" fill="#1d1b19">L</text><text x="184" y="182" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="30" fill="#1d1b19">M</text><text x="280" y="182" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="30" fill="#1d1b19">M</text><text x="376" y="182" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="30" fill="#1d1b19">J</text><text x="472" y="182" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="30" fill="#1d1b19">V</text><text x="568" y="182" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="30" fill="#1d1b19">S</text><text x="664" y="182" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="30" fill="#1d1b19">D</text>
+            <path d="M30 200 H710" stroke="#1d1b19" stroke-width="3" opacity="0.4" />
+            <text x="88" y="292" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">1</text><text x="184" y="292" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">2</text><text x="280" y="292" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">3</text><text x="376" y="292" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">4</text><text x="472" y="292" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">5</text><text x="568" y="292" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">6</text><text x="664" y="292" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">7</text><text x="88" y="392" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">8</text><text x="184" y="392" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">9</text><text x="280" y="392" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">10</text><text x="376" y="392" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">11</text><text x="472" y="392" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">12</text><text x="568" y="392" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">13</text><text x="664" y="392" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">14</text><text x="88" y="492" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">15</text><text x="184" y="492" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">16</text><text x="280" y="492" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">17</text><text x="376" y="492" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">18</text><text x="472" y="492" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">19</text><text x="568" y="492" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">20</text><text x="664" y="492" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">21</text><text x="88" y="592" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">22</text><text x="184" y="592" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">23</text><text x="280" y="592" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">24</text><text x="376" y="592" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">25</text><text x="472" y="592" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">26</text><text x="568" y="592" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">27</text><text x="664" y="592" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="34" fill="#1d1b19" opacity="0.7">28</text>
+            <path class="s04-circulo" d="M415 455 C 470 420, 560 425, 560 470 C 560 520, 470 525, 420 500 C 380 480, 390 440, 440 430 M410 500 C 330 560, 260 590, 230 630" fill="none" stroke="#e23a2e" stroke-width="9" stroke-linecap="round" />
+            <text class="s04-nota" x="200" y="690" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="64" fill="#e23a2e" transform="rotate(-6 200 670)">¡Carnaval!</text>
+          </svg>
+        </div>
+        <svg class="s04-full" viewBox="0 0 1080 1920" aria-hidden="true"><rect class="s04-conf" data-dx="260" data-dy="0" data-r="360" x="530" y="960" width="16" height="26" rx="3" fill="#2f6fe0" /><rect class="s04-conf" data-dx="-231" data-dy="190" data-r="407" x="530" y="960" width="22" height="22" rx="3" fill="#e23a2e" /><rect class="s04-conf" data-dx="32" data-dy="-328" data-r="454" x="530" y="960" width="28" height="18" rx="3" fill="#ffd94a" /><rect class="s04-conf" data-dx="255" data-dy="299" data-r="501" x="530" y="960" width="16" height="26" rx="3" fill="#efe4cc" /><rect class="s04-conf" data-dx="-465" data-dy="-74" data-r="368" x="530" y="960" width="22" height="22" rx="3" fill="#a9c6ff" /><rect class="s04-conf" data-dx="257" data-dy="-147" data-r="415" x="530" y="960" width="28" height="18" rx="3" fill="#2f6fe0" /><rect class="s04-conf" data-dx="-93" data-dy="311" data-r="462" x="530" y="960" width="16" height="26" rx="3" fill="#e23a2e" /><rect class="s04-conf" data-dx="-190" data-dy="-328" data-r="509" x="530" y="960" width="22" height="22" rx="3" fill="#ffd94a" /><rect class="s04-conf" data-dx="436" data-dy="143" data-r="376" x="530" y="960" width="28" height="18" rx="3" fill="#efe4cc" /><rect class="s04-conf" data-dx="-274" data-dy="102" data-r="423" x="530" y="960" width="16" height="26" rx="3" fill="#a9c6ff" /><rect class="s04-conf" data-dx="148" data-dy="-285" data-r="470" x="530" y="960" width="22" height="22" rx="3" fill="#2f6fe0" /><rect class="s04-conf" data-dx="121" data-dy="346" data-r="517" x="530" y="960" width="28" height="18" rx="3" fill="#e23a2e" /><rect class="s04-conf" data-dx="-395" data-dy="-205" data-r="384" x="530" y="960" width="16" height="26" rx="3" fill="#ffd94a" /><rect class="s04-conf" data-dx="282" data-dy="-56" data-r="431" x="530" y="960" width="22" height="22" rx="3" fill="#efe4cc" /><rect class="s04-conf" data-dx="-196" data-dy="252" data-r="478" x="530" y="960" width="28" height="18" rx="3" fill="#a9c6ff" /><rect class="s04-conf" data-dx="-52" data-dy="-352" data-r="525" x="530" y="960" width="16" height="26" rx="3" fill="#2f6fe0" /><rect class="s04-conf" data-dx="343" data-dy="259" data-r="392" x="530" y="960" width="22" height="22" rx="3" fill="#e23a2e" /><rect class="s04-conf" data-dx="-281" data-dy="11" data-r="439" x="530" y="960" width="28" height="18" rx="3" fill="#ffd94a" /><rect class="s04-conf" data-dx="236" data-dy="-213" data-r="486" x="530" y="960" width="16" height="26" rx="3" fill="#efe4cc" /><rect class="s04-conf" data-dx="-17" data-dy="348" data-r="533" x="530" y="960" width="22" height="22" rx="3" fill="#a9c6ff" /><rect class="s04-conf" data-dx="-283" data-dy="-303" data-r="400" x="530" y="960" width="28" height="18" rx="3" fill="#2f6fe0" /><rect class="s04-conf" data-dx="271" data-dy="32" data-r="447" x="530" y="960" width="16" height="26" rx="3" fill="#e23a2e" /><rect class="s04-conf" data-dx="-267" data-dy="168" data-r="494" x="530" y="960" width="22" height="22" rx="3" fill="#ffd94a" /><rect class="s04-conf" data-dx="82" data-dy="-333" data-r="361" x="530" y="960" width="28" height="18" rx="3" fill="#efe4cc" /><rect class="s04-conf" data-dx="216" data-dy="337" data-r="408" x="530" y="960" width="16" height="26" rx="3" fill="#a9c6ff" /><rect class="s04-conf" data-dx="-253" data-dy="-72" data-r="455" x="530" y="960" width="22" height="22" rx="3" fill="#2f6fe0" /><rect class="s04-conf" data-dx="288" data-dy="-121" data-r="502" x="530" y="960" width="28" height="18" rx="3" fill="#e23a2e" /><rect class="s04-conf" data-dx="-142" data-dy="308" data-r="369" x="530" y="960" width="16" height="26" rx="3" fill="#ffd94a" />
+          <path class="s04-serp" d="M220 900 C 160 820, 300 780, 240 700 C 200 650, 260 610, 300 600" fill="none" stroke="#ffd94a" stroke-width="8" stroke-linecap="round" />
+          <path class="s04-serp" d="M860 880 C 940 820, 820 760, 900 700 C 950 660, 900 610, 860 600" fill="none" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+        </svg>
+        <div class="ab s04-mini">
+          <svg class="llena" viewBox="-140 -70 280 260" aria-hidden="true" overflow="visible">
+    <path d="M0 2 V-34" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" />
+    <circle class="c-luz" cx="0" cy="-44" r="11" fill="#ffd94a" />
+    <rect x="-122" y="0" width="244" height="172" rx="32" fill="#0d182c" stroke="#2f6fe0" stroke-width="8" />
+    <rect x="-104" y="16" width="208" height="140" rx="20" fill="#13284f" />
+    <g class="c-ok" opacity="1">
+      <rect class="c-ojos" x="-62" y="44" width="28" height="56" rx="14" fill="#a9c6ff" />
+      <rect class="c-ojos" x="34" y="44" width="28" height="56" rx="14" fill="#a9c6ff" />
+      <path d="M-40 122 Q0 148 40 122" fill="none" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+    </g>
+    <g class="c-feliz" opacity="0">
+      <path d="M-66 84 Q-48 50 -30 84 M30 84 Q48 50 66 84" fill="none" stroke="#a9c6ff" stroke-width="9" stroke-linecap="round" />
+      <path d="M-50 112 Q0 162 50 112 Z" fill="#a9c6ff" />
+    </g>
+    <g class="c-duda" opacity="0">
+      <text x="-48" y="112" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="78" fill="#a9c6ff">?</text>
+      <text x="48" y="112" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="78" fill="#a9c6ff">?</text>
+      <path d="M-18 138 H18" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+    </g>
+  </svg>
+          <svg viewBox="0 0 120 130" aria-hidden="true" style="position: absolute; left: 92px; top: -78px; width: 92px; height: 100px; overflow: visible">
+            <path d="M60 0 L110 120 H10 Z" fill="#e23a2e" stroke="#efe4cc" stroke-width="5" stroke-linejoin="round" />
+            <path d="M35 60 H85 M22 90 H98" stroke="#ffd94a" stroke-width="8" />
+            <circle cx="60" cy="0" r="12" fill="#ffd94a" />
+          </svg>
+        </div>
+        <div class="grande s04-sobre">Sobre todo.</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-carnaval";
+      const DUR = 3.33;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote (para divs)
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara del candidato o los ojos del dueño
+      const cara = (raiz, de, a, t) => {
+        tl.to(q(raiz + " " + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(q(raiz + " " + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      const parpadeo = (raiz, t) => tl.to(qa(raiz + " .c-ojos"), { scaleY: 0.12, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      const salida = () => tl.to(q("#s04-escena"), { y: -70, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      const CARNAVAL = 0.2, SOBRE = 1.48, TODO = 1.88;
+      tl.fromTo(q(".s04-cal"), { y: 60, rotation: 4, opacity: 0.6 }, { y: 0, rotation: -1.5, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      dibujar(".s04-circulo", CARNAVAL, 0.45);
+      escribir(".s04-nota", CARNAVAL + 0.35, 0.45);
+      // "sobre todo en Carnaval": explota el confeti
+      qa(".s04-conf").forEach((c, i) => {
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { opacity: 1, x: 0, y: 0, rotation: 0 }, { x: Number(c.dataset.dx), y: Number(c.dataset.dy) + 120, rotation: Number(c.dataset.r), svgOrigin: "540 970", duration: 1.6, ease: "power2.out", immediateRender: false }, SOBRE + (i % 4) * 0.03);
+      });
+      dibujar(".s04-serp", SOBRE + 0.05, 0.5);
+      tl.to(q(".s04-cal"), { scale: 0.96, duration: 0.1, yoyo: true, repeat: 1 }, SOBRE);
+      pop(".s04-mini", SOBRE + 0.05, { scale: 0.4, y: 100, rotation: 20 });
+      cara(".s04-mini", ".c-ok", ".c-feliz", SOBRE + 0.2);
+      tl.to(q(".s04-mini"), { rotation: -8, duration: 0.2, yoyo: true, repeat: 4, ease: "sine.inOut" }, SOBRE + 0.4);
+      golpe(".s04-sobre", TODO, 2.4, -3);
+      sacudon(TODO + 0.06, 0.9);
+
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,156 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-precios"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-precios"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-precios"] svg.s05-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-precios"] .ab { position: absolute; }
+    [data-composition-id="s05-precios"] .ab > svg.llena { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s05-precios"] .ln { fill: none; stroke: #efe4cc; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-precios"] .tinta { fill: none; stroke: #1d1b19; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-precios"] .papel { background: #efe4cc; border-radius: 10px; box-shadow: 0 18px 0 rgba(5, 10, 20, 0.35); }
+    [data-composition-id="s05-precios"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f6f1e4; }
+    [data-composition-id="s05-precios"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s05-precios"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s05-precios"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #e23a2e; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #e23a2e; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s05-precios"] .sello.azul { border-color: #2f6fe0; color: #2f6fe0; }
+    [data-composition-id="s05-precios"] .etiqueta { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #efe4cc; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s05-precios"] .s05-cv { left: 130px; top: 630px; width: 820px; height: 820px; }
+    [data-composition-id="s05-precios"] .s05-tit { position: absolute; left: 50px; top: 46px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 60px; color: #1d1b19; letter-spacing: -0.01em; }
+    [data-composition-id="s05-precios"] .s05-sub { position: absolute; left: 52px; top: 122px; font-size: 28px; letter-spacing: 0.16em; color: #1d1b19; opacity: 0.7; }
+    [data-composition-id="s05-precios"] .s05-foto { position: absolute; right: 44px; top: 34px; width: 150px; height: 140px; border: 4px solid #1d1b19; border-radius: 6px; background: #d9ccb0; }
+    [data-composition-id="s05-precios"] .s05-foto svg { position: absolute; left: 4px; top: 10px; width: 136px; height: 126px; }
+    [data-composition-id="s05-precios"] .s05-fila { position: absolute; left: 50px; width: 720px; height: 120px; }
+    [data-composition-id="s05-precios"] .s05-ico { position: absolute; left: 0; top: 10px; width: 100px; height: 100px; }
+    [data-composition-id="s05-precios"] .s05-lab { position: absolute; left: 120px; top: 36px; font-size: 40px; letter-spacing: 0.08em; color: #1d1b19; }
+    [data-composition-id="s05-precios"] .s05-barra { position: absolute; left: 410px; top: 40px; width: 230px; height: 42px; border: 5px solid #1d1b19; border-radius: 22px; overflow: hidden; }
+    [data-composition-id="s05-precios"] .s05-lleno { position: absolute; inset: 0; background: #2f6fe0; transform-origin: 0 50%; }
+    [data-composition-id="s05-precios"] .s05-ok { position: absolute; left: 660px; top: 20px; width: 70px; height: 80px; }
+    [data-composition-id="s05-precios"] .s05-todos { left: 470px; top: 812px; font-size: 66px; color: #e23a2e; }
+    [data-composition-id="s05-precios"] .s05-sello { left: 300px; top: 1370px; font-size: 64px; }
+  </style>
+  <div id="root" data-composition-id="s05-precios" data-width="1080" data-height="1920" data-duration="5.12">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="5.12" data-track-index="0">
+      <div class="s05-escenario">
+
+        <div class="ab papel s05-cv">
+          <div class="s05-tit">CURRÍCULUM</div>
+          <div class="mono s05-sub">Habilidades del candidato</div>
+          <div class="s05-foto"><svg class="" viewBox="-140 -70 280 260" aria-hidden="true" overflow="visible">
+    <path d="M0 2 V-34" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" />
+    <circle class="c-luz" cx="0" cy="-44" r="11" fill="#ffd94a" />
+    <rect x="-122" y="0" width="244" height="172" rx="32" fill="#0d182c" stroke="#2f6fe0" stroke-width="8" />
+    <rect x="-104" y="16" width="208" height="140" rx="20" fill="#13284f" />
+    <g class="c-ok" opacity="1">
+      <rect class="c-ojos" x="-62" y="44" width="28" height="56" rx="14" fill="#a9c6ff" />
+      <rect class="c-ojos" x="34" y="44" width="28" height="56" rx="14" fill="#a9c6ff" />
+      <path d="M-40 122 Q0 148 40 122" fill="none" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+    </g>
+    <g class="c-feliz" opacity="0">
+      <path d="M-66 84 Q-48 50 -30 84 M30 84 Q48 50 66 84" fill="none" stroke="#a9c6ff" stroke-width="9" stroke-linecap="round" />
+      <path d="M-50 112 Q0 162 50 112 Z" fill="#a9c6ff" />
+    </g>
+    <g class="c-duda" opacity="0">
+      <text x="-48" y="112" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="78" fill="#a9c6ff">?</text>
+      <text x="48" y="112" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="78" fill="#a9c6ff">?</text>
+      <path d="M-18 138 H18" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+    </g>
+  </svg></div>
+          <div style="position: absolute; left: 50px; right: 50px; top: 180px; height: 4px; background: #1d1b19"></div>
+          <div class="s05-fila s05-f1" style="top: 250px">
+            <svg class="s05-ico" viewBox="0 0 100 100" aria-hidden="true"><path class="tinta" d="M10 50 L50 10 H90 V50 L50 90 Z" /><circle cx="72" cy="28" r="8" fill="#1d1b19" /><text x="46" y="64" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="34" fill="#1d1b19">$</text></svg>
+            <div class="mono s05-lab">Precios</div>
+            <div class="s05-barra"><div class="s05-lleno"></div></div>
+            <svg class="s05-ok" viewBox="0 0 70 80" aria-hidden="true" overflow="visible"><path class="s05-tic" d="M8 44 L28 66 L64 14" fill="none" stroke="#2f6fe0" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </div>
+          <div class="s05-fila s05-f2" style="top: 420px">
+            <svg class="s05-ico" viewBox="0 0 100 100" aria-hidden="true"><path class="tinta" d="M12 34 L50 16 L88 34 V76 L50 94 L12 76 Z M12 34 L50 52 L88 34 M50 52 V94" /></svg>
+            <div class="mono s05-lab">Stock</div>
+            <div class="s05-barra"><div class="s05-lleno"></div></div>
+            <svg class="s05-ok" viewBox="0 0 70 80" aria-hidden="true" overflow="visible"><path class="s05-tic" d="M8 44 L28 66 L64 14" fill="none" stroke="#2f6fe0" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </div>
+          <div class="s05-fila s05-f3" style="top: 590px">
+            <svg class="s05-ico" viewBox="0 0 100 100" aria-hidden="true"><circle class="tinta" cx="50" cy="52" r="38" /><path class="tinta" d="M50 52 V28 M50 52 L68 62" /></svg>
+            <div class="mono s05-lab">Horarios</div>
+            <div class="s05-barra"><div class="s05-lleno"></div></div>
+            <svg class="s05-ok" viewBox="0 0 70 80" aria-hidden="true" overflow="visible"><path class="s05-tic" d="M8 44 L28 66 L64 14" fill="none" stroke="#2f6fe0" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </div>
+        </div>
+        <div class="ab mano s05-todos">¡todos!</div>
+        <div class="sello s05-sello">Sabe todo</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-precios";
+      const DUR = 5.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote (para divs)
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s05-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara del candidato o los ojos del dueño
+      const cara = (raiz, de, a, t) => {
+        tl.to(q(raiz + " " + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(q(raiz + " " + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      const parpadeo = (raiz, t) => tl.to(qa(raiz + " .c-ojos"), { scaleY: 0.12, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      const salida = () => tl.to(q("#s05-escena"), { y: -70, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      const PRECIOS = 0.4, TODOS = 1.35, STOCK = 2.91, HORARIOS = 3.85;
+      tl.fromTo(q(".s05-cv"), { x: 240, rotation: 6, opacity: 0.5 }, { x: 0, rotation: 1.5, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      qa(".s05-fila").forEach((f) => gsap.set(f, { opacity: 0.25 }));
+      qa(".s05-lleno").forEach((b) => gsap.set(b, { scaleX: 0 }));
+      [[1, PRECIOS, TODOS], [2, STOCK - 0.25, STOCK], [3, HORARIOS - 0.2, HORARIOS]].forEach(([i, ver, llenar]) => {
+        tl.to(q(".s05-f" + i), { opacity: 1, duration: 0.15 }, ver);
+        tl.fromTo(q(".s05-f" + i + " .s05-lab"), { x: -20 }, { x: 0, duration: 0.25, ease: "power3.out" }, ver);
+        tl.to(q(".s05-f" + i + " .s05-lleno"), { scaleX: 1, duration: 0.4, ease: "power2.out" }, llenar);
+        dibujar(".s05-f" + i + " .s05-tic", llenar + 0.35, 0.22);
+      });
+      gsap.set(q(".s05-todos"), { rotation: -10 });
+      escribir(".s05-todos", TODOS + 0.15, 0.4);
+      parpadeo(".s05-foto", 2.2);
+      golpe(".s05-sello", 4.2, 2.6, -6);
+      sacudon(4.25, 0.8);
+      cara(".s05-foto", ".c-ok", ".c-feliz", 4.3);
+
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

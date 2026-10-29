@@ -1,0 +1,5 @@
+[
+  {"t": 0.0, "sfx": "subida", "vol": 0.3, "max": 0.7},
+  {"t": 0.64, "sfx": "impact-bass-2", "vol": 0.5, "max": 0.7},
+  {"t": 0.68, "sfx": "whoosh-cinematic", "vol": 0.3, "max": 0.8}
+]

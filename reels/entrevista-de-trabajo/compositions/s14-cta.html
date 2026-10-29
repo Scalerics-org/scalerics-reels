@@ -1,0 +1,156 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-cta"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] svg.s14-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-cta"] .ab { position: absolute; }
+    [data-composition-id="s14-cta"] .ab > svg.llena { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s14-cta"] .ln { fill: none; stroke: #efe4cc; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .tinta { fill: none; stroke: #1d1b19; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .papel { background: #efe4cc; border-radius: 10px; box-shadow: 0 18px 0 rgba(5, 10, 20, 0.35); }
+    [data-composition-id="s14-cta"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f6f1e4; }
+    [data-composition-id="s14-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s14-cta"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s14-cta"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #e23a2e; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #e23a2e; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s14-cta"] .sello.azul { border-color: #2f6fe0; color: #2f6fe0; }
+    [data-composition-id="s14-cta"] .etiqueta { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #efe4cc; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s14-cta"] .s14-pregunta { top: 600px; font-size: 92px; }
+    [data-composition-id="s14-cta"] .s14-ficha { left: 200px; top: 740px; width: 680px; height: 520px; }
+    [data-composition-id="s14-cta"] .s14-tit { position: absolute; left: 36px; top: 36px; font-size: 30px; letter-spacing: 0.2em; color: #1d1b19; }
+    [data-composition-id="s14-cta"] .s14-foto { position: absolute; left: 36px; top: 96px; width: 220px; height: 204px; border: 5px solid #1d1b19; border-radius: 6px; background: #d9ccb0; }
+    [data-composition-id="s14-cta"] .s14-foto svg { position: absolute; left: 6px; top: 12px; width: 200px; height: 186px; }
+    [data-composition-id="s14-cta"] .s14-campo { position: absolute; left: 290px; font-size: 28px; letter-spacing: 0.12em; color: #1d1b19; opacity: 0.7; }
+    [data-composition-id="s14-cta"] .s14-dato { position: absolute; left: 290px; font-size: 52px; color: #2f6fe0; }
+    [data-composition-id="s14-cta"] .s14-ref { position: absolute; left: 290px; top: 318px; font-size: 28px; letter-spacing: 0.12em; color: #1d1b19; opacity: 0.7; }
+    [data-composition-id="s14-cta"] .s14-scal { position: absolute; left: 290px; top: 350px; font-size: 68px; color: #1d1b19; }
+    [data-composition-id="s14-cta"] .s14-sello { left: 290px; top: 1160px; font-size: 76px; background: rgba(239, 228, 204, 0.6); }
+    [data-composition-id="s14-cta"] .s14-boton { position: absolute; top: 1340px; width: 300px; height: 140px; border-radius: 24px; text-align: center; padding-top: 22px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 96px; line-height: 1; color: #ffffff; }
+    [data-composition-id="s14-cta"] .s14-si { left: 150px; background: #2f6fe0; }
+    [data-composition-id="s14-cta"] .s14-no { left: 630px; background: #e23a2e; }
+    [data-composition-id="s14-cta"] .s14-o { position: absolute; left: 0; right: 0; top: 1385px; text-align: center; font-size: 34px; letter-spacing: 0.2em; color: #efe4cc; }
+    [data-composition-id="s14-cta"] .s14-coment { left: 470px; top: 1352px; width: 140px; height: 120px; }
+  </style>
+  <div id="root" data-composition-id="s14-cta" data-width="1080" data-height="1920" data-duration="8.48">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="8.48" data-track-index="0">
+      <div class="s14-escenario">
+
+        <div class="grande s14-pregunta">¿Lo contratás?</div>
+        <div class="ab papel s14-ficha">
+          <div class="mono s14-tit">Ficha de candidato</div>
+          <div class="s14-foto"><svg class="" viewBox="-140 -70 280 260" aria-hidden="true" overflow="visible">
+    <path d="M0 2 V-34" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" />
+    <circle class="c-luz" cx="0" cy="-44" r="11" fill="#ffd94a" />
+    <rect x="-122" y="0" width="244" height="172" rx="32" fill="#0d182c" stroke="#2f6fe0" stroke-width="8" />
+    <rect x="-104" y="16" width="208" height="140" rx="20" fill="#13284f" />
+    <g class="c-ok" opacity="1">
+      <rect class="c-ojos" x="-62" y="44" width="28" height="56" rx="14" fill="#a9c6ff" />
+      <rect class="c-ojos" x="34" y="44" width="28" height="56" rx="14" fill="#a9c6ff" />
+      <path d="M-40 122 Q0 148 40 122" fill="none" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+    </g>
+    <g class="c-feliz" opacity="0">
+      <path d="M-66 84 Q-48 50 -30 84 M30 84 Q48 50 66 84" fill="none" stroke="#a9c6ff" stroke-width="9" stroke-linecap="round" />
+      <path d="M-50 112 Q0 162 50 112 Z" fill="#a9c6ff" />
+    </g>
+    <g class="c-duda" opacity="0">
+      <text x="-48" y="112" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="78" fill="#a9c6ff">?</text>
+      <text x="48" y="112" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="78" fill="#a9c6ff">?</text>
+      <path d="M-18 138 H18" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+    </g>
+  </svg></div>
+          <div class="mono s14-campo" style="top: 104px">Nombre</div>
+          <div class="mano s14-dato" style="top: 134px">Agente de IA</div>
+          <div class="mono s14-campo" style="top: 210px">Puesto</div>
+          <div class="mano s14-dato" style="top: 240px">Empleado</div>
+          <div class="mono s14-ref">Referencias</div>
+          <div class="mano s14-scal">Scalerics</div>
+        </div>
+        <div class="sello s14-sello">Contratado</div>
+        <svg class="ab s14-coment" viewBox="0 0 140 120" aria-hidden="true" overflow="visible">
+          <path d="M20 10 H120 Q134 10 134 24 V74 Q134 88 120 88 H60 L32 112 L38 88 H20 Q6 88 6 74 V24 Q6 10 20 10 Z" fill="none" stroke="#efe4cc" stroke-width="7" stroke-linejoin="round" />
+          <circle cx="44" cy="50" r="7" fill="#efe4cc" /><circle cx="70" cy="50" r="7" fill="#efe4cc" /><circle cx="96" cy="50" r="7" fill="#efe4cc" />
+        </svg>
+        <div class="s14-boton s14-si">SÍ</div>
+        <div class="s14-boton s14-no">NO</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-cta";
+      const DUR = 8.48;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote (para divs)
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s14-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara del candidato o los ojos del dueño
+      const cara = (raiz, de, a, t) => {
+        tl.to(q(raiz + " " + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(q(raiz + " " + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      const parpadeo = (raiz, t) => tl.to(qa(raiz + " .c-ojos"), { scaleY: 0.12, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      const salida = () => tl.to(q("#s14-escena"), { y: -70, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      const SCALERICS = 1.4, CONTRATAS = 2.87, COMENTA = 3.96, SI = 4.27, NO = 4.87;
+      // cuadro 0: vuelve la ficha
+      tl.fromTo(q(".s14-ficha"), { y: 160, rotation: 6, opacity: 0.5 }, { y: 0, rotation: -2, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      escribir(".s14-scal", SCALERICS - 0.2, 0.5);
+      tl.fromTo(q(".s14-scal"), { scale: 1 }, { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1, transformOrigin: "0% 50%" }, SCALERICS + 0.35);
+      parpadeo(".s14-foto", 1.9);
+      // "¿lo contratás?": la pregunta y el sello que no termina de bajar
+      golpe(".s14-pregunta", CONTRATAS, 2.2);
+      sacudon(CONTRATAS + 0.05, 1);
+      gsap.set(q(".s14-sello"), { opacity: 0 });
+      tl.fromTo(q(".s14-sello"), { opacity: 0, scale: 2.2, rotation: -24 }, { opacity: 0.92, scale: 1.25, rotation: -10, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, CONTRATAS + 0.2);
+      tl.to(q(".s14-sello"), { scale: 1.12, y: 14, duration: 0.35, yoyo: true, repeat: Math.max(1, Math.floor((DUR - CONTRATAS - 0.5) / 0.35) - 1), ease: "sine.inOut" }, CONTRATAS + 0.5);
+      tl.to(q(".s14-sello"), { x: -150, duration: 0.7, yoyo: true, repeat: 3, ease: "sine.inOut" }, SI);
+      // "comentá sí o no"
+      pop(".s14-coment", COMENTA - 0.05, { scale: 0.3 });
+      tl.to(q(".s14-coment"), { y: -10, duration: 0.3, yoyo: true, repeat: 7, ease: "sine.inOut" }, COMENTA + 0.35);
+      pop(".s14-si", SI - 0.05, { scale: 0.3, y: 60 });
+      pop(".s14-no", NO - 0.05, { scale: 0.3, y: 60 });
+      tl.to(q(".s14-si"), { scale: 1.07, duration: 0.35, yoyo: true, repeat: 5, ease: "sine.inOut" }, NO + 0.3);
+      tl.to(q(".s14-no"), { scale: 1.07, duration: 0.35, yoyo: true, repeat: 5, ease: "sine.inOut" }, NO + 0.65);
+      cara(".s14-foto", ".c-ok", ".c-feliz", NO + 0.6);
+      tl.to(q(".s14-escenario"), { scale: 1.03, duration: DUR - NO, ease: "none", transformOrigin: "50% 55%" }, NO);
+
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

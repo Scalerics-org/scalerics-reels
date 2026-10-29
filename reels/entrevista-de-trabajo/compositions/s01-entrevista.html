@@ -1,0 +1,155 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-entrevista"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-entrevista"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-entrevista"] svg.s01-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-entrevista"] .ab { position: absolute; }
+    [data-composition-id="s01-entrevista"] .ab > svg.llena { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s01-entrevista"] .ln { fill: none; stroke: #efe4cc; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-entrevista"] .tinta { fill: none; stroke: #1d1b19; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-entrevista"] .papel { background: #efe4cc; border-radius: 10px; box-shadow: 0 18px 0 rgba(5, 10, 20, 0.35); }
+    [data-composition-id="s01-entrevista"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f6f1e4; }
+    [data-composition-id="s01-entrevista"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-entrevista"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s01-entrevista"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #e23a2e; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #e23a2e; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s01-entrevista"] .sello.azul { border-color: #2f6fe0; color: #2f6fe0; }
+    [data-composition-id="s01-entrevista"] .etiqueta { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #efe4cc; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s01-entrevista"] .s01-ficha { left: 150px; top: 640px; width: 780px; height: 840px; }
+    [data-composition-id="s01-entrevista"] .s01-clip { position: absolute; left: 290px; top: -36px; width: 200px; height: 70px; }
+    [data-composition-id="s01-entrevista"] .s01-tit { position: absolute; left: 40px; top: 56px; font-size: 32px; letter-spacing: 0.2em; color: #1d1b19; }
+    [data-composition-id="s01-entrevista"] .s01-raya { position: absolute; left: 40px; right: 40px; top: 108px; height: 4px; background: #1d1b19; }
+    [data-composition-id="s01-entrevista"] .s01-foto { position: absolute; left: 40px; top: 140px; width: 250px; height: 270px; border: 5px solid #1d1b19; border-radius: 6px; background: #d9ccb0; overflow: hidden; }
+    [data-composition-id="s01-entrevista"] .s01-foto svg { position: absolute; left: 5px; top: 30px; width: 230px; height: 214px; }
+    [data-composition-id="s01-entrevista"] .s01-campo { position: absolute; left: 330px; font-size: 28px; letter-spacing: 0.12em; color: #1d1b19; opacity: 0.75; }
+    [data-composition-id="s01-entrevista"] .s01-linea { position: absolute; left: 330px; width: 410px; height: 3px; background: #1d1b19; opacity: 0.45; }
+    [data-composition-id="s01-entrevista"] .s01-dato { position: absolute; left: 340px; font-size: 64px; color: #2f6fe0; }
+    [data-composition-id="s01-entrevista"] .s01-obs { position: absolute; left: 40px; top: 446px; font-size: 28px; letter-spacing: 0.12em; color: #1d1b19; opacity: 0.75; }
+    [data-composition-id="s01-entrevista"] .s01-renglon { position: absolute; left: 40px; right: 40px; height: 3px; background: #1d1b19; opacity: 0.25; }
+    [data-composition-id="s01-entrevista"] .s01-s1 { left: 200px; top: 1120px; font-size: 64px; }
+    [data-composition-id="s01-entrevista"] .s01-s2 { left: 470px; top: 1230px; font-size: 64px; }
+    [data-composition-id="s01-entrevista"] .s01-s3 { left: 185px; top: 1340px; font-size: 62px; }
+  </style>
+  <div id="root" data-composition-id="s01-entrevista" data-width="1080" data-height="1920" data-duration="6.29">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="6.29" data-track-index="0">
+      <div class="s01-escenario">
+
+        <div class="ab papel s01-ficha">
+          <svg class="s01-clip" viewBox="0 0 200 70" aria-hidden="true" overflow="visible">
+            <rect x="10" y="20" width="180" height="46" rx="10" fill="#1d1b19" />
+            <rect x="60" y="0" width="80" height="34" rx="14" fill="none" stroke="#1d1b19" stroke-width="10" />
+          </svg>
+          <div class="mono s01-tit">Ficha de candidato</div>
+          <div class="s01-raya"></div>
+          <div class="s01-foto"><svg class="" viewBox="-140 -70 280 260" aria-hidden="true" overflow="visible">
+    <path d="M0 2 V-34" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" />
+    <circle class="c-luz" cx="0" cy="-44" r="11" fill="#ffd94a" />
+    <rect x="-122" y="0" width="244" height="172" rx="32" fill="#0d182c" stroke="#2f6fe0" stroke-width="8" />
+    <rect x="-104" y="16" width="208" height="140" rx="20" fill="#13284f" />
+    <g class="c-ok" opacity="1">
+      <rect class="c-ojos" x="-62" y="44" width="28" height="56" rx="14" fill="#a9c6ff" />
+      <rect class="c-ojos" x="34" y="44" width="28" height="56" rx="14" fill="#a9c6ff" />
+      <path d="M-40 122 Q0 148 40 122" fill="none" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+    </g>
+    <g class="c-feliz" opacity="0">
+      <path d="M-66 84 Q-48 50 -30 84 M30 84 Q48 50 66 84" fill="none" stroke="#a9c6ff" stroke-width="9" stroke-linecap="round" />
+      <path d="M-50 112 Q0 162 50 112 Z" fill="#a9c6ff" />
+    </g>
+    <g class="c-duda" opacity="0">
+      <text x="-48" y="112" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="78" fill="#a9c6ff">?</text>
+      <text x="48" y="112" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="78" fill="#a9c6ff">?</text>
+      <path d="M-18 138 H18" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+    </g>
+  </svg></div>
+          <div class="mono s01-campo" style="top: 150px">Nombre</div>
+          <div class="s01-linea" style="top: 250px"></div>
+          <div class="mano s01-dato s01-d1" style="top: 180px">El nuevo</div>
+          <div class="mono s01-campo" style="top: 284px">Puesto</div>
+          <div class="s01-linea" style="top: 384px"></div>
+          <div class="mano s01-dato s01-d2" style="top: 314px">Empleado</div>
+          <div class="mono s01-obs">Observaciones</div>
+          <div class="s01-renglon" style="top: 530px"></div>
+          <div class="s01-renglon" style="top: 620px"></div>
+          <div class="s01-renglon" style="top: 710px"></div>
+        </div>
+        <div class="sello s01-s1">No come</div>
+        <div class="sello s01-s2">No duerme</div>
+        <div class="sello s01-s3">No pide aumento</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-entrevista";
+      const DUR = 6.29;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote (para divs)
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara del candidato o los ojos del dueño
+      const cara = (raiz, de, a, t) => {
+        tl.to(q(raiz + " " + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(q(raiz + " " + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      const parpadeo = (raiz, t) => tl.to(qa(raiz + " .c-ojos"), { scaleY: 0.12, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      const salida = () => tl.to(q("#s01-escena"), { y: -70, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      const NUEVO = 0.4, EMPLEADO = 1.5, COME = 2.7, DUERME = 3.5, AUMENTO = 5.0;
+      // cuadro 0: la ficha ya está, entrando de abajo y enderezándose
+      tl.fromTo(q(".s01-ficha"), { y: 140, rotation: -7, opacity: 0.7 }, { y: 0, rotation: -2, opacity: 1, duration: 0.55, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-escenario"), { scale: 1.06 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      escribir(".s01-d1", NUEVO, 0.45);
+      escribir(".s01-d2", EMPLEADO - 0.1, 0.5);
+      parpadeo(".s01-foto", 1.1);
+      // los tres sellos, uno por cosa que no hace
+      golpe(".s01-s1", COME, 2.6, -9);
+      sacudon(COME + 0.06, 0.8);
+      golpe(".s01-s2", DUERME, 2.6, 7);
+      sacudon(DUERME + 0.06, 0.8);
+      golpe(".s01-s3", AUMENTO, 3, -4);
+      sacudon(AUMENTO + 0.06, 1.3);
+      // el candidato, chocho
+      cara(".s01-foto", ".c-ok", ".c-feliz", 5.35);
+      tl.to(q(".s01-foto svg"), { y: -8, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, 5.35);
+      tl.to(qa(".s01-s1, .s01-s2"), { opacity: 0.55, duration: 0.2 }, AUMENTO + 0.1);
+
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

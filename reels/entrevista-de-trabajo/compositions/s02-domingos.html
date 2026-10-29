@@ -1,0 +1,187 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-domingos"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-domingos"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-domingos"] svg.s02-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-domingos"] .ab { position: absolute; }
+    [data-composition-id="s02-domingos"] .ab > svg.llena { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s02-domingos"] .ln { fill: none; stroke: #efe4cc; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-domingos"] .tinta { fill: none; stroke: #1d1b19; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-domingos"] .papel { background: #efe4cc; border-radius: 10px; box-shadow: 0 18px 0 rgba(5, 10, 20, 0.35); }
+    [data-composition-id="s02-domingos"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f6f1e4; }
+    [data-composition-id="s02-domingos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-domingos"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s02-domingos"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #e23a2e; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #e23a2e; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s02-domingos"] .sello.azul { border-color: #2f6fe0; color: #2f6fe0; }
+    [data-composition-id="s02-domingos"] .etiqueta { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #efe4cc; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s02-domingos"] .s02-cal { left: 415px; top: 880px; width: 250px; height: 259px; }
+  </style>
+  <div id="root" data-composition-id="s02-domingos" data-width="1080" data-height="1920" data-duration="3.43">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="3.43" data-track-index="0">
+      <div class="s02-escenario">
+
+        <svg class="s02-full s02-fondo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <rect class="ln" x="96" y="860" width="300" height="420" rx="40" opacity="0.4" />
+          <rect class="ln" x="686" y="860" width="300" height="420" rx="40" opacity="0.4" />
+          <g class="s02-reloj">
+            <circle cx="540" cy="700" r="74" fill="#0d182c" stroke="#efe4cc" stroke-width="7" />
+            <path class="ln" d="M540 638 V650 M540 750 V762 M478 700 H490 M590 700 H602" stroke-width="5" />
+            <path class="s02-hora" d="M540 700 V664" stroke="#efe4cc" stroke-width="8" stroke-linecap="round" />
+            <path class="s02-min" d="M540 700 V646" stroke="#e23a2e" stroke-width="5" stroke-linecap="round" />
+            <circle cx="540" cy="700" r="7" fill="#efe4cc" />
+          </g>
+        </svg>
+        <div class="ab s02-duen" style="left: 76px; top: 820px; width: 340px; height: 470px"><svg class="llena" viewBox="-170 -40 340 470" aria-hidden="true" overflow="visible">
+    <path d="M-150 430 L-138 270 Q-128 214 -58 204 L58 204 Q128 214 138 270 L150 430 Z" fill="#0d182c" stroke="#efe4cc" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-82 214 L-62 430 M82 214 L62 430" stroke="#e23a2e" stroke-width="13" stroke-linecap="round" />
+    <path d="M-42 204 L-20 238 L0 208 L20 238 L42 204" fill="none" stroke="#efe4cc" stroke-width="5" stroke-linejoin="round" />
+    <rect x="-30" y="172" width="60" height="36" fill="#0d182c" stroke="#efe4cc" stroke-width="5" />
+    <ellipse cx="-94" cy="100" rx="15" ry="25" fill="#0d182c" stroke="#efe4cc" stroke-width="5" />
+    <ellipse cx="94" cy="100" rx="15" ry="25" fill="#0d182c" stroke="#efe4cc" stroke-width="5" />
+    <ellipse cx="0" cy="90" rx="92" ry="108" fill="#0d182c" stroke="#efe4cc" stroke-width="6" />
+    <path d="M-86 66 Q-96 22 -62 6 M86 66 Q96 22 62 6" fill="none" stroke="#efe4cc" stroke-width="12" stroke-linecap="round" />
+    <path d="M-22 -12 Q0 -24 22 -12" fill="none" stroke="#efe4cc" stroke-width="4" stroke-linecap="round" />
+    <path class="d-ceja-i" d="M-70 44 L-16 58" stroke="#efe4cc" stroke-width="10" stroke-linecap="round" />
+    <path class="d-ceja-d" d="M70 44 L16 58" stroke="#efe4cc" stroke-width="10" stroke-linecap="round" />
+    <circle cx="-40" cy="90" r="30" fill="none" stroke="#efe4cc" stroke-width="5" />
+    <circle cx="40" cy="90" r="30" fill="none" stroke="#efe4cc" stroke-width="5" />
+    <path d="M-10 86 Q0 80 10 86" fill="none" stroke="#efe4cc" stroke-width="5" />
+    <g class="d-ojos" opacity="1"><circle cx="-40" cy="92" r="8" fill="#efe4cc" /><circle cx="40" cy="92" r="8" fill="#efe4cc" /></g>
+    <g class="d-sosp" opacity="0"><path d="M-56 94 H-24 M24 94 H56" stroke="#efe4cc" stroke-width="8" stroke-linecap="round" /></g>
+    <g class="d-sorpresa" opacity="0"><circle cx="-40" cy="90" r="14" fill="none" stroke="#efe4cc" stroke-width="5" /><circle cx="40" cy="90" r="14" fill="none" stroke="#efe4cc" stroke-width="5" /><circle cx="-40" cy="90" r="5" fill="#efe4cc" /><circle cx="40" cy="90" r="5" fill="#efe4cc" /></g>
+    <path d="M2 104 Q-14 130 6 134" fill="none" stroke="#efe4cc" stroke-width="5" stroke-linecap="round" />
+    <path d="M-52 152 Q-26 134 0 146 Q26 134 52 152 Q26 160 0 152 Q-26 160 -52 152 Z" fill="#efe4cc" />
+    <path class="d-boca" d="M-22 178 H22" stroke="#efe4cc" stroke-width="5" stroke-linecap="round" />
+  </svg></div>
+        <div class="ab s02-cand" style="left: 666px; top: 800px; width: 340px; height: 500px"><svg class="llena" viewBox="-170 -70 340 500" aria-hidden="true" overflow="visible">
+    <path d="M-150 430 L-138 262 Q-128 206 -60 196 L60 196 Q128 206 138 262 L150 430 Z" fill="#0d182c" stroke="#efe4cc" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-42 196 L0 252 L42 196 Z" fill="#efe4cc" />
+    <path d="M0 238 L-17 258 L0 344 L17 258 Z" fill="#2f6fe0" />
+    <path d="M-12 232 H12 L8 246 H-8 Z" fill="#2f6fe0" />
+    <path d="M-60 196 L-22 306 M60 196 L22 306" fill="none" stroke="#efe4cc" stroke-width="5" stroke-linecap="round" />
+    <rect x="-24" y="166" width="48" height="34" fill="#0d182c" stroke="#efe4cc" stroke-width="5" />
+    <path d="M0 2 V-34" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" />
+    <circle class="c-luz" cx="0" cy="-44" r="11" fill="#ffd94a" />
+    <rect x="-122" y="0" width="244" height="172" rx="32" fill="#0d182c" stroke="#2f6fe0" stroke-width="8" />
+    <rect x="-104" y="16" width="208" height="140" rx="20" fill="#13284f" />
+    <g class="c-ok" opacity="1">
+      <rect class="c-ojos" x="-62" y="44" width="28" height="56" rx="14" fill="#a9c6ff" />
+      <rect class="c-ojos" x="34" y="44" width="28" height="56" rx="14" fill="#a9c6ff" />
+      <path d="M-40 122 Q0 148 40 122" fill="none" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+    </g>
+    <g class="c-feliz" opacity="0">
+      <path d="M-66 84 Q-48 50 -30 84 M30 84 Q48 50 66 84" fill="none" stroke="#a9c6ff" stroke-width="9" stroke-linecap="round" />
+      <path d="M-50 112 Q0 162 50 112 Z" fill="#a9c6ff" />
+    </g>
+    <g class="c-duda" opacity="0">
+      <text x="-48" y="112" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="78" fill="#a9c6ff">?</text>
+      <text x="48" y="112" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="78" fill="#a9c6ff">?</text>
+      <path d="M-18 138 H18" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+    </g>
+  </svg></div>
+        <div class="ab s02-cal">
+          <svg class="llena" viewBox="0 0 280 290" aria-hidden="true">
+            <rect x="0" y="0" width="280" height="290" rx="14" fill="#efe4cc" />
+            <path d="M14 0 H266 Q280 0 280 14 V78 H0 V14 Q0 0 14 0 Z" fill="#e23a2e" />
+            <text x="140" y="56" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="36" letter-spacing="5" fill="#efe4cc">DOMINGO</text>
+            <text x="140" y="222" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="80" fill="#1d1b19">DOM</text>
+            <path class="s02-tilde" d="M60 170 L120 236 L240 96" fill="none" stroke="#2f6fe0" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <svg class="s02-full s02-escritorio" viewBox="0 0 1080 1920" aria-hidden="true">
+          <rect x="60" y="1240" width="960" height="44" rx="8" fill="#16264a" stroke="#efe4cc" stroke-width="6" />
+          <rect x="96" y="1284" width="888" height="230" fill="#0d182c" stroke="#efe4cc" stroke-width="6" />
+          <path class="ln" d="M540 1284 V1514" opacity="0.5" />
+          <!-- cartelito de gerencia -->
+          <path d="M150 1240 L170 1186 H384 L404 1240 Z" fill="#efe4cc" />
+          <text x="277" y="1226" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" letter-spacing="4" fill="#1d1b19">GERENCIA</text>
+          <!-- la taza -->
+          <g class="s02-taza">
+            <path d="M470 1160 H560 L552 1240 H478 Z" fill="#efe4cc" />
+            <path d="M560 1176 Q590 1180 586 1204 Q582 1224 556 1222" fill="none" stroke="#efe4cc" stroke-width="8" />
+            <path class="s02-humo ln" d="M498 1140 Q488 1120 500 1102 Q512 1084 500 1066 M532 1140 Q522 1120 534 1102 Q546 1084 534 1066" stroke-width="5" opacity="0.6" />
+          </g>
+        </svg><div class="ab s02-si" style="left: 690px; top: 640px; width: 260px; height: 150px">
+          <svg class="llena" viewBox="0 0 260 150" aria-hidden="true">
+            <path d="M24 0 H236 Q260 0 260 24 V96 Q260 120 236 120 H220 L200 150 L176 120 H24 Q0 120 0 96 V24 Q0 0 24 0 Z" fill="#efe4cc" />
+          </svg>
+          <div style="position: absolute; left: 0; right: 0; top: 18px; text-align: center; font-family: Lexend; font-weight: 900; font-size: 84px; line-height: 1; color: #2f6fe0">SÍ.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-domingos";
+      const DUR = 3.43;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote (para divs)
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s02-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara del candidato o los ojos del dueño
+      const cara = (raiz, de, a, t) => {
+        tl.to(q(raiz + " " + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(q(raiz + " " + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      const parpadeo = (raiz, t) => tl.to(qa(raiz + " .c-ojos"), { scaleY: 0.12, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      const salida = () => tl.to(q("#s02-escena"), { y: -70, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      if (q(".s02-min")) tl.fromTo(q(".s02-min"), { rotation: 0, svgOrigin: "540 700" }, { rotation: 360, svgOrigin: "540 700", duration: DUR, ease: "none" }, 0);
+      if (q(".s02-hora")) tl.fromTo(q(".s02-hora"), { rotation: 60, svgOrigin: "540 700" }, { rotation: 90, svgOrigin: "540 700", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s02-humo"), { y: 0, opacity: 0.6 }, { y: -16, opacity: 0.2, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s02-duen"), { y: 0 }, { y: -6, duration: 0.9, yoyo: true, repeat: Math.max(1, Math.floor(DUR / 0.9) - 1), ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".s02-cand"), { y: 0 }, { y: -8, duration: 0.7, yoyo: true, repeat: Math.max(1, Math.floor(DUR / 0.7) - 1), ease: "sine.inOut" }, 0.2);
+      tl.fromTo(q(".s02-escenario"), { scale: 1.05, opacity: 0.4 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out", transformOrigin: "50% 60%" }, 0);
+
+      const FLACO = 0.3, DOMINGOS = 1.8, SI = 2.66;
+      // "a ver, flaco": la ceja del dueño se levanta
+      tl.to(q(".s02-duen .d-ceja-d"), { rotation: -18, svgOrigin: "43 51", y: -10, duration: 0.18, ease: "back.out(3)" }, FLACO);
+      tl.to(q(".s02-duen .d-ceja-i"), { rotation: 8, svgOrigin: "-43 51", duration: 0.18 }, FLACO);
+      pop(".s02-cal", DOMINGOS - 0.1, { scale: 0.4, rotation: -12 });
+      tl.to(q(".s02-cal"), { rotation: 3, duration: 0.3, ease: "sine.inOut" }, DOMINGOS + 0.3);
+      dibujar(".s02-tilde", SI, 0.25);
+      pop(".s02-si", SI - 0.05, { scale: 0.3, y: 40 });
+      cara(".s02-cand", ".c-ok", ".c-feliz", SI);
+      tl.to(q(".s02-cand"), { rotation: 4, duration: 0.15, yoyo: true, repeat: 1, transformOrigin: "50% 100%" }, SI);
+
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

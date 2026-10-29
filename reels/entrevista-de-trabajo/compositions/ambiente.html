@@ -1,0 +1,55 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* la luz de la persiana de la oficina: franjas diagonales que se corren despacio */
+    [data-composition-id="ambiente"] .amb-persiana { position: absolute; left: -400px; top: -300px; width: 1900px; height: 2600px; opacity: 0.07; transform: rotate(-24deg);
+      background: repeating-linear-gradient(0deg, #efe4cc 0 46px, transparent 46px 120px); }
+    /* zócalo de madera de oficina abajo */
+    [data-composition-id="ambiente"] .amb-zocalo { position: absolute; left: 0; right: 0; top: 1560px; height: 360px; background: linear-gradient(180deg, rgba(13, 24, 44, 0) 0%, rgba(13, 24, 44, 0.75) 40%); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1120px at 540px 920px, rgba(13, 24, 44, 0) 55%, rgba(13, 24, 44, 0.85) 100%); }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 60px; top: 1600px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; color: #efe4cc; opacity: 0.55; text-align: right; line-height: 1.5; }
+    [data-composition-id="ambiente"] .amb-rec { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: #e23a2e; margin-right: 12px; vertical-align: 1px; }
+    [data-composition-id="ambiente"] .amb-alarma { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 600px 600px at 0% 0%, rgba(226, 58, 46, 0.4), rgba(226, 58, 46, 0) 70%), radial-gradient(ellipse 600px 600px at 100% 100%, rgba(226, 58, 46, 0.4), rgba(226, 58, 46, 0) 70%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #f6f1e4; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="70.37">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="70.37" data-track-index="0">
+      <div class="amb-persiana"></div>
+      <div class="amb-zocalo"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-alarma"></div>
+      <div class="amb-rotulo" data-layout-ignore><span class="amb-rec"></span>ENTREVISTA N° 001<br />PUESTO: EMPLEADO</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 70.37;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // la luz de la persiana se corre como si pasara la tarde
+      tl.fromTo(q(".amb-persiana"), { x: 0, y: 0 }, { x: 90, y: 160, duration: DUR, ease: "none" }, 0);
+      // el puntito rojo de "grabando" titila (finito, determinista)
+      tl.to(q(".amb-rec"), { opacity: 0.15, duration: 0.5, yoyo: true, repeat: Math.max(1, Math.floor(DUR / 0.5) - 1), ease: "steps(1)" }, 0);
+
+      // alarma (segundos globales): "él primero"
+      [[41.2, 1.0]].forEach(([t, d]) => {
+        tl.to(q(".amb-alarma"), { opacity: 1, duration: 0.1, yoyo: true, repeat: Math.max(1, Math.round(d / 0.2)) * 2 - 1, ease: "steps(1)" }, t);
+      });
+      // flashes: "¿dónde está la trampa?" y el "¿lo contratás?" final
+      [48.08, 64.75].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.55, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

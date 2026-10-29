@@ -1,0 +1,166 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-visto"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-visto"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-visto"] svg.s08-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-visto"] .ab { position: absolute; }
+    [data-composition-id="s08-visto"] .ab > svg.llena { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s08-visto"] .ln { fill: none; stroke: #efe4cc; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-visto"] .tinta { fill: none; stroke: #1d1b19; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-visto"] .papel { background: #efe4cc; border-radius: 10px; box-shadow: 0 18px 0 rgba(5, 10, 20, 0.35); }
+    [data-composition-id="s08-visto"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f6f1e4; }
+    [data-composition-id="s08-visto"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s08-visto"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s08-visto"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #e23a2e; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #e23a2e; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s08-visto"] .sello.azul { border-color: #2f6fe0; color: #2f6fe0; }
+    [data-composition-id="s08-visto"] .etiqueta { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #efe4cc; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s08-visto"] .s08-chat { left: 200px; top: 620px; width: 680px; height: 520px; }
+    [data-composition-id="s08-visto"] .s08-burbuja { position: absolute; left: 40px; top: 150px; padding: 22px 30px 50px; background: #efe4cc; border-radius: 8px 28px 28px 28px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 46px; color: #1d1b19; white-space: nowrap; }
+    [data-composition-id="s08-visto"] .s08-tics { position: absolute; right: 18px; bottom: 10px; width: 64px; height: 34px; }
+    [data-composition-id="s08-visto"] .s08-visto { position: absolute; left: 44px; top: 330px; font-size: 28px; letter-spacing: 0.14em; color: #a9c6ff; }
+    [data-composition-id="s08-visto"] .s08-cab { position: absolute; left: 30px; top: 32px; font-size: 28px; letter-spacing: 0.16em; color: #efe4cc; }
+    [data-composition-id="s08-visto"] .s08-duen { left: 70px; top: 1150px; width: 260px; height: 240px; }
+    [data-composition-id="s08-visto"] .s08-acusa { left: 360px; top: 1230px; font-size: 64px; }
+    [data-composition-id="s08-visto"] .s08-cand { left: 260px; top: 660px; width: 560px; height: 520px; }
+    [data-composition-id="s08-visto"] .s08-def { top: 1260px; font-size: 34px; letter-spacing: 0.14em; color: #efe4cc; }
+    [data-composition-id="s08-visto"] .s08-def span { color: #ffd94a; }
+  </style>
+  <div id="root" data-composition-id="s08-visto" data-width="1080" data-height="1920" data-duration="5.85">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="5.85" data-track-index="0">
+      <div class="s08-escenario">
+
+        <div class="ab s08-chat">
+          <svg class="llena" viewBox="0 0 680 520" aria-hidden="true">
+            <rect x="0" y="0" width="680" height="520" rx="40" fill="#0d182c" stroke="#efe4cc" stroke-width="6" />
+            <path d="M0 100 H680" stroke="#efe4cc" stroke-width="4" opacity="0.4" />
+            <circle cx="610" cy="50" r="24" fill="none" stroke="#efe4cc" stroke-width="5" />
+          </svg>
+          <div class="mono s08-cab">Cliente</div>
+          <div class="s08-burbuja">Hola, ¿abren hoy?
+            <svg class="s08-tics" viewBox="0 0 64 34" aria-hidden="true">
+              <path class="s08-tic" d="M4 18 L14 28 L34 6 M26 26 L30 28 L58 6" fill="none" stroke="#8a8478" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="mono s08-visto">Visto · sin respuesta</div>
+        </div>
+        <div class="ab s08-duen"><svg class="llena" viewBox="-130 -40 260 240" aria-hidden="true" overflow="visible">
+    <ellipse cx="-94" cy="100" rx="15" ry="25" fill="#0d182c" stroke="#efe4cc" stroke-width="5" />
+    <ellipse cx="94" cy="100" rx="15" ry="25" fill="#0d182c" stroke="#efe4cc" stroke-width="5" />
+    <ellipse cx="0" cy="90" rx="92" ry="108" fill="#0d182c" stroke="#efe4cc" stroke-width="6" />
+    <path d="M-86 66 Q-96 22 -62 6 M86 66 Q96 22 62 6" fill="none" stroke="#efe4cc" stroke-width="12" stroke-linecap="round" />
+    <path d="M-22 -12 Q0 -24 22 -12" fill="none" stroke="#efe4cc" stroke-width="4" stroke-linecap="round" />
+    <path class="d-ceja-i" d="M-70 44 L-16 58" stroke="#efe4cc" stroke-width="10" stroke-linecap="round" />
+    <path class="d-ceja-d" d="M70 44 L16 58" stroke="#efe4cc" stroke-width="10" stroke-linecap="round" />
+    <circle cx="-40" cy="90" r="30" fill="none" stroke="#efe4cc" stroke-width="5" />
+    <circle cx="40" cy="90" r="30" fill="none" stroke="#efe4cc" stroke-width="5" />
+    <path d="M-10 86 Q0 80 10 86" fill="none" stroke="#efe4cc" stroke-width="5" />
+    <g class="d-ojos" opacity="0"><circle cx="-40" cy="92" r="8" fill="#efe4cc" /><circle cx="40" cy="92" r="8" fill="#efe4cc" /></g>
+    <g class="d-sosp" opacity="1"><path d="M-56 94 H-24 M24 94 H56" stroke="#efe4cc" stroke-width="8" stroke-linecap="round" /></g>
+    <g class="d-sorpresa" opacity="0"><circle cx="-40" cy="90" r="14" fill="none" stroke="#efe4cc" stroke-width="5" /><circle cx="40" cy="90" r="14" fill="none" stroke="#efe4cc" stroke-width="5" /><circle cx="-40" cy="90" r="5" fill="#efe4cc" /><circle cx="40" cy="90" r="5" fill="#efe4cc" /></g>
+    <path d="M2 104 Q-14 130 6 134" fill="none" stroke="#efe4cc" stroke-width="5" stroke-linecap="round" />
+    <path d="M-52 152 Q-26 134 0 146 Q26 134 52 152 Q26 160 0 152 Q-26 160 -52 152 Z" fill="#efe4cc" />
+    <path class="d-boca" d="M-22 178 H22" stroke="#efe4cc" stroke-width="5" stroke-linecap="round" />
+  </svg></div>
+        <div class="sello s08-acusa">¿Visto?</div>
+        <div class="ab s08-cand"><svg class="llena" viewBox="-140 -70 280 260" aria-hidden="true" overflow="visible">
+    <path d="M0 2 V-34" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" />
+    <circle class="c-luz" cx="0" cy="-44" r="11" fill="#ffd94a" />
+    <rect x="-122" y="0" width="244" height="172" rx="32" fill="#0d182c" stroke="#2f6fe0" stroke-width="8" />
+    <rect x="-104" y="16" width="208" height="140" rx="20" fill="#13284f" />
+    <g class="c-ok" opacity="1">
+      <rect class="c-ojos" x="-62" y="44" width="28" height="56" rx="14" fill="#a9c6ff" />
+      <rect class="c-ojos" x="34" y="44" width="28" height="56" rx="14" fill="#a9c6ff" />
+      <path d="M-40 122 Q0 148 40 122" fill="none" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+    </g>
+    <g class="c-feliz" opacity="0">
+      <path d="M-66 84 Q-48 50 -30 84 M30 84 Q48 50 66 84" fill="none" stroke="#a9c6ff" stroke-width="9" stroke-linecap="round" />
+      <path d="M-50 112 Q0 162 50 112 Z" fill="#a9c6ff" />
+    </g>
+    <g class="c-duda" opacity="0">
+      <text x="-48" y="112" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="78" fill="#a9c6ff">?</text>
+      <text x="48" y="112" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="78" fill="#a9c6ff">?</text>
+      <path d="M-18 138 H18" stroke="#a9c6ff" stroke-width="8" stroke-linecap="round" />
+    </g>
+  </svg></div>
+        <div class="grande mono s08-def">Visto: <span>sin datos</span></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-visto";
+      const DUR = 5.85;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote (para divs)
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s08-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara del candidato o los ojos del dueño
+      const cara = (raiz, de, a, t) => {
+        tl.to(q(raiz + " " + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(q(raiz + " " + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      const parpadeo = (raiz, t) => tl.to(qa(raiz + " .c-ojos"), { scaleY: 0.12, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      const salida = () => tl.to(q("#s08-escena"), { y: -70, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      const AJA = 0.0, DEJAS = 0.9, VISTO = 1.5, QUE = 2.94, DEJAR = 3.54, VISTO2 = 4.29;
+      tl.fromTo(q(".s08-chat"), { y: 80, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      pop(".s08-duen", AJA + 0.05, { scale: 0.5, x: -80 });
+      tl.to(q(".s08-duen .d-ceja-d"), { rotation: -16, svgOrigin: "43 51", y: -8, duration: 0.18, ease: "back.out(3)" }, AJA + 0.3);
+      // "¿dejás en visto?": los tilde se ponen azules y nadie contesta
+      tl.to(q(".s08-tic"), { stroke: "#2f6fe0", duration: 0.1 }, VISTO);
+      tl.fromTo(q(".s08-tics"), { scale: 1 }, { scale: 1.5, duration: 0.12, yoyo: true, repeat: 1 }, VISTO);
+      pop(".s08-visto", VISTO + 0.1, { y: 20 });
+      golpe(".s08-acusa", VISTO + 0.2, 2.4, -6);
+      sacudon(VISTO + 0.25, 0.7);
+      // "¿qué es dejar en visto?": el candidato no tiene idea
+      tl.to(qa(".s08-chat, .s08-duen, .s08-acusa"), { opacity: 0, x: -200, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, QUE - 0.2);
+      gsap.set(q(".s08-cand"), { opacity: 0 });
+      tl.fromTo(q(".s08-cand"), { opacity: 0, scale: 0.4, rotation: 0 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.4, ease: "back.out(1.8)", immediateRender: false }, QUE);
+      cara(".s08-cand", ".c-ok", ".c-duda", QUE + 0.25);
+      tl.to(q(".s08-cand"), { rotation: -8, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, QUE + 0.45);
+      escribir(".s08-def", DEJAR, 0.6);
+      // "visto": glitch de pantalla
+      [[14, 0.4], [-18, 1], [8, 0.5], [0, 1]].forEach(([x, o], i) => tl.to(q(".s08-cand"), { x, opacity: o, duration: 0.04, ease: "none" }, VISTO2 + i * 0.05));
+      tl.to(q(".s08-cand .c-luz"), { fill: "#e23a2e", duration: 0.05, yoyo: true, repeat: 5 }, VISTO2);
+
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
