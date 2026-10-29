@@ -1,9 +1,10 @@
 // Vuelta de la autorización de TikTok: cambia el code por el acceso y lo guarda donde lo lee la rutina.
-import { TIKTOK_CLIENT_KEY, exigirSesion, guardarEstado } from "./_lib.js";
+import { TIKTOK_CLIENT_KEY, guardarEstado } from "./_lib.js";
 import { REDIRECT, firmarState } from "./tiktok-conectar.js";
 
+// No pide la cookie: la vuelta viene de tiktok.com y la protege el state firmado, que solo genera
+// tiktok-conectar para alguien con sesión, y que vence a los 15 minutos.
 export default async function handler(req, res) {
-  if (!exigirSesion(req, res)) return;
   const { code, state, error } = req.query;
   const t = String(state || "").split(".")[0];
   if (error || !code) return res.redirect(302, "/?tiktok=cancelado");
