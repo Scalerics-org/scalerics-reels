@@ -1,0 +1,95 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1100px at 540px 980px, rgba(5, 8, 15, 0) 62%, rgba(5, 8, 15, 0.85) 100%); }
+    /* cartel de maniobra arriba */
+    [data-composition-id="ambiente"] .amb-banner { position: absolute; left: 40px; top: 44px; width: 1000px; height: 160px; border-radius: 34px; background: #1a2540; border: 3px solid rgba(34, 227, 255, 0.35); overflow: hidden; }
+    [data-composition-id="ambiente"] .amb-banner.amb-ok { background: #0f3a48; border-color: #22e3ff; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-ico { position: absolute; left: 26px; top: 22px; width: 116px; height: 116px; }
+    [data-composition-id="ambiente"] .amb-txt { position: absolute; left: 168px; top: 0; width: 800px; height: 150px; }
+    [data-composition-id="ambiente"] .amb-l { position: absolute; left: 0; top: 30px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 50px; color: #eaf2ff; white-space: nowrap; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-s { position: absolute; left: 0; top: 98px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.18em; color: #22e3ff; text-transform: uppercase; white-space: nowrap; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-s.amb-r { color: #ff3b4e; }
+    /* barra de llegada abajo */
+    [data-composition-id="ambiente"] .amb-eta { position: absolute; left: 40px; top: 1572px; width: 1000px; height: 136px; border-radius: 34px; background: rgba(26, 37, 64, 0.94); border: 2px solid rgba(234, 242, 255, 0.12); }
+    [data-composition-id="ambiente"] .amb-min { position: absolute; left: 40px; top: 22px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 54px; color: #22e3ff; }
+    [data-composition-id="ambiente"] .amb-dato { position: absolute; left: 40px; top: 88px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; color: rgba(234, 242, 255, 0.7); }
+    [data-composition-id="ambiente"] .amb-dest { position: absolute; right: 40px; top: 28px; width: 560px; text-align: right; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; color: #eaf2ff; white-space: nowrap; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-dsub { position: absolute; right: 40px; top: 84px; width: 560px; text-align: right; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; color: #ff3b4e; white-space: nowrap; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-dsub.amb-c { color: #22e3ff; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="77.03">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="77.03" data-track-index="0">
+      <div class="amb-vineta"></div>
+      <div class="amb-banner amb-b1">
+        <svg class="amb-ico" viewBox="0 0 116 116" aria-hidden="true">
+          <path class="amb-flecha" d="M40 104 L40 56 Q40 36 60 36 L92 36 M76 18 L94 36 L76 54" fill="none" stroke="#eaf2ff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="amb-txt">
+          <div class="amb-l amb-l1">Doblá en el de enfrente</div><div class="amb-s amb-s1 amb-r">Ruta nueva</div>
+          <div class="amb-l amb-l2">Esperando destino</div><div class="amb-s amb-s2">Decí a dónde vas</div>
+          <div class="amb-l amb-l3">Buscando destino</div><div class="amb-s amb-s3 amb-r">Lo de Don Hugo · sin datos</div>
+          <div class="amb-l amb-l4">En 200 m, doblá</div><div class="amb-s amb-s4">a la derecha · el de enfrente</div>
+          <div class="amb-l amb-l5">Llegaste a tu destino</div><div class="amb-s amb-s5">bah · al de enfrente</div>
+          <div class="amb-l amb-l6">Seguí derecho</div><div class="amb-s amb-s6 amb-r">Lo de Don Hugo · sin datos</div>
+        </div>
+      </div>
+      <div class="amb-banner amb-ok">
+        <svg class="amb-ico" viewBox="0 0 116 116" aria-hidden="true">
+          <path d="M58 104 C58 104 22 66 22 44 A36 36 0 0 1 94 44 C94 66 58 104 58 104 Z" fill="#22e3ff" />
+          <circle cx="58" cy="44" r="13" fill="#0f3a48" />
+        </svg>
+        <div class="amb-txt">
+          <div class="amb-l amb-l7" style="opacity: 1">Tu local · encontrado</div><div class="amb-s amb-s7" style="opacity: 1">abierto ahora · con sitio web</div>
+        </div>
+      </div>
+      <div class="amb-eta">
+        <div class="amb-min">3 min</div>
+        <div class="amb-dato">LLEGADA 20:14 · 900 M</div>
+        <div class="amb-dest amb-d1">Destino: lo de Don Hugo</div><div class="amb-dsub amb-ds1">SIN DATOS</div>
+        <div class="amb-dest amb-d2">Destino: el de enfrente</div><div class="amb-dsub amb-ds2 amb-c">ABIERTO AHORA</div>
+        <div class="amb-dest amb-d3">Destino: tu local</div><div class="amb-dsub amb-ds3 amb-c">TE ENCONTRARON</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // estados del cartel de maniobra: [inicio, fin]
+      const ESTADOS = [[0, 5.9], [5.98, 12.4], [12.47, 28.2], [28.28, 40.7], [40.79, 46.35], [46.41, 62.2]];
+      ESTADOS.forEach(([a, b], i) => {
+        const l = q(".amb-l" + (i + 1)), s = q(".amb-s" + (i + 1));
+        if (i === 0) gsap.set([l, s], { opacity: 1 });
+        else tl.fromTo([l, s], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", stagger: 0.06, immediateRender: false }, a);
+        tl.to([l, s], { opacity: 0, y: -30, duration: 0.2, ease: "power2.in" }, b - 0.2);
+      });
+      // la flecha gira cuando hay maniobra
+      tl.fromTo(q(".amb-flecha"), { rotation: 0 }, { rotation: 360, svgOrigin: "58 58", duration: 0.8, ease: "power2.inOut", immediateRender: false }, 12.47);
+      tl.fromTo(q(".amb-b1"), { scale: 1 }, { scale: 1.04, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, 28.28);
+      // con Orus: el cartel se pone cian, te encontraron
+      tl.to(q(".amb-b1"), { opacity: 0, duration: 0.2 }, 62.05);
+      tl.fromTo(q(".amb-ok"), { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)", immediateRender: false }, 62.23);
+
+      // destino en la barra de abajo
+      const DEST = [[0, 28.2], [28.28, 62.2], [62.23, 77.03]];
+      DEST.forEach(([a, b], i) => {
+        const d = q(".amb-d" + (i + 1)), s = q(".amb-ds" + (i + 1));
+        if (i === 0) gsap.set([d, s], { opacity: 1 });
+        else tl.fromTo([d, s], { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, a);
+        if (b < 77) tl.to([d, s], { opacity: 0, x: -40, duration: 0.2, ease: "power2.in" }, b - 0.2);
+      });
+      tl.fromTo(q(".amb-ds1"), { opacity: 1 }, { opacity: 0.25, duration: 0.5, yoyo: true, repeat: 25, ease: "steps(1)", immediateRender: false }, 12.47);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

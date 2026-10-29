@@ -1,0 +1,91 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-200m"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-200m"] .s06-flecha { position: absolute; left: 100px; top: 560px; width: 260px; height: 260px; }
+    [data-composition-id="s06-200m"] .s06-dist { position: absolute; left: 390px; top: 560px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 190px; line-height: 1; color: #eaf2ff; white-space: nowrap; }
+    [data-composition-id="s06-200m"] .s06-dist small { font-size: 90px; font-weight: 700; color: rgba(234, 242, 255, 0.7); }
+    [data-composition-id="s06-200m"] .s06-dobla { position: absolute; left: 394px; top: 760px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 38px; color: #22e3ff; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s06-200m"] .s06-ficha { position: absolute; left: 90px; top: 870px; width: 900px; height: 520px; border-radius: 40px; background: rgba(17, 26, 46, 0.96); border: 3px solid #22e3ff; overflow: hidden; }
+    [data-composition-id="s06-200m"] .s06-pin { position: absolute; left: 40px; top: 34px; width: 100px; height: 120px; }
+    [data-composition-id="s06-200m"] .s06-nombre { position: absolute; left: 170px; top: 40px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 60px; color: #eaf2ff; white-space: nowrap; }
+    [data-composition-id="s06-200m"] .s06-abierto { position: absolute; left: 172px; top: 118px; padding: 6px 20px; border-radius: 24px; background: #22e3ff; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; color: #0b1220; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-200m"] .s06-fila { position: absolute; left: 40px; width: 820px; height: 96px; }
+    [data-composition-id="s06-200m"] .s06-tick { position: absolute; left: 0; top: 18px; width: 60px; height: 60px; }
+    [data-composition-id="s06-200m"] .s06-t { position: absolute; left: 86px; top: 22px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 46px; color: #eaf2ff; white-space: nowrap; }
+    [data-composition-id="s06-200m"] .s06-boton { position: absolute; left: 40px; top: 420px; width: 820px; height: 76px; border-radius: 38px; background: #22e3ff; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 38px; line-height: 76px; color: #0b1220; }
+  </style>
+  <div id="root" data-composition-id="s06-200m" data-width="1080" data-height="1920" data-duration="6.66">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="6.66" data-track-index="0">
+      <svg class="s06-flecha" viewBox="0 0 260 260" aria-hidden="true">
+        <path class="s06-fl" d="M70 240 L70 130 Q70 80 120 80 L210 80" fill="none" stroke="#22e3ff" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" />
+        <path class="s06-fl" d="M170 30 L220 80 L170 130" fill="none" stroke="#22e3ff" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <div class="s06-dist"><span class="s06-num">200</span> <small>m</small></div>
+      <div class="s06-dobla">Doblá en el de enfrente</div>
+      <div class="s06-ficha">
+        <svg class="s06-pin" viewBox="0 0 100 120" aria-hidden="true">
+          <path d="M50 114 C50 114 8 70 8 46 A42 42 0 0 1 92 46 C92 70 50 114 50 114 Z" fill="#22e3ff" />
+          <circle cx="50" cy="46" r="15" fill="#0b1220" />
+        </svg>
+        <div class="s06-nombre">El de enfrente</div>
+        <div class="s06-abierto">Abierto ahora</div>
+        <div class="s06-fila" style="top: 190px"><svg class="s06-tick" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="27" fill="none" stroke="#22e3ff" stroke-width="5" /><path class="s06-tk" d="M17 31 L27 41 L44 21" fill="none" stroke="#22e3ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><div class="s06-t">Página web</div></div>
+        <div class="s06-fila" style="top: 290px"><svg class="s06-tick" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="27" fill="none" stroke="#22e3ff" stroke-width="5" /><path class="s06-tk" d="M17 31 L27 41 L44 21" fill="none" stroke="#22e3ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><div class="s06-t">Horarios</div></div>
+        <div class="s06-boton">Escribinos por WhatsApp</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-200m";
+      const DUR = 6.66;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+
+      const DOS = 0.1, METROS = 0.6, DOBLA = 1.0, ENFRENTE = 1.6, ABIERTO = 2.47, PAGINA = 3.71, HORARIOS = 4.52, BOTON = 5.1, WSP = 5.6;
+
+      // "200 metros": el número golpea, la flecha se dibuja
+      tl.fromTo(q(".s06-dist"), { opacity: 0, scale: 1.5, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", transformOrigin: "0% 50%", duration: 0.3, ease: "power3.out" }, DOS - 0.1);
+      qa(".s06-fl").forEach((p, i) => dibujar(p, 0.0 + i * 0.35, 0.45));
+      // "doblá": la flecha se sacude hacia la derecha, insistente
+      tl.to(q(".s06-flecha"), { x: 26, duration: 0.14, yoyo: true, repeat: 3, ease: "power2.inOut" }, DOBLA);
+      gsap.set(q(".s06-dobla"), { opacity: 0 });
+      tl.fromTo(q(".s06-dobla"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, DOBLA - 0.05);
+      tl.fromTo(q(".s06-dobla"), { scale: 1 }, { scale: 1.08, transformOrigin: "0% 50%", duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, ENFRENTE);
+
+      // la ficha del de enfrente: viva
+      gsap.set(q(".s06-ficha"), { opacity: 0 });
+      tl.fromTo(q(".s06-ficha"), { opacity: 0, y: 70, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.5)", immediateRender: false }, ENFRENTE + 0.2);
+      gsap.set(q(".s06-abierto"), { opacity: 0 });
+      tl.fromTo(q(".s06-abierto"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, transformOrigin: "0% 50%", duration: 0.3, ease: "back.out(2)", immediateRender: false }, ABIERTO - 0.05);
+      tl.to(q(".s06-abierto"), { opacity: 0.55, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, ABIERTO + 0.5);
+      const filas = qa(".s06-fila");
+      [PAGINA, HORARIOS].forEach((t, i) => {
+        gsap.set(filas[i], { opacity: 0 });
+        tl.fromTo(filas[i], { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t - 0.2);
+        dibujar(filas[i].querySelector(".s06-tk"), t, 0.3);
+      });
+      gsap.set(q(".s06-boton"), { opacity: 0 });
+      tl.fromTo(q(".s06-boton"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, BOTON - 0.05);
+      tl.fromTo(q(".s06-boton"), { scale: 1 }, { scale: 1.05, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, WSP);
+      tl.fromTo(q(".s06-num"), { opacity: 1 }, { opacity: 0.6, duration: 0.5, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, 2.0);
+
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

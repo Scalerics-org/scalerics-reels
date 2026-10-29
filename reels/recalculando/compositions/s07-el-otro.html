@@ -1,0 +1,82 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-el-otro"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-el-otro"] .s07-preg { position: absolute; left: 140px; top: 570px; width: 800px; height: 140px; border-radius: 70px; background: #ffc35a; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 58px; line-height: 140px; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s07-el-otro"] .s07-cola { position: absolute; left: 200px; top: 690px; width: 60px; height: 50px; }
+    [data-composition-id="s07-el-otro"] .s07-pin { position: absolute; top: 790px; width: 300px; height: 360px; }
+    [data-composition-id="s07-el-otro"] .s07-rot { position: absolute; top: 1150px; width: 400px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-el-otro"] .s07-vs { position: absolute; left: 0; right: 0; top: 920px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 56px; color: rgba(234, 242, 255, 0.5); }
+    [data-composition-id="s07-el-otro"] .s07-nei { position: absolute; left: 60px; top: 1210px; width: 480px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; line-height: 1.05; color: #ff3b4e; text-transform: uppercase; }
+    [data-composition-id="s07-el-otro"] .s07-recalc { position: absolute; left: 90px; top: 570px; width: 900px; height: 170px; border-radius: 30px; background: #ff3b4e; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 92px; line-height: 170px; color: #0b1220; }
+  </style>
+  <div id="root" data-composition-id="s07-el-otro" data-width="1080" data-height="1920" data-duration="5.81">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.81" data-track-index="0">
+      <div class="s07-preg">¿Pero no era el otro?</div>
+      <svg class="s07-cola" viewBox="0 0 60 50" aria-hidden="true"><path d="M0 0 L60 0 L10 50 Z" fill="#ffc35a" /></svg>
+      <div class="s07-izq">
+        <svg class="s07-pin s07-pin-hugo" style="left: 150px" viewBox="0 0 300 360" aria-hidden="true">
+          <path class="s07-hugo-p" d="M150 340 C150 340 30 210 30 140 A120 120 0 0 1 270 140 C270 210 150 340 150 340 Z" fill="#3a4c6e" stroke="#eaf2ff" stroke-opacity="0.4" stroke-width="6" />
+          <text x="150" y="176" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="110" fill="#0b1220">?</text>
+        </svg>
+        <div class="s07-rot s07-r-hugo" style="left: 100px; color: rgba(234, 242, 255, 0.6)">Lo de Don Hugo</div>
+      </div>
+      <svg class="s07-pin s07-pin-otro" style="left: 630px" viewBox="0 0 300 360" aria-hidden="true">
+        <path d="M150 340 C150 340 30 210 30 140 A120 120 0 0 1 270 140 C270 210 150 340 150 340 Z" fill="#22e3ff" />
+        <circle cx="150" cy="140" r="44" fill="#0b1220" />
+      </svg>
+      <div class="s07-rot s07-r-otro" style="left: 580px; color: #22e3ff">El de enfrente</div>
+      <div class="s07-vs">VS</div>
+      <div class="s07-nei">No existe<br />en internet</div>
+      <div class="s07-recalc">RECALCULANDO</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-el-otro";
+      const DUR = 5.81;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const OTRO = 0.45, EL = 1.4, NO = 1.87, EXISTE = 2.27, INTERNET = 3.07, RECALC = 4.33;
+
+      // la pregunta de la clienta, dudando
+      tl.fromTo([q(".s07-preg"), q(".s07-cola")], { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, transformOrigin: "20% 100%", duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.to(q(".s07-preg"), { rotation: -2, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, OTRO);
+
+      // los dos pins, cara a cara
+      gsap.set([q(".s07-pin-hugo"), q(".s07-pin-otro"), q(".s07-r-hugo"), q(".s07-r-otro"), q(".s07-vs")], { opacity: 0 });
+      tl.fromTo(q(".s07-pin-hugo"), { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.35, ease: "bounce.out", immediateRender: false }, 0.3);
+      tl.fromTo(q(".s07-r-hugo"), { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, 0.5);
+      tl.fromTo(q(".s07-pin-otro"), { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.35, ease: "bounce.out", immediateRender: false }, 0.55);
+      tl.fromTo(q(".s07-r-otro"), { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, 0.75);
+      tl.fromTo(q(".s07-vs"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.25, immediateRender: false }, 0.85);
+
+      // "el otro": el GPS señala al de Hugo; "no existe": se rompe
+      tl.to(q(".s07-pin-hugo"), { scale: 1.08, transformOrigin: "50% 100%", duration: 0.15, yoyo: true, repeat: 1 }, EL);
+      [[-18, 0.3], [14, 0.9], [-10, 0.2], [8, 0.7], [-4, 0.15], [0, 0.5]].forEach(([x, o], i) => tl.to(q(".s07-izq"), { x, opacity: o, duration: 0.05, ease: "steps(1)" }, EXISTE + i * 0.06));
+      tl.to(q(".s07-hugo-p"), { fillOpacity: 0, strokeOpacity: 0.6, duration: 0.2 }, EXISTE + 0.3);
+      tl.to(q(".s07-hugo-p"), { attr: { "stroke-dasharray": "14 16" }, duration: 0.01 }, EXISTE + 0.3);
+      gsap.set(q(".s07-nei"), { opacity: 0 });
+      tl.fromTo(q(".s07-nei"), { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.22, ease: "power3.out", immediateRender: false }, INTERNET - 0.3);
+      tl.to(q(".s07-izq"), { opacity: 0.12, duration: 0.5 }, INTERNET + 0.3);
+      tl.fromTo(q(".s07-pin-otro"), { scale: 1 }, { scale: 1.1, transformOrigin: "50% 100%", duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, INTERNET + 0.2);
+
+      // "recalculando": cartel rojo que tapa todo y parpadea
+      gsap.set(q(".s07-recalc"), { opacity: 0 });
+      tl.fromTo(q(".s07-recalc"), { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power3.out", immediateRender: false }, RECALC - 0.08);
+      tl.to(q(".s07-recalc"), { opacity: 0.6, duration: 0.15, yoyo: true, repeat: 5, ease: "steps(1)" }, RECALC + 0.2);
+      tl.to([q(".s07-preg"), q(".s07-cola"), q(".s07-vs"), q(".s07-nei")], { opacity: 0, duration: 0.15 }, RECALC - 0.08);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
