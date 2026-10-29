@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-asi-no"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-asi-no"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-asi-no"] .trazo { fill: none; stroke: #e9dfc6; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-asi-no"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; letter-spacing: -0.02em; white-space: nowrap;
+      -webkit-text-stroke: 12px #1a1622; paint-order: stroke fill; text-shadow: 6px 0 0 rgba(255, 59, 59, 0.55), -6px 0 0 rgba(43, 76, 209, 0.7); }
+    [data-composition-id="s10-asi-no"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s10-asi-no"] .osd { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; color: #f2e35b; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; text-shadow: 3px 3px 0 #1a1622, 2px 0 0 rgba(255, 59, 59, 0.5); }
+    [data-composition-id="s10-asi-no"] .lex { font-family: "Lexend", sans-serif; }
+
+    [data-composition-id="s10-asi-no"] .s10-hijo { transform-origin: 540px 1300px; }
+    [data-composition-id="s10-asi-no"] .s10-no { top: 1240px; left: 380px; right: 0; font-size: 220px; color: #ff3b3b; -webkit-text-stroke: 14px #1a1622; }
+    [data-composition-id="s10-asi-no"] .s10-asi { position: absolute; left: 540px; top: 620px; width: 440px; text-align: center; font-size: 34px; }
+  </style>
+  <div id="root" data-composition-id="s10-asi-no" data-width="1080" data-height="1920" data-duration="6.32">
+    <div id="s10-escena" class="capa clip" data-start="0" data-duration="6.32" data-track-index="0">
+
+      <div class="capa s10-cam"><div class="capa s10-sac">
+        <div class="capa s10-frente-c">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g transform="translate(560 700) scale(0.5)"><g class="s10-frente">
+      <rect x="0" y="120" width="840" height="740" fill="#1a1622" stroke="#e9dfc6" stroke-width="7" />
+      <g class="s10-toldo">
+        <path d="M-20 0 H860 L860 170 H-20 Z" fill="#e9dfc6" />
+        <path d="M60 0 V170 H140 V0 Z M220 0 V170 H300 V0 Z M380 0 V170 H460 V0 Z M540 0 V170 H620 V0 Z M700 0 V170 H780 V0 Z" fill="#c8553d" />
+        <path class="s10-faldon" d="M-20 170 H860 V250 Q840 274 818 250 Q796 274 774 250 Q752 274 730 250 Q708 274 686 250 Q664 274 642 250 Q620 274 598 250 Q576 274 554 250 Q532 274 510 250 Q488 274 466 250 Q444 274 422 250 Q400 274 378 250 Q356 274 334 250 Q312 274 290 250 Q268 274 246 250 Q224 274 202 250 Q180 274 158 250 Q136 274 114 250 Q92 274 70 250 Q48 274 26 250 Q4 274 -20 250 Z" fill="#e9dfc6" stroke="#1a1622" stroke-width="5" />
+        <path d="M-20 0 H860 L860 170 H-20 Z" fill="none" stroke="#1a1622" stroke-width="6" />
+        <text class="s10-tel" x="420" y="232" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="52" fill="#1a1622" letter-spacing="2">TEL. 409 27 13</text>
+      </g>
+      <rect x="60" y="340" width="430" height="400" rx="6" fill="#f2e35b" opacity="0.22" stroke="#e9dfc6" stroke-width="6" />
+      <text x="275" y="470" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="70" fill="#f2e35b">EL HORNO</text>
+      <text x="275" y="530" text-anchor="middle" font-family="Lexend" font-weight="600" font-size="34" fill="#e9dfc6" opacity="0.8" data-layout-ignore>PIZZA · FAINÁ</text>
+      <rect x="570" y="340" width="210" height="520" rx="6" fill="#c8553d" opacity="0.8" stroke="#e9dfc6" stroke-width="6" />
+      <circle cx="750" cy="610" r="10" fill="#f2e35b" />
+    </g></g>
+            <path class="s10-tela" d="M570 770 L640 770 L570 840 Z M570 800 L605 770 M570 820 L625 770" fill="none" stroke="#e9dfc6" stroke-width="3" opacity="0.8" />
+            <path class="s10-tela" d="M970 940 L900 940 L970 1010 Z M970 970 L935 940 M970 990 L915 940" fill="none" stroke="#e9dfc6" stroke-width="3" opacity="0.8" />
+            <path class="s10-corazon" d="M770 920 C770 880 820 870 830 905 C840 870 890 880 890 920 C890 960 830 990 830 1010 C830 990 770 960 770 920 Z" fill="#ff3b3b" stroke="#1a1622" stroke-width="6" />
+          </svg>
+          <div class="osd s10-asi">ASÍ COMO ESTÁ</div>
+        </div>
+        <div class="capa s10-hijo">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g transform="translate(540 1190) scale(1.6)"><g class="s10-hijo">
+    <path d="M-170 440 L-152 90 Q-140 8 0 0 Q140 8 152 90 L170 440 Z" fill="#2b4cd1" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-92 20 Q0 110 92 20" fill="none" stroke="#e9dfc6" stroke-width="8" stroke-linecap="round" />
+    <path d="M-30 70 V170 M30 70 V170" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+    <path d="M-90 300 H90 L70 380 H-70 Z" fill="none" stroke="#e9dfc6" stroke-width="5" opacity="0.55" />
+    <g class="s10-brazo-i">
+      <path class="s10-bz-o" d="M-150 70 Q-205 200 -185 345" fill="none" stroke="#e9dfc6" stroke-width="66" stroke-linecap="round" />
+      <path class="s10-bz-i" d="M-150 70 Q-205 200 -185 345" fill="none" stroke="#2b4cd1" stroke-width="54" stroke-linecap="round" />
+      <circle class="s10-mano" cx="-185" cy="345" r="31" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+    </g>
+    <g class="s10-brazo-d">
+      <path class="s10-bz-o" d="M150 70 Q205 200 185 345" fill="none" stroke="#e9dfc6" stroke-width="66" stroke-linecap="round" />
+      <path class="s10-bz-i" d="M150 70 Q205 200 185 345" fill="none" stroke="#2b4cd1" stroke-width="54" stroke-linecap="round" />
+      <circle class="s10-mano" cx="185" cy="345" r="31" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+    </g>
+    <g class="s10-cabeza">
+      <circle cx="0" cy="-108" r="96" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+      <path d="M-92 -126 Q-90 -212 0 -212 Q90 -212 92 -126 Z" fill="#c8553d" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+      <path d="M-86 -134 Q-150 -140 -170 -120 Q-130 -112 -88 -118" fill="#c8553d" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+      <ellipse class="s10-ojo" cx="-34" cy="-98" rx="10" ry="13" fill="#e9dfc6" />
+      <ellipse class="s10-ojo" cx="34" cy="-98" rx="10" ry="13" fill="#e9dfc6" />
+      <path class="s10-ceja-i" d="M-56 -124 L-16 -126" stroke="#e9dfc6" stroke-width="9" stroke-linecap="round" />
+      <path class="s10-ceja-d" d="M16 -126 L56 -124" stroke="#e9dfc6" stroke-width="9" stroke-linecap="round" />
+      <path class="s10-boca" d="M-28 -54 Q0 -34 28 -54" fill="none" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+      
+    </g>
+  </g></g>
+          </svg>
+        </div>
+        <div class="big s10-no">NO.</div>
+      </div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-asi-no";
+      const DUR = 6.32;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const POSES = {"abajo":{"c":[205,200],"h":[185,345]},"amasar":{"c":[225,240],"h":[130,318]},"arriba":{"c":[285,70],"h":[255,-60]},"cabeza":{"c":[250,-10],"h":[92,-200]},"pecho":{"c":[170,260],"h":[30,140]},"frente":{"c":[220,160],"h":[150,250]}};
+      // sacudón (sobre un contenedor HTML)
+      const sacudon = (el, t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(el, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // texto que cae de golpe
+      const golpe = (el, t, rot = 0, s0 = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: s0, rotation: rot * 2 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, from = 0.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      const entra = (el, t, y = 40, d = 0.3) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t); };
+      const dibujar = (els, t, d = 0.6, st = 0) => [].concat(els).forEach((e, i) => { const L = e.getTotalLength(); gsap.set(e, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 }); tl.set(e, { opacity: 1 }, t + i * st); tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st); });
+      const corte = (fuera, dentro, t) => { if (dentro) gsap.set(dentro, { opacity: 0 }); if (fuera) tl.set(fuera, { opacity: 0 }, t); if (dentro) tl.set(dentro, { opacity: 1 }, t); };
+      // cambio de pose de un brazo: p = prefijo, lado "i"/"d"
+      const pose = (p, lado, nombre, t, d = 0.22, sel = "") => { const s = lado === "d" ? 1 : -1; const P = POSES[nombre]; const dd = "M" + 150 * s + " 70 Q" + P.c[0] * s + " " + P.c[1] + " " + P.h[0] * s + " " + P.h[1];
+        tl.to(qa(sel + " ." + p + "brazo-" + lado + " path"), { attr: { d: dd }, duration: d, ease: "back.out(1.6)" }, t);
+        tl.to(qa(sel + " ." + p + "brazo-" + lado + " circle"), { attr: { cx: P.h[0] * s, cy: P.h[1] }, duration: d, ease: "back.out(1.6)" }, t); };
+      // cámara en mano: deriva suave y continua
+      const mano = (el, dur, a = 7) => { for (let i = 0, t = 0; t < dur; i++, t += 0.9) tl.to(el, { x: a * Math.sin(i * 1.7 + 0.4), y: a * 0.8 * Math.cos(i * 2.3), rotation: 0.35 * Math.sin(i * 1.1), duration: 0.9, ease: "sine.inOut" }, t); };
+
+
+      const MEJOR = 0.19, POR = 1.36, NO = 2.89, NEGOCIO = 3.79, ASI = 4.81, NO2 = 5.53;
+      mano(q(".s10-cam"), DUR, 8);
+      // da vuelta la cámara: selfie
+      tl.fromTo(q(".s10-hijo"), { rotationY: 70, x: 200, opacity: 0.3 }, { rotationY: 0, x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      // "la mejor, viejo": sonríe
+      tl.to(qa(".s10-ojo"), { attr: { ry: 5 }, duration: 0.12 }, MEJOR + 0.1);
+      tl.to(q(".s10-boca"), { attr: { d: "M-34 -58 Q0 -24 34 -58" }, duration: 0.15 }, MEJOR + 0.1);
+      // "por eso te lo digo": asiente
+      tl.to(q(".s10-cabeza"), { y: 10, duration: 0.14, yoyo: true, repeat: 3, ease: "sine.inOut" }, POR);
+      tl.to(qa(".s10-ojo"), { attr: { ry: 13 }, duration: 0.12 }, POR + 0.4);
+      tl.to(q(".s10-boca"), { attr: { d: "M-24 -50 Q0 -44 24 -50" }, duration: 0.15 }, POR + 0.4);
+      // "no es que no quiera el negocio": se corre y aparece el local
+      tl.to(q(".s10-hijo"), { x: -250, scale: 0.78, duration: 0.4, ease: "power3.inOut" }, NO - 0.15);
+      const F = q(".s10-frente-c");
+      gsap.set(F, { opacity: 0 });
+      tl.fromTo(F, { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, NO);
+      gsap.set(q(".s10-corazon"), { opacity: 0 });
+      tl.fromTo(q(".s10-corazon"), { opacity: 0, scale: 0.3, svgOrigin: "830 950" }, { opacity: 1, scale: 1, svgOrigin: "830 950", duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, NEGOCIO - 0.1);
+      tl.to(q(".s10-corazon"), { scale: 1.12, svgOrigin: "830 950", duration: 0.14, yoyo: true, repeat: 3 }, NEGOCIO + 0.25);
+      // "así como está": telarañas, el toldo se cae, el corazón se va
+      gsap.set(qa(".s10-tela"), { opacity: 0 });
+      entra(q(".s10-asi"), ASI - 0.1, 20, 0.2);
+      tl.to(q(".s10-corazon"), { opacity: 0, y: 40, duration: 0.25 }, ASI);
+      tl.to(qa(".s10-tela"), { opacity: 0.8, duration: 0.15, stagger: 0.1 }, ASI);
+      tl.to(q(".s10-toldo"), { rotation: 7, svgOrigin: "0 0", duration: 0.35, ease: "bounce.out" }, ASI + 0.2);
+      tl.to(q(".s10-frente"), { opacity: 0.7, duration: 0.3 }, ASI + 0.2);
+      // "no.": golpe, niega con la cabeza
+      golpe(q(".s10-no"), NO2, -6);
+      sacudon(q(".s10-sac"), NO2 + 0.03, 1.8);
+      tl.to(q(".s10-cabeza"), { x: 14, duration: 0.09, yoyo: true, repeat: 5, ease: "sine.inOut" }, NO2 - 0.3);
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.15, ease: "power2.in" }, DUR - 0.15);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

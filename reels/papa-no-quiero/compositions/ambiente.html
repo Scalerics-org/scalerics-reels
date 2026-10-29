@@ -1,0 +1,133 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* imagen deslavada: tinte, viñeta, líneas de barrido, grano */
+    [data-composition-id="ambiente"] .amb-tinte { position: absolute; inset: 0; background: rgba(233, 223, 198, 0.05); mix-blend-mode: screen; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0;
+      background: radial-gradient(ellipse 640px 1060px at 540px 960px, rgba(26, 22, 34, 0) 62%, rgba(26, 22, 34, 0.55) 92%, rgba(26, 22, 34, 0.8) 100%); }
+    [data-composition-id="ambiente"] .amb-lineas { position: absolute; inset: 0;
+      background: repeating-linear-gradient(180deg, rgba(10, 8, 14, 0.2) 0px, rgba(10, 8, 14, 0.2) 2px, rgba(10, 8, 14, 0) 2px, rgba(10, 8, 14, 0) 5px); }
+    [data-composition-id="ambiente"] .amb-grano { position: absolute; left: -300px; top: -300px; width: 1680px; height: 2520px; opacity: 0.13;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.4 -0.2'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 256px 256px; }
+    [data-composition-id="ambiente"] .amb-banda { position: absolute; left: -20px; right: -20px; top: 0; height: 64px; opacity: 0.5;
+      background:
+        linear-gradient(180deg, rgba(233, 223, 198, 0) 0%, rgba(233, 223, 198, 0.16) 40%, rgba(233, 223, 198, 0.24) 55%, rgba(233, 223, 198, 0) 100%),
+        repeating-linear-gradient(90deg, rgba(233, 223, 198, 0.4) 0px, rgba(233, 223, 198, 0.4) 3px, rgba(233, 223, 198, 0) 3px, rgba(233, 223, 198, 0) 17px, rgba(233, 223, 198, 0.18) 17px, rgba(233, 223, 198, 0.18) 60px, rgba(233, 223, 198, 0) 60px, rgba(233, 223, 198, 0) 83px); }
+    /* ruido de los cortes */
+    [data-composition-id="ambiente"] .amb-ruido { position: absolute; inset: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-ruido .amb-grano { opacity: 1; }
+    [data-composition-id="ambiente"] .amb-raya { position: absolute; left: -40px; right: -40px; height: 30px; background: rgba(233, 223, 198, 0.55); opacity: 0; }
+    [data-composition-id="ambiente"] .amb-raya.b { background: rgba(43, 76, 209, 0.6); height: 52px; }
+    [data-composition-id="ambiente"] .amb-raya.c { background: rgba(255, 59, 59, 0.4); height: 18px; }
+    /* OSD de la cámara */
+    [data-composition-id="ambiente"] .amb-osd { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; color: #e9dfc6; letter-spacing: 0.08em; white-space: nowrap;
+      text-shadow: 3px 3px 0 #1a1622, 2px 0 0 rgba(255, 59, 59, 0.45), -2px 0 0 rgba(43, 76, 209, 0.6); }
+    [data-composition-id="ambiente"] .amb-rec { left: 72px; top: 92px; font-size: 54px; }
+    [data-composition-id="ambiente"] .amb-punto { display: inline-block; width: 38px; height: 38px; border-radius: 50%; background: #ff3b3b; margin-right: 16px; vertical-align: -2px; box-shadow: 3px 3px 0 #1a1622; }
+    [data-composition-id="ambiente"] .amb-play { left: 72px; top: 92px; font-size: 54px; color: #e9dfc6; }
+    [data-composition-id="ambiente"] .amb-stop { left: 72px; top: 92px; font-size: 54px; color: #e9dfc6; }
+    [data-composition-id="ambiente"] .amb-sp { right: 72px; top: 96px; font-size: 46px; }
+    [data-composition-id="ambiente"] .amb-bat { position: absolute; right: 168px; top: 104px; width: 78px; height: 40px; border: 5px solid #e9dfc6; border-radius: 4px; box-shadow: 3px 3px 0 #1a1622; }
+    [data-composition-id="ambiente"] .amb-bat::after { content: ""; position: absolute; right: -14px; top: 9px; width: 8px; height: 14px; background: #e9dfc6; }
+    [data-composition-id="ambiente"] .amb-carga { position: absolute; left: 5px; top: 5px; width: 16px; height: 20px; background: #e9dfc6; }
+    [data-composition-id="ambiente"] .amb-carga.c2 { left: 26px; }
+    [data-composition-id="ambiente"] .amb-carga.c3 { left: 47px; }
+    [data-composition-id="ambiente"] .amb-zoom { right: 72px; top: 166px; font-size: 36px; color: #f2e35b; }
+    [data-composition-id="ambiente"] .amb-zoom i { display: inline-block; width: 16px; height: 30px; margin: 0 3px; background: #f2e35b; vertical-align: -4px; font-style: normal; box-shadow: 2px 2px 0 #1a1622; }
+    [data-composition-id="ambiente"] .amb-zoom i.v { background: rgba(242, 227, 91, 0.25); }
+    [data-composition-id="ambiente"] .amb-fecha { left: 72px; top: 1574px; font-size: 44px; line-height: 1.25; color: #f2e35b; }
+    [data-composition-id="ambiente"] .amb-cont { right: 72px; top: 1629px; font-size: 44px; color: #f2e35b; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="67.23">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="67.23" data-track-index="0">
+      <div class="amb-tinte"></div>
+      <div class="amb-lineas"></div>
+      <div class="amb-grano amb-g1"></div>
+      <div class="amb-banda"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-ruido"><div class="amb-grano amb-g2"></div></div>
+      <div class="amb-raya r1" style="top: 640px"></div>
+      <div class="amb-raya b r2" style="top: 1010px"></div>
+      <div class="amb-raya c r3" style="top: 1290px"></div>
+      <div class="amb-osd amb-rec"><span class="amb-punto"></span>REC</div>
+      <div class="amb-osd amb-stop">&#9632; STOP</div>
+      <div class="amb-osd amb-play">&#9654; PLAY</div>
+      <div class="amb-bat"><div class="amb-carga"></div><div class="amb-carga c2"></div><div class="amb-carga c3"></div></div>
+      <div class="amb-osd amb-sp">SP</div>
+      <div class="amb-osd amb-zoom">T <i></i><i></i><i></i><i></i><i class="v z5"></i><i class="v z6"></i><i class="v z7"></i> W</div>
+      <div class="amb-osd amb-fecha">PM 7:42<br />OCT. 29 2026</div>
+      <div class="amb-osd amb-cont">0:00:12</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 67.23;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      // grano y contador de cinta: cambian por cuadro, deterministas (dependen solo del tiempo)
+      const g1 = q(".amb-g1"), g2 = q(".amb-g2"), cont = q(".amb-cont");
+      const reloj = { t: 0 };
+      const pinta = () => {
+        const f = Math.floor(reloj.t * 15);
+        const x = -((f * 137) % 256), y = -((f * 89) % 256);
+        g1.style.transform = "translate(" + x + "px," + y + "px)";
+        g2.style.transform = "translate(" + ((x * 3) % 256) + "px," + ((y * 7) % 256) + "px)";
+        const s = 12 + Math.floor(reloj.t);
+        cont.textContent = "0:0" + Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+      };
+      pinta();
+      tl.to(reloj, { t: DUR, duration: DUR, ease: "none", onUpdate: pinta }, 0);
+
+      // la banda de tracking baja cada tanto
+      const BANDA = q(".amb-banda");
+      gsap.set(BANDA, { y: -120 });
+      for (let t = 0.4; t < DUR - 4; t += 7.3) tl.fromTo(BANDA, { y: -120 }, { y: 2000, duration: 4.2, ease: "none", immediateRender: false }, t);
+
+      // el punto del REC titila
+      tl.to(q(".amb-punto"), { opacity: 0.1, duration: 0.05, yoyo: true, repeat: Math.floor((DUR - 1) / 0.55), repeatDelay: 0.5, ease: "none" }, 0.5);
+
+      // cortes con ruido: cada cambio de escena y los cortes de adentro
+      const CORTES = [2.77, 8.18, 13.72, 18.18, 20.2, 21.5, 27.32, 31.39, 33.35, 36.22, 38.72, 40.23, 46.55, 49.0, 52.29, 61.84];
+      CORTES.forEach((t, k) => {
+        tl.to(q(".amb-ruido"), { opacity: 0.55, duration: 0.02 }, t - 0.06);
+        tl.to(q(".amb-ruido"), { opacity: 0, duration: 0.14, ease: "power2.out" }, t + 0.04);
+        ["r1", "r2", "r3"].forEach((r, i) => {
+          tl.fromTo(q("." + r), { opacity: 0.9, x: (k % 2 ? -1 : 1) * (40 + i * 25), y: (i - 1) * 60 * (k % 3) }, { opacity: 0, x: 0, duration: 0.16, ease: "power2.out", immediateRender: false }, t - 0.06 + i * 0.02);
+        });
+      });
+
+      // zoom de la cámara: s02 (sobre la cara del padre) y s09 ("¿la mejor?")
+      const ZOOM = q(".amb-zoom");
+      gsap.set(ZOOM, { opacity: 0 });
+      [[2.8, 4.6], [38.72, 40.1]].forEach(([a, b]) => {
+        tl.set(ZOOM, { opacity: 1 }, a);
+        tl.set(qa(".amb-zoom .v"), { background: "rgba(242, 227, 91, 0.25)" }, a);
+        qa(".amb-zoom .v").forEach((v, i) => tl.set(v, { background: "#f2e35b" }, a + 0.12 + i * 0.1));
+        tl.set(ZOOM, { opacity: 0 }, b);
+      });
+
+      // STOP antes de Scalerics; después PLAY en la pantalla azul
+      gsap.set([q(".amb-stop"), q(".amb-play")], { opacity: 0 });
+      tl.set(q(".amb-rec"), { opacity: 0 }, 51.75);
+      tl.set(q(".amb-stop"), { opacity: 1 }, 51.75);
+      tl.set(q(".amb-stop"), { opacity: 0 }, 52.29);
+      tl.set(q(".amb-play"), { opacity: 1 }, 52.29);
+      tl.to(q(".amb-play"), { opacity: 0.2, duration: 0.05, yoyo: true, repeat: 5, repeatDelay: 0.25 }, 52.4);
+      // la batería se va gastando
+      tl.set(q(".amb-carga.c3"), { opacity: 0 }, 27.3);
+      tl.set(q(".amb-carga.c2"), { opacity: 0 }, 46.5);
+      tl.to(q(".amb-carga"), { opacity: 0.2, duration: 0.06, yoyo: true, repeat: 7, repeatDelay: 0.3 }, 48.8);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

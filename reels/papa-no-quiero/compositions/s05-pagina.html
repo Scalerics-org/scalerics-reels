@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-pagina"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-pagina"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-pagina"] .trazo { fill: none; stroke: #e9dfc6; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-pagina"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; letter-spacing: -0.02em; white-space: nowrap;
+      -webkit-text-stroke: 12px #1a1622; paint-order: stroke fill; text-shadow: 6px 0 0 rgba(255, 59, 59, 0.55), -6px 0 0 rgba(43, 76, 209, 0.7); }
+    [data-composition-id="s05-pagina"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s05-pagina"] .osd { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; color: #f2e35b; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; text-shadow: 3px 3px 0 #1a1622, 2px 0 0 rgba(255, 59, 59, 0.5); }
+    [data-composition-id="s05-pagina"] .lex { font-family: "Lexend", sans-serif; }
+
+    [data-composition-id="s05-pagina"] .s05-tel { position: absolute; left: 270px; top: 600px; width: 540px; height: 860px; border: 9px solid #e9dfc6; border-radius: 58px; background: #1a1622; overflow: hidden; box-shadow: 10px 10px 0 rgba(26, 22, 34, 0.6); }
+    [data-composition-id="s05-pagina"] .s05-barra { position: absolute; left: 36px; right: 36px; top: 76px; height: 78px; border-radius: 39px; background: #e9dfc6; color: #1a1622; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; line-height: 78px; padding-left: 32px; white-space: nowrap; }
+    [data-composition-id="s05-pagina"] .s05-tarjeta { position: absolute; left: 36px; right: 36px; top: 196px; height: 560px; border-radius: 24px; background: #2a2433; border: 4px solid rgba(233, 223, 198, 0.4); }
+    [data-composition-id="s05-pagina"] .s05-mapa { position: absolute; left: 24px; right: 24px; top: 24px; height: 220px; border-radius: 14px; background: #2b4cd1; opacity: 0.85; overflow: hidden; }
+    [data-composition-id="s05-pagina"] .s05-nombre { position: absolute; left: 28px; top: 270px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 42px; color: #e9dfc6; white-space: nowrap; }
+    [data-composition-id="s05-pagina"] .s05-rubro { position: absolute; left: 28px; top: 328px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #e9dfc6; opacity: 0.7; white-space: nowrap; }
+    [data-composition-id="s05-pagina"] .s05-estado { position: absolute; left: 28px; top: 392px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 27px; color: #ff3b3b; white-space: nowrap; }
+    [data-composition-id="s05-pagina"] .s05-movil { transform-origin: 540px 1000px; }
+    [data-composition-id="s05-pagina"] .s05-anda { top: 1310px; font-size: 92px; color: #f2e35b; }
+    [data-composition-id="s05-pagina"] .s05-nav { position: absolute; left: 110px; top: 620px; width: 860px; height: 640px; border: 8px solid #e9dfc6; border-radius: 20px; background: #1a1622; overflow: hidden; }
+    [data-composition-id="s05-pagina"] .s05-nav-barra { position: absolute; left: 0; right: 0; top: 0; height: 92px; background: #3a3446; border-bottom: 6px solid #e9dfc6; }
+    [data-composition-id="s05-pagina"] .s05-url { position: absolute; left: 190px; right: 30px; top: 18px; height: 56px; border-radius: 28px; background: #e9dfc6; color: #1a1622; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; line-height: 56px; padding-left: 26px; }
+    [data-composition-id="s05-pagina"] .s05-preg { position: absolute; left: 0; right: 0; top: 160px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 360px; line-height: 1; color: #e9dfc6; opacity: 0.25; }
+    [data-composition-id="s05-pagina"] .s05-lapag { top: 1310px; font-size: 112px; color: #e9dfc6; }
+  </style>
+  <div id="root" data-composition-id="s05-pagina" data-width="1080" data-height="1920" data-duration="3.32">
+    <div id="s05-escena" class="capa clip" data-start="0" data-duration="3.32" data-track-index="0">
+
+      <div class="capa s05-cam"><div class="capa s05-sac">
+        <div class="capa s05-a">
+          <div class="capa s05-movil">
+        <div class="s05-tel">
+          <div class="s05-barra">pizzería el horno</div>
+          <div class="s05-tarjeta">
+            <div class="s05-mapa"><svg viewBox="0 0 400 220" style="width:400px;height:220px" aria-hidden="true">
+              <path d="M0 80 H400 M0 170 H400 M120 0 V220 M290 0 V220" stroke="#e9dfc6" stroke-width="10" opacity="0.5" />
+              <path d="M205 60 C205 30 245 30 245 60 C245 85 225 100 225 112 C225 100 205 85 205 60 Z" fill="#ff3b3b" stroke="#1a1622" stroke-width="4" />
+            </svg></div>
+            <div class="s05-nombre" data-layout-ignore>Pizzería El Horno</div>
+            <div class="s05-rubro" data-layout-ignore>Pizzería · Barrio</div>
+            <div class="s05-estado" data-layout-ignore>CERRADO PERMANENTEMENTE</div>
+          </div>
+        </div></div>
+          <div class="big s05-anda">Andá a decírselo</div>
+        </div>
+        <div class="capa s05-b">
+          <div class="s05-nav">
+            <div class="s05-nav-barra">
+              <svg viewBox="0 0 1080 1920" aria-hidden="true"><circle cx="40" cy="46" r="13" fill="#ff3b3b" /><circle cx="84" cy="46" r="13" fill="#f2e35b" /><circle cx="128" cy="46" r="13" fill="#e9dfc6" opacity="0.5" /></svg>
+              <div class="s05-url">www.<span class="s05-q">???</span></div>
+            </div>
+            <div class="s05-preg">?</div>
+          </div>
+          <svg viewBox="0 0 1080 1920" aria-hidden="true"><path class="s05-cursor" d="M640 980 L640 1090 L668 1064 L690 1112 L708 1104 L686 1056 L724 1056 Z" fill="#e9dfc6" stroke="#1a1622" stroke-width="5" stroke-linejoin="round" /></svg>
+          <div class="big s05-lapag">¿La página?</div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-pagina";
+      const DUR = 3.32;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const POSES = {"abajo":{"c":[205,200],"h":[185,345]},"amasar":{"c":[225,240],"h":[130,318]},"arriba":{"c":[285,70],"h":[255,-60]},"cabeza":{"c":[250,-10],"h":[92,-200]},"pecho":{"c":[170,260],"h":[30,140]},"frente":{"c":[220,160],"h":[150,250]}};
+      // sacudón (sobre un contenedor HTML)
+      const sacudon = (el, t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(el, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // texto que cae de golpe
+      const golpe = (el, t, rot = 0, s0 = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: s0, rotation: rot * 2 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, from = 0.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      const entra = (el, t, y = 40, d = 0.3) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t); };
+      const dibujar = (els, t, d = 0.6, st = 0) => [].concat(els).forEach((e, i) => { const L = e.getTotalLength(); gsap.set(e, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 }); tl.set(e, { opacity: 1 }, t + i * st); tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st); });
+      const corte = (fuera, dentro, t) => { if (dentro) gsap.set(dentro, { opacity: 0 }); if (fuera) tl.set(fuera, { opacity: 0 }, t); if (dentro) tl.set(dentro, { opacity: 1 }, t); };
+      // cambio de pose de un brazo: p = prefijo, lado "i"/"d"
+      const pose = (p, lado, nombre, t, d = 0.22, sel = "") => { const s = lado === "d" ? 1 : -1; const P = POSES[nombre]; const dd = "M" + 150 * s + " 70 Q" + P.c[0] * s + " " + P.c[1] + " " + P.h[0] * s + " " + P.h[1];
+        tl.to(qa(sel + " ." + p + "brazo-" + lado + " path"), { attr: { d: dd }, duration: d, ease: "back.out(1.6)" }, t);
+        tl.to(qa(sel + " ." + p + "brazo-" + lado + " circle"), { attr: { cx: P.h[0] * s, cy: P.h[1] }, duration: d, ease: "back.out(1.6)" }, t); };
+      // cámara en mano: deriva suave y continua
+      const mano = (el, dur, a = 7) => { for (let i = 0, t = 0; t < dur; i++, t += 0.9) tl.to(el, { x: a * Math.sin(i * 1.7 + 0.4), y: a * 0.8 * Math.cos(i * 2.3), rotation: 0.35 * Math.sin(i * 1.1), duration: 0.9, ease: "sine.inOut" }, t); };
+
+
+      const DECIR = 0.37, GOOGLE = 0.93, PAGINA = 2.24;
+      mano(q(".s05-cam"), DUR, 8);
+      // el celular con el "cerrado" se achica y tiembla de vergüenza
+      tl.fromTo(q(".s05-movil"), { scale: 1, y: 0 }, { scale: 0.78, y: -60, duration: 0.4, ease: "power3.out" }, 0);
+      golpe(q(".s05-anda"), DECIR, -3);
+      tl.to(q(".s05-movil"), { rotation: 4, duration: 0.06, yoyo: true, repeat: 7, ease: "sine.inOut" }, GOOGLE);
+      tl.to(q(".s05-estado"), { opacity: 0.3, duration: 0.06, yoyo: true, repeat: 7 }, GOOGLE);
+      // corte al navegador
+      const B = q(".s05-b");
+      gsap.set(B, { opacity: 0 });
+      tl.set(q(".s05-a"), { opacity: 0 }, 2.0);
+      tl.set(B, { opacity: 1 }, 2.0);
+      tl.fromTo(q(".s05-nav"), { scale: 0.9, rotation: -3 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(1.8)" }, 2.0);
+      tl.fromTo(q(".s05-cursor"), { x: 120, y: 160 }, { x: 0, y: 0, duration: 0.3, ease: "power2.out" }, 2.0);
+      tl.to(q(".s05-cursor"), { scale: 0.85, svgOrigin: "660 1040", duration: 0.06, yoyo: true, repeat: 3 }, 2.35);
+      golpe(q(".s05-lapag"), PAGINA, 2);
+      tl.to(q(".s05-preg"), { opacity: 0.6, duration: 0.1, yoyo: true, repeat: 5 }, PAGINA);
+      tl.to(q(".s05-q"), { opacity: 0, duration: 0.05, yoyo: true, repeat: 7, repeatDelay: 0.08 }, 2.1);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.15, ease: "power2.in" }, DUR - 0.15);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

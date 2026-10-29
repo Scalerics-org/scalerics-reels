@@ -1,0 +1,185 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-treinta"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-treinta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-treinta"] .trazo { fill: none; stroke: #e9dfc6; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-treinta"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; letter-spacing: -0.02em; white-space: nowrap;
+      -webkit-text-stroke: 12px #1a1622; paint-order: stroke fill; text-shadow: 6px 0 0 rgba(255, 59, 59, 0.55), -6px 0 0 rgba(43, 76, 209, 0.7); }
+    [data-composition-id="s02-treinta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s02-treinta"] .osd { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; color: #f2e35b; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; text-shadow: 3px 3px 0 #1a1622, 2px 0 0 rgba(255, 59, 59, 0.5); }
+    [data-composition-id="s02-treinta"] .lex { font-family: "Lexend", sans-serif; }
+
+    [data-composition-id="s02-treinta"] .s02-30 { top: 1010px; font-size: 330px; color: #f2e35b; -webkit-text-stroke: 16px #1a1622; }
+    [data-composition-id="s02-treinta"] .s02-anios { top: 1340px; font-size: 118px; color: #e9dfc6; }
+    [data-composition-id="s02-treinta"] .s02-anio { position: absolute; left: 380px; top: 1372px; font-size: 64px; }
+  </style>
+  <div id="root" data-composition-id="s02-treinta" data-width="1080" data-height="1920" data-duration="5.41">
+    <div id="s02-escena" class="capa clip" data-start="0" data-duration="5.41" data-track-index="0">
+
+      <div class="capa s02-cam"><div class="capa s02-sac">
+        <div class="capa s02-a">
+          <div class="capa s02-zoom">
+            <svg viewBox="0 0 1080 1920" aria-hidden="true">
+              <g class="s02-cartel">
+      <path d="M220 560 L170 640 M220 560 L270 640" stroke="#e9dfc6" stroke-width="4" opacity="0.6" />
+      <rect x="96" y="636" width="250" height="96" rx="10" fill="#c8553d" stroke="#e9dfc6" stroke-width="6" />
+      <text x="221" y="700" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="42" fill="#e9dfc6">EL HORNO</text>
+    </g>
+              <g class="s02-reloj">
+      <circle cx="905" cy="700" r="66" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+      <path class="s02-aguja" d="M905 700 L905 652" stroke="#f2e35b" stroke-width="6" stroke-linecap="round" />
+      <path d="M905 700 L940 712" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+      <circle cx="905" cy="700" r="7" fill="#e9dfc6" />
+    </g>
+              <g transform="translate(540 900) scale(1)"><g class="s02-papa">
+    <path d="M-178 440 L-160 90 Q-150 8 0 0 Q150 8 160 90 L178 440 Z" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-96 64 Q0 84 96 64 L118 440 L-118 440 Z" fill="#e9dfc6" opacity="0.92" />
+    <path d="M-96 64 L-58 4 M96 64 L58 4" stroke="#e9dfc6" stroke-width="10" stroke-linecap="round" />
+    <circle cx="48" cy="232" r="17" fill="#c8553d" opacity="0.85" /><circle cx="70" cy="252" r="8" fill="#c8553d" opacity="0.85" />
+    <rect x="-52" y="300" width="104" height="62" rx="8" fill="none" stroke="#1a1622" stroke-width="5" opacity="0.6" />
+    <g class="s02-brazo-i">
+      <path class="s02-bz-o" d="M-150 70 Q-205 200 -185 345" fill="none" stroke="#e9dfc6" stroke-width="66" stroke-linecap="round" />
+      <path class="s02-bz-i" d="M-150 70 Q-205 200 -185 345" fill="none" stroke="#1a1622" stroke-width="54" stroke-linecap="round" />
+      <circle class="s02-mano" cx="-185" cy="345" r="31" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+    </g>
+    <g class="s02-brazo-d">
+      <path class="s02-bz-o" d="M150 70 Q205 200 185 345" fill="none" stroke="#e9dfc6" stroke-width="66" stroke-linecap="round" />
+      <path class="s02-bz-i" d="M150 70 Q205 200 185 345" fill="none" stroke="#1a1622" stroke-width="54" stroke-linecap="round" />
+      <circle class="s02-mano" cx="185" cy="345" r="31" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+    </g>
+    <g class="s02-cabeza">
+      <circle cx="0" cy="-112" r="102" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+      <path d="M-98 -150 Q-114 -100 -94 -60 M98 -150 Q114 -100 94 -60" fill="none" stroke="#e9dfc6" stroke-width="12" stroke-linecap="round" opacity="0.55" />
+      <path d="M-86 -178 L-82 -236 Q-124 -262 -94 -304 Q-62 -344 -20 -318 Q12 -354 54 -322 Q104 -312 92 -262 Q122 -240 82 -232 L86 -178 Z" fill="#e9dfc6" stroke="#1a1622" stroke-width="5" stroke-linejoin="round" />
+      <path d="M-86 -192 H86" stroke="#1a1622" stroke-width="4" opacity="0.5" />
+      <ellipse class="s02-ojo" cx="-38" cy="-120" rx="11" ry="14" fill="#e9dfc6" />
+      <ellipse class="s02-ojo" cx="38" cy="-120" rx="11" ry="14" fill="#e9dfc6" />
+      <path class="s02-ceja-i" d="M-64 -150 L-16 -146" stroke="#e9dfc6" stroke-width="13" stroke-linecap="round" />
+      <path class="s02-ceja-d" d="M16 -146 L64 -150" stroke="#e9dfc6" stroke-width="13" stroke-linecap="round" />
+      <path class="s02-boca" d="M-22 -42 Q0 -34 22 -42" fill="none" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+      <path class="s02-bigote" d="M-74 -66 Q-42 -100 0 -84 Q42 -100 74 -66 Q62 -44 0 -60 Q-62 -44 -74 -66 Z" fill="#e9dfc6" />
+      
+    </g>
+  </g></g>
+              <g class="s02-mostrador">
+      <rect x="40" y="1262" width="1000" height="238" fill="#c8553d" stroke="#1a1622" stroke-width="6" />
+      <rect x="40" y="1240" width="1000" height="30" rx="6" fill="#e9dfc6" stroke="#1a1622" stroke-width="5" />
+      <path d="M140 1302 V1480 M340 1302 V1480 M540 1302 V1480 M740 1302 V1480 M940 1302 V1480" stroke="#1a1622" stroke-width="5" opacity="0.35" />
+    </g>
+            </svg>
+          </div>
+          <div class="big s02-30">30</div>
+          <div class="big s02-anios">años</div>
+        </div>
+        <div class="capa s02-b">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <defs><clipPath id="s02-hueco"><rect x="190" y="640" width="700" height="660" /></clipPath></defs>
+            <rect x="160" y="580" width="760" height="66" rx="8" fill="#c8553d" stroke="#e9dfc6" stroke-width="6" />
+            <text x="540" y="628" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="40" fill="#e9dfc6">PIZZERÍA EL HORNO</text>
+            <rect x="190" y="640" width="700" height="660" fill="#1a1622" />
+            <rect x="190" y="640" width="700" height="660" fill="#f2e35b" opacity="0.3" />
+            <rect x="230" y="1110" width="620" height="190" fill="#c8553d" stroke="#1a1622" stroke-width="5" />
+            <circle cx="540" cy="900" r="70" fill="#1a1622" stroke="#e9dfc6" stroke-width="5" />
+            <path d="M430 1110 Q440 990 540 980 Q640 990 650 1110 Z" fill="#1a1622" stroke="#e9dfc6" stroke-width="5" />
+            <g clip-path="url(#s02-hueco)"><g class="s02-persiana">
+              <rect x="190" y="640" width="700" height="660" fill="#3a3446" />
+              <path d="M190 672 H890 M190 706 H890 M190 740 H890 M190 774 H890 M190 808 H890 M190 842 H890 M190 876 H890 M190 910 H890 M190 944 H890 M190 978 H890 M190 1012 H890 M190 1046 H890 M190 1080 H890 M190 1114 H890 M190 1148 H890 M190 1182 H890 M190 1216 H890 M190 1250 H890 M190 1284 H890" stroke="#e9dfc6" stroke-width="4" opacity="0.5" />
+              <rect x="500" y="1262" width="80" height="22" rx="6" fill="#e9dfc6" />
+            </g></g>
+            <rect x="182" y="640" width="716" height="664" fill="none" stroke="#e9dfc6" stroke-width="8" />
+            <g class="s02-sol"><circle cx="290" cy="1404" r="34" fill="#f2e35b" /><path d="M290 1350 V1338 M290 1458 V1470 M236 1404 H224 M344 1404 H356 M252 1366 L244 1358 M328 1442 L336 1450 M328 1366 L336 1358 M252 1442 L244 1450" stroke="#f2e35b" stroke-width="6" stroke-linecap="round" /></g>
+            <path class="s02-luna" d="M300 1366 A40 40 0 1 0 300 1442 A30 30 0 1 1 300 1366 Z" fill="#e9dfc6" />
+          </svg>
+          <div class="osd s02-anio s02-n0">AÑO 1</div>
+          <div class="osd s02-anio s02-n1">AÑO 7</div>
+          <div class="osd s02-anio s02-n2">AÑO 15</div>
+          <div class="osd s02-anio s02-n3">AÑO 22</div>
+          <div class="osd s02-anio s02-n4">AÑO 30</div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-treinta";
+      const DUR = 5.41;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const POSES = {"abajo":{"c":[205,200],"h":[185,345]},"amasar":{"c":[225,240],"h":[130,318]},"arriba":{"c":[285,70],"h":[255,-60]},"cabeza":{"c":[250,-10],"h":[92,-200]},"pecho":{"c":[170,260],"h":[30,140]},"frente":{"c":[220,160],"h":[150,250]}};
+      // sacudón (sobre un contenedor HTML)
+      const sacudon = (el, t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(el, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // texto que cae de golpe
+      const golpe = (el, t, rot = 0, s0 = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: s0, rotation: rot * 2 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, from = 0.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      const entra = (el, t, y = 40, d = 0.3) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t); };
+      const dibujar = (els, t, d = 0.6, st = 0) => [].concat(els).forEach((e, i) => { const L = e.getTotalLength(); gsap.set(e, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 }); tl.set(e, { opacity: 1 }, t + i * st); tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st); });
+      const corte = (fuera, dentro, t) => { if (dentro) gsap.set(dentro, { opacity: 0 }); if (fuera) tl.set(fuera, { opacity: 0 }, t); if (dentro) tl.set(dentro, { opacity: 1 }, t); };
+      // cambio de pose de un brazo: p = prefijo, lado "i"/"d"
+      const pose = (p, lado, nombre, t, d = 0.22, sel = "") => { const s = lado === "d" ? 1 : -1; const P = POSES[nombre]; const dd = "M" + 150 * s + " 70 Q" + P.c[0] * s + " " + P.c[1] + " " + P.h[0] * s + " " + P.h[1];
+        tl.to(qa(sel + " ." + p + "brazo-" + lado + " path"), { attr: { d: dd }, duration: d, ease: "back.out(1.6)" }, t);
+        tl.to(qa(sel + " ." + p + "brazo-" + lado + " circle"), { attr: { cx: P.h[0] * s, cy: P.h[1] }, duration: d, ease: "back.out(1.6)" }, t); };
+      // cámara en mano: deriva suave y continua
+      const mano = (el, dur, a = 7) => { for (let i = 0, t = 0; t < dur; i++, t += 0.9) tl.to(el, { x: a * Math.sin(i * 1.7 + 0.4), y: a * 0.8 * Math.cos(i * 2.3), rotation: 0.35 * Math.sin(i * 1.1), duration: 0.9, ease: "sine.inOut" }, t); };
+
+
+      const TREINTA = 1.34, CORTINA = 2.98, OTRA = 4.1;
+      mano(q(".s02-cam"), DUR, 9);
+      // enojado desde el cuadro 0
+      gsap.set(q(".s02-ceja-i"), { attr: { d: "M-64 -164 L-16 -138" } });
+      gsap.set(q(".s02-ceja-d"), { attr: { d: "M16 -138 L64 -164" } });
+      gsap.set(q(".s02-boca"), { attr: { d: "M-24 -46 Q0 -14 24 -46" } });
+      // la cámara hace zoom a la cara
+      tl.fromTo(q(".s02-zoom"), { scale: 1, transformOrigin: "540px 760px" }, { scale: 1.45, transformOrigin: "540px 760px", duration: 1.2, ease: "power2.inOut" }, 0.05);
+      tl.to(q(".s02-papa"), { y: -10, duration: 0.1, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.1);
+      // "treinta años": brazos arriba y el 30 gigante
+      pose("s02-", "i", "arriba", TREINTA - 0.1);
+      pose("s02-", "d", "arriba", TREINTA - 0.1);
+      golpe(q(".s02-30"), TREINTA, -3);
+      golpe(q(".s02-anios"), TREINTA + 0.44, 2, 2);
+      sacudon(q(".s02-sac"), TREINTA + 0.03, 1.4);
+      // corte a la persiana: treinta años de subirla y bajarla
+      const B = q(".s02-b");
+      gsap.set(B, { opacity: 0 });
+      tl.set(q(".s02-a"), { opacity: 0 }, 2.0);
+      tl.set(B, { opacity: 1 }, 2.0);
+      const P = q(".s02-persiana");
+      const sol = q(".s02-sol"), luna = q(".s02-luna");
+      const ANIOS = qa(".s02-anio");
+      gsap.set(ANIOS, { opacity: 0 });
+      gsap.set(luna, { opacity: 0 });
+      const SUBE = [2.05, 2.42, 2.74, 3.06, 3.38];
+      SUBE.forEach((t, i) => {
+        tl.fromTo(P, { y: 0 }, { y: -560, duration: 0.16, ease: "power2.out", immediateRender: false }, t);
+        if (i < SUBE.length - 1) tl.to(P, { y: 0, duration: 0.12, ease: "power2.in" }, t + 0.2);
+        tl.set(ANIOS, { opacity: 0 }, t);
+        tl.set(ANIOS[i], { opacity: 1 }, t);
+        tl.set(sol, { opacity: 1 }, t); tl.set(luna, { opacity: 0 }, t);
+        if (i < SUBE.length - 1) { tl.set(sol, { opacity: 0 }, t + 0.24); tl.set(luna, { opacity: 1 }, t + 0.24); }
+      });
+      tl.fromTo(ANIOS[4], { scale: 1.6 }, { scale: 1, duration: 0.2, ease: "back.out(2)" }, 3.38);
+      // "¡treinta!": de vuelta a la cara, el 30 de nuevo, más fuerte
+      tl.set(B, { opacity: 0 }, OTRA - 0.08);
+      tl.set(q(".s02-a"), { opacity: 1 }, OTRA - 0.08);
+      pose("s02-", "i", "abajo", OTRA - 0.08, 0.15);
+      golpe(q(".s02-30"), OTRA, 4, 3.4);
+      gsap.set(q(".s02-anios"), { opacity: 0 });
+      tl.set(q(".s02-anios"), { opacity: 0 }, OTRA - 0.1);
+      tl.to(q(".s02-zoom"), { scale: 1.7, duration: 0.18, ease: "power3.out" }, OTRA - 0.05);
+      sacudon(q(".s02-sac"), OTRA + 0.03, 2.4);
+      sacudon(q(".s02-sac"), OTRA + 0.25, 1);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.15, ease: "power2.in" }, DUR - 0.15);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

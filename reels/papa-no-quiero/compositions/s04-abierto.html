@@ -1,0 +1,144 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-abierto"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-abierto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-abierto"] .trazo { fill: none; stroke: #e9dfc6; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-abierto"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; letter-spacing: -0.02em; white-space: nowrap;
+      -webkit-text-stroke: 12px #1a1622; paint-order: stroke fill; text-shadow: 6px 0 0 rgba(255, 59, 59, 0.55), -6px 0 0 rgba(43, 76, 209, 0.7); }
+    [data-composition-id="s04-abierto"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s04-abierto"] .osd { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; color: #f2e35b; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; text-shadow: 3px 3px 0 #1a1622, 2px 0 0 rgba(255, 59, 59, 0.5); }
+    [data-composition-id="s04-abierto"] .lex { font-family: "Lexend", sans-serif; }
+
+    [data-composition-id="s04-abierto"] .s04-neon { position: absolute; left: 92px; top: 620px; width: 380px; height: 140px; border: 7px solid #ff3b3b; border-radius: 22px; background: rgba(26, 22, 34, 0.8); text-align: center;
+      box-shadow: 0 0 22px #ff3b3b, inset 0 0 16px rgba(255, 59, 59, 0.5); }
+    [data-composition-id="s04-abierto"] .s04-neon-t { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 74px; line-height: 126px; color: #fff3a8; text-shadow: 0 0 8px #f2e35b, 0 0 24px #f2e35b; letter-spacing: 0.02em; }
+  </style>
+  <div id="root" data-composition-id="s04-abierto" data-width="1080" data-height="1920" data-duration="4.46">
+    <div id="s04-escena" class="capa clip" data-start="0" data-duration="4.46" data-track-index="0">
+
+      <div class="capa s04-cam"><div class="capa s04-sac">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s04-reloj">
+      <circle cx="905" cy="700" r="66" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+      <path class="s04-aguja" d="M905 700 L905 652" stroke="#f2e35b" stroke-width="6" stroke-linecap="round" />
+      <path d="M905 700 L940 712" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+      <circle cx="905" cy="700" r="7" fill="#e9dfc6" />
+    </g>
+          <g transform="translate(600 910) scale(1)"><g class="s04-papa">
+    <path d="M-178 440 L-160 90 Q-150 8 0 0 Q150 8 160 90 L178 440 Z" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-96 64 Q0 84 96 64 L118 440 L-118 440 Z" fill="#e9dfc6" opacity="0.92" />
+    <path d="M-96 64 L-58 4 M96 64 L58 4" stroke="#e9dfc6" stroke-width="10" stroke-linecap="round" />
+    <circle cx="48" cy="232" r="17" fill="#c8553d" opacity="0.85" /><circle cx="70" cy="252" r="8" fill="#c8553d" opacity="0.85" />
+    <rect x="-52" y="300" width="104" height="62" rx="8" fill="none" stroke="#1a1622" stroke-width="5" opacity="0.6" />
+    <g class="s04-brazo-i">
+      <path class="s04-bz-o" d="M-150 70 Q-205 200 -185 345" fill="none" stroke="#e9dfc6" stroke-width="66" stroke-linecap="round" />
+      <path class="s04-bz-i" d="M-150 70 Q-205 200 -185 345" fill="none" stroke="#1a1622" stroke-width="54" stroke-linecap="round" />
+      <circle class="s04-mano" cx="-185" cy="345" r="31" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+    </g>
+    <g class="s04-brazo-d">
+      <path class="s04-bz-o" d="M150 70 Q170 260 30 140" fill="none" stroke="#e9dfc6" stroke-width="66" stroke-linecap="round" />
+      <path class="s04-bz-i" d="M150 70 Q170 260 30 140" fill="none" stroke="#1a1622" stroke-width="54" stroke-linecap="round" />
+      <circle class="s04-mano" cx="30" cy="140" r="31" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+    </g>
+    <g class="s04-cabeza">
+      <circle cx="0" cy="-112" r="102" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+      <path d="M-98 -150 Q-114 -100 -94 -60 M98 -150 Q114 -100 94 -60" fill="none" stroke="#e9dfc6" stroke-width="12" stroke-linecap="round" opacity="0.55" />
+      <path d="M-86 -178 L-82 -236 Q-124 -262 -94 -304 Q-62 -344 -20 -318 Q12 -354 54 -322 Q104 -312 92 -262 Q122 -240 82 -232 L86 -178 Z" fill="#e9dfc6" stroke="#1a1622" stroke-width="5" stroke-linejoin="round" />
+      <path d="M-86 -192 H86" stroke="#1a1622" stroke-width="4" opacity="0.5" />
+      <ellipse class="s04-ojo" cx="-38" cy="-120" rx="11" ry="14" fill="#e9dfc6" />
+      <ellipse class="s04-ojo" cx="38" cy="-120" rx="11" ry="14" fill="#e9dfc6" />
+      <path class="s04-ceja-i" d="M-64 -150 L-16 -146" stroke="#e9dfc6" stroke-width="13" stroke-linecap="round" />
+      <path class="s04-ceja-d" d="M16 -146 L64 -150" stroke="#e9dfc6" stroke-width="13" stroke-linecap="round" />
+      <path class="s04-boca" d="M-22 -42 Q0 -34 22 -42" fill="none" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+      <path class="s04-bigote" d="M-74 -66 Q-42 -100 0 -84 Q42 -100 74 -66 Q62 -44 0 -60 Q-62 -44 -74 -66 Z" fill="#e9dfc6" />
+      
+    </g>
+  </g></g>
+          <g class="s04-mostrador">
+      <rect x="40" y="1262" width="1000" height="238" fill="#c8553d" stroke="#1a1622" stroke-width="6" />
+      <rect x="40" y="1240" width="1000" height="30" rx="6" fill="#e9dfc6" stroke="#1a1622" stroke-width="5" />
+      <path d="M140 1302 V1480 M340 1302 V1480 M540 1302 V1480 M740 1302 V1480 M940 1302 V1480" stroke="#1a1622" stroke-width="5" opacity="0.35" />
+    </g>
+          <g class="s04-radio">
+            <path d="M860 1130 L940 1040" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+            <rect x="760" y="1120" width="230" height="122" rx="18" fill="#c8553d" stroke="#e9dfc6" stroke-width="6" />
+            <circle cx="820" cy="1181" r="38" fill="#1a1622" stroke="#e9dfc6" stroke-width="5" />
+            <circle cx="820" cy="1181" r="14" fill="#e9dfc6" opacity="0.6" />
+            <rect x="876" y="1146" width="90" height="30" rx="5" fill="#f2e35b" stroke="#1a1622" stroke-width="4" />
+            <circle cx="900" cy="1212" r="10" fill="#1a1622" /><circle cx="944" cy="1212" r="10" fill="#1a1622" />
+          </g>
+          <g class="s04-notas">
+            <g class="s04-nota"><ellipse cx="800" cy="1060" rx="18" ry="14" fill="#f2e35b" /><path d="M816 1058 V990 L846 1000" fill="none" stroke="#f2e35b" stroke-width="7" stroke-linecap="round" /></g>
+            <g class="s04-nota"><ellipse cx="900" cy="990" rx="18" ry="14" fill="#e9dfc6" /><path d="M916 988 V920 L946 930" fill="none" stroke="#e9dfc6" stroke-width="7" stroke-linecap="round" /></g>
+            <g class="s04-nota"><ellipse cx="990" cy="1070" rx="18" ry="14" fill="#f2e35b" /><path d="M1006 1068 V1000" fill="none" stroke="#f2e35b" stroke-width="7" stroke-linecap="round" /></g>
+          </g>
+        </svg>
+        <div class="s04-neon"><div class="s04-neon-t">ABIERTO</div></div>
+      </div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-abierto";
+      const DUR = 4.46;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const POSES = {"abajo":{"c":[205,200],"h":[185,345]},"amasar":{"c":[225,240],"h":[130,318]},"arriba":{"c":[285,70],"h":[255,-60]},"cabeza":{"c":[250,-10],"h":[92,-200]},"pecho":{"c":[170,260],"h":[30,140]},"frente":{"c":[220,160],"h":[150,250]}};
+      // sacudón (sobre un contenedor HTML)
+      const sacudon = (el, t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(el, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // texto que cae de golpe
+      const golpe = (el, t, rot = 0, s0 = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: s0, rotation: rot * 2 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, from = 0.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      const entra = (el, t, y = 40, d = 0.3) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t); };
+      const dibujar = (els, t, d = 0.6, st = 0) => [].concat(els).forEach((e, i) => { const L = e.getTotalLength(); gsap.set(e, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 }); tl.set(e, { opacity: 1 }, t + i * st); tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st); });
+      const corte = (fuera, dentro, t) => { if (dentro) gsap.set(dentro, { opacity: 0 }); if (fuera) tl.set(fuera, { opacity: 0 }, t); if (dentro) tl.set(dentro, { opacity: 1 }, t); };
+      // cambio de pose de un brazo: p = prefijo, lado "i"/"d"
+      const pose = (p, lado, nombre, t, d = 0.22, sel = "") => { const s = lado === "d" ? 1 : -1; const P = POSES[nombre]; const dd = "M" + 150 * s + " 70 Q" + P.c[0] * s + " " + P.c[1] + " " + P.h[0] * s + " " + P.h[1];
+        tl.to(qa(sel + " ." + p + "brazo-" + lado + " path"), { attr: { d: dd }, duration: d, ease: "back.out(1.6)" }, t);
+        tl.to(qa(sel + " ." + p + "brazo-" + lado + " circle"), { attr: { cx: P.h[0] * s, cy: P.h[1] }, duration: d, ease: "back.out(1.6)" }, t); };
+      // cámara en mano: deriva suave y continua
+      const mano = (el, dur, a = 7) => { for (let i = 0, t = 0; t < dur; i++, t += 0.9) tl.to(el, { x: a * Math.sin(i * 1.7 + 0.4), y: a * 0.8 * Math.cos(i * 2.3), rotation: 0.35 * Math.sin(i * 1.1), duration: 0.9, ease: "sine.inOut" }, t); };
+
+
+      const ACA = 0.5, ABIERTO = 0.9, RADIO = 2.8;
+      mano(q(".s04-cam"), DUR, 8);
+      gsap.set(q(".s04-ceja-i"), { attr: { d: "M-64 -164 L-16 -140" } });
+      gsap.set(q(".s04-ceja-d"), { attr: { d: "M16 -140 L64 -164" } });
+      gsap.set(q(".s04-boca"), { attr: { d: "M-24 -46 Q0 -12 24 -46" } });
+      tl.fromTo(q(".s04-papa"), { x: 60 }, { x: 0, duration: 0.3, ease: "power3.out" }, 0);
+      // "acá": se señala, golpe en el pecho
+      tl.to(q(".s04-papa"), { y: 10, duration: 0.08, yoyo: true, repeat: 3 }, ACA);
+      // "abierto": abre los brazos y se prende el cartel
+      pose("s04-", "i", "arriba", ABIERTO - 0.1);
+      pose("s04-", "d", "arriba", ABIERTO - 0.1);
+      const neon = q(".s04-neon");
+      gsap.set(neon, { opacity: 0.2 });
+      [[0, 1], [0.06, 0.25], [0.12, 1], [0.2, 0.4], [0.28, 1]].forEach(([d, o]) => tl.to(neon, { opacity: o, duration: 0.02 }, ABIERTO + d));
+      tl.fromTo(neon, { scale: 1.15 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, ABIERTO);
+      sacudon(q(".s04-sac"), ABIERTO + 0.03, 1);
+      tl.to(q(".s04-neon-t"), { opacity: 0.8, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, ABIERTO + 0.4);
+      // "radio prendida": la radio salta y salen notas
+      pose("s04-", "d", "frente", RADIO - 0.4);
+      pose("s04-", "i", "abajo", RADIO - 0.4);
+      tl.to(q(".s04-radio"), { y: -12, duration: 0.1, yoyo: true, repeat: 9, ease: "sine.inOut" }, RADIO - 0.1);
+      qa(".s04-nota").forEach((n, i) => {
+        gsap.set(n, { opacity: 0 });
+        tl.fromTo(n, { opacity: 0, y: 40 }, { opacity: 1, y: -30, duration: 0.5, ease: "power2.out", immediateRender: false }, RADIO + i * 0.14);
+        tl.to(n, { y: -60, opacity: 0.6, duration: 0.6, ease: "sine.inOut" }, RADIO + 0.5 + i * 0.14);
+      });
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.15, ease: "power2.in" }, DUR - 0.15);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

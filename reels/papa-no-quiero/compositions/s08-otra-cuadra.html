@@ -1,0 +1,200 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-otra-cuadra"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-otra-cuadra"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-otra-cuadra"] .trazo { fill: none; stroke: #e9dfc6; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-otra-cuadra"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; letter-spacing: -0.02em; white-space: nowrap;
+      -webkit-text-stroke: 12px #1a1622; paint-order: stroke fill; text-shadow: 6px 0 0 rgba(255, 59, 59, 0.55), -6px 0 0 rgba(43, 76, 209, 0.7); }
+    [data-composition-id="s08-otra-cuadra"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s08-otra-cuadra"] .osd { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; color: #f2e35b; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; text-shadow: 3px 3px 0 #1a1622, 2px 0 0 rgba(255, 59, 59, 0.5); }
+    [data-composition-id="s08-otra-cuadra"] .lex { font-family: "Lexend", sans-serif; }
+
+    [data-composition-id="s08-otra-cuadra"] .s08-preg { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 130px; line-height: 1; color: #f2e35b; -webkit-text-stroke: 10px #1a1622; paint-order: stroke fill; }
+    [data-composition-id="s08-otra-cuadra"] .s08-mapa { position: absolute; left: 100px; top: 600px; width: 880px; height: 840px; border: 8px solid #e9dfc6; border-radius: 30px; background: #2a2433; overflow: hidden; }
+    [data-composition-id="s08-otra-cuadra"] .s08-busca { position: absolute; left: 30px; right: 30px; top: 26px; height: 80px; border-radius: 40px; background: #e9dfc6; color: #1a1622; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; line-height: 80px; padding-left: 36px; z-index: 2; }
+    [data-composition-id="s08-otra-cuadra"] .s08-rot { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; white-space: nowrap; letter-spacing: 0.04em; }
+  </style>
+  <div id="root" data-composition-id="s08-otra-cuadra" data-width="1080" data-height="1920" data-duration="4.83">
+    <div id="s08-escena" class="capa clip" data-start="0" data-duration="4.83" data-track-index="0">
+
+      <div class="capa s08-cam"><div class="capa s08-sac">
+        <div class="capa s08-a">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g transform="translate(230 1060) scale(0.62)"><g class="s08-ahijo">
+    <path d="M-170 440 L-152 90 Q-140 8 0 0 Q140 8 152 90 L170 440 Z" fill="#2b4cd1" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-92 20 Q0 110 92 20" fill="none" stroke="#e9dfc6" stroke-width="8" stroke-linecap="round" />
+    <path d="M-30 70 V170 M30 70 V170" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+    <path d="M-90 300 H90 L70 380 H-70 Z" fill="none" stroke="#e9dfc6" stroke-width="5" opacity="0.55" />
+    <g class="s08-abrazo-i">
+      <path class="s08-abz-o" d="M-150 70 Q-220 160 -150 250" fill="none" stroke="#e9dfc6" stroke-width="66" stroke-linecap="round" />
+      <path class="s08-abz-i" d="M-150 70 Q-220 160 -150 250" fill="none" stroke="#2b4cd1" stroke-width="54" stroke-linecap="round" />
+      <circle class="s08-amano" cx="-150" cy="250" r="31" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+    </g>
+    <g class="s08-abrazo-d">
+      <path class="s08-abz-o" d="M150 70 Q220 160 150 250" fill="none" stroke="#e9dfc6" stroke-width="66" stroke-linecap="round" />
+      <path class="s08-abz-i" d="M150 70 Q220 160 150 250" fill="none" stroke="#2b4cd1" stroke-width="54" stroke-linecap="round" />
+      <circle class="s08-amano" cx="150" cy="250" r="31" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+    </g>
+    <g class="s08-acabeza">
+      <circle cx="0" cy="-108" r="96" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+      <path d="M-92 -126 Q-90 -212 0 -212 Q90 -212 92 -126 Z" fill="#c8553d" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+      <path d="M-86 -134 Q-150 -140 -170 -120 Q-130 -112 -88 -118" fill="#c8553d" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+      <ellipse class="s08-aojo" cx="-34" cy="-98" rx="10" ry="13" fill="#e9dfc6" />
+      <ellipse class="s08-aojo" cx="34" cy="-98" rx="10" ry="13" fill="#e9dfc6" />
+      <path class="s08-aceja-i" d="M-56 -124 L-16 -126" stroke="#e9dfc6" stroke-width="9" stroke-linecap="round" />
+      <path class="s08-aceja-d" d="M16 -126 L56 -124" stroke="#e9dfc6" stroke-width="9" stroke-linecap="round" />
+      <path class="s08-aboca" d="M-28 -54 Q0 -34 28 -54" fill="none" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+      
+    </g>
+  </g></g>
+            <g transform="translate(540 1010) scale(0.66)"><g class="s08-bhijo">
+    <path d="M-170 440 L-152 90 Q-140 8 0 0 Q140 8 152 90 L170 440 Z" fill="#2b4cd1" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-92 20 Q0 110 92 20" fill="none" stroke="#e9dfc6" stroke-width="8" stroke-linecap="round" />
+    <path d="M-30 70 V170 M30 70 V170" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+    <path d="M-90 300 H90 L70 380 H-70 Z" fill="none" stroke="#e9dfc6" stroke-width="5" opacity="0.55" />
+    <g class="s08-bbrazo-i">
+      <path class="s08-bbz-o" d="M-150 70 Q-220 160 -150 250" fill="none" stroke="#e9dfc6" stroke-width="66" stroke-linecap="round" />
+      <path class="s08-bbz-i" d="M-150 70 Q-220 160 -150 250" fill="none" stroke="#2b4cd1" stroke-width="54" stroke-linecap="round" />
+      <circle class="s08-bmano" cx="-150" cy="250" r="31" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+    </g>
+    <g class="s08-bbrazo-d">
+      <path class="s08-bbz-o" d="M150 70 Q220 160 150 250" fill="none" stroke="#e9dfc6" stroke-width="66" stroke-linecap="round" />
+      <path class="s08-bbz-i" d="M150 70 Q220 160 150 250" fill="none" stroke="#2b4cd1" stroke-width="54" stroke-linecap="round" />
+      <circle class="s08-bmano" cx="150" cy="250" r="31" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+    </g>
+    <g class="s08-bcabeza">
+      <circle cx="0" cy="-108" r="96" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+      <path d="M-92 -126 Q-90 -212 0 -212 Q90 -212 92 -126 Z" fill="#c8553d" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+      <path d="M-86 -134 Q-150 -140 -170 -120 Q-130 -112 -88 -118" fill="#c8553d" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+      <ellipse class="s08-bojo" cx="-34" cy="-98" rx="10" ry="13" fill="#e9dfc6" />
+      <ellipse class="s08-bojo" cx="34" cy="-98" rx="10" ry="13" fill="#e9dfc6" />
+      <path class="s08-bceja-i" d="M-56 -124 L-16 -126" stroke="#e9dfc6" stroke-width="9" stroke-linecap="round" />
+      <path class="s08-bceja-d" d="M16 -126 L56 -124" stroke="#e9dfc6" stroke-width="9" stroke-linecap="round" />
+      <path class="s08-bboca" d="M-28 -54 Q0 -34 28 -54" fill="none" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+      
+    </g>
+  </g></g>
+            <g transform="translate(850 1060) scale(0.62)"><g class="s08-chijo">
+    <path d="M-170 440 L-152 90 Q-140 8 0 0 Q140 8 152 90 L170 440 Z" fill="#2b4cd1" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-92 20 Q0 110 92 20" fill="none" stroke="#e9dfc6" stroke-width="8" stroke-linecap="round" />
+    <path d="M-30 70 V170 M30 70 V170" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+    <path d="M-90 300 H90 L70 380 H-70 Z" fill="none" stroke="#e9dfc6" stroke-width="5" opacity="0.55" />
+    <g class="s08-cbrazo-i">
+      <path class="s08-cbz-o" d="M-150 70 Q-220 160 -150 250" fill="none" stroke="#e9dfc6" stroke-width="66" stroke-linecap="round" />
+      <path class="s08-cbz-i" d="M-150 70 Q-220 160 -150 250" fill="none" stroke="#2b4cd1" stroke-width="54" stroke-linecap="round" />
+      <circle class="s08-cmano" cx="-150" cy="250" r="31" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+    </g>
+    <g class="s08-cbrazo-d">
+      <path class="s08-cbz-o" d="M150 70 Q220 160 150 250" fill="none" stroke="#e9dfc6" stroke-width="66" stroke-linecap="round" />
+      <path class="s08-cbz-i" d="M150 70 Q220 160 150 250" fill="none" stroke="#2b4cd1" stroke-width="54" stroke-linecap="round" />
+      <circle class="s08-cmano" cx="150" cy="250" r="31" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+    </g>
+    <g class="s08-ccabeza">
+      <circle cx="0" cy="-108" r="96" fill="#1a1622" stroke="#e9dfc6" stroke-width="6" />
+      <path d="M-92 -126 Q-90 -212 0 -212 Q90 -212 92 -126 Z" fill="#c8553d" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+      <path d="M-86 -134 Q-150 -140 -170 -120 Q-130 -112 -88 -118" fill="#c8553d" stroke="#e9dfc6" stroke-width="6" stroke-linejoin="round" />
+      <ellipse class="s08-cojo" cx="-34" cy="-98" rx="10" ry="13" fill="#e9dfc6" />
+      <ellipse class="s08-cojo" cx="34" cy="-98" rx="10" ry="13" fill="#e9dfc6" />
+      <path class="s08-cceja-i" d="M-56 -124 L-16 -126" stroke="#e9dfc6" stroke-width="9" stroke-linecap="round" />
+      <path class="s08-cceja-d" d="M16 -126 L56 -124" stroke="#e9dfc6" stroke-width="9" stroke-linecap="round" />
+      <path class="s08-cboca" d="M-28 -54 Q0 -34 28 -54" fill="none" stroke="#e9dfc6" stroke-width="6" stroke-linecap="round" />
+      
+    </g>
+  </g></g>
+            <g class="s08-celus">
+              <rect x="205" y="1180" width="50" height="80" rx="8" fill="#f2e35b" stroke="#1a1622" stroke-width="5" />
+              <rect x="515" y="1140" width="50" height="80" rx="8" fill="#f2e35b" stroke="#1a1622" stroke-width="5" />
+              <rect x="825" y="1180" width="50" height="80" rx="8" fill="#f2e35b" stroke="#1a1622" stroke-width="5" />
+            </g>
+          </svg>
+          <div class="s08-preg" style="left: 196px; top: 640px">?</div>
+          <div class="s08-preg" style="left: 506px; top: 600px">?</div>
+          <div class="s08-preg" style="left: 816px; top: 640px">?</div>
+        </div>
+        <div class="capa s08-b">
+          <div class="s08-mapa">
+            <div class="s08-busca"><span class="s08-l">p</span><span class="s08-l">i</span><span class="s08-l">z</span><span class="s08-l">z</span><span class="s08-l">a</span><span class="s08-l">&nbsp;</span><span class="s08-l">c</span><span class="s08-l">e</span><span class="s08-l">r</span><span class="s08-l">c</span><span class="s08-l">a</span></div>
+            <svg viewBox="0 0 880 840" style="width:880px;height:840px" aria-hidden="true">
+              <path d="M0 330 H880 M0 620 H880 M300 120 V840 M600 120 V840" stroke="#e9dfc6" stroke-width="34" opacity="0.22" />
+              <g class="s08-mio">
+                <rect x="70" y="450" width="170" height="120" rx="10" fill="#c8553d" stroke="#e9dfc6" stroke-width="5" />
+                <path d="M60 460 L155 400 L250 460 Z" fill="#e9dfc6" />
+              </g>
+              <g class="s08-otra">
+                <rect x="660" y="190" width="170" height="120" rx="10" fill="#1a1622" stroke="#e9dfc6" stroke-width="5" />
+                <path d="M650 200 L745 140 L840 200 Z" fill="#e9dfc6" opacity="0.7" />
+              </g>
+              <circle class="s08-onda" cx="745" cy="250" r="90" fill="none" stroke="#f2e35b" stroke-width="7" />
+              <g class="s08-pin"><path d="M705 150 C705 90 785 90 785 150 C785 196 745 214 745 244 C745 214 705 196 705 150 Z" fill="#ff3b3b" stroke="#1a1622" stroke-width="6" /><circle cx="745" cy="148" r="16" fill="#e9dfc6" /></g>
+            </svg>
+            <div class="s08-rot" style="left: 90px; top: 580px; color: #e9dfc6">EL HORNO</div>
+            <div class="s08-rot s08-rot-otra" style="left: 560px; top: 326px; color: #f2e35b">LA OTRA CUADRA</div>
+            <div class="s08-preg s08-preg-mio" style="left: 120px; top: 280px; font-size: 110px; color: #e9dfc6">?</div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-otra-cuadra";
+      const DUR = 4.83;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const POSES = {"abajo":{"c":[205,200],"h":[185,345]},"amasar":{"c":[225,240],"h":[130,318]},"arriba":{"c":[285,70],"h":[255,-60]},"cabeza":{"c":[250,-10],"h":[92,-200]},"pecho":{"c":[170,260],"h":[30,140]},"frente":{"c":[220,160],"h":[150,250]}};
+      // sacudón (sobre un contenedor HTML)
+      const sacudon = (el, t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(el, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // texto que cae de golpe
+      const golpe = (el, t, rot = 0, s0 = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: s0, rotation: rot * 2 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, from = 0.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      const entra = (el, t, y = 40, d = 0.3) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t); };
+      const dibujar = (els, t, d = 0.6, st = 0) => [].concat(els).forEach((e, i) => { const L = e.getTotalLength(); gsap.set(e, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 }); tl.set(e, { opacity: 1 }, t + i * st); tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st); });
+      const corte = (fuera, dentro, t) => { if (dentro) gsap.set(dentro, { opacity: 0 }); if (fuera) tl.set(fuera, { opacity: 0 }, t); if (dentro) tl.set(dentro, { opacity: 1 }, t); };
+      // cambio de pose de un brazo: p = prefijo, lado "i"/"d"
+      const pose = (p, lado, nombre, t, d = 0.22, sel = "") => { const s = lado === "d" ? 1 : -1; const P = POSES[nombre]; const dd = "M" + 150 * s + " 70 Q" + P.c[0] * s + " " + P.c[1] + " " + P.h[0] * s + " " + P.h[1];
+        tl.to(qa(sel + " ." + p + "brazo-" + lado + " path"), { attr: { d: dd }, duration: d, ease: "back.out(1.6)" }, t);
+        tl.to(qa(sel + " ." + p + "brazo-" + lado + " circle"), { attr: { cx: P.h[0] * s, cy: P.h[1] }, duration: d, ease: "back.out(1.6)" }, t); };
+      // cámara en mano: deriva suave y continua
+      const mano = (el, dur, a = 7) => { for (let i = 0, t = 0; t < dur; i++, t += 0.9) tl.to(el, { x: a * Math.sin(i * 1.7 + 0.4), y: a * 0.8 * Math.cos(i * 2.3), rotation: 0.35 * Math.sin(i * 1.1), duration: 0.9, ease: "sine.inOut" }, t); };
+
+
+      const SABEN = 0.58, EXISTIS = 0.95, BUSCAN = 2.04, SALE = 3.29, OTRA = 3.76;
+      mano(q(".s08-cam"), DUR, 7);
+      // los amigos mirando el celular, sin idea
+      tl.to(qa(".s08-celus rect"), { opacity: 0.6, duration: 0.2, yoyo: true, repeat: 5 }, 0);
+      const P = qa(".s08-a .s08-preg");
+      P.forEach((p, i) => pop(p, EXISTIS - 0.1 + i * 0.1, 0.3, 0.2));
+      P.forEach((p, i) => tl.to(p, { rotation: i % 2 ? 12 : -12, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, EXISTIS + 0.3));
+      ["s08-a", "s08-b", "s08-c"].forEach((p, i) => tl.to(q("." + p + "cabeza"), { y: -8, duration: 0.14, yoyo: true, repeat: 1 }, SABEN + i * 0.08));
+      // corte al mapa: buscan pizza
+      const B = q(".s08-b");
+      gsap.set(B, { opacity: 0 });
+      tl.set(q(".s08-a"), { opacity: 0 }, 1.96);
+      tl.set(B, { opacity: 1 }, 1.96);
+      const L = qa(".s08-l");
+      gsap.set(L, { opacity: 0 });
+      L.forEach((l, i) => tl.set(l, { opacity: 1 }, BUSCAN + i * 0.045));
+      // "les sale": el pin cae en la otra
+      gsap.set([q(".s08-pin"), q(".s08-onda"), q(".s08-rot-otra"), q(".s08-preg-mio")], { opacity: 0 });
+      tl.fromTo(q(".s08-pin"), { opacity: 1, y: -300 }, { opacity: 1, y: 0, duration: 0.35, ease: "bounce.out", immediateRender: false }, SALE - 0.1);
+      tl.fromTo(q(".s08-onda"), { opacity: 1, scale: 0.3, svgOrigin: "745 250" }, { opacity: 0, scale: 1.6, svgOrigin: "745 250", duration: 0.6, ease: "power2.out", immediateRender: false }, SALE + 0.25);
+      tl.fromTo(q(".s08-onda"), { opacity: 1, scale: 0.3, svgOrigin: "745 250" }, { opacity: 0, scale: 1.6, svgOrigin: "745 250", duration: 0.6, ease: "power2.out", immediateRender: false }, SALE + 0.75);
+      tl.to(q(".s08-mio"), { opacity: 0.3, duration: 0.3 }, SALE + 0.2);
+      entra(q(".s08-rot-otra"), OTRA - 0.1, 20, 0.25);
+      pop(q(".s08-preg-mio"), OTRA, 0.3, 0.3);
+
+      // salida
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.15, ease: "power2.in" }, DUR - 0.15);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
