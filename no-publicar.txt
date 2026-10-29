@@ -1,3 +1,6 @@
 # Reels que la cola automática NO publica (un slug por línea).
 # La cola sale del más nuevo al más viejo según "Hechos" de ideas.md; lo que esté en la carpeta
 # de Drive "Reels: para publicar" sale antes que todo.
+
+# 29-10: Juan la descartó ("quedó muy infantil")
+pelea-de-gallos
