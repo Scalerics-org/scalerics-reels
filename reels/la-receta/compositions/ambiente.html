@@ -1,0 +1,136 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* EN VIVO */
+    [data-composition-id="ambiente"] .amb-vivo { position: absolute; left: 72px; top: 104px; height: 64px; padding: 0 26px 0 62px; border-radius: 12px; background: #e8432e; border: 5px solid #1d2b3a; box-shadow: 0 6px 0 #1d2b3a; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 34px; line-height: 54px; letter-spacing: 0.08em; color: #fff4dc; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-punto { position: absolute; left: 22px; top: 15px; width: 24px; height: 24px; border-radius: 50%; background: #fff4dc; }
+    /* logo del programa */
+    [data-composition-id="ambiente"] .amb-prog { position: absolute; left: 610px; top: 92px; width: 398px; height: 92px; border-radius: 46px; background: #fff4dc; border: 5px solid #1d2b3a; box-shadow: 0 6px 0 #1d2b3a; }
+    [data-composition-id="ambiente"] .amb-prog-a { position: absolute; left: 0; right: 0; top: 10px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.3em; color: #e8432e; line-height: 1; }
+    [data-composition-id="ambiente"] .amb-prog-b { position: absolute; left: 0; right: 0; top: 38px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 30px; color: #1d2b3a; line-height: 1; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-apl { position: absolute; left: 610px; top: 92px; width: 398px; height: 92px; border-radius: 14px; background: #e8432e; border: 6px solid #ffc93c; box-shadow: 0 0 0 5px #1d2b3a, 0 8px 0 5px #1d2b3a; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; line-height: 80px; letter-spacing: 0.1em; color: #ffc93c; opacity: 0; }
+    /* zócalo */
+    [data-composition-id="ambiente"] .amb-zocalo { position: absolute; left: 50px; top: 1414px; width: 980px; height: 150px; }
+    [data-composition-id="ambiente"] .amb-tag { position: absolute; left: 0; top: 0; height: 46px; padding: 0 22px; background: #e8432e; border: 4px solid #fff4dc; border-radius: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; line-height: 38px; letter-spacing: 0.22em; color: #fff4dc; white-space: nowrap; z-index: 2; }
+    [data-composition-id="ambiente"] .amb-barra { position: absolute; left: 0; top: 30px; width: 980px; height: 110px; background: #fff4dc; border: 5px solid #1d2b3a; border-radius: 14px; box-shadow: 0 8px 0 #0f1823; overflow: hidden; }
+    [data-composition-id="ambiente"] .amb-tit { position: absolute; left: 30px; top: 30px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; line-height: 1; color: #1d2b3a; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-pips { position: absolute; left: 640px; top: 22px; width: 320px; height: 60px; }
+    [data-composition-id="ambiente"] .amb-pip { position: absolute; top: 0; width: 56px; height: 56px; border-radius: 50%; border: 5px solid #1d2b3a; background: #e8f7fc; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 28px; line-height: 46px; text-align: center; color: #1d2b3a; }
+    [data-composition-id="ambiente"] .amb-pip.on { background: #e8432e; color: #fff4dc; }
+    [data-composition-id="ambiente"] .amb-ia { position: absolute; left: 660px; top: 18px; width: 290px; height: 64px; border-radius: 32px; background: #1d2b3a; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 34px; line-height: 64px; color: #5ce611; white-space: nowrap; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.67">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="73.67" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- riel de utensilios -->
+        <path d="M-10 486 H1090" stroke="#1d2b3a" stroke-width="16" stroke-linecap="round" />
+        <path d="M-10 482 H1090" stroke="#e8f7fc" stroke-width="5" stroke-linecap="round" />
+        <!-- cucharón -->
+        <g class="amb-ut u0">
+          <circle cx="56" cy="500" r="12" fill="none" stroke="#1d2b3a" stroke-width="6" />
+          <path d="M56 512 V690" stroke="#1d2b3a" stroke-width="16" stroke-linecap="round" />
+          <path d="M56 512 V690" stroke="#e8f7fc" stroke-width="6" stroke-linecap="round" />
+          <path d="M14 690 H98 Q98 750 56 750 Q14 750 14 690 Z" fill="#e8f7fc" stroke="#1d2b3a" stroke-width="7" stroke-linejoin="round" />
+        </g>
+        <!-- espumadera -->
+        <g class="amb-ut u1">
+          <circle cx="132" cy="500" r="11" fill="none" stroke="#1d2b3a" stroke-width="6" />
+          <path d="M132 511 V640" stroke="#1d2b3a" stroke-width="14" stroke-linecap="round" />
+          <path d="M132 511 V640" stroke="#ffc93c" stroke-width="5" stroke-linecap="round" />
+          <rect x="104" y="636" width="56" height="84" rx="22" fill="#e8432e" stroke="#1d2b3a" stroke-width="7" />
+          <path d="M120 660 V700 M132 660 V700 M144 660 V700" stroke="#1d2b3a" stroke-width="5" stroke-linecap="round" />
+        </g>
+        <!-- batidor -->
+        <g class="amb-ut u2">
+          <circle cx="958" cy="500" r="11" fill="none" stroke="#1d2b3a" stroke-width="6" />
+          <path d="M958 511 V610" stroke="#1d2b3a" stroke-width="16" stroke-linecap="round" />
+          <path d="M958 511 V610" stroke="#e8432e" stroke-width="6" stroke-linecap="round" />
+          <path d="M958 606 Q914 680 958 740 Q1002 680 958 606 M958 606 Q934 690 958 740 Q982 690 958 606" fill="none" stroke="#1d2b3a" stroke-width="6" stroke-linejoin="round" />
+        </g>
+        <!-- cuchara de madera -->
+        <g class="amb-ut u3">
+          <circle cx="1034" cy="500" r="11" fill="none" stroke="#1d2b3a" stroke-width="6" />
+          <path d="M1034 511 V650" stroke="#1d2b3a" stroke-width="18" stroke-linecap="round" />
+          <path d="M1034 511 V650" stroke="#ffc93c" stroke-width="8" stroke-linecap="round" />
+          <ellipse cx="1034" cy="696" rx="30" ry="50" fill="#ffc93c" stroke="#1d2b3a" stroke-width="7" />
+        </g>
+      </svg>
+      <div class="amb-vivo"><div class="amb-punto"></div>EN VIVO</div>
+      <div class="amb-prog"><div class="amb-prog-a">PROGRAMA</div><div class="amb-prog-b">COCINA AL MEDIODÍA</div></div>
+      <div class="amb-apl">APLAUSOS</div>
+      <div class="amb-zocalo">
+        <div class="amb-barra">
+          <div class="amb-tit t0">ESPANTA CLIENTES</div>
+          <div class="amb-tit t1" style="font-size: 44px; top: 33px">SECRETO DE LA ABUELA</div>
+          <div class="amb-tit t2" style="font-size: 44px; top: 33px">GUARDÁ ESTA RECETA</div>
+          <div class="amb-pips">
+            <div class="amb-pip" style="left: 0px">1</div>
+            <div class="amb-pip" style="left: 64px">2</div>
+            <div class="amb-pip" style="left: 128px">3</div>
+            <div class="amb-pip" style="left: 192px">4</div>
+            <div class="amb-pip" style="left: 256px">5</div>
+          </div>
+          <div class="amb-ia">AGENTE DE IA</div>
+        </div>
+        <div class="amb-tag">RECETA DEL DÍA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.67;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const veces = (p) => Math.max(1, Math.floor((DUR - 1) / p) - 1);
+
+      // utensilios que se hamacan, cada uno a su ritmo
+      [["u0", "56 500", 1.7, 3], ["u1", "132 500", 1.4, -4], ["u2", "958 500", 1.55, 3.5], ["u3", "1034 500", 1.85, -3]].forEach(([c, o, p, a], i) => {
+        tl.fromTo(q("." + c), { rotation: -a, svgOrigin: o }, { rotation: a, svgOrigin: o, duration: p, yoyo: true, repeat: veces(p), ease: "sine.inOut" }, i * 0.2);
+      });
+      // EN VIVO: el punto titila
+      tl.fromTo(q(".amb-punto"), { opacity: 1 }, { opacity: 0.15, duration: 0.5, yoyo: true, repeat: veces(0.5), ease: "steps(1)" }, 0);
+      tl.fromTo(q(".amb-prog"), { rotation: -1.5 }, { rotation: 1.5, duration: 2.2, yoyo: true, repeat: veces(2.2), ease: "sine.inOut" }, 0);
+
+      // APLAUSOS en "¡Espantada!"
+      const AP = 39.2;
+      tl.to(q(".amb-prog"), { opacity: 0, duration: 0.1 }, AP);
+      tl.fromTo(q(".amb-apl"), { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, AP);
+      tl.to(q(".amb-apl"), { opacity: 0.35, duration: 0.18, yoyo: true, repeat: 7, ease: "steps(1)" }, AP + 0.25);
+      tl.to(q(".amb-apl"), { opacity: 0, duration: 0.15 }, 42.1);
+      tl.fromTo(q(".amb-prog"), { opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: false }, 42.2);
+
+      // zócalo: entra al principio, las pastillas se pintan en cada "Paso"
+      tl.fromTo(q(".amb-zocalo"), { x: -1100 }, { x: 0, duration: 0.45, ease: "power3.out" }, 0.15);
+      const tits = [...qa(".amb-tit")];
+      gsap.set([tits[1], tits[2]], { opacity: 0 });
+      const pips = [...qa(".amb-pip")];
+      [5.84, 12.53, 17.61, 23.15, 26.67].forEach((t, i) => {
+        tl.set(pips[i], { backgroundColor: "#1d2b3a", color: "#ffc93c" }, t);
+        tl.fromTo(pips[i], { scale: 1.7 }, { scale: 1, duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, t);
+        tl.to(q(".amb-barra"), { y: 6, duration: 0.06, yoyo: true, repeat: 1 }, t);
+      });
+      // la receta "sale": todas las pastillas saltan en "¡Listo!"
+      tl.to(pips, { y: -12, duration: 0.12, yoyo: true, repeat: 1, stagger: 0.05, ease: "power2.out" }, 30.83);
+      // el secreto de la abuela
+      const cambia = (de, a, t) => {
+        tl.to(de, { y: -80, opacity: 0, duration: 0.2, ease: "power2.in" }, t);
+        tl.fromTo(a, { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, t + 0.15);
+      };
+      cambia(tits[0], tits[1], 51.7);
+      tl.to(pips, { y: 90, opacity: 0, duration: 0.25, stagger: 0.04, ease: "power2.in" }, 53.7);
+      tl.fromTo(q(".amb-ia"), { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 53.9);
+      cambia(tits[1], tits[2], 68.05);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

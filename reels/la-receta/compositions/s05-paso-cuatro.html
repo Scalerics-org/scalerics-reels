@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-paso-cuatro"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-paso-cuatro"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-paso-cuatro"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-paso-cuatro"] .gig { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; -webkit-text-stroke: 12px #1d2b3a; paint-order: stroke fill; }
+    [data-composition-id="s05-paso-cuatro"] .sello { position: absolute; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; padding: 14px 22px 12px; color: #e8432e; border: 8px solid #e8432e; border-radius: 12px; background: rgba(255, 244, 220, 0.95); box-shadow: 0 0 0 5px #1d2b3a; white-space: nowrap; }
+    [data-composition-id="s05-paso-cuatro"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #1d2b3a; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s05-paso-cuatro"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s05-paso-cuatro"] .s05-pasolbl { position: absolute; left: 168px; top: 590px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 54px; letter-spacing: 0.12em; color: #fff4dc; line-height: 1; -webkit-text-stroke: 10px #1d2b3a; paint-order: stroke fill; }
+    [data-composition-id="s05-paso-cuatro"] .s05-num { position: absolute; left: 140px; top: 640px; width: 320px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 420px; line-height: 1; color: #e8432e; -webkit-text-stroke: 16px #1d2b3a; paint-order: stroke fill; text-shadow: 14px 16px 0 #1d2b3a; }
+
+    [data-composition-id="s05-paso-cuatro"] .s05-salero { position: absolute; left: 640px; top: 640px; width: 220px; height: 290px; }
+    [data-composition-id="s05-paso-cuatro"] .s05-cuerpo { position: absolute; left: 0; top: 70px; width: 220px; height: 220px; background: #fff4dc; border: 8px solid #1d2b3a; border-radius: 26px 26px 40px 40px; box-shadow: 10px 10px 0 #1d2b3a; }
+    [data-composition-id="s05-paso-cuatro"] .s05-tapa { position: absolute; left: 10px; top: 0; width: 200px; height: 84px; background: #e8432e; border: 8px solid #1d2b3a; border-radius: 60px 60px 10px 10px; }
+    [data-composition-id="s05-paso-cuatro"] .s05-ag { position: absolute; width: 16px; height: 16px; border-radius: 50%; background: #1d2b3a; }
+    [data-composition-id="s05-paso-cuatro"] .s05-rot { position: absolute; left: 0; right: 0; top: 66px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 30px; color: #1d2b3a; line-height: 1.1; }
+
+  </style>
+  <div id="root" data-composition-id="s05-paso-cuatro" data-width="1080" data-height="1920" data-duration="3.52">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.52" data-track-index="0">
+      <div class="s05-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s05-granos">
+            <circle class="s05-g" cx="720" cy="940" r="7" fill="#fff4dc" stroke="#1d2b3a" stroke-width="3" />
+            <circle class="s05-g" cx="750" cy="940" r="6" fill="#fff4dc" stroke="#1d2b3a" stroke-width="3" />
+            <circle class="s05-g" cx="780" cy="940" r="7" fill="#fff4dc" stroke="#1d2b3a" stroke-width="3" />
+            <circle class="s05-g" cx="735" cy="940" r="5" fill="#fff4dc" stroke="#1d2b3a" stroke-width="3" />
+            <circle class="s05-g" cx="765" cy="940" r="6" fill="#fff4dc" stroke="#1d2b3a" stroke-width="3" />
+          </g>
+        </svg>
+        <div class="s05-salero">
+          <div class="s05-cuerpo"><div class="s05-rot">SAL<br />FINA</div></div>
+          <div class="s05-tapa"><div class="s05-ag" style="left: 50px; top: 26px"></div><div class="s05-ag" style="left: 92px; top: 18px"></div><div class="s05-ag" style="left: 134px; top: 26px"></div></div>
+        </div>
+        <div class="gig s05-w1" style="left: 480px; top: 1010px; font-size: 104px; color: #fff4dc">PASÁ</div>
+        <div class="gig s05-w2" style="left: 800px; top: 1030px; font-size: 84px; color: #fff4dc">EL</div>
+        <div class="gig s05-w3" style="left: 470px; top: 1170px; font-size: 128px; color: #e8432e; -webkit-text-stroke: 14px #1d2b3a; text-shadow: 10px 12px 0 #1d2b3a">LUNES</div>
+
+        <div class="s05-pasolbl">PASO</div><div class="s05-num">4</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-paso-cuatro";
+      const DUR = 3.52;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s05-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // pop: aparece entero con rebote (oculto hasta t)
+      const pop = (el, t, o = {}) => {
+        gsap.set(el, { opacity: 0 });
+        const sv = o.svg ? { svgOrigin: o.svg } : {};
+        tl.fromTo(el, { opacity: 0, scale: o.s ?? 0.4, rotation: o.r0 ?? 0, y: o.y ?? 0, x: o.x ?? 0, ...sv }, { opacity: 1, scale: 1, rotation: o.r ?? 0, y: 0, x: 0, duration: o.d ?? 0.32, ease: o.e ?? "back.out(2)", immediateRender: false, ...sv }, t);
+      };
+      // sello: cae grande y se clava
+      const sello = (el, t, r = -10, f = 1.2) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.6, rotation: r - 18 }, { opacity: 1, scale: 1, rotation: r, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12);
+        sacudon(t + 0.04, f);
+      };
+      // vapor: hilos que suben y bajan (repeticiones finitas)
+      const vapor = (els, t, hasta) => els.forEach((el, i) => {
+        const p = 0.9 + (i % 3) * 0.15;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0.2, y: 30 }, { opacity: 0.95, y: -40, duration: p, ease: "sine.inOut", repeat: Math.max(0, Math.floor((hasta - t - i * 0.2) / p) - 1), yoyo: true, immediateRender: false }, t + i * 0.2);
+      });
+      // origen de giro SVG fijado antes de cualquier giro (si no, smoothOrigin corre el dibujo)
+      const org = (el, o) => gsap.set(el, { svgOrigin: o, smoothOrigin: false });
+      let NUMHASTA = DUR;
+
+      const PASO = 0, ESPOLVOREA = 1.25, PASA = 1.83, EL = 2.25, LUNES = 2.61;
+      // el salero ya está, entra con rebote
+      gsap.set(q(".s05-salero"), { opacity: 0 });
+      tl.fromTo(q(".s05-salero"), { opacity: 1, y: -500, rotation: 20 }, { opacity: 1, y: 0, rotation: 0, duration: 0.4, ease: "bounce.out", immediateRender: false }, 0.1);
+      // "Espolvoreá": se da vuelta y sacude
+      tl.to(q(".s05-salero"), { rotation: 165, duration: 0.25, ease: "power2.inOut" }, ESPOLVOREA - 0.1);
+      tl.to(q(".s05-salero"), { y: 40, duration: 0.09, yoyo: true, repeat: 9, ease: "power1.inOut" }, ESPOLVOREA + 0.15);
+      const gs = qa(".s05-g");
+      gsap.set(gs, { opacity: 0 });
+      gs.forEach((g, i) => [0, 0.32, 0.64].forEach((d) => {
+        tl.fromTo(g, { opacity: 1, y: 0 }, { opacity: 1, y: 160, duration: 0.3, ease: "power2.in", immediateRender: false }, ESPOLVOREA + 0.2 + d + i * 0.05);
+        tl.set(g, { opacity: 0 }, ESPOLVOREA + 0.5 + d + i * 0.05);
+      }));
+      // caen las palabras
+      [[".s05-w1", PASA, -6], [".s05-w2", EL, 5], [".s05-w3", LUNES, -3]].forEach(([s, t, r]) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 1, y: -380, rotation: r * 4 }, { opacity: 1, y: 0, rotation: r, duration: 0.3, ease: "bounce.out", immediateRender: false }, t - 0.12);
+      });
+      sacudon(LUNES + 0.12, 1.4);
+      tl.to(q(".s05-w3"), { scale: 1.06, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, LUNES + 0.3);
+
+      // número de paso gigante: cae con rebote en "Paso"
+      gsap.set([q(".s05-num"), q(".s05-pasolbl")], { opacity: 0 });
+      tl.fromTo(q(".s05-pasolbl"), { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, PASO);
+      tl.fromTo(q(".s05-num"), { opacity: 1, y: -900, rotation: -14 }, { opacity: 1, y: 0, rotation: -4, duration: 0.32, ease: "bounce.out", immediateRender: false }, PASO);
+      tl.to(q(".s05-num"), { rotation: 3, duration: 0.6, yoyo: true, repeat: Math.max(1, Math.floor((NUMHASTA - PASO - 0.6) / 0.6) - 1), ease: "sine.inOut" }, PASO + 0.4);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,165 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-paso-cinco"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-paso-cinco"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-paso-cinco"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-paso-cinco"] .gig { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; -webkit-text-stroke: 12px #1d2b3a; paint-order: stroke fill; }
+    [data-composition-id="s06-paso-cinco"] .sello { position: absolute; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; padding: 14px 22px 12px; color: #e8432e; border: 8px solid #e8432e; border-radius: 12px; background: rgba(255, 244, 220, 0.95); box-shadow: 0 0 0 5px #1d2b3a; white-space: nowrap; }
+    [data-composition-id="s06-paso-cinco"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #1d2b3a; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s06-paso-cinco"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s06-paso-cinco"] .s06-pasolbl { position: absolute; left: 168px; top: 590px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 54px; letter-spacing: 0.12em; color: #fff4dc; line-height: 1; -webkit-text-stroke: 10px #1d2b3a; paint-order: stroke fill; }
+    [data-composition-id="s06-paso-cinco"] .s06-num { position: absolute; left: 140px; top: 640px; width: 320px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 420px; line-height: 1; color: #e8432e; -webkit-text-stroke: 16px #1d2b3a; paint-order: stroke fill; text-shadow: 14px 16px 0 #1d2b3a; }
+
+    [data-composition-id="s06-paso-cinco"] .s06-cartel { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 28px; fill: #fff4dc; letter-spacing: 0.04em; }
+
+  </style>
+  <div id="root" data-composition-id="s06-paso-cinco" data-width="1080" data-height="1920" data-duration="6.95">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="6.95" data-track-index="0">
+      <div class="s06-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s06-horno">
+            <rect x="480" y="760" width="460" height="580" rx="26" fill="#fff4dc" stroke="#1d2b3a" stroke-width="8" />
+            <rect x="480" y="760" width="460" height="100" rx="26" fill="#1d2b3a" />
+            <circle class="s06-perilla" cx="550" cy="810" r="24" fill="#e8432e" stroke="#fff4dc" stroke-width="5" />
+            <path class="s06-perilla" d="M550 810 V790" stroke="#fff4dc" stroke-width="6" stroke-linecap="round" />
+            <circle cx="620" cy="810" r="24" fill="#e8432e" stroke="#fff4dc" stroke-width="5" />
+            <rect x="700" y="790" width="200" height="42" rx="8" fill="#6fbfdb" stroke="#fff4dc" stroke-width="4" />
+            <!-- interior -->
+            <rect x="520" y="900" width="380" height="300" rx="16" fill="#1d2b3a" />
+            <path d="M530 1150 H890" stroke="#6fbfdb" stroke-width="6" stroke-linecap="round" opacity="0.6" />
+            <!-- localcito -->
+            <g class="s06-local">
+              <rect x="610" y="1010" width="200" height="140" fill="#fff4dc" stroke="#e8f7fc" stroke-width="5" />
+              <path d="M598 1010 H822 L808 970 H612 Z" fill="#e8432e" stroke="#e8f7fc" stroke-width="5" stroke-linejoin="round" />
+              <path d="M640 970 L632 1010 M680 970 L676 1010 M720 970 V1010 M760 970 L764 1010 M800 970 L808 1010" stroke="#fff4dc" stroke-width="6" />
+              <rect x="630" y="1036" width="160" height="114" fill="#1d2b3a" opacity="0.85" />
+              <path d="M630 1058 H790 M630 1080 H790 M630 1102 H790 M630 1124 H790" stroke="#6fbfdb" stroke-width="5" />
+            </g>
+            <g class="s06-cerrado">
+              <path d="M680 1036 L710 1006 L740 1036" fill="none" stroke="#e8f7fc" stroke-width="4" />
+              <rect x="636" y="1034" width="148" height="44" rx="6" fill="#e8432e" stroke="#fff4dc" stroke-width="4" />
+              <text class="s06-cartel" x="710" y="1066" text-anchor="middle">CERRADO</text>
+            </g>
+            <rect class="s06-luz" x="520" y="900" width="380" height="300" rx="16" fill="#ffc93c" opacity="0" />
+            <!-- puerta (vidrio) -->
+            <g class="s06-puerta">
+              <rect x="506" y="886" width="408" height="328" rx="20" fill="none" stroke="#1d2b3a" stroke-width="14" />
+              <rect x="520" y="900" width="380" height="300" rx="16" fill="#6fbfdb" opacity="0.35" />
+              <path d="M560 930 L620 900 M560 980 L680 900" stroke="#e8f7fc" stroke-width="8" stroke-linecap="round" opacity="0.8" />
+              <rect x="600" y="1240" width="220" height="26" rx="13" fill="#1d2b3a" />
+            </g>
+          </g>
+          <!-- el plato con campana -->
+          <g class="s06-plato">
+            <ellipse cx="560" cy="1300" rx="260" ry="44" fill="#fff4dc" stroke="#1d2b3a" stroke-width="8" />
+            <g class="s06-quemado">
+              <path d="M470 1290 Q470 1220 530 1220 H610 Q660 1220 660 1270 Q660 1300 620 1300 H520 Q470 1300 470 1290 Z" fill="#1d2b3a" stroke="#1d2b3a" stroke-width="6" />
+              <path d="M520 1250 H620" stroke="#e8432e" stroke-width="6" stroke-linecap="round" opacity="0.7" />
+              <path class="s06-humo" d="M520 1200 Q500 1170 520 1140 Q540 1110 520 1080" fill="none" stroke="#1d2b3a" stroke-width="12" stroke-linecap="round" opacity="0.8" />
+              <path class="s06-humo" d="M600 1200 Q620 1170 600 1140 Q580 1110 600 1080" fill="none" stroke="#1d2b3a" stroke-width="12" stroke-linecap="round" opacity="0.8" />
+            </g>
+            <g class="s06-campana">
+              <path d="M320 1296 Q320 1040 560 1040 Q800 1040 800 1296 Z" fill="#e8f7fc" stroke="#1d2b3a" stroke-width="8" stroke-linejoin="round" />
+              <path d="M380 1200 Q390 1110 460 1080" fill="none" stroke="#fff4dc" stroke-width="12" stroke-linecap="round" />
+              <circle cx="560" cy="1026" r="22" fill="#e8432e" stroke="#1d2b3a" stroke-width="7" />
+            </g>
+          </g>
+          <!-- cuchara de madera -->
+          <g class="s06-cuchara">
+            <path d="M-40 1060 L700 1060" stroke="#1d2b3a" stroke-width="30" stroke-linecap="round" />
+            <path d="M-40 1060 L700 1060" stroke="#ffc93c" stroke-width="16" stroke-linecap="round" />
+            <ellipse cx="760" cy="1060" rx="80" ry="46" fill="#ffc93c" stroke="#1d2b3a" stroke-width="8" />
+            <ellipse cx="770" cy="1056" rx="44" ry="20" fill="#1d2b3a" opacity="0.85" />
+          </g>
+        </svg>
+        <div class="gig s06-listo" style="left: 0; width: 1080px; text-align: center; top: 640px; font-size: 150px; color: #ffc93c; text-shadow: 10px 12px 0 #1d2b3a">¡LISTO!</div>
+
+        <div class="s06-pasolbl">PASO</div><div class="s06-num">5</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-paso-cinco";
+      const DUR = 6.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s06-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // pop: aparece entero con rebote (oculto hasta t)
+      const pop = (el, t, o = {}) => {
+        gsap.set(el, { opacity: 0 });
+        const sv = o.svg ? { svgOrigin: o.svg } : {};
+        tl.fromTo(el, { opacity: 0, scale: o.s ?? 0.4, rotation: o.r0 ?? 0, y: o.y ?? 0, x: o.x ?? 0, ...sv }, { opacity: 1, scale: 1, rotation: o.r ?? 0, y: 0, x: 0, duration: o.d ?? 0.32, ease: o.e ?? "back.out(2)", immediateRender: false, ...sv }, t);
+      };
+      // sello: cae grande y se clava
+      const sello = (el, t, r = -10, f = 1.2) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.6, rotation: r - 18 }, { opacity: 1, scale: 1, rotation: r, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12);
+        sacudon(t + 0.04, f);
+      };
+      // vapor: hilos que suben y bajan (repeticiones finitas)
+      const vapor = (els, t, hasta) => els.forEach((el, i) => {
+        const p = 0.9 + (i % 3) * 0.15;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0.2, y: 30 }, { opacity: 0.95, y: -40, duration: p, ease: "sine.inOut", repeat: Math.max(0, Math.floor((hasta - t - i * 0.2) / p) - 1), yoyo: true, immediateRender: false }, t + i * 0.2);
+      });
+      // origen de giro SVG fijado antes de cualquier giro (si no, smoothOrigin corre el dibujo)
+      const org = (el, o) => gsap.set(el, { svgOrigin: o, smoothOrigin: false });
+      let NUMHASTA = DUR;
+
+      const PASO = 0.13, HORNO = 1.30, CON = 1.83, CERRADO = 2.82, LISTO = 4.16, AVER = 4.67, PROBA1 = 5.36, PROBA2 = 5.88;
+      NUMHASTA = LISTO;
+      org(q(".s06-puerta"), "710 1214"); org(qa(".s06-perilla"), "550 810"); org(q(".s06-cerrado"), "710 1006"); org(q(".s06-campana"), "560 1296"); org(q(".s06-plato"), "560 1300");
+      pop(q(".s06-horno"), 0, { s: 0.7, y: 100 });
+      // la puerta se abre (baja) en "horno"
+      tl.to(q(".s06-puerta"), { scaleY: 0.12, duration: 0.3, ease: "power2.inOut" }, HORNO - 0.1);
+      // entra el localcito
+      gsap.set(q(".s06-local"), { opacity: 0 });
+      tl.fromTo(q(".s06-local"), { opacity: 1, y: 420 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.3)", immediateRender: false }, CON - 0.1);
+      // CERRADO se cuelga y se hamaca
+      gsap.set(q(".s06-cerrado"), { opacity: 0 });
+      tl.fromTo(q(".s06-cerrado"), { opacity: 1, y: -120, rotation: 0 }, { opacity: 1, y: 0, rotation: 12, duration: 0.25, ease: "bounce.out", immediateRender: false }, CERRADO - 0.15);
+      tl.to(q(".s06-cerrado"), { rotation: -12, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, CERRADO + 0.1);
+      // cierra la puerta, perilla gira, luz amarilla
+      tl.to(q(".s06-puerta"), { scaleY: 1, duration: 0.25, ease: "power3.in" }, CERRADO + 0.4);
+      sacudon(CERRADO + 0.65, 0.8);
+      tl.to(qa(".s06-perilla"), { rotation: 200, duration: 0.4, ease: "power2.inOut" }, CERRADO + 0.7);
+      tl.to(q(".s06-luz"), { opacity: 0.75, duration: 0.25 }, CERRADO + 0.9);
+      tl.to(q(".s06-horno"), { x: 4, duration: 0.05, yoyo: true, repeat: 7, ease: "none" }, CERRADO + 1.0);
+      // ¡Listo!: el número y el horno se van, sale el plato con campana
+      tl.to([q(".s06-num"), q(".s06-pasolbl")], { y: -60, opacity: 0, duration: 0.2, ease: "power2.in" }, LISTO - 0.1);
+      tl.to(q(".s06-horno"), { x: 700, opacity: 0, duration: 0.3, ease: "power2.in" }, LISTO - 0.1);
+      pop(q(".s06-plato"), LISTO + 0.05, { s: 0.3, y: 200, svg: "560 1300" });
+      pop(q(".s06-listo"), LISTO, { s: 2.2, r0: -20, r: -5, d: 0.2, e: "power4.in" });
+      sacudon(LISTO + 0.2, 1);
+      tl.to(q(".s06-listo"), { y: -60, opacity: 0, duration: 0.25 }, PROBA1 - 0.4);
+      tl.to(q(".s06-campana"), { y: -260, x: 270, rotation: 25, duration: 0.3, ease: "back.out(1.4)" }, AVER - 0.05);
+      tl.to(q(".s06-campana"), { opacity: 0, duration: 0.2 }, AVER + 0.6);
+      vapor(qa(".s06-humo"), AVER, DUR);
+      // la cuchara se ofrece en cada "probá"
+      gsap.set(q(".s06-cuchara"), { opacity: 0, x: -900 });
+      tl.to(q(".s06-cuchara"), { opacity: 1, x: -260, duration: 0.3, ease: "power2.out" }, PROBA1 - 0.3);
+      tl.to(q(".s06-cuchara"), { x: -60, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out" }, PROBA1);
+      tl.to(q(".s06-cuchara"), { x: -40, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out" }, PROBA2);
+
+      // número de paso gigante: cae con rebote en "Paso"
+      gsap.set([q(".s06-num"), q(".s06-pasolbl")], { opacity: 0 });
+      tl.fromTo(q(".s06-pasolbl"), { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, PASO);
+      tl.fromTo(q(".s06-num"), { opacity: 1, y: -900, rotation: -14 }, { opacity: 1, y: 0, rotation: -4, duration: 0.32, ease: "bounce.out", immediateRender: false }, PASO);
+      tl.to(q(".s06-num"), { rotation: 3, duration: 0.6, yoyo: true, repeat: Math.max(1, Math.floor((NUMHASTA - PASO - 0.6) / 0.6) - 1), ease: "sine.inOut" }, PASO + 0.4);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

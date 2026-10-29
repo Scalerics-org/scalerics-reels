@@ -1,0 +1,121 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-pedidos"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-pedidos"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-pedidos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-pedidos"] .gig { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; -webkit-text-stroke: 12px #1d2b3a; paint-order: stroke fill; }
+    [data-composition-id="s11-pedidos"] .sello { position: absolute; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; padding: 14px 22px 12px; color: #e8432e; border: 8px solid #e8432e; border-radius: 12px; background: rgba(255, 244, 220, 0.95); box-shadow: 0 0 0 5px #1d2b3a; white-space: nowrap; }
+    [data-composition-id="s11-pedidos"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #1d2b3a; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s11-pedidos"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s11-pedidos"] .s11-pasolbl { position: absolute; left: 168px; top: 590px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 54px; letter-spacing: 0.12em; color: #fff4dc; line-height: 1; -webkit-text-stroke: 10px #1d2b3a; paint-order: stroke fill; }
+    [data-composition-id="s11-pedidos"] .s11-num { position: absolute; left: 140px; top: 640px; width: 320px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 420px; line-height: 1; color: #e8432e; -webkit-text-stroke: 16px #1d2b3a; paint-order: stroke fill; text-shadow: 14px 16px 0 #1d2b3a; }
+
+    [data-composition-id="s11-pedidos"] .s11-card { position: absolute; left: 140px; top: 600px; width: 800px; height: 720px; background: #fff4dc; border: 8px solid #1d2b3a; border-radius: 14px; box-shadow: 10px 12px 0 #1d2b3a;
+      background-image: repeating-linear-gradient(180deg, rgba(111, 191, 219, 0) 0px, rgba(111, 191, 219, 0) 128px, rgba(111, 191, 219, 0.5) 128px, rgba(111, 191, 219, 0.5) 131px); }
+    [data-composition-id="s11-pedidos"] .s11-chinche { position: absolute; left: 382px; top: -22px; width: 40px; height: 40px; border-radius: 50%; background: #5ce611; border: 6px solid #1d2b3a; }
+
+  </style>
+  <div id="root" data-composition-id="s11-pedidos" data-width="1080" data-height="1920" data-duration="5.38">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="5.38" data-track-index="0">
+      <div class="s11-escenario">
+        <div class="s11-card">
+          <div class="s11-chinche"></div>
+          <div class="mano" style="left: 0; right: 0; text-align: center; top: 34px; font-size: 70px; color: #e8432e">Lo que hace tu agente</div>
+          <div class="mano s11-l1" style="left: 150px; top: 186px; font-size: 54px">Toma pedidos y reservas</div>
+          <div class="mano s11-l2" style="left: 150px; top: 314px; font-size: 54px">Le escribe al que no compró</div>
+          <div class="mano s11-l3" style="left: 150px; top: 442px; font-size: 54px">Te pasa la charla a vos</div>
+        </div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <rect class="s11-box" x="196" y="788" width="64" height="64" rx="10" fill="#fff4dc" stroke="#1d2b3a" stroke-width="7" />
+            <path class="s11-tick s11-t1" d="M204 818 L226 844 L274 774" fill="none" stroke="#5ce611" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+          <rect class="s11-box" x="196" y="916" width="64" height="64" rx="10" fill="#fff4dc" stroke="#1d2b3a" stroke-width="7" />
+            <path class="s11-tick s11-t2" d="M204 946 L226 972 L274 902" fill="none" stroke="#5ce611" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+          <rect class="s11-box" x="196" y="1044" width="64" height="64" rx="10" fill="#fff4dc" stroke="#1d2b3a" stroke-width="7" />
+            <path class="s11-tick s11-t3" d="M204 1074 L226 1100 L274 1030" fill="none" stroke="#5ce611" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+          <!-- el chef chiquito que recibe la charla -->
+          <g class="s11-chef">
+            <circle cx="820" cy="1230" r="50" fill="#fff4dc" stroke="#1d2b3a" stroke-width="7" />
+            <circle cx="804" cy="1226" r="6" fill="#1d2b3a" /><circle cx="836" cy="1226" r="6" fill="#1d2b3a" />
+            <path d="M806 1248 Q820 1260 834 1248" fill="none" stroke="#1d2b3a" stroke-width="5" stroke-linecap="round" />
+            <rect x="782" y="1150" width="76" height="26" rx="6" fill="#fff4dc" stroke="#1d2b3a" stroke-width="6" />
+            <path d="M786 1152 Q760 1120 786 1096 Q796 1070 820 1080 Q846 1068 856 1096 Q880 1120 854 1152 Z" fill="#fff4dc" stroke="#1d2b3a" stroke-width="6" stroke-linejoin="round" />
+          </g>
+          <path class="s11-flecha" d="M330 1230 Q520 1150 730 1220" fill="none" stroke="#5ce611" stroke-width="12" stroke-linecap="round" stroke-dasharray="20 22" />
+          <g class="s11-burb">
+            <path d="M270 1180 H380 Q400 1180 400 1200 V1250 Q400 1270 380 1270 H300 L276 1292 L282 1270 H270 Q250 1270 250 1250 V1200 Q250 1180 270 1180 Z" fill="#5ce611" stroke="#1d2b3a" stroke-width="6" stroke-linejoin="round" />
+            <path d="M276 1212 H374 M276 1238 H340" stroke="#1d2b3a" stroke-width="6" stroke-linecap="round" />
+          </g>
+        </svg>
+
+        
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-pedidos";
+      const DUR = 5.38;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // pop: aparece entero con rebote (oculto hasta t)
+      const pop = (el, t, o = {}) => {
+        gsap.set(el, { opacity: 0 });
+        const sv = o.svg ? { svgOrigin: o.svg } : {};
+        tl.fromTo(el, { opacity: 0, scale: o.s ?? 0.4, rotation: o.r0 ?? 0, y: o.y ?? 0, x: o.x ?? 0, ...sv }, { opacity: 1, scale: 1, rotation: o.r ?? 0, y: 0, x: 0, duration: o.d ?? 0.32, ease: o.e ?? "back.out(2)", immediateRender: false, ...sv }, t);
+      };
+      // sello: cae grande y se clava
+      const sello = (el, t, r = -10, f = 1.2) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.6, rotation: r - 18 }, { opacity: 1, scale: 1, rotation: r, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12);
+        sacudon(t + 0.04, f);
+      };
+      // vapor: hilos que suben y bajan (repeticiones finitas)
+      const vapor = (els, t, hasta) => els.forEach((el, i) => {
+        const p = 0.9 + (i % 3) * 0.15;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0.2, y: 30 }, { opacity: 0.95, y: -40, duration: p, ease: "sine.inOut", repeat: Math.max(0, Math.floor((hasta - t - i * 0.2) / p) - 1), yoyo: true, immediateRender: false }, t + i * 0.2);
+      });
+      // origen de giro SVG fijado antes de cualquier giro (si no, smoothOrigin corre el dibujo)
+      const org = (el, o) => gsap.set(el, { svgOrigin: o, smoothOrigin: false });
+      let NUMHASTA = DUR;
+
+      const PEDIDOS = 0.11, ESCRIBE = 1.02, COMPRO = 2.20, PASA = 3.20, CHARLA = 3.65, CUANDO = 4.02, VOS = 4.74;
+      org(q(".s11-chef"), "820 1280"); org(q(".s11-burb"), "325 1236");
+      // la tarjeta ya está (cuadro 0)
+      tl.fromTo(q(".s11-card"), { y: 120, rotation: -4, opacity: 0.6 }, { y: 0, rotation: -1, opacity: 1, duration: 0.35, ease: "back.out(1.5)" }, 0);
+      tl.to(q(".s11-card"), { rotation: 0.6, duration: 0.8, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.4);
+      gsap.set(qa(".s11-box"), { opacity: 0 });
+      tl.to(qa(".s11-box"), { opacity: 1, duration: 0.2, stagger: 0.06 }, 0.1);
+      // cada renglón se escribe y se tilda
+      [[".s11-l1", ".s11-t1", 0.0, PEDIDOS + 0.3], [".s11-l2", ".s11-t2", ESCRIBE - 0.1, COMPRO], [".s11-l3", ".s11-t3", PASA - 0.1, CHARLA]].forEach(([l, t, a, b]) => {
+        gsap.set(q(l), { opacity: 0 });
+        tl.fromTo(q(l), { opacity: 1, clipPath: "inset(0 100% 0 0)" }, { opacity: 1, clipPath: "inset(0 0% 0 0)", duration: 0.55, ease: "power1.inOut", immediateRender: false }, a);
+        gsap.set(q(t), { opacity: 0, strokeDasharray: 140, strokeDashoffset: 140 });
+        tl.to(q(t), { opacity: 1, duration: 0.01 }, b);
+        tl.to(q(t), { strokeDashoffset: 0, duration: 0.25, ease: "power2.out" }, b);
+      });
+      // la charla va al chef
+      pop(q(".s11-chef"), CUANDO - 0.3, { s: 0.3, svg: "820 1280" });
+      gsap.set(q(".s11-flecha"), { opacity: 0 });
+      tl.fromTo(q(".s11-flecha"), { opacity: 1, strokeDashoffset: 0 }, { opacity: 1, strokeDashoffset: -126, duration: 1.2, ease: "none", immediateRender: false }, CUANDO);
+      pop(q(".s11-burb"), CUANDO - 0.1, { s: 0.3, svg: "325 1236" });
+      tl.to(q(".s11-burb"), { x: 440, y: -40, scale: 0.6, duration: 0.5, ease: "power2.inOut" }, CUANDO + 0.3);
+      tl.to(q(".s11-burb"), { opacity: 0, duration: 0.1 }, VOS - 0.05);
+      tl.to(q(".s11-chef"), { y: -20, duration: 0.1, yoyo: true, repeat: 3, ease: "power2.out" }, VOS - 0.05);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
