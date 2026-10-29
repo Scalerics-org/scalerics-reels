@@ -13,7 +13,7 @@ const firmar = (v) => crypto.createHmac("sha256", process.env.PANEL_CLAVE || "")
 export function abrirSesion(res) {
   const vence = Date.now() + 30 * 24 * 3600e3;
   const v = `${vence}.${firmar(String(vence))}`;
-  res.setHeader("Set-Cookie", `${COOKIE}=${v}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=${30 * 24 * 3600}`);
+  res.setHeader("Set-Cookie", `${COOKIE}=${v}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${30 * 24 * 3600}`);
 }
 
 export function conSesion(req) {
