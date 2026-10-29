@@ -46,6 +46,11 @@
 
 ## En curso
 
+- 29-10 (2ª tanda) · `ultimo-momento` · Agente de IA · noticiero de último momento con zócalos rojos: comercio pierde clientes y culpa al dólar; móvil en el lugar, vecina entrevistada · reservado
+- 29-10 (2ª tanda) · `quien-mato-la-venta` · Tienda online · documental de crímenes: "¿Quién mató a la venta?" expedientes, sospechosos (el cuaderno, el "consultá por privado", el comprobante) · reservado
+- 29-10 (2ª tanda) · `terapia-de-pareja` · Agente de IA · el dueño y su clienta en terapia de pareja: "siento que ya no me escucha" · reservado
+- 29-10 (2ª tanda) · `despedido` · Agente de IA · diario de una semana: el dueño despide al agente de IA para ahorrar y el local se cae día a día · reservado
+- 29-10 (2ª tanda) · `el-roast` · Sitio web · roast en un club de comedia a la presencia online de un comercio; giro: lo de adentro es buenísimo y nadie lo ve · reservado
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
