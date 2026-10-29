@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-pizza"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-pizza"] .s04-pagina { position: absolute; inset: 0; }
+    [data-composition-id="s04-pizza"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s04-pizza" data-width="1080" data-height="1920" data-duration="6.04">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.04" data-track-index="0">
+      <div class="s04-pagina">
+        <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script src="assets/comic.js"></script>
+  <script>
+    (function () {
+      const ID = "s04-pizza";
+      const DUR = 6.04;
+      const P = "s04";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const C = window.COMIC;
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q("." + P + "-pagina"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece de golpe (pop) un grupo SVG
+      const pop = (sel, t, org, extra = {}) => { const el = typeof sel === "string" ? q(sel) : sel; gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 1, scale: extra.desde ?? 0.2, rotation: extra.rot ?? -12, svgOrigin: org }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: org, duration: extra.dur ?? 0.3, ease: extra.ease ?? "back.out(2.4)", immediateRender: false }, t); };
+      // se va
+      const fuera = (sel, t, org) => tl.to(typeof sel === "string" ? q(sel) : sel, { opacity: 0, scale: 0.5, svgOrigin: org, duration: 0.18, ease: "power2.in" }, t);
+      // late (para que nada quede quieto)
+      const late = (sel, t, org, n = 6, s = 1.05) => tl.to(typeof sel === "string" ? q(sel) : sel, { scale: s, svgOrigin: org, duration: 0.12, yoyo: true, repeat: n, ease: "sine.inOut" }, t);
+      const svg = q("." + P + "-svg");
+
+      const TOME = 0.18, TODOS = 0.73, PEDIDOS = 1.13, CLASICO = 1.88, DUENO = 3.0, ENTERO = 3.58, GRITANDO = 4.52, GOL = 5.09;
+      // comandas que se apilan
+      let comandas = "";
+      for (let i = 0; i < 7; i++) {
+        const x = 560 + (i % 2 ? 18 : -10), y = 1150 - i * 62, rot = [-6, 5, -3, 8, -7, 4, -2][i];
+        comandas += `<g class="s04-com" data-r="${rot}" data-x="${x}" data-y="${y}"><g transform="rotate(${rot} ${x + 80} ${y - 50})"><rect x="${x}" y="${y - 100}" width="170" height="100" rx="6" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="6"/><rect x="${x}" y="${y - 100}" width="170" height="28" rx="6" fill="${C.MAGENTA}" stroke="${C.TINTA}" stroke-width="6"/><path d="M${x + 18} ${y - 48} H${x + 150} M${x + 18} ${y - 24} H${x + 110}" stroke="${C.TINTA}" stroke-width="7" stroke-linecap="round"/></g></g>`;
+      }
+      // el dueño de espaldas mirando la tele
+      const dueno = `<g class="s04-dueno">
+        <g class="s04-brazos-abajo"><path d="M380 1530 Q350 1580 360 1620 M520 1530 Q550 1580 540 1620" fill="none" stroke="${C.TINTA}" stroke-width="22" stroke-linecap="round"/></g>
+        <g class="s04-brazos-arriba"><path d="M380 1520 Q330 1460 320 1390 M520 1520 Q570 1460 580 1390" fill="none" stroke="${C.TINTA}" stroke-width="22" stroke-linecap="round"/><circle cx="320" cy="1380" r="20" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="6"/><circle cx="580" cy="1380" r="20" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="6"/></g>
+        <path d="M360 1640 L372 1530 Q380 1496 450 1494 Q520 1496 528 1530 L540 1640 Z" fill="${C.MAGENTA}" stroke="${C.TINTA}" stroke-width="8" stroke-linejoin="round"/>
+        <path d="M470 1510 L500 1630" stroke="url(#${P}-trama)" stroke-width="40" opacity="0.3"/>
+        <circle cx="450" cy="1440" r="56" fill="${C.TINTA}" stroke="${C.TINTA}" stroke-width="6"/>
+        <path d="M394 1436 Q386 1460 400 1470 M506 1436 Q514 1460 500 1470" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="6"/>
+      </g>`;
+      svg.innerHTML = C.defs(P) +
+        `<g class="s04-main">` + C.vineta({ p: P, x: 70, y: 560, w: 940, h: 700, fill: C.BLANCO, trama: 0.08 }) +
+        `<g class="s04-rob">${C.robot({ p: P, x: 270, y: 1150, s: 1.0, kind: "pizza", cara: "feliz", cls: "s04-r" })}</g>` +
+        `<g class="s04-tag">${C.etiqueta({ x: 270, y: 1180, txt: "El de la pizzería", color: C.BLANCO, size: 28 })}</g>` +
+        comandas +
+        `<g class="s04-globo">${C.globo({ x: 640, y: 600, w: 340, h: 150, cola: [700, 820], lines: ["¡SALE UNA", "MUZZA!"], size: 46 })}</g>` +
+        `</g>` +
+        `<g class="s04-abajo">` + C.vineta({ p: P, x: 70, y: 1290, w: 940, h: 370, fill: C.AMARILLO, trama: 0.14 }) +
+        `<g class="s04-tele"><rect x="600" y="1330" width="370" height="240" rx="18" fill="${C.TINTA}" stroke="${C.TINTA}" stroke-width="8"/><rect x="618" y="1348" width="334" height="204" rx="8" fill="${C.CIAN}"/>
+          <path d="M785 1348 V1552 M618 1450 H952" stroke="${C.BLANCO}" stroke-width="5"/><circle cx="785" cy="1450" r="34" fill="none" stroke="${C.BLANCO}" stroke-width="5"/>
+          <rect x="618" y="1405" width="40" height="90" fill="none" stroke="${C.BLANCO}" stroke-width="5"/><rect x="912" y="1405" width="40" height="90" fill="none" stroke="${C.BLANCO}" stroke-width="5"/>
+          <circle class="s04-pelota" cx="760" cy="1470" r="13" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="4"/>
+          <path d="M700 1570 L680 1610 M870 1570 L890 1610" stroke="${C.TINTA}" stroke-width="10" stroke-linecap="round"/></g>` +
+        dueno +
+        C.cartucho({ cls: "s04-cart", x: 100, y: 1310, txt: "Mi dueño", size: 32 }) +
+        `</g>` +
+        `<g class="s04-gol">${C.onomato({ x: 540, y: 1390, r1: 290, r2: 196, n: 18, ax: 1.35, txt: "¡GOOOL!", size: 150, fondo: C.MAGENTA, color: C.AMARILLO, rot: -6 })}</g>`;
+
+      tl.fromTo(q(".s04-main"), { opacity: 1, y: -70, rotation: 2, svgOrigin: "540 910" }, { y: 0, rotation: 0, svgOrigin: "540 910", duration: 0.35, ease: "back.out(1.8)" }, 0);
+      // los brazos del robot van y vienen tomando pedidos
+      tl.to(q(".s04-r .brazo-d"), { rotation: -70, svgOrigin: "66 -78", duration: 0.12, yoyo: true, repeat: 11, ease: "sine.inOut" }, TOME);
+      tl.to(q(".s04-r .brazo-i"), { rotation: 60, svgOrigin: "-66 -78", duration: 0.14, yoyo: true, repeat: 9, ease: "sine.inOut" }, TOME + 0.07);
+      // comandas: caen una tras otra desde "todos"
+      [...qa(".s04-com")].forEach((c, i) => {
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { opacity: 1, y: -500, x: 260 }, { opacity: 1, y: 0, x: 0, duration: 0.22, ease: "power3.in", immediateRender: false }, TODOS + i * 0.13);
+      });
+      tl.to(qa(".s04-com"), { x: 6, duration: 0.05, yoyo: true, repeat: 7 }, TODOS + 0.95);
+      pop(".s04-globo", PEDIDOS, "700 760");
+      late(".s04-globo", PEDIDOS + 0.35, "700 760", 5, 1.04);
+      // "clásico": la viñeta de abajo con la tele
+      gsap.set(q(".s04-abajo"), { opacity: 0 });
+      tl.fromTo(q(".s04-abajo"), { opacity: 1, y: 420 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, CLASICO - 0.15);
+      tl.to(q(".s04-pelota"), { x: 150, y: -30, duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut" }, CLASICO + 0.2);
+      gsap.set(q(".s04-brazos-arriba"), { opacity: 0 });
+      // "mi dueño"
+      pop(".s04-cart", DUENO - 0.1, "180 1340", { rot: -6, desde: 0.4 });
+      tl.to(q(".s04-dueno"), { x: 8, duration: 0.08, yoyo: true, repeat: 9, ease: "none" }, DUENO + 0.1);
+      tl.to(q(".s04-main"), { opacity: 0.6, duration: 0.25 }, DUENO);
+      // "ni se enteró": el robot se encoge de hombros
+      tl.to(q(".s04-r .cabeza"), { rotation: 10, svgOrigin: "0 -100", duration: 0.2, yoyo: true, repeat: 1 }, ENTERO);
+      // "gritando": brazos arriba y salta
+      tl.set(q(".s04-brazos-abajo"), { opacity: 0 }, GRITANDO);
+      tl.set(q(".s04-brazos-arriba"), { opacity: 1 }, GRITANDO);
+      tl.to(q(".s04-dueno"), { y: -40, duration: 0.14, yoyo: true, repeat: 5, ease: "power2.out" }, GRITANDO);
+      // "gol"
+      tl.to(q(".s04-cart"), { opacity: 0, duration: 0.1 }, GOL - 0.15);
+      pop(".s04-gol", GOL - 0.1, "540 1390", { rot: -20, desde: 0.1, dur: 0.25 });
+      late(".s04-gol", GOL + 0.2, "540 1390", 4, 1.06);
+      sacudon(GOL, 2);
+
+
+      // salida
+      tl.to(q("#" + P + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

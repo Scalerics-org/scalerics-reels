@@ -1,0 +1,93 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-esquina"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-esquina"] .s05-pagina { position: absolute; inset: 0; }
+    [data-composition-id="s05-esquina"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s05-esquina" data-width="1080" data-height="1920" data-duration="2.85">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="2.85" data-track-index="0">
+      <div class="s05-pagina">
+        <svg class="s05-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script src="assets/comic.js"></script>
+  <script>
+    (function () {
+      const ID = "s05-esquina";
+      const DUR = 2.85;
+      const P = "s05";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const C = window.COMIC;
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q("." + P + "-pagina"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece de golpe (pop) un grupo SVG
+      const pop = (sel, t, org, extra = {}) => { const el = typeof sel === "string" ? q(sel) : sel; gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 1, scale: extra.desde ?? 0.2, rotation: extra.rot ?? -12, svgOrigin: org }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: org, duration: extra.dur ?? 0.3, ease: extra.ease ?? "back.out(2.4)", immediateRender: false }, t); };
+      // se va
+      const fuera = (sel, t, org) => tl.to(typeof sel === "string" ? q(sel) : sel, { opacity: 0, scale: 0.5, svgOrigin: org, duration: 0.18, ease: "power2.in" }, t);
+      // late (para que nada quede quieto)
+      const late = (sel, t, org, n = 6, s = 1.05) => tl.to(typeof sel === "string" ? q(sel) : sel, { scale: s, svgOrigin: org, duration: 0.12, yoyo: true, repeat: n, ease: "sine.inOut" }, t);
+      const svg = q("." + P + "-svg");
+
+      const ALMACEN = 0.29, ESQUINA = 0.96, ALGUIEN = 1.54, ALGO = 2.02;
+      let toldo = "";
+      for (let i = 0; i < 8; i++) toldo += `<path d="M${250 + i * 72.5} 900 h72.5 l-6 70 h-60 Z" fill="${i % 2 ? C.BLANCO : C.CIAN}" stroke="${C.TINTA}" stroke-width="6" stroke-linejoin="round"/>`;
+      svg.innerHTML = C.defs(P) +
+        `<g class="s05-fondo">` + C.vineta({ p: P, x: 70, y: 560, w: 940, h: 1080, fill: C.AMARILLO, trama: 0.12 }) +
+        `<clipPath id="s05-clip"><rect x="75" y="565" width="930" height="1070"/></clipPath><g clip-path="url(#s05-clip)"><g class="s05-rayos">${C.rayos({ x: 540, y: 1030, r0: 380, r1: 900, n: 56, sw: 10, op: 0.85 })}</g></g></g>` +
+        `<g class="s05-local">
+          <rect x="250" y="780" width="580" height="500" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="9"/>
+          <rect x="270" y="790" width="540" height="100" rx="8" fill="${C.MAGENTA}" stroke="${C.TINTA}" stroke-width="7"/>
+          <text x="540" y="866" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="72" fill="${C.AMARILLO}" stroke="${C.TINTA}" stroke-width="8" paint-order="stroke fill" letter-spacing="4">ALMACÉN</text>
+          ${toldo}
+          <rect x="290" y="1010" width="260" height="190" fill="${C.CIAN}" stroke="${C.TINTA}" stroke-width="7"/>
+          <rect x="290" y="1010" width="260" height="190" fill="url(#${P}-trama-f)" opacity="0.3"/>
+          <g class="s05-cartelito" data-layout-allow-overlap="true"><rect x="306" y="1066" width="228" height="82" rx="6" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="5"/><text x="420" y="1102" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="28" fill="${C.TINTA}">SOLO</text><text x="420" y="1132" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="28" fill="${C.TINTA}">EFECTIVO</text></g>
+          <rect x="600" y="1010" width="180" height="270" fill="${C.TINTA}" stroke="${C.TINTA}" stroke-width="7"/>
+          <rect x="616" y="1026" width="148" height="110" fill="${C.CIAN}" opacity="0.5"/>
+          <circle cx="760" cy="1160" r="8" fill="${C.AMARILLO}"/>
+          <path d="M230 1280 H850" stroke="${C.TINTA}" stroke-width="12" stroke-linecap="round"/>
+        </g>` +
+        `<g class="s05-esq">${C.cartucho({ x: 110, y: 600, txt: "La esquina", size: 34 })}</g>` +
+        `<g class="s05-asoman">
+          <g class="s05-a1">${C.robot({ p: P, x: 250, y: 1720, s: 0.95, kind: "pelu", cara: "sorpresa" })}</g>
+          <g class="s05-a2">${C.robot({ p: P, x: 540, y: 1700, s: 0.95, kind: "pizza", cara: "sorpresa" })}</g>
+          <g class="s05-a3">${C.robot({ p: P, x: 830, y: 1720, s: 0.95, kind: "ferre", cara: "sorpresa" })}</g>
+        </g>` +
+        `<g class="s05-preg"><text x="540" y="1250" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="200" fill="${C.MAGENTA}" stroke="${C.TINTA}" stroke-width="16" paint-order="stroke fill">¿?</text></g>`;
+
+      // zoom dramático al almacén
+      tl.fromTo(q(".s05-rayos"), { rotation: 0, svgOrigin: "540 1030" }, { rotation: 10, svgOrigin: "540 1030", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s05-fondo"), { scale: 1.08, svgOrigin: "540 1100" }, { scale: 1, svgOrigin: "540 1100", duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s05-local"), { opacity: 1, scale: 0.25, svgOrigin: "540 1030" }, { scale: 0.85, svgOrigin: "540 1030", duration: 0.35, ease: "power3.out" }, 0);
+      tl.to(q(".s05-local"), { scale: 1.02, svgOrigin: "540 1030", duration: 0.2, ease: "power4.in" }, ALMACEN);
+      tl.to(q(".s05-local"), { scale: 1.06, svgOrigin: "540 1030", duration: ALGUIEN - ALMACEN - 0.2, ease: "none" }, ALMACEN + 0.2);
+      sacudon(ALMACEN + 0.2, 1.2);
+      pop(".s05-esq", ESQUINA - 0.1, "250 630", { rot: -10, desde: 0.4 });
+      tl.to(q(".s05-cartelito"), { rotation: -8, svgOrigin: "420 1074", duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.4);
+      // "alguien": los tres asoman desde abajo con ojos grandes
+      ["s05-a1", "s05-a2", "s05-a3"].forEach((c, i) => {
+        gsap.set(q("." + c), { opacity: 0 });
+        tl.fromTo(q("." + c), { opacity: 1, y: 330 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, ALGUIEN - 0.2 + i * 0.08);
+      });
+      tl.to(q(".s05-local"), { opacity: 0.75, duration: 0.2 }, ALGUIEN);
+      tl.to(qa(".s05-asoman .ojo"), { scale: 1.4, transformOrigin: "50% 50%", duration: 0.15, yoyo: true, repeat: 3 }, ALGUIEN + 0.2);
+      // "algo": ¿?
+      pop(".s05-preg", ALGO - 0.15, "540 1180", { rot: 20, desde: 0.2 });
+      late(".s05-preg", ALGO + 0.2, "540 1180", 4, 1.07);
+
+
+      // salida
+      tl.to(q("#" + P + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

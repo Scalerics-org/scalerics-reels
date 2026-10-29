@@ -1,0 +1,93 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-scalerics"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-scalerics"] .s11-pagina { position: absolute; inset: 0; }
+    [data-composition-id="s11-scalerics"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s11-scalerics" data-width="1080" data-height="1920" data-duration="8.86">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="8.86" data-track-index="0">
+      <div class="s11-pagina">
+        <svg class="s11-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script src="assets/comic.js"></script>
+  <script>
+    (function () {
+      const ID = "s11-scalerics";
+      const DUR = 8.86;
+      const P = "s11";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const C = window.COMIC;
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q("." + P + "-pagina"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece de golpe (pop) un grupo SVG
+      const pop = (sel, t, org, extra = {}) => { const el = typeof sel === "string" ? q(sel) : sel; gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 1, scale: extra.desde ?? 0.2, rotation: extra.rot ?? -12, svgOrigin: org }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: org, duration: extra.dur ?? 0.3, ease: extra.ease ?? "back.out(2.4)", immediateRender: false }, t); };
+      // se va
+      const fuera = (sel, t, org) => tl.to(typeof sel === "string" ? q(sel) : sel, { opacity: 0, scale: 0.5, svgOrigin: org, duration: 0.18, ease: "power2.in" }, t);
+      // late (para que nada quede quieto)
+      const late = (sel, t, org, n = 6, s = 1.05) => tl.to(typeof sel === "string" ? q(sel) : sel, { scale: s, svgOrigin: org, duration: 0.12, yoyo: true, repeat: n, ease: "sine.inOut" }, t);
+      const svg = q("." + P + "-svg");
+
+      const SCALERICS = 0.38, AGENTE = 1.32, ATIENDE = 2.35, INSTANTE = 3.21, PRECIOS = 4.25, AGENDA = 4.72, TOMA = 5.98, PASA = 7.08, CHARLA = 7.36, VOS = 8.3;
+      const caja = (cls, y, icono, txt) => `<g class="${cls}">` + C.vineta({ p: P, x: 560, y, w: 420, h: 150, fill: C.BLANCO }) + icono + `<text x="700" y="${y + 92}" font-family="Lexend" font-weight="900" font-size="40" fill="${C.TINTA}">${txt}</text>` +
+        `<g class="${cls}-ok"><circle cx="940" cy="${y + 20}" r="26" fill="${C.VERDE}" stroke="${C.TINTA}" stroke-width="6"/><path d="M927 ${y + 21} L937 ${y + 31} L954 ${y + 10}" fill="none" stroke="${C.TINTA}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g></g>`;
+      svg.innerHTML = C.defs(P) +
+        `<g class="s11-main">` + C.vineta({ p: P, x: 70, y: 560, w: 940, h: 1080, fill: C.PAPEL, trama: 0.1 }) +
+        `<clipPath id="s11-clip"><rect x="75" y="565" width="930" height="1070"/></clipPath><g clip-path="url(#s11-clip)"><g class="s11-rayos">${C.rayos({ x: 300, y: 1050, r0: 240, r1: 1100, n: 44, sw: 10, color: C.VERDE, op: 0.55 })}</g></g>` +
+        `<g class="s11-rob">${C.robot({ p: P, x: 310, y: 1270, s: 1.3, kind: "scalerics", cara: "feliz", cls: "s11-r" })}</g>` +
+        `<g class="s11-tag">${C.etiqueta({ x: 310, y: 1300, txt: "Tu agente de IA", color: C.VERDE, size: 34 })}</g>` +
+        `<g class="s11-presenta">${C.cartucho({ x: 100, y: 590, txt: "Scalerics presenta", size: 32, fill: C.VERDE })}</g>` +
+        caja("s11-c1", 640, `<g><path d="M590 680 H670 Q684 680 684 694 V736 Q684 750 670 750 H620 L598 772 L604 750 H590 Q576 750 576 736 V694 Q576 680 590 680 Z" fill="${C.CIAN}" stroke="${C.TINTA}" stroke-width="5"/><path d="M634 690 L618 718 H636 L624 742" fill="none" stroke="${C.AMARILLO}" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/></g>`, "Al instante") +
+        caja("s11-c2", 810, `<g><path d="M586 870 L636 840 H680 V900 H636 Z" fill="${C.AMARILLO}" stroke="${C.TINTA}" stroke-width="5" stroke-linejoin="round"/><circle cx="636" cy="870" r="7" fill="${C.TINTA}"/><text x="664" y="882" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="30" fill="${C.TINTA}">$</text></g>`, "Tus precios") +
+        caja("s11-c3", 980, `<g><rect x="584" y="1012" width="100" height="90" rx="8" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="5"/><rect x="584" y="1012" width="100" height="26" rx="6" fill="${C.MAGENTA}" stroke="${C.TINTA}" stroke-width="5"/><path d="M604 1068 L620 1084 L662 1050" fill="none" stroke="${C.VERDE}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></g>`, "Turnos") +
+        caja("s11-c4", 1150, `<g><rect x="590" y="1180" width="86" height="96" rx="6" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="5"/><rect x="590" y="1180" width="86" height="24" rx="6" fill="${C.CIAN}" stroke="${C.TINTA}" stroke-width="5"/><path d="M604 1226 H662 M604 1250 H644" stroke="${C.TINTA}" stroke-width="6" stroke-linecap="round"/></g>`, "Pedidos") +
+        `<g class="s11-abajo">` + C.vineta({ p: P, x: 100, y: 1380, w: 880, h: 240, fill: C.BLANCO }) +
+        `<clipPath id="s11-clip2"><rect x="105" y="1385" width="870" height="230"/></clipPath><g clip-path="url(#s11-clip2)">` +
+        `<g class="s11-mini">${C.robot({ p: P, x: 230, y: 1650, s: 0.75, kind: "scalerics", cara: "feliz" })}</g>` +
+        `<g class="s11-dueno">${C.dueno({ p: P, x: 850, y: 1720, s: 0.85, cara: "feliz" })}</g>` +
+        `<path class="s11-flecha" d="M340 1520 Q540 1440 730 1510" fill="none" stroke="${C.VERDE}" stroke-width="12" stroke-linecap="round" stroke-dasharray="4 26"/>` +
+        `<g class="s11-charla"><path d="M490 1430 H610 Q630 1430 630 1450 V1490 Q630 1510 610 1510 H540 L512 1536 L518 1510 H490 Q470 1510 470 1490 V1450 Q470 1430 490 1430 Z" fill="${C.CIAN}" stroke="${C.TINTA}" stroke-width="6"/><path d="M500 1460 H600 M500 1482 H570" stroke="${C.BLANCO}" stroke-width="7" stroke-linecap="round"/></g>` +
+        `<g class="s11-paravos"><text x="850" y="1440" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="40" fill="${C.MAGENTA}" stroke="${C.TINTA}" stroke-width="7" paint-order="stroke fill">¡PARA VOS!</text></g>` +
+        `</g></g></g>`;
+
+      tl.fromTo(q(".s11-main"), { opacity: 1, scale: 1.12, svgOrigin: "540 1100" }, { scale: 1, svgOrigin: "540 1100", duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s11-rayos"), { rotation: 0, svgOrigin: "300 1050" }, { rotation: 10, svgOrigin: "300 1050", duration: DUR, ease: "none" }, 0);
+      pop(".s11-presenta", SCALERICS - 0.1, "260 620", { rot: -8, desde: 0.4 });
+      // el agente nuevo cae desde arriba
+      gsap.set([q(".s11-rob"), q(".s11-tag")], { opacity: 0 });
+      tl.fromTo(q(".s11-rob"), { opacity: 1, y: -900 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.in", immediateRender: false }, AGENTE - 0.3);
+      sacudon(AGENTE, 1.6);
+      pop(".s11-tag", AGENTE + 0.1, "310 1330", { rot: -8, desde: 0.4 });
+      tl.to(q(".s11-r .cuerpo-todo"), { y: -14, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, AGENTE + 0.4);
+      tl.to(q(".s11-r .bolita"), { scale: 1.4, svgOrigin: "0 -276", duration: 0.15, yoyo: true, repeat: 20 }, AGENTE + 0.3);
+      // cada cosa que hace, en su palabra
+      [["s11-c1", ATIENDE + 0.1, INSTANTE, 715], ["s11-c2", PRECIOS - 0.15, PRECIOS + 0.2, 885], ["s11-c3", AGENDA - 0.1, AGENDA + 0.47, 1055], ["s11-c4", TOMA - 0.1, TOMA + 0.2, 1225]].forEach(([c, t, ok, y]) => {
+        gsap.set(q("." + c), { opacity: 0 });
+        tl.fromTo(q("." + c), { opacity: 1, x: 500 }, { opacity: 1, x: 0, duration: 0.28, ease: "back.out(1.7)", immediateRender: false }, t);
+        pop("." + c + "-ok", ok, `940 ${y - 55}`, { rot: -30, desde: 0.2 });
+      });
+      tl.to(q(".s11-r .brazo-d"), { rotation: -60, svgOrigin: "66 -78", duration: 0.15, yoyo: true, repeat: 7, ease: "sine.inOut" }, ATIENDE);
+      // "te pasa la charla": tira de abajo
+      gsap.set(q(".s11-abajo"), { opacity: 0 });
+      tl.fromTo(q(".s11-abajo"), { opacity: 1, y: 300 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, PASA - 0.45);
+      tl.fromTo(q(".s11-charla"), { x: -230, y: 30, scale: 0.6, svgOrigin: "550 1470" }, { x: 250, y: -10, scale: 1, svgOrigin: "550 1470", duration: 0.7, ease: "power2.inOut" }, CHARLA - 0.2);
+      tl.fromTo(q(".s11-flecha"), { strokeDashoffset: 0 }, { strokeDashoffset: -120, duration: 1.5, ease: "none" }, PASA - 0.3);
+      pop(".s11-paravos", VOS - 0.15, "850 1425", { rot: 10, desde: 0.3 });
+      tl.to(q(".s11-dueno"), { y: -16, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, VOS);
+
+
+      // salida
+      tl.to(q("#" + P + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

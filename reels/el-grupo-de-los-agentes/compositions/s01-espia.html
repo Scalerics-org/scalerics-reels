@@ -1,0 +1,104 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-espia"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-espia"] .s01-pagina { position: absolute; inset: 0; }
+    [data-composition-id="s01-espia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s01-espia" data-width="1080" data-height="1920" data-duration="7.15">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="7.15" data-track-index="0">
+      <div class="s01-pagina">
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script src="assets/comic.js"></script>
+  <script>
+    (function () {
+      const ID = "s01-espia";
+      const DUR = 7.15;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const C = window.COMIC;
+      const P = "s01";
+
+      // ---------- dibujo ----------
+      const robots = (cara, cls, conTag) =>
+        C.robot({ p: P, x: 275, y: 1380, s: 1.0, kind: "pelu", cara, cls: cls + " s01-r1", tag: conTag ? "Peluquería" : "", tagSize: 28 }) +
+        C.robot({ p: P, x: 540, y: 1330, s: 1.08, kind: "pizza", cara, cls: cls + " s01-r2", tag: conTag ? "Pizzería" : "", tagSize: 28 }) +
+        C.robot({ p: P, x: 805, y: 1380, s: 1.0, kind: "ferre", cara, cls: cls + " s01-r3", tag: conTag ? "Ferretería" : "", tagSize: 28 });
+      q(".s01-svg").innerHTML =
+        C.defs(P) +
+        `<mask id="s01-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1920"><rect x="0" y="0" width="1080" height="1920" fill="#fff"/>
+           <g class="s01-cerradura"><circle cx="540" cy="930" r="250" fill="#000"/><path d="M420 1100 L300 1500 H780 L660 1100 Z" fill="#000"/></g></mask>` +
+        `<g class="s01-panel">` +
+        C.vineta({ p: P, x: 80, y: 600, w: 920, h: 960, fill: C.BLANCO, trama: 0.1 }) +
+        `<clipPath id="s01-clip"><rect x="85" y="605" width="910" height="950"/></clipPath><g clip-path="url(#s01-clip)"><g class="s01-rayos">${C.rayos({ x: 540, y: 1000, r0: 360, r1: 700, n: 40, sw: 7, op: 0.45 })}</g></g>` +
+        `<g class="s01-chat"><path d="M410 650 H670 Q700 650 700 680 V770 Q700 800 670 800 H520 L470 846 L478 800 H410 Q380 800 380 770 V680 Q380 650 410 650 Z" fill="${C.CIAN}" stroke="${C.TINTA}" stroke-width="8" stroke-linejoin="round"/>
+           <circle class="s01-punto" cx="480" cy="726" r="17" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="5"/><circle class="s01-punto" cx="540" cy="726" r="17" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="5"/><circle class="s01-punto" cx="600" cy="726" r="17" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="5"/></g>` +
+        `<g class="s01-felices">${robots("feliz", "s01-f", true)}</g>` +
+        `<g class="s01-riendo">${robots("risa", "s01-k", false)}</g>` +
+        `</g>` +
+        // la página negra con el agujero de la cerradura
+        `<rect class="s01-negro" x="0" y="0" width="1080" height="1920" fill="${C.TINTA}" mask="url(#s01-mask)"/>` +
+        C.cartucho({ cls: "s01-mientras", x: 96, y: 1530, txt: "Mientras tanto...", size: 40 }) +
+        C.onomato({ cls: "s01-ja", x: 540, y: 760, r1: 170, r2: 120, n: 16, ax: 1.9, txt: "¡JA JA JA!", size: 96, fondo: C.AMARILLO, color: C.MAGENTA, rot: -5 });
+
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-pagina"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const GRUPO = 1.09, WHATS = 1.64, AGENTES = 2.54, IA = 3.46, RIENDO = 5.09, VOS = 5.91;
+
+      // cuadro 0: la cerradura ya abierta a medias, espiando
+      tl.fromTo(q(".s01-cerradura"), { scale: 0.62, svgOrigin: "540 1000" }, { scale: 0.8, svgOrigin: "540 1000", duration: GRUPO, ease: "power1.inOut" }, 0);
+      tl.fromTo(q(".s01-mientras"), { opacity: 1, x: -60, rotation: -3, svgOrigin: "300 1560" }, { x: 0, rotation: -3, svgOrigin: "300 1560", duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s01-panel"), { scale: 1.25, svgOrigin: "540 1000" }, { scale: 1.12, svgOrigin: "540 1000", duration: AGENTES, ease: "none" }, 0);
+      // la cerradura se mueve un poquito, como quien espía
+      tl.to(q(".s01-cerradura"), { x: 30, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0.1);
+
+      // "grupo de WhatsApp": el globito del chat con sus puntitos
+      gsap.set(q(".s01-chat"), { opacity: 0 });
+      tl.fromTo(q(".s01-chat"), { opacity: 0, scale: 0.3, svgOrigin: "540 800" }, { opacity: 1, scale: 1, svgOrigin: "540 800", duration: 0.3, ease: "back.out(2.4)", immediateRender: false }, WHATS - 0.1);
+      tl.to(qa(".s01-punto"), { y: -12, duration: 0.18, yoyo: true, repeat: 9, stagger: 0.09, ease: "sine.inOut" }, WHATS + 0.25);
+
+      // "agentes de IA": la cerradura se abre del todo, se ve la viñeta entera
+      tl.to(q(".s01-cerradura"), { scale: 4.2, svgOrigin: "540 1000", duration: 0.5, ease: "power3.in" }, AGENTES - 0.2);
+      tl.to(q(".s01-mientras"), { opacity: 0, y: 40, duration: 0.25, ease: "power2.in" }, AGENTES);
+      tl.to(q(".s01-panel"), { scale: 1, svgOrigin: "540 1000", duration: 0.45, ease: "back.out(1.6)" }, AGENTES + 0.25);
+      sacudon(AGENTES + 0.3, 0.8);
+      // los carteles de cada uno
+      const tags = [...qa(".s01-felices .tag")];
+      gsap.set(tags, { opacity: 0 });
+      tags.forEach((t, i) => tl.fromTo(t, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, IA - 0.25 + i * 0.18));
+      // charlan: cabezas que se mueven
+      const cab = [...qa(".s01-f .cabeza")];
+      cab.forEach((c, i) => tl.to(c, { rotation: i % 2 ? 6 : -6, svgOrigin: "0 -100", duration: 0.22, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.2 + i * 0.12));
+
+      // "riendo": cambian a cara de risa y estalla el JA JA JA
+      gsap.set(q(".s01-riendo"), { opacity: 0 });
+      tl.set(q(".s01-riendo"), { opacity: 1 }, RIENDO);
+      tl.set(qa(".s01-felices .robot"), { opacity: 0 }, RIENDO);
+      [...qa(".s01-k .cuerpo-todo")].forEach((c, i) => tl.to(c, { y: -18, duration: 0.11, yoyo: true, repeat: 7, ease: "sine.inOut" }, RIENDO + i * 0.05));
+      gsap.set(q(".s01-ja"), { opacity: 0 });
+      tl.to(q(".s01-chat"), { opacity: 0, scale: 0.4, svgOrigin: "540 800", duration: 0.12, ease: "power2.in" }, RIENDO - 0.1);
+      tl.fromTo(q(".s01-ja"), { opacity: 1, scale: 0.2, rotation: -20, svgOrigin: "540 760" }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: "540 760", duration: 0.3, ease: "back.out(2.6)", immediateRender: false }, RIENDO);
+      tl.to(q(".s01-ja"), { scale: 1.06, svgOrigin: "540 760", duration: 0.1, yoyo: true, repeat: 9, ease: "sine.inOut" }, RIENDO + 0.32);
+      tl.to(q(".s01-rayos"), { rotation: 8, svgOrigin: "540 1000", duration: DUR - RIENDO, ease: "none" }, RIENDO);
+
+      // "vos": los tres señalan a cámara, zoom y sacudón
+      [...qa(".s01-k .brazo-d")].forEach((b) => tl.to(b, { rotation: -115, svgOrigin: "66 -78", duration: 0.16, ease: "back.out(2.5)" }, VOS - 0.08));
+      [...qa(".s01-k .brazo-i")].forEach((b) => tl.to(b, { rotation: 40, svgOrigin: "-66 -78", duration: 0.16, ease: "power2.out" }, VOS - 0.08));
+      tl.to(q(".s01-panel"), { scale: 1.1, svgOrigin: "540 1100", duration: 0.18, ease: "power3.out" }, VOS);
+      sacudon(VOS + 0.02, 1.6);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

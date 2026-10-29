@@ -1,0 +1,116 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-audio"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-audio"] .s07-pagina { position: absolute; inset: 0; }
+    [data-composition-id="s07-audio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s07-audio" data-width="1080" data-height="1920" data-duration="9.13">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="9.13" data-track-index="0">
+      <div class="s07-pagina">
+        <svg class="s07-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script src="assets/comic.js"></script>
+  <script>
+    (function () {
+      const ID = "s07-audio";
+      const DUR = 9.13;
+      const P = "s07";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const C = window.COMIC;
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q("." + P + "-pagina"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece de golpe (pop) un grupo SVG
+      const pop = (sel, t, org, extra = {}) => { const el = typeof sel === "string" ? q(sel) : sel; gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 1, scale: extra.desde ?? 0.2, rotation: extra.rot ?? -12, svgOrigin: org }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: org, duration: extra.dur ?? 0.3, ease: extra.ease ?? "back.out(2.4)", immediateRender: false }, t); };
+      // se va
+      const fuera = (sel, t, org) => tl.to(typeof sel === "string" ? q(sel) : sel, { opacity: 0, scale: 0.5, svgOrigin: org, duration: 0.18, ease: "power2.in" }, t);
+      // late (para que nada quede quieto)
+      const late = (sel, t, org, n = 6, s = 1.05) => tl.to(typeof sel === "string" ? q(sel) : sel, { scale: s, svgOrigin: org, duration: 0.12, yoyo: true, repeat: n, ease: "sine.inOut" }, t);
+      const svg = q("." + P + "-svg");
+
+      const MANDO = 0.47, AUDIO = 0.94, CUATRO = 1.41, MINUTOS = 2.07, CLIENTA = 2.83, PARA = 3.68, SI = 4.62, ARRANCO = 5.47, PERDON = 6.23, DEMORA = 6.71, MIL = 7.85;
+      let barras = "";
+      for (let i = 0; i < 26; i++) { const h = [30, 56, 80, 44, 70, 24, 90, 60, 36, 76, 50, 84, 28, 66, 40, 88, 54, 32, 72, 46, 82, 26, 62, 38, 74, 48][i]; barras += `<rect class="s07-barra" x="${500 + i * 17}" y="${730 - h / 2}" width="9" height="${h}" rx="4" fill="${C.TINTA}"/>`; }
+      const clienta = `<g class="s07-clienta">
+        <path d="M770 1600 L780 1470 Q790 1420 860 1416 Q930 1420 940 1470 L950 1600 Z" fill="${C.MAGENTA}" stroke="${C.TINTA}" stroke-width="8" stroke-linejoin="round"/>
+        <path d="M800 1340 Q790 1260 860 1250 Q936 1256 924 1350 L930 1430 L790 1430 Z" fill="${C.TINTA}"/>
+        <circle cx="860" cy="1340" r="58" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="8"/>
+        <path d="M806 1316 Q850 1268 912 1306 Q870 1296 806 1316 Z" fill="${C.TINTA}"/>
+        <ellipse class="s07-ojo" cx="840" cy="1340" rx="7" ry="10" fill="${C.TINTA}"/><ellipse class="s07-ojo" cx="882" cy="1340" rx="7" ry="10" fill="${C.TINTA}"/>
+        <path d="M826 1318 L852 1322 M870 1320 L896 1312" stroke="${C.TINTA}" stroke-width="5" stroke-linecap="round"/>
+        <path class="s07-cboca" d="M848 1370 H874" stroke="${C.TINTA}" stroke-width="6" stroke-linecap="round"/>
+        <rect x="740" y="1420" width="56" height="96" rx="10" fill="${C.TINTA}"/><rect x="747" y="1430" width="42" height="72" rx="4" fill="${C.CIAN}"/>
+      </g>`;
+      svg.innerHTML = C.defs(P) +
+        `<g class="s07-main">` + C.vineta({ p: P, x: 70, y: 560, w: 940, h: 1080, fill: C.BLANCO, trama: 0.08 }) +
+        `<clipPath id="s07-clip"><rect x="75" y="565" width="930" height="1070"/></clipPath><g clip-path="url(#s07-clip)">` +
+        C.dueno({ p: P, x: 230, y: 1300, s: 1.35, cara: "apurado", cls: "s07-d" }) +
+        `<g transform="translate(70 170)"><g class="s07-micro"><rect x="300" y="900" width="40" height="70" rx="20" fill="${C.MAGENTA}" stroke="${C.TINTA}" stroke-width="6"/><path d="M290 950 Q320 990 350 950 M320 980 V1000" fill="none" stroke="${C.TINTA}" stroke-width="5"/></g></g>` +
+        `<g class="s07-audio"><g class="s07-audio-in"><rect x="380" y="660" width="600" height="140" rx="70" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="8"/><path d="M420 700 L470 730 L420 760 Z" fill="${C.MAGENTA}" stroke="${C.TINTA}" stroke-width="5" stroke-linejoin="round"/>${barras}</g>
+          <g class="s07-tiempo"><rect x="780" y="810" width="190" height="80" rx="12" fill="${C.MAGENTA}" stroke="${C.TINTA}" stroke-width="6"/><text x="875" y="868" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="54" fill="${C.BLANCO}">4:00</text></g></g>` +
+        clienta +
+        `<g class="s07-esperando">${C.cartucho({ x: 640, y: 1170, txt: "La clienta", size: 30 })}</g>` +
+        `<g class="s07-si"><text x="470" y="1580" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="330" fill="${C.MAGENTA}" stroke="${C.TINTA}" stroke-width="22" paint-order="stroke fill" letter-spacing="-10">SÍ.</text></g>` +
+        `<g class="s07-txt">${C.globo({ x: 360, y: 610, w: 620, h: 250, cola: [340, 940], lines: ["Perdón la demora,", "estaba a mil"], size: 52, weight: 700 })}<circle cx="980" cy="640" r="14" fill="${C.CIAN}" stroke="${C.TINTA}" stroke-width="5"/><circle cx="1000" cy="690" r="10" fill="${C.CIAN}" stroke="${C.TINTA}" stroke-width="4"/></g>` +
+        `<g class="s07-gotas"><path d="M120 900 q10 22 0 30 q-10 -8 0 -30 Z M330 880 q10 22 0 30 q-10 -8 0 -30 Z" fill="${C.CIAN}" stroke="${C.TINTA}" stroke-width="4"/></g>` +
+        `<g class="s07-rien">
+          ${C.robot({ p: P, x: 600, y: 1760, s: 0.9, kind: "pelu", cara: "risa", cls: "s07-k1" })}
+          ${C.robot({ p: P, x: 900, y: 1740, s: 0.9, kind: "ferre", cara: "risa", cls: "s07-k2" })}
+        </g>` +
+        `</g></g>` +
+        `<g class="s07-ja">${C.onomato({ x: 330, y: 1400, r1: 200, r2: 140, n: 16, ax: 1.2, txt: "¡JA JA JA!", size: 84, fondo: C.AMARILLO, color: C.MAGENTA, rot: -8 })}</g>`;
+
+      tl.fromTo(q(".s07-main"), { opacity: 1, x: 100, rotation: 2, svgOrigin: "540 1100" }, { x: 0, rotation: 0, svgOrigin: "540 1100", duration: 0.35, ease: "back.out(1.8)" }, 0);
+      tl.fromTo(q(".s07-micro"), { scale: 0.6, svgOrigin: "320 960" }, { scale: 1, svgOrigin: "320 960", duration: 0.25, ease: "back.out(2)" }, MANDO);
+      tl.to(q(".s07-micro"), { scale: 1.12, svgOrigin: "320 960", duration: 0.15, yoyo: true, repeat: 15, ease: "sine.inOut" }, MANDO + 0.3);
+      // el audio: aparece y la onda se llena
+      pop(".s07-audio-in", AUDIO - 0.1, "680 730", { rot: -4, desde: 0.4 });
+      const bs = [...qa(".s07-barra")];
+      tl.fromTo(bs, { scaleY: 0.15, transformOrigin: "50% 50%" }, { scaleY: 1, transformOrigin: "50% 50%", duration: 0.12, stagger: 0.04, ease: "back.out(3)" }, AUDIO);
+      tl.to(bs, { scaleY: 0.5, transformOrigin: "50% 50%", duration: 0.16, stagger: { each: 0.03, yoyo: true, repeat: 7 }, ease: "sine.inOut" }, AUDIO + 1.1);
+      // "cuatro minutos": el contador y el globo que se estira hasta salirse
+      pop(".s07-tiempo", CUATRO - 0.1, "875 850");
+      tl.to(q(".s07-audio-in"), { scaleX: 1.9, svgOrigin: "380 730", duration: 0.5, ease: "power2.inOut" }, MINUTOS - 0.1);
+      tl.to(q(".s07-tiempo"), { x: 30, rotation: 8, svgOrigin: "875 850", duration: 0.4, ease: "back.out(2)" }, MINUTOS);
+      // la clienta espera
+      gsap.set(q(".s07-clienta"), { opacity: 0 });
+      tl.fromTo(q(".s07-clienta"), { opacity: 1, x: 260 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, CLIENTA - 0.2);
+      pop(".s07-esperando", CLIENTA, "740 1200", { rot: -6, desde: 0.5 });
+      tl.to(q(".s07-clienta"), { y: -8, duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, CLIENTA + 0.3);
+      // "sí": el globo se achica y cae el SÍ gigante
+      tl.to(q(".s07-audio"), { scale: 0.2, opacity: 0, svgOrigin: "680 730", duration: 0.2, ease: "power3.in" }, SI - 0.2);
+      pop(".s07-si", SI - 0.05, "470 1470", { rot: -14, desde: 2.5, dur: 0.18, ease: "power4.in" });
+      sacudon(SI + 0.12, 1.6);
+      tl.to(q(".s07-cboca"), { attr: { d: "M846 1376 Q861 1360 876 1376" }, duration: 0.1 }, SI + 0.1);
+      tl.to(q(".s07-esperando"), { opacity: 0, duration: 0.15 }, SI);
+      // "arrancó con": el texto del dueño
+      tl.to(q(".s07-si"), { opacity: 0, scale: 0.6, svgOrigin: "470 1470", duration: 0.2, ease: "power2.in" }, ARRANCO - 0.25);
+      tl.to(q(".s07-micro"), { opacity: 0, duration: 0.15 }, ARRANCO - 0.2);
+      pop(".s07-txt", ARRANCO, "500 860", { rot: -5, desde: 0.4 });
+      gsap.set(q(".s07-gotas"), { opacity: 0 });
+      tl.fromTo(q(".s07-gotas"), { opacity: 1, y: 0 }, { opacity: 0, y: 70, duration: 0.5, repeat: 4, ease: "power1.in", immediateRender: false }, PERDON);
+      tl.to(q(".s07-d .cabeza"), { rotation: -6, svgOrigin: "0 -200", duration: 0.1, yoyo: true, repeat: 11 }, PERDON);
+      tl.to(q(".s07-clienta"), { x: 300, opacity: 0, duration: 0.35, ease: "power2.in" }, DEMORA);
+      // "mil": se ríen todos
+      ["s07-k1", "s07-k2"].forEach((c, i) => tl.fromTo(q("." + c), { y: 300 }, { y: 0, duration: 0.25, ease: "back.out(2)" }, MIL - 0.3 + i * 0.1));
+      gsap.set([q(".s07-k1"), q(".s07-k2")], { y: 300 });
+      tl.to(qa(".s07-rien .cuerpo-todo"), { y: -16, duration: 0.1, yoyo: true, repeat: 9, ease: "sine.inOut" }, MIL);
+      pop(".s07-ja", MIL - 0.05, "330 1400");
+      late(".s07-ja", MIL + 0.3, "330 1400", 6, 1.06);
+
+
+      // salida
+      tl.to(q("#" + P + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

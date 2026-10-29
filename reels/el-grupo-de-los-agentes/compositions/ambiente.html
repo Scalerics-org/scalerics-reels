@@ -1,0 +1,72 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* marco de la página */
+    [data-composition-id="ambiente"] .amb-marco { position: absolute; left: 18px; top: 18px; right: 18px; bottom: 18px; border: 12px solid #141414; }
+    /* pie negro con el logo */
+    [data-composition-id="ambiente"] .amb-pie { position: absolute; left: 0; right: 0; top: 1700px; bottom: 0; background: #141414; border-top: 8px solid #ffd60a; }
+    [data-composition-id="ambiente"] .amb-pie-txt { position: absolute; left: 0; right: 0; top: 1830px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #ffd60a; }
+    /* título de la historieta */
+    [data-composition-id="ambiente"] .amb-titulo { position: absolute; left: 50px; top: 46px; width: 760px; height: 170px; transform: rotate(-2.5deg); transform-origin: 0 50%; }
+    [data-composition-id="ambiente"] .amb-los { position: absolute; left: 6px; top: 0; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 100px; line-height: 1; letter-spacing: -0.03em; color: #ffd60a; white-space: nowrap;
+      -webkit-text-stroke: 10px #141414; paint-order: stroke fill; text-shadow: 8px 8px 0 #141414; }
+    [data-composition-id="ambiente"] .amb-tag { position: absolute; left: 14px; top: 116px; padding: 6px 16px; background: #ff2d87; border: 5px solid #141414; box-shadow: 6px 6px 0 #141414;
+      font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; color: #fffdf6; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-tuyo { position: absolute; left: 560px; top: 112px; padding: 6px 18px; background: #5ce611; border: 5px solid #141414; box-shadow: 6px 6px 0 #141414; transform: rotate(6deg);
+      font-family: "Lexend", sans-serif; font-weight: 900; font-size: 34px; color: #141414; white-space: nowrap; }
+    /* ¡PLIN! de cada mensaje nuevo */
+    [data-composition-id="ambiente"] .amb-plin { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="70.38">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="70.38" data-track-index="0">
+      <div class="amb-marco"></div>
+      <div class="amb-pie"></div>
+      <div class="amb-pie-txt">EDICIÓN ESPECIAL · Nº 1</div>
+      <div class="amb-titulo">
+        <div class="amb-los">LOS AGENTES</div>
+        <div class="amb-tag">GRUPO SECRETO · NO MIRAR</div>
+        <div class="amb-tuyo">+ EL TUYO</div>
+      </div>
+      <svg class="amb-plin" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+    </div>
+  </div>
+  <script src="assets/comic.js"></script>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const C = window.COMIC;
+      const tl = gsap.timeline({ paused: true });
+
+      // un ¡PLIN! por mensaje, del color de quien escribe (magenta peluquería, cian ferretería, amarillo pizzería)
+      const M = C.MAGENTA, Y = C.AMARILLO, K = C.CIAN;
+      const PLINS = [[0.15, C.BLANCO], [7.15, M], [12.62, K], [16.85, Y], [22.89, M], [25.74, K], [31.76, Y], [33.19, M], [38.66, K], [42.32, Y], [52.15, M]];
+      const svg = q(".amb-plin");
+      svg.innerHTML = PLINS.map(([, col], i) => C.onomato({ cls: "amb-p" + i, x: 920, y: 132, r1: 112, r2: 78, n: 12, ax: 1.12, txt: "¡PLIN!", size: 50, fondo: col, color: col === C.AMARILLO ? C.MAGENTA : C.AMARILLO, rot: -8 })).join("");
+      PLINS.forEach(([t], i) => {
+        const el = q(".amb-p" + i);
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, scale: 0.2, rotation: -40, svgOrigin: "920 132" }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: "920 132", duration: 0.28, ease: "back.out(2.6)", immediateRender: false }, t);
+        tl.to(el, { scale: 1.06, svgOrigin: "920 132", duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, t + 0.3);
+        tl.to(el, { opacity: 0, scale: 0.6, rotation: 20, svgOrigin: "920 132", duration: 0.2, ease: "power2.in" }, t + 1.35);
+      });
+
+      // el título entra de golpe y late apenas
+      tl.fromTo(q(".amb-los"), { scale: 1.5, opacity: 0.4 }, { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2)", transformOrigin: "0% 50%" }, 0);
+      tl.fromTo(q(".amb-tag"), { x: -40, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, 0.1);
+      tl.to(q(".amb-tag"), { rotation: -1.5, duration: 0.9, yoyo: true, repeat: 70, ease: "sine.inOut" }, 0.4);
+      // Scalerics: "tu agente" suma la etiqueta verde "+ EL TUYO"
+      gsap.set(q(".amb-tuyo"), { opacity: 0 });
+      tl.fromTo(q(".amb-tuyo"), { opacity: 0, scale: 2.4, rotation: -20 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.25, ease: "back.out(2.4)", immediateRender: false }, 56.75);
+      tl.to(q(".amb-tuyo"), { rotation: 2, duration: 0.5, yoyo: true, repeat: 25, ease: "sine.inOut" }, 57.1);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

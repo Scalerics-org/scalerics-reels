@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-pelu"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-pelu"] .s02-pagina { position: absolute; inset: 0; }
+    [data-composition-id="s02-pelu"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s02-pelu" data-width="1080" data-height="1920" data-duration="5.47">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="5.47" data-track-index="0">
+      <div class="s02-pagina">
+        <svg class="s02-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script src="assets/comic.js"></script>
+  <script>
+    (function () {
+      const ID = "s02-pelu";
+      const DUR = 5.47;
+      const P = "s02";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const C = window.COMIC;
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q("." + P + "-pagina"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // aparece de golpe (pop) un grupo SVG
+      const pop = (sel, t, org, extra = {}) => { const el = typeof sel === "string" ? q(sel) : sel; gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 1, scale: extra.desde ?? 0.2, rotation: extra.rot ?? -12, svgOrigin: org }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: org, duration: extra.dur ?? 0.3, ease: extra.ease ?? "back.out(2.4)", immediateRender: false }, t); };
+      // se va
+      const fuera = (sel, t, org) => tl.to(typeof sel === "string" ? q(sel) : sel, { opacity: 0, scale: 0.5, svgOrigin: org, duration: 0.18, ease: "power2.in" }, t);
+      // late (para que nada quede quieto)
+      const late = (sel, t, org, n = 6, s = 1.05) => tl.to(typeof sel === "string" ? q(sel) : sel, { scale: s, svgOrigin: org, duration: 0.12, yoyo: true, repeat: n, ease: "sine.inOut" }, t);
+      const svg = q("." + P + "-svg");
+
+      const CHICOS = 0, AGENDE = 0.76, TODOS = 1.34, TURNOS = 1.7, SEMANA = 2.17, DUENA = 3.12, GIM = 4.25;
+      // agenda de la semana: 5 días x 4 turnos
+      const DIAS = ["LUN", "MAR", "MIÉ", "JUE", "VIE"];
+      let celdas = "", ticks = "";
+      DIAS.forEach((d, c) => {
+        celdas += `<text x="${560 + c * 84 + 38}" y="752" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="${C.TINTA}">${d}</text>`;
+        for (let r = 0; r < 4; r++) {
+          const x = 560 + c * 84, y = 774 + r * 84;
+          celdas += `<rect x="${x}" y="${y}" width="76" height="76" rx="8" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="5"/>`;
+          ticks += `<g class="s02-tick"><rect x="${x + 4}" y="${y + 4}" width="68" height="68" rx="6" fill="${C.MAGENTA}"/><path d="M${x + 18} ${y + 40} L${x + 32} ${y + 54} L${x + 58} ${y + 22}" fill="none" stroke="${C.BLANCO}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+        }
+      });
+      // la dueña en el gimnasio
+      const duena = `<g transform="translate(0 46)"><g class="s02-duena">
+        <path d="M720 1560 L740 1480 M800 1560 L780 1480" stroke="${C.TINTA}" stroke-width="16" stroke-linecap="round"/>
+        <rect x="716" y="1370" width="88" height="118" rx="26" fill="${C.AMARILLO}" stroke="${C.TINTA}" stroke-width="7"/>
+        <g class="s02-pesa">
+          <path d="M728 1386 L690 1300 M792 1386 L830 1300" stroke="${C.TINTA}" stroke-width="16" stroke-linecap="round"/>
+          <path d="M640 1296 H880" stroke="${C.TINTA}" stroke-width="12" stroke-linecap="round"/>
+          <rect x="626" y="1262" width="30" height="70" rx="6" fill="${C.TINTA}"/><rect x="864" y="1262" width="30" height="70" rx="6" fill="${C.TINTA}"/>
+        </g>
+        <circle cx="760" cy="1330" r="40" fill="${C.BLANCO}" stroke="${C.TINTA}" stroke-width="7"/>
+        <path d="M722 1318 Q730 1282 760 1286 Q792 1282 798 1318 Q780 1302 760 1304 Q738 1302 722 1318 Z" fill="${C.TINTA}"/>
+        <path d="M796 1300 Q830 1290 826 1330" fill="none" stroke="${C.TINTA}" stroke-width="12" stroke-linecap="round"/>
+        <path d="M744 1336 h6 M770 1336 h6" stroke="${C.TINTA}" stroke-width="6" stroke-linecap="round"/>
+        <path d="M748 1352 Q760 1346 772 1352" fill="none" stroke="${C.TINTA}" stroke-width="5" stroke-linecap="round"/>
+        <circle class="s02-sudor" cx="712" cy="1320" r="9" fill="${C.CIAN}" stroke="${C.TINTA}" stroke-width="4"/>
+      </g></g>`;
+      svg.innerHTML = C.defs(P) +
+        `<g class="s02-main">` + C.vineta({ p: P, x: 70, y: 560, w: 940, h: 820, fill: C.BLANCO, trama: 0.08 }) +
+        `<g class="s02-agenda"><rect x="540" y="690" width="450" height="440" rx="14" fill="${C.AMARILLO}" stroke="${C.TINTA}" stroke-width="7"/>${celdas}</g>` +
+        `<g class="s02-ticks">${ticks}</g>` +
+        `<g class="s02-rob">${C.robot({ p: P, x: 290, y: 1230, s: 1.12, kind: "pelu", cara: "feliz", cls: "s02-r" })}</g>` +
+        `<g class="s02-tag">${C.etiqueta({ x: 290, y: 1272, txt: "La de la peluquería", color: C.BLANCO, size: 28 })}</g>` +
+        `<g class="s02-globo">${C.globo({ x: 110, y: 610, w: 380, h: 150, cola: [250, 820], lines: ["¡TODOS", "LOS TURNOS!"], size: 42 })}</g>` +
+        `</g>` +
+        `<g class="s02-zas">${C.onomato({ x: 900, y: 1170, r1: 120, r2: 84, n: 12, txt: "¡ZAS!", size: 70, fondo: C.CIAN, color: C.AMARILLO, rot: 8 })}</g>` +
+        `<g class="s02-inset">` + C.vineta({ p: P, x: 560, y: 1200, w: 420, h: 420, fill: C.BLANCO, trama: 0.18 }) +
+        `<text x="770" y="1252" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="34" fill="${C.TINTA}">MIENTRAS, LA DUEÑA</text>` + duena + `</g>`;
+
+      // entrada: la viñeta cae torcida y se acomoda
+      tl.fromTo(q(".s02-main"), { opacity: 1, y: -60, rotation: -3, svgOrigin: "540 970" }, { y: 0, rotation: 0, svgOrigin: "540 970", duration: 0.35, ease: "back.out(1.8)" }, 0);
+      // "chicos": saluda
+      tl.fromTo(q(".s02-r .brazo-d"), { rotation: 0, svgOrigin: "66 -78" }, { rotation: -120, svgOrigin: "66 -78", duration: 0.2, ease: "back.out(2)" }, CHICOS + 0.05);
+      tl.to(q(".s02-r .brazo-d"), { rotation: -95, svgOrigin: "66 -78", duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, CHICOS + 0.25);
+      tl.to(q(".s02-r .brazo-d"), { rotation: -20, svgOrigin: "66 -78", duration: 0.2 }, AGENDE);
+      pop(".s02-globo", TODOS - 0.15, "250 760");
+      late(".s02-globo", TODOS + 0.3, "250 760", 5, 1.04);
+      // los turnos se llenan uno por uno
+      const tks = [...qa(".s02-tick")];
+      gsap.set(tks, { opacity: 0 });
+      tks.forEach((t, i) => {
+        const c = Math.floor(i / 4), r = i % 4;
+        const at = AGENDE + (r * 5 + c) * 0.075;
+        const ox = 560 + c * 84 + 38, oy = 774 + r * 84 + 38;
+        tl.fromTo(t, { opacity: 1, scale: 0.1, svgOrigin: `${ox} ${oy}` }, { opacity: 1, scale: 1, svgOrigin: `${ox} ${oy}`, duration: 0.16, ease: "back.out(3)", immediateRender: false }, at);
+      });
+      pop(".s02-zas", TURNOS, "900 1170");
+      tl.to(q(".s02-agenda"), { rotation: 2, svgOrigin: "765 910", duration: 0.06, yoyo: true, repeat: 5 }, TURNOS);
+      // la robot salta de orgullo en "semana"
+      tl.to(q(".s02-r .cuerpo-todo"), { y: -30, duration: 0.14, yoyo: true, repeat: 3, ease: "power2.out" }, SEMANA);
+      tl.to(q(".s02-zas"), { opacity: 0, duration: 0.2 }, DUENA - 0.3);
+      // "dueña": entra la viñeta chica del gimnasio
+      pop(".s02-inset", DUENA - 0.12, "770 1410", { rot: 14, desde: 0.3 });
+      tl.to(q(".s02-inset"), { rotation: 3, svgOrigin: "770 1410", duration: 0.2 }, DUENA + 0.2);
+      tl.to(q(".s02-main"), { opacity: 0.55, duration: 0.25 }, DUENA);
+      // la pesa sube y baja; en "gimnasio" con más fuerza
+      tl.fromTo(q(".s02-pesa"), { y: 40 }, { y: 0, duration: 0.3, yoyo: true, repeat: 3, ease: "power2.inOut" }, DUENA + 0.2);
+      tl.to(q(".s02-pesa"), { y: -26, duration: 0.18, yoyo: true, repeat: 3, ease: "power2.out" }, GIM);
+      tl.fromTo(q(".s02-sudor"), { y: 0, opacity: 1 }, { y: 50, opacity: 0, duration: 0.5, repeat: 2, ease: "power1.in" }, DUENA + 0.4);
+
+
+      // salida
+      tl.to(q("#" + P + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
