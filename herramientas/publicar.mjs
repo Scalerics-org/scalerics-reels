@@ -196,6 +196,19 @@ if (hayIG) {
     // token de usuario del sistema del porfolio (no vence): graph.facebook.com + el id de la cuenta de Instagram
     igBase = "https://graph.facebook.com/v21.0";
     uid = process.env.IG_USER_ID;
+    // Si IG_TOKEN es un token de USUARIO (dura 60 días), la primera vez se cambia por el token de la
+    // página que tiene el Instagram, que no vence, y se guarda en ig.json: de ahí en más se usa ese.
+    if (!estado.pagina) {
+      const pags = await pedir(`${igBase}/me/accounts?fields=access_token,instagram_business_account&access_token=${tk}`).catch(() => ({}));
+      const p = pags.data?.find((x) => x.instagram_business_account?.id && x.access_token);
+      if (p) {
+        estado = { token: p.access_token, pagina: true, renovado: Date.now() };
+        await guardarEstado(estado);
+        tk = estado.token;
+        uid ||= p.instagram_business_account.id;
+        console.log("instagram: guardado el token de la página (no vence)");
+      }
+    }
     if (!uid) {
       const pags = await pedir(`${igBase}/me/accounts?fields=instagram_business_account&access_token=${tk}`);
       uid = pags.data?.map((p) => p.instagram_business_account?.id).find(Boolean);
