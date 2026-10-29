@@ -4,3 +4,6 @@
 
 # 29-10: Juan la descartó ("quedó muy infantil")
 pelea-de-gallos
+
+# 29-10: Juan, "el ojalá te fundas no lo subas"
+ojala-te-fundas
