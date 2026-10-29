@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-cara"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-cara"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-cara"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-cara"] .s08-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s08-cara"] .s08-para { position: absolute; left: 80px; top: 680px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 120px; line-height: 1; text-transform: uppercase; color: #f5f1ea; text-shadow: 8px 8px 0 #ff2bd6; transform: rotate(-6deg); white-space: nowrap; }
+    [data-composition-id="s08-cara"] .s08-maq { top: 960px; font-size: 118px; color: #ff2bd6; text-shadow: 8px 8px 0 #19e3ff; transform: rotate(-4deg); }
+    [data-composition-id="s08-cara"] .s08-cxc { top: 990px; font-size: 120px; color: #ff2bd6; text-shadow: 8px 8px 0 #ffe83d; transform: rotate(-4deg); }
+    [data-composition-id="s08-cara"] .s08-lista { position: absolute; left: 80px; top: 640px; width: 440px; padding: 26px 30px; background: #f5f1ea; border-radius: 10px; box-shadow: 10px 10px 0 #ff2bd6; transform: rotate(-3deg); }
+    [data-composition-id="s08-cara"] .s08-lista h3 { margin: 0 0 14px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; color: #07060b; text-transform: uppercase; }
+    [data-composition-id="s08-cara"] .s08-fila { position: relative; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 46px; line-height: 1.5; color: #07060b; white-space: nowrap; }
+    [data-composition-id="s08-cara"] .s08-fila b { position: absolute; right: 14px; top: 10px; width: 20px; height: 38px; border-right: 8px solid #ff2bd6; border-bottom: 8px solid #ff2bd6; transform: rotate(45deg); }
+    [data-composition-id="s08-cara"] .s08-clara { position: absolute; left: 600px; top: 1060px; padding: 14px 24px 10px; background: #ffe83d; color: #07060b; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; line-height: 1.05; text-transform: uppercase; white-space: nowrap; box-shadow: 8px 8px 0 #ff2bd6; transform: rotate(4deg); text-align: center; }
+    [data-composition-id="s08-cara"] .s08-clara small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.2em; }
+    [data-composition-id="s08-cara"] .m { fill: #110d18; stroke: #ff2bd6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-cara"] .m-l { fill: none; stroke: #ff2bd6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-cara"] .c-l { fill: none; stroke: #19e3ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-cara"] .y-l { fill: none; stroke: #ffe83d; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-cara"] .h-l { fill: none; stroke: #f5f1ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <div id="root" data-composition-id="s08-cara" data-width="1080" data-height="1920" data-duration="5.98">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="5.98" data-track-index="0">
+      <div class="s08-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la mano de "pará" -->
+          <g class="s08-mano">
+            <path class="m" d="M720 940 C640 920 620 860 630 800 L640 700 C642 680 672 680 674 700 L680 790 L690 650 C692 628 726 628 728 650 L730 780 L745 640 C748 618 782 620 782 642 L780 785 L800 670 C804 650 836 654 834 676 L820 820 C850 790 880 780 896 796 C906 808 900 820 890 832 C850 880 820 940 720 940 Z" />
+            <path class="m-l" d="M690 990 L730 940 M760 990 L760 940" />
+          </g>
+          <!-- dos perfiles enfrentados: cara a cara -->
+          <g class="s08-perfiles">
+            <path class="m-l s08-pf" d="M330 640 C230 640 190 720 200 800 C210 840 180 860 200 880 C210 890 230 885 225 905 C220 925 240 935 255 935 C250 960 270 975 300 970 C330 965 360 970 370 1000" stroke-width="10" />
+            <path class="c-l s08-pf" d="M750 640 C850 640 890 720 880 800 C870 840 900 860 880 880 C870 890 850 885 855 905 C860 925 840 935 825 935 C830 960 810 975 780 970 C750 965 720 970 710 1000" stroke-width="10" />
+            <path class="y-l s08-chispa" d="M540 760 l-20 50 h40 l-20 50" />
+          </g>
+          <!-- el dueño abajo -->
+          <g class="s08-duenio">
+            <g transform="translate(40 1010) scale(0.72)">
+              <path class="m" d="M40 520 C40 380 100 330 190 330 C280 330 340 380 340 520 Z" />
+              <path class="m-l" d="M120 360 L120 520 M260 360 L260 520 M120 430 H260" />
+              <circle class="m" cx="190" cy="230" r="92" />
+              <path class="m" d="M100 210 C100 120 280 120 280 210 Z" fill="#ff2bd6" />
+              <path class="m-l" d="M270 205 L350 222" stroke-width="12" />
+              <path class="m-l" d="M150 236 h22 M210 236 h22" />
+              <path class="m-l" d="M148 280 C168 262 182 268 190 280 C198 268 214 262 234 280" stroke-width="9" />
+            </g>
+          </g>
+          <!-- el mate de la Clara -->
+          <g class="s08-mate"><g transform="translate(70 0)">
+            <path class="m" d="M640 760 C610 860 630 960 760 975 C890 960 910 860 880 760 Z" />
+            <path class="m-l" d="M625 760 H895" stroke-width="14" />
+            <path class="y-l" d="M790 760 L850 620 M838 620 h40" stroke-width="12" />
+            <path class="h-l" d="M680 840 C720 870 820 870 850 840" stroke-width="5" />
+          </g></g>
+        </svg>
+        <div class="s08-para">Pará</div>
+        <div class="s08-txt s08-maq">Maquinita</div>
+        <div class="s08-txt s08-cxc">Cara a cara</div>
+        <div class="s08-lista">
+          <h3>Los de siempre</h3>
+          <div class="s08-fila">Marta <b></b></div>
+          <div class="s08-fila">Don Raúl <b></b></div>
+          <div class="s08-fila">La Clara <b></b></div>
+        </div>
+        <div class="s08-clara">La Clara<small>amargo, sin azúcar</small></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-cara";
+      const DUR = 5.98;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s08-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.6) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const MAQ = 0.71, CARA = 2.04, SE = 3.06, MATE = 4.78, CLARA = 5.22;
+
+      // cuadro 0: la mano de "pará" ya golpeando y el dueño
+      tl.fromTo(q(".s08-mano"), { opacity: 0.6, scale: 1.6, svgOrigin: "760 800" }, { opacity: 1, scale: 1, svgOrigin: "760 800", duration: 0.16, ease: "power4.in" }, 0);
+      tl.fromTo(q(".s08-para"), { opacity: 0.5, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in" }, 0);
+      sacudon(0.16);
+      tl.fromTo(q(".s08-duenio"), { y: 200 }, { y: 0, duration: 0.3, ease: "back.out(1.5)" }, 0);
+      tl.to(q(".s08-duenio"), { y: 10, duration: 0.333, yoyo: true, repeat: 15, ease: "sine.inOut" }, 0.3);
+      tl.to(q(".s08-mano"), { rotation: 8, svgOrigin: "760 940", duration: 0.167, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.2);
+      golpe(".s08-maq", MAQ, 2.4);
+      sacudon(MAQ + 0.05);
+
+      // "cara a cara": los perfiles se dibujan enfrentados
+      tl.to([q(".s08-mano"), q(".s08-para"), q(".s08-maq")], { opacity: 0, y: -60, filter: "blur(6px)", duration: 0.18, ease: "power2.in" }, CARA - 0.3);
+      qa(".s08-pf").forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(el, { opacity: 1, duration: 0.02 }, CARA - 0.1);
+        tl.to(el, { strokeDashoffset: 0, duration: 0.4, ease: "power2.inOut" }, CARA - 0.1);
+      });
+      gsap.set(q(".s08-chispa"), { opacity: 0 });
+      tl.fromTo(q(".s08-chispa"), { opacity: 0, scale: 0.3, svgOrigin: "540 810" }, { opacity: 1, scale: 1, svgOrigin: "540 810", duration: 0.2, ease: "back.out(3)", immediateRender: false }, 2.72);
+      tl.to(q(".s08-chispa"), { opacity: 0.3, duration: 0.06, yoyo: true, repeat: 3, ease: "steps(1)" }, 2.9);
+      golpe(".s08-cxc", 2.6, 2.4);
+      sacudon(2.65);
+
+      // "sé el nombre de todos": la lista; cada tilde en su golpe
+      tl.to([q(".s08-perfiles"), q(".s08-cxc")], { opacity: 0, y: -60, duration: 0.18, ease: "power2.in" }, SE - 0.2);
+      gsap.set(q(".s08-lista"), { opacity: 0 });
+      tl.fromTo(q(".s08-lista"), { opacity: 1, x: -600, rotation: -12 }, { opacity: 1, x: 0, rotation: -3, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, SE - 0.05);
+      qa(".s08-fila b").forEach((b, i) => {
+        gsap.set(b, { opacity: 0 });
+        tl.fromTo(b, { opacity: 0, scale: 2.5 }, { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(3)", immediateRender: false }, 3.3 + i * 0.25);
+      });
+      // el mate de la Clara
+      gsap.set(q(".s08-mate"), { opacity: 0 });
+      tl.fromTo(q(".s08-mate"), { opacity: 1, y: -500, rotation: 15, svgOrigin: "830 870" }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "830 870", duration: 0.3, ease: "bounce.out", immediateRender: false }, MATE - 0.25);
+      sacudon(MATE + 0.05);
+      golpe(".s08-clara", CLARA, 2.2);
+      tl.to(qa(".s08-fila")[2], { color: "#ff2bd6", duration: 0.1 }, CLARA);
+      tl.to(q(".s08-clara"), { rotation: 0, duration: 0.2, yoyo: true, repeat: 1 }, CLARA + 0.2);
+
+      tl.to(q("#s08-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

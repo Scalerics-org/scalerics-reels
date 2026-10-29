@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-corazon"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-corazon"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-corazon"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-corazon"] .s04-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s04-corazon"] .s04-rot { position: absolute; top: 1110px; width: 300px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.2em; color: #ff2bd6; text-transform: uppercase; }
+    [data-composition-id="s04-corazon"] .s04-tengo { top: 610px; font-size: 84px; color: #f5f1ea; text-shadow: 7px 7px 0 #ff2bd6; transform: rotate(-4deg); }
+    [data-composition-id="s04-corazon"] .s04-gana { top: 600px; font-size: 100px; color: #f5f1ea; text-shadow: 8px 8px 0 #ff2bd6; transform: rotate(-5deg); }
+    [data-composition-id="s04-corazon"] .s04-maquina { top: 730px; font-size: 96px; color: #19e3ff; text-shadow: 8px 8px 0 #07060b; transform: rotate(-5deg); }
+    [data-composition-id="s04-corazon"] .s04-sin { top: 860px; font-size: 104px; color: #ff2bd6; text-shadow: 8px 8px 0 #ffe83d; transform: rotate(-5deg); }
+    [data-composition-id="s04-corazon"] .s04-uuuh { top: 1080px; font-size: 230px; color: #ffe83d; text-shadow: 12px 12px 0 #ff2bd6; transform: rotate(-8deg); }
+    [data-composition-id="s04-corazon"] .m { fill: #110d18; stroke: #ff2bd6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-corazon"] .m-l { fill: none; stroke: #ff2bd6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-corazon"] .h-l { fill: none; stroke: #f5f1ea; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-corazon"] .y-l { fill: none; stroke: #ffe83d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <div id="root" data-composition-id="s04-corazon" data-width="1080" data-height="1920" data-duration="6.07">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.07" data-track-index="0">
+      <div class="s04-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- libreta -->
+          <g class="s04-libreta">
+            <rect class="m" x="110" y="780" width="210" height="270" rx="14" />
+            <path class="h-l" d="M150 860 h130 M150 910 h130 M150 960 h100 M150 1010 h120" stroke-width="5" />
+            <path class="y-l" d="M140 770 v26 M180 770 v26 M220 770 v26 M260 770 v26 M300 770 v26" stroke-width="8" />
+          </g>
+          <!-- mate con bombilla -->
+          <g class="s04-mate">
+            <path class="m" d="M450 880 C430 960 440 1040 540 1050 C640 1040 650 960 630 880 Z" />
+            <path class="m-l" d="M440 880 H640" stroke-width="12" />
+            <path class="y-l" d="M565 880 L610 760 M600 760 h30" stroke-width="10" />
+            <path class="h-l" d="M470 940 C500 960 580 960 610 940" stroke-width="5" />
+          </g>
+          <!-- llave grande -->
+          <g class="s04-llave">
+            <circle class="y-l" cx="790" cy="840" r="62" stroke-width="10" />
+            <circle class="y-l" cx="790" cy="840" r="22" stroke-width="7" />
+            <path class="y-l" d="M790 902 V1050 M790 990 h46 M790 1030 h34" stroke-width="10" />
+          </g>
+          <!-- corazón que se parte -->
+          <g class="s04-cor-izq">
+            <path class="m" d="M540 1120 C500 1050 400 1060 400 1150 C400 1220 480 1270 540 1320 L520 1250 L560 1200 L520 1160 Z" />
+          </g>
+          <g class="s04-cor-der">
+            <path class="m" d="M540 1120 C580 1050 680 1060 680 1150 C680 1220 600 1270 540 1320 L520 1250 L560 1200 L520 1160 Z" />
+          </g>
+        </svg>
+        <div class="s04-txt s04-tengo">Tengo de todo</div>
+        <div class="s04-rot" style="left: 65px">Libreta</div>
+        <div class="s04-rot" style="left: 390px">Mate</div>
+        <div class="s04-rot" style="left: 640px">Llave</div>
+        <div class="s04-txt s04-gana">No me gana</div>
+        <div class="s04-txt s04-maquina">una máquina</div>
+        <div class="s04-txt s04-sin">sin corazón</div>
+        <div class="s04-txt s04-uuuh">UUUH</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-corazon";
+      const DUR = 6.07;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.6) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const cae = (sel, t) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, y: -420, rotation: -14 }, { opacity: 1, y: 0, rotation: 0, duration: 0.25, ease: "bounce.out", immediateRender: false }, t - 0.12);
+      };
+      const LIBRETA = 0.08, MATE = 0.96, LLAVE = 1.85, GANA = 3.62, MAQUINA = 3.97, CORAZON = 4.59, UUUH = 5.12;
+      const rot = qa(".s04-rot");
+
+      // cuadro 0: el "tengo" y la libreta ya cayendo
+      tl.fromTo(q(".s04-tengo"), { opacity: 0.5, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in" }, 0);
+      tl.fromTo(q(".s04-libreta"), { y: -200, rotation: -10, svgOrigin: "215 915" }, { y: 0, rotation: 0, svgOrigin: "215 915", duration: 0.25, ease: "bounce.out" }, 0);
+      tl.fromTo(rot[0], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2 }, LIBRETA + 0.15);
+      cae(".s04-mate", MATE);
+      tl.fromTo(rot[1], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, MATE + 0.15);
+      gsap.set(rot[1], { opacity: 0 });
+      cae(".s04-llave", LLAVE);
+      gsap.set(rot[2], { opacity: 0 });
+      tl.fromTo(rot[2], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, LLAVE + 0.15);
+      sacudon(LIBRETA + 0.15, 0.7); sacudon(MATE + 0.15, 0.7); sacudon(LLAVE + 0.15, 0.7);
+      // los tres objetos laten al beat
+      tl.to([q(".s04-libreta"), q(".s04-mate"), q(".s04-llave")], { y: -12, duration: 0.167, yoyo: true, repeat: 5, stagger: 0.1, ease: "sine.inOut" }, LLAVE + 0.3);
+
+      // "no me gana una máquina sin corazón"
+      tl.to([q(".s04-tengo"), q(".s04-libreta"), q(".s04-mate"), q(".s04-llave"), ...rot], { opacity: 0, y: -60, filter: "blur(6px)", duration: 0.18, ease: "power2.in" }, GANA - 0.22);
+      golpe(".s04-gana", GANA, 2.4);
+      golpe(".s04-maquina", MAQUINA, 2.4);
+      sacudon(MAQUINA + 0.05);
+      golpe(".s04-sin", CORAZON, 2.8);
+      sacudon(CORAZON + 0.05, 1.3);
+      // el corazón aparece entero y se parte
+      gsap.set([q(".s04-cor-izq"), q(".s04-cor-der")], { opacity: 0 });
+      tl.fromTo([q(".s04-cor-izq"), q(".s04-cor-der")], { opacity: 1, scale: 0.4, svgOrigin: "540 1200" }, { opacity: 1, scale: 1, svgOrigin: "540 1200", duration: 0.25, ease: "back.out(2)", immediateRender: false }, CORAZON - 0.1);
+      tl.to(q(".s04-cor-izq"), { x: -60, rotation: -14, svgOrigin: "540 1320", duration: 0.3, ease: "power3.out" }, CORAZON + 0.3);
+      tl.to(q(".s04-cor-der"), { x: 60, rotation: 14, svgOrigin: "540 1320", duration: 0.3, ease: "power3.out" }, CORAZON + 0.3);
+
+      // el público: UUUH
+      tl.to([q(".s04-gana"), q(".s04-maquina")], { opacity: 0.25, duration: 0.15 }, UUUH);
+      tl.to([q(".s04-cor-izq"), q(".s04-cor-der")], { opacity: 0.3, duration: 0.15 }, UUUH);
+      golpe(".s04-uuuh", UUUH, 3);
+      sacudon(UUUH + 0.05, 1.6);
+      tl.to(q(".s04-uuuh"), { scale: 1.1, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, UUUH + 0.1);
+
+      tl.to(q("#s04-escena"), { x: 300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

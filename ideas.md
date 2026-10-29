@@ -42,11 +42,11 @@
 - 29-10 · `las-3-47` · Agente de IA · "Son las 3:47 de la mañana. Vos estás roncando. Y alguien está vendiendo en tu local." El agente (susurrando) le vende dos freidoras a una clienta insomne mientras el dueño duerme; a las 7: "Vos roncaste. Yo vendí." · Guardalo y mostráselo a tu socio, si se despierta [formato G simulación de pantalla · estilo celular a pantalla completa nocturno, cuatro voces]
 - 29-10 · `el-relator` · Agente de IA · "¡Te están goleando en tu propia cancha! ¡Y vos ni te enteraste!" Relator uruguayo narra cómo tu clienta se escapa por la banda porque dejaste en visto; el VAR: "es visto, nomás"; gol del de enfrente, que tiene agente de IA · Etiquetá al que siempre deja en visto [formato P partido con relator · estilo transmisión de fútbol con marcador, cuatro voces]
 - 29-10 · `entrevista-de-trabajo` · Agente de IA · "Entrevisté a mi próximo empleado. No come, no duerme y no pide aumento." El dueño desconfiado entrevista al agente de IA (domingos, 3 AM, Carnaval, "¿qué es dejar en visto?", "con que no me desenchufes") · ¿Lo contratás? Comentá SÍ o NO [formato B diálogo entrevista · estilo oficina de RRHH con ficha, currículum y sellos, tres voces]
+- 29-10 · `pelea-de-gallos` · Agente de IA · "¡Arriba las manos! De este lado, el dueño del local. Del otro, el agente de IA." Batalla de freestyle en dos rounds: "Yo contesto cuando puedo" contra "Yo contesto cuando querés"; giro: "no vengo a robarte el puesto, vengo a devolverte el domingo" · ¿Quién ganó? Comentá DUEÑO o AGENTE [formato P batalla de freestyle · estilo batalla callejera graffiti y neón, beat sintetizado, cuatro voces]
 
 ## En curso
 
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
-- 29-10 · `pelea-de-gallos` · Agente de IA · batalla de freestyle dueño vs agente de IA [formato P batalla de freestyle · estilo batalla callejera graffiti y neón] · corrida 29-10
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
 

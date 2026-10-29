@@ -1,0 +1,84 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-jurado"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-jurado"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-jurado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-jurado"] .s12-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s12-jurado"] .s12-tit { top: 600px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.3em; color: #ffe83d; }
+    [data-composition-id="s12-jurado"] .s12-tarj { position: absolute; top: 680px; width: 260px; height: 220px; }
+    [data-composition-id="s12-jurado"] .s12-cara { position: absolute; inset: 0; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; }
+    [data-composition-id="s12-jurado"] .s12-dorso { background: #ffe83d; color: #07060b; font-size: 140px; box-shadow: 8px 8px 0 #ff2bd6; }
+    [data-composition-id="s12-jurado"] .s12-frente { background: #07060b; border: 7px solid #19e3ff; color: #19e3ff; font-size: 46px; box-shadow: 8px 8px 0 #ff2bd6; opacity: 0; }
+    [data-composition-id="s12-jurado"] .s12-gana { top: 960px; font-size: 150px; color: #f5f1ea; text-shadow: 10px 10px 0 #ff2bd6; transform: rotate(-5deg); }
+    [data-composition-id="s12-jurado"] .s12-agente { top: 1120px; font-size: 126px; color: #19e3ff; text-shadow: 9px 9px 0 #ff2bd6, 0 0 36px rgba(25, 227, 255, 0.5); transform: rotate(-5deg); }
+    [data-composition-id="s12-jurado"] .conf { stroke-width: 9; stroke-linecap: round; fill: none; }
+  </style>
+  <div id="root" data-composition-id="s12-jurado" data-width="1080" data-height="1920" data-duration="2.91">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="2.91" data-track-index="0">
+      <div class="s12-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s12-confeti">
+            <path class="conf" stroke="#ff2bd6" d="M120 640 l30 20" /><path class="conf" stroke="#19e3ff" d="M260 600 l-20 34" /><path class="conf" stroke="#ffe83d" d="M420 640 l34 6" />
+            <path class="conf" stroke="#19e3ff" d="M650 610 l20 30" /><path class="conf" stroke="#ff2bd6" d="M820 650 l-30 20" /><path class="conf" stroke="#ffe83d" d="M960 600 l10 36" />
+            <path class="conf" stroke="#ffe83d" d="M90 980 l26 26" /><path class="conf" stroke="#19e3ff" d="M990 960 l-28 24" /><path class="conf" stroke="#ff2bd6" d="M80 1260 l34 -10" />
+            <path class="conf" stroke="#19e3ff" d="M1000 1270 l-20 -30" /><path class="conf" stroke="#ffe83d" d="M200 1350 l20 30" /><path class="conf" stroke="#ff2bd6" d="M880 1360 l-30 16" />
+          </g>
+        </svg>
+        <div class="s12-txt s12-tit">El jurado</div>
+        <div class="s12-tarj" style="left: 80px"><div class="s12-cara s12-dorso">?</div><div class="s12-cara s12-frente">Agente</div></div>
+        <div class="s12-tarj" style="left: 410px"><div class="s12-cara s12-dorso">?</div><div class="s12-cara s12-frente">Agente</div></div>
+        <div class="s12-tarj" style="left: 740px"><div class="s12-cara s12-dorso">?</div><div class="s12-cara s12-frente">Agente</div></div>
+        <div class="s12-txt s12-gana">Gana</div>
+        <div class="s12-txt s12-agente">el agente</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-jurado";
+      const DUR = 2.91;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s12-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.6) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const GANA = 1.56, AGENTE = 2.06, BOCINA = 2.52;
+
+      // cuadro 0: las tarjetas ya entrando, suspenso
+      tl.fromTo(q(".s12-tit"), { opacity: 0.5, y: -20 }, { opacity: 1, y: 0, duration: 0.2 }, 0);
+      const tarj = qa(".s12-tarj");
+      tl.fromTo(tarj, { opacity: 0.5, y: 120 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", stagger: 0.06 }, 0);
+      tl.to(tarj, { rotation: 3, duration: 0.08, yoyo: true, repeat: 5, stagger: 0.03 }, 0.3);
+      // se dan vuelta, una por una
+      tarj.forEach((t, i) => {
+        const at = 0.55 + i * 0.28;
+        tl.to(t, { scaleX: 0, duration: 0.09, ease: "power2.in" }, at);
+        tl.set(t.querySelector(".s12-dorso"), { opacity: 0 }, at + 0.09);
+        tl.set(t.querySelector(".s12-frente"), { opacity: 1 }, at + 0.09);
+        tl.to(t, { scaleX: 1, duration: 0.12, ease: "back.out(2)" }, at + 0.09);
+      });
+      sacudon(1.2, 0.7);
+      golpe(".s12-gana", GANA, 2.4);
+      sacudon(GANA + 0.05);
+      golpe(".s12-agente", AGENTE, 2.8);
+      sacudon(AGENTE + 0.05, 1.4);
+      // bocina: confeti
+      gsap.set(q(".s12-confeti"), { opacity: 0 });
+      tl.fromTo(q(".s12-confeti"), { opacity: 1, scale: 0.4, svgOrigin: "540 1000" }, { opacity: 1, scale: 1, svgOrigin: "540 1000", duration: 0.3, ease: "power3.out", immediateRender: false }, BOCINA - 0.1);
+      tl.to(q(".s12-confeti"), { y: 40, duration: 0.3, ease: "none" }, BOCINA + 0.2);
+      tl.to(q(".s12-agente"), { scale: 1.1, duration: 0.1, yoyo: true, repeat: 1 }, BOCINA);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.15, ease: "power3.in" }, DUR - 0.15);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

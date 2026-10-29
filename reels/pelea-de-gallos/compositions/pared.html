@@ -1,0 +1,60 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="pared"] .pa-capa { position: absolute; inset: 0; }
+    [data-composition-id="pared"] .pa-muro { position: absolute; left: -80px; top: -80px; width: 1240px; height: 2080px; }
+    [data-composition-id="pared"] svg { position: absolute; left: 0; top: 0; width: 1240px; height: 2080px; overflow: visible; }
+    [data-composition-id="pared"] .pa-tag { font-family: "Lexend", sans-serif; font-weight: 900; fill: none; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="pared"] .pa-trazo { fill: none; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="pared"] .pa-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 700px 1050px at 540px 900px, rgba(7, 6, 11, 0) 40%, rgba(7, 6, 11, 0.92) 100%); }
+  </style>
+  <div id="root" data-composition-id="pared" data-width="1080" data-height="1920" data-duration="75.35">
+    <div id="pa-escena" class="pa-capa clip" data-start="0" data-duration="75.35" data-track-index="0">
+      <div class="pa-muro">
+        <svg viewBox="0 0 1240 2080" aria-hidden="true">
+          <defs>
+            <pattern id="pa-ladrillo" width="160" height="80" patternUnits="userSpaceOnUse">
+              <rect x="0" y="0" width="160" height="80" fill="#120e19" />
+              <path d="M0 0.5 H160 M0 40.5 H160 M0.5 0 V40 M80.5 40 V80" stroke="#07060b" stroke-width="6" />
+              <rect x="6" y="6" width="68" height="28" fill="#17121f" opacity="0.6" />
+              <rect x="86" y="46" width="68" height="28" fill="#17121f" opacity="0.5" />
+            </pattern>
+          </defs>
+          <rect x="0" y="0" width="1240" height="2080" fill="url(#pa-ladrillo)" />
+          <!-- graffiti genérico, apagado -->
+          <g opacity="0.3" data-layout-ignore>
+            <text data-layout-ignore class="pa-tag" x="70" y="760" font-size="230" stroke="#ff2bd6" transform="rotate(-8 300 700)">RIMA</text>
+            <text data-layout-ignore class="pa-tag" x="560" y="1290" font-size="200" stroke="#19e3ff" transform="rotate(6 860 1220)">FLOW</text>
+            <text data-layout-ignore class="pa-tag" x="120" y="1650" font-size="190" stroke="#ffe83d" transform="rotate(-4 450 1600)">BARRIO</text>
+            <!-- chorreados -->
+            <path class="pa-trazo" stroke="#ff2bd6" d="M150 770 V860 M260 790 V900 M390 760 V830 M520 740 V880" />
+            <path class="pa-trazo" stroke="#19e3ff" d="M640 1300 V1380 M820 1310 V1430 M980 1330 V1390" />
+            <!-- corona -->
+            <path class="pa-trazo" stroke="#ffe83d" d="M880 520 L910 620 L1080 620 L1110 520 L1050 570 L995 490 L940 570 Z" />
+            <!-- estrellas y flechas -->
+            <path class="pa-trazo" stroke="#f5f1ea" d="M200 1060 l18 40 44 6 -32 30 8 44 -38 -22 -38 22 8 -44 -32 -30 44 -6 Z" />
+            <path class="pa-trazo" stroke="#ff2bd6" d="M760 1000 C860 940 960 960 1040 1040 M1010 990 L1040 1040 L985 1052" />
+            <path class="pa-trazo" stroke="#19e3ff" d="M120 1880 C300 1820 520 1900 700 1840 C860 1790 1000 1840 1140 1800" />
+            <circle class="pa-trazo" stroke="#ffe83d" cx="1050" cy="1700" r="60" />
+            <path class="pa-trazo" stroke="#ffe83d" d="M1025 1690 v4 M1075 1690 v4 M1020 1720 C1040 1745 1060 1745 1080 1720" />
+          </g>
+        </svg>
+      </div>
+      <div class="pa-vineta"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "pared";
+      const DUR = 75.35;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      // cámara que deriva despacio sobre la pared
+      tl.fromTo(root.querySelector(".pa-muro"), { x: 0, y: 0, scale: 1 }, { x: 60, y: 40, scale: 1.04, duration: DUR, ease: "none" }, 0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

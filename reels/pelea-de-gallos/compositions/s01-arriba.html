@@ -1,0 +1,112 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-arriba"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-arriba"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-arriba"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-arriba"] .s01-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s01-arriba"] .s01-arriba { top: 600px; font-size: 190px; color: #ffe83d; text-shadow: 10px 10px 0 #ff2bd6; transform: rotate(-6deg); }
+    [data-composition-id="s01-arriba"] .s01-manos { top: 850px; font-size: 128px; color: #f5f1ea; text-shadow: 8px 8px 0 #19e3ff; transform: rotate(-6deg); }
+    [data-composition-id="s01-arriba"] .s01-lado { top: 640px; font-size: 104px; color: #f5f1ea; text-shadow: 8px 8px 0 #ff2bd6; transform: rotate(-4deg); }
+    [data-composition-id="s01-arriba"] .s01-placa { position: absolute; left: 500px; top: 1010px; padding: 18px 30px 14px; background: #ff2bd6; color: #07060b; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 78px; line-height: 0.95; text-transform: uppercase; box-shadow: 10px 10px 0 #ffe83d; transform: rotate(-5deg); white-space: nowrap; }
+    [data-composition-id="s01-arriba"] .s01-placa small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.14em; margin-top: 10px; }
+    [data-composition-id="s01-arriba"] .m { fill: #110d18; stroke: #ff2bd6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-arriba"] .m-l { fill: none; stroke: #ff2bd6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-arriba"] .y-l { fill: none; stroke: #ffe83d; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-arriba"] .h-l { fill: #110d18; stroke: #f5f1ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <div id="root" data-composition-id="s01-arriba" data-width="1080" data-height="1920" data-duration="3.4">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="3.4" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el micrófono del presentador -->
+          <g class="s01-mic">
+            <path class="h-l" d="M510 1110 h60 l-10 200 h-40 Z" />
+            <rect class="h-l" x="478" y="990" width="124" height="140" rx="62" />
+            <path class="m-l" d="M490 1040 h100 M490 1070 h100 M500 1100 h80" stroke-width="5" />
+            <path class="y-l s01-onda" d="M430 990 C400 1030 400 1090 430 1130" />
+            <path class="y-l s01-onda" d="M380 960 C335 1020 335 1100 380 1160" />
+            <path class="y-l s01-onda" d="M650 990 C680 1030 680 1090 650 1130" />
+            <path class="y-l s01-onda" d="M700 960 C745 1020 745 1100 700 1160" />
+          </g>
+          <!-- flecha "de este lado" -->
+          <path class="m-l s01-flecha" stroke-width="12" d="M820 820 C700 760 520 760 300 800 M360 740 L290 802 L370 852" />
+          <!-- EL DUEÑO (personaje genérico): gorra, bigote, delantal, termo -->
+          <g class="s01-duenio">
+            <g transform="translate(70 900)">
+              <path class="m" d="M40 520 C40 380 100 330 190 330 C280 330 340 380 340 520 Z" />
+              <path class="m-l" d="M120 360 L120 520 M260 360 L260 520 M120 430 H260" />
+              <rect class="m" x="148" y="440" width="84" height="56" rx="6" />
+              <circle class="m" cx="190" cy="230" r="92" />
+              <path class="m" d="M100 210 C100 120 280 120 280 210 Z" fill="#ff2bd6" />
+              <path class="m-l" d="M270 205 L350 222" stroke-width="12" />
+              <path class="m-l" d="M150 236 h22 M210 236 h22" />
+              <path class="m-l" d="M148 280 C168 262 182 268 190 280 C198 268 214 262 234 280" stroke-width="9" />
+              <!-- el termo bajo el brazo -->
+              <rect class="m" x="10" y="380" width="54" height="130" rx="14" />
+              <path class="m-l" d="M18 410 h38" />
+            </g>
+          </g>
+        </svg>
+        <div class="s01-txt s01-arriba">¡Arriba</div>
+        <div class="s01-txt s01-manos">las manos!</div>
+        <div class="s01-txt s01-lado">De este lado</div>
+        <div class="s01-placa">El dueño<small>del local</small></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-arriba";
+      const DUR = 3.4;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.6) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+
+      const MANOS = 0.38, LADO = 1.33, DUENIO = 2.19, LOCAL = 2.67;
+
+      // cuadro 0: "¡ARRIBA" ya cayendo, el mic ya está
+      tl.fromTo(q(".s01-arriba"), { opacity: 0.6, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in" }, 0);
+      sacudon(0.14);
+      tl.fromTo(q(".s01-mic"), { opacity: 0.6, y: 120, scale: 0.92, svgOrigin: "540 1150" }, { opacity: 1, y: 0, scale: 1, svgOrigin: "540 1150", duration: 0.3, ease: "back.out(2)" }, 0);
+      // las ondas del mic laten al beat
+      qa(".s01-onda").forEach((o, i) => tl.fromTo(o, { opacity: 0.2 }, { opacity: 1, duration: 0.16, yoyo: true, repeat: 5, ease: "steps(1)" }, 0.05 + (i % 2) * 0.08));
+      tl.to(q(".s01-mic"), { rotation: 6, svgOrigin: "540 1300", duration: 0.33, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0.3);
+
+      golpe(".s01-manos", MANOS);
+      sacudon(MANOS + 0.05, 1.2);
+
+      // "de este lado": todo lo de arriba se va, entra la flecha
+      tl.to([q(".s01-arriba"), q(".s01-manos")], { opacity: 0, y: -80, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, LADO - 0.2);
+      tl.to(q(".s01-mic"), { opacity: 0, y: 200, duration: 0.2, ease: "power2.in" }, LADO - 0.2);
+      golpe(".s01-lado", LADO, 2.2);
+      const fl = q(".s01-flecha"), L = fl.getTotalLength();
+      gsap.set(fl, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+      tl.to(fl, { opacity: 1, duration: 0.02 }, LADO);
+      tl.to(fl, { strokeDashoffset: 0, duration: 0.4, ease: "power2.out" }, LADO);
+
+      // entra el dueño desde la izquierda, y la placa
+      gsap.set(q(".s01-duenio"), { opacity: 0 });
+      tl.fromTo(q(".s01-duenio"), { opacity: 1, x: -520 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, DUENIO - 0.3);
+      tl.to(q(".s01-duenio"), { y: -10, duration: 0.167, yoyo: true, repeat: 3, ease: "sine.inOut" }, DUENIO);
+      golpe(".s01-placa", LOCAL - 0.25, 2.4);
+      sacudon(LOCAL - 0.2);
+      tl.to(q(".s01-placa"), { rotation: -2, duration: 0.2, ease: "back.out(3)" }, LOCAL);
+
+      // salida
+      tl.to(q("#s01-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,120 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-domingo"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-domingo"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-domingo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-domingo"] .s11-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s11-domingo"] .s11-rot { position: absolute; top: 1130px; width: 360px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.2em; text-transform: uppercase; }
+    [data-composition-id="s11-domingo"] .s11-burb { position: absolute; left: 0; top: 0; padding: 14px 22px 10px; border-radius: 20px; background: #ffe83d; color: #07060b; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-domingo"] .s11-tranq { top: 1210px; font-size: 104px; color: #f5f1ea; text-shadow: 8px 8px 0 #19e3ff; transform: rotate(-4deg); }
+    [data-composition-id="s11-domingo"] .s11-novengo { top: 620px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 44px; letter-spacing: 0.24em; color: #19e3ff; }
+    [data-composition-id="s11-domingo"] .s11-robar { top: 690px; font-size: 92px; color: #f5f1ea; text-shadow: 7px 7px 0 #ff2bd6; transform: rotate(-3deg); }
+    [data-composition-id="s11-domingo"] .s11-cal { position: absolute; left: 50%; top: 850px; width: 560px; margin-left: -280px; background: #f5f1ea; border-radius: 18px; box-shadow: 14px 14px 0 #19e3ff; transform: rotate(-3deg); overflow: hidden; }
+    [data-composition-id="s11-domingo"] .s11-cal-top { background: #ff2bd6; padding: 22px 0 14px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.3em; color: #07060b; }
+    [data-composition-id="s11-domingo"] .s11-cal-dia { padding: 34px 0 10px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 94px; line-height: 1; color: #07060b; text-transform: uppercase; }
+    [data-composition-id="s11-domingo"] .s11-cal-sub { padding: 0 0 36px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.2em; color: #07060b; opacity: 0.6; }
+    [data-composition-id="s11-domingo"] .s11-libre { position: absolute; left: 640px; top: 1215px; padding: 10px 22px 6px; border: 8px solid #19e3ff; border-radius: 12px; background: #07060b; color: #19e3ff; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 70px; text-transform: uppercase; transform: rotate(-12deg); }
+    [data-composition-id="s11-domingo"] .s11-uuuh { top: 560px; font-size: 250px; color: #ffe83d; text-shadow: 14px 14px 0 #ff2bd6, -8px -8px 0 #19e3ff; transform: rotate(-8deg); }
+    [data-composition-id="s11-domingo"] .tel-c { fill: #0d0a13; stroke: #19e3ff; stroke-width: 7; }
+    [data-composition-id="s11-domingo"] .tel-m { fill: #0d0a13; stroke: #ff2bd6; stroke-width: 7; }
+    [data-composition-id="s11-domingo"] .y-l { fill: none; stroke: #ffe83d; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 4 20; }
+    [data-composition-id="s11-domingo"] .tacha { fill: none; stroke: #19e3ff; stroke-width: 16; stroke-linecap: round; }
+  </style>
+  <div id="root" data-composition-id="s11-domingo" data-width="1080" data-height="1920" data-duration="7.32">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="7.32" data-track-index="0">
+      <div class="s11-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-teles">
+            <rect class="tel-c" x="90" y="680" width="280" height="430" rx="40" />
+            <path d="M175 700 h110" stroke="#19e3ff" stroke-width="8" stroke-linecap="round" />
+            <rect class="tel-m" x="710" y="680" width="280" height="430" rx="40" />
+            <path d="M795 700 h110" stroke="#ff2bd6" stroke-width="8" stroke-linecap="round" />
+            <path class="y-l s11-arco" d="M300 780 C420 600 660 600 780 780" />
+          </g>
+          <path class="tacha s11-tacha" d="M90 750 L990 700" />
+        </svg>
+        <div class="s11-rot" style="left: 50px; color: #19e3ff">Agente</div>
+        <div class="s11-rot" style="left: 670px; color: #ff2bd6">Vos</div>
+        <div class="s11-burb">Para vos</div>
+        <div class="s11-txt s11-tranq">Tranquilo.</div>
+        <div class="s11-txt s11-novengo">No vengo a</div>
+        <div class="s11-txt s11-robar">Robarte el puesto</div>
+        <div class="s11-cal">
+          <div class="s11-cal-top">Este finde</div>
+          <div class="s11-cal-dia">Domingo</div>
+          <div class="s11-cal-sub">mate · familia · siesta</div>
+        </div>
+        <div class="s11-libre">Libre</div>
+        <div class="s11-txt s11-uuuh">UUUH</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-domingo";
+      const DUR = 7.32;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.6) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const PASO = 0.96, TRANQ = 1.84, NO = 2.85, ROBAR = 3.35, PUESTO = 3.79, DEVOLVER = 4.94, DOMINGO = 5.56, UUUH = 6.09;
+
+      // cuadro 0: los dos celulares ya están
+      tl.fromTo(q(".s11-teles"), { opacity: 0.6, scale: 0.9, svgOrigin: "540 900" }, { opacity: 1, scale: 1, svgOrigin: "540 900", duration: 0.25, ease: "back.out(2)" }, 0);
+      tl.fromTo(qa(".s11-rot"), { opacity: 0.5 }, { opacity: 1, duration: 0.25 }, 0);
+      // la charla viaja del celular de la agente al del dueño
+      const arco = q(".s11-arco"), L = arco.getTotalLength(), burb = q(".s11-burb");
+      gsap.set(arco, { clipPath: "inset(0 100% 0 0)" });
+      tl.to(arco, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power2.inOut" }, PASO - 0.2);
+      gsap.set(burb, { opacity: 0 });
+      const p = { v: 0 };
+      const mover = () => { const pt = arco.getPointAtLength(p.v * L); gsap.set(burb, { x: pt.x - 110, y: pt.y - 40 }); };
+      mover();
+      tl.to(burb, { opacity: 1, duration: 0.05 }, PASO - 0.2);
+      tl.fromTo(p, { v: 0 }, { v: 1, duration: 0.7, ease: "power2.inOut", onUpdate: mover, immediateRender: false }, PASO - 0.2);
+      tl.fromTo(q(".tel-m"), { scale: 1, svgOrigin: "850 895" }, { scale: 1.08, svgOrigin: "850 895", duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, PASO + 0.5);
+      golpe(".s11-tranq", TRANQ, 2.2);
+      sacudon(TRANQ + 0.05, 0.8);
+
+      // "no vengo a robarte el puesto": tachado
+      tl.to([q(".s11-teles"), burb, ...qa(".s11-rot"), q(".s11-tranq")], { opacity: 0, y: -60, filter: "blur(6px)", duration: 0.18, ease: "power2.in" }, NO - 0.3);
+      golpe(".s11-novengo", NO, 1.6);
+      golpe(".s11-robar", ROBAR, 2.4);
+      sacudon(ROBAR + 0.05);
+      const ta = q(".s11-tacha"), LT = ta.getTotalLength();
+      gsap.set(ta, { strokeDasharray: LT, strokeDashoffset: LT, opacity: 0 });
+      tl.to(ta, { opacity: 1, duration: 0.02 }, PUESTO + 0.15);
+      tl.to(ta, { strokeDashoffset: 0, duration: 0.25, ease: "power3.out" }, PUESTO + 0.15);
+      tl.to([q(".s11-robar"), q(".s11-novengo")], { opacity: 0.35, duration: 0.2 }, PUESTO + 0.4);
+
+      // "vengo a devolverte el domingo": la hoja del calendario
+      gsap.set(q(".s11-cal"), { opacity: 0 });
+      tl.fromTo(q(".s11-cal"), { opacity: 1, y: 800, rotation: 10 }, { opacity: 1, y: 0, rotation: -3, duration: 0.3, ease: "back.out(1.3)", immediateRender: false }, DEVOLVER - 0.1);
+      tl.fromTo(q(".s11-cal-dia"), { scale: 1.5 }, { scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, DOMINGO - 0.1);
+      sacudon(DOMINGO + 0.05, 1.3);
+      gsap.set(q(".s11-libre"), { opacity: 0 });
+      tl.fromTo(q(".s11-libre"), { opacity: 0, scale: 2.6 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, DOMINGO + 0.1);
+
+      // UUUH enorme
+      tl.to([q(".s11-robar"), q(".s11-novengo"), q(".s11-tacha")], { opacity: 0, duration: 0.1 }, UUUH - 0.12);
+      golpe(".s11-uuuh", UUUH, 3.4);
+      sacudon(UUUH + 0.05, 2.2);
+      sacudon(UUUH + 0.3, 1.6);
+      sacudon(UUUH + 0.6, 1.2);
+      tl.to(q(".s11-uuuh"), { scale: 1.12, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, UUUH + 0.2);
+
+      tl.to(q("#s11-escena"), { x: 300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
