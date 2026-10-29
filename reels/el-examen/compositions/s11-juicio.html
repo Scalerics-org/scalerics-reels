@@ -1,0 +1,76 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-juicio"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-juicio"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-juicio"] .s11-boletin { position: absolute; left: 80px; top: 610px; width: 920px; height: 900px; background: #f3ead2; border-radius: 6px; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.28); }
+    [data-composition-id="s11-juicio"] .s11-head { position: absolute; left: 0; right: 0; top: 0; height: 110px; background: #1d3fa8; border-radius: 6px 6px 0 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 54px; line-height: 110px; letter-spacing: 0.14em; color: #f3ead2; }
+    [data-composition-id="s11-juicio"] .s11-fila { position: absolute; left: 50px; width: 820px; height: 76px; border-bottom: 3px solid #9fb4d9; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; line-height: 76px; color: #2b2b2b; }
+    [data-composition-id="s11-juicio"] .s11-fila span { position: absolute; right: 20px; top: 0; font-family: "Caveat", cursive; font-weight: 700; font-size: 58px; color: #1d3fa8; }
+    [data-composition-id="s11-juicio"] .s11-lbl { position: absolute; left: 50px; top: 420px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; letter-spacing: 0.1em; color: #2b2b2b; }
+    [data-composition-id="s11-juicio"] .s11-mano { position: absolute; left: 50px; font-family: "Caveat", cursive; font-weight: 700; font-size: 112px; line-height: 1; color: #d42a1f; white-space: nowrap; }
+    [data-composition-id="s11-juicio"] .s11-svg { position: absolute; left: 0; top: 0; width: 920px; height: 900px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s11-juicio" data-width="1080" data-height="1920" data-duration="4.12">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.12" data-track-index="0">
+      <div class="s11-escenario">
+        <div class="s11-boletin">
+          <div class="s11-head">BOLETÍN</div>
+          <div class="s11-fila" style="top:140px;">Alumno: <b style="font-weight:500;">TU NEGOCIO</b></div>
+          <div class="s11-fila" style="top:226px;">Atención<span>12</span></div>
+          <div class="s11-fila" style="top:312px;">Mercadería<span>12</span></div>
+          <div class="s11-lbl">JUICIO DEL PROFESOR:</div>
+          <div class="s11-mano s11-m1" style="top:500px;">Tiene condiciones,</div>
+          <div class="s11-mano s11-m2" style="top:640px;">pero no las muestra.</div>
+          <svg class="s11-svg" viewBox="0 0 920 900" aria-hidden="true">
+            <g fill="none" stroke="#d42a1f" stroke-linecap="round">
+              <path class="s11-sub1" stroke-width="8" d="M240 770 C420 760 640 772 840 758" />
+              <path class="s11-sub2" stroke-width="6" d="M260 800 C440 792 640 802 820 790" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-juicio";
+      const DUR = 4.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, d = 0.5, ease = "power2.inOut") => {
+        [].concat(els).forEach((el) => {
+          const L = el.getTotalLength() + 2;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t);
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease }, t);
+        });
+      };
+      const escribir = (el, t, d) => {
+        gsap.set(el, { clipPath: "inset(-20% 100% -20% 0)" });
+        tl.to(el, { clipPath: "inset(-20% 0% -20% 0)", duration: d, ease: "none" }, t);
+      };
+
+      const PROFESOR = 0.52, TIENE = 1.42, PERO = 2.57, MUESTRA = 3.12;
+      tl.fromTo(q(".s11-boletin"), { y: 260, rotation: -6, opacity: 0.5 }, { y: 0, rotation: 1.5, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.to(q(".s11-boletin"), { scale: 1.04, rotation: 0.5, duration: DUR - 0.4, ease: "none" }, 0.4);
+      gsap.set(q(".s11-lbl"), { opacity: 0 });
+      tl.fromTo(q(".s11-lbl"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.25, immediateRender: false }, PROFESOR - 0.2);
+      tl.to(q(".s11-lbl"), { scale: 1.08, transformOrigin: "0% 50%", duration: 0.12, yoyo: true, repeat: 1 }, PROFESOR + 0.1);
+      escribir(q(".s11-m1"), TIENE - 0.1, 1.0);
+      escribir(q(".s11-m2"), PERO - 0.1, 0.75);
+      dibujar(q(".s11-sub1"), MUESTRA - 0.05, 0.25);
+      dibujar(q(".s11-sub2"), MUESTRA + 0.2, 0.22);
+      tl.to(q(".s11-m2"), { scale: 1.05, transformOrigin: "30% 50%", duration: 0.15, yoyo: true, repeat: 1 }, MUESTRA + 0.45);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

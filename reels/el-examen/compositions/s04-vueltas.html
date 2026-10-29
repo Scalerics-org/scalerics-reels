@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-vueltas"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-vueltas"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-vueltas"] .s04-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s04-vueltas"] .s04-cartel { position: absolute; left: 0; right: 0; top: 920px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 70px; color: #f2efe6; opacity: 0.85; line-height: 1; }
+    [data-composition-id="s04-vueltas"] .s04-mal { position: absolute; left: 0; right: 0; top: 820px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 340px; line-height: 1; color: #ff5a4a; text-shadow: 0 0 30px rgba(255, 90, 74, 0.35); }
+  </style>
+  <div id="root" data-composition-id="s04-vueltas" data-width="1080" data-height="1920" data-duration="3.43">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.43" data-track-index="0">
+      <div class="s04-escenario">
+        <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <filter id="s04-tiza" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="7" result="r" />
+              <feDisplacementMap in="SourceGraphic" in2="r" scale="5" />
+            </filter>
+          </defs>
+          <g filter="url(#s04-tiza)" fill="none" stroke="#f2efe6" stroke-linecap="round" stroke-linejoin="round">
+            <rect class="s04-manzana" x="290" y="740" width="500" height="480" rx="20" stroke-width="7" />
+            <!-- el camino gastado de tanto dar vueltas -->
+            <rect class="s04-surco" x="220" y="670" width="640" height="620" rx="40" stroke-width="3" stroke-dasharray="14 16" opacity="0.5" />
+            <!-- palotes -->
+            <path class="s04-p1" d="M860 1380 V1470" stroke-width="8" />
+            <path class="s04-p2" d="M900 1380 V1470" stroke-width="8" />
+            <path class="s04-p3" d="M940 1380 V1470" stroke-width="8" />
+          </g>
+          <!-- el muñequito que corre -->
+          <g class="s04-tipo" filter="url(#s04-tiza)" fill="none" stroke="#f2efe6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <g class="s04-cuerpo"><g transform="scale(1.7)">
+              <circle cx="0" cy="-70" r="18" />
+              <path d="M0 -52 V-12 M0 -40 L-22 -24 M0 -40 L22 -30 M0 -12 L-18 16 M0 -12 L20 14" />
+            </g></g>
+          </g>
+          <!-- mareo -->
+          <path class="s04-mareo" d="M250 640 c0 -20 30 -20 30 0 c0 30 -50 30 -50 0 c0 -40 70 -40 70 0" fill="none" stroke="#f2efe6" stroke-width="5" stroke-linecap="round" filter="url(#s04-tiza)" />
+        </svg>
+        <div class="s04-cartel">la manzana</div>
+        <div class="s04-mal">Mal.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-vueltas";
+      const DUR = 3.43;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, d = 0.5, ease = "power2.inOut") => {
+        [].concat(els).forEach((el) => {
+          const L = el.getTotalLength() + 2;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t);
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease }, t);
+        });
+      };
+      const sacudon = (t, f = 1) =>
+        [[-18, 10], [14, -8], [-8, 5], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const MAL = 2.18;
+      // cuadro 0: la manzana a medio dibujar
+      dibujar(q(".s04-manzana"), 0, 0.35);
+      tl.fromTo(q(".s04-cartel"), { opacity: 0 }, { opacity: 0.85, duration: 0.2 }, 0.1);
+      tl.fromTo(q(".s04-surco"), { opacity: 0 }, { opacity: 0.5, duration: 0.3 }, 0.2);
+      tl.fromTo(q(".s04-surco"), { strokeDashoffset: 0 }, { strokeDashoffset: -240, duration: 2, ease: "none" }, 0.2);
+
+      // tres vueltas a la manzana, cada vez más rápido
+      const esquinas = [[220, 670], [860, 670], [860, 1290], [220, 1290]];
+      gsap.set(q(".s04-tipo"), { x: 220, y: 670 });
+      let t = 0.1;
+      const lados = [0.17, 0.16, 0.15, 0.14, 0.14, 0.13, 0.13, 0.12, 0.12, 0.11, 0.11, 0.1];
+      lados.forEach((d, i) => {
+        const [x, y] = esquinas[(i + 1) % 4];
+        tl.to(q(".s04-tipo"), { x, y, duration: d, ease: "none" }, t);
+        t += d;
+      });
+      tl.fromTo(q(".s04-cuerpo"), { rotation: -8 }, { rotation: 8, duration: 0.08, yoyo: true, repeat: 23, ease: "none" }, 0.1);
+      dibujar(q(".s04-p1"), 0.1 + 0.66, 0.1);
+      dibujar(q(".s04-p2"), 0.1 + 1.19, 0.1);
+      dibujar(q(".s04-p3"), 0.1 + 1.65, 0.1);
+      // mareado
+      dibujar(q(".s04-mareo"), 1.8, 0.3);
+      tl.to(q(".s04-mareo"), { rotation: 360, svgOrigin: "265 630", duration: 0.9, ease: "none" }, 1.9);
+      tl.to(q(".s04-cuerpo"), { rotation: 90, duration: 0.2, ease: "power2.in" }, MAL - 0.05);
+
+      // "Mal."
+      tl.to(q(".s04-cartel"), { opacity: 0, duration: 0.1 }, MAL - 0.1);
+      gsap.set(q(".s04-mal"), { opacity: 0 });
+      tl.fromTo(q(".s04-mal"), { opacity: 0, scale: 2.6, rotation: -14 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.13, ease: "power4.in", immediateRender: false }, MAL - 0.08);
+      sacudon(MAL + 0.06, 1.2);
+      tl.to(q(".s04-mal"), { scale: 1.05, duration: 0.2, yoyo: true, repeat: 1 }, MAL + 0.4);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

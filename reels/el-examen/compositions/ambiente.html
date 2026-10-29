@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* pizarrón: marco de madera, manchas de borrador, la canaleta con tizas */
+    [data-composition-id="ambiente"] .amb-marco { position: absolute; inset: 0; border: 22px solid #4a3324; box-shadow: inset 0 0 0 4px #2e2016; }
+    [data-composition-id="ambiente"] .amb-borrones { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1100px at 540px 920px, rgba(10, 26, 20, 0) 55%, rgba(10, 26, 20, 0.75) 100%); }
+    [data-composition-id="ambiente"] .amb-canaleta { position: absolute; left: 22px; top: 1640px; width: 1036px; height: 26px; background: #4a3324; border-top: 4px solid #6b4a33; }
+    [data-composition-id="ambiente"] .amb-tiza { position: absolute; height: 14px; border-radius: 7px; top: 1628px; }
+    [data-composition-id="ambiente"] .amb-fecha { position: absolute; right: 70px; top: 112px; font-family: "Caveat", cursive; font-weight: 600; font-size: 46px; color: #f2efe6; opacity: 0.55; }
+    [data-composition-id="ambiente"] .amb-materia { position: absolute; left: 70px; top: 116px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.24em; color: #f2efe6; opacity: 0.5; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-rojo { background: #e2372b; mix-blend-mode: screen; }
+    [data-composition-id="ambiente"] .amb-blanco { background: #f2efe6; }
+    /* el borrador que limpia el pizarrón cuando entra Scalerics */
+    [data-composition-id="ambiente"] .amb-borrador { position: absolute; left: -700px; top: 0; width: 600px; height: 1920px;
+      background: linear-gradient(90deg, rgba(242, 239, 230, 0) 0%, rgba(242, 239, 230, 0.22) 45%, rgba(242, 239, 230, 0.3) 55%, rgba(242, 239, 230, 0) 100%); }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="66.6">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="66.6" data-track-index="0">
+      <svg class="amb-borrones" viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- restos de tiza mal borrada -->
+        <g fill="none" stroke="#f2efe6" stroke-linecap="round" opacity="0.06">
+          <path d="M80 520 C260 480 420 560 620 500 C780 460 900 520 1000 490" stroke-width="60" />
+          <path d="M120 1480 C320 1440 520 1520 760 1470 C860 1450 940 1480 990 1460" stroke-width="70" />
+          <path d="M60 1080 C120 1000 140 920 90 860" stroke-width="40" />
+        </g>
+        <g fill="none" stroke="#f2efe6" stroke-width="3" stroke-linecap="round" opacity="0.1">
+          <path d="M880 1530 l40 -30 m-40 0 l40 30" />
+          <path d="M120 1540 C140 1520 170 1520 180 1540 C190 1560 220 1560 230 1540" />
+          <path d="M930 600 h70 M965 565 v70" />
+        </g>
+      </svg>
+      <div class="amb-vineta"></div>
+      <div class="amb-marco"></div>
+      <div class="amb-canaleta"></div>
+      <div class="amb-tiza" style="left:180px;width:90px;background:#f2efe6;"></div>
+      <div class="amb-tiza" style="left:300px;width:54px;background:#f2efe6;opacity:0.8;"></div>
+      <div class="amb-tiza" style="left:760px;width:120px;background:#3b2a1e;border:3px solid #6b4a33;height:30px;top:1612px;border-radius:6px;"></div>
+      <div class="amb-materia" data-layout-ignore>EXAMEN · 4° B</div>
+      <div class="amb-fecha" data-layout-ignore>Montevideo, diciembre</div>
+      <div class="amb-borrador"></div>
+      <div class="amb-flash amb-rojo"></div>
+      <div class="amb-flash amb-blanco"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const SCALERICS = 58.3; // entra Orus: el borrador limpia el pizarrón
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // las manchas de tiza respiran apenas
+      tl.fromTo(q(".amb-borrones"), { x: 0 }, { x: 14, duration: 5, ease: "sine.inOut", yoyo: true, repeat: 12 }, 0);
+
+      // flashes rojos (segundos globales): "dos", los "Mal.", "a marzo"
+      [1.4, 10.25, 19.56, 31.0, 32.2].forEach((t) => {
+        tl.to(q(".amb-rojo"), { opacity: 0.38, duration: 0.03 }, t);
+        tl.to(q(".amb-rojo"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.04);
+      });
+      // el giro: tiza blanca suave cuando el profe baja el tono
+      tl.to(q(".amb-blanco"), { opacity: 0.25, duration: 0.03 }, 36.66);
+      tl.to(q(".amb-blanco"), { opacity: 0, duration: 0.5, ease: "power2.out" }, 36.7);
+
+      // Scalerics: pasada de borrador de izquierda a derecha
+      tl.to(q(".amb-borrador"), { x: 2000, duration: 0.7, ease: "power2.inOut" }, SCALERICS - 0.35);
+      tl.to(q(".amb-borrones"), { opacity: 0.3, duration: 0.3 }, SCALERICS);
+      tl.to([q(".amb-materia"), q(".amb-fecha")], { opacity: 0, duration: 0.3 }, SCALERICS);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

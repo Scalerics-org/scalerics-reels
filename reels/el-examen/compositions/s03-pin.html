@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-pin"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-pin"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-pin"] .s03-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s03-pin"] .s03-titulo { position: absolute; left: 100px; top: 570px; font-family: "Caveat", cursive; font-weight: 700; font-size: 104px; line-height: 1; color: #f2efe6; white-space: nowrap; }
+    [data-composition-id="s03-pin"] .s03-titulo b { color: #ff5a4a; font-weight: 700; }
+    [data-composition-id="s03-pin"] .s03-tz { position: absolute; font-family: "Caveat", cursive; font-weight: 700; line-height: 1; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s03-pin" data-width="1080" data-height="1920" data-duration="6.63">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="6.63" data-track-index="0">
+      <div class="s03-escenario">
+        <div class="s03-titulo"><b>2.</b> ¿Dónde quedás?</div>
+        <svg class="s03-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <filter id="s03-tiza" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="4" result="r" />
+              <feDisplacementMap in="SourceGraphic" in2="r" scale="5" />
+            </filter>
+          </defs>
+          <g class="s03-mapa" filter="url(#s03-tiza)" fill="none" stroke="#f2efe6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <!-- manzanas 3x3 -->
+            <rect class="s03-m" x="130" y="760" width="230" height="200" rx="14" />
+            <rect class="s03-m" x="425" y="760" width="230" height="200" rx="14" />
+            <rect class="s03-m" x="720" y="760" width="230" height="200" rx="14" />
+            <rect class="s03-m" x="130" y="1025" width="230" height="200" rx="14" />
+            <rect class="s03-m" x="425" y="1025" width="230" height="200" rx="14" />
+            <rect class="s03-m" x="720" y="1025" width="230" height="200" rx="14" />
+            <rect class="s03-m" x="130" y="1290" width="230" height="200" rx="14" />
+            <rect class="s03-m" x="425" y="1290" width="230" height="200" rx="14" />
+            <rect class="s03-m" x="720" y="1290" width="230" height="200" rx="14" />
+            <!-- tu local: casita -->
+            <path class="s03-casa" d="M200 920 V870 L245 832 L290 870 V920 Z M232 920 V890 H258 V920" stroke-width="7" />
+          </g>
+          <!-- el camino equivocado -->
+          <path class="s03-ruta" d="M835 1350 C820 1220 700 1170 560 1160 C420 1150 300 1060 250 960" fill="none" stroke="#ff5a4a" stroke-width="7" stroke-linecap="round" stroke-dasharray="4 22" filter="url(#s03-tiza)" />
+          <path class="s03-flecha" d="M215 985 L248 952 L280 992" fill="none" stroke="#ff5a4a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#s03-tiza)" />
+          <!-- el pin rojo -->
+          <g class="s03-pin">
+            <path d="M835 1390 C800 1340 780 1310 780 1280 A55 55 0 1 1 890 1280 C890 1310 870 1340 835 1390 Z" fill="#ff5a4a" />
+            <circle cx="835" cy="1280" r="20" fill="#1d4033" />
+          </g>
+          <ellipse class="s03-sombra" cx="835" cy="1394" rx="40" ry="10" fill="#10261e" opacity="0.6" />
+        </svg>
+        <div class="s03-tz s03-tulocal" style="left:150px;top:965px;font-size:52px;color:#f2efe6;">tu local</div>
+        <div class="s03-tz s03-acano" style="left:470px;top:1455px;font-size:80px;color:#ff5a4a;transform:rotate(-4deg);background:#1d4033;padding:0 18px;">¡acá NO es!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-pin";
+      const DUR = 6.63;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, d = 0.5, ease = "power2.inOut") => {
+        [].concat(els).forEach((el) => {
+          const L = el.getTotalLength() + 2;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t);
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease }, t);
+        });
+      };
+      const sacudon = (t, f = 1) =>
+        [[-18, 10], [14, -8], [-8, 5], [0, 0]].forEach(([x, y], i) => tl.to(q(".s03-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const escribir = (el, t, d) => {
+        gsap.set(el, { clipPath: "inset(-20% 100% -20% 0)" });
+        tl.to(el, { clipPath: "inset(-20% 0% -20% 0)", duration: d, ease: "none" }, t);
+      };
+
+      const DOS = 1.15, QUEDAS = 2.55, PIN = 3.95, OTRA = 5.35;
+
+      // el título en tiza y las manzanas que se dibujan
+      escribir(q(".s03-titulo"), 0, 1.0);
+      qa(".s03-m").forEach((m, i) => dibujar(m, 0.05 + i * 0.12, 0.45));
+      tl.fromTo(q(".s03-escenario"), { scale: 1.06 }, { scale: 1, duration: 1.4, ease: "power2.out", transformOrigin: "540px 1100px" }, 0);
+      tl.fromTo(q(".s03-titulo b"), { scale: 1 }, { scale: 1.35, duration: 0.12, yoyo: true, repeat: 1, transformOrigin: "50% 60%" }, DOS);
+      // "quedás": aparece tu local
+      dibujar(q(".s03-casa"), QUEDAS - 0.6, 0.5);
+      gsap.set(q(".s03-tulocal"), { opacity: 0 });
+      tl.fromTo(q(".s03-tulocal"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, QUEDAS);
+      tl.to(q(".s03-casa"), { scale: 1.2, svgOrigin: "245 880", duration: 0.15, yoyo: true, repeat: 1 }, QUEDAS + 0.1);
+
+      // "pin": cae y rebota en otra manzana
+      gsap.set([q(".s03-pin"), q(".s03-sombra")], { opacity: 0 });
+      tl.fromTo(q(".s03-pin"), { opacity: 1, y: -700 }, { y: 0, duration: 0.35, ease: "bounce.out", immediateRender: false }, PIN - 0.3);
+      tl.fromTo(q(".s03-sombra"), { opacity: 0, scale: 0.3, svgOrigin: "835 1394" }, { opacity: 0.6, scale: 1, duration: 0.3, immediateRender: false }, PIN - 0.25);
+      sacudon(PIN + 0.02, 0.7);
+      tl.to(q(".s03-pin"), { scaleY: 0.9, svgOrigin: "835 1390", duration: 0.1, yoyo: true, repeat: 3 }, PIN + 0.5);
+
+      // "otra cuadra": la ruta punteada hasta tu local y el reto
+      gsap.set(q(".s03-ruta"), { opacity: 0, clipPath: "inset(0 0 0 100%)" });
+      tl.set(q(".s03-ruta"), { opacity: 1 }, OTRA - 0.4);
+      tl.fromTo(q(".s03-ruta"), { strokeDashoffset: 200 }, { strokeDashoffset: 0, duration: 1.3, ease: "none" }, OTRA - 0.4);
+      tl.to(q(".s03-ruta"), { clipPath: "inset(0 0 0 0%)", duration: 0.6, ease: "power2.out" }, OTRA - 0.4);
+      dibujar(q(".s03-flecha"), OTRA + 0.15, 0.2);
+      gsap.set(q(".s03-acano"), { opacity: 0 });
+      tl.fromTo(q(".s03-acano"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, OTRA - 0.15);
+      sacudon(OTRA - 0.03, 0.9);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

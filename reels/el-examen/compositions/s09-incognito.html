@@ -1,0 +1,128 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-incognito"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-incognito"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-incognito"] .s09-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s09-incognito"] .s09-etq { position: absolute; left: 90px; top: 1400px; width: 480px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 76px; line-height: 1; color: #f2efe6; white-space: nowrap; }
+    [data-composition-id="s09-incognito"] .s09-libreta { position: absolute; left: 600px; top: 700px; width: 400px; height: 720px; background-color: #f3ead2;
+      background-image: repeating-linear-gradient(180deg, transparent 0 86px, #9fb4d9 86px 88px); background-position: 0 30px; border-radius: 6px; box-shadow: 0 14px 0 rgba(0, 0, 0, 0.3); }
+    [data-composition-id="s09-incognito"] .s09-lib-t { position: absolute; left: 0; right: 0; top: 18px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.14em; color: #2b2b2b; }
+    [data-composition-id="s09-incognito"] .s09-item { position: absolute; left: 30px; font-family: "Caveat", cursive; font-weight: 700; font-size: 66px; line-height: 1; color: #1d3fa8; white-space: nowrap; }
+    [data-composition-id="s09-incognito"] .s09-lsvg { position: absolute; left: 0; top: 0; width: 400px; height: 720px; overflow: visible; }
+    [data-composition-id="s09-incognito"] .s09-doce { position: absolute; left: 120px; top: 380px; width: 200px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 220px; line-height: 1; color: #d42a1f; }
+    [data-composition-id="s09-incognito"] .s09-muybien { position: absolute; left: 40px; top: 600px; width: 320px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 70px; line-height: 1; color: #d42a1f; }
+  </style>
+  <div id="root" data-composition-id="s09-incognito" data-width="1080" data-height="1920" data-duration="5.66">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="5.66" data-track-index="0">
+      <div class="s09-escenario">
+        <svg class="s09-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <filter id="s09-tiza" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="15" result="r" />
+              <feDisplacementMap in="SourceGraphic" in2="r" scale="5" />
+            </filter>
+          </defs>
+          <!-- el profe de tiza -->
+          <g class="s09-profe" filter="url(#s09-tiza)" fill="none" stroke="#f2efe6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+            <path class="s09-p" d="M330 790 C250 790 220 860 222 930 C224 1020 270 1080 330 1080 C390 1080 436 1020 438 930 C440 860 410 790 330 790 Z" />
+            <path class="s09-p" d="M222 930 c-26 -6 -30 40 0 44 M438 930 c26 -6 30 40 0 44" stroke-width="5" />
+            <path class="s09-p s09-lentes" d="M262 930 a30 26 0 1 0 60 0 a30 26 0 1 0 -60 0 M338 930 a30 26 0 1 0 60 0 a30 26 0 1 0 -60 0 M322 930 h16" stroke-width="5" />
+            <path class="s09-p s09-bigote" d="M282 1010 C300 990 322 996 330 1006 C338 996 360 990 378 1010" />
+            <path class="s09-p" d="M300 1040 C318 1050 342 1050 360 1040" stroke-width="5" />
+            <path class="s09-p" d="M330 1080 V1110 M190 1380 C190 1200 230 1110 330 1110 C430 1110 470 1200 470 1380" />
+            <path class="s09-p" d="M330 1110 L304 1150 L330 1280 L356 1150 Z" stroke-width="5" />
+          </g>
+          <!-- suspiro -->
+          <path class="s09-suspiro" d="M450 860 c30 -10 40 10 60 0 c20 -10 30 10 50 0" fill="none" stroke="#f2efe6" stroke-width="5" stroke-linecap="round" opacity="0.7" filter="url(#s09-tiza)" />
+          <!-- el disfraz: sombrero, lentes negros, bigotazo -->
+          <g class="s09-sombrero">
+            <path d="M200 812 C260 800 400 800 460 812 C470 820 460 830 440 830 H220 C200 830 190 820 200 812 Z" fill="#10261e" stroke="#f2efe6" stroke-width="6" />
+            <path d="M250 812 C250 740 270 700 330 700 C390 700 410 740 410 812 Z" fill="#10261e" stroke="#f2efe6" stroke-width="6" />
+            <path d="M254 780 H406" stroke="#ff5a4a" stroke-width="12" />
+          </g>
+          <g class="s09-negros">
+            <ellipse cx="292" cy="932" rx="36" ry="30" fill="#0a1611" stroke="#f2efe6" stroke-width="5" />
+            <ellipse cx="368" cy="932" rx="36" ry="30" fill="#0a1611" stroke="#f2efe6" stroke-width="5" />
+            <path d="M328 930 h4" stroke="#f2efe6" stroke-width="6" />
+          </g>
+          <path class="s09-bigotazo" d="M250 1012 C280 970 318 990 330 1004 C342 990 380 970 410 1012 C380 1000 350 1020 330 1014 C310 1020 280 1000 250 1012 Z" fill="#f2efe6" />
+        </svg>
+        <div class="s09-etq">de incógnito</div>
+        <div class="s09-libreta">
+          <div class="s09-lib-t">LIBRETA DEL PROFE</div>
+          <div class="s09-item s09-i1" style="top:96px;">Atención</div>
+          <div class="s09-item s09-i2" style="top:270px;">Mercadería</div>
+          <svg class="s09-lsvg" viewBox="0 0 400 720" aria-hidden="true">
+            <path class="s09-tilde" d="M290 140 L318 172 L372 92" fill="none" stroke="#1d3fa8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+            <path class="s09-tilde2" d="M290 210 L318 236 L362 176" fill="none" stroke="#1d3fa8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+            <path class="s09-circ" d="M220 400 C330 396 360 470 350 520 C336 600 240 610 170 594 C80 574 60 470 120 420 C150 396 200 392 240 398" fill="none" stroke="#d42a1f" stroke-width="8" stroke-linecap="round" />
+          </svg>
+          <div class="s09-doce">12</div>
+          <div class="s09-muybien">¡Muy bien!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-incognito";
+      const DUR = 5.66;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, d = 0.5, ease = "power2.inOut") => {
+        [].concat(els).forEach((el) => {
+          const L = el.getTotalLength() + 2;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t);
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease }, t);
+        });
+      };
+      const escribir = (el, t, d) => {
+        gsap.set(el, { clipPath: "inset(-20% 100% -20% 0)" });
+        tl.to(el, { clipPath: "inset(-20% 0% -20% 0)", duration: d, ease: "none" }, t);
+      };
+
+      const BRONCA = 1.32, FUI = 1.42, INCOGNITO = 2.32, ATENDES = 3.23, MERCA = 4.32, DOCE = 4.92;
+
+      // cuadro 0: el profe se dibuja de frente; suspira
+      qa(".s09-p").forEach((p, i) => dibujar(p, i * 0.05, 0.45));
+      dibujar(q(".s09-suspiro"), 0.3, 0.4);
+      tl.to(q(".s09-suspiro"), { x: 40, opacity: 0, duration: 0.6, ease: "power1.out" }, 0.75);
+      tl.fromTo(q(".s09-profe"), { y: 0 }, { y: 14, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.4);
+      // "bronca": tiembla apenas
+      tl.to(q(".s09-profe"), { x: 5, duration: 0.04, yoyo: true, repeat: 5, ease: "none" }, BRONCA - 0.3);
+
+      // "fui de incógnito": cae el disfraz
+      gsap.set([q(".s09-sombrero"), q(".s09-negros"), q(".s09-bigotazo")], { opacity: 0 });
+      tl.fromTo(q(".s09-sombrero"), { opacity: 1, y: -500, rotation: -20, svgOrigin: "330 800" }, { y: 0, rotation: -6, duration: 0.3, ease: "bounce.out", immediateRender: false }, FUI - 0.1);
+      tl.fromTo(q(".s09-negros"), { opacity: 0, scale: 1.8, svgOrigin: "330 932" }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)", immediateRender: false }, FUI + 0.3);
+      tl.fromTo(q(".s09-bigotazo"), { opacity: 0, scale: 0.2, svgOrigin: "330 1004" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.5)", immediateRender: false }, FUI + 0.55);
+      escribir(q(".s09-etq"), INCOGNITO - 0.4, 0.6);
+      tl.to(q(".s09-bigotazo"), { scaleX: 1.15, svgOrigin: "330 1004", duration: 0.12, yoyo: true, repeat: 3 }, INCOGNITO + 0.3);
+
+      // la libreta: atención, bárbaro; mercadería, doce
+      tl.fromTo(q(".s09-libreta"), { x: 500, rotation: 10 }, { x: 0, rotation: 3, duration: 0.35, ease: "power3.out" }, 2.6);
+      escribir(q(".s09-i1"), ATENDES - 0.15, 0.45);
+      dibujar(q(".s09-tilde"), ATENDES + 0.15, 0.2);
+      dibujar(q(".s09-tilde2"), ATENDES + 0.4, 0.2);
+      escribir(q(".s09-i2"), MERCA - 0.15, 0.5);
+      gsap.set(q(".s09-doce"), { opacity: 0 });
+      tl.fromTo(q(".s09-doce"), { opacity: 0, scale: 2.4, rotation: -12 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.15, ease: "back.out(2)", immediateRender: false }, DOCE - 0.08);
+      dibujar(q(".s09-circ"), DOCE + 0.1, 0.3);
+      gsap.set(q(".s09-muybien"), { opacity: 0 });
+      tl.fromTo(q(".s09-muybien"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, DOCE + 0.3);
+      tl.to(q(".s09-libreta"), { y: -16, duration: 0.15, yoyo: true, repeat: 1, ease: "sine.out" }, DOCE + 0.05);
+
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.18, ease: "power2.in" }, DUR - 0.18);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,83 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-profe"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-profe"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-profe"] .s08-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s08-profe"] .s08-txt { position: absolute; text-align: center; font-family: "Caveat", cursive; font-weight: 700; line-height: 0.95; color: #f2efe6; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s08-profe" data-width="1080" data-height="1920" data-duration="3.2">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="3.2" data-track-index="0">
+      <div class="s08-escenario">
+        <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <filter id="s08-tiza" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="12" result="r" />
+              <feDisplacementMap in="SourceGraphic" in2="r" scale="5" />
+            </filter>
+          </defs>
+          <g filter="url(#s08-tiza)" fill="none" stroke="#f2efe6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <!-- globos -->
+            <path class="s08-g1" d="M110 600 H560 Q590 600 590 630 V800 Q590 830 560 830 H330 L270 900 L280 830 H110 Q80 830 80 800 V630 Q80 600 110 600 Z" />
+            <path class="s08-g2" d="M520 870 H970 Q1000 870 1000 900 V1070 Q1000 1100 970 1100 H820 L760 1170 L770 1100 H520 Q490 1100 490 1070 V900 Q490 870 520 870 Z" />
+          </g>
+          <!-- el alumno -->
+          <g class="s08-alumno" filter="url(#s08-tiza)" fill="none" stroke="#f2efe6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="330" cy="1180" r="100" />
+            <path d="M250 1110 l-20 -50 M280 1090 l-6 -60 M320 1082 l10 -60 M360 1086 l26 -54 M400 1104 l40 -40" />
+            <path d="M296 1160 l20 10 M370 1160 l-20 10" />
+            <ellipse cx="333" cy="1222" rx="26" ry="20" />
+            <path d="M330 1280 V1480 M330 1330 L230 1420 M330 1480 L280 1540 M330 1480 L380 1540" />
+            <path class="s08-brazo" d="M330 1330 L440 1190 L470 1080" />
+          </g>
+          <!-- rayitas de bronca -->
+          <path class="s08-rayas" d="M170 1080 l-40 -30 M160 1150 l-50 0 M180 1000 l-30 -40" fill="none" stroke="#ff5a4a" stroke-width="6" stroke-linecap="round" filter="url(#s08-tiza)" />
+        </svg>
+        <div class="s08-txt s08-t1" style="left:80px;width:510px;top:640px;font-size:118px;">¡Pero profe!</div>
+        <div class="s08-txt s08-t2" style="left:490px;width:510px;top:915px;font-size:84px;color:#ff5a4a;">¡Es buenísimo!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-profe";
+      const DUR = 3.2;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, d = 0.5, ease = "power2.inOut") => {
+        [].concat(els).forEach((el) => {
+          const L = el.getTotalLength() + 2;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t);
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease }, t);
+        });
+      };
+
+      const PROFE = 0.12, SI = 1.11, BUENISIMO = 1.52;
+      // el alumno entra saltando desde abajo
+      tl.fromTo(q(".s08-alumno"), { y: 500 }, { y: 0, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      tl.to(q(".s08-alumno"), { y: -40, duration: 0.14, yoyo: true, repeat: 15, ease: "sine.out" }, 0.3);
+      tl.fromTo(q(".s08-brazo"), { rotation: -6, svgOrigin: "330 1330" }, { rotation: 6, duration: 0.1, yoyo: true, repeat: 25, ease: "none" }, 0.1);
+      dibujar(q(".s08-g1"), 0, 0.3);
+      gsap.set(q(".s08-t1"), { opacity: 0 });
+      tl.fromTo(q(".s08-t1"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, PROFE);
+      tl.to(q(".s08-t1"), { x: 6, duration: 0.05, yoyo: true, repeat: 7, ease: "none" }, PROFE + 0.2);
+      dibujar(q(".s08-rayas"), 0.3, 0.3);
+      tl.to(q(".s08-rayas"), { opacity: 0.3, duration: 0.15, yoyo: true, repeat: 7 }, 0.7);
+
+      // "¡si lo mío es buenísimo!"
+      dibujar(q(".s08-g2"), SI - 0.1, 0.3);
+      gsap.set(q(".s08-t2"), { opacity: 0 });
+      tl.fromTo(q(".s08-t2"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, BUENISIMO - 0.1);
+      tl.to(q(".s08-t2"), { scale: 1.08, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, BUENISIMO + 0.2);
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

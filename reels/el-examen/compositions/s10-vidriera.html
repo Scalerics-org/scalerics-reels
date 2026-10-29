@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-vidriera"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-vidriera"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-vidriera"] .s10-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s10-vidriera"] .s10-local { position: absolute; inset: 0; }
+    [data-composition-id="s10-vidriera"] .s10-reprueba { position: absolute; left: 0; right: 0; top: 1340px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 130px; line-height: 1; color: #ff5a4a; }
+    [data-composition-id="s10-vidriera"] .s10-cel { position: absolute; inset: 0; }
+    [data-composition-id="s10-vidriera"] .s10-busca { position: absolute; left: 400px; top: 802px; font-family: "Caveat", cursive; font-weight: 700; font-size: 58px; line-height: 1; color: #f2efe6; white-space: nowrap; }
+    [data-composition-id="s10-vidriera"] .s10-sin { position: absolute; left: 340px; top: 1060px; width: 400px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.08em; line-height: 1.3; color: #f2efe6; }
+  </style>
+  <div id="root" data-composition-id="s10-vidriera" data-width="1080" data-height="1920" data-duration="5.54">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="5.54" data-track-index="0">
+      <div class="s10-escenario">
+        <div class="s10-local">
+          <svg class="s10-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+            <defs>
+              <filter id="s10-tiza" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="21" result="r" />
+                <feDisplacementMap in="SourceGraphic" in2="r" scale="5" />
+              </filter>
+            </defs>
+            <g filter="url(#s10-tiza)" fill="none" stroke="#f2efe6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+              <!-- el frente del local con toldo -->
+              <path class="s10-l" d="M160 1300 V820 H920 V1300" />
+              <path class="s10-l" d="M130 820 L180 700 H900 L950 820" />
+              <path class="s10-l" d="M180 700 L230 820 M330 700 L360 820 M480 700 L490 820 M630 700 L620 820 M780 700 L750 820" stroke-width="5" />
+              <path class="s10-l" d="M720 1300 V960 H860 V1300" />
+              <!-- la vidriera llena de cosas lindas -->
+              <rect class="s10-l" x="210" y="900" width="460" height="330" rx="8" />
+              <path class="s10-l" d="M240 1150 h400" stroke-width="4" />
+              <path class="s10-l" d="M260 1150 v-80 h50 v80 M280 1070 v-20 h10 v20 M350 1150 c0 -60 70 -60 70 0 M460 1150 v-110 l30 -20 l30 20 v110 M560 1150 v-70 h60 v70 M570 1080 c10 -20 40 -20 40 0" stroke-width="4" />
+              <path class="s10-l" d="M250 1230 v-40 h80 v40 M380 1230 v-50 h50 v50 M480 1230 c0 -40 80 -40 80 0 M590 1230 v-30 h50 v30" stroke-width="4" />
+            </g>
+            <path class="s10-circ" d="M450 880 C640 870 720 960 700 1080 C680 1240 520 1270 360 1250 C200 1230 160 1120 190 1000 C210 920 320 880 470 884" fill="none" stroke="#ff5a4a" stroke-width="9" stroke-linecap="round" filter="url(#s10-tiza)" />
+          </svg>
+          <div class="s10-reprueba">reprueba</div>
+        </div>
+        <div class="s10-cel">
+          <svg class="s10-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+            <g filter="url(#s10-tiza)" fill="none" stroke="#f2efe6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+              <rect class="s10-c" x="310" y="620" width="460" height="900" rx="56" />
+              <path class="s10-c" d="M490 656 H590" />
+              <rect class="s10-c" x="350" y="780" width="380" height="100" rx="50" stroke-width="5" />
+              <path class="s10-c" d="M670 810 a22 22 0 1 0 0.1 0 M686 846 l20 20" stroke-width="5" />
+            </g>
+            <!-- cargando -->
+            <g class="s10-cargando">
+              <circle cx="540" cy="1000" r="46" fill="none" stroke="#f2efe6" stroke-width="7" stroke-dasharray="90 200" stroke-linecap="round" />
+            </g>
+            <path class="s10-x" d="M260 680 L820 1460 M820 680 L260 1460" fill="none" stroke="#ff5a4a" stroke-width="20" stroke-linecap="round" filter="url(#s10-tiza)" />
+          </svg>
+          <div class="s10-busca">tu negocio</div>
+          <div class="s10-sin">SIN<br />RESULTADOS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-vidriera";
+      const DUR = 5.54;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, d = 0.5, ease = "power2.inOut") => {
+        [].concat(els).forEach((el) => {
+          const L = el.getTotalLength() + 2;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t);
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease }, t);
+        });
+      };
+      const sacudon = (t, f = 1) =>
+        [[-18, 10], [14, -8], [-8, 5], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const VIDRIERA = 0.76, CLIENTE = 1.76, BUSCA = 2.26, SALIR = 3.46, ENCUENTRA = 4.46;
+
+      // el local con su vidriera linda
+      qa(".s10-l").forEach((l, i) => dibujar(l, i * 0.05, 0.4));
+      dibujar(q(".s10-circ"), VIDRIERA - 0.1, 0.35);
+      gsap.set(q(".s10-reprueba"), { opacity: 0 });
+      tl.fromTo(q(".s10-reprueba"), { opacity: 0, scale: 2.2, rotation: -8 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.14, ease: "power4.in", immediateRender: false }, VIDRIERA + 0.15);
+      sacudon(VIDRIERA + 0.28, 0.8);
+      tl.to(q(".s10-local"), { opacity: 0, scale: 0.6, x: -500, duration: 0.35, ease: "power3.in", transformOrigin: "540px 1000px" }, CLIENTE - 0.45);
+
+      // el celular: busca y no encuentra
+      gsap.set(q(".s10-cel"), { opacity: 0 });
+      tl.set(q(".s10-cel"), { opacity: 1 }, CLIENTE - 0.2);
+      qa(".s10-c").forEach((c, i) => dibujar(c, CLIENTE - 0.2 + i * 0.08, 0.4));
+      gsap.set(q(".s10-busca"), { clipPath: "inset(-20% 100% -20% 0)" });
+      tl.to(q(".s10-busca"), { clipPath: "inset(-20% 0% -20% 0)", duration: 0.7, ease: "steps(10)" }, BUSCA);
+      gsap.set(q(".s10-cargando"), { opacity: 0 });
+      tl.set(q(".s10-cargando"), { opacity: 1 }, SALIR - 0.4);
+      tl.fromTo(q(".s10-cargando"), { rotation: 0, svgOrigin: "540 1000" }, { rotation: 900, duration: ENCUENTRA - SALIR + 0.4, ease: "none" }, SALIR - 0.4);
+      tl.set(q(".s10-cargando"), { opacity: 0 }, ENCUENTRA - 0.05);
+      gsap.set(q(".s10-sin"), { opacity: 0 });
+      tl.fromTo(q(".s10-sin"), { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.15, immediateRender: false }, ENCUENTRA - 0.05);
+      dibujar(q(".s10-x"), ENCUENTRA + 0.05, 0.25, "power2.in");
+      sacudon(ENCUENTRA + 0.3, 1.2);
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

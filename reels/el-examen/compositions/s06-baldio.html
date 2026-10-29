@@ -1,0 +1,83 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-baldio"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-baldio"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-baldio"] .s06-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s06-baldio"] .s06-titulo { position: absolute; left: 0; right: 0; top: 580px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 150px; line-height: 1; color: #f2efe6; white-space: nowrap; }
+    [data-composition-id="s06-baldio"] .s06-cartel { position: absolute; left: 560px; top: 940px; width: 380px; padding: 14px 0; text-align: center; border: 6px solid #f2efe6; border-radius: 6px; background: #1d4033;
+      font-family: "Caveat", cursive; font-weight: 700; font-size: 58px; line-height: 1; color: #f2efe6; }
+  </style>
+  <div id="root" data-composition-id="s06-baldio" data-width="1080" data-height="1920" data-duration="2.83">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="2.83" data-track-index="0">
+      <div class="s06-escenario">
+        <div class="s06-titulo">terreno baldío</div>
+        <svg class="s06-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <filter id="s06-tiza" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="9" result="r" />
+              <feDisplacementMap in="SourceGraphic" in2="r" scale="5" />
+            </filter>
+          </defs>
+          <g filter="url(#s06-tiza)" fill="none" stroke="#f2efe6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <!-- el piso -->
+            <path class="s06-l" d="M90 1380 C300 1370 600 1390 990 1376" />
+            <!-- alambrado -->
+            <path class="s06-l" d="M140 1380 V1180 M300 1380 V1190 M460 1380 V1176" />
+            <path class="s06-l" d="M140 1220 C220 1230 380 1210 460 1216 M140 1290 C220 1300 380 1280 460 1290" stroke-width="3" />
+            <!-- yuyos -->
+            <path class="s06-l" d="M200 1380 l-10 -60 m10 60 l14 -70 m-14 70 l30 -50 M380 1380 l-14 -50 m14 50 l10 -80 m-10 80 l26 -40 M620 1380 l-8 -50 m8 50 l18 -60 M860 1380 l-12 -70 m12 70 l12 -50 m-12 50 l28 -40" stroke-width="4" />
+            <!-- el palo del cartel -->
+            <path class="s06-l" d="M750 1380 V1080" stroke-width="8" />
+            <!-- una piedra y una lata -->
+            <path class="s06-l" d="M520 1380 c10 -30 60 -30 70 0" stroke-width="4" />
+          </g>
+          <!-- planta rodadora -->
+          <g class="s06-rodadora" filter="url(#s06-tiza)" fill="none" stroke="#f2efe6" stroke-width="4" stroke-linecap="round">
+            <circle cx="0" cy="0" r="60" />
+            <path d="M-50 -20 C-10 -60 30 -40 50 10 C20 50 -30 40 -40 0 C-20 -30 20 -20 20 10 C0 30 -20 10 -10 -10 M-60 10 C-20 20 20 -50 40 -40" />
+          </g>
+        </svg>
+        <div class="s06-cartel">EN CONSTRUCCIÓN</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-baldio";
+      const DUR = 2.83;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, d = 0.5, ease = "power2.inOut") => {
+        [].concat(els).forEach((el) => {
+          const L = el.getTotalLength() + 2;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t);
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease }, t);
+        });
+      };
+
+      const TERRENO = 0.76, CARTEL = 2.06;
+      qa(".s06-l").forEach((l, i) => dibujar(l, i * 0.07, 0.4));
+      tl.fromTo(q(".s06-escenario"), { scale: 1.08 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "540px 1200px" }, 0);
+      gsap.set(q(".s06-titulo"), { opacity: 0 });
+      tl.fromTo(q(".s06-titulo"), { opacity: 0, scale: 1.8, rotation: -4 }, { opacity: 1, scale: 1, rotation: -2, duration: 0.18, ease: "power4.in", immediateRender: false }, TERRENO - 0.1);
+      // el cartel torcido, colgando del palo
+      gsap.set(q(".s06-cartel"), { opacity: 0 });
+      tl.fromTo(q(".s06-cartel"), { opacity: 0, y: -300, rotation: 0 }, { opacity: 1, y: 0, rotation: -9, duration: 0.3, ease: "bounce.out", immediateRender: false }, 0.35);
+      tl.to(q(".s06-cartel"), { rotation: -16, transformOrigin: "50% 0%", duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 1 }, CARTEL - 0.1);
+      // la planta rodadora cruza
+      tl.fromTo(q(".s06-rodadora"), { x: 1200, y: 1320, rotation: 0 }, { x: -150, rotation: -720, duration: 2.2, ease: "none" }, 0.4);
+      tl.to(q(".s06-rodadora"), { y: 1280, duration: 0.18, yoyo: true, repeat: 5, ease: "sine.out" }, 0.4);
+
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
