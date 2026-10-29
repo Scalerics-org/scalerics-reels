@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-cejas"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-cejas"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-cejas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-cejas"] .s08-sena { position: absolute; left: 600px; top: 560px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 52px; color: #f3ead6; opacity: 0.92; transform: rotate(6deg); white-space: nowrap; }
+    [data-composition-id="s08-cejas"] .s08-sena small { display: block; font-size: 30px; color: #9fdcff; letter-spacing: 0.1em; }
+    [data-composition-id="s08-cejas"] .s08-ancho { position: absolute; left: 50%; top: 1300px; padding: 12px 26px 10px; background: #f2b632; color: #05170f; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; text-transform: uppercase; white-space: nowrap; box-shadow: 7px 7px 0 #3a2416; transform: translateX(-50%) rotate(-3deg); }
+  </style>
+  <div id="root" data-composition-id="s08-cejas" data-width="1080" data-height="1920" data-duration="4.42">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.42" data-track-index="0">
+      <div class="s08-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el ancho que se adivina (atrás) -->
+          <g transform="translate(800 930)"><g class="s08-fantasma">
+            <rect x="-120" y="-180" width="240" height="360" rx="22" fill="#f2b632" fill-opacity="0.12" stroke="#f2b632" stroke-width="7" stroke-dasharray="22 14" />
+            <g transform="scale(2.1)" opacity="0.95">
+              <path d="M0 -50 L9 -36 L9 20 L-9 20 L-9 -36 Z" fill="none" stroke="#f2b632" stroke-width="3.5" stroke-linejoin="round" />
+              <path d="M-28 24 H28 M0 28 V44" stroke="#f2b632" stroke-width="5" stroke-linecap="round" />
+              <circle cx="0" cy="50" r="6" fill="#f2b632" />
+            </g>
+          </g></g>
+          <!-- el de enfrente asomando detrás de sus cartas -->
+          <g transform="translate(470 900)"><g class="s08-cara">
+            <g class="s08-cabeza">
+              <!-- gorra para atrás -->
+              <path d="M-150 -70 C-150 -200 150 -200 150 -70 Z" fill="#e5392b" stroke="#3a2416" stroke-width="7" stroke-linejoin="round" />
+              <path d="M-150 -90 C-200 -96 -238 -80 -250 -56 C-210 -56 -170 -62 -140 -66" fill="#e5392b" stroke="#3a2416" stroke-width="7" stroke-linejoin="round" />
+              <circle cx="0" cy="0" r="160" fill="#f3ead6" stroke="#3a2416" stroke-width="7" />
+              <path d="M-150 -60 C-90 -110 90 -110 150 -60" fill="#e5392b" stroke="#3a2416" stroke-width="7" />
+              <!-- ojos entrecerrados, pícaros -->
+              <path d="M-90 10 C-70 -4 -40 -4 -24 10" fill="none" stroke="#3a2416" stroke-width="10" stroke-linecap="round" />
+              <path d="M30 10 C50 -4 80 -4 96 10" fill="none" stroke="#3a2416" stroke-width="10" stroke-linecap="round" />
+              <circle cx="-56" cy="14" r="9" fill="#3a2416" /><circle cx="64" cy="14" r="9" fill="#3a2416" />
+              <!-- cejas -->
+              <g class="s08-cejas"><path d="M-100 -36 C-76 -50 -44 -50 -22 -40" fill="none" stroke="#3a2416" stroke-width="14" stroke-linecap="round" /><path d="M24 -40 C46 -50 78 -50 102 -36" fill="none" stroke="#3a2416" stroke-width="14" stroke-linecap="round" /></g>
+              <!-- sonrisa de costado y escarbadientes -->
+              <path d="M-30 86 C10 100 50 92 78 66" fill="none" stroke="#3a2416" stroke-width="9" stroke-linecap="round" />
+              <path class="s08-escarba" d="M70 76 L170 44" stroke="#f2b632" stroke-width="7" stroke-linecap="round" />
+            </g>
+            <!-- el abanico tapa la boca -->
+            <g transform="translate(0 210)">
+              <g transform="rotate(-18 0 140)"><g class="s08-cd"></g></g>
+              <g><g class="s08-cd" transform="translate(0 -12)"></g></g>
+              <g transform="rotate(18 0 140)"><g class="s08-cd"></g></g>
+            </g>
+          </g></g>
+        </svg>
+        <div class="s08-sena"><small>SEÑA</small>cejas arriba</div>
+        <div class="s08-ancho">= Ancho de espadas</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-cejas";
+      const DUR = 4.42;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      // <naipes> (lo inyecta partes/inyectar.mjs: no editar a mano en las escenas)
+      const NAI = { crema: "#f3ead6", madera: "#7a4a26", oscuro: "#3a2416", rojo: "#e5392b", oro: "#f2b632", pano: "#0a3a25", verde: "#5ce611" };
+      const COLOR_PALO = { espada: NAI.rojo, copa: NAI.rojo, oro: NAI.oro, basto: NAI.madera };
+      // dibujo del palo en una caja de 100x100 centrada en 0,0
+      const palo = (p, c = COLOR_PALO[p]) => ({
+        espada: `<path d="M0 -50 L9 -36 L9 20 L-9 20 L-9 -36 Z" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4" stroke-linejoin="round"/><path d="M0 -36 V14" stroke="${NAI.crema}" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M-28 24 H28" stroke="${NAI.oscuro}" stroke-width="10" stroke-linecap="round"/><path d="M-28 24 H28" stroke="${NAI.oro}" stroke-width="5" stroke-linecap="round"/><path d="M0 28 V44" stroke="${NAI.oscuro}" stroke-width="9" stroke-linecap="round"/><circle cx="0" cy="50" r="7" fill="${NAI.oro}" stroke="${NAI.oscuro}" stroke-width="3"/>`,
+        basto: `<path d="M-9 50 C-13 22 -18 -12 -16 -38 C-14 -54 14 -54 16 -38 C18 -12 13 22 9 50 Z" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4" stroke-linejoin="round"/><circle cx="-10" cy="-18" r="5" fill="${NAI.oscuro}"/><circle cx="9" cy="2" r="5" fill="${NAI.oscuro}"/><circle cx="-6" cy="24" r="4" fill="${NAI.oscuro}"/>`,
+        copa: `<path d="M-30 -40 H30 C30 -8 16 8 0 10 C-16 8 -30 -8 -30 -40 Z" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4" stroke-linejoin="round"/><path d="M0 10 V36" stroke="${NAI.oscuro}" stroke-width="8" stroke-linecap="round"/><path d="M-22 42 H22" stroke="${NAI.oscuro}" stroke-width="9" stroke-linecap="round"/><path d="M-20 -30 H20" stroke="${NAI.oro}" stroke-width="4" stroke-linecap="round"/>`,
+        oro: `<circle r="38" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4"/><circle r="22" fill="none" stroke="${NAI.oscuro}" stroke-width="3"/><circle r="8" fill="${NAI.oscuro}"/>`,
+      })[p];
+      // carta de frente centrada en 0,0 (alto = 1.5 ancho)
+      const carta = (num, p, w = 220, c = COLOR_PALO[p]) => {
+        const h = w * 1.5, s = w / 200;
+        return `<rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="${18 * s}" fill="${NAI.crema}" stroke="${NAI.oscuro}" stroke-width="5"/>` +
+          `<rect x="${-w / 2 + 12 * s}" y="${-h / 2 + 12 * s}" width="${w - 24 * s}" height="${h - 24 * s}" rx="${10 * s}" fill="none" stroke="${c}" stroke-width="3" opacity="0.55"/>` +
+          `<text x="${-w / 2 + 22 * s}" y="${-h / 2 + 62 * s}" font-family="Lexend" font-weight="800" font-size="${50 * s}" fill="${c}">${num}</text>` +
+          `<text transform="rotate(180)" x="${-w / 2 + 22 * s}" y="${-h / 2 + 62 * s}" font-family="Lexend" font-weight="800" font-size="${50 * s}" fill="${c}">${num}</text>` +
+          `<g transform="scale(${1.15 * s})">${palo(p, c)}</g>`;
+      };
+      // dorso de carta centrado en 0,0
+      const dorso = (w = 220) => {
+        const h = w * 1.5, s = w / 200;
+        let r = "";
+        for (let k = -4; k <= 4; k++) r += `<path d="M${k * 40 * s - h / 2} ${-h / 2} L ${k * 40 * s + h / 2} ${h / 2} M${k * 40 * s + h / 2} ${-h / 2} L ${k * 40 * s - h / 2} ${h / 2}"/>`;
+        const id = "cl" + Math.round(w) + "_" + (dorso.n = (dorso.n || 0) + 1);
+        return `<defs><clipPath id="${id}"><rect x="${-w / 2 + 16 * s}" y="${-h / 2 + 16 * s}" width="${w - 32 * s}" height="${h - 32 * s}" rx="${8 * s}"/></clipPath></defs>` +
+          `<rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="${18 * s}" fill="${NAI.crema}" stroke="${NAI.oscuro}" stroke-width="5"/>` +
+          `<rect x="${-w / 2 + 16 * s}" y="${-h / 2 + 16 * s}" width="${w - 32 * s}" height="${h - 32 * s}" rx="${8 * s}" fill="${NAI.rojo}"/>` +
+          `<g clip-path="url(#${id})" stroke="${NAI.crema}" stroke-width="${4 * s}" opacity="0.55">${r}</g>` +
+          `<circle r="${26 * s}" fill="${NAI.crema}" stroke="${NAI.oscuro}" stroke-width="3"/><circle r="${12 * s}" fill="${NAI.rojo}"/>`;
+      };
+      const pinta = (sel, html) => { for (const el of root.querySelectorAll(sel)) el.innerHTML = html; };
+      // </naipes>
+      pinta(".s08-cd", dorso(170));
+
+      const LEVANTO = 0.48, CEJAS = 1.2, ESE = 1.94, ANCHO = 2.87;
+
+      // cuadro 0: la cara ya asoma desde abajo
+      tl.fromTo(q(".s08-cara"), { y: 220, opacity: 0.7 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.5)" }, 0);
+      tl.to(q(".s08-cabeza"), { rotation: -4, svgOrigin: "0 150", smoothOrigin: false, duration: 0.5, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.2);
+      tl.to(q(".s08-escarba"), { rotation: 10, svgOrigin: "70 76", smoothOrigin: false, duration: 0.15, yoyo: true, repeat: 13, ease: "sine.inOut" }, 0.1);
+      // las cejas suben dos veces
+      [LEVANTO, CEJAS].forEach((t) => {
+        tl.to(q(".s08-cejas"), { y: -34, duration: 0.09, ease: "power3.out" }, t);
+        tl.to(q(".s08-cejas"), { y: 0, duration: 0.14, ease: "power2.in" }, t + 0.22);
+      });
+      gsap.set(q(".s08-sena"), { opacity: 0 });
+      tl.fromTo(q(".s08-sena"), { opacity: 0, scale: 1.5 }, { opacity: 0.92, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, CEJAS);
+
+      // "ese tiene el ancho": la cara se corre, aparece la carta que se adivina
+      tl.to(q(".s08-cara"), { x: -110, duration: 0.4, ease: "power2.inOut" }, ESE);
+      gsap.set(q(".s08-fantasma"), { opacity: 0 });
+      tl.fromTo(q(".s08-fantasma"), { opacity: 0, scale: 0.6, svgOrigin: "0 0", smoothOrigin: false }, { opacity: 1, scale: 1, svgOrigin: "0 0", smoothOrigin: false, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, ANCHO - 0.2);
+      tl.to(q(".s08-fantasma"), { opacity: 0.55, duration: 0.18, yoyo: true, repeat: 5, ease: "sine.inOut" }, ANCHO + 0.2);
+      gsap.set(q(".s08-ancho"), { opacity: 0 });
+      tl.fromTo(q(".s08-ancho"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, ANCHO + 0.1);
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-ancho"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-ancho"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-ancho"] .s10-carta { position: absolute; left: 370px; top: 630px; width: 340px; height: 480px; }
+    [data-composition-id="s10-ancho"] .s10-cara, [data-composition-id="s10-ancho"] .s10-dorso { position: absolute; inset: 0; }
+    [data-composition-id="s10-ancho"] .s10-cara { filter: drop-shadow(0 0 26px rgba(242, 182, 50, 0.85)); }
+    [data-composition-id="s10-ancho"] .s10-carta svg { width: 340px; height: 480px; overflow: visible; }
+    [data-composition-id="s10-ancho"] .s10-rayos { position: absolute; left: 140px; top: 470px; width: 800px; height: 800px; }
+    [data-composition-id="s10-ancho"] .s10-rayos svg { width: 800px; height: 800px; }
+    [data-composition-id="s10-ancho"] .s10-placa { position: absolute; left: 50%; top: 1140px; padding: 14px 28px 12px; background: #e5392b; color: #f3ead6; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 58px; text-transform: uppercase; white-space: nowrap; box-shadow: 8px 8px 0 #3a2416; transform: translateX(-50%) rotate(-3deg); }
+    [data-composition-id="s10-ancho"] .s10-chip { position: absolute; left: 50%; display: flex; align-items: center; gap: 16px; padding: 12px 26px 12px 16px; border-radius: 40px; background: #f3ead6; color: #05170f; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; white-space: nowrap; box-shadow: 6px 6px 0 #e5392b; transform: translateX(-50%); }
+    [data-composition-id="s10-ancho"] .s10-chip svg { width: 52px; height: 52px; flex: none; }
+    [data-composition-id="s10-ancho"] .s10-ch1 { top: 990px; }
+    [data-composition-id="s10-ancho"] .s10-ch2 { top: 1100px; }
+    [data-composition-id="s10-ancho"] .s10-ch3 { top: 1210px; }
+    [data-composition-id="s10-ancho"] .s10-bub { position: absolute; left: 520px; top: 1316px; padding: 12px 22px; border-radius: 22px; border-bottom-right-radius: 6px; background: #e5392b; color: #f3ead6; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; white-space: nowrap; }
+    [data-composition-id="s10-ancho"] .s10-vale { position: absolute; left: 0; right: 0; top: 800px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 150px; line-height: 1.02; color: #ff5a43; text-transform: uppercase; text-shadow: 10px 10px 0 #05170f, -3px -3px 0 #f3ead6; transform: rotate(-6deg); white-space: nowrap; }
+    [data-composition-id="s10-ancho"] .s10-flash { position: absolute; inset: 0; background: #f2b632; opacity: 0; mix-blend-mode: screen; }
+  </style>
+  <div id="root" data-composition-id="s10-ancho" data-width="1080" data-height="1920" data-duration="7.72">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="7.72" data-track-index="0">
+      <div class="s10-escenario">
+        <div class="s10-rayos">
+          <svg viewBox="-400 -400 800 800" aria-hidden="true">
+            <g fill="#f2b632" opacity="0.16">
+              <path d="M0 0 L-40 -400 L40 -400 Z" /><path d="M0 0 L-40 -400 L40 -400 Z" transform="rotate(30)" /><path d="M0 0 L-40 -400 L40 -400 Z" transform="rotate(60)" />
+              <path d="M0 0 L-40 -400 L40 -400 Z" transform="rotate(90)" /><path d="M0 0 L-40 -400 L40 -400 Z" transform="rotate(120)" /><path d="M0 0 L-40 -400 L40 -400 Z" transform="rotate(150)" />
+              <path d="M0 0 L-40 -400 L40 -400 Z" transform="rotate(180)" /><path d="M0 0 L-40 -400 L40 -400 Z" transform="rotate(210)" /><path d="M0 0 L-40 -400 L40 -400 Z" transform="rotate(240)" />
+              <path d="M0 0 L-40 -400 L40 -400 Z" transform="rotate(270)" /><path d="M0 0 L-40 -400 L40 -400 Z" transform="rotate(300)" /><path d="M0 0 L-40 -400 L40 -400 Z" transform="rotate(330)" />
+            </g>
+          </svg>
+        </div>
+        <div class="s10-carta">
+          <div class="s10-dorso"><svg viewBox="-170 -240 340 480" aria-hidden="true"><g class="s10-dorsoi"></g></svg></div>
+          <div class="s10-cara"><svg viewBox="-170 -240 340 480" aria-hidden="true"><g class="s10-carai"></g></svg></div>
+        </div>
+        <div class="s10-placa">Mi agente de IA</div>
+        <div class="s10-chip s10-ch1"><svg viewBox="0 0 52 52" aria-hidden="true"><path d="M8 24 C8 13 16 6 26 6 C36 6 44 13 44 24 C44 35 36 42 26 42 C22 42 19 41 16 40 L8 44 L10 36 C8 33 8 28 8 24 Z" fill="none" stroke="#e5392b" stroke-width="5" stroke-linejoin="round" /></svg>WhatsApp</div>
+        <div class="s10-chip s10-ch2"><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="19" fill="none" stroke="#e5392b" stroke-width="5" /><path d="M26 14 V26 L34 31" fill="none" stroke="#e5392b" stroke-width="5" stroke-linecap="round" /></svg>A cualquier hora</div>
+        <div class="s10-chip s10-ch3"><svg viewBox="0 0 52 52" aria-hidden="true"><path d="M8 40 L44 26 L8 12 L12 26 Z M12 26 H28" fill="none" stroke="#e5392b" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /></svg>Le escribe al que no compró</div>
+        <div class="s10-bub">¿Lo seguís buscando?</div>
+        <div class="s10-vale">¡Vale<br />cuatro!</div>
+        <div class="s10-flash"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-ancho";
+      const DUR = 7.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // <naipes> (lo inyecta partes/inyectar.mjs: no editar a mano en las escenas)
+      const NAI = { crema: "#f3ead6", madera: "#7a4a26", oscuro: "#3a2416", rojo: "#e5392b", oro: "#f2b632", pano: "#0a3a25", verde: "#5ce611" };
+      const COLOR_PALO = { espada: NAI.rojo, copa: NAI.rojo, oro: NAI.oro, basto: NAI.madera };
+      // dibujo del palo en una caja de 100x100 centrada en 0,0
+      const palo = (p, c = COLOR_PALO[p]) => ({
+        espada: `<path d="M0 -50 L9 -36 L9 20 L-9 20 L-9 -36 Z" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4" stroke-linejoin="round"/><path d="M0 -36 V14" stroke="${NAI.crema}" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M-28 24 H28" stroke="${NAI.oscuro}" stroke-width="10" stroke-linecap="round"/><path d="M-28 24 H28" stroke="${NAI.oro}" stroke-width="5" stroke-linecap="round"/><path d="M0 28 V44" stroke="${NAI.oscuro}" stroke-width="9" stroke-linecap="round"/><circle cx="0" cy="50" r="7" fill="${NAI.oro}" stroke="${NAI.oscuro}" stroke-width="3"/>`,
+        basto: `<path d="M-9 50 C-13 22 -18 -12 -16 -38 C-14 -54 14 -54 16 -38 C18 -12 13 22 9 50 Z" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4" stroke-linejoin="round"/><circle cx="-10" cy="-18" r="5" fill="${NAI.oscuro}"/><circle cx="9" cy="2" r="5" fill="${NAI.oscuro}"/><circle cx="-6" cy="24" r="4" fill="${NAI.oscuro}"/>`,
+        copa: `<path d="M-30 -40 H30 C30 -8 16 8 0 10 C-16 8 -30 -8 -30 -40 Z" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4" stroke-linejoin="round"/><path d="M0 10 V36" stroke="${NAI.oscuro}" stroke-width="8" stroke-linecap="round"/><path d="M-22 42 H22" stroke="${NAI.oscuro}" stroke-width="9" stroke-linecap="round"/><path d="M-20 -30 H20" stroke="${NAI.oro}" stroke-width="4" stroke-linecap="round"/>`,
+        oro: `<circle r="38" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4"/><circle r="22" fill="none" stroke="${NAI.oscuro}" stroke-width="3"/><circle r="8" fill="${NAI.oscuro}"/>`,
+      })[p];
+      // carta de frente centrada en 0,0 (alto = 1.5 ancho)
+      const carta = (num, p, w = 220, c = COLOR_PALO[p]) => {
+        const h = w * 1.5, s = w / 200;
+        return `<rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="${18 * s}" fill="${NAI.crema}" stroke="${NAI.oscuro}" stroke-width="5"/>` +
+          `<rect x="${-w / 2 + 12 * s}" y="${-h / 2 + 12 * s}" width="${w - 24 * s}" height="${h - 24 * s}" rx="${10 * s}" fill="none" stroke="${c}" stroke-width="3" opacity="0.55"/>` +
+          `<text x="${-w / 2 + 22 * s}" y="${-h / 2 + 62 * s}" font-family="Lexend" font-weight="800" font-size="${50 * s}" fill="${c}">${num}</text>` +
+          `<text transform="rotate(180)" x="${-w / 2 + 22 * s}" y="${-h / 2 + 62 * s}" font-family="Lexend" font-weight="800" font-size="${50 * s}" fill="${c}">${num}</text>` +
+          `<g transform="scale(${1.15 * s})">${palo(p, c)}</g>`;
+      };
+      // dorso de carta centrado en 0,0
+      const dorso = (w = 220) => {
+        const h = w * 1.5, s = w / 200;
+        let r = "";
+        for (let k = -4; k <= 4; k++) r += `<path d="M${k * 40 * s - h / 2} ${-h / 2} L ${k * 40 * s + h / 2} ${h / 2} M${k * 40 * s + h / 2} ${-h / 2} L ${k * 40 * s - h / 2} ${h / 2}"/>`;
+        const id = "cl" + Math.round(w) + "_" + (dorso.n = (dorso.n || 0) + 1);
+        return `<defs><clipPath id="${id}"><rect x="${-w / 2 + 16 * s}" y="${-h / 2 + 16 * s}" width="${w - 32 * s}" height="${h - 32 * s}" rx="${8 * s}"/></clipPath></defs>` +
+          `<rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="${18 * s}" fill="${NAI.crema}" stroke="${NAI.oscuro}" stroke-width="5"/>` +
+          `<rect x="${-w / 2 + 16 * s}" y="${-h / 2 + 16 * s}" width="${w - 32 * s}" height="${h - 32 * s}" rx="${8 * s}" fill="${NAI.rojo}"/>` +
+          `<g clip-path="url(#${id})" stroke="${NAI.crema}" stroke-width="${4 * s}" opacity="0.55">${r}</g>` +
+          `<circle r="${26 * s}" fill="${NAI.crema}" stroke="${NAI.oscuro}" stroke-width="3"/><circle r="${12 * s}" fill="${NAI.rojo}"/>`;
+      };
+      const pinta = (sel, html) => { for (const el of root.querySelectorAll(sel)) el.innerHTML = html; };
+      // </naipes>
+      pinta(".s10-dorsoi", dorso(320));
+      // el ancho: la espada mucho más grande que en una carta común
+      pinta(".s10-carai", carta("1", "espada", 320).replace(/<g transform="scale\([^)]*\)">/, '<g transform="scale(3.3)">'));
+
+      const sacudon = (t, f = 1) => [[-18, 10], [14, -8], [-7, 4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const ATIENDE = 1.64, CHIPS = [2.13, 3.06, 3.8], NO_COMPRO = 5.0, VALE = 5.87;
+
+      // cuadro 0: la carta de dorso ya dándose vuelta
+      tl.fromTo(q(".s10-carta"), { y: 120, rotation: -8, opacity: 0.8 }, { y: 0, rotation: 0, opacity: 1, duration: 0.3, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s10-dorso"), { scaleX: 1 }, { scaleX: 0, duration: 0.16, ease: "power2.in" }, 0.05);
+      tl.fromTo(q(".s10-cara"), { scaleX: 0 }, { scaleX: 1, duration: 0.2, ease: "power2.out" }, 0.21);
+      tl.fromTo(q(".s10-rayos"), { opacity: 0, scale: 0.6, rotation: 0 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.4, ease: "power2.out" }, 0.25);
+      tl.to(q(".s10-rayos"), { rotation: 60, duration: DUR - 0.6, ease: "none" }, 0.6);
+      sacudon(0.4, 0.8);
+      tl.fromTo(q(".s10-cara"), { filter: "drop-shadow(0 0 0px rgba(242, 182, 50, 0))" }, { filter: "drop-shadow(0 0 26px rgba(242, 182, 50, 0.85))", duration: 0.4, immediateRender: false }, 0.35);
+      gsap.set(q(".s10-placa"), { opacity: 0 });
+      tl.fromTo(q(".s10-placa"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, 0.5);
+
+      // "atiende...": la carta sube y se achica, salen las habilidades
+      tl.to(q(".s10-carta"), { scale: 0.58, y: -170, duration: 0.4, ease: "power3.inOut" }, ATIENDE - 0.2);
+      tl.to(q(".s10-rayos"), { scale: 0.62, y: -170, duration: 0.4, ease: "power3.inOut" }, ATIENDE - 0.2);
+      tl.to(q(".s10-placa"), { y: -250, scale: 0.85, duration: 0.4, ease: "power3.inOut" }, ATIENDE - 0.2);
+      qa(".s10-chip").forEach((c, i) => {
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { opacity: 0, y: -120, scale: 0.5 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, CHIPS[i] - 0.1);
+      });
+      gsap.set(q(".s10-bub"), { opacity: 0 });
+      tl.fromTo(q(".s10-bub"), { opacity: 0, scale: 0.4, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, NO_COMPRO - 0.25);
+      tl.to(q(".s10-carta"), { rotation: 4, duration: 0.35, yoyo: true, repeat: 5, ease: "sine.inOut" }, ATIENDE + 0.3);
+
+      // "¡vale cuatro!"
+      tl.to([...qa(".s10-chip"), q(".s10-bub"), q(".s10-placa")], { opacity: 0, y: "+=60", filter: "blur(6px)", duration: 0.18, ease: "power2.in" }, VALE - 0.2);
+      tl.to(q(".s10-carta"), { opacity: 0.35, duration: 0.2 }, VALE - 0.1);
+      gsap.set(q(".s10-vale"), { opacity: 0 });
+      tl.fromTo(q(".s10-vale"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, VALE - 0.08);
+      sacudon(VALE + 0.08, 1.4);
+      tl.to(q(".s10-flash"), { opacity: 0.45, duration: 0.04 }, VALE + 0.06);
+      tl.to(q(".s10-flash"), { opacity: 0, duration: 0.3 }, VALE + 0.12);
+      tl.to(q(".s10-vale"), { rotation: -3, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, VALE + 0.3);
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

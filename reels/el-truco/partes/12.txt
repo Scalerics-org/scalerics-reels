@@ -1,0 +1,1 @@
+El dueño no juega mal: juega solo, contra uno que tiene compañero. Y en el truco, nadie gana solo. Armamos tu agente de IA: el compañero que juega la mano mientras vos dormís. Mandáselo al que siempre se va al mazo.

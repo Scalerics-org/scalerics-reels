@@ -1,0 +1,108 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-solo"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-solo"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-solo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-solo"] .s12-rot { position: absolute; left: 50%; top: 900px; padding: 14px 30px 12px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 62px; text-transform: uppercase; white-space: nowrap; transform: translateX(-50%) rotate(-3deg); background: #f3ead6; color: #05170f; box-shadow: 8px 8px 0 #3a2416; }
+    [data-composition-id="s12-solo"] .s12-tag { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.14em; white-space: nowrap; text-align: center; width: 300px; }
+    [data-composition-id="s12-solo"] .s12-tag-d { left: 250px; top: 1366px; color: #f2b632; }
+    [data-composition-id="s12-solo"] .s12-tag-c { left: 530px; top: 530px; color: #ff5a43; }
+    [data-composition-id="s12-solo"] .s12-big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; transform: rotate(-4deg); }
+    [data-composition-id="s12-solo"] .s12-b1 { top: 850px; font-size: 64px; color: #f3ead6; text-shadow: 5px 5px 0 #05170f; }
+    [data-composition-id="s12-solo"] .s12-b2 { top: 930px; font-size: 84px; color: #f3ead6; text-shadow: 8px 8px 0 #e5392b; }
+    [data-composition-id="s12-solo"] .s12-oscuro { position: absolute; left: 70px; top: 505px; width: 940px; height: 900px; border-radius: 64px; background: #05170f; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s12-solo" data-width="1080" data-height="1920" data-duration="7.13">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="7.13" data-track-index="0">
+      <div class="s12-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- arriba: el de enfrente y su compañero (agente de IA) -->
+          <g transform="translate(390 650)"><g class="s12-e">
+            <ellipse cx="0" cy="-30" rx="130" ry="62" fill="#e5392b" stroke="#3a2416" stroke-width="6" />
+            <circle r="66" fill="#e5392b" stroke="#3a2416" stroke-width="6" />
+            <path d="M-40 -50 C-30 -110 30 -110 40 -50" fill="#e5392b" stroke="#3a2416" stroke-width="6" />
+            <circle r="16" fill="#3a2416" />
+          </g></g>
+          <g transform="translate(690 650)"><g class="s12-c">
+            <ellipse cx="0" cy="-30" rx="130" ry="62" fill="#3a2416" stroke="#e5392b" stroke-width="6" />
+            <circle r="66" fill="#05170f" stroke="#e5392b" stroke-width="7" />
+            <path d="M-72 -4 C-72 -60 72 -60 72 -4" fill="none" stroke="#f3ead6" stroke-width="10" stroke-linecap="round" />
+            <rect x="-86" y="-14" width="26" height="40" rx="10" fill="#f3ead6" /><rect x="60" y="-14" width="26" height="40" rx="10" fill="#f3ead6" />
+            <path d="M-60 26 C-50 60 -20 70 0 70" fill="none" stroke="#f3ead6" stroke-width="6" stroke-linecap="round" />
+            <circle class="s12-led" r="14" fill="#ff5a43" />
+          </g></g>
+          <!-- abajo: el dueño, solo, y la silla vacía -->
+          <g transform="translate(390 1260)"><g class="s12-d">
+            <ellipse cx="0" cy="30" rx="130" ry="62" fill="#f2b632" stroke="#3a2416" stroke-width="6" />
+            <circle r="66" fill="#f2b632" stroke="#3a2416" stroke-width="6" />
+            <path d="M-50 -46 C-30 -104 30 -104 50 -46 Z" fill="#f2b632" stroke="#3a2416" stroke-width="6" stroke-linejoin="round" />
+            <circle r="14" fill="#3a2416" />
+          </g></g>
+          <g transform="translate(690 1260)"><g class="s12-vacia">
+            <circle r="80" fill="none" stroke="#f3ead6" stroke-width="7" stroke-dasharray="20 16" opacity="0.7" />
+            <text x="0" y="34" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="96" fill="#f3ead6" opacity="0.8">?</text>
+          </g></g>
+        </svg>
+        <div class="s12-oscuro"></div>
+        <div class="s12-tag s12-tag-d">EL DUEÑO</div>
+        <div class="s12-tag s12-tag-c">SU COMPAÑERO</div>
+        <div class="s12-rot s12-r1">No juega mal</div>
+        <div class="s12-rot s12-r2">Juega solo</div>
+        <div class="s12-big s12-b1">En el truco</div>
+        <div class="s12-big s12-b2">nadie gana solo</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-solo";
+      const DUR = 7.13;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (sel, t, from = 0.6) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.28, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const NO = 0.39, SOLO = 1.64, CONTRA = 2.43, COMPANERO = 3.46, Y = 4.56, NADIE = 5.52;
+
+      // cuadro 0: la mesa de cuatro, vista de arriba, ya armándose
+      tl.fromTo(q(".s12-d"), { opacity: 0.6, y: 120 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".s12-e"), { opacity: 0.6, y: -120 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.5)" }, 0.05);
+      tl.fromTo(q(".s12-c"), { opacity: 0, y: -120 }, { opacity: 0.35, y: 0, duration: 0.3, ease: "back.out(1.5)" }, 0.1);
+      tl.fromTo(q(".s12-vacia"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.15);
+      gsap.set(q(".s12-tag-d"), { opacity: 0 });
+      tl.fromTo(q(".s12-tag-d"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, 0.2);
+      pop(".s12-r1", NO, 1.5);
+      tl.to(q(".s12-d"), { rotation: 6, svgOrigin: "0 0", smoothOrigin: false, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, NO + 0.2);
+
+      // "juega solo": la silla vacía late
+      tl.to(q(".s12-r1"), { opacity: 0, y: -40, duration: 0.15 }, SOLO - 0.15);
+      pop(".s12-r2", SOLO, 1.5);
+      tl.to(q(".s12-vacia"), { scale: 1.15, svgOrigin: "0 0", smoothOrigin: false, duration: 0.25, yoyo: true, repeat: 7, ease: "sine.inOut" }, SOLO);
+
+      // "contra uno que tiene compañero": se enciende el compañero de enfrente
+      tl.to(q(".s12-r2"), { opacity: 0, y: -40, duration: 0.15 }, CONTRA);
+      tl.to(q(".s12-c"), { opacity: 1, duration: 0.2 }, COMPANERO - 0.15);
+      tl.fromTo(q(".s12-c"), { scale: 1 }, { scale: 1.2, svgOrigin: "0 0", smoothOrigin: false, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, COMPANERO);
+      tl.fromTo(q(".s12-led"), { opacity: 1 }, { opacity: 0.3, duration: 0.2, yoyo: true, repeat: 9, ease: "steps(1)", immediateRender: false }, COMPANERO);
+      gsap.set(q(".s12-tag-c"), { opacity: 0 });
+      tl.fromTo(q(".s12-tag-c"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, COMPANERO);
+
+      // "y en el truco, nadie gana solo"
+      tl.to(q(".s12-oscuro"), { opacity: 0.55, duration: 0.3 }, Y);
+      gsap.set([q(".s12-b1"), q(".s12-b2")], { opacity: 0 });
+      tl.fromTo(q(".s12-b1"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, Y + 0.1);
+      tl.fromTo(q(".s12-b2"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in", immediateRender: false }, NADIE - 0.05);
+      tl.to(q(".s12-b2"), { scale: 1.04, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, NADIE + 0.3);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

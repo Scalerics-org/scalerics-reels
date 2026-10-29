@@ -1,0 +1,154 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-boliche"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-boliche"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-boliche"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-boliche"] .s02-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s02-boliche"] .s02-uh { top: 620px; font-size: 240px; color: #f3ead6; text-shadow: 10px 10px 0 #05170f; transform: rotate(-5deg); }
+    [data-composition-id="s02-boliche"] .s02-picante { position: absolute; left: 50%; top: 900px; padding: 16px 34px 12px; border: 8px solid #ff5a43; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 100px; line-height: 1; color: #ff5a43; text-transform: uppercase; transform: translateX(-50%) rotate(-9deg); white-space: nowrap; }
+    [data-composition-id="s02-boliche"] .s02-placa { position: absolute; left: 50%; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; line-height: 1; text-transform: uppercase; white-space: nowrap; transform: translateX(-50%) rotate(-3deg); }
+    [data-composition-id="s02-boliche"] .s02-p-d { top: 1010px; background: #f2b632; color: #05170f; box-shadow: 7px 7px 0 #3a2416; }
+    [data-composition-id="s02-boliche"] .s02-p-e { top: 790px; background: #e5392b; color: #f3ead6; box-shadow: 7px 7px 0 #3a2416; }
+    [data-composition-id="s02-boliche"] .s02-vs { position: absolute; left: 0; right: 0; top: 880px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 84px; color: #f3ead6; text-shadow: 6px 6px 0 #05170f; }
+  </style>
+  <div id="root" data-composition-id="s02-boliche" data-width="1080" data-height="1920" data-duration="6.70">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="6.70" data-track-index="0">
+      <div class="s02-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- vasos vistos desde arriba -->
+          <g transform="translate(176 620)"><g class="s02-vaso"><circle r="62" fill="#05170f" fill-opacity="0.4" stroke="#f3ead6" stroke-width="6" stroke-opacity="0.8" /><circle r="44" fill="#e5392b" fill-opacity="0.75" /><path d="M-36 -24 A44 44 0 0 1 -10 -42" stroke="#f3ead6" stroke-width="6" stroke-linecap="round" fill="none" /></g></g>
+          <g transform="translate(906 640)"><g class="s02-vaso"><circle r="56" fill="#05170f" fill-opacity="0.4" stroke="#f3ead6" stroke-width="6" stroke-opacity="0.8" /><circle r="38" fill="#f2b632" fill-opacity="0.7" /><path d="M-30 -20 A38 38 0 0 1 -8 -36" stroke="#f3ead6" stroke-width="6" stroke-linecap="round" fill="none" /></g></g>
+          <g transform="translate(170 1300)"><g class="s02-vaso"><circle r="56" fill="#05170f" fill-opacity="0.4" stroke="#f3ead6" stroke-width="6" stroke-opacity="0.8" /><circle r="38" fill="#7a4a26" fill-opacity="0.9" /><path d="M-30 -20 A38 38 0 0 1 -8 -36" stroke="#f3ead6" stroke-width="6" stroke-linecap="round" fill="none" /></g></g>
+          <g transform="translate(910 1290)"><g class="s02-vaso"><circle r="62" fill="#05170f" fill-opacity="0.4" stroke="#f3ead6" stroke-width="6" stroke-opacity="0.8" /><circle r="44" fill="#e5392b" fill-opacity="0.75" /><path d="M-36 -24 A44 44 0 0 1 -10 -42" stroke="#f3ead6" stroke-width="6" stroke-linecap="round" fill="none" /></g></g>
+          <!-- el mazo -->
+          <g transform="translate(830 960)"><g class="s02-mazo">
+            <g transform="translate(10 10) rotate(8)" class="s02-dm"></g>
+            <g transform="translate(5 5) rotate(3)" class="s02-dm"></g>
+            <g transform="rotate(-4)" class="s02-dm"></g>
+          </g></g>
+          <!-- el dueño: mangas oro, abajo -->
+          <g transform="translate(540 1220)"><g class="s02-dueno">
+            <path d="M-80 60 L-120 330 L60 330 L30 60 Z" fill="#f2b632" stroke="#3a2416" stroke-width="6" stroke-linejoin="round" />
+            <path d="M-80 60 H30" stroke="#f3ead6" stroke-width="14" stroke-linecap="round" />
+            <g transform="rotate(-16 0 110)"><g class="s02-cd" transform="translate(0 -10)"></g></g>
+            <g><g class="s02-cd" transform="translate(0 -20)"></g></g>
+            <g transform="rotate(16 0 110)"><g class="s02-cd" transform="translate(0 -10)"></g></g>
+            <ellipse cx="-20" cy="96" rx="70" ry="44" fill="#f3ead6" stroke="#3a2416" stroke-width="5" />
+            <path d="M-60 74 C-30 64 10 64 34 80" stroke="#3a2416" stroke-width="4" fill="none" stroke-linecap="round" />
+          </g></g>
+          <!-- el de enfrente: mangas rojas, arriba (dado vuelta) -->
+          <g transform="translate(540 700) rotate(180)"><g class="s02-enfrente">
+            <path d="M-80 60 L-100 210 L45 210 L30 60 Z" fill="#e5392b" stroke="#3a2416" stroke-width="6" stroke-linejoin="round" />
+            <path d="M-80 60 H30" stroke="#f3ead6" stroke-width="14" stroke-linecap="round" />
+            <g transform="rotate(-16 0 110)"><g class="s02-ce" transform="translate(0 -10)"></g></g>
+            <g><g class="s02-ce" transform="translate(0 -20)"></g></g>
+            <g transform="rotate(16 0 110)"><g class="s02-ce" transform="translate(0 -10)"></g></g>
+            <ellipse cx="-20" cy="96" rx="70" ry="44" fill="#f3ead6" stroke="#3a2416" stroke-width="5" />
+            <path d="M-60 74 C-30 64 10 64 34 80" stroke="#3a2416" stroke-width="4" fill="none" stroke-linecap="round" />
+          </g></g>
+        </svg>
+        <div class="s02-txt s02-uh">¡Uh!</div>
+        <div class="s02-picante">Picante</div>
+        <div class="s02-placa s02-p-d">El dueño del local</div>
+        <div class="s02-placa s02-p-e">El de enfrente</div>
+        <div class="s02-vs">VS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-boliche";
+      const DUR = 6.7;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // <naipes> (lo inyecta partes/inyectar.mjs: no editar a mano en las escenas)
+      const NAI = { crema: "#f3ead6", madera: "#7a4a26", oscuro: "#3a2416", rojo: "#e5392b", oro: "#f2b632", pano: "#0a3a25", verde: "#5ce611" };
+      const COLOR_PALO = { espada: NAI.rojo, copa: NAI.rojo, oro: NAI.oro, basto: NAI.madera };
+      // dibujo del palo en una caja de 100x100 centrada en 0,0
+      const palo = (p, c = COLOR_PALO[p]) => ({
+        espada: `<path d="M0 -50 L9 -36 L9 20 L-9 20 L-9 -36 Z" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4" stroke-linejoin="round"/><path d="M0 -36 V14" stroke="${NAI.crema}" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M-28 24 H28" stroke="${NAI.oscuro}" stroke-width="10" stroke-linecap="round"/><path d="M-28 24 H28" stroke="${NAI.oro}" stroke-width="5" stroke-linecap="round"/><path d="M0 28 V44" stroke="${NAI.oscuro}" stroke-width="9" stroke-linecap="round"/><circle cx="0" cy="50" r="7" fill="${NAI.oro}" stroke="${NAI.oscuro}" stroke-width="3"/>`,
+        basto: `<path d="M-9 50 C-13 22 -18 -12 -16 -38 C-14 -54 14 -54 16 -38 C18 -12 13 22 9 50 Z" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4" stroke-linejoin="round"/><circle cx="-10" cy="-18" r="5" fill="${NAI.oscuro}"/><circle cx="9" cy="2" r="5" fill="${NAI.oscuro}"/><circle cx="-6" cy="24" r="4" fill="${NAI.oscuro}"/>`,
+        copa: `<path d="M-30 -40 H30 C30 -8 16 8 0 10 C-16 8 -30 -8 -30 -40 Z" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4" stroke-linejoin="round"/><path d="M0 10 V36" stroke="${NAI.oscuro}" stroke-width="8" stroke-linecap="round"/><path d="M-22 42 H22" stroke="${NAI.oscuro}" stroke-width="9" stroke-linecap="round"/><path d="M-20 -30 H20" stroke="${NAI.oro}" stroke-width="4" stroke-linecap="round"/>`,
+        oro: `<circle r="38" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4"/><circle r="22" fill="none" stroke="${NAI.oscuro}" stroke-width="3"/><circle r="8" fill="${NAI.oscuro}"/>`,
+      })[p];
+      // carta de frente centrada en 0,0 (alto = 1.5 ancho)
+      const carta = (num, p, w = 220, c = COLOR_PALO[p]) => {
+        const h = w * 1.5, s = w / 200;
+        return `<rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="${18 * s}" fill="${NAI.crema}" stroke="${NAI.oscuro}" stroke-width="5"/>` +
+          `<rect x="${-w / 2 + 12 * s}" y="${-h / 2 + 12 * s}" width="${w - 24 * s}" height="${h - 24 * s}" rx="${10 * s}" fill="none" stroke="${c}" stroke-width="3" opacity="0.55"/>` +
+          `<text x="${-w / 2 + 22 * s}" y="${-h / 2 + 62 * s}" font-family="Lexend" font-weight="800" font-size="${50 * s}" fill="${c}">${num}</text>` +
+          `<text transform="rotate(180)" x="${-w / 2 + 22 * s}" y="${-h / 2 + 62 * s}" font-family="Lexend" font-weight="800" font-size="${50 * s}" fill="${c}">${num}</text>` +
+          `<g transform="scale(${1.15 * s})">${palo(p, c)}</g>`;
+      };
+      // dorso de carta centrado en 0,0
+      const dorso = (w = 220) => {
+        const h = w * 1.5, s = w / 200;
+        let r = "";
+        for (let k = -4; k <= 4; k++) r += `<path d="M${k * 40 * s - h / 2} ${-h / 2} L ${k * 40 * s + h / 2} ${h / 2} M${k * 40 * s + h / 2} ${-h / 2} L ${k * 40 * s - h / 2} ${h / 2}"/>`;
+        const id = "cl" + Math.round(w) + "_" + (dorso.n = (dorso.n || 0) + 1);
+        return `<defs><clipPath id="${id}"><rect x="${-w / 2 + 16 * s}" y="${-h / 2 + 16 * s}" width="${w - 32 * s}" height="${h - 32 * s}" rx="${8 * s}"/></clipPath></defs>` +
+          `<rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="${18 * s}" fill="${NAI.crema}" stroke="${NAI.oscuro}" stroke-width="5"/>` +
+          `<rect x="${-w / 2 + 16 * s}" y="${-h / 2 + 16 * s}" width="${w - 32 * s}" height="${h - 32 * s}" rx="${8 * s}" fill="${NAI.rojo}"/>` +
+          `<g clip-path="url(#${id})" stroke="${NAI.crema}" stroke-width="${4 * s}" opacity="0.55">${r}</g>` +
+          `<circle r="${26 * s}" fill="${NAI.crema}" stroke="${NAI.oscuro}" stroke-width="3"/><circle r="${12 * s}" fill="${NAI.rojo}"/>`;
+      };
+      const pinta = (sel, html) => { for (const el of root.querySelectorAll(sel)) el.innerHTML = html; };
+      // </naipes>
+      pinta(".s02-dm", dorso(170));
+      pinta(".s02-cd", dorso(150));
+      pinta(".s02-ce", dorso(150));
+
+      const sacudon = (t, f = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s02-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (sel, t, from = 0.6, d = 0.3) => {
+        const els = qa(sel);
+        gsap.set(els, { opacity: 0 });
+        tl.fromTo(els, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const PICANTE = 1.01, BOLICHE = 1.75, DUENO = 3.98, ENFRENTE = 5.27;
+
+      // cuadro 0: "¡UH!" ya cayendo
+      tl.fromTo(q(".s02-uh"), { opacity: 0.6, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in" }, 0);
+      sacudon(0.17);
+      tl.to(q(".s02-uh"), { rotation: -2, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.3);
+      gsap.set(q(".s02-picante"), { opacity: 0 });
+      tl.fromTo(q(".s02-picante"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, PICANTE - 0.08);
+      sacudon(PICANTE + 0.06, 1.2);
+      tl.to(q(".s02-picante"), { scale: 1.06, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, PICANTE + 0.25);
+
+      // "boliche": se arma la mesa
+      tl.to([q(".s02-uh"), q(".s02-picante")], { y: -120, opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, BOLICHE - 0.22);
+      const VASOS = ["176 620", "906 640", "170 1300", "910 1290"];
+      qa(".s02-vaso").forEach((v, i) => {
+        gsap.set(v, { opacity: 0 });
+        tl.fromTo(v, { opacity: 0, scale: 0.4, svgOrigin: "0 0", smoothOrigin: false }, { opacity: 1, scale: 1, svgOrigin: "0 0", smoothOrigin: false, duration: 0.3, ease: "back.out(2)", immediateRender: false }, BOLICHE + i * 0.12);
+        tl.to(v, { rotation: i % 2 ? 8 : -8, svgOrigin: "0 0", smoothOrigin: false, duration: 0.8, yoyo: true, repeat: 4, ease: "sine.inOut" }, BOLICHE + 0.4 + i * 0.1);
+      });
+      gsap.set(q(".s02-mazo"), { opacity: 0 });
+      tl.fromTo(q(".s02-mazo"), { opacity: 0, y: -60, rotation: -20, svgOrigin: "0 0", smoothOrigin: false }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "0 0", smoothOrigin: false, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, BOLICHE + 0.3);
+
+      // el dueño sube desde abajo
+      gsap.set(q(".s02-dueno"), { opacity: 0 });
+      tl.fromTo(q(".s02-dueno"), { opacity: 1, y: 420 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.3)", immediateRender: false }, DUENO - 0.35);
+      tl.to(q(".s02-dueno"), { rotation: 3, svgOrigin: "0 300", smoothOrigin: false, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, DUENO + 0.1);
+      pop(".s02-p-d", DUENO, 1.5);
+
+      // el de enfrente baja desde arriba, y el VS
+      gsap.set(q(".s02-enfrente"), { opacity: 0 });
+      tl.fromTo(q(".s02-enfrente"), { opacity: 1, y: 420 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.3)", immediateRender: false }, ENFRENTE - 0.35);
+      tl.to(q(".s02-enfrente"), { rotation: -3, svgOrigin: "0 300", smoothOrigin: false, duration: 0.4, yoyo: true, repeat: 2, ease: "sine.inOut" }, ENFRENTE + 0.1);
+      pop(".s02-p-e", ENFRENTE, 1.5);
+      pop(".s02-vs", ENFRENTE + 0.3, 2.2, 0.25);
+      sacudon(ENFRENTE + 0.4, 0.8);
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

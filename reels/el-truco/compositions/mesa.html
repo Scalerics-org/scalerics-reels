@@ -1,0 +1,36 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="mesa"] .me-capa { position: absolute; inset: 0; }
+    [data-composition-id="mesa"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="mesa"] .me-pano { position: absolute; left: 60px; top: 496px; width: 960px; height: 918px; border-radius: 70px;
+      background: repeating-linear-gradient(45deg, rgba(5, 23, 15, 0.10) 0px, rgba(5, 23, 15, 0.10) 2px, rgba(5, 23, 15, 0) 2px, rgba(5, 23, 15, 0) 7px),
+                  repeating-linear-gradient(-45deg, rgba(243, 234, 214, 0.025) 0px, rgba(243, 234, 214, 0.025) 2px, rgba(243, 234, 214, 0) 2px, rgba(243, 234, 214, 0) 9px); }
+  </style>
+  <div id="root" data-composition-id="mesa" data-width="1080" data-height="1920" data-duration="73.05">
+    <div id="me-escena" class="me-capa clip" data-start="0" data-duration="73.05" data-track-index="0">
+      <div class="me-pano"></div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- borde de madera de la mesa -->
+        <rect x="47" y="483" width="986" height="944" rx="82" fill="none" stroke="#3a2416" stroke-width="30" />
+        <rect x="47" y="483" width="986" height="944" rx="82" fill="none" stroke="#7a4a26" stroke-width="20" />
+        <rect x="47" y="483" width="986" height="944" rx="82" fill="none" stroke="#f2b632" stroke-opacity="0.18" stroke-width="3" />
+        <path d="M150 478 C300 474 420 488 560 480 M700 486 C800 480 880 488 960 482" fill="none" stroke="#3a2416" stroke-width="3" stroke-opacity="0.6" />
+        <path d="M120 1432 C260 1426 400 1436 540 1430 M640 1434 C780 1428 880 1436 980 1430" fill="none" stroke="#3a2416" stroke-width="3" stroke-opacity="0.6" />
+        <rect x="64" y="500" width="952" height="910" rx="68" fill="none" stroke="#05170f" stroke-opacity="0.55" stroke-width="10" />
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "mesa";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      // el paño respira muy poco con la lámpara
+      tl.fromTo(root.querySelector(".me-pano"), { opacity: 0.9 }, { opacity: 1, duration: 3.2, yoyo: true, repeat: 21, ease: "sine.inOut" }, 0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-real"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-real"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-real"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-real"] .s04-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s04-real"] .s04-real { top: 640px; font-size: 200px; color: #ff5a43; text-shadow: 10px 10px 0 #05170f, -3px -3px 0 #f3ead6; transform: rotate(-6deg); }
+    [data-composition-id="s04-real"] .s04-envido { top: 850px; font-size: 168px; color: #ff5a43; text-shadow: 10px 10px 0 #05170f, -3px -3px 0 #f3ead6; transform: rotate(-6deg); }
+    [data-composition-id="s04-real"] .s04-hora { position: absolute; left: 236px; top: 800px; padding: 10px 22px 8px; background: #e5392b; color: #f3ead6; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 56px; box-shadow: 6px 6px 0 #3a2416; transform: rotate(-9deg); }
+    [data-composition-id="s04-real"] .s04-dias { position: absolute; left: 120px; top: 590px; width: 840px; display: flex; gap: 12px; }
+    [data-composition-id="s04-real"] .s04-dia { position: relative; width: 108px; height: 108px; border-radius: 14px; border: 5px solid #f3ead6; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 54px; color: #f3ead6; }
+    [data-composition-id="s04-real"] .s04-dia.s04-fin { background: #e5392b; border-color: #e5392b; }
+    [data-composition-id="s04-real"] .s04-sello { position: absolute; left: 50%; top: 1236px; padding: 12px 30px 8px; border: 8px solid #ff5a43; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 84px; line-height: 1; color: #ff5a43; text-transform: uppercase; transform: translateX(-50%) rotate(-8deg); white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s04-real" data-width="1080" data-height="1920" data-duration="4.99">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.99" data-track-index="0">
+      <div class="s04-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el once de espadas -->
+          <g transform="translate(540 1010)"><g class="s04-c11"><g class="s04-c11i" transform="rotate(4)"></g></g></g>
+          <!-- la luna y estrellas -->
+          <g transform="translate(790 800)">
+            <path class="s04-luna" d="M30 -62 A66 66 0 1 0 30 62 A50 50 0 1 1 30 -62 Z" fill="none" stroke="#f3ead6" stroke-width="7" stroke-linejoin="round" />
+            <g class="s04-lunaf"><path d="M30 -62 A66 66 0 1 0 30 62 A50 50 0 1 1 30 -62 Z" fill="#f3ead6" /></g>
+            <g fill="#f2b632"><circle class="s04-est" cx="110" cy="-50" r="9" /><circle class="s04-est" cx="80" cy="60" r="7" /><circle class="s04-est" cx="-110" cy="-80" r="8" /></g>
+          </g>
+        </svg>
+        <div class="s04-txt s04-real">¡Real</div>
+        <div class="s04-txt s04-envido">envido!</div>
+        <div class="s04-hora">23:00</div>
+        <div class="s04-dias">
+          <div class="s04-dia">L</div><div class="s04-dia">M</div><div class="s04-dia">M</div><div class="s04-dia">J</div><div class="s04-dia">V</div><div class="s04-dia s04-fin">S</div><div class="s04-dia s04-fin">D</div>
+        </div>
+        <div class="s04-sello">Abierto</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-real";
+      const DUR = 4.99;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // <naipes> (lo inyecta partes/inyectar.mjs: no editar a mano en las escenas)
+      const NAI = { crema: "#f3ead6", madera: "#7a4a26", oscuro: "#3a2416", rojo: "#e5392b", oro: "#f2b632", pano: "#0a3a25", verde: "#5ce611" };
+      const COLOR_PALO = { espada: NAI.rojo, copa: NAI.rojo, oro: NAI.oro, basto: NAI.madera };
+      // dibujo del palo en una caja de 100x100 centrada en 0,0
+      const palo = (p, c = COLOR_PALO[p]) => ({
+        espada: `<path d="M0 -50 L9 -36 L9 20 L-9 20 L-9 -36 Z" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4" stroke-linejoin="round"/><path d="M0 -36 V14" stroke="${NAI.crema}" stroke-width="3" stroke-linecap="round" opacity="0.7"/><path d="M-28 24 H28" stroke="${NAI.oscuro}" stroke-width="10" stroke-linecap="round"/><path d="M-28 24 H28" stroke="${NAI.oro}" stroke-width="5" stroke-linecap="round"/><path d="M0 28 V44" stroke="${NAI.oscuro}" stroke-width="9" stroke-linecap="round"/><circle cx="0" cy="50" r="7" fill="${NAI.oro}" stroke="${NAI.oscuro}" stroke-width="3"/>`,
+        basto: `<path d="M-9 50 C-13 22 -18 -12 -16 -38 C-14 -54 14 -54 16 -38 C18 -12 13 22 9 50 Z" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4" stroke-linejoin="round"/><circle cx="-10" cy="-18" r="5" fill="${NAI.oscuro}"/><circle cx="9" cy="2" r="5" fill="${NAI.oscuro}"/><circle cx="-6" cy="24" r="4" fill="${NAI.oscuro}"/>`,
+        copa: `<path d="M-30 -40 H30 C30 -8 16 8 0 10 C-16 8 -30 -8 -30 -40 Z" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4" stroke-linejoin="round"/><path d="M0 10 V36" stroke="${NAI.oscuro}" stroke-width="8" stroke-linecap="round"/><path d="M-22 42 H22" stroke="${NAI.oscuro}" stroke-width="9" stroke-linecap="round"/><path d="M-20 -30 H20" stroke="${NAI.oro}" stroke-width="4" stroke-linecap="round"/>`,
+        oro: `<circle r="38" fill="${c}" stroke="${NAI.oscuro}" stroke-width="4"/><circle r="22" fill="none" stroke="${NAI.oscuro}" stroke-width="3"/><circle r="8" fill="${NAI.oscuro}"/>`,
+      })[p];
+      // carta de frente centrada en 0,0 (alto = 1.5 ancho)
+      const carta = (num, p, w = 220, c = COLOR_PALO[p]) => {
+        const h = w * 1.5, s = w / 200;
+        return `<rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="${18 * s}" fill="${NAI.crema}" stroke="${NAI.oscuro}" stroke-width="5"/>` +
+          `<rect x="${-w / 2 + 12 * s}" y="${-h / 2 + 12 * s}" width="${w - 24 * s}" height="${h - 24 * s}" rx="${10 * s}" fill="none" stroke="${c}" stroke-width="3" opacity="0.55"/>` +
+          `<text x="${-w / 2 + 22 * s}" y="${-h / 2 + 62 * s}" font-family="Lexend" font-weight="800" font-size="${50 * s}" fill="${c}">${num}</text>` +
+          `<text transform="rotate(180)" x="${-w / 2 + 22 * s}" y="${-h / 2 + 62 * s}" font-family="Lexend" font-weight="800" font-size="${50 * s}" fill="${c}">${num}</text>` +
+          `<g transform="scale(${1.15 * s})">${palo(p, c)}</g>`;
+      };
+      // dorso de carta centrado en 0,0
+      const dorso = (w = 220) => {
+        const h = w * 1.5, s = w / 200;
+        let r = "";
+        for (let k = -4; k <= 4; k++) r += `<path d="M${k * 40 * s - h / 2} ${-h / 2} L ${k * 40 * s + h / 2} ${h / 2} M${k * 40 * s + h / 2} ${-h / 2} L ${k * 40 * s - h / 2} ${h / 2}"/>`;
+        const id = "cl" + Math.round(w) + "_" + (dorso.n = (dorso.n || 0) + 1);
+        return `<defs><clipPath id="${id}"><rect x="${-w / 2 + 16 * s}" y="${-h / 2 + 16 * s}" width="${w - 32 * s}" height="${h - 32 * s}" rx="${8 * s}"/></clipPath></defs>` +
+          `<rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="${18 * s}" fill="${NAI.crema}" stroke="${NAI.oscuro}" stroke-width="5"/>` +
+          `<rect x="${-w / 2 + 16 * s}" y="${-h / 2 + 16 * s}" width="${w - 32 * s}" height="${h - 32 * s}" rx="${8 * s}" fill="${NAI.rojo}"/>` +
+          `<g clip-path="url(#${id})" stroke="${NAI.crema}" stroke-width="${4 * s}" opacity="0.55">${r}</g>` +
+          `<circle r="${26 * s}" fill="${NAI.crema}" stroke="${NAI.oscuro}" stroke-width="3"/><circle r="${12 * s}" fill="${NAI.rojo}"/>`;
+      };
+      const pinta = (sel, html) => { for (const el of root.querySelectorAll(sel)) el.innerHTML = html; };
+      // </naipes>
+      pinta(".s04-c11i", carta("11", "espada", 250));
+
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (el, t, d = 0.5) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(el, { opacity: 1, duration: 0.01 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const ENVIDO = 0.37, YO = 1.39, ONCE = 2.13, NOCHE = 2.78, DOMINGOS = 3.61;
+
+      // cuadro 0: "¡REAL" ya cae
+      tl.fromTo(q(".s04-real"), { opacity: 0.6, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in" }, 0);
+      sacudon(0.14);
+      gsap.set(q(".s04-envido"), { opacity: 0 });
+      tl.fromTo(q(".s04-envido"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, ENVIDO - 0.08);
+      sacudon(ENVIDO + 0.06, 1.3);
+      tl.to([q(".s04-real"), q(".s04-envido")], { rotation: -3, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, ENVIDO + 0.25);
+
+      // "yo atiendo... a las once"
+      tl.to([q(".s04-real"), q(".s04-envido")], { y: -140, opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, YO + 0.4);
+      gsap.set(q(".s04-c11"), { opacity: 0 });
+      tl.fromTo(q(".s04-c11"), { opacity: 1, y: 700, rotation: 40, svgOrigin: "0 0", smoothOrigin: false }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "0 0", smoothOrigin: false, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, ONCE - 0.3);
+      gsap.set(q(".s04-hora"), { opacity: 0 });
+      tl.fromTo(q(".s04-hora"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, ONCE + 0.05);
+      tl.to(q(".s04-c11"), { rotation: 3, svgOrigin: "0 0", smoothOrigin: false, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, ONCE + 0.3);
+
+      // "noche": la luna se dibuja
+      dibujar(q(".s04-luna"), NOCHE - 0.1, 0.45);
+      gsap.set(q(".s04-lunaf"), { opacity: 0 });
+      tl.to(q(".s04-lunaf"), { opacity: 1, duration: 0.25 }, NOCHE + 0.35);
+      const EST = ["110 -50", "80 60", "-110 -80"];
+      qa(".s04-est").forEach((e, i) => {
+        gsap.set(e, { opacity: 0 });
+        tl.fromTo(e, { opacity: 0, scale: 0, svgOrigin: EST[i], smoothOrigin: false }, { opacity: 1, scale: 1, svgOrigin: EST[i], smoothOrigin: false, duration: 0.2, ease: "back.out(3)", immediateRender: false }, NOCHE + 0.2 + i * 0.12);
+        tl.to(e, { opacity: 0.4, duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, NOCHE + 0.5 + i * 0.1);
+      });
+
+      // "domingos": la semana entera, sábado y domingo en rojo; sello ABIERTO
+      const dias = qa(".s04-dia");
+      gsap.set(dias, { opacity: 0 });
+      tl.fromTo(dias, { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.18, stagger: 0.03, ease: "back.out(2)", immediateRender: false }, DOMINGOS - 0.3);
+      tl.fromTo(dias.slice(5), { scale: 1.5 }, { scale: 1, duration: 0.25, ease: "back.out(3)", immediateRender: false }, DOMINGOS);
+      gsap.set(q(".s04-sello"), { opacity: 0 });
+      tl.fromTo(q(".s04-sello"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, DOMINGOS + 0.1);
+      sacudon(DOMINGOS + 0.24, 0.8);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
