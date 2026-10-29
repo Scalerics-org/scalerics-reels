@@ -30,8 +30,14 @@ export function claveCorrecta(clave) {
   return b.length > 0 && a.length === b.length && crypto.timingSafeEqual(a, b);
 }
 
+// El CRM (panel Reels) entra servidor a servidor con CRM_TOKEN en x-crm-token, sin cookie.
+export function esCrm(req) {
+  const a = Buffer.from(String(req.headers["x-crm-token"] || "")), b = Buffer.from(process.env.CRM_TOKEN || "");
+  return b.length >= 32 && a.length === b.length && crypto.timingSafeEqual(a, b);
+}
+
 export function exigirSesion(req, res) {
-  if (conSesion(req)) return true;
+  if (conSesion(req) || esCrm(req)) return true;
   res.status(401).json({ error: "sin sesión" });
   return false;
 }

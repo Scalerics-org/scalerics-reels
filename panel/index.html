@@ -36,7 +36,9 @@
   .boton:hover { transform: translateY(-1px); }
   .boton:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
   .boton.sec { background: transparent; border: 1px solid var(--borde); color: var(--texto); }
-  .cuerpo .boton { margin-top: auto; }
+  .cuerpo .boton.tt { margin-top: auto; }
+  .revision { display: flex; gap: 8px; flex-wrap: wrap; }
+  .revision .boton { flex: 1; padding: 9px 12px; }
   /* login */
   .login { max-width: 380px; margin: 12vh auto; background: var(--panel); border: 1px solid var(--borde); border-radius: var(--radio); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
   .login h2 { font-size: 20px; }
@@ -256,25 +258,51 @@ $("#entrar").onclick = async () => {
 };
 $("#clave").addEventListener("keydown", (e) => { if (e.key === "Enter") $("#entrar").click(); });
 
+const ESTADOS = {
+  por_revisar: ["Por revisar", ""],
+  en_cola: ["En cola", "ok"],
+  publicado: ["Publicado en ambas", "ok"],
+  publicado_parcial: ["Publicado en una", ""],
+  descartado: ["Descartado", ""],
+};
+
 async function cargarReels() {
   const g = $("#grilla");
   try {
     const { reels } = await api("/api/reels");
     if (!reels.length) { g.innerHTML = '<p class="vacio">No hay reels terminados todavía.</p>'; return; }
     g.innerHTML = "";
-    for (const r of reels) {
+    for (const r of reels.filter((x) => x.estado !== "descartado")) {
       const t = document.createElement("article");
       t.className = "tarjeta";
+      const est = ESTADOS[r.estado] || ESTADOS.por_revisar;
       t.innerHTML = `
         <video src="/api/video?slug=${r.slug}#t=1.5" preload="metadata" controls playsinline></video>
         <div class="cuerpo">
           <div class="meta"><span class="etiqueta">${r.fecha}</span>
-            <span class="etiqueta ${r.enTikTok ? "ok" : ""}">${r.enTikTok ? "Ya en TikTok" : "Sin publicar en TikTok"}</span></div>
+            <span class="etiqueta ${est[1]}">${est[0]}</span>
+            <span class="etiqueta ${r.enInstagram ? "ok" : ""}">IG ${r.enInstagram ? "✓" : "·"}</span>
+            <span class="etiqueta ${r.enTikTok ? "ok" : ""}">TikTok ${r.enTikTok ? "✓" : "·"}</span></div>
           <div class="gancho"></div>
-          <button class="boton">${r.enTikTok ? "Publicar de nuevo" : "Publicar en TikTok"}</button>
+          <div class="revision"></div>
+          <button class="boton tt">${r.enTikTok ? "Publicar de nuevo" : "Publicar en TikTok"}</button>
         </div>`;
       t.querySelector(".gancho").textContent = r.gancho.replace(/`/g, "");
-      t.querySelector("button").onclick = () => abrir(r);
+      t.querySelector(".tt").onclick = () => abrir(r);
+      const rv = t.querySelector(".revision");
+      const acciones = r.estado === "por_revisar" || r.estado === "publicado_parcial"
+        ? [["en_cola", "Aprobar para la cola", "boton"], ["descartado", "Descartar", "boton sec"]]
+        : r.estado === "en_cola" ? [["por_revisar", "Sacar de la cola", "boton sec"]] : [];
+      for (const [estado, texto, clase] of acciones) {
+        const b = document.createElement("button");
+        b.className = clase; b.textContent = texto;
+        b.onclick = async () => {
+          b.disabled = true;
+          try { await api("/api/revision", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ slug: r.slug, estado }) }); cargarReels(); }
+          catch (e) { b.disabled = false; alert(e.message); }
+        };
+        rv.appendChild(b);
+      }
       g.appendChild(t);
     }
   } catch (e) { g.innerHTML = `<p class="vacio">No se pudieron cargar los reels: ${e.message}</p>`; }

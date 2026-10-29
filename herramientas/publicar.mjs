@@ -116,9 +116,15 @@ if (video) {
   slug = base.replace(/-(final|halloween)$/, "");
   console.log(`toca (Drive): ${video.name} (quedan ${videos.length - 1} más en la carpeta)`);
 } else {
+  // Solo los que alguien aprobó en el panel de Reels del CRM (o en reels.scalerics.com):
+  // revision.json = { slug: { estado: "en_cola" | "descartado", fecha } }. Sin entrada = por revisar.
+  // Sale primero el que se aprobó antes.
+  const revision = (await estadoJson("revision.json")) || {};
   const veto = fs.existsSync("no-publicar.txt") ? fs.readFileSync("no-publicar.txt", "utf8").split(/\s+/).filter(Boolean) : [];
   const hechos = [...fs.readFileSync("ideas.md", "utf8").matchAll(/^- \d\d-\d\d · `([a-z0-9-]+)`/gm)].map((m) => m[1]);
-  const pendientes = hechos.filter((h) => falta(h).length && !veto.includes(h)).reverse();
+  const pendientes = hechos
+    .filter((h) => revision[h]?.estado === "en_cola" && falta(h).length && !veto.includes(h))
+    .sort((a, b) => String(revision[a].fecha || "").localeCompare(String(revision[b].fecha || "")));
   for (const s2 of pendientes) {
     try {
       bytesRepo = execFileSync("git", ["show", `origin/reel/${s2}:reels/${s2}/renders/${s2}-final.mp4`], { maxBuffer: 200e6 });
@@ -129,7 +135,7 @@ if (video) {
     break;
   }
   if (!slug) {
-    console.log("nada para publicar: ni la carpeta de Drive ni el repo tienen reels pendientes");
+    console.log("nada para publicar: ni la carpeta de Drive ni la cola de aprobados tienen reels pendientes");
     process.exit(0);
   }
   console.log(`toca (repo): ${slug} (quedan ${pendientes.length - 1} pendientes)`);

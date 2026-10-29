@@ -16,12 +16,25 @@ export default async function handler(req, res) {
       if (r.length < 100) break;
     }
     const conVideo = new Set(ramas.filter((n) => n.startsWith("reel/")).map((n) => n.slice(5)));
-    const pub = (await leerEstado("publicados.json")) || {};
-    const lista = hechos.filter((h) => conVideo.has(h.slug)).reverse().slice(0, 30);
+    const [pub, rev, veto] = await Promise.all([
+      leerEstado("publicados.json").then((x) => x || {}),
+      leerEstado("revision.json").then((x) => x || {}),
+      ghTexto("no-publicar.txt").then((t) => t.split(/\s+/).filter(Boolean)).catch(() => []),
+    ]);
+    const todos = req.query.todos === "1";
+    const lista = hechos.filter((h) => conVideo.has(h.slug)).reverse().slice(0, todos ? 300 : 30);
     await Promise.all(lista.map(async (h) => {
       try { h.descripcion = (await ghTexto(`reels/${h.slug}/descripcion.txt`)).trim(); } catch { h.descripcion = ""; }
       h.enTikTok = (pub.tiktok || []).includes(h.slug);
       h.enInstagram = (pub.instagram || []).includes(h.slug);
+      // Estado de revisión: publicado (en las dos), en_cola, descartado o por_revisar
+      const r = rev[h.slug];
+      h.revisado = r ? { fecha: r.fecha, quien: r.quien || "" } : null;
+      if (veto.includes(h.slug) || r?.estado === "descartado") h.estado = "descartado";
+      else if (h.enInstagram && h.enTikTok) h.estado = "publicado";
+      else if (r?.estado === "en_cola") h.estado = "en_cola";
+      else if (h.enInstagram || h.enTikTok) h.estado = "publicado_parcial";
+      else h.estado = "por_revisar";
     }));
     res.json({ reels: lista });
   } catch (e) {
