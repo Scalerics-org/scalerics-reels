@@ -1,0 +1,85 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-cta"] .s13-capa, [data-composition-id="s13-cta"] .s13-esc { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-cta"] .s13-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; -webkit-text-stroke: 10px #0a0708; paint-order: stroke fill; }
+    [data-composition-id="s13-cta"] .s13-a { top: 580px; font-size: 92px; color: #f4ead5; }
+    [data-composition-id="s13-cta"] .s13-b { top: 690px; font-size: 158px; letter-spacing: -0.02em; color: #f2c14e; -webkit-text-stroke: 12px #0a0708; text-shadow: 0 0 40px rgba(242, 193, 78, 0.55); }
+    [data-composition-id="s13-cta"] .s13-etq { position: absolute; left: 520px; top: 1000px; padding: 16px 26px; border-radius: 14px; background: #0a0708; border: 5px solid #f4ead5;
+      font-family: "Lexend", sans-serif; font-weight: 800; font-size: 44px; color: #f4ead5; white-space: nowrap; }
+    [data-composition-id="s13-cta"] .s13-etq::after { content: ""; position: absolute; left: 40px; bottom: -22px; border-left: 18px solid transparent; border-right: 18px solid transparent; border-top: 18px solid #f4ead5; }
+    [data-composition-id="s13-cta"] .s13-etq b { color: #f2c14e; }
+    [data-composition-id="s13-cta"] .s13-tag { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; fill: #0a0708; }
+    [data-composition-id="s13-cta"] .s13-placa { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 20px; fill: #f2c14e; }
+  </style>
+  <div id="root" data-composition-id="s13-cta" data-width="1080" data-height="1920" data-duration="4.69">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="4.69" data-track-index="0">
+      <div class="s13-esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- MARCELO saludando, con su escarapela -->
+          <g class="s13-mar">
+            <circle cx="420" cy="1150" r="74" fill="#0a0708" stroke="#f4ead5" stroke-width="6" />
+            <path d="M360 1114 L370 1060 L394 1098 L410 1050 L430 1094 L452 1054 L460 1098 L484 1078 L484 1126" fill="#0a0708" stroke="#f4ead5" stroke-width="5" stroke-linejoin="round" />
+            <ellipse cx="398" cy="1150" rx="8" ry="11" fill="#f4ead5" /><ellipse cx="442" cy="1150" rx="8" ry="11" fill="#f4ead5" />
+            <path d="M394 1180 Q420 1206 446 1180" fill="none" stroke="#f4ead5" stroke-width="5" stroke-linecap="round" />
+            <path d="M300 1500 L310 1290 Q330 1232 420 1226 Q510 1232 530 1290 L540 1500 Z" fill="#0a0708" stroke="#f4ead5" stroke-width="6" stroke-linejoin="round" />
+            <rect x="354" y="1300" width="132" height="44" rx="6" fill="#f4ead5" stroke="#0a0708" stroke-width="3" />
+            <text class="s13-tag" x="420" y="1332" text-anchor="middle">MARCELO</text>
+            <circle cx="500" cy="1280" r="22" fill="#f2c14e" stroke="#0a0708" stroke-width="4" />
+            <g class="s13-brazo">
+              <path d="M320 1300 Q260 1240 270 1150" fill="none" stroke="#0a0708" stroke-width="44" stroke-linecap="round" />
+              <path d="M320 1300 Q260 1240 270 1150" fill="none" stroke="#f4ead5" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+              <circle cx="270" cy="1136" r="26" fill="#0a0708" stroke="#f4ead5" stroke-width="5" />
+            </g>
+          </g>
+          <!-- la ESTATUILLA girando -->
+          <g transform="translate(-25 120)"><g class="s13-est">
+            <rect x="770" y="1290" width="150" height="80" rx="6" fill="#0a0708" stroke="#f2c14e" stroke-width="5" />
+            <text class="s13-placa" x="845" y="1338" text-anchor="middle" data-layout-ignore>DEL MES</text>
+            <rect x="795" y="1262" width="100" height="30" rx="4" fill="#f2c14e" stroke="#0a0708" stroke-width="4" />
+            <path d="M820 1262 Q830 1150 836 1080 Q820 1040 830 1010 L860 1010 Q870 1040 854 1080 Q860 1150 870 1262 Z" fill="#f2c14e" stroke="#0a0708" stroke-width="5" stroke-linejoin="round" />
+            <circle cx="845" cy="985" r="28" fill="#f2c14e" stroke="#0a0708" stroke-width="5" />
+            <path d="M856 1040 Q890 1000 892 960" fill="none" stroke="#f2c14e" stroke-width="12" stroke-linecap="round" />
+            <path d="M870 900 H930 Q942 900 942 912 V940 Q942 952 930 952 H890 L878 966 L880 952 H870 Q858 952 858 940 V912 Q858 900 870 900 Z" fill="#f2c14e" stroke="#0a0708" stroke-width="5" />
+          </g></g>
+        </svg>
+        <div class="s13-txt s13-a">Etiquetá a tu</div>
+        <div class="s13-txt s13-b">Marcelo</div>
+        <div class="s13-etq">@tu.<b>marcelo</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-cta";
+      const DUR = 4.69;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s13-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      tl.fromTo(q(".s13-mar"), { y: 200, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.8)" }, 0);
+      tl.fromTo(q(".s13-brazo"), { rotation: -12, svgOrigin: "320 1300" }, { rotation: 14, svgOrigin: "320 1300", duration: 0.28, yoyo: true, repeat: 13, ease: "sine.inOut" }, 0.3);
+      // "Etiquetá a tu Marcelo"
+      tl.fromTo(q(".s13-a"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in" }, 0);
+      gsap.set(q(".s13-b"), { opacity: 0 });
+      tl.fromTo(q(".s13-b"), { opacity: 0, scale: 3, rotation: -8 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.15, ease: "power4.in", immediateRender: false }, 0.79 - 0.12);
+      sacudon(0.82, 2);
+      tl.to(q(".s13-b"), { scale: 1.05, duration: 0.3, yoyo: true, repeat: 9, ease: "sine.inOut" }, 1.1);
+      // la etiqueta se pega sobre Marcelo
+      gsap.set(q(".s13-etq"), { opacity: 0 });
+      tl.fromTo(q(".s13-etq"), { opacity: 0, scale: 2, rotation: 12 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.2, ease: "power4.in", immediateRender: false }, 1.0);
+      tl.to(q(".s13-etq"), { rotation: -1, duration: 0.4, yoyo: true, repeat: 7, ease: "sine.inOut" }, 1.3);
+      // la estatuilla gira
+      tl.fromTo(q(".s13-est"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, 0.2);
+      tl.to(q(".s13-est"), { scaleX: -1, svgOrigin: "845 1150", duration: 0.6, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.6);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

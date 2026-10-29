@@ -1,0 +1,5 @@
+[
+  {"t": 1.3, "sfx": "sparkle", "vol": 0.35},
+  {"t": 1.85, "sfx": "chime", "vol": 0.3},
+  {"t": 1.95, "sfx": "aplausos", "vol": 0.3, "max": 2.0}
+]

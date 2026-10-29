@@ -1,0 +1,107 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-scalerics"] .s12-capa, [data-composition-id="s12-scalerics"] .s12-esc { position: absolute; inset: 0; }
+    [data-composition-id="s12-scalerics"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-scalerics"] .s12-cel { position: absolute; left: 260px; top: 590px; width: 520px; height: 890px; background: #0a0708; border: 8px solid #f4ead5; border-radius: 60px; overflow: hidden; }
+    [data-composition-id="s12-scalerics"] .s12-top { position: absolute; left: 0; right: 0; top: 0; height: 130px; border-bottom: 4px solid #3d0710; }
+    [data-composition-id="s12-scalerics"] .s12-nom { position: absolute; left: 130px; top: 34px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; color: #f4ead5; white-space: nowrap; }
+    [data-composition-id="s12-scalerics"] .s12-linea { position: absolute; left: 130px; top: 80px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #5ce611; }
+    [data-composition-id="s12-scalerics"] .s12-b { position: absolute; max-width: 400px; padding: 16px 22px; border-radius: 24px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; line-height: 1.18; }
+    [data-composition-id="s12-scalerics"] .s12-cli { left: 26px; top: 160px; background: #f4ead5; color: #0a0708; border-bottom-left-radius: 6px; }
+    [data-composition-id="s12-scalerics"] .s12-ag { right: 26px; top: 290px; background: #f2c14e; color: #0a0708; border-bottom-right-radius: 6px; }
+    [data-composition-id="s12-scalerics"] .s12-ag small { display: block; margin-top: 4px; text-align: right; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #3d0710; }
+    [data-composition-id="s12-scalerics"] .s12-chips { position: absolute; left: 40px; right: 40px; top: 520px; }
+    [data-composition-id="s12-scalerics"] .s12-chip { height: 76px; margin-bottom: 18px; border-radius: 18px; border: 5px solid #5ce611; padding-left: 26px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; line-height: 66px; color: #f4ead5; position: relative; }
+    [data-composition-id="s12-scalerics"] .s12-chip b { position: absolute; right: 24px; top: 0; color: #5ce611; font-weight: 900; }
+  </style>
+  <div id="root" data-composition-id="s12-scalerics" data-width="1080" data-height="1920" data-duration="9.58">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="9.58" data-track-index="0">
+      <div class="s12-esc">
+        <div class="s12-cel">
+          <div class="s12-top"><div class="s12-nom">Tu agente de IA</div><div class="s12-linea">● en línea</div></div>
+          <div class="s12-b s12-cli">¿Tenés en talle M?</div>
+          <div class="s12-b s12-ag">¡Sí! Queda en M y L. ¿Te lo guardo?<small>23:58 ✓✓</small></div>
+          <div class="s12-chips">
+            <div class="s12-chip c1">PRECIOS<b>✓</b></div>
+            <div class="s12-chip c2">STOCK<b>✓</b></div>
+            <div class="s12-chip c3">HORARIOS<b>✓</b></div>
+          </div>
+        </div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- avatar del agente en el encabezado -->
+          <g transform="translate(330 655) scale(0.24)"><g class="s12-av">
+            <path d="M-150 -110 H150 Q176 -110 176 -84 V70 Q176 96 150 96 H-40 L-96 146 L-88 96 H-150 Q-176 96 -176 70 V-84 Q-176 -110 -150 -110 Z" fill="#0a0708" stroke="#f2c14e" stroke-width="16" stroke-linejoin="round" />
+            <ellipse cx="-52" cy="-20" rx="22" ry="32" fill="#f4ead5" /><ellipse cx="52" cy="-20" rx="22" ry="32" fill="#f4ead5" />
+            <path d="M-40 36 Q0 70 40 36" fill="none" stroke="#f4ead5" stroke-width="12" stroke-linecap="round" />
+          </g></g>
+          <!-- reloj: a cualquier hora -->
+          <g class="s12-reloj">
+            <circle cx="880" cy="700" r="76" fill="#f4ead5" stroke="#0a0708" stroke-width="7" />
+            <path d="M880 700 V648" class="s12-h" stroke="#0a0708" stroke-width="8" stroke-linecap="round" />
+            <path d="M880 700 L920 700" class="s12-m" stroke="#5ce611" stroke-width="6" stroke-linecap="round" />
+            <circle cx="880" cy="700" r="8" fill="#0a0708" />
+            <path d="M800 610 A26 26 0 1 0 830 640 A20 20 0 1 1 800 610 Z" fill="#f2c14e" stroke="#0a0708" stroke-width="4" />
+            <circle cx="960" cy="790" r="20" fill="#f2c14e" stroke="#0a0708" stroke-width="4" />
+          </g>
+          <!-- mini mostrador: tu gente atiende a la gente -->
+          <g transform="translate(139 370) scale(0.75)"><g class="s12-mini">
+            <circle cx="830" cy="950" r="32" fill="#0a0708" stroke="#f4ead5" stroke-width="6" />
+            <circle cx="830" cy="1036" r="68" fill="#0a0708" stroke="#f4ead5" stroke-width="7" />
+            <path d="M806 1062 Q830 1092 854 1062" fill="none" stroke="#f4ead5" stroke-width="7" stroke-linecap="round" />
+            <path d="M720 1480 L740 1160 Q755 1108 830 1104 Q905 1108 920 1160 L940 1480 Z" fill="#3d0710" stroke="#f4ead5" stroke-width="7" stroke-linejoin="round" />
+            <circle cx="360" cy="1060" r="68" fill="#0a0708" stroke="#f4ead5" stroke-width="7" />
+            <path d="M304 1028 L314 976 L336 1012 L352 966 L370 1008 L392 970 L400 1012 L422 994 L422 1040" fill="#0a0708" stroke="#f4ead5" stroke-width="6" stroke-linejoin="round" />
+            <path d="M340 1088 Q362 1116 384 1088" fill="none" stroke="#f4ead5" stroke-width="7" stroke-linecap="round" />
+            <path d="M240 1480 L250 1190 Q270 1136 360 1130 Q450 1136 470 1190 L480 1480 Z" fill="#0a0708" stroke="#f4ead5" stroke-width="7" stroke-linejoin="round" />
+            <rect x="150" y="1270" width="520" height="210" fill="#6b0f1e" stroke="#0a0708" stroke-width="7" />
+            <rect x="130" y="1250" width="560" height="32" rx="6" fill="#f2c14e" stroke="#0a0708" stroke-width="7" />
+            <path class="s12-cora" d="M600 960 C580 935 550 950 560 975 C567 992 600 1010 600 1010 C600 1010 633 992 640 975 C650 950 620 935 600 960 Z" fill="#5ce611" stroke="#0a0708" stroke-width="5" />
+          </g></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-scalerics";
+      const DUR = 9.58;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, from) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.6 }, from || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, t); };
+
+      // "En Scalerics hacemos agentes de IA": el celular sube con el agente
+      tl.fromTo(q(".s12-cel"), { y: 260, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s12-av"), { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.5)" }, 0.2);
+      tl.to(q(".s12-av"), { y: -16, duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, 1.4);
+      tl.fromTo(q(".s12-linea"), { opacity: 0.3 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 5 }, 0.5);
+      // "que atienden tu WhatsApp": pregunta y respuesta al instante
+      pop(q(".s12-cli"), 2.35, { x: -30 });
+      pop(q(".s12-ag"), 3.0, { x: 30 });
+      // "con tus precios, tu stock y tus horarios"
+      [[".c1", 4.0], [".c2", 4.75], [".c3", 5.5]].forEach(([c, t]) => pop(q(c), t, { x: -40 }));
+      // "a cualquier hora"
+      pop(q(".s12-reloj"), 6.25);
+      tl.fromTo(q(".s12-m"), { rotation: 0, svgOrigin: "880 700" }, { rotation: 1080, svgOrigin: "880 700", duration: 1.3, ease: "power1.inOut" }, 6.35);
+      tl.fromTo(q(".s12-h"), { rotation: 0, svgOrigin: "880 700" }, { rotation: 180, svgOrigin: "880 700", duration: 1.3, ease: "power1.inOut" }, 6.35);
+      // "Y tu gente atiende a la gente": el celular se achica, aparece el mostrador
+      tl.to(q(".s12-cel"), { scale: 0.5, x: 130, y: -10, transformOrigin: "0% 0%", duration: 0.45, ease: "power2.inOut" }, 7.35);
+      tl.to(q(".s12-av"), { opacity: 0, duration: 0.2 }, 7.35);
+      tl.to(q(".s12-reloj"), { opacity: 0, scale: 0.6, svgOrigin: "880 700", duration: 0.25 }, 7.35);
+      gsap.set(q(".s12-mini"), { opacity: 0 });
+      tl.fromTo(q(".s12-mini"), { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)", immediateRender: false }, 7.6);
+      gsap.set(q(".s12-cora"), { opacity: 0 });
+      tl.fromTo(q(".s12-cora"), { opacity: 0, scale: 0.2, svgOrigin: "600 985" }, { opacity: 1, scale: 1, svgOrigin: "600 985", duration: 0.3, ease: "back.out(3)", immediateRender: false }, 8.85);
+      tl.to(q(".s12-cora"), { scale: 1.2, svgOrigin: "600 985", duration: 0.12, yoyo: true, repeat: 3 }, 9.1);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

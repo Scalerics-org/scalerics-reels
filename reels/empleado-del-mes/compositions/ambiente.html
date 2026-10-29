@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* focos dorados desde las esquinas */
+    [data-composition-id="ambiente"] .amb-foco { position: absolute; top: -40px; width: 1080px; height: 1700px; mix-blend-mode: screen;
+      background: linear-gradient(180deg, rgba(242, 193, 78, 0.20) 0%, rgba(242, 193, 78, 0.07) 55%, rgba(242, 193, 78, 0) 100%); }
+    [data-composition-id="ambiente"] .amb-foco.izq { left: 0; clip-path: polygon(40px 0px, 150px 0px, 760px 1700px, 380px 1700px); }
+    [data-composition-id="ambiente"] .amb-foco.der { left: 0; clip-path: polygon(930px 0px, 1040px 0px, 700px 1700px, 320px 1700px); }
+    [data-composition-id="ambiente"] .amb-charco { position: absolute; left: 190px; top: 1470px; width: 700px; height: 110px; border-radius: 50%;
+      background: radial-gradient(ellipse at 50% 50%, rgba(242, 193, 78, 0.3) 0%, rgba(242, 193, 78, 0.08) 55%, rgba(242, 193, 78, 0) 75%); mix-blend-mode: screen; }
+    /* cortinas laterales con lazo dorado */
+    [data-composition-id="ambiente"] .amb-cortina { position: absolute; top: 0; width: 100px; height: 1920px;
+      background: repeating-linear-gradient(90deg, #3d0710 0px, #6b0f1e 12px, #8c1022 19px, #6b0f1e 27px, #3d0710 36px);
+      box-shadow: inset 0 -420px 260px -120px rgba(10, 7, 8, 0.85); }
+    [data-composition-id="ambiente"] .amb-cortina.izq { left: -8px; border-right: 4px solid #2a050c; }
+    [data-composition-id="ambiente"] .amb-cortina.der { right: -8px; border-left: 4px solid #2a050c; }
+    [data-composition-id="ambiente"] .amb-lazo { position: absolute; top: 1090px; width: 112px; height: 26px; border-radius: 13px; background: #f2c14e; border: 4px solid #b8862b; }
+    [data-composition-id="ambiente"] .amb-lazo.izq { left: -10px; transform: rotate(-8deg); }
+    [data-composition-id="ambiente"] .amb-lazo.der { right: -10px; transform: rotate(8deg); }
+    /* cenefa con flecos */
+    [data-composition-id="ambiente"] .amb-cenefa { position: absolute; left: 0; right: 0; top: 0; height: 50px;
+      background: repeating-linear-gradient(90deg, #3d0710 0px, #6b0f1e 16px, #3d0710 32px); border-bottom: 5px solid #f2c14e; }
+    [data-composition-id="ambiente"] .amb-flecos { position: absolute; left: 0; top: 54px; width: 1080px; height: 18px;
+      background: repeating-linear-gradient(90deg, #f2c14e 0px, #f2c14e 4px, rgba(0, 0, 0, 0) 4px, rgba(0, 0, 0, 0) 12px); opacity: 0.9; }
+    /* marquesina con lamparitas */
+    [data-composition-id="ambiente"] .amb-marq { position: absolute; left: 150px; top: 82px; width: 780px; height: 124px; border-radius: 20px; background: #0a0708; border: 6px solid #f2c14e;
+      box-shadow: 0 0 22px rgba(242, 193, 78, 0.35); }
+    [data-composition-id="ambiente"] .amb-marq-txt { position: absolute; left: 0; right: 0; top: 26px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 62px; line-height: 1;
+      letter-spacing: 0.03em; color: #f2c14e; text-shadow: 0 0 16px rgba(242, 193, 78, 0.55); white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-marq-txt b { color: #f4ead5; font-weight: 900; }
+    [data-composition-id="ambiente"] .amb-bulb { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #f4ead5; box-shadow: 0 0 10px #f2c14e; }
+    /* rótulo EN VIVO */
+    [data-composition-id="ambiente"] .amb-vivo { position: absolute; left: 104px; top: 1560px; width: 300px; height: 112px; background: rgba(10, 7, 8, 0.82); border: 4px solid #f2c14e; border-radius: 14px; }
+    [data-composition-id="ambiente"] .amb-punto { position: absolute; left: 22px; top: 22px; width: 26px; height: 26px; border-radius: 50%; background: #8c1022; border: 4px solid #f4ead5; }
+    [data-composition-id="ambiente"] .amb-vivo-a { position: absolute; left: 62px; top: 16px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.16em; color: #f4ead5; }
+    [data-composition-id="ambiente"] .amb-vivo-b { position: absolute; left: 22px; top: 62px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.04em; color: #f2c14e; white-space: nowrap; }
+    /* aplausómetro */
+    [data-composition-id="ambiente"] .amb-metro { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-metro-rot { position: absolute; left: 782px; top: 1676px; width: 212px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #f4ead5; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #fff4d6; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="72.52">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="72.52" data-track-index="0">
+      <div class="amb-foco izq"></div>
+      <div class="amb-foco der"></div>
+      <div class="amb-charco"></div>
+      <div class="amb-cortina izq"></div>
+      <div class="amb-cortina der"></div>
+      <div class="amb-lazo izq"></div>
+      <div class="amb-lazo der"></div>
+      <div class="amb-cenefa"></div>
+      <div class="amb-flecos"></div>
+      <div class="amb-marq"><div class="amb-marq-txt">EMPLEADO DEL <b>MES</b></div></div>
+      <div class="amb-bulbs"></div>
+      <div class="amb-vivo"><div class="amb-punto"></div><div class="amb-vivo-a">EN VIVO</div><div class="amb-vivo-b">GALA DEL LOCAL</div></div>
+      <svg class="amb-metro" viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect x="786" y="1532" width="204" height="190" rx="16" fill="#0a0708" fill-opacity="0.85" stroke="#f2c14e" stroke-width="4" />
+        <path d="M818 1650 A70 70 0 0 1 958 1650" fill="none" stroke="#3d0710" stroke-width="20" />
+        <path d="M818 1650 A70 70 0 0 1 858 1587" fill="none" stroke="#8c1022" stroke-width="20" />
+        <path d="M918 1587 A70 70 0 0 1 958 1650" fill="none" stroke="#f2c14e" stroke-width="20" />
+        <path d="M888 1650 L888 1590" class="amb-aguja" stroke="#f4ead5" stroke-width="7" stroke-linecap="round" />
+        <circle cx="888" cy="1650" r="11" fill="#f2c14e" stroke="#0a0708" stroke-width="3" />
+      </svg>
+      <div class="amb-metro-rot">APLAUSÓMETRO</div>
+      <div class="amb-confeti"></div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 72.52;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      // generador determinista (nada de Math.random)
+      let semilla = 7;
+      const azar = () => { semilla = (semilla * 16807) % 2147483647; return (semilla - 1) / 2147483646; };
+
+      // ---------- lamparitas de la marquesina ----------
+      const bulbs = q(".amb-bulbs");
+      const pos = [];
+      for (let x = 168; x <= 912; x += 48) { pos.push([x, 72]); pos.push([x, 204]); }
+      for (let y = 112; y <= 172; y += 46) { pos.push([140, y]); pos.push([928, y]); }
+      pos.forEach(([x, y], i) => {
+        const b = document.createElement("div");
+        b.className = "amb-bulb " + (i % 2 ? "par" : "impar");
+        b.style.left = x - 7 + "px"; b.style.top = y - 7 + "px";
+        bulbs.appendChild(b);
+      });
+      const vueltas = Math.floor((DUR - 0.5) / 0.9);
+      tl.fromTo(qa(".amb-bulb.par"), { opacity: 1 }, { opacity: 0.3, duration: 0.45, yoyo: true, repeat: vueltas * 2 - 1, ease: "steps(1)" }, 0.2);
+      tl.fromTo(qa(".amb-bulb.impar"), { opacity: 0.3 }, { opacity: 1, duration: 0.45, yoyo: true, repeat: vueltas * 2 - 1, ease: "steps(1)" }, 0.2);
+      tl.to(q(".amb-marq-txt"), { opacity: 0.85, duration: 0.7, yoyo: true, repeat: Math.floor((DUR - 1) / 0.7) - 1, ease: "sine.inOut" }, 0.5);
+
+      // ---------- focos que barren ----------
+      tl.fromTo(q(".amb-foco.izq"), { rotation: -6, transformOrigin: "95px 0px" }, { rotation: 6, transformOrigin: "95px 0px", duration: 2.6, yoyo: true, repeat: Math.floor(DUR / 2.6) - 1, ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".amb-foco.der"), { rotation: 6, transformOrigin: "985px 0px" }, { rotation: -6, transformOrigin: "985px 0px", duration: 3.1, yoyo: true, repeat: Math.floor(DUR / 3.1) - 1, ease: "sine.inOut" }, 0);
+
+      // ---------- EN VIVO ----------
+      tl.fromTo(q(".amb-punto"), { opacity: 1 }, { opacity: 0.25, duration: 0.5, yoyo: true, repeat: Math.floor((DUR - 0.5) / 0.5) - 1, ease: "steps(1)" }, 0.3);
+
+      // ---------- aplausómetro ----------
+      const aguja = q(".amb-aguja");
+      gsap.set(aguja, { rotation: -10, svgOrigin: "888 1650" });
+      const NIVEL = [[0.2, 10], [3.3, -20], [4.4, -78], [18.3, 20], [35.9, 80], [39.5, 50], [45.9, 65], [47.4, -40], [51.0, 10], [56.6, 60], [61.0, 40], [68.6, 80]];
+      NIVEL.forEach(([t, a]) => {
+        tl.to(aguja, { rotation: a, svgOrigin: "888 1650", duration: 0.45, ease: "back.out(2.2)" }, t);
+        if (a >= 60) tl.to(aguja, { rotation: a - 10, svgOrigin: "888 1650", duration: 0.1, yoyo: true, repeat: 5, ease: "sine.inOut" }, t + 0.45);
+      });
+
+      // ---------- confeti: ganador y cierre ----------
+      const conf = q(".amb-confeti");
+      const COLORES = ["#f2c14e", "#f4ead5", "#b8862b", "#f2c14e", "#8c1022"];
+      [35.9, 68.6].forEach((t0, k) => {
+        for (let i = 0; i < 46; i++) {
+          const c = document.createElement("div");
+          const w = 12 + Math.floor(azar() * 12), h = 20 + Math.floor(azar() * 16);
+          c.style.cssText = `position:absolute;left:${Math.floor(110 + azar() * 860)}px;top:-60px;width:${w}px;height:${h}px;background:${COLORES[i % 5]};border-radius:3px;opacity:0;`;
+          conf.appendChild(c);
+          const t = t0 + azar() * 0.7, caida = 2.6 + azar() * 1.4, x = (azar() - 0.5) * 260;
+          tl.set(c, { opacity: 1 }, t);
+          tl.fromTo(c, { y: 0, x: 0, rotation: azar() * 180 }, { y: 1700 + azar() * 250, x, rotation: 360 + azar() * 540, duration: caida, ease: "power1.in", immediateRender: false }, t);
+          tl.to(c, { opacity: 0, duration: 0.3 }, t + caida - 0.3);
+        }
+      });
+
+      // ---------- flashes: "No, Marcelo" y "IA" ----------
+      [3.32, 35.93].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.55, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

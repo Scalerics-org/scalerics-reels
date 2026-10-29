@@ -1,0 +1,98 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-meritos"] .s05-capa, [data-composition-id="s05-meritos"] .s05-esc { position: absolute; inset: 0; }
+    [data-composition-id="s05-meritos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-meritos"] .s05-perg { position: absolute; left: 150px; top: 600px; width: 780px; height: 880px; background: #f4ead5; border-left: 8px solid #0a0708; border-right: 8px solid #0a0708; }
+    [data-composition-id="s05-meritos"] .s05-rodillo { position: absolute; left: 120px; width: 840px; height: 56px; border-radius: 28px; background: #f2c14e; border: 7px solid #0a0708; }
+    [data-composition-id="s05-meritos"] .s05-tit { position: absolute; left: 0; right: 0; top: 50px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 54px; color: #6b0f1e; letter-spacing: 0.02em; }
+    [data-composition-id="s05-meritos"] .s05-linea { position: absolute; left: 60px; right: 60px; top: 130px; height: 6px; background: #b8862b; }
+    [data-composition-id="s05-meritos"] .s05-fila { position: absolute; left: 50px; right: 40px; height: 200px; }
+    [data-composition-id="s05-meritos"] .s05-check { position: absolute; left: 0; top: 18px; width: 70px; height: 70px; border-radius: 50%; background: #f2c14e; border: 6px solid #0a0708; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; line-height: 58px; color: #0a0708; }
+    [data-composition-id="s05-meritos"] .s05-ft { position: absolute; left: 96px; top: 16px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 52px; line-height: 1.05; color: #0a0708; white-space: nowrap; }
+    [data-composition-id="s05-meritos"] .s05-ft b { color: #6b0f1e; }
+    [data-composition-id="s05-meritos"] .s05-chips { position: absolute; left: 96px; top: 14px; display: flex; gap: 10px; }
+    [data-composition-id="s05-meritos"] .s05-chip { padding: 12px 18px; border-radius: 14px; background: #0a0708; color: #f2c14e; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; }
+    [data-composition-id="s05-meritos"] .s05-inst { position: absolute; left: 96px; top: 104px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; color: #6b0f1e; white-space: nowrap; }
+    [data-composition-id="s05-meritos"] .s05-ag { position: absolute; left: 96px; top: 100px; display: flex; gap: 12px; }
+    [data-composition-id="s05-meritos"] .s05-ag div { height: 60px; border-radius: 10px; border: 4px solid #0a0708; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; line-height: 52px; padding: 0 14px; color: #0a0708; background: #f2c14e; }
+  </style>
+  <div id="root" data-composition-id="s05-meritos" data-width="1080" data-height="1920" data-duration="8.42">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="8.42" data-track-index="0">
+      <div class="s05-esc">
+        <div class="s05-perg">
+          <div class="s05-tit">MÉRITOS DEL GANADOR</div>
+          <div class="s05-linea"></div>
+          <div class="s05-fila f1" style="top: 180px"><div class="s05-check">✓</div><div class="s05-ft">DOMINGO <b>3:00 AM</b></div></div>
+          <div class="s05-fila f2" style="top: 360px"><div class="s05-check">✓</div>
+            <div class="s05-chips"><div class="s05-chip c1">PRECIOS</div><div class="s05-chip c2">STOCK</div><div class="s05-chip c3">HORARIOS</div></div>
+            <div class="s05-inst">AL INSTANTE</div></div>
+          <div class="s05-fila f3" style="top: 600px"><div class="s05-check">✓</div><div class="s05-ft">TURNOS</div>
+            <div class="s05-ag"><div class="a1">10:00 ✓</div><div class="a2">11:30 ✓</div><div class="a3">16:00 ✓</div></div></div>
+        </div>
+        <div class="s05-rodillo r1" style="top: 572px"></div>
+        <div class="s05-rodillo r2" style="top: 1452px"></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- luna y estrellas -->
+          <g transform="translate(160 190) scale(0.85)"><g class="s05-luna">
+            <path d="M800 800 A54 54 0 1 0 856 868 A44 44 0 1 1 800 800 Z" fill="#f2c14e" stroke="#0a0708" stroke-width="5" />
+            <path d="M880 790 l6 14 l14 6 l-14 6 l-6 14 l-6 -14 l-14 -6 l14 -6 Z" fill="#b8862b" />
+          </g></g>
+          <!-- rayo -->
+          <path class="s05-rayo" d="M720 1040 L680 1110 L716 1110 L690 1180 L770 1090 L732 1090 L760 1040 Z" fill="#f2c14e" stroke="#0a0708" stroke-width="5" stroke-linejoin="round" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-meritos";
+      const DUR = 8.42;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, from) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.6 }, from || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, t); };
+
+      // el pergamino se desenrolla (cuadro 0 a medio abrir)
+      tl.fromTo(q(".s05-perg"), { scaleY: 0.3, transformOrigin: "50% 0%" }, { scaleY: 1, transformOrigin: "50% 0%", duration: 0.5, ease: "power2.out" }, 0);
+      tl.fromTo(q(".r2"), { y: -616 }, { y: 0, duration: 0.5, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s05-tit"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25 }, 0.15);
+      tl.fromTo(q(".s05-linea"), { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.out" }, 0.3);
+      tl.to(q(".s05-tit"), { scale: 1.06, duration: 0.15, yoyo: true, repeat: 1 }, 0.8);
+
+      // "Atendió un domingo a las tres de la mañana"
+      pop(q(".f1"), 1.85, { x: -60 });
+      pop(q(".s05-luna"), 3.2, { rotation: -40, svgOrigin: "800 860" });
+      tl.to(q(".s05-luna"), { rotation: 8, svgOrigin: "800 860", duration: 0.4, yoyo: true, repeat: 9, ease: "sine.inOut" }, 3.6);
+      tl.fromTo(q(".f1 .s05-check"), { rotation: -90 }, { rotation: 0, duration: 0.3, ease: "back.out(2)" }, 2.0);
+
+      // "Contestó precios, stock y horarios al instante"
+      gsap.set(q(".f2"), { opacity: 0 });
+      tl.set(q(".f2"), { opacity: 1 }, 4.15);
+      pop(q(".f2 .s05-check"), 4.2);
+      [[".c1", 4.49], [".c2", 5.0], [".c3", 5.69]].forEach(([c, t]) => {
+        gsap.set(q(c), { opacity: 0 });
+        tl.fromTo(q(c), { opacity: 0, rotationX: 90 }, { opacity: 1, rotationX: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, t - 0.08);
+      });
+      pop(q(".s05-inst"), 6.1, { x: -40 });
+      pop(q(".s05-rayo"), 6.15, { svgOrigin: "720 1110" });
+      tl.to(q(".s05-rayo"), { opacity: 0.5, duration: 0.07, yoyo: true, repeat: 9 }, 6.5);
+
+      // "Agendó los turnos"
+      gsap.set(q(".f3"), { opacity: 0 });
+      tl.set(q(".f3"), { opacity: 1 }, 7.0);
+      pop(q(".f3 .s05-check"), 7.0);
+      pop(q(".f3 .s05-ft"), 7.05, { x: -40 });
+      [".a1", ".a2", ".a3"].forEach((a, i) => pop(q(a), 7.15 + i * 0.15, { x: 40 }));
+      tl.to(q(".s05-esc"), { y: -10, duration: 0.1, yoyo: true, repeat: 1 }, 7.5);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

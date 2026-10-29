@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-sobre"] .s01-capa, [data-composition-id="s01-sobre"] .s01-esc { position: absolute; inset: 0; }
+    [data-composition-id="s01-sobre"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-sobre"] .s01-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; -webkit-text-stroke: 8px #0a0708; paint-order: stroke fill; }
+    [data-composition-id="s01-sobre"] .s01-a { top: 572px; font-weight: 900; font-size: 74px; color: #f4ead5; }
+    [data-composition-id="s01-sobre"] .s01-b { top: 662px; font-weight: 900; font-size: 74px; color: #f2c14e; text-shadow: 0 0 26px rgba(242, 193, 78, 0.45); }
+    [data-composition-id="s01-sobre"] .s01-no { top: 830px; font-weight: 900; font-size: 124px; letter-spacing: -0.03em; color: #8c1022; -webkit-text-stroke: 12px #f4ead5; }
+    [data-composition-id="s01-sobre"] .s01-card { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; fill: #0a0708; }
+    [data-composition-id="s01-sobre"] .s01-chico { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; fill: #6b0f1e; letter-spacing: 0.1em; }
+    [data-composition-id="s01-sobre"] .s01-tag { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 28px; fill: #0a0708; }
+  </style>
+  <div id="root" data-composition-id="s01-sobre" data-width="1080" data-height="1920" data-duration="6.16">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="6.16" data-track-index="0">
+      <div class="s01-esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- PRESENTADOR detrás del atril -->
+          <g class="s01-pres">
+            <circle cx="790" cy="900" r="64" fill="#0a0708" stroke="#f4ead5" stroke-width="6" />
+            <path d="M738 872 Q770 820 842 862" fill="none" stroke="#f2c14e" stroke-width="6" stroke-linecap="round" opacity="0.85" />
+            <path d="M660 1480 L670 1070 Q690 990 790 980 Q890 990 910 1070 L920 1480 Z" fill="#0a0708" stroke="#f4ead5" stroke-width="6" stroke-linejoin="round" />
+            <path d="M752 990 L790 1120 L828 990" fill="none" stroke="#f4ead5" stroke-width="5" stroke-linejoin="round" />
+            <path d="M762 1006 L790 996 L818 1006 L790 1016 Z" fill="#f2c14e" stroke="#0a0708" stroke-width="3" />
+            <path d="M766 1004 L766 1010 M814 1004 L814 1010" stroke="#f2c14e" stroke-width="12" stroke-linecap="round" />
+            <!-- brazo con el sobre -->
+            <g class="s01-brazo">
+              <path d="M690 1090 Q620 1080 600 1010" fill="none" stroke="#0a0708" stroke-width="46" stroke-linecap="round" />
+              <path d="M690 1090 Q620 1080 600 1010" fill="none" stroke="#f4ead5" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+              <g class="s01-sobre">
+                <g class="s01-tarjeta">
+                  <rect x="470" y="880" width="250" height="150" rx="8" fill="#f4ead5" stroke="#0a0708" stroke-width="5" />
+                  <text class="s01-chico" x="595" y="920" text-anchor="middle" data-layout-ignore>EL GANADOR</text>
+                  <text class="s01-card" x="595" y="980" text-anchor="middle">MARCELO</text>
+                  <path class="s01-x" d="M500 945 L690 1000 M690 945 L500 1000" fill="none" stroke="#8c1022" stroke-width="12" stroke-linecap="round" />
+                </g>
+                <rect x="460" y="960" width="270" height="160" rx="10" fill="#f2c14e" stroke="#0a0708" stroke-width="6" />
+                <path d="M460 966 L595 1050 L730 966" fill="none" stroke="#b8862b" stroke-width="6" stroke-linejoin="round" />
+                <circle cx="595" cy="1050" r="20" fill="#6b0f1e" stroke="#0a0708" stroke-width="4" />
+              </g>
+            </g>
+            <!-- atril -->
+            <path d="M600 1250 H980 L950 1490 H630 Z" fill="#b8862b" stroke="#0a0708" stroke-width="6" stroke-linejoin="round" />
+            <path d="M580 1230 H1000 V1262 H580 Z" fill="#f2c14e" stroke="#0a0708" stroke-width="6" />
+            <path d="M790 1310 L804 1350 L846 1350 L812 1374 L825 1414 L790 1390 L755 1414 L768 1374 L734 1350 L776 1350 Z" fill="#f2c14e" stroke="#0a0708" stroke-width="4" stroke-linejoin="round" />
+          </g>
+          <!-- MARCELO en la platea -->
+          <g class="s01-mar">
+            <g class="s01-mar-cuerpo">
+              <circle cx="290" cy="1210" r="62" fill="#0a0708" stroke="#f4ead5" stroke-width="6" />
+              <path class="s01-pelo" d="M236 1180 L246 1132 L268 1166 L282 1122 L300 1162 L322 1126 L330 1168 L350 1146 L346 1190" fill="#0a0708" stroke="#f4ead5" stroke-width="5" stroke-linejoin="round" />
+              <ellipse class="s01-ojo" cx="268" cy="1214" rx="7" ry="10" fill="#f4ead5" />
+              <ellipse class="s01-ojo" cx="312" cy="1214" rx="7" ry="10" fill="#f4ead5" />
+              <path class="s01-boca" d="M270 1240 Q290 1256 310 1240" fill="none" stroke="#f4ead5" stroke-width="5" stroke-linecap="round" />
+              <path d="M160 1520 L170 1340 Q190 1282 290 1276 Q390 1282 410 1340 L420 1520 Z" fill="#0a0708" stroke="#f4ead5" stroke-width="6" stroke-linejoin="round" />
+              <rect x="226" y="1340" width="128" height="44" rx="6" fill="#f4ead5" stroke="#0a0708" stroke-width="3" />
+              <text class="s01-tag" x="290" y="1372" text-anchor="middle">MARCELO</text>
+              <g class="s01-cel">
+                <rect x="380" y="1300" width="52" height="92" rx="10" fill="#0a0708" stroke="#f4ead5" stroke-width="5" />
+                <rect x="388" y="1312" width="36" height="62" rx="4" fill="#f2c14e" opacity="0.85" />
+              </g>
+            </g>
+            <!-- butacas de la platea -->
+            <path d="M110 1440 H520 V1520 H110 Z" fill="#6b0f1e" stroke="#0a0708" stroke-width="6" />
+            <path d="M110 1440 H520" stroke="#f2c14e" stroke-width="5" />
+          </g>
+          <g class="s01-puntos" fill="#f2c14e">
+            <circle cx="470" cy="830" r="12" /><circle cx="510" cy="830" r="12" /><circle cx="550" cy="830" r="12" />
+          </g>
+        </svg>
+        <div class="s01-txt s01-a">El empleado</div>
+        <div class="s01-txt s01-b">del mes es...</div>
+        <div class="s01-txt s01-no">No sos vos.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-sobre";
+      const DUR = 6.16;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const EMPLEADO = 0.28, ES = 1.23, NO = 3.31, VOS = 4.43, SENTATE = 5.1;
+
+      // cuadro 0: presentador y Marcelo ya en escena
+      tl.fromTo(q(".s01-esc"), { scale: 1.04 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+      tl.fromTo(q(".s01-pres"), { opacity: 0.6, x: 80 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-mar"), { opacity: 0.6, y: 60 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      tl.to(q(".s01-cel"), { opacity: 0.6, duration: 0.2, yoyo: true, repeat: 5 }, 0.2);
+
+      // "el empleado del mes es...": el sobre se abre, sale la tarjeta (de espaldas)
+      gsap.set([q(".s01-a"), q(".s01-b"), q(".s01-no")], { opacity: 0 });
+      tl.fromTo(q(".s01-a"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, EMPLEADO - 0.14);
+      tl.fromTo(q(".s01-b"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, 1.04 - 0.14);
+      sacudon(EMPLEADO + 0.03, 0.7);
+      gsap.set(q(".s01-x"), { opacity: 0, strokeDasharray: 400, strokeDashoffset: 400 });
+      tl.fromTo(q(".s01-tarjeta"), { y: 110 }, { y: 0, duration: 0.5, ease: "power2.out" }, 0.4);
+      tl.to(q(".s01-brazo"), { rotation: -6, svgOrigin: "690 1090", duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0.5);
+
+      // suspenso: puntitos, Marcelo se arregla y se empieza a parar
+      const pts = [...qa(".s01-puntos circle")];
+      gsap.set(pts, { opacity: 0 });
+      pts.forEach((p, i) => tl.fromTo(p, { opacity: 0, scale: 0.3, svgOrigin: `${470 + i * 40} 830` }, { opacity: 1, scale: 1, svgOrigin: `${470 + i * 40} 830`, duration: 0.22, ease: "back.out(3)", immediateRender: false }, ES + 0.2 + i * 0.3));
+      tl.to(pts, { y: -12, duration: 0.18, yoyo: true, repeat: 5, stagger: 0.1, ease: "sine.inOut" }, ES + 1.1);
+      tl.to(q(".s01-pelo"), { rotation: -8, svgOrigin: "290 1180", duration: 0.15, yoyo: true, repeat: 3 }, ES + 0.4);
+      tl.to(q(".s01-mar-cuerpo"), { y: -70, duration: 1.2, ease: "power1.inOut" }, ES + 0.6);
+      tl.to(q(".s01-boca"), { attr: { d: "M262 1236 Q290 1270 318 1236" }, duration: 0.25 }, ES + 0.6);
+      tl.to(pts, { opacity: 0, duration: 0.12 }, NO - 0.1);
+
+      // "No, Marcelo": la tarjeta gira a cámara con MARCELO tachado
+      tl.to(q(".s01-a"), { opacity: 0, y: -30, duration: 0.15 }, NO - 0.05);
+      tl.to(q(".s01-b"), { opacity: 0, y: -30, duration: 0.15 }, NO - 0.05);
+      tl.to(q(".s01-tarjeta"), { scale: 1.7, x: -150, y: -260, svgOrigin: "595 955", duration: 0.2, ease: "back.out(1.6)" }, NO - 0.05);
+      tl.set(q(".s01-x"), { opacity: 1 }, NO + 0.25);
+      tl.to(q(".s01-x"), { strokeDashoffset: 0, duration: 0.3, ease: "power2.inOut" }, NO + 0.25);
+      sacudon(NO + 0.02, 1.4);
+
+      // "No sos vos": cae gigante; Marcelo se congela, se le cae el celular
+      tl.fromTo(q(".s01-no"), { opacity: 0, scale: 3, rotation: -8 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.15, ease: "power4.in", immediateRender: false }, 3.96 - 0.1);
+      sacudon(4.0, 2);
+      tl.to(q(".s01-boca"), { attr: { d: "M270 1250 Q290 1236 310 1250" }, duration: 0.15 }, 3.96);
+      tl.to(qa(".s01-ojo"), { scale: 1.4, transformOrigin: "50% 50%", duration: 0.15, ease: "back.out(3)" }, 3.96);
+      tl.to(q(".s01-cel"), { y: 60, x: -40, rotation: 70, svgOrigin: "406 1346", duration: 0.5, ease: "power2.in" }, VOS);
+      tl.to(q(".s01-no"), { rotation: -2, duration: 0.1, yoyo: true, repeat: 5, ease: "sine.inOut" }, VOS + 0.1);
+
+      // "Sentate": el presentador señala abajo y Marcelo se hunde
+      tl.to(q(".s01-brazo"), { rotation: 30, svgOrigin: "690 1090", duration: 0.2, ease: "power3.out" }, SENTATE - 0.1);
+      tl.to(q(".s01-mar-cuerpo"), { y: 130, duration: 0.18, ease: "power4.in" }, SENTATE + 0.05);
+      tl.to(q(".s01-tarjeta"), { opacity: 0, duration: 0.2 }, SENTATE - 0.1);
+      sacudon(SENTATE + 0.24, 1.2);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

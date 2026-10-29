@@ -1,0 +1,8 @@
+[
+  {"t": 0.2, "sfx": "sparkle", "vol": 0.3},
+  {"t": 1.15, "sfx": "click", "vol": 0.25},
+  {"t": 1.65, "sfx": "click", "vol": 0.25},
+  {"t": 2.25, "sfx": "click", "vol": 0.25},
+  {"t": 2.72, "sfx": "redoble", "vol": 0.4},
+  {"t": 2.8, "sfx": "risas", "vol": 0.42, "max": 1.9}
+]

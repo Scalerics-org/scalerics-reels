@@ -1,0 +1,104 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-clienta"] .s06-capa, [data-composition-id="s06-clienta"] .s06-esc { position: absolute; inset: 0; }
+    [data-composition-id="s06-clienta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-clienta"] .s06-msg { position: absolute; left: 130px; top: 590px; width: 640px; padding: 26px 32px; border-radius: 30px; border-bottom-left-radius: 6px; background: #f4ead5; border: 7px solid #f2c14e;
+      font-family: "Lexend", sans-serif; font-weight: 700; font-size: 40px; line-height: 1.2; color: #0a0708; }
+    [data-composition-id="s06-clienta"] .s06-msg small { display: block; margin-top: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #6b0f1e; }
+    [data-composition-id="s06-clienta"] .s06-jefe { position: absolute; left: 560px; top: 820px; padding: 16px 26px; border-radius: 16px; background: #f2c14e; border: 6px solid #0a0708;
+      font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; color: #0a0708; white-space: nowrap; transform: rotate(4deg); }
+    [data-composition-id="s06-clienta"] .s06-rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #f4ead5; letter-spacing: 0.1em; }
+  </style>
+  <div id="root" data-composition-id="s06-clienta" data-width="1080" data-height="1920" data-duration="5.11">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.11" data-track-index="0">
+      <div class="s06-esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- CLIENTA con cartera -->
+          <g class="s06-cli">
+            <path d="M200 1000 Q190 930 250 910 Q320 900 330 980 L336 1060 L196 1060 Z" fill="#3d0710" stroke="#f4ead5" stroke-width="5" />
+            <circle cx="265" cy="990" r="62" fill="#0a0708" stroke="#f4ead5" stroke-width="6" />
+            <ellipse cx="245" cy="992" rx="7" ry="10" fill="#f4ead5" /><ellipse cx="285" cy="992" rx="7" ry="10" fill="#f4ead5" />
+            <path class="s06-boca" d="M248 1022 Q265 1018 282 1022" fill="none" stroke="#f4ead5" stroke-width="5" stroke-linecap="round" />
+            <path d="M150 1480 L190 1110 Q205 1060 265 1056 Q325 1060 340 1110 L380 1480 Z" fill="#0a0708" stroke="#f4ead5" stroke-width="6" stroke-linejoin="round" />
+            <path d="M350 1200 Q390 1180 400 1240" fill="none" stroke="#f2c14e" stroke-width="6" />
+            <rect x="370" y="1236" width="80" height="70" rx="10" fill="#6b0f1e" stroke="#f4ead5" stroke-width="5" />
+          </g>
+          <path class="s06-cora" d="M265 870 C245 845 215 860 225 885 C232 902 265 920 265 920 C265 920 298 902 305 885 C315 860 285 845 265 870 Z" fill="#f2c14e" stroke="#0a0708" stroke-width="4" />
+          <!-- DUEÑO con delantal -->
+          <g class="s06-due">
+            <circle cx="810" cy="1040" r="64" fill="#0a0708" stroke="#f4ead5" stroke-width="6" />
+            <path d="M770 1010 Q810 980 850 1010" fill="none" stroke="#f4ead5" stroke-width="5" opacity="0.6" />
+            <ellipse cx="790" cy="1044" rx="7" ry="10" fill="#f4ead5" /><ellipse cx="830" cy="1044" rx="7" ry="10" fill="#f4ead5" />
+            <path class="s06-dboca" d="M792 1074 Q810 1080 828 1074" fill="none" stroke="#f4ead5" stroke-width="5" stroke-linecap="round" />
+            <path d="M690 1480 L700 1160 Q720 1110 810 1106 Q900 1110 920 1160 L930 1480 Z" fill="#0a0708" stroke="#f4ead5" stroke-width="6" stroke-linejoin="round" />
+            <path d="M750 1160 H870 L880 1440 H740 Z" fill="#f4ead5" stroke="#0a0708" stroke-width="4" />
+            <path d="M770 1160 Q810 1130 850 1160" fill="none" stroke="#f4ead5" stroke-width="5" />
+            <g class="s06-dbrazo">
+              <path d="M700 1200 Q640 1150 650 1080" fill="none" stroke="#0a0708" stroke-width="44" stroke-linecap="round" />
+              <path d="M700 1200 Q640 1150 650 1080" fill="none" stroke="#f4ead5" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+            </g>
+            <text class="s06-rot" x="810" y="1520" text-anchor="middle" data-layout-ignore>EL DUEÑO</text>
+          </g>
+          <!-- la charla que viaja: globito dorado -->
+          <path class="s06-arco" d="M300 900 Q480 640 650 1060" fill="none" stroke="#f2c14e" stroke-width="6" stroke-dasharray="4 18" stroke-linecap="round" />
+          <g class="s06-pase">
+            <path d="M-60 -40 H60 Q76 -40 76 -24 V24 Q76 40 60 40 H-20 L-46 62 L-40 40 H-60 Q-76 40 -76 24 V-24 Q-76 -40 -60 -40 Z" fill="#f2c14e" stroke="#0a0708" stroke-width="6" stroke-linejoin="round" />
+            <circle cx="-28" cy="0" r="9" fill="#0a0708" /><circle cx="0" cy="0" r="9" fill="#0a0708" /><circle cx="28" cy="0" r="9" fill="#0a0708" />
+          </g>
+        </svg>
+        <div class="s06-msg">¡Hola! Hace rato que no te vemos. ¿Te guardamos lo de siempre?<small>TU AGENTE DE IA · 09:00</small></div>
+        <div class="s06-jefe">PARA VOS, JEFE</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-clienta";
+      const DUR = 5.11;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s06-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      // la clienta (de espaldas a la puerta) y el mensaje que le llega
+      tl.fromTo(q(".s06-cli"), { opacity: 0.5, x: -120 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s06-msg"), { opacity: 0, scale: 0.5, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 0.1);
+      tl.to(q(".s06-cli"), { y: -8, duration: 0.15, yoyo: true, repeat: 3 }, 0.6);
+      // "venir": sonríe y vuelve, corazón
+      tl.to(q(".s06-boca"), { attr: { d: "M244 1016 Q265 1042 286 1016" }, duration: 0.2 }, 1.5);
+      gsap.set(q(".s06-cora"), { opacity: 0 });
+      tl.fromTo(q(".s06-cora"), { opacity: 0, scale: 0.2, svgOrigin: "265 890" }, { opacity: 1, scale: 1, svgOrigin: "265 890", duration: 0.3, ease: "back.out(3)", immediateRender: false }, 1.58);
+      tl.to(q(".s06-cora"), { scale: 1.2, svgOrigin: "265 890", duration: 0.15, yoyo: true, repeat: 3 }, 1.9);
+      tl.to(q(".s06-cli"), { x: 30, duration: 0.6, ease: "power1.inOut" }, 1.7);
+
+      // el dueño entra; la charla viaja en arco
+      tl.to(q(".s06-msg"), { opacity: 0, y: -30, duration: 0.25 }, 2.4);
+      tl.to(q(".s06-cora"), { opacity: 0, duration: 0.2 }, 2.3);
+      gsap.set(q(".s06-due"), { opacity: 0 });
+      tl.fromTo(q(".s06-due"), { opacity: 0, x: 160 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, 2.2);
+      gsap.set(q(".s06-arco"), { opacity: 0, strokeDashoffset: 0 });
+      tl.set(q(".s06-arco"), { opacity: 0.8 }, 2.6);
+      tl.fromTo(q(".s06-arco"), { strokeDashoffset: 0 }, { strokeDashoffset: -220, duration: 2.4, ease: "none" }, 2.6);
+      gsap.set(q(".s06-pase"), { opacity: 0, x: 300, y: 900 });
+      tl.set(q(".s06-pase"), { opacity: 1 }, 2.7);
+      // recorrido en arco (bezier aproximada en tramos)
+      const P = (t) => { const a = 1 - t; return [a * a * 300 + 2 * a * t * 480 + t * t * 650, a * a * 900 + 2 * a * t * 640 + t * t * 1060]; };
+      for (let i = 1; i <= 8; i++) { const [x, y] = P(i / 8); tl.to(q(".s06-pase"), { x, y, rotation: i * 6, duration: 0.18, ease: "none" }, 2.7 + (i - 1) * 0.18); }
+      // el dueño la agarra
+      tl.to(q(".s06-dbrazo"), { rotation: -18, svgOrigin: "700 1200", duration: 0.2, ease: "back.out(2)" }, 4.05);
+      tl.to(q(".s06-dboca"), { attr: { d: "M788 1068 Q810 1090 832 1068" }, duration: 0.2 }, 4.1);
+      sacudon(4.15, 0.8);
+      gsap.set(q(".s06-jefe"), { opacity: 0 });
+      tl.fromTo(q(".s06-jefe"), { opacity: 0, scale: 2, rotation: -10 }, { opacity: 1, scale: 1, rotation: 4, duration: 0.15, ease: "power4.in", immediateRender: false }, 3.5);
+      tl.to(q(".s06-pase"), { scale: 1.15, duration: 0.12, yoyo: true, repeat: 3 }, 4.2);
+
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
