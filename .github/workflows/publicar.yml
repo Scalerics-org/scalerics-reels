@@ -30,15 +30,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      # Barato: si es una corrida de la hora y no toca en ninguna red, termina acá (sin bajar los videos)
+      # Barato: si es una corrida de la hora y ninguna red tiene un horario pendiente, termina acá
+      # (sin bajar los videos). Pendiente = ya pasó y el publicador no lo atendió (turnos.json).
       - id: toca
         run: |
           if [ "${{ github.event_name }}" != "schedule" ]; then echo "si=true" >> "$GITHUB_OUTPUT"; exit 0; fi
-          HORA=$(TZ=America/Montevideo date +%-H)
-          H=$(curl -sf --max-time 20 https://reels.scalerics.com/api/horarios || echo '{"instagram":[12,18,21],"tiktok":[12,18,21]}')
-          REDES=$(echo "$H" | jq -r --argjson h "$HORA" '[to_entries[] | select((.value|type)=="array" and any(.value[]; . == $h)) | .key] | join(",")')
-          echo "hora $HORA: ${REDES:-ninguna red}"
-          if [ -n "$REDES" ]; then echo "si=true" >> "$GITHUB_OUTPUT"; echo "redes=$REDES" >> "$GITHUB_OUTPUT"; fi
+          T=$(curl -sf --max-time 20 "https://reels.scalerics.com/api/horarios?turno=1" || echo '{"redes":[],"turnos":{}}')
+          REDES=$(echo "$T" | jq -r '.redes | join(",")')
+          echo "pendientes: ${REDES:-ninguno} $(echo "$T" | jq -c .turnos)"
+          if [ -n "$REDES" ]; then
+            echo "si=true" >> "$GITHUB_OUTPUT"
+            echo "redes=$REDES" >> "$GITHUB_OUTPUT"
+            echo "turnos=$(echo "$T" | jq -c .turnos)" >> "$GITHUB_OUTPUT"
+          fi
       - if: steps.toca.outputs.si == 'true'
         uses: actions/checkout@v4
       # las ramas reel/* tienen los mp4: la cola automática los saca de ahí
@@ -58,5 +62,6 @@ jobs:
           TIKTOK_PAUSADO: "1"
           PANEL: ${{ inputs.panel }}
           REDES_HORA: ${{ steps.toca.outputs.redes }}
+          TURNOS: ${{ steps.toca.outputs.turnos }}
           DRIVE_APROBADOS: 1VRxt08EiUNDxKDrJk5ugXzsRCRZKedGK
           DRIVE_PUBLICADOS: 1QGCBFfdUfWAF7hCHfgYJfMXfd_CUzh2p

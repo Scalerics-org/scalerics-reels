@@ -102,6 +102,14 @@ const ttOn = !!accesoTT && process.env.TIKTOK_PAUSADO !== "1" && !!autoTT.activo
 const deHora = (process.env.REDES_HORA || "").split(",").filter(Boolean);
 const toca = (r) => !deHora.length || deHora.includes(r);
 const redes = [...(ttOn && toca("tiktok") ? ["tiktok"] : []), ...(igOn && toca("instagram") ? ["instagram"] : [])];
+// El horario se anota como atendido ANTES de publicar: si algo falla se pierde ese turno, pero
+// nunca sale dos veces el mismo (la próxima corrida de la hora vería el turno pendiente).
+if (deHora.length && !PRUEBA) {
+  const turnos = JSON.parse(process.env.TURNOS || "{}");
+  const hechos = (await estadoJson("turnos.json")) || {};
+  for (const r of deHora) if (turnos[r]) hechos[r] = turnos[r];
+  await estadoJson("turnos.json", hechos);
+}
 if (!redes.length) {
   console.log(`a esta hora no le toca a ninguna red activa (${deHora.join(", ") || "ninguna"})`);
   process.exit(0);
