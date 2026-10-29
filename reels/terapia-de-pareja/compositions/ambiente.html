@@ -1,0 +1,64 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* empapelado del consultorio: rayas verticales cálidas, muy suaves */
+    [data-composition-id="ambiente"] .amb-papel { position: absolute; left: -60px; top: 0; width: 1200px; height: 1560px; opacity: 0.05;
+      background: repeating-linear-gradient(90deg, #f4e8d4 0 6px, transparent 6px 64px, #e6a93a 64px 68px, transparent 68px 128px); }
+    /* zócalo y piso de madera */
+    [data-composition-id="ambiente"] .amb-piso { position: absolute; left: 0; right: 0; top: 1560px; height: 360px; background: rgba(20, 11, 7, 0.45); border-top: 4px solid rgba(244, 232, 212, 0.12); }
+    /* la luz cálida de la lámpara que respira */
+    [data-composition-id="ambiente"] .amb-luz { position: absolute; inset: 0; background: radial-gradient(ellipse 560px 620px at 250px 760px, rgba(230, 169, 58, 0.14), rgba(230, 169, 58, 0) 75%); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1120px at 540px 920px, rgba(36, 22, 15, 0) 55%, rgba(36, 22, 15, 0.85) 100%); }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 60px; top: 1600px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; color: #f4e8d4; opacity: 0.55; text-align: right; line-height: 1.5; }
+    [data-composition-id="ambiente"] .amb-punto { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: #c8643e; margin-right: 12px; vertical-align: 1px; }
+    [data-composition-id="ambiente"] .amb-drama { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 700px 900px at 540px 1000px, rgba(200, 100, 62, 0) 40%, rgba(200, 100, 62, 0.55) 100%); }
+    [data-composition-id="ambiente"] .amb-rosa { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 620px 640px at 600px 1150px, rgba(200, 100, 62, 0.28), rgba(200, 100, 62, 0) 75%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #f4e8d4; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="70.5">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="70.5" data-track-index="0">
+      <div class="amb-papel"></div>
+      <div class="amb-luz"></div>
+      <div class="amb-piso"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-drama"></div>
+      <div class="amb-rosa"></div>
+      <div class="amb-rotulo" data-layout-ignore><span class="amb-punto"></span>CONSULTORIO<br />TERAPIA DE PAREJA</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 70.5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // la lámpara respira y el empapelado se corre apenas
+      tl.fromTo(q(".amb-luz"), { opacity: 0.6 }, { opacity: 1, duration: 2.5, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 2.5) - 1), ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".amb-papel"), { x: 0 }, { x: 60, duration: DUR, ease: "none" }, 0);
+      tl.to(q(".amb-punto"), { opacity: 0.2, duration: 0.6, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 0.6) - 1), ease: "steps(1)" }, 0);
+
+      // drama de telenovela (segundos globales): "¡estaba en el mostrador!", "que no me quiere", "¿un tercero?"
+      [[12.9, 0.6], [34.3, 0.8], [39.12, 1.6]].forEach(([t, d]) => {
+        tl.to(q(".amb-drama"), { opacity: 1, duration: 0.08 }, t);
+        tl.to(q(".amb-drama"), { opacity: 0, duration: 0.4 }, t + d);
+      });
+      // flashes: "¿un tercero?" y "mandáselo"
+      [39.32, 64.5].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.5, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+      // la reconciliación: "ay, eso fue lindo"
+      tl.to(q(".amb-rosa"), { opacity: 1, duration: 0.6 }, 54.4);
+      tl.to(q(".amb-rosa"), { opacity: 0, duration: 0.8 }, 58.6);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,11 @@
+[
+  {"t":0,"sfx":"whoosh","vol":0.25},
+  {"t":1.28,"sfx":"impact-bass-1","vol":0.35},
+  {"t":2.7,"sfx":"sparkle","vol":0.3},
+  {"t":3.2,"sfx":"pop","vol":0.25},
+  {"t":3.45,"sfx":"pop","vol":0.25},
+  {"t":3.7,"sfx":"pop","vol":0.25},
+  {"t":5.58,"sfx":"impact-bass-2","vol":0.45},
+  {"t":6.7,"sfx":"impact-bass-1","vol":0.4},
+  {"t":7.42,"sfx":"chime","vol":0.3}
+]

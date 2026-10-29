@@ -1,0 +1,212 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-consultorio"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-consultorio"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-consultorio"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-consultorio"] .ab { position: absolute; }
+    [data-composition-id="s02-consultorio"] .papel { background: #f4e8d4; border-radius: 12px; box-shadow: 0 16px 0 rgba(20, 10, 6, 0.4); }
+    [data-composition-id="s02-consultorio"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.98; white-space: nowrap; letter-spacing: -0.02em; color: #f4e8d4; }
+    [data-composition-id="s02-consultorio"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.12em; }
+    [data-composition-id="s02-consultorio"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s02-consultorio"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #c8643e; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #c8643e; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s02-consultorio"] .sello.mos { border-color: #e6a93a; color: #e6a93a; }
+    [data-composition-id="s02-consultorio"] .etiqueta { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #e6a93a; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-consultorio"] .globo { position: absolute; padding: 18px 26px 16px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; line-height: 1.15; white-space: nowrap; }
+    [data-composition-id="s02-consultorio"] .s02-placa { left: 566px; top: 706px; width: 288px; height: 176px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 62px; line-height: 0.95; color: #f4e8d4; white-space: normal; }
+    [data-composition-id="s02-consultorio"] .s02-tag { position: absolute; padding: 8px 18px 6px; border-radius: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.18em; }
+    [data-composition-id="s02-consultorio"] .s02-tag-c { left: 800px; top: 900px; background: #c8643e; color: #fff6ea; }
+    [data-composition-id="s02-consultorio"] .s02-tag-d { left: 452px; top: 900px; background: #f4e8d4; color: #2a1a13; }
+    [data-composition-id="s02-consultorio"] .s02-tag-t { left: 112px; top: 932px; background: #8faa86; color: #2a1a13; }
+  </style>
+  <div id="root" data-composition-id="s02-consultorio" data-width="1080" data-height="1920" data-duration="5.11">
+    <div id="s02-escena" class="capa escena clip" data-start="0" data-duration="5.11" data-track-index="0">
+      <div class="escenario">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <ellipse cx="560" cy="1450" rx="520" ry="56" fill="#3d271c" />
+          <g class="m-lampara">
+    <path class="m-luz" d="M22 1000 L-114 1420 L286 1420 L150 1000 Z" fill="#e6a93a" opacity="0.1" />
+    <path d="M86 1440 V990" fill="none" stroke="#f4e8d4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M36 1440 H136" fill="none" stroke="#f4e8d4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M40 900 H132 L162 1000 H10 Z" fill="#e6a93a" stroke="#f4e8d4" stroke-width="6" stroke-linejoin="round" />
+  </g>
+          <g class="m-cuadro">
+    <rect x="560" y="700" width="300" height="188" fill="#3d271c" stroke="#e6a93a" stroke-width="9" />
+    <path d="M572 874 L665 784.6 L725 831.6 L776 771.44 L848 874 Z" fill="#8faa86" />
+    <circle cx="632" cy="756.4" r="22.56" fill="#f4e8d4" />
+  </g>
+          <g class="s02-reloj">
+    <circle cx="250" cy="720" r="64" fill="#3d271c" stroke="#f4e8d4" stroke-width="7" />
+    <path d="M250 666 V678 M250 774 V762 M196 720 H208 M304 720 H292" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <path class="s02-hora" d="M250 720 V688" stroke="#f4e8d4" stroke-width="8" stroke-linecap="round" />
+    <path class="s02-min" d="M250 720 V670.08" stroke="#e6a93a" stroke-width="5" stroke-linecap="round" />
+    <circle cx="250" cy="720" r="7" fill="#f4e8d4" />
+  </g>
+          <g class="m-sillon-a"><rect x="100" y="1020" width="280" height="270" rx="70" fill="#8faa86" stroke="#f4e8d4" stroke-width="6" /></g>
+          <g transform="translate(240 1280) scale(0.82)"><g class="s02-ter pj-ter">
+    <circle cx="0" cy="-350" r="36" fill="#f4e8d4" />
+    <path d="M-118 0 L-110 -100 Q-102 -156 -44 -164 L44 -164 Q102 -156 110 -100 L118 0 Z" fill="#8faa86" stroke="#f4e8d4" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-44 -164 L0 -100 L44 -164 Z" fill="#f4e8d4" />
+    <path d="M0 -100 V0" stroke="#2a1a13" stroke-width="4" opacity="0.5" />
+    <circle cx="-14" cy="-60" r="6" fill="#2a1a13" /><circle cx="-14" cy="-24" r="6" fill="#2a1a13" />
+    <rect x="-20" y="-198" width="40" height="40" rx="6" fill="#2a1a13" stroke="#f4e8d4" stroke-width="5" />
+    <ellipse cx="0" cy="-262" rx="62" ry="72" fill="#2a1a13" stroke="#f4e8d4" stroke-width="6" />
+    <path d="M-65 -250 Q-72 -338 0 -338 Q72 -338 65 -250 Q60 -300 0 -308 Q-60 -300 -65 -250 Z" fill="#f4e8d4" />
+    <path d="M2 -254 Q-8 -236 5 -232" fill="none" stroke="#f4e8d4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <g class="t-calma" opacity="1"><circle cx="-26" cy="-262" r="6" fill="#f4e8d4" /><circle cx="26" cy="-262" r="6" fill="#f4e8d4" /><path d="M-14 -220 Q0 -212 14 -220" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="t-ceja" opacity="0"><path d="M-44 -292 H-12 M12 -300 Q28 -314 44 -302" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><circle cx="-26" cy="-262" r="6" fill="#f4e8d4" /><circle cx="26" cy="-264" r="7" fill="#f4e8d4" /><path d="M-12 -218 H14" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="t-seria" opacity="0"><path d="M-38 -264 H-14 M14 -264 H38" fill="none" stroke="#f4e8d4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><path d="M-14 -218 H14" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="t-feliz" opacity="0"><path d="M-36 -258 Q-26 -272 -16 -258 M16 -258 Q26 -272 36 -258" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><path d="M-18 -224 Q0 -206 18 -224" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="t-lentes"><circle cx="-26" cy="-262" r="21" fill="none" stroke="#e6a93a" stroke-width="5" /><circle cx="26" cy="-262" r="21" fill="none" stroke="#e6a93a" stroke-width="5" /><path d="M-5 -264 H5 M-47 -266 L-62 -272 M47 -266 L62 -272" stroke="#e6a93a" stroke-width="4" stroke-linecap="round" /></g>
+  </g></g>
+          <g class="m-sillon-f">
+    <rect x="90" y="1270" width="300" height="104" rx="26" fill="#8faa86" stroke="#f4e8d4" stroke-width="6" />
+    <rect x="54" y="1160" width="74" height="236" rx="34" fill="#8faa86" stroke="#f4e8d4" stroke-width="6" />
+    <rect x="352" y="1160" width="74" height="236" rx="34" fill="#8faa86" stroke="#f4e8d4" stroke-width="6" />
+    <path d="M100 1396 L90 1436 M380 1396 L390 1436" fill="none" stroke="#f4e8d4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+          <rect class="s02-libreta" x="244" y="1150" width="96" height="120" rx="8" fill="#e6a93a" stroke="#f4e8d4" stroke-width="5" transform="rotate(-12 292 1210)" />
+          <g class="m-sofa-a">
+    <rect x="470" y="1060" width="520" height="230" rx="44" fill="#c8643e" stroke="#f4e8d4" stroke-width="6" />
+    <path d="M730 1074 V1270" stroke="#f4e8d4" stroke-width="4" opacity="0.4" />
+  </g>
+          <g transform="translate(560 1280) scale(0.78)"><g class="s02-due pj-due">
+    <path d="M-130 0 L-122 -104 Q-112 -158 -50 -166 L50 -166 Q112 -158 122 -104 L130 0 Z" fill="#2a1a13" stroke="#f4e8d4" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-74 0 V-112 Q-74 -128 -58 -128 H58 Q74 -128 74 -112 V0 Z" fill="#8faa86" stroke="#f4e8d4" stroke-width="5" stroke-linejoin="round" />
+    <path d="M-56 -128 L-34 -166 M56 -128 L34 -166" fill="none" stroke="#8faa86" stroke-width="11" stroke-linecap="round" />
+    <rect x="-40" y="-92" width="80" height="44" rx="6" fill="none" stroke="#2a1a13" stroke-width="5" />
+    <path d="M20 -104 L30 -66" stroke="#e6a93a" stroke-width="9" stroke-linecap="round" />
+    <rect x="-24" y="-200" width="48" height="40" rx="6" fill="#2a1a13" stroke="#f4e8d4" stroke-width="5" />
+    <ellipse cx="-74" cy="-256" rx="14" ry="22" fill="#2a1a13" stroke="#f4e8d4" stroke-width="5" />
+    <ellipse cx="74" cy="-256" rx="14" ry="22" fill="#2a1a13" stroke="#f4e8d4" stroke-width="5" />
+    <ellipse cx="0" cy="-262" rx="72" ry="80" fill="#2a1a13" stroke="#f4e8d4" stroke-width="6" />
+    <path d="M-70 -246 Q-80 -294 -54 -318 M70 -246 Q80 -294 54 -318" fill="none" stroke="#f4e8d4" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-24 -324 Q0 -334 24 -324" fill="none" stroke="#f4e8d4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+    <path d="M-42 -242 Q-28 -233 -14 -242 M14 -242 Q28 -233 42 -242" fill="none" stroke="#f4e8d4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
+    <path d="M0 -252 Q-13 -232 4 -228" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <g class="d-cansado" opacity="1"><path d="M-42 -264 H-14 M14 -264 H42" fill="none" stroke="#f4e8d4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><path d="M-38 -263 Q-28 -252 -18 -263 Z M18 -263 Q28 -252 38 -263 Z" fill="#f4e8d4" /><path d="M-16 -194 Q0 -198 16 -194" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="d-grita" opacity="0"><path d="M-48 -298 L-14 -282 M48 -298 L14 -282" fill="none" stroke="#f4e8d4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><circle cx="-28" cy="-264" r="8" fill="#f4e8d4" /><circle cx="28" cy="-264" r="8" fill="#f4e8d4" /><ellipse cx="0" cy="-192" rx="24" ry="20" fill="#140b07" stroke="#f4e8d4" stroke-width="5" /><path d="M92 -306 Q82 -288 92 -280 Q102 -288 92 -306 Z" fill="#8faa86" /></g>
+    <g class="d-feliz" opacity="0"><path d="M-40 -260 Q-28 -276 -16 -260 M16 -260 Q28 -276 40 -260" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><path d="M-22 -198 Q0 -180 22 -198" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="d-sorpresa" opacity="0"><circle cx="-28" cy="-264" r="13" fill="none" stroke="#f4e8d4" stroke-width="4" /><circle cx="28" cy="-264" r="13" fill="none" stroke="#f4e8d4" stroke-width="4" /><circle cx="-28" cy="-264" r="5" fill="#f4e8d4" /><circle cx="28" cy="-264" r="5" fill="#f4e8d4" /><ellipse cx="0" cy="-194" rx="10" ry="12" fill="#140b07" stroke="#f4e8d4" stroke-width="5" /></g>
+    <path d="M-46 -214 Q-22 -234 0 -222 Q22 -234 46 -214 Q22 -204 0 -213 Q-22 -204 -46 -214 Z" fill="#f4e8d4" />
+  </g></g>
+          <g transform="translate(892 1280) scale(0.78)"><g class="s02-cli pj-cli">
+    <path d="M44 -318 Q132 -322 126 -236 Q122 -180 82 -164 Q104 -236 48 -276 Z" fill="#c8643e" stroke="#f4e8d4" stroke-width="5" stroke-linejoin="round" />
+    <path d="M-118 0 L-110 -100 Q-102 -156 -44 -164 L44 -164 Q102 -156 110 -100 L118 0 Z" fill="#e6a93a" stroke="#f4e8d4" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-44 -164 Q0 -126 44 -164" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="-20" y="-198" width="40" height="40" rx="6" fill="#2a1a13" stroke="#f4e8d4" stroke-width="5" />
+    <ellipse cx="0" cy="-262" rx="64" ry="72" fill="#2a1a13" stroke="#f4e8d4" stroke-width="6" />
+    <path d="M-67 -254 Q-76 -340 0 -340 Q76 -340 67 -254 Q58 -300 22 -302 Q-6 -286 -30 -302 Q-58 -294 -67 -254 Z" fill="#c8643e" stroke="#f4e8d4" stroke-width="5" stroke-linejoin="round" />
+    <circle cx="-64" cy="-232" r="8" fill="#e6a93a" /><circle cx="64" cy="-232" r="8" fill="#e6a93a" />
+    <path d="M2 -256 Q-8 -238 5 -234" fill="none" stroke="#f4e8d4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <g class="c-normal" opacity="0"><circle cx="-24" cy="-264" r="7" fill="#f4e8d4" /><circle cx="24" cy="-264" r="7" fill="#f4e8d4" /><path d="M-16 -214 Q0 -220 16 -214" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="c-triste" opacity="0"><path d="M-42 -280 L-12 -292 M42 -280 L12 -292" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><circle cx="-24" cy="-262" r="7" fill="#f4e8d4" /><circle cx="24" cy="-262" r="7" fill="#f4e8d4" /><path d="M-18 -210 Q0 -228 18 -210" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><path class="c-lagrima" d="M-30 -248 Q-38 -232 -30 -226 Q-22 -232 -30 -248 Z" fill="#8faa86" /></g>
+    <g class="c-enojo" opacity="1"><path d="M-44 -294 L-12 -280 M44 -294 L12 -280" fill="none" stroke="#f4e8d4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><circle cx="-24" cy="-262" r="7" fill="#f4e8d4" /><circle cx="24" cy="-262" r="7" fill="#f4e8d4" /><path d="M-16 -214 H16" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="c-ruedo" opacity="0"><circle cx="-24" cy="-264" r="13" fill="none" stroke="#f4e8d4" stroke-width="4" /><circle cx="24" cy="-264" r="13" fill="none" stroke="#f4e8d4" stroke-width="4" /><circle cx="-24" cy="-272" r="5" fill="#f4e8d4" /><circle cx="24" cy="-272" r="5" fill="#f4e8d4" /><path d="M-16 -214 Q0 -208 16 -216" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="c-feliz" opacity="0"><path d="M-36 -258 Q-24 -274 -12 -258 M12 -258 Q24 -274 36 -258" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><circle cx="-42" cy="-234" r="11" fill="#c8643e" /><circle cx="42" cy="-234" r="11" fill="#c8643e" /><path d="M-22 -224 Q0 -198 22 -224" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="c-sorpresa" opacity="0"><path d="M-42 -296 Q-26 -306 -10 -298 M42 -296 Q26 -306 10 -298" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><circle cx="-24" cy="-264" r="13" fill="none" stroke="#f4e8d4" stroke-width="4" /><circle cx="24" cy="-264" r="13" fill="none" stroke="#f4e8d4" stroke-width="4" /><circle cx="-24" cy="-264" r="5" fill="#f4e8d4" /><circle cx="24" cy="-264" r="5" fill="#f4e8d4" /><ellipse cx="0" cy="-214" rx="11" ry="15" fill="#2a1a13" stroke="#f4e8d4" stroke-width="5" /></g>
+  </g></g>
+          <g class="m-sofa-f">
+    <rect x="464" y="1270" width="532" height="110" rx="26" fill="#c8643e" stroke="#f4e8d4" stroke-width="6" />
+    <path d="M730 1278 V1370" stroke="#f4e8d4" stroke-width="4" opacity="0.4" />
+    <rect x="414" y="1150" width="84" height="250" rx="38" fill="#c8643e" stroke="#f4e8d4" stroke-width="6" />
+    <rect x="962" y="1150" width="84" height="250" rx="38" fill="#c8643e" stroke="#f4e8d4" stroke-width="6" />
+    <path d="M460 1400 L452 1438 M1000 1400 L1008 1438" fill="none" stroke="#f4e8d4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+        </svg>
+        <div class="ab mano s02-placa">Espacio seguro</div>
+        <div class="s02-tag s02-tag-c">FLOR</div>
+        <div class="s02-tag s02-tag-d">EL DUEÑO</div>
+        <div class="s02-tag s02-tag-t">LA DOCTORA</div>
+        <div class="etiqueta s02-e1" style="top: 1500px">SESIÓN N° 1</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-consultorio";
+      const DUR = 5.11;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        const { rot, ...desde } = de || {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, desde), { opacity: 1, scale: 1, x: 0, y: 0, rotation: rot || 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara de un personaje
+      const cara = (raiz, de, a, t) => {
+        tl.to(qa(raiz + " ." + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(qa(raiz + " ." + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      // respira o se hamaca (finito y determinista)
+      const vaiven = (s, prop, amp, per, t0) => els(s).forEach((el) => {
+        const n = Math.max(1, Math.floor((DUR - (t0 || 0)) / per) - 1);
+        tl.fromTo(el, { [prop]: 0 }, { [prop]: amp, duration: per, yoyo: true, repeat: n, ease: "sine.inOut", immediateRender: false }, t0 || 0);
+      });
+      const fuera = (s, t, d) => tl.to(els(s), { opacity: 0, duration: d || 0.18, ease: "power2.in" }, t);
+      const salida = () => tl.to(q(".escena"), { y: -60, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      tl.fromTo(q(".escenario"), { scale: 1.05, opacity: 0.35 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out", transformOrigin: "50% 55%" }, 0);
+
+
+      tl.fromTo(q(".s02-min"), { rotation: 0 }, { rotation: 300, svgOrigin: "250 720", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s02-hora"), { rotation: 0 }, { rotation: 25, svgOrigin: "250 720", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".m-luz"), { opacity: 0.06 }, { opacity: 0.14, duration: 1.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      pop(".s02-e1", 0.05, { y: 20 });
+      // "respiren": los dos inflan el pecho
+
+      [".s02-due", ".s02-cli"].forEach((s, i) => {
+        tl.to(q(s), { scale: 1.06, y: -14, svgOrigin: "0 0", duration: 0.7, ease: "sine.inOut" }, 0.45 + i * 0.05);
+        tl.to(q(s), { scale: 1, y: 0, svgOrigin: "0 0", duration: 0.8, ease: "sine.inOut" }, 1.2 + i * 0.05);
+      });
+      fuera(".s02-e1", 2.0);
+      // "espacio seguro": el cuadro se vuelve un bordado
+      tl.to(q(".m-cuadro path"), { opacity: 0, duration: 0.2 }, 2.3);
+      tl.to(q(".m-cuadro circle"), { opacity: 0, duration: 0.2 }, 2.3);
+      escribir(".s02-placa", 2.4, 0.6);
+      // "contame, Flor": la doctora la señala con la cabeza y aparecen los nombres
+      tl.to(q(".s02-ter"), { rotation: 8, svgOrigin: "0 0", duration: 0.3, ease: "back.out(2)" }, 3.2);
+      tl.to(q(".s02-libreta"), { rotation: 8, svgOrigin: "292 1210", duration: 0.3 }, 3.2);
+      pop(".s02-tag-t", 0.9, { y: 20 });
+      pop(".s02-tag-d", 1.3, { y: 20 });
+      pop(".s02-tag-c", 3.95, { y: 30, scale: 0.4 });
+      cara(".s02-cli", "c-enojo", "c-triste", 3.95);
+      tl.to(q(".s02-cli"), { y: -16, duration: 0.15, yoyo: true, repeat: 1 }, 3.95);
+      vaiven(".s02-ter", "y", -5, 0.8, 0.1);
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

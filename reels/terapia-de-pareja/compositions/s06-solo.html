@@ -1,0 +1,139 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-solo"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-solo"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-solo"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-solo"] .ab { position: absolute; }
+    [data-composition-id="s06-solo"] .papel { background: #f4e8d4; border-radius: 12px; box-shadow: 0 16px 0 rgba(20, 10, 6, 0.4); }
+    [data-composition-id="s06-solo"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.98; white-space: nowrap; letter-spacing: -0.02em; color: #f4e8d4; }
+    [data-composition-id="s06-solo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.12em; }
+    [data-composition-id="s06-solo"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s06-solo"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #c8643e; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #c8643e; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s06-solo"] .sello.mos { border-color: #e6a93a; color: #e6a93a; }
+    [data-composition-id="s06-solo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #e6a93a; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-solo"] .globo { position: absolute; padding: 18px 26px 16px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; line-height: 1.15; white-space: nowrap; }
+    [data-composition-id="s06-solo"] .s06-t1 { top: 610px; font-size: 150px; }
+    [data-composition-id="s06-solo"] .s06-t1 span { color: #c8643e; }
+    [data-composition-id="s06-solo"] .s06-tar { width: 280px; height: 210px; }
+    [data-composition-id="s06-solo"] .s06-lab { text-align: center; font-size: 30px; color: #2a1a13; margin-top: 4px; }
+    [data-composition-id="s06-solo"] .s06-hora { left: 760px; top: 1390px; font-size: 64px; font-family: "Lexend", sans-serif; font-weight: 900; color: #e6a93a; }
+  </style>
+  <div id="root" data-composition-id="s06-solo" data-width="1080" data-height="1920" data-duration="5.98">
+    <div id="s06-escena" class="capa escena clip" data-start="0" data-duration="5.98" data-track-index="0">
+      <div class="escenario">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 1500) scale(1.25)"><g class="s06-due pj-due">
+    <path d="M-130 0 L-122 -104 Q-112 -158 -50 -166 L50 -166 Q112 -158 122 -104 L130 0 Z" fill="#2a1a13" stroke="#f4e8d4" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-74 0 V-112 Q-74 -128 -58 -128 H58 Q74 -128 74 -112 V0 Z" fill="#8faa86" stroke="#f4e8d4" stroke-width="5" stroke-linejoin="round" />
+    <path d="M-56 -128 L-34 -166 M56 -128 L34 -166" fill="none" stroke="#8faa86" stroke-width="11" stroke-linecap="round" />
+    <rect x="-40" y="-92" width="80" height="44" rx="6" fill="none" stroke="#2a1a13" stroke-width="5" />
+    <path d="M20 -104 L30 -66" stroke="#e6a93a" stroke-width="9" stroke-linecap="round" />
+    <rect x="-24" y="-200" width="48" height="40" rx="6" fill="#2a1a13" stroke="#f4e8d4" stroke-width="5" />
+    <ellipse cx="-74" cy="-256" rx="14" ry="22" fill="#2a1a13" stroke="#f4e8d4" stroke-width="5" />
+    <ellipse cx="74" cy="-256" rx="14" ry="22" fill="#2a1a13" stroke="#f4e8d4" stroke-width="5" />
+    <ellipse cx="0" cy="-262" rx="72" ry="80" fill="#2a1a13" stroke="#f4e8d4" stroke-width="6" />
+    <path d="M-70 -246 Q-80 -294 -54 -318 M70 -246 Q80 -294 54 -318" fill="none" stroke="#f4e8d4" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M-24 -324 Q0 -334 24 -324" fill="none" stroke="#f4e8d4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+    <path d="M-42 -242 Q-28 -233 -14 -242 M14 -242 Q28 -233 42 -242" fill="none" stroke="#f4e8d4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" />
+    <path d="M0 -252 Q-13 -232 4 -228" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <g class="d-cansado" opacity="0"><path d="M-42 -264 H-14 M14 -264 H42" fill="none" stroke="#f4e8d4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><path d="M-38 -263 Q-28 -252 -18 -263 Z M18 -263 Q28 -252 38 -263 Z" fill="#f4e8d4" /><path d="M-16 -194 Q0 -198 16 -194" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="d-grita" opacity="1"><path d="M-48 -298 L-14 -282 M48 -298 L14 -282" fill="none" stroke="#f4e8d4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><circle cx="-28" cy="-264" r="8" fill="#f4e8d4" /><circle cx="28" cy="-264" r="8" fill="#f4e8d4" /><ellipse cx="0" cy="-192" rx="24" ry="20" fill="#140b07" stroke="#f4e8d4" stroke-width="5" /><path d="M92 -306 Q82 -288 92 -280 Q102 -288 92 -306 Z" fill="#8faa86" /></g>
+    <g class="d-feliz" opacity="0"><path d="M-40 -260 Q-28 -276 -16 -260 M16 -260 Q28 -276 40 -260" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><path d="M-22 -198 Q0 -180 22 -198" fill="none" stroke="#f4e8d4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="d-sorpresa" opacity="0"><circle cx="-28" cy="-264" r="13" fill="none" stroke="#f4e8d4" stroke-width="4" /><circle cx="28" cy="-264" r="13" fill="none" stroke="#f4e8d4" stroke-width="4" /><circle cx="-28" cy="-264" r="5" fill="#f4e8d4" /><circle cx="28" cy="-264" r="5" fill="#f4e8d4" /><ellipse cx="0" cy="-194" rx="10" ry="12" fill="#140b07" stroke="#f4e8d4" stroke-width="5" /></g>
+    <path d="M-46 -214 Q-22 -234 0 -222 Q22 -234 46 -214 Q22 -204 0 -213 Q-22 -204 -46 -214 Z" fill="#f4e8d4" />
+  </g></g>
+        </svg>
+        <div class="grande s06-t1">ESTOY <span>SOLO</span></div>
+        <div class="ab papel s06-tar s06-a" style="left:40px; top:830px">
+          <svg width="250" height="130" viewBox="0 0 250 130" aria-hidden="true" style="display:block; margin: 14px auto 0"><rect x="30" y="50" width="190" height="70" rx="6" fill="none" stroke="#2a1a13" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><path d="M20 50 H230" fill="none" stroke="#2a1a13" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><rect x="150" y="16" width="50" height="34" rx="4" fill="none" stroke="#2a1a13" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <div class="mono s06-lab">MOSTRADOR</div></div>
+        <div class="ab papel s06-tar s06-b" style="left:760px; top:830px">
+          <svg width="250" height="130" viewBox="0 0 250 130" aria-hidden="true" style="display:block; margin: 14px auto 0"><rect x="50" y="40" width="150" height="80" rx="8" fill="none" stroke="#2a1a13" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><rect x="76" y="10" width="98" height="30" rx="4" fill="none" stroke="#2a1a13" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><path d="M80 66 H100 M120 66 H140 M160 66 H170 M80 92 H170" fill="none" stroke="#2a1a13" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <div class="mono s06-lab">CAJA</div></div>
+        <div class="ab papel s06-tar s06-c" style="left:40px; top:1080px">
+          <svg width="250" height="130" viewBox="0 0 250 130" aria-hidden="true" style="display:block; margin: 14px auto 0"><rect x="40" y="62" width="80" height="60" fill="none" stroke="#2a1a13" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><rect x="130" y="62" width="80" height="60" fill="none" stroke="#2a1a13" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><rect x="85" y="6" width="80" height="56" fill="none" stroke="#2a1a13" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><path d="M80 62 V80 M170 62 V80 M125 6 V24" fill="none" stroke="#2a1a13" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          <div class="mono s06-lab">PROVEEDOR</div></div>
+        <div class="ab papel s06-tar s06-d" style="left:760px; top:1080px">
+          <svg width="250" height="130" viewBox="0 0 250 130" aria-hidden="true" style="display:block; margin: 14px auto 0"><rect x="90" y="4" width="70" height="120" rx="12" fill="none" stroke="#2a1a13" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><path d="M180 30 Q200 64 180 98 M200 16 Q230 64 200 112 M70 30 Q50 64 70 98" fill="none" stroke="#2a1a13" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><path d="M112 40 Q104 56 116 70 Q128 72 134 62 Q122 60 112 40 Z" fill="#2a1a13" /></svg>
+          <div class="mono s06-lab">WHATSAPP</div></div>
+        <div class="ab s06-hora">23:00</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-solo";
+      const DUR = 5.98;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        const { rot, ...desde } = de || {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, desde), { opacity: 1, scale: 1, x: 0, y: 0, rotation: rot || 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara de un personaje
+      const cara = (raiz, de, a, t) => {
+        tl.to(qa(raiz + " ." + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(qa(raiz + " ." + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      // respira o se hamaca (finito y determinista)
+      const vaiven = (s, prop, amp, per, t0) => els(s).forEach((el) => {
+        const n = Math.max(1, Math.floor((DUR - (t0 || 0)) / per) - 1);
+        tl.fromTo(el, { [prop]: 0 }, { [prop]: amp, duration: per, yoyo: true, repeat: n, ease: "sine.inOut", immediateRender: false }, t0 || 0);
+      });
+      const fuera = (s, t, d) => tl.to(els(s), { opacity: 0, duration: d || 0.18, ease: "power2.in" }, t);
+      const salida = () => tl.to(q(".escena"), { y: -60, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      tl.fromTo(q(".escenario"), { scale: 1.05, opacity: 0.35 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out", transformOrigin: "50% 55%" }, 0);
+
+
+      golpe(".s06-t1", 0.3, 2.6, -2);
+      sacudon(0.3, 1.3);
+      vaiven(".s06-due", "rotation", 2.5, 0.14, 0.4);
+      pop(".s06-a", 1.45, { x: -80, rot: -6 });
+      pop(".s06-b", 2.25, { x: 80, rot: 5 });
+      pop(".s06-c", 2.85, { x: -80, rot: 4 });
+      pop(".s06-d", 3.95, { x: 80, rot: -5 });
+      // las tarjetas tiemblan cada vez más
+      [".s06-a", ".s06-b", ".s06-c"].forEach((s, i) => tl.to(q(s), { rotation: i % 2 ? 4 : -4, duration: 0.1, yoyo: true, repeat: 15, ease: "none" }, 3.3 + i * 0.03));
+      tl.to(q(".s06-d"), { x: 8, duration: 0.05, yoyo: true, repeat: 21, ease: "none" }, 4.05);
+      golpe(".s06-hora", 4.6, 2.2, -6);
+      tl.to(q(".s06-t1"), { y: -14, scale: 0.92, duration: 0.3 }, 1.3);
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

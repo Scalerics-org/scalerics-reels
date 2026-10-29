@@ -43,12 +43,12 @@
 - 29-10 · `el-relator` · Agente de IA · "¡Te están goleando en tu propia cancha! ¡Y vos ni te enteraste!" Relator uruguayo narra cómo tu clienta se escapa por la banda porque dejaste en visto; el VAR: "es visto, nomás"; gol del de enfrente, que tiene agente de IA · Etiquetá al que siempre deja en visto [formato P partido con relator · estilo transmisión de fútbol con marcador, cuatro voces]
 - 29-10 · `entrevista-de-trabajo` · Agente de IA · "Entrevisté a mi próximo empleado. No come, no duerme y no pide aumento." El dueño desconfiado entrevista al agente de IA (domingos, 3 AM, Carnaval, "¿qué es dejar en visto?", "con que no me desenchufes") · ¿Lo contratás? Comentá SÍ o NO [formato B diálogo entrevista · estilo oficina de RRHH con ficha, currículum y sellos, tres voces]
 - 29-10 · `pelea-de-gallos` · Agente de IA · "¡Arriba las manos! De este lado, el dueño del local. Del otro, el agente de IA." Batalla de freestyle en dos rounds: "Yo contesto cuando puedo" contra "Yo contesto cuando querés"; giro: "no vengo a robarte el puesto, vengo a devolverte el domingo" · ¿Quién ganó? Comentá DUEÑO o AGENTE [formato P batalla de freestyle · estilo batalla callejera graffiti y neón, beat sintetizado, cuatro voces]
+- 29-10 · `terapia-de-pareja` · Agente de IA · la clienta y el local en terapia de pareja: "Siento que ya no me escucha." Ella se queja (visto, tres días, solo liquidaciones), él "¡pero estoy solo!"; giro: "él solo no puede, sumen a alguien", "¿un tercero?", un agente de IA · Mandáselo a tu socio. Tienen que hablar [formato B diálogo terapia · estilo consultorio de terapia cálido terracota/salvia, cuatro voces]
 
 ## En curso
 
 - 29-10 (2ª tanda) · `ultimo-momento` · Agente de IA · noticiero de último momento con zócalos rojos: comercio pierde clientes y culpa al dólar; móvil en el lugar, vecina entrevistada · reservado
 - 29-10 (2ª tanda) · `quien-mato-la-venta` · Tienda online · documental de crímenes: "¿Quién mató a la venta?" expedientes, sospechosos (el cuaderno, el "consultá por privado", el comprobante) · reservado
-- 29-10 (2ª tanda) · `terapia-de-pareja` · Agente de IA · el dueño y su clienta en terapia de pareja: "siento que ya no me escucha" · reservado
 - 29-10 (2ª tanda) · `despedido` · Agente de IA · diario de una semana: el dueño despide al agente de IA para ahorrar y el local se cae día a día · reservado
 - 29-10 (2ª tanda) · `el-roast` · Sitio web · roast en un club de comedia a la presencia online de un comercio; giro: lo de adentro es buenísimo y nadie lo ve · reservado
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
