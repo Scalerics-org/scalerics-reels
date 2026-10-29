@@ -1,0 +1,98 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-repe"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-repe"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-repe"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* el monitor del VAR */
+    [data-composition-id="s07-repe"] .s07-mon { position: absolute; left: 110px; top: 580px; width: 860px; height: 820px; border: 6px solid #f4f6f0; border-radius: 22px; background: rgba(4, 18, 8, 0.85); overflow: hidden; }
+    [data-composition-id="s07-repe"] .s07-cab { position: absolute; left: 0; right: 0; top: 0; height: 70px; display: flex; align-items: center; justify-content: space-between; padding: 0 26px; background: #f4f6f0; color: #07200f; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; }
+    [data-composition-id="s07-repe"] .s07-rec { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: #ff3b30; margin-right: 10px; }
+    [data-composition-id="s07-repe"] .s07-hora { position: absolute; left: 0; right: 0; top: 110px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 170px; line-height: 1; color: #f4f6f0; letter-spacing: -0.02em; }
+    [data-composition-id="s07-repe"] .s07-leido { position: absolute; left: 0; right: 0; top: 300px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.3em; color: #5ec8f2; }
+    [data-composition-id="s07-repe"] .s07-dias { position: absolute; left: 50px; top: 420px; width: 748px; display: flex; gap: 18px; }
+    [data-composition-id="s07-repe"] .s07-dia { flex: 1; height: 150px; border: 4px solid rgba(244, 246, 240, 0.5); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; color: #f4f6f0; text-transform: uppercase; }
+    [data-composition-id="s07-repe"] .s07-dia small { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.04em; opacity: 0.75; margin-top: 8px; }
+    [data-composition-id="s07-repe"] .s07-lun { border-color: #ff3b30; color: #ff3b30; }
+    [data-composition-id="s07-repe"] .s07-flecha { fill: none; stroke: #ffd23f; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 4 18; }
+    [data-composition-id="s07-repe"] .s07-decision { position: absolute; left: 140px; top: 1180px; width: 800px; padding: 18px 0; background: #ff3b30; border-radius: 12px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; line-height: 1; color: #f4f6f0; text-transform: uppercase; white-space: nowrap; box-shadow: 0 8px 0 rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s07-repe"] .s07-decision small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.3em; margin-bottom: 8px; opacity: 0.85; }
+  </style>
+  <div id="root" data-composition-id="s07-repe" data-width="1080" data-height="1920" data-duration="5.63">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.63" data-track-index="0">
+      <div class="s07-escenario">
+        <div class="s07-mon">
+          <div class="s07-cab"><span><span class="s07-rec"></span>VAR · REPETICIÓN</span><span>CÁM 4</span></div>
+          <div class="s07-hora"><span class="s07-hh">23:0</span><span class="s07-mm">0</span></div>
+          <div class="s07-leido">LEÍDO</div>
+          <div class="s07-dias">
+            <div class="s07-dia s07-sab">Sáb<small>VISTO</small></div>
+            <div class="s07-dia">Dom<small>...</small></div>
+            <div class="s07-dia s07-lun">Lun<small>RESPONDE</small></div>
+          </div>
+          <svg viewBox="0 0 860 820" style="width: 860px; height: 820px" aria-hidden="true">
+            <path class="s07-flecha" d="M175 420 C260 330 560 330 680 410" />
+            <path d="M660 390 L684 414 L650 420" fill="none" stroke="#ffd23f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" class="s07-punta" />
+          </svg>
+        </div>
+        <div class="s07-decision"><small>Decisión del VAR</small>Es visto, nomás</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-repe";
+      const DUR = 5.63;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const LEYO = 0.19;
+      const DOS = 1.71;
+      const PENSABA = 2.18;
+      const LUNES = 3.24;
+      const VISTO = 4.38;
+
+      // cuadro 0: el monitor ya está, zoom lento de tele
+      tl.fromTo(q(".s07-mon"), { scale: 1.06, opacity: 0.6 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s07-escenario"), { scale: 1 }, { scale: 1.04, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.to(q(".s07-rec"), { opacity: 0.2, duration: 0.25, yoyo: true, repeat: 15, ease: "steps(1)" }, 0);
+      // la hora corre como un timecode hasta 23:02
+      gsap.set(q(".s07-leido"), { opacity: 0 });
+      const mm = q(".s07-mm");
+      const cuenta = { v: 0 };
+      tl.to(cuenta, { v: 2, duration: DOS - 0.3, ease: "power1.in", onUpdate: () => { mm.textContent = String(Math.floor(cuenta.v + 0.001)); } }, LEYO);
+      tl.fromTo(q(".s07-hora"), { scale: 1 }, { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, DOS - 0.1);
+      sacudon(DOS - 0.05, 0.8);
+      tl.fromTo(q(".s07-leido"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, DOS);
+
+      // "pensaba contestar el lunes": los días; la flecha salta de sábado a lunes
+      const dias = root.querySelectorAll(".s07-dia");
+      gsap.set(dias, { opacity: 0 });
+      tl.fromTo(dias, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25, stagger: 0.12, ease: "back.out(2)", immediateRender: false }, PENSABA);
+      const fl = q(".s07-flecha");
+      gsap.set(fl, { clipPath: "inset(0 100% 0 0)" });
+      gsap.set(q(".s07-punta"), { opacity: 0 });
+      tl.to(fl, { clipPath: "inset(0 0% 0 0)", duration: 0.7, ease: "power2.inOut" }, PENSABA + 0.4);
+      tl.to(q(".s07-punta"), { opacity: 1, duration: 0.05 }, PENSABA + 1.05);
+      tl.fromTo(q(".s07-lun"), { scale: 1 }, { scale: 1.15, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, LUNES);
+      sacudon(LUNES + 0.04, 0.7);
+
+      // "Es visto, nomás": la decisión del VAR
+      gsap.set(q(".s07-decision"), { opacity: 0 });
+      tl.fromTo(q(".s07-decision"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, VISTO - 0.18);
+      sacudon(VISTO, 1.4);
+      tl.to(q(".s07-mon"), { opacity: 0.45, duration: 0.15 }, VISTO);
+      tl.to(q(".s07-decision"), { rotation: -2, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, VISTO + 0.4);
+
+      tl.to(q("#s07-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

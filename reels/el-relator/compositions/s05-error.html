@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-error"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-error"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-error"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-error"] .linea { fill: none; stroke: #f4f6f0; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-error"] .fino { fill: none; stroke: #f4f6f0; stroke-width: 3; opacity: 0.5; stroke-linecap: round; }
+    [data-composition-id="s05-error"] .flecha { fill: none; stroke: #ffd23f; stroke-width: 8; stroke-linecap: round; stroke-dasharray: 4 20; }
+    [data-composition-id="s05-error"] .circ { fill: none; stroke: #ff3b30; stroke-width: 9; stroke-linecap: round; }
+    [data-composition-id="s05-error"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; fill: #f4f6f0; opacity: 0.8; }
+    [data-composition-id="s05-error"] .rotulo-r { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; fill: #ff3b30; letter-spacing: 0.04em; }
+    [data-composition-id="s05-error"] .s05-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s05-error"] .s05-error { top: 590px; font-weight: 900; font-size: 140px; letter-spacing: -0.02em; color: #ff3b30; }
+    [data-composition-id="s05-error"] .s05-defensa { top: 740px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.26em; color: #f4f6f0; }
+    [data-composition-id="s05-error"] .s05-repe { position: absolute; left: 70px; top: 820px; padding: 6px 14px; background: #f4f6f0; color: #07200f; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; }
+    [data-composition-id="s05-error"] .s05-perdona { top: 1236px; font-weight: 900; font-size: 104px; letter-spacing: -0.02em; color: #f4f6f0; }
+    /* zócalo del comentarista */
+    [data-composition-id="s05-error"] .s05-zocalo { position: absolute; left: 60px; top: 1400px; height: 96px; display: flex; align-items: stretch; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s05-error"] .s05-z1 { display: flex; align-items: center; padding: 0 22px; background: #ffd23f; color: #07200f; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 32px; text-transform: uppercase; }
+    [data-composition-id="s05-error"] .s05-z2 { display: flex; flex-direction: column; justify-content: center; padding: 0 24px; background: #f4f6f0; color: #07200f; }
+    [data-composition-id="s05-error"] .s05-z2 b { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 32px; line-height: 1.1; text-transform: uppercase; }
+    [data-composition-id="s05-error"] .s05-z2 i { font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.04em; opacity: 0.75; }
+  </style>
+  <div id="root" data-composition-id="s05-error" data-width="1080" data-height="1920" data-duration="4.54">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.54" data-track-index="0">
+      <div class="s05-escenario">
+        <div class="s05-txt s05-error">¡Qué error!</div>
+        <div class="s05-txt s05-defensa">de la defensa</div>
+        <!-- fase 1: la repetición táctica -->
+        <svg class="s05-tactica" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="linea" d="M150 880 H930 V1360 H150 Z" />
+          <path class="linea" d="M330 880 V1030 H750 V880" />
+          <path class="linea" d="M470 880 V846 H610 V880" />
+          <path class="flecha s05-pase" d="M230 1280 C300 1120 420 1010 540 960" />
+          <circle cx="540" cy="960" r="16" fill="#f4f6f0" stroke="#07200f" stroke-width="4" />
+          <circle cx="230" cy="1280" r="26" fill="#ffd23f" stroke="#07200f" stroke-width="5" />
+          <!-- el defensor: el dueño, mirando para otro lado -->
+          <g class="s05-def">
+            <circle cx="660" cy="1150" r="30" fill="#ff3b30" stroke="#07200f" stroke-width="5" />
+            <path class="fino" d="M660 1150 L740 1230" />
+          </g>
+          <text class="rotulo-r" x="748" y="1160">DUEÑO</text>
+          <circle class="circ s05-circ" cx="660" cy="1150" r="74" />
+        </svg>
+        <!-- fase 2: el estadio -->
+        <svg class="s05-estadio" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="linea s05-e1" d="M170 1100 C170 920 910 920 910 1100 C910 1170 170 1170 170 1100 Z" />
+          <path class="linea s05-e2" d="M240 1100 C240 990 840 990 840 1100 C840 1140 240 1140 240 1100 Z" />
+          <path class="fino s05-e3" d="M200 1060 L250 1070 M300 980 L320 1010 M420 950 L428 990 M540 944 V986 M660 950 L652 990 M780 980 L760 1010 M880 1060 L830 1070" />
+          <path class="linea s05-e4" d="M500 950 V800 H580 V950 M500 840 H580" />
+          <text class="rotulo s05-er" x="540" y="1190" text-anchor="middle">EL CENTENARIO</text>
+        </svg>
+        <div class="s05-txt s05-perdona">No se perdona</div>
+        <div class="s05-repe">REPETICIÓN</div>
+        <div class="s05-zocalo"><div class="s05-z1">Comentario</div><div class="s05-z2"><b>El veterano</b><i>desde la tribuna</i></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-error";
+      const DUR = 4.54;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s05-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, s = 2.4) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const trazo = (p, t, d) => { const L = p.getTotalLength(); gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.to(p, { opacity: 1, duration: 0.01 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); };
+
+      const DEFENSA = 0.76;
+      const ESO = 2.14;
+      const CENTENARIO = 2.57;
+      const PERDONA = 3.33;
+
+      // cuadro 0: "¡Qué error!" de golpe, la repetición ya está
+      tl.fromTo(q(".s05-error"), { opacity: 0.5, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in" }, 0);
+      sacudon(0.16, 1.2);
+      tl.fromTo(q(".s05-tactica"), { opacity: 0.4, scale: 1.12, transformOrigin: "540px 1100px" }, { opacity: 1, scale: 1, transformOrigin: "540px 1100px", duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s05-repe"), { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.2 }, 0.05);
+      tl.to(q(".s05-repe"), { opacity: 0.3, duration: 0.25, yoyo: true, repeat: 3, ease: "steps(1)" }, 0.5);
+      const pase = q(".s05-pase");
+      gsap.set(pase, { clipPath: "inset(0 100% 0 0)" });
+      tl.to(pase, { clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "power2.out" }, 0.1);
+      // el defensor gira para el otro lado; el círculo rojo de la tele lo marca
+      tl.to(q(".s05-def"), { rotation: 160, svgOrigin: "660 1150", duration: 0.4, ease: "back.out(2)" }, 0.5);
+      trazo(q(".s05-circ"), DEFENSA - 0.1, 0.35);
+      golpe(".s05-defensa", DEFENSA, 1.6);
+      tl.to(q(".s05-circ"), { scale: 1.12, svgOrigin: "660 1150", duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, DEFENSA + 0.3);
+
+      // zócalo del comentarista
+      tl.fromTo(q(".s05-zocalo"), { x: -700 }, { x: 0, duration: 0.35, ease: "power3.out" }, 0.25);
+
+      // "Eso, en el Centenario": cambia a la toma del estadio
+      tl.to([q(".s05-tactica"), q(".s05-error"), q(".s05-defensa"), q(".s05-repe")], { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, ESO - 0.15);
+      gsap.set(q(".s05-estadio"), { opacity: 0 });
+      tl.to(q(".s05-estadio"), { opacity: 1, duration: 0.01 }, ESO);
+      ["s05-e1", "s05-e2", "s05-e3", "s05-e4"].forEach((c, i) => trazo(q("." + c), ESO + i * 0.12, 0.55));
+      tl.fromTo(q(".s05-er"), { opacity: 0 }, { opacity: 0.8, duration: 0.2 }, CENTENARIO);
+      tl.fromTo(q(".s05-estadio"), { scale: 0.9 }, { scale: 1.05, svgOrigin: "540 1050", duration: DUR - ESO, ease: "none" }, ESO);
+      // "no se perdona"
+      golpe(".s05-perdona", PERDONA - 0.15, 2.4);
+      sacudon(PERDONA - 0.05, 1.3);
+
+      tl.to(q("#s05-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

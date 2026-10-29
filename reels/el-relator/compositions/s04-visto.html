@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-visto"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-visto"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-visto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-visto"] .tilde { fill: none; stroke: #8a968e; stroke-width: 44; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-visto"] .linea { fill: none; stroke: #f4f6f0; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-visto"] .s04-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s04-visto"] .s04-llega { top: 600px; font-weight: 900; font-size: 160px; letter-spacing: -0.02em; color: #f4f6f0; }
+    [data-composition-id="s04-visto"] .s04-azul { top: 1250px; font-weight: 900; font-size: 88px; letter-spacing: -0.01em; color: #5ec8f2; text-shadow: 0 0 30px rgba(94, 200, 242, 0.45); }
+    [data-composition-id="s04-visto"] .s04-rot { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.26em; color: #f4f6f0; text-transform: uppercase; }
+    [data-composition-id="s04-visto"] .s04-leido { top: 1370px; }
+    [data-composition-id="s04-visto"] .s04-dueno-r { top: 1440px; color: #ff3b30; }
+    [data-composition-id="s04-visto"] .s04-sello { position: absolute; left: 150px; top: 1010px; width: 780px; padding: 18px 0; border: 9px solid #ff3b30; border-radius: 14px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 120px; line-height: 1; color: #ff3b30; text-transform: uppercase; background: rgba(7, 32, 15, 0.82); white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s04-visto" data-width="1080" data-height="1920" data-duration="5.72">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="5.72" data-track-index="0">
+      <div class="s04-escenario">
+        <div class="s04-txt s04-llega">¡Llega!</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el doble tilde, gigante -->
+          <g class="s04-tildes">
+            <path class="tilde s04-t1" d="M180 1010 L330 1160 L600 860" />
+            <path class="tilde s04-t2" d="M520 1110 L570 1160 L860 860" />
+          </g>
+          <!-- el dueño: sentado, con el celular, tomando mate -->
+          <g class="s04-dueno">
+            <circle class="linea" cx="540" cy="900" r="70" />
+            <path class="linea" d="M505 895 h20 M555 895 h20" />
+            <path class="linea" d="M515 935 Q540 948 565 935" />
+            <path class="linea" d="M440 1180 Q440 1000 540 990 Q640 1000 640 1180" />
+            <path class="linea" d="M440 1180 H700 V1230 M440 1180 V1230" />
+            <path class="linea" d="M600 1060 L700 1010" />
+            <rect class="linea" x="690" y="950" width="56" height="96" rx="10" />
+            <path class="linea" d="M480 1060 L420 1110" />
+            <path class="linea" d="M380 1090 h70 l-10 70 h-50 Z" />
+            <path class="linea" d="M430 1092 L470 1030" />
+          </g>
+        </svg>
+        <div class="s04-txt s04-azul">Doble tilde azul</div>
+        <div class="s04-rot s04-leido">Leído · 23:02</div>
+        <div class="s04-rot s04-dueno-r">Defensa: el dueño</div>
+        <div class="s04-sello">En visto</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-visto";
+      const DUR = 5.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const trazo = (sel, t, d) => { const p = q(sel); const L = p.getTotalLength(); gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.to(p, { opacity: 1, duration: 0.01 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power3.out" }, t); };
+
+      const DOBLE1 = 0.92;
+      const DOBLE2 = 1.52;
+      const AZUL = 2.05;
+      const DUENO = 3.13;
+      const DEJA = 4.39;
+      const VISTO = 4.79;
+
+      // "¡Llega!": entra de golpe en el cuadro 0
+      tl.fromTo(q(".s04-llega"), { opacity: 0.5, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.in" }, 0);
+      sacudon(0.18, 1.2);
+      tl.to(q(".s04-llega"), { scale: 1.05, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0.4);
+
+      // los tildes, uno por "doble", grises
+      trazo(".s04-t1", DOBLE1 - 0.05, 0.22);
+      sacudon(DOBLE1 + 0.15, 0.7);
+      trazo(".s04-t2", DOBLE2 - 0.05, 0.22);
+      sacudon(DOBLE2 + 0.15, 0.7);
+      // "azul": se ponen celestes y brillan
+      tl.to([q(".s04-t1"), q(".s04-t2")], { stroke: "#5ec8f2", duration: 0.08 }, AZUL - 0.05);
+      tl.to(q(".s04-tildes"), { filter: "drop-shadow(0 0 24px rgba(94, 200, 242, 0.7))", duration: 0.1 }, AZUL - 0.05);
+      tl.fromTo(q(".s04-tildes"), { scale: 1 }, { scale: 1.1, svgOrigin: "520 1010", duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, AZUL - 0.05);
+      gsap.set(q(".s04-azul"), { opacity: 0 });
+      tl.fromTo(q(".s04-azul"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, AZUL - 0.1);
+      sacudon(AZUL + 0.04, 1);
+      gsap.set(q(".s04-leido"), { opacity: 0 });
+      tl.fromTo(q(".s04-leido"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, AZUL + 0.25);
+
+      // "Y el dueño...": se van los tildes, aparece el dueño, tranquilo con su mate
+      tl.to([q(".s04-tildes"), q(".s04-azul"), q(".s04-leido"), q(".s04-llega")], { opacity: 0, y: -40, duration: 0.2, ease: "power2.in" }, DUENO - 0.25);
+      root.querySelectorAll(".s04-dueno .linea").forEach((p, i) => {
+        const L = p.getTotalLength(); gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, DUENO - 0.1 + i * 0.04);
+        tl.to(p, { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" }, DUENO - 0.1 + i * 0.04);
+      });
+      gsap.set(q(".s04-dueno-r"), { opacity: 0 });
+      tl.fromTo(q(".s04-dueno-r"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, DUENO + 0.3);
+      // la pausa dramática: el dueño mira el celular, sorbe el mate
+      tl.to(q(".s04-dueno"), { rotation: -3, svgOrigin: "540 1180", duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, DUENO + 0.5);
+      tl.fromTo(q(".s04-escenario"), { scale: 1 }, { scale: 1.08, duration: 1.6, ease: "power1.in", transformOrigin: "50% 55%", immediateRender: false }, DUENO);
+      // "deja": guarda el celular
+      // "visto": SELLO
+      gsap.set(q(".s04-sello"), { opacity: 0, rotation: -8 });
+      tl.fromTo(q(".s04-sello"), { opacity: 0, scale: 2.6 }, { opacity: 1, scale: 1, duration: 0.12, ease: "power4.in", immediateRender: false }, VISTO - 0.08);
+      sacudon(VISTO + 0.04, 1.6);
+      tl.to(q(".s04-dueno"), { opacity: 0.35, duration: 0.15 }, VISTO);
+      tl.to(q(".s04-sello"), { rotation: -5, scale: 1.04, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, VISTO + 0.3);
+
+      tl.to(q("#s04-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

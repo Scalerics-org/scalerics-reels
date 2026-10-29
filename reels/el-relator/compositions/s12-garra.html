@@ -1,0 +1,102 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-garra"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-garra"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-garra"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-garra"] .linea { fill: none; stroke: #f4f6f0; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-garra"] .vibra { fill: none; stroke: #ffd23f; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s12-garra"] .s12-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s12-garra"] .s12-garra { top: 600px; font-weight: 900; font-size: 190px; letter-spacing: -0.02em; color: #f4f6f0; }
+    [data-composition-id="s12-garra"] .s12-charrua { top: 800px; font-weight: 900; font-size: 150px; letter-spacing: -0.02em; color: #ffd23f; }
+    [data-composition-id="s12-garra"] .s12-celeste { top: 970px; font-weight: 900; font-size: 160px; letter-spacing: -0.02em; color: #5ec8f2; text-shadow: 0 0 40px rgba(94, 200, 242, 0.45); }
+    [data-composition-id="s12-garra"] .s12-perdido { position: absolute; left: 100px; top: 600px; width: 880px; padding: 16px 0; border: 8px solid #ff3b30; border-radius: 14px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 72px; line-height: 1; color: #ff3b30; text-transform: uppercase; background: rgba(7, 32, 15, 0.85); white-space: nowrap; }
+    [data-composition-id="s12-garra"] .s12-noti { position: absolute; left: 600px; top: 960px; padding: 14px 20px; border-radius: 18px; background: #f4f6f0; color: #07200f; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; line-height: 1.15; white-space: nowrap; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s12-garra"] .s12-noti small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #ff3b30; letter-spacing: 0.04em; }
+  </style>
+  <div id="root" data-composition-id="s12-garra" data-width="1080" data-height="1920" data-duration="5.42">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="5.42" data-track-index="0">
+      <div class="s12-escenario">
+        <div class="s12-fase1">
+          <div class="s12-txt s12-garra">Garra</div>
+          <div class="s12-txt s12-charrua">charrúa</div>
+          <div class="s12-txt s12-celeste">celeste</div>
+        </div>
+        <svg class="s12-bolsa" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el bolsillo del pantalón, con el celular asomando -->
+          <path class="linea s12-b1" d="M220 960 H760 L740 1420 Q490 1500 240 1420 Z" />
+          <path class="linea s12-b2" d="M260 960 Q490 1140 720 960" />
+          <path class="linea s12-b3" d="M300 1390 Q490 1440 690 1390" style="stroke-width: 3; stroke-dasharray: 10 12; opacity: 0.6" />
+          <g class="s12-cel">
+            <rect x="400" y="840" width="190" height="300" rx="28" fill="#07200f" stroke="#f4f6f0" stroke-width="6" />
+            <circle cx="560" cy="870" r="16" fill="#ff3b30" />
+          </g>
+          <path class="linea s12-b4" d="M262 962 Q490 1142 718 962" style="stroke-width: 7" />
+          <g class="s12-vib">
+            <path class="vibra" d="M370 870 Q355 900 370 930 M340 860 Q320 900 340 940" />
+            <path class="vibra" d="M620 870 Q635 900 620 930 M650 860 Q670 900 650 940" />
+          </g>
+        </svg>
+        <div class="s12-noti"><small>1 MENSAJE · 23:01</small>Clienta</div>
+        <div class="s12-perdido">Partido perdido</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-garra";
+      const DUR = 5.42;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s12-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, s = 2.4) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const trazo = (p, t, d) => { const L = p.getTotalLength(); gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.to(p, { opacity: 1, duration: 0.01 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); };
+
+      const GARRA = 0.26;
+      const CHARRUA = 0.52;
+      const CELESTE = 1.39;
+      const PARTIDO = 2.52;
+      const PERDISTE = 2.96;
+      const CELULAR = 3.57;
+      const BOLSILLO = 4.09;
+
+      // cuadro 0: "GARRA" ya entrando
+      tl.fromTo(q(".s12-garra"), { opacity: 0.5, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.in" }, 0);
+      sacudon(GARRA - 0.05, 1.2);
+      golpe(".s12-charrua", CHARRUA, 2.6);
+      sacudon(CHARRUA + 0.04, 1.2);
+      golpe(".s12-celeste", CELESTE, 2.6);
+      sacudon(CELESTE + 0.04, 1.4);
+      tl.fromTo(q(".s12-fase1"), { y: 0 }, { y: -10, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, 1.6);
+
+      // "y el partido...": se van las palabras épicas, aparece el bolsillo
+      tl.to(q(".s12-fase1"), { opacity: 0, y: -80, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, PARTIDO - 0.3);
+      // "perdiste": sello
+      gsap.set(q(".s12-perdido"), { opacity: 0, rotation: -5 });
+      tl.fromTo(q(".s12-perdido"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.12, ease: "power4.in", immediateRender: false }, PERDISTE - 0.08);
+      sacudon(PERDISTE + 0.04, 1.4);
+      // el bolsillo se dibuja, el celular asoma ("celular") y vibra ("bolsillo")
+      ["s12-b1", "s12-b2", "s12-b3"].forEach((c, i) => trazo(q("." + c), PARTIDO + i * 0.1, 0.55));
+      gsap.set(q(".s12-b4"), { opacity: 0 });
+      tl.to(q(".s12-b4"), { opacity: 1, duration: 0.05 }, PARTIDO + 0.5);
+      gsap.set(q(".s12-cel"), { opacity: 0 });
+      tl.fromTo(q(".s12-cel"), { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, CELULAR - 0.2);
+      gsap.set(q(".s12-vib"), { opacity: 0 });
+      tl.to(q(".s12-vib"), { opacity: 1, duration: 0.08, yoyo: true, repeat: 7, ease: "steps(1)" }, BOLSILLO - 0.2);
+      [0, 1, 2, 3, 4, 5, 6, 7].forEach((i) => tl.to(q(".s12-cel"), { x: i % 2 ? -8 : 8, duration: 0.05, ease: "none" }, BOLSILLO - 0.2 + i * 0.06));
+      tl.to(q(".s12-cel"), { x: 0, duration: 0.05 }, BOLSILLO + 0.3);
+      gsap.set(q(".s12-noti"), { opacity: 0 });
+      tl.fromTo(q(".s12-noti"), { opacity: 0, scale: 0.4, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, transformOrigin: "0% 100%", duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, BOLSILLO);
+      tl.to(q(".s12-noti"), { y: -10, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, BOLSILLO + 0.4);
+
+      tl.to(q("#s12-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,71 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-banda"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-banda"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-banda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-banda"] .linea { fill: none; stroke: #f4f6f0; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-banda"] .flecha { fill: none; stroke: #ffd23f; stroke-width: 10; stroke-linecap: round; stroke-dasharray: 4 22; }
+    [data-composition-id="s08-banda"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.16em; fill: #f4f6f0; }
+    [data-composition-id="s08-banda"] .rotulo-r { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.16em; fill: #ff3b30; }
+    [data-composition-id="s08-banda"] .s08-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s08-banda"] .s08-escapa { top: 1180px; font-weight: 900; font-size: 104px; letter-spacing: -0.02em; color: #ffd23f; text-shadow: 0 0 30px rgba(255, 210, 63, 0.4); }
+  </style>
+  <div id="root" data-composition-id="s08-banda" data-width="1080" data-height="1920" data-duration="2.37">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="2.37" data-track-index="0">
+      <div class="s08-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la cancha entera de costado: tu mitad a la izquierda, la del de enfrente a la derecha -->
+          <g class="s08-cancha">
+            <path class="linea" d="M90 640 H990 V1120 H90 Z" />
+            <path class="linea" d="M540 640 V1120" />
+            <circle class="linea" cx="540" cy="880" r="80" />
+            <path class="linea" d="M90 760 H200 V1000 H90 M990 760 H880 V1000 H990" />
+            <text class="rotulo-r" x="110" y="1160">TU LOCAL</text>
+            <text class="rotulo" x="970" y="1160" text-anchor="end">EL DE ENFRENTE</text>
+          </g>
+          <!-- la corrida por la banda de arriba, de tu mitad a la de enfrente -->
+          <path class="flecha s08-ruta" d="M240 700 C400 668 640 668 800 700 C860 712 900 760 920 820" />
+          <circle class="s08-clienta" cx="240" cy="700" r="28" fill="#ffd23f" stroke="#07200f" stroke-width="5" />
+        </svg>
+        <div class="s08-txt s08-escapa">¡Por la banda!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-banda";
+      const DUR = 2.37;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s08-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const ESCAPA = 0.26;
+      const BANDA = 1.48;
+
+      // cuadro 0: la cancha entera, la cámara la barre
+      tl.fromTo(q(".s08-cancha"), { opacity: 0.5 }, { opacity: 1, duration: 0.2 }, 0);
+      tl.fromTo(q("svg"), { x: 120 }, { x: -60, duration: DUR, ease: "power1.inOut" }, 0);
+      // la clienta arranca a correr
+      const ruta = q(".s08-ruta");
+      const L = ruta.getTotalLength();
+      gsap.set(ruta, { clipPath: "inset(0 100% 0 0)" });
+      tl.to(ruta, { clipPath: "inset(0 0% 0 0)", duration: 1.4, ease: "power2.in" }, ESCAPA);
+      const run = { p: 0 };
+      tl.to(run, { p: 1, duration: 1.5, ease: "power2.in", onUpdate: () => { const pt = ruta.getPointAtLength(run.p * L); q(".s08-clienta").setAttribute("cx", pt.x); q(".s08-clienta").setAttribute("cy", pt.y); } }, ESCAPA);
+      // "¡por la banda!"
+      gsap.set(q(".s08-escapa"), { opacity: 0, rotation: -4 });
+      tl.fromTo(q(".s08-escapa"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, BANDA - 0.1);
+      sacudon(BANDA + 0.04, 1.4);
+
+      tl.to(q("#s08-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

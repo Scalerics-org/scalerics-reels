@@ -1,0 +1,70 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-talle"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-talle"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-talle"] .s03-cel { position: absolute; left: 240px; top: 560px; width: 600px; height: 960px; border: 6px solid #f4f6f0; border-radius: 60px; background: #07200f; overflow: hidden; }
+    [data-composition-id="s03-talle"] .s03-barra { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: rgba(244, 246, 240, 0.08); border-bottom: 3px solid rgba(244, 246, 240, 0.3); }
+    [data-composition-id="s03-talle"] .s03-avatar { position: absolute; left: 34px; top: 38px; width: 64px; height: 64px; border-radius: 50%; background: #ffd23f; }
+    [data-composition-id="s03-talle"] .s03-nombre { position: absolute; left: 120px; top: 40px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; color: #f4f6f0; }
+    [data-composition-id="s03-talle"] .s03-linea { position: absolute; left: 120px; top: 84px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #ffd23f; letter-spacing: 0.06em; }
+    [data-composition-id="s03-talle"] .s03-globo { position: absolute; right: 36px; top: 520px; max-width: 500px; padding: 28px 30px 56px; border-radius: 30px 30px 6px 30px; background: #f4f6f0; color: #07200f; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 52px; line-height: 1.12; }
+    [data-composition-id="s03-talle"] .s03-globo .s03-w { display: inline-block; }
+    [data-composition-id="s03-talle"] .s03-hora { position: absolute; right: 86px; bottom: 16px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #07200f; opacity: 0.7; }
+    [data-composition-id="s03-talle"] .s03-tick { position: absolute; right: 22px; bottom: 14px; width: 54px; height: 30px; }
+    [data-composition-id="s03-talle"] .s03-tick path { fill: none; stroke: #6c7a70; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-talle"] .s03-m { position: absolute; left: 790px; top: 640px; width: 220px; height: 220px; border-radius: 50%; background: #ffd23f; color: #07200f; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 150px; line-height: 220px; text-align: center; }
+    [data-composition-id="s03-talle"] .s03-etiqueta { position: absolute; left: 0; right: 0; top: 1540px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #ffd23f; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s03-talle" data-width="1080" data-height="1920" data-duration="2.32">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="2.32" data-track-index="0">
+      <div class="s03-escenario">
+        <div class="s03-cel">
+          <div class="s03-barra"><div class="s03-avatar"></div><div class="s03-nombre">Clienta</div><div class="s03-linea">escribiendo...</div></div>
+          <div class="s03-globo">
+            <span class="s03-w s03-w1">Hola,</span> <span class="s03-w s03-w2">¿tenés</span> <span class="s03-w s03-w3">talle</span> <span class="s03-w s03-w4">M?</span>
+            <div class="s03-hora">23:01</div>
+            <svg class="s03-tick" viewBox="0 0 54 30" aria-hidden="true"><path class="s03-t1" d="M4 16 L12 24 L28 6" /><path class="s03-t2" d="M24 22 L26 24 L42 6" /></svg>
+          </div>
+        </div>
+        <div class="s03-m">M</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-talle";
+      const DUR = 2.32;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // cuadro 0: el celular sube a primer plano
+      tl.fromTo(q(".s03-cel"), { y: 120, scale: 0.92, opacity: 0.5 }, { y: 0, scale: 1, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s03-escenario"), { scale: 1 }, { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      // el globo y las palabras, una a una
+      tl.fromTo(q(".s03-globo"), { scale: 0.6, opacity: 0, transformOrigin: "100% 100%" }, { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2)" }, 0.02);
+      [0, 0.29, 0.78, 1.19].forEach((t, i) => {
+        const w = q(".s03-w" + (i + 1));
+        gsap.set(w, { opacity: 0 });
+        tl.fromTo(w, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.15, ease: "power3.out", immediateRender: false }, Math.max(0.05, t));
+      });
+      // el segundo tilde (llegó)
+      gsap.set(q(".s03-t2"), { opacity: 0 });
+      tl.to(q(".s03-t2"), { opacity: 1, duration: 0.05 }, 1.5);
+      tl.to(q(".s03-linea"), { opacity: 0, duration: 0.15 }, 1.45);
+      // la M gigante que salta
+      gsap.set(q(".s03-m"), { opacity: 0 });
+      tl.fromTo(q(".s03-m"), { opacity: 0, scale: 0.2, rotation: -40 }, { opacity: 1, scale: 1, rotation: 12, duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, 1.15);
+      tl.to(q(".s03-m"), { rotation: -6, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.5);
+
+      tl.to(q("#s03-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

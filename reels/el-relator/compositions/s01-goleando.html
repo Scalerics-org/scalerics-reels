@@ -1,0 +1,109 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-goleando"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-goleando"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-goleando"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-goleando"] .linea { fill: none; stroke: #f4f6f0; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-goleando"] .red { fill: none; stroke: #f4f6f0; stroke-width: 2; opacity: 0.5; }
+    [data-composition-id="s01-goleando"] .flecha { fill: none; stroke: #ffd23f; stroke-width: 8; stroke-linecap: round; stroke-dasharray: 4 20; }
+    [data-composition-id="s01-goleando"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; fill: #f4f6f0; opacity: 0.75; }
+    [data-composition-id="s01-goleando"] .s01-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s01-goleando"] .s01-estan { top: 586px; font-weight: 900; font-size: 96px; letter-spacing: -0.02em; color: #f4f6f0; }
+    [data-composition-id="s01-goleando"] .s01-goleando { top: 690px; font-weight: 900; font-size: 150px; letter-spacing: -0.03em; color: #ffd23f; text-shadow: 0 0 36px rgba(255, 210, 63, 0.4); }
+    [data-composition-id="s01-goleando"] .s01-propia { top: 856px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; letter-spacing: 0.24em; color: #f4f6f0; }
+    [data-composition-id="s01-goleando"] .s01-sello { position: absolute; left: 170px; top: 1150px; width: 740px; white-space: nowrap; padding: 14px 0; border: 7px solid #ff3b30; border-radius: 12px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 58px; line-height: 1.05; color: #ff3b30; text-transform: uppercase; background: rgba(7, 32, 15, 0.75); }
+    [data-composition-id="s01-goleando"] .s01-vos { position: absolute; left: 640px; top: 1300px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; line-height: 1; color: #f4f6f0; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s01-goleando" data-width="1080" data-height="1920" data-duration="4.35">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.35" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- tu cancha vista desde arriba: medio campo y tu área -->
+          <g class="s01-cancha">
+            <path class="linea s01-borde" d="M150 940 H930 V1490 H150 Z" />
+            <path class="linea s01-medio" d="M440 940 A100 100 0 0 0 640 940" />
+            <path class="linea s01-area" d="M300 1490 V1260 H780 V1490" />
+            <path class="linea s01-chica" d="M420 1490 V1400 H660 V1490" />
+            <path class="linea s01-arco" d="M470 1490 V1530 H610 V1490" />
+            <path class="red s01-red" d="M480 1496 V1526 M500 1496 V1526 M520 1496 V1526 M540 1496 V1526 M560 1496 V1526 M580 1496 V1526 M600 1496 V1526 M474 1508 H606 M474 1520 H606" />
+            <text class="rotulo" x="168" y="980">TU CANCHA</text>
+          </g>
+          <!-- la jugada: flecha de pizarra hacia tu arco -->
+          <path class="flecha s01-flecha" d="M820 990 C760 1080 640 1150 600 1250 C570 1330 560 1420 545 1500" />
+          <circle class="s01-pelota" cx="820" cy="990" r="20" fill="#f4f6f0" stroke="#07200f" stroke-width="4" />
+        </svg>
+        <div class="s01-txt s01-estan">Te están</div>
+        <div class="s01-txt s01-goleando">goleando</div>
+        <div class="s01-txt s01-propia">EN TU PROPIA CANCHA</div>
+        <div class="s01-vos">¿Y vos?</div>
+        <div class="s01-sello">Arquero: no vino</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-goleando";
+      const DUR = 4.35;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, s = 2.4) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const dibujar = (sel, t, d) => { const p = q(sel); const L = p.getTotalLength(); gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.to(p, { opacity: 1, duration: 0.01 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); };
+
+      const GOLEANDO = 0.26;
+      const CANCHA = 1.39;
+      const VOS = 2.17;
+      const ENTERASTE = 2.96;
+
+      // cuadro 0: la cancha a medio dibujar, la cámara baja
+      tl.fromTo(q(".s01-cancha"), { opacity: 0.6 }, { opacity: 1, duration: 0.3 }, 0);
+      ["s01-borde", "s01-medio", "s01-area", "s01-chica", "s01-arco"].forEach((c, i) => {
+        const p = q("." + c); const L = p.getTotalLength();
+        tl.fromTo(p, { strokeDasharray: L, strokeDashoffset: L * 0.5 }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" }, i * 0.05);
+      });
+      tl.fromTo(q(".s01-escenario"), { scale: 1.08 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 65%" }, 0);
+      tl.fromTo(q(".s01-estan"), { opacity: 0.5, scale: 1.2 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power4.out" }, 0);
+
+      // "goleando": la palabra cae y la pelota sale disparada por la flecha
+      golpe(".s01-goleando", GOLEANDO, 2.8);
+      sacudon(GOLEANDO + 0.05, 1.2);
+      const fl = q(".s01-flecha");
+      gsap.set(fl, { clipPath: "inset(0 0 100% 0)", opacity: 0 });
+      tl.to(fl, { opacity: 1, duration: 0.01 }, 0.3);
+      tl.to(fl, { clipPath: "inset(0 0 0% 0)", duration: 0.7, ease: "power2.in" }, 0.3);
+      const L = fl.getTotalLength();
+      const prog = { p: 0 };
+      tl.to(prog, { p: 1, duration: 0.85, ease: "power2.in", onUpdate: () => { const pt = fl.getPointAtLength(prog.p * L); q(".s01-pelota").setAttribute("cx", pt.x); q(".s01-pelota").setAttribute("cy", pt.y); } }, 0.3);
+      // la red se infla
+      tl.to(q(".s01-red"), { y: 14, opacity: 1, duration: 0.08, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.15);
+      sacudon(1.15, 0.8);
+
+      // "en tu propia cancha"
+      gsap.set(q(".s01-propia"), { opacity: 0 });
+      tl.fromTo(q(".s01-propia"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, CANCHA - 0.3);
+
+      // "¿y vos?": aparece al lado del arco vacío
+      gsap.set(q(".s01-vos"), { opacity: 0 });
+      tl.fromTo(q(".s01-vos"), { opacity: 0, scale: 0.5, rotation: -12 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.3, ease: "back.out(3)", immediateRender: false }, VOS - 0.1);
+      tl.to(q(".s01-vos"), { y: -10, rotation: -4, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, VOS + 0.25);
+
+      // "enteraste": sello rojo, todo lo demás se apaga
+      gsap.set(q(".s01-sello"), { opacity: 0, rotation: -7 });
+      tl.fromTo(q(".s01-sello"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.12, ease: "power4.in", immediateRender: false }, ENTERASTE - 0.08);
+      sacudon(ENTERASTE + 0.04, 1.3);
+      tl.to([q(".s01-cancha"), q(".s01-flecha"), q(".s01-vos")], { opacity: 0.3, duration: 0.15 }, ENTERASTE);
+      tl.to(q(".s01-sello"), { rotation: -4, scale: 1.04, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, ENTERASTE + 0.3);
+
+      // salida: barrido como cambio de cámara
+      tl.to(q("#s01-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
