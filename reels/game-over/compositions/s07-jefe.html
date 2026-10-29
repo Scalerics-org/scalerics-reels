@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pixel.js"></script>
+  <style>
+    @font-face { font-family: "Press Start 2P"; font-weight: 400; font-display: block; src: url("assets/fonts/PressStart2P.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-jefe"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-jefe"] .s07-esc { position: absolute; inset: 0; }
+    [data-composition-id="s07-jefe"] .s07-px { position: absolute; font-family: "Press Start 2P", monospace; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s07-jefe"] .s07-a { position: absolute; inset: 0; }
+    [data-composition-id="s07-jefe"] .s07-ult { left: 0; right: 0; top: 760px; text-align: center; font-size: 76px; color: #ff3d8b; text-shadow: 7px 7px 0 #07051a; }
+    [data-composition-id="s07-jefe"] .s07-cor { position: absolute; left: 456px; top: 900px; }
+    [data-composition-id="s07-jefe"] .s07-banda { position: absolute; left: -40px; right: -40px; top: 600px; height: 120px; border-top: 8px solid #07051a; border-bottom: 8px solid #07051a;
+      background: repeating-linear-gradient(-45deg, #ffd23f 0 40px, #07051a 40px 80px); }
+    [data-composition-id="s07-jefe"] .s07-bt { left: 0; right: 0; top: 626px; text-align: center; }
+    [data-composition-id="s07-jefe"] .s07-bt span { display: inline-block; padding: 14px 22px; background: #07051a; font-size: 50px; color: #ff3d8b; }
+    [data-composition-id="s07-jefe"] .s07-jefe { position: absolute; left: 330px; top: 790px; width: 560px; height: 700px; }
+    [data-composition-id="s07-jefe"] .s07-cuerpo { position: absolute; left: 0; top: 40px; width: 560px; height: 600px; background: #ff3d8b; border: 12px solid #07051a; box-shadow: inset -24px -24px 0 rgba(7, 5, 26, 0.3); }
+    [data-composition-id="s07-jefe"] .s07-tope { position: absolute; left: 0; top: 40px; width: 560px; height: 90px; background: #07051a; }
+    [data-composition-id="s07-jefe"] .s07-aro { position: absolute; top: 0; width: 36px; height: 80px; background: #f4f1e6; border: 8px solid #07051a; }
+    [data-composition-id="s07-jefe"] .s07-hoja { position: absolute; left: 50px; top: 150px; width: 460px; height: 110px; background: #f4f1e6; border: 8px solid #07051a; display: flex; align-items: center; justify-content: center; font-family: "Press Start 2P", monospace; font-size: 66px; color: #07051a; }
+    [data-composition-id="s07-jefe"] .s07-ojo { position: absolute; top: 300px; width: 110px; height: 90px; background: #f4f1e6; border: 8px solid #07051a; }
+    [data-composition-id="s07-jefe"] .s07-pup { position: absolute; left: 34px; top: 26px; width: 36px; height: 36px; background: #07051a; }
+    [data-composition-id="s07-jefe"] .s07-ceja { position: absolute; top: 270px; width: 150px; height: 24px; background: #07051a; }
+    [data-composition-id="s07-jefe"] .s07-boca { position: absolute; left: 110px; top: 430px; width: 340px; height: 150px; background: #07051a; border: 8px solid #07051a; overflow: hidden; }
+    [data-composition-id="s07-jefe"] .s07-dientes { position: absolute; left: 0; right: 0; top: 0; height: 40px; background: repeating-linear-gradient(90deg, #f4f1e6 0 40px, #07051a 40px 48px); }
+    [data-composition-id="s07-jefe"] .s07-dientes.abajo { top: auto; bottom: 0; }
+    [data-composition-id="s07-jefe"] .s07-pata { position: absolute; top: 640px; width: 80px; height: 60px; background: #07051a; }
+    [data-composition-id="s07-jefe"] .s07-vida { position: absolute; left: 330px; top: 744px; width: 560px; height: 30px; background: #07051a; border: 5px solid #f4f1e6; }
+    [data-composition-id="s07-jefe"] .s07-vida i { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: #ffd23f; display: block; }
+    [data-composition-id="s07-jefe"] .s07-bala { position: absolute; left: 330px; top: 1290px; padding: 16px 20px; background: #ffd23f; border: 8px solid #07051a; box-shadow: 0 0 0 8px #ff3d8b; font-family: "Press Start 2P", monospace; font-size: 34px; line-height: 1; color: #07051a; white-space: nowrap; }
+    [data-composition-id="s07-jefe"] .s07-jug { position: absolute; left: 70px; top: 1334px; }
+  </style>
+  <div id="root" data-composition-id="s07-jefe" data-width="1080" data-height="1920" data-duration="6">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="6" data-track-index="0">
+      <div class="s07-esc">
+        <div class="s07-a">
+          <div class="s07-px s07-ult">¡ÚLTIMA VIDA!</div>
+          <div class="s07-cor" data-sprite="corazon" data-px="24"></div>
+        </div>
+        <div class="s07-jefe">
+          <div class="s07-pata" style="left: 90px"></div>
+          <div class="s07-pata" style="left: 390px"></div>
+          <div class="s07-cuerpo"></div>
+          <div class="s07-tope"></div>
+          <div class="s07-aro" style="left: 110px"></div>
+          <div class="s07-aro" style="left: 400px"></div>
+          <div class="s07-hoja">LUNES</div>
+          <div class="s07-ojo" style="left: 110px"><div class="s07-pup"></div></div>
+          <div class="s07-ojo" style="left: 340px"><div class="s07-pup"></div></div>
+          <div class="s07-ceja c0" style="left: 90px"></div>
+          <div class="s07-ceja c1" style="left: 320px"></div>
+          <div class="s07-boca"><div class="s07-dientes"></div><div class="s07-dientes abajo"></div></div>
+        </div>
+        <div class="s07-vida"><i></i></div>
+        <div class="s07-banda" data-layout-ignore></div>
+        <div class="s07-px s07-bt"><span>JEFE FINAL</span></div>
+        <div class="s07-jug" data-sprite="jugadoraE" data-px="10"></div>
+        <div class="s07-bala">PASÁ EL LUNES</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-jefe";
+      const DUR = 6;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      PX.llenar(root);
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const VIDA = 0.18, LLEGO = 1.09, JEFE = 1.52, FINAL = 1.78, PASA = 3.14, LUNES = 3.74;
+
+      // A: última vida
+      tl.fromTo(q(".s07-ult"), { opacity: 0.5, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.15, ease: "steps(3)" }, 0);
+      tl.to(q(".s07-ult"), { opacity: 0.2, duration: 0.1, yoyo: true, repeat: 7, ease: "steps(1)" }, VIDA);
+      tl.to(q(".s07-cor"), { scale: 1.2, duration: 0.12, yoyo: true, repeat: 7, ease: "steps(2)" }, 0);
+      tl.to(q(".s07-a"), { opacity: 0, duration: 0.08, ease: "steps(1)" }, LLEGO - 0.05);
+
+      // B: alerta y el jefe que sube
+      gsap.set([q(".s07-banda"), q(".s07-bt"), q(".s07-jefe"), q(".s07-vida"), q(".s07-jug"), q(".s07-bala")], { opacity: 0 });
+      tl.fromTo(q(".s07-banda"), { opacity: 1, scaleY: 0.05 }, { opacity: 1, scaleY: 1, duration: 0.15, ease: "steps(3)", immediateRender: false }, LLEGO);
+      tl.fromTo(q(".s07-banda"), { backgroundPosition: "0px 0px" }, { backgroundPosition: "226px 0px", duration: 4.6, ease: "none", immediateRender: false }, LLEGO);
+      tl.fromTo(q(".s07-bt"), { opacity: 0 }, { opacity: 1, duration: 0.05, immediateRender: false }, JEFE);
+      tl.to(q(".s07-bt"), { opacity: 0.3, duration: 0.12, yoyo: true, repeat: 9, ease: "steps(1)" }, JEFE + 0.1);
+      tl.set(q(".s07-jug"), { opacity: 1 }, LLEGO);
+      tl.fromTo(q(".s07-jefe"), { opacity: 1, y: 760 }, { opacity: 1, y: 0, duration: 0.5, ease: "steps(10)", immediateRender: false }, JEFE - 0.1);
+      sacudon(FINAL, 1.8);
+      tl.fromTo(q(".s07-vida"), { opacity: 0 }, { opacity: 1, duration: 0.05, immediateRender: false }, FINAL + 0.1);
+      tl.fromTo(q(".s07-vida i"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.6, ease: "steps(12)", immediateRender: false }, FINAL + 0.1);
+      // respira y mira a la jugadora
+      tl.to(q(".s07-jefe"), { y: -14, duration: 0.25, yoyo: true, repeat: 7, ease: "steps(2)" }, FINAL + 0.2);
+      tl.to(root.querySelectorAll(".s07-pup"), { x: -26, duration: 0.1, ease: "steps(1)" }, FINAL + 0.6);
+      tl.to(q(".s07-ceja.c0"), { rotation: 12, duration: 0.1, ease: "steps(1)" }, FINAL + 0.6);
+      tl.to(q(".s07-ceja.c1"), { rotation: -12, duration: 0.1, ease: "steps(1)" }, FINAL + 0.6);
+      tl.to(q(".s07-jug"), { x: -10, duration: 0.05, yoyo: true, repeat: 15, ease: "steps(1)" }, FINAL + 0.4);
+
+      // "Pasá el lunes": abre la boca y escupe la frase
+      tl.to(q(".s07-boca"), { scaleY: 1.35, transformOrigin: "50% 0%", duration: 0.1, ease: "steps(2)" }, PASA - 0.05);
+      tl.fromTo(q(".s07-bala"), { opacity: 1, x: 0, y: -80, scale: 0.4 }, { opacity: 1, x: -120, y: -40, scale: 1, duration: 0.25, ease: "steps(4)", immediateRender: false }, PASA);
+      tl.to(q(".s07-bala"), { x: -280, y: 10, duration: LUNES - PASA - 0.3, ease: "none" }, PASA + 0.27);
+      // impacto en "lunes"
+      tl.to(q(".s07-bala"), { scale: 1.3, opacity: 0, duration: 0.2, ease: "steps(3)" }, LUNES);
+      tl.to(q(".s07-jug"), { y: -260, rotation: 180, duration: 0.35, ease: "power2.out" }, LUNES);
+      tl.to(q(".s07-jug"), { y: 900, duration: 0.6, ease: "power2.in" }, LUNES + 0.35);
+      sacudon(LUNES, 2);
+      tl.to(q(".s07-boca"), { scaleY: 1, duration: 0.1, ease: "steps(2)" }, LUNES + 0.4);
+      // se ríe
+      tl.to(q(".s07-jefe"), { y: -30, duration: 0.08, yoyo: true, repeat: 9, ease: "steps(1)" }, LUNES + 0.5);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

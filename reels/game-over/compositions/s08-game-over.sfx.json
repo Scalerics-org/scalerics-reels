@@ -1,0 +1,10 @@
+[
+  {"t": 0.0, "sfx": "gameover", "vol": 0.4},
+  {"t": 0.84, "sfx": "impact-bass-1", "vol": 0.35, "max": 0.6},
+  {"t": 2.0, "sfx": "ficha", "vol": 0.3},
+  {"t": 2.23, "sfx": "blip", "vol": 0.25},
+  {"t": 2.68, "sfx": "blip", "vol": 0.25},
+  {"t": 3.13, "sfx": "blip", "vol": 0.25},
+  {"t": 4.1, "sfx": "golpe", "vol": 0.3},
+  {"t": 4.65, "sfx": "whoosh-short", "vol": 0.25}
+]

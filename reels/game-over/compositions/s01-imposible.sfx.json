@@ -1,0 +1,8 @@
+[
+  {"t": 0.0, "sfx": "nivel", "vol": 0.3},
+  {"t": 0.6, "sfx": "blip", "vol": 0.25},
+  {"t": 1.9, "sfx": "alarma", "vol": 0.22, "max": 0.6},
+  {"t": 2.09, "sfx": "golpe", "vol": 0.35},
+  {"t": 2.69, "sfx": "salto", "vol": 0.35},
+  {"t": 2.92, "sfx": "golpe", "vol": 0.3}
+]

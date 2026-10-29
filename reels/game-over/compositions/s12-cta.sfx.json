@@ -1,0 +1,10 @@
+[
+  {"t": 0.0, "sfx": "blip", "vol": 0.3},
+  {"t": 1.17, "sfx": "nivel", "vol": 0.35},
+  {"t": 2.54, "sfx": "blip", "vol": 0.25},
+  {"t": 2.82, "sfx": "blip", "vol": 0.25},
+  {"t": 3.18, "sfx": "blip", "vol": 0.25},
+  {"t": 3.63, "sfx": "blip", "vol": 0.25},
+  {"t": 4.19, "sfx": "ficha", "vol": 0.35},
+  {"t": 4.54, "sfx": "moneda", "vol": 0.3}
+]

@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pixel.js"></script>
+  <style>
+    @font-face { font-family: "Press Start 2P"; font-weight: 400; font-display: block; src: url("assets/fonts/PressStart2P.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] .s12-esc { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] .s12-px { position: absolute; font-family: "Press Start 2P", monospace; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s12-cta"] .s12-a, [data-composition-id="s12-cta"] .s12-b { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] .s12-titulo { left: 0; right: 0; top: 640px; text-align: center; font-size: 104px; color: #ff3d8b; text-shadow: 8px 8px 0 #ffd23f, 16px 16px 0 #07051a; }
+    [data-composition-id="s12-cta"] .s12-rot { left: 90px; top: 830px; font-size: 34px; color: #38e8ff; text-shadow: 4px 4px 0 #07051a; }
+    [data-composition-id="s12-cta"] .s12-barra { position: absolute; left: 90px; top: 890px; width: 900px; height: 80px; border: 8px solid #f4f1e6; background: #07051a; box-shadow: 8px 8px 0 #07051a; }
+    [data-composition-id="s12-cta"] .s12-seg { position: absolute; left: 8px; top: 8px; width: 76px; height: 48px; background: #5ce611; }
+    [data-composition-id="s12-cta"] .s12-facil { left: 0; right: 0; top: 1030px; text-align: center; font-size: 64px; }
+    [data-composition-id="s12-cta"] .s12-facil span { display: inline-block; padding: 18px 26px 14px; background: #5ce611; color: #07051a; border: 8px solid #f4f1e6; box-shadow: 10px 10px 0 #07051a; }
+    [data-composition-id="s12-cta"] .s12-sel { left: 0; right: 0; top: 600px; text-align: center; font-size: 36px; color: #ffd23f; text-shadow: 4px 4px 0 #07051a; }
+    [data-composition-id="s12-cta"] .s12-tile { position: absolute; width: 410px; height: 230px; background: #07051a; border: 8px solid #38e8ff; box-shadow: 10px 10px 0 #07051a; }
+    [data-composition-id="s12-cta"] .s12-tile.jefe { border-color: #ff3d8b; }
+    [data-composition-id="s12-cta"] .s12-num { position: absolute; left: 0; right: 0; top: 34px; text-align: center; font-family: "Press Start 2P", monospace; font-size: 96px; line-height: 1; color: #ffd23f; text-shadow: 6px 6px 0 #2a1a63; }
+    [data-composition-id="s12-cta"] .s12-lab { position: absolute; left: 0; right: 0; top: 160px; text-align: center; font-family: "Press Start 2P", monospace; font-size: 28px; line-height: 1; color: #f4f1e6; white-space: nowrap; }
+    [data-composition-id="s12-cta"] .s12-cur { position: absolute; left: 0; top: 0; width: 430px; height: 250px; border: 8px solid #f4f1e6; }
+    [data-composition-id="s12-cta"] .s12-com { left: 60px; right: 60px; top: 1250px; padding: 30px 0; text-align: center; background: #5ce611; border: 10px solid #07051a; box-shadow: 12px 12px 0 #07051a; font-size: 50px; color: #07051a; }
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="8.12">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="8.12" data-track-index="0">
+      <div class="s12-esc">
+        <div class="s12-a">
+          <div class="s12-px s12-titulo">COMPRARTE</div>
+          <div class="s12-px s12-rot">DIFICULTAD:</div>
+          <div class="s12-barra"><div class="s12-seg"></div></div>
+          <div class="s12-px s12-facil"><span>MODO FÁCIL</span></div>
+        </div>
+        <div class="s12-b">
+          <div class="s12-px s12-sel">¿EN QUÉ NIVEL PERDÉS?</div>
+          <div class="s12-tile t0" style="left: 110px; top: 680px"><div class="s12-num">1</div><div class="s12-lab">EL PRECIO</div></div>
+          <div class="s12-tile t1" style="left: 560px; top: 680px"><div class="s12-num">2</div><div class="s12-lab">EL VISTO</div></div>
+          <div class="s12-tile t2" style="left: 110px; top: 960px"><div class="s12-num">3</div><div class="s12-lab">EL PAGO</div></div>
+          <div class="s12-tile t3 jefe" style="left: 560px; top: 960px"><div class="s12-num">4</div><div class="s12-lab">EL LUNES</div></div>
+          <div class="s12-cur"></div>
+          <div class="s12-px s12-com">COMENTÁ EL NÚMERO</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 8.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      PX.llenar(root);
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s12-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const COMPRARTE = 0.56, MODO = 1.27, EN = 1.91, NIVEL = 2.54, PERDES = 2.82, CLIENTES = 3.18, VOS = 3.63, COMENTA = 4.19, NUMERO = 4.54;
+
+      // A: el título del principio, ahora con la barra casi vacía
+      tl.fromTo(q(".s12-titulo"), { opacity: 0.6, y: -40 }, { opacity: 1, y: 0, duration: 0.2, ease: "steps(3)" }, 0);
+      tl.to(q(".s12-titulo"), { y: -10, duration: 0.2, yoyo: true, repeat: 7, ease: "steps(2)" }, COMPRARTE);
+      tl.fromTo([q(".s12-rot"), q(".s12-barra")], { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "steps(1)" }, 0.15);
+      tl.fromTo(q(".s12-seg"), { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "steps(1)" }, 0.6);
+      gsap.set(q(".s12-facil"), { opacity: 0 });
+      tl.fromTo(q(".s12-facil"), { opacity: 0, scale: 2.4, rotation: -10 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.14, ease: "power4.in", immediateRender: false }, MODO - 0.1);
+      sacudon(MODO + 0.05, 1);
+      tl.to(q(".s12-a"), { opacity: 0, duration: 0.1, ease: "steps(1)" }, EN - 0.1);
+
+      // B: selección de nivel
+      gsap.set(q(".s12-b"), { opacity: 0 });
+      tl.set(q(".s12-b"), { opacity: 1 }, EN - 0.02);
+      tl.fromTo(q(".s12-sel"), { opacity: 0 }, { opacity: 1, duration: 0.05, immediateRender: false }, EN);
+      const tiles = qa(".s12-tile");
+      tiles.forEach((t, i) => tl.fromTo(t, { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.15, ease: "steps(3)", immediateRender: false }, EN + 0.05 + i * 0.1));
+      // el cursor salta de nivel en nivel
+      const POS = [[100, 670], [550, 670], [100, 950], [550, 950]];
+      const cur = q(".s12-cur");
+      gsap.set(cur, { opacity: 0, x: POS[0][0], y: POS[0][1] });
+      tl.set(cur, { opacity: 1 }, NIVEL);
+      const SALTOS = [NIVEL, PERDES, CLIENTES, VOS, COMENTA + 0.6, COMENTA + 1.1, COMENTA + 1.6, COMENTA + 2.1, COMENTA + 2.6, COMENTA + 3.1];
+      SALTOS.forEach((t, i) => {
+        const [x, y] = POS[i % 4];
+        tl.set(cur, { x, y }, t);
+        tl.fromTo(tiles[i % 4], { scale: 1.08 }, { scale: 1, duration: 0.2, ease: "steps(2)", immediateRender: false }, t);
+      });
+      tl.to(cur, { opacity: 0.3, duration: 0.12, yoyo: true, repeat: Math.floor((DUR - NIVEL) / 0.12) - 3, ease: "steps(1)" }, NIVEL + 0.1);
+      // COMENTÁ EL NÚMERO
+      gsap.set(q(".s12-com"), { opacity: 0 });
+      tl.fromTo(q(".s12-com"), { opacity: 0, scaleY: 0.1 }, { opacity: 1, scaleY: 1, duration: 0.15, ease: "steps(3)", immediateRender: false }, COMENTA);
+      tl.to(q(".s12-com"), { scale: 1.05, duration: 0.1, yoyo: true, repeat: 1, ease: "steps(2)" }, NUMERO);
+      sacudon(NUMERO, 0.8);
+      tl.to(q(".s12-com"), { opacity: 0.55, duration: 0.3, yoyo: true, repeat: 9, ease: "steps(1)" }, NUMERO + 0.5);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

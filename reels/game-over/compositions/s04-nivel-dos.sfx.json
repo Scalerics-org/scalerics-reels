@@ -1,0 +1,9 @@
+[
+  {"t": 0.58, "sfx": "golpe", "vol": 0.4},
+  {"t": 0.6, "sfx": "glitch-1", "vol": 0.25, "max": 0.4},
+  {"t": 1.17, "sfx": "nivel", "vol": 0.35},
+  {"t": 2.6, "sfx": "blip", "vol": 0.2},
+  {"t": 3.73, "sfx": "whoosh", "vol": 0.25},
+  {"t": 3.91, "sfx": "notification", "vol": 0.3},
+  {"t": 5.36, "sfx": "blip", "vol": 0.3}
+]

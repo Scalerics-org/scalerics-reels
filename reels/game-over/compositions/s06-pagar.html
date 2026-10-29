@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pixel.js"></script>
+  <style>
+    @font-face { font-family: "Press Start 2P"; font-weight: 400; font-display: block; src: url("assets/fonts/PressStart2P.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-pagar"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-pagar"] .s06-esc { position: absolute; inset: 0; }
+    [data-composition-id="s06-pagar"] .s06-px { position: absolute; font-family: "Press Start 2P", monospace; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s06-pagar"] .s06-a, [data-composition-id="s06-pagar"] .s06-b { position: absolute; inset: 0; }
+    [data-composition-id="s06-pagar"] .s06-n3 { left: 0; right: 0; top: 720px; text-align: center; font-size: 120px; color: #38e8ff; text-shadow: 10px 10px 0 #ff3d8b, 20px 20px 0 #07051a; }
+    [data-composition-id="s06-pagar"] .s06-n3s { left: 0; right: 0; top: 930px; text-align: center; font-size: 64px; color: #ffd23f; text-shadow: 6px 6px 0 #07051a; }
+    [data-composition-id="s06-pagar"] .s06-mon { position: absolute; top: 1060px; }
+    [data-composition-id="s06-pagar"] .s06-jug { position: absolute; left: 110px; top: 1258px; }
+    [data-composition-id="s06-pagar"] .s06-tarj { position: absolute; left: 290px; top: 1240px; width: 160px; height: 100px; background: #38e8ff; border: 7px solid #07051a; box-shadow: 6px 6px 0 #07051a; }
+    [data-composition-id="s06-pagar"] .s06-chip { position: absolute; left: 18px; top: 22px; width: 36px; height: 28px; background: #ffd23f; border: 4px solid #07051a; }
+    [data-composition-id="s06-pagar"] .s06-raya { position: absolute; left: 18px; top: 64px; width: 110px; height: 8px; background: #07051a; }
+    [data-composition-id="s06-pagar"] .s06-pared { position: absolute; left: 570px; top: 780px; width: 440px; height: 744px; background-color: #ff3d8b; border: 8px solid #07051a;
+      background-image: repeating-linear-gradient(180deg, transparent 0 56px, #07051a 56px 64px), repeating-linear-gradient(90deg, transparent 0 102px, #07051a 102px 110px); }
+    [data-composition-id="s06-pagar"] .s06-cartel { position: absolute; left: 600px; top: 880px; width: 380px; padding: 28px 0; background: #f4f1e6; border: 8px solid #07051a; box-shadow: 10px 10px 0 #07051a; text-align: center; }
+    [data-composition-id="s06-pagar"] .s06-ct { font-family: "Press Start 2P", monospace; font-size: 44px; line-height: 1.5; color: #07051a; white-space: nowrap; }
+    [data-composition-id="s06-pagar"] .s06-x { left: 380px; top: 1130px; font-size: 90px; color: #ff3d8b; text-shadow: 6px 6px 0 #07051a; }
+    [data-composition-id="s06-pagar"] .s06-papel { position: absolute; width: 170px; height: 210px; background: #f4f1e6; border: 7px solid #07051a; box-shadow: 6px 6px 0 #07051a; }
+    [data-composition-id="s06-pagar"] .s06-papel::before { content: ""; position: absolute; left: 18px; right: 18px; top: 30px; height: 120px; background: repeating-linear-gradient(180deg, #07051a 0 8px, transparent 8px 26px); opacity: 0.6; }
+    [data-composition-id="s06-pagar"] .s06-manda { position: absolute; left: 60px; right: 60px; top: 640px; padding: 26px 0; text-align: center; background: #07051a; border: 8px solid #ffd23f; box-shadow: 10px 10px 0 #07051a; }
+    [data-composition-id="s06-pagar"] .s06-mt { font-family: "Press Start 2P", monospace; font-size: 42px; line-height: 1.5; color: #ffd23f; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s06-pagar" data-width="1080" data-height="1920" data-duration="7.63">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="7.63" data-track-index="0">
+      <div class="s06-esc">
+        <div class="s06-a">
+          <div class="s06-px s06-n3">NIVEL 3</div>
+          <div class="s06-px s06-n3s">PAGAR</div>
+          <div class="s06-mon m0" style="left: 300px" data-sprite="moneda" data-px="10"></div>
+          <div class="s06-mon m1" style="left: 500px" data-sprite="moneda" data-px="10"></div>
+          <div class="s06-mon m2" style="left: 700px" data-sprite="moneda" data-px="10"></div>
+        </div>
+        <div class="s06-b">
+          <div class="s06-pared"></div>
+          <div class="s06-cartel"><div class="s06-ct">SOLO</div><div class="s06-ct">EFECTIVO</div></div>
+          <div class="s06-jug" data-sprite="jugadora" data-px="14"></div>
+          <div class="s06-tarj"><div class="s06-chip"></div><div class="s06-raya"></div></div>
+          <div class="s06-px s06-x">X</div>
+          <div class="s06-papel p0" style="left: 90px; top: 1300px"></div>
+          <div class="s06-papel p1" style="left: 250px; top: 1310px"></div>
+          <div class="s06-papel p2" style="left: 170px; top: 1170px"></div>
+          <div class="s06-papel p3" style="left: 330px; top: 1180px"></div>
+          <div class="s06-manda"><div class="s06-mt">MANDAME EL</div><div class="s06-mt">COMPROBANTE</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-pagar";
+      const DUR = 7.63;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      PX.llenar(root);
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s06-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const PAGAR = 1.2, TE = 2.15, TARJETA = 2.84, SOLO = 3.8, EFECTIVO = 4.07, TRANSFERIME = 5.01, MANDAME = 5.98, COMPROBANTE = 6.53;
+
+      // A: NIVEL 3 (cuadro 0 a medio caer)
+      tl.fromTo(q(".s06-n3"), { opacity: 0.4, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in" }, 0);
+      sacudon(0.16, 1.1);
+      tl.to(q(".s06-n3"), { opacity: 0.4, duration: 0.1, yoyo: true, repeat: 5, ease: "steps(1)" }, 0.3);
+      gsap.set(q(".s06-n3s"), { opacity: 0 });
+      tl.fromTo(q(".s06-n3s"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.12, ease: "steps(3)", immediateRender: false }, PAGAR);
+      const mons = qa(".s06-mon");
+      gsap.set(mons, { opacity: 0 });
+      mons.forEach((m, i) => {
+        tl.fromTo(m, { opacity: 1, y: 0 }, { opacity: 1, y: -60, duration: 0.15, ease: "power2.out", immediateRender: false }, PAGAR + 0.1 + i * 0.12);
+        tl.to(m, { y: 0, duration: 0.15, ease: "power2.in" }, PAGAR + 0.25 + i * 0.12);
+        tl.to(m, { scaleX: -1, duration: 0.1, yoyo: true, repeat: 3, ease: "steps(1)" }, PAGAR + 0.1 + i * 0.12);
+      });
+      tl.to(q(".s06-a"), { opacity: 0, duration: 0.1, ease: "steps(1)" }, TE - 0.1);
+
+      // B: la tarjeta contra el muro de "solo efectivo"
+      gsap.set(q(".s06-b"), { opacity: 0 });
+      tl.set(q(".s06-b"), { opacity: 1 }, TE - 0.05);
+      tl.fromTo(q(".s06-jug"), { x: -200 }, { x: 0, duration: 0.3, ease: "steps(5)", immediateRender: false }, TE - 0.05);
+      gsap.set([q(".s06-pared"), q(".s06-cartel"), q(".s06-x"), q(".s06-manda")], { opacity: 0 });
+      tl.fromTo(q(".s06-tarj"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.15, ease: "steps(3)", immediateRender: false }, TE + 0.25);
+      tl.to(q(".s06-tarj"), { y: -20, rotation: -8, duration: 0.15, yoyo: true, repeat: 1, ease: "steps(2)" }, TARJETA);
+      tl.to(q(".s06-tarj"), { x: 160, duration: 0.3, ease: "power2.in" }, SOLO - 0.3);
+      // cae el muro
+      tl.fromTo(q(".s06-pared"), { opacity: 1, y: -900 }, { opacity: 1, y: 0, duration: 0.2, ease: "power4.in", immediateRender: false }, SOLO - 0.2);
+      tl.fromTo(q(".s06-cartel"), { opacity: 1, y: -900 }, { opacity: 1, y: 0, duration: 0.22, ease: "power4.in", immediateRender: false }, SOLO - 0.2);
+      sacudon(SOLO + 0.02, 1.8);
+      // la tarjeta rebota
+      tl.to(q(".s06-tarj"), { x: -40, y: 60, rotation: -40, duration: 0.3, ease: "power2.out" }, SOLO + 0.02);
+      tl.fromTo(q(".s06-x"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.1, ease: "steps(2)", immediateRender: false }, EFECTIVO);
+      tl.to(q(".s06-cartel"), { rotation: -3, duration: 0.1, yoyo: true, repeat: 5, ease: "steps(1)" }, EFECTIVO);
+      tl.to(q(".s06-x"), { opacity: 0, duration: 0.1 }, TRANSFERIME - 0.2);
+      // transferime: le llueven papeles
+      const pap = qa(".s06-papel");
+      gsap.set(pap, { opacity: 0 });
+      pap.forEach((p, i) => tl.fromTo(p, { opacity: 1, y: -800, rotation: i % 2 ? 20 : -20 }, { opacity: 1, y: 0, rotation: i % 2 ? 6 : -8, duration: 0.3, ease: "power3.in", immediateRender: false }, TRANSFERIME + i * 0.22));
+      tl.to(q(".s06-tarj"), { opacity: 0, duration: 0.1 }, TRANSFERIME + 0.3);
+      tl.to(q(".s06-jug"), { y: 40, duration: 0.3, ease: "steps(3)" }, TRANSFERIME + 0.6);
+      // el cartel de arriba
+      tl.fromTo(q(".s06-manda"), { opacity: 0, scaleY: 0.1 }, { opacity: 1, scaleY: 1, duration: 0.15, ease: "steps(3)", immediateRender: false }, MANDAME);
+      tl.to(q(".s06-manda"), { scale: 1.06, duration: 0.08, yoyo: true, repeat: 1, ease: "steps(2)" }, COMPROBANTE);
+      sacudon(COMPROBANTE, 0.8);
+
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

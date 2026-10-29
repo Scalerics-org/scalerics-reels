@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pixel.js"></script>
+  <style>
+    @font-face { font-family: "Press Start 2P"; font-weight: 400; font-display: block; src: url("assets/fonts/PressStart2P.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-control"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-control"] .s10-esc { position: absolute; inset: 0; }
+    [data-composition-id="s10-control"] .s10-px { position: absolute; font-family: "Press Start 2P", monospace; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s10-control"] .s10-ped { position: absolute; left: 110px; top: 1300px; width: 360px; height: 224px; background: #2a1a63; border: 10px solid #07051a; box-shadow: inset 0 16px 0 #ffd23f, inset 0 26px 0 #07051a; }
+    [data-composition-id="s10-control"] .s10-ped-t { left: 110px; width: 360px; top: 1380px; text-align: center; font-size: 28px; color: #ffd23f; }
+    [data-composition-id="s10-control"] .s10-camp { position: absolute; left: 173px; top: 1070px; }
+    [data-composition-id="s10-control"] .s10-luz { position: absolute; left: 120px; top: 1000px; width: 340px; height: 300px; background: radial-gradient(ellipse at 50% 60%, rgba(255, 210, 63, 0.35), rgba(255, 210, 63, 0) 70%); }
+    [data-composition-id="s10-control"] .s10-jug { position: absolute; left: 740px; top: 1258px; }
+    [data-composition-id="s10-control"] .s10-cor { position: absolute; left: 790px; top: 1150px; }
+    [data-composition-id="s10-control"] .s10-mas { left: 880px; top: 1130px; font-size: 40px; color: #ff3d8b; text-shadow: 4px 4px 0 #07051a; }
+    [data-composition-id="s10-control"] .s10-est { position: absolute; }
+    [data-composition-id="s10-control"] .s10-cartel { position: absolute; left: 60px; right: 60px; top: 600px; padding: 28px 0; text-align: center; background: #07051a; border: 10px solid #ffd23f; box-shadow: 12px 12px 0 #07051a; }
+    [data-composition-id="s10-control"] .s10-ct { font-family: "Press Start 2P", monospace; font-size: 46px; line-height: 1.5; color: #ffd23f; white-space: nowrap; }
+    [data-composition-id="s10-control"] .s10-joy { position: absolute; left: 600px; top: 940px; width: 400px; height: 584px; }
+    [data-composition-id="s10-control"] .s10-base { position: absolute; left: 0; top: 360px; width: 400px; height: 224px; background: #07051a; border: 10px solid #38e8ff; }
+    [data-composition-id="s10-control"] .s10-boton { position: absolute; top: 410px; width: 70px; height: 50px; border: 6px solid #07051a; }
+    [data-composition-id="s10-control"] .s10-palo { position: absolute; left: 184px; top: 120px; width: 32px; height: 250px; background: #f4f1e6; border: 6px solid #07051a; }
+    [data-composition-id="s10-control"] .s10-bola { position: absolute; left: 145px; top: 40px; width: 110px; height: 110px; background: #ff3d8b; border: 8px solid #07051a; box-shadow: inset -14px -14px 0 rgba(7, 5, 26, 0.3), inset 14px 14px 0 rgba(244, 241, 230, 0.45); }
+    [data-composition-id="s10-control"] .s10-roto { left: 610px; top: 840px; font-size: 64px; }
+    [data-composition-id="s10-control"] .s10-roto span { display: inline-block; padding: 16px 20px; background: #ff3d8b; color: #f4f1e6; border: 8px solid #f4f1e6; box-shadow: 8px 8px 0 #07051a; }
+    [data-composition-id="s10-control"] .s10-chispa { position: absolute; width: 22px; height: 22px; background: #ffd23f; }
+  </style>
+  <div id="root" data-composition-id="s10-control" data-width="1080" data-height="1920" data-duration="6.11">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="6.11" data-track-index="0">
+      <div class="s10-esc">
+        <div class="s10-luz"></div>
+        <div class="s10-ped"></div>
+        <div class="s10-px s10-ped-t">TU LOCAL</div>
+        <div class="s10-camp" data-sprite="campera" data-px="18"></div>
+        <div class="s10-est e0" style="left: 110px; top: 1010px" data-sprite="estrella" data-px="9"></div>
+        <div class="s10-est e1" style="left: 420px; top: 1060px" data-sprite="estrella" data-px="7"></div>
+        <div class="s10-est e2" style="left: 150px; top: 1220px" data-sprite="estrella" data-px="6"></div>
+        <div class="s10-jug" data-sprite="jugadora" data-px="14"></div>
+        <div class="s10-cor" data-sprite="corazon" data-px="10"></div>
+        <div class="s10-px s10-mas">+1</div>
+        <div class="s10-cartel"><div class="s10-ct">LA MEJOR CAMPERA</div><div class="s10-ct">DEL JUEGO</div></div>
+        <div class="s10-joy">
+          <div class="s10-palo"></div>
+          <div class="s10-bola"></div>
+          <div class="s10-base"></div>
+          <div class="s10-boton" style="left: 40px; background: #ffd23f"></div>
+          <div class="s10-boton" style="left: 290px; background: #38e8ff"></div>
+        </div>
+        <div class="s10-chispa c0" style="left: 790px; top: 1080px"></div>
+        <div class="s10-chispa c1" style="left: 810px; top: 1090px"></div>
+        <div class="s10-chispa c2" style="left: 780px; top: 1100px"></div>
+        <div class="s10-chispa c3" style="left: 800px; top: 1070px"></div>
+        <div class="s10-px s10-roto"><span>ROTO</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-control";
+      const DUR = 6.11;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      PX.llenar(root);
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const CAMPERA = 0.58, LINDA = 1.34, TENES = 2.42, MEJOR = 2.79, JUEGO = 3.6, LO = 4.42, ROTO = 4.79, CONTROL = 5.24;
+
+      // A: ella se va con la campera del de enfrente pero mira para atrás a la tuya
+      tl.fromTo(q(".s10-jug"), { x: -60 }, { x: 0, duration: 0.3, ease: "steps(4)" }, 0);
+      tl.to(q(".s10-jug"), { scaleX: -1, duration: 0.05, ease: "steps(1)" }, CAMPERA - 0.1);
+      tl.fromTo(q(".s10-camp"), { opacity: 0.7 }, { opacity: 1, duration: 0.2, ease: "steps(2)" }, 0);
+      tl.to(q(".s10-camp"), { y: -14, duration: 0.2, yoyo: true, repeat: 9, ease: "steps(2)" }, CAMPERA);
+      tl.fromTo(q(".s10-luz"), { opacity: 0.4 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 9, ease: "steps(2)" }, 0);
+      const est = qa(".s10-est");
+      est.forEach((e, i) => tl.fromTo(e, { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.15, ease: "steps(3)" }, CAMPERA + 0.1 + i * 0.15));
+      tl.to(est, { rotation: 90, duration: 0.5, repeat: 5, ease: "steps(2)" }, CAMPERA + 0.5);
+      gsap.set([q(".s10-cor"), q(".s10-mas")], { opacity: 0 });
+      tl.fromTo(q(".s10-cor"), { opacity: 1, y: 0 }, { opacity: 1, y: -120, duration: 0.6, ease: "steps(6)", immediateRender: false }, LINDA);
+      tl.fromTo(q(".s10-mas"), { opacity: 1, y: 0 }, { opacity: 1, y: -120, duration: 0.6, ease: "steps(6)", immediateRender: false }, LINDA + 0.05);
+      tl.to([q(".s10-cor"), q(".s10-mas")], { opacity: 0, duration: 0.1, ease: "steps(1)" }, LINDA + 0.8);
+      // se va (suspira)
+      tl.to(q(".s10-jug"), { x: 400, scaleX: 1, duration: 0.5, ease: "steps(6)" }, TENES - 0.3);
+
+      // B: la mejor campera del juego
+      gsap.set(q(".s10-cartel"), { opacity: 0 });
+      tl.fromTo(q(".s10-cartel"), { opacity: 0, scaleY: 0.1 }, { opacity: 1, scaleY: 1, duration: 0.15, ease: "steps(3)", immediateRender: false }, MEJOR - 0.1);
+      tl.to(q(".s10-cartel"), { scale: 1.05, duration: 0.1, yoyo: true, repeat: 1, ease: "steps(2)" }, JUEGO);
+      tl.to(q(".s10-camp"), { scale: 1.12, transformOrigin: "50% 100%", duration: 0.15, ease: "steps(2)" }, MEJOR);
+
+      // C: el control roto
+      gsap.set(q(".s10-joy"), { opacity: 0 });
+      tl.fromTo(q(".s10-joy"), { opacity: 1, y: 600 }, { opacity: 1, y: 0, duration: 0.25, ease: "steps(5)", immediateRender: false }, LO - 0.1);
+      tl.to([q(".s10-palo"), q(".s10-bola")], { rotation: -14, transformOrigin: "50% 100%", duration: 0.08, yoyo: true, repeat: 3, ease: "steps(1)" }, LO + 0.2);
+      // se parte
+      tl.to(q(".s10-bola"), { x: 260, y: 420, rotation: 200, duration: 0.5, ease: "power2.in" }, ROTO);
+      tl.to(q(".s10-palo"), { rotation: 58, transformOrigin: "50% 100%", duration: 0.12, ease: "steps(2)" }, ROTO);
+      sacudon(ROTO, 1.5);
+      const ch = qa(".s10-chispa");
+      gsap.set(ch, { opacity: 0 });
+      [[-120, -80], [130, -110], [-60, -160], [90, -40]].forEach(([x, y], i) => {
+        tl.fromTo(ch[i], { opacity: 1, x: 0, y: 0 }, { opacity: 1, x, y, duration: 0.35, ease: "steps(5)", immediateRender: false }, ROTO + 0.02);
+        tl.set(ch[i], { opacity: 0 }, ROTO + 0.4);
+      });
+      gsap.set(q(".s10-roto"), { opacity: 0 });
+      tl.fromTo(q(".s10-roto"), { opacity: 0, scale: 2.4, rotation: 14 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.14, ease: "power4.in", immediateRender: false }, CONTROL - 0.1);
+      sacudon(CONTROL + 0.05, 1);
+      tl.to(q(".s10-roto"), { scale: 1.06, duration: 0.12, yoyo: true, repeat: 2, ease: "steps(2)" }, CONTROL + 0.2);
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,110 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pixel.js"></script>
+  <style>
+    @font-face { font-family: "Press Start 2P"; font-weight: 400; font-display: block; src: url("assets/fonts/PressStart2P.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-imposible"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-imposible"] .s01-esc { position: absolute; inset: 0; }
+    [data-composition-id="s01-imposible"] .s01-px { position: absolute; font-family: "Press Start 2P", monospace; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s01-imposible"] .s01-titulo { left: 0; right: 0; top: 600px; text-align: center; font-size: 104px; color: #ff3d8b; text-shadow: 8px 8px 0 #ffd23f, 16px 16px 0 #07051a; }
+    [data-composition-id="s01-imposible"] .s01-rot { left: 90px; top: 790px; font-size: 34px; color: #38e8ff; text-shadow: 4px 4px 0 #07051a; }
+    [data-composition-id="s01-imposible"] .s01-barra { position: absolute; left: 90px; top: 850px; width: 900px; height: 80px; border: 8px solid #f4f1e6; background: #07051a; box-shadow: 8px 8px 0 #07051a; }
+    [data-composition-id="s01-imposible"] .s01-seg { position: absolute; top: 8px; width: 76px; height: 48px; }
+    [data-composition-id="s01-imposible"] .s01-sello { left: 0; right: 0; top: 968px; text-align: center; font-size: 64px; color: #f4f1e6; }
+    [data-composition-id="s01-imposible"] .s01-sello span { display: inline-block; padding: 18px 26px 14px; background: #ff3d8b; border: 8px solid #f4f1e6; box-shadow: 10px 10px 0 #07051a; }
+    [data-composition-id="s01-imposible"] .s01-jug { position: absolute; left: 150px; top: 1234px; }
+    [data-composition-id="s01-imposible"] .s01-bloque { position: absolute; width: 96px; height: 96px; background: #38e8ff; border: 6px solid #07051a; box-shadow: inset -12px -12px 0 rgba(7, 5, 26, 0.35), inset 12px 12px 0 rgba(244, 241, 230, 0.4); }
+    [data-composition-id="s01-imposible"] .s01-cala { position: absolute; left: 860px; top: 950px; }
+    [data-composition-id="s01-imposible"] .s01-meta { left: 744px; top: 1072px; font-size: 24px; color: #ffd23f; text-shadow: 3px 3px 0 #07051a; }
+  </style>
+  <div id="root" data-composition-id="s01-imposible" data-width="1080" data-height="1920" data-duration="3.81">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="3.81" data-track-index="0">
+      <div class="s01-esc">
+        <div class="s01-px s01-titulo">COMPRARTE</div>
+        <div class="s01-px s01-rot">DIFICULTAD:</div>
+        <div class="s01-barra"></div>
+        <!-- escalera de bloques hasta el último nivel -->
+        <div class="s01-bloque b0" style="left: 480px; top: 1404px"></div>
+        <div class="s01-bloque b1" style="left: 576px; top: 1404px"></div>
+        <div class="s01-bloque b2" style="left: 576px; top: 1308px"></div>
+        <div class="s01-bloque b3" style="left: 672px; top: 1404px"></div>
+        <div class="s01-bloque b4" style="left: 672px; top: 1308px"></div>
+        <div class="s01-bloque b5" style="left: 672px; top: 1212px"></div>
+        <div class="s01-bloque b6" style="left: 768px; top: 1404px"></div>
+        <div class="s01-bloque b7" style="left: 768px; top: 1308px"></div>
+        <div class="s01-bloque b8" style="left: 768px; top: 1212px"></div>
+        <div class="s01-bloque b9" style="left: 768px; top: 1116px"></div>
+        <div class="s01-bloque b10" style="left: 864px; top: 1404px"></div>
+        <div class="s01-bloque b11" style="left: 864px; top: 1308px"></div>
+        <div class="s01-bloque b12" style="left: 864px; top: 1212px"></div>
+        <div class="s01-bloque b13" style="left: 864px; top: 1116px"></div>
+        <div class="s01-px s01-meta" data-layout-ignore>ÚLTIMO NIVEL</div>
+        <div class="s01-cala" data-sprite="calavera" data-px="12"></div>
+        <div class="s01-jug" data-sprite="jugadora" data-px="14"></div>
+        <div class="s01-px s01-sello"><span>IMPOSIBLE</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-imposible";
+      const DUR = 3.81;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      PX.llenar(root);
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const DIFICIL = 0.83, ULTIMO = 1.94, VIDEOJUEGO = 2.69;
+
+      // la barra de dificultad: segmentos que se llenan de amarillo a rosa
+      const barra = q(".s01-barra");
+      for (let i = 0; i < 11; i++) {
+        const s = document.createElement("div");
+        s.className = "s01-seg";
+        s.style.left = 8 + i * 80 + "px";
+        s.style.background = i < 5 ? "#ffd23f" : i < 9 ? "#ff3d8b" : "#f4f1e6";
+        barra.appendChild(s);
+      }
+      const segs = qa(".s01-seg");
+
+      // cuadro 0: el título ya está a medio caer
+      tl.fromTo(q(".s01-titulo"), { y: -60, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.25, ease: "steps(4)" }, 0);
+      tl.to(q(".s01-titulo"), { y: -10, duration: 0.25, yoyo: true, repeat: 12, ease: "steps(2)" }, 0.3);
+      tl.fromTo([q(".s01-rot"), barra], { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "steps(2)" }, 0.25);
+      gsap.set(segs, { opacity: 0 });
+      segs.forEach((s, i) => tl.to(s, { opacity: 1, duration: 0.02 }, DIFICIL - 0.3 + i * 0.12));
+      // se pasa de rosca: la barra tiembla y revienta
+      tl.to(barra, { x: 10, duration: 0.04, yoyo: true, repeat: 13, ease: "none" }, ULTIMO - 0.2);
+      gsap.set(q(".s01-sello"), { opacity: 0 });
+      tl.fromTo(q(".s01-sello"), { opacity: 0, scale: 2.6, rotation: -12 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.15, ease: "power4.in", immediateRender: false }, ULTIMO + 0.15);
+      sacudon(ULTIMO + 0.3, 1.4);
+      tl.to(q(".s01-sello"), { scale: 1.06, duration: 0.2, yoyo: true, repeat: 4, ease: "steps(2)" }, ULTIMO + 0.5);
+
+      // la escalera hasta el último nivel se arma de a bloques
+      const bl = qa(".s01-bloque");
+      gsap.set(bl, { opacity: 0 });
+      bl.forEach((b, i) => tl.fromTo(b, { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.12, ease: "steps(3)", immediateRender: false }, 0.15 + i * 0.07));
+      gsap.set([q(".s01-cala"), q(".s01-meta")], { opacity: 0 });
+      tl.fromTo(q(".s01-cala"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.2, ease: "steps(3)", immediateRender: false }, ULTIMO);
+      tl.to(q(".s01-cala"), { y: -14, duration: 0.15, yoyo: true, repeat: 8, ease: "steps(2)" }, ULTIMO + 0.2);
+      tl.fromTo(q(".s01-meta"), { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "steps(1)", immediateRender: false }, ULTIMO + 0.1);
+
+      // la jugadora: entra caminando y en "videojuego" salta contra el primer bloque y rebota
+      const jug = q(".s01-jug");
+      tl.fromTo(jug, { x: -180 }, { x: 0, duration: 0.6, ease: "steps(6)" }, 0);
+      tl.to(jug, { y: -150, x: 150, duration: 0.25, ease: "power2.out" }, VIDEOJUEGO);
+      tl.to(jug, { y: 0, x: 40, rotation: -10, duration: 0.3, ease: "power2.in" }, VIDEOJUEGO + 0.25);
+      tl.to(jug, { rotation: 0, duration: 0.1, ease: "steps(2)" }, VIDEOJUEGO + 0.6);
+      tl.to(bl[0], { y: -16, duration: 0.06, yoyo: true, repeat: 1 }, VIDEOJUEGO + 0.22);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

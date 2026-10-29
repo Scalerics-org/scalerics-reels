@@ -1,0 +1,133 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pixel.js"></script>
+  <style>
+    @font-face { font-family: "Press Start 2P"; font-weight: 400; font-display: block; src: url("assets/fonts/PressStart2P.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-nivel-dos"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-nivel-dos"] .s04-esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-nivel-dos"] .s04-px { position: absolute; font-family: "Press Start 2P", monospace; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s04-nivel-dos"] .s04-a, [data-composition-id="s04-nivel-dos"] .s04-b, [data-composition-id="s04-nivel-dos"] .s04-c { position: absolute; inset: 0; }
+    [data-composition-id="s04-nivel-dos"] .s04-cor { position: absolute; left: 449px; top: 720px; }
+    [data-composition-id="s04-nivel-dos"] .s04-menos { left: 0; right: 0; top: 1000px; text-align: center; font-size: 72px; color: #ff3d8b; text-shadow: 7px 7px 0 #07051a; }
+    [data-composition-id="s04-nivel-dos"] .s04-trozo { position: absolute; width: 26px; height: 26px; background: #ff3d8b; }
+    [data-composition-id="s04-nivel-dos"] .s04-n2 { left: 0; right: 0; top: 720px; text-align: center; font-size: 120px; color: #38e8ff; text-shadow: 10px 10px 0 #ff3d8b, 20px 20px 0 #07051a; }
+    [data-composition-id="s04-nivel-dos"] .s04-n2s { left: 0; right: 0; top: 930px; text-align: center; font-size: 44px; color: #f4f1e6; text-shadow: 5px 5px 0 #07051a; }
+    [data-composition-id="s04-nivel-dos"] .s04-esp { left: 0; right: 0; top: 1100px; text-align: center; font-size: 34px; color: #ffd23f; text-shadow: 4px 4px 0 #07051a; }
+    [data-composition-id="s04-nivel-dos"] .s04-tel { position: absolute; left: 300px; top: 620px; width: 480px; height: 840px; background: #07051a; border: 14px solid #38e8ff; box-shadow: 12px 12px 0 #07051a; }
+    [data-composition-id="s04-nivel-dos"] .s04-bar { position: absolute; left: 0; right: 0; top: 0; height: 70px; background: #2a1a63; font-family: "Press Start 2P", monospace; font-size: 28px; color: #f4f1e6; display: flex; align-items: center; padding-left: 24px; }
+    [data-composition-id="s04-nivel-dos"] .s04-msg { position: absolute; right: 22px; top: 110px; width: 330px; padding: 20px; background: #ff3d8b; border: 6px solid #f4f1e6; font-family: "Press Start 2P", monospace; font-size: 28px; line-height: 1.5; color: #f4f1e6; }
+    [data-composition-id="s04-nivel-dos"] .s04-dia { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-family: "Press Start 2P", monospace; font-size: 54px; line-height: 1; color: #ffd23f; }
+    [data-composition-id="s04-nivel-dos"] .s04-dia2 { color: #ff3d8b; }
+    [data-composition-id="s04-nivel-dos"] .s04-tela { position: absolute; left: 10px; top: 640px; width: 130px; height: 130px; }
+    [data-composition-id="s04-nivel-dos"] .s04-zzz { position: absolute; font-family: "Press Start 2P", monospace; font-size: 30px; color: #f4f1e6; }
+    [data-composition-id="s04-nivel-dos"] .s04-jug { position: absolute; left: 90px; top: 1334px; }
+  </style>
+  <div id="root" data-composition-id="s04-nivel-dos" data-width="1080" data-height="1920" data-duration="6.53">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.53" data-track-index="0">
+      <div class="s04-esc">
+        <div class="s04-a">
+          <div class="s04-cor s04-lleno" data-sprite="corazon" data-px="26"></div>
+          <div class="s04-cor s04-vacio" data-sprite="corazonV" data-px="26"></div>
+          <div class="s04-trozo t0" style="left: 500px; top: 790px"></div>
+          <div class="s04-trozo t1" style="left: 560px; top: 820px"></div>
+          <div class="s04-trozo t2" style="left: 520px; top: 860px"></div>
+          <div class="s04-trozo t3" style="left: 590px; top: 780px"></div>
+          <div class="s04-px s04-menos">-1 VIDA</div>
+        </div>
+        <div class="s04-b">
+          <div class="s04-px s04-n2">NIVEL 2</div>
+          <div class="s04-px s04-n2s">QUE TE CONTESTEN</div>
+          <div class="s04-px s04-esp">ESPERANDO<span class="s04-p1">.</span><span class="s04-p2">.</span><span class="s04-p3">.</span></div>
+        </div>
+        <div class="s04-c">
+          <div class="s04-tel">
+            <div class="s04-bar">TU LOCAL</div>
+            <div class="s04-msg">YA TE ESCRIBÍ POR PRIVADO</div>
+            <div class="s04-dia s04-dia1">DÍA 1</div>
+            <div class="s04-dia s04-dia2">DÍA 2</div>
+            <svg class="s04-tela" viewBox="0 0 13 13" shape-rendering="crispEdges">
+              <rect x="0" y="0" width="1" height="13" fill="#f4f1e6" opacity="0.7" /><rect x="0" y="12" width="13" height="1" fill="#f4f1e6" opacity="0.7" />
+              <rect x="1" y="11" width="1" height="1" fill="#f4f1e6" /><rect x="2" y="10" width="1" height="1" fill="#f4f1e6" /><rect x="3" y="9" width="1" height="1" fill="#f4f1e6" /><rect x="4" y="8" width="1" height="1" fill="#f4f1e6" /><rect x="5" y="7" width="1" height="1" fill="#f4f1e6" /><rect x="6" y="6" width="1" height="1" fill="#f4f1e6" />
+              <rect x="0" y="6" width="5" height="1" fill="#f4f1e6" opacity="0.6" /><rect x="5" y="7" width="1" height="6" fill="#f4f1e6" opacity="0.6" />
+            </svg>
+          </div>
+          <div class="s04-zzz z0" style="left: 820px; top: 760px">Z</div>
+          <div class="s04-zzz z1" style="left: 860px; top: 700px">Z</div>
+          <div class="s04-zzz z2" style="left: 900px; top: 640px">Z</div>
+          <div class="s04-jug" data-sprite="jugadoraE" data-px="10"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-nivel-dos";
+      const DUR = 6.53;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      PX.llenar(root);
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const tipear = (el, t, dur) => {
+        const txt = el.textContent; el.textContent = "";
+        const ls = [...txt].map((c) => { const s = document.createElement("span"); s.textContent = c; el.appendChild(s); return s; });
+        gsap.set(ls, { opacity: 0 });
+        ls.forEach((s, i) => tl.set(s, { opacity: 1 }, t + (dur * i) / ls.length));
+      };
+
+      const VIDA = 0.58, NIVEL = 1.17, CONTESTEN = 2.25, YA = 3.73, ESCRIBI = 3.91, HACE = 5.25, DOS = 5.36;
+
+      // A: el corazón grande se rompe
+      tl.fromTo(q(".s04-lleno"), { scale: 0.8 }, { scale: 1.1, duration: 0.15, ease: "steps(3)" }, 0);
+      tl.to(q(".s04-lleno"), { x: 10, duration: 0.04, yoyo: true, repeat: 9, ease: "none" }, 0.15);
+      gsap.set(q(".s04-vacio"), { opacity: 0 });
+      tl.set(q(".s04-lleno"), { opacity: 0 }, VIDA);
+      tl.set(q(".s04-vacio"), { opacity: 1 }, VIDA);
+      sacudon(VIDA, 1.4);
+      const tro = qa(".s04-trozo");
+      gsap.set(tro, { opacity: 0 });
+      [[-260, 300], [200, 340], [-120, 420], [280, 260]].forEach(([x, y], i) => {
+        tl.fromTo(tro[i], { opacity: 1, x: 0, y: 0 }, { opacity: 1, x, y, duration: 0.5, ease: "steps(8)", immediateRender: false }, VIDA);
+        tl.set(tro[i], { opacity: 0 }, VIDA + 0.52);
+      });
+      gsap.set(q(".s04-menos"), { opacity: 0 });
+      tl.fromTo(q(".s04-menos"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.12, ease: "steps(3)", immediateRender: false }, VIDA + 0.05);
+      tl.to(q(".s04-a"), { opacity: 0, duration: 0.1, ease: "steps(1)" }, NIVEL - 0.08);
+
+      // B: NIVEL 2
+      gsap.set(q(".s04-b"), { opacity: 0 });
+      tl.set(q(".s04-b"), { opacity: 1 }, NIVEL);
+      tl.fromTo(q(".s04-n2"), { opacity: 0, scale: 3 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, NIVEL);
+      sacudon(NIVEL + 0.18, 1.1);
+      tipear(q(".s04-n2s"), NIVEL + 0.8, 0.9);
+      gsap.set(q(".s04-esp"), { opacity: 0 });
+      tl.set(q(".s04-esp"), { opacity: 1 }, CONTESTEN + 0.3);
+      [".s04-p1", ".s04-p2", ".s04-p3"].forEach((s, i) => { gsap.set(q(s), { opacity: 0 }); tl.to(q(s), { opacity: 1, duration: 0.2, yoyo: true, repeat: 3, ease: "steps(1)" }, CONTESTEN + 0.3 + i * 0.2); });
+      tl.to(q(".s04-b"), { opacity: 0, duration: 0.1, ease: "steps(1)" }, YA - 0.1);
+
+      // C: el celular, el mensaje y los días que pasan
+      gsap.set(q(".s04-c"), { opacity: 0 });
+      tl.set(q(".s04-c"), { opacity: 1 }, YA);
+      tl.fromTo(q(".s04-tel"), { y: 600 }, { y: 0, duration: 0.22, ease: "steps(5)", immediateRender: false }, YA);
+      gsap.set(q(".s04-msg"), { opacity: 0 });
+      tl.fromTo(q(".s04-msg"), { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.15, ease: "steps(3)", immediateRender: false }, ESCRIBI);
+      gsap.set([q(".s04-dia1"), q(".s04-dia2"), q(".s04-tela")], { opacity: 0 });
+      tl.set(q(".s04-dia1"), { opacity: 1 }, ESCRIBI + 0.5);
+      tl.to(q(".s04-dia1"), { opacity: 0.3, duration: 0.15, yoyo: true, repeat: 3, ease: "steps(1)" }, ESCRIBI + 0.6);
+      tl.set(q(".s04-dia1"), { opacity: 0 }, DOS);
+      tl.fromTo(q(".s04-dia2"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.12, ease: "steps(3)", immediateRender: false }, DOS);
+      tl.fromTo(q(".s04-tela"), { opacity: 0, scale: 0.2, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "steps(4)", immediateRender: false }, HACE);
+      const zz = qa(".s04-zzz");
+      gsap.set(zz, { opacity: 0 });
+      zz.forEach((z, i) => tl.fromTo(z, { opacity: 0, y: 20 }, { opacity: 1, y: -20, duration: 0.5, ease: "steps(4)", immediateRender: false }, HACE + i * 0.2));
+      // ella golpea el pie, cada vez más enojada
+      tl.to(q(".s04-jug"), { y: -12, duration: 0.1, yoyo: true, repeat: 13, ease: "steps(1)" }, YA + 0.3);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

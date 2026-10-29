@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pixel.js"></script>
+  <style>
+    @font-face { font-family: "Press Start 2P"; font-weight: 400; font-display: block; src: url("assets/fonts/PressStart2P.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* HUD del fichín */
+    [data-composition-id="ambiente"] .amb-hud { position: absolute; left: 0; right: 0; top: 56px; height: 140px; }
+    [data-composition-id="ambiente"] .amb-1up { position: absolute; left: 64px; top: 10px; font-family: "Press Start 2P", monospace; font-size: 28px; line-height: 1; color: #ff3d8b; text-shadow: 4px 4px 0 #07051a; }
+    [data-composition-id="ambiente"] .amb-score { position: absolute; left: 64px; top: 56px; font-family: "Press Start 2P", monospace; font-size: 40px; line-height: 1; color: #ffd23f; text-shadow: 5px 5px 0 #07051a; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-sc { position: absolute; left: 0; top: 0; }
+    [data-composition-id="ambiente"] .amb-nivel { position: absolute; left: 340px; width: 400px; top: 20px; height: 84px; }
+    [data-composition-id="ambiente"] .amb-niv { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: "Press Start 2P", monospace; font-size: 30px; line-height: 1; color: #38e8ff; text-shadow: 4px 4px 0 #07051a; white-space: nowrap; border: 6px solid currentColor; background: rgba(7, 5, 26, 0.85); box-shadow: 6px 6px 0 #07051a; }
+    [data-composition-id="ambiente"] .amb-niv.rojo { color: #ff3d8b; }
+    [data-composition-id="ambiente"] .amb-niv.verde { color: #5ce611; }
+    [data-composition-id="ambiente"] .amb-niv.ama { color: #ffd23f; }
+    [data-composition-id="ambiente"] .amb-vidas { position: absolute; left: 790px; top: 22px; width: 240px; height: 80px; }
+    [data-composition-id="ambiente"] .amb-vida { position: absolute; top: 0; width: 70px; height: 70px; }
+    [data-composition-id="ambiente"] .amb-vida > div { position: absolute; left: 0; top: 0; }
+    [data-composition-id="ambiente"] .amb-menos { position: absolute; font-family: "Press Start 2P", monospace; font-size: 30px; line-height: 1; color: #ff3d8b; white-space: nowrap; text-shadow: 4px 4px 0 #07051a; }
+    /* CRT: scanlines, viñeta y flashes */
+    [data-composition-id="ambiente"] .amb-scan { position: absolute; inset: 0; background: repeating-linear-gradient(180deg, rgba(7, 5, 26, 0) 0px, rgba(7, 5, 26, 0) 3px, rgba(7, 5, 26, 0.22) 3px, rgba(7, 5, 26, 0.22) 6px); }
+    [data-composition-id="ambiente"] .amb-vin { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1180px at 540px 960px, rgba(7, 5, 26, 0) 62%, rgba(7, 5, 26, 0.55) 100%); }
+    [data-composition-id="ambiente"] .amb-barrido { position: absolute; left: 0; right: 0; top: 0; height: 140px; background: linear-gradient(180deg, rgba(244, 241, 230, 0), rgba(244, 241, 230, 0.05), rgba(244, 241, 230, 0)); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #ff3d8b; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-flash.blanco { background: #f4f1e6; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="76.09">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="76.09" data-track-index="0">
+      <div class="amb-hud">
+        <div class="amb-1up">1UP</div>
+        <div class="amb-score">
+          <span class="amb-sc">000000</span><span class="amb-sc">001000</span><span class="amb-sc">002000</span><span class="amb-sc">003000</span><span class="amb-sc">004000</span><span class="amb-sc">009000</span><span class="amb-sc">------</span>
+        </div>
+        <div class="amb-nivel">
+          <div class="amb-niv ama n0">PRESS START</div>
+          <div class="amb-niv n1">NIVEL 1</div>
+          <div class="amb-niv n2">NIVEL 2</div>
+          <div class="amb-niv n3">NIVEL 3</div>
+          <div class="amb-niv rojo n4">JEFE FINAL</div>
+          <div class="amb-niv rojo n5">GAME OVER</div>
+          <div class="amb-niv ama n6">MODO FÁCIL</div>
+          <div class="amb-niv verde n7">TU TIENDA</div>
+        </div>
+        <div class="amb-vidas">
+          <div class="amb-vida v0" style="left: 0px"><div class="vac" data-sprite="corazonV" data-px="10"></div><div class="lle" data-sprite="corazon" data-px="10"></div><div class="ver" data-sprite="corazonG" data-px="10"></div></div>
+          <div class="amb-vida v1" style="left: 80px"><div class="vac" data-sprite="corazonV" data-px="10"></div><div class="lle" data-sprite="corazon" data-px="10"></div><div class="ver" data-sprite="corazonG" data-px="10"></div></div>
+          <div class="amb-vida v2" style="left: 160px"><div class="vac" data-sprite="corazonV" data-px="10"></div><div class="lle" data-sprite="corazon" data-px="10"></div><div class="ver" data-sprite="corazonG" data-px="10"></div></div>
+        </div>
+        <div class="amb-menos m0" style="left: 796px; top: 110px">-1 VIDA</div>
+        <div class="amb-menos m1" style="left: 796px; top: 110px">-1 VIDA</div>
+        <div class="amb-menos m2" style="left: 796px; top: 110px">-1 VIDA</div>
+      </div>
+      <div class="amb-scan"></div>
+      <div class="amb-barrido"></div>
+      <div class="amb-vin"></div>
+      <div class="amb-flash rojo"></div>
+      <div class="amb-flash blanco"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 76.09;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      PX.llenar(root);
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      // la franja de barrido del CRT baja todo el reel
+      tl.fromTo(q(".amb-barrido"), { y: -140 }, { y: 1920, duration: 4, ease: "none", repeat: Math.max(0, Math.floor(DUR / 4) - 1) }, 0);
+      // la pantalla parpadea apenas
+      tl.fromTo(q(".amb-scan"), { opacity: 0.85 }, { opacity: 1, duration: 0.12, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 0.12) - 2), ease: "steps(1)" }, 0);
+
+      // ---------- nivel ----------
+      const NIV = qa(".amb-niv");
+      gsap.set(NIV, { opacity: 0 });
+      const CAMBIOS = [[0, 0], [1, 9.08], [2, 17.01], [3, 27.89], [4, 36.61], [5, 41.52], [6, 48.11], [7, 62.11]];
+      CAMBIOS.forEach(([i, t], k) => {
+        if (k === 0) return;
+        tl.set(NIV[CAMBIOS[k - 1][0]], { opacity: 0 }, t);
+        tl.fromTo(NIV[i], { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.2, ease: "steps(3)", immediateRender: false }, t);
+        // parpadea al entrar
+        tl.to(NIV[i], { opacity: 0.2, duration: 0.1, yoyo: true, repeat: 5, ease: "steps(1)" }, t + 0.2);
+      });
+      gsap.set(NIV[0], { opacity: 1 });
+      tl.to(NIV[0], { opacity: 0.25, duration: 0.3, yoyo: true, repeat: 15, ease: "steps(1)" }, 0.1);
+
+      // ---------- vidas ----------
+      const VIDAS = qa(".amb-vida");
+      VIDAS.forEach((v) => { gsap.set(v.querySelector(".ver"), { opacity: 0 }); });
+      // aparecen en "Tres vidas"
+      gsap.set(VIDAS, { opacity: 0.0 });
+      VIDAS.forEach((v, i) => tl.fromTo(v, { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.2, ease: "steps(4)", immediateRender: false }, 4.85 + i * 0.12));
+      // laten
+      tl.to(VIDAS, { scale: 1.1, duration: 0.25, yoyo: true, repeat: Math.max(0, Math.floor((DUR - 6) / 0.25) - 1), ease: "steps(2)" }, 5.6);
+      // se pierden: la de la derecha primero
+      [[2, 15.84], [1, 26.29], [0, 39.26]].forEach(([i, t], k) => {
+        const lle = VIDAS[i].querySelector(".lle");
+        tl.to(lle, { opacity: 0, duration: 0.05, yoyo: true, repeat: 5, ease: "steps(1)" }, t);
+        tl.set(lle, { opacity: 0 }, t + 0.32);
+        tl.to(VIDAS[i], { x: -8, duration: 0.04, yoyo: true, repeat: 7, ease: "none" }, t);
+        const m = q(".m" + k);
+        gsap.set(m, { opacity: 0 });
+        tl.fromTo(m, { opacity: 1, y: 0 }, { opacity: 1, y: 40, duration: 0.7, ease: "steps(7)", immediateRender: false }, t + 0.05);
+        tl.set(m, { opacity: 0 }, t + 1.0);
+      });
+      // en el de enfrente: partida nueva, vidas llenas
+      VIDAS.forEach((v, i) => tl.fromTo(v.querySelector(".lle"), { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "steps(1)", immediateRender: false }, 48.2 + i * 0.12));
+      // con la tienda vuelven verdes
+      VIDAS.forEach((v, i) => {
+        const ver = v.querySelector(".ver");
+        tl.fromTo(ver, { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "steps(4)", immediateRender: false }, 63.66 + i * 0.15);
+      });
+
+      // ---------- puntaje ----------
+      const SC = qa(".amb-sc");
+      gsap.set(SC.slice(1), { opacity: 0 });
+      const PUNTOS = [49.4, 50.26, 51.17, 52.43, 54.52, 62.11];
+      PUNTOS.forEach((t, i) => {
+        tl.set(SC[i], { opacity: 0 }, t);
+        tl.set(SC[i + 1], { opacity: 1 }, t);
+        tl.fromTo(q(".amb-score"), { scale: 1.25, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.2, ease: "steps(3)", immediateRender: false }, t);
+      });
+
+      // ---------- flashes ----------
+      const rojo = q(".amb-flash.rojo"), blanco = q(".amb-flash.blanco");
+      [15.84, 26.29, 39.26, 41.52].forEach((t) => {
+        tl.fromTo(rojo, { opacity: 0 }, { opacity: 0.35, duration: 0.05, immediateRender: false }, t);
+        tl.to(rojo, { opacity: 0, duration: 0.25, ease: "steps(3)" }, t + 0.08);
+      });
+      [36.61, 48.11, 62.11].forEach((t) => {
+        tl.fromTo(blanco, { opacity: 0 }, { opacity: 0.4, duration: 0.05, immediateRender: false }, t);
+        tl.to(blanco, { opacity: 0, duration: 0.25, ease: "steps(3)" }, t + 0.08);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
