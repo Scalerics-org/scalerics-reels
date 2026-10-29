@@ -93,7 +93,10 @@ if (PANEL) {
 const igOn = !!process.env.IG_TOKEN || !!(await estadoJson("ig.json"));
 // TikTok en pausa (TIKTOK_PAUSADO=1) mientras la app no esté auditada: sin auditoría los envíos no le
 // llegan a la cuenta. Al reactivar, sacar ojala-te-fundas de publicados.json (tiktok): no salió.
-const ttOn = !!accesoTT && process.env.TIKTOK_PAUSADO !== "1";
+// Además, solo con la aprobación permanente encendida en el panel (tiktok-auto.json): la configuración
+// (privacidad, interacciones) la eligió y la aceptó una persona ahí.
+const autoTT = (await estadoJson("tiktok-auto.json")) || {};
+const ttOn = !!accesoTT && process.env.TIKTOK_PAUSADO !== "1" && !!autoTT.activo;
 const redes = [...(ttOn ? ["tiktok"] : []), ...(igOn ? ["instagram"] : [])];
 const falta = (sl) => redes.filter((r) => !(pub[r] || []).includes(sl));
 
@@ -233,7 +236,7 @@ hechoEn.push("instagram");
 }
 if (hacerTT) {
   try {
-    console.log("TIKTOK: " + (await publicarTikTok(accesoTT, bytes, caption, false)));
+    console.log("TIKTOK: " + (await publicarTikTokPanel(accesoTT, bytes, { ...autoTT, titulo: caption })));
     hechoEn.push("tiktok");
   } catch (e) {
     console.log("TIKTOK FALLÓ: " + e.message);

@@ -76,6 +76,11 @@
   .resultado.ok { border: 1px solid var(--verde-osc); }
   .resultado.mal { border: 1px solid var(--rojo); }
   .vacio { color: var(--suave); padding: 40px 0; text-align: center; }
+  .auto { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; background: var(--panel); border: 1px solid var(--borde); border-radius: var(--radio); padding: 18px; margin-bottom: 18px; }
+  .auto .tit { font-weight: 600; font-size: 17px; }
+  .auto.encendida { border-color: var(--verde-osc); }
+  .dlg.sinprev { grid-template-columns: 1fr; }
+  .dlg.sinprev .prev, .oculto { display: none !important; }
   @media (max-width: 760px) {
     .dlg { grid-template-columns: 1fr; }
     .dlg .prev video { max-height: 50vh; }
@@ -98,7 +103,17 @@
 </div>
 
 <main id="vistaPanel" hidden>
-  <p class="intro">Cada reel terminado aparece acá. Miralo, revisá la descripción y elegí cómo sale en TikTok. Nada se publica sin que lo confirmes vos.</p>
+  <section class="auto" id="autoCaja">
+    <div>
+      <div class="tit">Publicación automática en TikTok</div>
+      <div class="ayuda" id="autoEstado">Cargando...</div>
+    </div>
+    <div class="acciones">
+      <button class="boton sec" id="autoApagar" hidden>Apagar</button>
+      <button class="boton" id="autoConfigurar">Configurar</button>
+    </div>
+  </section>
+  <p class="intro">Con la publicación automática encendida, cada reel nuevo que hace la rutina sale solo a las 12, 18 y 21 con la configuración que aprobaste. También podés publicar cualquiera a mano desde acá abajo.</p>
   <div class="grilla" id="grilla"><p class="vacio">Cargando reels...</p></div>
 </main>
 
@@ -108,7 +123,8 @@
     <div class="form">
       <div class="cuenta" id="cuenta"><img alt="" /><div><span class="ayuda">Se publica en TikTok en</span><b>Cargando la cuenta...</b></div></div>
 
-      <div class="campo">
+      <div class="aviso oculto" id="autoExplica">Esta configuración se aplica a todos los reels nuevos que haga la rutina: salen solos en TikTok a las 12, 18 y 21, cada uno con su descripción. La podés apagar cuando quieras.</div>
+      <div class="campo" id="campoTitulo">
         <label for="titulo">Descripción</label>
         <textarea id="titulo" maxlength="2200"></textarea>
         <span class="ayuda" id="contador"></span>
@@ -155,7 +171,7 @@
 <script>
 const $ = (s) => document.querySelector(s);
 const NOMBRES = { PUBLIC_TO_EVERYONE: "Todos", MUTUAL_FOLLOW_FRIENDS: "Amigos", FOLLOWER_OF_CREATOR: "Seguidores", SELF_ONLY: "Solo yo" };
-let creador = null, actual = null, duracion = 0;
+let creador = null, actual = null, duracion = 0, modoAuto = false;
 
 async function api(ruta, opciones) {
   const r = await fetch(ruta, opciones);
@@ -171,8 +187,41 @@ async function iniciar() {
   const { sesion } = await (await fetch("/api/login")).json();
   if (!sesion) return mostrarLogin();
   $("#vistaLogin").hidden = true; $("#vistaPanel").hidden = false;
+  cargarAuto();
   cargarReels();
 }
+
+async function cargarAuto() {
+  try {
+    const a = await api("/api/auto");
+    $("#autoCaja").classList.toggle("encendida", !!a.activo);
+    $("#autoApagar").hidden = !a.activo;
+    $("#autoConfigurar").textContent = a.activo ? "Cambiar" : "Activar";
+    if (a.activo) {
+      const permite = [a.comentarios && "comentarios", a.duo && "dúos", a.stitch && "stitch"].filter(Boolean);
+      $("#autoEstado").textContent = `Encendida · ${NOMBRES[a.privacidad] || a.privacidad} · ${permite.length ? "permite " + permite.join(", ") : "sin interacciones"} · aprobada el ${new Date(a.aceptado).toLocaleDateString("es-UY")}`;
+    } else $("#autoEstado").textContent = "Apagada: los reels nuevos no se publican solos.";
+  } catch (e) { $("#autoEstado").textContent = "No se pudo leer: " + e.message; }
+}
+
+$("#autoConfigurar").onclick = async () => {
+  modoAuto = true; actual = null; duracion = 0;
+  $(".dlg").classList.add("sinprev");
+  $("#campoTitulo").classList.add("oculto");
+  $("#autoExplica").classList.remove("oculto");
+  $("#resultado").hidden = true;
+  for (const id of ["comentarios", "duo", "stitch", "comercial", "marcaPropia", "marcaAjena"]) $("#" + id).checked = false;
+  $("#cajaComercial").classList.remove("visible");
+  $("#publicar").textContent = "Activar publicación automática";
+  $("#dlg").showModal();
+  await cargarCreador();
+  validar();
+};
+
+$("#autoApagar").onclick = async () => {
+  await api("/api/auto", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ activo: false }) });
+  cargarAuto();
+};
 
 $("#entrar").onclick = async () => {
   $("#errorLogin").textContent = "";
@@ -208,7 +257,11 @@ async function cargarReels() {
 }
 
 async function abrir(r) {
-  actual = r;
+  actual = r; modoAuto = false;
+  $(".dlg").classList.remove("sinprev");
+  $("#campoTitulo").classList.remove("oculto");
+  $("#autoExplica").classList.add("oculto");
+  $("#publicar").textContent = "Publicar en TikTok";
   $("#resultado").hidden = true;
   $("#titulo").value = r.descripcion || "";
   contar();
@@ -283,6 +336,26 @@ $("#cancelar").onclick = () => { $("#dlgVideo").pause(); $("#dlg").close(); };
 
 $("#publicar").onclick = async () => {
   const b = $("#publicar");
+  if (modoAuto) {
+    b.disabled = true;
+    try {
+      await api("/api/auto", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          activo: true, privacidad: $("#privacidad").value,
+          comentarios: $("#comentarios").checked, duo: $("#duo").checked, stitch: $("#stitch").checked,
+          marcaPropia: $("#comercial").checked && $("#marcaPropia").checked, acepto: true,
+        }),
+      });
+      $("#dlg").close();
+      cargarAuto();
+    } catch (e) {
+      const res = $("#resultado");
+      res.hidden = false; res.className = "resultado mal"; res.textContent = "No se pudo guardar: " + e.message;
+      b.disabled = false;
+    }
+    return;
+  }
   b.disabled = true; b.textContent = "Enviando...";
   const res = $("#resultado");
   try {
