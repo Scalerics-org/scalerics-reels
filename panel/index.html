@@ -104,6 +104,13 @@
 </div>
 
 <main id="vistaPanel" hidden>
+  <section class="auto" id="ttCaja">
+    <div class="cuenta" style="background:none;padding:0">
+      <img id="ttAvatar" alt="" />
+      <div><div class="tit">Cuenta de TikTok</div><div class="ayuda" id="ttEstado">Cargando...</div></div>
+    </div>
+    <div class="acciones"><a class="boton sec" id="ttConectar" href="/api/tiktok-conectar" style="text-decoration:none">Conectar TikTok</a></div>
+  </section>
   <section class="auto" id="autoCaja">
     <div>
       <div class="tit">Publicación automática en TikTok</div>
@@ -188,8 +195,24 @@ async function iniciar() {
   const { sesion } = await (await fetch("/api/login")).json();
   if (!sesion) return mostrarLogin();
   $("#vistaLogin").hidden = true; $("#vistaPanel").hidden = false;
+  cargarCuentaTT();
   cargarAuto();
   cargarReels();
+}
+
+async function cargarCuentaTT() {
+  const aviso = new URLSearchParams(location.search).get("tiktok");
+  try {
+    const c = await api("/api/creador");
+    $("#ttAvatar").src = c.creator_avatar_url || "";
+    $("#ttEstado").textContent = `Conectada: ${c.creator_nickname || ""} (@${c.creator_username || ""})` + (aviso === "conectado" ? " · lista para publicar" : "");
+    $("#ttConectar").textContent = "Reconectar";
+    $("#ttCaja").classList.add("encendida");
+  } catch {
+    $("#ttEstado").textContent = aviso === "cancelado" ? "No se autorizó. Probá de nuevo." : "Sin conectar: tocá Conectar TikTok y autorizá la cuenta.";
+    $("#ttAvatar").removeAttribute("src");
+  }
+  if (aviso) history.replaceState(null, "", "/");
 }
 
 async function cargarAuto() {
