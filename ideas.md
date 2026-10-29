@@ -51,6 +51,11 @@
 
 ## En curso
 
+- 29-10 · `empleado-del-mes` · Agente de IA · reservado (3ª tanda 29-10): ceremonia de premios, "el empleado del mes es... no, Marcelo, no sos vos" [formato P gala de premios · estilo gala con telón, sobre dorado y estatuilla]
+- 29-10 · `el-remate` · Agente de IA · reservado (3ª tanda 29-10): un rematador de feria remata a tu mejor cliente y vos ni viniste [formato P remate de feria · estilo casa de remates: madera, martillo, pizarra de pujas]
+- 29-10 · `el-grupo-de-los-agentes` · Agente de IA · reservado (3ª tanda 29-10): espiamos el grupo de WhatsApp de los agentes de IA y se ríen de los dueños que contestan a mano [formato B diálogo espiado · estilo cómic con viñetas y semitono]
+- 29-10 · `cita-a-ciegas` · Tienda online · reservado (3ª tanda 29-10): tu clienta tuvo una cita con tu local y fue un desastre (solo efectivo, pasá el lunes) [formato P reality de citas · estilo programa de citas con medidor de química]
+- 29-10 · `papa-no-quiero` · Sitio web · reservado (3ª tanda 29-10): "Papá, no me voy a quedar con el negocio." Así como está, no [formato D historia familiar · estilo video casero VHS]
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
