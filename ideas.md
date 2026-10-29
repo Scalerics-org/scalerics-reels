@@ -57,6 +57,11 @@
 ## En curso
 
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
+- 29-10 · `game-over` · Tienda online · videojuego retro: comprarte es un juego imposible (niveles y jefe final) [formato P videojuego · estilo arcade 8-bit] (corrida 29-10 08h)
+- 29-10 · `horoscopo` · Agente de IA · astróloga de TV lee el horóscopo del comerciante: "no es Mercurio retrógrado, es el visto" [formato P horóscopo de TV · estilo místico violeta y dorado] (corrida 29-10 08h)
+- 29-10 · `la-receta` · Agente de IA · programa de cocina: la receta infalible para espantar clientes, paso a paso [formato C receta en pasos · estilo programa de cocina con azulejos] (corrida 29-10 08h)
+- 29-10 · `el-millon` · Agente de IA · concurso de preguntas: el dueño concursa y pide comodines [formato E pregunta al que mira · estilo game show azul y dorado] (corrida 29-10 08h)
+- 29-10 · `storytime` · Sitio web · una influencer cuenta en vivo cómo casi no va al mejor bodegón por culpa de su página [formato D historia de clienta · estilo transmisión en vivo con chat] (corrida 29-10 08h)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
 
