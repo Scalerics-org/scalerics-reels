@@ -47,11 +47,11 @@ function tam(texto, maximo) {
   const palabras = String(texto || "").split(/\s+/);
   const largo = palabras.join(" ").length;
   // En un solo renglón si no hay que achicar más de un 30 %
-  const unRenglon = Math.floor(960 / (largo * 0.7));
+  const unRenglon = Math.floor(960 / (largo * 0.76));
   if (unRenglon >= maximo * 0.7) return Math.min(maximo, unRenglon);
-  const renglones = Math.max(1, Math.ceil((largo * 0.7 * maximo) / 960));
+  const renglones = Math.max(1, Math.ceil((largo * 0.76 * maximo) / 960));
   const porRenglon = Math.max(...palabras.map((p) => p.length), Math.ceil(largo / renglones));
-  return Math.min(maximo, Math.floor(960 / (porRenglon * 0.7)));
+  return Math.min(maximo, Math.floor(960 / (porRenglon * 0.76)));
 }
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const url = (p) => "file:///" + p.replace(/\\/g, "/");
