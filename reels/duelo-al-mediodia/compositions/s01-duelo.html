@@ -1,0 +1,213 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-duelo"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-duelo"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-duelo"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-duelo"] .linea { fill: none; stroke: #f2e1bd; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-duelo"] .fina { fill: none; stroke: #f2e1bd; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.5; }
+    [data-composition-id="s01-duelo"] .silueta { fill: #3b2616; stroke: #f2e1bd; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-duelo"] .oscuro { fill: #1c120b; stroke: #f2e1bd; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-duelo"] .papel { fill: #f2e1bd; stroke: #3b2616; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-duelo"] .rojo { fill: none; stroke: #c8452c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-duelo"] .rojo-f { fill: #c8452c; stroke: #f2e1bd; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-duelo"] .ocre { fill: none; stroke: #eaa53b; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-duelo"] .ocre-f { fill: #eaa53b; stroke: #f2e1bd; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-duelo"] .verde { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-duelo"] .etq { position: absolute; left: 0; right: 0; top: 1418px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #eaa53b; white-space: nowrap; }
+    [data-composition-id="s01-duelo"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s01-duelo"] .tabla { position: absolute; padding: 10px 26px 8px; background: #3b2616; border: 5px solid #f2e1bd; border-radius: 6px; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 40px; letter-spacing: 0.1em; color: #f2e1bd; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s01-duelo"] .sello { position: absolute; padding: 8px 28px 4px; border: 8px solid #c8452c; border-radius: 12px; font-family: "Outfit", sans-serif; font-weight: 900; line-height: 1; letter-spacing: 0.06em; color: #c8452c; white-space: nowrap; text-transform: uppercase; background: rgba(242, 225, 189, 0.92); }
+    [data-composition-id="s01-duelo"] .globo { position: absolute; padding: 16px 26px; border-radius: 28px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; line-height: 1.2; white-space: nowrap; box-sizing: border-box; }
+    [data-composition-id="s01-duelo"] .g-cli { background: #f2e1bd; color: #1c120b; border-bottom-left-radius: 6px; }
+    [data-composition-id="s01-duelo"] .g-pis { background: #c8452c; color: #f2e1bd; border-bottom-right-radius: 6px; }
+    [data-composition-id="s01-duelo"] .g-ia { background: #eaa53b; color: #1c120b; border-bottom-right-radius: 6px; }
+    [data-composition-id="s01-duelo"] .g-sc { background: #5ce611; color: #1c120b; border-bottom-right-radius: 6px; }
+    [data-composition-id="s01-duelo"] .hora { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.1em; color: #f2e1bd; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s01-duelo" data-width="1080" data-height="1920" data-duration="6.11">
+    <div id="s01-duelo-escena" class="capa clip" data-start="0" data-duration="6.11" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- PLANO 1: la calle del pueblo -->
+          <g class="s01-calle">
+            <path class="silueta s01-fach" d="M60 1330 V820 L140 760 H330 L380 820 V1330" />
+            <path class="linea s01-fach-l" d="M90 1330 V880 H350 V1330 M140 1330 V1120 H230 V1330 M260 960 H330 V1040 H260 Z" />
+            <path class="silueta s01-fach" d="M1020 1330 V820 L940 760 H750 L700 820 V1330" />
+            <path class="linea s01-fach-l" d="M990 1330 V880 H730 V1330 M780 1330 V1120 H870 V1330 M900 960 H960 V1040 H900 Z" />
+            <path class="fina s01-calle-l" d="M380 1330 L500 1110 M700 1330 L580 1110 M440 1260 H640 M470 1200 H610" />
+            <!-- el pistolero de enfrente -->
+            <g class="s01-pis">
+              <path class="silueta" d="M770 1330 L790 1215 L760 1210 L790 1090 Q825 1060 860 1090 L890 1210 L860 1215 L880 1330" />
+              <path class="rojo-f" d="M800 1088 L825 1112 L850 1088 Z" />
+              <circle class="silueta" cx="825" cy="1060" r="30" />
+              <path class="silueta" d="M770 1040 Q825 1052 880 1040 Q870 1030 855 1030 L850 995 Q825 985 800 995 L795 1030 Q780 1030 770 1040 Z" />
+              <path class="rojo" d="M798 1024 H852" />
+              <path class="ocre s01-celu" d="M868 1180 h18 v34 h-18 Z" />
+            </g>
+            <!-- el guante del desafío -->
+            <g class="s01-guante"><g class="s01-guante-r">
+              <path class="papel" d="M-40 20 L-40 -20 Q-38 -40 -28 -40 L-26 -60 Q-22 -70 -14 -60 L-12 -44 L-8 -70 Q-2 -80 4 -70 L4 -44 L10 -66 Q16 -74 22 -64 L18 -38 L28 -52 Q36 -56 38 -46 L24 -10 L30 20 Z" />
+            </g></g>
+          </g>
+          <!-- PLANO 2: los ojos -->
+          <g class="s01-ojos">
+            <rect x="-20" y="640" width="1120" height="250" fill="#1c120b" />
+            <path class="linea" d="M-20 640 H1100 M-20 890 H1100" />
+            <path class="silueta" d="M-20 640 H1100 V700 Q540 740 -20 700 Z" />
+            <path class="rojo" d="M-20 700 Q540 740 1100 700" />
+            <path class="linea s01-ceja" d="M230 760 L440 790" />
+            <path class="linea s01-ceja" d="M850 760 L640 790" />
+            <path class="linea" d="M240 830 Q340 800 440 830 Q340 850 240 830 Z" />
+            <path class="linea" d="M640 830 Q740 800 840 830 Q740 850 640 830 Z" />
+            <circle class="s01-pupila" cx="360" cy="828" r="13" fill="#eaa53b" />
+            <circle class="s01-pupila" cx="720" cy="828" r="13" fill="#eaa53b" />
+          </g>
+          <!-- PLANO 3: vos, durmiendo en la mecedora de tu local -->
+          <g class="s01-vos">
+            <path class="silueta" d="M130 1300 V700 H950 V1300" style="fill: #2a1a0e" />
+            <path class="linea" d="M110 700 H970 M130 700 V1300 M950 700 V1300 M110 1300 H970" />
+            <path class="fina" d="M110 1260 H970 M110 1220 H970" />
+            <!-- puerta con el cartel -->
+            <path class="silueta" d="M690 1300 V900 H850 V1300" />
+            <circle cx="830" cy="1110" r="7" fill="#eaa53b" />
+            <path class="linea" d="M735 960 L770 925 L805 960" />
+            <!-- mecedora -->
+            <path class="linea" d="M250 1290 Q400 1320 560 1285" />
+            <path class="linea" d="M300 1295 L320 1180 M500 1300 L480 1180 M300 1180 H510 M310 1180 L270 950" />
+            <!-- vos -->
+            <path class="silueta" d="M320 1170 Q300 1070 360 1040 Q430 1010 490 1060 Q520 1110 500 1170 Z" />
+            <path class="silueta" d="M480 1150 L590 1170 L610 1275 L650 1280 L650 1300 L590 1300 L570 1200 L490 1180 Z" />
+            <circle class="silueta" cx="320" cy="990" r="46" />
+            <path class="linea" d="M300 1015 Q290 1035 310 1040 M340 1015 Q350 1035 330 1040" />
+            <path class="silueta s01-sombrero" d="M240 990 Q320 1000 400 960 Q392 950 380 952 L370 910 Q330 890 295 915 L290 968 Q262 975 240 990 Z" />
+            <path class="linea" d="M370 1090 Q420 1110 470 1080" />
+            <!-- mate y termo en el piso -->
+            <path class="silueta" d="M560 1300 Q545 1255 575 1245 H605 Q630 1255 615 1300 Z" />
+            <path class="ocre" d="M598 1245 L615 1205" />
+            <path class="silueta" d="M635 1300 V1180 Q650 1165 665 1180 V1300 Z" />
+          </g>
+        </svg>
+        <div class="tabla s01-t-tu" style="left: 105px; top: 790px; font-size: 34px">Tu local</div>
+        <div class="tabla s01-t-enf" style="left: 735px; top: 790px; font-size: 34px">Enfrente</div>
+        <div class="grande s01-duelo" style="top: 930px; font-size: 250px; letter-spacing: 0.04em; color: #c8452c; text-shadow: 0 0 40px rgba(200, 69, 44, 0.45)">Duelo</div>
+        <div class="tabla s01-cerrado" style="left: 705px; top: 960px; font-size: 30px; background: #c8452c">Cerrado</div>
+        <div class="grande s01-z s01-z1" style="left: 360px; right: auto; top: 900px; font-size: 64px; color: #eaa53b">Z</div>
+        <div class="grande s01-z s01-z2" style="left: 400px; right: auto; top: 830px; font-size: 84px; color: #eaa53b">Z</div>
+        <div class="grande s01-z s01-z3" style="left: 450px; right: auto; top: 740px; font-size: 104px; color: #eaa53b">Z</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-duelo";
+      const DUR = 6.11;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = Math.max(0, t + i * (paso ?? 0.04));
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.02 }, t0);
+          tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.6, ease: "power2.inOut" }, t0);
+        });
+      };
+      const aMedias = (els, f) => (Array.isArray(els) ? els : [els]).forEach((el) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * f }); });
+      const pop = (el, t, d, desde) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde ?? 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.5, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const golpe = (el, t, desde) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde ?? 2.6 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const salir = (el, t, d) => tl.to(el, { opacity: 0, duration: d ?? 0.18, ease: "power2.in" }, t);
+      const temblor = (el, t, f) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -10 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12);
+        temblor(q(".escenario"), t + 0.03, 0.8);
+      };
+      const tipear = (el, t, cps) => {
+        const txt = el.textContent;
+        el.innerHTML = [...txt].map((c) => `<span class="k" style="opacity:0">${c === " " ? "&nbsp;" : c}</span>`).join("");
+        el.querySelectorAll(".k").forEach((k, i) => tl.to(k, { opacity: 1, duration: 0.01 }, t + i / (cps ?? 30)));
+      };
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+      const ENFRENTE = 0.38, DESAFIO = 1.51, DUELO = 2.27, YVOS = 2.73, VOS = 3.46, NI = 4.19, ENTERASTE = 4.54;
+      // plano 1: la calle ya a medio dibujar en el cuadro 0
+      aMedias(qa(".s01-fach-l"), 0.45);
+      tl.to(qa(".s01-fach-l"), { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 0);
+      dibujar(qa(".s01-calle-l"), 0, 0.5);
+      tl.fromTo(q(".s01-calle"), { scale: 1.08, svgOrigin: "540 1100" }, { scale: 1, svgOrigin: "540 1100", duration: 0.5, ease: "power3.out" }, 0);
+      pop(q(".s01-t-tu"), 0.05);
+      pop(q(".s01-t-enf"), 0.15);
+      // "enfrente": zoom a la fachada de enfrente, aparece el pistolero
+      gsap.set(q(".s01-pis"), { opacity: 0 });
+      tl.fromTo(q(".s01-pis"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, ENFRENTE);
+      tl.to(q(".s01-calle"), { scale: 1.35, svgOrigin: "860 1130", duration: 0.9, ease: "power2.inOut" }, ENFRENTE);
+      tl.to(q(".s01-t-enf"), { scale: 1.2, x: -40, y: -10, duration: 0.9, ease: "power2.inOut" }, ENFRENTE);
+      tl.to(q(".s01-t-tu"), { opacity: 0, x: -120, duration: 0.5 }, ENFRENTE + 0.2);
+      // "desafió": tira el guante al medio de la calle
+      gsap.set(q(".s01-guante"), { opacity: 0, x: 860, y: 1120 });
+      tl.to(q(".s01-guante"), { opacity: 1, duration: 0.05 }, DESAFIO - 0.1);
+      tl.to(q(".s01-guante"), { x: 560, duration: 0.55, ease: "power1.out" }, DESAFIO - 0.1);
+      tl.to(q(".s01-guante"), { y: 1000, duration: 0.25, ease: "power2.out" }, DESAFIO - 0.1);
+      tl.to(q(".s01-guante"), { y: 1290, duration: 0.3, ease: "bounce.out" }, DESAFIO + 0.15);
+      tl.fromTo(q(".s01-guante-r"), { rotation: 0, svgOrigin: "0 0" }, { rotation: -200, svgOrigin: "0 0", duration: 0.55, ease: "power1.out" }, DESAFIO - 0.1);
+      // "duelo": primerísimo plano de los ojos + DUELO gigante
+      gsap.set(q(".s01-ojos"), { opacity: 0 });
+      tl.to(q(".s01-calle"), { opacity: 0.25, duration: 0.1 }, DUELO - 0.12);
+      tl.to(q(".s01-t-enf"), { opacity: 0, duration: 0.1 }, DUELO - 0.12);
+      tl.fromTo(q(".s01-ojos"), { opacity: 0, scaleY: 0.1, svgOrigin: "540 765" }, { opacity: 1, scaleY: 1, svgOrigin: "540 765", duration: 0.16, ease: "power3.out", immediateRender: false }, DUELO - 0.16);
+      tl.fromTo(qa(".s01-pupila"), { x: -6 }, { x: 6, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, DUELO + 0.1);
+      golpe(q(".s01-duelo"), DUELO);
+      temblor(q(".escenario"), DUELO + 0.05, 1.1);
+      // "y vos": corte a tu local, vos durmiendo
+      gsap.set(q(".s01-vos"), { opacity: 0 });
+      tl.to([q(".s01-calle"), q(".s01-ojos"), q(".s01-duelo")], { opacity: 0, duration: 0.12 }, YVOS - 0.08);
+      tl.fromTo(q(".s01-vos"), { opacity: 0, scale: 1.12, svgOrigin: "400 1300" }, { opacity: 1, scale: 1, svgOrigin: "400 1300", duration: 0.35, ease: "power3.out", immediateRender: false }, YVOS - 0.04);
+      tl.to(q(".s01-vos"), { scale: 1.12, svgOrigin: "400 1300", duration: 2.6, ease: "none" }, VOS);
+      // la mecedora (y vos) se hamaca
+      tl.fromTo(q(".s01-vos"), { rotation: 0, svgOrigin: "400 1300" }, { rotation: 1.5, svgOrigin: "400 1300", duration: 0.6, yoyo: true, repeat: 4, ease: "sine.inOut", immediateRender: false }, YVOS + 0.3);
+      qa(".s01-z").forEach((z, i) => {
+        gsap.set(z, { opacity: 0 });
+        tl.fromTo(z, { opacity: 0, y: 30, scale: 0.6 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, VOS + 0.1 + i * 0.25);
+        tl.to(z, { y: -25, x: 10, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, VOS + 0.4 + i * 0.25);
+      });
+      // "ni te enteraste": se da vuelta el cartel de CERRADO en la puerta
+      gsap.set(q(".s01-cerrado"), { opacity: 0 });
+      tl.fromTo(q(".s01-cerrado"), { opacity: 1, rotationY: 90 }, { opacity: 1, rotationY: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, NI);
+      tl.to(q(".s01-cerrado"), { rotation: 6, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, NI + 0.3);
+      tl.to(q(".s01-sombrero"), { y: -6, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, ENTERASTE);
+      etiquetas([["DESAFÍO A DUELO", 0.1], ["VOS: DURMIENDO", YVOS + 0.1]]);
+
+      // salida
+      tl.to(q("#s01-duelo-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

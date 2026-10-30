@@ -1,0 +1,5 @@
+[
+  {"t": 0.0, "sfx": "notification", "vol": 0.4},
+  {"t": 0.35, "sfx": "key-press", "vol": 0.2},
+  {"t": 1.1, "sfx": "tic", "vol": 0.25}
+]

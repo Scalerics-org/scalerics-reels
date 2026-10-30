@@ -1,0 +1,104 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-grano { position: absolute; left: -80px; top: -80px; width: 1240px; height: 2080px; opacity: 0.07; mix-blend-mode: screen; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 720px 1080px at 540px 930px, rgba(28, 18, 11, 0) 55%, rgba(20, 12, 6, 0.85) 100%); }
+    [data-composition-id="ambiente"] .amb-raya { position: absolute; top: 0; width: 2px; height: 1920px; background: #f2e1bd; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-polvo { fill: #f2e1bd; opacity: 0.22; }
+    [data-composition-id="ambiente"] .amb-tumble { fill: none; stroke: #c9a46a; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 60px; top: 1600px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; color: #eaa53b; opacity: 0.6; text-align: right; line-height: 1.5; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #ffd58a; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="72.54">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="72.54" data-track-index="0">
+      <svg class="amb-grano" viewBox="0 0 1240 2080" aria-hidden="true">
+        <filter id="amb-ruido"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" /><feColorMatrix type="saturate" values="0" /></filter>
+        <rect width="1240" height="2080" filter="url(#amb-ruido)" />
+      </svg>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="amb-polvos">
+          <circle class="amb-polvo" cx="0" cy="600" r="2" />
+          <circle class="amb-polvo" cx="397" cy="833" r="3" />
+          <circle class="amb-polvo" cx="794" cy="1066" r="4" />
+          <circle class="amb-polvo" cx="111" cy="1299" r="2" />
+          <circle class="amb-polvo" cx="508" cy="1532" r="3" />
+          <circle class="amb-polvo" cx="905" cy="1765" r="4" />
+          <circle class="amb-polvo" cx="222" cy="748" r="2" />
+          <circle class="amb-polvo" cx="619" cy="981" r="3" />
+          <circle class="amb-polvo" cx="1016" cy="1214" r="4" />
+          <circle class="amb-polvo" cx="333" cy="1447" r="2" />
+          <circle class="amb-polvo" cx="730" cy="1680" r="3" />
+          <circle class="amb-polvo" cx="47" cy="663" r="4" />
+          <circle class="amb-polvo" cx="444" cy="896" r="2" />
+          <circle class="amb-polvo" cx="841" cy="1129" r="3" />
+          <circle class="amb-polvo" cx="158" cy="1362" r="4" />
+          <circle class="amb-polvo" cx="555" cy="1595" r="2" />
+          <circle class="amb-polvo" cx="952" cy="1828" r="3" />
+          <circle class="amb-polvo" cx="269" cy="811" r="4" />
+          <circle class="amb-polvo" cx="666" cy="1044" r="2" />
+          <circle class="amb-polvo" cx="1063" cy="1277" r="3" />
+          <circle class="amb-polvo" cx="380" cy="1510" r="4" />
+          <circle class="amb-polvo" cx="777" cy="1743" r="2" />
+          <circle class="amb-polvo" cx="94" cy="726" r="3" />
+          <circle class="amb-polvo" cx="491" cy="959" r="4" />
+          <circle class="amb-polvo" cx="888" cy="1192" r="2" />
+          <circle class="amb-polvo" cx="205" cy="1425" r="3" />
+        </g>
+        <g class="amb-tumble-g">
+          <g class="amb-tumble-rot">
+            <circle class="amb-tumble" cx="0" cy="0" r="62" opacity="0.5" />
+            <path class="amb-tumble" d="M-55 -20 C-20 -60 30 -50 52 -10 C60 30 20 60 -20 50 C-50 40 -50 0 -20 -20 C10 -40 40 -10 30 20 C20 40 -10 35 -15 10 M-40 30 C-10 -10 20 -30 45 25 M-30 -45 C0 -10 -10 30 10 58 M20 -55 C10 -20 40 10 -5 30" />
+          </g>
+        </g>
+      </svg>
+      <div class="amb-raya" style="left: 214px"></div>
+      <div class="amb-raya" style="left: 771px"></div>
+      <div class="amb-raya" style="left: 903px"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-rotulo" data-layout-ignore>DUELO AL MEDIODÍA<br />UN FILM DEL OESTE</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 72.54;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      // grano de película: salta entre dos posiciones cada 0.08 s
+      tl.fromTo(q(".amb-grano"), { x: 0, y: 0 }, { x: -41, y: 29, duration: 0.08, ease: "steps(1)", yoyo: true, repeat: Math.floor(DUR / 0.08) }, 0);
+      // rayas de película vieja que titilan en momentos fijos
+      const rayas = qa(".amb-raya");
+      [1.1, 5.3, 9.8, 14.2, 18.9, 23.4, 29.6, 33.1, 38.7, 43.0, 47.5, 52.2, 57.8, 62.4, 66.9, 70.3].forEach((t, i) => {
+        const r = rayas[i % 3];
+        tl.to(r, { opacity: 0.22, duration: 0.04 }, t);
+        tl.to(r, { opacity: 0, duration: 0.04 }, t + 0.16 + (i % 3) * 0.05);
+      });
+      // polvo que vuela con el viento
+      tl.fromTo(q(".amb-polvos"), { x: -60, y: 0 }, { x: 220, y: -90, duration: DUR, ease: "none" }, 0);
+      qa(".amb-polvo").forEach((p, i) => tl.fromTo(p, { opacity: 0.08 }, { opacity: 0.32, duration: 1.2 + (i % 5) * 0.4, yoyo: true, repeat: Math.floor(DUR / (1.2 + (i % 5) * 0.4)), ease: "sine.inOut" }, (i % 7) * 0.3));
+      gsap.set(q(".amb-tumble-g"), { x: -200, y: 1530 });
+      // el tumbleweed cruza en los silencios (segundos globales)
+      [[3.0, 6.0], [27.3, 31.0], [68.6, 72.4]].forEach(([a, b]) => {
+        tl.fromTo(q(".amb-tumble-g"), { x: -200, y: 1530 }, { x: 1280, duration: b - a, ease: "none", immediateRender: false }, a);
+        tl.fromTo(q(".amb-tumble-rot"), { rotation: 0, svgOrigin: "0 0" }, { rotation: 720, svgOrigin: "0 0", duration: b - a, ease: "none", immediateRender: false }, a);
+        [0.25, 0.5, 0.75].forEach((f) => tl.to(q(".amb-tumble-g"), { y: 1500, duration: (b - a) * 0.12, yoyo: true, repeat: 1, ease: "sine.out" }, a + (b - a) * f - (b - a) * 0.12));
+      });
+      // fogonazos: "duelo", "Tengo", "agente", el CTA
+      [2.27, 20.96, 49.2, 67.5].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.45, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

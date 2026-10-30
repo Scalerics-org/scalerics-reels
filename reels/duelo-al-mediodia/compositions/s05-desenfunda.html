@@ -1,0 +1,161 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-desenfunda"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-desenfunda"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-desenfunda"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-desenfunda"] .linea { fill: none; stroke: #f2e1bd; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-desenfunda"] .fina { fill: none; stroke: #f2e1bd; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.5; }
+    [data-composition-id="s05-desenfunda"] .silueta { fill: #3b2616; stroke: #f2e1bd; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-desenfunda"] .oscuro { fill: #1c120b; stroke: #f2e1bd; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-desenfunda"] .papel { fill: #f2e1bd; stroke: #3b2616; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-desenfunda"] .rojo { fill: none; stroke: #c8452c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-desenfunda"] .rojo-f { fill: #c8452c; stroke: #f2e1bd; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-desenfunda"] .ocre { fill: none; stroke: #eaa53b; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-desenfunda"] .ocre-f { fill: #eaa53b; stroke: #f2e1bd; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-desenfunda"] .verde { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-desenfunda"] .etq { position: absolute; left: 0; right: 0; top: 1418px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #eaa53b; white-space: nowrap; }
+    [data-composition-id="s05-desenfunda"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s05-desenfunda"] .tabla { position: absolute; padding: 10px 26px 8px; background: #3b2616; border: 5px solid #f2e1bd; border-radius: 6px; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 40px; letter-spacing: 0.1em; color: #f2e1bd; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s05-desenfunda"] .sello { position: absolute; padding: 8px 28px 4px; border: 8px solid #c8452c; border-radius: 12px; font-family: "Outfit", sans-serif; font-weight: 900; line-height: 1; letter-spacing: 0.06em; color: #c8452c; white-space: nowrap; text-transform: uppercase; background: rgba(242, 225, 189, 0.92); }
+    [data-composition-id="s05-desenfunda"] .globo { position: absolute; padding: 16px 26px; border-radius: 28px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; line-height: 1.2; white-space: nowrap; box-sizing: border-box; }
+    [data-composition-id="s05-desenfunda"] .g-cli { background: #f2e1bd; color: #1c120b; border-bottom-left-radius: 6px; }
+    [data-composition-id="s05-desenfunda"] .g-pis { background: #c8452c; color: #f2e1bd; border-bottom-right-radius: 6px; }
+    [data-composition-id="s05-desenfunda"] .g-ia { background: #eaa53b; color: #1c120b; border-bottom-right-radius: 6px; }
+    [data-composition-id="s05-desenfunda"] .g-sc { background: #5ce611; color: #1c120b; border-bottom-right-radius: 6px; }
+    [data-composition-id="s05-desenfunda"] .hora { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.1em; color: #f2e1bd; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s05-desenfunda" data-width="1080" data-height="1920" data-duration="4.81">
+    <div id="s05-desenfunda-escena" class="capa clip" data-start="0" data-duration="4.81" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el pistolero de enfrente, medio cuerpo -->
+          <g class="s05-pis">
+            <path class="silueta" d="M640 1340 Q640 1090 700 1065 L800 1040 H850 L950 1065 Q1010 1090 1010 1340" />
+            <path class="rojo-f" d="M780 1030 L825 1095 L870 1030 Z" />
+            <circle class="silueta" cx="825" cy="950" r="78" />
+            <path class="linea" d="M780 945 Q795 935 810 945 M840 945 Q855 935 870 945" />
+            <path class="linea" d="M790 990 Q825 975 860 990" />
+            <path class="linea" d="M805 1005 Q830 1015 852 1000" />
+            <path class="silueta" d="M660 885 Q825 915 990 885 Q975 862 940 862 L925 790 Q825 760 725 790 L710 862 Q675 862 660 885 Z" />
+            <path class="rojo" d="M716 850 Q825 868 934 850" style="stroke-width: 10" />
+          </g>
+          <g class="s05-brazo">
+            <path class="silueta" d="M700 1090 L560 990 Q540 975 525 995 L515 1010 Q510 1025 530 1035 L680 1140 Z" />
+            <rect class="ocre-f" x="440" y="955" width="90" height="48" rx="8" />
+            <path class="linea" d="M520 1000 h30 M520 1020 h26" />
+          </g>
+          <g class="s05-fogon">
+            <path d="M440 979 L380 940 L395 968 L330 962 L388 990 L340 1030 L400 1005 L410 1050 L425 1000 Z" fill="#eaa53b" stroke="#c8452c" stroke-width="5" stroke-linejoin="round" />
+          </g>
+          <!-- tildes -->
+          <path class="ocre s05-tilde" d="M170 762 L182 776 L204 748 M192 772 L198 776 L220 748" />
+          <!-- dos remeras -->
+          <g class="s05-negra">
+            <path class="oscuro" d="M110 850 L160 825 Q185 845 210 825 L260 850 L280 905 L245 915 L240 1010 H130 L125 915 L90 905 Z" />
+          </g>
+          <g class="s05-verde">
+            <path class="silueta" d="M320 850 L370 825 Q395 845 420 825 L470 850 L490 905 L455 915 L450 1010 H340 L335 915 L300 905 Z" />
+          </g>
+        </svg>
+        <div class="globo g-pis s05-g1" style="left: 60px; top: 640px; font-size: 42px">Sí, reina. Tengo en M.</div>
+        <div class="hora s05-h" style="left: 60px; top: 742px; color: #eaa53b">23:04</div>
+        <div class="tabla s05-tn" style="left: 105px; top: 1030px; font-size: 30px">Negro</div>
+        <div class="tabla s05-tv" style="left: 318px; top: 1030px; font-size: 30px">Verde</div>
+        <div class="globo g-pis s05-g2" style="left: 60px; top: 1130px; font-size: 42px">¿Te lo separo?</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-desenfunda";
+      const DUR = 4.81;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = Math.max(0, t + i * (paso ?? 0.04));
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.02 }, t0);
+          tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.6, ease: "power2.inOut" }, t0);
+        });
+      };
+      const aMedias = (els, f) => (Array.isArray(els) ? els : [els]).forEach((el) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * f }); });
+      const pop = (el, t, d, desde) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde ?? 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.5, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const golpe = (el, t, desde) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde ?? 2.6 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const salir = (el, t, d) => tl.to(el, { opacity: 0, duration: d ?? 0.18, ease: "power2.in" }, t);
+      const temblor = (el, t, f) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -10 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12);
+        temblor(q(".escenario"), t + 0.03, 0.8);
+      };
+      const tipear = (el, t, cps) => {
+        const txt = el.textContent;
+        el.innerHTML = [...txt].map((c) => `<span class="k" style="opacity:0">${c === " " ? "&nbsp;" : c}</span>`).join("");
+        el.querySelectorAll(".k").forEach((k, i) => tl.to(k, { opacity: 1, duration: 0.01 }, t + i / (cps ?? 30)));
+      };
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+      const REINA = 0.18, TENGO = 1.18, NEGRO = 2.18, VERDE = 3.09, SEPARO = 3.45;
+      tl.fromTo(q(".s05-pis"), { x: 60, opacity: 0.5 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      // desenfunda: el brazo sube desde la cartuchera
+      tl.fromTo(q(".s05-brazo"), { rotation: -75, svgOrigin: "690 1110", opacity: 0.6 }, { rotation: 0, svgOrigin: "690 1110", opacity: 1, duration: 0.22, ease: "back.out(2.2)" }, 0);
+      tl.to(q(".s05-pis"), { rotation: -2, svgOrigin: "825 1340", duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, REINA);
+      // "tengo": fogonazo y sale el globo disparado
+      gsap.set(q(".s05-fogon"), { opacity: 0 });
+      [TENGO, 2.18, 3.4].forEach((t) => {
+        tl.fromTo(q(".s05-fogon"), { opacity: 1, scale: 0.4, svgOrigin: "440 979" }, { opacity: 1, scale: 1.1, svgOrigin: "440 979", duration: 0.08, immediateRender: false }, t - 0.06);
+        tl.to(q(".s05-fogon"), { opacity: 0, duration: 0.12 }, t + 0.06);
+        tl.fromTo(q(".s05-brazo"), { rotation: 0, svgOrigin: "690 1110" }, { rotation: 8, svgOrigin: "690 1110", duration: 0.07, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, t - 0.04);
+      });
+      gsap.set(q(".s05-g1"), { opacity: 0 });
+      tl.fromTo(q(".s05-g1"), { opacity: 0, x: 380, y: 260, scale: 0.4 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.22, ease: "power3.out", immediateRender: false }, TENGO - 0.02);
+      temblor(q(".escenario"), TENGO, 0.8);
+      pop(q(".s05-h"), TENGO + 0.25);
+      dibujar(q(".s05-tilde"), TENGO + 0.3, 0.3);
+      // las remeras
+      gsap.set([q(".s05-negra"), q(".s05-verde")], { opacity: 0 });
+      tl.fromTo(q(".s05-negra"), { opacity: 0, x: 300, y: 80 }, { opacity: 1, x: 0, y: 0, duration: 0.25, ease: "back.out(1.6)", immediateRender: false }, NEGRO - 0.08);
+      pop(q(".s05-tn"), NEGRO + 0.1);
+      tl.fromTo(q(".s05-verde"), { opacity: 0, x: 200, y: 80 }, { opacity: 1, x: 0, y: 0, duration: 0.25, ease: "back.out(1.6)", immediateRender: false }, VERDE - 0.3);
+      pop(q(".s05-tv"), VERDE - 0.1);
+      gsap.set(q(".s05-g2"), { opacity: 0 });
+      tl.fromTo(q(".s05-g2"), { opacity: 0, x: 380, y: -120, scale: 0.4 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.22, ease: "power3.out", immediateRender: false }, SEPARO - 0.05);
+      tl.fromTo(q(".escenario"), { scale: 1 }, { scale: 1.05, transformOrigin: "50% 55%", duration: DUR, ease: "none" }, 0);
+      etiquetas([["EL DE ENFRENTE DESENFUNDA", 0.05], ["23:04 · AL INSTANTE", TENGO + 0.4]]);
+
+      // salida
+      tl.to(q("#s05-desenfunda-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

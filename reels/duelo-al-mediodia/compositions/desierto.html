@@ -1,0 +1,57 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="desierto"] .des-capa { position: absolute; inset: 0; }
+    [data-composition-id="desierto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="desierto"] .des-rayo { stroke: #eaa53b; stroke-width: 26; stroke-linecap: round; opacity: 0.07; }
+    [data-composition-id="desierto"] .des-meseta { fill: #2a1a0e; stroke: #f2e1bd; stroke-width: 4; stroke-linejoin: round; stroke-opacity: 0.28; }
+    [data-composition-id="desierto"] .des-piso { fill: #22150b; }
+    [data-composition-id="desierto"] .des-surco { stroke: #f2e1bd; stroke-width: 3; stroke-linecap: round; opacity: 0.16; stroke-dasharray: 30 26; fill: none; }
+  </style>
+  <div id="root" data-composition-id="desierto" data-width="1080" data-height="1920" data-duration="72.54">
+    <div id="des-escena" class="des-capa clip" data-start="0" data-duration="72.54" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="des-rayos">
+          <line class="des-rayo" x1="540" y1="1380" x2="540" y2="560" />
+          <line class="des-rayo" x1="540" y1="1380" x2="130" y2="670" />
+          <line class="des-rayo" x1="540" y1="1380" x2="950" y2="670" />
+          <line class="des-rayo" x1="540" y1="1380" x2="-60" y2="1000" />
+          <line class="des-rayo" x1="540" y1="1380" x2="1140" y2="1000" />
+          <line class="des-rayo" x1="540" y1="1380" x2="320" y2="590" />
+          <line class="des-rayo" x1="540" y1="1380" x2="760" y2="590" />
+        </g>
+        <circle class="des-sol" cx="540" cy="1390" r="290" fill="#eaa53b" opacity="0.2" />
+        <circle cx="540" cy="1390" r="210" fill="#eaa53b" opacity="0.14" />
+        <path class="des-meseta" d="M-20 1395 L-20 1300 L60 1300 L90 1270 L250 1270 L285 1310 L330 1320 L350 1395 Z" />
+        <path class="des-meseta" d="M700 1395 L735 1335 L770 1330 L790 1290 L930 1285 L960 1315 L1100 1320 L1100 1395 Z" />
+        <path class="des-meseta" d="M410 1395 L440 1360 L520 1355 L540 1340 L600 1342 L630 1395 Z" />
+        <rect class="des-piso" x="-20" y="1393" width="1120" height="540" />
+        <line x1="-20" y1="1394" x2="1100" y2="1394" stroke="#f2e1bd" stroke-width="3" opacity="0.3" />
+        <g class="des-surcos">
+          <path class="des-surco" d="M-100 1450 H1200" />
+          <path class="des-surco" d="M-100 1520 H1200" style="stroke-dasharray: 50 40" />
+          <path class="des-surco" d="M-100 1610 H1200" style="stroke-dasharray: 80 60" />
+          <path class="des-surco" d="M-100 1720 H1200" style="stroke-dasharray: 120 90" />
+        </g>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "desierto";
+      const DUR = 72.54;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // los rayos del sol giran muy despacio; el sol late
+      tl.fromTo(q(".des-rayos"), { rotation: -8, svgOrigin: "540 1380" }, { rotation: 8, svgOrigin: "540 1380", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".des-sol"), { scale: 0.96, svgOrigin: "540 1390" }, { scale: 1.04, svgOrigin: "540 1390", duration: DUR / 6, ease: "sine.inOut", yoyo: true, repeat: 5 }, 0);
+      // el polvo del piso corre (viento)
+      qa(".des-surco").forEach((s, i) => tl.fromTo(s, { strokeDashoffset: 0 }, { strokeDashoffset: -(600 + i * 300), duration: DUR, ease: "none" }, 0));
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
