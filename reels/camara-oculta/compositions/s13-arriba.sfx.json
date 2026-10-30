@@ -1,0 +1,23 @@
+[
+ {
+  "t": 1.13,
+  "sfx": "pop",
+  "vol": 0.3
+ },
+ {
+  "t": 2.5,
+  "sfx": "whoosh-short",
+  "vol": 0.2
+ },
+ {
+  "t": 2.82,
+  "sfx": "impact-bass-2",
+  "vol": 0.4,
+  "max": 0.7
+ },
+ {
+  "t": 3.2,
+  "sfx": "sparkle",
+  "vol": 0.2
+ }
+]

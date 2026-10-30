@@ -1,0 +1,140 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-broma"] .s01-capa, [data-composition-id="s01-broma"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-broma"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-broma"] .b { fill: #2b2b2b; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .l { fill: none; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .k { fill: #0c0c0c; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .r { fill: #ff3b30; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .y { fill: #ffd400; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .yk { fill: #ffd400; stroke: #0c0c0c; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .yl { fill: none; stroke: #ffd400; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .rl { fill: none; stroke: #ff3b30; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .g { fill: #0c0c0c; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .gf { fill: #5ce611; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .w { fill: #fbf7ea; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .wk { fill: #fbf7ea; stroke: #0c0c0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-broma"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s01-broma"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; background: #ffd400; color: #0c0c0c; border: 5px solid #0c0c0c; box-shadow: 8px 8px 0 #0c0c0c; }
+    [data-composition-id="s01-broma"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s01-broma"] .s01-broma-w { position: absolute; left: 70px; top: 600px; transform: rotate(-6deg); }
+    [data-composition-id="s01-broma"] .s01-broma-t { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 150px; line-height: 1; color: #0c0c0c; background: #ffd400; padding: 14px 34px 6px; border: 7px solid #0c0c0c; box-shadow: 12px 12px 0 #ff3b30; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-broma"] .s01-cli { left: 500px; top: 790px; background: #ff3b30; color: #fbf7ea; font-size: 50px; transform: rotate(5deg); }
+    [data-composition-id="s01-broma"] .s01-busca { position: absolute; left: 110px; top: 610px; width: 860px; height: 120px; border-radius: 60px; background: #fbf7ea; border: 7px solid #0c0c0c; box-shadow: 10px 10px 0 #ffd400; }
+    [data-composition-id="s01-broma"] .s01-busca-t { position: absolute; left: 120px; top: 30px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 50px; color: #0c0c0c; white-space: nowrap; }
+    [data-composition-id="s01-broma"] .s01-busca-t span { opacity: 0; }
+    [data-composition-id="s01-broma"] .s01-cursor { display: inline-block; width: 6px; height: 52px; background: #0c0c0c; vertical-align: -8px; margin-left: 4px; }
+
+  </style>
+  <div id="root" data-composition-id="s01-broma" data-width="1080" data-height="1920" data-duration="4.35">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.35" data-track-index="0">
+      <div class="s01-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- interior de la camioneta: ventana con cortina y monitor -->
+          <g class="s01-van" opacity="0.55">
+            <rect class="l s01-van-l" x="90" y="820" width="900" height="470" rx="60" stroke="#ffd400" />
+            <path class="l s01-van-l" d="M90 900 C220 940 300 860 420 900 M660 900 C780 860 860 940 990 900" />
+          </g>
+          <g class="s01-mon">
+            <rect class="k" x="700" y="930" width="250" height="180" rx="14" />
+            <path class="yl" d="M720 950 H760 M720 950 V990 M930 1090 H890 M930 1090 V1050" stroke-width="5" />
+            <circle cx="825" cy="990" r="22" fill="#fbf7ea" opacity="0.8" /><path d="M790 1060 C790 1030 860 1030 860 1060 Z" fill="#ff3b30" opacity="0.9" />
+            <circle class="s01-rec" cx="930" cy="950" r="8" fill="#ff3b30" />
+          </g>
+          <g class="s01-con"><g transform="translate(400 1400) scale(1.3)">
+      <path class="k" d="M-150 0 C-150 -150 -100 -222 0 -222 C100 -222 150 -150 150 0 Z" />
+      <path d="M0 -214 V0" stroke="#ffd400" stroke-width="7" stroke-linecap="round" />
+      <path class="l" d="M-60 -214 L-20 -150 M60 -214 L20 -150" />
+      <ellipse class="b" cx="0" cy="-300" rx="70" ry="80" />
+      <path class="k" d="M-74 -306 C-80 -392 76 -404 76 -310 C50 -350 -20 -362 -74 -306 Z" />
+      <rect class="k" x="-60" y="-326" width="52" height="32" rx="10" /><rect class="k" x="8" y="-326" width="52" height="32" rx="10" />
+      <path class="l" d="M-8 -312 H8" stroke-width="5" />
+      <path class="l" d="M-30 -270 C-15 -280 15 -280 30 -270" stroke-width="6" />
+      <path class="l s01-con-boca" d="M-22 -252 C-8 -238 12 -240 26 -258" />
+      <path class="yl" d="M-82 -300 C-86 -420 86 -420 82 -300" stroke-width="10" />
+      <rect class="y" x="-98" y="-328" width="26" height="54" rx="10" stroke-width="5" /><rect class="y" x="72" y="-328" width="26" height="54" rx="10" stroke-width="5" />
+      <path class="yl s01-con-mic" d="M-84 -280 C-74 -236 -50 -232 -34 -240" stroke-width="6" />
+      <circle class="y" cx="-30" cy="-242" r="9" stroke-width="4" />
+      <g class="s01-dedo"><circle class="b" cx="44" cy="-238" r="26" /><path class="l" d="M44 -258 V-312" stroke-width="16" /><path d="M44 -258 V-312" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" /></g>
+    </g></g>
+        </svg>
+        <div class="s01-broma-w"><div class="s01-broma-t">Broma</div></div>
+        <div class="cartela s01-cli">a tu cliente</div>
+        <div class="s01-busca">
+          <svg viewBox="0 0 120 120" style="position:absolute;left:24px;top:14px;width:80px;height:80px" aria-hidden="true"><circle cx="50" cy="50" r="28" fill="none" stroke="#0c0c0c" stroke-width="10" /><path d="M72 72 L100 100" stroke="#0c0c0c" stroke-width="12" stroke-linecap="round" /></svg>
+          <div class="s01-busca-t"><span>t</span><span>u</span><span> </span><span>l</span><span>o</span><span>c</span><span>a</span><span>l</span><span>.</span><span>.</span><span>.</span><i class="s01-cursor"></i></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-broma";
+      const DUR = 4.35;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s01-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const BROMA = 0.55, CLIENTE = 0.95, BUSCAR = 2.36, LOCAL = 2.73, INTERNET = 3.09;
+      // cuadro 0: la camioneta ya está, el conductor ya está a medio entrar
+      tl.fromTo(q(".s01-con"), { y: 60, opacity: 0.85 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      dibujar(".s01-van-l", 0, 0.6);
+      pop(".s01-mon", 0.1);
+      tl.fromTo(q(".s01-rec"), { opacity: 1 }, { opacity: 0.1, duration: 0.3, ease: "steps(1)", yoyo: true, repeat: 13 }, 0);
+      // shh: el dedo a la boca y se inclina a la cámara
+      gsap.set(q(".s01-dedo"), { opacity: 0 });
+      tl.fromTo(q(".s01-dedo"), { opacity: 1, y: 160 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, 0.05);
+      tl.to(q(".s01-con"), { rotation: -4, svgOrigin: "400 1400", duration: 0.5, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.3);
+      habla(".s01-con-boca", 0.15, 1.0, "0 -250");
+      // BROMA
+      golpe(".s01-broma-w", BROMA, 2.6);
+      sacudon(BROMA + 0.05, 0.8);
+      pop(".s01-cli", CLIENTE, { rotation: 5 });
+      // a buscar tu local en internet: se van los carteles, entra el buscador
+      tl.to(q(".s01-dedo"), { y: 200, opacity: 0, duration: 0.25, ease: "power2.in" }, 1.75);
+      tl.to([q(".s01-broma-w"), q(".s01-cli")], { y: -60, opacity: 0, duration: 0.2, ease: "power2.in" }, BUSCAR - 0.25);
+      gsap.set(q(".s01-busca"), { opacity: 0 });
+      tl.fromTo(q(".s01-busca"), { opacity: 1, scaleX: 0.2 }, { opacity: 1, scaleX: 1, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, BUSCAR - 0.05);
+      qa(".s01-busca-t span").forEach((s, i) => tl.set(s, { opacity: 1 }, BUSCAR + 0.2 + i * 0.07));
+      tl.fromTo(q(".s01-cursor"), { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "steps(1)", yoyo: true, repeat: 7 }, BUSCAR);
+      habla(".s01-con-boca", 1.8, 1.4, "0 -250");
+      tl.to(q(".s01-busca"), { scale: 1.06, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" }, INTERNET);
+      // guiño: se baja los lentes
+      tl.to(q(".s01-con"), { y: -20, duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out" }, INTERNET + 0.3);
+
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,102 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-pagas"] .s14-capa, [data-composition-id="s14-pagas"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-pagas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-pagas"] .b { fill: #2b2b2b; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .l { fill: none; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .k { fill: #0c0c0c; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .r { fill: #ff3b30; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .y { fill: #ffd400; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .yk { fill: #ffd400; stroke: #0c0c0c; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .yl { fill: none; stroke: #ffd400; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .rl { fill: none; stroke: #ff3b30; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .g { fill: #0c0c0c; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .gf { fill: #5ce611; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .w { fill: #fbf7ea; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .wk { fill: #fbf7ea; stroke: #0c0c0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-pagas"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s14-pagas"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; background: #ffd400; color: #0c0c0c; border: 5px solid #0c0c0c; box-shadow: 8px 8px 0 #0c0c0c; }
+    [data-composition-id="s14-pagas"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s14-pagas"] .s14-t1 { top: 620px; font-size: 96px; color: #ffd400; }
+    [data-composition-id="s14-pagas"] .s14-t2 { top: 740px; font-size: 120px; color: #fbf7ea; }
+    [data-composition-id="s14-pagas"] .s14-t2 b { color: #ff3b30; }
+    [data-composition-id="s14-pagas"] .s14-todos { left: 300px; top: 1250px; font-size: 46px; background: #ff3b30; color: #fbf7ea; transform: rotate(-3deg); }
+
+  </style>
+  <div id="root" data-composition-id="s14-pagas" data-width="1080" data-height="1920" data-duration="3.18">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="3.18" data-track-index="0">
+      <div class="s14-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s14-cal">
+            <rect class="k" x="180" y="900" width="720" height="340" rx="20" />
+            <rect class="y" x="180" y="900" width="720" height="80" rx="20" />
+            <path class="l" d="M300 880 V930 M780 880 V930" stroke-width="12" />
+            <rect class="b" x="210" y="1000" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x0" d="M226 1018 L274 1072 M274 1018 L226 1072" stroke-width="8" /><rect class="b" x="306" y="1000" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x1" d="M322 1018 L370 1072 M370 1018 L322 1072" stroke-width="8" /><rect class="b" x="402" y="1000" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x2" d="M418 1018 L466 1072 M466 1018 L418 1072" stroke-width="8" /><rect class="b" x="498" y="1000" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x3" d="M514 1018 L562 1072 M562 1018 L514 1072" stroke-width="8" /><rect class="b" x="594" y="1000" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x4" d="M610 1018 L658 1072 M658 1018 L610 1072" stroke-width="8" /><rect class="b" x="690" y="1000" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x5" d="M706 1018 L754 1072 M754 1018 L706 1072" stroke-width="8" /><rect class="b" x="786" y="1000" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x6" d="M802 1018 L850 1072 M850 1018 L802 1072" stroke-width="8" /><rect class="b" x="210" y="1110" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x7" d="M226 1128 L274 1182 M274 1128 L226 1182" stroke-width="8" /><rect class="b" x="306" y="1110" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x8" d="M322 1128 L370 1182 M370 1128 L322 1182" stroke-width="8" /><rect class="b" x="402" y="1110" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x9" d="M418 1128 L466 1182 M466 1128 L418 1182" stroke-width="8" /><rect class="b" x="498" y="1110" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x10" d="M514 1128 L562 1182 M562 1128 L514 1182" stroke-width="8" /><rect class="b" x="594" y="1110" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x11" d="M610 1128 L658 1182 M658 1128 L610 1182" stroke-width="8" /><rect class="b" x="690" y="1110" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x12" d="M706 1128 L754 1182 M754 1128 L706 1182" stroke-width="8" /><rect class="b" x="786" y="1110" width="80" height="90" rx="8" stroke-width="5" /><path class="rl s14-x s14-x13" d="M802 1128 L850 1182 M850 1128 L802 1182" stroke-width="8" />
+          </g>
+        </svg>
+        <div class="txt s14-t1">La broma</div>
+        <div class="txt s14-t2">la pagás <b>vos</b></div>
+        <div class="cartela s14-todos">Todos los días</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-pagas";
+      const DUR = 3.18;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s14-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const BROMA = 0.19, PAGAS = 0.94, VOS = 1.31, TODOS = 2.03, DIAS = 2.52;
+      gsap.set(q(".s14-t1"), { opacity: 1 });
+      tl.fromTo(q(".s14-t1"), { y: -40, opacity: 0.3 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      golpe(".s14-t2", PAGAS, 2);
+      tl.to(q(".s14-t2 b"), { scale: 1.2, duration: 0.12, yoyo: true, repeat: 1, display: "inline-block" }, VOS);
+      sacudon(VOS + 0.05, 0.6);
+      pop(".s14-cal", 0.4);
+      // todos los días: se tachan uno por uno
+      qa(".s14-x").forEach((x, i) => {
+        const L = x.getTotalLength();
+        gsap.set(x, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(x, { opacity: 1, duration: 0.01 }, TODOS - 0.1 + i * 0.06);
+        tl.to(x, { strokeDashoffset: 0, duration: 0.15, ease: "power2.out" }, TODOS - 0.1 + i * 0.06);
+      });
+      golpe(".s14-todos", DIAS, 2);
+
+      tl.to(q("#s14-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

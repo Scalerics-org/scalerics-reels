@@ -1,0 +1,154 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-enfrente"] .s11-capa, [data-composition-id="s11-enfrente"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-enfrente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-enfrente"] .b { fill: #2b2b2b; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .l { fill: none; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .k { fill: #0c0c0c; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .r { fill: #ff3b30; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .y { fill: #ffd400; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .yk { fill: #ffd400; stroke: #0c0c0c; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .yl { fill: none; stroke: #ffd400; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .rl { fill: none; stroke: #ff3b30; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .g { fill: #0c0c0c; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .gf { fill: #5ce611; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .w { fill: #fbf7ea; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .wk { fill: #fbf7ea; stroke: #0c0c0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-enfrente"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s11-enfrente"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; background: #ffd400; color: #0c0c0c; border: 5px solid #0c0c0c; box-shadow: 8px 8px 0 #0c0c0c; }
+    [data-composition-id="s11-enfrente"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s11-enfrente"] .s11-cartel-t { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 34px; white-space: nowrap; text-align: center; }
+    [data-composition-id="s11-enfrente"] .s11-voy { left: 200px; top: 610px; font-size: 52px; transform: rotate(-4deg); }
+    [data-composition-id="s11-enfrente"] .s11-web { position: absolute; left: 314px; top: 650px; width: 452px; }
+    [data-composition-id="s11-enfrente"] .s11-head { height: 90px; background: #5ce611; color: #0c0c0c; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 34px; line-height: 90px; text-align: center; border-radius: 14px 14px 0 0; }
+    [data-composition-id="s11-enfrente"] .s11-item { margin: 22px 20px 0; padding: 18px 20px; border: 4px solid #fbf7ea; border-radius: 16px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; color: #fbf7ea; white-space: nowrap; }
+    [data-composition-id="s11-enfrente"] .s11-item small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #fbf7ea; opacity: 0.8; margin-top: 6px; }
+    [data-composition-id="s11-enfrente"] .s11-wa { margin: 26px 20px 0; padding: 22px 20px; background: #5ce611; border-radius: 40px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 38px; color: #0c0c0c; text-align: center; }
+    [data-composition-id="s11-enfrente"] .s11-sello { position: absolute; left: 520px; top: 1150px; padding: 10px 24px; border: 8px solid #5ce611; color: #5ce611; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; transform: rotate(-12deg); background: #0c0c0c; }
+    [data-composition-id="s11-enfrente"] .s11-toque { left: 60px; top: 600px; font-size: 48px; background: #5ce611; transform: rotate(-5deg); }
+
+  </style>
+  <div id="root" data-composition-id="s11-enfrente" data-width="1080" data-height="1920" data-duration="8.0">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="8.0" data-track-index="0">
+      <div class="s11-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-calle">
+            <!-- parrilla de Tito (izquierda, apagada) -->
+            <g class="s11-tito" opacity="0.6"><rect class="b" x="60" y="760" width="380" height="460" /><rect class="k" x="180" y="960" width="140" height="260" /><rect class="b" x="80" y="780" width="340" height="90" /></g>
+            <!-- la de enfrente (derecha, prendida) -->
+            <g class="s11-otra"><rect class="k" x="640" y="760" width="380" height="460" /><rect class="k" x="760" y="960" width="140" height="260" /><rect class="y" x="660" y="780" width="340" height="90" />
+              <path class="yl" d="M640 900 C700 940 760 900 830 940 C900 900 960 940 1020 900" /></g>
+            <!-- calle con cebra -->
+            <path class="l" d="M0 1240 H1080" />
+            <g fill="#fbf7ea" opacity="0.7"><rect x="470" y="1260" width="140" height="18" /><rect x="470" y="1300" width="140" height="18" /><rect x="470" y="1340" width="140" height="18" /><rect x="470" y="1380" width="140" height="18" /></g>
+            <g class="s11-fede"><g transform="translate(200 1400) scale(0.6)">
+      <path class="r" d="M-150 0 C-150 -150 -100 -222 0 -222 C100 -222 150 -150 150 0 Z" />
+      <path class="l" d="M-74 -222 C-60 -186 60 -186 74 -222" />
+      <path class="l" d="M-22 -196 V-140 M22 -196 V-140" stroke-width="5" />
+      <path class="l" d="M-90 -40 H90" opacity="0.5" />
+      <ellipse class="b" cx="0" cy="-308" rx="72" ry="80" />
+      <g class="s11-fede-pelo">
+        <circle class="w" cx="-58" cy="-366" r="28" /><circle class="w" cx="-22" cy="-390" r="30" /><circle class="w" cx="18" cy="-392" r="30" />
+        <circle class="w" cx="54" cy="-370" r="28" /><circle class="w" cx="72" cy="-336" r="20" /><circle class="w" cx="-72" cy="-336" r="20" />
+      </g>
+      <path class="l s11-fede-cejas" d="M-44 -330 L-14 -342 M14 -342 L44 -330" stroke-width="6" />
+      <circle class="s11-fede-ojo" cx="-28" cy="-308" r="8" fill="#fbf7ea" /><circle class="s11-fede-ojo" cx="28" cy="-308" r="8" fill="#fbf7ea" />
+      <path class="l s11-fede-boca" d="M-22 -262 C-10 -276 10 -276 22 -262" />
+      <g class="s11-fede-cel">
+        <rect class="k" x="34" y="-200" width="74" height="128" rx="14" />
+        <rect x="46" y="-186" width="50" height="96" rx="6" fill="#ffd400" class="s11-fede-pantalla" />
+        <circle class="b" cx="56" cy="-86" r="22" />
+      </g>
+      
+    </g></g>
+          </g>
+          <g class="s11-telefono"><g class="s11-cel">
+      <rect class="k" x="290" y="570" width="500" height="820" rx="56" />
+      <rect x="480.0" y="592" width="120" height="20" rx="10" fill="#fbf7ea" opacity="0.5" />
+      <rect x="314" y="650" width="452" height="710" rx="14" fill="#0c0c0c" />
+    </g></g>
+        </svg>
+        <div class="s11-cartel-t s11-ct1" style="left:80px;top:806px;width:340px;color:#fbf7ea;opacity:0.7">DON TITO</div>
+        <div class="s11-cartel-t s11-ct2" style="left:660px;top:806px;width:340px;color:#0c0c0c">LA DE ENFRENTE</div>
+        <div class="cartela s11-voy">Me voy a la de enfrente</div>
+        <div class="s11-web">
+          <div class="s11-head">LA DE ENFRENTE</div>
+          <div class="s11-item s11-i1">Menú con precios<small>asado · chivito</small></div>
+          <div class="s11-item s11-i2">Cómo llegar<small>ver en el mapa</small></div>
+          <div class="s11-wa s11-i3">WhatsApp</div>
+        </div>
+        <div class="cartela s11-toque">¡Al toque!</div>
+        <div class="s11-sello">RESERVADO</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-enfrente";
+      const DUR = 8.0;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s11-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const VOY = 0.44, ENFRENTE = 1.39, ABRIO = 2.33, TOQUE = 2.61, MENU = 3.39, LLEGAR = 4.77, BOTON = 5.74, RESERVE = 6.87;
+      // la calle: Fede cruza
+      tl.fromTo(q(".s11-calle"), { opacity: 0.6 }, { opacity: 1, duration: 0.2 }, 0);
+      tl.fromTo(q(".s11-fede"), { x: 0 }, { x: 640, duration: 1.7, ease: "power1.inOut" }, VOY);
+      tl.to(q(".s11-fede"), { y: -12, duration: 0.14, yoyo: true, repeat: 11, ease: "sine.inOut" }, VOY);
+      pop(".s11-voy", VOY);
+      tl.to(q(".s11-ct2"), { scale: 1.1, duration: 0.15, yoyo: true, repeat: 1 }, ENFRENTE);
+      tl.to(q(".s11-otra"), { scale: 1.04, svgOrigin: "830 1000", duration: 0.15, yoyo: true, repeat: 1 }, ENFRENTE);
+      // abrió al toque: corte al celular con la página buena
+      tl.to([q(".s11-calle"), q(".s11-voy"), q(".s11-ct1"), q(".s11-ct2")], { opacity: 0, duration: 0.12 }, ABRIO - 0.12);
+      gsap.set(q(".s11-telefono"), { opacity: 0 });
+      tl.fromTo(q(".s11-telefono"), { opacity: 1, y: 300 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(1.4)", immediateRender: false }, ABRIO);
+      gsap.set(q(".s11-web"), { opacity: 0 });
+      tl.fromTo(q(".s11-web"), { opacity: 1, y: 300 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(1.4)", immediateRender: false }, ABRIO);
+      golpe(".s11-toque", TOQUE, 2);
+      [".s11-i1", ".s11-i2", ".s11-i3"].forEach((s, i) => { gsap.set(q(s), { opacity: 0 }); });
+      [[".s11-i1", MENU], [".s11-i2", LLEGAR], [".s11-i3", BOTON]].forEach(([s, t]) => {
+        tl.fromTo(q(s), { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(1.6)", immediateRender: false }, t - 0.1);
+        tl.to(q(s), { scale: 1.05, duration: 0.12, yoyo: true, repeat: 1 }, t + 0.25);
+      });
+      tl.to(q(".s11-toque"), { opacity: 0, duration: 0.2 }, LLEGAR - 0.3);
+      tl.to(q(".s11-i3"), { scale: 0.92, duration: 0.08, yoyo: true, repeat: 1 }, RESERVE - 0.5);
+      gsap.set(q(".s11-sello"), { opacity: 0 });
+      tl.fromTo(q(".s11-sello"), { opacity: 1, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, RESERVE - 0.1);
+      sacudon(RESERVE + 0.08, 0.8);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

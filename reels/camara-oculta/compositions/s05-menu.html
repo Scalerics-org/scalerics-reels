@@ -1,0 +1,119 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-menu"] .s05-capa, [data-composition-id="s05-menu"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-menu"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-menu"] .b { fill: #2b2b2b; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .l { fill: none; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .k { fill: #0c0c0c; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .r { fill: #ff3b30; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .y { fill: #ffd400; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .yk { fill: #ffd400; stroke: #0c0c0c; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .yl { fill: none; stroke: #ffd400; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .rl { fill: none; stroke: #ff3b30; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .g { fill: #0c0c0c; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .gf { fill: #5ce611; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .w { fill: #fbf7ea; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .wk { fill: #fbf7ea; stroke: #0c0c0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-menu"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s05-menu"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; background: #ffd400; color: #0c0c0c; border: 5px solid #0c0c0c; box-shadow: 8px 8px 0 #0c0c0c; }
+    [data-composition-id="s05-menu"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s05-menu"] .s05-menu { left: 90px; top: 600px; font-size: 78px; transform: rotate(-6deg); }
+    [data-composition-id="s05-menu"] .s05-head { position: absolute; left: 314px; top: 640px; width: 452px; height: 80px; background: #2b2b2b; border-bottom: 4px solid #fbf7ea; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; line-height: 80px; color: #fbf7ea; text-align: center; letter-spacing: 0.1em; }
+    [data-composition-id="s05-menu"] .s05-costado { left: 610px; top: 1190px; font-size: 52px; background: #ff3b30; color: #fbf7ea; transform: rotate(6deg); }
+
+  </style>
+  <div id="root" data-composition-id="s05-menu" data-width="1080" data-height="1920" data-duration="5.95">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="5.95" data-track-index="0">
+      <div class="s05-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s05-cel">
+      <rect class="k" x="290" y="580" width="500" height="800" rx="56" />
+      <rect x="480.0" y="602" width="120" height="20" rx="10" fill="#fbf7ea" opacity="0.5" />
+      <rect x="314" y="640" width="452" height="710" rx="14" fill="#2b2b2b" opacity="0.6" />
+    </g>
+          <!-- la foto de la pizarra -->
+          <g class="s05-foto">
+            <rect x="340" y="880" width="400" height="300" fill="#fbf7ea" stroke="#0c0c0c" stroke-width="5" />
+            <rect x="360" y="900" width="360" height="260" fill="#2b2b2b" stroke="#0c0c0c" stroke-width="5" />
+            <text x="380" y="950" font-family="IBM Plex Mono" font-weight="500" font-size="30" fill="#fbf7ea">ASADO .....</text>
+            <text x="380" y="1000" font-family="IBM Plex Mono" font-weight="500" font-size="30" fill="#fbf7ea">CHIVITO ...</text>
+            <text x="380" y="1050" font-family="IBM Plex Mono" font-weight="500" font-size="30" fill="#fbf7ea">MILANESA ..</text>
+            <path d="M380 1090 C430 1080 470 1110 520 1092 C560 1080 600 1100 640 1088" stroke="#fbf7ea" stroke-width="4" fill="none" opacity="0.6" />
+            <path d="M380 1130 C420 1122 460 1140 500 1128" stroke="#fbf7ea" stroke-width="4" fill="none" opacity="0.6" />
+          </g>
+          <!-- el dedo adelante -->
+          <g class="s05-dedo">
+            <path d="M200 1500 C220 1300 300 1120 380 1050 C420 1016 470 1040 462 1090 C450 1170 420 1260 400 1500 Z" fill="#2b2b2b" stroke="#fbf7ea" stroke-width="7" stroke-linejoin="round" />
+            <path d="M392 1060 C420 1048 446 1060 444 1092 C430 1110 400 1104 392 1060 Z" fill="#fbf7ea" opacity="0.7" />
+          </g>
+        </svg>
+        <div class="s05-head">MENÚ</div>
+        <div class="cartela s05-menu" data-layout-allow-overlap>¿El menú?</div>
+        <div class="cartela s05-costado">De costado</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-menu";
+      const DUR = 5.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s05-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const MENU = 0.26, FOTO = 1.31, PIZARRA = 2.0, COSTADO = 3.61, DEDO = 4.53;
+      tl.fromTo(q(".s05-cel"), { scale: 0.92, svgOrigin: "540 980", opacity: 0.8 }, { scale: 1, svgOrigin: "540 980", opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      pop(".s05-head", 0.1);
+      golpe(".s05-menu", MENU + 0.05, 2.2);
+      // la foto se carga de a franjas (página lenta)
+      gsap.set(q(".s05-foto"), { opacity: 0 });
+      tl.fromTo(q(".s05-foto"), { opacity: 1, clipPath: "inset(0 0 100% 0)" }, { opacity: 1, clipPath: "inset(0 0 0% 0)", duration: 0.8, ease: "steps(5)", immediateRender: false }, FOTO);
+      tl.to(q(".s05-foto"), { scale: 1.05, svgOrigin: "540 1030", duration: 0.15, yoyo: true, repeat: 1 }, PIZARRA);
+      // de costado: la foto se acuesta
+      tl.to(q(".s05-menu"), { opacity: 0, y: -40, duration: 0.2 }, COSTADO - 0.5);
+      tl.to(q(".s05-foto"), { rotation: -90, svgOrigin: "540 1030", duration: 0.4, ease: "back.out(1.8)" }, COSTADO - 0.35);
+      golpe(".s05-costado", COSTADO, 2.2);
+      // y todo el celular se inclina, como Fede
+      tl.to(q(".s05-cel"), { rotation: -8, svgOrigin: "540 1380", duration: 0.4, ease: "sine.inOut" }, COSTADO + 0.2);
+      // el dedo
+      gsap.set(q(".s05-dedo"), { opacity: 0 });
+      tl.fromTo(q(".s05-dedo"), { opacity: 1, x: -260, y: 300 }, { opacity: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, DEDO - 0.15);
+      tl.to(q(".s05-dedo"), { y: 10, x: 6, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, DEDO + 0.25);
+      sacudon(DEDO + 0.1, 0.6);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

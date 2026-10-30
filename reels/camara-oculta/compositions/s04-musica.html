@@ -1,0 +1,161 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-musica"] .s04-capa, [data-composition-id="s04-musica"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-musica"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-musica"] .b { fill: #2b2b2b; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .l { fill: none; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .k { fill: #0c0c0c; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .r { fill: #ff3b30; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .y { fill: #ffd400; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .yk { fill: #ffd400; stroke: #0c0c0c; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .yl { fill: none; stroke: #ffd400; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .rl { fill: none; stroke: #ff3b30; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .g { fill: #0c0c0c; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .gf { fill: #5ce611; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .w { fill: #fbf7ea; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .wk { fill: #fbf7ea; stroke: #0c0c0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-musica"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s04-musica"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; background: #ffd400; color: #0c0c0c; border: 5px solid #0c0c0c; box-shadow: 8px 8px 0 #0c0c0c; }
+    [data-composition-id="s04-musica"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s04-musica"] .s04-uy { left: 80px; top: 600px; font-size: 110px; background: #ff3b30; color: #fbf7ea; transform: rotate(-8deg); }
+    [data-composition-id="s04-musica"] .s04-parada { left: 390px; top: 610px; font-size: 56px; transform: rotate(5deg); }
+    [data-composition-id="s04-musica"] .s04-vol { position: absolute; left: 700px; top: 1235px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #0c0c0c; background: #ffd400; padding: 6px 12px; white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="s04-musica" data-width="1080" data-height="1920" data-duration="4.94">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.94" data-track-index="0">
+      <div class="s04-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s04-cab s04-cab0"><circle class="b" cx="110" cy="960" r="74" />
+      <circle cx="88" cy="952" r="15" fill="#fbf7ea" /><circle cx="132" cy="952" r="15" fill="#fbf7ea" />
+      <circle cx="95.0" cy="954" r="7" fill="#0c0c0c" /><circle cx="139.0" cy="954" r="7" fill="#0c0c0c" />
+      <path class="l" d="M80 924 L102 930 M118 930 L140 924" stroke-width="5" /></g><g class="s04-cab s04-cab1"><circle class="b" cx="210" cy="1180" r="74" />
+      <circle cx="188" cy="1172" r="15" fill="#fbf7ea" /><circle cx="232" cy="1172" r="15" fill="#fbf7ea" />
+      <circle cx="195.0" cy="1174" r="7" fill="#0c0c0c" /><circle cx="239.0" cy="1174" r="7" fill="#0c0c0c" />
+      <path class="l" d="M180 1144 L202 1150 M218 1150 L240 1144" stroke-width="5" /></g><g class="s04-cab s04-cab2"><circle class="b" cx="970" cy="950" r="74" />
+      <circle cx="948" cy="942" r="15" fill="#fbf7ea" /><circle cx="992" cy="942" r="15" fill="#fbf7ea" />
+      <circle cx="941.0" cy="944" r="7" fill="#0c0c0c" /><circle cx="985.0" cy="944" r="7" fill="#0c0c0c" />
+      <path class="l" d="M940 914 L962 920 M978 920 L1000 914" stroke-width="5" /></g><g class="s04-cab s04-cab3"><circle class="b" cx="880" cy="1190" r="74" />
+      <circle cx="858" cy="1182" r="15" fill="#fbf7ea" /><circle cx="902" cy="1182" r="15" fill="#fbf7ea" />
+      <circle cx="851.0" cy="1184" r="7" fill="#0c0c0c" /><circle cx="895.0" cy="1184" r="7" fill="#0c0c0c" />
+      <path class="l" d="M850 1154 L872 1160 M888 1160 L910 1154" stroke-width="5" /></g>
+          <g class="s04-ondas"><path class="yl" d="M660 1150 C700 1120 700 1080 660 1050 M690 1180 C760 1130 760 1060 690 1010 M720 1210 C820 1140 820 1040 720 970" stroke-width="8" /></g>
+          <g class="s04-fede"><g transform="translate(540 1430) scale(1.15)">
+      <path class="r" d="M-150 0 C-150 -150 -100 -222 0 -222 C100 -222 150 -150 150 0 Z" />
+      <path class="l" d="M-74 -222 C-60 -186 60 -186 74 -222" />
+      <path class="l" d="M-22 -196 V-140 M22 -196 V-140" stroke-width="5" />
+      <path class="l" d="M-90 -40 H90" opacity="0.5" />
+      <ellipse class="b" cx="0" cy="-308" rx="72" ry="80" />
+      <g class="s04-fede-pelo">
+        <circle class="w" cx="-58" cy="-366" r="28" /><circle class="w" cx="-22" cy="-390" r="30" /><circle class="w" cx="18" cy="-392" r="30" />
+        <circle class="w" cx="54" cy="-370" r="28" /><circle class="w" cx="72" cy="-336" r="20" /><circle class="w" cx="-72" cy="-336" r="20" />
+      </g>
+      <path class="l s04-fede-cejas" d="M-44 -330 L-14 -342 M14 -342 L44 -330" stroke-width="6" />
+      <circle class="s04-fede-ojo" cx="-28" cy="-308" r="8" fill="#fbf7ea" /><circle class="s04-fede-ojo" cx="28" cy="-308" r="8" fill="#fbf7ea" />
+      <ellipse class="k s04-fede-boca" cx="0" cy="-266" rx="16" ry="20" />
+      <g class="s04-fede-cel">
+        <rect class="k" x="34" y="-200" width="74" height="128" rx="14" />
+        <rect x="46" y="-186" width="50" height="96" rx="6" fill="#ffd400" class="s04-fede-pantalla" />
+        <circle class="b" cx="56" cy="-86" r="22" />
+      </g>
+      
+    </g></g>
+          <g class="s04-nota s04-n0"><g transform="translate(700 900) scale(1.2)">
+      <ellipse class="y" cx="0" cy="0" rx="26" ry="20" transform="rotate(-20)" stroke-width="5" />
+      <path class="l" d="M22 -8 V-110 C40 -96 60 -86 64 -60" stroke-width="7" />
+    </g></g><g class="s04-nota s04-n1"><g transform="translate(380 840) scale(1.0)">
+      <ellipse class="y" cx="0" cy="0" rx="26" ry="20" transform="rotate(-20)" stroke-width="5" />
+      <path class="l" d="M22 -8 V-110 C40 -96 60 -86 64 -60" stroke-width="7" />
+    </g></g><g class="s04-nota s04-n2"><g transform="translate(820 1080) scale(0.9)">
+      <ellipse class="y" cx="0" cy="0" rx="26" ry="20" transform="rotate(-20)" stroke-width="5" />
+      <path class="l" d="M22 -8 V-110 C40 -96 60 -86 64 -60" stroke-width="7" />
+    </g></g><g class="s04-nota s04-n3"><g transform="translate(300 1040) scale(1.1)">
+      <ellipse class="y" cx="0" cy="0" rx="26" ry="20" transform="rotate(-20)" stroke-width="5" />
+      <path class="l" d="M22 -8 V-110 C40 -96 60 -86 64 -60" stroke-width="7" />
+    </g></g><g class="s04-nota s04-n4"><g transform="translate(620 760) scale(0.9)">
+      <ellipse class="y" cx="0" cy="0" rx="26" ry="20" transform="rotate(-20)" stroke-width="5" />
+      <path class="l" d="M22 -8 V-110 C40 -96 60 -86 64 -60" stroke-width="7" />
+    </g></g><g class="s04-nota s04-n5"><g transform="translate(460 700) scale(1.2)">
+      <ellipse class="y" cx="0" cy="0" rx="26" ry="20" transform="rotate(-20)" stroke-width="5" />
+      <path class="l" d="M22 -8 V-110 C40 -96 60 -86 64 -60" stroke-width="7" />
+    </g></g>
+        </svg>
+        <div class="cartela s04-uy">¡Uy!</div>
+        <div class="cartela s04-parada">¡En la parada!</div>
+        <div class="s04-vol">VOLUMEN: MÁXIMO</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-musica";
+      const DUR = 4.94;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s04-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      const NP = [[700, 900], [380, 840], [820, 1080], [300, 1040], [620, 760], [460, 700]];
+
+      const UY = 0.0, ARRANCO = 0.48, MUSICA = 1.22, PARADA = 2.26, TODA = 3.13, MIRANDO = 3.95;
+      // cuadro 0: el susto
+      gsap.set(q(".s04-uy"), { opacity: 1 });
+      tl.fromTo(q(".s04-uy"), { scale: 1.6 }, { scale: 1, duration: 0.18, ease: "power4.out" }, 0);
+      tl.fromTo(q(".s04-fede"), { y: 0 }, { y: -90, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out" }, 0.02);
+      sacudon(0.05, 1);
+      // las notas salen del celular (desde la mano de Fede)
+      qa(".s04-nota").forEach((n, i) => {
+        gsap.set(n, { opacity: 0 });
+        tl.fromTo(n, { opacity: 1, x: 610 - NP[i][0], y: 1250 - NP[i][1], scale: 0.2 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.45, ease: "back.out(1.6)", immediateRender: false }, ARRANCO + i * 0.12);
+        tl.to(n, { y: -16, rotation: i % 2 ? 10 : -10, duration: 0.22, yoyo: true, repeat: 7, ease: "sine.inOut" }, ARRANCO + 0.5 + i * 0.12);
+      });
+      dibujar(".s04-ondas path", ARRANCO, 0.3);
+      tl.to(q(".s04-ondas"), { opacity: 0.3, duration: 0.11, yoyo: true, repeat: 15, ease: "steps(1)" }, ARRANCO + 0.3);
+      pop(".s04-vol", MUSICA);
+      // Fede tapa el celular, desesperado
+      tl.to(q(".s04-fede"), { rotation: -5, svgOrigin: "540 1430", duration: 0.12, yoyo: true, repeat: 9, ease: "sine.inOut" }, MUSICA);
+      tl.to(q(".s04-uy"), { opacity: 0, y: -40, duration: 0.18 }, PARADA - 0.2);
+      golpe(".s04-parada", PARADA, 2.2);
+      // toda la parada lo mira
+      [0, 1, 2, 3].forEach((i) => {
+        const desde = i < 2 ? -300 : 300;
+        gsap.set(q(".s04-cab" + i), { opacity: 0 });
+        tl.fromTo(q(".s04-cab" + i), { opacity: 1, x: desde }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, TODA + i * 0.08);
+      });
+      tl.to(qa(".s04-cab"), { y: -10, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, MIRANDO);
+      tl.to(q(".s04-parada"), { scale: 1.08, duration: 0.12, yoyo: true, repeat: 1 }, MIRANDO);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

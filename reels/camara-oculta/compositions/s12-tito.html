@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-tito"] .s12-capa, [data-composition-id="s12-tito"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-tito"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-tito"] .b { fill: #2b2b2b; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .l { fill: none; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .k { fill: #0c0c0c; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .r { fill: #ff3b30; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .y { fill: #ffd400; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .yk { fill: #ffd400; stroke: #0c0c0c; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .yl { fill: none; stroke: #ffd400; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .rl { fill: none; stroke: #ff3b30; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .g { fill: #0c0c0c; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .gf { fill: #5ce611; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .w { fill: #fbf7ea; stroke: #fbf7ea; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .wk { fill: #fbf7ea; stroke: #0c0c0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-tito"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s12-tito"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; background: #ffd400; color: #0c0c0c; border: 5px solid #0c0c0c; box-shadow: 8px 8px 0 #0c0c0c; }
+    [data-composition-id="s12-tito"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s12-tito"] .s12-pag { left: 640px; top: 620px; font-size: 54px; transform: rotate(6deg); }
+    [data-composition-id="s12-tito"] .s12-barrio { left: 90px; top: 1190px; font-size: 56px; background: #fbf7ea; transform: rotate(-4deg); }
+    [data-composition-id="s12-tito"] .s12-letrero { position: absolute; left: 140px; width: 440px; text-align: center; white-space: nowrap; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 36px; line-height: 100px; top: 590px; color: #0c0c0c; }
+
+  </style>
+  <div id="root" data-composition-id="s12-tito" data-width="1080" data-height="1920" data-duration="2.99">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="2.99" data-track-index="0">
+      <div class="s12-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s12-local" opacity="0.7">
+            <rect class="y" x="140" y="590" width="440" height="100" rx="8" />
+            <path class="l" d="M180 1400 V760 H900 V1400" />
+            <path class="l" d="M180 760 L220 700 H860 L900 760" opacity="0.6" />
+          </g>
+          <g class="s12-tito"><g transform="translate(540 1420) scale(1.3)">
+      <path class="b" d="M-160 0 C-160 -150 -110 -222 0 -222 C110 -222 160 -150 160 0 Z" />
+      <path class="w" d="M-80 -160 H80 L96 0 H-96 Z" />
+      <path class="l" d="M-80 -160 C-80 -200 -50 -218 -40 -222 M80 -160 C80 -200 50 -218 40 -222" stroke="#0c0c0c" stroke-width="5" />
+      <path d="M-50 -90 H50" stroke="#0c0c0c" stroke-width="5" stroke-linecap="round" />
+      <ellipse class="b" cx="0" cy="-300" rx="78" ry="84" />
+      <path class="k" d="M-84 -330 C-80 -398 80 -404 92 -332 C40 -350 -40 -350 -84 -330 Z" />
+      <circle class="k" cx="4" cy="-392" r="10" />
+      <path class="l s12-tito-cejas" d="M-48 -322 L-18 -318 M18 -318 L48 -322" stroke-width="6" />
+      <circle cx="-30" cy="-296" r="8" fill="#fbf7ea" /><circle cx="30" cy="-296" r="8" fill="#fbf7ea" />
+      <ellipse class="k s12-tito-boca" cx="0" cy="-236" rx="20" ry="16" />
+      <path class="w s12-tito-bigote" d="M-58 -252 C-36 -280 -10 -272 0 -262 C10 -272 36 -280 58 -252 C34 -248 12 -250 0 -254 C-12 -250 -34 -248 -58 -252 Z" />
+      <g class="s12-pinza"><g transform="translate(185 -150) rotate(-12)">
+      <path class="l" d="M0 0 L0 -190 M14 0 L30 -190" stroke-width="9" />
+      <rect class="k" x="-10" y="-10" width="36" height="70" rx="10" />
+    </g></g>
+    </g></g>
+        </svg>
+        <div class="s12-letrero">PARRILLA DON TITO</div>
+        <div class="cartela s12-pag">¿Página?</div>
+        <div class="cartela s12-barrio">Me conoce todo el barrio</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-tito";
+      const DUR = 2.99;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s12-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const PAG = 0.0, SI = 0.56, CONOCE = 1.22, TODO = 1.6;
+      tl.fromTo(q(".s12-tito"), { x: 80, opacity: 0.85 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      pop(".s12-letrero", 0.05);
+      golpe(".s12-pag", 0.1, 2);
+      tl.to(q(".s12-tito-cejas"), { y: -12, duration: 0.15, yoyo: true, repeat: 1 }, 0.1);
+      habla(".s12-tito-boca", SI, 1.4, "0 -236");
+      tl.to(q(".s12-tito-bigote"), { y: -4, duration: 0.11, yoyo: true, repeat: 11, ease: "sine.inOut" }, SI);
+      // infla el pecho y levanta la pinza
+      tl.to(q(".s12-tito"), { scale: 1.06, svgOrigin: "540 1420", duration: 0.3, ease: "back.out(2)" }, CONOCE);
+      tl.to(q(".s12-pinza"), { rotation: -10, svgOrigin: "185 -150", duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, SI);
+      tl.to(q(".s12-pag"), { opacity: 0, duration: 0.15 }, CONOCE);
+      golpe(".s12-barrio", TODO, 2);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
