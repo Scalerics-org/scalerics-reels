@@ -1,0 +1,140 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-mirta"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-mirta"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-mirta"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-mirta"] .ab { position: absolute; }
+    [data-composition-id="s07-mirta"] .papel { background: #ece2c6; border-radius: 12px; box-shadow: 0 16px 0 rgba(8, 12, 10, 0.45); }
+    [data-composition-id="s07-mirta"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.98; white-space: nowrap; letter-spacing: -0.02em; color: #ece2c6; }
+    [data-composition-id="s07-mirta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.12em; }
+    [data-composition-id="s07-mirta"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s07-mirta"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #d65a3a; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #d65a3a; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s07-mirta"] .sello.mos { border-color: #f2a541; color: #f2a541; }
+    [data-composition-id="s07-mirta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #f2a541; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-mirta"] .globo { position: absolute; padding: 18px 26px 16px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; line-height: 1.15; white-space: nowrap; }
+    [data-composition-id="s07-mirta"] .s07-t1 { top: 606px; font-size: 92px; }
+    [data-composition-id="s07-mirta"] .s07-t2 { top: 606px; font-size: 80px; color: #f2a541; }
+    [data-composition-id="s07-mirta"] .s07-cap { left: 616px; top: 1100px; width: 368px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; line-height: 1.15; color: #141c19; white-space: normal; }
+    [data-composition-id="s07-mirta"] .s07-user { left: 670px; top: 738px; font-size: 22px; color: #141c19; }
+  </style>
+  <div id="root" data-composition-id="s07-mirta" data-width="1080" data-height="1920" data-duration="6.72">
+    <div id="s07-escena" class="capa escena clip" data-start="0" data-duration="6.72" data-track-index="0">
+      <div class="escenario">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s07-post">
+            <rect x="600" y="720" width="400" height="530" rx="20" fill="#ece2c6" />
+            <circle cx="640" cy="750" r="18" fill="#d65a3a" />
+            <rect x="616" y="790" width="368" height="290" rx="8" fill="#8fb39b" />
+            <path d="M800 818 Q800 806 812 806 Q824 806 824 820 Q824 830 800 842 L740 880 H860 L800 842" fill="none" stroke="#141c19" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M760 880 L742 1060 H858 L840 880 Z" fill="#d65a3a" stroke="#141c19" stroke-width="5" stroke-linejoin="round" />
+          </g>
+          <path class="s07-sub" d="M620 1214 H900" fill="none" stroke="#f2a541" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          <g class="s07-brazo"><path d="M-80 -150 Q-140 -230 -130 -380" fill="none" stroke="#d65a3a" stroke-width="44" stroke-linecap="round" transform="translate(330 1330) scale(1.25)" /><circle cx="167.5" cy="830" r="34" fill="#141c19" stroke="#ece2c6" stroke-width="6" /></g>
+          <g transform="translate(330 1330) scale(1.25)"><g class="s07-mir pj-mir">
+    <path d="M-118 0 L-110 -98 Q-102 -154 -44 -162 L44 -162 Q102 -154 110 -98 L118 0 Z" fill="#d65a3a" stroke="#ece2c6" stroke-width="6" stroke-linejoin="round" />
+    <g fill="#ece2c6" opacity="0.55"><circle cx="-80" cy="-100" r="7" /><circle cx="-40" cy="-60" r="7" /><circle cx="70" cy="-120" r="7" /><circle cx="84" cy="-50" r="7" /><circle cx="-90" cy="-30" r="7" /></g>
+    <g class="pj-nombre">
+    <rect x="-8" y="-104" width="120" height="80" rx="8" fill="#ece2c6" />
+    <path d="M-8 -96 Q-8 -104 0 -104 H104 Q112 -104 112 -96 V-78 H-8 Z" fill="#d65a3a" />
+    <text x="52" y="-84" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="15" letter-spacing="2" fill="#ece2c6">HOLA, SOY</text>
+    <text x="52" y="-34" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="40" fill="#141c19">Mirta</text>
+  </g>
+    <rect x="-20" y="-196" width="40" height="40" rx="6" fill="#141c19" stroke="#ece2c6" stroke-width="5" />
+    <path d="M-26 -166 Q0 -140 26 -166" fill="none" stroke="#f2a541" stroke-width="6" stroke-dasharray="1 12" stroke-linecap="round" />
+    <path d="M-104 -236 Q-138 -330 -60 -372 Q0 -402 60 -372 Q138 -330 104 -236 Q96 -200 74 -190 L-74 -190 Q-96 -200 -104 -236 Z" fill="#f2a541" stroke="#ece2c6" stroke-width="6" stroke-linejoin="round" />
+    <ellipse cx="0" cy="-258" rx="62" ry="72" fill="#141c19" stroke="#ece2c6" stroke-width="6" />
+    <path d="M-66 -262 Q-60 -330 0 -332 Q50 -330 66 -262 Q40 -312 -10 -300 Q-44 -296 -66 -262 Z" fill="#f2a541" stroke="#ece2c6" stroke-width="5" stroke-linejoin="round" />
+    <circle cx="-66" cy="-206" r="16" fill="none" stroke="#d65a3a" stroke-width="6" /><circle cx="66" cy="-206" r="16" fill="none" stroke="#d65a3a" stroke-width="6" />
+    <path d="M2 -252 Q-8 -236 5 -232" fill="none" stroke="#ece2c6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <g class="m-canchera" opacity="1"><path d="M-38 -262 H-12 M12 -262 H38" fill="none" stroke="#ece2c6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><path d="M-36 -276 L-14 -282 M36 -276 L14 -282" fill="none" stroke="#ece2c6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /><path d="M-18 -212 Q0 -200 18 -212 Q0 -196 -18 -212 Z" fill="#d65a3a" stroke="#d65a3a" stroke-width="6" stroke-linejoin="round" /></g>
+    <g class="m-normal" opacity="0"><circle cx="-24" cy="-260" r="7" fill="#ece2c6" /><circle cx="24" cy="-260" r="7" fill="#ece2c6" /><path d="M-40 -270 L-30 -282 M-28 -272 L-20 -284 M40 -270 L30 -282 M28 -272 L20 -284" fill="none" stroke="#ece2c6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /><ellipse cx="0" cy="-208" rx="16" ry="9" fill="#d65a3a" /></g>
+  </g></g>
+        </svg>
+        <div class="grande s07-t1">¿ALGUIEN MÁS?</div>
+        <div class="grande s07-t2">¿Y EN EL PRIVADO?</div>
+        <div class="ab mono s07-user">MIRTA.MODAS</div>
+        <div class="ab s07-cap">Vestido nuevo. Precio: consultá por privado.</div>
+        <div class="etiqueta s07-et">MIRTA · TIENDA DE ROPA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-mirta";
+      const DUR = 6.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        const { rot, ...desde } = de || {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, el instanceof SVGElement && !desde.svgOrigin ? { transformOrigin: "50% 50%" } : {}, desde), { opacity: 1, scale: 1, x: 0, y: 0, rotation: rot || 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara de un personaje
+      const cara = (raiz, de, a, t) => {
+        tl.to(qa(raiz + " ." + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(qa(raiz + " ." + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      // respira o se hamaca (finito y determinista)
+      const vaiven = (s, prop, amp, per, t0) => els(s).forEach((el) => {
+        const n = Math.max(1, Math.floor((DUR - (t0 || 0)) / per) - 1);
+        tl.fromTo(el, { [prop]: 0 }, { [prop]: amp, duration: per, yoyo: true, repeat: n, ease: "sine.inOut", immediateRender: false }, t0 || 0);
+      });
+      const fuera = (s, t, d) => tl.to(els(s), { opacity: 0, duration: d || 0.18, ease: "power2.in" }, t);
+      const salida = () => tl.to(q(".escena"), { y: -60, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      tl.fromTo(q(".escenario"), { scale: 1.05, opacity: 0.35 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out", transformOrigin: "50% 55%" }, 0);
+
+
+      golpe(".s07-t1", 0.05, 1.8, -1);
+      tl.fromTo(q(".s07-mir"), { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, 0.7);
+      gsap.set(q(".s07-brazo"), { opacity: 0 });
+      tl.fromTo(q(".s07-brazo"), { opacity: 0, y: 160 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, 1.0);
+      vaiven(".s07-brazo", "rotation", 4, 0.35, 1.3);
+      vaiven(".s07-mir", "y", -5, 0.7, 1.2);
+      pop(".s07-post", 1.94, { x: 60, rot: 4 });
+      pop(".s07-user", 2.05);
+      pop(".s07-cap", 2.6, { y: 10 });
+      dibujar(".s07-sub", 3.25, 0.5);
+      fuera(".s07-t1", 4.6);
+      golpe(".s07-t2", 4.85, 2, 1);
+      tl.to(q(".s07-brazo"), { opacity: 0, y: 120, duration: 0.25 }, 4.6);
+      cara(".s07-mir", "m-canchera", "m-normal", 5.3);
+      pop(".s07-et", 1.2, { y: 20 });
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

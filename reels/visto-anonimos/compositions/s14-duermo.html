@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-duermo"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-duermo"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-duermo"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-duermo"] .ab { position: absolute; }
+    [data-composition-id="s14-duermo"] .papel { background: #ece2c6; border-radius: 12px; box-shadow: 0 16px 0 rgba(8, 12, 10, 0.45); }
+    [data-composition-id="s14-duermo"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.98; white-space: nowrap; letter-spacing: -0.02em; color: #ece2c6; }
+    [data-composition-id="s14-duermo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.12em; }
+    [data-composition-id="s14-duermo"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s14-duermo"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #d65a3a; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #d65a3a; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s14-duermo"] .sello.mos { border-color: #f2a541; color: #f2a541; }
+    [data-composition-id="s14-duermo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #f2a541; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s14-duermo"] .globo { position: absolute; padding: 18px 26px 16px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; line-height: 1.15; white-space: nowrap; }
+    [data-composition-id="s14-duermo"] .s14-hora { left: 0; right: 0; top: 610px; text-align: center; font-size: 150px; color: #f2a541; letter-spacing: 0.04em; }
+    [data-composition-id="s14-duermo"] .s14-z { font-size: 90px; color: #ece2c6; }
+  </style>
+  <div id="root" data-composition-id="s14-duermo" data-width="1080" data-height="1920" data-duration="3.44">
+    <div id="s14-escena" class="capa escena clip" data-start="0" data-duration="3.44" data-track-index="0">
+      <div class="escenario">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s14-luna" d="M970 900 A70 70 0 1 1 900 800 A56 56 0 1 0 970 900 Z" fill="#ece2c6" opacity="0.85" />
+          <g transform="translate(480 1330) scale(1.35)"><g class="s14-ros pj-ros">
+    <path d="M-118 0 L-110 -98 Q-102 -154 -44 -162 L44 -162 Q102 -154 110 -98 L118 0 Z" fill="#8fb39b" stroke="#ece2c6" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-70 0 V-118 Q-70 -132 -56 -132 H56 Q70 -132 70 -118 V0 Z" fill="#141c19" stroke="#ece2c6" stroke-width="5" stroke-linejoin="round" />
+    <g transform="translate(36 -78) rotate(-30)"><circle cx="-8" cy="22" r="9" fill="none" stroke="#ece2c6" stroke-width="4" /><circle cx="10" cy="22" r="9" fill="none" stroke="#ece2c6" stroke-width="4" /><path d="M-4 14 L6 -34 M6 14 L-4 -34" fill="none" stroke="#ece2c6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <path class="r-cinta" d="M-30 -162 L-6 -96 M30 -162 L6 -96" stroke="#d65a3a" stroke-width="10" stroke-linecap="round" />
+    <g class="r-medalla"><circle cx="0" cy="-74" r="30" fill="#f2a541" stroke="#ece2c6" stroke-width="5" /><path d="M-12 -74 L-3 -64 L14 -86" fill="none" stroke="#141c19" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <rect x="-20" y="-196" width="40" height="40" rx="6" fill="#141c19" stroke="#ece2c6" stroke-width="5" />
+    <ellipse cx="0" cy="-260" rx="64" ry="74" fill="#141c19" stroke="#ece2c6" stroke-width="6" />
+    <path d="M-70 -236 Q-84 -340 0 -340 Q84 -340 70 -236 Q66 -280 40 -296 Q10 -276 -20 -296 Q-56 -282 -70 -236 Z" fill="#9a6438" stroke="#ece2c6" stroke-width="5" stroke-linejoin="round" />
+    <path d="M18 -334 Q40 -310 46 -290" stroke="#f2a541" stroke-width="10" stroke-linecap="round" fill="none" />
+    <path d="M2 -250 Q-8 -234 5 -230" fill="none" stroke="#ece2c6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <g class="r-serena" opacity="0"><path d="M-38 -258 Q-26 -270 -14 -258 M14 -258 Q26 -270 38 -258" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><path d="M-22 -216 Q0 -194 22 -216" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="r-normal" opacity="1"><circle cx="-24" cy="-260" r="7" fill="#ece2c6" /><circle cx="24" cy="-260" r="7" fill="#ece2c6" /><path d="M-18 -212 Q0 -198 18 -212" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="r-duerme" opacity="0"><path d="M-62 -266 Q0 -286 62 -266 L58 -240 Q0 -256 -58 -240 Z" fill="#8fb39b" stroke="#ece2c6" stroke-width="5" stroke-linejoin="round" /><path d="M-34 -252 Q-24 -244 -14 -252 M14 -252 Q24 -244 34 -252" fill="none" stroke="#141c19" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /><path d="M-10 -212 Q0 -204 10 -212" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+  </g></g>
+        </svg>
+        <div class="ab mono s14-hora">23:00</div>
+        <div class="ab mano s14-z s14-z1" style="left: 650px; top: 900px">z</div>
+        <div class="ab mano s14-z s14-z2" style="left: 710px; top: 830px">z</div>
+        <div class="ab mano s14-z s14-z3" style="left: 780px; top: 750px">Z</div>
+        <div class="etiqueta s14-et">ROSA, A LAS ONCE</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-duermo";
+      const DUR = 3.44;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        const { rot, ...desde } = de || {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, el instanceof SVGElement && !desde.svgOrigin ? { transformOrigin: "50% 50%" } : {}, desde), { opacity: 1, scale: 1, x: 0, y: 0, rotation: rot || 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara de un personaje
+      const cara = (raiz, de, a, t) => {
+        tl.to(qa(raiz + " ." + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(qa(raiz + " ." + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      // respira o se hamaca (finito y determinista)
+      const vaiven = (s, prop, amp, per, t0) => els(s).forEach((el) => {
+        const n = Math.max(1, Math.floor((DUR - (t0 || 0)) / per) - 1);
+        tl.fromTo(el, { [prop]: 0 }, { [prop]: amp, duration: per, yoyo: true, repeat: n, ease: "sine.inOut", immediateRender: false }, t0 || 0);
+      });
+      const fuera = (s, t, d) => tl.to(els(s), { opacity: 0, duration: d || 0.18, ease: "power2.in" }, t);
+      const salida = () => tl.to(q(".escena"), { y: -60, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      tl.fromTo(q(".escenario"), { scale: 1.05, opacity: 0.35 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out", transformOrigin: "50% 55%" }, 0);
+
+
+      tl.fromTo(q(".s14-ros"), { y: 60, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.4)" }, 0);
+      golpe(".s14-hora", 0.8, 2, 0);
+      sacudon(0.8, 0.6);
+      cara(".s14-ros", "r-normal", "r-duerme", 1.85);
+      tl.to(q(".s14-ros"), { rotation: -5, duration: 0.4, ease: "sine.inOut", transformOrigin: "50% 100%" }, 1.85);
+      pop(".s14-luna", 1.9, { scale: 0.5 });
+      pop(".s14-z1", 2.0, { y: 20 });
+      pop(".s14-z2", 2.25, { y: 20 });
+      pop(".s14-z3", 2.5, { y: 20 });
+      vaiven(".s14-z", "y", -14, 0.45, 2.6);
+      tl.to(q(".s14-hora"), { opacity: 0.35, duration: 0.3 }, 1.9);
+      pop(".s14-et", 0.3, { y: 20 });
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

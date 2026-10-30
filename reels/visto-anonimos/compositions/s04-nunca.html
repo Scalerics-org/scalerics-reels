@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-nunca"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-nunca"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-nunca"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-nunca"] .ab { position: absolute; }
+    [data-composition-id="s04-nunca"] .papel { background: #ece2c6; border-radius: 12px; box-shadow: 0 16px 0 rgba(8, 12, 10, 0.45); }
+    [data-composition-id="s04-nunca"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.98; white-space: nowrap; letter-spacing: -0.02em; color: #ece2c6; }
+    [data-composition-id="s04-nunca"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.12em; }
+    [data-composition-id="s04-nunca"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s04-nunca"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #d65a3a; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #d65a3a; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s04-nunca"] .sello.mos { border-color: #f2a541; color: #f2a541; }
+    [data-composition-id="s04-nunca"] .etiqueta { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #f2a541; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-nunca"] .globo { position: absolute; padding: 18px 26px 16px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; line-height: 1.15; white-space: nowrap; }
+    [data-composition-id="s04-nunca"] .s04-dia { left: 580px; top: 800px; width: 360px; text-align: center; font-size: 96px; color: #141c19; }
+    [data-composition-id="s04-nunca"] .s04-mes { left: 580px; top: 668px; width: 360px; text-align: center; font-size: 30px; color: #ece2c6; }
+    [data-composition-id="s04-nunca"] .s04-sello { left: 600px; top: 900px; font-size: 96px; }
+    [data-composition-id="s04-nunca"] .s04-ec { left: 480px; top: 1120px; font-size: 92px; color: #ece2c6; }
+  </style>
+  <div id="root" data-composition-id="s04-nunca" data-width="1080" data-height="1920" data-duration="4.27">
+    <div id="s04-escena" class="capa escena clip" data-start="0" data-duration="4.27" data-track-index="0">
+      <div class="escenario">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s04-alma">
+            <rect x="580" y="650" width="360" height="400" rx="10" fill="#ece2c6" />
+            <rect x="580" y="650" width="360" height="70" rx="10" fill="#d65a3a" />
+            <path d="M640 640 V672 M880 640 V672" fill="none" stroke="#141c19" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <rect class="s04-hoja" x="580" y="724" width="360" height="326" fill="#ece2c6" />
+          <path class="s04-sub" d="M490 1240 Q720 1226 1010 1240" fill="none" stroke="#f2a541" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          <g transform="translate(280 1330) scale(1.15)"><g class="s04-coo pj-coo">
+    <path d="M-80 -250 Q-96 -150 -70 -120 L70 -120 Q96 -150 80 -250 Z" fill="#ece2c6" stroke="#ece2c6" stroke-width="5" stroke-linejoin="round" />
+    <path d="M-120 0 L-112 -96 Q-104 -152 -46 -160 L46 -160 Q104 -152 112 -96 L120 0 Z" fill="#8fb39b" stroke="#ece2c6" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-40 -160 L-16 0 M40 -160 L16 0" stroke="#141c19" stroke-width="6" />
+    <path d="M-16 0 L0 -96 L16 0 Z" fill="#141c19" />
+    <circle cx="-32" cy="-60" r="6" fill="#ece2c6" /><circle cx="-36" cy="-24" r="6" fill="#ece2c6" />
+    <rect x="-20" y="-196" width="40" height="40" rx="6" fill="#141c19" stroke="#ece2c6" stroke-width="5" />
+    <ellipse cx="0" cy="-262" rx="64" ry="74" fill="#141c19" stroke="#ece2c6" stroke-width="6" />
+    <path d="M-72 -238 Q-84 -344 0 -344 Q84 -344 72 -238 Q60 -290 30 -306 Q0 -280 -46 -300 Q-62 -282 -72 -238 Z" fill="#ece2c6" stroke="#ece2c6" stroke-width="5" stroke-linejoin="round" />
+    <path d="M-40 -330 Q-10 -300 30 -324" fill="none" stroke="#141c19" stroke-width="3" opacity="0.4" />
+    <path d="M-50 -258 Q-60 -200 -40 -150 M50 -258 Q60 -200 40 -150" fill="none" stroke="#f2a541" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" />
+    <circle cx="-26" cy="-258" r="19" fill="none" stroke="#f2a541" stroke-width="5" /><circle cx="26" cy="-258" r="19" fill="none" stroke="#f2a541" stroke-width="5" /><path d="M-7 -260 H7" stroke="#f2a541" stroke-width="5" />
+    <path d="M2 -246 Q-8 -230 5 -226" fill="none" stroke="#ece2c6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <g class="k-calma" opacity="0"><circle cx="-26" cy="-258" r="6" fill="#ece2c6" /><circle cx="26" cy="-258" r="6" fill="#ece2c6" /><path d="M-16 -208 Q0 -198 16 -208" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="k-ceja" opacity="1"><path d="M-44 -290 L-12 -286 M14 -296 Q28 -306 44 -294" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><path d="M-32 -258 H-20" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><circle cx="26" cy="-258" r="6" fill="#ece2c6" /><path d="M-16 -206 Q4 -202 18 -212" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="k-tierna" opacity="0"><path d="M-36 -256 Q-26 -266 -16 -256 M16 -256 Q26 -266 36 -256" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><path d="M-20 -214 Q0 -194 20 -214" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><circle cx="-44" cy="-226" r="10" fill="#d65a3a" opacity="0.6" /><circle cx="44" cy="-226" r="10" fill="#d65a3a" opacity="0.6" /></g>
+  </g></g>
+        </svg>
+        <div class="ab mono s04-mes">CALENDARIO</div>
+        <div class="ab mano s04-dia">Después</div>
+        <div class="sello s04-sello">NUNCA</div>
+        <div class="ab mano s04-ec">después = nunca</div>
+        <div class="etiqueta s04-et">¿Y CUÁNDO ES DESPUÉS?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-nunca";
+      const DUR = 4.27;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        const { rot, ...desde } = de || {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, el instanceof SVGElement && !desde.svgOrigin ? { transformOrigin: "50% 50%" } : {}, desde), { opacity: 1, scale: 1, x: 0, y: 0, rotation: rot || 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara de un personaje
+      const cara = (raiz, de, a, t) => {
+        tl.to(qa(raiz + " ." + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(qa(raiz + " ." + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      // respira o se hamaca (finito y determinista)
+      const vaiven = (s, prop, amp, per, t0) => els(s).forEach((el) => {
+        const n = Math.max(1, Math.floor((DUR - (t0 || 0)) / per) - 1);
+        tl.fromTo(el, { [prop]: 0 }, { [prop]: amp, duration: per, yoyo: true, repeat: n, ease: "sine.inOut", immediateRender: false }, t0 || 0);
+      });
+      const fuera = (s, t, d) => tl.to(els(s), { opacity: 0, duration: d || 0.18, ease: "power2.in" }, t);
+      const salida = () => tl.to(q(".escena"), { y: -60, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      tl.fromTo(q(".escenario"), { scale: 1.05, opacity: 0.35 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out", transformOrigin: "50% 55%" }, 0);
+
+
+      tl.fromTo(q(".s04-coo"), { y: 50, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.4)" }, 0);
+      pop(".s04-alma", 0.1, { rot: 0 });
+      pop(".s04-mes", 0.15);
+      pop(".s04-dia", 0.6, { y: 20 });
+      vaiven(".s04-coo", "y", -5, 0.6, 0.4);
+      // la hoja se arranca
+      tl.to([q(".s04-hoja"), q(".s04-dia")], { y: 300, rotation: 14, opacity: 0, duration: 0.4, ease: "power2.in" }, 1.25);
+      golpe(".s04-sello", 1.56, 2.6, -10);
+      sacudon(1.56, 1.2);
+      escribir(".s04-ec", 2.46, 0.8);
+      dibujar(".s04-sub", 3.3, 0.4);
+      cara(".s04-coo", "k-ceja", "k-calma", 2.0);
+      pop(".s04-et", 0.2, { y: 20 });
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

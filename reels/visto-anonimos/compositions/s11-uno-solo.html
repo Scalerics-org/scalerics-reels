@@ -1,0 +1,150 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-uno-solo"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-uno-solo"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-uno-solo"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-uno-solo"] .ab { position: absolute; }
+    [data-composition-id="s11-uno-solo"] .papel { background: #ece2c6; border-radius: 12px; box-shadow: 0 16px 0 rgba(8, 12, 10, 0.45); }
+    [data-composition-id="s11-uno-solo"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.98; white-space: nowrap; letter-spacing: -0.02em; color: #ece2c6; }
+    [data-composition-id="s11-uno-solo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.12em; }
+    [data-composition-id="s11-uno-solo"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s11-uno-solo"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #d65a3a; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #d65a3a; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s11-uno-solo"] .sello.mos { border-color: #f2a541; color: #f2a541; }
+    [data-composition-id="s11-uno-solo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #f2a541; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-uno-solo"] .globo { position: absolute; padding: 18px 26px 16px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; line-height: 1.15; white-space: nowrap; }
+    [data-composition-id="s11-uno-solo"] .s11-a { top: 606px; font-size: 64px; }
+    [data-composition-id="s11-uno-solo"] .s11-b { top: 680px; font-size: 64px; }
+    [data-composition-id="s11-uno-solo"] .s11-t { top: 616px; font-size: 140px; color: #f2a541; }
+  </style>
+  <div id="root" data-composition-id="s11-uno-solo" data-width="1080" data-height="1920" data-duration="3.7">
+    <div id="s11-escena" class="capa escena clip" data-start="0" data-duration="3.7" data-track-index="0">
+      <div class="escenario">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s11-cono" d="M440 560 H640 L900 1330 H180 Z" fill="#8fb39b" opacity="0.16" />
+          <g class="s11-otra" transform="translate(150 1330) scale(0.9 0.9)">
+    <path d="M-70 0 L40 -190 M60 0 L-50 -190" fill="none" stroke="#ece2c6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="-80" y="-206" width="160" height="26" rx="8" fill="#9a6438" stroke="#ece2c6" stroke-width="5" />
+    <path d="M-66 -196 L-90 -400" fill="none" stroke="#ece2c6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="-112" y="-410" width="44" height="120" rx="10" fill="#9a6438" stroke="#ece2c6" stroke-width="5" transform="rotate(-7 -90 -350)" />
+  </g>
+          <g class="s11-otra" transform="translate(930 1330) scale(-0.9 0.9)">
+    <path d="M-70 0 L40 -190 M60 0 L-50 -190" fill="none" stroke="#ece2c6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="-80" y="-206" width="160" height="26" rx="8" fill="#9a6438" stroke="#ece2c6" stroke-width="5" />
+    <path d="M-66 -196 L-90 -400" fill="none" stroke="#ece2c6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="-112" y="-410" width="44" height="120" rx="10" fill="#9a6438" stroke="#ece2c6" stroke-width="5" transform="rotate(-7 -90 -350)" />
+  </g>
+          <g class="s11-silla" transform="translate(540 1330) scale(0.95)">
+    <path d="M-80 0 L-70 -400 M80 0 L70 -400" fill="none" stroke="#ece2c6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="-90" y="-420" width="180" height="110" rx="14" fill="#9a6438" stroke="#ece2c6" stroke-width="6" />
+    <path d="M-100 -190 H100 L86 -230 H-86 Z" fill="#9a6438" stroke="#ece2c6" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-80 0 L66 -190 M80 0 L-66 -190" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55" />
+  </g>
+          <g><g class="s11-gusw"><g transform="translate(540 1330) scale(1.2)"><g class="s11-gus pj-gus">
+    <path d="M-134 0 L-126 -102 Q-116 -158 -52 -166 L52 -166 Q116 -158 126 -102 L134 0 Z" fill="#9a6438" stroke="#ece2c6" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-92 -150 V0 M-46 -164 V0 M46 -164 V0 M92 -150 V0 M-128 -60 H128 M-122 -110 H122" stroke="#141c19" stroke-width="7" opacity="0.35" />
+    <path d="M-48 -166 L0 -118 L48 -166" fill="#141c19" stroke="#ece2c6" stroke-width="5" stroke-linejoin="round" />
+    <path d="M-48 -166 L-22 -128 L-6 -150 M48 -166 L22 -128 L6 -150" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <g class="pj-nombre">
+    <rect x="-132" y="-110" width="132" height="80" rx="8" fill="#ece2c6" />
+    <path d="M-132 -102 Q-132 -110 -124 -110 H-8 Q0 -110 0 -102 V-84 H-132 Z" fill="#d65a3a" />
+    <text x="-66" y="-90" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="15" letter-spacing="2" fill="#ece2c6">HOLA, SOY</text>
+    <text x="-66" y="-40" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="38" fill="#141c19">Gustavo</text>
+  </g>
+    <rect x="-24" y="-200" width="48" height="40" rx="6" fill="#141c19" stroke="#ece2c6" stroke-width="5" />
+    <ellipse cx="-72" cy="-256" rx="14" ry="22" fill="#141c19" stroke="#ece2c6" stroke-width="5" />
+    <ellipse cx="72" cy="-256" rx="14" ry="22" fill="#141c19" stroke="#ece2c6" stroke-width="5" />
+    <ellipse cx="0" cy="-262" rx="70" ry="80" fill="#141c19" stroke="#ece2c6" stroke-width="6" />
+    <path d="M-70 -270 Q-74 -334 -20 -342 Q-4 -316 0 -330 Q30 -350 62 -326 Q78 -300 70 -270 Q58 -300 34 -306 Q14 -296 -4 -310 Q-30 -296 -50 -304 Q-64 -292 -70 -270 Z" fill="#9a6438" stroke="#ece2c6" stroke-width="5" stroke-linejoin="round" />
+    <g opacity="0.45" fill="#ece2c6"><circle cx="-40" cy="-212" r="3" /><circle cx="-28" cy="-200" r="3" /><circle cx="-12" cy="-196" r="3" /><circle cx="12" cy="-196" r="3" /><circle cx="28" cy="-200" r="3" /><circle cx="40" cy="-212" r="3" /><circle cx="-50" cy="-226" r="3" /><circle cx="50" cy="-226" r="3" /><circle cx="0" cy="-192" r="3" /></g>
+    <path d="M0 -254 Q-12 -234 4 -230" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+    <g class="g-triste" opacity="1"><path d="M-44 -282 L-14 -292 M44 -282 L14 -292" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><circle cx="-28" cy="-262" r="7" fill="#ece2c6" /><circle cx="28" cy="-262" r="7" fill="#ece2c6" /><path d="M-18 -208 Q0 -222 18 -208" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="g-verguenza" opacity="0"><path d="M-44 -286 L-14 -290 M44 -286 L14 -290" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><circle cx="-36" cy="-262" r="7" fill="#ece2c6" /><circle cx="20" cy="-262" r="7" fill="#ece2c6" /><circle cx="-44" cy="-232" r="12" fill="#d65a3a" opacity="0.8" /><circle cx="44" cy="-232" r="12" fill="#d65a3a" opacity="0.8" /><path d="M-14 -212 Q-4 -218 6 -212 Q14 -206 20 -212" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+    <g class="g-sorpresa" opacity="0"><path d="M-44 -298 Q-28 -308 -12 -300 M44 -298 Q28 -308 12 -300" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><circle cx="-28" cy="-264" r="13" fill="none" stroke="#ece2c6" stroke-width="4" /><circle cx="28" cy="-264" r="13" fill="none" stroke="#ece2c6" stroke-width="4" /><circle cx="-28" cy="-264" r="5" fill="#ece2c6" /><circle cx="28" cy="-264" r="5" fill="#ece2c6" /><ellipse cx="0" cy="-210" rx="11" ry="15" fill="#141c19" stroke="#ece2c6" stroke-width="5" /></g>
+    <g class="g-grita" opacity="0"><path d="M-46 -296 L-14 -282 M46 -296 L14 -282" fill="none" stroke="#ece2c6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><circle cx="-28" cy="-264" r="8" fill="#ece2c6" /><circle cx="28" cy="-264" r="8" fill="#ece2c6" /><ellipse cx="0" cy="-208" rx="24" ry="18" fill="#0b100e" stroke="#ece2c6" stroke-width="5" /><path d="M90 -300 Q80 -282 90 -274 Q100 -282 90 -300 Z" fill="#8fb39b" /></g>
+    <g class="g-feliz" opacity="0"><path d="M-40 -260 Q-28 -276 -16 -260 M16 -260 Q28 -276 40 -260" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><path d="M-24 -216 Q0 -194 24 -216" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+  </g></g></g></g>
+        </svg>
+        <div class="grande s11-a">NO SOS UN MAL</div>
+        <div class="grande s11-b">COMERCIANTE</div>
+        <div class="grande s11-t">UNO SOLO.</div>
+        <div class="etiqueta s11-et">LA VERDAD, GUSTAVO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-uno-solo";
+      const DUR = 3.7;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        const { rot, ...desde } = de || {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, el instanceof SVGElement && !desde.svgOrigin ? { transformOrigin: "50% 50%" } : {}, desde), { opacity: 1, scale: 1, x: 0, y: 0, rotation: rot || 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara de un personaje
+      const cara = (raiz, de, a, t) => {
+        tl.to(qa(raiz + " ." + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(qa(raiz + " ." + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      // respira o se hamaca (finito y determinista)
+      const vaiven = (s, prop, amp, per, t0) => els(s).forEach((el) => {
+        const n = Math.max(1, Math.floor((DUR - (t0 || 0)) / per) - 1);
+        tl.fromTo(el, { [prop]: 0 }, { [prop]: amp, duration: per, yoyo: true, repeat: n, ease: "sine.inOut", immediateRender: false }, t0 || 0);
+      });
+      const fuera = (s, t, d) => tl.to(els(s), { opacity: 0, duration: d || 0.18, ease: "power2.in" }, t);
+      const salida = () => tl.to(q(".escena"), { y: -60, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      tl.fromTo(q(".escenario"), { scale: 1.05, opacity: 0.35 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out", transformOrigin: "50% 55%" }, 0);
+
+
+      pop(".s11-a", 0.05, { y: 20 });
+      pop(".s11-b", 0.55, { y: 20 });
+      tl.fromTo(q(".s11-gusw"), { y: 40, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" }, 0);
+      vaiven(".s11-gusw", "y", -4, 0.8, 0.4);
+      fuera(".s11-a, .s11-b", 1.85, 0.15);
+      tl.to(qa(".s11-otra"), { opacity: 0, x: (i) => (i ? 120 : -120), duration: 0.5, ease: "power2.in" }, 1.9);
+      tl.fromTo(q(".s11-cono"), { opacity: 0.16 }, { opacity: 0.32, duration: 0.3 }, 2.0);
+      golpe(".s11-t", 2.2, 2.6, -2);
+      sacudon(2.2, 1.1);
+      cara(".s11-gus", "g-triste", "g-sorpresa", 2.4);
+      tl.to(q(".escenario"), { scale: 1.06, duration: 1.4, ease: "power1.out", transformOrigin: "50% 70%" }, 2.2);
+      pop(".s11-et", 0.3, { y: 20 });
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

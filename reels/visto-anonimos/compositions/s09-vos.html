@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-vos"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-vos"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-vos"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-vos"] .ab { position: absolute; }
+    [data-composition-id="s09-vos"] .papel { background: #ece2c6; border-radius: 12px; box-shadow: 0 16px 0 rgba(8, 12, 10, 0.45); }
+    [data-composition-id="s09-vos"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.98; white-space: nowrap; letter-spacing: -0.02em; color: #ece2c6; }
+    [data-composition-id="s09-vos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.12em; }
+    [data-composition-id="s09-vos"] .mano { font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s09-vos"] .sello { position: absolute; padding: 12px 26px 10px; border: 7px solid #d65a3a; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #d65a3a; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; }
+    [data-composition-id="s09-vos"] .sello.mos { border-color: #f2a541; color: #f2a541; }
+    [data-composition-id="s09-vos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #f2a541; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-vos"] .globo { position: absolute; padding: 18px 26px 16px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; line-height: 1.15; white-space: nowrap; }
+    [data-composition-id="s09-vos"] .s09-t1 { top: 600px; font-size: 140px; }
+    [data-composition-id="s09-vos"] .s09-t2 { top: 600px; font-size: 140px; color: #f2a541; }
+    [data-composition-id="s09-vos"] .pil { padding: 14px 70px 12px 24px; border-radius: 30px; background: #ece2c6; color: #141c19; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; white-space: nowrap; }
+    [data-composition-id="s09-vos"] .pil-n { position: absolute; right: 14px; top: 50%; margin-top: -20px; width: 40px; height: 40px; border-radius: 50%; background: #d65a3a; color: #ece2c6; font-size: 26px; line-height: 40px; text-align: center; }
+  </style>
+  <div id="root" data-composition-id="s09-vos" data-width="1080" data-height="1920" data-duration="4.39">
+    <div id="s09-escena" class="capa escena clip" data-start="0" data-duration="4.39" data-track-index="0">
+      <div class="escenario">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <ellipse class="s09-luz" cx="540" cy="1330" rx="330" ry="40" fill="#8fb39b" opacity="0.25" />
+          <g class="s09-silla" transform="translate(540 1330) scale(1)">
+    <path d="M-80 0 L-70 -400 M80 0 L70 -400" fill="none" stroke="#ece2c6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="-90" y="-420" width="180" height="110" rx="14" fill="#9a6438" stroke="#ece2c6" stroke-width="6" />
+    <path d="M-100 -190 H100 L86 -230 H-86 Z" fill="#9a6438" stroke="#ece2c6" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-80 0 L66 -190 M80 0 L-66 -190" fill="none" stroke="#ece2c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55" />
+  </g>
+          <g class="s09-tag"><g class="pj-nombre">
+    <rect x="465" y="925" width="150" height="80" rx="8" fill="#ece2c6" />
+    <path d="M465 933 Q465 925 473 925 H607 Q615 925 615 933 V951 H465 Z" fill="#d65a3a" />
+    <text x="540" y="945" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="15" letter-spacing="2" fill="#ece2c6">HOLA, SOY</text>
+    <text x="540" y="995" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="46" fill="#141c19">Vos</text>
+  </g></g>
+        </svg>
+        <div class="grande s09-t1">¿Y VOS?</div>
+        <div class="grande s09-t2">SÍ, VOS.</div>
+        <div class="ab s09-c1 pil" style="left:70px; top:830px">¿Precio?<span class="pil-n">1</span></div>
+        <div class="ab s09-c2 pil" style="left:690px; top:950px">¿Abren hoy?<span class="pil-n">1</span></div>
+        <div class="ab s09-c3 pil" style="left:60px; top:1090px">¿Hay talle?<span class="pil-n">1</span></div>
+        <div class="etiqueta s09-et">TU SILLA YA ESTÁ</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-vos";
+      const DUR = 4.39;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d, desde) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        const f = desde || 0;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (1 - f), opacity: f > 0 ? 1 : 0 });
+        if (!f) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.6, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        const { rot, ...desde } = de || {};
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.8 }, el instanceof SVGElement && !desde.svgOrigin ? { transformOrigin: "50% 50%" } : {}, desde), { opacity: 1, scale: 1, x: 0, y: 0, rotation: rot || 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha (letra a mano, tipeo)
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // cambia la cara de un personaje
+      const cara = (raiz, de, a, t) => {
+        tl.to(qa(raiz + " ." + de), { opacity: 0, duration: 0.06 }, t);
+        tl.to(qa(raiz + " ." + a), { opacity: 1, duration: 0.06 }, t);
+      };
+      // respira o se hamaca (finito y determinista)
+      const vaiven = (s, prop, amp, per, t0) => els(s).forEach((el) => {
+        const n = Math.max(1, Math.floor((DUR - (t0 || 0)) / per) - 1);
+        tl.fromTo(el, { [prop]: 0 }, { [prop]: amp, duration: per, yoyo: true, repeat: n, ease: "sine.inOut", immediateRender: false }, t0 || 0);
+      });
+      const fuera = (s, t, d) => tl.to(els(s), { opacity: 0, duration: d || 0.18, ease: "power2.in" }, t);
+      const salida = () => tl.to(q(".escena"), { y: -60, opacity: 0, filter: "blur(8px)", duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+
+      tl.fromTo(q(".escenario"), { scale: 1.05, opacity: 0.35 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power3.out", transformOrigin: "50% 55%" }, 0);
+
+
+      dibujar(".s09-silla path", 0, 0.5, 0.4);
+      tl.fromTo(qa(".s09-silla rect, .s09-silla path[fill]"), { opacity: 0.3 }, { opacity: 1, duration: 0.4 }, 0);
+      golpe(".s09-t1", 0.11, 2.2, -2);
+      sacudon(0.11, 0.8);
+      fuera(".s09-t1", 0.75, 0.1);
+      golpe(".s09-t2", 0.85, 2.4, 2);
+      sacudon(0.85, 1.2);
+      pop(".s09-tag", 1.2, { scale: 0.4, rot: -10 });
+      tl.to(q(".escenario"), { scale: 1.1, duration: 2.6, ease: "power1.inOut", transformOrigin: "50% 62%" }, 1.5);
+      pop(".s09-c1", 2.5, { x: -60 });
+      pop(".s09-c2", 2.85, { x: 60 });
+      pop(".s09-c3", 3.2, { x: -60 });
+      vaiven(".s09-c1, .s09-c3", "y", -6, 0.4, 2.9);
+      vaiven(".s09-c2", "y", 6, 0.4, 3.1);
+      pop(".s09-et", 1.6, { y: 20 });
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
