@@ -1,0 +1,153 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-dueno"] .s11-capa, [data-composition-id="s11-dueno"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-dueno"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-dueno"] .b { fill: #1a0f2e; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .k { fill: #0c0718; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .l { fill: none; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .w { fill: #efe9ff; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .u { fill: #9b5cff; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .ul { fill: none; stroke: #9b5cff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .c { fill: #39ffd2; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .cl { fill: none; stroke: #39ffd2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .p { fill: #ff4fd8; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .pl { fill: none; stroke: #ff4fd8; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .r { fill: #ff2d3d; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .rl { fill: none; stroke: #ff2d3d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .s { fill: #5ce611; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .g { fill: #8a8299; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .cara { fill: #efe9ff; stroke: #efe9ff; stroke-width: 7; }
+    [data-composition-id="s11-dueno"] .d { fill: none; stroke: #0c0718; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-dueno"] .fino { stroke-width: 3; }
+    [data-composition-id="s11-dueno"] .brilla { filter: drop-shadow(0 0 14px rgba(57, 255, 210, 0.75)); }
+    [data-composition-id="s11-dueno"] .brillav { filter: drop-shadow(0 0 16px rgba(155, 92, 255, 0.85)); }
+    [data-composition-id="s11-dueno"] .led { filter: drop-shadow(0 0 12px rgba(255, 45, 61, 0.9)); }
+    [data-composition-id="s11-dueno"] .ledv { filter: drop-shadow(0 0 12px rgba(92, 230, 17, 0.8)); }
+    [data-composition-id="s11-dueno"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #efe9ff; }
+    [data-composition-id="s11-dueno"] .uv { color: #39ffd2; text-shadow: 0 0 28px rgba(57, 255, 210, 0.6); }
+    [data-composition-id="s11-dueno"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff2d3d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff2d3d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-dueno"] .cartel { position: absolute; padding: 14px 28px 12px; background: #9b5cff; color: #0c0718; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s11-dueno"] .etiqueta { position: absolute; left: 0; right: 0; top: 1350px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; text-transform: uppercase; color: #b388ff; white-space: nowrap; }
+    [data-composition-id="s11-dueno"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s11-dueno"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s11-dueno"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s11-dueno"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s11-dueno"] .s11-tag { left: 600px; top: 760px; font-size: 32px; color: #39ffd2; border-color: #39ffd2; background: #0c0718; }
+  [data-composition-id="s11-dueno"] .s11-q { position: absolute; left: 0; right: 0; text-align: center; top: 560px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 160px; color: #ff4fd8; text-shadow: 0 0 30px rgba(255, 79, 216, 0.7); line-height: 1; }
+
+  </style>
+  <div id="root" data-composition-id="s11-dueno" data-width="1080" data-height="1920" data-duration="3.74">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="3.74" data-track-index="0">
+      <div class="s11-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-esq">
+            <path class="l fino s11-tela" d="M60 600 L300 760 M60 600 L200 820 M60 600 L330 640 M60 600 L120 860 M110 640 C150 640 160 690 150 710 M160 680 C220 690 230 740 220 780 M90 700 C110 720 120 760 110 790" />
+            <path class="l fino s11-tela" d="M1020 1320 L800 1180 M1020 1320 L860 1130 M1020 1320 L760 1290 M900 1240 C870 1230 860 1200 870 1180 M960 1270 C920 1250 900 1220 900 1190" />
+          </g>
+          <g transform="translate(333 660) scale(1.15)"><g class="s11-pj">
+      <path class="g" d="M30 540 C30 410 92 368 180 368 C268 368 330 410 330 540 Z" />
+      <ellipse class="cara" cx="180" cy="250" rx="80" ry="94" />
+      <path class="g" d="M104 210 C90 230 92 260 106 276 L112 240 Z M256 210 C270 230 268 260 254 276 L248 240 Z" stroke-width="5" />
+      <path class="g" d="M110 286 C110 380 150 470 180 520 C210 470 250 380 250 286 C230 320 130 320 110 286 Z" stroke-width="6" />
+      <path class="d" d="M150 360 C160 400 170 430 180 470 M210 360 C200 400 190 430 180 470" stroke-width="4" opacity="0.5" />
+      <circle class="s11-dueno-ojos" cx="150" cy="240" r="8" fill="#0c0718" />
+      <circle class="s11-dueno-ojos" cx="212" cy="240" r="8" fill="#0c0718" />
+      <path class="d" d="M134 258 C142 266 158 266 166 258 M196 258 C204 266 220 266 228 258" stroke-width="4" opacity="0.6" />
+      <path class="d" d="M130 216 L168 226 M194 226 L232 216" stroke-width="6" />
+      <path class="g" d="M130 290 C150 274 210 274 230 290 C214 302 146 302 130 290 Z" stroke-width="5" />
+      <ellipse class="s11-dueno-boca" data-o="180 310" cx="180" cy="310" rx="14" ry="8" fill="#0c0718" /></g></g>
+        </svg>
+        <div class="sello s11-tag">Recluso: el dueño</div>
+        <div class="s11-q">?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-dueno";
+      const DUR = 3.74;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s11-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // cronómetro de 7 segmentos: pinta("cls", "6000") prende los segmentos; reloj("cls", f) lo maneja
+      // con UNA sola interpolación sobre toda la escena (f(t) devuelve 4 caracteres: dígitos, "-" o " ")
+      const SEG = { 0: "abcdef", 1: "bc", 2: "abdeg", 3: "abcdg", 4: "bcfg", 5: "acdfg", 6: "acdefg", 7: "abc", 8: "abcdefg", 9: "abcdfg", "-": "g", " ": "" };
+      const pinta = (cls, str) => {
+        const ds = qa("." + cls + " .dig");
+        str.split("").forEach((ch, i) => { if (ds[i]) for (const r of ds[i].children) r.style.opacity = (SEG[ch] || "").includes(r.dataset.s) ? 1 : 0.07; });
+      };
+      const mmss = (s) => { s = Math.max(0, Math.ceil(s - 1e-6)); return String(Math.floor(s / 60)).padStart(2, "0") + String(s % 60).padStart(2, "0"); };
+      const reloj = (cls, f) => {
+        const o = { t: 0 };
+        pinta(cls, f(0));
+        tl.fromTo(o, { t: 0 }, { t: DUR, duration: DUR, ease: "none", immediateRender: false, onUpdate: () => pinta(cls, f(o.t)) }, 0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+// sale de la oscuridad
+      tl.fromTo(q(".s11-pj"), { opacity: 0.15, scale: 0.9, svgOrigin: "180 540" }, { opacity: 1, scale: 1, svgOrigin: "180 540", duration: 0.7, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s11-esq"), { opacity: 0.3 }, { opacity: 1, duration: 0.6 }, 0);
+      hablar(".s11-dueno-boca", 0, 0.6, 0.3);
+      parpadeo(".s11-dueno-ojos", 0.7);
+      golpe(".s11-tag", 0.95, 2);
+      tl.set(q(".s11-tag"), { rotation: 4 }, 0);
+      hablar(".s11-dueno-boca", 0.9, 2.0, 0.3);
+      dibujar(".s11-tela", 1.5, 0.6);
+      tl.to(q(".s11-pj"), { y: -14, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out" }, 2.6);
+      hablar(".s11-dueno-boca", 2.55, 3.1, 0.3);
+      pop(".s11-q", 2.6, 0.4);
+      tl.to(q(".s11-q"), { rotation: 10, duration: 0.2, yoyo: true, repeat: 2 }, 3.0);
+
+      // salida: barrido con blur
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

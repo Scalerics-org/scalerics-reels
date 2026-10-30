@@ -1,0 +1,203 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .ambiente-capa, [data-composition-id="ambiente"] .ambiente-escenario { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .b { fill: #1a0f2e; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .k { fill: #0c0718; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .l { fill: none; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .w { fill: #efe9ff; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .u { fill: #9b5cff; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .ul { fill: none; stroke: #9b5cff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .c { fill: #39ffd2; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .cl { fill: none; stroke: #39ffd2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .p { fill: #ff4fd8; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .pl { fill: none; stroke: #ff4fd8; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .r { fill: #ff2d3d; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .rl { fill: none; stroke: #ff2d3d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .s { fill: #5ce611; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .g { fill: #8a8299; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .cara { fill: #efe9ff; stroke: #efe9ff; stroke-width: 7; }
+    [data-composition-id="ambiente"] .d { fill: none; stroke: #0c0718; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .fino { stroke-width: 3; }
+    [data-composition-id="ambiente"] .brilla { filter: drop-shadow(0 0 14px rgba(57, 255, 210, 0.75)); }
+    [data-composition-id="ambiente"] .brillav { filter: drop-shadow(0 0 16px rgba(155, 92, 255, 0.85)); }
+    [data-composition-id="ambiente"] .led { filter: drop-shadow(0 0 12px rgba(255, 45, 61, 0.9)); }
+    [data-composition-id="ambiente"] .ledv { filter: drop-shadow(0 0 12px rgba(92, 230, 17, 0.8)); }
+    [data-composition-id="ambiente"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #efe9ff; }
+    [data-composition-id="ambiente"] .uv { color: #39ffd2; text-shadow: 0 0 28px rgba(57, 255, 210, 0.6); }
+    [data-composition-id="ambiente"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff2d3d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff2d3d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="ambiente"] .cartel { position: absolute; padding: 14px 28px 12px; background: #9b5cff; color: #0c0718; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="ambiente"] .etiqueta { position: absolute; left: 0; right: 0; top: 1350px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; text-transform: uppercase; color: #b388ff; white-space: nowrap; }
+    [data-composition-id="ambiente"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="ambiente"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="ambiente"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="ambiente"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="ambiente"] .amb-uv { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1000px at 50% 48%, rgba(155, 92, 255, 0.26), rgba(155, 92, 255, 0) 72%); }
+  [data-composition-id="ambiente"] .amb-luz { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 900px 1100px at 50% 45%, rgba(239, 233, 255, 0.16), rgba(239, 233, 255, 0.03) 60%, rgba(239, 233, 255, 0) 80%), radial-gradient(ellipse 600px 700px at 50% 55%, rgba(92, 230, 17, 0.12), rgba(92, 230, 17, 0) 75%); }
+  [data-composition-id="ambiente"] .amb-rojo { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 900px 1200px at 50% 50%, rgba(255, 45, 61, 0) 40%, rgba(255, 45, 61, 0.35) 100%); }
+  [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1120px at 540px 920px, rgba(8, 4, 15, 0) 55%, rgba(8, 4, 15, 0.88) 100%); }
+  [data-composition-id="ambiente"] .amb-tubo { position: absolute; left: 190px; top: 52px; width: 700px; height: 14px; border-radius: 7px; background: #c9a6ff; box-shadow: 0 0 30px 8px rgba(155, 92, 255, 0.8), 0 0 90px 30px rgba(155, 92, 255, 0.35); }
+  [data-composition-id="ambiente"] .amb-sala { position: absolute; left: 72px; top: 128px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.16em; color: #b388ff; white-space: nowrap; }
+  [data-composition-id="ambiente"] .amb-sala2 { color: #5ce611; opacity: 0; }
+  [data-composition-id="ambiente"] .amb-piso { position: absolute; left: 0; right: 0; top: 1420px; height: 3px; background: rgba(155, 92, 255, 0.35); }
+  [data-composition-id="ambiente"] .amb-pinta { position: absolute; left: 700px; top: 1470px; font-family: "Caveat", cursive; font-weight: 700; font-size: 54px; color: #39ffd2; opacity: 0.4; transform: rotate(-6deg); text-shadow: 0 0 18px rgba(57, 255, 210, 0.6); white-space: nowrap; }
+  [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #efe9ff; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="75.28">
+    <div id="ambiente-escena" class="ambiente-capa clip" data-start="0" data-duration="75.28" data-track-index="0">
+      <div class="ambiente-escenario">
+<div class="amb-uv"></div>
+        <div class="amb-luz"></div>
+        <div class="amb-rojo"></div>
+        <div class="amb-vineta"></div>
+        <div class="amb-piso"></div>
+        <div class="amb-pinta" data-layout-ignore>salida →</div>
+        <div class="amb-tubo"></div>
+        <div class="amb-sala" data-layout-ignore>SALA 1 · EL DEPÓSITO</div>
+        <div class="amb-sala amb-sala2" data-layout-ignore>SALA 1 · ABIERTA</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="amb-rel-r"><g class="amb-r led">
+      <g class="dig"><rect data-s="a" x="805.4" y="104" width="27.200000000000003" height="9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="b" x="829" y="109.4" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="c" x="829" y="138.7" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="d" x="805.4" y="159" width="27.200000000000003" height="9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="e" x="800" y="138.7" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="f" x="800" y="109.4" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="g" x="805.4" y="131.5" width="27.200000000000003" height="9" rx="4.5" fill="#ff2d3d" opacity="0.07" /></g><g class="dig"><rect data-s="a" x="853.4" y="104" width="27.200000000000003" height="9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="b" x="877" y="109.4" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="c" x="877" y="138.7" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="d" x="853.4" y="159" width="27.200000000000003" height="9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="e" x="848" y="138.7" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="f" x="848" y="109.4" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="g" x="853.4" y="131.5" width="27.200000000000003" height="9" rx="4.5" fill="#ff2d3d" opacity="0.07" /></g>
+      <rect class="amb-r-dos" x="891" y="121.92" width="9" height="9" rx="4" fill="#ff2d3d" />
+      <rect class="amb-r-dos" x="891" y="146.24" width="9" height="9" rx="4" fill="#ff2d3d" />
+      <g class="dig"><rect data-s="a" x="920.4" y="104" width="27.200000000000003" height="9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="b" x="944" y="109.4" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="c" x="944" y="138.7" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="d" x="920.4" y="159" width="27.200000000000003" height="9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="e" x="915" y="138.7" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="f" x="915" y="109.4" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="g" x="920.4" y="131.5" width="27.200000000000003" height="9" rx="4.5" fill="#ff2d3d" opacity="0.07" /></g><g class="dig"><rect data-s="a" x="968.4" y="104" width="27.200000000000003" height="9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="b" x="992" y="109.4" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="c" x="992" y="138.7" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="d" x="968.4" y="159" width="27.200000000000003" height="9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="e" x="963" y="138.7" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="f" x="963" y="109.4" width="9" height="23.9" rx="4.5" fill="#ff2d3d" opacity="0.07" /><rect data-s="g" x="968.4" y="131.5" width="27.200000000000003" height="9" rx="4.5" fill="#ff2d3d" opacity="0.07" /></g>
+    </g></g>
+          <g class="amb-rel-v" opacity="0"><g class="amb-v ledv">
+      <g class="dig"><rect data-s="a" x="805.4" y="104" width="27.200000000000003" height="9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="b" x="829" y="109.4" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="c" x="829" y="138.7" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="d" x="805.4" y="159" width="27.200000000000003" height="9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="e" x="800" y="138.7" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="f" x="800" y="109.4" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="g" x="805.4" y="131.5" width="27.200000000000003" height="9" rx="4.5" fill="#5ce611" opacity="0.07" /></g><g class="dig"><rect data-s="a" x="853.4" y="104" width="27.200000000000003" height="9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="b" x="877" y="109.4" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="c" x="877" y="138.7" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="d" x="853.4" y="159" width="27.200000000000003" height="9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="e" x="848" y="138.7" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="f" x="848" y="109.4" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="g" x="853.4" y="131.5" width="27.200000000000003" height="9" rx="4.5" fill="#5ce611" opacity="0.07" /></g>
+      <rect class="amb-v-dos" x="891" y="121.92" width="9" height="9" rx="4" fill="#5ce611" />
+      <rect class="amb-v-dos" x="891" y="146.24" width="9" height="9" rx="4" fill="#5ce611" />
+      <g class="dig"><rect data-s="a" x="920.4" y="104" width="27.200000000000003" height="9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="b" x="944" y="109.4" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="c" x="944" y="138.7" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="d" x="920.4" y="159" width="27.200000000000003" height="9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="e" x="915" y="138.7" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="f" x="915" y="109.4" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="g" x="920.4" y="131.5" width="27.200000000000003" height="9" rx="4.5" fill="#5ce611" opacity="0.07" /></g><g class="dig"><rect data-s="a" x="968.4" y="104" width="27.200000000000003" height="9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="b" x="992" y="109.4" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="c" x="992" y="138.7" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="d" x="968.4" y="159" width="27.200000000000003" height="9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="e" x="963" y="138.7" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="f" x="963" y="109.4" width="9" height="23.9" rx="4.5" fill="#5ce611" opacity="0.07" /><rect data-s="g" x="968.4" y="131.5" width="27.200000000000003" height="9" rx="4.5" fill="#5ce611" opacity="0.07" /></g>
+    </g></g>
+        </svg>
+        <div class="amb-flash"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 75.28;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".ambiente-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // cronómetro de 7 segmentos: pinta("cls", "6000") prende los segmentos; reloj("cls", f) lo maneja
+      // con UNA sola interpolación sobre toda la escena (f(t) devuelve 4 caracteres: dígitos, "-" o " ")
+      const SEG = { 0: "abcdef", 1: "bc", 2: "abdeg", 3: "abcdg", 4: "bcfg", 5: "acdfg", 6: "acdefg", 7: "abc", 8: "abcdefg", 9: "abcdfg", "-": "g", " ": "" };
+      const pinta = (cls, str) => {
+        const ds = qa("." + cls + " .dig");
+        str.split("").forEach((ch, i) => { if (ds[i]) for (const r of ds[i].children) r.style.opacity = (SEG[ch] || "").includes(r.dataset.s) ? 1 : 0.07; });
+      };
+      const mmss = (s) => { s = Math.max(0, Math.ceil(s - 1e-6)); return String(Math.floor(s / 60)).padStart(2, "0") + String(s % 60).padStart(2, "0"); };
+      const reloj = (cls, f) => {
+        const o = { t: 0 };
+        pinta(cls, f(0));
+        tl.fromTo(o, { t: 0 }, { t: DUR, duration: DUR, ease: "none", immediateRender: false, onUpdate: () => pinta(cls, f(o.t)) }, 0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+const LUZ = 50.6, FIN = 46.87, PUERTA = 67.4, CTA = 68.32;
+      const tramos = [[0, 3600], [7.59, 3600], [28.2, 2400], [38.84, 600], [FIN, 0]];
+      const V = (t) => {
+        if (t >= FIN) return 0;
+        for (let i = 1; i < tramos.length; i++) {
+          const [a, va] = tramos[i - 1], [b, vb] = tramos[i];
+          if (t < b) return va + (vb - va) * (t - a) / (b - a);
+        }
+        return 0;
+      };
+      reloj("amb-r", (t) => {
+        if (t >= CTA) return Math.floor((t - CTA) / 0.5) % 2 ? "    " : "----";
+        if (t >= FIN && t < LUZ) return Math.floor((t - FIN) / 0.35) % 2 ? "    " : "0000";
+        return mmss(V(t));
+      });
+      reloj("amb-v", (t) => (t >= PUERTA - 0.3 ? "0001" : "0000"));
+      // los dos puntos titilan
+      tl.to(qa(".amb-r-dos"), { opacity: 0.15, duration: 0.5, yoyo: true, repeat: Math.floor(LUZ / 0.5) - 1, ease: "steps(1)" }, 0);
+      // el tubo UV titila de a ratos
+      [[0.6, 0.3], [9.4, 0.2], [21.0, 0.4], [33.2, 0.25], [41.5, 0.5]].forEach(([t, d]) => {
+        tl.to(q(".amb-tubo"), { opacity: 0.25, duration: 0.05 }, t);
+        tl.to(q(".amb-tubo"), { opacity: 1, duration: 0.05 }, t + d * 0.4);
+        tl.to(q(".amb-tubo"), { opacity: 0.4, duration: 0.05 }, t + d * 0.7);
+        tl.to(q(".amb-tubo"), { opacity: 1, duration: 0.05 }, t + d);
+      });
+      // la luz UV respira
+      tl.fromTo(q(".amb-uv"), { opacity: 0.75 }, { opacity: 1, duration: 1.6, yoyo: true, repeat: 14, ease: "sine.inOut" }, 0);
+      // alarma roja con los minutos y el final
+      [[28.2, 1.6], [38.84, 3.0], [45.9, 4.6]].forEach(([t, d]) => {
+        const n = Math.round(d / 0.5);
+        tl.fromTo(q(".amb-rojo"), { opacity: 0 }, { opacity: 1, duration: 0.25, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", immediateRender: false }, t);
+      });
+      // LA LUZ
+      tl.to(q(".amb-flash"), { opacity: 0.85, duration: 0.04 }, LUZ - 0.05);
+      tl.to(q(".amb-flash"), { opacity: 0, duration: 0.5, ease: "power2.out" }, LUZ);
+      tl.set(q(".amb-uv"), { opacity: 0 }, LUZ);
+      tl.set(q(".amb-luz"), { opacity: 1 }, LUZ);
+      tl.set(q(".amb-tubo"), { background: "#ffffff", boxShadow: "0 0 30px 8px rgba(239, 233, 255, 0.8), 0 0 90px 30px rgba(239, 233, 255, 0.3)" }, LUZ);
+      tl.set(q(".amb-rel-r"), { opacity: 0 }, LUZ);
+      tl.set(q(".amb-pinta"), { opacity: 0 }, LUZ);
+      // la puerta: cronómetro verde y cartel ABIERTA
+      tl.to(q(".amb-rel-v"), { opacity: 1, duration: 0.2 }, 64.48);
+      tl.to(q(".amb-sala"), { opacity: 0, duration: 0.2 }, PUERTA);
+      tl.to(q(".amb-sala2"), { opacity: 1, duration: 0.3 }, PUERTA + 0.1);
+      // CTA: vuelve el violeta (tu local) y el cronómetro rojo en guiones
+      tl.to(q(".amb-rel-v"), { opacity: 0, duration: 0.2 }, CTA);
+      tl.to(q(".amb-rel-r"), { opacity: 1, duration: 0.2 }, CTA);
+      tl.to(q(".amb-luz"), { opacity: 0, duration: 0.5 }, CTA);
+      tl.to(q(".amb-uv"), { opacity: 1, duration: 0.5 }, CTA);
+      tl.to(q(".amb-sala2"), { opacity: 0, duration: 0.2 }, CTA);
+      tl.to(q(".amb-sala"), { opacity: 1, duration: 0.2 }, CTA + 0.1);
+      tl.set(q(".amb-tubo"), { background: "#c9a6ff", boxShadow: "0 0 30px 8px rgba(155, 92, 255, 0.8), 0 0 90px 30px rgba(155, 92, 255, 0.35)" }, CTA);
+
+
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

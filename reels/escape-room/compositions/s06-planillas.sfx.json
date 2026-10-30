@@ -1,0 +1,12 @@
+[
+  {"t":0,"sfx":"pop","vol":0.3},
+  {"t":1.4,"sfx":"whoosh-short","vol":0.3},
+  {"t":1.8,"sfx":"click","vol":0.25},
+  {"t":2.9,"sfx":"click","vol":0.25},
+  {"t":4.5,"sfx":"click","vol":0.25},
+  {"t":6.3,"sfx":"key-press","vol":0.3},
+  {"t":6.5,"sfx":"key-press","vol":0.3},
+  {"t":6.7,"sfx":"key-press","vol":0.3},
+  {"t":6.95,"sfx":"glitch-1","vol":0.25,"max":0.35},
+  {"t":7.1,"sfx":"impact-bass-1","vol":0.4,"max":0.6}
+]

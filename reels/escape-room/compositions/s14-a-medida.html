@@ -1,0 +1,153 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-a-medida"] .s14-capa, [data-composition-id="s14-a-medida"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-a-medida"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-a-medida"] .b { fill: #1a0f2e; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .k { fill: #0c0718; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .l { fill: none; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .w { fill: #efe9ff; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .u { fill: #9b5cff; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .ul { fill: none; stroke: #9b5cff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .c { fill: #39ffd2; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .cl { fill: none; stroke: #39ffd2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .p { fill: #ff4fd8; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .pl { fill: none; stroke: #ff4fd8; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .r { fill: #ff2d3d; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .rl { fill: none; stroke: #ff2d3d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .s { fill: #5ce611; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .g { fill: #8a8299; stroke: #efe9ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .cara { fill: #efe9ff; stroke: #efe9ff; stroke-width: 7; }
+    [data-composition-id="s14-a-medida"] .d { fill: none; stroke: #0c0718; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-a-medida"] .fino { stroke-width: 3; }
+    [data-composition-id="s14-a-medida"] .brilla { filter: drop-shadow(0 0 14px rgba(57, 255, 210, 0.75)); }
+    [data-composition-id="s14-a-medida"] .brillav { filter: drop-shadow(0 0 16px rgba(155, 92, 255, 0.85)); }
+    [data-composition-id="s14-a-medida"] .led { filter: drop-shadow(0 0 12px rgba(255, 45, 61, 0.9)); }
+    [data-composition-id="s14-a-medida"] .ledv { filter: drop-shadow(0 0 12px rgba(92, 230, 17, 0.8)); }
+    [data-composition-id="s14-a-medida"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #efe9ff; }
+    [data-composition-id="s14-a-medida"] .uv { color: #39ffd2; text-shadow: 0 0 28px rgba(57, 255, 210, 0.6); }
+    [data-composition-id="s14-a-medida"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff2d3d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff2d3d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s14-a-medida"] .cartel { position: absolute; padding: 14px 28px 12px; background: #9b5cff; color: #0c0718; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s14-a-medida"] .etiqueta { position: absolute; left: 0; right: 0; top: 1350px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; text-transform: uppercase; color: #b388ff; white-space: nowrap; }
+    [data-composition-id="s14-a-medida"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s14-a-medida"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s14-a-medida"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s14-a-medida"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s14-a-medida"] .s14-tit { position: absolute; left: 380px; top: 690px; width: 320px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; color: #efe9ff; white-space: nowrap; }
+  [data-composition-id="s14-a-medida"] .s14-tag { position: absolute; left: 380px; top: 744px; padding: 6px 14px; border-radius: 8px; background: #5ce611; color: #0c0718; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; white-space: nowrap; }
+  [data-composition-id="s14-a-medida"] .s14-row { position: absolute; left: 380px; width: 320px; height: 72px; border-radius: 16px; border: 4px solid #5ce611; background: rgba(92, 230, 17, 0.12); font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; color: #efe9ff; line-height: 64px; padding-left: 64px; white-space: nowrap; box-sizing: border-box; }
+  [data-composition-id="s14-a-medida"] .s14-row::before { content: ""; position: absolute; left: 20px; top: 20px; width: 24px; height: 24px; border-radius: 50%; background: #5ce611; }
+  [data-composition-id="s14-a-medida"] .s14-medida { position: absolute; left: 700px; top: 650px; padding: 14px 22px; background: #ff4fd8; color: #0c0718; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 36px; text-transform: uppercase; white-space: nowrap; transform: rotate(6deg); line-height: 1.05; }
+  [data-composition-id="s14-a-medida"] .s14-sello { left: 0; right: 0; margin: 0 auto; width: max-content; top: 1250px; font-size: 46px; color: #0c0718; background: #5ce611; border-color: #5ce611; }
+
+  </style>
+  <div id="root" data-composition-id="s14-a-medida" data-width="1080" data-height="1920" data-duration="8.07">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="8.07" data-track-index="0">
+      <div class="s14-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s14-cel"><g transform="translate(350 610)">
+      <rect class="k" x="0" y="0" width="380" height="720" rx="52" />
+      <path class="l" d="M150 36 H230" stroke-width="8" /></g></g>
+          <g class="s14-cinta">
+            <path class="cl s14-cm" d="M300 630 V1320" stroke-width="16" />
+            <path class="cl s14-tick" d="M300 650 H340" stroke-width="4" /><path class="cl s14-tick" d="M300 678 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 706 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 734 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 762 H340" stroke-width="4" /><path class="cl s14-tick" d="M300 790 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 818 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 846 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 874 H340" stroke-width="4" /><path class="cl s14-tick" d="M300 902 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 930 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 958 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 986 H340" stroke-width="4" /><path class="cl s14-tick" d="M300 1014 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 1042 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 1070 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 1098 H340" stroke-width="4" /><path class="cl s14-tick" d="M300 1126 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 1154 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 1182 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 1210 H340" stroke-width="4" /><path class="cl s14-tick" d="M300 1238 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 1266 H322" stroke-width="4" /><path class="cl s14-tick" d="M300 1294 H322" stroke-width="4" />
+          </g>
+          <rect class="sl s14-marco" x="364" y="826" width="352" height="438" rx="22" stroke-width="6" />
+        </svg>
+        <div class="s14-tit">Tu sistema</div>
+        <div class="s14-tag">A MEDIDA</div>
+        <div class="s14-row s14-r0" style="top: 836px; ">Stock</div><div class="s14-row s14-r1" style="top: 920px; ">Pedidos</div><div class="s14-row s14-r2" style="top: 1004px; ">Proveedores</div><div class="s14-row s14-r3" style="top: 1088px; ">Caja</div><div class="s14-row s14-r4" style="top: 1172px; font-size: 26px;">Local 1 + Local 2</div>
+        <div class="s14-medida">Como<br/>trabajás vos</div>
+        <div class="sello s14-sello">Todo en un solo lugar</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-a-medida";
+      const DUR = 8.07;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s14-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // cronómetro de 7 segmentos: pinta("cls", "6000") prende los segmentos; reloj("cls", f) lo maneja
+      // con UNA sola interpolación sobre toda la escena (f(t) devuelve 4 caracteres: dígitos, "-" o " ")
+      const SEG = { 0: "abcdef", 1: "bc", 2: "abdeg", 3: "abcdg", 4: "bcfg", 5: "acdfg", 6: "acdefg", 7: "abc", 8: "abcdefg", 9: "abcdfg", "-": "g", " ": "" };
+      const pinta = (cls, str) => {
+        const ds = qa("." + cls + " .dig");
+        str.split("").forEach((ch, i) => { if (ds[i]) for (const r of ds[i].children) r.style.opacity = (SEG[ch] || "").includes(r.dataset.s) ? 1 : 0.07; });
+      };
+      const mmss = (s) => { s = Math.max(0, Math.ceil(s - 1e-6)); return String(Math.floor(s / 60)).padStart(2, "0") + String(s % 60).padStart(2, "0"); };
+      const reloj = (cls, f) => {
+        const o = { t: 0 };
+        pinta(cls, f(0));
+        tl.fromTo(o, { t: 0 }, { t: DUR, duration: DUR, ease: "none", immediateRender: false, onUpdate: () => pinta(cls, f(o.t)) }, 0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+tl.fromTo(q(".s14-cel"), { opacity: 0.5, y: 120 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      entra(".s14-tit", 0.2, 0, 20);
+      // "a medida": la cinta métrica mide el celular
+      dibujar(".s14-cm", 0.7, 0.4);
+      qa(".s14-tick").forEach((t, i) => dibujar(t, 0.75 + i * 0.015, 0.1));
+      pop(".s14-tag", 0.8);
+      pop(".s14-medida", 1.5);
+      tl.to(q(".s14-medida"), { y: -8, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 1.9);
+      [["Stock",2.84],["Pedidos",3.53],["Proveedores",4.25],["Caja",5.13],["Local 1 + Local 2",5.79]].forEach(([, t], i) => entra(".s14-r" + i, t - 0.05, 80, 0, 0.3));
+      // "en un solo lugar"
+      dibujar(".s14-marco", 6.6, 0.5);
+      golpe(".s14-sello", 6.75, 2);
+      tl.set(q(".s14-sello"), { rotation: -3 }, 0);
+      tl.to(qa(".s14-row"), { scale: 1.04, duration: 0.15, yoyo: true, repeat: 1, stagger: 0.04 }, 7.1);
+
+      // salida: barrido con blur
+      tl.to(q("#s14-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
