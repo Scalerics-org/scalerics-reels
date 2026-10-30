@@ -1,0 +1,6 @@
+[
+  {"t": 0.0, "sfx": "drone", "vol": 0.35, "max": 2.2},
+  {"t": 0.2, "sfx": "viento", "vol": 0.25, "max": 2.0},
+  {"t": 2.15, "sfx": "trueno", "vol": 0.45, "max": 1.4},
+  {"t": 2.21, "sfx": "braaam", "vol": 0.4, "max": 1.5}
+]

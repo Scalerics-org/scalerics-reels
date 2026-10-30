@@ -1,0 +1,29 @@
+[
+ {
+  "t": 0.0,
+  "sfx": "click",
+  "vol": 0.25
+ },
+ {
+  "t": 0.5,
+  "sfx": "beep",
+  "vol": 0.2
+ },
+ {
+  "t": 1.2,
+  "sfx": "whoosh-short",
+  "vol": 0.25
+ },
+ {
+  "t": 2.45,
+  "sfx": "trueno",
+  "vol": 0.4,
+  "max": 1.4
+ },
+ {
+  "t": 2.5,
+  "sfx": "impact-bass-2",
+  "vol": 0.45,
+  "max": 0.8
+ }
+]

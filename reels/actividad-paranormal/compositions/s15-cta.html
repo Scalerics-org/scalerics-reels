@@ -1,0 +1,73 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-cta"] .s15-capa { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s15-cta"] .ln { fill: none; stroke: #f6ead2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .s15-sab { fill: #f6ead2; fill-opacity: 0.08; stroke: #f6ead2; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .s15-ojo { fill: #f6ead2; }
+    [data-composition-id="s15-cta"] .s15-tel { fill: #0f2a12; stroke: #8cff6b; stroke-width: 5; filter: drop-shadow(0 0 14px rgba(140, 255, 107, 0.6)); }
+    [data-composition-id="s15-cta"] .s15-arroba { position: absolute; left: 560px; top: 610px; width: 420px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 360px; line-height: 420px; color: #8cff6b; text-shadow: 0 0 40px rgba(140, 255, 107, 0.6); }
+    [data-composition-id="s15-cta"] .s15-t1 { position: absolute; left: 0; right: 0; top: 1060px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 116px; letter-spacing: 0.02em; color: #f6ead2; }
+    [data-composition-id="s15-cta"] .s15-t2 { position: absolute; left: 0; right: 0; top: 1196px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 44px; color: #f6ead2; }
+    [data-composition-id="s15-cta"] .s15-t2 b { color: #8cff6b; font-weight: 700; }
+    [data-composition-id="s15-cta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1300px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #8cff6b; }
+  </style>
+  <div id="root" data-composition-id="s15-cta" data-width="1080" data-height="1920" data-duration="5.96">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="5.96" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- el fantasma simpático con el celular: es el agente -->
+        <g class="s15-fant"><g transform="translate(330 830)">
+          <path class="s15-sab s15-l" d="M-150 200 V-40 Q-150 -210 0 -210 Q150 -210 150 -40 V200 L110 170 L70 205 L30 170 L-10 205 L-50 170 L-90 205 L-130 170 Z" />
+          <ellipse class="s15-ojo s15-o" cx="-46" cy="-70" rx="16" ry="22" />
+          <ellipse class="s15-ojo s15-o" cx="46" cy="-70" rx="16" ry="22" />
+          <path class="ln s15-l" d="M-40 -10 Q0 30 40 -10" />
+          <path class="ln s15-l" d="M-70 -30 q-10 10 -24 4 M70 -30 q10 10 24 4" opacity="0.5" />
+          <!-- brazo con el celular -->
+          <path class="ln s15-l" d="M140 40 Q200 40 210 -10" />
+          <rect class="s15-tel" x="186" y="-110" width="66" height="104" rx="12" />
+        </g></g>
+      </svg>
+      <div class="s15-arroba">@</div>
+      <div class="s15-t1">ETIQUETÁ</div>
+      <div class="s15-t2">al que necesita <b>un fantasma así</b></div>
+      <div class="etiqueta">Feliz Halloween</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-cta";
+      const DUR = 5.96;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const FANTASMA = 1.3;
+
+      qa(".s15-l").forEach((el, i) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * 0.5 });
+        tl.to(el, { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" }, i * 0.05);
+      });
+      tl.fromTo(qa(".s15-o, .s15-tel"), { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", transformOrigin: "50% 50%" }, 0.2);
+      // flota
+      tl.fromTo(q(".s15-fant"), { y: 0 }, { y: -26, duration: 0.9, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+      // la @ y el texto
+      tl.fromTo(q(".s15-arroba"), { opacity: 0, scale: 0.5, rotation: -30 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 0.05);
+      tl.to(q(".s15-arroba"), { scale: 1.07, duration: 0.5, yoyo: true, repeat: 8, ease: "sine.inOut" }, 0.6);
+      tl.fromTo(q(".s15-t1"), { opacity: 0, y: 30, scale: 1.1 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "power3.out" }, 0.0);
+      tl.fromTo(q(".s15-t2"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.7);
+      // "fantasma": guiña y saluda con el celular
+      tl.to(qa(".s15-o")[1], { scaleY: 0.15, transformOrigin: "50% 50%", duration: 0.08, yoyo: true, repeat: 1 }, FANTASMA);
+      tl.fromTo(q(".s15-tel"), { rotation: 0 }, { rotation: 14, svgOrigin: "549 770", duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, FANTASMA + 0.2);
+      tl.fromTo(q(".etiqueta"), { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.6);
+      // no hay salida: el reel termina acá
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-noche-uno"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-noche-uno"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-noche-uno"] .ln { fill: none; stroke: #8cff6b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-noche-uno"] .ln-f { fill: #0f2a12; stroke: #8cff6b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-noche-uno"] .tenue { opacity: 0.5; }
+    [data-composition-id="s01-noche-uno"] .s01-pant { fill: #eaffdf; filter: drop-shadow(0 0 14px #8cff6b) drop-shadow(0 0 30px rgba(140, 255, 107, 0.7)); }
+    [data-composition-id="s01-noche-uno"] .s01-halo { fill: #8cff6b; opacity: 0; filter: blur(50px); }
+    [data-composition-id="s01-noche-uno"] .s01-noche { position: absolute; left: 0; right: 0; top: 640px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 190px; letter-spacing: 0.02em; color: #8cff6b; text-shadow: 0 0 30px rgba(140, 255, 107, 0.7), 0 0 4px #030a04; }
+    [data-composition-id="s01-noche-uno"] .s01-burbuja { position: absolute; left: 470px; top: 760px; padding: 18px 28px; border-radius: 30px 30px 30px 8px; background: #0f2a12; border: 4px solid #8cff6b; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; color: #eaffdf; white-space: nowrap; }
+    [data-composition-id="s01-noche-uno"] .s01-z { position: absolute; font-family: "Lexend", sans-serif; font-weight: 800; color: #8cff6b; opacity: 0; }
+    [data-composition-id="s01-noche-uno"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #8cff6b; }
+    [data-composition-id="s01-noche-uno"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-noche-uno" data-width="1080" data-height="1920" data-duration="5.27">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.27" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s01-todo">
+          <!-- estantería del fondo -->
+          <path class="ln tenue s01-l" d="M250 600 H830 V900 M250 600 V900 M250 690 H830 M250 790 H830" />
+          <path class="ln tenue s01-l" d="M280 690 V640 H320 V690 M340 690 V650 H380 V690 M300 640 V628 H312 V640 M360 650 V638 H372 V650 M420 690 V620 H500 V690 M520 690 V655 Q545 640 570 655 V690 M600 690 V630 H680 V690 M710 690 V650 H790 V690" />
+          <path class="ln tenue s01-l" d="M280 790 V735 H360 V790 M380 790 V745 H440 V790 M470 790 V720 H530 V790 M560 790 V740 Q590 725 620 740 V790 M650 790 V735 H720 V790 M740 790 V750 H800 V790" />
+          <path class="ln tenue s01-l" d="M290 900 V840 H380 V900 M410 900 V850 H500 V900 M640 900 V845 H780 V900" />
+          <!-- persiana bajada a la izquierda (pared en perspectiva) -->
+          <path class="ln s01-l" d="M70 590 L210 640 V1010 L70 1080 Z" />
+          <path class="ln tenue s01-l" d="M70 640 L210 682 M70 690 L210 724 M70 740 L210 766 M70 790 L210 808 M70 840 L210 850 M70 890 L210 892 M70 940 L210 934 M70 990 L210 976 M70 1040 L210 1018" />
+          <!-- mostrador en perspectiva -->
+          <path class="ln-f s01-l" d="M150 1060 L250 930 H830 L930 1060 Z" />
+          <path class="ln-f s01-l" d="M150 1060 H930 V1250 H150 Z" />
+          <path class="ln tenue s01-l" d="M150 1110 H930 M420 1110 V1250 M660 1110 V1250" />
+          <!-- frasco de caramelos y balanza sobre el mostrador -->
+          <path class="ln s01-l" d="M300 1010 V950 Q300 935 315 935 H355 Q370 935 370 950 V1010 Z M310 935 V922 H360 V935" />
+          <path class="ln s01-l" d="M720 1015 H840 L825 990 H735 Z M780 990 V960 M740 960 H820" />
+          <!-- el celular, acostado en el mostrador -->
+          <ellipse class="s01-halo" cx="540" cy="985" rx="200" ry="110" />
+          <path class="ln-f s01-l" d="M478 1018 L494 952 H586 L602 1018 Z" />
+          <path class="s01-pant" d="M490 1008 L502 960 H578 L590 1008 Z" opacity="0" />
+          <g class="s01-vibra"><path class="ln s01-v" d="M460 960 l-14 -8 M458 990 l-18 0 M620 960 l14 -8 M622 990 l18 0" /></g>
+        </g>
+      </svg>
+      <div class="s01-burbuja">¿Están abiertos?</div>
+      <div class="s01-z" style="left: 850px; top: 640px; font-size: 44px;">z</div>
+      <div class="s01-z" style="left: 900px; top: 600px; font-size: 56px;">z</div>
+      <div class="s01-z" style="left: 960px; top: 550px; font-size: 68px;">z</div>
+      <div class="s01-noche">NOCHE 1</div>
+      <div class="etiqueta"><span class="s01-e1">Cámara 02</span><span class="s01-e2">Algo atiende</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-noche-uno";
+      const DUR = 5.27;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const WHATSAPP = 2.29, DUERMO = 3.9;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // cuadro 0: el local a medio dibujar
+      dibujar(qa(".s01-l"), 0, 0.9, 0.5);
+      // la cámara de seguridad respira (zoom digital lento)
+      tl.fromTo(q(".s01-todo"), { scale: 1, svgOrigin: "540 950" }, { scale: 1.06, svgOrigin: "540 950", duration: DUR, ease: "none" }, 0);
+
+      // NOCHE 1: golpe y se va
+      tl.fromTo(q(".s01-noche"), { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power3.out" }, 0);
+      tl.to(q(".s01-noche"), { opacity: 0.6, duration: 0.05, yoyo: true, repeat: 3 }, 0.5);
+      tl.to(q(".s01-noche"), { opacity: 0, filter: "blur(10px)", duration: 0.3, ease: "power2.in" }, 1.2);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.3);
+
+      // "WhatsApp": la pantalla se prende sola y vibra
+      tl.set(q(".s01-pant"), { opacity: 1 }, WHATSAPP);
+      tl.to(q(".s01-pant"), { opacity: 0.3, duration: 0.05, yoyo: true, repeat: 3 }, WHATSAPP + 0.05);
+      tl.fromTo(q(".s01-halo"), { opacity: 0 }, { opacity: 0.45, duration: 0.3 }, WHATSAPP);
+      gsap.set(qa(".s01-v"), { opacity: 0 });
+      tl.set(qa(".s01-v"), { opacity: 1 }, WHATSAPP);
+      tl.fromTo(q(".s01-vibra"), { x: -4 }, { x: 4, duration: 0.05, ease: "none", yoyo: true, repeat: 15 }, WHATSAPP);
+      tl.set(qa(".s01-v"), { opacity: 0 }, WHATSAPP + 0.8);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.12 }, WHATSAPP - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, WHATSAPP);
+
+      // burbuja que sale del celular
+      gsap.set(q(".s01-burbuja"), { opacity: 0 });
+      tl.fromTo(q(".s01-burbuja"), { opacity: 0, y: 120, scale: 0.6 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.7)", transformOrigin: "0% 100%", immediateRender: false }, WHATSAPP + 0.5);
+
+      // "duermo": z z z
+      qa(".s01-z").forEach((z, i) => {
+        tl.fromTo(z, { opacity: 0, y: 20 }, { opacity: 0.9, y: 0, duration: 0.3, ease: "power2.out" }, DUERMO - 0.3 + i * 0.18);
+        tl.to(z, { y: -14, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, DUERMO + i * 0.18);
+      });
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

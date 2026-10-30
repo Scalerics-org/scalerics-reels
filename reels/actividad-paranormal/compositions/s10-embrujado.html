@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-embrujado"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-embrujado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-embrujado"] .ln { fill: none; stroke: #8cff6b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-embrujado"] .ln-f { fill: #0f2a12; stroke: #8cff6b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-embrujado"] .tenue { opacity: 0.5; }
+    [data-composition-id="s10-embrujado"] .ojo { fill: #eaffdf; filter: drop-shadow(0 0 8px #8cff6b) drop-shadow(0 0 18px rgba(140, 255, 107, 0.8)); }
+    [data-composition-id="s10-embrujado"] .s10-fant { fill: rgba(140, 255, 107, 0.12); stroke: #8cff6b; stroke-width: 5; stroke-linejoin: round; filter: drop-shadow(0 0 14px rgba(140, 255, 107, 0.6)); }
+    [data-composition-id="s10-embrujado"] .s10-fojo { fill: #030a04; }
+    [data-composition-id="s10-embrujado"] .s10-haz { fill: #8cff6b; opacity: 0.13; }
+    [data-composition-id="s10-embrujado"] .s10-gota { fill: #eaffdf; opacity: 0.85; }
+    [data-composition-id="s10-embrujado"] .s10-llama { position: absolute; left: 110px; top: 610px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.12em; color: #eaffdf; padding: 10px 18px; border: 4px solid #8cff6b; border-radius: 12px; background: #0f2a12; }
+    [data-composition-id="s10-embrujado"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #8cff6b; }
+    [data-composition-id="s10-embrujado"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s10-embrujado" data-width="1080" data-height="1920" data-duration="3.08">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="3.08" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- el fantasma de sábana que flota atrás -->
+        <g class="s10-fantasma"><g transform="translate(810 860)">
+          <path class="s10-fant" d="M-110 200 V-40 Q-110 -170 0 -170 Q110 -170 110 -40 V200 L80 170 L50 205 L20 170 L-10 205 L-40 170 L-70 205 Z" />
+          <ellipse class="s10-fojo" cx="-36" cy="-60" rx="16" ry="24" />
+          <ellipse class="s10-fojo" cx="36" cy="-60" rx="16" ry="24" />
+          <ellipse class="s10-fojo" cx="0" cy="10" rx="18" ry="26" />
+        </g></g>
+        <!-- abajo del mostrador: la tabla de arriba y el piso -->
+        <path class="ln-f s10-l" d="M60 700 H1020 V740 H60 Z" />
+        <path class="ln tenue s10-l" d="M60 1240 H1020" />
+        <!-- EL DUEÑO agachado, con el celular en la oreja -->
+        <g class="s10-duenio"><g transform="translate(460 900)">
+          <g class="s10-cabeza">
+            <ellipse class="ln-f s10-l" cx="0" cy="0" rx="100" ry="118" />
+            <path class="ln s10-l" d="M-98 -20 q-30 -16 -22 -50 q12 -30 44 -26 M98 -20 q30 -16 22 -50 q-12 -30 -44 -26" />
+            <path class="ln s10-l" d="M-100 10 q-26 4 -22 34 q6 20 24 14" />
+            <path class="ln s10-l" d="M-66 -62 Q-40 -86 -14 -66 M14 -66 Q40 -86 66 -62" />
+            <path class="ln s10-l" d="M-6 -6 q-10 30 8 36" />
+            <path class="ln s10-l" d="M-62 52 Q-30 30 0 46 Q30 30 62 52 Q30 62 0 54 Q-30 62 -62 52 Z" />
+            <ellipse class="ln s10-l" cx="0" cy="84" rx="12" ry="8" />
+            <ellipse class="ojo" cx="-40" cy="-24" rx="24" ry="20" />
+            <ellipse class="ojo" cx="40" cy="-24" rx="24" ry="20" />
+          </g>
+          <!-- celular en la oreja derecha -->
+          <path class="ln-f s10-l" d="M100 -40 H140 V60 H100 Z" />
+          <path class="ln s10-l" d="M150 30 Q190 80 170 160 Q150 220 90 230" />
+          <!-- cuerpo hecho un bollo, rodillas -->
+          <path class="ln-f s10-l" d="M-150 340 Q-200 200 -90 130 H90 Q200 200 150 340 Z" />
+          <path class="ln s10-l" d="M-150 340 Q-120 290 -40 300 M150 340 Q120 290 40 300" />
+          <!-- linterna en la otra mano -->
+          <path class="s10-haz" d="M-210 250 L-430 330 L-380 440 Z" />
+          <path class="ln-f s10-l" d="M-110 230 L-200 240 L-210 270 L-120 262 Z" />
+          <path class="s10-gota s10-g1" d="M-112 -70 q10 18 0 26 q-10 -8 0 -26 Z" />
+        </g></g>
+      </svg>
+      <div class="s10-llama">LLAMANDO · HIJA</div>
+      <div class="etiqueta"><span class="s10-e1">Escondido</span><span class="s10-e2">Embrujado</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-embrujado";
+      const DUR = 3.08;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const EMBRUJADO = 1.6;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.03);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.03);
+        });
+      };
+      dibujar(qa(".s10-l"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s10-llama"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.1);
+      tl.to(q(".s10-llama"), { opacity: 0.4, duration: 0.3, yoyo: true, repeat: 3, ease: "steps(1)" }, 0.4);
+      tl.fromTo(q(".s10-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.1);
+      // tiembla todo el rato
+      tl.fromTo(q(".s10-duenio"), { x: -3 }, { x: 3, duration: 0.05, ease: "none", yoyo: true, repeat: 59 }, 0);
+      tl.fromTo(q(".s10-g1"), { opacity: 0, y: 0 }, { opacity: 0.85, y: 40, duration: 0.9, ease: "power1.in" }, 0.4);
+
+      // "embrujado": el fantasma aparece detrás y se le acerca
+      gsap.set(q(".s10-fantasma"), { opacity: 0 });
+      tl.fromTo(q(".s10-fantasma"), { opacity: 0, y: 40, scale: 0.8, svgOrigin: "810 860" }, { opacity: 1, y: 0, scale: 1, svgOrigin: "810 860", duration: 0.4, ease: "power2.out", immediateRender: false }, EMBRUJADO);
+      tl.to(q(".s10-fantasma"), { y: -24, x: -30, duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, EMBRUJADO + 0.4);
+      tl.to(q(".s10-e1"), { opacity: 0, duration: 0.12 }, EMBRUJADO - 0.1);
+      tl.fromTo(q(".s10-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, EMBRUJADO);
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.15, ease: "power2.in" }, DUR - 0.15);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

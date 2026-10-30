@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-muertos"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-muertos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-muertos"] .ln { fill: none; stroke: #8cff6b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-muertos"] .ln-f { fill: #0f2a12; stroke: #8cff6b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-muertos"] .s09-sil { fill: #030a04; stroke: #8cff6b; stroke-width: 4; stroke-linejoin: round; }
+    [data-composition-id="s09-muertos"] .ojo { fill: #eaffdf; filter: drop-shadow(0 0 8px #8cff6b) drop-shadow(0 0 18px rgba(140, 255, 107, 0.8)); }
+    [data-composition-id="s09-muertos"] .s09-lap { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; fill: #8cff6b; letter-spacing: 0.06em; }
+    [data-composition-id="s09-muertos"] .s09-lap2 { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; fill: #8cff6b; letter-spacing: 0.2em; }
+    [data-composition-id="s09-muertos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #8cff6b; }
+    [data-composition-id="s09-muertos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s09-muertos" data-width="1080" data-height="1920" data-duration="3.72">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="3.72" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+                <g class="s09-todo">
+          <!-- la puerta abierta de par en par -->
+          <path class="ln s09-l" d="M200 600 H880 V1150 M200 600 V1150 M120 1150 H960" />
+          <!-- la fila que entra (de atrás para adelante) -->
+          <g class="s09-gente">
+            <g class="s09-p" transform="translate(300 820) scale(0.7)"><path class="s09-sil" d="M-70 260 V120 Q-70 70 -30 60 Q-60 40 -60 0 Q-60 -50 0 -52 Q60 -50 60 0 Q60 40 30 60 Q70 70 70 120 V260 Z" /><ellipse class="ojo" cx="-20" cy="-4" rx="10" ry="8" /><ellipse class="ojo" cx="20" cy="-4" rx="10" ry="8" /></g>
+            <g class="s09-p" transform="translate(780 810) scale(0.75)"><path class="s09-sil" d="M-70 260 V120 Q-70 70 -30 60 Q-60 40 -60 0 Q-60 -50 0 -52 Q60 -50 60 0 Q60 40 30 60 Q70 70 70 120 V260 Z" /><ellipse class="ojo" cx="-20" cy="-4" rx="10" ry="8" /><ellipse class="ojo" cx="20" cy="-4" rx="10" ry="8" /></g>
+            <g class="s09-p" transform="translate(440 800) scale(0.85)"><path class="s09-sil" d="M-70 260 V120 Q-70 70 -30 60 Q-60 40 -60 0 Q-60 -50 0 -52 Q60 -50 60 0 Q60 40 30 60 Q70 70 70 120 V260 Z" /><ellipse class="ojo" cx="-20" cy="-4" rx="10" ry="8" /><ellipse class="ojo" cx="20" cy="-4" rx="10" ry="8" /></g>
+            <g class="s09-p" transform="translate(640 790) scale(0.9)"><path class="s09-sil" d="M-70 260 V120 Q-70 70 -30 60 Q-60 40 -60 0 Q-60 -50 0 -52 Q60 -50 60 0 Q60 40 30 60 Q70 70 70 120 V260 Z" /><ellipse class="ojo" cx="-20" cy="-4" rx="10" ry="8" /><ellipse class="ojo" cx="20" cy="-4" rx="10" ry="8" /></g>
+            <g class="s09-p" transform="translate(340 860) scale(1.05)"><path class="s09-sil" d="M-70 260 V120 Q-70 70 -30 60 Q-60 40 -60 0 Q-60 -50 0 -52 Q60 -50 60 0 Q60 40 30 60 Q70 70 70 120 V260 Z" /><ellipse class="ojo" cx="-20" cy="-4" rx="10" ry="8" /><ellipse class="ojo" cx="20" cy="-4" rx="10" ry="8" /></g>
+            <g class="s09-p" transform="translate(740 870) scale(1.1)"><path class="s09-sil" d="M-70 260 V120 Q-70 70 -30 60 Q-60 40 -60 0 Q-60 -50 0 -52 Q60 -50 60 0 Q60 40 30 60 Q70 70 70 120 V260 Z" /><ellipse class="ojo" cx="-20" cy="-4" rx="10" ry="8" /><ellipse class="ojo" cx="20" cy="-4" rx="10" ry="8" /></g>
+          </g>
+          <!-- la lápida -->
+          <g class="s09-lapida">
+            <path class="ln-f" d="M420 1150 V1030 Q420 950 540 950 Q660 950 660 1030 V1150 Z" />
+            <text class="s09-lap2" x="540" y="1030" text-anchor="middle">QEPD</text>
+            <text class="s09-lap" x="540" y="1090" text-anchor="middle">CLIENTES</text>
+            <path class="ln s09-grieta" d="M540 955 L525 990 L552 1010 L530 1048" />
+          </g>
+          <!-- manos que salen de abajo -->
+          <g class="s09-manos">
+            <path class="ln-f" d="M180 1340 V1210 L170 1150 Q168 1138 180 1140 L192 1190 L192 1120 Q194 1108 205 1112 L210 1185 L218 1110 Q222 1100 232 1106 L230 1190 L242 1130 Q250 1122 256 1132 L250 1215 V1340 Z" />
+            <path class="ln-f" d="M830 1340 V1220 L820 1160 Q818 1148 830 1150 L842 1200 L842 1130 Q844 1118 855 1122 L860 1195 L868 1120 Q872 1110 882 1116 L880 1200 L892 1140 Q900 1132 906 1142 L900 1225 V1340 Z" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">Vuelven</span><span class="s09-e2">De entre los muertos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-muertos";
+      const DUR = 3.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const VOLVIENDO = 0.17, MUERTOS = 2.21;
+
+      const dibujar = (els, t, dur) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * 0.5 });
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      dibujar(qa(".s09-l"), 0, 0.5);
+
+      // van apareciendo, uno por uno, y avanzan hacia la cámara
+      qa(".s09-p").forEach((p, i) => {
+        tl.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power1.out" }, VOLVIENDO + i * 0.22);
+      });
+      tl.fromTo(q(".s09-gente"), { scale: 0.92, svgOrigin: "540 1150" }, { scale: 1.12, svgOrigin: "540 1150", duration: DUR, ease: "power1.in" }, 0);
+      tl.fromTo(q(".s09-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.1);
+      // la lápida
+      tl.fromTo(q(".s09-lapida"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 1.4);
+      gsap.set(q(".s09-manos"), { opacity: 0 });
+      const g = q(".s09-grieta"); const L = g.getTotalLength();
+      gsap.set(g, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+
+      // "muertos": las manos salen de abajo, la lápida se raja, sacudón
+      tl.fromTo(q(".s09-manos"), { y: 220, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, MUERTOS - 0.1);
+      tl.set(g, { opacity: 1 }, MUERTOS);
+      tl.to(g, { strokeDashoffset: 0, duration: 0.15, ease: "none" }, MUERTOS);
+      [0, 0.04, 0.08, 0.12, 0.16].forEach((d, i) => tl.to(q(".s09-todo"), { x: i % 2 ? -16 : 16, y: i % 2 ? 6 : -6, duration: 0.04, ease: "none" }, MUERTOS + d));
+      tl.to(q(".s09-todo"), { x: 0, y: 0, duration: 0.05 }, MUERTOS + 0.2);
+      tl.to(qa(".s09-manos path"), { rotation: (i) => (i ? -6 : 6), svgOrigin: "540 1340", duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, MUERTOS + 0.3);
+      tl.to(q(".s09-e1"), { opacity: 0, duration: 0.12 }, MUERTOS - 0.1);
+      tl.fromTo(q(".s09-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, MUERTOS);
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

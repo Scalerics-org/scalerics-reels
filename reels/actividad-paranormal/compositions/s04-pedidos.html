@@ -1,0 +1,110 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-pedidos"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-pedidos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-pedidos"] .ln { fill: none; stroke: #8cff6b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-pedidos"] .ln-f { fill: #0f2a12; stroke: #8cff6b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-pedidos"] .ojo { fill: #eaffdf; filter: drop-shadow(0 0 8px #8cff6b) drop-shadow(0 0 18px rgba(140, 255, 107, 0.8)); }
+    [data-composition-id="s04-pedidos"] .s04-haz { fill: #8cff6b; opacity: 0.12; }
+    [data-composition-id="s04-pedidos"] .s04-gota { fill: #eaffdf; opacity: 0.85; }
+    [data-composition-id="s04-pedidos"] .s04-ticket { position: absolute; left: 70px; top: 610px; width: 420px; height: 0; }
+    [data-composition-id="s04-pedidos"] .s04-p { position: absolute; left: 0; width: 420px; height: 96px; border: 4px solid #8cff6b; border-radius: 14px; background: #0f2a12; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; color: #eaffdf; padding: 12px 20px; line-height: 1.15; }
+    [data-composition-id="s04-pedidos"] .s04-p b { display: block; color: #8cff6b; font-weight: 500; font-size: 28px; }
+    [data-composition-id="s04-pedidos"] .s04-p i { position: absolute; right: 18px; top: 22px; font-style: normal; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 44px; color: #8cff6b; }
+    [data-composition-id="s04-pedidos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #8cff6b; }
+    [data-composition-id="s04-pedidos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-pedidos" data-width="1080" data-height="1920" data-duration="3.64">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.64" data-track-index="0">
+      <div class="s04-ticket">
+        <div class="s04-p" style="top: 0px;"><b>PEDIDO 1</b>Tomado 02:14<i>✓</i></div>
+        <div class="s04-p" style="top: 116px;"><b>PEDIDO 2</b>Tomado 03:40<i>✓</i></div>
+        <div class="s04-p" style="top: 232px;"><b>PEDIDO 3</b>Tomado 04:05<i>✓</i></div>
+        <div class="s04-p" style="top: 348px;"><b>PEDIDO 4</b>Tomado 05:22<i>✓</i></div>
+      </div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- EL DUEÑO (busto), origen en el centro de la cabeza -->
+        <g class="s04-duenio"><g transform="translate(790 820)">
+          <g class="s04-cabeza">
+            <ellipse class="ln-f s04-l" cx="0" cy="0" rx="100" ry="118" />
+            <path class="ln s04-l" d="M-98 -20 q-30 -16 -22 -50 q12 -30 44 -26 M98 -20 q30 -16 22 -50 q-12 -30 -44 -26" />
+            <path class="ln s04-l" d="M-100 10 q-26 4 -22 34 q6 20 24 14 M100 10 q26 4 22 34 q-6 20 -24 14" />
+            <path class="ln s04-l s04-ceja" d="M-66 -62 Q-40 -86 -14 -66 M14 -66 Q40 -86 66 -62" />
+            <path class="ln s04-l" d="M-6 -6 q-10 30 8 36" />
+            <path class="ln s04-l s04-bigote" d="M-62 52 Q-30 30 0 46 Q30 30 62 52 Q30 62 0 54 Q-30 62 -62 52 Z" />
+            <ellipse class="ln s04-l" cx="0" cy="84" rx="16" ry="12" />
+            <ellipse class="ojo" cx="-40" cy="-24" rx="24" ry="20" />
+            <ellipse class="ojo" cx="40" cy="-24" rx="24" ry="20" />
+          </g>
+          <path class="ln s04-l" d="M-34 112 V140 M34 112 V140" />
+          <path class="ln s04-l" d="M-210 420 C-210 220 -130 150 -34 140 M34 140 C130 150 210 220 210 420" />
+          <path class="ln s04-l" d="M-70 150 L-90 420 M70 150 L90 420 M-50 290 H50 V350 H-50 Z" />
+          <!-- la linterna en la mano -->
+          <g class="s04-lint">
+            <path class="s04-haz" d="M-150 230 L-520 60 L-520 420 Z" />
+            <path class="ln-f s04-l" d="M-150 210 H-60 V250 H-150 Z M-150 200 V260 L-180 270 V190 Z" />
+            <path class="ln s04-l" d="M-60 214 q30 -6 34 20 q-4 26 -34 18" />
+          </g>
+          <path class="s04-gota s04-g1" d="M112 -70 q10 18 0 26 q-10 -8 0 -26 Z" />
+          <path class="s04-gota s04-g2" d="M-118 -40 q10 18 0 26 q-10 -8 0 -26 Z" />
+        </g></g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Pedidos tomados</span><span class="s04-e2">Yo no fui</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-pedidos";
+      const DUR = 3.64;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const YO = 1.56, NINGUN = 2.05;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // los pedidos caen como un ticket
+      root.querySelectorAll(".s04-p").forEach((p, i) => {
+        tl.fromTo(p, { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(1.8)" }, 0.05 + i * 0.22);
+      });
+      tl.fromTo(q(".s04-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.05);
+
+      // el dueño
+      dibujar(qa(".s04-l"), 0.3, 0.6);
+      gsap.set(qa(".ojo"), { opacity: 0 });
+      tl.fromTo(qa(".ojo"), { opacity: 0, scale: 0.3, svgOrigin: "0 -24" }, { opacity: 1, scale: 1, svgOrigin: "0 -24", duration: 0.25, ease: "back.out(2.5)" }, YO);
+      gsap.set(q(".s04-haz"), { opacity: 0 });
+      tl.to(q(".s04-haz"), { opacity: 0.14, duration: 0.15 }, 0.8);
+      tl.fromTo(q(".s04-ceja"), { y: 0 }, { y: -12, duration: 0.15, ease: "back.out(3)" }, YO);
+      tl.fromTo(q(".s04-duenio"), { scale: 1, svgOrigin: "790 900" }, { scale: 1.08, svgOrigin: "790 900", duration: 0.5, ease: "power3.out" }, YO);
+      tl.to(q(".s04-e1"), { opacity: 0, duration: 0.12 }, YO - 0.1);
+      tl.fromTo(q(".s04-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, YO);
+      // tiembla la linterna y el bigote; gotas de sudor
+      tl.fromTo(q(".s04-lint"), { rotation: -2, svgOrigin: "-150 230" }, { rotation: 3, svgOrigin: "-150 230", duration: 0.06, ease: "none", yoyo: true, repeat: 17 }, NINGUN);
+      tl.fromTo(q(".s04-bigote"), { y: 0 }, { y: 3, duration: 0.05, yoyo: true, repeat: 15, ease: "none" }, YO);
+      gsap.set(qa(".s04-gota"), { opacity: 0 });
+      tl.fromTo(q(".s04-g1"), { opacity: 0, y: 0 }, { opacity: 0.85, y: 40, duration: 0.9, ease: "power1.in" }, YO + 0.2);
+      tl.fromTo(q(".s04-g2"), { opacity: 0, y: 0 }, { opacity: 0.85, y: 46, duration: 0.9, ease: "power1.in" }, NINGUN + 0.1);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
