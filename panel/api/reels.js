@@ -32,10 +32,11 @@ export default async function handler(req, res) {
       // Estado de revisión: publicado (en las dos), en_cola, descartado o por_revisar
       const r = rev[h.slug];
       h.revisado = r ? { fecha: r.fecha, quien: r.quien || "", orden: Number.isFinite(r.orden) ? r.orden : null } : null;
-      if (veto.includes(h.slug) || r?.estado === "descartado") h.estado = "descartado";
-      else if (h.enInstagram && h.enTikTok) h.estado = "publicado";
+      // Lo que ya salió figura como publicado aunque después lo hayan descartado
+      if (h.enInstagram && h.enTikTok) h.estado = "publicado";
       // Ya salió en alguna red: sale de la cola aunque falte la otra
       else if (h.enInstagram || h.enTikTok) h.estado = "publicado_parcial";
+      else if (veto.includes(h.slug) || r?.estado === "descartado") h.estado = "descartado";
       else if (r?.estado === "en_cola") h.estado = "en_cola";
       else h.estado = "por_revisar";
     }));
