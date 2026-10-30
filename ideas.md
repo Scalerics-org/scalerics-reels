@@ -81,7 +81,7 @@ venden el AGENTE DE IA salvo que se diga otra cosa; puntos casi nunca:**
 - **Tu hijo no quiere el negocio**: el hijo le dice al padre que no lo va a seguir… así como está. Emocional, para negocios familiares. Giro: lo quiere si se moderniza.
 - **Último momento**: noticiero con zócalos rojos: "URGENTE: comercio pierde 40 clientes y culpa al dólar" (sin cifras reales: el número es parte del chiste), periodista en el lugar, entrevista al vecino.
 - **El relator**: un relator de fútbol uruguayo narra cómo tu cliente "se escapa por la banda" hacia la competencia, "¡GOOOL del de enfrente!", VAR que revisa el visto. Transmisión con marcador.
-- **Cita a ciegas**: tu cliente y tu local en una cita; el local no contesta, llega tarde, solo acepta efectivo; el cliente se va con el de enfrente. Reality de citas.
+- **Cita a ciegas**: tu cliente y tu local en una cita; el local no contesta, llega tarde, no tiene la talla que vio en la foto; el cliente se va con el de enfrente. Reality de citas.
 - **Terapia de pareja**: el dueño y su cliente en el consultorio de una terapeuta: "siento que ya no me escucha". Dos voces + terapeuta.
 - **Documental de crímenes**: "Esta es la historia de cómo un comercio perdió a su mejor cliente sin darse cuenta." Expedientes, cinta policial, voz en off seria.
 - **Entrevista de trabajo**: el dueño entrevista al "nuevo empleado" (el agente de IA): "¿Trabajás domingos?" "Sí." "¿A las 3 de la mañana?" "Sí." "¿Cuánto querés ganar?"… Comedia.

@@ -43,8 +43,8 @@ formato". Después pidió, una y otra vez, **"mucho más polémico"**, "bien vir
    atracos, programa de juicios, telenovela, monólogo de villano, confesión, stream o podcast,
    documental de crímenes, reality, noticiero de último momento, partido con relator, entrevista
    de trabajo, cita a ciegas, sesión de terapia, examen, subasta, el "roast".
-4. **Referencias** (series, películas, fútbol, memes, cosas uruguayas: el dólar, el "solo
-   efectivo", el posnet que no anda, el "pasá el lunes", el almacén, la feria) **solo
+4. **Referencias** (series, películas, fútbol, memes, cosas uruguayas: el dólar, el "pasá el
+   lunes", el almacén, la feria) **solo
    nombradas**: nunca logos, caras, música ni imágenes de la obra; personajes dibujados genéricos.
 5. **Un GIRO** a la mitad (el dueño no es vago: está solo; el súper no es mejor: le hace caso) y
    **un cierre que da para comentar o compartir**: "¿culpable o inocente?", "etiquetá a tu
@@ -101,6 +101,9 @@ Líneas crema clásico: máximo 1 por tanda (mejor ninguno).
   el mapa"): cansa y ya se usó en varios. Cada reel vende UNA cosa (casi siempre el agente de IA)
   y la nombra una vez.
 - Decir "bot" o "chatbot": es "agente de IA".
+- El "solo efectivo", el posnet que no anda o cualquier problema de cobrar con tarjeta (Juan,
+  29-10: "ningún negocio hoy en día cobra solo efectivo"): queda viejo y no es creíble. Los
+  dolores que sí van: no contestar, dejar en visto, horarios, no aparecer en Google, no tener tienda.
 
 ## El estilo de base (cuando toca el clásico)
 
