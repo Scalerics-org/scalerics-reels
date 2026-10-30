@@ -1,0 +1,193 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-stock"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-stock"] .s07-esc { position: absolute; inset: 0; }
+    [data-composition-id="s07-stock"] svg.s07-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-stock"] .fig { position: absolute; width: 400px; height: 720px; filter: drop-shadow(0 0 2px rgba(255, 243, 232, 0.75)) drop-shadow(0 0 14px rgba(255, 46, 136, 0.35)); }
+    [data-composition-id="s07-stock"] .fig svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s07-stock"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #160a2a; paint-order: stroke fill; font-style: italic; }
+    [data-composition-id="s07-stock"] .big.r { color: #ff2e88; text-shadow: 7px 7px 0 #1de9d6, 0 0 34px rgba(255, 46, 136, 0.6); }
+    [data-composition-id="s07-stock"] .big.a { color: #ffe14d; text-shadow: 7px 7px 0 #ff2e88, 0 0 34px rgba(255, 225, 77, 0.5); }
+    [data-composition-id="s07-stock"] .big.t { color: #1de9d6; text-shadow: 7px 7px 0 #ff2e88, 0 0 34px rgba(29, 233, 214, 0.5); }
+    [data-composition-id="s07-stock"] .big.c { color: #fff3e8; text-shadow: 7px 7px 0 #ff2e88; }
+    [data-composition-id="s07-stock"] .big.v { color: #5ce611; text-shadow: 6px 6px 0 #160a2a, 0 0 30px rgba(92, 230, 17, 0.5); }
+    [data-composition-id="s07-stock"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+
+    [data-composition-id="s07-stock"] .s07-ej { top: 600px; font-size: 120px; }
+    [data-composition-id="s07-stock"] .s07-num { top: 700px; font-size: 400px; line-height: 1; }
+    [data-composition-id="s07-stock"] .s07-due { left: 340px; top: 700px; }
+    [data-composition-id="s07-stock"] .s07-arr { top: 590px; font-size: 130px; }
+    [data-composition-id="s07-stock"] .s07-sin { top: 600px; font-size: 92px; }
+    [data-composition-id="s07-stock"] .s07-rot { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 6px; }
+    [data-composition-id="s07-stock"] .s07-lex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  </style>
+  <div id="root" data-composition-id="s07-stock" data-width="1080" data-height="1920" data-duration="10.25">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="10.25" data-track-index="0">
+      <div class="s07-esc esc">
+
+        <svg class="s07-full" viewBox="0 0 1080 1920" aria-hidden="true"><rect class="s07-fr" x="-300" y="760" width="1700" height="70" fill="#ffe14d" transform="rotate(-14 540 760)"/><rect class="s07-fr" x="-300" y="850" width="1700" height="46" fill="#ff2e88" transform="rotate(-14 540 850)"/><rect class="s07-fr" x="-300" y="920" width="1700" height="30" fill="#1de9d6" transform="rotate(-14 540 920)"/>
+          <!-- el local: estante -->
+          <g class="s07-local">
+            <rect x="90" y="760" width="330" height="290" rx="8" fill="#5b2a86" stroke="#fff3e8" stroke-width="6"/>
+            <path d="M90 875 H420 M90 995 H420" stroke="#fff3e8" stroke-width="8"/>
+            <g class="s07-fr0"><rect x="120" y="794" width="58" height="76" rx="10" fill="#ffe14d" stroke="#160a2a" stroke-width="5"/><rect x="126" y="780" width="46" height="18" rx="4" fill="#160a2a"/></g><g class="s07-fr1"><rect x="200" y="794" width="58" height="76" rx="10" fill="#ff2e88" stroke="#160a2a" stroke-width="5"/><rect x="206" y="780" width="46" height="18" rx="4" fill="#160a2a"/></g><g class="s07-fr2"><rect x="280" y="794" width="58" height="76" rx="10" fill="#1de9d6" stroke="#160a2a" stroke-width="5"/><rect x="286" y="780" width="46" height="18" rx="4" fill="#160a2a"/></g><g class="s07-fr3"><rect x="120" y="914" width="58" height="76" rx="10" fill="#1de9d6" stroke="#160a2a" stroke-width="5"/><rect x="126" y="900" width="46" height="18" rx="4" fill="#160a2a"/></g><g class="s07-fr4"><rect x="200" y="914" width="58" height="76" rx="10" fill="#ffe14d" stroke="#160a2a" stroke-width="5"/><rect x="206" y="900" width="46" height="18" rx="4" fill="#160a2a"/></g><g class="s07-fr5"><rect x="300" y="914" width="58" height="76" rx="10" fill="#ff2e88" stroke="#160a2a" stroke-width="5"/><rect x="306" y="900" width="46" height="18" rx="4" fill="#160a2a"/></g>
+            <text class="s07-rot" x="255" y="1100" text-anchor="middle" fill="#fff3e8">EL LOCAL</text>
+          </g>
+          <!-- la tienda online: compu con el producto -->
+          <g class="s07-tienda">
+            <rect x="620" y="740" width="380" height="290" rx="16" fill="#160a2a" stroke="#fff3e8" stroke-width="6"/>
+            <rect x="642" y="762" width="336" height="246" rx="6" fill="#fff3e8"/>
+            <rect x="582" y="1030" width="456" height="26" rx="10" fill="#fff3e8" stroke="#160a2a" stroke-width="4"/>
+            <rect x="660" y="780" width="110" height="120" rx="10" fill="#1de9d6" stroke="#160a2a" stroke-width="4"/>
+            <rect x="690" y="796" width="50" height="16" rx="4" fill="#160a2a"/>
+            <text class="s07-lex" x="786" y="818" font-size="30" fill="#160a2a">Frasco</text>
+            <text class="s07-lex" x="786" y="852" font-size="30" fill="#160a2a">artesanal</text>
+            <text x="786" y="892" font-family="IBM Plex Mono" font-weight="600" font-size="28" fill="#5b2a86">STOCK:</text>
+            <text class="s07-lex s07-st1" x="886" y="896" font-size="46" fill="#ff2e88">1</text>
+            <text class="s07-lex s07-st0" x="886" y="896" font-size="46" fill="#ff2e88" opacity="0">0</text>
+            <rect class="s07-btn" x="662" y="925" width="296" height="62" rx="31" fill="#ff2e88" stroke="#160a2a" stroke-width="4"/>
+            <text class="s07-lex" x="810" y="967" text-anchor="middle" font-size="32" fill="#fff3e8">COMPRAR</text>
+            <g class="s07-sello" opacity="0" data-layout-allow-overlap><rect x="652" y="840" width="316" height="96" rx="10" fill="none" stroke="#ff2e88" stroke-width="10" transform="rotate(-12 810 888)"/>
+              <text class="s07-lex" x="810" y="906" text-anchor="middle" font-size="54" fill="#ff2e88" transform="rotate(-12 810 888)">AGOTADO</text></g>
+            <path class="s07-cursor" d="M900 1000 L900 1050 L912 1038 L922 1060 L930 1056 L920 1034 L936 1034 Z" fill="#fff3e8" stroke="#160a2a" stroke-width="4" opacity="0"/>
+            <text class="s07-rot" x="810" y="1100" text-anchor="middle" fill="#fff3e8">TIENDA ONLINE</text>
+          </g>
+          <!-- flecha de un lado al otro -->
+          <path class="s07-flecha" d="M440 840 Q520 780 600 840" stroke="#ffe14d" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <path class="s07-punta" d="M584 816 L604 844 L572 852" stroke="#ffe14d" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="big c s07-ej">Ejercicio</div>
+        <div class="big a s07-num">3</div>
+        <div class="fig s07-due"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="s07d-cuerpo">
+  <g class="s07d-piernas">
+    <path d="M180 470 L172 690 M220 470 L228 690" stroke="#160a2a" stroke-width="50" stroke-linecap="round" fill="none"/>
+    <path d="M180 470 L172 690 M220 470 L228 690" stroke="#fff3e8" stroke-width="37" stroke-linecap="round" fill="none"/>
+    <path d="M174 600 L172 668 M226 600 L228 668" stroke="#160a2a" stroke-width="60" fill="none"/>
+    <path d="M174 602 L172 666 M226 602 L228 666" stroke="#ff2e88" stroke-width="48" fill="none"/>
+    <path d="M150 620 H196 M150 640 H196 M204 620 H250 M204 640 H250" stroke="#160a2a" stroke-width="3" opacity="0.5"/>
+    <ellipse cx="160" cy="698" rx="38" ry="17" fill="#fff3e8" stroke="#160a2a" stroke-width="6"/>
+    <ellipse cx="240" cy="698" rx="38" ry="17" fill="#fff3e8" stroke="#160a2a" stroke-width="6"/>
+  </g>
+  <path d="M128 452 L272 452 L268 530 L208 530 L200 500 L192 530 L132 530 Z" fill="#1de9d6" stroke="#160a2a" stroke-width="6" stroke-linejoin="round"/>
+  <g class="s07d-bi">
+    <path d="M150 286 L114 378 L108 458" stroke="#160a2a" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M150 286 L114 378 L108 458" stroke="#fff3e8" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="108" cy="468" r="19" fill="#fff3e8" stroke="#160a2a" stroke-width="6"/>
+  </g>
+  <g class="s07d-bd">
+    <path d="M250 286 L286 378 L292 458" stroke="#160a2a" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M250 286 L286 378 L292 458" stroke="#fff3e8" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+    <circle cx="292" cy="468" r="19" fill="#fff3e8" stroke="#160a2a" stroke-width="6"/>
+  </g>
+  <path d="M146 274 Q200 258 254 274 Q306 370 272 462 Q200 486 128 462 Q94 370 146 274 Z" fill="#ffe14d" stroke="#160a2a" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M168 272 Q200 292 232 272" stroke="#160a2a" stroke-width="5" fill="none"/>
+  <path d="M150 420 Q200 446 250 420" stroke="#160a2a" stroke-width="4" fill="none" opacity="0.4"/>
+  <path d="M180 360 Q200 400 220 360" stroke="#ff2e88" stroke-width="10" fill="none" opacity="0.5"/>
+  <rect x="186" y="238" width="28" height="30" fill="#fff3e8" stroke="#160a2a" stroke-width="5"/>
+  <g class="s07d-cabeza">
+    <circle cx="200" cy="190" r="60" fill="#fff3e8" stroke="#160a2a" stroke-width="6"/>
+    <path d="M142 184 Q140 150 156 140 L160 196 Z M258 184 Q260 150 244 140 L240 196 Z" fill="#5b2a86" stroke="#160a2a" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M142 160 Q200 124 258 160" stroke="#160a2a" stroke-width="26" fill="none" stroke-linecap="round"/>
+    <path d="M142 160 Q200 124 258 160" stroke="#ff2e88" stroke-width="16" fill="none" stroke-linecap="round"/>
+    <g class="s07d-ojos">
+      <path d="M170 190 Q180 182 190 190 M210 190 Q220 182 230 190" stroke="#160a2a" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M168 200 Q180 206 192 200 M208 200 Q220 206 232 200" stroke="#160a2a" stroke-width="3" fill="none" opacity="0.6"/>
+    </g>
+    <g class="s07d-ojos-x" opacity="0">
+      <path d="M172 184 L188 198 M188 184 L172 198 M212 184 L228 198 M228 184 L212 198" stroke="#160a2a" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <path d="M176 218 Q200 206 224 218 Q214 226 200 222 Q186 226 176 218 Z" fill="#5b2a86" stroke="#160a2a" stroke-width="4"/>
+    <ellipse class="s07d-boca" cx="200" cy="236" rx="11" ry="9" fill="#160a2a"/>
+    <path d="M144 196 Q134 200 140 212 M256 196 Q266 200 260 212" stroke="#160a2a" stroke-width="5" fill="none"/>
+    <g class="s07d-gotas">
+      <path d="M262 150 C268 162 272 170 266 176 C260 180 252 172 256 162 Z" fill="#1de9d6" stroke="#160a2a" stroke-width="3"/>
+      <path d="M136 140 C142 152 146 160 140 166 C134 170 126 162 130 152 Z" fill="#1de9d6" stroke="#160a2a" stroke-width="3"/>
+      <path d="M270 200 C276 212 280 220 274 226 C268 230 260 222 264 212 Z" fill="#1de9d6" stroke="#160a2a" stroke-width="3"/>
+    </g>
+  </g>
+</g></svg></div>
+        <div class="big t s07-arr s07-a0">¡Arriba!</div>
+        <div class="big r s07-arr s07-a1">¡Abajo!</div>
+        <div class="big t s07-arr s07-a2">¡Arriba!</div>
+        <div class="big r s07-arr s07-a3">¡Abajo!</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-stock";
+      const DUR = 10.25;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const BEAT = 60 / 128;
+      // golpe: texto gigante que cae en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // al ritmo: cosas que rebotan con el beat entre t0 y t1
+      const rebote = (el, t0, t1, vars, d = BEAT / 2) => { const n = Math.max(1, Math.floor((t1 - t0) / d) - 1); tl.to(el, Object.assign({ duration: d, yoyo: true, repeat: n % 2 ? n : n - 1, ease: "sine.inOut" }, vars), t0); };
+
+
+      const TRES = 0.6, VENDISTE = 1.54, LOCAL = 2.3, SACALO = 3.0, TIENDA = 3.76, ARR = [5.25, 5.72, 6.39, 6.82], QUE = 7.59, COMPRE = 8.2, TENES = 9.23;
+      qa(".s07-fr").forEach((f, i) => tl.fromTo(f, { x: i % 2 ? 1400 : -1400 }, { x: 0, duration: 0.35, ease: "power3.out" }, i * 0.06));
+      gsap.set(q(".s07-ej"), { opacity: 1, rotation: -6 });
+      tl.fromTo(q(".s07-ej"), { x: -900 }, { x: 0, duration: 0.25, ease: "power4.out" }, 0);
+      golpe(q(".s07-num"), TRES, -6, 3.4); sacudon(TRES, 2);
+      tl.to([...qa(".s07-fr"), q(".s07-ej"), q(".s07-num")], { x: -2300, duration: 0.3, ease: "power3.in", stagger: 0.03 }, 1.25);
+      // el local y la tienda
+      gsap.set([q(".s07-local"), q(".s07-tienda"), q(".s07-due")], { opacity: 0 });
+      tl.fromTo(q(".s07-local"), { opacity: 0, x: -400 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, 1.4);
+      // "vendiste": un frasco se va
+      tl.to(q(".s07-fr2"), { y: -80, x: 60, opacity: 0, duration: 0.35, ease: "power2.in" }, VENDISTE + 0.2);
+      tl.to(q(".s07-local"), { rotation: -2, svgOrigin: "255 1050", duration: 0.08, yoyo: true, repeat: 3 }, LOCAL);
+      tl.fromTo(q(".s07-tienda"), { opacity: 0, x: 400 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, SACALO - 0.2);
+      gsap.set(q(".s07-due"), { scale: 0.62, transformOrigin: "50% 98%" });
+      tl.fromTo(q(".s07-due"), { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, SACALO);
+      // flecha del local a la tienda
+      tl.fromTo(q(".s07-flecha"), { opacity: 0, strokeDasharray: 200, strokeDashoffset: 200 }, { opacity: 1, strokeDashoffset: 0, duration: 0.4, ease: "power2.inOut" }, SACALO);
+      tl.fromTo(q(".s07-punta"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, SACALO + 0.35);
+      // a mano: cursor y el stock que baja a 0
+      tl.to(q(".s07-cursor"), { opacity: 1, duration: 0.1 }, TIENDA);
+      tl.fromTo(q(".s07-cursor"), { x: 0, y: 0 }, { x: 66, y: -70, duration: 0.35, ease: "power2.inOut", immediateRender: false }, TIENDA);
+      tl.set(q(".s07-st1"), { opacity: 0 }, TIENDA + 0.45);
+      tl.to(q(".s07-cursor"), { opacity: 0, duration: 0.15 }, TIENDA + 0.7);
+      tl.to(q(".s07-cursor"), { opacity: 1, duration: 0.15 }, QUE); tl.set(q(".s07-st0"), { opacity: 1 }, TIENDA + 0.45);
+      tl.fromTo(q(".s07-st0"), { scale: 2 }, { scale: 1, transformOrigin: "50% 50%", duration: 0.2, immediateRender: false }, TIENDA + 0.45);
+      // arriba, abajo: sentadillas con los brazos
+      ARR.forEach((t, i) => {
+        const arriba = i % 2 === 0;
+        tl.to(q(".s07d-bi"), { rotation: arriba ? 160 : 0, svgOrigin: "150 286", duration: 0.18, ease: "power2.out" }, t - 0.05);
+        tl.to(q(".s07d-bd"), { rotation: arriba ? -160 : 0, svgOrigin: "250 286", duration: 0.18, ease: "power2.out" }, t - 0.05);
+        tl.to(q(".s07-due"), { y: arriba ? -40 : 40, duration: 0.18, ease: "power2.out" }, t - 0.05);
+        golpe(q(".s07-a" + i), t, arriba ? -5 : 5, 2.4);
+        if (i < 3) tl.set(q(".s07-a" + i), { opacity: 0 }, ARR[i + 1] - 0.1);
+        tl.to(q(".s07-flecha"), { scaleY: arriba ? -1 : 1, svgOrigin: "520 820", duration: 0.15 }, t);
+      });
+      tl.to(q(".s07-a3"), { opacity: 0, duration: 0.15 }, QUE - 0.1);
+      tl.to(q(".s07-due"), { y: 0, duration: 0.2 }, QUE);
+      tl.to(q(".s07d-gotas"), { y: 18, duration: 0.3, yoyo: true, repeat: 21 }, SACALO);
+      // "que nadie te compre": el cursor apunta a COMPRAR... y sale el sello
+      tl.to(q(".s07-cursor"), { x: -60, y: -60, duration: 0.3, ease: "power2.inOut" }, QUE);
+      tl.to(q(".s07-btn"), { scale: 1.08, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 5 }, COMPRE);
+      tl.set(q(".s07-sello"), { opacity: 1 }, TENES - 0.05);
+      tl.fromTo(q(".s07-sello"), { scale: 2.4, svgOrigin: "810 888" }, { scale: 1, svgOrigin: "810 888", duration: 0.14, ease: "power4.in", immediateRender: false }, TENES - 0.05);
+      sacudon(TENES + 0.08, 1.5);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

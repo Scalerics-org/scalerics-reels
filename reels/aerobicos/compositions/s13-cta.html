@@ -1,0 +1,95 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-cta"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] .s13-esc { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] svg.s13-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-cta"] .fig { position: absolute; width: 400px; height: 720px; filter: drop-shadow(0 0 2px rgba(255, 243, 232, 0.75)) drop-shadow(0 0 14px rgba(255, 46, 136, 0.35)); }
+    [data-composition-id="s13-cta"] .fig svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s13-cta"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #160a2a; paint-order: stroke fill; font-style: italic; }
+    [data-composition-id="s13-cta"] .big.r { color: #ff2e88; text-shadow: 7px 7px 0 #1de9d6, 0 0 34px rgba(255, 46, 136, 0.6); }
+    [data-composition-id="s13-cta"] .big.a { color: #ffe14d; text-shadow: 7px 7px 0 #ff2e88, 0 0 34px rgba(255, 225, 77, 0.5); }
+    [data-composition-id="s13-cta"] .big.t { color: #1de9d6; text-shadow: 7px 7px 0 #ff2e88, 0 0 34px rgba(29, 233, 214, 0.5); }
+    [data-composition-id="s13-cta"] .big.c { color: #fff3e8; text-shadow: 7px 7px 0 #ff2e88; }
+    [data-composition-id="s13-cta"] .big.v { color: #5ce611; text-shadow: 6px 6px 0 #160a2a, 0 0 30px rgba(92, 230, 17, 0.5); }
+    [data-composition-id="s13-cta"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+
+    [data-composition-id="s13-cta"] .s13-manda { top: 590px; font-size: 128px; }
+    [data-composition-id="s13-cta"] .s13-al { top: 1140px; font-size: 62px; }
+    [data-composition-id="s13-cta"] .s13-vin { top: 1220px; font-size: 92px; }
+
+  </style>
+  <div id="root" data-composition-id="s13-cta" data-width="1080" data-height="1920" data-duration="5.36">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="5.36" data-track-index="0">
+      <div class="s13-esc esc">
+
+        <svg class="s13-full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s13-vincha">
+            <ellipse cx="540" cy="920" rx="260" ry="104" fill="none" stroke="#160a2a" stroke-width="70"/>
+            <ellipse cx="540" cy="920" rx="260" ry="104" fill="none" stroke="#ff2e88" stroke-width="52"/>
+            <path d="M330 860 L338 960 M420 830 L424 1010 M540 818 L540 1022 M660 830 L656 1010 M750 860 L742 960" stroke="#160a2a" stroke-width="6" opacity="0.4"/>
+          </g>
+          <g class="s13-avion">
+            <path d="M800 760 L960 700 L900 860 L870 800 Z" fill="#5ce611" stroke="#160a2a" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M870 800 L960 700" stroke="#160a2a" stroke-width="5"/>
+          </g>
+          <path class="s13-estela" d="M560 920 Q700 900 800 780" stroke="#5ce611" stroke-width="8" fill="none" stroke-dasharray="4 18" stroke-linecap="round"/>
+          <path class="s13-st" d="M230 754 Q237.28 772.72 256 780 Q237.28 787.28 230 806 Q222.72 787.28 204 780 Q222.72 772.72 230 754 Z" fill="#ffe14d"/><path class="s13-st" d="M860 1018 Q866.16 1033.84 882 1040 Q866.16 1046.16 860 1062 Q853.84 1046.16 838 1040 Q853.84 1033.84 860 1018 Z" fill="#1de9d6"/><path class="s13-st" d="M200 1042 Q205.04 1054.96 218 1060 Q205.04 1065.04 200 1078 Q194.96 1065.04 182 1060 Q194.96 1054.96 200 1042 Z" fill="#ff2e88"/>
+        </svg>
+        <div class="big a s13-manda">¡Mandáselo!</div>
+        <div class="big c s13-al">al que todas las noches</div>
+        <div class="big r s13-vin">se pone la vincha</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-cta";
+      const DUR = 5.36;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const BEAT = 60 / 128;
+      // golpe: texto gigante que cae en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // al ritmo: cosas que rebotan con el beat entre t0 y t1
+      const rebote = (el, t0, t1, vars, d = BEAT / 2) => { const n = Math.max(1, Math.floor((t1 - t0) / d) - 1); tl.to(el, Object.assign({ duration: d, yoyo: true, repeat: n % 2 ? n : n - 1, ease: "sine.inOut" }, vars), t0); };
+
+
+      const TODAS = 0.57, PONE = 1.39, VINCHA = 1.75;
+      // cuadro 0: la vincha ya girando
+      tl.fromTo(q(".s13-vincha"), { opacity: 0.5, scale: 0.6, rotation: -20, svgOrigin: "540 920" }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: "540 920", duration: 0.35, ease: "back.out(2)" }, 0);
+      tl.to(q(".s13-vincha"), { rotation: 6, svgOrigin: "540 920", duration: BEAT, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0.4);
+      gsap.set(q(".s13-manda"), { opacity: 1, rotation: -4 });
+      tl.fromTo(q(".s13-manda"), { scale: 2 }, { scale: 1, duration: 0.2, ease: "power4.out" }, 0);
+      sacudon(0.15, 1.2);
+      golpe(q(".s13-al"), TODAS, 2, 2);
+      golpe(q(".s13-vin"), PONE + 0.1, -4, 2.6);
+      sacudon(VINCHA, 1.4);
+      // el avioncito sale volando con la vincha "mandada"
+      gsap.set([q(".s13-avion"), q(".s13-estela")], { opacity: 0 });
+      tl.fromTo(q(".s13-estela"), { opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: false }, VINCHA);
+      tl.fromTo(q(".s13-avion"), { opacity: 0, x: -260, y: 140, scale: 0.5, svgOrigin: "880 780" }, { opacity: 1, x: 0, y: 0, scale: 1, svgOrigin: "880 780", duration: 0.45, ease: "back.out(1.6)", immediateRender: false }, VINCHA);
+      tl.to(q(".s13-avion"), { y: -16, duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut" }, VINCHA + 0.5);
+      tl.to(q(".s13-vin"), { scale: 1.06, duration: BEAT, yoyo: true, repeat: 5, ease: "sine.inOut" }, VINCHA + 0.3);
+      qa(".s13-st").forEach((s, i) => {
+        tl.fromTo(s, { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.3 + i * 0.3);
+        tl.to(s, { rotation: 180, transformOrigin: "50% 50%", duration: DUR, ease: "none" }, 0);
+      });
+
+      // salida
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

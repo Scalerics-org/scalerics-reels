@@ -1,0 +1,165 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-solas"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-solas"] .s12-esc { position: absolute; inset: 0; }
+    [data-composition-id="s12-solas"] svg.s12-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-solas"] .fig { position: absolute; width: 400px; height: 720px; filter: drop-shadow(0 0 2px rgba(255, 243, 232, 0.75)) drop-shadow(0 0 14px rgba(255, 46, 136, 0.35)); }
+    [data-composition-id="s12-solas"] .fig svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s12-solas"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #160a2a; paint-order: stroke fill; font-style: italic; }
+    [data-composition-id="s12-solas"] .big.r { color: #ff2e88; text-shadow: 7px 7px 0 #1de9d6, 0 0 34px rgba(255, 46, 136, 0.6); }
+    [data-composition-id="s12-solas"] .big.a { color: #ffe14d; text-shadow: 7px 7px 0 #ff2e88, 0 0 34px rgba(255, 225, 77, 0.5); }
+    [data-composition-id="s12-solas"] .big.t { color: #1de9d6; text-shadow: 7px 7px 0 #ff2e88, 0 0 34px rgba(29, 233, 214, 0.5); }
+    [data-composition-id="s12-solas"] .big.c { color: #fff3e8; text-shadow: 7px 7px 0 #ff2e88; }
+    [data-composition-id="s12-solas"] .big.v { color: #5ce611; text-shadow: 6px 6px 0 #160a2a, 0 0 30px rgba(92, 230, 17, 0.5); }
+    [data-composition-id="s12-solas"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+
+    [data-composition-id="s12-solas"] .s12-tit { top: 590px; font-size: 84px; font-style: italic; }
+    [data-composition-id="s12-solas"] .s12-otro { top: 640px; font-size: 150px; }
+    [data-composition-id="s12-solas"] .s12-tile { position: absolute; width: 420px; height: 150px; background: #160a2a; border: 5px solid #5ce611; border-radius: 22px; box-shadow: 0 0 22px rgba(92, 230, 17, 0.35);
+      display: flex; align-items: center; gap: 18px; padding: 0 22px; }
+    [data-composition-id="s12-solas"] .s12-tile svg { width: 84px; height: 84px; flex: none; }
+    [data-composition-id="s12-solas"] .s12-tile b { display: block; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 36px; color: #fff3e8; line-height: 1.1; }
+    [data-composition-id="s12-solas"] .s12-tile i { display: block; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.12em; color: #5ce611; margin-top: 6px; }
+    [data-composition-id="s12-solas"] .s12-check { position: absolute; right: -16px; top: -16px; width: 48px; height: 48px; }
+    [data-composition-id="s12-solas"] .s12-due { left: 340px; top: 600px; }
+    [data-composition-id="s12-solas"] .s12-zzz { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; color: #1de9d6; -webkit-text-stroke: 6px #160a2a; paint-order: stroke fill; }
+
+  </style>
+  <div id="root" data-composition-id="s12-solas" data-width="1080" data-height="1920" data-duration="10.79">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="10.79" data-track-index="0">
+      <div class="s12-esc esc">
+
+        <svg class="s12-full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s12-repo">
+            <path d="M250 1250 L800 1150" stroke="#1de9d6" stroke-width="16" stroke-linecap="round"/>
+            <path d="M330 1236 L300 1330 M720 1166 L760 1330 M330 1236 L760 1330" stroke="#fff3e8" stroke-width="8" stroke-linecap="round"/>
+          </g>
+          <g class="s12-gear"><circle cx="540" cy="890" r="34" fill="#160a2a" stroke="#5ce611" stroke-width="7"/><circle cx="540" cy="890" r="12" fill="#5ce611"/>
+            <path d="M540 846 V834 M540 934 V946 M496 890 H484 M584 890 H596 M509 859 L500 850 M571 921 L580 930 M509 921 L500 930 M571 859 L580 850" stroke="#5ce611" stroke-width="10" stroke-linecap="round"/></g>
+        </svg>
+        <div class="big r s12-otro">¡Otro, sí!</div>
+        <div class="big v s12-tit">Automatizaciones</div>
+        <div class="s12-tile s12-t0" style="left:100px;top:720px"><svg viewBox="0 0 84 84" aria-hidden="true"><path d="M42 12 C26 12 20 26 20 40 V54 L12 64 H72 L64 54 V40 C64 26 58 12 42 12 Z" fill="none" stroke="#5ce611" stroke-width="6" stroke-linejoin="round"/><circle cx="42" cy="70" r="7" fill="#5ce611"/></svg><div><b>Pedido listo</b><i>AVISO SOLO</i></div><svg class="s12-check" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#5ce611" stroke="#160a2a" stroke-width="4"/><path d="M13 25 L21 33 L36 16" stroke="#160a2a" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="s12-tile s12-t1" style="left:560px;top:720px"><svg viewBox="0 0 84 84" aria-hidden="true"><rect x="10" y="16" width="64" height="58" rx="8" fill="none" stroke="#5ce611" stroke-width="6"/><path d="M10 32 H74 M26 8 V22 M58 8 V22" stroke="#5ce611" stroke-width="6" stroke-linecap="round"/><rect x="24" y="44" width="14" height="12" fill="#5ce611"/></svg><div><b>Turnos</b><i>RECORDATORIO</i></div><svg class="s12-check" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#5ce611" stroke="#160a2a" stroke-width="4"/><path d="M13 25 L21 33 L36 16" stroke="#160a2a" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="s12-tile s12-t2" style="left:100px;top:900px"><svg viewBox="0 0 84 84" aria-hidden="true"><path d="M12 28 L42 14 L72 28 V60 L42 74 L12 60 Z M12 28 L42 42 L72 28 M42 42 V74" fill="none" stroke="#5ce611" stroke-width="6" stroke-linejoin="round"/></svg><div><b>Stock tienda</b><i>AL DÍA SOLO</i></div><svg class="s12-check" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#5ce611" stroke="#160a2a" stroke-width="4"/><path d="M13 25 L21 33 L36 16" stroke="#160a2a" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="s12-tile s12-t3" style="left:560px;top:900px"><svg viewBox="0 0 84 84" aria-hidden="true"><path d="M14 70 H72" stroke="#5ce611" stroke-width="6" stroke-linecap="round"/><rect x="18" y="44" width="12" height="22" fill="#5ce611"/><rect x="38" y="30" width="12" height="36" fill="#5ce611"/><rect x="58" y="16" width="12" height="50" fill="#5ce611"/></svg><div><b>Reporte del día</b><i>AL CELULAR</i></div><svg class="s12-check" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="#5ce611" stroke="#160a2a" stroke-width="4"/><path d="M13 25 L21 33 L36 16" stroke="#160a2a" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="fig s12-due"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="s12d-cuerpo">
+  <g class="s12d-piernas">
+    <path d="M180 470 L172 690 M220 470 L228 690" stroke="#160a2a" stroke-width="50" stroke-linecap="round" fill="none"/>
+    <path d="M180 470 L172 690 M220 470 L228 690" stroke="#fff3e8" stroke-width="37" stroke-linecap="round" fill="none"/>
+    <path d="M174 600 L172 668 M226 600 L228 668" stroke="#160a2a" stroke-width="60" fill="none"/>
+    <path d="M174 602 L172 666 M226 602 L228 666" stroke="#ff2e88" stroke-width="48" fill="none"/>
+    <path d="M150 620 H196 M150 640 H196 M204 620 H250 M204 640 H250" stroke="#160a2a" stroke-width="3" opacity="0.5"/>
+    <ellipse cx="160" cy="698" rx="38" ry="17" fill="#fff3e8" stroke="#160a2a" stroke-width="6"/>
+    <ellipse cx="240" cy="698" rx="38" ry="17" fill="#fff3e8" stroke="#160a2a" stroke-width="6"/>
+  </g>
+  <path d="M128 452 L272 452 L268 530 L208 530 L200 500 L192 530 L132 530 Z" fill="#1de9d6" stroke="#160a2a" stroke-width="6" stroke-linejoin="round"/>
+  <g class="s12d-bi">
+    <path d="M150 286 L114 378 L108 458" stroke="#160a2a" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M150 286 L114 378 L108 458" stroke="#fff3e8" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="108" cy="468" r="19" fill="#fff3e8" stroke="#160a2a" stroke-width="6"/>
+  </g>
+  <g class="s12d-bd">
+    <path d="M250 286 L286 378 L292 458" stroke="#160a2a" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M250 286 L286 378 L292 458" stroke="#fff3e8" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+    <circle cx="292" cy="468" r="19" fill="#fff3e8" stroke="#160a2a" stroke-width="6"/>
+  </g>
+  <path d="M146 274 Q200 258 254 274 Q306 370 272 462 Q200 486 128 462 Q94 370 146 274 Z" fill="#ffe14d" stroke="#160a2a" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M168 272 Q200 292 232 272" stroke="#160a2a" stroke-width="5" fill="none"/>
+  <path d="M150 420 Q200 446 250 420" stroke="#160a2a" stroke-width="4" fill="none" opacity="0.4"/>
+  <path d="M180 360 Q200 400 220 360" stroke="#ff2e88" stroke-width="10" fill="none" opacity="0.5"/>
+  <rect x="186" y="238" width="28" height="30" fill="#fff3e8" stroke="#160a2a" stroke-width="5"/>
+  <g class="s12d-cabeza">
+    <circle cx="200" cy="190" r="60" fill="#fff3e8" stroke="#160a2a" stroke-width="6"/>
+    <path d="M142 184 Q140 150 156 140 L160 196 Z M258 184 Q260 150 244 140 L240 196 Z" fill="#5b2a86" stroke="#160a2a" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M142 160 Q200 124 258 160" stroke="#160a2a" stroke-width="26" fill="none" stroke-linecap="round"/>
+    <path d="M142 160 Q200 124 258 160" stroke="#ff2e88" stroke-width="16" fill="none" stroke-linecap="round"/>
+    <g class="s12d-ojos">
+      <path d="M170 190 Q180 182 190 190 M210 190 Q220 182 230 190" stroke="#160a2a" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M168 200 Q180 206 192 200 M208 200 Q220 206 232 200" stroke="#160a2a" stroke-width="3" fill="none" opacity="0.6"/>
+    </g>
+    <g class="s12d-ojos-x" opacity="0">
+      <path d="M172 184 L188 198 M188 184 L172 198 M212 184 L228 198 M228 184 L212 198" stroke="#160a2a" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <path d="M176 218 Q200 206 224 218 Q214 226 200 222 Q186 226 176 218 Z" fill="#5b2a86" stroke="#160a2a" stroke-width="4"/>
+    <ellipse class="s12d-boca" cx="200" cy="236" rx="11" ry="9" fill="#160a2a"/>
+    <path d="M144 196 Q134 200 140 212 M256 196 Q266 200 260 212" stroke="#160a2a" stroke-width="5" fill="none"/>
+    <g class="s12d-gotas">
+      <path d="M262 150 C268 162 272 170 266 176 C260 180 252 172 256 162 Z" fill="#1de9d6" stroke="#160a2a" stroke-width="3"/>
+      <path d="M136 140 C142 152 146 160 140 166 C134 170 126 162 130 152 Z" fill="#1de9d6" stroke="#160a2a" stroke-width="3"/>
+      <path d="M270 200 C276 212 280 220 274 226 C268 230 260 222 264 212 Z" fill="#1de9d6" stroke="#160a2a" stroke-width="3"/>
+    </g>
+  </g>
+</g></svg></div>
+        <div class="s12-zzz s12-z0" style="left:640px;top:1150px;font-size:54px">Z</div>
+        <div class="s12-zzz s12-z1" style="left:690px;top:1095px;font-size:68px">Z</div>
+        <div class="s12-zzz s12-z2" style="left:756px;top:1030px;font-size:84px">Z</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-solas";
+      const DUR = 10.79;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const BEAT = 60 / 128;
+      // golpe: texto gigante que cae en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // al ritmo: cosas que rebotan con el beat entre t0 y t1
+      const rebote = (el, t0, t1, vars, d = BEAT / 2) => { const n = Math.max(1, Math.floor((t1 - t0) / d) - 1); tl.to(el, Object.assign({ duration: d, yoyo: true, repeat: n % 2 ? n : n - 1, ease: "sine.inOut" }, vars), t0); };
+
+
+      const SI = 0.27, AUTO = 1.36, AVISO = 2.73, RECORD = 3.91, STOCK = 5.45, REPORTE = 6.45, SOLOS = 7.82, MIENTRAS = 8.65, DESCANSAS = 9.09, VERDAD = 9.82;
+      // cuadro 0: "¡Otro, sí!" entra en verde y rosa
+      gsap.set(q(".s12-otro"), { opacity: 1, rotation: -5 });
+      tl.fromTo(q(".s12-otro"), { scale: 1.8 }, { scale: 1, duration: 0.2, ease: "power4.out" }, 0);
+      sacudon(SI, 1.2);
+      fuera(q(".s12-otro"), AUTO - 0.2);
+      golpe(q(".s12-tit"), AUTO, -3, 2.2);
+      // las cuatro tareas, cada una en su palabra
+      const T = [AVISO, RECORD, STOCK, REPORTE];
+      T.forEach((t, i) => {
+        const el = q(".s12-t" + i);
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.5, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t - 0.1);
+        const ch = el.querySelector(".s12-check");
+        gsap.set(ch, { opacity: 0 });
+        tl.fromTo(ch, { opacity: 0, scale: 0.2, rotation: -90 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, t + 0.35);
+      });
+      // "se hacen solos": el engranaje gira y las cuatro laten juntas
+      gsap.set(q(".s12-gear"), { opacity: 0 });
+      tl.fromTo(q(".s12-gear"), { opacity: 0, scale: 0.3, svgOrigin: "540 890" }, { opacity: 1, scale: 1, svgOrigin: "540 890", duration: 0.3, ease: "back.out(2)", immediateRender: false }, SOLOS - 0.5);
+      tl.to(q(".s12-gear"), { rotation: 540, svgOrigin: "540 890", duration: DUR - SOLOS + 0.5, ease: "none" }, SOLOS - 0.5);
+      tl.to(qa(".s12-tile"), { scale: 1.05, duration: 0.16, yoyo: true, repeat: 3, stagger: 0.06 }, SOLOS);
+      // el dueño en la reposera
+      gsap.set([q(".s12-repo"), q(".s12-due")], { opacity: 0 });
+      tl.fromTo(q(".s12-repo"), { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, MIENTRAS - 0.1);
+      gsap.set(q(".s12-due"), { scale: 0.56, transformOrigin: "50% 98%", rotation: 72, x: -270, y: 0 });
+      tl.fromTo(q(".s12-due"), { opacity: 0, y: -220 }, { opacity: 1, y: 0, duration: 0.35, ease: "bounce.out", immediateRender: false }, MIENTRAS);
+      gsap.set(q(".s12d-gotas"), { opacity: 0 });
+      gsap.set(q(".s12d-bi"), { rotation: 150, svgOrigin: "150 286" });
+      gsap.set(q(".s12d-bd"), { rotation: -150, svgOrigin: "250 286" });
+      tl.fromTo(q(".s12d-cuerpo"), { scaleX: 1 }, { scaleX: 1.04, svgOrigin: "200 705", duration: 0.7, yoyo: true, repeat: 2, ease: "sine.inOut" }, DESCANSAS);
+      qa(".s12-zzz").forEach((z, i) => {
+        gsap.set(z, { opacity: 0 });
+        tl.fromTo(z, { opacity: 0, y: 30, scale: 0.5 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, DESCANSAS + i * 0.25);
+        tl.to(z, { y: -14, duration: 0.4, yoyo: true, repeat: 2, ease: "sine.inOut" }, DESCANSAS + 0.35 + i * 0.25);
+      });
+
+      // salida
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

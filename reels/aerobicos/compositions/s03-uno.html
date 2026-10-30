@@ -1,0 +1,79 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-uno"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-uno"] .s03-esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-uno"] svg.s03-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-uno"] .fig { position: absolute; width: 400px; height: 720px; filter: drop-shadow(0 0 2px rgba(255, 243, 232, 0.75)) drop-shadow(0 0 14px rgba(255, 46, 136, 0.35)); }
+    [data-composition-id="s03-uno"] .fig svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s03-uno"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #160a2a; paint-order: stroke fill; font-style: italic; }
+    [data-composition-id="s03-uno"] .big.r { color: #ff2e88; text-shadow: 7px 7px 0 #1de9d6, 0 0 34px rgba(255, 46, 136, 0.6); }
+    [data-composition-id="s03-uno"] .big.a { color: #ffe14d; text-shadow: 7px 7px 0 #ff2e88, 0 0 34px rgba(255, 225, 77, 0.5); }
+    [data-composition-id="s03-uno"] .big.t { color: #1de9d6; text-shadow: 7px 7px 0 #ff2e88, 0 0 34px rgba(29, 233, 214, 0.5); }
+    [data-composition-id="s03-uno"] .big.c { color: #fff3e8; text-shadow: 7px 7px 0 #ff2e88; }
+    [data-composition-id="s03-uno"] .big.v { color: #5ce611; text-shadow: 6px 6px 0 #160a2a, 0 0 30px rgba(92, 230, 17, 0.5); }
+    [data-composition-id="s03-uno"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+
+    [data-composition-id="s03-uno"] .s03-ej { top: 600px; font-size: 120px; }
+    [data-composition-id="s03-uno"] .s03-num { top: 700px; font-size: 400px; line-height: 1; }
+    [data-composition-id="s03-uno"] .s03-pill { position: absolute; left: 140px; width: 800px; top: 1150px; padding: 18px 24px; background: #1de9d6; border: 6px solid #160a2a; border-radius: 18px; box-shadow: 9px 9px 0 #ff2e88;
+      text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 40px; letter-spacing: 0.04em; color: #160a2a; transform: skewX(-8deg); }
+    [data-composition-id="s03-uno"] .s03-pill b { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 52px; letter-spacing: 0; display: block; }
+
+  </style>
+  <div id="root" data-composition-id="s03-uno" data-width="1080" data-height="1920" data-duration="3.3">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.3" data-track-index="0">
+      <div class="s03-esc esc">
+
+        <svg class="s03-full" viewBox="0 0 1080 1920" aria-hidden="true"><rect class="s03-fr" x="-300" y="760" width="1700" height="70" fill="#ff2e88" transform="rotate(-14 540 760)"/><rect class="s03-fr" x="-300" y="850" width="1700" height="46" fill="#1de9d6" transform="rotate(-14 540 850)"/><rect class="s03-fr" x="-300" y="920" width="1700" height="30" fill="#ffe14d" transform="rotate(-14 540 920)"/>
+          <g class="s03-camp"><path d="M540 1290 m-40 0 a40 40 0 0 1 80 0 Z" fill="none"/></g>
+        </svg>
+        <div class="big c s03-ej">Ejercicio</div>
+        <div class="big a s03-num">1</div>
+        <div class="s03-pill"><b>AVISAR</b>"TU PEDIDO ESTÁ LISTO"</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-uno";
+      const DUR = 3.3;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const BEAT = 60 / 128;
+      // golpe: texto gigante que cae en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // al ritmo: cosas que rebotan con el beat entre t0 y t1
+      const rebote = (el, t0, t1, vars, d = BEAT / 2) => { const n = Math.max(1, Math.floor((t1 - t0) / d) - 1); tl.to(el, Object.assign({ duration: d, yoyo: true, repeat: n % 2 ? n : n - 1, ease: "sine.inOut" }, vars), t0); };
+
+
+      const UNO = 0.69, AVISAR = 1.5, LISTO = 2.74;
+      // cuadro 0: las franjas ya cruzando
+      qa(".s03-fr").forEach((f, i) => tl.fromTo(f, { x: i % 2 ? 1400 : -1400 }, { x: 0, duration: 0.35, ease: "power3.out" }, i * 0.06));
+      qa(".s03-fr").forEach((f, i) => tl.to(f, { x: i % 2 ? -60 : 60, duration: DUR - 0.5, ease: "none" }, 0.4));
+      gsap.set(q(".s03-ej"), { opacity: 1, rotation: -6 });
+      tl.fromTo(q(".s03-ej"), { x: -900 }, { x: 0, duration: 0.25, ease: "power4.out" }, 0);
+      golpe(q(".s03-num"), UNO, -6, 3.4);
+      sacudon(UNO, 2);
+      tl.to(q(".s03-num"), { scale: 1.08, duration: BEAT / 2, yoyo: true, repeat: 5, ease: "sine.inOut" }, UNO + 0.2);
+      gsap.set(q(".s03-pill"), { opacity: 0 });
+      tl.fromTo(q(".s03-pill"), { opacity: 0, y: 160 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, AVISAR);
+      tl.to(q(".s03-pill"), { rotation: -2, scale: 1.06, duration: 0.1, yoyo: true, repeat: 3 }, LISTO);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,199 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg.amb-grilla { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="ambiente"] .amb-g line { stroke-width: 3; }
+    [data-composition-id="ambiente"] .amb-g.tq line { stroke: #1de9d6; }
+    [data-composition-id="ambiente"] .amb-g.vd line { stroke: #5ce611; }
+    [data-composition-id="ambiente"] .amb-g.tq { filter: drop-shadow(0 0 6px rgba(29, 233, 214, 0.8)); }
+    [data-composition-id="ambiente"] .amb-g.vd { filter: drop-shadow(0 0 6px rgba(92, 230, 17, 0.8)); }
+    [data-composition-id="ambiente"] .amb-horizonte { position: absolute; left: 0; right: 0; top: 1341px; height: 5px; background: #ff2e88; box-shadow: 0 0 18px 4px rgba(255, 46, 136, 0.7); }
+    /* OSD del video */
+    [data-composition-id="ambiente"] .amb-osd { position: absolute; top: 92px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 46px; line-height: 1; letter-spacing: 0.06em; color: #fff3e8;
+      text-shadow: 3px 0 0 rgba(255, 46, 136, 0.75), -3px 0 0 rgba(29, 233, 214, 0.75); white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-osd.izq { left: 70px; }
+    [data-composition-id="ambiente"] .amb-osd.der { right: 70px; }
+    [data-composition-id="ambiente"] .amb-modo { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 18px; }
+    [data-composition-id="ambiente"] .amb-tri { width: 0; height: 0; border-top: 22px solid transparent; border-bottom: 22px solid transparent; border-left: 36px solid #fff3e8; }
+    [data-composition-id="ambiente"] .amb-tri.izq { border-left: 0; border-right: 30px solid #fff3e8; }
+    [data-composition-id="ambiente"] .amb-barras { display: flex; gap: 10px; }
+    [data-composition-id="ambiente"] .amb-barras i { display: block; width: 13px; height: 42px; background: #fff3e8; }
+    [data-composition-id="ambiente"] .amb-cuadro { display: block; width: 38px; height: 38px; background: #fff3e8; }
+    [data-composition-id="ambiente"] .amb-rec { position: absolute; left: 70px; top: 156px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.18em; color: #ffe14d; }
+    /* rayas de la tele y viñeta */
+    [data-composition-id="ambiente"] .amb-scan { position: absolute; inset: 0; background: repeating-linear-gradient(180deg, rgba(12, 5, 24, 0) 0px, rgba(12, 5, 24, 0) 3px, rgba(12, 5, 24, 0.16) 3px, rgba(12, 5, 24, 0.16) 5px); }
+    [data-composition-id="ambiente"] .amb-vin { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1100px at 540px 960px, rgba(12, 5, 24, 0) 60%, rgba(12, 5, 24, 0.55) 100%); }
+    /* franja de tracking */
+    [data-composition-id="ambiente"] .amb-track { position: absolute; left: -40px; right: -40px; top: 0; height: 150px;
+      background:
+        repeating-linear-gradient(90deg, rgba(255, 243, 232, 0) 0px, rgba(255, 243, 232, 0.55) 7px, rgba(255, 243, 232, 0) 19px, rgba(255, 243, 232, 0.25) 31px, rgba(255, 243, 232, 0) 47px),
+        repeating-linear-gradient(180deg, rgba(255, 243, 232, 0.35) 0px, rgba(255, 243, 232, 0.05) 6px, rgba(29, 233, 214, 0.25) 11px, rgba(255, 46, 136, 0.18) 17px, rgba(255, 243, 232, 0.4) 22px);
+      mix-blend-mode: screen; }
+    /* contadores de la clase */
+    [data-composition-id="ambiente"] .amb-cont { position: absolute; top: 1532px; width: 290px; height: 150px; transform: skewX(-10deg); background: #160a2a; border: 6px solid #ff2e88; border-radius: 12px;
+      box-shadow: 0 0 22px rgba(255, 46, 136, 0.6), 10px 10px 0 #1de9d6; overflow: hidden; }
+    [data-composition-id="ambiente"] .amb-cont.izq { left: 92px; }
+    [data-composition-id="ambiente"] .amb-cont.der { left: 698px; }
+    [data-composition-id="ambiente"] .amb-rot { position: absolute; left: 0; right: 0; top: 12px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.22em; color: #1de9d6; }
+    [data-composition-id="ambiente"] .amb-num { position: absolute; left: 0; right: 0; top: 48px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 84px; line-height: 1; letter-spacing: -0.03em; color: #ffe14d; text-shadow: 0 0 18px rgba(255, 225, 77, 0.55); }
+    [data-composition-id="ambiente"] .amb-num small { font-size: 54px; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #fff3e8; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="76.28">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="76.28" data-track-index="0">
+      <svg class="amb-grilla" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="amb-g tq"></g>
+        <g class="amb-g vd"></g>
+      </svg>
+      <div class="amb-horizonte"></div>
+
+      <div class="amb-cont izq"><div class="amb-rot">REPES</div><div class="amb-num amb-reps">0</div></div>
+      <div class="amb-cont der"><div class="amb-rot">BAJASTE</div><div class="amb-num amb-baj">0<small> g</small></div></div>
+
+      <div class="amb-osd izq">
+        <div class="amb-modo m-play"><span class="amb-tri"></span><span>PLAY</span></div>
+        <div class="amb-modo m-rew"><span class="amb-tri izq"></span><span class="amb-tri izq" style="margin-left:-18px"></span><span>REW</span></div>
+        <div class="amb-modo m-pausa"><span class="amb-barras"><i></i><i></i></span><span>PAUSE</span></div>
+        <div class="amb-modo m-stop"><span class="amb-cuadro"></span><span>STOP</span></div>
+      </div>
+      <div class="amb-rec">AERÓBICOS · VOL. 1</div>
+      <div class="amb-osd der amb-reloj">SP 0:00:00</div>
+
+      <div class="amb-scan"></div>
+      <div class="amb-vin"></div>
+      <div class="amb-track"></div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 76.28;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const H = 1345, PISO = 1920;
+
+      // ---------- grilla en perspectiva (dos copias: turquesa y, con Scalerics, verde) ----------
+      const NH = 9;
+      const horizontales = { tq: [], vd: [] };
+      for (const k of ["tq", "vd"]) {
+        const g = q(".amb-g." + k);
+        for (let i = -9; i <= 9; i++) {
+          const l = document.createElementNS(NS, "line");
+          l.setAttribute("x1", 540 + i * 34); l.setAttribute("y1", H); l.setAttribute("x2", 540 + i * 300); l.setAttribute("y2", PISO + 200);
+          g.appendChild(l);
+        }
+        for (let i = 0; i < NH; i++) {
+          const l = document.createElementNS(NS, "line");
+          l.setAttribute("x1", 0); l.setAttribute("x2", 1080); l.setAttribute("y1", H); l.setAttribute("y2", H);
+          g.appendChild(l); horizontales[k].push(l);
+        }
+      }
+      // las líneas horizontales avanzan hacia la cámara al ritmo de la música (128 BPM)
+      const avance = { p: 0 };
+      const ubicar = () => {
+        const f = avance.p % 1;
+        for (const k of ["tq", "vd"]) horizontales[k].forEach((l, i) => {
+          const d = (i + f) / NH;
+          const y = H + (PISO - H) * d * d;
+          l.setAttribute("y1", y); l.setAttribute("y2", y);
+          l.style.opacity = Math.min(1, d * 3);
+        });
+      };
+      ubicar();
+      // corre hasta "Pará" (52.77), se frena; quieta en la pausa; vuelve lenta con Scalerics (60.13)
+      tl.to(avance, { p: 52.77 * 2.13, duration: 52.77, ease: "none", onUpdate: ubicar }, 0);
+      tl.to(avance, { p: 52.77 * 2.13 + 0.6, duration: 0.9, ease: "power2.out", onUpdate: ubicar }, 52.77);
+      tl.to(avance, { p: 52.77 * 2.13 + 0.6 + (DUR - 60.13) * 0.8, duration: DUR - 60.13, ease: "none", onUpdate: ubicar }, 60.13);
+      gsap.set(q(".amb-g.vd"), { opacity: 0 });
+      tl.to(q(".amb-g.tq"), { opacity: 0, duration: 0.8 }, 60.3);
+      tl.to(q(".amb-g.vd"), { opacity: 0.85, duration: 0.8 }, 60.3);
+      tl.to(q(".amb-horizonte"), { backgroundColor: "#5ce611", boxShadow: "0 0 18px 4px rgba(92, 230, 17, 0.6)", duration: 0.8 }, 60.3);
+      // la grilla late con el bombo hasta el giro
+      tl.fromTo(q(".amb-g.tq"), { opacity: 0.6 }, { opacity: 0.95, duration: 60 / 128 / 2, yoyo: true, repeat: Math.floor(52.6 / (60 / 128 / 2)) - 1, ease: "sine.inOut", immediateRender: false }, 0);
+      tl.to(q(".amb-g.tq"), { opacity: 0.45, duration: 0.4 }, 52.8);
+
+      // ---------- OSD: PLAY, REW, PAUSE, STOP ----------
+      const modos = { play: q(".m-play"), rew: q(".m-rew"), pausa: q(".m-pausa"), stop: q(".m-stop") };
+      gsap.set(Object.values(modos), { opacity: 0 });
+      const modo = (m, t) => { for (const [k, el] of Object.entries(modos)) tl.set(el, { opacity: k === m ? 1 : 0 }, t); };
+      modo("play", 0);
+      // PLAY titila al arrancar
+      tl.set(modos.play, { opacity: 0 }, 0.25); tl.set(modos.play, { opacity: 1 }, 0.5); tl.set(modos.play, { opacity: 0 }, 0.75); tl.set(modos.play, { opacity: 1 }, 1.0);
+      modo("rew", 50.36);   // "¡Mañana, la misma clase!": rebobina
+      modo("play", 52.0);
+      modo("pausa", 57.27); // "¿Otro?": la cinta se congela
+      [57.8, 58.4, 59.0, 59.6].forEach((t) => { tl.set(modos.pausa, { opacity: 0.2 }, t); tl.set(modos.pausa, { opacity: 1 }, t + 0.28); });
+      modo("stop", 60.13);  // entra Scalerics
+      tl.to([q(".amb-osd.izq"), q(".amb-reloj"), q(".amb-rec")], { opacity: 0, duration: 0.5 }, 61.4);
+      // contador de cinta SP h:mm:ss (avanza, rebobina en REW, se congela en PAUSE)
+      const reloj = q(".amb-reloj");
+      const fmt = (s) => "SP 0:" + String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(Math.floor(s % 60)).padStart(2, "0");
+      const cinta = (t) => (t < 50.36 ? t + 12 : t < 52 ? 62.36 - (t - 50.36) * 30 : t < 57.27 ? 13 + (t - 52) : 18.27);
+      for (let t = 0; t < 61.4; t += t >= 50.36 && t < 52 ? 0.1 : 1) tl.set(reloj, { textContent: fmt(Math.max(0, cinta(t))) }, t);
+      tl.set(q(".amb-rec"), { opacity: 1 }, 0);
+      [0.6, 1.4].forEach((t) => { tl.set(q(".amb-rec"), { opacity: 0.25 }, t); tl.set(q(".amb-rec"), { opacity: 1 }, t + 0.3); });
+
+      // ---------- franja de tracking ----------
+      const track = q(".amb-track");
+      gsap.set(track, { y: -200, opacity: 0 });
+      const rodar = (t, d, desde = 1920, hasta = -200) => {
+        tl.set(track, { opacity: 1, y: desde }, t);
+        tl.to(track, { y: hasta, duration: d, ease: "none" }, t);
+        tl.set(track, { opacity: 0 }, t + d);
+      };
+      rodar(0, 0.7, 700);         // arranque: la cinta todavía acomodándose
+      rodar(7.62, 0.45);          // "Ejercicio uno"
+      rodar(23.15, 0.45);         // "Ejercicio dos"
+      rodar(33.68, 0.45);         // "Ejercicio tres"
+      // REW: varias franjas rápidas
+      [50.36, 50.7, 51.05, 51.4].forEach((t) => rodar(t, 0.32));
+      rodar(52.77, 0.9);          // "Pará...": la cinta se estira
+      // PAUSE: la franja queda temblando abajo
+      tl.set(track, { opacity: 1, y: 1180 }, 57.27);
+      tl.to(track, { y: 1210, duration: 0.07, yoyo: true, repeat: 37, ease: "none" }, 57.3);
+      tl.set(track, { opacity: 0 }, 60.0);
+      rodar(60.05, 0.5);          // STOP: se va la cinta
+
+      // rayas: se aflojan con Scalerics
+      tl.to(q(".amb-scan"), { opacity: 0.35, duration: 0.8 }, 60.3);
+
+      // ---------- contadores ----------
+      const reps = q(".amb-reps"), baj = q(".amb-baj"), ci = q(".amb-cont.izq"), cd = q(".amb-cont.der");
+      gsap.set([ci, cd], { opacity: 0 });
+      // "ni un gramo": aparece BAJASTE 0 g
+      tl.fromTo(cd, { opacity: 0, y: 220 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, 3.85);
+      tl.to(baj, { scale: 1.25, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, 4.1);
+      // "Ejercicio uno": aparece REPES
+      tl.fromTo(ci, { opacity: 0, y: 220 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, 7.75);
+      const SUBE = [13.14, 16.02, 29.32, 32.5, 39.03, 40.17, 46.41];
+      SUBE.forEach((t, i) => {
+        tl.set(reps, { textContent: String(i + 1) }, t);
+        tl.fromTo(reps, { scale: 1.7, y: -10 }, { scale: 1, y: 0, duration: 0.25, ease: "back.out(2.5)", immediateRender: false }, t);
+        // y BAJASTE tiembla, sigue en 0
+        tl.to(cd, { x: 8, duration: 0.05, yoyo: true, repeat: 3, ease: "none" }, t + 0.15);
+      });
+      // REW: los repes vuelven a 0
+      for (let k = 7; k >= 0; k--) tl.set(reps, { textContent: String(k) }, 50.36 + (7 - k) * 0.17);
+      // "Pará": se caen los dos
+      tl.to(ci, { y: 260, rotation: -14, opacity: 0, duration: 0.45, ease: "power2.in" }, 52.85);
+      tl.to(cd, { y: 260, rotation: 12, opacity: 0, duration: 0.45, ease: "power2.in" }, 52.95);
+
+      // ---------- flashes ----------
+      [[0.0, 0.12], [7.75, 0.3], [23.26, 0.3], [33.8, 0.3], [60.13, 0.4]].forEach(([t, o]) => {
+        tl.set(q(".amb-flash"), { opacity: o }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.02);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

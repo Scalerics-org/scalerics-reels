@@ -1,0 +1,4 @@
+Las escenas (compositions/s01..s13 y sus .sfx.json) se generan con estos scripts de Python, que
+comparten las figuras de la instructora y el dueño (base.py). Para cambiar una escena: editar su
+sNN.py y correr `cd partes/escenas && python3 sNN.py` (escribe en ../../compositions; OUT en base.py
+tiene la ruta absoluta del repo). Después `node armar.mjs`. ambiente.html se escribió a mano.
