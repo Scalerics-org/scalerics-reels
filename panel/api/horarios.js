@@ -14,7 +14,7 @@ function limpiar(lista) {
 }
 
 // El último horario de la red que ya pasó (en las últimas 24 h), como "AAAA-MM-DDTHH" de Montevideo (UTC-3)
-function ultimoTurno(horas, ahora = Date.now()) {
+export function ultimoTurno(horas, ahora = Date.now()) {
   let mejor = null;
   for (const dia of [0, -1]) {
     const mvd = new Date(ahora - 3 * 3600e3);

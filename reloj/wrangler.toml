@@ -1,0 +1,10 @@
+# Reloj de los reels: cada hora le avisa al panel (reels.scalerics.com/api/tic), que dispara el
+# workflow de publicar si hay un horario pendiente. GitHub sólo no alcanza: se saltea las corridas.
+# Secreto: RELOJ_TOKEN (wrangler secret put RELOJ_TOKEN), el mismo que en Vercel.
+name = "scalerics-reels-reloj"
+main = "reloj.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+
+[triggers]
+crons = ["2 * * * *"]
