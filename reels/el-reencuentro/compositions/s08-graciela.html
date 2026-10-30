@@ -1,0 +1,154 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-graciela"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-graciela"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-graciela"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-graciela"] .linea { fill: none; stroke: #4b2537; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-graciela"] .cartel { position: absolute; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s08-graciela"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s08-graciela"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s08-graciela"] .lex { position: absolute; font-family: "Lexend", sans-serif; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s08-graciela"] .sello { position: absolute; padding: 6px 22px; border: 6px solid #c4607a; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 800; color: #c4607a; letter-spacing: 0.06em; white-space: nowrap; text-transform: uppercase; background: rgba(251, 239, 233, 0.92); }
+
+    [data-composition-id="s08-graciela"] .s08-papel { position: absolute; left: 600px; top: 610px; width: 170px; height: 210px; background: #fbefe9; border: 5px solid #4b2537; border-radius: 6px; }
+    [data-composition-id="s08-graciela"] .s08-papel .rr { position: absolute; left: 18px; right: 18px; height: 4px; background: #e3a6ae; }
+    [data-composition-id="s08-graciela"] .s08-papel .pt { position: absolute; left: -26px; bottom: -22px; width: 90px; height: 84px; background: #ecc97a; border: 3px solid #4b2537; transform: rotate(-12deg); }
+    [data-composition-id="s08-graciela"] .s08-papel .t { left: 0; right: 0; top: 120px; font-size: 32px; }
+
+  </style>
+  <div id="root" data-composition-id="s08-graciela" data-width="1080" data-height="1920" data-duration="5.83">
+    <div id="s08-escena" class="capa clip" data-start="0" data-duration="5.83" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <defs><clipPath id="s08-c"><rect x="60" y="600" width="960" height="730" /></clipPath></defs>
+          <g clip-path="url(#s08-c)"><g class="s08-rayos"><path d="M540 900 L1440 900 L1409 1133 Z" fill="#c99a3c" opacity="0.22" /><path d="M540 900 L1319 1350 L1176 1536 Z" fill="#c99a3c" opacity="0.22" /><path d="M540 900 L990 1679 L773 1769 Z" fill="#c99a3c" opacity="0.22" /><path d="M540 900 L540 1800 L307 1769 Z" fill="#c99a3c" opacity="0.22" /><path d="M540 900 L90 1679 L-96 1536 Z" fill="#c99a3c" opacity="0.22" /><path d="M540 900 L-239 1350 L-329 1133 Z" fill="#c99a3c" opacity="0.22" /><path d="M540 900 L-360 900 L-329 667 Z" fill="#c99a3c" opacity="0.22" /><path d="M540 900 L-239 450 L-96 264 Z" fill="#c99a3c" opacity="0.22" /><path d="M540 900 L90 121 L307 31 Z" fill="#c99a3c" opacity="0.22" /><path d="M540 900 L540 0 L773 31 Z" fill="#c99a3c" opacity="0.22" /><path d="M540 900 L990 121 L1176 264 Z" fill="#c99a3c" opacity="0.22" /><path d="M540 900 L1319 450 L1409 667 Z" fill="#c99a3c" opacity="0.22" /></g></g>
+          <g class="s08-cort-i">
+  <path d="M20 640 H160 V1330 Q125 1306 90 1330 Q55 1306 20 1330 Z" fill="#c4607a" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" />
+  <path d="M38 680 Q24 985 38 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" /><path d="M72 680 Q86 985 72 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" /><path d="M108 680 Q94 985 108 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" /><path d="M142 680 Q156 985 142 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" />
+</g>
+          <g class="s08-cort-d">
+  <path d="M920 640 H1060 V1330 Q1025 1306 990 1330 Q955 1306 920 1330 Z" fill="#c4607a" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" />
+  <path d="M938 680 Q924 985 938 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" /><path d="M972 680 Q986 985 972 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" /><path d="M1008 680 Q994 985 1008 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" /><path d="M1042 680 Q1056 985 1042 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" />
+</g>
+          <g class="s08-g"><g transform="translate(540 860) scale(0.92)"><g class="s08-gra">
+  <path d="M-160 420 L-160 250 Q-150 150 -55 128 L55 128 Q150 150 160 250 L160 420 Z" fill="#c4607a" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-55 128 L-10 230 M55 128 L10 230" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-44 132 Q0 176 44 132" fill="none" stroke="#fbefe9" stroke-width="12" stroke-dasharray="1 15" stroke-linecap="round" />
+  <rect x="-28" y="72" width="56" height="62" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="-70" cy="-70" r="34" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="-30" cy="-100" r="36" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="20" cy="-104" r="36" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="64" cy="-78" r="34" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="84" cy="-34" r="30" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="-86" cy="-30" r="30" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="-92" cy="10" r="24" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="92" cy="8" r="24" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="0" cy="0" rx="78" ry="92" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-70 -40 Q-40 -80 0 -66 Q40 -82 72 -40 Q40 -56 0 -48 Q-40 -58 -70 -40 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="-62" y="-22" width="48" height="34" rx="12" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><rect x="14" y="-22" width="48" height="34" rx="12" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-14 -8 L14 -8" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-62 0 Q-90 60 -60 130 M62 0 Q90 60 60 130" fill="none" stroke="#c99a3c" stroke-width="3" stroke-dasharray="2 6" />
+  <circle class="s08-ojo" cx="-38" cy="-4" r="6" fill="#4b2537" /><circle class="s08-ojo" cx="38" cy="-4" r="6" fill="#4b2537" />
+  <path d="M0 6 Q10 24 0 30" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path class="s08-boca" d="M-24 50 Q0 64 24 50" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="-42" cy="30" r="11" fill="#e3a6ae" opacity="0.8" /><circle cx="42" cy="30" r="11" fill="#e3a6ae" opacity="0.8" />
+</g></g></g>
+          <g class="s08-a"><g transform="translate(790 900) scale(0.78)"><g class="s08-aldo">
+  <path class="s08-cuerpo" d="M-175 420 L-175 250 Q-170 150 -60 128 L60 128 Q170 150 175 250 L175 420 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-60 128 L-20 300 M60 128 L20 300" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="0" cy="250" r="7" fill="#4b2537" /><circle cx="0" cy="300" r="7" fill="#4b2537" />
+  <path d="M-46 130 L0 205 L46 130 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-30 150 L0 168 L30 150 L30 184 L0 168 L-30 184 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="-32" y="76" width="64" height="62" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="-92" cy="12" rx="16" ry="26" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="92" cy="12" rx="16" ry="26" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="0" cy="0" rx="92" ry="104" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-92 -4 Q-122 -34 -96 -66 Q-84 -46 -78 -30 Q-74 -50 -64 -60 Q-62 -30 -70 -6 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M92 -4 Q122 -34 96 -66 Q84 -46 78 -30 Q74 -50 64 -60 Q62 -30 70 -6 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-30 -84 Q0 -96 30 -84" fill="none" stroke="#e3a6ae" stroke-width="6" stroke-linecap="round" />
+  <path class="s08-cejas" d="M-62 -40 Q-40 -54 -16 -44 M16 -44 Q40 -54 62 -40" fill="none" stroke="#4b2537" stroke-width="9" stroke-linecap="round" />
+  <circle cx="-38" cy="-6" r="27" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="38" cy="-6" r="27" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-11 -8 Q0 -16 11 -8 M-65 -10 L-88 -16 M65 -10 L88 -16" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle class="s08-ojo" cx="-38" cy="-4" r="7" fill="#4b2537" /><circle class="s08-ojo" cx="38" cy="-4" r="7" fill="#4b2537" />
+  <path d="M0 4 Q16 34 2 42 Q-10 42 -12 34" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-60 60 Q-30 38 0 52 Q30 38 60 60 Q34 76 0 64 Q-34 76 -60 60 Z" fill="#4b2537" />
+  <path class="s08-boca" d="M-22 90 Q0 78 22 90" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path class="s08-lagrima" d="M-50 24 Q-40 40 -40 48 A10 10 0 0 1 -60 48 Q-60 40 -50 24 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="3" />
+</g></g></g>
+          <use href="#s08-cor" class="s08-cor k0" x="300" y="760" /><use href="#s08-cor" class="s08-cor k1" x="780" y="720" /><use href="#s08-cor" class="s08-cor k2" x="250" y="1050" /><use href="#s08-cor" class="s08-cor k3" x="840" y="1080" /><use href="#s08-cor" class="s08-cor k4" x="540" y="660" />
+          <defs><path id="s08-cor" d="M0 18 C-26 -6 -44 -22 -44 -40 C-44 -56 -32 -66 -20 -66 C-10 -66 -3 -60 0 -52 C3 -60 10 -66 20 -66 C32 -66 44 -56 44 -40 C44 -22 26 -6 0 18 Z" fill="#c4607a" stroke="#4b2537" stroke-width="4" /></defs>
+
+        </svg>
+
+        <div class="s08-papel"><div class="rr" style="top: 28px"></div><div class="rr" style="top: 54px"></div><div class="rr" style="top: 80px; right: 50px"></div><div class="mano t">sillón verde</div><div class="pt"></div></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-graciela";
+      const DUR = 5.83;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -8 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // zoom dramático de telenovela de la tarde
+      const zoom = (t, s, ox, oy, d) => tl.to(q(".escenario"), { scale: s, transformOrigin: ox + "px " + oy + "px", duration: d ?? 0.35, ease: "power3.out" }, t);
+
+      const HOLA = 0.0, ALDO = 0.52, GRACIELA = 1.84, GRITO = 3.02, TENGO = 4.23, PRESU = 4.48, ACA = 5.0;
+      tl.fromTo(q(".s08-rayos"), { rotation: 0, svgOrigin: "540 900" }, { rotation: 30, svgOrigin: "540 900", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".escenario"), { scale: 1.06, transformOrigin: "540px 900px" }, { scale: 1, duration: 1.4, ease: "power2.out" }, 0);
+      // Graciela saluda, tímida
+      tl.fromTo(q(".s08-g"), { y: 30 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, 0);
+      tl.to(q(".s08-g"), { rotation: -3, svgOrigin: "540 1250", duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut" }, ALDO);
+      // "Graciela": corazones
+      qa(".s08-cor").forEach((c, i) => {
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, GRACIELA + i * 0.07);
+        tl.to(c, { opacity: 0, y: -60, duration: 0.35 }, GRITO - 0.3 + i * 0.03);
+      });
+      // "¡Graciela!": entra Don Aldo eufórico, ella se corre
+      tl.to(q(".s08-g"), { x: -250, scale: 0.85, svgOrigin: "540 1250", duration: 0.35, ease: "power3.out" }, GRITO - 0.15);
+      gsap.set(q(".s08-a"), { opacity: 0 });
+      tl.fromTo(q(".s08-a"), { opacity: 1, x: 420 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, GRITO - 0.15);
+      tl.to(q(".s08-a"), { y: -40, duration: 0.18, yoyo: true, repeat: 3, ease: "power2.out" }, GRITO + 0.25);
+      tl.set(q(".s08-a .s08-boca"), { attr: { d: "M-34 80 Q0 120 34 80 Z" }, fill: "#c4607a" }, GRITO);
+      tl.set(q(".s08-a .s08-cejas"), { y: -10 }, GRITO);
+      tl.set(q(".s08-a .s08-lagrima"), { opacity: 0 }, GRITO);
+      // "¡Tengo su presupuesto acá!": saca la hoja arrugada (con el post-it pegado)
+      const pap = q(".s08-papel");
+      gsap.set(pap, { opacity: 0 });
+      tl.fromTo(pap, { opacity: 0, y: 200, rotation: 30 }, { opacity: 1, y: 0, rotation: 8, duration: 0.35, ease: "back.out(2)", immediateRender: false }, TENGO);
+      tl.to(pap, { rotation: -8, duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut" }, PRESU + 0.1);
+      zoom(ACA, 1.08, 700, 900, 0.3);
+
+      // salida
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

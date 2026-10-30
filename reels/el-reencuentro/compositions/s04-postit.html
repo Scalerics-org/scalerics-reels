@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-postit"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-postit"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-postit"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-postit"] .linea { fill: none; stroke: #4b2537; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-postit"] .cartel { position: absolute; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s04-postit"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s04-postit"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s04-postit"] .lex { position: absolute; font-family: "Lexend", sans-serif; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s04-postit"] .sello { position: absolute; padding: 6px 22px; border: 6px solid #c4607a; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 800; color: #c4607a; letter-spacing: 0.06em; white-space: nowrap; text-transform: uppercase; background: rgba(251, 239, 233, 0.92); }
+
+    [data-composition-id="s04-postit"] .s04-post { position: absolute; left: 380px; top: 640px; width: 320px; height: 300px; background: #ecc97a; border: 4px solid #4b2537; box-sizing: border-box; padding: 26px 18px 0; }
+    [data-composition-id="s04-postit"] .s04-post .txt { position: static; font-size: 50px; line-height: 0.98; white-space: normal; }
+    [data-composition-id="s04-postit"] .s04-preg { left: 0; right: 0; top: 600px; font-size: 300px; line-height: 1; color: #c99a3c; -webkit-text-stroke: 6px #4b2537; paint-order: stroke fill; }
+
+  </style>
+  <div id="root" data-composition-id="s04-postit" data-width="1080" data-height="1920" data-duration="4.88">
+    <div id="s04-escena" class="capa clip" data-start="0" data-duration="4.88" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <g class="s04-a">
+            <g transform="translate(540 960) scale(1.0)"><g class="s04a-aldo">
+  <path class="s04a-cuerpo" d="M-175 420 L-175 250 Q-170 150 -60 128 L60 128 Q170 150 175 250 L175 420 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-60 128 L-20 300 M60 128 L20 300" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="0" cy="250" r="7" fill="#4b2537" /><circle cx="0" cy="300" r="7" fill="#4b2537" />
+  <path d="M-46 130 L0 205 L46 130 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-30 150 L0 168 L30 150 L30 184 L0 168 L-30 184 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="-32" y="76" width="64" height="62" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="-92" cy="12" rx="16" ry="26" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="92" cy="12" rx="16" ry="26" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="0" cy="0" rx="92" ry="104" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-92 -4 Q-122 -34 -96 -66 Q-84 -46 -78 -30 Q-74 -50 -64 -60 Q-62 -30 -70 -6 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M92 -4 Q122 -34 96 -66 Q84 -46 78 -30 Q74 -50 64 -60 Q62 -30 70 -6 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-30 -84 Q0 -96 30 -84" fill="none" stroke="#e3a6ae" stroke-width="6" stroke-linecap="round" />
+  <path class="s04a-cejas" d="M-62 -40 Q-40 -54 -16 -44 M16 -44 Q40 -54 62 -40" fill="none" stroke="#4b2537" stroke-width="9" stroke-linecap="round" />
+  <circle cx="-38" cy="-6" r="27" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="38" cy="-6" r="27" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-11 -8 Q0 -16 11 -8 M-65 -10 L-88 -16 M65 -10 L88 -16" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle class="s04a-ojo" cx="-38" cy="-4" r="7" fill="#4b2537" /><circle class="s04a-ojo" cx="38" cy="-4" r="7" fill="#4b2537" />
+  <path d="M0 4 Q16 34 2 42 Q-10 42 -12 34" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-60 60 Q-30 38 0 52 Q30 38 60 60 Q34 76 0 64 Q-34 76 -60 60 Z" fill="#4b2537" />
+  <path class="s04a-boca" d="M-22 90 Q0 78 22 90" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path class="s04a-lagrima" d="M-50 24 Q-40 40 -40 48 A10 10 0 0 1 -60 48 Q-60 40 -50 24 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="3" />
+</g></g>
+            <path class="s04-gota" d="M650 860 Q666 884 666 896 A16 16 0 0 1 634 896 Q634 884 650 860 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="4" />
+            <g class="s04-micg"><g transform="translate(-40 760)"><path d="M0 300 L150 160" fill="none" stroke="#4b2537" stroke-width="20" stroke-linecap="round" /><circle cx="160" cy="150" r="34" fill="#c99a3c" stroke="#4b2537" stroke-width="5" /><path d="M140 140 H180 M140 160 H180 M160 120 V180" fill="none" stroke="#4b2537" stroke-width="3" /></g></g>
+          </g>
+          <g class="s04-b">
+            <path d="M120 1300 H960" stroke="#4b2537" stroke-width="6" stroke-linecap="round" />
+            <path d="M150 1300 V1250 H930 V1300" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" />
+          </g>
+
+        </svg>
+
+        <div class="lex s04-preg">?</div>
+        <div class="s04-post"><div class="mano txt">Lunes: llamar a la señora del sillón verde</div></div>
+        <svg class="lienzo s04-b2" viewBox="0 0 1080 1920" aria-hidden="true"><g transform="translate(560 1250)"><g class="s04-caja">
+  <path d="M-170 0 V-70 H170 V0 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-130 -70 L-110 -180 H120 L140 -70 Z" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" />
+  <circle cx="-90" cy="-120" r="11" fill="#fbefe9" stroke="#4b2537" stroke-width="3" /><circle cx="-54" cy="-120" r="11" fill="#fbefe9" stroke="#4b2537" stroke-width="3" /><circle cx="-18" cy="-120" r="11" fill="#fbefe9" stroke="#4b2537" stroke-width="3" /><circle cx="18" cy="-120" r="11" fill="#fbefe9" stroke="#4b2537" stroke-width="3" /><circle cx="54" cy="-120" r="11" fill="#fbefe9" stroke="#4b2537" stroke-width="3" /><circle cx="90" cy="-120" r="11" fill="#fbefe9" stroke="#4b2537" stroke-width="3" /><circle cx="-90" cy="-86" r="11" fill="#fbefe9" stroke="#4b2537" stroke-width="3" /><circle cx="-54" cy="-86" r="11" fill="#fbefe9" stroke="#4b2537" stroke-width="3" /><circle cx="-18" cy="-86" r="11" fill="#fbefe9" stroke="#4b2537" stroke-width="3" /><circle cx="18" cy="-86" r="11" fill="#fbefe9" stroke="#4b2537" stroke-width="3" /><circle cx="54" cy="-86" r="11" fill="#fbefe9" stroke="#4b2537" stroke-width="3" /><circle cx="90" cy="-86" r="11" fill="#fbefe9" stroke="#4b2537" stroke-width="3" />
+  <rect x="-60" y="-260" width="140" height="80" rx="8" fill="#fbefe9" stroke="#4b2537" stroke-width="5" />
+  <rect x="-110" y="-50" width="220" height="30" rx="6" fill="#fbefe9" stroke="#4b2537" stroke-width="4" />
+  <path d="M190 -110 Q220 -120 220 -150" fill="none" stroke="#4b2537" stroke-width="5" stroke-linecap="round" /><circle cx="220" cy="-160" r="14" fill="#c4607a" stroke="#4b2537" stroke-width="4" />
+</g></g></svg>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-postit";
+      const DUR = 4.88;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -8 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // zoom dramático de telenovela de la tarde
+      const zoom = (t, s, ox, oy, d) => tl.to(q(".escenario"), { scale: s, transformOrigin: ox + "px " + oy + "px", duration: d ?? 0.35, ease: "power3.out" }, t);
+
+      const LLAMO = 0.17, ANOTE = 1.22, POSTIT = 1.57, POSTIT2 = 2.69, QUEDO = 3.03, ABAJO = 3.29, CAJA = 3.89;
+      // "¿Y la llamó?": primer plano de Don Aldo, el micrófono lo acorrala
+      tl.fromTo(q(".escenario"), { scale: 1.1, transformOrigin: "540px 900px" }, { scale: 1.2, duration: 1.0, ease: "power1.inOut" }, 0);
+      tl.fromTo(q(".s04-micg"), { x: -200, y: 120 }, { x: 0, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      gsap.set(q(".s04-gota"), { opacity: 0 });
+      tl.fromTo(q(".s04-gota"), { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.15, immediateRender: false }, LLAMO + 0.2);
+      tl.to(q(".s04-gota"), { y: 60, duration: 0.6, ease: "power1.in" }, LLAMO + 0.35);
+      tl.to(q(".s04a-ojo"), { x: 12, duration: 0.12, yoyo: true, repeat: 3 }, LLAMO);
+      const preg = q(".s04-preg");
+      gsap.set(preg, { opacity: 0 });
+      tl.fromTo(preg, { opacity: 0, scale: 2, x: 260, y: -40 }, { opacity: 1, scale: 1, x: 300, y: -40, rotation: 12, duration: 0.2, ease: "power4.in", immediateRender: false }, LLAMO);
+      tl.to(preg, { opacity: 0, duration: 0.15 }, ANOTE - 0.2);
+      // "lo anoté en un post-it": cambia el plano
+      tl.to(q(".s04-a"), { opacity: 0, duration: 0.15 }, ANOTE - 0.2);
+      tl.set(q(".escenario"), { scale: 1 }, ANOTE - 0.05);
+      gsap.set([q(".s04-b"), q(".s04-b2")], { opacity: 0 });
+      tl.fromTo([q(".s04-b"), q(".s04-b2")], { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, ANOTE - 0.05);
+      const post = q(".s04-post");
+      gsap.set(post, { opacity: 0 });
+      tl.fromTo(post, { opacity: 0, scale: 0.4, rotation: -20 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.35, ease: "back.out(2)", immediateRender: false }, POSTIT - 0.1);
+      tl.to(post, { rotation: 3, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, POSTIT + 0.3);
+      // "quedó abajo de la caja": se despega, revolotea y se mete abajo
+      tl.to(post, { x: -180, y: 200, rotation: -30, duration: 0.4, ease: "sine.inOut" }, POSTIT2);
+      tl.to(post, { x: 120, y: 300, rotation: 20, duration: 0.4, ease: "sine.inOut" }, QUEDO + 0.05);
+      tl.to(post, { x: 190, y: 440, rotation: 4, scale: 0.6, duration: 0.35, ease: "power2.in" }, ABAJO + 0.1);
+      // la caja cae encima: el post-it queda abajo, asomando una puntita
+      tl.to(q(".s04-caja"), { y: -40, duration: 0.15, ease: "power2.out" }, ABAJO + 0.05);
+      tl.to(q(".s04-caja"), { y: 0, duration: 0.12, ease: "power4.in" }, ABAJO + 0.42);
+      temblor(q(".escenario"), ABAJO + 0.54, 0.8);
+      zoom(CAJA, 1.25, 560, 1250, 0.5);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

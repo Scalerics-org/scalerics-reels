@@ -1,0 +1,7 @@
+[
+  {"t": 4.45, "sfx": "drama", "vol": 0.3, "max": 2.0},
+  {"t": 31.9, "sfx": "aplausos", "vol": 0.3, "max": 2.6},
+  {"t": 36.2, "sfx": "aplausos", "vol": 0.22, "max": 1.8},
+  {"t": 48.25, "sfx": "uuh", "vol": 0.32},
+  {"t": 71.0, "sfx": "aplausos", "vol": 0.28, "max": 2.6}
+]

@@ -1,0 +1,153 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-cabeza"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-cabeza"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-cabeza"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-cabeza"] .linea { fill: none; stroke: #4b2537; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-cabeza"] .cartel { position: absolute; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s11-cabeza"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s11-cabeza"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s11-cabeza"] .lex { position: absolute; font-family: "Lexend", sans-serif; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s11-cabeza"] .sello { position: absolute; padding: 6px 22px; border: 6px solid #c4607a; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 800; color: #c4607a; letter-spacing: 0.06em; white-space: nowrap; text-transform: uppercase; background: rgba(251, 239, 233, 0.92); }
+
+    [data-composition-id="s11-cabeza"] .s11-tag { position: absolute; padding: 2px 14px; background: #fbefe9; border: 3px solid #4b2537; border-radius: 10px; font-family: "Caveat", cursive; font-weight: 700; font-size: 32px; line-height: 1.1; color: #4b2537; white-space: nowrap; }
+    [data-composition-id="s11-cabeza"] .s11-tag.ama { background: #ecc97a; }
+    [data-composition-id="s11-cabeza"] .s11-tag.ros { background: #e3a6ae; }
+    [data-composition-id="s11-cabeza"] .s11-mano { position: absolute; }
+
+  </style>
+  <div id="root" data-composition-id="s11-cabeza" data-width="1080" data-height="1920" data-duration="7.25">
+    <div id="s11-escena" class="capa clip" data-start="0" data-duration="7.25" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <g class="s11-ald"><g transform="translate(540 960) scale(0.95)"><g class="s11-aldo">
+  <path class="s11-cuerpo" d="M-175 420 L-175 250 Q-170 150 -60 128 L60 128 Q170 150 175 250 L175 420 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-60 128 L-20 300 M60 128 L20 300" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="0" cy="250" r="7" fill="#4b2537" /><circle cx="0" cy="300" r="7" fill="#4b2537" />
+  <path d="M-46 130 L0 205 L46 130 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-30 150 L0 168 L30 150 L30 184 L0 168 L-30 184 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="-32" y="76" width="64" height="62" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="-92" cy="12" rx="16" ry="26" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="92" cy="12" rx="16" ry="26" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="0" cy="0" rx="92" ry="104" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-92 -4 Q-122 -34 -96 -66 Q-84 -46 -78 -30 Q-74 -50 -64 -60 Q-62 -30 -70 -6 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M92 -4 Q122 -34 96 -66 Q84 -46 78 -30 Q74 -50 64 -60 Q62 -30 70 -6 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-30 -84 Q0 -96 30 -84" fill="none" stroke="#e3a6ae" stroke-width="6" stroke-linecap="round" />
+  <path class="s11-cejas" d="M-62 -40 Q-40 -54 -16 -44 M16 -44 Q40 -54 62 -40" fill="none" stroke="#4b2537" stroke-width="9" stroke-linecap="round" />
+  <circle cx="-38" cy="-6" r="27" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="38" cy="-6" r="27" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-11 -8 Q0 -16 11 -8 M-65 -10 L-88 -16 M65 -10 L88 -16" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle class="s11-ojo" cx="-38" cy="-4" r="7" fill="#4b2537" /><circle class="s11-ojo" cx="38" cy="-4" r="7" fill="#4b2537" />
+  <path d="M0 4 Q16 34 2 42 Q-10 42 -12 34" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-60 60 Q-30 38 0 52 Q30 38 60 60 Q34 76 0 64 Q-34 76 -60 60 Z" fill="#4b2537" />
+  <path class="s11-boca" d="M-22 90 Q0 78 22 90" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path class="s11-lagrima" d="M-50 24 Q-40 40 -40 48 A10 10 0 0 1 -60 48 Q-60 40 -50 24 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="3" />
+</g></g></g>
+          <g class="s11-mano"><path d="M-40 1150 Q120 1110 260 1120" fill="none" stroke="#4b2537" stroke-width="44" stroke-linecap="round" /><path d="M-40 1150 Q120 1110 260 1120" fill="none" stroke="#e3a6ae" stroke-width="32" stroke-linecap="round" /><circle cx="280" cy="1118" r="30" fill="#fbefe9" stroke="#4b2537" stroke-width="5" /></g>
+          <g class="s11-humo"><circle cx="440" cy="790" r="44" fill="#fbefe9" stroke="#a48cc8" stroke-width="5" opacity="0.9" /><circle cx="540" cy="760" r="58" fill="#fbefe9" stroke="#a48cc8" stroke-width="5" opacity="0.9" /><circle cx="640" cy="790" r="46" fill="#fbefe9" stroke="#a48cc8" stroke-width="5" opacity="0.9" /><circle cx="500" cy="720" r="36" fill="#fbefe9" stroke="#a48cc8" stroke-width="5" opacity="0.9" /><circle cx="590" cy="715" r="34" fill="#fbefe9" stroke="#a48cc8" stroke-width="5" opacity="0.9" /></g>
+
+        </svg>
+        <div class="s11-tag " data-layout-ignore style="left: 135px; top: 858px">la del sillón</div>
+        <div class="s11-tag ama" data-layout-ignore style="left: 70px; top: 810px">Rubén: 6 sillas</div>
+        <div class="s11-tag ros" data-layout-ignore style="left: 28px; top: 747px">la de la cuna</div>
+        <div class="s11-tag " data-layout-ignore style="left: 195px; top: 749px">el del placard</div>
+        <div class="s11-tag ama" data-layout-ignore style="left: 190px; top: 688px">Doña Elsa</div>
+        <div class="s11-tag ros" data-layout-ignore style="left: 219px; top: 622px">¿el del lunes?</div>
+        <div class="s11-tag " data-layout-ignore style="left: 353px; top: 681px">presupuesto cama</div>
+        <div class="s11-tag ama" data-layout-ignore style="left: 409px; top: 630px">la de la mesa</div>
+        <div class="s11-tag ros" data-layout-ignore style="left: 498px; top: 587px">el del taller</div>
+        <div class="s11-tag " data-layout-ignore style="left: 547px; top: 681px">Marta: cortinas</div>
+        <div class="s11-tag ama" data-layout-ignore style="left: 644px; top: 659px">¿Gustavo?</div>
+        <div class="s11-tag ros" data-layout-ignore style="left: 759px; top: 655px">la vecina</div>
+        <div class="s11-tag " data-layout-ignore style="left: 705px; top: 749px">mesa ratona</div>
+        <div class="s11-tag ama" data-layout-ignore style="left: 800px; top: 765px">el primo de</div>
+        <div class="s11-tag ros" data-layout-ignore style="left: 800px; top: 801px">seña: ¿pagó?</div>
+        <div class="s11-tag " data-layout-ignore style="left: 765px; top: 858px">el de las banquetas</div>
+        <div class="s11-tag ama" data-layout-ignore style="left: 800px; top: 906px">la del espejo</div>
+        <div class="s11-tag ros" data-layout-ignore style="left: 800px; top: 969px">¿quién era?</div>
+        <div class="s11-tag " data-layout-ignore style="left: 705px; top: 967px">la de Carrasco</div>
+        <div class="s11-tag ama" data-layout-ignore style="left: 710px; top: 1028px">biblioteca</div>
+        <div class="s11-tag ros" data-layout-ignore style="left: 681px; top: 1094px">el del colchón</div>
+        <div class="s11-tag " data-layout-ignore style="left: 547px; top: 1035px">llamar martes</div>
+        <div class="s11-tag ama" data-layout-ignore style="left: 491px; top: 1086px">la que vuelve</div>
+        <div class="s11-tag ros" data-layout-ignore style="left: 402px; top: 1129px">presupuesto ???</div>
+        <div class="s11-tag " data-layout-ignore style="left: 353px; top: 1035px">el de la silla</div>
+        <div class="s11-tag ama" data-layout-ignore style="left: 256px; top: 1057px">Elsa: rosado</div>
+        <div class="s11-tag ros" data-layout-ignore style="left: 141px; top: 1061px">la de enfrente</div>
+        <div class="s11-tag " data-layout-ignore style="left: 195px; top: 967px">un tal Raúl</div>
+        <div class="s11-tag ama" data-layout-ignore style="left: 95px; top: 951px">cómoda blanca</div>
+        <div class="s11-tag ros" data-layout-ignore style="left: 24px; top: 915px">¿cuál sillón?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-cabeza";
+      const DUR = 7.25;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -8 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // zoom dramático de telenovela de la tarde
+      const zoom = (t, s, ox, oy, d) => tl.to(q(".escenario"), { scale: s, transformOrigin: ox + "px " + oy + "px", duration: d ?? 0.35, ease: "power3.out" }, t);
+
+      const TRANQ = 0.0, ALDO = 0.57, DESASTRE = 2.05, TREINTA = 3.03, CABEZA = 4.02, NOHAY = 4.93, CABEZA2 = 5.25, TANTO = 6.15;
+      tl.fromTo(q(".escenario"), { scale: 1.06, transformOrigin: "540px 960px" }, { scale: 1, duration: 2.6, ease: "power1.out" }, 0);
+      // la conductora le palmea el hombro
+      tl.fromTo(q(".s11-mano"), { x: -320 }, { x: 0, duration: 0.4, ease: "power3.out" }, TRANQ);
+      tl.to(q(".s11-mano"), { y: -10, duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut" }, ALDO);
+      tl.to(q(".s11-mano"), { x: -340, duration: 0.35, ease: "power2.in" }, DESASTRE + 0.3);
+      // "desastre": se le arregla la cara un poquito
+      tl.to(q(".s11-cejas"), { y: -4, duration: 0.2 }, DESASTRE);
+      gsap.set(q(".s11-lagrima"), { opacity: 0 });
+      // "treinta clientes en la cabeza": aparecen todos alrededor
+      const tags = qa(".s11-tag");
+      tags.forEach((t, i) => {
+        gsap.set(t, { opacity: 0 });
+        tl.fromTo(t, { opacity: 0, scale: 0.3, x: (540 - t.offsetLeft - 90) * 0.7, y: (900 - t.offsetTop) * 0.7, rotation: 0 }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: (i % 5) * 4 - 8, duration: 0.3, ease: "back.out(2)", immediateRender: false }, TREINTA - 0.1 + i * 0.035);
+        tl.to(t, { rotation: "+=" + ((i % 2) ? 5 : -5), duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, NOHAY + (i % 4) * 0.03);
+      });
+      // "no hay cabeza que dé para tanto": humo, temblor y todo sale volando
+      gsap.set(q(".s11-humo"), { opacity: 0 });
+      tl.to(q(".s11-humo"), { opacity: 1, duration: 0.1 }, CABEZA2);
+      tl.to(q(".s11-humo"), { y: -60, scale: 1.3, svgOrigin: "540 810", duration: 0.9, ease: "power1.out" }, CABEZA2);
+      tl.to(q(".s11-humo"), { opacity: 0, duration: 0.3 }, CABEZA2 + 0.8);
+      [0, 0.18, 0.36, 0.54].forEach((d) => temblor(q(".s11-ald"), CABEZA2 + d, 0.7));
+      tl.to(q(".s11-ojo"), { scale: 0.4, svgOrigin: "0 0", duration: 0.1 }, CABEZA2);
+      tags.forEach((t, i) => tl.to(t, { x: (t.offsetLeft + 90 - 540) * 1.2, y: (t.offsetTop - 900) * 1.2 + 500, rotation: (i % 2 ? 60 : -60), opacity: 0, duration: 0.7, ease: "power2.in" }, TANTO - 0.1 + (i % 6) * 0.02));
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

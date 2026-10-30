@@ -1,0 +1,153 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-recuerdo"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-recuerdo"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-recuerdo"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-recuerdo"] .linea { fill: none; stroke: #4b2537; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-recuerdo"] .cartel { position: absolute; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s03-recuerdo"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s03-recuerdo"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s03-recuerdo"] .lex { position: absolute; font-family: "Lexend", sans-serif; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s03-recuerdo"] .sello { position: absolute; padding: 6px 22px; border: 6px solid #c4607a; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 800; color: #c4607a; letter-spacing: 0.06em; white-space: nowrap; text-transform: uppercase; background: rgba(251, 239, 233, 0.92); }
+
+    [data-composition-id="s03-recuerdo"] .s03-rot { left: 0; right: 0; top: 584px; font-size: 28px; letter-spacing: 0.34em; color: #8c4a5e; }
+    [data-composition-id="s03-recuerdo"] .s03-prom { left: 0; right: 0; top: 1150px; font-size: 92px; line-height: 1; color: #4b2537; }
+    [data-composition-id="s03-recuerdo"] .s03-prom .k { display: inline-block; opacity: 0; }
+    [data-composition-id="s03-recuerdo"] .s03-presu { position: absolute; left: 600px; top: 900px; width: 150px; height: 180px; background: #fbefe9; border: 5px solid #4b2537; border-radius: 6px; }
+    [data-composition-id="s03-recuerdo"] .s03-presu .rr { position: absolute; left: 18px; right: 18px; height: 4px; background: #e3a6ae; }
+    [data-composition-id="s03-recuerdo"] .s03-presu .sig { left: 0; right: 0; top: 104px; font-size: 54px; color: #c99a3c; font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  </style>
+  <div id="root" data-composition-id="s03-recuerdo" data-width="1080" data-height="1920" data-duration="6.71">
+    <div id="s03-escena" class="capa clip" data-start="0" data-duration="6.71" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <defs><clipPath id="s03-ovalo"><ellipse cx="540" cy="930" rx="400" ry="290" /></clipPath></defs>
+          <ellipse cx="540" cy="930" rx="400" ry="290" fill="#f3d9d6" />
+          <g clip-path="url(#s03-ovalo)">
+            <path d="M140 1110 H940" stroke="#4b2537" stroke-width="5" opacity="0.4" />
+            <g class="s03-ald"><g transform="translate(760 880) scale(0.6)"><g class="s03-aldo">
+  <path class="s03-cuerpo" d="M-175 420 L-175 250 Q-170 150 -60 128 L60 128 Q170 150 175 250 L175 420 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-60 128 L-20 300 M60 128 L20 300" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="0" cy="250" r="7" fill="#4b2537" /><circle cx="0" cy="300" r="7" fill="#4b2537" />
+  <path d="M-46 130 L0 205 L46 130 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-30 150 L0 168 L30 150 L30 184 L0 168 L-30 184 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="-32" y="76" width="64" height="62" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="-92" cy="12" rx="16" ry="26" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="92" cy="12" rx="16" ry="26" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="0" cy="0" rx="92" ry="104" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-92 -4 Q-122 -34 -96 -66 Q-84 -46 -78 -30 Q-74 -50 -64 -60 Q-62 -30 -70 -6 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M92 -4 Q122 -34 96 -66 Q84 -46 78 -30 Q74 -50 64 -60 Q62 -30 70 -6 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-30 -84 Q0 -96 30 -84" fill="none" stroke="#e3a6ae" stroke-width="6" stroke-linecap="round" />
+  <path class="s03-cejas" d="M-62 -40 Q-40 -54 -16 -44 M16 -44 Q40 -54 62 -40" fill="none" stroke="#4b2537" stroke-width="9" stroke-linecap="round" />
+  <circle cx="-38" cy="-6" r="27" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="38" cy="-6" r="27" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-11 -8 Q0 -16 11 -8 M-65 -10 L-88 -16 M65 -10 L88 -16" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle class="s03-ojo" cx="-38" cy="-4" r="7" fill="#4b2537" /><circle class="s03-ojo" cx="38" cy="-4" r="7" fill="#4b2537" />
+  <path d="M0 4 Q16 34 2 42 Q-10 42 -12 34" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-60 60 Q-30 38 0 52 Q30 38 60 60 Q34 76 0 64 Q-34 76 -60 60 Z" fill="#4b2537" />
+  <path class="s03-boca" d="M-22 90 Q0 78 22 90" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path class="s03-lagrima" d="M-50 24 Q-40 40 -40 48 A10 10 0 0 1 -60 48 Q-60 40 -50 24 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="3" />
+</g></g></g>
+            <path d="M600 1040 H960 V1240 H600 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" />
+            <g class="s03-verde-g" transform="translate(360 1080) scale(0.8)"><g class="s03-verde" transform="scale(1.0)">
+  <path d="M-110 -10 Q-110 -110 -50 -116 L50 -116 Q110 -110 110 -10 Z" fill="#6f9a6a" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="-120" y="-20" width="240" height="70" rx="22" fill="#6f9a6a" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="-150" y="-60" width="52" height="120" rx="24" fill="#6f9a6a" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="98" y="-60" width="52" height="120" rx="24" fill="#6f9a6a" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-110 60 L-118 92 M110 60 L118 92" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+</g></g>
+            <g class="s03-sen"><g transform="translate(500 900) scale(0.62)">
+              <path d="M-150 420 L-150 250 Q-140 150 -55 128 L55 128 Q140 150 150 250 L150 420 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" />
+              <circle cx="-60" cy="-60" r="40" fill="#a48cc8" stroke="#4b2537" stroke-width="5" /><circle cx="-20" cy="-96" r="40" fill="#a48cc8" stroke="#4b2537" stroke-width="5" /><circle cx="30" cy="-96" r="40" fill="#a48cc8" stroke="#4b2537" stroke-width="5" /><circle cx="66" cy="-60" r="40" fill="#a48cc8" stroke="#4b2537" stroke-width="5" /><circle cx="80" cy="-14" r="36" fill="#a48cc8" stroke="#4b2537" stroke-width="5" /><circle cx="-76" cy="-14" r="36" fill="#a48cc8" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="-30" r="60" fill="#a48cc8" stroke="#4b2537" stroke-width="5" />
+              <path class="s03-brazo" d="M-120 220 Q-210 210 -260 260" fill="none" stroke="#4b2537" stroke-width="30" stroke-linecap="round" />
+              <path class="s03-brazo2" d="M-120 220 Q-210 210 -260 260" fill="none" stroke="#a48cc8" stroke-width="20" stroke-linecap="round" />
+            </g></g>
+          </g>
+          <ellipse class="s03-marco" cx="540" cy="930" rx="400" ry="290" fill="none" stroke="#c99a3c" stroke-width="12" />
+          <ellipse class="s03-marco2" cx="540" cy="930" rx="420" ry="310" fill="none" stroke="#c99a3c" stroke-width="4" stroke-dasharray="2 16" stroke-linecap="round" />
+          <g class="s03-campana" transform="translate(205 720)">
+            <path d="M-30 20 Q-30 -30 0 -34 Q30 -30 30 20 L40 30 H-40 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" />
+            <circle cx="0" cy="38" r="9" fill="#4b2537" />
+          </g>
+
+        </svg>
+
+        <div class="mono s03-rot">RECUERDO · MARZO</div>
+        <div class="s03-presu"><div class="rr" style="top: 30px"></div><div class="rr" style="top: 56px"></div><div class="rr" style="top: 82px; right: 50px"></div><div class="lex sig">$ ?</div></div>
+        <div class="mano s03-prom"></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-recuerdo";
+      const DUR = 6.71;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -8 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // zoom dramático de telenovela de la tarde
+      const zoom = (t, s, ox, oy, d) => tl.to(q(".escenario"), { scale: s, transformOrigin: ox + "px " + oy + "px", duration: d ?? 0.35, ease: "power3.out" }, t);
+
+      const ENTRO = 0.0, SENORA = 0.43, QUERIA = 1.27, SILLON = 1.55, VERDE = 1.98, PIDIO = 2.76, DIJE = 3.71, LUNES = 4.57, LLAMO = 5.0, FALTA = 5.69;
+      // el recuerdo: el óvalo se abre con un brillo, en tono de foto vieja
+      tl.fromTo(q(".escenario"), { scale: 0.92, transformOrigin: "540px 930px" }, { scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s03-marco2"), { rotation: 0, svgOrigin: "540 930" }, { rotation: 20, svgOrigin: "540 930", duration: DUR, ease: "none" }, 0);
+      // "entró": suena la campanita de la puerta
+      tl.fromTo(q(".s03-campana"), { rotation: -20, svgOrigin: "205 690" }, { rotation: 20, svgOrigin: "205 690", duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut" }, ENTRO);
+      // la señora (de espaldas: él nunca supo quién era) entra desde la izquierda
+      tl.fromTo(q(".s03-sen"), { x: -260 }, { x: 0, duration: 0.55, ease: "power3.out" }, SENORA - 0.3);
+      gsap.set([q(".s03-brazo"), q(".s03-brazo2")], { opacity: 0 });
+      // "sillón verde": lo señala y el sillón brilla
+      tl.to([q(".s03-brazo"), q(".s03-brazo2")], { opacity: 1, duration: 0.05 }, QUERIA);
+      dibujar([q(".s03-brazo"), q(".s03-brazo2")], QUERIA, 0.3);
+      tl.fromTo(q(".s03-verde-g"), { scale: 0.8, svgOrigin: "360 1080" }, { scale: 0.95, svgOrigin: "360 1080", duration: 0.25, yoyo: true, repeat: 1, ease: "back.out(2)" }, VERDE - 0.1);
+      // "presupuesto": la hoja con el signo de pregunta
+      gsap.set(q(".s03-presu"), { opacity: 0 });
+      tl.fromTo(q(".s03-presu"), { opacity: 0, y: 40, rotation: -14 }, { opacity: 1, y: 0, rotation: -6, duration: 0.35, ease: "back.out(2)", immediateRender: false }, PIDIO);
+      // "le dije": Don Aldo asiente, orgulloso
+      tl.to(q(".s03-ald"), { y: -16, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, DIJE);
+      // la promesa, escrita a mano
+      const prom = q(".s03-prom");
+      const palabras = [["El", LUNES - 0.1], ["lunes", LUNES], ["la", LLAMO - 0.3], ["llamo,", LLAMO], ["sin", FALTA - 0.5], ["falta.", FALTA]];
+      prom.innerHTML = palabras.map(([w]) => '<span class="k">' + w + "</span>").join(" ");
+      [...prom.querySelectorAll(".k")].forEach((k, i) => tl.fromTo(k, { opacity: 0, y: 20, rotation: -6 }, { opacity: 1, y: 0, rotation: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, palabras[i][1]));
+      tl.fromTo(prom, { scale: 1 }, { scale: 1.08, transformOrigin: "50% 50%", duration: 0.2, yoyo: true, repeat: 1 }, FALTA + 0.1);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

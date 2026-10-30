@@ -1,0 +1,155 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-programa"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-programa"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-programa"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-programa"] .linea { fill: none; stroke: #4b2537; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-programa"] .cartel { position: absolute; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s02-programa"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s02-programa"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s02-programa"] .lex { position: absolute; font-family: "Lexend", sans-serif; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s02-programa"] .sello { position: absolute; padding: 6px 22px; border: 6px solid #c4607a; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 800; color: #c4607a; letter-spacing: 0.06em; white-space: nowrap; text-transform: uppercase; background: rgba(251, 239, 233, 0.92); }
+
+    [data-composition-id="s02-programa"] .s02-cartel { position: absolute; left: 590px; top: 706px; width: 380px; height: 96px; border-radius: 48px; background: #4b2537; border: 5px solid #c99a3c; }
+    [data-composition-id="s02-programa"] .s02-ct { left: 0; right: 0; top: 18px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 44px; letter-spacing: 0.18em; color: #6b4655; }
+
+  </style>
+  <div id="root" data-composition-id="s02-programa" data-width="1080" data-height="1920" data-duration="3.68">
+    <div id="s02-escena" class="capa clip" data-start="0" data-duration="3.68" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <g class="s02-bamb">
+  <path d="M60 596 H1020 V646 Q945 676 870 646 Q795 676 720 646 Q645 676 570 646 Q495 676 420 646 Q345 676 270 646 Q195 676 60 646 Z" fill="#c4607a" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" />
+  <path d="M80 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M108 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M136 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M164 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M192 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M220 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M248 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M276 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M304 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M332 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M360 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M388 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M416 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M444 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M472 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M500 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M528 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M556 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M584 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M612 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M640 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M668 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M696 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M724 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M752 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M780 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M808 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M836 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M864 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M892 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M920 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M948 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M976 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" /><path d="M1004 656 V678" stroke="#c99a3c" stroke-width="6" stroke-linecap="round" />
+</g>
+          <g class="s02-cort-i">
+  <path d="M60 650 H300 V1330 Q240 1306 180 1330 Q120 1306 60 1330 Z" fill="#c4607a" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" />
+  <path d="M90 690 Q76 990 90 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" /><path d="M150 690 Q164 990 150 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" /><path d="M210 690 Q196 990 210 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" /><path d="M270 690 Q284 990 270 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" />
+</g>
+          <g class="s02-cort-d">
+  <path d="M780 650 H1020 V1330 Q960 1306 900 1330 Q840 1306 780 1330 Z" fill="#c4607a" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" />
+  <path d="M810 690 Q796 990 810 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" /><path d="M870 690 Q884 990 870 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" /><path d="M930 690 Q916 990 930 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" /><path d="M990 690 Q1004 990 990 1320" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" opacity="0.55" />
+</g>
+          <g transform="translate(790 1010) scale(0.62)"><g class="s02-sillon">
+  <path d="M-250 0 Q-250 -140 -140 -150 L140 -150 Q250 -140 250 0 L250 300 L-250 300 Z" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="-125" cy="-70" r="7" fill="#4b2537" /><circle cx="0" cy="-90" r="7" fill="#4b2537" /><circle cx="125" cy="-70" r="7" fill="#4b2537" />
+  <rect x="-290" y="80" width="90" height="260" rx="40" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="200" y="80" width="90" height="260" rx="40" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+</g></g>
+          <g class="s02-aldo-g"><g transform="translate(790 940) scale(0.62)"><g class="s02-aldo">
+  <path class="s02-cuerpo" d="M-175 420 L-175 250 Q-170 150 -60 128 L60 128 Q170 150 175 250 L175 420 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-60 128 L-20 300 M60 128 L20 300" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="0" cy="250" r="7" fill="#4b2537" /><circle cx="0" cy="300" r="7" fill="#4b2537" />
+  <path d="M-46 130 L0 205 L46 130 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-30 150 L0 168 L30 150 L30 184 L0 168 L-30 184 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="-32" y="76" width="64" height="62" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="-92" cy="12" rx="16" ry="26" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="92" cy="12" rx="16" ry="26" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="0" cy="0" rx="92" ry="104" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-92 -4 Q-122 -34 -96 -66 Q-84 -46 -78 -30 Q-74 -50 -64 -60 Q-62 -30 -70 -6 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M92 -4 Q122 -34 96 -66 Q84 -46 78 -30 Q74 -50 64 -60 Q62 -30 70 -6 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-30 -84 Q0 -96 30 -84" fill="none" stroke="#e3a6ae" stroke-width="6" stroke-linecap="round" />
+  <path class="s02-cejas" d="M-62 -40 Q-40 -54 -16 -44 M16 -44 Q40 -54 62 -40" fill="none" stroke="#4b2537" stroke-width="9" stroke-linecap="round" />
+  <circle cx="-38" cy="-6" r="27" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="38" cy="-6" r="27" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-11 -8 Q0 -16 11 -8 M-65 -10 L-88 -16 M65 -10 L88 -16" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle class="s02-ojo" cx="-38" cy="-4" r="7" fill="#4b2537" /><circle class="s02-ojo" cx="38" cy="-4" r="7" fill="#4b2537" />
+  <path d="M0 4 Q16 34 2 42 Q-10 42 -12 34" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-60 60 Q-30 38 0 52 Q30 38 60 60 Q34 76 0 64 Q-34 76 -60 60 Z" fill="#4b2537" />
+  <path class="s02-boca" d="M-22 90 Q0 78 22 90" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path class="s02-lagrima" d="M-50 24 Q-40 40 -40 48 A10 10 0 0 1 -60 48 Q-60 40 -50 24 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="3" />
+</g></g></g>
+          <g transform="translate(560 1290) scale(0.9)"><g class="s02-flores">
+  <path d="M-40 -140 Q-20 -60 -10 -60 M0 -180 V-60 M40 -150 Q20 -60 10 -60" fill="none" stroke="#6f9a6a" stroke-width="5" stroke-linecap="round" />
+  <g transform="translate(-40 -170)"><circle r="22" fill="#e3a6ae" stroke="#4b2537" stroke-width="4" /><circle r="8" fill="#c99a3c" /></g><g transform="translate(0 -200)"><circle r="22" fill="#c4607a" stroke="#4b2537" stroke-width="4" /><circle r="8" fill="#c99a3c" /></g><g transform="translate(42 -168)"><circle r="22" fill="#a48cc8" stroke="#4b2537" stroke-width="4" /><circle r="8" fill="#c99a3c" /></g><g transform="translate(-18 -130)"><circle r="22" fill="#a48cc8" stroke="#4b2537" stroke-width="4" /><circle r="8" fill="#c99a3c" /></g><g transform="translate(24 -132)"><circle r="22" fill="#e3a6ae" stroke="#4b2537" stroke-width="4" /><circle r="8" fill="#c99a3c" /></g>
+  <path d="M-46 -64 H46 L34 0 H-34 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" />
+</g></g>
+          <g class="s02-cond-g"><g transform="translate(330 880) scale(0.95)"><g class="s02-cond">
+  <path d="M-150 420 L-150 250 Q-140 150 -50 128 L50 128 Q140 150 150 250 L150 420 Z" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-50 128 Q0 200 50 128" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-46 150 Q0 196 46 150" fill="none" stroke="#fbefe9" stroke-width="10" stroke-dasharray="1 16" stroke-linecap="round" />
+  <rect x="-26" y="70" width="52" height="66" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-128 60 Q-150 -40 -110 -110 Q-50 -178 30 -166 Q118 -154 134 -66 Q150 10 126 70 Q110 40 96 -10 Q60 -64 -40 -50 Q-90 -30 -96 40 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="0" cy="0" rx="74" ry="90" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-74 -20 Q-40 -96 30 -80 Q70 -70 76 -20 Q40 -60 -20 -54 Q-50 -48 -74 -20 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-48 -4 Q-34 -14 -18 -4 M18 -4 Q34 -14 48 -4" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-50 -10 L-56 -20 M-42 -14 L-46 -24 M50 -10 L56 -20 M42 -14 L46 -24" fill="none" stroke="#4b2537" stroke-width="4" stroke-linecap="round" />
+  <circle cx="-40" cy="22" r="12" fill="#e3a6ae" opacity="0.8" /><circle cx="40" cy="22" r="12" fill="#e3a6ae" opacity="0.8" />
+  <path d="M0 4 Q8 22 0 28" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path class="s02-labios" d="M-22 46 Q0 36 22 46 Q0 64 -22 46 Z" fill="#c4607a" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="-74" cy="30" r="10" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="74" cy="30" r="10" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <g class="s02-mic">
+    <path d="M118 300 L150 160" fill="none" stroke="#4b2537" stroke-width="18" stroke-linecap="round" />
+    <circle cx="156" cy="140" r="30" fill="#c99a3c" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+    <path d="M136 130 H176 M136 148 H176 M156 112 V168" fill="none" stroke="#4b2537" stroke-width="3" />
+    <ellipse cx="118" cy="310" rx="28" ry="22" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  </g>
+</g></g></g>
+
+        </svg>
+
+        <div class="s02-cartel"><div class="s02-ct">APLAUSOS</div></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-programa";
+      const DUR = 3.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -8 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // zoom dramático de telenovela de la tarde
+      const zoom = (t, s, ox, oy, d) => tl.to(q(".escenario"), { scale: s, transformOrigin: ox + "px " + oy + "px", duration: d ?? 0.35, ease: "power3.out" }, t);
+
+      const BIEN = 0.0, VOLVER = 0.82, VERTE = 1.15, DON = 1.39, CONTENOS = 2.29;
+      tl.fromTo(q(".escenario"), { scale: 1.05, transformOrigin: "540px 960px" }, { scale: 1, duration: 1.2, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s02-cond-g"), { x: -120 }, { x: 0, duration: 0.45, ease: "back.out(1.6)" }, 0);
+      // la conductora saluda con el micrófono
+      tl.to(q(".s02-mic"), { rotation: -10, svgOrigin: "118 300", duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.2);
+      // el cartel de APLAUSOS se prende
+      tl.to(q(".s02-ct"), { color: "#c99a3c", duration: 0.05 }, VOLVER);
+      tl.fromTo(q(".s02-cartel"), { scale: 1 }, { scale: 1.08, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, VOLVER);
+      tl.to(q(".s02-ct"), { opacity: 0.4, duration: 0.12, yoyo: true, repeat: 5, ease: "steps(1)" }, VERTE + 0.3);
+      // "Don Aldo": la cámara va hacia él; "contenos": el micrófono lo apunta
+      tl.to(q(".escenario"), { x: -120, scale: 1.12, transformOrigin: "790px 960px", duration: 0.6, ease: "power2.inOut" }, DON);
+      tl.to(q(".s02-mic"), { rotation: 28, svgOrigin: "118 300", duration: 0.35, ease: "back.out(2)" }, CONTENOS - 0.1);
+      tl.to(q(".s02-aldo-g"), { y: -14, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut" }, CONTENOS + 0.3);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

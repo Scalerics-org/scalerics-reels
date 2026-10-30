@@ -1,0 +1,150 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* focos suaves que barren */
+    [data-composition-id="ambiente"] .amb-foco { position: absolute; top: -60px; width: 560px; height: 1600px; margin-left: -280px; }
+    [data-composition-id="ambiente"] .amb-foco > div { position: absolute; inset: 0; clip-path: polygon(250px 0, 310px 0, 560px 1600px, 0 1600px); }
+    [data-composition-id="ambiente"] .amb-foco .f-ro { background: linear-gradient(180deg, rgba(227, 166, 174, 0.34) 0%, rgba(227, 166, 174, 0.10) 60%, rgba(227, 166, 174, 0) 100%); }
+    [data-composition-id="ambiente"] .amb-foco .f-do { background: linear-gradient(180deg, rgba(201, 154, 60, 0.26) 0%, rgba(201, 154, 60, 0.08) 60%, rgba(201, 154, 60, 0) 100%); }
+    /* placa del programa */
+    [data-composition-id="ambiente"] .amb-placa { position: absolute; left: 220px; top: 50px; width: 640px; height: 160px; }
+    [data-composition-id="ambiente"] .amb-titulo { position: absolute; left: 0; right: 0; top: 30px; text-align: center; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; font-size: 66px; line-height: 1; color: #4b2537; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-sub { position: absolute; left: 0; right: 0; top: 112px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.26em; color: #8c4a5e; white-space: nowrap; }
+    /* zócalo en cursiva */
+    [data-composition-id="ambiente"] .amb-zocalo { position: absolute; left: 60px; top: 1392px; width: 960px; height: 140px; }
+    [data-composition-id="ambiente"] .amb-zbanda { position: absolute; left: 0; top: 18px; width: 960px; height: 112px; background: #e3a6ae; border-radius: 56px 14px 56px 14px; box-shadow: inset 0 0 0 4px #c99a3c; }
+    [data-composition-id="ambiente"] .amb-zcorazon { position: absolute; left: 22px; top: 32px; width: 84px; height: 84px; }
+    [data-composition-id="ambiente"] .amb-zt { position: absolute; left: 124px; top: 22px; width: 820px; }
+    [data-composition-id="ambiente"] .amb-znom { font-family: "Cormorant", serif; font-style: italic; font-weight: 500; font-size: 64px; line-height: 1; color: #4b2537; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-zdes { margin-top: 6px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 30px; line-height: 1.1; color: #4b2537; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-zitem { position: absolute; left: 0; top: 0; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-vivo { position: absolute; left: 870px; top: 70px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; color: #4b2537; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.8">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="73.8" data-track-index="0">
+      <div class="amb-foco z0" style="left: 150px"><div class="f-ro"></div></div>
+      <div class="amb-foco z1" style="left: 540px"><div class="f-do"></div></div>
+      <div class="amb-foco z2" style="left: 930px"><div class="f-ro"></div></div>
+
+      <!-- corazones que suben a los costados -->
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs>
+          <path id="amb-cor" d="M0 18 C-26 -6 -44 -22 -44 -40 C-44 -56 -32 -66 -20 -66 C-10 -66 -3 -60 0 -52 C3 -60 10 -66 20 -66 C32 -66 44 -56 44 -40 C44 -22 26 -6 0 18 Z" />
+        </defs>
+        <g class="amb-cors">
+          <use href="#amb-cor" class="amb-c c0" x="80" y="1260" fill="#e3a6ae" stroke="#4b2537" stroke-width="4" />
+          <use href="#amb-cor" class="amb-c c1" x="1000" y="1180" fill="#e3a6ae" stroke="#4b2537" stroke-width="4" />
+          <use href="#amb-cor" class="amb-c c2" x="130" y="1040" fill="#c99a3c" stroke="#4b2537" stroke-width="4" />
+          <use href="#amb-cor" class="amb-c c3" x="960" y="980" fill="#a48cc8" stroke="#4b2537" stroke-width="4" />
+          <use href="#amb-cor" class="amb-c c4" x="60" y="860" fill="#a48cc8" stroke="#4b2537" stroke-width="4" />
+          <use href="#amb-cor" class="amb-c c5" x="1020" y="760" fill="#c4607a" stroke="#4b2537" stroke-width="4" />
+        </g>
+        <!-- marco de la placa con bombitas -->
+        <g class="amb-marco">
+          <path d="M250 64 H830 Q870 64 870 104 V164 Q870 204 830 204 H250 Q210 204 210 164 V104 Q210 64 250 64 Z" fill="#fbefe9" stroke="#c99a3c" stroke-width="6" />
+          <path d="M262 78 H818 Q856 78 856 112 V156 Q856 190 818 190 H262 Q224 190 224 156 V112 Q224 78 262 78 Z" fill="none" stroke="#e3a6ae" stroke-width="3" />
+        </g>
+        <g class="amb-bombitas"></g>
+      </svg>
+      <div class="amb-placa">
+        <div class="amb-titulo" data-layout-allow-overflow>Volver a Verte</div>
+        <div class="amb-sub" data-layout-ignore>REENCUENTROS</div>
+      </div>
+
+      <div class="amb-zocalo">
+        <div class="amb-zbanda"></div>
+        <svg class="amb-zcorazon" viewBox="-50 -72 100 100" style="width:84px;height:84px;position:absolute;left:22px;top:32px" aria-hidden="true">
+          <use href="#amb-cor" fill="#c4607a" stroke="#4b2537" stroke-width="4" />
+        </svg>
+        <div class="amb-zt">
+          <div class="amb-zitem z-a"><div class="amb-znom">Don Aldo</div><div class="amb-zdes">busca a su clienta desde marzo</div></div>
+          <div class="amb-zitem z-b"><div class="amb-znom">Don Aldo</div><div class="amb-zdes">mueblería de barrio · la prometió para el lunes</div></div>
+          <div class="amb-zitem z-c"><div class="amb-znom">Graciela</div><div class="amb-zdes">la señora del sillón verde</div></div>
+          <div class="amb-zitem z-d"><div class="amb-znom">Don Aldo</div><div class="amb-zdes">treinta clientes en la cabeza</div></div>
+        </div>
+      </div>
+      <div class="amb-flash f-bl" style="background: #fffaf4"></div>
+      <div class="amb-flash f-ro" style="background: #c4607a"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.8;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const vueltas = (d) => Math.max(1, Math.floor((DUR - 0.5) / d) - 1);
+      const NS = "http://www.w3.org/2000/svg";
+
+      // bombitas alrededor de la placa
+      const bomb = q(".amb-bombitas");
+      const pts = [];
+      for (let x = 262; x <= 818; x += 46.3) { pts.push([x, 64]); pts.push([x, 204]); }
+      pts.push([210, 134], [870, 134]);
+      pts.forEach(([x, y], i) => {
+        const c = document.createElementNS(NS, "circle");
+        c.setAttribute("cx", x); c.setAttribute("cy", y); c.setAttribute("r", 7);
+        c.setAttribute("fill", "#c99a3c"); c.setAttribute("class", "amb-b " + (i % 2 ? "par" : "impar"));
+        bomb.appendChild(c);
+      });
+      tl.fromTo(qa(".amb-b.par"), { opacity: 1 }, { opacity: 0.3, duration: 0.45, yoyo: true, repeat: vueltas(0.45), ease: "steps(1)" }, 0);
+      tl.fromTo(qa(".amb-b.impar"), { opacity: 0.3 }, { opacity: 1, duration: 0.45, yoyo: true, repeat: vueltas(0.45), ease: "steps(1)" }, 0);
+
+      // focos que barren despacio
+      [[".z0", -12, 9, 3.3], [".z1", 6, -6, 2.7], [".z2", 12, -9, 3.0]].forEach(([s, a, b, d]) => {
+        tl.fromTo(q(s), { rotation: a, transformOrigin: "50% 0%" }, { rotation: b, transformOrigin: "50% 0%", duration: d, yoyo: true, repeat: vueltas(d), ease: "sine.inOut" }, 0);
+      });
+
+      // placa: entra con un rebote; el título late suave
+      tl.fromTo([q(".amb-placa"), q(".amb-marco")], { scale: 1.12, transformOrigin: "540px 134px" }, { scale: 1, duration: 0.45, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".amb-titulo"), { scale: 1 }, { scale: 1.035, duration: 0.9, yoyo: true, repeat: vueltas(0.9), ease: "sine.inOut" }, 0.5);
+
+      // corazones que suben: en lo emotivo (música, cortina, ¡Graciela!) y al final
+      const subir = (t0, t1) => qa(".amb-c").forEach((c, i) => {
+        const t = t0 + i * 0.45;
+        if (t > t1) return;
+        tl.fromTo(c, { opacity: 0, y: 0, scale: 0.6, rotation: (i % 2 ? 10 : -10) }, { opacity: 0.95, y: -160, scale: 1, rotation: (i % 2 ? -8 : 8), duration: 1.0, ease: "sine.out", immediateRender: false }, t);
+        tl.to(c, { opacity: 0, y: -330, duration: 1.0, ease: "sine.in" }, t + 1.0);
+      });
+      gsap.set(qa(".amb-c"), { opacity: 0 });
+      subir(25.2, 27.8);
+      subir(31.9, 34.5);
+      subir(36.2, 38.4);
+      subir(70.2, 72.6);
+
+      // zócalo: entra, cambia de persona y se va cuando entra Scalerics
+      const Z = q(".amb-zocalo");
+      gsap.set(Z, { opacity: 0 });
+      tl.fromTo(Z, { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, 0.9);
+      const items = [[".z-a", 0.9, 9.7], [".z-b", 9.7, 33.0], [".z-c", 35.0, 50.7], [".z-d", 50.77, 57.8]];
+      items.forEach(([s, a, b]) => {
+        const el = q(s);
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", immediateRender: false }, a + 0.05);
+        tl.to(el, { opacity: 0, y: -16, duration: 0.2, ease: "power2.in" }, b - 0.2);
+      });
+      tl.to(Z, { opacity: 0, duration: 0.01 }, 33.0);
+      tl.fromTo(Z, { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, 35.0);
+      tl.fromTo(q(".amb-zcorazon"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.5, yoyo: true, repeat: vueltas(0.5), ease: "sine.inOut" }, 1.4);
+      tl.to(Z, { opacity: 0, y: 60, duration: 0.35, ease: "power2.in" }, 57.7);
+
+      // flashes: la cortina (blanco) y el ¡Oooh! (rosa hondo)
+      [[".f-bl", 31.88, 0.55], [".f-ro", 48.29, 0.3]].forEach(([s, t, o]) => {
+        tl.fromTo(q(s), { opacity: 0 }, { opacity: o, duration: 0.04, immediateRender: false }, t);
+        tl.to(q(s), { opacity: 0, duration: 0.45, ease: "power2.out" }, t + 0.05);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

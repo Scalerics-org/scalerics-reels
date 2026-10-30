@@ -1,0 +1,93 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-oooh"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-oooh"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-oooh"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-oooh"] .linea { fill: none; stroke: #4b2537; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-oooh"] .cartel { position: absolute; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s10-oooh"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s10-oooh"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s10-oooh"] .lex { position: absolute; font-family: "Lexend", sans-serif; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s10-oooh"] .sello { position: absolute; padding: 6px 22px; border: 6px solid #c4607a; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 800; color: #c4607a; letter-spacing: 0.06em; white-space: nowrap; text-transform: uppercase; background: rgba(251, 239, 233, 0.92); }
+
+    [data-composition-id="s10-oooh"] .s10-ooh { left: 0; right: 0; top: 610px; font-size: 170px; line-height: 1; color: #c99a3c; font-family: "Lexend", sans-serif; font-weight: 900; -webkit-text-stroke: 10px #4b2537; paint-order: stroke fill; }
+
+  </style>
+  <div id="root" data-composition-id="s10-oooh" data-width="1080" data-height="1920" data-duration="2.48">
+    <div id="s10-escena" class="capa clip" data-start="0" data-duration="2.48" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <g class="s10-izq"><path d="M540 1060 C480 1000 400 950 400 880 C400 830 440 800 480 800 C510 800 530 815 540 840 L520 900 L556 950 L524 1000 Z" fill="#c4607a" stroke="#4b2537" stroke-width="6" stroke-linejoin="round" /></g>
+          <g class="s10-der"><path d="M540 1060 C600 1000 680 950 680 880 C680 830 640 800 600 800 C570 800 550 815 540 840 L520 900 L556 950 L524 1000 Z" fill="#c4607a" stroke="#4b2537" stroke-width="6" stroke-linejoin="round" /></g>
+          <g class="s10-p p0"><g transform="translate(130 1160)"><path d="M-80 150 Q-80 60 0 54 Q80 60 80 150 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="0" r="52" fill="#fbefe9" stroke="#4b2537" stroke-width="5" /><circle cx="-18" cy="-10" r="6" fill="#4b2537" /><circle cx="18" cy="-10" r="6" fill="#4b2537" /><ellipse class="s10-o" cx="0" cy="22" rx="11" ry="16" fill="#4b2537" /></g></g><g class="s10-p p1"><g transform="translate(320 1180)"><path d="M-80 150 Q-80 60 0 54 Q80 60 80 150 Z" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="0" r="52" fill="#fbefe9" stroke="#4b2537" stroke-width="5" /><circle cx="-18" cy="-10" r="6" fill="#4b2537" /><circle cx="18" cy="-10" r="6" fill="#4b2537" /><ellipse class="s10-o" cx="0" cy="22" rx="11" ry="16" fill="#4b2537" /></g></g><g class="s10-p p2"><g transform="translate(540 1160)"><path d="M-80 150 Q-80 60 0 54 Q80 60 80 150 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="0" r="52" fill="#fbefe9" stroke="#4b2537" stroke-width="5" /><circle cx="-18" cy="-10" r="6" fill="#4b2537" /><circle cx="18" cy="-10" r="6" fill="#4b2537" /><ellipse class="s10-o" cx="0" cy="22" rx="11" ry="16" fill="#4b2537" /></g></g><g class="s10-p p3"><g transform="translate(760 1180)"><path d="M-80 150 Q-80 60 0 54 Q80 60 80 150 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="0" r="52" fill="#fbefe9" stroke="#4b2537" stroke-width="5" /><circle cx="-18" cy="-10" r="6" fill="#4b2537" /><circle cx="18" cy="-10" r="6" fill="#4b2537" /><ellipse class="s10-o" cx="0" cy="22" rx="11" ry="16" fill="#4b2537" /></g></g><g class="s10-p p4"><g transform="translate(950 1160)"><path d="M-80 150 Q-80 60 0 54 Q80 60 80 150 Z" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="0" r="52" fill="#fbefe9" stroke="#4b2537" stroke-width="5" /><circle cx="-18" cy="-10" r="6" fill="#4b2537" /><circle cx="18" cy="-10" r="6" fill="#4b2537" /><ellipse class="s10-o" cx="0" cy="22" rx="11" ry="16" fill="#4b2537" /></g></g>
+
+        </svg>
+
+        <div class="lex s10-ooh">¡OOOH!</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-oooh";
+      const DUR = 2.48;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -8 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // zoom dramático de telenovela de la tarde
+      const zoom = (t, s, ox, oy, d) => tl.to(q(".escenario"), { scale: s, transformOrigin: ox + "px " + oy + "px", duration: d ?? 0.35, ease: "power3.out" }, t);
+
+      // el público reacciona en el cuadro 0
+      tl.fromTo(q(".escenario"), { scale: 1.1, transformOrigin: "540px 960px" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
+      qa(".s10-p").forEach((p, i) => {
+        tl.fromTo(p, { y: 30 }, { y: 0, duration: 0.25, ease: "back.out(2)" }, i * 0.04);
+        tl.to(p, { y: -10, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.3 + i * 0.05);
+      });
+      qa(".s10-o").forEach((o, i) => tl.fromTo(o, { scaleY: 0.6, svgOrigin: "0 22" }, { scaleY: 1.4, svgOrigin: "0 22", duration: 0.4, ease: "power2.out" }, 0.05 + i * 0.03));
+      const ooh = q(".s10-ooh");
+      tl.fromTo(ooh, { scale: 1.8 }, { scale: 1, duration: 0.2, ease: "power4.in" }, 0);
+      temblor(ooh, 0.22, 1);
+      tl.to(ooh, { scale: 1.06, duration: 0.4, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0.5);
+      // el corazón se parte
+      tl.to(q(".s10-izq"), { x: -50, y: 40, rotation: -16, svgOrigin: "540 1060", duration: 0.5, ease: "power2.out" }, 0.35);
+      tl.to(q(".s10-der"), { x: 50, y: 40, rotation: 16, svgOrigin: "540 1060", duration: 0.5, ease: "power2.out" }, 0.35);
+      tl.to([q(".s10-izq"), q(".s10-der")], { y: 120, duration: 1.2, ease: "power1.in" }, 0.9);
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

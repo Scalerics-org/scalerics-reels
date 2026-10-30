@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-musica"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-musica"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-musica"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-musica"] .linea { fill: none; stroke: #4b2537; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-musica"] .cartel { position: absolute; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s06-musica"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s06-musica"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s06-musica"] .lex { position: absolute; font-family: "Lexend", sans-serif; font-weight: 700; color: #4b2537; white-space: nowrap; text-align: center; }
+    [data-composition-id="s06-musica"] .sello { position: absolute; padding: 6px 22px; border: 6px solid #c4607a; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 800; color: #c4607a; letter-spacing: 0.06em; white-space: nowrap; text-transform: uppercase; background: rgba(251, 239, 233, 0.92); }
+
+    [data-composition-id="s06-musica"] .s06-snif { left: 640px; top: 700px; font-size: 64px; font-family: "Lexend", sans-serif; font-weight: 900; color: #c4607a; -webkit-text-stroke: 6px #4b2537; paint-order: stroke fill; }
+
+  </style>
+  <div id="root" data-composition-id="s06-musica" data-width="1080" data-height="1920" data-duration="3.42">
+    <div id="s06-escena" class="capa clip" data-start="0" data-duration="3.42" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <g transform="translate(540 960) scale(0.82)"><g class="s06-sillon">
+  <path d="M-250 0 Q-250 -140 -140 -150 L140 -150 Q250 -140 250 0 L250 300 L-250 300 Z" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="-125" cy="-70" r="7" fill="#4b2537" /><circle cx="0" cy="-90" r="7" fill="#4b2537" /><circle cx="125" cy="-70" r="7" fill="#4b2537" />
+  <rect x="-290" y="80" width="90" height="260" rx="40" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="200" y="80" width="90" height="260" rx="40" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+</g></g>
+          <g class="s06-ald"><g transform="translate(540 860) scale(0.82)"><g class="s06-aldo">
+  <path class="s06-cuerpo" d="M-175 420 L-175 250 Q-170 150 -60 128 L60 128 Q170 150 175 250 L175 420 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-60 128 L-20 300 M60 128 L20 300" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="0" cy="250" r="7" fill="#4b2537" /><circle cx="0" cy="300" r="7" fill="#4b2537" />
+  <path d="M-46 130 L0 205 L46 130 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-30 150 L0 168 L30 150 L30 184 L0 168 L-30 184 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="-32" y="76" width="64" height="62" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="-92" cy="12" rx="16" ry="26" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="92" cy="12" rx="16" ry="26" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <ellipse cx="0" cy="0" rx="92" ry="104" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-92 -4 Q-122 -34 -96 -66 Q-84 -46 -78 -30 Q-74 -50 -64 -60 Q-62 -30 -70 -6 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M92 -4 Q122 -34 96 -66 Q84 -46 78 -30 Q74 -50 64 -60 Q62 -30 70 -6 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-30 -84 Q0 -96 30 -84" fill="none" stroke="#e3a6ae" stroke-width="6" stroke-linecap="round" />
+  <path class="s06-cejas" d="M-62 -40 Q-40 -54 -16 -44 M16 -44 Q40 -54 62 -40" fill="none" stroke="#4b2537" stroke-width="9" stroke-linecap="round" />
+  <circle cx="-38" cy="-6" r="27" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><circle cx="38" cy="-6" r="27" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-11 -8 Q0 -16 11 -8 M-65 -10 L-88 -16 M65 -10 L88 -16" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle class="s06-ojo" cx="-38" cy="-4" r="7" fill="#4b2537" /><circle class="s06-ojo" cx="38" cy="-4" r="7" fill="#4b2537" />
+  <path d="M0 4 Q16 34 2 42 Q-10 42 -12 34" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-60 60 Q-30 38 0 52 Q30 38 60 60 Q34 76 0 64 Q-34 76 -60 60 Z" fill="#4b2537" />
+  <path class="s06-boca" d="M-22 90 Q0 78 22 90" fill="none" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path class="s06-lagrima" d="M-50 24 Q-40 40 -40 48 A10 10 0 0 1 -60 48 Q-60 40 -50 24 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="3" />
+</g></g></g>
+          <g class="s06-pan">
+            <path d="M0 -60 L60 0 L0 60 L-60 0 Z" transform="translate(540 960)" fill="#fbefe9" stroke="#4b2537" stroke-width="5" stroke-linejoin="round" />
+            <path d="M0 -44 L44 0 L0 44 L-44 0 Z" transform="translate(540 960)" fill="none" stroke="#e3a6ae" stroke-width="4" stroke-dasharray="3 7" />
+          </g>
+          <g class="s06-nota n0"><g transform="translate(170 760)"><ellipse cx="0" cy="0" rx="22" ry="16" transform="rotate(-20)" fill="#c99a3c" stroke="#4b2537" stroke-width="4" /><path d="M18 -6 V-80 Q40 -66 46 -46" fill="none" stroke="#4b2537" stroke-width="6" stroke-linecap="round" /></g></g><g class="s06-nota n1"><g transform="translate(900 700)"><ellipse cx="0" cy="0" rx="22" ry="16" transform="rotate(-20)" fill="#e3a6ae" stroke="#4b2537" stroke-width="4" /><path d="M18 -6 V-80 Q40 -66 46 -46" fill="none" stroke="#4b2537" stroke-width="6" stroke-linecap="round" /></g></g><g class="s06-nota n2"><g transform="translate(210 1000)"><ellipse cx="0" cy="0" rx="22" ry="16" transform="rotate(-20)" fill="#a48cc8" stroke="#4b2537" stroke-width="4" /><path d="M18 -6 V-80 Q40 -66 46 -46" fill="none" stroke="#4b2537" stroke-width="6" stroke-linecap="round" /></g></g><g class="s06-nota n3"><g transform="translate(870 980)"><ellipse cx="0" cy="0" rx="22" ry="16" transform="rotate(-20)" fill="#c99a3c" stroke="#4b2537" stroke-width="4" /><path d="M18 -6 V-80 Q40 -66 46 -46" fill="none" stroke="#4b2537" stroke-width="6" stroke-linecap="round" /></g></g>
+          <g class="s06-publico"><g class="s06-pub p0" transform="translate(110 1250)"><path d="M-70 120 Q-70 40 0 34 Q70 40 70 120 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="-10" r="46" fill="#4b2537" /></g><g class="s06-pub p1" transform="translate(253 1250)"><path d="M-70 120 Q-70 40 0 34 Q70 40 70 120 Z" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="-10" r="46" fill="#4b2537" /></g><g class="s06-pub p2" transform="translate(397 1250)"><path d="M-70 120 Q-70 40 0 34 Q70 40 70 120 Z" fill="#c99a3c" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="-10" r="46" fill="#4b2537" /></g><g class="s06-pub p3" transform="translate(540 1250)"><path d="M-70 120 Q-70 40 0 34 Q70 40 70 120 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="-10" r="46" fill="#4b2537" /></g><g class="s06-pub p4" transform="translate(683 1250)"><path d="M-70 120 Q-70 40 0 34 Q70 40 70 120 Z" fill="#c4607a" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="-10" r="46" fill="#4b2537" /></g><g class="s06-pub p5" transform="translate(827 1250)"><path d="M-70 120 Q-70 40 0 34 Q70 40 70 120 Z" fill="#e3a6ae" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="-10" r="46" fill="#4b2537" /></g><g class="s06-pub p6" transform="translate(970 1250)"><path d="M-70 120 Q-70 40 0 34 Q70 40 70 120 Z" fill="#a48cc8" stroke="#4b2537" stroke-width="5" /><circle cx="0" cy="-10" r="46" fill="#4b2537" /></g></g>
+          <g class="s06-pp q0"><g transform="translate(180 1190)"><path d="M0 0 V-60" stroke="#4b2537" stroke-width="5" stroke-linecap="round" /><path d="M0 -60 L44 -70 L36 -20 L0 -16 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="4" stroke-linejoin="round" /></g></g><g class="s06-pp q1"><g transform="translate(470 1190)"><path d="M0 0 V-60" stroke="#4b2537" stroke-width="5" stroke-linecap="round" /><path d="M0 -60 L44 -70 L36 -20 L0 -16 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="4" stroke-linejoin="round" /></g></g><g class="s06-pp q2"><g transform="translate(760 1190)"><path d="M0 0 V-60" stroke="#4b2537" stroke-width="5" stroke-linecap="round" /><path d="M0 -60 L44 -70 L36 -20 L0 -16 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="4" stroke-linejoin="round" /></g></g><g class="s06-pp q3"><g transform="translate(900 1190)"><path d="M0 0 V-60" stroke="#4b2537" stroke-width="5" stroke-linecap="round" /><path d="M0 -60 L44 -70 L36 -20 L0 -16 Z" fill="#fbefe9" stroke="#4b2537" stroke-width="4" stroke-linejoin="round" /></g></g>
+
+        </svg>
+
+        <div class="lex s06-snif">¡SNIF!</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-musica";
+      const DUR = 3.42;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -8 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // zoom dramático de telenovela de la tarde
+      const zoom = (t, s, ox, oy, d) => tl.to(q(".escenario"), { scale: s, transformOrigin: ox + "px " + oy + "px", duration: d ?? 0.35, ease: "power3.out" }, t);
+
+      const MUSICA = 0.0, FAVOR = 0.74, PANUELO = 1.56, PARA = 2.05, ALDO = 2.82;
+      tl.fromTo(q(".escenario"), { scale: 1.08, transformOrigin: "540px 900px" }, { scale: 1, duration: DUR, ease: "none" }, 0);
+      // las notas suben meciéndose
+      qa(".s06-nota").forEach((n, i) => {
+        tl.fromTo(n, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out", immediateRender: false }, 0.05 + i * 0.25);
+        tl.to(n, { y: -140, rotation: i % 2 ? 12 : -12, duration: 2.6, ease: "sine.inOut" }, 0.45 + i * 0.25);
+      });
+      // el público se balancea con la música
+      qa(".s06-pub").forEach((p, i) => tl.to(p, { rotation: i % 2 ? 4 : -4, svgOrigin: (110 + i * 143) + " 1370", duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.2 + i * 0.05));
+      // "pañuelo": vuela desde el costado y Don Aldo lo agarra
+      gsap.set(q(".s06-pan"), { opacity: 0 });
+      tl.fromTo(q(".s06-pan"), { opacity: 1, x: -520, y: -200, rotation: -200, svgOrigin: "540 960" }, { opacity: 1, x: 0, y: 0, rotation: 0, svgOrigin: "540 960", duration: 0.5, ease: "power2.out", immediateRender: false }, PANUELO - 0.1);
+      tl.to(q(".s06-pan"), { y: -60, scale: 1.1, svgOrigin: "540 960", duration: 0.25, ease: "power2.inOut" }, PARA + 0.2);
+      // los pañuelitos del público
+      qa(".s06-pp").forEach((p, i) => {
+        gsap.set(p, { opacity: 0 });
+        tl.fromTo(p, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, PANUELO + 0.2 + i * 0.1);
+        tl.to(p, { rotation: i % 2 ? 14 : -14, svgOrigin: [180, 470, 760, 900][i] + " 1190", duration: 0.18, yoyo: true, repeat: 5, ease: "sine.inOut" }, PANUELO + 0.45 + i * 0.1);
+      });
+      // "Aldo": se suena la nariz
+      const snif = q(".s06-snif");
+      gsap.set(snif, { opacity: 0 });
+      tl.fromTo(snif, { opacity: 0, scale: 0.4, rotation: -10 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.2, ease: "back.out(3)", immediateRender: false }, ALDO - 0.1);
+      temblor(q(".s06-ald"), ALDO, 0.6);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
