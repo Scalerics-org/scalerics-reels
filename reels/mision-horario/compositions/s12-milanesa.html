@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "FreeMono"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-milanesa"] .s12-capa, [data-composition-id="s12-milanesa"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-milanesa"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-milanesa"] .sil { fill: #0b0b0d; stroke: #6b7380; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s12-milanesa"] .sil-ln { fill: none; stroke: #6b7380; stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s12-milanesa"] .ln { fill: none; stroke: #f1ece1; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s12-milanesa"] .mira { fill: none; stroke: #ff1f3d; stroke-width: 5; stroke-linecap: round; }
+    [data-composition-id="s12-milanesa"] .brilla-rojo { filter: drop-shadow(0 0 10px rgba(255, 31, 61, 0.55)); }
+    [data-composition-id="s12-milanesa"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.02em; }
+    [data-composition-id="s12-milanesa"] .sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s12-milanesa"] .sello span { display: inline-block; padding: 8px 24px; border: 7px solid #ff1f3d; border-radius: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; color: #ff1f3d; white-space: nowrap; filter: drop-shadow(0 0 8px rgba(255, 31, 61, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s12-milanesa"] .rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s12-milanesa"] .maq { font-family: "FreeMono", monospace; font-weight: 700; color: #0b0b0d; white-space: nowrap; }
+    [data-composition-id="s12-milanesa"] .fase-c { position: absolute; inset: 0; }
+    [data-composition-id="s12-milanesa"] .fase-p { top: 600px; font-size: 140px; letter-spacing: 0.08em; color: #f1ece1; }
+    [data-composition-id="s12-milanesa"] .fase-n { top: 720px; font-size: 500px; color: #d9b77e; }
+
+    [data-composition-id="s12-milanesa"] .s12-medalla { position: absolute; left: 0; right: 0; top: 1300px; text-align: center; }
+    [data-composition-id="s12-milanesa"] .s12-medalla span { display: inline-block; padding: 12px 30px; background: #d9b77e; color: #0b0b0d; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; text-transform: uppercase; white-space: nowrap; border-radius: 6px; }
+    [data-composition-id="s12-milanesa"] .s12-noenc { top: 1300px; }
+    [data-composition-id="s12-milanesa"] .s12-noenc span { font-size: 44px; }
+  </style>
+  <div id="root" data-composition-id="s12-milanesa" data-width="1080" data-height="1920" data-duration="5.83">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="5.83" data-track-index="0">
+      <div class="s12-escenario">
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s12-foco" d="M460 600 L240 1230 H840 L620 600 Z" fill="#d9b77e" opacity="0.12" />
+          <rect x="250" y="680" width="580" height="560" rx="30" fill="#131418" stroke="#6b7380" stroke-width="6" />
+          <g class="s12-mila">
+            <ellipse cx="540" cy="1080" rx="230" ry="66" fill="none" stroke="#f1ece1" stroke-width="7" />
+            <path d="M360 1060 C380 990 510 970 590 990 C670 1005 720 1030 700 1075 C670 1115 450 1120 390 1100 Z" fill="#d9b77e" stroke="#0b0b0d" stroke-width="6" />
+            <path d="M420 1050 l18 7 M490 1020 l16 10 M560 1040 l14 12 M470 1080 l18 4 M620 1060 l16 6 M650 1030 l12 10" stroke="#0b0b0d" stroke-width="5" stroke-linecap="round" />
+            <path d="M690 1010 a46 46 0 0 1 70 46 Z" fill="#f1ece1" stroke="#0b0b0d" stroke-width="5" />
+            <g class="s12-brillos" stroke="#f1ece1" stroke-width="5" stroke-linecap="round"><path d="M330 930 v40 M310 950 h40" /><path d="M760 900 v34 M743 917 h34" /><path d="M540 880 v30 M525 895 h30" /></g>
+          </g>
+          <g class="s12-niebla" fill="#6b7380">
+            <ellipse cx="360" cy="1120" rx="200" ry="90" opacity="0.85" />
+            <ellipse cx="720" cy="1100" rx="220" ry="100" opacity="0.85" />
+            <ellipse cx="540" cy="1020" rx="260" ry="120" opacity="0.9" />
+            <ellipse cx="460" cy="900" rx="190" ry="80" opacity="0.8" />
+          </g>
+          <g class="s12-puerta">
+            <circle cx="540" cy="960" r="250" fill="#1c1e24" stroke="#6b7380" stroke-width="10" />
+            <circle cx="540" cy="960" r="200" fill="none" stroke="#6b7380" stroke-width="4" />
+            <g class="s12-volante"><circle cx="540" cy="960" r="60" fill="none" stroke="#d9b77e" stroke-width="10" /><path d="M540 860 V1060 M440 960 H640 M470 890 L610 1030 M610 890 L470 1030" stroke="#d9b77e" stroke-width="8" stroke-linecap="round" /></g>
+            <circle cx="350" cy="960" r="10" fill="#6b7380" /><circle cx="730" cy="960" r="10" fill="#6b7380" /><circle cx="540" cy="770" r="10" fill="#6b7380" /><circle cx="540" cy="1150" r="10" fill="#6b7380" />
+          </g>
+          <g class="s12-mira brilla-rojo"><circle class="mira" cx="540" cy="1000" r="150" /><path class="mira" d="M540 830 V900 M540 1100 V1170 M370 1000 H440 M640 1000 H710" /></g>
+        </svg>
+        <div class="s12-medalla"><span>La mejor del barrio</span></div>
+        <div class="sello s12-noenc"><span>Objetivo no encontrado</span></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-milanesa";
+      const DUR = 5.83;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s12-escenario");
+      const golpe = (el, t, s = 2.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t, o = "50% 50%") => {
+        gsap.set(el, { opacity: 0, transformOrigin: o });
+        tl.fromTo(el, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)", immediateRender: false }, t);
+      };
+      const aparece = (el, t, d = 0.2) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: d }, t); };
+      const dibujar = (el, t, d = 0.5) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // máquina de escribir: el texto se descubre de a saltos
+      const tipear = (el, t, d = 0.5) => {
+        const n = Math.max(4, el.textContent.length);
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: d, ease: "steps(" + n + ")" }, t);
+      };
+      const sello = (el, t, rot = -8) => { gsap.set(el, { rotation: rot }); golpe(el, t, 2.4); sacudon(t + 0.04, 0.9); };
+      // cartel de FASE: entra de golpe, tiembla y se va hacia arriba en "fuera"
+      const fase = (t, fuera) => {
+        tl.fromTo(q(".s12-fase-c"), { opacity: 0.4, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.out" }, 0);
+        golpe(q(".s12-fase-n"), t, 3.2);
+        sacudon(t + 0.04, 1.4);
+        tl.to(q(".s12-fase-n"), { rotation: -4, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + 0.2);
+        [[0, 18, 0.4], [0.05, -14, 1], [0.1, 8, 0.5], [0.15, 0, 1]].forEach(([d, x, o]) => tl.set(q(".s12-fase-n"), { x, opacity: o }, fuera - 0.3 + d));
+        tl.to(q(".s12-fase-c"), { opacity: 0, y: -180, duration: 0.16, ease: "power3.in" }, fuera - 0.12);
+      };
+
+      const MILA = 0.29, MEJOR = 2.05, BARRIO = 2.67, NI = 3.44, BOND = 4.02, ENC = 4.54;
+      tl.fromTo(q(".s12-puerta"), { opacity: 0.6, scale: 1.05, svgOrigin: "540 960" }, { opacity: 1, scale: 1, svgOrigin: "540 960", duration: 0.2 }, 0);
+      // "milanesa": gira el volante y se abre la caja fuerte
+      tl.to(q(".s12-volante"), { rotation: 180, svgOrigin: "540 960", duration: 0.4, ease: "power2.inOut" }, 0.05);
+      tl.to(q(".s12-puerta"), { scaleX: 0.08, x: -260, svgOrigin: "290 960", duration: 0.35, ease: "power3.in" }, MILA);
+      tl.set(q(".s12-puerta"), { opacity: 0 }, MILA + 0.35);
+      gsap.set(q(".s12-niebla"), { opacity: 0 });
+      tl.fromTo(q(".s12-mila"), { scale: 0.85, svgOrigin: "540 1060" }, { scale: 1, svgOrigin: "540 1060", duration: 0.5, ease: "back.out(2)" }, MILA + 0.2);
+      tl.fromTo(q(".s12-brillos"), { opacity: 0 }, { opacity: 1, duration: 0.12, yoyo: true, repeat: 7, ease: "steps(1)" }, MILA + 0.4);
+      tl.fromTo(q(".s12-foco"), { opacity: 0.05 }, { opacity: 0.22, duration: 0.3 }, MILA + 0.2);
+      // "la mejor del barrio"
+      gsap.set(q(".s12-medalla"), { rotation: -3 });
+      golpe(q(".s12-medalla"), MEJOR, 2.2);
+      tl.to(q(".s12-medalla"), { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, BARRIO);
+      // "ni James Bond la encuentra": la mira busca, cae la niebla
+      tl.to(q(".s12-medalla"), { opacity: 0, duration: 0.15 }, NI);
+      gsap.set(q(".s12-mira"), { opacity: 0 });
+      tl.set(q(".s12-mira"), { opacity: 1 }, NI - 0.2);
+      tl.fromTo(q(".s12-mira"), { x: -300, y: -120 }, { x: 260, y: 40, duration: 0.45, ease: "sine.inOut", immediateRender: false }, NI - 0.2);
+      tl.to(q(".s12-mira"), { x: -200, y: 120, duration: 0.45, ease: "sine.inOut" }, NI + 0.25);
+      tl.to(q(".s12-mira"), { x: 0, y: 0, duration: 0.3, ease: "sine.inOut" }, NI + 0.7);
+      tl.fromTo(q(".s12-niebla"), { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, NI);
+      tl.to(q(".s12-mila"), { opacity: 0.15, duration: 0.5 }, NI + 0.1);
+      sello(q(".s12-noenc"), ENC + 0.05, -5);
+      [[0, 14, 0.5], [0.05, -10, 1], [0.1, 6, 0.6], [0.15, 0, 1]].forEach(([d, x, o]) => tl.set(q(".s12-mira"), { x, opacity: o }, ENC + 0.2 + d));
+
+      // salida
+      tl.to(q("#s12-escena"), { x: -260, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

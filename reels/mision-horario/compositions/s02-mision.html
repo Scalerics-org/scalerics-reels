@@ -1,0 +1,191 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "FreeMono"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-mision"] .s02-capa, [data-composition-id="s02-mision"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-mision"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-mision"] .sil { fill: #0b0b0d; stroke: #6b7380; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s02-mision"] .sil-ln { fill: none; stroke: #6b7380; stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s02-mision"] .ln { fill: none; stroke: #f1ece1; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s02-mision"] .mira { fill: none; stroke: #ff1f3d; stroke-width: 5; stroke-linecap: round; }
+    [data-composition-id="s02-mision"] .brilla-rojo { filter: drop-shadow(0 0 10px rgba(255, 31, 61, 0.55)); }
+    [data-composition-id="s02-mision"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.02em; }
+    [data-composition-id="s02-mision"] .sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s02-mision"] .sello span { display: inline-block; padding: 8px 24px; border: 7px solid #ff1f3d; border-radius: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; color: #ff1f3d; white-space: nowrap; filter: drop-shadow(0 0 8px rgba(255, 31, 61, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s02-mision"] .rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-mision"] .maq { font-family: "FreeMono", monospace; font-weight: 700; color: #0b0b0d; white-space: nowrap; }
+    [data-composition-id="s02-mision"] .fase-c { position: absolute; inset: 0; }
+    [data-composition-id="s02-mision"] .fase-p { top: 600px; font-size: 140px; letter-spacing: 0.08em; color: #f1ece1; }
+    [data-composition-id="s02-mision"] .fase-n { top: 720px; font-size: 500px; color: #d9b77e; }
+
+    [data-composition-id="s02-mision"] .s02-para { position: absolute; left: 0; right: 0; top: 610px; text-align: center; }
+    [data-composition-id="s02-mision"] .s02-para span { display: inline-block; padding: 14px 30px; background: #f1ece1; font-size: 50px; transform: rotate(-2deg); }
+    [data-composition-id="s02-mision"] .s02-carpeta { position: absolute; left: 130px; top: 640px; width: 820px; height: 720px; }
+    [data-composition-id="s02-mision"] .s02-tapa { position: absolute; left: 0; top: 40px; width: 820px; height: 680px; background: #d9b77e; border-radius: 10px; }
+    [data-composition-id="s02-mision"] .s02-pest { position: absolute; left: 40px; top: 0; width: 300px; height: 60px; background: #d9b77e; border-radius: 14px 14px 0 0; }
+    [data-composition-id="s02-mision"] .s02-hoja { position: absolute; left: 40px; top: 70px; width: 740px; height: 620px; background: #f1ece1; transform: rotate(-1.5deg); }
+    [data-composition-id="s02-mision"] .s02-l { position: absolute; left: 40px; }
+    [data-composition-id="s02-mision"] .s02-titulo { top: 34px; font-size: 52px; }
+    [data-composition-id="s02-mision"] .s02-raya { position: absolute; left: 40px; height: 12px; background: #6b7380; opacity: 0.5; }
+    [data-composition-id="s02-mision"] .s02-obj { top: 400px; font-size: 40px; }
+    [data-composition-id="s02-mision"] .s02-obj b { color: #ff1f3d; }
+    [data-composition-id="s02-mision"] .s02-lug { top: 456px; font-size: 40px; }
+    [data-composition-id="s02-mision"] .s02-foto { position: absolute; left: 350px; top: 120px; width: 360px; height: 230px; border: 10px solid #f1ece1; box-shadow: 0 6px 0 rgba(11, 11, 13, 0.35); transform: rotate(4deg); background: #f1ece1; }
+    [data-composition-id="s02-mision"] .s02-foto svg { width: 100%; height: 100%; display: block; }
+    [data-composition-id="s02-mision"] .s02-clip { position: absolute; left: 470px; top: 92px; width: 60px; height: 120px; }
+    [data-composition-id="s02-mision"] .s02-sello { top: 1252px; }
+    [data-composition-id="s02-mision"] .s02-sello span { font-size: 54px; }
+    [data-composition-id="s02-mision"] .s02-auto { position: absolute; left: 0; right: 0; top: 1400px; text-align: center; font-size: 34px; color: #ff1f3d; }
+    [data-composition-id="s02-mision"] .s02-auto b { display: inline-block; font-size: 64px; margin-left: 18px; vertical-align: middle; }
+  </style>
+  <div id="root" data-composition-id="s02-mision" data-width="1080" data-height="1920" data-duration="7.92">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="7.92" data-track-index="0">
+      <div class="s02-escenario">
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s02-lamp">
+            <path d="M540 560 V600" stroke="#6b7380" stroke-width="4" />
+            <path d="M480 660 L510 600 H570 L600 660 Z" fill="#d9b77e" stroke="#d9b77e" stroke-width="4" stroke-linejoin="round" />
+            <path d="M480 660 L210 1540 H870 L600 660 Z" fill="#d9b77e" opacity="0.07" />
+          </g>
+          <g class="s02-jefe">
+            <path class="sil" d="M455 1040 C455 990 490 960 540 960 C590 960 625 990 625 1040 C625 1085 595 1110 540 1110 C485 1110 455 1085 455 1040 Z" />
+            <path class="sil" d="M360 1200 C370 1130 440 1100 540 1100 C640 1100 710 1130 720 1200 Z" />
+            <path class="sil" d="M330 1540 V1210 C330 1150 380 1120 430 1120 H650 C700 1120 750 1150 750 1210 V1540 Z" />
+            <path class="sil-ln" d="M380 1200 V1500 M700 1200 V1500 M420 1170 H660" style="opacity:0.6" />
+            <path class="sil" d="M270 1540 V1330 C270 1300 290 1285 330 1285 V1540 Z M810 1540 V1330 C810 1300 790 1285 750 1285 V1540 Z" />
+          </g>
+        </svg>
+        <div class="s02-para"><span class="maq s02-para-t">PARA: AGENTE CERO</span></div>
+        <div class="s02-carpeta">
+          <div class="s02-pest"></div>
+          <div class="s02-tapa"></div>
+          <div class="s02-hoja">
+            <div class="maq s02-l s02-titulo">MISIÓN N° 00</div>
+            <div class="s02-raya" style="top:130px;width:250px"></div>
+            <div class="s02-raya" style="top:170px;width:220px"></div>
+            <div class="s02-raya" style="top:210px;width:260px"></div>
+            <div class="s02-raya" style="top:250px;width:180px"></div>
+            <div class="s02-raya" style="top:290px;width:240px"></div>
+            <div class="s02-raya" style="top:330px;width:200px"></div>
+            <div class="s02-raya" style="top:370px;width:600px"></div>
+            <div class="maq s02-l s02-obj">OBJETIVO: <b>EL HORARIO</b></div>
+            <div class="maq s02-l s02-lug">LUGAR: ROTISERÍA DE DON BETO</div>
+            <div class="s02-foto"><svg viewBox="0 0 600 330" class="s02-loc" aria-hidden="true">
+              <rect x="0" y="0" width="600" height="330" fill="#f1ece1" />
+              <rect x="0" y="0" width="600" height="330" fill="#6b7380" opacity="0.18" />
+              <path d="M60 300 V30 H540 V300" fill="#f1ece1" stroke="#0b0b0d" stroke-width="5" />
+              <rect x="150" y="44" width="300" height="42" fill="#0b0b0d" />
+              <text x="300" y="75" text-anchor="middle" font-family="FreeMono" font-weight="700" font-size="30" fill="#f1ece1">ROTISERÍA</text>
+              <path d="M70 96 h46 v46 h-46 Z" fill="#6b7380" /><path d="M116 96 h46 v46 h-46 Z" fill="#f1ece1" /><path d="M162 96 h46 v46 h-46 Z" fill="#6b7380" /><path d="M208 96 h46 v46 h-46 Z" fill="#f1ece1" /><path d="M254 96 h46 v46 h-46 Z" fill="#6b7380" /><path d="M300 96 h46 v46 h-46 Z" fill="#f1ece1" /><path d="M346 96 h46 v46 h-46 Z" fill="#6b7380" /><path d="M392 96 h46 v46 h-46 Z" fill="#f1ece1" /><path d="M438 96 h46 v46 h-46 Z" fill="#6b7380" /><path d="M484 96 h46 v46 h-46 Z" fill="#f1ece1" /><path d="M70 142 q23 22 46 0" fill="#6b7380" stroke="#0b0b0d" stroke-width="3" /><path d="M116 142 q23 22 46 0" fill="#f1ece1" stroke="#0b0b0d" stroke-width="3" /><path d="M162 142 q23 22 46 0" fill="#6b7380" stroke="#0b0b0d" stroke-width="3" /><path d="M208 142 q23 22 46 0" fill="#f1ece1" stroke="#0b0b0d" stroke-width="3" /><path d="M254 142 q23 22 46 0" fill="#6b7380" stroke="#0b0b0d" stroke-width="3" /><path d="M300 142 q23 22 46 0" fill="#f1ece1" stroke="#0b0b0d" stroke-width="3" /><path d="M346 142 q23 22 46 0" fill="#6b7380" stroke="#0b0b0d" stroke-width="3" /><path d="M392 142 q23 22 46 0" fill="#f1ece1" stroke="#0b0b0d" stroke-width="3" /><path d="M438 142 q23 22 46 0" fill="#6b7380" stroke="#0b0b0d" stroke-width="3" /><path d="M484 142 q23 22 46 0" fill="#f1ece1" stroke="#0b0b0d" stroke-width="3" />
+              <path d="M240 300 V180 H330 V300" fill="none" stroke="#0b0b0d" stroke-width="5" /><path d="M100 180 H210 V260 H100 Z M360 180 H500 V260 H360 Z" fill="none" stroke="#0b0b0d" stroke-width="5" />
+              <path d="M0 300 H600" stroke="#0b0b0d" stroke-width="5" />
+              
+            </svg></div>
+            <svg class="s02-clip" viewBox="0 0 60 120" aria-hidden="true"><path d="M18 110 V20 a12 12 0 0 1 24 0 V90 a6 6 0 0 1 -12 0 V30" fill="none" stroke="#6b7380" stroke-width="7" stroke-linecap="round" /></svg>
+          </div>
+        </div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s02-mira brilla-rojo">
+            <circle class="mira" cx="760" cy="925" r="170" />
+            <path class="mira" d="M760 745 V855 M760 995 V1105 M580 925 H690 M830 925 H940" />
+            <circle cx="760" cy="925" r="7" fill="#ff1f3d" />
+          </g>
+        </svg>
+        <div class="sello s02-sello"><span>Ultra secreto</span></div>
+        <div class="rot s02-auto">Este mensaje se autodestruye <b class="s02-n3">3</b><b class="s02-n2">2</b><b class="s02-n1">1</b></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-mision";
+      const DUR = 7.92;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s02-escenario");
+      const golpe = (el, t, s = 2.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t, o = "50% 50%") => {
+        gsap.set(el, { opacity: 0, transformOrigin: o });
+        tl.fromTo(el, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)", immediateRender: false }, t);
+      };
+      const aparece = (el, t, d = 0.2) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: d }, t); };
+      const dibujar = (el, t, d = 0.5) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // máquina de escribir: el texto se descubre de a saltos
+      const tipear = (el, t, d = 0.5) => {
+        const n = Math.max(4, el.textContent.length);
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: d, ease: "steps(" + n + ")" }, t);
+      };
+      const sello = (el, t, rot = -8) => { gsap.set(el, { rotation: rot }); golpe(el, t, 2.4); sacudon(t + 0.04, 0.9); };
+      // cartel de FASE: entra de golpe, tiembla y se va hacia arriba en "fuera"
+      const fase = (t, fuera) => {
+        tl.fromTo(q(".s02-fase-c"), { opacity: 0.4, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.out" }, 0);
+        golpe(q(".s02-fase-n"), t, 3.2);
+        sacudon(t + 0.04, 1.4);
+        tl.to(q(".s02-fase-n"), { rotation: -4, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + 0.2);
+        [[0, 18, 0.4], [0.05, -14, 1], [0.1, 8, 0.5], [0.15, 0, 1]].forEach(([d, x, o]) => tl.set(q(".s02-fase-n"), { x, opacity: o }, fuera - 0.3 + d));
+        tl.to(q(".s02-fase-c"), { opacity: 0, y: -180, duration: 0.16, ease: "power3.in" }, fuera - 0.12);
+      };
+
+      const CERO = 0.5, MISION = 1.59, ACEPTARLA = 2.95, AVERIGUAR = 3.94, HORA = 4.95, ROTI = 5.77, BETO = 6.59;
+      // el Jefe en penumbra, la lámpara oscila
+      tl.fromTo(q(".s02-jefe"), { opacity: 0.5, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s02-lamp"), { rotation: -6 }, { rotation: 6, svgOrigin: "540 560", duration: 1.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+      tipear(q(".s02-para-t"), 0.05, 0.75);
+      tl.to(q(".s02-para-t"), { scale: 1.08, duration: 0.12, yoyo: true, repeat: 1 }, CERO);
+      // "misión": la carpeta se desliza sobre la mesa y tapa al Jefe
+      gsap.set(q(".s02-carpeta"), { opacity: 0 });
+      tl.fromTo(q(".s02-carpeta"), { opacity: 0, y: 700, rotation: 8 }, { opacity: 1, y: 0, rotation: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, MISION - 0.3);
+      tl.to([q(".s02-jefe"), q(".s02-lamp")], { opacity: 0.12, duration: 0.25 }, MISION - 0.1);
+      tl.to(q(".s02-para"), { opacity: 0, y: -60, duration: 0.15 }, MISION - 0.2);
+      tipear(q(".s02-titulo"), MISION + 0.05, 0.45);
+      qa(".s02-raya").forEach((r, i) => { gsap.set(r, { scaleX: 0, transformOrigin: "0% 50%" }); tl.to(r, { scaleX: 1, duration: 0.18, ease: "steps(6)" }, MISION + 0.4 + i * 0.12); });
+      // "aceptarla": sello
+      sello(q(".s02-sello"), ACEPTARLA, -10);
+      // "averiguar": cae la foto con el clip
+      gsap.set(q(".s02-foto"), { opacity: 0 });
+      tl.fromTo(q(".s02-foto"), { opacity: 0, y: -500, rotation: -20 }, { opacity: 1, y: 0, rotation: 4, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, AVERIGUAR - 0.15);
+      pop(q(".s02-clip"), AVERIGUAR + 0.15);
+      sacudon(AVERIGUAR + 0.15, 0.6);
+      tipear(q(".s02-obj"), HORA - 0.25, 0.4);
+      tipear(q(".s02-lug"), ROTI - 0.1, 0.7);
+      // la mira se cierra sobre la foto
+      gsap.set(q(".s02-mira"), { opacity: 0 });
+      tl.fromTo(q(".s02-mira"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, svgOrigin: "760 925", duration: 0.35, ease: "power3.out", immediateRender: false }, ROTI);
+      tl.to(q(".s02-mira"), { x: 18, y: -10, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, ROTI + 0.4);
+      tl.to(q(".s02-mira"), { scale: 0.8, svgOrigin: "760 925", duration: 0.12, yoyo: true, repeat: 1 }, BETO);
+      // este mensaje se autodestruye: 3, 2, 1 y la carpeta tiembla
+      const T0 = 7.0;
+      gsap.set(q(".s02-auto"), { opacity: 0 });
+      tl.to(q(".s02-auto"), { opacity: 1, duration: 0.1 }, T0 - 0.15);
+      [".s02-n3", ".s02-n2", ".s02-n1"].forEach((c, i) => {
+        gsap.set(q(c), { display: "none" });
+        tl.set(q(c), { display: "inline-block" }, T0 - 0.15 + i * 0.25);
+        if (i < 2) tl.set(q(c), { display: "none" }, T0 - 0.15 + (i + 1) * 0.25);
+      });
+      [0, 1, 2, 3, 4, 5, 6, 7].forEach((k) => tl.set(q(".s02-carpeta"), { x: k % 2 ? 6 : -6, rotation: k % 2 ? 0.6 : -0.6 }, T0 + k * 0.08));
+
+      // salida
+      tl.to(q("#s02-escena"), { x: -260, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

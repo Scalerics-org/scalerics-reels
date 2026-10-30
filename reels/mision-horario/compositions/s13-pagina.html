@@ -1,0 +1,175 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "FreeMono"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-pagina"] .s13-capa, [data-composition-id="s13-pagina"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-pagina"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-pagina"] .sil { fill: #0b0b0d; stroke: #6b7380; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s13-pagina"] .sil-ln { fill: none; stroke: #6b7380; stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s13-pagina"] .ln { fill: none; stroke: #f1ece1; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s13-pagina"] .mira { fill: none; stroke: #ff1f3d; stroke-width: 5; stroke-linecap: round; }
+    [data-composition-id="s13-pagina"] .brilla-rojo { filter: drop-shadow(0 0 10px rgba(255, 31, 61, 0.55)); }
+    [data-composition-id="s13-pagina"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.02em; }
+    [data-composition-id="s13-pagina"] .sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s13-pagina"] .sello span { display: inline-block; padding: 8px 24px; border: 7px solid #ff1f3d; border-radius: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; color: #ff1f3d; white-space: nowrap; filter: drop-shadow(0 0 8px rgba(255, 31, 61, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s13-pagina"] .rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-pagina"] .maq { font-family: "FreeMono", monospace; font-weight: 700; color: #0b0b0d; white-space: nowrap; }
+    [data-composition-id="s13-pagina"] .fase-c { position: absolute; inset: 0; }
+    [data-composition-id="s13-pagina"] .fase-p { top: 600px; font-size: 140px; letter-spacing: 0.08em; color: #f1ece1; }
+    [data-composition-id="s13-pagina"] .fase-n { top: 720px; font-size: 500px; color: #d9b77e; }
+
+    [data-composition-id="s13-pagina"] .s13-sec { top: 1290px; }
+    [data-composition-id="s13-pagina"] .s13-sec span { font-size: 50px; }
+    [data-composition-id="s13-pagina"] .s13-tacha { position: absolute; left: 290px; top: 1325px; width: 500px; height: 12px; background: #5ce611; transform: rotate(-4deg); }
+    [data-composition-id="s13-pagina"] .s13-cel { position: absolute; left: 330px; top: 600px; width: 420px; height: 860px; border: 6px solid #f1ece1; border-radius: 52px; overflow: hidden; background: #0b0b0d; }
+    [data-composition-id="s13-pagina"] .s13-carga { position: absolute; left: 0; top: 0; width: 420px; height: 12px; background: #5ce611; }
+    [data-composition-id="s13-pagina"] .s13-cel .nom { position: absolute; left: 34px; top: 70px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; line-height: 1.05; color: #f1ece1; text-transform: uppercase; }
+    [data-composition-id="s13-pagina"] .s13-fila { position: absolute; left: 28px; right: 28px; top: 200px; height: 92px; border: 4px solid #5ce611; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 24px; color: #f1ece1; line-height: 84px; padding-left: 48px; white-space: nowrap; }
+    [data-composition-id="s13-pagina"] .s13-fila i { position: absolute; left: 20px; top: 32px; width: 20px; height: 20px; border-radius: 50%; background: #5ce611; }
+    [data-composition-id="s13-pagina"] .s13-mapa { position: absolute; left: 28px; right: 28px; top: 320px; height: 230px; border: 4px solid #6b7380; border-radius: 18px; overflow: hidden; }
+    [data-composition-id="s13-pagina"] .s13-wa { position: absolute; left: 28px; right: 28px; top: 580px; height: 100px; border-radius: 50px; background: #5ce611; text-align: center; line-height: 100px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 27px; color: #0b0b0d; white-space: nowrap; }
+    [data-composition-id="s13-pagina"] .s13-busca { position: absolute; left: 150px; top: 610px; width: 780px; height: 150px; border: 5px solid #f1ece1; border-radius: 28px; background: #0b0b0d; }
+    [data-composition-id="s13-pagina"] .s13-busca .q { position: absolute; left: 86px; top: 16px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 34px; color: #f1ece1; white-space: nowrap; }
+    [data-composition-id="s13-pagina"] .s13-busca svg { position: absolute; left: 24px; top: 16px; width: 44px; height: 44px; }
+    [data-composition-id="s13-pagina"] .s13-busca .res { position: absolute; left: 30px; top: 84px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; color: #5ce611; white-space: nowrap; }
+    [data-composition-id="s13-pagina"] .s13-globo { position: absolute; left: 740px; top: 1000px; padding: 14px 22px; background: #f1ece1; border-radius: 26px 26px 6px 26px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; color: #0b0b0d; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s13-pagina" data-width="1080" data-height="1920" data-duration="9.34">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="9.34" data-track-index="0">
+      <div class="s13-escenario">
+        <div class="s13-parte1">
+          <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+            <path class="ln s13-l1" d="M170 1220 V720 H910 V1220" />
+            <path class="ln s13-l2" d="M120 1220 H960" />
+            <rect x="330" y="740" width="420" height="70" fill="#f1ece1" />
+            <text x="540" y="790" text-anchor="middle" font-family="FreeMono" font-weight="700" font-size="44" fill="#0b0b0d">DON BETO</text>
+            <path d="M150 830 h78 l-4 70 h-78 Z" fill="#5ce611" /><path d="M228 830 h78 l-4 70 h-78 Z" fill="#f1ece1" /><path d="M306 830 h78 l-4 70 h-78 Z" fill="#5ce611" /><path d="M384 830 h78 l-4 70 h-78 Z" fill="#f1ece1" /><path d="M462 830 h78 l-4 70 h-78 Z" fill="#5ce611" /><path d="M540 830 h78 l-4 70 h-78 Z" fill="#f1ece1" /><path d="M618 830 h78 l-4 70 h-78 Z" fill="#5ce611" /><path d="M696 830 h78 l-4 70 h-78 Z" fill="#f1ece1" /><path d="M774 830 h78 l-4 70 h-78 Z" fill="#5ce611" /><path d="M852 830 h78 l-4 70 h-78 Z" fill="#f1ece1" />
+            <rect class="s13-vent" x="220" y="950" width="230" height="200" fill="#5ce611" opacity="0.5" />
+            <rect class="s13-vent" x="630" y="950" width="230" height="200" fill="#5ce611" opacity="0.5" />
+            <path class="ln" d="M490 1220 V960 H590 V1220" />
+          </svg>
+          <div class="sello s13-sec"><span>Ultra secreto</span></div>
+          <div class="s13-tacha"></div>
+        </div>
+        <div class="s13-parte2">
+          <div class="s13-cel">
+            <div class="s13-carga"></div>
+            <div class="nom s13-nom">Rotisería<br />Don Beto</div>
+            <div class="s13-fila"><i></i>Abierto hoy · 11 a 23 h</div>
+            <div class="s13-mapa"><svg viewBox="0 0 356 230" width="356" height="230" aria-hidden="true"><path d="M0 80 H356 M0 170 H356 M110 0 V230 M250 0 V230" stroke="#6b7380" stroke-width="10" /><path class="s13-pin" d="M180 130 c-28 -28 -28 -64 0 -64 c28 0 28 36 0 64 Z" fill="#5ce611" /><circle cx="180" cy="92" r="10" fill="#0b0b0d" /></svg></div>
+            <div class="s13-wa">Escribinos por WhatsApp</div>
+          </div>
+          <div class="s13-busca">
+            <svg viewBox="0 0 48 48"><circle cx="20" cy="20" r="14" fill="none" stroke="#f1ece1" stroke-width="5" /><path d="M31 31 L44 44" stroke="#f1ece1" stroke-width="5" stroke-linecap="round" /></svg>
+            <div class="q s13-q">rotisería cerca</div>
+            <div class="res s13-res">Rotisería Don Beto · Abierto</div>
+          </div>
+          <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s13-tia">
+              <path d="M760 1520 C770 1330 820 1290 890 1280 C960 1290 1010 1330 1020 1520 Z" fill="#0b0b0d" stroke="#6b7380" stroke-width="5" />
+              <circle cx="890" cy="1206" r="56" fill="#0b0b0d" stroke="#6b7380" stroke-width="5" />
+              <circle cx="890" cy="1138" r="26" fill="#0b0b0d" stroke="#6b7380" stroke-width="5" />
+              <circle cx="868" cy="1206" r="15" fill="none" stroke="#f1ece1" stroke-width="4" /><circle cx="912" cy="1206" r="15" fill="none" stroke="#f1ece1" stroke-width="4" /><path d="M883 1206 h14" stroke="#f1ece1" stroke-width="4" />
+              <path d="M872 1240 q18 14 36 0" fill="none" stroke="#6b7380" stroke-width="4" stroke-linecap="round" />
+              <rect x="790" y="1330" width="54" height="94" rx="10" fill="#f1ece1" />
+              <path d="M960 1360 q30 0 30 40 v60 h-60 v-60 q0 -40 30 -40 Z" fill="#6b7380" />
+            </g>
+          </svg>
+          <div class="s13-globo">¡Abre a las 11!</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-pagina";
+      const DUR = 9.34;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s13-escenario");
+      const golpe = (el, t, s = 2.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t, o = "50% 50%") => {
+        gsap.set(el, { opacity: 0, transformOrigin: o });
+        tl.fromTo(el, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)", immediateRender: false }, t);
+      };
+      const aparece = (el, t, d = 0.2) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: d }, t); };
+      const dibujar = (el, t, d = 0.5) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // máquina de escribir: el texto se descubre de a saltos
+      const tipear = (el, t, d = 0.5) => {
+        const n = Math.max(4, el.textContent.length);
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: d, ease: "steps(" + n + ")" }, t);
+      };
+      const sello = (el, t, rot = -8) => { gsap.set(el, { rotation: rot }); golpe(el, t, 2.4); sacudon(t + 0.04, 0.9); };
+      // cartel de FASE: entra de golpe, tiembla y se va hacia arriba en "fuera"
+      const fase = (t, fuera) => {
+        tl.fromTo(q(".s13-fase-c"), { opacity: 0.4, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.out" }, 0);
+        golpe(q(".s13-fase-n"), t, 3.2);
+        sacudon(t + 0.04, 1.4);
+        tl.to(q(".s13-fase-n"), { rotation: -4, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + 0.2);
+        [[0, 18, 0.4], [0.05, -14, 1], [0.1, 8, 0.5], [0.15, 0, 1]].forEach(([d, x, o]) => tl.set(q(".s13-fase-n"), { x, opacity: o }, fuera - 0.3 + d));
+        tl.to(q(".s13-fase-c"), { opacity: 0, y: -180, duration: 0.16, ease: "power3.in" }, fuera - 0.12);
+      };
+
+      const LOCAL = 0.16, MISION = 1.48, IMPO = 1.82, TE = 2.52, PAGINA = 3.35, RAPIDA = 3.73, HORARIO = 4.33, MAPA = 4.76, BOTON = 5.16, WA = 5.66, APARECE = 6.42, GOOGLE = 7.40, HASTA = 8.43, TIA = 8.80;
+      // la rotisería de Don Beto, ahora con la luz prendida
+      dibujar(q(".s13-l1"), 0, 0.4);
+      dibujar(q(".s13-l2"), 0.05, 0.3);
+      tl.fromTo(q(".s13-parte1"), { scale: 1.08, transformOrigin: "50% 60%" }, { scale: 1, duration: 2.4, ease: "none" }, 0);
+      tl.fromTo(qa(".s13-vent"), { opacity: 0 }, { opacity: 0.5, duration: 0.1, repeat: 2, yoyo: true, ease: "steps(1)" }, LOCAL);
+      tl.set(qa(".s13-vent"), { opacity: 0.5 }, LOCAL + 0.35);
+      // "misión imposible": el sello secreto, tachado en verde
+      sello(q(".s13-sec"), MISION, -4);
+      gsap.set(q(".s13-tacha"), { scaleX: 0, transformOrigin: "0% 50%" });
+      tl.to(q(".s13-tacha"), { scaleX: 1, duration: 0.2, ease: "power2.out" }, IMPO);
+      tl.to(q(".s13-parte1"), { opacity: 0, y: -200, duration: 0.2, ease: "power3.in" }, TE - 0.2);
+      // "te hacemos una página": el celular, que carga al toque
+      gsap.set(q(".s13-parte2"), { opacity: 0 });
+      tl.set(q(".s13-parte2"), { opacity: 1 }, TE - 0.02);
+      gsap.set(q(".s13-cel"), { transformOrigin: "50% 100%" });
+      tl.fromTo(q(".s13-cel"), { y: 900 }, { y: 0, duration: 0.4, ease: "power3.out" }, TE - 0.02);
+      gsap.set(q(".s13-carga"), { scaleX: 0, transformOrigin: "0% 50%" });
+      tl.to(q(".s13-carga"), { scaleX: 1, duration: 0.3, ease: "power2.out" }, PAGINA - 0.1);
+      pop(q(".s13-nom"), RAPIDA - 0.1, "0% 50%");
+      pop(q(".s13-fila"), HORARIO - 0.05);
+      pop(q(".s13-mapa"), MAPA - 0.05);
+      tl.fromTo(q(".s13-pin"), { y: -60 }, { y: 0, duration: 0.3, ease: "bounce.out" }, MAPA + 0.1);
+      pop(q(".s13-wa"), BOTON - 0.05);
+      tl.to(q(".s13-wa"), { scale: 1.06, duration: 0.14, yoyo: true, repeat: 1 }, WA);
+      // "que aparece cuando te buscan en Google": el celular baja y arriba la búsqueda
+      tl.to(q(".s13-cel"), { scale: 0.78, duration: 0.3, ease: "power2.inOut" }, APARECE - 0.2);
+      pop(q(".s13-busca"), APARECE);
+      tipear(q(".s13-q"), APARECE + 0.2, 0.4);
+      gsap.set(q(".s13-res"), { opacity: 0 });
+      tl.fromTo(q(".s13-res"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.2, immediateRender: false }, GOOGLE - 0.1);
+      tl.to(q(".s13-busca"), { borderColor: "#5ce611", duration: 0.1 }, GOOGLE);
+      // "hasta tu tía"
+      gsap.set(q(".s13-tia"), { opacity: 0 });
+      tl.fromTo(q(".s13-tia"), { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, HASTA - 0.25);
+      gsap.set(q(".s13-globo"), { transformOrigin: "100% 100%" });
+      pop(q(".s13-globo"), TIA - 0.05);
+
+      // salida
+      tl.to(q("#s13-escena"), { x: -260, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

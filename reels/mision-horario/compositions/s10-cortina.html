@@ -1,0 +1,122 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "FreeMono"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-cortina"] .s10-capa, [data-composition-id="s10-cortina"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-cortina"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-cortina"] .sil { fill: #0b0b0d; stroke: #6b7380; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s10-cortina"] .sil-ln { fill: none; stroke: #6b7380; stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s10-cortina"] .ln { fill: none; stroke: #f1ece1; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s10-cortina"] .mira { fill: none; stroke: #ff1f3d; stroke-width: 5; stroke-linecap: round; }
+    [data-composition-id="s10-cortina"] .brilla-rojo { filter: drop-shadow(0 0 10px rgba(255, 31, 61, 0.55)); }
+    [data-composition-id="s10-cortina"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.02em; }
+    [data-composition-id="s10-cortina"] .sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s10-cortina"] .sello span { display: inline-block; padding: 8px 24px; border: 7px solid #ff1f3d; border-radius: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; color: #ff1f3d; white-space: nowrap; filter: drop-shadow(0 0 8px rgba(255, 31, 61, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s10-cortina"] .rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-cortina"] .maq { font-family: "FreeMono", monospace; font-weight: 700; color: #0b0b0d; white-space: nowrap; }
+    [data-composition-id="s10-cortina"] .fase-c { position: absolute; inset: 0; }
+    [data-composition-id="s10-cortina"] .fase-p { top: 600px; font-size: 140px; letter-spacing: 0.08em; color: #f1ece1; }
+    [data-composition-id="s10-cortina"] .fase-n { top: 720px; font-size: 500px; color: #d9b77e; }
+
+    [data-composition-id="s10-cortina"] .s10-cartel { position: absolute; left: 380px; top: 960px; width: 330px; height: 230px; background: #f1ece1; transform: rotate(3deg); box-shadow: 0 6px 0 rgba(11, 11, 13, 0.4); }
+    [data-composition-id="s10-cortina"] .s10-cartel p { margin: 0; position: absolute; left: 0; right: 0; top: 28px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 74px; line-height: 0.95; color: #0b0b0d; }
+    [data-composition-id="s10-cortina"] .s10-cinta { position: absolute; top: -18px; width: 110px; height: 36px; background: #d9b77e; opacity: 0.85; }
+    [data-composition-id="s10-cortina"] .s10-cuando { top: 1396px; padding: 16px 0 12px; background: rgba(11, 11, 13, 0.88); font-size: 92px; color: #ff1f3d; text-shadow: 0 0 30px rgba(255, 31, 61, 0.4); }
+  </style>
+  <div id="root" data-composition-id="s10-cortina" data-width="1080" data-height="1920" data-duration="4.42">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="4.42" data-track-index="0">
+      <div class="s10-escenario">
+        <div class="s10-zoom" style="position:absolute;inset:0;">
+          <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+            <path d="M150 1400 V800 M930 1400 V800" stroke="#6b7380" stroke-width="6" />
+            <path d="M110 620 h86 l-6 160 h-86 Z" fill="#6b7380" /><path d="M196 620 h86 l-6 160 h-86 Z" fill="#f1ece1" /><path d="M282 620 h86 l-6 160 h-86 Z" fill="#6b7380" /><path d="M368 620 h86 l-6 160 h-86 Z" fill="#f1ece1" /><path d="M454 620 h86 l-6 160 h-86 Z" fill="#6b7380" /><path d="M540 620 h86 l-6 160 h-86 Z" fill="#f1ece1" /><path d="M626 620 h86 l-6 160 h-86 Z" fill="#6b7380" /><path d="M712 620 h86 l-6 160 h-86 Z" fill="#f1ece1" /><path d="M798 620 h86 l-6 160 h-86 Z" fill="#6b7380" /><path d="M884 620 h86 l-6 160 h-86 Z" fill="#f1ece1" />
+            <path d="M104 780 q43 40 86 0" fill="#6b7380" /><path d="M190 780 q43 40 86 0" fill="#f1ece1" /><path d="M276 780 q43 40 86 0" fill="#6b7380" /><path d="M362 780 q43 40 86 0" fill="#f1ece1" /><path d="M448 780 q43 40 86 0" fill="#6b7380" /><path d="M534 780 q43 40 86 0" fill="#f1ece1" /><path d="M620 780 q43 40 86 0" fill="#6b7380" /><path d="M706 780 q43 40 86 0" fill="#f1ece1" /><path d="M792 780 q43 40 86 0" fill="#6b7380" /><path d="M878 780 q43 40 86 0" fill="#f1ece1" />
+            <g class="s10-cortina"><rect x="200" y="800" width="680" height="600" fill="#6b7380" /><path d="M200 812 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 846 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 880 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 914 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 948 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 982 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 1016 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 1050 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 1084 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 1118 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 1152 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 1186 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 1220 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 1254 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 1288 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 1322 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 1356 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><path d="M200 1390 H880" stroke="#0b0b0d" stroke-width="3" opacity="0.55" /><rect x="200" y="1380" width="680" height="20" fill="#0b0b0d" /></g>
+            <path d="M120 1400 H960" stroke="#f1ece1" stroke-width="5" />
+            <g class="s10-reloj" transform="translate(800 880)"><circle r="44" fill="#0b0b0d" stroke="#f1ece1" stroke-width="5" /><path class="s10-ag" d="M0 0 V-32" stroke="#ff1f3d" stroke-width="6" stroke-linecap="round" /><path class="s10-ag2" d="M0 0 H22" stroke="#f1ece1" stroke-width="5" stroke-linecap="round" /></g>
+          </svg>
+          <div class="s10-cartel"><i class="s10-cinta" style="left:20px; transform: rotate(-8deg)"></i><i class="s10-cinta" style="right:20px; transform: rotate(10deg)"></i><p>Vuelvo en<br />5 min</p></div>
+          <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s10-mira brilla-rojo"><circle class="mira" cx="545" cy="1075" r="210" /><path class="mira" d="M545 845 V905 M545 1245 V1305 M315 1075 H375 M715 1075 H775" /></g>
+          </svg>
+        </div>
+        <div class="txt s10-cuando">¿Desde cuándo?</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-cortina";
+      const DUR = 4.42;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s10-escenario");
+      const golpe = (el, t, s = 2.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t, o = "50% 50%") => {
+        gsap.set(el, { opacity: 0, transformOrigin: o });
+        tl.fromTo(el, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)", immediateRender: false }, t);
+      };
+      const aparece = (el, t, d = 0.2) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: d }, t); };
+      const dibujar = (el, t, d = 0.5) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // máquina de escribir: el texto se descubre de a saltos
+      const tipear = (el, t, d = 0.5) => {
+        const n = Math.max(4, el.textContent.length);
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: d, ease: "steps(" + n + ")" }, t);
+      };
+      const sello = (el, t, rot = -8) => { gsap.set(el, { rotation: rot }); golpe(el, t, 2.4); sacudon(t + 0.04, 0.9); };
+      // cartel de FASE: entra de golpe, tiembla y se va hacia arriba en "fuera"
+      const fase = (t, fuera) => {
+        tl.fromTo(q(".s10-fase-c"), { opacity: 0.4, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.out" }, 0);
+        golpe(q(".s10-fase-n"), t, 3.2);
+        sacudon(t + 0.04, 1.4);
+        tl.to(q(".s10-fase-n"), { rotation: -4, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + 0.2);
+        [[0, 18, 0.4], [0.05, -14, 1], [0.1, 8, 0.5], [0.15, 0, 1]].forEach(([d, x, o]) => tl.set(q(".s10-fase-n"), { x, opacity: o }, fuera - 0.3 + d));
+        tl.to(q(".s10-fase-c"), { opacity: 0, y: -180, duration: 0.16, ease: "power3.in" }, fuera - 0.12);
+      };
+
+      const BAJA = 0.35, CARTEL = 1.22, VUELVO = 1.92, DESDE = 3.36;
+      // la cortina BAJA de golpe
+      gsap.set(q(".s10-cortina"), { scaleY: 0.06, transformOrigin: "50% 0%" });
+      tl.to(q(".s10-cortina"), { scaleY: 1, duration: 0.3, ease: "bounce.out" }, 0.02);
+      sacudon(0.3, 1.5);
+      sacudon(BAJA + 0.05, 0.8);
+      pop(q(".s10-reloj"), 0.6);
+      tl.to(q(".s10-ag"), { rotation: 1440, svgOrigin: "0 0", duration: 3.6, ease: "power1.in" }, 0.7);
+      tl.to(q(".s10-ag2"), { rotation: 360, svgOrigin: "0 0", duration: 3.6, ease: "power1.in" }, 0.7);
+      // el cartel escrito a mano
+      gsap.set(q(".s10-cartel"), { opacity: 0 });
+      tl.fromTo(q(".s10-cartel"), { opacity: 0, scale: 1.6, rotation: -10 }, { opacity: 1, scale: 1, rotation: 3, duration: 0.22, ease: "power3.out", immediateRender: false }, CARTEL - 0.15);
+      // "vuelvo en cinco minutos": la mira y zoom
+      gsap.set(q(".s10-mira"), { opacity: 0 });
+      tl.fromTo(q(".s10-mira"), { opacity: 0, scale: 2, svgOrigin: "545 1075" }, { opacity: 1, scale: 1, svgOrigin: "545 1075", duration: 0.3, ease: "power3.out", immediateRender: false }, VUELVO - 0.2);
+      tl.to(q(".s10-zoom"), { scale: 1.12, transformOrigin: "545px 1075px", duration: 1.2, ease: "power2.out" }, VUELVO - 0.1);
+      // "¿desde cuándo?"
+      golpe(q(".s10-cuando"), DESDE, 2.4);
+      sacudon(DESDE + 0.05, 1.3);
+      tl.to(q(".s10-cartel"), { rotation: -4, duration: 0.1, yoyo: true, repeat: 3 }, DESDE + 0.1);
+
+      // salida
+      tl.to(q("#s10-escena"), { x: -260, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

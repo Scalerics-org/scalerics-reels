@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "FreeMono"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-instagram"] .s06-capa, [data-composition-id="s06-instagram"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-instagram"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-instagram"] .sil { fill: #0b0b0d; stroke: #6b7380; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s06-instagram"] .sil-ln { fill: none; stroke: #6b7380; stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s06-instagram"] .ln { fill: none; stroke: #f1ece1; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s06-instagram"] .mira { fill: none; stroke: #ff1f3d; stroke-width: 5; stroke-linecap: round; }
+    [data-composition-id="s06-instagram"] .brilla-rojo { filter: drop-shadow(0 0 10px rgba(255, 31, 61, 0.55)); }
+    [data-composition-id="s06-instagram"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.02em; }
+    [data-composition-id="s06-instagram"] .sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s06-instagram"] .sello span { display: inline-block; padding: 8px 24px; border: 7px solid #ff1f3d; border-radius: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; color: #ff1f3d; white-space: nowrap; filter: drop-shadow(0 0 8px rgba(255, 31, 61, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s06-instagram"] .rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-instagram"] .maq { font-family: "FreeMono", monospace; font-weight: 700; color: #0b0b0d; white-space: nowrap; }
+    [data-composition-id="s06-instagram"] .fase-c { position: absolute; inset: 0; }
+    [data-composition-id="s06-instagram"] .fase-p { top: 600px; font-size: 140px; letter-spacing: 0.08em; color: #f1ece1; }
+    [data-composition-id="s06-instagram"] .fase-n { top: 720px; font-size: 500px; color: #d9b77e; }
+
+    [data-composition-id="s06-instagram"] .s06-nombre { position: absolute; left: 462px; top: 696px; letter-spacing: 0.02em; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; color: #f1ece1; white-space: nowrap; }
+    [data-composition-id="s06-instagram"] .s06-post { position: absolute; left: 190px; top: 660px; width: 700px; height: 620px; background: #f1ece1; border: 10px solid #f1ece1; }
+    [data-composition-id="s06-instagram"] .s06-post svg { width: 100%; height: 100%; display: block; }
+    [data-composition-id="s06-instagram"] .s06-feliz { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 54px; line-height: 1.05; color: #0b0b0d; text-transform: uppercase; }
+    [data-composition-id="s06-instagram"] .s06-hace { top: 1330px; }
+    [data-composition-id="s06-instagram"] .s06-hace span { font-size: 60px; }
+  </style>
+  <div id="root" data-composition-id="s06-instagram" data-width="1080" data-height="1920" data-duration="5.2">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.2" data-track-index="0">
+      <div class="s06-escenario">
+        <div class="s06-fase-c fase-c">
+          <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+            <path d="M110 640 V585 H190 M970 640 V585 H890 M110 1250 V1305 H190 M970 1250 V1305 H890" fill="none" stroke="#6b7380" stroke-width="4" />
+            <text x="124" y="628" class="rot" font-size="24" fill="#d9b77e" data-layout-ignore>EXP. 00-CERO</text>
+            <text x="956" y="628" class="rot" font-size="24" fill="#ff1f3d" text-anchor="end" data-layout-ignore>FASE 3 DE 5</text>
+          </svg>
+          <div class="txt fase-p">Fase</div>
+          <div class="txt fase-n s06-fase-n">3</div>
+        </div>
+        <div class="s06-pista">
+          <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+            <rect class="ln" x="310" y="600" width="460" height="880" rx="52" />
+            <path class="ln" d="M490 630 H590" />
+            <circle cx="400" cy="720" r="44" fill="none" stroke="#d9b77e" stroke-width="5" />
+            <path d="M376 724 h48 M384 708 l-8 16 M416 708 l8 16" stroke="#d9b77e" stroke-width="4" stroke-linecap="round" />
+            <path d="M470 760 h120 M470 790 h200" stroke="#6b7380" stroke-width="10" stroke-linecap="round" />
+            <rect class="s06-cu" x="345" y="870" width="124" height="124" fill="#1c1e24" stroke="#6b7380" stroke-width="3" /><rect class="s06-cu" x="477" y="870" width="124" height="124" fill="#1c1e24" stroke="#6b7380" stroke-width="3" /><rect class="s06-cu" x="609" y="870" width="124" height="124" fill="#1c1e24" stroke="#6b7380" stroke-width="3" /><rect class="s06-cu" x="345" y="1002" width="124" height="124" fill="#1c1e24" stroke="#6b7380" stroke-width="3" /><rect class="s06-cu" x="477" y="1002" width="124" height="124" fill="#1c1e24" stroke="#6b7380" stroke-width="3" /><rect class="s06-cu" x="609" y="1002" width="124" height="124" fill="#1c1e24" stroke="#6b7380" stroke-width="3" />
+            <path d="M380 920 l40 -30 l40 30 v30 h-80 Z" fill="none" stroke="#6b7380" stroke-width="3" />
+            <path class="s06-tela" d="M345 870 L475 870 M345 870 L460 930 M345 870 L425 975 M345 870 L345 1000 M390 870 Q381.0 892.5 372.0 903.75 Q358.5 908.25 345 915 M430 870 Q413.0 912.5 396.0 933.75 Q370.5 942.25 345 955 M470 870 Q445.0 932.5 420.0 963.75 Q382.5 976.25 345 995" fill="none" stroke="#6b7380" stroke-width="3" stroke-linecap="round" />
+            <path class="s06-tela" d="M735 1126 L605 1126 M735 1126 L620 1066 M735 1126 L655 1021 M735 1126 L735 996 M690 1126 Q699.0 1103.5 708.0 1092.25 Q721.5 1087.75 735 1081 M650 1126 Q667.0 1083.5 684.0 1062.25 Q709.5 1053.75 735 1041 M610 1126 Q635.0 1063.5 660.0 1032.25 Q697.5 1019.75 735 1001" fill="none" stroke="#6b7380" stroke-width="3" stroke-linecap="round" />
+            <g class="s06-mira brilla-rojo"><circle class="mira" cx="407" cy="932" r="86" /><path class="mira" d="M407 830 V880 M407 984 V1034 M305 932 H355 M459 932 H509" /></g>
+          </svg>
+          <div class="rot s06-nombre">rotiseria.donbeto</div>
+          <div class="s06-post">
+            <svg viewBox="0 0 700 620" aria-hidden="true">
+              <rect width="700" height="620" fill="#f1ece1" />
+              <g class="s06-sol"><circle cx="560" cy="300" r="60" fill="none" stroke="#d9b77e" stroke-width="8" />
+              <path d="M560 300 m80.0 0.0 l26.0 0.0" stroke="#d9b77e" stroke-width="8" stroke-linecap="round" /><path d="M560 300 m56.6 56.5 l18.4 18.4" stroke="#d9b77e" stroke-width="8" stroke-linecap="round" /><path d="M560 300 m0.1 80.0 l0.0 26.0" stroke="#d9b77e" stroke-width="8" stroke-linecap="round" /><path d="M560 300 m-56.5 56.6 l-18.4 18.4" stroke="#d9b77e" stroke-width="8" stroke-linecap="round" /><path d="M560 300 m-80.0 0.1 l-26.0 0.0" stroke="#d9b77e" stroke-width="8" stroke-linecap="round" /><path d="M560 300 m-56.7 -56.5 l-18.4 -18.3" stroke="#d9b77e" stroke-width="8" stroke-linecap="round" /><path d="M560 300 m-0.2 -80.0 l-0.1 -26.0" stroke="#d9b77e" stroke-width="8" stroke-linecap="round" /><path d="M560 300 m56.4 -56.7 l18.3 -18.4" stroke="#d9b77e" stroke-width="8" stroke-linecap="round" /></g>
+              <ellipse cx="270" cy="470" rx="200" ry="70" fill="none" stroke="#6b7380" stroke-width="6" />
+              <path d="M130 460 C150 400 260 390 320 410 C380 425 420 440 400 480 C370 520 200 520 150 500 Z" fill="#d9b77e" stroke="#0b0b0d" stroke-width="5" />
+              <path d="M180 455 l14 6 M240 440 l12 8 M300 450 l10 10 M220 480 l14 4 M340 470 l12 6" stroke="#0b0b0d" stroke-width="4" stroke-linecap="round" />
+              <path d="M410 430 a40 40 0 0 1 60 40 Z" fill="#f1ece1" stroke="#0b0b0d" stroke-width="5" />
+            </svg>
+            <div class="s06-feliz">¡Feliz Semana<br />de Turismo!</div>
+          </div>
+          <div class="sello s06-hace"><span>Hace 2 años</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-instagram";
+      const DUR = 5.2;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s06-escenario");
+      const golpe = (el, t, s = 2.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t, o = "50% 50%") => {
+        gsap.set(el, { opacity: 0, transformOrigin: o });
+        tl.fromTo(el, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)", immediateRender: false }, t);
+      };
+      const aparece = (el, t, d = 0.2) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: d }, t); };
+      const dibujar = (el, t, d = 0.5) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // máquina de escribir: el texto se descubre de a saltos
+      const tipear = (el, t, d = 0.5) => {
+        const n = Math.max(4, el.textContent.length);
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: d, ease: "steps(" + n + ")" }, t);
+      };
+      const sello = (el, t, rot = -8) => { gsap.set(el, { rotation: rot }); golpe(el, t, 2.4); sacudon(t + 0.04, 0.9); };
+      // cartel de FASE: entra de golpe, tiembla y se va hacia arriba en "fuera"
+      const fase = (t, fuera) => {
+        tl.fromTo(q(".s06-fase-c"), { opacity: 0.4, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.out" }, 0);
+        golpe(q(".s06-fase-n"), t, 3.2);
+        sacudon(t + 0.04, 1.4);
+        tl.to(q(".s06-fase-n"), { rotation: -4, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + 0.2);
+        [[0, 18, 0.4], [0.05, -14, 1], [0.1, 8, 0.5], [0.15, 0, 1]].forEach(([d, x, o]) => tl.set(q(".s06-fase-n"), { x, opacity: o }, fuera - 0.3 + d));
+        tl.to(q(".s06-fase-c"), { opacity: 0, y: -180, duration: 0.16, ease: "power3.in" }, fuera - 0.12);
+      };
+
+      const TRES = 0.26, INSTA = 0.90, ULTIMO = 1.74, TURISMO = 3.31, HACE = 4.01;
+      fase(TRES, INSTA);
+      gsap.set(q(".s06-pista"), { opacity: 0 });
+      tl.set(q(".s06-pista"), { opacity: 1 }, INSTA - 0.05);
+      tl.fromTo(q(".s06-pista"), { y: 300 }, { y: 0, duration: 0.3, ease: "power3.out" }, INSTA - 0.05);
+      qa(".s06-cu").forEach((c, i) => { gsap.set(c, { opacity: 0 }); tl.to(c, { opacity: 1, duration: 0.1 }, INSTA + 0.15 + i * 0.05); });
+      // "último posteo": la mira se clava en el primer cuadrito
+      gsap.set(q(".s06-mira"), { opacity: 0 });
+      tl.fromTo(q(".s06-mira"), { opacity: 0, x: 300, y: 200, scale: 1.6, svgOrigin: "407 932" }, { opacity: 1, x: 0, y: 0, scale: 1, svgOrigin: "407 932", duration: 0.4, ease: "power3.out", immediateRender: false }, ULTIMO - 0.1);
+      tl.to(q(".s06-mira"), { scale: 0.85, svgOrigin: "407 932", duration: 0.12, yoyo: true, repeat: 3 }, ULTIMO + 0.4);
+      // zoom al posteo
+      gsap.set(q(".s06-post"), { opacity: 0 });
+      tl.fromTo(q(".s06-post"), { opacity: 0, scale: 0.18, x: -240, y: -10, rotation: 0 }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: -2, duration: 0.35, ease: "power3.out", immediateRender: false }, 2.75);
+      tl.to(q(".s06-nombre"), { opacity: 0, duration: 0.1 }, 2.75);
+      tl.to(q(".s06-sol"), { rotation: 45, svgOrigin: "560 300", duration: 2.4, ease: "none" }, 2.8);
+      tl.to(q(".s06-feliz"), { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, TURISMO);
+      // "hace dos años": sello y telarañas
+      sello(q(".s06-hace"), HACE + 0.15, -7);
+      tl.to(q(".s06-post"), { filter: "grayscale(0.9) brightness(0.8)", duration: 0.4 }, HACE + 0.2);
+      qa(".s06-tela").forEach((t, i) => dibujar(t, HACE + 0.3 + i * 0.12, 0.5));
+
+      // salida
+      tl.to(q("#s06-escena"), { x: -260, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

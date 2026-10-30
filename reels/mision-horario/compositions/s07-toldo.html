@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "FreeMono"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-toldo"] .s07-capa, [data-composition-id="s07-toldo"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-toldo"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-toldo"] .sil { fill: #0b0b0d; stroke: #6b7380; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s07-toldo"] .sil-ln { fill: none; stroke: #6b7380; stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s07-toldo"] .ln { fill: none; stroke: #f1ece1; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s07-toldo"] .mira { fill: none; stroke: #ff1f3d; stroke-width: 5; stroke-linecap: round; }
+    [data-composition-id="s07-toldo"] .brilla-rojo { filter: drop-shadow(0 0 10px rgba(255, 31, 61, 0.55)); }
+    [data-composition-id="s07-toldo"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.02em; }
+    [data-composition-id="s07-toldo"] .sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s07-toldo"] .sello span { display: inline-block; padding: 8px 24px; border: 7px solid #ff1f3d; border-radius: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; color: #ff1f3d; white-space: nowrap; filter: drop-shadow(0 0 8px rgba(255, 31, 61, 0.4)); text-transform: uppercase; }
+    [data-composition-id="s07-toldo"] .rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-toldo"] .maq { font-family: "FreeMono", monospace; font-weight: 700; color: #0b0b0d; white-space: nowrap; }
+    [data-composition-id="s07-toldo"] .fase-c { position: absolute; inset: 0; }
+    [data-composition-id="s07-toldo"] .fase-p { top: 600px; font-size: 140px; letter-spacing: 0.08em; color: #f1ece1; }
+    [data-composition-id="s07-toldo"] .fase-n { top: 720px; font-size: 500px; color: #d9b77e; }
+
+    [data-composition-id="s07-toldo"] .s07-banda { position: absolute; left: 150px; top: 960px; width: 780px; height: 130px; background: #f1ece1; text-align: center; }
+    [data-composition-id="s07-toldo"] .s07-tel { position: absolute; left: 0; right: 0; top: 30px; font-size: 70px; text-align: center; }
+    [data-composition-id="s07-toldo"] .s07-d { position: relative; display: inline-block; width: 52px; text-align: center; }
+    [data-composition-id="s07-toldo"] .s07-d:nth-child(4), [data-composition-id="s07-toldo"] .s07-d:nth-child(6) { margin-left: 22px; }
+    [data-composition-id="s07-toldo"] .s07-m { position: absolute; left: 6px; top: 110px; width: 40px; height: 40px; border-radius: 50%; background: #ff1f3d; color: #0b0b0d; font-family: "IBM Plex Mono", monospace; font-style: normal; font-size: 26px; line-height: 40px; }
+    [data-composition-id="s07-toldo"] .s07-falta { top: 1260px; }
+    [data-composition-id="s07-toldo"] .s07-falta span { font-size: 50px; }
+  </style>
+  <div id="root" data-composition-id="s07-toldo" data-width="1080" data-height="1920" data-duration="3.64">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="3.64" data-track-index="0">
+      <div class="s07-escenario">
+        <div class="s07-fase-c fase-c">
+          <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+            <path d="M110 640 V585 H190 M970 640 V585 H890 M110 1250 V1305 H190 M970 1250 V1305 H890" fill="none" stroke="#6b7380" stroke-width="4" />
+            <text x="124" y="628" class="rot" font-size="24" fill="#d9b77e" data-layout-ignore>EXP. 00-CERO</text>
+            <text x="956" y="628" class="rot" font-size="24" fill="#ff1f3d" text-anchor="end" data-layout-ignore>FASE 4 DE 5</text>
+          </svg>
+          <div class="txt fase-p">Fase</div>
+          <div class="txt fase-n s07-fase-n">4</div>
+        </div>
+        <div class="s07-pista">
+          <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+            <path d="M150 1500 V900 M930 1500 V900" stroke="#6b7380" stroke-width="5" />
+            <path d="M110 680 h86 l-6 220 h-86 Z" fill="#6b7380" /><path d="M196 680 h86 l-6 220 h-86 Z" fill="#f1ece1" /><path d="M282 680 h86 l-6 220 h-86 Z" fill="#6b7380" /><path d="M368 680 h86 l-6 220 h-86 Z" fill="#f1ece1" /><path d="M454 680 h86 l-6 220 h-86 Z" fill="#6b7380" /><path d="M540 680 h86 l-6 220 h-86 Z" fill="#f1ece1" /><path d="M626 680 h86 l-6 220 h-86 Z" fill="#6b7380" /><path d="M712 680 h86 l-6 220 h-86 Z" fill="#f1ece1" /><path d="M798 680 h86 l-6 220 h-86 Z" fill="#6b7380" /><path d="M884 680 h86 l-6 220 h-86 Z" fill="#f1ece1" />
+            <path d="M104 900 q43 44 86 0" fill="#6b7380" /><path d="M190 900 q43 44 86 0" fill="#f1ece1" /><path d="M276 900 q43 44 86 0" fill="#6b7380" /><path d="M362 900 q43 44 86 0" fill="#f1ece1" /><path d="M448 900 q43 44 86 0" fill="#6b7380" /><path d="M534 900 q43 44 86 0" fill="#f1ece1" /><path d="M620 900 q43 44 86 0" fill="#6b7380" /><path d="M706 900 q43 44 86 0" fill="#f1ece1" /><path d="M792 900 q43 44 86 0" fill="#6b7380" /><path d="M878 900 q43 44 86 0" fill="#f1ece1" />
+            <path d="M110 680 H970" stroke="#f1ece1" stroke-width="6" />
+            <g class="s07-telf" transform="translate(860 1440) rotate(-20)"><path d="M-50 -20 Q-50 -50 -20 -50 H20 Q50 -50 50 -20 V-5 H20 V-20 H-20 V-5 H-50 Z M-40 10 H40 L52 50 H-52 Z" fill="#f1ece1" /></g>
+          </svg>
+          <div class="s07-banda"><div class="maq s07-tel">TEL. <span class="s07-d"><b>4</b><i class="s07-m">1</i></span><span class="s07-d"><b>0</b><i class="s07-m">2</i></span><span class="s07-d"><b>8</b><i class="s07-m">3</i></span><span class="s07-d"><b>2</b><i class="s07-m">4</i></span><span class="s07-d"><b>1</b><i class="s07-m">5</i></span><span class="s07-d"><b>7</b><i class="s07-m">6</i></span><span class="s07-d"><b>5</b><i class="s07-m">7</i></span></div></div>
+          <div class="sello s07-falta"><span>Número inexistente</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-toldo";
+      const DUR = 3.64;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s07-escenario");
+      const golpe = (el, t, s = 2.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t, o = "50% 50%") => {
+        gsap.set(el, { opacity: 0, transformOrigin: o });
+        tl.fromTo(el, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)", immediateRender: false }, t);
+      };
+      const aparece = (el, t, d = 0.2) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: d }, t); };
+      const dibujar = (el, t, d = 0.5) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      // máquina de escribir: el texto se descubre de a saltos
+      const tipear = (el, t, d = 0.5) => {
+        const n = Math.max(4, el.textContent.length);
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: d, ease: "steps(" + n + ")" }, t);
+      };
+      const sello = (el, t, rot = -8) => { gsap.set(el, { rotation: rot }); golpe(el, t, 2.4); sacudon(t + 0.04, 0.9); };
+      // cartel de FASE: entra de golpe, tiembla y se va hacia arriba en "fuera"
+      const fase = (t, fuera) => {
+        tl.fromTo(q(".s07-fase-c"), { opacity: 0.4, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.out" }, 0);
+        golpe(q(".s07-fase-n"), t, 3.2);
+        sacudon(t + 0.04, 1.4);
+        tl.to(q(".s07-fase-n"), { rotation: -4, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + 0.2);
+        [[0, 18, 0.4], [0.05, -14, 1], [0.1, 8, 0.5], [0.15, 0, 1]].forEach(([d, x, o]) => tl.set(q(".s07-fase-n"), { x, opacity: o }, fuera - 0.3 + d));
+        tl.to(q(".s07-fase-c"), { opacity: 0, y: -180, duration: 0.16, ease: "power3.in" }, fuera - 0.12);
+      };
+
+      const CUATRO = 0.26, TEL = 1.04, TOLDO = 1.74, SIETE = 2.43, NUMEROS = 2.81;
+      fase(CUATRO, TEL);
+      gsap.set(q(".s07-pista"), { opacity: 0 });
+      tl.set(q(".s07-pista"), { opacity: 1 }, TEL - 0.05);
+      tl.fromTo(q(".s07-pista"), { y: -260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.4)" }, TEL - 0.05);
+      gsap.set(q(".s07-banda"), { opacity: 0 });
+      tl.fromTo(q(".s07-banda"), { opacity: 0, scaleY: 0, transformOrigin: "50% 0%" }, { opacity: 1, scaleY: 1, duration: 0.2, ease: "power3.out", immediateRender: false }, TOLDO - 0.3);
+      pop(q(".s07-telf"), TOLDO);
+      tl.to(q(".s07-telf"), { rotation: -8, duration: 0.06, yoyo: true, repeat: 9, ease: "none" }, TOLDO + 0.2);
+      // "siete": la cuenta, dígito por dígito
+      qa(".s07-m").forEach((m, i) => { gsap.set(m, { opacity: 0, scale: 0 }); tl.to(m, { opacity: 1, scale: 1, duration: 0.1, ease: "back.out(3)" }, SIETE - 0.15 + i * 0.06); });
+      // "números": no existe
+      sello(q(".s07-falta"), NUMEROS + 0.1, -5);
+      [[0, 14, 0.5], [0.05, -10, 1], [0.1, 6, 0.6], [0.15, 0, 1]].forEach(([d, x, o]) => tl.set(q(".s07-tel"), { x, opacity: o }, NUMEROS + 0.2 + d));
+
+      // salida
+      tl.to(q("#s07-escena"), { x: -260, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
