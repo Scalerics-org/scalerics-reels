@@ -77,6 +77,11 @@
 ## En curso
 
 
+- 30-10 · `duelo-al-mediodia` · Agente de IA · western: el de enfrente te desafía a duelo de quién contesta primero [formato P western · estilo spaghetti western sepia] · corrida 30-10 07:12
+- 30-10 · `el-guru` · Agente de IA · gurú motivacional que grita "si no crecés es porque dormís"; giro: dormí, que trabaje el agente [formato A seminario de gurú · estilo escenario con pantalla gigante, fuego y dorado] · corrida 30-10 07:12
+- 30-10 · `otra-vez-las-once` · Automatizaciones · bucle temporal: el dueño revive todas las noches a las once el mismo copiar y pegar [formato C noches en pasos (bucle temporal) · estilo radio-reloj digital rojo en dormitorio azul] · corrida 30-10 07:12
+- 30-10 · `el-enlatado` · Sistema a medida · pelea de boxeo: tu negocio contra el sistema enlatado [formato P boxeo · estilo ring con cuerdas, reflector, rincón rojo y azul] · corrida 30-10 07:12
+- 30-10 · `habia-una-vez` · Tienda online · cuento infantil: Caperucita quiere comprarte y el lobo de enfrente tiene tienda online [formato D cuento · estilo libro de cuentos acuarela] · corrida 30-10 07:12
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
