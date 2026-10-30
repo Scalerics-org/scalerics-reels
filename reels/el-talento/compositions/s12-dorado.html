@@ -1,0 +1,145 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-dorado"] .s12-capa, [data-composition-id="s12-dorado"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-dorado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-dorado"] .b { fill: #0b080b; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .l { fill: none; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .k { fill: #1c151c; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .y { fill: #f6c544; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .yl { fill: none; stroke: #f6c544; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .r { fill: #ff2d3d; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .rl { fill: none; stroke: #ff2d3d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .c { fill: #4fc3ff; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .cl { fill: none; stroke: #4fc3ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .v { fill: #5a1020; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .w { fill: #fff3d6; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .g { fill: #5ce611; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .ag { fill: #0b080b; stroke: #5ce611; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-dorado"] .haz { fill: #fff3d6; opacity: 0.09; stroke: none; }
+    [data-composition-id="s12-dorado"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s12-dorado"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s12-dorado"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s12-dorado"] .s12-zoc { position: absolute; left: 50px; top: 1330px; width: 980px; }
+    [data-composition-id="s12-dorado"] .s12-zoc span { display: inline-block; padding: 8px 18px 6px; background: #f6c544; color: #0b080b; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.06em; }
+    [data-composition-id="s12-dorado"] .s12-zoc div { padding: 14px 22px 12px; background: #fff3d6; border-left: 14px solid #f6c544; color: #0b080b; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 38px; text-transform: uppercase; }
+    [data-composition-id="s12-dorado"] .s12-tit { position: absolute; left: 0; right: 0; top: 620px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 120px; line-height: 0.95; color: #f6c544; text-shadow: 0 0 30px rgba(246, 197, 68, 0.6); }
+
+  </style>
+  <div id="root" data-composition-id="s12-dorado" data-width="1080" data-height="1920" data-duration="5.21">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="5.21" data-track-index="0">
+      <div class="s12-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s12-malo"><g transform="translate(234 600) scale(1.7)">
+              <path class="k" d="M30 560 C30 430 92 380 180 380 C268 380 330 430 330 560 Z" />
+              <path class="k" d="M136 384 C136 350 224 350 224 384 L224 404 C200 416 160 416 136 404 Z" />
+              <path class="b" d="M154 306 V370 H206 V306" />
+              <path class="b" d="M112 236 C112 160 150 140 180 140 C210 140 248 160 248 236 C248 300 220 330 180 330 C140 330 112 300 112 236 Z" />
+              <path class="k" d="M108 210 C100 140 150 112 190 116 C240 120 262 150 252 210 C240 170 210 156 180 160 C150 162 120 174 108 210 Z" />
+              <path class="l" d="M130 164 C160 140 210 136 240 160" stroke-width="5" opacity="0.6" />
+              <circle cx="152" cy="246" r="6" fill="#fff3d6" /><circle cx="210" cy="246" r="6" fill="#fff3d6" />
+              <g class="s12-lentes">
+              <rect class="k" x="124" y="230" width="52" height="30" rx="10" stroke-width="5" />
+              <rect class="k" x="186" y="230" width="52" height="30" rx="10" stroke-width="5" />
+              <path class="l" d="M176 240 H186" stroke-width="5" />
+              </g>
+              <path class="l s12-ceja" d="M124 214 L170 220 M196 214 L238 204" stroke-width="7" />
+              <path class="w s12-boca" d="M156 296 C176 290 196 290 210 282" fill="none" stroke-width="6" />
+
+            <path class="w s12-sonrisa" d="M146 284 C162 316 204 316 218 280 C196 292 168 294 146 284 Z" stroke-width="5" />
+          </g></g>
+          
+          <g class="s12-mesa">
+            <rect class="v" x="40" y="1250" width="1000" height="200" rx="10" />
+            <rect class="y" x="30" y="1232" width="1020" height="26" rx="8" />
+            <path class="yl" d="M70 1300 H1010" stroke-width="4" opacity="0.5" />
+          </g>
+          <g class="s12-boton"><g transform="translate(540 1150) scale(2.4)">
+          <g class="s12-bd">
+            <ellipse class="k" cx="0" cy="30" rx="92" ry="42.0" />
+            <path class="y s12-bd-domo" d="M-70 20 C-70 -63.0 70 -63.0 70 20 C42.0 40 -42.0 40 -70 20 Z" />
+            <path class="l" d="M-35.0 -14.0 C-21.0 -38.5 0 -42.0 14.0 -38.5" stroke-width="6" opacity="0.8" />
+          </g></g></g>
+          <g class="s12-mano"><g transform="translate(700 760)">
+            <path class="l" d="M300 -300 C220 -160 120 -40 40 60" stroke-width="64" />
+            <path d="M300 -300 C220 -160 120 -40 40 60" stroke="#ff2d3d" stroke-width="50" fill="none" stroke-linecap="round" />
+            <circle class="b" cx="30" cy="80" r="62" />
+          </g></g>
+        </svg>
+        <div class="s12-tit">¡BOTÓN<br>DORADO!</div>
+        <div class="s12-zoc"><span>EXCLUSIVO</span><div>No sonreía desde el Maracanazo</div></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-dorado";
+      const DUR = 5.21;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s12-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // X roja gigante que cae (dos trazos que se dibujan + golpe)
+      const equis = (sel, t) => { golpe(sel, t, 2.2); sacudon(t + 0.04, 1.1); };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const NO = 0, ME = 0.96, GUSTO = 2.29, BOTON = 3.43;
+      tl.fromTo(q(".s12-malo"), { scale: 1.06, svgOrigin: "540 1250" }, { scale: 1, svgOrigin: "540 1250", duration: 1, ease: "power2.out" }, 0);
+      habla(".s12-boca", 0, 0.8, "183 289");
+      // se saca los anteojos
+      tl.to(q(".s12-lentes"), { y: -120, opacity: 0, duration: 0.35, ease: "power2.in" }, 0.5);
+      tl.fromTo(q(".s12-ceja"), { y: 0 }, { y: -12, duration: 0.2, immediateRender: false }, 0.4);
+      // la sonrisa
+      gsap.set(q(".s12-sonrisa"), { opacity: 0 });
+      tl.to(q(".s12-boca"), { opacity: 0, duration: 0.1 }, GUSTO - 0.4);
+      tl.fromTo(q(".s12-sonrisa"), { opacity: 0, scale: 0.4, svgOrigin: "182 296" }, { opacity: 1, scale: 1, svgOrigin: "182 296", duration: 0.3, ease: "back.out(3)", immediateRender: false }, GUSTO - 0.4);
+      gsap.set(q(".s12-zoc"), { opacity: 0 });
+      tl.fromTo(q(".s12-zoc"), { opacity: 0, x: -1000 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, ME + 0.3);
+      tl.fromTo(q(".s12-malo"), { rotation: 0, svgOrigin: "540 1250" }, { rotation: 2, svgOrigin: "540 1250", duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, GUSTO);
+      // botón dorado
+      tl.to([q(".s12-malo"), q(".s12-zoc")], { opacity: 0, duration: 0.15 }, BOTON - 0.35);
+      gsap.set(q(".s12-boton"), { opacity: 0 });
+      tl.fromTo(q(".s12-boton"), { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(1.6)", immediateRender: false }, BOTON - 0.35);
+      gsap.set(q(".s12-mano"), { opacity: 0 });
+      tl.fromTo(q(".s12-mano"), { opacity: 1, x: 400, y: -400 }, { opacity: 1, x: 0, y: 0, duration: 0.18, ease: "power3.in", immediateRender: false }, BOTON - 0.1);
+      tl.fromTo(q(".s12-bd-domo"), { scaleY: 1, svgOrigin: "0 20" }, { scaleY: 0.7, svgOrigin: "0 20", duration: 0.08, yoyo: true, repeat: 1, immediateRender: false }, BOTON + 0.08);
+      tl.to(q(".s12-mano"), { x: 300, y: -300, opacity: 0, duration: 0.3, ease: "power2.in" }, BOTON + 0.45);
+      golpe(".s12-tit", BOTON + 0.12, 2.4);
+      sacudon(BOTON + 0.12, 1.4);
+      tl.to(q(".s12-boton"), { scale: 1.06, svgOrigin: "540 1150", duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, BOTON + 0.6);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

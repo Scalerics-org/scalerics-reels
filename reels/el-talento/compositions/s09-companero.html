@@ -1,0 +1,139 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-companero"] .s09-capa, [data-composition-id="s09-companero"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-companero"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-companero"] .b { fill: #0b080b; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .l { fill: none; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .k { fill: #1c151c; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .y { fill: #f6c544; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .yl { fill: none; stroke: #f6c544; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .r { fill: #ff2d3d; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .rl { fill: none; stroke: #ff2d3d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .c { fill: #4fc3ff; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .cl { fill: none; stroke: #4fc3ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .v { fill: #5a1020; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .w { fill: #fff3d6; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .g { fill: #5ce611; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .ag { fill: #0b080b; stroke: #5ce611; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-companero"] .haz { fill: #fff3d6; opacity: 0.09; stroke: none; }
+    [data-composition-id="s09-companero"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s09-companero"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-companero"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s09-companero"] .s09-para { position: absolute; left: 520px; top: 650px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 130px; color: #ff2d3d; line-height: 1; text-shadow: 0 0 24px rgba(255, 45, 61, 0.5); }
+    [data-composition-id="s09-companero"] .s09-tal { left: 560px; top: 860px; background: #f6c544; color: #0b080b; font-size: 56px; }
+    [data-composition-id="s09-companero"] .s09-busca { position: absolute; left: 90px; top: 610px; width: 900px; padding: 18px 0 14px; text-align: center; border: 8px dashed #f6c544; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 74px; color: #f6c544; background: #0b080b; }
+    [data-composition-id="s09-companero"] .s09-q { position: absolute; left: 700px; top: 920px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 220px; color: #f6c544; line-height: 1; }
+
+  </style>
+  <div id="root" data-composition-id="s09-companero" data-width="1080" data-height="1920" data-duration="4.8">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.8" data-track-index="0">
+      <div class="s09-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s09-simp"><g transform="translate(60 880) scale(1.15)">
+              <path class="y" d="M24 560 C24 420 92 370 180 370 C268 370 336 420 336 560 Z" />
+              <path class="l" d="M60 470 H300 M50 510 H310" stroke="#0b080b" stroke-width="6" opacity="0.5" />
+              <path class="b" d="M150 300 V378 H210 V300" />
+              <ellipse class="b" cx="180" cy="236" rx="80" ry="84" />
+              <path class="w" d="M108 260 C112 330 150 352 180 352 C210 352 248 330 252 260 C236 290 212 300 180 300 C148 300 124 290 108 260 Z" stroke-width="5" />
+              <path class="w s09-boca" d="M156 296 C166 312 194 312 204 296 Z" stroke="#0b080b" stroke-width="4" />
+              <path class="l" d="M134 214 C144 204 160 204 170 214 M190 214 C200 204 216 204 226 214" stroke-width="6" />
+              <path class="l s09-ojos" d="M140 240 C148 232 160 232 166 240 M194 240 C200 232 212 232 220 240" stroke-width="6" />
+              <path class="l" d="M104 200 C110 170 130 156 150 152" stroke-width="5" opacity="0.5" />
+
+            <g class="s09-mano"><path class="l" d="M300 420 C350 380 370 320 368 250" stroke-width="30" /><path class="y" d="M300 420 C350 380 370 320 368 250" stroke="#f6c544" stroke-width="18" fill="none" /><circle class="b" cx="368" cy="226" r="30" /></g>
+          </g></g>
+          <g class="s09-tilde"><path d="M890 940 L920 970 L980 905" fill="none" stroke="#0b080b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" /></g>
+          <ellipse class="s09-piso" cx="540" cy="1460" rx="400" ry="60" fill="#fff3d6" opacity="0.10" /><ellipse cx="540" cy="1460" rx="400" ry="60" fill="none" stroke="#f6c544" stroke-width="5" opacity="0.6" />
+          <g class="s09-maxi"><g transform="translate(120 900) scale(1.0)">
+              <path class="c" d="M30 560 C30 420 92 368 180 368 C268 368 330 420 330 560 Z" />
+              <path class="l" d="M150 380 C150 420 160 440 168 470 M210 380 C210 420 200 440 192 470" stroke-width="5" />
+              <path class="l" d="M110 470 H250" stroke-width="5" opacity="0.6" />
+              <path class="b" d="M152 300 V380 H208 V300" />
+              <ellipse class="b" cx="180" cy="236" rx="72" ry="82" />
+              <path class="c" d="M106 214 C104 150 150 130 186 132 C226 134 258 156 256 212 C220 196 150 194 106 214 Z" />
+              <path class="c" d="M104 212 C80 214 56 220 40 232 C56 240 84 236 108 226 Z" />
+              <g class="s09-ojos">
+                <path class="l" d="M140 246 H168 M196 246 H224" stroke-width="6" />
+                <path d="M146 248 a8 6 0 0 0 16 0 Z M202 248 a8 6 0 0 0 16 0 Z" fill="#fff3d6" />
+              </g>
+              <path class="w s09-boca" d="M160 288 C172 296 192 296 204 286" fill="none" stroke-width="6" />
+              <path class="l" d="M138 228 L168 234 M226 226 L196 232" stroke-width="5" />
+</g></g>
+          <g class="s09-sombra"><g transform="translate(600 900) scale(1.0)">
+            <path d="M30 560 C30 420 92 368 180 368 C268 368 330 420 330 560 Z M180 140 C120 140 108 200 108 236 C108 290 140 318 180 318 C220 318 252 290 252 236 C252 200 240 140 180 140 Z" fill="none" stroke="#f6c544" stroke-width="8" stroke-dasharray="20 16" stroke-linecap="round" />
+          </g></g>
+        </svg>
+        <div class="s09-para">¡PARÁ!</div>
+        <div class="cartela s09-tal">TALENTO ✓</div>
+        <div class="s09-busca">SE BUSCA COMPAÑERO</div>
+        <div class="s09-q">?</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-companero";
+      const DUR = 4.8;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s09-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // X roja gigante que cae (dos trazos que se dibujan + golpe)
+      const equis = (sel, t) => { golpe(sel, t, 2.2); sacudon(t + 0.04, 1.1); };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const PIBE = 0.96, TALENTO = 2.12, COMP = 3.39;
+      // el juez bueno se para de golpe
+      tl.fromTo(q(".s09-simp"), { y: 200 }, { y: 0, duration: 0.25, ease: "back.out(2)" }, 0);
+      golpe(".s09-para", 0.05, 2.2);
+      sacudon(0.1);
+      habla(".s09-boca", 0, 3.6, "180 302");
+      tl.fromTo(q(".s09-mano"), { rotation: -10, svgOrigin: "300 400" }, { rotation: 10, svgOrigin: "300 400", duration: 0.25, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, 0.2);
+      tl.to(q(".s09-para"), { opacity: 0, y: -40, duration: 0.2 }, TALENTO - 0.3);
+      pop(".s09-tal", TALENTO, { rotation: -4 });
+      gsap.set(q(".s09-tilde"), { opacity: 0 });
+      // cambio a Maxi y el lugar vacío
+      tl.to([q(".s09-simp"), q(".s09-tal")], { x: -1200, duration: 0.3, ease: "power3.in" }, COMP - 0.45);
+      entra(".s09-maxi", COMP - 0.2, { x: -500 });
+      gsap.set(q(".s09-maxi .s09-boca"), { rotation: 180, svgOrigin: "182 291" });
+      dibujar(".s09-sombra path", COMP, 0.5);
+      golpe(".s09-busca", COMP + 0.1, 1.8);
+      pop(".s09-q", COMP + 0.4);
+      tl.to(q(".s09-q"), { rotation: 10, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, COMP + 0.7);
+
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

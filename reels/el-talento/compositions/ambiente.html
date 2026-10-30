@@ -1,0 +1,156 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    /* arriba: EN VIVO + quién habla */
+    [data-composition-id="ambiente"] .am-top { position: absolute; left: 56px; top: 108px; display: flex; align-items: center; gap: 18px; }
+    [data-composition-id="ambiente"] .am-vivo { display: flex; align-items: center; gap: 12px; padding: 10px 20px 8px 16px; background: #ff2d3d; border-radius: 8px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.04em; color: #fff3d6; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-punto { width: 18px; height: 18px; border-radius: 50%; background: #fff3d6; }
+    [data-composition-id="ambiente"] .am-quien { position: relative; height: 44px; width: 520px; }
+    [data-composition-id="ambiente"] .am-quien span { position: absolute; left: 0; top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; color: #f6c544; white-space: nowrap; opacity: 0; }
+    /* luces del jurado: tres X arriba a la derecha */
+    [data-composition-id="ambiente"] .am-luces { position: absolute; right: 52px; top: 100px; display: flex; gap: 14px; }
+    [data-composition-id="ambiente"] .am-luz { position: relative; width: 62px; height: 62px; border-radius: 50%; border: 5px solid #fff3d6; background: #1c151c; }
+    [data-composition-id="ambiente"] .am-luz svg { position: absolute; left: 0; top: 0; width: 52px; height: 52px; }
+    [data-composition-id="ambiente"] .am-rojo, [data-composition-id="ambiente"] .am-oro { position: absolute; inset: -5px; border-radius: 50%; opacity: 0; }
+    [data-composition-id="ambiente"] .am-rojo { background: #ff2d3d; box-shadow: 0 0 26px rgba(255, 45, 61, 0.9); }
+    [data-composition-id="ambiente"] .am-oro { background: #f6c544; box-shadow: 0 0 26px rgba(246, 197, 68, 0.9); }
+    /* candilejas */
+    [data-composition-id="ambiente"] .am-borde { position: absolute; inset: 0; border: 16px solid #ff2d3d; opacity: 0; }
+    [data-composition-id="ambiente"] .am-borde-oro { position: absolute; inset: 0; border: 16px solid #f6c544; opacity: 0; }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #ff2d3d; opacity: 0; mix-blend-mode: screen; }
+    [data-composition-id="ambiente"] .am-flash-oro { position: absolute; inset: 0; background: #f6c544; opacity: 0; mix-blend-mode: screen; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="76.97">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="76.97" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- haces de luz desde arriba (barren lento) -->
+        <g class="am-haces" data-layout-allow-overflow>
+          <path class="am-h1" d="M120 0 L170 0 L560 1560 L260 1560 Z" fill="#f6c544" opacity="0.06" />
+          <path class="am-h2" d="M910 0 L960 0 L820 1560 L520 1560 Z" fill="#fff3d6" opacity="0.05" />
+        </g>
+        <!-- candilejas: fila de luces al borde del escenario -->
+        <g class="am-candil" data-layout-ignore>
+          <path d="M40 1600 H1040" stroke="#f6c544" stroke-width="4" opacity="0.5" />
+        </g>
+        <g class="am-confeti" data-layout-allow-overflow></g>
+      </svg>
+      <div class="am-top">
+        <div class="am-vivo"><span class="am-punto"></span>EN VIVO</div>
+        <div class="am-quien">
+          <span class="am-q0">PRESENTADOR</span>
+          <span class="am-q1">MAXI · Nº 1</span>
+          <span class="am-q2">JUEZ MALO</span>
+          <span class="am-q3">JUEZA</span>
+          <span class="am-q4">JUEZ BUENO</span>
+          <span class="am-q5">PRESENTADOR</span>
+          <span class="am-q6">MAXI · Nº 1</span>
+          <span class="am-q7">JUEZ BUENO</span>
+          <span class="am-q8">PRESENTADOR</span>
+          <span class="am-q9">AGENTE DE IA · Nº 2</span>
+          <span class="am-q10">JUEZ MALO</span>
+          <span class="am-q11">JUEZA</span>
+          <span class="am-q12">MAXI</span>
+          <span class="am-q13">AGENTE DE IA</span>
+        </div>
+      </div>
+      <div class="am-luces">
+        <div class="am-luz am-l1"><div class="am-rojo"></div><div class="am-oro"></div><svg viewBox="0 0 52 52"><path d="M16 16 L36 36 M36 16 L16 36" stroke="#fff3d6" stroke-width="6" stroke-linecap="round" /></svg></div>
+        <div class="am-luz am-l2"><div class="am-rojo"></div><div class="am-oro"></div><svg viewBox="0 0 52 52"><path d="M16 16 L36 36 M36 16 L16 36" stroke="#fff3d6" stroke-width="6" stroke-linecap="round" /></svg></div>
+        <div class="am-luz am-l3"><div class="am-rojo"></div><div class="am-oro"></div><svg viewBox="0 0 52 52"><path d="M16 16 L36 36 M36 16 L16 36" stroke="#fff3d6" stroke-width="6" stroke-linecap="round" /></svg></div>
+      </div>
+      <div class="am-borde"></div>
+      <div class="am-borde-oro"></div>
+      <div class="am-flash"></div>
+      <div class="am-flash-oro"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 76.97;
+      const FIN = 69.3; // entra Scalerics: se apaga el estudio
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+
+      // candilejas: 14 focos que titilan alternados
+      const candil = q(".am-candil");
+      for (let i = 0; i < 14; i++) {
+        const c = document.createElementNS(NS, "circle");
+        c.setAttribute("cx", 75 + i * 71); c.setAttribute("cy", 1600); c.setAttribute("r", 9);
+        c.setAttribute("fill", "#f6c544"); c.setAttribute("class", "am-foco " + (i % 2 ? "am-par" : "am-impar"));
+        candil.appendChild(c);
+      }
+      tl.fromTo(qa(".am-par"), { opacity: 1 }, { opacity: 0.25, duration: 0.5, ease: "steps(1)", yoyo: true, repeat: Math.floor(FIN / 0.5) }, 0);
+      tl.fromTo(qa(".am-impar"), { opacity: 0.25 }, { opacity: 1, duration: 0.5, ease: "steps(1)", yoyo: true, repeat: Math.floor(FIN / 0.5) }, 0);
+
+      // haces que barren
+      tl.fromTo(q(".am-h1"), { rotation: -8, svgOrigin: "145 0" }, { rotation: 10, svgOrigin: "145 0", duration: 4, yoyo: true, repeat: Math.floor(FIN / 4), ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".am-h2"), { rotation: 8, svgOrigin: "935 0" }, { rotation: -10, svgOrigin: "935 0", duration: 3.4, yoyo: true, repeat: Math.floor(FIN / 3.4), ease: "sine.inOut" }, 0);
+      // la confesión: el estudio se apaga un poco
+      tl.to(q(".am-haces"), { opacity: 0.2, duration: 0.5 }, 36.55);
+      tl.to(q(".am-haces"), { opacity: 1, duration: 0.5 }, 42.74);
+
+      // EN VIVO titila
+      tl.fromTo(q(".am-punto"), { opacity: 1 }, { opacity: 0.15, duration: 0.5, ease: "steps(1)", yoyo: true, repeat: Math.floor(FIN / 0.5) }, 0);
+
+      // quién habla (inicio de cada parlamento)
+      const QT = [0, 9.69, 23.04, 29.36, 30.0, 32.86, 36.55, 42.74, 47.54, 51.62, 59.19, 62.19, 64.4, 65.51, FIN];
+      QT.slice(0, -1).forEach((a, i) => {
+        const el = q(".am-q" + i);
+        if (i > 0) tl.fromTo(el, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.22, ease: "power3.out", immediateRender: false }, a);
+        tl.to(el, { opacity: 0, duration: 0.1 }, QT[i + 1] - 0.08);
+      });
+      gsap.set(q(".am-q0"), { opacity: 1 });
+
+      // las tres X del jurado
+      [[".am-l1", 28.62], [".am-l2", 29.36], [".am-l3", 32.26]].forEach(([s, t]) => {
+        tl.fromTo(q(s + " .am-rojo"), { opacity: 0 }, { opacity: 1, duration: 0.06, immediateRender: false }, t);
+        tl.fromTo(q(s), { scale: 1.5 }, { scale: 1, duration: 0.3, ease: "back.out(3)", immediateRender: false }, t);
+      });
+      tl.fromTo(qa(".am-rojo"), { opacity: 1 }, { opacity: 0.3, duration: 0.12, yoyo: true, repeat: 5, ease: "steps(1)", immediateRender: false }, 33.73);
+      tl.to(qa(".am-rojo"), { opacity: 0, duration: 0.3 }, 42.74); // nueva audición: se apagan
+      // botón dorado: las tres se ponen doradas
+      tl.to(qa(".am-oro"), { opacity: 1, duration: 0.08, stagger: 0.08 }, 62.62);
+      tl.fromTo(qa(".am-luz"), { scale: 1.4 }, { scale: 1, duration: 0.35, ease: "back.out(3)", stagger: 0.08, immediateRender: false }, 62.62);
+
+      // flashes y bordes
+      const flash = (sel, t, n, o) => { for (let k = 0; k < n; k++) { tl.to(q(sel), { opacity: o, duration: 0.03 }, t + k * 0.16); tl.to(q(sel), { opacity: 0, duration: 0.1 }, t + k * 0.16 + 0.05); } };
+      [28.62, 29.36, 32.26].forEach((t) => { flash(".am-flash", t, 1, 0.3); flash(".am-borde", t, 2, 1); });
+      flash(".am-flash", 33.73, 3, 0.35); flash(".am-borde", 33.73, 4, 1);
+      flash(".am-flash-oro", 62.62, 3, 0.45);
+      tl.fromTo(q(".am-borde-oro"), { opacity: 1 }, { opacity: 0.2, duration: 0.2, yoyo: true, repeat: 9, ease: "steps(1)", immediateRender: false }, 62.62);
+      tl.to(q(".am-borde-oro"), { opacity: 0, duration: 0.2 }, 64.6);
+      flash(".am-flash-oro", 0.02, 1, 0.3);
+
+      // confeti dorado del botón (determinista)
+      const conf = q(".am-confeti");
+      for (let i = 0; i < 64; i++) {
+        const r = document.createElementNS(NS, "rect");
+        const x = (i * 337) % 1080, w = 14 + (i * 7) % 12, h = 26 + (i * 11) % 18;
+        r.setAttribute("x", -w / 2); r.setAttribute("y", -h / 2); r.setAttribute("width", w); r.setAttribute("height", h);
+        r.setAttribute("fill", i % 5 === 0 ? "#fff3d6" : "#f6c544");
+        const g = document.createElementNS(NS, "g"); g.appendChild(r); conf.appendChild(g);
+        const t0 = 62.62 + (i % 8) * 0.05, caida = 2.6 + (i % 6) * 0.35, y0 = -60 - ((i * 53) % 500);
+        gsap.set(g, { x, y: y0, opacity: 0 });
+        tl.set(g, { opacity: 1 }, t0);
+        tl.fromTo(g, { x, y: y0, rotation: (i * 47) % 360 }, { x: x + ((i % 2) ? 90 : -90), y: 1980, rotation: (i * 47) % 360 + 540, duration: caida, ease: "none", immediateRender: false }, t0);
+      }
+
+      tl.to(q(".am-confeti"), { opacity: 0, duration: 0.4 }, 66.6);
+      // Scalerics: se apaga el estudio
+      tl.to([q(".am-top"), q(".am-luces")], { opacity: 0, y: -40, duration: 0.3 }, FIN);
+      tl.to([q(".am-haces"), q(".am-candil")], { opacity: 0, duration: 0.5 }, FIN);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

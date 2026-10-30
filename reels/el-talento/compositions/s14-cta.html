@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-cta"] .s14-capa, [data-composition-id="s14-cta"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-cta"] .b { fill: #0b080b; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .l { fill: none; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .k { fill: #1c151c; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .y { fill: #f6c544; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .yl { fill: none; stroke: #f6c544; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .r { fill: #ff2d3d; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .rl { fill: none; stroke: #ff2d3d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .c { fill: #4fc3ff; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .cl { fill: none; stroke: #4fc3ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .v { fill: #5a1020; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .w { fill: #fff3d6; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .g { fill: #5ce611; stroke: #fff3d6; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .ag { fill: #0b080b; stroke: #5ce611; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .haz { fill: #fff3d6; opacity: 0.09; stroke: none; }
+    [data-composition-id="s14-cta"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s14-cta"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s14-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s14-cta"] .s14-arm { position: absolute; left: 90px; top: 930px; width: 900px; padding: 16px 0 12px; text-align: center; background: #5ce611; color: #0b080b; border-radius: 16px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 52px; }
+    [data-composition-id="s14-cta"] .s14-et { position: absolute; width: 400px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 58px; line-height: 1; }
+    [data-composition-id="s14-cta"] .s14-vota { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 38px; letter-spacing: 0.16em; color: #fff3d6; }
+
+  </style>
+  <div id="root" data-composition-id="s14-cta" data-width="1080" data-height="1920" data-duration="7.67">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="7.67" data-track-index="0">
+      <div class="s14-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s14-ag"><g transform="translate(432 570) scale(0.6)">
+              <path class="gl s14-ag-pies" d="M140 500 V552 H112 M220 500 V552 H248" stroke-width="9" />
+              <path class="gl s14-ag-bi" d="M64 300 C20 300 10 250 20 210" stroke-width="9" />
+              <path class="gl s14-ag-bd" d="M296 300 C340 300 350 250 340 210" stroke-width="9" />
+              <rect class="ag" x="60" y="40" width="240" height="470" rx="40" />
+              <rect x="150" y="62" width="60" height="12" rx="6" fill="#5ce611" />
+              <g class="s14-ag-ojos">
+                <rect x="112" y="180" width="38" height="66" rx="19" fill="#5ce611" />
+                <rect x="210" y="180" width="38" height="66" rx="19" fill="#5ce611" />
+              </g>
+              <path class="gl s14-ag-boca" d="M128 300 C150 336 210 336 232 300" stroke-width="9" />
+              <path class="y" d="M146 392 L180 410 L214 392 L214 430 L180 412 L146 430 Z" stroke-width="5" />
+</g></g>
+          <g class="s14-pasa"><g transform="translate(290 1180) scale(1.5)">
+          <g class="s14-bd">
+            <ellipse class="k" cx="0" cy="30" rx="92" ry="42.0" />
+            <path class="y s14-bd-domo" d="M-70 20 C-70 -63.0 70 -63.0 70 20 C42.0 40 -42.0 40 -70 20 Z" />
+            <path class="l" d="M-35.0 -14.0 C-21.0 -38.5 0 -42.0 14.0 -38.5" stroke-width="6" opacity="0.8" />
+          </g></g></g>
+          
+          <g class="s14-x s14-nopasa" style="filter: drop-shadow(0 0 22px rgba(255, 45, 61, 0.75))">
+            <path d="M696.5 1086.5 L883.5 1273.5 M883.5 1086.5 L696.5 1273.5" stroke="#ff2d3d" stroke-width="42" stroke-linecap="round" fill="none" />
+            <path d="M696.5 1086.5 L883.5 1273.5 M883.5 1086.5 L696.5 1273.5" stroke="#fff3d6" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.55" />
+          </g>
+          <g class="s14-flecha"><path d="M540 1500 V1560 M510 1535 L540 1565 L570 1535" fill="none" stroke="#5ce611" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" /></g>
+        </svg>
+        <div class="s14-arm">LO ARMAMOS EN SCALERICS</div>
+        <div class="s14-et s14-e1" style="left:90px;top:1300px;color:#f6c544">PASA</div>
+        <div class="s14-et s14-e2" style="left:590px;top:1300px;color:#ff2d3d">NO PASA</div>
+        <div class="s14-vota">VOTÁ EN LOS COMENTARIOS</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-cta";
+      const DUR = 7.67;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s14-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // X roja gigante que cae (dos trazos que se dibujan + golpe)
+      const equis = (sel, t) => { golpe(sel, t, 2.2); sacudon(t + 0.04, 1.1); };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const SCALERICS = 1.26, PASA = 1.62, NO = 2.33, VOTA = 2.91;
+      tl.fromTo(q(".s14-ag"), { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s14-ag-bd"), { rotation: 0, svgOrigin: "296 300" }, { rotation: -30, svgOrigin: "296 300", duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, 0.2);
+      tl.fromTo(q(".s14-ag"), { y: 0 }, { y: -10, duration: 0.5, yoyo: true, repeat: 12, ease: "sine.inOut", immediateRender: false }, 1.0);
+      golpe(".s14-arm", SCALERICS, 1.8);
+      pop(".s14-pasa", PASA); pop(".s14-e1", PASA + 0.1);
+      pop(".s14-nopasa", NO); pop(".s14-e2", NO + 0.1);
+      // laten alternados
+      for (let k = 0; k < 8; k++) {
+        const t = NO + 0.5 + k * 0.6, s = k % 2 ? ".s14-nopasa" : ".s14-pasa", o = k % 2 ? "790 1180" : "290 1180";
+        tl.fromTo(q(s), { scale: 1, svgOrigin: o }, { scale: 1.12, svgOrigin: o, duration: 0.15, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      }
+      pop(".s14-vota", VOTA);
+      gsap.set(q(".s14-flecha"), { opacity: 0 });
+      tl.fromTo(q(".s14-flecha"), { opacity: 1, y: 0 }, { opacity: 1, y: 18, duration: 0.35, yoyo: true, repeat: 11, ease: "sine.inOut", immediateRender: false }, VOTA + 0.2);
+
+      tl.to(q("#s14-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
