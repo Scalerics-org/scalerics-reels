@@ -25,15 +25,18 @@ export default async function handler(req, res) {
     const lista = hechos.filter((h) => conVideo.has(h.slug)).reverse().slice(0, todos ? 300 : 30);
     await Promise.all(lista.map(async (h) => {
       try { h.descripcion = (await ghTexto(`reels/${h.slug}/descripcion.txt`)).trim(); } catch { h.descripcion = ""; }
-      h.enTikTok = (pub.tiktok || []).includes(h.slug);
+      // Mientras TikTok no está auditada, lo que va a la bandeja de la app cuenta como TikTok
+      h.enTikTokBandeja = (pub.tiktok_inbox || []).includes(h.slug);
+      h.enTikTok = (pub.tiktok || []).includes(h.slug) || h.enTikTokBandeja;
       h.enInstagram = (pub.instagram || []).includes(h.slug);
       // Estado de revisión: publicado (en las dos), en_cola, descartado o por_revisar
       const r = rev[h.slug];
       h.revisado = r ? { fecha: r.fecha, quien: r.quien || "", orden: Number.isFinite(r.orden) ? r.orden : null } : null;
       if (veto.includes(h.slug) || r?.estado === "descartado") h.estado = "descartado";
       else if (h.enInstagram && h.enTikTok) h.estado = "publicado";
-      else if (r?.estado === "en_cola") h.estado = "en_cola";
+      // Ya salió en alguna red: sale de la cola aunque falte la otra
       else if (h.enInstagram || h.enTikTok) h.estado = "publicado_parcial";
+      else if (r?.estado === "en_cola") h.estado = "en_cola";
       else h.estado = "por_revisar";
     }));
     res.json({ reels: lista });
