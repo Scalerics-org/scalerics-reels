@@ -1,0 +1,78 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-vos"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-vos"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-vos"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-vos"] .led-txt { position: absolute; left: 150px; width: 780px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; color: #f5b82e; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s04-vos"] .cartel { position: absolute; font-family: "Outfit", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s04-vos"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; white-space: nowrap; }
+    [data-composition-id="s04-vos"] .chat { position: absolute; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.2; padding: 16px 24px; border-radius: 26px; white-space: nowrap; }
+    
+  </style>
+  <div id="root" data-composition-id="s04-vos" data-width="1080" data-height="1920" data-duration="4.66">
+    <div id="s04-vos-escena" class="capa clip" data-start="0" data-duration="4.66" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="led-txt s04-regla" style="top: 640px; font-size: 104px; letter-spacing: 0.06em">REGLA 2</div>
+        <div class="led-txt s04-vos" style="top: 606px; font-size: 168px; letter-spacing: 0.02em">¡VOS!</div>
+        <div class="s04-chats">
+          <div class="chat s04-c" style="left: 360px; top: 880px; background: #fff4e0; color: #150d1c">¿Precio?</div>
+          <div class="chat s04-c" style="left: 360px; top: 960px; background: #fff4e0; color: #150d1c">¿Abren hoy?</div>
+          <div class="chat s04-c" style="left: 360px; top: 1040px; background: #fff4e0; color: #150d1c">¿Tenés talle M?</div>
+          <div class="chat s04-c" style="left: 360px; top: 1120px; background: #fff4e0; color: #150d1c">¿Hacen envíos?</div>
+        </div>
+        <div class="cartel s04-badge" style="left: 655px; top: 812px; width: 70px; height: 70px; border-radius: 35px; background: #ff3b3b; color: #fff4e0; font-size: 38px; line-height: 70px; text-align: center">+9</div>
+        <svg class="lienzo s04-frente" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-vos";
+      const DUR = 4.66;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const S = KIT.svg;
+      const K = KIT(tl, root);
+      const { q, qa, dibujar, pop, popSvg, golpe, temblor, etiquetas, llamas, pirotecnia, confeti, salida } = K;
+      const DOS = 0.78, WA = 1.72, VOS = 2.93, VOS2 = 3.68;
+      const C = S.C;
+      const L = (d, c, w, cls) => `<path class="${cls ?? ""}" d="${d}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;
+      q(".lienzo").innerHTML = S.led("s04-led", 150, 592, 780, 196, "s04-pat") +
+        `<g class="s04-cel"><rect x="330" y="830" width="400" height="430" rx="48" fill="${C.OSC}" stroke="${C.CREMA}" stroke-width="6"/>${L("M490 854 H570", C.CREMA, 6)}</g>`;
+      q(".s04-frente").innerHTML = `<g class="s04-mano">
+        ${L("M1160 1240 C1060 1180 960 1120 900 1080", C.ORO, 64)}${L("M1160 1240 C1060 1180 960 1120 900 1080", C.OSC, 50)}
+        <rect x="820" y="1030" width="110" height="96" rx="30" fill="${C.OSC}" stroke="${C.CREMA}" stroke-width="6"/>
+        ${L("M830 1050 L740 1010", C.CREMA, 30)}${L("M830 1050 L740 1010", C.OSC, 18)}
+        ${L("M850 1080 h50 M850 1104 h50", C.CREMA, 4)}</g>
+        <g class="s04-impacto">${L("M690 940 l-40 -40 M720 920 l0 -60 M660 990 l-60 -10", C.ORO, 8)}</g>`;
+      gsap.set(q(".s04-led"), { opacity: 1 });
+      golpe(q(".s04-regla"), DOS, 2);
+      popSvg(q(".s04-cel"), 0, "530 1045");
+      dibujar(qa(".s04-cel path"), 0, 0.4);
+      qa(".s04-c").forEach((c, i) => pop(c, WA + i * 0.24, 0.3));
+      pop(q(".s04-badge"), WA + 0.1);
+      tl.to(q(".s04-badge"), { scale: 1.2, duration: 0.12, yoyo: true, repeat: 5 }, WA + 0.4);
+      // el dedo del gurú entra en "vos"
+      gsap.set(q(".s04-mano"), { opacity: 0 });
+      tl.fromTo(q(".s04-mano"), { opacity: 1, x: 420, y: 200 }, { x: 0, y: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, VOS - 0.2);
+      // "¡Vos!": el dedo empuja a cámara, el letrero cambia
+      tl.to(q(".s04-regla"), { opacity: 0, duration: 0.1 }, VOS2 - 0.14);
+      golpe(q(".s04-vos"), VOS2, 2.6);
+      tl.to(q(".s04-mano"), { scale: 1.25, svgOrigin: "740 1010", x: -30, y: -20, duration: 0.18, ease: "power3.out" }, VOS2);
+      popSvg(q(".s04-impacto"), VOS2 + 0.05, "700 960");
+      temblor(q(".escenario"), VOS2 + 0.06, 1.1);
+      tl.to(q(".s04-vos"), { scale: 1.06, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, VOS2 + 0.25);
+      etiquetas([["REGLA 2", 0.05], ["CADA WHATSAPP", WA], ["LO CONTESTÁS VOS", VOS]]);
+      salida(DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

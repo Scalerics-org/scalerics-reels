@@ -1,0 +1,70 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-ducha"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-ducha"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-ducha"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-ducha"] .led-txt { position: absolute; left: 150px; width: 780px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; color: #f5b82e; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s03-ducha"] .cartel { position: absolute; font-family: "Outfit", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s03-ducha"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; white-space: nowrap; }
+    [data-composition-id="s03-ducha"] .chat { position: absolute; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.2; padding: 16px 24px; border-radius: 26px; white-space: nowrap; }
+    
+  </style>
+  <div id="root" data-composition-id="s03-ducha" data-width="1080" data-height="1920" data-duration="2.79">
+    <div id="s03-ducha-escena" class="capa clip" data-start="0" data-duration="2.79" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="led-txt s03-regla" style="top: 640px; font-size: 104px; letter-spacing: 0.06em">REGLA 1</div>
+        <div class="cartel s03-hora" style="left: 230px; top: 990px; width: 300px; text-align: center; font-size: 100px; color: #fff4e0">4:00</div>
+        <div class="mono s03-am" style="left: 330px; top: 1096px; width: 100px; text-align: center; font-size: 30px; letter-spacing: 0.2em; color: #f5b82e">AM</div>
+        <div class="cartel s03-brrr" style="left: 800px; top: 900px; font-size: 54px; color: #fff4e0">BRRR</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-ducha";
+      const DUR = 2.79;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const S = KIT.svg;
+      const K = KIT(tl, root);
+      const { q, qa, dibujar, pop, popSvg, golpe, temblor, etiquetas, llamas, pirotecnia, confeti, salida } = K;
+      const UNO = 0.37, CUATRO = 1.24, DUCHA = 2.30, FRIA = 2.62;
+      const C = S.C;
+      const L = (d, c, w, cls) => `<path class="${cls ?? ""}" d="${d}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;
+      let gotas = "";
+      for (let i = 0; i < 9; i++) { const x = 770 + (i % 3) * 30 - 30 + (i > 5 ? 10 : 0); const y = 850 + Math.floor(i / 3) * 34; gotas += L(`M${x} ${y} l-6 22`, C.CREMA, 5, "s03-gota"); }
+      q(".lienzo").innerHTML = S.led("s03-led", 150, 592, 780, 196, "s03-pat") +
+        `<g class="s03-reloj">${L("M300 948 a50 50 0 0 1 70 -40 M460 948 a50 50 0 0 0 -70 -40", C.ORO, 10)}<circle cx="380" cy="1050" r="135" fill="${C.OSC}" stroke="${C.ORO}" stroke-width="8"/>${L("M290 1160 l-30 44 M470 1160 l30 44", C.ORO, 8)}</g>` +
+        `<g class="s03-ducha">${L("M940 790 V820 M940 820 H800 V842", C.CREMA, 6, "s03-cano")}<path d="M750 842 H850 L830 870 H770 Z" fill="${C.OSC}" stroke="${C.CREMA}" stroke-width="5" stroke-linejoin="round"/>${gotas}
+         <g class="s03-tipo"><circle cx="800" cy="1030" r="46" fill="${C.OSC}" stroke="${C.CREMA}" stroke-width="5"/>${L("M782 1024 v2 M818 1024 v2", C.CREMA, 10)}${L("M780 1052 l8 -6 l8 6 l8 -6 l8 6 l8 -6", C.CREMA, 4)}<path d="M730 1250 C734 1130 760 1090 800 1090 C840 1090 866 1130 870 1250" fill="${C.OSC}" stroke="${C.CREMA}" stroke-width="5"/></g></g>`;
+      gsap.set(q(".s03-led"), { opacity: 1 });
+      golpe(q(".s03-regla"), UNO, 2);
+      // el despertador salta en "cuatro" y vibra
+      popSvg(q(".s03-reloj"), CUATRO - 0.1, "380 1050");
+      pop(q(".s03-hora"), CUATRO - 0.05, 0.3, 1.6);
+      pop(q(".s03-am"), CUATRO + 0.15);
+      tl.to([q(".s03-reloj"), q(".s03-hora")], { x: 8, duration: 0.04, yoyo: true, repeat: 17, ease: "none" }, CUATRO + 0.25);
+      // la ducha
+      gsap.set(q(".s03-ducha"), { opacity: 0 });
+      tl.fromTo(q(".s03-ducha"), { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, CUATRO + 0.3);
+      qa(".s03-gota").forEach((g, i) => {
+        gsap.set(g, { opacity: 0 });
+        tl.fromTo(g, { opacity: 1, y: 0 }, { y: 120, opacity: 0, duration: 0.45, ease: "power1.in", repeat: 2, immediateRender: false }, DUCHA - 0.1 + (i % 3) * 0.08 + Math.floor(i / 3) * 0.05);
+      });
+      tl.to(q(".s03-tipo"), { x: 6, duration: 0.03, yoyo: true, repeat: 15, ease: "none" }, FRIA - 0.1);
+      pop(q(".s03-brrr"), FRIA);
+      tl.to(q(".s03-brrr"), { rotation: 6, duration: 0.05, yoyo: true, repeat: 5 }, FRIA + 0.3);
+      etiquetas([["REGLA 1", 0.05], ["4:00 AM", CUATRO], ["DUCHA FRÍA", DUCHA]]);
+      salida(DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

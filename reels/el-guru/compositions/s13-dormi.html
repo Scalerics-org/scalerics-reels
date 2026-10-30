@@ -1,0 +1,62 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-dormi"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-dormi"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-dormi"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-dormi"] .led-txt { position: absolute; left: 150px; width: 780px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; color: #f5b82e; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s13-dormi"] .cartel { position: absolute; font-family: "Outfit", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s13-dormi"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; white-space: nowrap; }
+    [data-composition-id="s13-dormi"] .chat { position: absolute; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.2; padding: 16px 24px; border-radius: 26px; white-space: nowrap; }
+    
+  </style>
+  <div id="root" data-composition-id="s13-dormi" data-width="1080" data-height="1920" data-duration="1.81">
+    <div id="s13-dormi-escena" class="capa clip" data-start="0" data-duration="1.81" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="cartel s13-z1" style="left: 560px; top: 780px; font-size: 64px; color: #5ad1e6">Z</div>
+        <div class="cartel s13-z2" style="left: 610px; top: 720px; font-size: 50px; color: #5ad1e6">z</div>
+        <div class="cartel s13-z3" style="left: 650px; top: 670px; font-size: 38px; color: #5ad1e6">z</div>
+        <svg class="lienzo s13-frente" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-dormi";
+      const DUR = 1.81;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const S = KIT.svg;
+      const K = KIT(tl, root);
+      const { q, qa, dibujar, pop, popSvg, golpe, temblor, etiquetas, llamas, pirotecnia, confeti, salida } = K;
+      const DORMI = 0.13, CULPA = 0.83;
+      const C = S.C;
+      const L = (d, c, w, cls, ex) => `<path class="${cls ?? ""}" d="${d}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" ${ex ?? ""}/>`;
+      q(".lienzo").innerHTML = `<rect x="170" y="780" width="560" height="300" rx="30" fill="${C.OSC}" stroke="${C.CREMA}" stroke-width="5"/>
+        <path d="M880 640 a46 46 0 1 0 46 62 a36 36 0 1 1 -46 -62 Z" fill="${C.CREMA}" opacity="0.8"/>
+        <rect x="770" y="1040" width="200" height="110" rx="14" fill="${C.OSC}" stroke="${C.CREMA}" stroke-width="5"/>${L("M780 1150 V1250 M960 1150 V1250", C.CREMA, 5)}`;
+      q(".s13-frente").innerHTML = S.duenio("s13-duenio", 450, 930, 0.8, "quieto") +
+        `<path d="M150 1090 C300 1060 600 1060 760 1090 V1250 H150 Z" fill="${C.OSC}" stroke="${C.CREMA}" stroke-width="5" stroke-linejoin="round"/>
+         <g class="s13-cel"><rect x="820" y="960" width="100" height="76" rx="12" fill="${C.OSC}" stroke="${C.CEL}" stroke-width="5"/>
+         <circle class="s13-p" cx="848" cy="998" r="7" fill="${C.CEL}"/><circle class="s13-p" cx="870" cy="998" r="7" fill="${C.CEL}"/><circle class="s13-p" cx="892" cy="998" r="7" fill="${C.CEL}"/></g>`;
+      // ojos cerrados con sonrisa
+      gsap.set(q(".s13-duenio .d-ojos"), { scaleY: -1, svgOrigin: "540 864" });
+      gsap.set(q(".s13-duenio .d-ojeras"), { opacity: 0 });
+      gsap.set(q(".s13-duenio .d-boca"), { scaleY: 3, svgOrigin: "540 928" });
+      tl.fromTo(q(".s13-duenio"), { y: 16 }, { y: 0, duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0);
+      [[".s13-z1", DORMI], [".s13-z2", 0.45], [".s13-z3", 0.8]].forEach(([s, t]) => { pop(q(s), t); tl.to(q(s), { y: -40, duration: 1.0, ease: "sine.out" }, t + 0.3); });
+      qa(".s13-p").forEach((p, i) => tl.fromTo(p, { opacity: 0.3 }, { opacity: 1, duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, i * 0.12));
+      popSvg(q(".s13-cel"), 0, "870 998");
+      etiquetas([["VOS, DORMÍ", 0.05], ["SIN CULPA", CULPA]], "#5ad1e6");
+      salida(DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

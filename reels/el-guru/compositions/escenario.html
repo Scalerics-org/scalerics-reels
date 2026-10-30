@@ -1,0 +1,59 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="escenario"] .esc-capa { position: absolute; inset: 0; }
+    [data-composition-id="escenario"] svg.esc-lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="escenario"] .esc-calma { position: absolute; inset: 0; opacity: 0;
+      background: radial-gradient(ellipse 640px 700px at 540px 900px, rgba(90, 209, 230, 0.13) 0%, rgba(90, 209, 230, 0.04) 55%, rgba(90, 209, 230, 0) 80%); }
+  </style>
+  <div id="root" data-composition-id="escenario" data-width="1080" data-height="1920" data-duration="70.61">
+    <div id="esc-escena" class="esc-capa clip" data-start="0" data-duration="70.61" data-track-index="0">
+      <div class="esc-calma"></div>
+      <svg class="esc-lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="esc-luces">
+          <path class="esc-haz1" d="M120 560 L-60 1280 L420 1280 Z" fill="#f5b82e" opacity="0.07" />
+          <path class="esc-haz2" d="M960 560 L660 1280 L1140 1280 Z" fill="#f5b82e" opacity="0.07" />
+          <path class="esc-haz3" d="M540 560 L330 1280 L750 1280 Z" fill="#ff6a1a" opacity="0.045" />
+          <path d="M0 1262 H1080" stroke="#fff4e0" stroke-width="4" opacity="0.28" />
+          <path d="M0 1286 H1080" stroke="#fff4e0" stroke-width="2" opacity="0.12" />
+          <g class="esc-focos">
+            <circle cx="60" cy="1274" r="6" fill="#f5b82e" /><circle cx="180" cy="1274" r="6" fill="#f5b82e" />
+            <circle cx="300" cy="1274" r="6" fill="#f5b82e" /><circle cx="420" cy="1274" r="6" fill="#f5b82e" />
+            <circle cx="540" cy="1274" r="6" fill="#f5b82e" /><circle cx="660" cy="1274" r="6" fill="#f5b82e" />
+            <circle cx="780" cy="1274" r="6" fill="#f5b82e" /><circle cx="900" cy="1274" r="6" fill="#f5b82e" />
+            <circle cx="1020" cy="1274" r="6" fill="#f5b82e" />
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "escenario";
+      const DUR = 70.61;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      // los haces barren despacio
+      tl.fromTo(q(".esc-haz1"), { rotation: -7, svgOrigin: "120 560" }, { rotation: 9, svgOrigin: "120 560", duration: 2.6, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(DUR / 2.6) }, 0);
+      tl.fromTo(q(".esc-haz2"), { rotation: 8, svgOrigin: "960 560" }, { rotation: -9, svgOrigin: "960 560", duration: 2.3, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(DUR / 2.3) }, 0);
+      tl.fromTo(q(".esc-haz3"), { rotation: -5, svgOrigin: "540 560" }, { rotation: 5, svgOrigin: "540 560", duration: 3.1, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(DUR / 3.1) }, 0);
+      // los foquitos titilan en dos grupos
+      root.querySelectorAll(".esc-focos circle").forEach((c, i) => {
+        tl.fromTo(c, { opacity: 1 }, { opacity: 0.3, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(DUR / 0.45) }, (i % 2) * 0.45);
+      });
+      // s07: el dormitorio (se apaga el escenario) y vuelve
+      tl.to(q(".esc-luces"), { opacity: 0.12, duration: 0.3 }, 28.6);
+      tl.to(q(".esc-luces"), { opacity: 1, duration: 0.3 }, 33.45);
+      // s08 "Solo.": se apagan las luces un momento
+      tl.to(q(".esc-luces"), { opacity: 0.25, duration: 0.25 }, 37.1);
+      tl.to(q(".esc-luces"), { opacity: 1, duration: 0.3 }, 38.05);
+      // entra Orus: el escenario se apaga y queda la calma celeste
+      tl.to(q(".esc-luces"), { opacity: 0.1, duration: 0.6, ease: "power2.out" }, 50.3);
+      tl.to(q(".esc-calma"), { opacity: 1, duration: 0.8, ease: "power2.out" }, 50.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

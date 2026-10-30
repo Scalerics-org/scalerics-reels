@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-pillado"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-pillado"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-pillado"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-pillado"] .led-txt { position: absolute; left: 150px; width: 780px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; color: #f5b82e; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s10-pillado"] .cartel { position: absolute; font-family: "Outfit", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s10-pillado"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; white-space: nowrap; }
+    [data-composition-id="s10-pillado"] .chat { position: absolute; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.2; padding: 16px 24px; border-radius: 26px; white-space: nowrap; }
+    
+  </style>
+  <div id="root" data-composition-id="s10-pillado" data-width="1080" data-height="1920" data-duration="7.51">
+    <div id="s10-pillado-escena" class="capa clip" data-start="0" data-duration="7.51" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="led-txt s10-l1" style="top: 630px; font-size: 80px; letter-spacing: 0.03em">SIN DORMIR</div>
+        <div class="led-txt s10-l2" style="top: 724px; font-size: 76px; letter-spacing: 0.03em">NO HAY GLORIA</div>
+        <div class="s10-chat">
+          <div class="chat" style="left: 300px; top: 616px; font-size: 28px; background: #fff4e0; color: #150d1c">¿Me reservás dos entradas?</div>
+          <div class="chat s10-resp" style="left: 360px; top: 698px; font-size: 28px; background: #5ad1e6; color: #150d1c">¡Listo! Te las aparté. ¿Algo más?</div>
+          <div class="mono s10-hora" style="left: 500px; top: 776px; font-size: 26px; letter-spacing: 0.1em; color: #5ad1e6">4:02 AM · RESPONDIDO</div>
+        </div>
+        <div class="cartel s10-uuh1" style="left: 70px; top: 1110px; font-size: 76px; color: #ff3b3b">UUUH</div>
+        <div class="cartel s10-uuh2" style="left: 780px; top: 1060px; font-size: 64px; color: #ff3b3b">UUH</div>
+        <svg class="lienzo s10-frente" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-pillado";
+      const DUR = 7.51;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const S = KIT.svg;
+      const K = KIT(tl, root);
+      const { q, qa, dibujar, pop, popSvg, golpe, temblor, etiquetas, llamas, pirotecnia, confeti, salida } = K;
+      const NO = 0.82, ATI = 2.27, AG = 2.91, PERO = 4.60, SUF = 4.82, UST = 5.95;
+      const C = S.C;
+      const L = (d, c, w, cls, ex) => `<path class="${cls ?? ""}" d="${d}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" ${ex ?? ""}/>`;
+      let humo = "";
+      [[130, 1180], [950, 1180], [180, 1120], [900, 1110]].forEach(([x, y], i) => { humo += `<circle class="s10-humo" cx="${x}" cy="${y}" r="34" fill="${C.CREMA}" opacity="0"/>`; });
+      q(".lienzo").innerHTML = S.led("s10-led", 150, 592, 780, 230, "s10-pat") +
+        S.llama("s10-ll", 130, 1250, 300) + S.llama("s10-ll", 950, 1250, 300) + humo +
+        S.agente("s10-ag", 236, 728, 0.42) +
+        `<g class="s10-tachas">${L("M190 690 L890 664", C.ROJO, 12, "s10-t")}${L("M190 778 L890 752", C.ROJO, 12, "s10-t")}</g>`;
+      q(".s10-frente").innerHTML = S.guru("s10-guru", 540, 975, 0.8, "abajo") +
+        `<path class="s10-gota" d="M612 900 C602 920 598 932 612 940 C626 932 622 920 612 900 Z" fill="${C.CEL}" stroke="${C.CREMA}" stroke-width="3"/>
+         <path class="s10-gota2" d="M466 920 C458 936 455 946 466 952 C477 946 474 936 466 920 Z" fill="${C.CEL}" stroke="${C.CREMA}" stroke-width="3"/>
+         <g class="s10-cel"><rect x="700" y="1010" width="66" height="116" rx="12" fill="${C.OSC}" stroke="${C.CEL}" stroke-width="5"/><circle cx="733" cy="1068" r="14" fill="${C.CEL}"/></g>`;
+      gsap.set(q(".s10-led"), { opacity: 1 });
+      gsap.set([q(".s10-l1"), q(".s10-l2")], { opacity: 1 });
+      llamas(qa(".s10-ll"), 0, PERO + 1.3);
+      // el gurú suda, la sonrisa se tuerce
+      popSvg(q(".s10-gota"), 0.1, "612 920");
+      tl.to(q(".s10-gota"), { y: 60, opacity: 0, duration: 1.2, ease: "power1.in" }, 0.6);
+      popSvg(q(".s10-gota2"), 1.2, "466 936");
+      tl.to(q(".s10-gota2"), { y: 50, opacity: 0, duration: 1.0, ease: "power1.in" }, 1.7);
+      tl.to(q(".s10-guru .g-boca"), { scaleY: 0.45, rotation: -6, svgOrigin: "540 900", duration: 0.2 }, NO);
+      tl.to(q(".s10-guru .g-cejas"), { rotation: 8, svgOrigin: "540 830", duration: 0.2 }, 0.1);
+      // "No": la pantalla hace glitch y muestra su celular
+      [0, 1, 2, 3, 4, 5].forEach((i) => tl.to(q(".s10-led"), { x: i % 2 ? -10 : 12, duration: 0.04 }, NO + i * 0.05));
+      tl.to(q(".s10-led"), { x: 0, duration: 0.04 }, NO + 0.3);
+      tl.to([q(".s10-l1"), q(".s10-l2")], { opacity: 0, duration: 0.08, yoyo: true, repeat: 3 }, NO);
+      tl.set([q(".s10-l1"), q(".s10-l2")], { opacity: 0 }, NO + 0.34);
+      popSvg(q(".s10-cel"), 1.6, "733 1068");
+      pop(q(".s10-chat"), NO + 0.4);
+      gsap.set(q(".s10-resp"), { opacity: 0 });
+      tl.fromTo(q(".s10-resp"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, ATI + 0.2);
+      pop(q(".s10-hora"), ATI + 0.5);
+      popSvg(q(".s10-ag"), AG - 0.05, "236 728");
+      tl.to(q(".s10-ag"), { y: -8, duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, AG + 0.3);
+      // "¡Pero el sufrimiento es de ustedes!": vuelve la frase y se tacha
+      tl.to([q(".s10-chat"), q(".s10-ag")], { opacity: 0, duration: 0.15 }, PERO - 0.15);
+      tl.to([q(".s10-l1"), q(".s10-l2")], { opacity: 1, duration: 0.1 }, PERO - 0.05);
+      tl.to(q(".s10-guru"), { y: -18, duration: 0.15, yoyo: true, repeat: 1 }, PERO);
+      dibujar(qa(".s10-t"), SUF, 0.35);
+      // la pirotecnia se apaga con humo
+      tl.to(qa(".s10-ll"), { scaleY: 0.05, opacity: 0, duration: 0.35, ease: "power2.in", overwrite: false }, PERO + 1.3);
+      qa(".s10-humo").forEach((h, i) => {
+        gsap.set(h, { opacity: 0 });
+        tl.fromTo(h, { opacity: 0.35, scale: 0.4, svgOrigin: `${h.getAttribute("cx")} ${h.getAttribute("cy")}` }, { opacity: 0, scale: 2.2, y: -120, svgOrigin: `${h.getAttribute("cx")} ${h.getAttribute("cy")}`, duration: 1.2, ease: "power1.out", immediateRender: false }, PERO + 1.4 + i * 0.12);
+      });
+      pop(q(".s10-uuh1"), UST - 0.2, 0.3, 1.5);
+      pop(q(".s10-uuh2"), UST + 0.05, 0.3, 1.5);
+      tl.to([q(".s10-uuh1"), q(".s10-uuh2")], { y: -18, duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, UST + 0.3);
+      etiquetas([["EH...", 0.05], ["¿Y EL SUFRIMIENTO?", ATI], ["PILLADO", SUF]]);
+      salida(DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
