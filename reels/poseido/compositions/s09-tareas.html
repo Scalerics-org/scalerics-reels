@@ -1,0 +1,153 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-tareas"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-tareas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-tareas"] .ln { fill: none; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tareas"] .ln-f { fill: #15110c; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tareas"] .hueso-f { fill: #efe6d2; }
+    [data-composition-id="s09-tareas"] .verde { fill: none; stroke: #6dff8a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 10px rgba(109, 255, 138, 0.7)); }
+    [data-composition-id="s09-tareas"] .verde-fino { fill: none; stroke: #6dff8a; stroke-width: 3; opacity: 0.75; }
+    [data-composition-id="s09-tareas"] .verde-f { fill: #6dff8a; }
+    [data-composition-id="s09-tareas"] .ambar { fill: none; stroke: #ffb547; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 12px rgba(255, 181, 71, 0.8)); }
+    [data-composition-id="s09-tareas"] .ambar-f { fill: #ffb547; }
+    [data-composition-id="s09-tareas"] .rojo { fill: none; stroke: #e5484d; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tareas"] .rojo-f { fill: #e5484d; }
+    [data-composition-id="s09-tareas"] .luz-v { fill: #6dff8a; opacity: 0.16; filter: blur(40px); }
+    [data-composition-id="s09-tareas"] .luz-a { fill: #ffb547; opacity: 0.14; filter: blur(40px); }
+    [data-composition-id="s09-tareas"] .ojo-b { fill: #efe6d2; filter: drop-shadow(0 0 10px #6dff8a) drop-shadow(0 0 22px rgba(109, 255, 138, 0.8)); }
+    [data-composition-id="s09-tareas"] .celda { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #6dff8a; }
+    [data-composition-id="s09-tareas"] .celda-h { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #6dff8a; opacity: 0.75; }
+    [data-composition-id="s09-tareas"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; fill: #efe6d2; letter-spacing: 0.06em; }
+    [data-composition-id="s09-tareas"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efe6d2; }
+    [data-composition-id="s09-tareas"] .tecla { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 56px; fill: #6dff8a; filter: drop-shadow(0 0 10px rgba(109, 255, 138, 0.7)); }
+    [data-composition-id="s09-tareas"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffb547; }
+    [data-composition-id="s09-tareas"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s09-tareas" data-width="1080" data-height="1920" data-duration="3.99">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="3.99" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s09-cura"><g transform="translate(860 1220) scale(0.72)">
+            <ellipse class="luz-a" cx="0" cy="-330" rx="240" ry="220" />
+            <path class="ln-f s09-c" d="M-190 0 C-190 -200 -120 -290 -34 -300 H34 C120 -290 190 -200 190 0 Z" />
+            <path class="ambar s09-c" d="M-40 -286 L-58 -10 M40 -286 L58 -10" />
+            <rect class="hueso-f" x="-34" y="-312" width="68" height="22" rx="4" />
+            <g class="s09-cabeza">
+              <ellipse class="ln s09-c" cx="0" cy="-400" rx="80" ry="94" />
+              <path class="ln s09-c" d="M-78 -420 q-22 -18 -6 -52 M-78 -400 q-20 -10 -16 -34 M78 -420 q22 -18 6 -52 M78 -400 q20 -10 16 -34" />
+              <path class="ln s09-c" d="M-26 -488 q26 -10 52 0" />
+              <g class="s09-lentes">
+                <circle class="ln s09-c" cx="-32" cy="-405" r="24" />
+                <circle class="ln s09-c" cx="32" cy="-405" r="24" />
+                <path class="ln s09-c" d="M-8 -405 H8" />
+              </g>
+              <circle class="hueso-f s09-ojitos" cx="-32" cy="-403" r="6" />
+              <circle class="hueso-f s09-ojitos" cx="32" cy="-403" r="6" />
+              <path class="ln s09-c s09-boca" d="M-22 -345 q22 12 44 0" />
+            </g>
+          <g class="s09-lupa">
+            <path class="ln s09-c" d="M-150 -200 L-250 -330" />
+            <circle class="ln s09-c" cx="-290" cy="-380" r="58" style="stroke:#ffb547" />
+            <path class="ln s09-c" d="M-260 -360 L-226 -326" style="stroke-width:12" />
+          </g>
+        </g></g>
+        <g class="s09-diablo">
+          <circle class="ln" cx="330" cy="860" r="80" />
+          <path class="ln" d="M275 805 L250 720 L300 790 M385 805 L410 720 L360 790" />
+          <path class="ln" d="M295 850 l20 10 M365 850 l-20 10 M300 900 q30 20 60 0" />
+          <path class="ln" d="M290 940 L270 1100 H390 L370 940 M390 1060 q90 -10 80 -90 l-14 20 m14 -20 l18 16" />
+          <path class="rojo s09-tacha" d="M180 720 L490 1120" />
+        </g>
+        <g class="s09-cinta">
+          
+          <g class="s09-tarj">
+            <rect class="ln-f" x="60" y="960" width="180" height="110" rx="12" style="stroke:#6dff8a" />
+            <text class="celda" x="150" y="1005" text-anchor="middle">copiar</text>
+            <text class="celda" x="150" y="1047" text-anchor="middle">pegar</text>
+          </g>
+          <g class="s09-tarj">
+            <rect class="ln-f" x="260" y="960" width="180" height="110" rx="12" style="stroke:#6dff8a" />
+            <text class="celda" x="350" y="1005" text-anchor="middle">copiar</text>
+            <text class="celda" x="350" y="1047" text-anchor="middle">pegar</text>
+          </g>
+          <g class="s09-tarj">
+            <rect class="ln-f" x="460" y="960" width="180" height="110" rx="12" style="stroke:#6dff8a" />
+            <text class="celda" x="550" y="1005" text-anchor="middle">copiar</text>
+            <text class="celda" x="550" y="1047" text-anchor="middle">pegar</text>
+          </g>
+          <g class="s09-tarj">
+            <rect class="ln-f" x="660" y="960" width="180" height="110" rx="12" style="stroke:#6dff8a" />
+            <text class="celda" x="750" y="1005" text-anchor="middle">copiar</text>
+            <text class="celda" x="750" y="1047" text-anchor="middle">pegar</text>
+          </g>
+          <path class="ambar s09-flecha" d="M120 1110 Q450 1180 780 1110 M760 1092 l22 18 l-26 10 M780 930 Q450 860 120 930 M140 912 l-22 18 l26 10" style="stroke-width:5" />
+        </g>
+
+      </svg>
+
+      <div class="etiqueta"><span class="s09-e1">Diagnóstico</span><span class="s09-e2">Tareas repetidas</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-tareas";
+      const DUR = 3.99;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (els, t, paso = 0.06) => {
+        els.forEach((el, i) => {
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t + i * paso);
+        });
+      };
+      const fuera = (els, t, d = 0.2) => tl.to(els, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const temblar = (el, t, n = 4, a = 12) => {
+        for (let i = 0; i < n; i++) tl.to(el, { x: i % 2 ? -a : a, duration: 0.04, ease: "none" }, t + i * 0.05);
+        tl.to(el, { x: 0, duration: 0.05, ease: "none" }, t + n * 0.05);
+      };
+      const etiquetas = (lista) => lista.forEach(([sel, t], i) => {
+        if (i > 0) tl.to(q(lista[i - 1][0]), { opacity: 0, duration: 0.12 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      });
+
+
+      const DEMONIO = 1.43, TAREAS = 2.5;
+      pop([q(".s09-cura")], 0, 0);
+      dibujar(qa(".s09-c"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s09-lupa"), { rotation: 8, svgOrigin: "-150 -200" }, { rotation: -6, svgOrigin: "-150 -200", duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0.2);
+      pop([q(".s09-diablo")], 0.3);
+      gsap.set(q(".s09-tacha"), { opacity: 0 });
+      dibujar([q(".s09-tacha")], DEMONIO, 0.3);
+      tl.to(q(".s09-diablo"), { opacity: 0, y: 30, duration: 0.25 }, TAREAS - 0.3);
+      // tareas repetidas: tarjetas iguales que pasan en loop
+      const tj = qa(".s09-tarj");
+      pop(tj, TAREAS, 0.07);
+      tj.forEach((t) => tl.fromTo(t, { x: 0 }, { x: 200, duration: 0.5, ease: "none", repeat: 2, immediateRender: false }, TAREAS + 0.3));
+      dibujar([q(".s09-flecha")], TAREAS + 0.1, 0.5);
+      tl.to(q(".s09-cura"), { opacity: 0, x: 120, duration: 0.3 }, TAREAS - 0.2);
+      etiquetas([[".s09-e1", 0.1], [".s09-e2", TAREAS]]);
+
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

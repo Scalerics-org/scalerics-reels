@@ -1,0 +1,151 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-despierta"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-despierta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-despierta"] .ln { fill: none; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-despierta"] .ln-f { fill: #15110c; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-despierta"] .hueso-f { fill: #efe6d2; }
+    [data-composition-id="s13-despierta"] .verde { fill: none; stroke: #6dff8a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 10px rgba(109, 255, 138, 0.7)); }
+    [data-composition-id="s13-despierta"] .verde-fino { fill: none; stroke: #6dff8a; stroke-width: 3; opacity: 0.75; }
+    [data-composition-id="s13-despierta"] .verde-f { fill: #6dff8a; }
+    [data-composition-id="s13-despierta"] .ambar { fill: none; stroke: #ffb547; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 12px rgba(255, 181, 71, 0.8)); }
+    [data-composition-id="s13-despierta"] .ambar-f { fill: #ffb547; }
+    [data-composition-id="s13-despierta"] .rojo { fill: none; stroke: #e5484d; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-despierta"] .rojo-f { fill: #e5484d; }
+    [data-composition-id="s13-despierta"] .luz-v { fill: #6dff8a; opacity: 0.16; filter: blur(40px); }
+    [data-composition-id="s13-despierta"] .luz-a { fill: #ffb547; opacity: 0.14; filter: blur(40px); }
+    [data-composition-id="s13-despierta"] .ojo-b { fill: #efe6d2; filter: drop-shadow(0 0 10px #6dff8a) drop-shadow(0 0 22px rgba(109, 255, 138, 0.8)); }
+    [data-composition-id="s13-despierta"] .celda { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #6dff8a; }
+    [data-composition-id="s13-despierta"] .celda-h { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #6dff8a; opacity: 0.75; }
+    [data-composition-id="s13-despierta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; fill: #efe6d2; letter-spacing: 0.06em; }
+    [data-composition-id="s13-despierta"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efe6d2; }
+    [data-composition-id="s13-despierta"] .tecla { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 56px; fill: #6dff8a; filter: drop-shadow(0 0 10px rgba(109, 255, 138, 0.7)); }
+    [data-composition-id="s13-despierta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffb547; }
+    [data-composition-id="s13-despierta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s13-despierta" data-width="1080" data-height="1920" data-duration="5.19">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="5.19" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s13-marido"><g transform="translate(400 1220) scale(0.82)">
+            <ellipse class="luz-v s13-luz" cx="0" cy="-330" rx="230" ry="200" />
+            <g class="s13-cabeza">
+              <ellipse class="ln s13-p" cx="0" cy="-420" rx="92" ry="108" />
+              <path class="ln s13-p" d="M-92 -440 C-90 -540 90 -540 92 -440 M-92 -440 q30 -20 60 -12 q40 -26 70 -4 q20 -6 54 16" />
+              <path class="ln s13-p" d="M-92 -420 q-24 4 -18 30 q6 18 22 14 M92 -420 q24 4 18 30 q-6 18 -22 14" />
+              <path class="ln s13-p" d="M-60 -466 q22 -10 44 0 M16 -466 q22 -10 44 0" />
+              <path class="ln s13-p" d="M-8 -410 q-8 26 8 30" />
+              <path class="ln s13-p s13-boca" d="M-18 -352 q18 -14 36 0" />
+              <circle class="ln" cx="-38" cy="-428" r="18" />
+              <circle class="ln" cx="38" cy="-428" r="18" />
+              <circle class="hueso-f s13-pupila" cx="-38" cy="-428" r="8" />
+              <circle class="hueso-f s13-pupila" cx="38" cy="-428" r="8" />
+              <path class="ln" d="M-56 -398 q18 10 36 0 M20 -398 q18 10 36 0" style="opacity:0.5" />
+            </g>
+            <path class="ln s13-p" d="M-30 -314 V-286 M30 -314 V-286" />
+            <path class="ln s13-p" d="M-200 -40 C-200 -220 -130 -272 -30 -286 M30 -286 C130 -272 200 -220 200 -40" />
+            <path class="ln s13-p" d="M-58 -280 L-80 -40 M58 -280 L80 -40 M-80 -170 H80" />
+            <g class="s13-tapa">
+              <path class="ln-f s13-p" d="M-215 0 L-190 -215 H190 L215 0 Z" />
+              <path class="verde s13-p" d="M-186 -222 H186" />
+            </g>
+            <path class="ln s13-p" d="M-360 0 H360 M-320 0 V110 M320 0 V110" />
+        </g></g>
+        <g class="s13-reloj">
+          <circle class="ln-f" cx="860" cy="700" r="80" />
+          <path class="ln" d="M860 700 V650 M860 700 L825 680" />
+          <circle class="hueso-f" cx="860" cy="700" r="7" />
+        </g>
+        <g class="s13-esposa"><g transform="translate(820 1220) scale(0.8)">
+          <ellipse class="ln" cx="0" cy="-400" rx="78" ry="92" />
+          <circle class="ln" cx="-50" cy="-480" r="18" /><circle class="ln" cx="-10" cy="-496" r="18" /><circle class="ln" cx="32" cy="-490" r="18" /><circle class="ln" cx="64" cy="-464" r="16" />
+          <path class="ln" d="M-48 -410 q14 -10 28 0 M20 -410 q14 -10 28 0 M-20 -350 q20 16 40 0" />
+          <path class="ln-f" d="M-180 0 C-180 -190 -110 -280 -26 -298 H26 C110 -280 180 -190 180 0 Z" />
+          <path class="ln" d="M-26 -298 L30 -100 M26 -298 L-10 -150 M-140 -120 H140" />
+        </g></g>
+        <path class="ambar-f s13-corazon" d="M640 760 c-30 -40 -90 -10 -60 40 l60 60 l60 -60 c30 -50 -30 -80 -60 -40 Z" />
+        <g class="s13-zzz">
+          <text class="s13-z" x="560" y="760" style="font-family:Lexend;font-weight:800;font-size:60px;fill:#efe6d2">z</text>
+          <text class="s13-z" x="610" y="700" style="font-family:Lexend;font-weight:800;font-size:76px;fill:#efe6d2">z</text>
+          <text class="s13-z" x="670" y="630" style="font-family:Lexend;font-weight:800;font-size:92px;fill:#efe6d2">z</text>
+        </g>
+
+      </svg>
+
+      <div class="etiqueta"><span class="s13-e1">Liberado</span><span class="s13-e2">A dormir</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-despierta";
+      const DUR = 5.19;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (els, t, paso = 0.06) => {
+        els.forEach((el, i) => {
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t + i * paso);
+        });
+      };
+      const fuera = (els, t, d = 0.2) => tl.to(els, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const temblar = (el, t, n = 4, a = 12) => {
+        for (let i = 0; i < n; i++) tl.to(el, { x: i % 2 ? -a : a, duration: 0.04, ease: "none" }, t + i * 0.05);
+        tl.to(el, { x: 0, duration: 0.05, ease: "none" }, t + n * 0.05);
+      };
+      const etiquetas = (lista) => lista.forEach(([sel, t], i) => {
+        if (i > 0) tl.to(q(lista[i - 1][0]), { opacity: 0, duration: 0.12 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      });
+
+
+      const DONDE = 0.0, HORA = 1.24, ONCE = 2.14, AMOR = 2.88, DORMIR = 3.99;
+      pop([q(".s13-marido")], 0, 0);
+      dibujar(qa(".s13-p"), 0, 0.5, 0.5);
+      tl.to(q(".s13-luz"), { opacity: 0, duration: 0.6 }, 0);
+      // mira para los costados, aturdido
+      tl.to(qa(".s13-pupila"), { x: -8, duration: 0.2 }, 0.2);
+      tl.to(qa(".s13-pupila"), { x: 8, duration: 0.25 }, 0.6);
+      tl.to(qa(".s13-pupila"), { x: 4, y: -6, duration: 0.2 }, HORA);
+      tl.to(q(".s13-cabeza"), { rotation: -8, svgOrigin: "0 -320", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.2);
+      pop([q(".s13-reloj")], HORA);
+      tl.fromTo(q(".s13-reloj"), { rotation: -8 }, { rotation: 8, svgOrigin: "860 700", duration: 0.12, yoyo: true, repeat: 5, immediateRender: false }, HORA + 0.3);
+      // entra la esposa, corazón
+      gsap.set(q(".s13-esposa"), { opacity: 0 });
+      tl.fromTo(q(".s13-esposa"), { opacity: 0, x: 200 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, ONCE - 0.1);
+      tl.to(q(".s13-reloj"), { opacity: 0, duration: 0.2 }, ONCE - 0.1);
+      pop([q(".s13-corazon")], AMOR);
+      tl.to(q(".s13-corazon"), { scale: 1.15, transformOrigin: "50% 50%", duration: 0.2, yoyo: true, repeat: 3 }, AMOR + 0.4);
+      // a dormir: la tapa se baja y salen las zetas
+      tl.to(q(".s13-corazon"), { opacity: 0, duration: 0.2 }, DORMIR - 0.1);
+      tl.to(q(".s13-tapa"), { scaleY: 0.08, svgOrigin: "0 0", duration: 0.3, ease: "power2.in" }, DORMIR);
+      qa(".s13-z").forEach((z, i) => {
+        gsap.set(z, { opacity: 0 });
+        tl.fromTo(z, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, DORMIR + 0.25 + i * 0.2);
+      });
+      tl.to(q(".s13-zzz"), { y: -20, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, DORMIR + 0.3);
+      etiquetas([[".s13-e1", 0.1], [".s13-e2", DORMIR]]);
+
+
+      // salida
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

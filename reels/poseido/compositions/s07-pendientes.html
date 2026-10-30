@@ -1,0 +1,141 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-pendientes"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-pendientes"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-pendientes"] .ln { fill: none; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-pendientes"] .ln-f { fill: #15110c; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-pendientes"] .hueso-f { fill: #efe6d2; }
+    [data-composition-id="s07-pendientes"] .verde { fill: none; stroke: #6dff8a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 10px rgba(109, 255, 138, 0.7)); }
+    [data-composition-id="s07-pendientes"] .verde-fino { fill: none; stroke: #6dff8a; stroke-width: 3; opacity: 0.75; }
+    [data-composition-id="s07-pendientes"] .verde-f { fill: #6dff8a; }
+    [data-composition-id="s07-pendientes"] .ambar { fill: none; stroke: #ffb547; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 12px rgba(255, 181, 71, 0.8)); }
+    [data-composition-id="s07-pendientes"] .ambar-f { fill: #ffb547; }
+    [data-composition-id="s07-pendientes"] .rojo { fill: none; stroke: #e5484d; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-pendientes"] .rojo-f { fill: #e5484d; }
+    [data-composition-id="s07-pendientes"] .luz-v { fill: #6dff8a; opacity: 0.16; filter: blur(40px); }
+    [data-composition-id="s07-pendientes"] .luz-a { fill: #ffb547; opacity: 0.14; filter: blur(40px); }
+    [data-composition-id="s07-pendientes"] .ojo-b { fill: #efe6d2; filter: drop-shadow(0 0 10px #6dff8a) drop-shadow(0 0 22px rgba(109, 255, 138, 0.8)); }
+    [data-composition-id="s07-pendientes"] .celda { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #6dff8a; }
+    [data-composition-id="s07-pendientes"] .celda-h { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #6dff8a; opacity: 0.75; }
+    [data-composition-id="s07-pendientes"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; fill: #efe6d2; letter-spacing: 0.06em; }
+    [data-composition-id="s07-pendientes"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efe6d2; }
+    [data-composition-id="s07-pendientes"] .tecla { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 56px; fill: #6dff8a; filter: drop-shadow(0 0 10px rgba(109, 255, 138, 0.7)); }
+    [data-composition-id="s07-pendientes"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffb547; }
+    [data-composition-id="s07-pendientes"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-pendientes" data-width="1080" data-height="1920" data-duration="9.23">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="9.23" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s07-todo">
+          <g class="s07-papel">
+            <rect class="ln-f" x="250" y="640" width="580" height="580" style="fill:#1b1610" />
+            <text class="mono" x="540" y="700" text-anchor="middle" style="fill:#ffb547;letter-spacing:0.3em">PENDIENTES</text>
+            <path class="ln" d="M290 720 H790" style="stroke-width:3;opacity:0.5" />
+            <text class="s07-40" x="300" y="890" style="font-family:Lexend;font-weight:900;font-size:170px;fill:#e5484d">40</text>
+            <text class="lex s07-ped" x="540" y="815" style="font-size:36px">pedidos de</text>
+            <text class="lex s07-ped" x="540" y="862" style="font-size:36px;fill:#6dff8a">WhatsApp</text>
+            <text class="mono s07-av" x="300" y="990" style="font-size:28px">Avisar: pedido listo</text><text class="mono s07-av" x="300" y="1036" style="font-size:28px">Avisar: pedido listo</text><text class="mono s07-av" x="300" y="1082" style="font-size:28px">Avisar: pedido listo</text>
+            <g class="s07-stock">
+              <path class="ln" d="M300 1130 L340 1110 L380 1130 V1180 L340 1200 L300 1180 Z M300 1130 L340 1150 L380 1130 M340 1150 V1200" style="stroke-width:5" />
+              <text class="mono" x="410" y="1170" style="font-size:30px">Stock:</text>
+              <text class="mono s07-n" x="540" y="1170" style="font-size:30px;fill:#6dff8a">12</text>
+              <text class="mono s07-n" x="540" y="1170" style="font-size:30px;fill:#6dff8a">11</text>
+              <text class="mono s07-n" x="540" y="1170" style="font-size:30px;fill:#6dff8a">10</text>
+              <text class="mono s07-n" x="540" y="1170" style="font-size:30px;fill:#6dff8a">9</text>
+              <path class="ambar s07-giro" d="M660 1150 a26 26 0 1 1 -8 -18 M652 1132 l2 -18 M652 1132 l-17 -3" style="stroke-width:5" />
+            </g>
+          </g>
+          <rect class="ln-f s07-rollo" x="230" y="610" width="620" height="40" rx="20" />
+          <rect class="ln-f s07-rollo2" x="230" y="1210" width="620" height="40" rx="20" />
+          <g class="s07-chats">
+            <rect class="ln s07-chat" x="300" y="905" width="110" height="56" rx="18" style="stroke:#6dff8a" />
+            <rect class="ln s07-chat" x="430" y="905" width="110" height="56" rx="18" style="stroke:#6dff8a" />
+            <rect class="ln s07-chat" x="560" y="905" width="110" height="56" rx="18" style="stroke:#6dff8a" />
+          </g>
+        </g>
+
+      </svg>
+
+      <div class="etiqueta"><span class="s07-e1">Lista del demonio</span><span class="s07-e2">Uno por uno</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-pendientes";
+      const DUR = 9.23;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (els, t, paso = 0.06) => {
+        els.forEach((el, i) => {
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t + i * paso);
+        });
+      };
+      const fuera = (els, t, d = 0.2) => tl.to(els, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const temblar = (el, t, n = 4, a = 12) => {
+        for (let i = 0; i < n; i++) tl.to(el, { x: i % 2 ? -a : a, duration: 0.04, ease: "none" }, t + i * 0.05);
+        tl.to(el, { x: 0, duration: 0.05, ease: "none" }, t + n * 0.05);
+      };
+      const etiquetas = (lista) => lista.forEach(([sel, t], i) => {
+        if (i > 0) tl.to(q(lista[i - 1][0]), { opacity: 0, duration: 0.12 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      });
+
+
+      const CUARENTA = 1.92, WA = 3.52, AVISAR = 4.57, STOCK = 7.22;
+      // el pergamino se desenrolla hacia abajo
+      gsap.set(q(".s07-papel"), { scaleY: 0, svgOrigin: "540 640" });
+      tl.to(q(".s07-papel"), { scaleY: 1, svgOrigin: "540 640", duration: 0.8, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s07-rollo2"), { y: -580 }, { y: 0, duration: 0.8, ease: "power2.out" }, 0);
+      pop([q(".s07-rollo")], 0, 0);
+      temblar(q(".s07-todo"), 0.0, 6, 6);
+      // 40 pedidos
+      gsap.set([q(".s07-40"), ...qa(".s07-ped"), ...qa(".s07-av"), q(".s07-stock")], { opacity: 0 });
+      tl.fromTo(q(".s07-40"), { opacity: 0, scale: 2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "power3.out" }, CUARENTA);
+      temblar(q(".s07-todo"), CUARENTA + 0.25, 4, 8);
+      tl.to(qa(".s07-ped"), { opacity: 1, duration: 0.25, stagger: 0.2 }, CUARENTA + 0.5);
+      // globos de WhatsApp que caen
+      qa(".s07-chat").forEach((c, i) => {
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { opacity: 0, y: -160 }, { opacity: 1, y: 0, duration: 0.4, ease: "bounce.out", immediateRender: false }, WA + i * 0.2);
+      });
+      // avisar que está listo: se repite y se repite
+      qa(".s07-av").forEach((a, i) => tl.fromTo(a, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.25, immediateRender: false }, AVISAR + 0.1 + i * 0.6));
+      // stock que cambia
+      tl.to(q(".s07-stock"), { opacity: 1, duration: 0.25 }, STOCK);
+      const ns = qa(".s07-n");
+      gsap.set(ns, { opacity: 0 });
+      ns.forEach((n, i) => {
+        tl.set(n, { opacity: 1 }, STOCK + 0.2 + i * 0.35);
+        if (i < ns.length - 1) tl.set(n, { opacity: 0 }, STOCK + 0.2 + (i + 1) * 0.35);
+      });
+      tl.fromTo(q(".s07-giro"), { rotation: 0, svgOrigin: "634 1150" }, { rotation: 720, svgOrigin: "634 1150", duration: 1.8, ease: "none" }, STOCK);
+      // respira, cansado
+      tl.fromTo(q(".s07-todo"), { scale: 1, svgOrigin: "540 930" }, { scale: 1.04, svgOrigin: "540 930", duration: 1.5, ease: "sine.inOut", yoyo: true, repeat: 5, immediateRender: false }, 0.9);
+      etiquetas([[".s07-e1", 0.2], [".s07-e2", AVISAR]]);
+
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

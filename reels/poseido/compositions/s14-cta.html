@@ -1,0 +1,97 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-cta"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-cta"] .ln { fill: none; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .ln-f { fill: #15110c; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .hueso-f { fill: #efe6d2; }
+    [data-composition-id="s14-cta"] .verde { fill: none; stroke: #6dff8a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 10px rgba(109, 255, 138, 0.7)); }
+    [data-composition-id="s14-cta"] .verde-fino { fill: none; stroke: #6dff8a; stroke-width: 3; opacity: 0.75; }
+    [data-composition-id="s14-cta"] .verde-f { fill: #6dff8a; }
+    [data-composition-id="s14-cta"] .ambar { fill: none; stroke: #ffb547; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 12px rgba(255, 181, 71, 0.8)); }
+    [data-composition-id="s14-cta"] .ambar-f { fill: #ffb547; }
+    [data-composition-id="s14-cta"] .rojo { fill: none; stroke: #e5484d; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .rojo-f { fill: #e5484d; }
+    [data-composition-id="s14-cta"] .luz-v { fill: #6dff8a; opacity: 0.16; filter: blur(40px); }
+    [data-composition-id="s14-cta"] .luz-a { fill: #ffb547; opacity: 0.14; filter: blur(40px); }
+    [data-composition-id="s14-cta"] .ojo-b { fill: #efe6d2; filter: drop-shadow(0 0 10px #6dff8a) drop-shadow(0 0 22px rgba(109, 255, 138, 0.8)); }
+    [data-composition-id="s14-cta"] .celda { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #6dff8a; }
+    [data-composition-id="s14-cta"] .celda-h { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #6dff8a; opacity: 0.75; }
+    [data-composition-id="s14-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; fill: #efe6d2; letter-spacing: 0.06em; }
+    [data-composition-id="s14-cta"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efe6d2; }
+    [data-composition-id="s14-cta"] .tecla { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 56px; fill: #6dff8a; filter: drop-shadow(0 0 10px rgba(109, 255, 138, 0.7)); }
+    [data-composition-id="s14-cta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffb547; }
+    [data-composition-id="s14-cta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s14-cta"] .etiqueta { top: 1290px; }
+  </style>
+  <div id="root" data-composition-id="s14-cta" data-width="1080" data-height="1920" data-duration="5.9">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="5.9" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <text class="mono s14-estreno" x="540" y="640" text-anchor="middle" style="fill:#ffb547;letter-spacing:0.4em">ESTRENO 31·10</text>
+        <text class="s14-arroba" x="540" y="960" text-anchor="middle" style="font-family:Lexend;font-weight:800;font-size:330px;fill:#6dff8a;filter:drop-shadow(0 0 26px rgba(109,255,138,0.8))">@</text>
+        <text class="s14-etiq" x="540" y="1160" text-anchor="middle" style="font-family:Lexend;font-weight:900;font-size:120px;fill:#efe6d2;letter-spacing:0.02em">ETIQUETÁ</text>
+        <text class="s14-sub" x="540" y="1230" text-anchor="middle" style="font-family:Lexend;font-weight:600;font-size:44px;fill:#efe6d2">al poseído <tspan style="fill:#6dff8a">por la planilla</tspan></text>
+
+      </svg>
+
+      <div class="etiqueta"><span class="s14-e1">Feliz Halloween</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-cta";
+      const DUR = 5.9;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (els, t, paso = 0.06) => {
+        els.forEach((el, i) => {
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t + i * paso);
+        });
+      };
+      const fuera = (els, t, d = 0.2) => tl.to(els, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const temblar = (el, t, n = 4, a = 12) => {
+        for (let i = 0; i < n; i++) tl.to(el, { x: i % 2 ? -a : a, duration: 0.04, ease: "none" }, t + i * 0.05);
+        tl.to(el, { x: 0, duration: 0.05, ease: "none" }, t + n * 0.05);
+      };
+      const etiquetas = (lista) => lista.forEach(([sel, t], i) => {
+        if (i > 0) tl.to(q(lista[i - 1][0]), { opacity: 0, duration: 0.12 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      });
+
+
+      const ETQ = 0.0, POS = 1.14, PLAN = 1.9;
+      pop([q(".s14-arroba")], ETQ);
+      tl.fromTo(q(".s14-etiq"), { opacity: 0, scale: 1.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "power3.out" }, ETQ + 0.1);
+      pop([q(".s14-estreno")], 0.3);
+      gsap.set(q(".s14-sub"), { opacity: 0 });
+      tl.fromTo(q(".s14-sub"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, POS);
+      temblar(q(".s14-arroba"), PLAN, 4, 8);
+      tl.fromTo(q(".s14-arroba"), { scale: 1 }, { scale: 1.06, transformOrigin: "50% 50%", duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 4, immediateRender: false }, PLAN + 0.3);
+      etiquetas([[".s14-e1", 2.4]]);
+
+
+      // salida
+      tl.to(q("#s14-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

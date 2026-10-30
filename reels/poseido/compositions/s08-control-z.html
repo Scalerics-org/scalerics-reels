@@ -1,0 +1,165 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-control-z"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-control-z"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-control-z"] .ln { fill: none; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-control-z"] .ln-f { fill: #15110c; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-control-z"] .hueso-f { fill: #efe6d2; }
+    [data-composition-id="s08-control-z"] .verde { fill: none; stroke: #6dff8a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 10px rgba(109, 255, 138, 0.7)); }
+    [data-composition-id="s08-control-z"] .verde-fino { fill: none; stroke: #6dff8a; stroke-width: 3; opacity: 0.75; }
+    [data-composition-id="s08-control-z"] .verde-f { fill: #6dff8a; }
+    [data-composition-id="s08-control-z"] .ambar { fill: none; stroke: #ffb547; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 12px rgba(255, 181, 71, 0.8)); }
+    [data-composition-id="s08-control-z"] .ambar-f { fill: #ffb547; }
+    [data-composition-id="s08-control-z"] .rojo { fill: none; stroke: #e5484d; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-control-z"] .rojo-f { fill: #e5484d; }
+    [data-composition-id="s08-control-z"] .luz-v { fill: #6dff8a; opacity: 0.16; filter: blur(40px); }
+    [data-composition-id="s08-control-z"] .luz-a { fill: #ffb547; opacity: 0.14; filter: blur(40px); }
+    [data-composition-id="s08-control-z"] .ojo-b { fill: #efe6d2; filter: drop-shadow(0 0 10px #6dff8a) drop-shadow(0 0 22px rgba(109, 255, 138, 0.8)); }
+    [data-composition-id="s08-control-z"] .celda { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #6dff8a; }
+    [data-composition-id="s08-control-z"] .celda-h { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #6dff8a; opacity: 0.75; }
+    [data-composition-id="s08-control-z"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; fill: #efe6d2; letter-spacing: 0.06em; }
+    [data-composition-id="s08-control-z"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efe6d2; }
+    [data-composition-id="s08-control-z"] .tecla { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 56px; fill: #6dff8a; filter: drop-shadow(0 0 10px rgba(109, 255, 138, 0.7)); }
+    [data-composition-id="s08-control-z"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffb547; }
+    [data-composition-id="s08-control-z"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-control-z" data-width="1080" data-height="1920" data-duration="8.15">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="8.15" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s08-p1">
+          <ellipse class="luz-a" cx="540" cy="930" rx="300" ry="320" />
+          <path class="ambar s08-cruzg" d="M540 640 V1220 M400 800 H680" style="stroke-width:16" />
+          <path class="ambar s08-ray" d="M540 600 V560 M700 700 L740 670 M380 700 L340 670 M720 900 H780 M360 900 H300" />
+        </g>
+        <g class="s08-p2">
+          
+            <g class="s08-ctrl">
+              <rect class="ln-f" x="170" y="760" width="360" height="230" rx="18" style="stroke:#6dff8a" />
+              <path class="verde-fino" d="M184 968 H516" />
+              <text class="tecla" x="350.0" y="883.0" text-anchor="middle">CTRL</text>
+            </g>
+          <g class="s08-z">
+            <rect class="ln-f" x="580" y="760" width="330" height="330" rx="26" style="stroke:#6dff8a" />
+            <text class="tecla" x="745" y="980" text-anchor="middle" style="font-size:200px">Z</text>
+          </g>
+        </g>
+        <g class="s08-p3">
+          
+            <g class="s08-planilla">
+              <rect class="ln-f" x="110" y="700" width="860" height="512" rx="10" style="stroke:#6dff8a;filter:drop-shadow(0 0 16px rgba(109,255,138,0.55))" />
+              <line class="verde-fino" x1="110" y1="764" x2="970" y2="764" />
+              <line class="verde-fino" x1="110" y1="828" x2="970" y2="828" />
+              <line class="verde-fino" x1="110" y1="892" x2="970" y2="892" />
+              <line class="verde-fino" x1="110" y1="956" x2="970" y2="956" />
+              <line class="verde-fino" x1="110" y1="1020" x2="970" y2="1020" />
+              <line class="verde-fino" x1="110" y1="1084" x2="970" y2="1084" />
+              <line class="verde-fino" x1="110" y1="1148" x2="970" y2="1148" />
+              <line class="verde-fino" x1="170" y1="700" x2="170" y2="1212" />
+              <line class="verde-fino" x1="437" y1="700" x2="437" y2="1212" />
+              <line class="verde-fino" x1="703" y1="700" x2="703" y2="1212" />
+              <text class="celda-h" x="303" y="741" text-anchor="middle">CLIENTE</text>
+              <text class="celda-h" x="570" y="741" text-anchor="middle">PEDIDO</text>
+              <text class="celda-h" x="837" y="741" text-anchor="middle">CANT.</text>
+              <text class="celda-h" x="140" y="805" text-anchor="middle">1</text>
+              <text class="celda s08-f1 s08-c1-1" x="184" y="806">Ana</text>
+              <text class="celda s08-f1 s08-c1-2" x="451" y="806">Yerba</text>
+              <text class="celda s08-f1 s08-c1-3" x="717" y="806">2 kg</text>
+              <text class="celda-h" x="140" y="869" text-anchor="middle">2</text>
+              <text class="celda s08-f2 s08-c2-1" x="184" y="870">Luis</text>
+              <text class="celda s08-f2 s08-c2-2" x="451" y="870">Café</text>
+              <text class="celda s08-f2 s08-c2-3" x="717" y="870">1 kg</text>
+              <text class="celda-h" x="140" y="933" text-anchor="middle">3</text>
+              <text class="celda s08-f3 s08-c3-1" x="184" y="934">Sofi</text>
+              <text class="celda s08-f3 s08-c3-2" x="451" y="934">Yerba</text>
+              <text class="celda s08-f3 s08-c3-3" x="717" y="934">2 kg</text>
+              <text class="celda-h" x="140" y="997" text-anchor="middle">4</text>
+              <text class="celda s08-f4 s08-c4-1" x="184" y="998">Pablo</text>
+              <text class="celda s08-f4 s08-c4-2" x="451" y="998">Café</text>
+              <text class="celda s08-f4 s08-c4-3" x="717" y="998">1 kg</text>
+              <text class="celda-h" x="140" y="1061" text-anchor="middle">5</text>
+              <text class="celda s08-f5 s08-c5-1" x="184" y="1062">Marta</text>
+              <text class="celda s08-f5 s08-c5-2" x="451" y="1062">Azúcar</text>
+              <text class="celda s08-f5 s08-c5-3" x="717" y="1062">1 kg</text>
+              <text class="celda-h" x="140" y="1125" text-anchor="middle">6</text>
+              <text class="celda-h" x="140" y="1189" text-anchor="middle">7</text>
+            </g>
+          <text class="s08-ref" x="540" y="1020" text-anchor="middle" style="font-family:Lexend;font-weight:900;font-size:120px;fill:#e5484d;filter:drop-shadow(0 0 14px rgba(229,72,77,0.7))">#¡REF!</text>
+        </g>
+
+      </svg>
+
+      <div class="etiqueta"><span class="s08-e1">Último conjuro</span><span class="s08-e2">Se borró todo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-control-z";
+      const DUR = 8.15;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (els, t, paso = 0.06) => {
+        els.forEach((el, i) => {
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t + i * paso);
+        });
+      };
+      const fuera = (els, t, d = 0.2) => tl.to(els, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const temblar = (el, t, n = 4, a = 12) => {
+        for (let i = 0; i < n; i++) tl.to(el, { x: i % 2 ? -a : a, duration: 0.04, ease: "none" }, t + i * 0.05);
+        tl.to(el, { x: 0, duration: 0.05, ease: "none" }, t + n * 0.05);
+      };
+      const etiquetas = (lista) => lista.forEach(([sel, t], i) => {
+        if (i > 0) tl.to(q(lista[i - 1][0]), { opacity: 0, duration: 0.12 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      });
+
+
+      const CTRL = 1.39, Z = 1.9, PROBE = 3.1, BORRO = 5.37, TODO = 6.33;
+      // "¡Te lo ordeno!": el crucifijo gigante
+      dibujar(qa(".s08-cruzg"), 0, 0.35, 0.4);
+      dibujar(qa(".s08-ray"), 0.2, 0.3);
+      temblar(q(".s08-p1"), 0.3, 8, 6);
+      tl.to(q(".s08-p1"), { opacity: 0, scale: 0.8, svgOrigin: "540 930", duration: 0.2 }, CTRL - 0.2);
+      // "Control Z": las teclas caen como martillo
+      gsap.set([q(".s08-ctrl"), q(".s08-z")], { opacity: 0 });
+      tl.fromTo(q(".s08-ctrl"), { opacity: 1, y: -700 }, { opacity: 1, y: 0, duration: 0.3, ease: "power4.in", immediateRender: false }, CTRL - 0.25);
+      tl.fromTo(q(".s08-z"), { opacity: 1, y: -800 }, { opacity: 1, y: 0, duration: 0.3, ease: "power4.in", immediateRender: false }, Z - 0.25);
+      temblar(q(".s08-p2"), Z + 0.05, 4, 14);
+      tl.fromTo(q(".s08-z"), { scaleY: 0.85, svgOrigin: "745 1090" }, { scaleY: 1, svgOrigin: "745 1090", duration: 0.3, ease: "back.out(3)", immediateRender: false }, Z + 0.05);
+      tl.to(q(".s08-p2"), { opacity: 0, y: 40, duration: 0.2 }, PROBE - 0.2);
+      // "Ya probé": la planilla llena
+      gsap.set(q(".s08-p3"), { opacity: 0 });
+      tl.fromTo(q(".s08-p3"), { opacity: 0, scale: 0.92, svgOrigin: "540 950" }, { opacity: 1, scale: 1, svgOrigin: "540 950", duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, PROBE);
+      gsap.set(q(".s08-ref"), { opacity: 0 });
+      // "se me borró todo": las celdas se vacían de abajo para arriba
+      for (let f = 5; f >= 1; f--) tl.to(qa(".s08-f" + f), { opacity: 0, duration: 0.06 }, BORRO + (5 - f) * 0.13);
+      tl.fromTo(q(".s08-ref"), { opacity: 0, scale: 1.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "power3.out", immediateRender: false }, BORRO + 0.7);
+      tl.fromTo(q(".s08-planilla"), { opacity: 1 }, { opacity: 0.3, duration: 0.06, ease: "none", yoyo: true, repeat: 5, immediateRender: false }, TODO);
+      temblar(q(".s08-ref"), TODO + 0.1, 4, 10);
+      etiquetas([[".s08-e1", 0.1], [".s08-e2", BORRO]]);
+
+
+      // salida
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

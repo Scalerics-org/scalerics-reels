@@ -1,0 +1,104 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-poseido"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-poseido"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-poseido"] .ln { fill: none; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-poseido"] .ln-f { fill: #15110c; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-poseido"] .verde { fill: none; stroke: #6dff8a; stroke-width: 7; stroke-linecap: round; filter: drop-shadow(0 0 12px rgba(109, 255, 138, 0.8)); }
+    [data-composition-id="s01-poseido"] .s01-luzcara { fill: #6dff8a; opacity: 0.16; filter: blur(40px); }
+    [data-composition-id="s01-poseido"] .s01-pupila { fill: #efe6d2; }
+    [data-composition-id="s01-poseido"] .s01-ojo { fill: #efe6d2; filter: drop-shadow(0 0 10px #6dff8a) drop-shadow(0 0 22px rgba(109, 255, 138, 0.8)); }
+    [data-composition-id="s01-poseido"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffb547; }
+    [data-composition-id="s01-poseido"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-poseido" data-width="1080" data-height="1920" data-duration="3.65">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="3.65" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- EL POSEÍDO (personaje de todo el reel): origen = centro del borde de la mesa -->
+        <g class="s01-todo"><g transform="translate(540 1200)">
+          <ellipse class="s01-luzcara" cx="0" cy="-330" rx="230" ry="200" />
+          <g class="s01-cabeza">
+            <ellipse class="ln s01-l" cx="0" cy="-420" rx="92" ry="108" />
+            <path class="ln s01-l" d="M-88 -455 L-112 -500 L-70 -492 L-82 -540 L-36 -512 L-22 -560 L8 -516 L40 -556 L50 -506 L92 -530 L82 -486 L114 -482 L90 -452" />
+            <path class="ln s01-l" d="M-92 -420 q-24 4 -18 30 q6 18 22 14 M92 -420 q24 4 18 30 q-6 18 -22 14" />
+            <path class="ln s01-l" d="M-62 -462 L-16 -448 M62 -462 L16 -448" />
+            <path class="ln s01-l" d="M-8 -410 q-8 26 8 30" />
+            <path class="ln s01-l s01-boca" d="M-30 -356 H30" />
+            <circle class="s01-pupila" cx="-38" cy="-428" r="9" />
+            <circle class="s01-pupila" cx="38" cy="-428" r="9" />
+            <ellipse class="s01-ojo" cx="-38" cy="-428" rx="26" ry="16" />
+            <ellipse class="s01-ojo" cx="38" cy="-428" rx="26" ry="16" />
+          </g>
+          <path class="ln s01-l" d="M-30 -314 V-286 M30 -314 V-286" />
+          <path class="ln s01-l" d="M-200 -40 C-200 -220 -130 -272 -30 -286 M30 -286 C130 -272 200 -220 200 -40" />
+          <path class="ln s01-l" d="M-58 -280 L-80 -40 M58 -280 L80 -40 M-80 -170 H80" />
+          <!-- la laptop (le vemos la tapa) y la mesa -->
+          <path class="ln-f s01-l" d="M-215 0 L-190 -215 H190 L215 0 Z" />
+          <path class="verde s01-v" d="M-186 -222 H186" />
+          <path class="ln s01-l s01-mano" d="M-176 -216 q12 -26 24 0 q12 -26 24 0 q12 -26 24 0" />
+          <path class="ln s01-l s01-mano2" d="M104 -216 q12 -26 24 0 q12 -26 24 0 q12 -26 24 0" />
+          <path class="ln s01-l" d="M-360 0 H360 M-320 0 V110 M320 0 V110" />
+        </g></g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Caso 31·10</span><span class="s01-e2">Poseído</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-poseido";
+      const DUR = 3.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const POSEIDO = 2.5;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+      // cuadro 0: el poseído a medio dibujar, en la oscuridad
+      dibujar(qa(".s01-l"), 0, 0.8, 0.55);
+      dibujar(qa(".s01-v"), 0.2, 0.5);
+      tl.fromTo(q(".s01-luzcara"), { opacity: 0 }, { opacity: 0.16, duration: 0.6 }, 0.2);
+      gsap.set(qa(".s01-ojo"), { opacity: 0 });
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.2);
+
+      // teclea sin parar (manos que suben y bajan sobre la tapa)
+      tl.fromTo(q(".s01-mano"), { y: 0 }, { y: -10, duration: 0.11, ease: "sine.inOut", yoyo: true, repeat: 19 }, 0.5);
+      tl.fromTo(q(".s01-mano2"), { y: -10 }, { y: 0, duration: 0.11, ease: "sine.inOut", yoyo: true, repeat: 19 }, 0.5);
+      // la pantalla parpadea
+      [1.1, 1.9].forEach((t) => { tl.to(q(".s01-luzcara"), { opacity: 0.05, duration: 0.05 }, t); tl.to(q(".s01-luzcara"), { opacity: 0.16, duration: 0.1 }, t + 0.07); });
+
+      // "poseído": los ojos se ponen en blanco y brillan, la cabeza da un tirón
+      tl.to(qa(".s01-pupila"), { opacity: 0, duration: 0.05 }, POSEIDO);
+      tl.fromTo(qa(".s01-ojo"), { opacity: 0, scale: 0.3, svgOrigin: "0 -428" }, { opacity: 1, scale: 1, svgOrigin: "0 -428", duration: 0.25, ease: "back.out(2.5)" }, POSEIDO);
+      tl.to(q(".s01-luzcara"), { opacity: 0.32, duration: 0.15 }, POSEIDO);
+      tl.fromTo(q(".s01-cabeza"), { rotation: 0 }, { rotation: -9, svgOrigin: "0 -300", duration: 0.08, ease: "power2.out" }, POSEIDO);
+      tl.to(q(".s01-cabeza"), { rotation: 4, svgOrigin: "0 -300", duration: 0.12, ease: "power2.inOut" }, POSEIDO + 0.08);
+      tl.to(q(".s01-cabeza"), { rotation: 0, svgOrigin: "0 -300", duration: 0.3, ease: "elastic.out(1, 0.4)" }, POSEIDO + 0.2);
+      [0, 0.05, 0.1, 0.15].forEach((d, i) => tl.to(q(".s01-todo"), { x: (i % 2 ? -12 : 14), duration: 0.04, ease: "none" }, POSEIDO + d));
+      tl.to(q(".s01-todo"), { x: 0, duration: 0.05, ease: "none" }, POSEIDO + 0.2);
+      tl.fromTo(q(".s01-todo"), { scale: 1, svgOrigin: "540 900" }, { scale: 1.08, svgOrigin: "540 900", duration: 1.0, ease: "power2.out" }, POSEIDO);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.12 }, POSEIDO - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, POSEIDO);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

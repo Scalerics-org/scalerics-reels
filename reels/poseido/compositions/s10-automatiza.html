@@ -1,0 +1,120 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-automatiza"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-automatiza"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-automatiza"] .ln { fill: none; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-automatiza"] .ln-f { fill: #15110c; stroke: #efe6d2; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-automatiza"] .hueso-f { fill: #efe6d2; }
+    [data-composition-id="s10-automatiza"] .verde { fill: none; stroke: #6dff8a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 10px rgba(109, 255, 138, 0.7)); }
+    [data-composition-id="s10-automatiza"] .verde-fino { fill: none; stroke: #6dff8a; stroke-width: 3; opacity: 0.75; }
+    [data-composition-id="s10-automatiza"] .verde-f { fill: #6dff8a; }
+    [data-composition-id="s10-automatiza"] .ambar { fill: none; stroke: #ffb547; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 12px rgba(255, 181, 71, 0.8)); }
+    [data-composition-id="s10-automatiza"] .ambar-f { fill: #ffb547; }
+    [data-composition-id="s10-automatiza"] .rojo { fill: none; stroke: #e5484d; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-automatiza"] .rojo-f { fill: #e5484d; }
+    [data-composition-id="s10-automatiza"] .luz-v { fill: #6dff8a; opacity: 0.16; filter: blur(40px); }
+    [data-composition-id="s10-automatiza"] .luz-a { fill: #ffb547; opacity: 0.14; filter: blur(40px); }
+    [data-composition-id="s10-automatiza"] .ojo-b { fill: #efe6d2; filter: drop-shadow(0 0 10px #6dff8a) drop-shadow(0 0 22px rgba(109, 255, 138, 0.8)); }
+    [data-composition-id="s10-automatiza"] .celda { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #6dff8a; }
+    [data-composition-id="s10-automatiza"] .celda-h { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #6dff8a; opacity: 0.75; }
+    [data-composition-id="s10-automatiza"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; fill: #efe6d2; letter-spacing: 0.06em; }
+    [data-composition-id="s10-automatiza"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; fill: #efe6d2; }
+    [data-composition-id="s10-automatiza"] .tecla { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 56px; fill: #6dff8a; filter: drop-shadow(0 0 10px rgba(109, 255, 138, 0.7)); }
+    [data-composition-id="s10-automatiza"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffb547; }
+    [data-composition-id="s10-automatiza"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s10-automatiza" data-width="1080" data-height="1920" data-duration="3.42">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="3.42" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s10-p1">
+          <path class="ambar s10-cruz" d="M540 640 V1180 M410 790 H670" style="stroke-width:14" />
+          <path class="rojo s10-x" d="M380 700 L700 1120 M700 700 L380 1120" style="stroke-width:14" />
+        </g>
+        <g class="s10-p2">
+          <rect class="ln-f" x="400" y="980" width="280" height="200" rx="24" />
+          <text class="s10-off mono" x="540" y="1150" text-anchor="middle" style="fill:#e5484d;font-size:40px">OFF</text>
+          <text class="s10-on mono" x="540" y="1150" text-anchor="middle" style="fill:#6dff8a;font-size:40px">ON</text>
+          <g class="s10-palanca">
+            <path class="ln" d="M540 1060 L540 800" style="stroke-width:14" />
+            <circle class="ln-f" cx="540" cy="790" r="44" style="stroke:#ffb547" />
+          </g>
+          <circle class="hueso-f" cx="540" cy="1060" r="16" />
+          <g class="s10-g1"><path class="ambar" d="M338.0 820.0 L331.3 853.7 L314.7 846.8 L299.5 869.5 L312.2 882.2 L283.7 901.3 L276.8 884.7 L250.0 890.0 L250.0 908.0 L216.3 901.3 L223.2 884.7 L200.5 869.5 L187.8 882.2 L168.7 853.7 L185.3 846.8 L180.0 820.0 L162.0 820.0 L168.7 786.3 L185.3 793.2 L200.5 770.5 L187.8 757.8 L216.3 738.7 L223.2 755.3 L250.0 750.0 L250.0 732.0 L283.7 738.7 L276.8 755.3 L299.5 770.5 L312.2 757.8 L331.3 786.3 L314.7 793.2 L320.0 820.0 Z" style="stroke-width:6" /><circle class="ambar" cx="250" cy="820" r="24" style="stroke-width:6" /></g>
+          <g class="s10-g2"><path class="ambar" d="M948.0 900.0 L942.7 933.4 L925.6 927.8 L912.8 952.9 L927.4 963.5 L903.5 987.4 L892.9 972.8 L867.8 985.6 L873.4 1002.7 L840.0 1008.0 L840.0 990.0 L812.2 985.6 L806.6 1002.7 L776.5 987.4 L787.1 972.8 L767.2 952.9 L752.6 963.5 L737.3 933.4 L754.4 927.8 L750.0 900.0 L732.0 900.0 L737.3 866.6 L754.4 872.2 L767.2 847.1 L752.6 836.5 L776.5 812.6 L787.1 827.2 L812.2 814.4 L806.6 797.3 L840.0 792.0 L840.0 810.0 L867.8 814.4 L873.4 797.3 L903.5 812.6 L892.9 827.2 L912.8 847.1 L927.4 836.5 L942.7 866.6 L925.6 872.2 L930.0 900.0 Z" style="stroke-width:6" /><circle class="ambar" cx="840" cy="900" r="31" style="stroke-width:6" /></g>
+          <g class="s10-g3"><path class="ambar" d="M298.0 1060.0 L288.9 1094.0 L273.3 1085.0 L255.0 1103.3 L264.0 1118.9 L230.0 1128.0 L230.0 1110.0 L205.0 1103.3 L196.0 1118.9 L171.1 1094.0 L186.7 1085.0 L180.0 1060.0 L162.0 1060.0 L171.1 1026.0 L186.7 1035.0 L205.0 1016.7 L196.0 1001.1 L230.0 992.0 L230.0 1010.0 L255.0 1016.7 L264.0 1001.1 L288.9 1026.0 L273.3 1035.0 L280.0 1060.0 Z" style="stroke-width:6" /><circle class="ambar" cx="230" cy="1060" r="18" style="stroke-width:6" /></g>
+        </g>
+
+      </svg>
+
+      <div class="etiqueta"><span class="s10-e1">No se exorciza</span><span class="s10-e2">Se automatiza</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-automatiza";
+      const DUR = 3.42;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (els, t, paso = 0.06) => {
+        els.forEach((el, i) => {
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t + i * paso);
+        });
+      };
+      const fuera = (els, t, d = 0.2) => tl.to(els, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const temblar = (el, t, n = 4, a = 12) => {
+        for (let i = 0; i < n; i++) tl.to(el, { x: i % 2 ? -a : a, duration: 0.04, ease: "none" }, t + i * 0.05);
+        tl.to(el, { x: 0, duration: 0.05, ease: "none" }, t + n * 0.05);
+      };
+      const etiquetas = (lista) => lista.forEach(([sel, t], i) => {
+        if (i > 0) tl.to(q(lista[i - 1][0]), { opacity: 0, duration: 0.12 }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      });
+
+
+      const EXORCIZA = 0.74, AUTO = 1.9;
+      dibujar([q(".s10-cruz")], 0, 0.4, 0.4);
+      gsap.set(q(".s10-x"), { opacity: 0 });
+      dibujar([q(".s10-x")], EXORCIZA, 0.3);
+      tl.to(q(".s10-p1"), { x: -700, rotation: -20, svgOrigin: "540 900", duration: 0.35, ease: "power3.in" }, AUTO - 0.45);
+      tl.to(q(".s10-p1"), { opacity: 0, duration: 0.1 }, AUTO - 0.15);
+      // la palanca: OFF -> ON, CLACK, y arrancan los engranajes
+      gsap.set(q(".s10-p2"), { opacity: 0 });
+      tl.to(q(".s10-p2"), { opacity: 1, duration: 0.15 }, AUTO - 0.12);
+      gsap.set(q(".s10-palanca"), { rotation: -35, svgOrigin: "540 1060" });
+      tl.to(q(".s10-palanca"), { rotation: 35, svgOrigin: "540 1060", duration: 0.18, ease: "power4.in" }, AUTO - 0.05);
+      gsap.set(q(".s10-on"), { opacity: 0 });
+      tl.set(q(".s10-off"), { opacity: 0 }, AUTO + 0.13);
+      tl.set(q(".s10-on"), { opacity: 1 }, AUTO + 0.13);
+      temblar(q(".s10-p2"), AUTO + 0.13, 3, 8);
+      pop([q(".s10-g1"), q(".s10-g2"), q(".s10-g3")], AUTO + 0.15, 0.08);
+      tl.fromTo(q(".s10-g1"), { rotation: 0 }, { rotation: 180, svgOrigin: "250 820", duration: 1.3, ease: "none", immediateRender: false }, AUTO + 0.15);
+      tl.fromTo(q(".s10-g2"), { rotation: 0 }, { rotation: -150, svgOrigin: "840 900", duration: 1.3, ease: "none", immediateRender: false }, AUTO + 0.15);
+      tl.fromTo(q(".s10-g3"), { rotation: 0 }, { rotation: -220, svgOrigin: "230 1060", duration: 1.3, ease: "none", immediateRender: false }, AUTO + 0.15);
+      etiquetas([[".s10-e1", 0.1], [".s10-e2", AUTO]]);
+
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

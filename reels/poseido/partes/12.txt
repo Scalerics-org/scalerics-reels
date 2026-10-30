@@ -1,0 +1,1 @@
+En Scalerics hacemos automatizaciones: los pedidos de WhatsApp pasan solos a la planilla, el aviso de pedido listo sale solo y el reporte del día te llega al celular.
