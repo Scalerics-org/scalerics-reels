@@ -1,0 +1,147 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-tormenta"] .s02-capa, [data-composition-id="s02-tormenta"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-tormenta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-tormenta"] .b { fill: #0b2547; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-tormenta"] .l { fill: none; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-tormenta"] .n { fill: #ff8a1f; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-tormenta"] .m { fill: #14457a; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-tormenta"] .c { fill: #5ec8ff; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-tormenta"] .y { fill: #ffd23f; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-tormenta"] .g { fill: #5ce611; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-tormenta"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-tormenta"] .w { fill: #f4f6fb; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-tormenta"] .k { fill: #061428; stroke: #f4f6fb; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-tormenta"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s02-tormenta"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-tormenta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s02-tormenta"] .s02-cuanto { position: absolute; left: 0; padding: 10px 22px 8px; background: #f4f6fb; color: #061428; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; border-radius: 14px; box-shadow: 6px 6px 0 #ff8a1f; }
+    [data-composition-id="s02-tormenta"] .s02-c1 { top: 820px; font-size: 56px; }
+    [data-composition-id="s02-tormenta"] .s02-c2 { top: 960px; font-size: 44px; }
+    [data-composition-id="s02-tormenta"] .s02-c3 { top: 1080px; font-size: 38px; }
+    [data-composition-id="s02-tormenta"] .s02-oeste { left: 70px; top: 1220px; background: #f4f6fb; color: #061428; font-size: 40px; }
+
+  </style>
+  <div id="root" data-composition-id="s02-tormenta" data-width="1080" data-height="1920" data-duration="7.42">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="7.42" data-track-index="0">
+      <div class="s02-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <defs><clipPath id="s02-clipmapa"><rect x="40" y="560" width="1000" height="760" rx="26" /></clipPath></defs>
+          <g class="s02-mapa">
+            <rect x="40" y="560" width="1000" height="760" rx="26" fill="#0b2547" stroke="#f4f6fb" stroke-width="6" />
+            <g clip-path="url(#s02-clipmapa)">
+              <path d="M40 680 H1040 M40 800 H1040 M40 920 H1040 M40 1040 H1040 M40 1160 H1040 M40 1280 H1040 M160 560 V1320 M320 560 V1320 M480 560 V1320 M640 560 V1320 M800 560 V1320 M960 560 V1320" stroke="#5ec8ff" stroke-width="2" opacity="0.18" fill="none" />
+              <path class="s02-tierra" d="M40 760 C120 740 170 690 260 700 C340 710 380 660 470 668 C560 676 600 740 690 730 C780 720 830 650 930 670 C990 682 1020 700 1040 700 L1040 1320 L40 1320 Z" fill="#14457a" stroke="#f4f6fb" stroke-width="5" stroke-linejoin="round" />
+              <path d="M360 1320 C380 1240 450 1210 470 1150 C490 1090 560 1080 600 1020" fill="none" stroke="#5ec8ff" stroke-width="5" opacity="0.5" />
+              <g class="s02-isobaras" fill="none" stroke="#f4f6fb" stroke-width="3" opacity="0.35">
+                <ellipse cx="250" cy="930" rx="150" ry="100" /><ellipse cx="250" cy="930" rx="250" ry="180" /><ellipse cx="250" cy="930" rx="360" ry="270" />
+                <ellipse cx="860" cy="1170" rx="120" ry="80" /><ellipse cx="860" cy="1170" rx="220" ry="150" />
+              </g>
+              <text x="250" y="955" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="72" fill="#f4f6fb" opacity="0.5">B</text>
+              <text x="860" y="1195" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="64" fill="#f4f6fb" opacity="0.5">A</text>
+            </g>
+          </g>
+          <g class="s02-pin"><g transform="translate(760 1080)"><path d="M0 0 C-46 -56 -46 -112 0 -112 C46 -112 46 -56 0 0 Z" fill="#ff8a1f" stroke="#f4f6fb" stroke-width="7" stroke-linejoin="round" /><circle cx="0" cy="-74" r="16" fill="#061428" stroke="#f4f6fb" stroke-width="5" /></g></g>
+          <path class="s02-flecha" d="M340 860 C480 820 620 860 720 960 M672 948 L724 964 L716 910" fill="none" stroke="#ff8a1f" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+          <g class="s02-nube"><g transform="translate(290 760) scale(1.25)"><path class="k"  d="M-170 60 C-240 60 -240 -30 -160 -40 C-160 -130 -40 -140 -10 -80 C20 -160 160 -140 150 -40 C230 -40 240 60 160 60 Z" />
+            <path class="s02-rayo" d="M-10 60 L-46 130 L0 130 L-36 210" fill="none" stroke="#ffd23f" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+            <path class="s02-rayo" d="M90 60 L70 110 L100 110 L80 160" fill="none" stroke="#ffd23f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          </g></g>
+          <g class="s02-viento" fill="none" stroke="#f4f6fb" stroke-width="8" stroke-linecap="round">
+            <path class="s02-v1" d="M60 900 C260 860 420 940 600 900 C700 880 720 820 670 800 C630 790 610 830 640 850" />
+            <path class="s02-v2" d="M60 1030 C300 990 520 1070 760 1020 C860 1000 880 940 830 925 C790 915 770 955 800 972" />
+            <path class="s02-v3" d="M60 1150 C220 1120 380 1180 520 1150" />
+          </g>
+          <g class="s02-g s02-g0"><g transform="translate(180 1180) rotate(-7)"><rect x="-96" y="-34" width="192" height="68" rx="34" fill="#5ec8ff" stroke="#f4f6fb" stroke-width="5" /><path d="M-70 -14 L-46 0 L-70 14 Z" fill="#061428" /><path d="M-30 -8 v16 M-18 -18 v36 M-6 -10 v20 M6 -16 v32 M18 -6 v12" stroke="#061428" stroke-width="6" stroke-linecap="round" /><text x="60" y="10" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#061428">4:00</text></g></g>
+          <g class="s02-g s02-g1"><g transform="translate(520 1220) rotate(0)"><rect x="-96" y="-34" width="192" height="68" rx="34" fill="#5ec8ff" stroke="#f4f6fb" stroke-width="5" /><path d="M-70 -14 L-46 0 L-70 14 Z" fill="#061428" /><path d="M-30 -8 v16 M-18 -18 v36 M-6 -10 v20 M6 -16 v32 M18 -6 v12" stroke="#061428" stroke-width="6" stroke-linecap="round" /><text x="60" y="10" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#061428">4:00</text></g></g>
+          <g class="s02-g s02-g2"><g transform="translate(820 1170) rotate(7)"><rect x="-96" y="-34" width="192" height="68" rx="34" fill="#5ec8ff" stroke="#f4f6fb" stroke-width="5" /><path d="M-70 -14 L-46 0 L-70 14 Z" fill="#061428" /><path d="M-30 -8 v16 M-18 -18 v36 M-6 -10 v20 M6 -16 v32 M18 -6 v12" stroke="#061428" stroke-width="6" stroke-linecap="round" /><text x="60" y="10" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#061428">4:00</text></g></g>
+          <g class="s02-g s02-g3"><g transform="translate(340 1080) rotate(-1)"><rect x="-96" y="-34" width="192" height="68" rx="34" fill="#5ec8ff" stroke="#f4f6fb" stroke-width="5" /><path d="M-70 -14 L-46 0 L-70 14 Z" fill="#061428" /><path d="M-30 -8 v16 M-18 -18 v36 M-6 -10 v20 M6 -16 v32 M18 -6 v12" stroke="#061428" stroke-width="6" stroke-linecap="round" /><text x="60" y="10" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#061428">4:00</text></g></g>
+          <g class="s02-g s02-g4"><g transform="translate(690 1110) rotate(6)"><rect x="-96" y="-34" width="192" height="68" rx="34" fill="#5ec8ff" stroke="#f4f6fb" stroke-width="5" /><path d="M-70 -14 L-46 0 L-70 14 Z" fill="#061428" /><path d="M-30 -8 v16 M-18 -18 v36 M-6 -10 v20 M6 -16 v32 M18 -6 v12" stroke="#061428" stroke-width="6" stroke-linecap="round" /><text x="60" y="10" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#061428">4:00</text></g></g>
+          <g class="s02-g s02-g5"><g transform="translate(930 1250) rotate(-2)"><rect x="-96" y="-34" width="192" height="68" rx="34" fill="#5ec8ff" stroke="#f4f6fb" stroke-width="5" /><path d="M-70 -14 L-46 0 L-70 14 Z" fill="#061428" /><path d="M-30 -8 v16 M-18 -18 v36 M-6 -10 v20 M6 -16 v32 M18 -6 v12" stroke="#061428" stroke-width="6" stroke-linecap="round" /><text x="60" y="10" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#061428">4:00</text></g></g>
+          <g class="s02-g s02-g6"><g transform="translate(140 1270) rotate(5)"><rect x="-96" y="-34" width="192" height="68" rx="34" fill="#5ec8ff" stroke="#f4f6fb" stroke-width="5" /><path d="M-70 -14 L-46 0 L-70 14 Z" fill="#061428" /><path d="M-30 -8 v16 M-18 -18 v36 M-6 -10 v20 M6 -16 v32 M18 -6 v12" stroke="#061428" stroke-width="6" stroke-linecap="round" /><text x="60" y="10" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#061428">4:00</text></g></g>
+
+        </svg>
+        <div class="cartela s02-oeste">◀ OESTE</div>
+        <div class="s02-cuanto s02-c1">¿A cuánto está?</div>
+        <div class="s02-cuanto s02-c2">¿A cuánto está?</div>
+        <div class="s02-cuanto s02-c3">¿A cuánto está?</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-tormenta";
+      const DUR = 7.42;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s02-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // lluvia: cada .gota baja v px/s en un ciclo de alto h (con desfase o), de t0 a t1, sin saltos juntos
+      const lluvia = (sel, t0, t1) => qa(sel + " .gota").forEach((g) => {
+        const v = Number(g.dataset.v), o = Number(g.dataset.o), h = Number(g.dataset.h);
+        tl.fromTo(g, { y: o % h }, { y: o + v * (t1 - t0), duration: t1 - t0, ease: "none", immediateRender: true, modifiers: { y: (y) => (parseFloat(y) % h) + "px" } }, t0);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const TORMENTA = 0.63, DESDE = 1.46, RAFAGAS = 2.70, CUANTO = 3.49, GRANIZO = 4.97;
+      // cuadro 0: el mapa y el pin; la nube ya asoma por la izquierda
+      tl.fromTo(q(".s02-nube"), { x: -420 }, { x: 0, duration: 1.0, ease: "power2.out" }, 0);
+      tl.to(q(".s02-nube"), { x: 30, duration: 0.6, yoyo: true, repeat: 8, ease: "sine.inOut" }, 1.0);
+      dibujar(".s02-rayo", TORMENTA, 0.2);
+      tl.to(qa(".s02-rayo"), { opacity: 0.2, duration: 0.08, yoyo: true, repeat: 5, ease: "steps(1)" }, TORMENTA + 0.25);
+      sacudon(TORMENTA + 0.05, 1.3);
+      pop(".s02-oeste", DESDE + 0.2, { x: -40 });
+      dibujar(".s02-flecha", DESDE, 0.6);
+      tl.fromTo(q(".s02-pin"), { scale: 1, svgOrigin: "760 1080" }, { scale: 1.15, svgOrigin: "760 1080", duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, DESDE + 0.6);
+      // ráfagas de "¿a cuánto está?"
+      dibujar(".s02-v1", RAFAGAS, 0.45); dibujar(".s02-v2", RAFAGAS + 0.15, 0.5); dibujar(".s02-v3", RAFAGAS + 0.3, 0.4);
+      [".s02-c1", ".s02-c2", ".s02-c3"].forEach((s, i) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 1, x: -700, rotation: -12 }, { opacity: 1, x: [150, 380, 220][i], rotation: [-6, 5, -3][i], duration: 0.4, ease: "power3.out", immediateRender: false }, CUANTO + i * 0.14);
+        tl.to(q(s), { x: "+=70", duration: 0.8, ease: "none" }, CUANTO + 0.4 + i * 0.14);
+        tl.to(q(s), { x: 1300, rotation: 10, duration: 0.35, ease: "power2.in" }, GRANIZO - 0.35 + i * 0.05);
+      });
+      tl.to(q(".s02-viento"), { opacity: 0, duration: 0.3 }, GRANIZO - 0.2);
+      // granizo de audios
+      const G = [0.0, 0.15, 0.3, 0.55, 0.7, 0.85, 1.0];
+      G.forEach((d, i) => {
+        gsap.set(q(".s02-g" + i), { opacity: 0 });
+        tl.fromTo(q(".s02-g" + i), { opacity: 1, y: -700 }, { opacity: 1, y: 0, duration: 0.45, ease: "bounce.out", immediateRender: false }, GRANIZO + d);
+      });
+      sacudon(GRANIZO + 0.3, 0.8); sacudon(GRANIZO + 0.9, 0.8);
+      tl.to(qa(".s02-g"), { y: -10, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut", stagger: 0.05 }, GRANIZO + 1.6);
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
