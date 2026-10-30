@@ -1,0 +1,10 @@
+[
+  {"t":0.02,"sfx":"glitch-1","vol":0.3,"max":0.35},
+  {"t":0.33,"sfx":"impact-bass-2","vol":0.42,"max":0.7},
+  {"t":2.2,"sfx":"impact-bass-1","vol":0.35,"max":0.5},
+  {"t":3.7,"sfx":"notification","vol":0.3},
+  {"t":3.95,"sfx":"notification","vol":0.3},
+  {"t":4.2,"sfx":"notification","vol":0.32},
+  {"t":4.45,"sfx":"ping","vol":0.3},
+  {"t":4.7,"sfx":"notification","vol":0.3}
+]

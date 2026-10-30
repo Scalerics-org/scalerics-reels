@@ -1,0 +1,1 @@
+Se rompe automatizándolo. En Scalerics hacemos automatizaciones: los pedidos pasan solos a la planilla, cada cliente recibe su aviso, el stock se actualiza solo y el reporte del día te llega al celular.

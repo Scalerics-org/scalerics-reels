@@ -1,0 +1,159 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-despierta"] .s08-capa, [data-composition-id="s08-despierta"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-despierta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-despierta"] .b { fill: #0f2347; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .k { fill: #050b18; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .l { fill: none; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .w { fill: #f4efe4; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .v { fill: #21a366; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .vl { fill: none; stroke: #21a366; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .vd { fill: #0e2a1e; stroke: #21a366; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .r { fill: #ff2d2d; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .rl { fill: none; stroke: #ff2d2d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .a { fill: #7fb4ff; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .al { fill: none; stroke: #7fb4ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .y { fill: #ffb84d; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .yl { fill: none; stroke: #ffb84d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .s { fill: #5ce611; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .cara { fill: #f4efe4; stroke: #f4efe4; stroke-width: 7; }
+    [data-composition-id="s08-despierta"] .d { fill: none; stroke: #050b18; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-despierta"] .fino { stroke-width: 3; }
+    [data-composition-id="s08-despierta"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f4efe4; }
+    [data-composition-id="s08-despierta"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff2d2d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff2d2d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s08-despierta"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffb84d; color: #050b18; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s08-despierta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s08-despierta"] .burb { position: absolute; padding: 18px 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; line-height: 1.15; white-space: nowrap; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    [data-composition-id="s08-despierta"] .noche { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 46px; letter-spacing: 0.4em; color: #f4efe4; }
+    [data-composition-id="s08-despierta"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s08-despierta"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s08-despierta"] .s08-once { top: 600px; font-size: 92px; color: #ffb84d; text-shadow: 0 0 40px rgba(255,184,77,0.45); }
+  [data-composition-id="s08-despierta"] .s08-n { position: absolute; padding: 10px 18px; background: #f4efe4; color: #050b18; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; border-radius: 6px 20px 20px 20px; white-space: nowrap; box-shadow: 0 6px 18px rgba(0,0,0,0.5); }
+  [data-composition-id="s08-despierta"] .s08-badge { position: absolute; left: 870px; top: 720px; width: 120px; height: 84px; border-radius: 42px; background: #ff2d2d; color: #f4efe4; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 84px; text-align: center; }
+
+  </style>
+  <div id="root" data-composition-id="s08-despierta" data-width="1080" data-height="1920" data-duration="5.59">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="5.59" data-track-index="0">
+      <div class="s08-escenario">
+<div class="txt s08-once">¡Once en punto!</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s08-r"><g transform="translate(130 760) scale(1)"><g class="s08-radio">
+      <rect x="0" y="40" width="820" height="340" rx="46" fill="#0f2347" stroke="#f4efe4" stroke-width="8" />
+      <rect x="50" y="18" width="120" height="30" rx="10" fill="#0f2347" stroke="#f4efe4" stroke-width="6" />
+      <rect x="650" y="18" width="120" height="30" rx="10" fill="#0f2347" stroke="#f4efe4" stroke-width="6" />
+      <g class="s08-parlante">
+        <rect x="40" y="76" width="190" height="230" rx="26" fill="#16305e" stroke="#f4efe4" stroke-width="6" />
+        <circle cx="70" cy="100" r="11" fill="#071226" /><circle cx="108" cy="100" r="11" fill="#071226" /><circle cx="146" cy="100" r="11" fill="#071226" /><circle cx="184" cy="100" r="11" fill="#071226" /><circle cx="70" cy="140" r="11" fill="#071226" /><circle cx="108" cy="140" r="11" fill="#071226" /><circle cx="146" cy="140" r="11" fill="#071226" /><circle cx="184" cy="140" r="11" fill="#071226" /><circle cx="70" cy="180" r="11" fill="#071226" /><circle cx="108" cy="180" r="11" fill="#071226" /><circle cx="146" cy="180" r="11" fill="#071226" /><circle cx="184" cy="180" r="11" fill="#071226" /><circle cx="70" cy="220" r="11" fill="#071226" /><circle cx="108" cy="220" r="11" fill="#071226" /><circle cx="146" cy="220" r="11" fill="#071226" /><circle cx="184" cy="220" r="11" fill="#071226" /><circle cx="70" cy="260" r="11" fill="#071226" /><circle cx="108" cy="260" r="11" fill="#071226" /><circle cx="146" cy="260" r="11" fill="#071226" /><circle cx="184" cy="260" r="11" fill="#071226" />
+      </g>
+      <rect x="260" y="76" width="520" height="230" rx="18" fill="#04070f" stroke="#f4efe4" stroke-width="6" />
+      <g class="s08-disp"><g transform="translate(290 112) scale(0.72)" style="filter: drop-shadow(0 0 14px #ff2d2d)"><g class="s08-h0" ><g class="s08-seg0" transform="translate(10 10) skewX(-6)"><g transform="translate(0 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="0.09" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g transform="translate(140 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="0.09" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="0.09" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="0.09" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="0.09" /></g><g class="s08-seg0-dots" transform="translate(280 0)"><rect x="12" y="46.800000000000004" width="22" height="22" rx="3" fill="#ff2d2d" /><rect x="12" y="118.80000000000001" width="22" height="22" rx="3" fill="#ff2d2d" /></g><g transform="translate(340 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="1" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="0.09" /></g><g transform="translate(480 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="1" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="0.09" /></g></g></g><g class="s08-h1" opacity="0"><g class="s08-seg1" transform="translate(10 10) skewX(-6)"><g transform="translate(0 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="0.09" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g transform="translate(140 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="0.09" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g class="s08-seg1-dots" transform="translate(280 0)"><rect x="12" y="46.800000000000004" width="22" height="22" rx="3" fill="#ff2d2d" /><rect x="12" y="118.80000000000001" width="22" height="22" rx="3" fill="#ff2d2d" /></g><g transform="translate(340 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="0.09" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="0.09" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="0.09" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="0.09" /></g><g transform="translate(480 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="0.09" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g></g></g><g class="s08-h2" opacity="0"><g class="s08-seg2" transform="translate(10 10) skewX(-6)"><g transform="translate(0 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="0.09" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g transform="translate(140 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="0.09" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g class="s08-seg2-dots" transform="translate(280 0)"><rect x="12" y="46.800000000000004" width="22" height="22" rx="3" fill="#ff2d2d" /><rect x="12" y="118.80000000000001" width="22" height="22" rx="3" fill="#ff2d2d" /></g><g transform="translate(340 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="0.09" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="0.09" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="0.09" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="1" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g transform="translate(480 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="1" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g></g></g><g class="s08-h3" opacity="0"><g class="s08-seg3" transform="translate(10 10) skewX(-6)"><g transform="translate(0 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="0.09" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g transform="translate(140 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="0.09" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g class="s08-seg3-dots" transform="translate(280 0)"><rect x="12" y="46.800000000000004" width="22" height="22" rx="3" fill="#ff2d2d" /><rect x="12" y="118.80000000000001" width="22" height="22" rx="3" fill="#ff2d2d" /></g><g transform="translate(340 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="1" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="0.09" /></g><g transform="translate(480 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="1" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="0.09" /></g></g></g></g></g>
+      <circle cx="300" cy="342" r="10" fill="#ff2d2d" class="s08-am" />
+      <text x="320" y="352" font-family="IBM Plex Mono" font-size="26" fill="#f4efe4" data-layout-ignore>AM</text>
+      <text x="400" y="352" font-family="IBM Plex Mono" font-size="26" fill="#f4efe4" opacity="0.5" data-layout-ignore>ALARMA · RADIO</text>
+      <path d="M90 380 L70 420 M730 380 L750 420" fill="none" stroke="#f4efe4" stroke-width="8" stroke-linecap="round" /></g></g></g>
+          <g class="s08-nes"><g transform="translate(30 780) scale(1.0)">
+      <path d="M20 540 C20 420 84 380 180 380 C276 380 340 420 340 540 Z" fill="#3a5fa8" stroke="#f4efe4" stroke-width="7" stroke-linejoin="round" />
+      <path d="M80 430 V540 M130 400 V540 M230 400 V540 M280 430 V540" stroke="#f4efe4" stroke-width="5" opacity="0.5" />
+      <path d="M150 382 L180 420 L210 382" fill="none" stroke="#f4efe4" stroke-width="6" stroke-linecap="round" />
+      <ellipse cx="180" cy="262" rx="86" ry="100" fill="#f4efe4" stroke="#f4efe4" stroke-width="7" />
+      <ellipse cx="94" cy="268" rx="14" ry="22" fill="#f4efe4" stroke="#071226" stroke-width="4" />
+      <ellipse cx="266" cy="268" rx="14" ry="22" fill="#f4efe4" stroke="#071226" stroke-width="4" />
+      <path d="M96 236 C90 170 120 150 140 156 C150 140 210 140 222 156 C246 150 272 172 264 236 C256 210 248 196 240 190 C220 200 140 200 120 190 C110 200 102 214 96 236 Z" fill="#9aa3b8" stroke="#f4efe4" stroke-width="5" />
+      <path d="M146 166 C160 150 200 150 214 166" fill="none" stroke="#f4efe4" stroke-width="4" opacity="0.6" />
+      <circle cx="146" cy="246" r="22" fill="#f4efe4" stroke="#071226" stroke-width="5" /><circle cx="214" cy="246" r="22" fill="#f4efe4" stroke="#071226" stroke-width="5" />
+            <circle cx="150" cy="242" r="6" fill="#071226" /><circle cx="208" cy="252" r="6" fill="#071226" />
+      <path d="M172 262 C168 280 170 290 184 292" fill="none" stroke="#071226" stroke-width="5" stroke-linecap="round" />
+      <path d="M130 304 C150 292 168 300 180 304 C192 300 210 292 230 304 C214 316 196 312 180 308 C164 312 146 316 130 304 Z" fill="#6b6f7a" stroke="#071226" stroke-width="4" />
+      <ellipse class="s08-boca" cx="180" cy="332" rx="26" ry="24" fill="#071226" />
+            <path d="M120 170 L100 120 M160 156 L156 104 M210 154 L224 104 M250 172 L280 130" stroke="#9aa3b8" stroke-width="10" stroke-linecap="round" /></g></g>
+          <g class="s08-tel"><g transform="translate(640 760) scale(0.8)">
+      <rect x="0" y="0" width="360" height="680" rx="48" fill="#04070f" stroke="#f4efe4" stroke-width="8" style="filter: drop-shadow(0 0 30px #ff2d2d55)" />
+      <rect x="130" y="22" width="100" height="14" rx="7" fill="#f4efe4" opacity="0.5" />
+      </g></g>
+        </svg>
+        <div class="s08-n s08-n0" style="left:600px; top:1210px">Hola!!</div><div class="s08-n s08-n1" style="left:610px; top:1152px">¿Está?</div><div class="s08-n s08-n2" style="left:680px; top:1094px">Quiero 3</div><div class="s08-n s08-n3" style="left:570px; top:1036px">¿Envían?</div><div class="s08-n s08-n4" style="left:640px; top:978px">¿Y lo mío?</div><div class="s08-n s08-n5" style="left:650px; top:920px">Hola???</div><div class="s08-n s08-n6" style="left:600px; top:862px">¿Abren?</div><div class="s08-n s08-n7" style="left:610px; top:804px">Urgente</div><div class="s08-n s08-n8" style="left:680px; top:746px">¿Talle L?</div><div class="s08-n s08-n9" style="left:570px; top:688px">Gracias!!</div>
+        <div class="s08-badge">+99</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-despierta";
+      const DUR = 5.59;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s08-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+const DESPERTE = 2.25, CON = 3.65, EXPLOTANDO = 4.15;
+      tl.fromTo(ESC, { scale: 1.1 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      // el reloj rebobina de 21:00 a 23:00
+      [[0.08, 1], [0.18, 2], [0.28, 3]].forEach(([t, i]) => { tl.set(q(".s08-h" + (i - 1)), { opacity: 0 }, t); tl.set(q(".s08-h" + i), { opacity: 1 }, t); });
+      tl.fromTo(q(".s08-radio"), { rotation: -3, svgOrigin: "410 200" }, { rotation: 3, svgOrigin: "410 200", duration: 0.06, yoyo: true, repeat: 25, ease: "none", immediateRender: false }, 0.3);
+      golpe(".s08-once", 0.35, 2.3);
+      sacudon(0.36, 1.5);
+      // se despierta igual: el radio se va arriba, aparece Néstor
+      tl.to(q(".s08-r"), { opacity: 0, y: -200, duration: 0.3, ease: "power2.in" }, DESPERTE - 0.3);
+      tl.to(q(".s08-once"), { opacity: 0, duration: 0.2 }, DESPERTE - 0.3);
+      entra(".s08-nes", DESPERTE - 0.05, 0, 260, 0.3);
+      sacudon(DESPERTE + 0.2, 1.1);
+      hablar(".s08-boca", DESPERTE, DESPERTE + 0.6, 0.6);
+      // el WhatsApp explota
+      entra(".s08-tel", CON - 0.25, 200, 0, 0.3);
+      qa(".s08-n").forEach((n, i) => pop(n, CON + 0.05 + i * 0.13, 0.18, { rotation: (i % 3 - 1) * 4 }));
+      pop(".s08-badge", EXPLOTANDO, 0.25);
+      tl.to(q(".s08-tel"), { x: 8, duration: 0.04, yoyo: true, repeat: 21, ease: "none" }, EXPLOTANDO);
+      sacudon(EXPLOTANDO + 0.4, 0.8);
+
+      // salida: barrido con blur
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

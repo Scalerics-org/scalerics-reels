@@ -1,0 +1,140 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-nestor"] .s03-capa, [data-composition-id="s03-nestor"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-nestor"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-nestor"] .b { fill: #0f2347; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .k { fill: #050b18; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .l { fill: none; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .w { fill: #f4efe4; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .v { fill: #21a366; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .vl { fill: none; stroke: #21a366; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .vd { fill: #0e2a1e; stroke: #21a366; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .r { fill: #ff2d2d; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .rl { fill: none; stroke: #ff2d2d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .a { fill: #7fb4ff; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .al { fill: none; stroke: #7fb4ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .y { fill: #ffb84d; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .yl { fill: none; stroke: #ffb84d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .s { fill: #5ce611; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .cara { fill: #f4efe4; stroke: #f4efe4; stroke-width: 7; }
+    [data-composition-id="s03-nestor"] .d { fill: none; stroke: #050b18; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nestor"] .fino { stroke-width: 3; }
+    [data-composition-id="s03-nestor"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f4efe4; }
+    [data-composition-id="s03-nestor"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff2d2d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff2d2d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s03-nestor"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffb84d; color: #050b18; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s03-nestor"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s03-nestor"] .burb { position: absolute; padding: 18px 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; line-height: 1.15; white-space: nowrap; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    [data-composition-id="s03-nestor"] .noche { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 46px; letter-spacing: 0.4em; color: #f4efe4; }
+    [data-composition-id="s03-nestor"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s03-nestor"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s03-nestor"] .s03-nombre { position: absolute; left: 0; right: 0; top: 1230px; text-align: center; }
+  [data-composition-id="s03-nestor"] .s03-nombre span { display: inline-block; padding: 12px 26px 10px; background: #f4efe4; color: #050b18; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.16em; }
+  [data-composition-id="s03-nestor"] .s03-atrapado { top: 600px; font-size: 120px; color: #ff2d2d; text-shadow: 0 0 36px rgba(255,45,45,0.5); }
+  [data-composition-id="s03-nestor"] .s03-sello { left: 560px; top: 1080px; transform: rotate(-8deg); border-color: #ffb84d; color: #ffb84d; background: rgba(5,11,24,0.85); font-size: 32px; line-height: 1.2; text-align: center; }
+
+  </style>
+  <div id="root" data-composition-id="s03-nestor" data-width="1080" data-height="1920" data-duration="3.93">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.93" data-track-index="0">
+      <div class="s03-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s03-reloj">
+            <circle class="rl s03-aro" cx="540" cy="900" r="330" stroke-width="8" opacity="0.7" />
+            <path class="r s03-flecha" d="M520 548 L572 570 L520 594 Z" stroke-width="4" />
+          </g>
+          <g transform="translate(342 660) scale(1.1)"><g class="s03-nes">
+      <path d="M20 540 C20 420 84 380 180 380 C276 380 340 420 340 540 Z" fill="#3a5fa8" stroke="#f4efe4" stroke-width="7" stroke-linejoin="round" />
+      <path d="M80 430 V540 M130 400 V540 M230 400 V540 M280 430 V540" stroke="#f4efe4" stroke-width="5" opacity="0.5" />
+      <path d="M150 382 L180 420 L210 382" fill="none" stroke="#f4efe4" stroke-width="6" stroke-linecap="round" />
+      <ellipse cx="180" cy="262" rx="86" ry="100" fill="#f4efe4" stroke="#f4efe4" stroke-width="7" />
+      <ellipse cx="94" cy="268" rx="14" ry="22" fill="#f4efe4" stroke="#071226" stroke-width="4" />
+      <ellipse cx="266" cy="268" rx="14" ry="22" fill="#f4efe4" stroke="#071226" stroke-width="4" />
+      <path d="M96 236 C90 170 120 150 140 156 C150 140 210 140 222 156 C246 150 272 172 264 236 C256 210 248 196 240 190 C220 200 140 200 120 190 C110 200 102 214 96 236 Z" fill="#9aa3b8" stroke="#f4efe4" stroke-width="5" />
+      <path d="M146 166 C160 150 200 150 214 166" fill="none" stroke="#f4efe4" stroke-width="4" opacity="0.6" />
+      <circle cx="146" cy="248" r="9" fill="#071226" /><circle cx="214" cy="248" r="9" fill="#071226" />
+             <path d="M128 268 C140 278 156 278 166 268 M196 268 C206 278 222 278 234 268" fill="none" stroke="#6b7fb0" stroke-width="6" stroke-linecap="round" />
+             <path d="M126 234 L166 240 M194 240 L234 234" fill="none" stroke="#071226" stroke-width="7" stroke-linecap="round" />
+      <path d="M172 262 C168 280 170 290 184 292" fill="none" stroke="#071226" stroke-width="5" stroke-linecap="round" />
+      <path d="M130 304 C150 292 168 300 180 304 C192 300 210 292 230 304 C214 316 196 312 180 308 C164 312 146 316 130 304 Z" fill="#6b6f7a" stroke="#071226" stroke-width="4" />
+      <path class="s03-boca" d="M156 326 C170 320 190 320 204 326" fill="none" stroke="#071226" stroke-width="7" stroke-linecap="round" /></g></g>
+        </svg>
+        <div class="s03-nombre"><span>NÉSTOR · DUEÑO DE LOCAL</span></div>
+        <div class="txt s03-atrapado">Atrapado</div>
+        <div class="sello s03-sello">Como en la película<br/>de la marmota</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-nestor";
+      const DUR = 3.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s03-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+const NESTOR = 0.2, ATRAPADO = 1.3, PELICULA = 2.4;
+      tl.fromTo(ESC, { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s03-nes"), { opacity: 0.4, y: 120 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      entra(".s03-nombre", NESTOR, 0, 40, 0.3);
+      dibujar(".s03-aro", 0.05, 0.8);
+      pop(".s03-flecha", 0.7, 0.2);
+      // el reloj gira alrededor de Néstor
+      tl.fromTo(q(".s03-reloj"), { rotation: 0 }, { rotation: 300, svgOrigin: "540 900", duration: DUR - 0.6, ease: "power1.in", immediateRender: false }, 0.8);
+      golpe(".s03-atrapado", ATRAPADO + 0.05, 2.4);
+      sacudon(ATRAPADO + 0.1, 1);
+      tl.to(q(".s03-nes"), { x: -16, duration: 0.07, yoyo: true, repeat: 5, ease: "none" }, ATRAPADO + 0.1);
+      pop(".s03-sello", PELICULA, 0.3);
+      hablar(".s03-boca", 0.05, 0.9); hablar(".s03-boca", 1.1, 3.6);
+
+      // salida: barrido con blur
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,149 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-once"] .s01-capa, [data-composition-id="s01-once"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-once"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-once"] .b { fill: #0f2347; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .k { fill: #050b18; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .l { fill: none; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .w { fill: #f4efe4; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .v { fill: #21a366; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .vl { fill: none; stroke: #21a366; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .vd { fill: #0e2a1e; stroke: #21a366; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .r { fill: #ff2d2d; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .rl { fill: none; stroke: #ff2d2d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .a { fill: #7fb4ff; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .al { fill: none; stroke: #7fb4ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .y { fill: #ffb84d; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .yl { fill: none; stroke: #ffb84d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .s { fill: #5ce611; stroke: #f4efe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .cara { fill: #f4efe4; stroke: #f4efe4; stroke-width: 7; }
+    [data-composition-id="s01-once"] .d { fill: none; stroke: #050b18; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once"] .fino { stroke-width: 3; }
+    [data-composition-id="s01-once"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f4efe4; }
+    [data-composition-id="s01-once"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff2d2d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff2d2d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-once"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffb84d; color: #050b18; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s01-once"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s01-once"] .burb { position: absolute; padding: 18px 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; line-height: 1.15; white-space: nowrap; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    [data-composition-id="s01-once"] .noche { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 46px; letter-spacing: 0.4em; color: #f4efe4; }
+    [data-composition-id="s01-once"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s01-once"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s01-once"] .s01-todas { top: 600px; font-size: 64px; letter-spacing: 0.02em; }
+  [data-composition-id="s01-once"] .s01-mismo { top: 1200px; font-size: 92px; }
+  [data-composition-id="s01-once"] .s01-salir { top: 1200px; font-size: 104px; color: #ff2d2d; text-shadow: 0 0 36px rgba(255,45,45,0.5); }
+
+  </style>
+  <div id="root" data-composition-id="s01-once" data-width="1080" data-height="1920" data-duration="5.7">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.7" data-track-index="0">
+      <div class="s01-escenario">
+<div class="txt s01-todas">Todas las noches</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s01-lazo">
+            <path class="rl s01-arco" d="M540 640 A 470 330 0 1 1 120 840" stroke-width="9" opacity="0.85" />
+            <path class="r s01-punta" d="M96 800 L120 860 L168 812 Z" stroke-width="4" />
+          </g>
+          <g transform="translate(130 720)"><g class="s01-radio">
+      <rect x="0" y="40" width="820" height="340" rx="46" fill="#0f2347" stroke="#f4efe4" stroke-width="8" />
+      <rect x="50" y="18" width="120" height="30" rx="10" fill="#0f2347" stroke="#f4efe4" stroke-width="6" />
+      <rect x="650" y="18" width="120" height="30" rx="10" fill="#0f2347" stroke="#f4efe4" stroke-width="6" />
+      <g class="s01-parlante">
+        <rect x="40" y="76" width="190" height="230" rx="26" fill="#16305e" stroke="#f4efe4" stroke-width="6" />
+        <circle cx="70" cy="100" r="11" fill="#071226" /><circle cx="108" cy="100" r="11" fill="#071226" /><circle cx="146" cy="100" r="11" fill="#071226" /><circle cx="184" cy="100" r="11" fill="#071226" /><circle cx="70" cy="140" r="11" fill="#071226" /><circle cx="108" cy="140" r="11" fill="#071226" /><circle cx="146" cy="140" r="11" fill="#071226" /><circle cx="184" cy="140" r="11" fill="#071226" /><circle cx="70" cy="180" r="11" fill="#071226" /><circle cx="108" cy="180" r="11" fill="#071226" /><circle cx="146" cy="180" r="11" fill="#071226" /><circle cx="184" cy="180" r="11" fill="#071226" /><circle cx="70" cy="220" r="11" fill="#071226" /><circle cx="108" cy="220" r="11" fill="#071226" /><circle cx="146" cy="220" r="11" fill="#071226" /><circle cx="184" cy="220" r="11" fill="#071226" /><circle cx="70" cy="260" r="11" fill="#071226" /><circle cx="108" cy="260" r="11" fill="#071226" /><circle cx="146" cy="260" r="11" fill="#071226" /><circle cx="184" cy="260" r="11" fill="#071226" />
+      </g>
+      <rect x="260" y="76" width="520" height="230" rx="18" fill="#04070f" stroke="#f4efe4" stroke-width="6" />
+      <g class="s01-disp"><g transform="translate(290 112) scale(0.72)" style="filter: drop-shadow(0 0 14px #ff2d2d)"><g class="s01-h0" ><g class="s01-seg0" transform="translate(10 10) skewX(-6)"><g transform="translate(0 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="0.09" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g transform="translate(140 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="0.09" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g class="s01-seg0-dots" transform="translate(280 0)"><rect x="12" y="46.800000000000004" width="22" height="22" rx="3" fill="#ff2d2d" /><rect x="12" y="118.80000000000001" width="22" height="22" rx="3" fill="#ff2d2d" /></g><g transform="translate(340 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="0.09" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="0.09" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="1" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g transform="translate(480 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="0.09" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="1" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g></g></g><g class="s01-h1" opacity="0"><g class="s01-seg1" transform="translate(10 10) skewX(-6)"><g transform="translate(0 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="0.09" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g transform="translate(140 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="0.09" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="0.09" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="1" /></g><g class="s01-seg1-dots" transform="translate(280 0)"><rect x="12" y="46.800000000000004" width="22" height="22" rx="3" fill="#ff2d2d" /><rect x="12" y="118.80000000000001" width="22" height="22" rx="3" fill="#ff2d2d" /></g><g transform="translate(340 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="1" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="0.09" /></g><g transform="translate(480 0)"><polygon points="5,0 15,-10 85,-10 95,0 85,10 15,10" fill="#ff2d2d" opacity="1" /><polygon points="100,5 110,15 110,75 100,85 90,75 90,15" fill="#ff2d2d" opacity="1" /><polygon points="100,95 110,105 110,165 100,175 90,165 90,105" fill="#ff2d2d" opacity="1" /><polygon points="5,180 15,170 85,170 95,180 85,190 15,190" fill="#ff2d2d" opacity="1" /><polygon points="0,95 10,105 10,165 0,175 -10,165 -10,105" fill="#ff2d2d" opacity="1" /><polygon points="0,5 10,15 10,75 0,85 -10,75 -10,15" fill="#ff2d2d" opacity="1" /><polygon points="5,90 15,80 85,80 95,90 85,100 15,100" fill="#ff2d2d" opacity="0.09" /></g></g></g></g></g>
+      <circle cx="300" cy="342" r="10" fill="#ff2d2d" class="s01-am" />
+      <text x="320" y="352" font-family="IBM Plex Mono" font-size="26" fill="#f4efe4" data-layout-ignore>AM</text>
+      <text x="400" y="352" font-family="IBM Plex Mono" font-size="26" fill="#f4efe4" opacity="0.5" data-layout-ignore>ALARMA · RADIO</text>
+      <path d="M90 380 L70 420 M730 380 L750 420" fill="none" stroke="#f4efe4" stroke-width="8" stroke-linecap="round" /></g></g>
+        </svg>
+        <div class="txt s01-mismo">El mismo día</div>
+        <div class="txt s01-salir">No puedo salir</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-once";
+      const DUR = 5.7;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s01-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+const ONCE = 1.1, REVIVO = 1.47, MISMO = 2.2, NO = 3.75, SALIR = 4.1;
+      tl.fromTo(ESC, { scale: 1.1 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 48%" }, 0);
+      // cuadro 0 lleno: el radio-reloj ya está, el título entra
+      tl.fromTo(q(".s01-radio"), { opacity: 0.6, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-todas"), { opacity: 0.4, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 0);
+      // los dos puntos titilan
+      tl.to(q(".s01-seg0-dots"), { opacity: 0.15, duration: 0.25, yoyo: true, repeat: 3, ease: "steps(1)" }, 0);
+      // a las once: 22:59 -> 23:00, flash
+      tl.set(q(".s01-h0"), { opacity: 0 }, ONCE);
+      tl.set(q(".s01-h1"), { opacity: 1 }, ONCE);
+      tl.fromTo(q(".s01-disp"), { scale: 1.12, svgOrigin: "520 190" }, { scale: 1, svgOrigin: "520 190", duration: 0.25, ease: "power3.out", immediateRender: false }, ONCE);
+      sacudon(ONCE + 0.02, 0.8);
+      tl.to(q(".s01-h1"), { opacity: 0.2, duration: 0.18, yoyo: true, repeat: 7, ease: "steps(1)" }, ONCE + 0.3);
+      tl.to(q(".s01-todas"), { opacity: 0, y: -20, duration: 0.2 }, REVIVO + 0.5);
+      // revivo: el lazo se dibuja alrededor del radio y gira
+      dibujar(".s01-arco", REVIVO - 0.05, 0.6);
+      pop(".s01-punta", REVIVO + 0.5, 0.2);
+      tl.to(q(".s01-lazo"), { rotation: 360, svgOrigin: "540 920", duration: 3.2, ease: "power1.in" }, REVIVO + 0.6);
+      golpe(".s01-mismo", MISMO, 2.2);
+      // no puedo salir: rojo, sacudón
+      tl.to(q(".s01-mismo"), { opacity: 0, duration: 0.12 }, NO - 0.15);
+      golpe(".s01-salir", SALIR, 2.4);
+      sacudon(SALIR + 0.05, 1.3);
+      tl.to(q(".s01-lazo"), { scale: 0.86, svgOrigin: "540 920", duration: 0.5, ease: "power2.in" }, SALIR);
+
+      // salida: barrido con blur
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
