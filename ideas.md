@@ -86,6 +86,11 @@
 
 ## En curso
 
+- 30-10 · `el-talento` · Agente de IA · concurso de talentos: tu empleado audiciona y su talento es dejar en visto; después audiciona el agente de IA [formato P concurso de talentos · estilo escenario de talent show negro con X rojas y botón dorado] · corrida 30-10 mañana
+- 30-10 · `el-velorio` · Agente de IA · velorio uruguayo de un cliente que "murió esperando una respuesta"; giro: no murió, se fue con el de enfrente [formato H Día de los Difuntos (velorio) · estilo sala velatoria lila/negro/dorado con coronas y cirios] · corrida 30-10 mañana
+- 30-10 · `aerobicos` · Automatizaciones · clase de aeróbicos de los 80: la rutina nocturna del comerciante (avisar pedido listo, recordar turnos, reporte del día, stock) [formato P clase de gimnasia VHS · estilo aeróbicos neón rosa/turquesa/amarillo con grilla] · corrida 30-10 mañana
+- 30-10 · `escape-room` · Sistema a medida · encerramos a tres empleados en el depósito: para salir tienen que saber cuánto stock hay [formato P escape room · estilo cuarto oscuro con luz UV violeta, candados y cronómetro rojo] · corrida 30-10 mañana
+- 30-10 · `camara-oculta` · Sitio web · programa de bromas: mandamos a un cliente a buscar tu local en internet; giro: no es broma, le pasa a todos [formato P cámara oculta · estilo programa de bromas amarillo/negro con ojo de pez y cartel SONRÍA] · corrida 30-10 mañana
 
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
