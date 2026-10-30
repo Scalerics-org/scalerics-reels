@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s16-cena"] .s16-capa, [data-composition-id="s16-cena"] .s16-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s16-cena"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s16-cena"] .b { fill: #141a28; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .k { fill: #0a0d14; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .l { fill: none; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .w { fill: #f2f2f2; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .v { fill: #21a366; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .vl { fill: none; stroke: #21a366; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .vd { fill: #0e2a1e; stroke: #21a366; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .r { fill: #ff3b3b; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .rl { fill: none; stroke: #ff3b3b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .a { fill: #2f6bff; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .al { fill: none; stroke: #2f6bff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .y { fill: #ffd60a; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .yl { fill: none; stroke: #ffd60a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .s { fill: #5ce611; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .cara { fill: #f2f2f2; stroke: #f2f2f2; stroke-width: 7; }
+    [data-composition-id="s16-cena"] .d { fill: none; stroke: #0a0d14; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s16-cena"] .fino { stroke-width: 3; }
+    [data-composition-id="s16-cena"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f2f2f2; }
+    [data-composition-id="s16-cena"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff3b3b; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff3b3b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s16-cena"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffd60a; color: #0a0d14; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s16-cena"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s16-cena"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s16-cena"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s16-cena"] .s16-rep { top: 600px; font-size: 86px; }
+  [data-composition-id="s16-cena"] .s16-cenas { top: 600px; font-size: 104px; color: #5ce611; text-shadow: 0 0 34px rgba(92,230,17,0.4); }
+  [data-composition-id="s16-cena"] .s16-cel { position: absolute; left: 330px; top: 760px; width: 420px; height: 680px; border-radius: 56px; border: 8px solid #f2f2f2; background: #141a28; }
+  [data-composition-id="s16-cena"] .s16-cel h5 { position: absolute; left: 34px; top: 70px; margin: 0; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.1em; color: #5ce611; }
+  [data-composition-id="s16-cena"] .s16-cel h6 { position: absolute; left: 34px; top: 112px; margin: 0; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 44px; color: #f2f2f2; }
+  [data-composition-id="s16-cena"] .s16-barra { position: absolute; bottom: 150px; width: 44px; border-radius: 8px 8px 0 0; background: #21a366; }
+  [data-composition-id="s16-cena"] .s16-pie { position: absolute; left: 34px; bottom: 60px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; color: #f2f2f2; }
+
+  </style>
+  <div id="root" data-composition-id="s16-cena" data-width="1080" data-height="1920" data-duration="3.21">
+    <div id="s16-escena" class="s16-capa clip" data-start="0" data-duration="3.21" data-track-index="0">
+      <div class="s16-escenario">
+<div class="s16-cel"><h5>REPORTE DEL DÍA</h5><h6>Ventas: bien</h6>
+          <div class="s16-barra" style="left:40px;height:120px"></div><div class="s16-barra" style="left:98px;height:190px"></div><div class="s16-barra" style="left:156px;height:150px"></div><div class="s16-barra" style="left:214px;height:260px"></div><div class="s16-barra" style="left:272px;height:220px"></div><div class="s16-barra" style="left:330px;height:320px"></div>
+          <div class="s16-pie">Pedidos: todos OK</div></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s16-mesa-g">
+            <g transform="translate(560 800) scale(0.95)"><g class="s16-dueno">
+      <path class="v" d="M30 540 C30 410 92 368 180 368 C268 368 330 410 330 540 Z" />
+      <path class="l" d="M150 372 L180 420 L210 372" stroke-width="6" />
+      <ellipse class="cara" cx="180" cy="250" rx="80" ry="94" />
+      <path class="k" d="M98 220 C94 160 140 150 180 150 C226 150 268 168 262 222 C236 196 130 196 98 220 Z" />
+      <path class="d" d="M136 248 C146 236 160 236 168 248 M194 248 C202 236 216 236 226 248" stroke-width="6" />
+      <path class="d s16-dueno-boca" d="M146 292 C166 316 196 316 214 292" stroke-width="7" /></g></g>
+            <path class="w" d="M480 1320 H1050 V1350 H480 Z" stroke-width="5" />
+            <ellipse class="w" cx="740" cy="1300" rx="130" ry="30" stroke-width="5" />
+            <path class="y" d="M680 1294 C680 1276 760 1270 800 1282 C820 1292 806 1306 780 1308 C730 1312 680 1308 680 1294 Z" stroke="#0a0d14" stroke-width="4" />
+            <path class="yl s16-vapor" d="M700 1250 C690 1230 712 1214 700 1194 M740 1244 C730 1224 752 1208 740 1188 M780 1250 C770 1230 792 1214 780 1194" stroke-width="6" />
+          </g>
+        </svg>
+        <div class="txt s16-rep">Reporte del día</div>
+        <div class="txt s16-cenas">Mientras cenás.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s16-cena";
+      const DUR = 3.21;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s16-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+const LLEGA = 0.27, REPORTE = 0.57, CELULAR = 1.47, MIENTRAS = 2.22;
+      tl.fromTo(ESC, { scale: 1.04 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      tl.fromTo(q(".s16-cel"), { opacity: 0.4, y: 200 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.4)" }, 0);
+      golpe(".s16-rep", REPORTE, 1.8);
+      gsap.set(qa(".s16-barra"), { scaleY: 0, transformOrigin: "50% 100%" });
+      tl.to(qa(".s16-barra"), { scaleY: 1, duration: 0.25, stagger: 0.08, ease: "back.out(1.6)" }, LLEGA + 0.3);
+      tl.to(q(".s16-cel"), { x: 8, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, CELULAR);
+      // mientras cenás: el celular se corre y aparece el dueño, libre, en la mesa
+      tl.to(q(".s16-cel"), { x: -250, scale: 0.8, rotation: -6, duration: 0.35, ease: "power3.inOut" }, MIENTRAS - 0.35);
+      sale(".s16-rep", MIENTRAS - 0.15, 0.1);
+      entra(".s16-mesa-g", MIENTRAS - 0.25, 200, 0, 0.35);
+      golpe(".s16-cenas", MIENTRAS + 0.15, 1.8);
+      tl.to(q(".s16-vapor"), { y: -16, opacity: 0.5, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, MIENTRAS + 0.2);
+      tl.to(q(".s16-dueno-boca"), { scaleY: 1.4, transformOrigin: "50% 0%", duration: 0.2 }, MIENTRAS + 0.3);
+
+      // salida: barrido con blur
+      tl.to(q("#s16-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

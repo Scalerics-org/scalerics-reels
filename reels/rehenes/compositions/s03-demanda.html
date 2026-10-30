@@ -1,0 +1,162 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-demanda"] .s03-capa, [data-composition-id="s03-demanda"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-demanda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-demanda"] .b { fill: #141a28; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .k { fill: #0a0d14; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .l { fill: none; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .w { fill: #f2f2f2; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .v { fill: #21a366; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .vl { fill: none; stroke: #21a366; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .vd { fill: #0e2a1e; stroke: #21a366; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .r { fill: #ff3b3b; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .rl { fill: none; stroke: #ff3b3b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .a { fill: #2f6bff; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .al { fill: none; stroke: #2f6bff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .y { fill: #ffd60a; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .yl { fill: none; stroke: #ffd60a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .s { fill: #5ce611; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .cara { fill: #f2f2f2; stroke: #f2f2f2; stroke-width: 7; }
+    [data-composition-id="s03-demanda"] .d { fill: none; stroke: #0a0d14; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-demanda"] .fino { stroke-width: 3; }
+    [data-composition-id="s03-demanda"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f2f2f2; }
+    [data-composition-id="s03-demanda"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff3b3b; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff3b3b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s03-demanda"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffd60a; color: #0a0d14; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s03-demanda"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s03-demanda"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s03-demanda"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s03-demanda"] .s03-reloj { position: absolute; left: 50%; top: 1250px; width: 400px; margin-left: -200px; padding: 14px 0 10px; text-align: center; border: 6px solid #ff3b3b; border-radius: 16px; background: #0a0d14; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 96px; color: #ff3b3b; line-height: 1; text-shadow: 0 0 24px rgba(255,59,59,0.6); }
+  [data-composition-id="s03-demanda"] .s03-cuarenta { top: 1262px; font-size: 118px; color: #ffd60a; text-shadow: 0 0 30px rgba(255,214,10,0.4); }
+  [data-composition-id="s03-demanda"] .s03-uno { position: absolute; top: 1400px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 84px; color: #f2f2f2; text-transform: uppercase; white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="s03-demanda" data-width="1080" data-height="1920" data-duration="7.44">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="7.44" data-track-index="0">
+      <div class="s03-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(156 600) scale(1.2)"><g class="s03-pl">
+      <rect class="vd" x="0" y="0" width="640" height="518" rx="22" />
+      <rect x="0" y="0" width="640" height="56" rx="22" fill="#21a366" opacity="0.25" />
+      <path class="vl fino" d="M64 56 V518" /><path class="vl fino" d="M179 56 V518" /><path class="vl fino" d="M294 56 V518" /><path class="vl fino" d="M409 56 V518" /><path class="vl fino" d="M524 56 V518" /><path class="vl fino" d="M639 56 V518" /><path class="vl fino" d="M0 56 H640" /><path class="vl fino" d="M0 133 H640" /><path class="vl fino" d="M0 210 H640" /><path class="vl fino" d="M0 287 H640" /><path class="vl fino" d="M0 364 H640" /><path class="vl fino" d="M0 441 H640" /><path class="vl fino" d="M0 518 H640" /><text x="121" y="40" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>A</text><text x="236" y="40" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>B</text><text x="351" y="40" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>C</text><text x="466" y="40" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>D</text><text x="581" y="40" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>E</text><text x="32" y="106" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>1</text><text x="32" y="183" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>2</text><text x="32" y="260" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>3</text><text x="32" y="337" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>4</text><text x="32" y="414" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>5</text><text x="32" y="491" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>6</text>
+      <text class="s03-pl-dato smono" x="70" y="181" fill="#21a366" data-layout-ignore>PEDIDO</text>
+      <text class="s03-pl-dato smono" x="540" y="258" fill="#21a366" data-layout-ignore>#REF!</text>
+      <text class="s03-pl-dato smono" x="70" y="412" fill="#21a366" data-layout-ignore>STOCK</text>
+      <text class="s03-pl-dato smono" x="545" y="489" fill="#21a366" data-layout-ignore>???</text>
+      <!-- ojos: celdas B2 y D2 -->
+      <rect class="s03-pl-ojo" x="186" y="140" width="101" height="63" rx="6" fill="#ff3b3b" style="filter: drop-shadow(0 0 18px rgba(255,59,59,0.8))" />
+      <rect class="s03-pl-ojo" x="416" y="140" width="101" height="63" rx="6" fill="#ff3b3b" style="filter: drop-shadow(0 0 18px rgba(255,59,59,0.8))" />
+      <rect class="s03-pl-pupila" x="226" y="154" width="26" height="36" rx="4" fill="#0a0d14" />
+      <rect class="s03-pl-pupila" x="456" y="154" width="26" height="36" rx="4" fill="#0a0d14" />
+      <path class="l s03-pl-ceja" d="M176 112 L296 138 M526 112 L406 138" stroke-width="12" />
+      <!-- boca: B4:D4 -->
+      <g class="s03-pl-boca" data-o="320 325">
+        <rect x="186" y="296" width="331" height="58" rx="8" fill="#0a0d14" stroke="#f2f2f2" stroke-width="6" />
+        <path d="M200 298 L216 318 L232 298 L248 318 L264 298 L280 318 L296 298 L312 318 L328 298 L344 318 L360 298 L376 318 L392 298 L408 318 L424 298 L440 318 L456 298 L472 318 L488 298 L504 318" fill="none" stroke="#f2f2f2" stroke-width="5" stroke-linejoin="round" />
+        <path d="M200 352 L216 334 L232 352 L248 334 L264 352 L280 334 L296 352 L312 334 L328 352 L344 334 L360 352 L376 334 L392 352 L408 334 L424 352 L440 334 L456 352 L472 334 L488 352 L504 334" fill="none" stroke="#f2f2f2" stroke-width="5" stroke-linejoin="round" />
+      </g></g></g>
+          <rect class="s03-llena" x="233" y="690" width="138" height="92" fill="#21a366" opacity="0" />
+          <rect class="s03-llena" x="371" y="690" width="138" height="92" fill="#21a366" opacity="0" />
+          <rect class="s03-llena" x="509" y="690" width="138" height="92" fill="#21a366" opacity="0" />
+          <g class="s03-b s03-b0"><rect x="40" y="1120" width="340" height="70" rx="22" fill="#f2f2f2" /><path d="M50 1190 l-8 18 l26 -18 Z" fill="#f2f2f2" /><text x="64" y="1166" font-family="Lexend" font-weight="700" font-size="30" fill="#0a0d14">Hola, ¿tenés...?</text></g><g class="s03-b s03-b1"><rect x="700" y="1156" width="340" height="70" rx="22" fill="#f2f2f2" /><path d="M710 1226 l-8 18 l26 -18 Z" fill="#f2f2f2" /><text x="724" y="1202" font-family="Lexend" font-weight="700" font-size="30" fill="#0a0d14">Quiero 2 docenas</text></g><g class="s03-b s03-b2"><rect x="40" y="1192" width="340" height="70" rx="22" fill="#f2f2f2" /><path d="M50 1262 l-8 18 l26 -18 Z" fill="#f2f2f2" /><text x="64" y="1238" font-family="Lexend" font-weight="700" font-size="30" fill="#0a0d14">Hola, ¿tenés...?</text></g><g class="s03-b s03-b3"><rect x="700" y="1120" width="340" height="70" rx="22" fill="#f2f2f2" /><path d="M710 1190 l-8 18 l26 -18 Z" fill="#f2f2f2" /><text x="724" y="1166" font-family="Lexend" font-weight="700" font-size="30" fill="#0a0d14">Quiero 2 docenas</text></g><g class="s03-b s03-b4"><rect x="40" y="1156" width="340" height="70" rx="22" fill="#f2f2f2" /><path d="M50 1226 l-8 18 l26 -18 Z" fill="#f2f2f2" /><text x="64" y="1202" font-family="Lexend" font-weight="700" font-size="30" fill="#0a0d14">Hola, ¿tenés...?</text></g><g class="s03-b s03-b5"><rect x="700" y="1192" width="340" height="70" rx="22" fill="#f2f2f2" /><path d="M710 1262 l-8 18 l26 -18 Z" fill="#f2f2f2" /><text x="724" y="1238" font-family="Lexend" font-weight="700" font-size="30" fill="#0a0d14">Quiero 2 docenas</text></g><g class="s03-b s03-b6"><rect x="40" y="1120" width="340" height="70" rx="22" fill="#f2f2f2" /><path d="M50 1190 l-8 18 l26 -18 Z" fill="#f2f2f2" /><text x="64" y="1166" font-family="Lexend" font-weight="700" font-size="30" fill="#0a0d14">Hola, ¿tenés...?</text></g><g class="s03-b s03-b7"><rect x="700" y="1156" width="340" height="70" rx="22" fill="#f2f2f2" /><path d="M710 1226 l-8 18 l26 -18 Z" fill="#f2f2f2" /><text x="724" y="1202" font-family="Lexend" font-weight="700" font-size="30" fill="#0a0d14">Quiero 2 docenas</text></g>
+        </svg>
+        <div class="s03-reloj">23:59</div>
+        <div class="txt s03-cuarenta">40 pedidos</div>
+        <div class="s03-uno s03-u1" style="left:150px">Uno.</div>
+        <div class="s03-uno s03-u2" style="left:440px">Por.</div>
+        <div class="s03-uno s03-u3" style="left:700px">Uno.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-demanda";
+      const DUR = 7.44;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s03-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+const MEDIA = 1.9, PASAME = 3.0, CUARENTA = 3.6, UNO = 5.86, POR = 6.43, UNO2 = 6.6;
+      tl.fromTo(ESC, { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 45%" }, 0);
+      // la planilla aparece de golpe, como pantalla que se enciende
+      tl.fromTo(q(".s03-pl"), { opacity: 0.4, scaleY: 0.05, transformOrigin: "50% 50%" }, { opacity: 1, scaleY: 1, transformOrigin: "50% 50%", duration: 0.22, ease: "power4.out" }, 0);
+      hablar(".s03-pl-boca", 0.05, 2.7, 0.2);
+      hablar(".s03-pl-boca", 3.0, 5.3, 0.2);
+      hablar(".s03-pl-boca", 5.86, 7.0, 0.15, 0.2);
+      tl.to(qa(".s03-pl-pupila"), { x: 22, duration: 0.3, ease: "power2.inOut" }, 0.8);
+      tl.to(qa(".s03-pl-pupila"), { x: -22, duration: 0.3, ease: "power2.inOut" }, 3.1);
+      tl.to(qa(".s03-pl-pupila"), { x: 0, duration: 0.3, ease: "power2.inOut" }, 5.6);
+      parpadeo(".s03-pl-ojo", 2.6);
+      tl.to(qa(".s03-pl-ceja"), { y: -10, duration: 0.12, yoyo: true, repeat: 1 }, MEDIA);
+      // medianoche: reloj rojo
+      pop(".s03-reloj", MEDIA - 0.05, 0.3);
+      tl.to(q(".s03-reloj"), { opacity: 0.35, duration: 0.12, yoyo: true, repeat: 3, ease: "steps(1)" }, MEDIA + 0.4);
+      tl.to(q(".s03-reloj"), { opacity: 0, y: -40, duration: 0.2 }, PASAME + 0.4);
+      // pasame los cuarenta pedidos: burbujas que vuelan a la planilla
+      qa(".s03-b").forEach((b, i) => {
+        const t = PASAME + i * 0.22;
+        tl.fromTo(b, { opacity: 0, x: (i % 2 ? 200 : -200), y: 0, scale: 1, transformOrigin: "50% 50%" }, { opacity: 1, x: 0, duration: 0.18, ease: "power2.out", immediateRender: false }, t);
+        tl.to(b, { x: (i % 2 ? -220 : 220), y: -280, scale: 0.25, opacity: 0, duration: 0.4, ease: "power2.in" }, t + 0.25);
+      });
+      gsap.set(qa(".s03-b"), { opacity: 0 });
+      golpe(".s03-cuarenta", CUARENTA, 2.4);
+      sacudon(CUARENTA + 0.05);
+      // uno por uno: las celdas se llenan de a una
+      golpe(".s03-u1", UNO, 2);
+      golpe(".s03-u2", POR, 2);
+      golpe(".s03-u3", UNO2 + 0.05, 2);
+      qa(".s03-llena").forEach((c, i) => tl.to(c, { opacity: 0.85, duration: 0.05 }, [UNO, POR, UNO2 + 0.05][i]));
+      tl.to(qa(".s03-u3"), { color: "#ffd60a", duration: 0.1 }, UNO2 + 0.3);
+
+      // salida: barrido con blur
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

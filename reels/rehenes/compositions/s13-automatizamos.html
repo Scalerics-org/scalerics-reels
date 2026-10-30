@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-automatizamos"] .s13-capa, [data-composition-id="s13-automatizamos"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-automatizamos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-automatizamos"] .b { fill: #141a28; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .k { fill: #0a0d14; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .l { fill: none; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .w { fill: #f2f2f2; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .v { fill: #21a366; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .vl { fill: none; stroke: #21a366; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .vd { fill: #0e2a1e; stroke: #21a366; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .r { fill: #ff3b3b; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .rl { fill: none; stroke: #ff3b3b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .a { fill: #2f6bff; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .al { fill: none; stroke: #2f6bff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .y { fill: #ffd60a; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .yl { fill: none; stroke: #ffd60a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .s { fill: #5ce611; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .cara { fill: #f2f2f2; stroke: #f2f2f2; stroke-width: 7; }
+    [data-composition-id="s13-automatizamos"] .d { fill: none; stroke: #0a0d14; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-automatizamos"] .fino { stroke-width: 3; }
+    [data-composition-id="s13-automatizamos"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f2f2f2; }
+    [data-composition-id="s13-automatizamos"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff3b3b; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff3b3b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-automatizamos"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffd60a; color: #0a0d14; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s13-automatizamos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s13-automatizamos"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s13-automatizamos"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s13-automatizamos"] .s13-no { top: 590px; font-size: 92px; }
+  [data-composition-id="s13-automatizamos"] .s13-con { top: 696px; font-size: 92px; }
+  [data-composition-id="s13-automatizamos"] .s13-la { top: 600px; font-size: 80px; color: #f2f2f2; }
+  [data-composition-id="s13-automatizamos"] .s13-auto { top: 700px; font-size: 104px; color: #5ce611; text-shadow: 0 0 40px rgba(92,230,17,0.5); }
+
+  </style>
+  <div id="root" data-composition-id="s13-automatizamos" data-width="1080" data-height="1920" data-duration="3.51">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="3.51" data-track-index="0">
+      <div class="s13-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(90 930) scale(1.05)"><g class="s13-e1">
+      <path class="k" d="M30 540 C30 410 92 368 180 368 C268 368 330 410 330 540 Z" />
+      <path class="s" d="M70 540 C70 440 110 400 150 392 L180 470 L210 392 C250 400 290 440 290 540 Z" stroke-width="6" />
+      <text x="180" y="520" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="24" fill="#0a0d14" letter-spacing="2" data-layout-ignore>SCALERICS</text>
+      <ellipse class="cara" cx="180" cy="250" rx="78" ry="92" />
+      <path class="k" d="M100 220 C96 160 140 148 180 148 C224 148 266 166 260 222 C230 200 130 200 100 220 Z" />
+      <path d="M112 236 H248 V262 C248 280 222 284 206 270 L192 252 H168 L154 270 C138 284 112 280 112 262 Z" fill="#0a0d14" />
+      <path class="d" d="M156 300 C170 310 194 310 206 300" stroke-width="6" /></g></g>
+          <g transform="translate(610 930) scale(1.05)"><g class="s13-e2">
+      <path class="k" d="M30 540 C30 410 92 368 180 368 C268 368 330 410 330 540 Z" />
+      <path class="s" d="M70 540 C70 440 110 400 150 392 L180 470 L210 392 C250 400 290 440 290 540 Z" stroke-width="6" />
+      <text x="180" y="520" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="24" fill="#0a0d14" letter-spacing="2" data-layout-ignore>SCALERICS</text>
+      <ellipse class="cara" cx="180" cy="250" rx="78" ry="92" />
+      <path class="k" d="M100 220 C96 160 140 148 180 148 C224 148 266 166 260 222 C230 200 130 200 100 220 Z" />
+      <path d="M112 236 H248 V262 C248 280 222 284 206 270 L192 252 H168 L154 270 C138 284 112 280 112 262 Z" fill="#0a0d14" />
+      <path class="d" d="M156 300 C170 310 194 310 206 300" stroke-width="6" /></g></g>
+        </svg>
+        <div class="txt s13-no">No negociamos</div>
+        <div class="txt s13-con">con planillas.</div>
+        <div class="txt s13-la">La</div>
+        <div class="txt s13-auto">automatizamos.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-automatizamos";
+      const DUR = 3.51;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s13-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+const NEGO = 0.5, PLANILLAS = 1.1, LA = 1.7, AUTO = 2.05;
+      tl.fromTo(ESC, { scale: 1.08 }, { scale: 1, duration: DUR, ease: "power1.out", transformOrigin: "50% 70%" }, 0);
+      // entran caminando desde abajo, en cámara lenta de película
+      tl.fromTo(q(".s13-e1"), { opacity: 0.3, y: 260 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s13-e2"), { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 0.15);
+      tl.to([q(".s13-e1"), q(".s13-e2")], { y: -8, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.8);
+      golpe(".s13-no", NEGO, 1.8);
+      golpe(".s13-con", PLANILLAS, 1.8);
+      tl.to([q(".s13-no"), q(".s13-con")], { opacity: 0, duration: 0.1 }, LA - 0.1);
+      golpe(".s13-la", LA, 1.6);
+      golpe(".s13-auto", AUTO + 0.05, 2.8);
+      sacudon(AUTO + 0.1, 1.4);
+
+      // salida: barrido con blur
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,160 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-guardar"] .s11-capa, [data-composition-id="s11-guardar"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-guardar"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-guardar"] .b { fill: #141a28; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .k { fill: #0a0d14; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .l { fill: none; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .w { fill: #f2f2f2; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .v { fill: #21a366; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .vl { fill: none; stroke: #21a366; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .vd { fill: #0e2a1e; stroke: #21a366; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .r { fill: #ff3b3b; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .rl { fill: none; stroke: #ff3b3b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .a { fill: #2f6bff; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .al { fill: none; stroke: #2f6bff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .y { fill: #ffd60a; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .yl { fill: none; stroke: #ffd60a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .s { fill: #5ce611; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .cara { fill: #f2f2f2; stroke: #f2f2f2; stroke-width: 7; }
+    [data-composition-id="s11-guardar"] .d { fill: none; stroke: #0a0d14; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-guardar"] .fino { stroke-width: 3; }
+    [data-composition-id="s11-guardar"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f2f2f2; }
+    [data-composition-id="s11-guardar"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff3b3b; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff3b3b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-guardar"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffd60a; color: #0a0d14; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s11-guardar"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s11-guardar"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s11-guardar"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s11-guardar"] .s11-dlg { position: absolute; left: 90px; top: 880px; width: 900px; border-radius: 18px; background: #f2f2f2; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.7); }
+  [data-composition-id="s11-guardar"] .s11-dlg h4 { position: relative; margin: 0; padding: 16px 28px; background: #21a366; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; color: #f2f2f2; letter-spacing: 0.1em; }
+  [data-composition-id="s11-guardar"] .s11-x { position: absolute; right: 18px; top: 8px; width: 52px; height: 52px; border-radius: 8px; background: #ff3b3b; text-align: center; line-height: 52px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 34px; color: #f2f2f2; }
+  [data-composition-id="s11-guardar"] .s11-dlg p { margin: 0; padding: 30px 30px 16px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 52px; color: #0a0d14; }
+  [data-composition-id="s11-guardar"] .s11-bots { display: flex; gap: 18px; padding: 10px 30px 30px; }
+  [data-composition-id="s11-guardar"] .s11-bots div { padding: 14px 22px; border-radius: 10px; border: 4px solid #0a0d14; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; color: #0a0d14; white-space: nowrap; }
+  [data-composition-id="s11-guardar"] .s11-bots .s11-si { background: #21a366; border-color: #21a366; color: #f2f2f2; }
+  [data-composition-id="s11-guardar"] .s11-guardaste { top: 1250px; left: 280px; right: 30px; font-size: 104px; color: #ffd60a; text-shadow: 0 0 34px rgba(255,214,10,0.45); }
+
+  </style>
+  <div id="root" data-composition-id="s11-guardar" data-width="1080" data-height="1920" data-duration="4.16">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.16" data-track-index="0">
+      <div class="s11-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(252 580) scale(0.9)"><g class="s11-pl">
+      <rect class="vd" x="0" y="0" width="640" height="518" rx="22" />
+      <rect x="0" y="0" width="640" height="56" rx="22" fill="#21a366" opacity="0.25" />
+      <path class="vl fino" d="M64 56 V518" /><path class="vl fino" d="M179 56 V518" /><path class="vl fino" d="M294 56 V518" /><path class="vl fino" d="M409 56 V518" /><path class="vl fino" d="M524 56 V518" /><path class="vl fino" d="M639 56 V518" /><path class="vl fino" d="M0 56 H640" /><path class="vl fino" d="M0 133 H640" /><path class="vl fino" d="M0 210 H640" /><path class="vl fino" d="M0 287 H640" /><path class="vl fino" d="M0 364 H640" /><path class="vl fino" d="M0 441 H640" /><path class="vl fino" d="M0 518 H640" /><text x="121" y="40" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>A</text><text x="236" y="40" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>B</text><text x="351" y="40" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>C</text><text x="466" y="40" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>D</text><text x="581" y="40" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>E</text><text x="32" y="106" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>1</text><text x="32" y="183" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>2</text><text x="32" y="260" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>3</text><text x="32" y="337" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>4</text><text x="32" y="414" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>5</text><text x="32" y="491" text-anchor="middle" class="smono" fill="#21a366" data-layout-ignore>6</text>
+      <text class="s11-pl-dato smono" x="70" y="181" fill="#21a366" data-layout-ignore>PEDIDO</text>
+      <text class="s11-pl-dato smono" x="540" y="258" fill="#21a366" data-layout-ignore>#REF!</text>
+      <text class="s11-pl-dato smono" x="70" y="412" fill="#21a366" data-layout-ignore>STOCK</text>
+      <text class="s11-pl-dato smono" x="545" y="489" fill="#21a366" data-layout-ignore>???</text>
+      <!-- ojos: celdas B2 y D2 -->
+      <rect class="s11-pl-ojo" x="186" y="140" width="101" height="63" rx="6" fill="#ff3b3b" style="filter: drop-shadow(0 0 18px rgba(255,59,59,0.8))" />
+      <rect class="s11-pl-ojo" x="416" y="140" width="101" height="63" rx="6" fill="#ff3b3b" style="filter: drop-shadow(0 0 18px rgba(255,59,59,0.8))" />
+      <rect class="s11-pl-pupila" x="226" y="154" width="26" height="36" rx="4" fill="#0a0d14" />
+      <rect class="s11-pl-pupila" x="456" y="154" width="26" height="36" rx="4" fill="#0a0d14" />
+      <path class="l s11-pl-ceja" d="M176 112 L296 138 M526 112 L406 138" stroke-width="12" />
+      <!-- boca: B4:D4 -->
+      <g class="s11-pl-boca" data-o="320 325">
+        <rect x="186" y="296" width="331" height="58" rx="8" fill="#0a0d14" stroke="#f2f2f2" stroke-width="6" />
+        <path d="M200 298 L216 318 L232 298 L248 318 L264 298 L280 318 L296 298 L312 318 L328 298 L344 318 L360 298 L376 318 L392 298 L408 318 L424 298 L440 318 L456 298 L472 318 L488 298 L504 318" fill="none" stroke="#f2f2f2" stroke-width="5" stroke-linejoin="round" />
+        <path d="M200 352 L216 334 L232 352 L248 334 L264 352 L280 334 L296 352 L312 334 L328 352 L344 334 L360 352 L376 334 L392 352 L408 334 L424 352 L440 334 L456 352 L472 334 L488 352 L504 334" fill="none" stroke="#f2f2f2" stroke-width="5" stroke-linejoin="round" />
+      </g></g></g>
+        </svg>
+        <div class="s11-dlg"><h4>PLANILLA<span class="s11-x">X</span></h4><p>¿Guardar los cambios?</p><div class="s11-bots"><div class="s11-si">Guardar</div><div>No guardar</div><div>Cancelar</div></div></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="w s11-cursor" d="M700 1180 L700 1260 L720 1242 L736 1276 L750 1270 L734 1236 L760 1234 Z" stroke="#0a0d14" stroke-width="5" />
+          <g transform="translate(40 1170) scale(0.62)"><g class="s11-hija">
+      <path class="b s11-hija-cola" d="M250 180 C330 170 340 260 300 330 C290 280 280 240 246 220 Z" />
+      <path class="r" d="M40 540 C40 420 96 380 180 380 C264 380 320 420 320 540 Z" />
+      <path class="l" d="M140 384 C150 420 210 420 220 384" stroke-width="6" />
+      <ellipse class="cara" cx="180" cy="262" rx="76" ry="90" />
+      <path class="k" d="M100 250 C92 170 150 150 186 152 C232 154 268 186 258 236 C230 210 170 196 100 250 Z" />
+      <path class="d" d="M134 238 L166 248 M226 238 L194 248" stroke-width="7" />
+      <circle cx="152" cy="264" r="9" fill="#0a0d14" />
+      <circle cx="208" cy="264" r="9" fill="#0a0d14" />
+      <ellipse class="s11-hija-boca" fill="#0a0d14" data-o="180 312" cx="180" cy="312" rx="24" ry="20" /></g></g>
+        </svg>
+        <div class="txt s11-guardaste">¿Guardaste?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-guardar";
+      const DUR = 4.16;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s11-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+const CIERRES = 0.31, GUARDAR = 1.11, PAPA = 2.14, GUARDASTE = 2.34;
+      tl.fromTo(ESC, { scale: 1.06 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s11-dlg"), { opacity: 0.4, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s11-pl"), { opacity: 0.5, y: 120 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      hablar(".s11-pl-boca", 0, 1.6, 0.2);
+      // el cursor va a la X... y la planilla lo frena
+      entra(".s11-cursor", 0.05, 0, 0, 0.1);
+      tl.to(q(".s11-cursor"), { x: 210, y: -270, duration: 0.6, ease: "power2.inOut" }, CIERRES);
+      tl.to(q(".s11-x"), { scale: 1.25, duration: 0.1, yoyo: true, repeat: 1 }, CIERRES + 0.55);
+      tl.to(qa(".s11-pl-ojo"), { scale: 1.25, transformOrigin: "50% 50%", duration: 0.1 }, GUARDAR);
+      tl.to(qa(".s11-pl-ceja"), { y: 14, duration: 0.1 }, GUARDAR);
+      sacudon(GUARDAR + 0.05, 1);
+      tl.to(q(".s11-cursor"), { x: 260, y: 80, opacity: 0, duration: 0.3, ease: "power3.out" }, GUARDAR + 0.1);
+      // "¡Papá! ¿Guardaste?"
+      entra(".s11-hija", PAPA - 0.15, -160, 0, 0.2);
+      hablar(".s11-hija-boca", PAPA, 3.1, 0.4, 0.1);
+      golpe(".s11-guardaste", GUARDASTE + 0.1, 2.4);
+      sacudon(GUARDASTE + 0.15, 1.2);
+
+      // salida: barrido con blur
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

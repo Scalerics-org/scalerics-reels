@@ -1,0 +1,82 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* luces de patrullero: rojo a la izquierda, azul a la derecha, alternando */
+    [data-composition-id="ambiente"] .amb-rojo { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 700px 1000px at 0% 45%, rgba(255, 59, 59, 0.42), rgba(255, 59, 59, 0) 70%); }
+    [data-composition-id="ambiente"] .amb-azul { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 700px 1000px at 100% 45%, rgba(47, 107, 255, 0.48), rgba(47, 107, 255, 0) 70%); }
+    [data-composition-id="ambiente"] .amb-verde { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 900px 1000px at 50% 50%, rgba(92, 230, 17, 0.16), rgba(92, 230, 17, 0) 72%); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1120px at 540px 920px, rgba(10, 13, 20, 0) 55%, rgba(10, 13, 20, 0.85) 100%); }
+    /* vereda */
+    [data-composition-id="ambiente"] .amb-vereda { position: absolute; left: 0; right: 0; top: 1530px; height: 2px; background: rgba(242, 242, 242, 0.22); }
+    /* cinta policial abajo */
+    [data-composition-id="ambiente"] .amb-cinta { position: absolute; left: -80px; top: 1580px; width: 1240px; height: 62px; background: #ffd60a; transform: rotate(-3deg); overflow: hidden; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5); }
+    [data-composition-id="ambiente"] .amb-cinta span { position: absolute; left: 0; top: 12px; white-space: nowrap; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.06em; color: #0a0d14; }
+    /* en vivo arriba */
+    [data-composition-id="ambiente"] .amb-vivo { position: absolute; left: 72px; top: 150px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; color: #f2f2f2; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-punto { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: #ff3b3b; margin-right: 14px; vertical-align: 1px; }
+    [data-composition-id="ambiente"] .amb-hora { color: #ff3b3b; }
+    [data-composition-id="ambiente"] .amb-libre { position: absolute; left: 72px; top: 150px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; color: #5ce611; white-space: nowrap; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #f2f2f2; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="76.17">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="76.17" data-track-index="0">
+      <div class="amb-rojo"></div>
+      <div class="amb-azul"></div>
+      <div class="amb-verde"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-vereda"></div>
+      <div class="amb-cinta"><span data-layout-ignore>NO PASAR · ESCENA DE REHENES · NO PASAR · ESCENA DE REHENES · NO PASAR · ESCENA DE REHENES</span></div>
+      <div class="amb-vivo" data-layout-ignore><span class="amb-punto"></span>EN VIVO · TOMA DE REHENES · <span class="amb-hora">23:47</span></div>
+      <div class="amb-libre" data-layout-ignore>REHÉN LIBERADO · 21:00</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 76.17;
+      const LIBRE = 53.31; // entran los especialistas
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // sirenas: rojo y azul alternando cada 0.4 s hasta que entra Scalerics
+      const PASO = 0.4;
+      for (let t = 0, i = 0; t < LIBRE - 0.2; t += PASO, i++) {
+        const el = q(i % 2 ? ".amb-azul" : ".amb-rojo");
+        tl.fromTo(el, { opacity: 0.25 }, { opacity: 1, duration: 0.08, ease: "none", immediateRender: false }, t);
+        tl.to(el, { opacity: 0, duration: PASO * 1.6, ease: "power2.out" }, t + 0.1);
+      }
+      // el punto rojo de EN VIVO titila
+      tl.to(q(".amb-punto"), { opacity: 0.2, duration: 0.5, yoyo: true, repeat: Math.max(0, Math.floor(LIBRE / 0.5) - 1), ease: "steps(1)" }, 0);
+      // la cinta se desliza despacio
+      tl.fromTo(q(".amb-cinta span"), { x: 0 }, { x: -300, duration: DUR, ease: "none" }, 0);
+
+      // entra Scalerics: luz verde, la cinta se corta y cae, el cartel pasa a LIBERADO
+      tl.to(q(".amb-verde"), { opacity: 1, duration: 0.4 }, LIBRE + 0.6);
+      tl.to(q(".amb-cinta"), { y: 260, rotation: 14, opacity: 0, duration: 0.9, ease: "power2.in" }, 59.7);
+      tl.to(q(".amb-vivo"), { opacity: 0, duration: 0.2 }, 59.7);
+      tl.to(q(".amb-libre"), { opacity: 1, duration: 0.3 }, 59.9);
+      // la última escena: vuelven las sirenas, para el que sigue de rehén
+      for (let t = 71.0, i = 0; t < DUR - 0.3; t += PASO, i++) {
+        const el = q(i % 2 ? ".amb-azul" : ".amb-rojo");
+        tl.fromTo(el, { opacity: 0.2 }, { opacity: 0.7, duration: 0.08, ease: "none", immediateRender: false }, t);
+        tl.to(el, { opacity: 0, duration: PASO * 1.6, ease: "power2.out" }, t + 0.1);
+      }
+      tl.to(q(".amb-verde"), { opacity: 0, duration: 0.4 }, 71.0);
+
+      // flashes: "rehén", "automatizamos"
+      [4.4, 55.36].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.6, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

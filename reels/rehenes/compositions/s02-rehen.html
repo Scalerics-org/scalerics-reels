@@ -1,0 +1,160 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-rehen"] .s02-capa, [data-composition-id="s02-rehen"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-rehen"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-rehen"] .b { fill: #141a28; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .k { fill: #0a0d14; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .l { fill: none; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .w { fill: #f2f2f2; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .v { fill: #21a366; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .vl { fill: none; stroke: #21a366; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .vd { fill: #0e2a1e; stroke: #21a366; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .r { fill: #ff3b3b; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .rl { fill: none; stroke: #ff3b3b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .a { fill: #2f6bff; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .al { fill: none; stroke: #2f6bff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .y { fill: #ffd60a; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .yl { fill: none; stroke: #ffd60a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .s { fill: #5ce611; stroke: #f2f2f2; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .cara { fill: #f2f2f2; stroke: #f2f2f2; stroke-width: 7; }
+    [data-composition-id="s02-rehen"] .d { fill: none; stroke: #0a0d14; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-rehen"] .fino { stroke-width: 3; }
+    [data-composition-id="s02-rehen"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f2f2f2; }
+    [data-composition-id="s02-rehen"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff3b3b; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff3b3b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-rehen"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffd60a; color: #0a0d14; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s02-rehen"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s02-rehen"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s02-rehen"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s02-rehen"] .s02-cartel { left: 50%; top: 588px; transform: translateX(-50%); }
+  [data-composition-id="s02-rehen"] .s02-otra { top: 580px; font-size: 128px; color: #f2f2f2; }
+  [data-composition-id="s02-rehen"] .s02-sello { left: 130px; top: 1290px; font-size: 64px; padding: 14px 30px 10px; background: rgba(10,13,20,0.7); }
+
+  </style>
+  <div id="root" data-composition-id="s02-rehen" data-width="1080" data-height="1920" data-duration="5.26">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="5.26" data-track-index="0">
+      <div class="s02-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(102 720) scale(1.25)"><g class="s02-local">
+      <rect class="b" x="0" y="80" width="700" height="540" />
+      <rect class="k" x="40" y="10" width="620" height="70" rx="8" />
+      <text x="350" y="58" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="40" fill="#f2f2f2" letter-spacing="4">TU LOCAL</text>
+      <path class="w" d="M0 80 H700 L680 150 H20 Z" stroke-width="6" />
+      <path d="M70 80 L64 150 M210 80 L200 150 M350 80 V150 M490 80 L500 150 M630 80 L636 150" stroke="#ff3b3b" stroke-width="44" />
+      <path class="l" d="M0 80 H700 L680 150 H20 Z" stroke-width="6" />
+      <rect class="s02-vidriera" x="50" y="200" width="420" height="330" fill="#0e2a1e" stroke="#f2f2f2" stroke-width="7" />
+      <g transform="translate(110 225)">
+      <rect x="170" y="70" width="120" height="96" rx="8" fill="#21a366" stroke="#f2f2f2" stroke-width="6" style="filter: drop-shadow(0 0 22px rgba(33,163,102,0.9))" />
+      <path class="vl" d="M188 98 H272 M188 122 H272 M188 146 H272 M216 80 V160 M244 80 V160" stroke="#0e2a1e" stroke-width="4" />
+      <path class="l" d="M230 166 V196 M200 198 H262" stroke-width="6" />
+      <path class="l" d="M20 200 H290" stroke-width="7" />
+      <path class="k s02-dueno" d="M60 300 C50 240 66 186 104 160 C118 150 134 150 140 160 C150 176 150 196 158 196 L186 196 L186 208 L130 214 C118 240 114 270 116 300 Z" stroke-width="6" />
+      <circle class="k s02-dueno-cabeza" cx="132" cy="122" r="34" stroke-width="6" />
+      <path class="l" d="M96 300 V250" stroke-width="5" opacity="0.5" /></g>
+      <rect class="k" x="520" y="200" width="140" height="420" stroke-width="7" />
+      <circle class="w" cx="540" cy="420" r="8" stroke-width="2" />
+      <rect x="532" y="250" width="116" height="60" rx="6" fill="#f2f2f2" />
+      <text x="590" y="290" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="28" fill="#0a0d14">CERRADO</text></g></g>
+          <circle class="rl s02-circulo" cx="414" cy="1150" r="120" stroke-width="9" />
+          <g class="s02-palitos">
+            <path class="yl s02-palo" d="M180 975 V1035" stroke-width="8" />
+            <path class="yl s02-palo" d="M205 975 V1035" stroke-width="8" />
+            <path class="yl s02-palo" d="M230 975 V1035" stroke-width="8" />
+            <path class="yl s02-palo" d="M255 975 V1035" stroke-width="8" />
+            <path class="yl s02-palo" d="M170 1025 L268 982" stroke-width="8" />
+            <path class="yl s02-palo" d="M295 975 V1035" stroke-width="8" />
+            <path class="yl s02-palo" d="M320 975 V1035" stroke-width="8" />
+            <path class="yl s02-palo" d="M345 975 V1035" stroke-width="8" />
+            <path class="yl s02-palo" d="M370 975 V1035" stroke-width="8" />
+            <path class="yl s02-palo" d="M285 1025 L383 982" stroke-width="8" />
+            <path class="yl s02-palo" d="M410 975 V1035" stroke-width="8" />
+            <path class="yl s02-palo" d="M435 975 V1035" stroke-width="8" />
+          </g>
+        </svg>
+        <div class="cartel s02-cartel">Secuestradora: la planilla</div>
+        <div class="sello s02-sello">Rehén</div>
+        <div class="txt s02-otra">Otra vez.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-rehen";
+      const DUR = 5.26;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s02-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+const PLANILLA = 0.09, REHEN = 1.89, DUENO = 2.49, OTRA = 3.82;
+      tl.fromTo(ESC, { scale: 1.0 }, { scale: 1.07, duration: DUR, ease: "none", transformOrigin: "40% 62%" }, 0);
+      tl.fromTo(q(".s02-local"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      // la vidriera titila verde: ahí está la planilla
+      tl.fromTo(q(".s02-vidriera"), { fill: "#0e2a1e" }, { fill: "#1c5a3c", duration: 0.12, yoyo: true, repeat: 5, ease: "steps(1)" }, PLANILLA + 0.1);
+      golpe(".s02-cartel", PLANILLA + 0.35, 1.8);
+      // "rehén": sello rojo sobre la vidriera
+      golpe(".s02-sello", REHEN, 2.8);
+      tl.set(q(".s02-sello"), { rotation: -9 }, 0);
+      sacudon(REHEN + 0.05, 1.2);
+      // "dueño": círculo rojo alrededor de la silueta
+      dibujar(".s02-circulo", DUENO, 0.4);
+      tl.to(q(".s02-dueno-cabeza"), { y: 6, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, DUENO);
+      // "otra vez": palitos de noches contadas en el vidrio, y el cartel cambia
+      sale(".s02-sello", OTRA - 0.4, 0.2);
+      sale(".s02-circulo", OTRA - 0.4, 0.2);
+      tl.to(q(".s02-cartel"), { opacity: 0, y: -30, duration: 0.15 }, OTRA - 0.15);
+      qa(".s02-palo").forEach((p, i) => dibujar(p, OTRA - 0.5 + i * 0.07, 0.12));
+      golpe(".s02-otra", OTRA + 0.05, 2.2);
+      sacudon(OTRA + 0.1, 0.7);
+
+      // salida: barrido con blur
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
