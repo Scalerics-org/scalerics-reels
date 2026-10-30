@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-cuaderno"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-cuaderno"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-cuaderno"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-cuaderno"] .marco { fill: #120e05; stroke: #e8dcc0; stroke-width: 8; stroke-linejoin: round; }
+    [data-composition-id="s05-cuaderno"] .txt { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s05-cuaderno"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s05-cuaderno"] .garabato { fill: none; stroke: #0f2a3a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-cuaderno"] .s05-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.3em; color: #ffb000; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s05-cuaderno"] .s05-etiqueta span { position: absolute; left: 0; right: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-cuaderno" data-width="1080" data-height="1920" data-duration="3.97">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.97" data-track-index="0">
+      <div class="s05-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <rect class="marco" x="70" y="596" width="940" height="730" rx="14" />
+          <text class="txt" x="100" y="644" font-size="26" fill="#ffb000" letter-spacing="3">PANTALLA PRINCIPAL · CUADERNO DE MARTA</text>
+          <!-- la hoja escaneada -->
+          <g class="s05-hoja"><g transform="rotate(-3 380 960)">
+            <rect x="110" y="680" width="540" height="590" fill="#fff4e0" />
+            <path d="M110 760 H650 M110 830 H650 M110 900 H650 M110 970 H650 M110 1040 H650 M110 1110 H650 M110 1180 H650 M110 1250 H650" stroke="#3d7ea6" stroke-width="2" opacity="0.5" />
+            <path d="M170 680 V1270" stroke="#d7263d" stroke-width="2" opacity="0.6" />
+            <text class="mano" x="190" y="750" font-size="50" fill="#0f2a3a" transform="rotate(-4 190 750)">yerba ~ ver Ramí...</text>
+            <text class="mano" x="200" y="820" font-size="46" fill="#0f2a3a">D. Carlos: lo de siempre</text>
+            <text class="mano" x="190" y="890" font-size="50" fill="#0f2a3a" transform="rotate(3 190 890)">prov. ??  debe/debo</text>
+            <text class="mano" x="200" y="1030" font-size="46" fill="#0f2a3a">clave: la de siempre</text>
+            <text class="mano" x="210" y="1170" font-size="46" fill="#0f2a3a" transform="rotate(-2 210 1170)">fideos x  →  ojo!!</text>
+            <!-- el garabato: ¿un 7 o una vaca? -->
+            <g class="s05-garabato">
+              <path class="garabato" d="M420 930 L520 926 Q500 960 470 1010 M430 950 L436 970 M455 950 L458 972 M498 950 L496 972 M520 930 Q540 924 538 944" />
+            </g>
+            <ellipse cx="560" cy="1220" rx="54" ry="40" fill="none" stroke="#a87d3a" stroke-width="10" opacity="0.45" />
+          </g></g>
+          <!-- la mira que analiza -->
+          <g class="s05-mira">
+            <circle cx="0" cy="0" r="80" fill="none" stroke="#ffb000" stroke-width="5" />
+            <path d="M-110 0 H-50 M50 0 H110 M0 -110 V-50 M0 50 V110" stroke="#ffb000" stroke-width="5" />
+          </g>
+          <!-- la ventana de zoom -->
+          <g class="s05-zoom">
+            <rect x="690" y="690" width="290" height="290" fill="#fff4e0" stroke="#ffb000" stroke-width="6" />
+            <g transform="translate(835 835) scale(2.1) translate(-475 -960)">
+              <path class="garabato" d="M420 930 L520 926 Q500 960 470 1010 M430 950 L436 970 M455 950 L458 972 M498 950 L496 972 M520 930 Q540 924 538 944" />
+            </g>
+            <text class="txt" x="700" y="1020" font-size="24" fill="#ffb000" letter-spacing="2">ZOOM ×20</text>
+          </g>
+          <!-- la vaca que se dibuja encima -->
+          <g class="s05-vaca"><g transform="translate(835 835)">
+            <path class="s05-vacat" d="M-110 -40 Q-40 -60 60 -46 Q90 -40 96 -10 L90 40 M-100 -40 L-104 40 M-70 20 V70 M-40 20 V70 M40 20 V70 M70 20 V70 M-104 -30 Q-130 0 -120 40 M96 -20 L120 -50 L140 -30 L128 0 Q110 10 96 -6" fill="none" stroke="#d7263d" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          </g></g>
+          <g class="s05-op7">
+            <rect x="700" y="1060" width="270" height="80" fill="#120e05" stroke="#ffb000" stroke-width="4" />
+            <text class="txt" x="835" y="1114" font-size="40" fill="#ffb000" text-anchor="middle" letter-spacing="3">¿SIETE?</text>
+          </g>
+          <g class="s05-opv">
+            <rect x="700" y="1160" width="270" height="80" fill="#d7263d" />
+            <text class="txt" x="835" y="1214" font-size="40" fill="#fff4e0" text-anchor="middle" letter-spacing="3">¿VACA?</text>
+          </g>
+          <!-- barra de análisis -->
+          <g class="s05-barra">
+            <rect x="690" y="1270" width="290" height="26" fill="none" stroke="#ffb000" stroke-width="4" />
+            <rect class="s05-relleno" x="696" y="1276" width="278" height="14" fill="#ffb000" />
+          </g>
+        </svg>
+        <div class="s05-etiqueta"><span class="s05-e1">Analizando...</span><span class="s05-e2">Resultado: no se sabe</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-cuaderno";
+      const DUR = 3.97;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const PANTALLA = 0.33, ANALIZANDO = 0.68, ESO = 1.55, SIETE = 2.33, VACA = 3.2;
+
+      tl.fromTo(q(".s05-escenario"), { scale: 1.04 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      // la hoja entra a la pantalla como un escaneo que baja
+      tl.fromTo(q(".s05-hoja"), { opacity: 0.4, clipPath: "inset(0% 0% 70% 0%)" }, { opacity: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s05-e1"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, ANALIZANDO - 0.2);
+      gsap.set([q(".s05-zoom"), q(".s05-op7"), q(".s05-opv"), q(".s05-barra")], { opacity: 0 });
+      // la mira recorre la hoja
+      tl.fromTo(q(".s05-mira"), { x: 260, y: 760, opacity: 0 }, { x: 300, y: 820, opacity: 1, duration: 0.25 }, PANTALLA);
+      tl.to(q(".s05-mira"), { x: 380, y: 1030, duration: 0.4, ease: "sine.inOut" }, ANALIZANDO);
+      tl.to(q(".s05-mira"), { x: 300, y: 890, duration: 0.35, ease: "sine.inOut" }, ANALIZANDO + 0.4);
+      tl.to(q(".s05-mira"), { x: 475, y: 960, duration: 0.3, ease: "power2.out" }, ESO - 0.3);
+      tl.to(q(".s05-mira"), { scale: 0.8, duration: 0.15, yoyo: true, repeat: 1 }, ESO);
+      pop(q(".s05-barra"), ANALIZANDO - 0.1);
+      tl.fromTo(q(".s05-relleno"), { scaleX: 0, svgOrigin: "696 1283" }, { scaleX: 1, svgOrigin: "696 1283", duration: 2.4, ease: "none" }, ANALIZANDO);
+      // "¿Eso": zoom al garabato
+      tl.fromTo(q(".s05-zoom"), { opacity: 0, scale: 0.3, svgOrigin: "475 960" }, { opacity: 1, scale: 1, svgOrigin: "475 960", duration: 0.35, ease: "back.out(1.4)" }, ESO);
+      // "siete"
+      pop(q(".s05-op7"), SIETE - 0.05);
+      // "vaca": la vaca roja se dibuja sobre el garabato
+      dibujar([q(".s05-vacat")], VACA - 0.4, 0.6);
+      pop(q(".s05-opv"), VACA - 0.05);
+      temblor(q(".s05-zoom"), VACA + 0.25, 0.6);
+      tl.to(q(".s05-e1"), { opacity: 0, y: -12, duration: 0.2 }, VACA);
+      tl.fromTo(q(".s05-e2"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, VACA + 0.1);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

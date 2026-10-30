@@ -1,0 +1,154 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-alarmas"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-alarmas"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-alarmas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-alarmas"] .marco { fill: #120e05; stroke: #e8dcc0; stroke-width: 8; stroke-linejoin: round; }
+    [data-composition-id="s02-alarmas"] .fosforo { fill: none; stroke: #ffb000; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-alarmas"] .tinta { stroke: #07151e; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-alarmas"] .txt { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s02-alarmas"] .s02-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.3em; color: #ffb000; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-alarmas"] .s02-etiqueta span { position: absolute; left: 0; right: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-alarmas" data-width="1080" data-height="1920" data-duration="4.25">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.25" data-track-index="0">
+      <div class="s02-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- monitor de stock -->
+          <g class="s02-mon1">
+            <rect class="marco" x="90" y="600" width="440" height="300" rx="18" />
+            <text class="txt" x="120" y="648" font-size="26" fill="#ffb000" letter-spacing="3">CONSOLA 1 · STOCK</text>
+            <path class="fosforo s02-barras" d="M130 860 V800 M180 860 V760 M230 860 V820 M280 860 V740 M330 860 V790 M380 860 V770 M430 860 V810 M480 860 V750" stroke-width="22" />
+            <g class="s02-sindatos">
+              <rect x="110" y="680" width="400" height="200" fill="#120e05" />
+              <text class="txt" x="310" y="770" font-size="56" fill="#d7263d" text-anchor="middle" letter-spacing="4">SIN DATOS</text>
+              <text class="txt" x="310" y="836" font-size="32" fill="#ffb000" text-anchor="middle" letter-spacing="3">? ? ? ? ?</text>
+            </g>
+          </g>
+          <!-- monitor de proveedores -->
+          <g class="s02-mon2">
+            <rect class="marco" x="560" y="600" width="430" height="300" rx="18" />
+            <text class="txt" x="590" y="648" font-size="26" fill="#ffb000" letter-spacing="3">LÍNEA 1 · ENTRANTE</text>
+            <g class="s02-prov">
+              <text class="txt" x="775" y="730" font-size="40" fill="#ffb000" text-anchor="middle" letter-spacing="3">PROVEEDOR</text>
+            </g>
+            <g class="s02-deuda">
+              <rect x="590" y="770" width="370" height="100" fill="#d7263d" />
+              <text class="txt" x="775" y="812" font-size="28" fill="#fff4e0" text-anchor="middle" letter-spacing="2">DICE QUE LE</text>
+              <text class="txt" x="775" y="852" font-size="34" fill="#fff4e0" text-anchor="middle" letter-spacing="3">DEBEMOS</text>
+            </g>
+          </g>
+          <!-- el operador de consola -->
+          <g class="s02-operador"><g transform="translate(470 1000)">
+            <path d="M-150 320 L-140 170 Q-130 100 -60 90 L60 90 Q130 100 140 170 L150 320 Z" fill="#e8dcc0" class="tinta" />
+            <rect x="40" y="130" width="50" height="60" fill="none" class="tinta" />
+            <path d="M54 124 V170 M74 124 V160" stroke="#d7263d" stroke-width="7" stroke-linecap="round" />
+            <rect x="-24" y="52" width="48" height="46" fill="#d9a77c" />
+            <ellipse cx="0" cy="0" rx="60" ry="70" fill="#d9a77c" />
+            <path d="M-64 -4 Q-80 -70 -30 -86 Q0 -104 30 -86 Q80 -70 64 -4 Q60 -40 30 -50 Q0 -40 -30 -50 Q-60 -40 -64 -4 Z" fill="#07151e" />
+            <circle cx="-26" cy="-2" r="24" fill="#fff4e0" class="tinta" stroke-width="6" />
+            <circle cx="26" cy="-2" r="24" fill="#fff4e0" class="tinta" stroke-width="6" />
+            <circle class="s02-pupila" cx="-26" cy="-2" r="7" fill="#07151e" />
+            <circle class="s02-pupila" cx="26" cy="-2" r="7" fill="#07151e" />
+            <ellipse class="s02-boca" cx="0" cy="44" rx="16" ry="14" fill="#07151e" />
+            <path class="s02-gota" d="M70 -40 Q60 -20 70 -14 Q80 -20 70 -40 Z" fill="#fff4e0" />
+            <path d="M-68 -6 Q-70 -104 0 -104 Q70 -104 68 -6" fill="none" stroke="#e8dcc0" stroke-width="9" />
+            <rect x="-80" y="-24" width="22" height="46" rx="8" fill="#e8dcc0" />
+            <rect x="58" y="-24" width="22" height="46" rx="8" fill="#e8dcc0" />
+            <path d="M-70 18 Q-62 56 -24 50" fill="none" stroke="#e8dcc0" stroke-width="6" stroke-linecap="round" />
+            <circle cx="-20" cy="50" r="9" fill="#e8dcc0" />
+            <!-- brazo que señala -->
+            <g class="s02-brazoD"><path d="M110 170 Q190 110 240 40" fill="none" stroke="#e8dcc0" stroke-width="44" stroke-linecap="round" /><circle cx="246" cy="30" r="24" fill="#d9a77c" /></g>
+            <g class="s02-brazoI"><path d="M-110 170 Q-190 110 -240 40" fill="none" stroke="#e8dcc0" stroke-width="44" stroke-linecap="round" /><circle cx="-246" cy="30" r="24" fill="#d9a77c" /></g>
+          </g></g>
+          <!-- consola y teléfono -->
+          <g class="s02-consola">
+            <path d="M60 1150 L1020 1150 L1040 1330 L40 1330 Z" fill="#e8dcc0" />
+            <rect x="60" y="1136" width="960" height="22" fill="#cdbf9f" />
+            <circle cx="150" cy="1230" r="26" fill="#0f2a3a" /><path d="M150 1230 L150 1208" stroke="#e8dcc0" stroke-width="5" />
+            <circle cx="230" cy="1230" r="26" fill="#0f2a3a" /><path d="M230 1230 L248 1216" stroke="#e8dcc0" stroke-width="5" />
+            <rect x="320" y="1200" width="200" height="60" rx="6" fill="#120e05" />
+            <path class="fosforo" d="M340 1230 H500" stroke-dasharray="8 8" />
+          </g>
+          <g class="s02-telefono"><g transform="translate(820 1180)">
+            <path d="M-110 70 L-80 -20 L80 -20 L110 70 Z" fill="#d7263d" />
+            <circle cx="0" cy="26" r="34" fill="#e8dcc0" />
+            <circle cx="0" cy="26" r="12" fill="#d7263d" />
+            <path class="s02-tubo" d="M-120 -40 Q-120 -70 -90 -70 L90 -70 Q120 -70 120 -40 L90 -30 Q60 -50 0 -50 Q-60 -50 -90 -30 Z" fill="#d7263d" stroke="#07151e" stroke-width="4" />
+            <circle class="s02-luz" cx="96" cy="40" r="10" fill="#ffb000" />
+            <path class="s02-ondas" d="M-150 -90 Q-170 -60 -150 -30 M-180 -110 Q-210 -60 -180 -10 M150 -90 Q170 -60 150 -30 M180 -110 Q210 -60 180 -10" fill="none" stroke="#ffb000" stroke-width="6" stroke-linecap="round" />
+          </g></g>
+        </svg>
+        <div class="s02-etiqueta"><span class="s02-e1">Falla 1: stock</span><span class="s02-e2">Falla 2: proveedor</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-alarmas";
+      const DUR = 4.25;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const STOCK = 0.44, DATOS = 1.31, PROVEEDOR = 2.18, DEBEMOS = 3.31;
+
+      tl.fromTo(q(".s02-escenario"), { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      pop(q(".s02-mon1"), 0, 0.92);
+      pop(q(".s02-mon2"), 0.08, 0.92);
+      tl.fromTo(q(".s02-operador"), { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      dibujar([q(".s02-barras")], 0.05, 0.5, 0.6);
+      gsap.set([q(".s02-brazoD"), q(".s02-brazoI"), q(".s02-sindatos"), q(".s02-prov"), q(".s02-deuda"), q(".s02-ondas")], { opacity: 0 });
+      tl.fromTo(q(".s02-e1"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, STOCK);
+
+      // "Stock": señala el monitor; "datos": las barras se caen y SIN DATOS titila
+      tl.fromTo(q(".s02-brazoI"), { opacity: 0 }, { opacity: 1, duration: 0.02 }, STOCK);
+      tl.fromTo(q(".s02-brazoI"), { rotation: -30, svgOrigin: "360 1170" }, { rotation: 0, svgOrigin: "360 1170", duration: 0.25, ease: "back.out(2)" }, STOCK);
+      tl.to(q(".s02-barras"), { scaleY: 0.05, svgOrigin: "300 860", duration: 0.3, ease: "power2.in" }, DATOS - 0.2);
+      [0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4].forEach((d) => {
+        tl.set(q(".s02-sindatos"), { opacity: 1 }, DATOS + d);
+        tl.set(q(".s02-sindatos"), { opacity: 0.35 }, DATOS + d + 0.2);
+      });
+      temblor(q(".s02-mon1"), DATOS, 0.7);
+
+      // "proveedor": suena el teléfono
+      tl.set(q(".s02-ondas"), { opacity: 1 }, PROVEEDOR - 0.1);
+      for (let i = 0; i < 10; i++) tl.to(q(".s02-tubo"), { rotation: i % 2 ? 6 : -6, svgOrigin: "820 1120", y: -8, duration: 0.07, ease: "none" }, PROVEEDOR - 0.1 + i * 0.08);
+      tl.to(q(".s02-tubo"), { rotation: 0, y: 0, duration: 0.07 }, PROVEEDOR + 0.72);
+      tl.fromTo(q(".s02-ondas"), { scale: 0.8, svgOrigin: "820 1120" }, { scale: 1.15, svgOrigin: "820 1120", duration: 0.25, yoyo: true, repeat: 7, ease: "sine.inOut" }, PROVEEDOR - 0.1);
+      tl.to(q(".s02-luz"), { opacity: 0.2, duration: 0.1, yoyo: true, repeat: 15 }, PROVEEDOR - 0.1);
+      pop(q(".s02-prov"), PROVEEDOR);
+      tl.fromTo(q(".s02-brazoI"), { opacity: 1 }, { opacity: 0, duration: 0.1, immediateRender: false }, PROVEEDOR);
+      tl.fromTo(q(".s02-brazoD"), { opacity: 0 }, { opacity: 1, duration: 0.02, immediateRender: false }, PROVEEDOR);
+      tl.fromTo(q(".s02-brazoD"), { rotation: 30, svgOrigin: "580 1170" }, { rotation: 0, svgOrigin: "580 1170", duration: 0.25, ease: "back.out(2)" }, PROVEEDOR);
+      tl.to(q(".s02-e1"), { opacity: 0, y: -12, duration: 0.2 }, PROVEEDOR);
+      tl.fromTo(q(".s02-e2"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, PROVEEDOR + 0.1);
+
+      // "debemos": banda roja, el operador traga saliva
+      tl.fromTo(q(".s02-deuda"), { opacity: 0, scaleX: 0, svgOrigin: "775 820" }, { opacity: 1, scaleX: 1, svgOrigin: "775 820", duration: 0.2, ease: "power3.out" }, DEBEMOS - 0.05);
+      temblor(q(".s02-operador"), DEBEMOS);
+      tl.fromTo(q(".s02-gota"), { y: 0, opacity: 1 }, { y: 70, opacity: 0, duration: 0.7, ease: "power1.in" }, DEBEMOS + 0.1);
+      tl.to(qa(".s02-pupila"), { scale: 0.5, transformOrigin: "50% 50%", duration: 0.15 }, DEBEMOS);
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

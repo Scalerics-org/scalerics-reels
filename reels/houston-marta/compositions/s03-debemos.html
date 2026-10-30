@@ -1,0 +1,130 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-debemos"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-debemos"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-debemos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-debemos"] .marco { fill: #120e05; stroke: #e8dcc0; stroke-width: 8; stroke-linejoin: round; }
+    [data-composition-id="s03-debemos"] .txt { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s03-debemos"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s03-debemos"] .s03-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.3em; color: #ffb000; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s03-debemos"] .s03-etiqueta span { position: absolute; left: 0; right: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-debemos" data-width="1080" data-height="1920" data-duration="3.62">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.62" data-track-index="0">
+      <div class="s03-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <rect class="marco" x="110" y="600" width="860" height="360" rx="14" />
+          <!-- primero: la deuda -->
+          <g class="s03-deuda">
+            <text class="txt" x="540" y="672" font-size="30" fill="#ffb000" text-anchor="middle" letter-spacing="4">DEUDA CON PROVEEDOR</text>
+            <text class="txt" x="230" y="840" font-size="130" fill="#ffb000">$</text>
+            <g class="s03-signos">
+              <text class="txt s03-s1" x="360" y="840" font-size="130" fill="#ffb000">?</text>
+              <text class="txt s03-s2" x="490" y="840" font-size="130" fill="#ffb000">?</text>
+              <text class="txt s03-s3" x="620" y="840" font-size="130" fill="#ffb000">?</text>
+              <text class="txt s03-s4" x="750" y="840" font-size="130" fill="#ffb000">?</text>
+            </g>
+            <text class="txt" x="540" y="920" font-size="26" fill="#d7263d" text-anchor="middle" letter-spacing="3">BUSCANDO REGISTRO...</text>
+          </g>
+          <!-- después: la fuente de datos es Marta -->
+          <g class="s03-fuente">
+            <text class="txt" x="160" y="680" font-size="30" fill="#ffb000" letter-spacing="4">FUENTE DE DATOS:</text>
+            <text class="txt" x="160" y="830" font-size="140" fill="#d7263d" letter-spacing="6">MARTA</text>
+            <text class="txt" x="160" y="910" font-size="26" fill="#ffb000" letter-spacing="3">UBICACIÓN: LA PLAYA</text>
+            <g transform="translate(820 780) rotate(5)">
+              <rect x="-100" y="-130" width="200" height="236" fill="#fff4e0" />
+              <rect x="-86" y="-116" width="172" height="160" fill="#ffb000" />
+              <rect x="-86" y="-116" width="172" height="70" fill="#3d7ea6" />
+              <circle cx="50" cy="-86" r="16" fill="#fff4e0" />
+              <path d="M-80 -6 Q-20 -60 40 -6 Z" fill="#d7263d" />
+              <path d="M-20 -6 V40" stroke="#07151e" stroke-width="4" />
+              <circle cx="22" cy="10" r="14" fill="#d9a77c" />
+              <path d="M8 6 Q10 -10 22 -8 Q36 -8 36 6 Q38 -4 28 -12 Q12 -18 4 -4 Z" fill="#07151e" />
+              <path d="M6 30 Q22 18 40 30 L40 44 L6 44 Z" fill="#d7263d" />
+              <text class="mano" x="0" y="92" font-size="38" fill="#0f2a3a" text-anchor="middle">Marta</text>
+            </g>
+          </g>
+          <!-- la sala, de espaldas: tres operadores -->
+          <g class="s03-sala">
+            <path d="M40 1210 L1040 1210 L1040 1330 L40 1330 Z" fill="#e8dcc0" />
+            <rect x="40" y="1196" width="1000" height="20" fill="#cdbf9f" />
+          </g>
+          <g class="s03-op s03-op1"><g transform="translate(220 1090)">
+            <g class="s03-hombros"><path d="M-120 130 Q-110 40 -40 34 L40 34 Q110 40 120 130 Z" fill="#fff4e0" /></g>
+            <circle cx="0" cy="-10" r="56" fill="#07151e" />
+            <path d="M-60 -10 Q-60 -80 0 -80 Q60 -80 60 -10" fill="none" stroke="#e8dcc0" stroke-width="8" />
+            <g class="s03-manos"><circle cx="-130" cy="40" r="22" fill="#d9a77c" /><circle cx="130" cy="40" r="22" fill="#d9a77c" /></g>
+          </g></g>
+          <g class="s03-op s03-op2"><g transform="translate(540 1080)">
+            <g class="s03-hombros"><path d="M-130 140 Q-120 44 -44 36 L44 36 Q120 44 130 140 Z" fill="#e8dcc0" stroke="#07151e" stroke-width="4" /></g>
+            <path d="M-56 -10 Q-80 -70 -30 -82 Q0 -96 30 -82 Q80 -70 56 -10 Z" fill="#07151e" />
+            <circle cx="0" cy="-6" r="54" fill="#07151e" />
+            <path d="M-60 -10 Q-60 -82 0 -82 Q60 -82 60 -10" fill="none" stroke="#e8dcc0" stroke-width="8" />
+            <g class="s03-manos"><circle cx="-140" cy="40" r="22" fill="#d9a77c" /><circle cx="140" cy="40" r="22" fill="#d9a77c" /></g>
+          </g></g>
+          <g class="s03-op s03-op3"><g transform="translate(860 1090)">
+            <g class="s03-hombros"><path d="M-120 130 Q-110 40 -40 34 L40 34 Q110 40 120 130 Z" fill="#ffb000" /></g>
+            <circle cx="0" cy="-10" r="56" fill="#07151e" />
+            <path d="M-60 -10 Q-60 -80 0 -80 Q60 -80 60 -10" fill="none" stroke="#e8dcc0" stroke-width="8" />
+            <g class="s03-manos"><circle cx="-130" cy="40" r="22" fill="#d9a77c" /><circle cx="130" cy="40" r="22" fill="#d9a77c" /></g>
+          </g></g>
+          <!-- signos de pregunta sobre las cabezas -->
+          <g class="s03-dudas">
+            <text class="mano s03-d1" x="220" y="1000" font-size="80" fill="#ffb000" text-anchor="middle">?</text>
+            <text class="mano s03-d2" x="540" y="990" font-size="80" fill="#ffb000" text-anchor="middle">?</text>
+            <text class="mano s03-d3" x="860" y="1000" font-size="80" fill="#ffb000" text-anchor="middle">?</text>
+          </g>
+        </svg>
+        <div class="s03-etiqueta"><span class="s03-e1">¿Cuánto?</span><span class="s03-e2">Nadie sabe</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-debemos";
+      const DUR = 3.62;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const CUANTO = 0, NADIE = 1.25, MARTA = 2.82;
+
+      tl.fromTo(q(".s03-escenario"), { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s03-deuda"), { opacity: 0.4 }, { opacity: 1, duration: 0.2 }, 0);
+      gsap.set([q(".s03-fuente"), q(".s03-d1"), q(".s03-d2"), q(".s03-d3")], { opacity: 0 });
+      tl.fromTo(qa(".s03-op"), { y: 60 }, { y: 0, duration: 0.35, ease: "power3.out", stagger: 0.05 }, 0);
+      tl.fromTo(q(".s03-e1"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, 0.05);
+      // los signos titilan como un contador que no encuentra nada
+      ["s1", "s2", "s3", "s4"].forEach((s, i) => {
+        for (let k = 0; k < 8; k++) tl.set(q(".s03-" + s), { opacity: k % 2 ? 1 : 0.25 }, CUANTO + 0.1 + k * 0.17 + i * 0.05);
+      });
+
+      // "Nadie sabe": los tres se encogen de hombros
+      qa(".s03-op").forEach((op, i) => {
+        tl.to(op.querySelector(".s03-hombros"), { y: -26, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1, repeatDelay: 0.35 }, NADIE + i * 0.08);
+        tl.to(op.querySelector(".s03-manos"), { y: -50, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1, repeatDelay: 0.35 }, NADIE + i * 0.08);
+      });
+      ["d1", "d2", "d3"].forEach((d, i) => pop(q(".s03-" + d), NADIE + 0.1 + i * 0.1, 0.4));
+      tl.to(q(".s03-e1"), { opacity: 0, y: -12, duration: 0.2 }, NADIE);
+      tl.fromTo(q(".s03-e2"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, NADIE + 0.1);
+
+      // "Marta": la pantalla cambia a la fuente de datos
+      tl.to(q(".s03-deuda"), { opacity: 0, duration: 0.12 }, MARTA - 0.15);
+      pop(q(".s03-fuente"), MARTA - 0.1, 1.15);
+      temblor(q(".s03-fuente"), MARTA + 0.25, 0.6);
+      tl.to([q(".s03-d1"), q(".s03-d2"), q(".s03-d3")], { opacity: 0, duration: 0.2 }, MARTA);
+      tl.to(qa(".s03-op"), { y: -10, duration: 0.2, ease: "power2.out" }, MARTA);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

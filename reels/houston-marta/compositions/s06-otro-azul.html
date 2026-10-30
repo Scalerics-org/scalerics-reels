@@ -1,0 +1,97 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-otro-azul"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-otro-azul"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-otro-azul"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-otro-azul"] .txt { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s06-otro-azul"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s06-otro-azul"] .s06-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.3em; color: #ffb000; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-otro-azul"] .s06-etiqueta span { position: absolute; left: 0; right: 0; }
+  </style>
+  <div id="root" data-composition-id="s06-otro-azul" data-width="1080" data-height="1920" data-duration="4.35">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="4.35" data-track-index="0">
+      <div class="s06-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el estante de la trastienda con los cuadernos azules -->
+          <rect x="90" y="1150" width="900" height="26" fill="#e8dcc0" />
+          <rect x="110" y="1176" width="30" height="120" fill="#cdbf9f" />
+          <rect x="940" y="1176" width="30" height="120" fill="#cdbf9f" />
+          <g class="s06-c s06-c1"><rect x="150" y="770" width="140" height="380" rx="6" fill="#3d7ea6" stroke="#07151e" stroke-width="5" /><path d="M150 830 H290 M150 1090 H290" stroke="#07151e" stroke-width="4" /><text class="mano" x="220" y="980" font-size="44" fill="#fff4e0" text-anchor="middle" transform="rotate(-90 220 980)">cuentas</text></g>
+          <g class="s06-c s06-c2"><rect x="310" y="790" width="140" height="360" rx="6" fill="#3d7ea6" stroke="#07151e" stroke-width="5" /><path d="M310 850 H450 M310 1090 H450" stroke="#07151e" stroke-width="4" /><text class="mano" x="380" y="990" font-size="44" fill="#fff4e0" text-anchor="middle" transform="rotate(-90 380 990)">cuentas</text></g>
+          <g class="s06-c s06-c3"><rect x="470" y="760" width="140" height="390" rx="6" fill="#3d7ea6" stroke="#07151e" stroke-width="5" /><path d="M470 820 H610 M470 1090 H610" stroke="#07151e" stroke-width="4" /><text class="mano" x="540" y="975" font-size="44" fill="#fff4e0" text-anchor="middle" transform="rotate(-90 540 975)">cuentas</text></g>
+          <g class="s06-c s06-c4"><rect x="630" y="780" width="140" height="370" rx="6" fill="#3d7ea6" stroke="#07151e" stroke-width="5" /><path d="M630 840 H770 M630 1090 H770" stroke="#07151e" stroke-width="4" /><text class="mano" x="700" y="985" font-size="44" fill="#fff4e0" text-anchor="middle" transform="rotate(-90 700 985)">cuentas</text></g>
+          <g class="s06-c s06-c5"><rect x="790" y="770" width="140" height="380" rx="6" fill="#3d7ea6" stroke="#07151e" stroke-width="5" /><path d="M790 830 H930 M790 1090 H930" stroke="#07151e" stroke-width="4" /><text class="mano" x="860" y="980" font-size="44" fill="#fff4e0" text-anchor="middle" transform="rotate(-90 860 980)">cuentas</text></g>
+          <!-- el selector ámbar que salta -->
+          <rect class="s06-sel" x="140" y="740" width="160" height="420" rx="10" fill="none" stroke="#ffb000" stroke-width="7" stroke-dasharray="20 12" />
+          <path class="s06-x" d="M170 820 L270 1080 M270 820 L170 1080" stroke="#d7263d" stroke-width="14" stroke-linecap="round" />
+          <!-- el cuaderno con la mancha de mate, que sale al frente -->
+          <g class="s06-elegido"><g transform="translate(540 980) rotate(-6)">
+            <rect x="-190" y="-250" width="380" height="500" rx="10" fill="#3d7ea6" stroke="#07151e" stroke-width="6" />
+            <path d="M-150 -250 V250" stroke="#07151e" stroke-width="6" />
+            <rect x="-90" y="-180" width="220" height="80" fill="#fff4e0" />
+            <text class="mano" x="20" y="-124" font-size="52" fill="#0f2a3a" text-anchor="middle">cuentas</text>
+            <circle class="s06-mancha" cx="40" cy="90" r="90" fill="none" stroke="#a87d3a" stroke-width="22" opacity="0.85" />
+            <circle cx="70" cy="140" r="16" fill="#a87d3a" opacity="0.6" />
+          </g></g>
+          <g class="s06-mate"><g transform="translate(820 1180)">
+            <path d="M-50 -30 Q-66 70 0 80 Q66 70 50 -30 Z" fill="#e8dcc0" stroke="#07151e" stroke-width="5" />
+            <ellipse cx="0" cy="-30" rx="50" ry="12" fill="#a87d3a" stroke="#07151e" stroke-width="5" />
+            <path d="M14 -34 L44 -120" stroke="#e8dcc0" stroke-width="10" stroke-linecap="round" />
+          </g></g>
+          <!-- la radio de Marta, arriba a la derecha -->
+          <g class="s06-radio">
+            <rect x="680" y="600" width="300" height="110" rx="10" fill="#120e05" stroke="#e8dcc0" stroke-width="5" />
+            <text class="txt" x="700" y="636" font-size="22" fill="#d7263d" letter-spacing="2">● PIRIÁPOLIS</text>
+            <path class="s06-onda" d="M700 680 Q715 660 730 680 T760 680 T790 680 T820 680 T850 680 T880 680 T910 680 T940 680 T970 680" fill="none" stroke="#ffb000" stroke-width="4" />
+          </g>
+        </svg>
+        <div class="s06-etiqueta"><span class="s06-e1">Ese no</span><span class="s06-e2">El otro azul</span><span class="s06-e3">El de la mancha de mate</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-otro-azul";
+      const DUR = 4.35;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const etiq = (a, b, t) => { if (a) tl.to(q(a), { opacity: 0, y: -12, duration: 0.2 }, t); tl.fromTo(q(b), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t + 0.1); };
+
+      const NO = 0.61, OTRO = 1.48, MANCHA = 3.13, MATE = 3.48;
+
+      tl.fromTo(q(".s06-escenario"), { scale: 1.04 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(qa(".s06-c"), { y: 30, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3, stagger: 0.04, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s06-onda"), { x: 0 }, { x: -60, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s06-onda"), { scaleY: 0.4, svgOrigin: "830 680" }, { scaleY: 1.6, svgOrigin: "830 680", duration: 0.18, yoyo: true, repeat: 22, ease: "sine.inOut" }, 0);
+      gsap.set([q(".s06-x"), q(".s06-elegido"), q(".s06-mate")], { opacity: 0 });
+      etiq(null, ".s06-e1", 0);
+      tl.fromTo(q(".s06-sel"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, 0.1);
+      // "no": cruz roja sobre el primero
+      tl.fromTo(q(".s06-x"), { opacity: 0, scale: 1.6, svgOrigin: "220 950" }, { opacity: 1, scale: 1, svgOrigin: "220 950", duration: 0.16, ease: "power4.in" }, NO);
+      // "otro azul": el selector salta de uno a otro, todos iguales
+      tl.to(q(".s06-x"), { opacity: 0, duration: 0.15 }, OTRO - 0.1);
+      [160, 320, 480, 640].forEach((x, i) => tl.to(q(".s06-sel"), { x: x, duration: 0.14, ease: "power3.out" }, OTRO + i * 0.2));
+      tl.to(q(".s06-sel"), { x: 320, duration: 0.2, ease: "power3.out" }, OTRO + 0.95);
+      etiq(".s06-e1", ".s06-e2", OTRO);
+      // "mancha de mate": sale el cuaderno al frente con la mancha
+      tl.to(q(".s06-sel"), { opacity: 0, duration: 0.1 }, MANCHA - 0.4);
+      tl.to(qa(".s06-c"), { opacity: 0.3, duration: 0.2 }, MANCHA - 0.4);
+      tl.fromTo(q(".s06-elegido"), { opacity: 0, y: 120, scale: 0.6, svgOrigin: "540 980" }, { opacity: 1, y: 0, scale: 1, svgOrigin: "540 980", duration: 0.4, ease: "back.out(1.4)" }, MANCHA - 0.4);
+      tl.fromTo(q(".s06-mancha"), { scale: 0.3, opacity: 0, svgOrigin: "580 1060" }, { scale: 1, opacity: 0.85, svgOrigin: "580 1060", duration: 0.3, ease: "back.out(2)" }, MANCHA);
+      pop(q(".s06-mate"), MATE);
+      tl.to(q(".s06-mate"), { rotation: 8, svgOrigin: "820 1260", duration: 0.25, yoyo: true, repeat: 1 }, MATE + 0.35);
+      etiq(".s06-e2", ".s06-e3", MANCHA);
+
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

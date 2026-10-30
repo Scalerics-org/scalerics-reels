@@ -1,0 +1,174 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-houston"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-houston"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-houston"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-houston"] .marco { fill: #120e05; stroke: #e8dcc0; stroke-width: 8; stroke-linejoin: round; }
+    [data-composition-id="s01-houston"] .fosforo { fill: none; stroke: #ffb000; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-houston"] .grilla { fill: none; stroke: #ffb000; stroke-width: 2; opacity: 0.22; }
+    [data-composition-id="s01-houston"] .tinta { stroke: #07151e; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-houston"] .txt { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s01-houston"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s01-houston"] .s01-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.3em; color: #ffb000; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-houston"] .s01-etiqueta span { position: absolute; left: 0; right: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-houston" data-width="1080" data-height="1920" data-duration="4.12">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.12" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la pantalla grande del frente -->
+          <rect class="marco s01-pantalla" x="110" y="596" width="860" height="400" rx="14" />
+          <g class="s01-grilla">
+            <path class="grilla" d="M110 680 H970 M110 760 H970 M110 840 H970 M110 920 H970 M250 596 V996 M390 596 V996 M530 596 V996 M670 596 V996 M810 596 V996" />
+          </g>
+          <text class="txt s01-titulo" x="140" y="640" font-size="24" fill="#ffb000" letter-spacing="3">TRAYECTORIA · LOCAL 1</text>
+          <path class="fosforo s01-traza" d="M150 960 C 300 950, 420 860, 520 790 S 700 690, 800 700" stroke-dasharray="2 16" />
+          <!-- la nave-local: un local con toldo y aletas de cohete -->
+          <g class="s01-nave"><g transform="translate(800 700) rotate(-18)">
+            <path d="M-40 -46 L40 -46 L48 -20 L-48 -20 Z" fill="#d7263d" />
+            <rect x="-40" y="-20" width="80" height="60" fill="#e8dcc0" />
+            <rect x="-12" y="4" width="24" height="36" fill="#0f2a3a" />
+            <path d="M-40 18 L-62 44 L-40 40 Z M40 18 L62 44 L40 40 Z" fill="#d7263d" />
+            <path class="s01-fuego" d="M-24 42 Q0 96 24 42 Z" fill="#ffb000" />
+          </g></g>
+          <!-- alarma: el marco se pone rojo -->
+          <rect class="s01-alarma" x="110" y="596" width="860" height="400" rx="14" fill="none" stroke="#d7263d" stroke-width="12" />
+          <g class="s01-alerta">
+            <rect x="660" y="616" width="290" height="50" fill="#d7263d" />
+            <text class="txt" x="805" y="652" font-size="28" fill="#fff4e0" text-anchor="middle" letter-spacing="4">ALERTA</text>
+          </g>
+          <!-- la polaroid de Marta en la playa -->
+          <g class="s01-polaroid"><g transform="translate(700 760) rotate(6)">
+            <rect x="-130" y="-130" width="260" height="300" fill="#fff4e0" />
+            <rect x="-112" y="-112" width="224" height="200" fill="#ffb000" />
+            <rect x="-112" y="-112" width="224" height="90" fill="#3d7ea6" />
+            <path d="M-112 -30 Q-56 -44 0 -30 T 112 -30 V-22 H-112 Z" fill="#0f2a3a" />
+            <circle cx="70" cy="-80" r="20" fill="#fff4e0" />
+            <!-- sombrilla -->
+            <path d="M-30 -20 L-30 70" class="tinta" fill="none" />
+            <path d="M-100 -12 Q-30 -76 40 -12 Z" fill="#d7263d" />
+            <path d="M-76 -12 Q-30 -60 16 -12" fill="none" stroke="#fff4e0" stroke-width="10" />
+            <!-- Marta en la reposera -->
+            <path d="M-6 74 L40 30 L72 74" fill="none" stroke="#0f2a3a" stroke-width="6" stroke-linecap="round" />
+            <path d="M8 40 Q30 20 56 46 L44 64 Q26 56 12 62 Z" fill="#d7263d" />
+            <circle cx="16" cy="22" r="17" fill="#d9a77c" />
+            <path d="M0 18 Q2 0 18 2 Q34 2 34 18 Q38 6 26 -2 Q10 -8 -2 6 Z" fill="#07151e" />
+            <rect x="8" y="16" width="22" height="7" rx="3" fill="#07151e" />
+            <text class="mano" x="0" y="148" font-size="44" fill="#0f2a3a" text-anchor="middle">Marta</text>
+          </g></g>
+          <g class="s01-sello"><g transform="translate(700 740) rotate(-12)">
+            <rect x="-190" y="-40" width="380" height="80" fill="none" stroke="#d7263d" stroke-width="7" />
+            <text class="txt" x="0" y="14" font-size="40" fill="#d7263d" text-anchor="middle" letter-spacing="3">DE VACACIONES</text>
+          </g></g>
+          <!-- el director de vuelo -->
+          <g class="s01-director"><g transform="translate(330 960)">
+            <path d="M-160 330 L-150 180 Q-140 104 -60 92 L60 92 Q140 104 150 180 L160 330 Z" fill="#fff4e0" class="tinta" />
+            <path d="M-40 92 L0 128 L40 92" fill="none" class="tinta" />
+            <path d="M0 126 L-16 150 L0 290 L16 150 Z" fill="#d7263d" />
+            <rect x="-26" y="54" width="52" height="46" fill="#d9a77c" />
+            <ellipse cx="0" cy="0" rx="64" ry="74" fill="#d9a77c" />
+            <path d="M-64 -10 Q-66 -84 0 -86 Q66 -84 64 -10 L54 -40 Q0 -56 -54 -40 Z" fill="#07151e" />
+            <g class="s01-cejas"><path d="M-46 -26 L-12 -18 M46 -26 L12 -18" class="tinta" stroke-width="7" fill="none" /></g>
+            <rect x="-48" y="-14" width="40" height="30" rx="6" fill="none" class="tinta" stroke-width="6" />
+            <rect x="8" y="-14" width="40" height="30" rx="6" fill="none" class="tinta" stroke-width="6" />
+            <path d="M-8 0 H8" class="tinta" stroke-width="5" />
+            <ellipse class="s01-boca" cx="0" cy="42" rx="18" ry="12" fill="#07151e" />
+            <!-- auriculares con micrófono -->
+            <path d="M-70 -6 Q-72 -106 0 -106 Q72 -106 70 -6" fill="none" stroke="#e8dcc0" stroke-width="9" />
+            <rect x="-82" y="-24" width="22" height="46" rx="8" fill="#e8dcc0" />
+            <rect x="60" y="-24" width="22" height="46" rx="8" fill="#e8dcc0" />
+            <path d="M-72 18 Q-64 56 -26 50" fill="none" stroke="#e8dcc0" stroke-width="6" stroke-linecap="round" />
+            <circle cx="-22" cy="50" r="9" fill="#e8dcc0" />
+            <!-- la mano sobre el micrófono -->
+            <path d="M-120 330 L-110 170 Q-80 70 -40 60" fill="none" stroke="#fff4e0" stroke-width="44" stroke-linecap="round" />
+            <circle cx="-38" cy="60" r="24" fill="#d9a77c" />
+          </g></g>
+          <!-- la consola beige -->
+          <g class="s01-consola">
+            <path d="M60 1150 L1020 1150 L1040 1330 L40 1330 Z" fill="#e8dcc0" />
+            <rect x="60" y="1136" width="960" height="22" fill="#cdbf9f" />
+            <rect x="560" y="1176" width="170" height="90" rx="6" fill="#120e05" />
+            <rect x="760" y="1176" width="170" height="90" rx="6" fill="#120e05" />
+            <path class="fosforo" d="M580 1240 L610 1210 L640 1230 L680 1196 L710 1220" stroke-width="3" />
+            <path class="fosforo" d="M780 1200 H900 M780 1222 H860 M780 1244 H880" stroke-width="3" />
+            <g class="s01-perillas">
+              <circle cx="150" cy="1220" r="26" fill="#0f2a3a" /><path d="M150 1220 L150 1198" stroke="#e8dcc0" stroke-width="5" />
+              <circle cx="230" cy="1220" r="26" fill="#0f2a3a" /><path d="M230 1220 L248 1206" stroke="#e8dcc0" stroke-width="5" />
+              <circle cx="310" cy="1220" r="26" fill="#0f2a3a" /><path d="M310 1220 L292 1206" stroke="#e8dcc0" stroke-width="5" />
+            </g>
+            <circle class="s01-boton1" cx="410" cy="1220" r="22" fill="#d7263d" />
+            <circle class="s01-boton2" cx="480" cy="1220" r="22" fill="#ffb000" />
+            <path d="M120 1290 H500" stroke="#0f2a3a" stroke-width="6" stroke-dasharray="20 14" />
+          </g>
+        </svg>
+        <div class="s01-etiqueta"><span class="s01-e1">Misión: Local 1</span><span class="s01-e2">Encargada: ausente</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-houston";
+      const DUR = 4.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const sello = (el, t) => tl.fromTo(el, { opacity: 0, scale: 2.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const PROBLEMA = 1.09, MARTA = 1.91, VACACIONES = 2.82;
+
+      // cuadro 0: todo ya a medio armar, cámara que se acerca
+      tl.fromTo(q(".s01-escenario"), { scale: 1.06 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s01-director"), { y: 40, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-consola"), { y: 30 }, { y: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-grilla"), { opacity: 0.3 }, { opacity: 1, duration: 0.4 }, 0);
+      dibujar([q(".s01-traza")], 0, 0.9, 0.5);
+      tl.set(q(".s01-traza"), { strokeDasharray: "2 16", strokeDashoffset: 0 }, 0.95);
+      tl.fromTo(q(".s01-nave"), { x: -60, y: 40 }, { x: 0, y: 0, duration: 1.0, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s01-fuego"), { scaleY: 0.7, transformOrigin: "50% 0%" }, { scaleY: 1.2, duration: 0.12, yoyo: true, repeat: 30, ease: "none" }, 0);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, 0.1);
+
+      // "problema": alarma, el director tiembla y abre la boca
+      gsap.set([q(".s01-alarma"), q(".s01-alerta")], { opacity: 0 });
+      [0, 0.36, 0.72, 1.08, 1.44, 1.8, 2.16, 2.52].forEach((d) => {
+        tl.to([q(".s01-alarma"), q(".s01-alerta")], { opacity: 1, duration: 0.04 }, PROBLEMA + d);
+        tl.to([q(".s01-alarma"), q(".s01-alerta")], { opacity: 0.25, duration: 0.14 }, PROBLEMA + d + 0.2);
+      });
+      temblor(q(".s01-director"), PROBLEMA);
+      tl.fromTo(q(".s01-boca"), { scaleY: 1, transformOrigin: "50% 50%" }, { scaleY: 1.8, duration: 0.15 }, PROBLEMA);
+      tl.to(q(".s01-cejas"), { y: -8, duration: 0.15 }, PROBLEMA);
+      [0, 0.3, 0.6, 0.9].forEach((d, i) => tl.to(q(i % 2 ? ".s01-boton1" : ".s01-boton2"), { opacity: 0.3, duration: 0.05, yoyo: true, repeat: 1 }, PROBLEMA + d));
+
+      // "Marta": la polaroid entra a la pantalla
+      tl.fromTo(q(".s01-polaroid"), { opacity: 0, y: 160, rotation: 14, svgOrigin: "700 760" }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "700 760", duration: 0.45, ease: "back.out(1.4)" }, MARTA - 0.1);
+      tl.to(q(".s01-nave"), { opacity: 0.35, duration: 0.3 }, MARTA);
+      // "vacaciones": sello rojo
+      sello(q(".s01-sello"), VACACIONES);
+      temblor(q(".s01-polaroid"), VACACIONES + 0.14, 0.6);
+      tl.to(q(".s01-e1"), { opacity: 0, y: -12, duration: 0.2 }, VACACIONES);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, VACACIONES + 0.1);
+      tl.to(q(".s01-director"), { rotation: -4, svgOrigin: "330 1290", duration: 0.5, ease: "sine.inOut" }, VACACIONES + 0.2);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

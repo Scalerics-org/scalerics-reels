@@ -1,0 +1,98 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-senal"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-senal"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-senal"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-senal"] .txt { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s08-senal"] .s08-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.3em; color: #ffb000; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s08-senal"] .s08-etiqueta span { position: absolute; left: 0; right: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-senal" data-width="1080" data-height="1920" data-duration="5.94">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="5.94" data-track-index="0">
+      <div class="s08-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <clipPath id="s08-clip"><rect x="250" y="660" width="580" height="400" rx="30" /></clipPath>
+            <filter id="s08-ruido"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="9" /><feColorMatrix type="saturate" values="0" /></filter>
+          </defs>
+          <!-- la compu: monitor beige de época -->
+          <rect x="200" y="610" width="680" height="500" rx="40" fill="#e8dcc0" stroke="#07151e" stroke-width="5" />
+          <rect x="250" y="660" width="580" height="400" rx="30" fill="#120e05" />
+          <path d="M440 1110 L400 1170 H680 L640 1110 Z" fill="#cdbf9f" stroke="#07151e" stroke-width="5" />
+          <rect x="300" y="1170" width="480" height="30" rx="6" fill="#e8dcc0" stroke="#07151e" stroke-width="5" />
+          <circle class="s08-led" cx="820" cy="1082" r="9" fill="#ffb000" />
+          <g clip-path="url(#s08-clip)">
+            <g class="s08-login">
+              <text class="txt" x="290" y="730" font-size="28" fill="#ffb000" letter-spacing="3">LOCAL 1 · SISTEMA</text>
+              <text class="txt" x="290" y="820" font-size="44" fill="#ffb000" letter-spacing="3">CLAVE:</text>
+              <rect x="290" y="850" width="500" height="80" fill="none" stroke="#ffb000" stroke-width="4" />
+              <text class="txt s08-p1" x="320" y="908" font-size="50" fill="#ffb000">*</text>
+              <text class="txt s08-p2" x="370" y="908" font-size="50" fill="#ffb000">*</text>
+              <text class="txt s08-p3" x="420" y="908" font-size="50" fill="#ffb000">*</text>
+              <rect class="s08-cursor" x="470" y="868" width="26" height="46" fill="#ffb000" />
+              <text class="txt" x="290" y="1010" font-size="24" fill="#ffb000" opacity="0.7" letter-spacing="2">PISTA: "la de siempre"</text>
+            </g>
+            <g class="s08-estatica">
+              <rect x="190" y="620" width="700" height="480" filter="url(#s08-ruido)" />
+              <rect x="300" y="800" width="480" height="110" fill="#120e05" />
+              <text class="txt" x="540" y="878" font-size="62" fill="#d7263d" text-anchor="middle" letter-spacing="6">SIN SEÑAL</text>
+            </g>
+          </g>
+          <!-- la radio con Marta: osciloscopio -->
+          <g class="s08-radio">
+            <rect x="200" y="1220" width="680" height="100" rx="10" fill="#120e05" stroke="#e8dcc0" stroke-width="5" />
+            <text class="txt s08-rotradio" x="222" y="1258" font-size="22" fill="#d7263d" letter-spacing="2">● MARTA · PIRIÁPOLIS</text>
+            <path class="s08-onda" d="M520 1270 Q535 1240 550 1270 T580 1270 T610 1270 T640 1270 T670 1270 T700 1270 T730 1270 T760 1270 T790 1270 T820 1270 T850 1270" fill="none" stroke="#ffb000" stroke-width="4" />
+            <path class="s08-plana" d="M520 1270 H860" stroke="#d7263d" stroke-width="4" />
+          </g>
+        </svg>
+        <div class="s08-etiqueta"><span class="s08-e1">Clave de la compu</span><span class="s08-e2">Se cortó</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-senal";
+      const DUR = 5.94;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const etiq = (a, b, t) => { if (a) tl.to(q(a), { opacity: 0, y: -12, duration: 0.2 }, t); tl.fromTo(q(b), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t + 0.1); };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const CLAVE = 2.7, COMPU = 3.13, ES = 3.57, CORTE = 4.0, PERDIMOS = 4.49;
+
+      tl.fromTo(q(".s08-escenario"), { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s08-login"), { opacity: 0.3 }, { opacity: 1, duration: 0.3 }, 0);
+      gsap.set([q(".s08-p1"), q(".s08-p2"), q(".s08-p3"), q(".s08-estatica"), q(".s08-plana")], { opacity: 0 });
+      // cursor que titila
+      for (let k = 0; k < 14; k++) tl.set(q(".s08-cursor"), { opacity: k % 2 ? 1 : 0 }, k * 0.3);
+      // la onda de Marta que habla
+      tl.fromTo(q(".s08-onda"), { x: 0 }, { x: -60, duration: CORTE, ease: "none" }, 0);
+      tl.fromTo(q(".s08-onda"), { scaleY: 0.5, svgOrigin: "690 1270" }, { scaleY: 1.5, svgOrigin: "690 1270", duration: 0.16, yoyo: true, repeat: 23, ease: "sine.inOut" }, 0);
+      etiq(null, ".s08-e1", 0.1);
+      // "clave ... compu ... es": los asteriscos, uno por palabra
+      tl.set(q(".s08-p1"), { opacity: 1 }, CLAVE);
+      tl.set(q(".s08-p2"), { opacity: 1 }, COMPU);
+      tl.set(q(".s08-p3"), { opacity: 1 }, ES);
+      tl.to(q(".s08-login"), { scale: 1.06, svgOrigin: "540 890", duration: 1.2, ease: "power1.in" }, CLAVE);
+      // el corte: la onda queda plana, estática en la pantalla
+      tl.set(q(".s08-onda"), { opacity: 0 }, CORTE);
+      tl.set(q(".s08-plana"), { opacity: 1 }, CORTE);
+      tl.set(q(".s08-rotradio"), { opacity: 0.3 }, CORTE);
+      tl.set(q(".s08-estatica"), { opacity: 1 }, CORTE + 0.05);
+      tl.set(q(".s08-login"), { opacity: 0 }, CORTE + 0.05);
+      tl.fromTo(q(".s08-estatica rect"), { x: 0, y: 0 }, { x: 40, y: -30, duration: DUR - CORTE, ease: "steps(" + Math.round((DUR - CORTE) * 20) + ")" }, CORTE);
+      temblor(q(".s08-escenario"), PERDIMOS, 1.2);
+      for (let k = 0; k < 4; k++) tl.to(q(".s08-led"), { opacity: k % 2 ? 1 : 0, duration: 0.05 }, PERDIMOS + k * 0.2);
+      etiq(".s08-e1", ".s08-e2", PERDIMOS);
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

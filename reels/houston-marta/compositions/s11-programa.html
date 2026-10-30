@@ -1,0 +1,133 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-programa"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-programa"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-programa"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-programa"] .txt { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s11-programa"] .s11-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.3em; color: #ffb000; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-programa"] .s11-etiqueta span { position: absolute; left: 0; right: 0; }
+  </style>
+  <div id="root" data-composition-id="s11-programa" data-width="1080" data-height="1920" data-duration="9.74">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="9.74" data-track-index="0">
+      <div class="s11-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la pantalla del sistema -->
+          <rect class="s11-pantalla" x="100" y="620" width="880" height="500" rx="16" fill="#120e05" stroke="#e8dcc0" stroke-width="8" />
+          <g class="s11-cabecera">
+            <rect x="104" y="624" width="872" height="70" rx="12" fill="#ffb000" />
+            <text class="txt s11-h1" x="140" y="671" font-size="30" fill="#120e05" letter-spacing="3">LOCAL 1 · HECHO A MEDIDA</text>
+            <text class="txt s11-h2" x="140" y="671" font-size="30" fill="#120e05" letter-spacing="3">COMO TRABAJA MI LOCAL</text>
+          </g>
+          <!-- la cinta métrica: "a medida" -->
+          <g class="s11-cinta">
+            <rect x="96" y="574" width="888" height="34" fill="#ffb000" stroke="#07151e" stroke-width="3" />
+            <path d="M130 574 V594 M170 574 V588 M210 574 V594 M250 574 V588 M290 574 V594 M330 574 V588 M370 574 V594 M410 574 V588 M450 574 V594 M490 574 V588 M530 574 V594 M570 574 V588 M610 574 V594 M650 574 V588 M690 574 V594 M730 574 V588 M770 574 V594 M810 574 V588 M850 574 V594 M890 574 V588 M930 574 V594" stroke="#07151e" stroke-width="3" />
+            <rect x="960" y="560" width="70" height="62" rx="10" fill="#d7263d" stroke="#07151e" stroke-width="3" />
+          </g>
+          <!-- las filas -->
+          <g class="s11-f s11-f1">
+            <text class="txt" x="140" y="770" font-size="40" fill="#ffb000" letter-spacing="2">STOCK</text>
+            <text class="txt" x="500" y="770" font-size="32" fill="#fff4e0">al día</text>
+            <path class="s11-tic" d="M880 752 L900 772 L940 730" fill="none" stroke="#ffb000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <g class="s11-f s11-f2">
+            <text class="txt" x="140" y="860" font-size="40" fill="#ffb000" letter-spacing="2">PEDIDOS</text>
+            <text class="txt" x="500" y="860" font-size="32" fill="#fff4e0">ordenados</text>
+            <path class="s11-tic" d="M880 842 L900 862 L940 820" fill="none" stroke="#ffb000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <g class="s11-f s11-f3">
+            <text class="txt" x="140" y="950" font-size="40" fill="#ffb000" letter-spacing="2">PROVEEDORES</text>
+            <text class="txt" x="500" y="950" font-size="32" fill="#fff4e0">cuánto y a quién</text>
+            <path class="s11-tic" d="M880 932 L900 952 L940 910" fill="none" stroke="#ffb000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <g class="s11-f s11-f4">
+            <rect x="120" y="990" width="840" height="84" fill="#d7263d" opacity="0.25" />
+            <text class="txt" x="140" y="1046" font-size="40" fill="#ffb000" letter-spacing="2">DON CARLOS</text>
+            <text class="txt" x="500" y="1046" font-size="32" fill="#fff4e0">precio especial</text>
+            <path class="s11-tic" d="M880 1028 L900 1048 L940 1006" fill="none" stroke="#ffb000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <path d="M120 800 H960 M120 890 H960 M120 980 H960" stroke="#ffb000" stroke-width="2" opacity="0.2" />
+          <!-- el operador, feliz, con el pulgar arriba -->
+          <g class="s11-operador"><g transform="translate(300 1200)">
+            <path d="M-110 140 L-100 70 Q-90 30 -40 26 L40 26 Q90 30 100 70 L110 140 Z" fill="#e8dcc0" stroke="#07151e" stroke-width="4" />
+            <ellipse cx="0" cy="-30" rx="46" ry="54" fill="#d9a77c" />
+            <path d="M-50 -34 Q-60 -86 -20 -96 Q0 -108 20 -96 Q60 -86 50 -34 Q46 -60 22 -66 Q0 -58 -22 -66 Q-46 -60 -50 -34 Z" fill="#07151e" />
+            <circle cx="-20" cy="-32" r="17" fill="#fff4e0" stroke="#07151e" stroke-width="5" /><circle cx="20" cy="-32" r="17" fill="#fff4e0" stroke="#07151e" stroke-width="5" />
+            <circle cx="-20" cy="-32" r="5" fill="#07151e" /><circle cx="20" cy="-32" r="5" fill="#07151e" />
+            <path d="M-20 0 Q0 16 20 0" fill="none" stroke="#07151e" stroke-width="5" stroke-linecap="round" />
+            <g class="s11-pulgar"><path d="M90 70 L150 20" stroke="#e8dcc0" stroke-width="34" stroke-linecap="round" /><rect x="138" y="-6" width="40" height="36" rx="10" fill="#d9a77c" /><rect x="150" y="-36" width="14" height="36" rx="7" fill="#d9a77c" /></g>
+          </g></g>
+          <!-- el director, aliviado -->
+          <g class="s11-director"><g transform="translate(780 1200)">
+            <path d="M-110 140 L-100 70 Q-90 30 -40 26 L40 26 Q90 30 100 70 L110 140 Z" fill="#fff4e0" stroke="#07151e" stroke-width="4" />
+            <path d="M0 30 L-10 50 L0 140 L10 50 Z" fill="#d7263d" />
+            <ellipse cx="0" cy="-30" rx="46" ry="54" fill="#d9a77c" />
+            <path d="M-46 -40 Q-48 -92 0 -94 Q48 -92 46 -40 L38 -60 Q0 -72 -38 -60 Z" fill="#07151e" />
+            <rect x="-36" y="-44" width="30" height="22" rx="5" fill="none" stroke="#07151e" stroke-width="5" /><rect x="6" y="-44" width="30" height="22" rx="5" fill="none" stroke="#07151e" stroke-width="5" />
+            <path d="M-18 0 Q0 14 18 0" fill="none" stroke="#07151e" stroke-width="5" stroke-linecap="round" />
+            <path d="M-50 -40 Q-52 -110 0 -110 Q52 -110 50 -40" fill="none" stroke="#e8dcc0" stroke-width="7" />
+          </g></g>
+        </svg>
+        <div class="s11-etiqueta"><span class="s11-e1">Programa a medida</span><span class="s11-e2">Todo en un lugar</span><span class="s11-e3">Lo entiende cualquiera</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-programa";
+      const DUR = 9.74;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const etiq = (a, b, t) => { if (a) tl.to(q(a), { opacity: 0, y: -12, duration: 0.2 }, t); tl.fromTo(q(b), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t + 0.1); };
+
+      const TRABAJAS = 3.08, PROGRAMA = 1.37, MEDIDA = 1.71, STOCK = 4.16, PEDIDOS = 4.84, PROVEEDORES = 5.58, CARLOS = 6.92, LUGAR = 7.95, ENTIENDE = 8.38;
+
+      tl.fromTo(q(".s11-escenario"), { scale: 1.04 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s11-pantalla"), { opacity: 0.3, scaleY: 0.05, svgOrigin: "540 870" }, { opacity: 1, scaleY: 1, svgOrigin: "540 870", duration: 0.45, ease: "power3.out" }, 0);
+      gsap.set([q(".s11-cabecera"), q(".s11-cinta"), q(".s11-h2"), ...qa(".s11-f"), q(".s11-operador"), q(".s11-director")], { opacity: 0 });
+      tl.fromTo(q(".s11-cabecera"), { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25 }, 0.45);
+      tl.to(q(".s11-cabecera"), { opacity: 0.6, duration: 0.12, yoyo: true, repeat: 1 }, PROGRAMA);
+      etiq(null, ".s11-e1", PROGRAMA);
+      // "medida": la cinta métrica se estira a lo largo de la pantalla
+      tl.set(q(".s11-cinta"), { opacity: 1 }, MEDIDA - 0.1);
+      tl.fromTo(q(".s11-cinta"), { scaleX: 0.06, svgOrigin: "1000 590" }, { scaleX: 1, svgOrigin: "1000 590", duration: 0.6, ease: "power3.out" }, MEDIDA - 0.1);
+      tl.to(q(".s11-cinta"), { y: -4, duration: 0.12, yoyo: true, repeat: 3 }, MEDIDA + 0.5);
+      // las filas, cada una en su palabra
+      [[".s11-f1", STOCK], [".s11-f2", PEDIDOS], [".s11-f3", PROVEEDORES], [".s11-f4", CARLOS - 0.3]].forEach(([s, t]) => {
+        tl.fromTo(q(s), { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, t - 0.1);
+        dibujar([q(s + " .s11-tic")], t + 0.2, 0.3);
+      });
+      // "trabajás vos": la cabecera cambia
+      tl.to(q(".s11-h1"), { opacity: 0, duration: 0.15 }, TRABAJAS - 0.1);
+      tl.fromTo(q(".s11-h2"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25 }, TRABAJAS);
+      tl.to(q(".s11-pantalla"), { scale: 1.02, svgOrigin: "540 870", duration: 0.2, yoyo: true, repeat: 1 }, TRABAJAS);
+      etiq(".s11-e1", ".s11-e2", STOCK - 0.2);
+      // "entiende cualquiera": el operador y el director, aliviados
+      tl.fromTo(q(".s11-operador"), { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, ENTIENDE - 0.2);
+      tl.fromTo(q(".s11-director"), { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, ENTIENDE);
+      tl.fromTo(q(".s11-pulgar"), { rotation: -30, svgOrigin: "390 1270" }, { rotation: 0, svgOrigin: "390 1270", duration: 0.3, ease: "back.out(3)" }, ENTIENDE + 0.2);
+      etiq(".s11-e2", ".s11-e3", ENTIENDE);
+      // nada queda quieto: la pantalla respira
+      tl.to(q(".s11-f4"), { x: 6, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, CARLOS + 0.3);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

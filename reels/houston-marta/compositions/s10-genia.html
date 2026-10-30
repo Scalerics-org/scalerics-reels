@@ -1,0 +1,132 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-genia"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-genia"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-genia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-genia"] .txt { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s10-genia"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s10-genia"] .s10-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.3em; color: #ffb000; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-genia"] .s10-etiqueta span { position: absolute; left: 0; right: 0; }
+  </style>
+  <div id="root" data-composition-id="s10-genia" data-width="1080" data-height="1920" data-duration="7.60">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="7.60" data-track-index="0">
+      <div class="s10-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs><clipPath id="s10-clip"><circle cx="540" cy="850" r="176" /></clipPath></defs>
+          <!-- la playa que aparece al final -->
+          <g class="s10-playa">
+            <rect x="60" y="1120" width="960" height="210" fill="#ffb000" />
+            <path class="s10-ola" d="M20 1110 Q70 1090 120 1110 T220 1110 T320 1110 T420 1110 T520 1110 T620 1110 T720 1110 T820 1110 T920 1110 T1020 1110 T1120 1110 T1220 1110" fill="none" stroke="#fff4e0" stroke-width="8" />
+            <circle cx="150" cy="650" r="56" fill="#fff4e0" />
+          </g>
+          <!-- Marta, de frente -->
+          <g class="s10-marta">
+            <path d="M260 1330 Q270 1110 400 1080 L680 1080 Q810 1110 820 1330 Z" fill="#d7263d" stroke="#07151e" stroke-width="5" />
+            <path d="M470 1080 L540 1150 L610 1080" fill="#fff4e0" stroke="#07151e" stroke-width="4" />
+            <rect x="500" y="1020" width="80" height="70" fill="#d9a77c" />
+            <!-- pelo enrulado de atrás -->
+            <g fill="#07151e">
+              <circle cx="330" cy="830" r="70" /><circle cx="750" cy="830" r="70" /><circle cx="340" cy="960" r="60" /><circle cx="740" cy="960" r="60" />
+              <circle cx="370" cy="710" r="76" /><circle cx="710" cy="710" r="76" /><circle cx="460" cy="640" r="80" /><circle cx="620" cy="640" r="80" /><circle cx="540" cy="620" r="78" />
+            </g>
+            <ellipse cx="540" cy="860" rx="200" ry="220" fill="#d9a77c" />
+            <!-- la cara -->
+            <g class="s10-cara">
+              <path d="M400 760 Q440 720 490 750 M590 750 Q640 720 680 760" fill="none" stroke="#07151e" stroke-width="10" stroke-linecap="round" />
+              <circle cx="460" cy="820" r="14" fill="#07151e" /><circle cx="620" cy="820" r="14" fill="#07151e" />
+              <path d="M460 940 Q540 1000 620 940" fill="none" stroke="#07151e" stroke-width="10" stroke-linecap="round" />
+              <circle cx="420" cy="900" r="22" fill="#d7263d" opacity="0.35" /><circle cx="660" cy="900" r="22" fill="#d7263d" opacity="0.35" />
+            </g>
+            <!-- la medalla -->
+            <g class="s10-medalla">
+              <path d="M500 1090 L540 1180 L580 1090" fill="none" stroke="#3d7ea6" stroke-width="22" />
+              <circle cx="540" cy="1220" r="62" fill="#ffb000" stroke="#07151e" stroke-width="5" />
+              <circle cx="540" cy="1220" r="46" fill="none" stroke="#fff4e0" stroke-width="3" />
+              <text class="txt" x="540" y="1232" font-size="30" fill="#07151e" text-anchor="middle">N°1</text>
+            </g>
+          </g>
+          <g class="s10-sello"><g transform="translate(800 720) rotate(10)">
+            <rect x="-130" y="-40" width="260" height="80" fill="none" stroke="#ffb000" stroke-width="7" />
+            <text class="txt" x="0" y="15" font-size="44" fill="#ffb000" text-anchor="middle" letter-spacing="4">GENIA</text>
+          </g></g>
+          <!-- el corte: adentro de la cabeza está todo el negocio -->
+          <g class="s10-corte">
+            <circle cx="540" cy="850" r="180" fill="#120e05" stroke="#ffb000" stroke-width="8" />
+            <g clip-path="url(#s10-clip)">
+              <path d="M370 850 H710 M370 940 H710" stroke="#ffb000" stroke-width="2" opacity="0.15" />
+              <!-- el localcito -->
+              <g class="s10-local">
+                <path d="M450 770 L630 770 L645 800 L435 800 Z" fill="#d7263d" />
+                <rect x="452" y="800" width="176" height="110" fill="#e8dcc0" />
+                <rect x="522" y="840" width="36" height="70" fill="#0f2a3a" />
+                <rect x="466" y="816" width="40" height="36" fill="#3d7ea6" /><rect x="574" y="816" width="40" height="36" fill="#3d7ea6" />
+              </g>
+              <!-- las cosas que flotan -->
+              <g class="s10-cosas">
+                <g class="s10-k1"><rect x="390" y="700" width="60" height="80" rx="4" fill="#3d7ea6" stroke="#07151e" stroke-width="3" /><text class="mano" x="420" y="748" font-size="22" fill="#fff4e0" text-anchor="middle">azul</text></g>
+                <g class="s10-k2"><path d="M620 700 L690 700 L705 720 L690 740 L620 740 Z" fill="#fff4e0" /><text class="txt" x="656" y="728" font-size="18" fill="#0f2a3a" text-anchor="middle">D.C.</text></g>
+                <g class="s10-k3"><circle cx="410" cy="960" r="18" fill="none" stroke="#ffb000" stroke-width="6" /><path d="M428 960 H480 M466 960 V976 M478 960 V972" stroke="#ffb000" stroke-width="6" stroke-linecap="round" /></g>
+                <g class="s10-k4"><rect x="610" y="940" width="70" height="56" fill="#cdbf9f" stroke="#07151e" stroke-width="3" /><path d="M610 958 H680" stroke="#07151e" stroke-width="3" /><text class="txt" x="645" y="986" font-size="16" fill="#07151e" text-anchor="middle">STOCK</text></g>
+                <g class="s10-k5"><text class="txt" x="540" y="990" font-size="26" fill="#d7263d" text-anchor="middle">$ ???</text></g>
+              </g>
+            </g>
+          </g>
+          <!-- lentes de sol y sombrero de playa -->
+          <g class="s10-sombrero">
+            <ellipse cx="540" cy="640" rx="300" ry="60" fill="#e8dcc0" stroke="#07151e" stroke-width="5" />
+            <path d="M380 640 Q390 500 540 494 Q690 500 700 640 Z" fill="#e8dcc0" stroke="#07151e" stroke-width="5" />
+            <path d="M386 610 Q540 580 694 610" fill="none" stroke="#d7263d" stroke-width="20" />
+          </g>
+        </svg>
+        <div class="s10-etiqueta"><span class="s10-e1">Marta: una genia</span><span class="s10-e2">Todo está en su cabeza</span><span class="s10-e3">Y su cabeza, en la playa</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-genia";
+      const DUR = 7.6;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const etiq = (a, b, t) => { if (a) tl.to(q(a), { opacity: 0, y: -12, duration: 0.2 }, t); tl.fromTo(q(b), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t + 0.1); };
+
+      const MARTA = 0.5, GENIA = 1.21, PROBLEMA = 1.91, NEGOCIO = 2.69, VIVE = 3.56, CABEZA = 4.26, PLAYA = 6.25;
+
+      tl.fromTo(q(".s10-escenario"), { scale: 1.06 }, { scale: 1, duration: 3, ease: "power1.out", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s10-marta"), { y: 60, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      gsap.set([q(".s10-medalla"), q(".s10-sello"), q(".s10-corte"), q(".s10-sombrero"), q(".s10-playa")], { opacity: 0 });
+      // "Marta ... genia": medalla y sello
+      tl.fromTo(q(".s10-medalla"), { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.4, ease: "bounce.out" }, MARTA);
+      tl.fromTo(q(".s10-sello"), { opacity: 0, scale: 2.2, svgOrigin: "800 720" }, { opacity: 1, scale: 1, svgOrigin: "800 720", duration: 0.14, ease: "power4.in" }, GENIA);
+      etiq(null, ".s10-e1", GENIA);
+      // "El problema": se abre la cabeza como una radiografía
+      tl.to(q(".s10-sello"), { opacity: 0, duration: 0.2 }, PROBLEMA - 0.2);
+      tl.to(q(".s10-cara"), { opacity: 0, duration: 0.2 }, PROBLEMA - 0.1);
+      tl.fromTo(q(".s10-corte"), { opacity: 0, scale: 0.2, svgOrigin: "540 850" }, { opacity: 1, scale: 1, svgOrigin: "540 850", duration: 0.4, ease: "back.out(1.4)" }, PROBLEMA - 0.1);
+      tl.fromTo(q(".s10-local"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, NEGOCIO - 0.1);
+      ["k1", "k2", "k3", "k4", "k5"].forEach((k, i) => pop(q(".s10-" + k), NEGOCIO + 0.25 + i * 0.15, 0.3));
+      // "vive": las cosas se arremolinan
+      tl.to(q(".s10-cosas"), { rotation: 360, svgOrigin: "540 850", duration: 2.4, ease: "power1.inOut" }, VIVE);
+      etiq(".s10-e1", ".s10-e2", VIVE);
+      tl.to(q(".s10-corte"), { scale: 1.05, svgOrigin: "540 850", duration: 0.15, yoyo: true, repeat: 3 }, CABEZA);
+      // "playa": sombrero, sol, arena y olas
+      tl.to(q(".s10-corte"), { opacity: 0, scale: 0.7, svgOrigin: "540 850", duration: 0.3 }, PLAYA - 0.5);
+      tl.to(q(".s10-cara"), { opacity: 1, duration: 0.2 }, PLAYA - 0.4);
+      tl.fromTo(q(".s10-sombrero"), { opacity: 0, y: -300 }, { opacity: 1, y: 0, duration: 0.4, ease: "bounce.out" }, PLAYA - 0.3);
+      tl.fromTo(q(".s10-playa"), { opacity: 0 }, { opacity: 1, duration: 0.35 }, PLAYA - 0.2);
+      tl.fromTo(q(".s10-ola"), { x: 0 }, { x: -200, duration: 1.5, ease: "none" }, PLAYA - 0.2);
+      tl.to(q(".s10-marta"), { rotation: -3, svgOrigin: "540 1330", duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, PLAYA + 0.1);
+      etiq(".s10-e2", ".s10-e3", PLAYA - 0.2);
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
