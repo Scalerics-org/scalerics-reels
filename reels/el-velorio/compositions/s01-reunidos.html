@@ -1,0 +1,151 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-reunidos"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-reunidos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-reunidos"] .ln { fill: none; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-reunidos"] .lf { fill: #2a1f38; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-reunidos"] .dk { fill: #160f1f; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-reunidos"] .au { fill: none; stroke: #e8b84f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-reunidos"] .auf { fill: #e8b84f; stroke: none; }
+    [data-composition-id="s01-reunidos"] .cr { fill: #f4eee2; stroke: none; }
+    [data-composition-id="s01-reunidos"] .cirio { fill: #f4eee2; stroke: #c9b2ef; stroke-width: 4; }
+    [data-composition-id="s01-reunidos"] .llama { fill: #f4eee2; stroke: #e8b84f; stroke-width: 4; filter: drop-shadow(0 0 12px rgba(232, 184, 79, 0.8)); }
+    [data-composition-id="s01-reunidos"] .s01-placa { position: absolute; left: 335px; top: 1078px; width: 210px; height: 66px; border-radius: 8px; background: #e8b84f; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; color: #160f1f; line-height: 1; padding-top: 6px; }
+    [data-composition-id="s01-reunidos"] .s01-placa small { display: block; font-size: 22px; letter-spacing: 0.12em; }
+    [data-composition-id="s01-reunidos"] .s01-placa b { display: block; font-size: 27px; margin-top: 4px; }
+    [data-composition-id="s01-reunidos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #e8b84f; }
+    [data-composition-id="s01-reunidos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-reunidos" data-width="1080" data-height="1920" data-duration="5.61">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.61" data-track-index="0">
+      <div class="s01-sala s01-capa">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- retrato en el atril (atrás) -->
+        <g class="s01-retrato">
+          <path class="ln s01-l" d="M400 900 L360 1010 M520 900 L560 1010 M460 900 V1000" />
+          <rect class="lf s01-l" x="365" y="640" width="190" height="250" rx="6" />
+          <rect class="au s01-l" x="352" y="627" width="216" height="276" rx="10" />
+          <circle class="ln s01-l" cx="460" cy="730" r="44" />
+          <path class="ln s01-l" d="M384 884 Q392 800 460 792 Q528 800 536 884" />
+          <path class="au s01-l" d="M444 716 Q446 696 462 696 Q478 698 476 714 Q474 728 460 734 V746 M460 760 V762" />
+        </g>
+        <!-- cirio izquierdo -->
+        <g class="s01-cirio-a">
+          <rect class="cirio s01-l" x="112" y="960" width="40" height="210" rx="6" />
+          <path class="au s01-l" d="M92 1176 H172 L156 1200 V1236 M108 1200 V1236 M86 1240 H178" />
+          <path class="llama s01-llama" d="M132 952 Q112 928 132 892 Q152 928 132 952 Z" />
+        </g>
+        <!-- cirio derecho -->
+        <g class="s01-cirio-b">
+          <rect class="cirio s01-l" x="728" y="960" width="40" height="210" rx="6" />
+          <path class="au s01-l" d="M708 1176 H788 L772 1200 V1236 M724 1200 V1236 M702 1240 H794" />
+          <path class="llama s01-llama" d="M748 952 Q728 928 748 892 Q768 928 748 952 Z" />
+        </g>
+        <!-- EL CAJÓN -->
+        <g class="s01-cajon">
+          <path class="ln s01-l" d="M230 1170 L200 1240 M650 1170 L680 1240 M215 1206 H665" />
+          <path class="lf s01-l" d="M170 1062 L200 1170 H680 L708 1062 Z" />
+          <path class="lf s01-l" d="M170 1062 L206 1004 H672 L708 1062 Z" />
+          <path class="au s01-l" d="M228 1100 H286 M594 1100 H652" />
+          <!-- flor crema sobre la tapa -->
+          <g class="s01-flor">
+            <path class="ln s01-l" d="M380 1004 Q420 990 470 996" />
+            <ellipse class="cr" cx="476" cy="986" rx="20" ry="12" />
+            <ellipse class="cr" cx="494" cy="996" rx="14" ry="9" />
+            <ellipse class="cr" cx="462" cy="998" rx="14" ry="9" />
+          </g>
+        </g>
+        <!-- EL DE LA FUNERARIA (busto) detrás de su atril -->
+        <g class="s01-fun">
+          <path class="dk s01-l" d="M820 1010 Q824 960 880 952 Q936 960 940 1010 L990 1060 V1250 H770 V1060 Z" />
+          <path class="ln s01-l" d="M856 956 L880 1040 L904 956 M856 956 L830 1070 M904 956 L930 1070" />
+          <path class="auf" d="M866 966 L880 976 L894 966 L894 990 L880 980 L866 990 Z" />
+          <ellipse class="lf s01-l" cx="880" cy="868" rx="54" ry="80" />
+          <!-- pelo engominado con raya -->
+          <path class="dk s01-l" d="M826 860 Q820 790 880 784 Q940 786 934 860 Q920 812 896 808 Q884 820 856 818 Q836 826 826 860 Z" />
+          <path class="ln s01-l" d="M862 846 H884 M898 846 H918" />
+          <path class="ln s01-l" d="M864 870 Q872 866 882 870 M898 870 Q906 866 914 870" opacity="0.5" />
+          <path class="ln s01-l" d="M860 906 Q888 898 916 906" />
+          <path class="ln s01-l" d="M870 924 H906" />
+          <!-- atril -->
+          <path class="lf s01-l" d="M790 1090 H970 L950 1250 H810 Z" />
+          <path class="ln s01-l" d="M784 1090 H976" />
+          <rect class="au s01-l" x="840" y="1130" width="80" height="40" rx="4" />
+          <path class="ln s01-l" d="M846 1086 Q860 1060 882 1066 Q904 1060 916 1086" />
+        </g>
+      </svg>
+      <div class="s01-placa"><small>Q.E.P.D.</small><b>UN CLIENTE</b></div>
+      </div>
+      <!-- la mano que te señala (viene hacia cámara) -->
+      <svg class="s01-mano" viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="ln" d="M330 760 L280 730 M320 860 L262 860 M330 960 L280 990" />
+        <path class="dk" d="M640 990 L800 1140 L720 1220 L560 1070 Z" />
+        <ellipse class="lf" cx="590" cy="950" rx="120" ry="104" />
+        <path class="ln" d="M500 990 Q540 1010 560 984 M520 1030 Q566 1050 590 1020 M560 1060 Q610 1076 630 1046" />
+        <path class="lf" d="M640 880 Q690 860 704 906 Q700 950 650 960" />
+        <circle class="lf" cx="500" cy="860" r="78" />
+        <path class="ln" d="M470 822 Q500 800 530 822 Q530 860 500 866 Q470 860 470 822 Z" />
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Sala 2 · Velatorio</span><span class="s01-e2">Lo mataste vos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-reunidos";
+      const DUR = 5.61;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const CLIENTE = 2.79, MATASTE = 4.23;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.02);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.02);
+        });
+      };
+      const pop = (el, t) => tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+
+      // cuadro 0: la sala a medio dibujar (llamas ya prendidas)
+      dibujar(qa(".s01-l"), 0, 0.9, 0.5);
+      gsap.set(qa(".s01-flor ellipse"), { opacity: 0 });
+      tl.to(qa(".s01-flor ellipse"), { opacity: 1, duration: 0.3, stagger: 0.08 }, 0.7);
+      // las llamas tiemblan (secuencia fija)
+      const S = [1.08, 0.94, 1.12, 0.98, 1.05, 0.92];
+      qa(".s01-llama").forEach((f, k) => {
+        for (let t = 0, i = k; t < DUR - 0.3; t += 0.22, i++) tl.to(f, { scaleY: S[i % S.length], svgOrigin: k ? "748 952" : "132 952", duration: 0.2, ease: "sine.inOut" }, t);
+      });
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.15);
+      // el de la funeraria asiente solemne
+      tl.to(q(".s01-fun"), { y: 6, duration: 0.8, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.4);
+
+      // "cliente": la placa del cajón
+      gsap.set(q(".s01-placa"), { opacity: 0 });
+      pop(q(".s01-placa"), CLIENTE - 0.1);
+      tl.to(q(".s01-placa"), { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, CLIENTE + 0.3);
+
+      // "mataste": la mano que te señala viene hacia cámara
+      gsap.set(q(".s01-mano"), { opacity: 0 });
+      tl.fromTo(q(".s01-mano"), { opacity: 0, scale: 0.25, svgOrigin: "560 940" }, { opacity: 1, scale: 1, svgOrigin: "560 940", duration: 0.32, ease: "back.out(1.4)", immediateRender: false }, MATASTE - 0.18);
+      tl.to(q(".s01-sala"), { opacity: 0.35, filter: "blur(3px)", duration: 0.25 }, MATASTE - 0.1);
+      tl.to(q(".s01-mano"), { x: 8, duration: 0.05, yoyo: true, repeat: 5 }, MATASTE + 0.15);
+      tl.to(q(".s01-mano"), { scale: 1.04, svgOrigin: "560 940", duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, MATASTE + 0.5);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.12 }, MATASTE - 0.15);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, MATASTE);
+
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

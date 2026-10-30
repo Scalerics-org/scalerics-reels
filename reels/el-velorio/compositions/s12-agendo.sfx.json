@@ -1,0 +1,5 @@
+[
+  {"t":0.3,"sfx":"ping","vol":0.28},
+  {"t":1.25,"sfx":"ping","vol":0.28},
+  {"t":2.95,"sfx":"notification","vol":0.3}
+]

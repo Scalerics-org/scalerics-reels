@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-scalerics"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-scalerics"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-scalerics"] .ln { fill: none; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-scalerics"] .lf { fill: #2a1f38; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-scalerics"] .dk { fill: #160f1f; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-scalerics"] .au { fill: none; stroke: #e8b84f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-scalerics"] .auf { fill: #e8b84f; stroke: none; }
+    [data-composition-id="s14-scalerics"] .cr { fill: #f4eee2; stroke: none; }
+    [data-composition-id="s14-scalerics"] .crl { fill: none; stroke: #f4eee2; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-scalerics"] .llama { fill: #f4eee2; stroke: #e8b84f; stroke-width: 4; filter: drop-shadow(0 0 12px rgba(232, 184, 79, 0.8)); }
+    [data-composition-id="s14-scalerics"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #e8b84f; }
+    [data-composition-id="s14-scalerics"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+    [data-composition-id="s14-scalerics"] .s14-tel { position: absolute; left: 310px; top: 640px; width: 460px; height: 500px; border-radius: 52px; border: 6px solid #c9b2ef; background: #2a1f38; overflow: hidden; }
+    [data-composition-id="s14-scalerics"] .s14-head { position: absolute; left: 0; right: 0; top: 0; height: 104px; background: #160f1f; border-bottom: 3px solid #c9b2ef; }
+    [data-composition-id="s14-scalerics"] .s14-av { position: absolute; left: 28px; top: 24px; width: 56px; height: 56px; border-radius: 50%; background: #e8b84f; }
+    [data-composition-id="s14-scalerics"] .s14-av::before, [data-composition-id="s14-scalerics"] .s14-av::after { content: ""; position: absolute; top: 20px; width: 9px; height: 14px; border-radius: 5px; background: #160f1f; }
+    [data-composition-id="s14-scalerics"] .s14-av::before { left: 16px; } [data-composition-id="s14-scalerics"] .s14-av::after { right: 16px; }
+    [data-composition-id="s14-scalerics"] .s14-nom { position: absolute; left: 100px; top: 18px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; color: #f4eee2; white-space: nowrap; }
+    [data-composition-id="s14-scalerics"] .s14-est { position: absolute; left: 100px; top: 58px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #e8b84f; white-space: nowrap; }
+    [data-composition-id="s14-scalerics"] .s14-b { position: absolute; max-width: 82%; padding: 14px 20px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.2; opacity: 0; }
+    [data-composition-id="s14-scalerics"] .s14-cli { right: 20px; background: #c9b2ef; color: #160f1f; border-radius: 24px 24px 6px 24px; }
+    [data-composition-id="s14-scalerics"] .s14-ag { left: 20px; background: #f4eee2; color: #160f1f; border-radius: 24px 24px 24px 6px; }
+    [data-composition-id="s14-scalerics"] .s14-tag { position: absolute; left: 24px; top: 412px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.1em; color: #e8b84f; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s14-scalerics" data-width="1080" data-height="1920" data-duration="8.4">
+    <div id="s14-escena" class="capa clip" data-start="0" data-duration="8.4" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s14-orbita"><circle class="ln" cx="540" cy="920" r="330" opacity="0.25" stroke-dasharray="4 18" />
+          <g class="s14-sol"><circle class="auf" cx="210" cy="920" r="34" /><path class="au" transform="rotate(0 210 920)" d="M210 868 V850" /><path class="au" transform="rotate(45 210 920)" d="M210 868 V850" /><path class="au" transform="rotate(90 210 920)" d="M210 868 V850" /><path class="au" transform="rotate(135 210 920)" d="M210 868 V850" /><path class="au" transform="rotate(180 210 920)" d="M210 868 V850" /><path class="au" transform="rotate(225 210 920)" d="M210 868 V850" /><path class="au" transform="rotate(270 210 920)" d="M210 868 V850" /><path class="au" transform="rotate(315 210 920)" d="M210 868 V850" /></g>
+          <g class="s14-luna"><path class="cr" d="M860 880 A44 44 0 1 0 900 950 A36 36 0 1 1 860 880 Z" /></g>
+        </g>
+      </svg>
+
+      <div class="s14-tel">
+        <div class="s14-head"><div class="s14-av"></div><div class="s14-nom">Agente de IA</div><div class="s14-est">en línea</div></div>
+        <div class="s14-b s14-cli" style="top: 124px;">¿Abren el domingo?</div>
+        <div class="s14-b s14-ag s14-ag1" style="top: 236px;">¡Sí! De 10 a 14.</div>
+        <div class="s14-b s14-ag s14-ag2" style="top: 320px;">¿Seguís interesado?</div>
+        <div class="s14-tag">SEGUIMIENTO</div>
+      </div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true"><path class="au s14-pulso" d="M110 1210 H400 L425 1190 L450 1236 L480 1170 L505 1210 H620 L645 1190 L670 1236 L700 1170 L725 1210 H970" style="filter: drop-shadow(0 0 10px rgba(232,184,79,0.7))" /></svg>
+      <div class="etiqueta"><span class="s14-e1">Scalerics</span><span class="s14-e2">A cualquier hora</span><span class="s14-e3">Seguimiento</span><span class="s14-e4">Clientes vivos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-scalerics";
+      const DUR = 8.4;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.02);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.02);
+        });
+      };
+      const pop = (el, t, o = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.85, ...(o.from || {}) }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false, ...(o.to || {}) }, t); };
+      const ET = qa(".etiqueta span");
+      const etq = (i, t) => {
+        if (i > 0) tl.to(ET[i - 1], { opacity: 0, duration: 0.12 }, t - 0.12);
+        tl.fromTo(ET[i], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+
+      pop(q(".s14-tel"), 0.0, { from: { y: 40 }, to: { y: 0 } });
+      etq(0, 0.2);
+      tl.fromTo(q(".s14-av"), { scale: 1 }, { scale: 1.2, duration: 0.2, yoyo: true, repeat: 1 }, 1.5);
+      pop(q(".s14-b.s14-cli"), 1.3, { from: { y: 20 }, to: { y: 0 } });
+      pop(q(".s14-ag1"), 2.6, { from: { y: 20 }, to: { y: 0 } });
+      // "cualquier hora": sol y luna que giran
+      gsap.set(q(".s14-orbita"), { opacity: 0 });
+      tl.to(q(".s14-orbita"), { opacity: 1, duration: 0.3 }, 2.95);
+      tl.fromTo(q(".s14-orbita"), { rotation: 0, svgOrigin: "540 920" }, { rotation: 360, svgOrigin: "540 920", duration: 5.2, ease: "none", immediateRender: false }, 2.95);
+      etq(1, 3.04);
+      // "escribe": seguimiento
+      pop(q(".s14-ag2"), 4.2, { from: { y: 20 }, to: { y: 0 } });
+      tl.fromTo(q(".s14-tag"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.3 }, 4.5);
+      etq(2, 4.28);
+      // "que no se te muera": el pulso late
+      dibujar([q(".s14-pulso")], 5.95, 1.0);
+      tl.to(q(".s14-pulso"), { opacity: 0.5, duration: 0.2, yoyo: true, repeat: 3 }, 7.0);
+      etq(3, 6.6);
+      tl.to(q("#s14-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

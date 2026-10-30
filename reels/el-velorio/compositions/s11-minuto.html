@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-minuto"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-minuto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-minuto"] .ln { fill: none; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-minuto"] .lf { fill: #2a1f38; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-minuto"] .dk { fill: #160f1f; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-minuto"] .au { fill: none; stroke: #e8b84f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-minuto"] .auf { fill: #e8b84f; stroke: none; }
+    [data-composition-id="s11-minuto"] .cr { fill: #f4eee2; stroke: none; }
+    [data-composition-id="s11-minuto"] .crl { fill: none; stroke: #f4eee2; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-minuto"] .llama { fill: #f4eee2; stroke: #e8b84f; stroke-width: 4; filter: drop-shadow(0 0 12px rgba(232, 184, 79, 0.8)); }
+    [data-composition-id="s11-minuto"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #e8b84f; }
+    [data-composition-id="s11-minuto"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+    [data-composition-id="s11-minuto"] .s11-tel { position: absolute; left: 270px; top: 600px; width: 540px; height: 640px; border-radius: 52px; border: 6px solid #c9b2ef; background: #2a1f38; overflow: hidden; }
+    [data-composition-id="s11-minuto"] .s11-head { position: absolute; left: 0; right: 0; top: 0; height: 104px; background: #160f1f; border-bottom: 3px solid #c9b2ef; }
+    [data-composition-id="s11-minuto"] .s11-av { position: absolute; left: 28px; top: 24px; width: 56px; height: 56px; border-radius: 50%; background: #e8b84f; }
+    [data-composition-id="s11-minuto"] .s11-av::before, [data-composition-id="s11-minuto"] .s11-av::after { content: ""; position: absolute; top: 20px; width: 9px; height: 14px; border-radius: 5px; background: #160f1f; }
+    [data-composition-id="s11-minuto"] .s11-av::before { left: 16px; } [data-composition-id="s11-minuto"] .s11-av::after { right: 16px; }
+    [data-composition-id="s11-minuto"] .s11-nom { position: absolute; left: 100px; top: 18px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; color: #f4eee2; white-space: nowrap; }
+    [data-composition-id="s11-minuto"] .s11-est { position: absolute; left: 100px; top: 58px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #e8b84f; white-space: nowrap; }
+    [data-composition-id="s11-minuto"] .s11-b { position: absolute; max-width: 82%; padding: 14px 20px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.2; opacity: 0; }
+    [data-composition-id="s11-minuto"] .s11-cli { right: 20px; background: #c9b2ef; color: #160f1f; border-radius: 24px 24px 6px 24px; }
+    [data-composition-id="s11-minuto"] .s11-ag { left: 20px; background: #f4eee2; color: #160f1f; border-radius: 24px 24px 24px 6px; }
+    [data-composition-id="s11-minuto"] .s11-reloj { position: absolute; left: 0; right: 0; top: 130px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 84px; color: #e8b84f; opacity: 0; }
+    [data-composition-id="s11-minuto"] .s11-reloj span { position: absolute; left: 0; right: 0; }
+    [data-composition-id="s11-minuto"] .s11-nom2 { opacity: 0; }
+    [data-composition-id="s11-minuto"] .s11-dots { position: absolute; left: 20px; top: 470px; width: 110px; height: 56px; border-radius: 24px; background: #f4eee2; opacity: 0; }
+    [data-composition-id="s11-minuto"] .s11-dots i { position: absolute; top: 22px; width: 12px; height: 12px; border-radius: 50%; background: #2a1f38; }
+  </style>
+  <div id="root" data-composition-id="s11-minuto" data-width="1080" data-height="1920" data-duration="4.52">
+    <div id="s11-escena" class="capa clip" data-start="0" data-duration="4.52" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s11-luna"><path class="au" d="M200 700 A60 60 0 1 0 260 790 A48 48 0 1 1 200 700 Z" /></g>
+        <g class="s11-crono"><circle class="au" cx="880" cy="1150" r="56" /><path class="au" d="M880 1094 V1080 M866 1074 H894 M880 1150 L880 1116" /><path class="au s11-aguja" d="M880 1150 L908 1150" /></g>
+      </svg>
+
+      <div class="s11-tel">
+        <div class="s11-head"><div class="s11-av"></div><div class="s11-nom">Enfrente</div><div class="s11-est">en línea</div><div class="s11-nom s11-nom2" style="top:18px">Agente de IA</div></div>
+        <div class="s11-reloj"><span class="s11-r1">23:00</span><span class="s11-r2" style="opacity:0">23:01</span></div>
+        <div class="s11-b s11-cli" style="top: 300px;">¿Qué precio tiene?</div>
+        <div class="s11-dots"><i style="left:22px"></i><i style="left:49px"></i><i style="left:76px"></i></div>
+        <div class="s11-b s11-ag" style="top: 440px;">¡Hola! Te paso el precio y te reservo.</div>
+      </div>
+      <div class="etiqueta"><span class="s11-e1">23:00</span><span class="s11-e2">Agente de IA</span><span class="s11-e3">23:01</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-minuto";
+      const DUR = 4.52;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.02);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.02);
+        });
+      };
+      const pop = (el, t, o = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.85, ...(o.from || {}) }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false, ...(o.to || {}) }, t); };
+      const ET = qa(".etiqueta span");
+      const etq = (i, t) => {
+        if (i > 0) tl.to(ET[i - 1], { opacity: 0, duration: 0.12 }, t - 0.12);
+        tl.fromTo(ET[i], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+
+      pop(q(".s11-tel"), 0, { from: { y: 40 }, to: { y: 0 } });
+      pop(q(".s11-b.s11-cli"), 0.15, { from: { y: 20 }, to: { y: 0 } });
+      tl.fromTo(q(".s11-reloj"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 0.5);
+      dibujar(qa(".s11-luna path"), 0.5, 0.5);
+      tl.to(q(".s11-luna"), { rotation: -12, svgOrigin: "220 760", duration: 1, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.6);
+      etq(0, 0.5);
+      // "agente de IA": el encabezado cambia
+      tl.to(q(".s11-nom:not(.s11-nom2)"), { opacity: 0, duration: 0.15 }, 1.95);
+      tl.fromTo(q(".s11-nom2"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25 }, 2.0);
+      tl.fromTo(q(".s11-av"), { scale: 1 }, { scale: 1.25, duration: 0.15, yoyo: true, repeat: 1 }, 2.0);
+      etq(1, 2.02);
+      // escribiendo... y respuesta
+      tl.to(q(".s11-dots"), { opacity: 1, duration: 0.1 }, 2.3);
+      qa(".s11-dots i").forEach((d, i) => tl.to(d, { y: -8, duration: 0.12, yoyo: true, repeat: 1 }, 2.32 + i * 0.1));
+      tl.to(q(".s11-dots"), { opacity: 0, duration: 0.05 }, 2.72);
+      pop(q(".s11-b.s11-ag"), 2.72, { from: { y: 20 }, to: { y: 0 } });
+      // "minuto": 23:01 y cronómetro
+      tl.to(q(".s11-r1"), { opacity: 0, duration: 0.1 }, 3.4);
+      tl.fromTo(q(".s11-r2"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)" }, 3.4);
+      dibujar(qa(".s11-crono path, .s11-crono circle"), 3.3, 0.35);
+      tl.fromTo(q(".s11-aguja"), { rotation: -90, svgOrigin: "880 1150" }, { rotation: 270, svgOrigin: "880 1150", duration: 0.9, ease: "power2.out" }, 3.45);
+      etq(2, 3.42);
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

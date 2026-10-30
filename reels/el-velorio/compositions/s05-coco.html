@@ -1,0 +1,108 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-coco"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-coco"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-coco"] .ln { fill: none; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-coco"] .lf { fill: #2a1f38; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-coco"] .dk { fill: #160f1f; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-coco"] .au { fill: none; stroke: #e8b84f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-coco"] .auf { fill: #e8b84f; stroke: none; }
+    [data-composition-id="s05-coco"] .cr { fill: #f4eee2; stroke: none; }
+    [data-composition-id="s05-coco"] .crl { fill: none; stroke: #f4eee2; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-coco"] .llama { fill: #f4eee2; stroke: #e8b84f; stroke-width: 4; filter: drop-shadow(0 0 12px rgba(232, 184, 79, 0.8)); }
+    [data-composition-id="s05-coco"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #e8b84f; }
+    [data-composition-id="s05-coco"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s05-coco" data-width="1080" data-height="1920" data-duration="4.03">
+    <div id="s05-escena" class="capa clip" data-start="0" data-duration="4.03" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <!-- papel picado genérico -->
+        <g class="s05-guirnalda">
+          <path class="au" d="M90 600 Q540 660 990 600" />
+          <g class="s05-ban"><path class="lf" d="M120 606 H216 V702 L200 690 L184 702 L168 690 L152 702 L136 690 L120 702 Z" /><circle class="cr" cx="168" cy="646" r="12" opacity="0.8"/><path class="ln" d="M142 628 l10 10 M194 628 l-10 10" /></g><g class="s05-ban"><path class="au" d="M242 619 H338 V715 L322 703 L306 715 L290 703 L274 715 L258 703 L242 715 Z" /><circle class="auf" cx="290" cy="659" r="12" opacity="0.8"/><path class="au" d="M264 641 l10 10 M316 641 l-10 10" /></g><g class="s05-ban"><path class="lf" d="M364 629 H460 V725 L444 713 L428 725 L412 713 L396 725 L380 713 L364 725 Z" /><circle class="cr" cx="412" cy="669" r="12" opacity="0.8"/><path class="ln" d="M386 651 l10 10 M438 651 l-10 10" /></g><g class="s05-ban"><path class="au" d="M486 632 H582 V728 L566 716 L550 728 L534 716 L518 728 L502 716 L486 728 Z" /><circle class="auf" cx="534" cy="672" r="12" opacity="0.8"/><path class="au" d="M508 654 l10 10 M560 654 l-10 10" /></g><g class="s05-ban"><path class="lf" d="M608 629 H704 V725 L688 713 L672 725 L656 713 L640 725 L624 713 L608 725 Z" /><circle class="cr" cx="656" cy="669" r="12" opacity="0.8"/><path class="ln" d="M630 651 l10 10 M682 651 l-10 10" /></g><g class="s05-ban"><path class="au" d="M730 619 H826 V715 L810 703 L794 715 L778 703 L762 715 L746 703 L730 715 Z" /><circle class="auf" cx="778" cy="659" r="12" opacity="0.8"/><path class="au" d="M752 641 l10 10 M804 641 l-10 10" /></g><g class="s05-ban"><path class="lf" d="M852 606 H948 V702 L932 690 L916 702 L900 690 L884 702 L868 690 L852 702 Z" /><circle class="cr" cx="900" cy="646" r="12" opacity="0.8"/><path class="ln" d="M874 628 l10 10 M926 628 l-10 10" /></g>
+        </g>
+        <!-- EL VECINO de busto, con el mate -->
+        <g class="s05-vec"><g transform="translate(330 900) scale(1.05)">
+  <!-- EL VECINO DEL TERMO: origen = centro de la cara -->
+  <path class="lf s05-l" d="M-150 340 Q-150 150 -50 116 H50 Q150 150 150 340 Z" />
+  <path class="ln s05-l" d="M-40 116 L-20 200 M40 116 L20 200 M0 200 V340" />
+  <ellipse class="lf s05-l" cx="0" cy="0" rx="76" ry="88" />
+  <path class="dk s05-l" d="M-80 -30 Q-80 -110 0 -112 Q80 -110 80 -30 Z" />
+  <path class="dk s05-l" d="M-80 -30 H140 Q130 -10 70 -14" />
+  <path class="ln s05-l" d="M-50 -2 H-16 M16 -2 H50" />
+  <path class="ln s05-l" d="M-48 6 Q-32 18 -16 6 M16 6 Q32 18 48 6" />
+  <path class="dk s05-l" d="M-44 36 Q0 20 44 36 Q36 54 0 46 Q-36 54 -44 36 Z" />
+  <path class="ln s05-l" d="M-18 66 Q0 74 18 66" />
+  <!-- termo bajo el brazo -->
+  <g class="s05-l-termo"><rect class="lf s05-l" x="-140" y="170" width="56" height="170" rx="14" /><rect class="au s05-l" x="-136" y="146" width="48" height="28" rx="6" /><path class="au s05-l" d="M-140 220 H-84" /></g></g>
+          <g class="s05-mate"><g transform="translate(470 1060)">
+  <!-- mate con bombilla: origen = boca del mate -->
+  <path class="lf s05-l" d="M-40 0 Q-56 70 0 80 Q56 70 40 0 Z" />
+  <path class="ln s05-l" d="M-44 0 H44" />
+  <path class="au s05-l" d="M10 4 L40 -70 L52 -70" /></g></g></g>
+        <!-- el retrato del cliente -->
+        <g class="s05-ret">
+          <rect class="lf s05-l" x="660" y="760" width="250" height="320" rx="6" />
+          <rect class="au s05-l" x="646" y="746" width="278" height="348" rx="10" />
+          <g class="s05-silueta"><circle class="ln" cx="785" cy="870" r="54" /><path class="ln" d="M690 1070 Q700 950 785 940 Q870 950 880 1070" />
+          <path class="au" d="M766 852 Q768 828 788 828 Q808 830 806 850 Q804 866 786 872 V888 M786 904 V906" /></g>
+          <path class="ln s05-l" d="M700 1094 L670 1230 M870 1094 L900 1230 M785 1094 V1220" />
+          <g class="s05-motas"><circle class="cr" cx="720" cy="900" r="6" /><circle class="cr" cx="760" cy="860" r="6" /><circle class="cr" cx="810" cy="880" r="6" /><circle class="cr" cx="840" cy="960" r="6" /><circle class="cr" cx="740" cy="990" r="6" /><circle class="cr" cx="800" cy="1010" r="6" /><circle class="cr" cx="700" cy="1040" r="6" /><circle class="cr" cx="860" cy="1030" r="6" /><circle class="cr" cx="780" cy="930" r="6" /></g>
+        </g>
+      </svg>
+
+      <div class="etiqueta"><span class="s05-e1">Como en Coco</span><span class="s05-e2">El olvido</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-coco";
+      const DUR = 4.03;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.02);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.02);
+        });
+      };
+      const pop = (el, t, o = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.85, ...(o.from || {}) }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false, ...(o.to || {}) }, t); };
+      const ET = qa(".etiqueta span");
+      const etq = (i, t) => {
+        if (i > 0) tl.to(ET[i - 1], { opacity: 0, duration: 0.12 }, t - 0.12);
+        tl.fromTo(ET[i], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+
+      dibujar(qa(".s05-l"), 0, 0.5, 0.4);
+      etq(0, 0.1);
+      // chupa el mate
+      tl.to(q(".s05-mate"), { y: -40, x: -40, rotation: -12, svgOrigin: "470 1060", duration: 0.4, ease: "power2.out" }, 0.1);
+      tl.to(q(".s05-mate"), { y: 0, x: 0, rotation: 0, svgOrigin: "470 1060", duration: 0.4, ease: "power2.inOut" }, 1.2);
+      // "Coco": papel picado
+      qa(".s05-ban").forEach((b, i) => { gsap.set(b, { opacity: 0 }); tl.fromTo(b, { opacity: 0, y: -40, rotation: -12 }, { opacity: 1, y: 0, rotation: 0, transformOrigin: "50% 0%", duration: 0.4, ease: "back.out(2)", immediateRender: false }, 0.75 + i * 0.06); });
+      dibujar([q(".s05-guirnalda > path")], 0.7, 0.4);
+      for (let t = 1.4, i = 0; t < DUR - 0.4; t += 0.4, i++) tl.to(qa(".s05-ban"), { rotation: i % 2 ? 3 : -3, transformOrigin: "50% 0%", duration: 0.38, ease: "sine.inOut" }, t);
+      // "olvidan": la silueta se desarma en motas
+      gsap.set(qa(".s05-motas circle"), { opacity: 0 });
+      tl.to(q(".s05-silueta"), { opacity: 0, filter: "blur(6px)", duration: 0.5 }, 2.9);
+      qa(".s05-motas circle").forEach((m, i) => {
+        tl.fromTo(m, { opacity: 0.9, x: 0, y: 0 }, { opacity: 0, x: (i % 3 - 1) * 60, y: -120 - (i % 4) * 30, duration: 0.9, ease: "power1.out", immediateRender: false }, 2.95 + i * 0.03);
+      });
+      etq(1, 2.95);
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

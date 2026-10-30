@@ -1,0 +1,97 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* papel tapiz de rombos, apenas visible */
+    [data-composition-id="ambiente"] .amb-tapiz { position: absolute; inset: 0; opacity: 0.5;
+      background:
+        repeating-linear-gradient(45deg, rgba(201, 178, 239, 0) 0px, rgba(201, 178, 239, 0) 58px, rgba(201, 178, 239, 0.05) 58px, rgba(201, 178, 239, 0.05) 60px),
+        repeating-linear-gradient(-45deg, rgba(201, 178, 239, 0) 0px, rgba(201, 178, 239, 0) 58px, rgba(201, 178, 239, 0.05) 58px, rgba(201, 178, 239, 0.05) 60px); }
+    /* luz de los cirios que parpadea */
+    [data-composition-id="ambiente"] .amb-cirios { position: absolute; inset: 0; opacity: 0.8;
+      background: radial-gradient(ellipse 700px 520px at 540px 1220px, rgba(232, 184, 79, 0.16) 0%, rgba(232, 184, 79, 0.05) 55%, rgba(232, 184, 79, 0) 85%); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 700px 1060px at 540px 930px, rgba(14, 10, 20, 0) 55%, rgba(14, 10, 20, 0.85) 100%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; opacity: 0; background: #f4eee2; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-tela { fill: #2a1f38; stroke: #c9b2ef; stroke-width: 3; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .amb-pliegue { fill: none; stroke: #c9b2ef; stroke-width: 3; stroke-linecap: round; opacity: 0.45; }
+    [data-composition-id="ambiente"] .amb-fleco { fill: none; stroke: #e8b84f; stroke-width: 3; stroke-linecap: round; opacity: 0.85; }
+    [data-composition-id="ambiente"] .amb-mota { fill: #f4eee2; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="75.32">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="75.32" data-track-index="0">
+      <div class="amb-tapiz"></div>
+      <div class="amb-cirios"></div>
+      <svg class="amb-polvo" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="amb-vineta"></div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- cortina izquierda -->
+        <g class="amb-cort-izq">
+          <path class="amb-tela" d="M-20 40 H66 Q50 600 70 1100 Q52 1500 76 1940 H-20 Z" />
+          <path class="amb-pliegue" d="M22 80 Q12 700 30 1300 Q20 1650 34 1920 M48 90 Q38 760 56 1400" />
+        </g>
+        <!-- cortina derecha -->
+        <g class="amb-cort-der">
+          <path class="amb-tela" d="M1100 40 H1014 Q1030 600 1010 1100 Q1028 1500 1004 1940 H1100 Z" />
+          <path class="amb-pliegue" d="M1058 80 Q1068 700 1050 1300 Q1060 1650 1046 1920 M1032 90 Q1042 760 1024 1400" />
+        </g>
+        <!-- galería con festones y fleco dorado -->
+        <g class="amb-galeria">
+          <path class="amb-tela" d="M-20 -10 H1100 V44 Q1046 84 992 44 Q938 84 884 44 Q830 84 776 44 Q722 84 668 44 Q614 84 560 44 Q506 84 452 44 Q398 84 344 44 Q290 84 236 44 Q182 84 128 44 Q74 84 20 44 Q0 60 -20 44 Z" />
+          <path class="amb-fleco" d="M20 50 Q74 90 128 50 Q182 90 236 50 Q290 90 344 50 Q398 90 452 50 Q506 90 560 50 Q614 90 668 50 Q722 90 776 50 Q830 90 884 50 Q938 90 992 50 Q1046 90 1100 50" />
+        </g>
+      </svg>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 75.32;
+      const DIA = 36.0;                 // "¡Eh!": se abre la puerta, entra el cliente vivo
+      const GOLPES = [4.23, 16.5];      // "mataste", "jueves"
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // motas de polvo (posiciones fijas, deterministas)
+      const NS = "http://www.w3.org/2000/svg";
+      const polvo = q(".amb-polvo");
+      const MOTAS = [[150, 1500, 3], [260, 900, 2], [330, 1300, 4], [420, 700, 2], [520, 1600, 3], [610, 1050, 2], [700, 800, 3], [790, 1450, 2], [880, 1000, 4], [940, 650, 2], [200, 1150, 2], [760, 1200, 3], [480, 1250, 2], [860, 1650, 3]];
+      MOTAS.forEach(([x, y, r], i) => {
+        const c = document.createElementNS(NS, "circle");
+        c.setAttribute("class", "amb-mota"); c.setAttribute("cx", x); c.setAttribute("cy", y); c.setAttribute("r", r);
+        polvo.appendChild(c);
+        const per = 9 + (i % 5) * 2;
+        gsap.set(c, { opacity: 0.12 + (i % 3) * 0.08 });
+        tl.fromTo(c, { y: 0, x: 0 }, { y: -260 - (i % 4) * 60, x: (i % 2 ? 40 : -40), duration: per, ease: "none", repeat: Math.floor(DUR / per), yoyo: true }, 0);
+      });
+
+      // parpadeo de los cirios (secuencia fija)
+      const P = [0.8, 0.68, 0.9, 0.74, 0.86, 0.62, 0.82, 0.92, 0.7, 0.84];
+      for (let t = 0, k = 0; t < DUR; t += 0.35, k++) tl.to(q(".amb-cirios"), { opacity: P[k % P.length], duration: 0.33, ease: "sine.inOut" }, t);
+
+      // cortinas que respiran apenas
+      tl.to(q(".amb-cort-izq"), { x: -6, duration: 3, yoyo: true, repeat: Math.max(0, Math.floor(DIA / 3) - 1), ease: "sine.inOut" }, 0);
+      tl.to(q(".amb-cort-der"), { x: 6, duration: 3, yoyo: true, repeat: Math.max(0, Math.floor(DIA / 3) - 1), ease: "sine.inOut" }, 0);
+
+      // golpes de luz
+      GOLPES.forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.18, duration: 0.04 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.4, ease: "power2.out" }, t + 0.05);
+      });
+
+      // el giro: flash cálido, las cortinas se corren, el tapiz se ilumina
+      tl.to(q(".amb-flash"), { opacity: 0.75, duration: 0.05 }, DIA - 0.04);
+      tl.to(q(".amb-flash"), { opacity: 0, duration: 0.8, ease: "power2.out" }, DIA + 0.06);
+      tl.to(q(".amb-cort-izq"), { x: -40, duration: 0.6, ease: "power3.out" }, DIA);
+      tl.to(q(".amb-cort-der"), { x: 40, duration: 0.6, ease: "power3.out" }, DIA);
+      tl.to(q(".amb-tapiz"), { opacity: 0.9, duration: 0.6 }, DIA);
+      tl.to(q(".amb-vineta"), { opacity: 0.6, duration: 0.6 }, DIA);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

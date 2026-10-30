@@ -1,0 +1,107 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-causa"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-causa"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-causa"] .ln { fill: none; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-causa"] .lf { fill: #2a1f38; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-causa"] .dk { fill: #160f1f; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-causa"] .au { fill: none; stroke: #e8b84f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-causa"] .auf { fill: #e8b84f; stroke: none; }
+    [data-composition-id="s03-causa"] .cr { fill: #f4eee2; stroke: none; }
+    [data-composition-id="s03-causa"] .crl { fill: none; stroke: #f4eee2; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-causa"] .llama { fill: #f4eee2; stroke: #e8b84f; stroke-width: 4; filter: drop-shadow(0 0 12px rgba(232, 184, 79, 0.8)); }
+    [data-composition-id="s03-causa"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #e8b84f; }
+    [data-composition-id="s03-causa"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+    [data-composition-id="s03-causa"] .s03-papel { position: absolute; left: 130px; top: 590px; width: 820px; height: 650px; border-radius: 10px; background: #f4eee2; border: 6px solid #e8b84f; box-shadow: 0 0 0 10px #2a1f38; }
+    [data-composition-id="s03-causa"] .s03-tit { position: absolute; left: 0; right: 0; top: 26px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.22em; color: #2a1f38; }
+    [data-composition-id="s03-causa"] .s03-raya { position: absolute; left: 40px; right: 40px; top: 78px; height: 3px; background: #c9b2ef; }
+    [data-composition-id="s03-causa"] .s03-causa { position: absolute; left: 44px; top: 104px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 44px; color: #160f1f; }
+    [data-composition-id="s03-causa"] .s03-g { position: absolute; padding: 18px 24px; border-radius: 24px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; line-height: 1.2; }
+    [data-composition-id="s03-causa"] .s03-g1 { left: 44px; top: 190px; background: #2a1f38; color: #f4eee2; border-radius: 24px 24px 24px 6px; }
+    [data-composition-id="s03-causa"] .s03-g2 { right: 44px; top: 410px; background: #c9b2ef; color: #160f1f; border-radius: 24px 24px 6px 24px; }
+    [data-composition-id="s03-causa"] .s03-h { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.1em; color: #6b5a85; }
+    [data-composition-id="s03-causa"] .s03-h1 { left: 48px; top: 290px; } [data-composition-id="s03-causa"] .s03-h2 { right: 48px; top: 510px; }
+    [data-composition-id="s03-causa"] .s03-h b { font-weight: 500; }
+    [data-composition-id="s03-causa"] .s03-dias { position: absolute; left: 44px; right: 44px; top: 352px; display: flex; justify-content: center; gap: 26px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #6b5a85; }
+    [data-composition-id="s03-causa"] .s03-dias span { position: relative; opacity: 0; }
+    [data-composition-id="s03-causa"] .s03-dias span i { position: absolute; left: -6px; right: -6px; top: 50%; height: 4px; background: #e8b84f; transform: scaleX(0); transform-origin: 0 50%; }
+    [data-composition-id="s03-causa"] .s03-sello { position: absolute; left: 300px; top: 1146px; padding: 14px 26px; border: 7px solid #e8b84f; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; letter-spacing: 0.04em; color: #e8b84f; background: rgba(22, 15, 31, 0.92); transform: rotate(5deg); opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-causa" data-width="1080" data-height="1920" data-duration="8.11">
+    <div id="s03-escena" class="capa clip" data-start="0" data-duration="8.11" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <!-- telarañas en las esquinas del papel -->
+        <g class="s03-tela"><path class="ln" d="M136 1234 L230 1140 M136 1234 L250 1214 M136 1234 L156 1120 M170 1200 Q190 1190 196 1172 M196 1222 Q210 1200 222 1166 M146 1180 Q170 1180 180 1160" opacity="0.7" />
+        <path class="ln" d="M944 596 L850 690 M944 596 L830 616 M944 596 L924 710 M910 630 Q890 640 884 658 M884 608 Q870 630 858 664 M934 650 Q910 650 900 670" opacity="0.7" /></g>
+      </svg>
+
+      <div class="s03-papel">
+        <div class="s03-tit">CERTIFICADO DE DEFUNCIÓN</div>
+        <div class="s03-raya"></div>
+        <div class="s03-causa">Causa de muerte:</div>
+        <div class="s03-g s03-g1">Hola, ¿qué precio tiene?</div>
+        <div class="s03-h s03-h1"><b class="s03-dom">DOMINGO</b> 10:14</div>
+        <div class="s03-dias"><span>LUNES<i></i></span><span>MARTES<i></i></span><span>MIÉRCOLES<i></i></span></div>
+        <div class="s03-g s03-g2">¡Hola! Disculpá la demora</div>
+        <div class="s03-h s03-h2"><b class="s03-jue">JUEVES</b> 19:30</div>
+      </div>
+      <div class="s03-sello">MURIÓ ESPERANDO</div>
+      <div class="etiqueta"><span class="s03-e1">Certificado</span><span class="s03-e2">Causa: visto</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-causa";
+      const DUR = 8.11;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.02);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.02);
+        });
+      };
+      const pop = (el, t, o = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.85, ...(o.from || {}) }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false, ...(o.to || {}) }, t); };
+      const ET = qa(".etiqueta span");
+      const etq = (i, t) => {
+        if (i > 0) tl.to(ET[i - 1], { opacity: 0, duration: 0.12 }, t - 0.12);
+        tl.fromTo(ET[i], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+
+      pop(q(".s03-papel"), 0, { from: { y: 40, rotation: -3 }, to: { rotation: 0, y: 0 } });
+      etq(0, 0.1);
+      tl.fromTo(q(".s03-causa"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35 }, 0.45);
+      pop(q(".s03-g1"), 1.7, { from: { y: 20 }, to: { y: 0 } });
+      tl.fromTo(q(".s03-h1"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.9);
+      tl.to(q(".s03-dom"), { color: "#e8b84f", duration: 0.1 }, 3.9);
+      tl.fromTo(q(".s03-dom"), { scale: 1 }, { scale: 1.25, duration: 0.15, yoyo: true, repeat: 1, transformOrigin: "50% 50%", display: "inline-block" }, 3.9);
+      // pasan los días, tachados
+      qa(".s03-dias span").forEach((d, i) => {
+        tl.fromTo(d, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25 }, 4.4 + i * 0.35);
+        tl.to(d.querySelector("i"), { scaleX: 1, duration: 0.2 }, 4.6 + i * 0.35);
+      });
+      dibujar(qa(".s03-tela path"), 4.6, 0.8);
+      pop(q(".s03-g2"), 5.95, { from: { y: 20 }, to: { y: 0 } });
+      tl.fromTo(q(".s03-h2"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 6.2);
+      tl.to(q(".s03-jue"), { color: "#e8b84f", duration: 0.1 }, 6.7);
+      // "jueves": el sello cae
+      tl.fromTo(q(".s03-sello"), { opacity: 0, scale: 2.2, rotation: 16 }, { opacity: 1, scale: 1, rotation: 5, duration: 0.25, ease: "power4.in" }, 6.75);
+      tl.to(q(".s03-papel"), { x: 8, duration: 0.05, yoyo: true, repeat: 3 }, 7.0);
+      etq(1, 7.0);
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

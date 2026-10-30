@@ -1,0 +1,7 @@
+[
+  {"t":0.15,"sfx":"notification","vol":0.28},
+  {"t":0.5,"sfx":"click","vol":0.22},
+  {"t":2.3,"sfx":"typing","vol":0.2,"max":0.4},
+  {"t":2.72,"sfx":"notification","vol":0.32},
+  {"t":3.42,"sfx":"ping","vol":0.3}
+]

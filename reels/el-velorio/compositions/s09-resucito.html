@@ -1,0 +1,88 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-resucito"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-resucito"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-resucito"] .ln { fill: none; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-resucito"] .lf { fill: #2a1f38; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-resucito"] .dk { fill: #160f1f; stroke: #c9b2ef; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-resucito"] .au { fill: none; stroke: #e8b84f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-resucito"] .auf { fill: #e8b84f; stroke: none; }
+    [data-composition-id="s09-resucito"] .cr { fill: #f4eee2; stroke: none; }
+    [data-composition-id="s09-resucito"] .crl { fill: none; stroke: #f4eee2; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-resucito"] .llama { fill: #f4eee2; stroke: #e8b84f; stroke-width: 4; filter: drop-shadow(0 0 12px rgba(232, 184, 79, 0.8)); }
+    [data-composition-id="s09-resucito"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #e8b84f; }
+    [data-composition-id="s09-resucito"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s09-resucito" data-width="1080" data-height="1920" data-duration="1.95">
+    <div id="s09-escena" class="capa clip" data-start="0" data-duration="1.95" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s09-rayos"><path class="au" d="M790 900 L880 900" /><path class="au" d="M771 996 L854 1030" /><path class="au" d="M717 1077 L780 1140" /><path class="au" d="M636 1131 L670 1214" /><path class="au" d="M540 1150 L540 1240" /><path class="au" d="M444 1131 L410 1214" /><path class="au" d="M363 1077 L300 1140" /><path class="au" d="M309 996 L226 1030" /><path class="au" d="M290 900 L200 900" /><path class="au" d="M309 804 L226 770" /><path class="au" d="M363 723 L300 660" /><path class="au" d="M444 669 L410 586" /><path class="au" d="M540 650 L540 560" /><path class="au" d="M636 669 L670 586" /><path class="au" d="M717 723 L780 660" /><path class="au" d="M771 804 L854 770" /></g>
+        <g class="s09-tia"><g transform="translate(540 880) scale(1)">
+  <!-- LA TÍA: origen = centro de la cara -->
+  <path class="dk s09-l" d="M-150 330 Q-150 150 -60 120 L0 150 L60 120 Q150 150 150 330 Z" />
+  <path class="ln s09-l" d="M-60 120 Q0 200 60 120" />
+  <g class="s09-l-perlas"><circle class="cr" cx="-48" cy="171" r="7" /><circle class="cr" cx="-32" cy="159" r="7" /><circle class="cr" cx="-16" cy="152" r="7" /><circle class="cr" cx="0" cy="150" r="7" /><circle class="cr" cx="16" cy="152" r="7" /><circle class="cr" cx="32" cy="159" r="7" /><circle class="cr" cx="48" cy="171" r="7" /></g>
+  <path class="dk s09-l" d="M-100 -20 Q-110 -140 0 -150 Q110 -140 100 -20 Q100 60 120 110 Q60 80 0 60 Q-60 80 -120 110 Q-100 60 -100 -20 Z" />
+  <circle class="lf s09-l" cx="0" cy="-160" r="42" />
+  <ellipse class="lf s09-l" cx="0" cy="0" rx="78" ry="92" />
+  <path class="ln s09-l" d="M-58 -50 Q-20 -86 0 -60 Q20 -86 58 -50" />
+  <path class="ln s09-l-cejas" d="M-50 -34 L-18 -26 M50 -34 L18 -26" />
+  <path class="ln s09-l-ojos" d="M-48 -6 Q-32 -20 -16 -6 M16 -6 Q32 -20 48 -6" />
+  <ellipse class="dk s09-l-boca" cx="0" cy="48" rx="24" ry="18" />
+  <path class="ln s09-l" d="M-70 20 q-8 4 -6 12 M70 20 q8 4 6 12" opacity="0.6" />
+          <path class="ln s09-l" d="M-120 170 Q-200 60 -190 -110 M120 170 Q200 60 190 -110" />
+          <path class="ln s09-l" d="M-206 -110 l-10 -30 M-190 -114 V-148 M-174 -110 l10 -30 M174 -110 l-10 -30 M190 -114 V-148 M206 -110 l10 -30" />
+          <circle class="cr" cx="-32" cy="-12" r="18" /><circle class="cr" cx="32" cy="-12" r="18" />
+          <circle class="dk" cx="-32" cy="-12" r="7" /><circle class="dk" cx="32" cy="-12" r="7" />
+        </g></g>
+        <path class="cr s09-panu" d="M760 640 Q800 600 840 630 Q820 660 844 690 Q800 700 780 670 Q750 680 760 640 Z" />
+      </svg>
+
+      <div class="etiqueta"><span class="s09-e1">¡Milagro!</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-resucito";
+      const DUR = 1.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.02);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.02);
+        });
+      };
+      const pop = (el, t, o = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.85, ...(o.from || {}) }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false, ...(o.to || {}) }, t); };
+      const ET = qa(".etiqueta span");
+      const etq = (i, t) => {
+        if (i > 0) tl.to(ET[i - 1], { opacity: 0, duration: 0.12 }, t - 0.12);
+        tl.fromTo(ET[i], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+
+      gsap.set(qa(".s09-l-ojos"), { opacity: 0 });
+      dibujar(qa(".s09-l"), 0, 0.35, 0.3);
+      pop(q(".s09-tia"), 0, { from: { y: 40 }, to: { y: 0 } });
+      dibujar(qa(".s09-rayos path"), 0.05, 0.3);
+      tl.to(q(".s09-rayos"), { rotation: 20, svgOrigin: "540 900", duration: 1.6, ease: "none" }, 0.1);
+      tl.to(q(".s09-tia"), { y: -12, duration: 0.1, yoyo: true, repeat: 7 }, 0.2);
+      tl.fromTo(q(".s09-panu"), { y: 200, x: -120, rotation: 0, opacity: 0 }, { y: -40, x: 40, rotation: 200, opacity: 1, transformOrigin: "50% 50%", duration: 1.2, ease: "power2.out" }, 0.1);
+      tl.to(q(".s09-l-boca"), { scaleY: 1.6, svgOrigin: "0 48", duration: 0.2 }, 0.1);
+      etq(0, 0.1);
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
