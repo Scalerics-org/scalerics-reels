@@ -81,6 +81,11 @@
 
 ## En curso
 
+- 30-10 · `actividad-paranormal` · Agente de IA (le escribe al que dejó de venir) · Halloween, video casero de cámara de seguridad: vuelven clientes que no venían desde el invierno · corrida 30-10
+- 30-10 · `pronostico` · Agente de IA · pronóstico del tiempo de TV: "este domingo llueven mensajes" · corrida 30-10
+- 30-10 · `record-mundial` · Automatizaciones · récord mundial de copiar y pegar pedidos a mano · corrida 30-10
+- 30-10 · `el-reencuentro` · CRM · programa de reencuentros: Don Aldo busca a la clienta del presupuesto que nunca llamó · corrida 30-10
+- 30-10 · `el-podcast` · Tienda online · podcast de dos jóvenes: "para mi generación, si no vendés por internet, no existís" · corrida 30-10
 
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
