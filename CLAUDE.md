@@ -215,8 +215,17 @@ Todo desde la raíz del repo salvo donde dice. `<slug>` = nombre corto del reel 
     { "t": 5.6, "chica": "Te voy a robar", "grande": "tus clientes", "sello": "Plan: el golpe",
       "acento": "#f5c518", "sello_color": "#e5484d", "zoom": 1.15, "foco": "35%" }
     ```
+    - **CLICKBAIT** (Juan, 29-10: "miniaturas personalizadas clickbaiteras"): el personaje con zoom
+      como primer plano (`zoom` 1.3-1.9, `foco`/`foco_x` para encuadrarlo arriba del texto), una
+      etiqueta que pica en `sello` ("¡No sos vos, Marcelo!", "¿Lo contratás?", "¿Culpable?"), el
+      giro en `grande` ("es una IA", "no pide aumento") y, cuando suma, `circulo` {x, y, r} rojo
+      sobre la cara u objeto y `flecha` {x, y, rot} roja apuntándolo (x, y = la cola; rot en
+      grados, 0 = derecha, positivo baja). Ejemplos: `reels/empleado-del-mes`, `reels/entrevista-de-trabajo`.
+      Sin imágenes generadas con IA (gastan el crédito de Google): siempre un cuadro del reel.
     - `t`: el segundo del cuadro de fondo. Elegí el dibujo más fuerte del reel (un personaje, el
-      objeto central), mirando la hoja de cuadros; mejor uno sin mucho texto propio.
+      objeto central), mirando la hoja de cuadros; mejor uno sin texto propio ni globos. Ojo: en la
+      hoja `fps=1/2.5` el cuadro i está cerca de `i*2.5 + 1`; afiná con una tira
+      (`ffmpeg -ss <t> -t 1.2 -i <mp4> -vf "fps=5,scale=120:-1,tile=6x1" -frames:v 1 tira.png`).
     - `chica` + `grande`: el gancho partido en dos, 2 a 6 palabras en total, que se entienda solo
       y pique (`grande` es lo que tiene que agarrar el ojo). `sello`: el formato o el personaje
       ("Plan: el golpe", "Caso cerrado", "Confesión").
