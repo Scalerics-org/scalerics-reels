@@ -1,0 +1,133 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-bosque"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-bosque"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-bosque"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-bosque"] .tinta { fill: none; stroke: #2e2a3b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-bosque"] .tinta-f { fill: none; stroke: #2e2a3b; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-bosque"] .etq { position: absolute; left: 0; right: 0; top: 1296px; text-align: center; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 40px; color: #2e2a3b; white-space: nowrap; }
+    [data-composition-id="s07-bosque"] .etq b { font-family: "Cinzel", serif; font-style: normal; font-weight: 700; font-size: 26px; letter-spacing: 0.22em; color: #c0392b; margin-right: 14px; }
+    [data-composition-id="s07-bosque"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+
+    [data-composition-id="s07-bosque"] .s07-poste { position: absolute; left: 678px; top: 1131px; font-family: "Cinzel", serif; font-weight: 700; font-size: 23px; letter-spacing: 0.04em; color: #2e2a3b; transform: rotate(-4deg); }
+  </style>
+  <div id="root" data-composition-id="s07-bosque" data-width="1080" data-height="1920" data-duration="4.08">
+    <div id="s07-bosque-escena" class="capa clip" data-start="0" data-duration="4.08" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <filter id="s07-bosque-acu" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G" /></filter>
+          </defs>
+
+      <g class="s07-bosque">
+      <path class="lav s07-camino-l" d="M430 1330 C470 1200 700 1180 640 1080 C590 1000 420 1000 470 920 C510 860 600 860 560 800 C540 770 520 760 530 740 L550 740 C560 770 600 790 590 820 C620 880 540 900 520 930 C470 1000 640 1010 690 1080 C760 1190 560 1220 620 1330 Z" fill="#e2c58c" style="opacity:0.9" filter="url(#s07-bosque-acu)" /><path class="tinta s07-camino" d="M430 1330 C470 1200 700 1180 640 1080 C590 1000 420 1000 470 920 C510 860 600 860 560 800 C540 770 520 760 530 740 L550 740 C560 770 600 790 590 820 C620 880 540 900 520 930 C470 1000 640 1010 690 1080 C760 1190 560 1220 620 1330 Z" />
+      <g class="s07-a0"><g transform="translate(150 1270) scale(0.9 0.9)"><path class="tinta s07-a0-tr" d="M0 0 V-60"/><path class="lav s07-a0-co-l" d="M0 -300 L-70 -170 L-40 -170 L-96 -60 L96 -60 L40 -170 L70 -170 Z" fill="#4f7a4a" style="opacity:0.85" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a0-co" d="M0 -300 L-70 -170 L-40 -170 L-96 -60 L96 -60 L40 -170 L70 -170 Z" /></g></g><g class="s07-a1"><g transform="translate(930 1280) scale(0.85 0.85)"><path class="lav s07-a1-tr-l" d="M-18 0 L-12 -150 L12 -150 L18 0 Z" fill="#8a6a44" style="opacity:0.9" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a1-tr" d="M-18 0 L-12 -150 L12 -150 L18 0 Z" /><path class="lav s07-a1-co-l" d="M-110 -170 C-150 -230 -100 -320 -40 -300 C-20 -360 70 -350 80 -290 C150 -280 150 -180 100 -160 C80 -120 -70 -120 -110 -170 Z" fill="#4f7a4a" style="opacity:0.82" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a1-co" d="M-110 -170 C-150 -230 -100 -320 -40 -300 C-20 -360 70 -350 80 -290 C150 -280 150 -180 100 -160 C80 -120 -70 -120 -110 -170 Z" /></g></g><g class="s07-a2"><g transform="translate(250 1060) scale(0.6 0.6)"><path class="lav s07-a2-tr-l" d="M-18 0 L-12 -150 L12 -150 L18 0 Z" fill="#8a6a44" style="opacity:0.9" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a2-tr" d="M-18 0 L-12 -150 L12 -150 L18 0 Z" /><path class="lav s07-a2-co-l" d="M-110 -170 C-150 -230 -100 -320 -40 -300 C-20 -360 70 -350 80 -290 C150 -280 150 -180 100 -160 C80 -120 -70 -120 -110 -170 Z" fill="#3f6b3a" style="opacity:0.82" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a2-co" d="M-110 -170 C-150 -230 -100 -320 -40 -300 C-20 -360 70 -350 80 -290 C150 -280 150 -180 100 -160 C80 -120 -70 -120 -110 -170 Z" /></g></g><g class="s07-a3"><g transform="translate(820 1050) scale(0.6 0.6)"><path class="tinta s07-a3-tr" d="M0 0 V-60"/><path class="lav s07-a3-co-l" d="M0 -300 L-70 -170 L-40 -170 L-96 -60 L96 -60 L40 -170 L70 -170 Z" fill="#4f7a4a" style="opacity:0.85" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a3-co" d="M0 -300 L-70 -170 L-40 -170 L-96 -60 L96 -60 L40 -170 L70 -170 Z" /></g></g><g class="s07-a4"><g transform="translate(360 900) scale(0.42 0.42)"><path class="tinta s07-a4-tr" d="M0 0 V-60"/><path class="lav s07-a4-co-l" d="M0 -300 L-70 -170 L-40 -170 L-96 -60 L96 -60 L40 -170 L70 -170 Z" fill="#4f7a4a" style="opacity:0.85" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a4-co" d="M0 -300 L-70 -170 L-40 -170 L-96 -60 L96 -60 L40 -170 L70 -170 Z" /></g></g><g class="s07-a5"><g transform="translate(700 890) scale(0.42 0.42)"><path class="lav s07-a5-tr-l" d="M-18 0 L-12 -150 L12 -150 L18 0 Z" fill="#8a6a44" style="opacity:0.9" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a5-tr" d="M-18 0 L-12 -150 L12 -150 L18 0 Z" /><path class="lav s07-a5-co-l" d="M-110 -170 C-150 -230 -100 -320 -40 -300 C-20 -360 70 -350 80 -290 C150 -280 150 -180 100 -160 C80 -120 -70 -120 -110 -170 Z" fill="#3f6b3a" style="opacity:0.82" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a5-co" d="M-110 -170 C-150 -230 -100 -320 -40 -300 C-20 -360 70 -350 80 -290 C150 -280 150 -180 100 -160 C80 -120 -70 -120 -110 -170 Z" /></g></g><g class="s07-a6"><g transform="translate(440 790) scale(0.3 0.3)"><path class="lav s07-a6-tr-l" d="M-18 0 L-12 -150 L12 -150 L18 0 Z" fill="#8a6a44" style="opacity:0.9" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a6-tr" d="M-18 0 L-12 -150 L12 -150 L18 0 Z" /><path class="lav s07-a6-co-l" d="M-110 -170 C-150 -230 -100 -320 -40 -300 C-20 -360 70 -350 80 -290 C150 -280 150 -180 100 -160 C80 -120 -70 -120 -110 -170 Z" fill="#4f7a4a" style="opacity:0.82" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a6-co" d="M-110 -170 C-150 -230 -100 -320 -40 -300 C-20 -360 70 -350 80 -290 C150 -280 150 -180 100 -160 C80 -120 -70 -120 -110 -170 Z" /></g></g><g class="s07-a7"><g transform="translate(620 785) scale(0.3 0.3)"><path class="tinta s07-a7-tr" d="M0 0 V-60"/><path class="lav s07-a7-co-l" d="M0 -300 L-70 -170 L-40 -170 L-96 -60 L96 -60 L40 -170 L70 -170 Z" fill="#4f7a4a" style="opacity:0.85" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a7-co" d="M0 -300 L-70 -170 L-40 -170 L-96 -60 L96 -60 L40 -170 L70 -170 Z" /></g></g><g class="s07-a8"><g transform="translate(80 900) scale(0.55 0.55)"><path class="tinta s07-a8-tr" d="M0 0 V-60"/><path class="lav s07-a8-co-l" d="M0 -300 L-70 -170 L-40 -170 L-96 -60 L96 -60 L40 -170 L70 -170 Z" fill="#3f6b3a" style="opacity:0.85" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a8-co" d="M0 -300 L-70 -170 L-40 -170 L-96 -60 L96 -60 L40 -170 L70 -170 Z" /></g></g><g class="s07-a9"><g transform="translate(1000 920) scale(0.5 0.5)"><path class="tinta s07-a9-tr" d="M0 0 V-60"/><path class="lav s07-a9-co-l" d="M0 -300 L-70 -170 L-40 -170 L-96 -60 L96 -60 L40 -170 L70 -170 Z" fill="#4f7a4a" style="opacity:0.85" filter="url(#s07-bosque-acu)" /><path class="tinta s07-a9-co" d="M0 -300 L-70 -170 L-40 -170 L-96 -60 L96 -60 L40 -170 L70 -170 Z" /></g></g>
+      </g>
+      <g class="s07-letrero"><path class="tinta s07-palo" d="M760 1290 V1120" style="stroke-width:8" /><path class="lav s07-tabla-l" d="M660 1120 H930 L960 1150 L930 1180 H660 Z" fill="#e8cf9c" style="opacity:1" filter="url(#s07-bosque-acu)" /><path class="tinta s07-tabla" d="M660 1120 H930 L960 1150 L930 1180 H660 Z" /></g>
+      <g class="s07-cape"><g transform="translate(560 1150) scale(0.3 0.3)">
+    <path class="tinta s07-cape-pier" d="M-28 -44 V-8 M28 -44 V-8"/>
+    <path d="M-56 -4 A22 10 0 1 0 -12 -4 A22 10 0 1 0 -56 -4 Z M12 -4 A22 10 0 1 0 56 -4 A22 10 0 1 0 12 -4 Z" fill="#2e2a3b"/>
+    <path class="lav s07-cape-vest-l" d="M-46 -252 L-80 -40 L80 -40 L46 -252 Z" fill="#f6ecd6" style="opacity:1" filter="url(#s07-bosque-acu)" /><path class="tinta s07-cape-vest" d="M-46 -252 L-80 -40 L80 -40 L46 -252 Z" />
+    <path class="tinta-f" d="M-30 -200 v2 M10 -170 v2 M-40 -110 v2 M30 -90 v2 M0 -130 v2 M-10 -70 v2 M40 -150 v2" style="stroke-width:9;opacity:.5"/>
+    <path class="lav s07-cape-capa-l" d="M0 -442 C-86 -442 -110 -374 -100 -314 C-126 -222 -144 -122 -152 -42 Q-118 -28 -84 -36 L-48 -252 L48 -252 L84 -36 Q118 -28 152 -42 C144 -122 126 -222 100 -314 C110 -374 86 -442 0 -442 Z" fill="#c0392b" style="opacity:0.9" filter="url(#s07-bosque-acu)" /><path class="tinta s07-cape-capa" d="M0 -442 C-86 -442 -110 -374 -100 -314 C-126 -222 -144 -122 -152 -42 Q-118 -28 -84 -36 L-48 -252 L48 -252 L84 -36 Q118 -28 152 -42 C144 -122 126 -222 100 -314 C110 -374 86 -442 0 -442 Z" />
+    <path class="lav s07-cape-cara-l" d="M-58 -334 A58 58 0 1 0 58 -334 A58 58 0 1 0 -58 -334 Z" fill="#f5d6b8" style="opacity:1" filter="url(#s07-bosque-acu)" /><path class="tinta s07-cape-cara" d="M-58 -334 A58 58 0 1 0 58 -334 A58 58 0 1 0 -58 -334 Z" />
+    <path class="s07-cape-flequi" d="M-54 -350 C-46 -398 46 -398 54 -350 C30 -372 0 -360 -14 -380 C-24 -362 -40 -362 -54 -350 Z" fill="#5a3b2a"/>
+    <circle class="s07-cape-ojo" cx="-21" cy="-336" r="6.5" fill="#2e2a3b"/><circle class="s07-cape-ojo" cx="21" cy="-336" r="6.5" fill="#2e2a3b"/>
+    <circle cx="-34" cy="-314" r="10" fill="#c0392b" opacity=".3"/><circle cx="34" cy="-314" r="10" fill="#c0392b" opacity=".3"/>
+    <path class="tinta s07-cape-boca" d="M-14 -308 h28"/>
+    <path d="M-26 -282 L0 -270 L-26 -258 Z M26 -282 L0 -270 L26 -258 Z" fill="#8e2a20"/>
+    <path class="tinta s07-cape-brazo" d="M62 -236 C92 -206 104 -180 100 -150"/><g class="s07-cape-canasta"><path class="lav s07-cape-cn-l" d="M64 -150 H166 L152 -84 H78 Z" fill="#d49a2a" style="opacity:0.9" filter="url(#s07-bosque-acu)" /><path class="tinta s07-cape-cn" d="M64 -150 H166 L152 -84 H78 Z" /><path class="tinta s07-cape-asa" d="M74 -150 C84 -222 146 -222 156 -150"/><path class="tinta-f" d="M72 -128 H158 M76 -106 H154" style="opacity:.6"/><path class="s07-cape-mantel" d="M80 -152 L100 -170 L118 -152 L136 -168 L152 -152 Z" fill="#c0392b" opacity=".85"/></g><path class="tinta s07-cape-bi" d="M-62 -236 C-90 -200 -96 -170 -88 -140"/></g></g>
+        </svg>
+<div class="s07-poste">TU LOCAL: LUNES</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-bosque";
+      const DUR = 4.08;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazos de tinta que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.03));
+          tl.fromTo(el, { strokeDashoffset: (L + 2) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // la acuarela se pinta: aparece la mancha
+      const pintar = (els, t, dur) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const op = Number(el.style.opacity || 1);
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: op, duration: dur ?? 0.45, ease: "power1.out" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // un dibujo entero (grupo con .tinta y .lav adentro): primero la tinta, después el color
+      const ilustrar = (sel, t, dur, desde) => {
+        const g = typeof sel === "string" ? q(sel) : sel;
+        dibujar([...g.querySelectorAll(".tinta, .tinta-f")], t, dur ?? 0.6, desde);
+        pintar([...g.querySelectorAll(".lav")], t + (dur ?? 0.6) * 0.45, 0.4);
+        const resto = [...g.querySelectorAll(":scope > :not(.tinta):not(.tinta-f):not(.lav):not(g), :scope g > :not(.tinta):not(.tinta-f):not(.lav):not(g)")];
+        resto.forEach((el) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.3 }, t + (dur ?? 0.6) * 0.6); });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const escribir = (el, t, dur) => {
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // vaivén suave mientras dura la escena (determinista)
+      const vaiven = (el, t0, prop, per) => {
+        const n = Math.max(1, Math.floor((DUR - 0.3 - t0) / per));
+        tl.to(el, { ...prop, duration: per, ease: "sine.inOut", yoyo: true, repeat: n - 1 }, t0);
+      };
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+
+      const LUNES = 0.46, BOSQUE = 1.69, LARGO = 2.92;
+      dibujar(q(".s07-camino"), 0, 0.6, 0.5);
+      tl.set(q(".s07-camino"), { opacity: 1 }, 0);
+      pintar(q(".s07-camino-l"), 0.1, 0.4);
+      for (let i = 0; i < 10; i++) ilustrar(".s07-a" + i, (i < 2 ? 0 : BOSQUE - 0.6) + i * 0.08, 0.45);
+      ilustrar(".s07-cape", 0.2, 0.4);
+      ilustrar(".s07-letrero", LUNES - 0.2, 0.4);
+      pop(q(".s07-poste"), LUNES);
+      // Caperucita camina por el camino que no se termina
+      vaiven(q(".s07-cape"), 0.4, { y: -8 }, 0.22);
+      tl.to(q(".s07-cape > g"), { x: 520, y: 990, scale: 0.22, duration: DUR - 0.6, ease: "none" }, 0.4);
+      // era muy largo: el bosque se estira
+      tl.fromTo(q(".s07-bosque"), { scaleY: 1, svgOrigin: "540 1330" }, { scaleY: 1.12, svgOrigin: "540 1330", duration: 0.8, ease: "power2.inOut" }, LARGO - 0.2);
+
+      tl.to(q("#s07-bosque-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

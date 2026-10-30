@@ -1,0 +1,158 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-espera"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-espera"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-espera"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-espera"] .tinta { fill: none; stroke: #2e2a3b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-espera"] .tinta-f { fill: none; stroke: #2e2a3b; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-espera"] .etq { position: absolute; left: 0; right: 0; top: 1296px; text-align: center; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 40px; color: #2e2a3b; white-space: nowrap; }
+    [data-composition-id="s04-espera"] .etq b { font-family: "Cinzel", serif; font-style: normal; font-weight: 700; font-size: 26px; letter-spacing: 0.22em; color: #c0392b; margin-right: 14px; }
+    [data-composition-id="s04-espera"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+
+    [data-composition-id="s04-espera"] .s04-hora { position: absolute; left: 640px; top: 1180px; width: 300px; text-align: center; font-family: "Cinzel", serif; font-weight: 700; font-size: 40px; letter-spacing: 0.1em; color: #2e2a3b; }
+    [data-composition-id="s04-espera"] .s04-zzz { position: absolute; left: 470px; top: 700px; font-size: 64px; color: #2e2a3b; }
+    [data-composition-id="s04-espera"] .s04-enviado { position: absolute; left: 330px; top: 800px; font-size: 40px; color: #4f7a4a; }
+  </style>
+  <div id="root" data-composition-id="s04-espera" data-width="1080" data-height="1920" data-duration="3.95">
+    <div id="s04-espera-escena" class="capa clip" data-start="0" data-duration="3.95" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <filter id="s04-espera-acu" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G" /></filter>
+          </defs>
+
+      <g class="s04-luna"><path class="lav s04-luna-c-l" d="M880 614 A46 46 0 1 0 880 706 A33.12 46 0 1 1 880 614 Z" fill="#f1c75b" style="opacity:0.95" filter="url(#s04-espera-acu)" /><path class="tinta s04-luna-c" d="M880 614 A46 46 0 1 0 880 706 A33.12 46 0 1 1 880 614 Z" /></g>
+      <path class="tinta s04-tela" d="M60 600 L240 600 M60 600 L60 780 M60 600 L210 750 M60 600 L140 770 M60 600 L230 680 M90 600 C90 640 100 630 60 640 M140 600 C140 680 120 700 60 700 M200 600 C200 720 160 740 60 760 M110 690 C150 690 170 660 175 640" style="stroke-width:2.5;opacity:.7" />
+      <path class="s04-arana" d="M150 700 m-10 0 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0" fill="#2e2a3b" /><path class="tinta-f s04-hilo" d="M150 600 V690" />
+      <path class="lav s04-tronco-l" d="M180 1250 V1150 C180 1120 380 1120 380 1150 V1250 Z" fill="#8a6a44" style="opacity:0.9" filter="url(#s04-espera-acu)" /><path class="tinta s04-tronco" d="M180 1250 V1150 C180 1120 380 1120 380 1150 V1250 Z" />
+      <g class="s04-cape"><g transform="translate(300 1170) scale(0.78 0.78)">
+    <path class="tinta s04-cape-pier" d="M-28 -44 V-8 M28 -44 V-8"/>
+    <path d="M-56 -4 A22 10 0 1 0 -12 -4 A22 10 0 1 0 -56 -4 Z M12 -4 A22 10 0 1 0 56 -4 A22 10 0 1 0 12 -4 Z" fill="#2e2a3b"/>
+    <path class="lav s04-cape-vest-l" d="M-46 -252 L-80 -40 L80 -40 L46 -252 Z" fill="#f6ecd6" style="opacity:1" filter="url(#s04-espera-acu)" /><path class="tinta s04-cape-vest" d="M-46 -252 L-80 -40 L80 -40 L46 -252 Z" />
+    <path class="tinta-f" d="M-30 -200 v2 M10 -170 v2 M-40 -110 v2 M30 -90 v2 M0 -130 v2 M-10 -70 v2 M40 -150 v2" style="stroke-width:9;opacity:.5"/>
+    <path class="lav s04-cape-capa-l" d="M0 -442 C-86 -442 -110 -374 -100 -314 C-126 -222 -144 -122 -152 -42 Q-118 -28 -84 -36 L-48 -252 L48 -252 L84 -36 Q118 -28 152 -42 C144 -122 126 -222 100 -314 C110 -374 86 -442 0 -442 Z" fill="#c0392b" style="opacity:0.9" filter="url(#s04-espera-acu)" /><path class="tinta s04-cape-capa" d="M0 -442 C-86 -442 -110 -374 -100 -314 C-126 -222 -144 -122 -152 -42 Q-118 -28 -84 -36 L-48 -252 L48 -252 L84 -36 Q118 -28 152 -42 C144 -122 126 -222 100 -314 C110 -374 86 -442 0 -442 Z" />
+    <path class="lav s04-cape-cara-l" d="M-58 -334 A58 58 0 1 0 58 -334 A58 58 0 1 0 -58 -334 Z" fill="#f5d6b8" style="opacity:1" filter="url(#s04-espera-acu)" /><path class="tinta s04-cape-cara" d="M-58 -334 A58 58 0 1 0 58 -334 A58 58 0 1 0 -58 -334 Z" />
+    <path class="s04-cape-flequi" d="M-54 -350 C-46 -398 46 -398 54 -350 C30 -372 0 -360 -14 -380 C-24 -362 -40 -362 -54 -350 Z" fill="#5a3b2a"/>
+    <circle class="s04-cape-ojo" cx="-21" cy="-336" r="6.5" fill="#2e2a3b"/><circle class="s04-cape-ojo" cx="21" cy="-336" r="6.5" fill="#2e2a3b"/>
+    <circle cx="-34" cy="-314" r="10" fill="#c0392b" opacity=".3"/><circle cx="34" cy="-314" r="10" fill="#c0392b" opacity=".3"/>
+    <path class="tinta s04-cape-boca" d="M-14 -308 h28"/>
+    <path d="M-26 -282 L0 -270 L-26 -258 Z M26 -282 L0 -270 L26 -258 Z" fill="#8e2a20"/>
+    <path class="tinta s04-cape-brazo" d="M62 -236 C92 -206 104 -180 100 -150"/><g class="s04-cape-canasta"><path class="lav s04-cape-cn-l" d="M64 -150 H166 L152 -84 H78 Z" fill="#d49a2a" style="opacity:0.9" filter="url(#s04-espera-acu)" /><path class="tinta s04-cape-cn" d="M64 -150 H166 L152 -84 H78 Z" /><path class="tinta s04-cape-asa" d="M74 -150 C84 -222 146 -222 156 -150"/><path class="tinta-f" d="M72 -128 H158 M76 -106 H154" style="opacity:.6"/><path class="s04-cape-mantel" d="M80 -152 L100 -170 L118 -152 L136 -168 L152 -152 Z" fill="#c0392b" opacity=".85"/></g><g class="s04-cape-celu"><path class="tinta s04-cape-bi" d="M-62 -236 C-104 -250 -126 -290 -118 -330"/><rect class="s04-cape-cel" x="-160" y="-420" width="74" height="122" rx="12" fill="#f6ecd6" stroke="#2e2a3b" stroke-width="5"/><rect x="-150" y="-406" width="54" height="80" rx="4" fill="#d49a2a" opacity=".45"/></g></g></g>
+      <g class="s04-reloj"><path class="lav s04-ar-l" d="M690 820 H890 L800 960 L890 1100 H690 L780 960 Z" fill="#f3e1b5" style="opacity:0.9" filter="url(#s04-espera-acu)" /><path class="tinta s04-ar" d="M690 820 H890 L800 960 L890 1100 H690 L780 960 Z" />
+        <path class="s04-arriba" d="M712 834 H868 L790 950 Z" fill="#d49a2a" />
+        <path class="s04-abajo" d="M790 970 L868 1086 H712 Z" fill="#d49a2a" />
+        <path class="tinta s04-tapa" d="M670 820 H910 M670 1100 H910" style="stroke-width:8" /></g>
+      <g class="s04-caracol"><path d="M0 0 C10 -46 70 -46 70 0 Z" fill="#d49a2a" stroke="#2e2a3b" stroke-width="4" /><path class="tinta-f" d="M35 -6 a14 14 0 1 1 1 0" /><path d="M-30 4 H90" stroke="#2e2a3b" stroke-width="10" stroke-linecap="round" /><path class="tinta-f" d="M-26 0 L-40 -30 M-20 0 L-24 -32" /></g>
+        </svg>
+
+        <div class="mano s04-enviado">Enviado ✓</div>
+        <div class="s04-hora s04-h1">23:12</div><div class="s04-hora s04-h2" style="opacity:0">02:40</div><div class="s04-hora s04-h3" style="opacity:0">06:15</div>
+        <div class="mano s04-zzz">...</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-espera";
+      const DUR = 3.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazos de tinta que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.03));
+          tl.fromTo(el, { strokeDashoffset: (L + 2) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // la acuarela se pinta: aparece la mancha
+      const pintar = (els, t, dur) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const op = Number(el.style.opacity || 1);
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: op, duration: dur ?? 0.45, ease: "power1.out" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // un dibujo entero (grupo con .tinta y .lav adentro): primero la tinta, después el color
+      const ilustrar = (sel, t, dur, desde) => {
+        const g = typeof sel === "string" ? q(sel) : sel;
+        dibujar([...g.querySelectorAll(".tinta, .tinta-f")], t, dur ?? 0.6, desde);
+        pintar([...g.querySelectorAll(".lav")], t + (dur ?? 0.6) * 0.45, 0.4);
+        const resto = [...g.querySelectorAll(":scope > :not(.tinta):not(.tinta-f):not(.lav):not(g), :scope g > :not(.tinta):not(.tinta-f):not(.lav):not(g)")];
+        resto.forEach((el) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.3 }, t + (dur ?? 0.6) * 0.6); });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const escribir = (el, t, dur) => {
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // vaivén suave mientras dura la escena (determinista)
+      const vaiven = (el, t0, prop, per) => {
+        const n = Math.max(1, Math.floor((DUR - 0.3 - t0) / per));
+        tl.to(el, { ...prop, duration: per, ease: "sine.inOut", yoyo: true, repeat: n - 1 }, t0);
+      };
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+
+      const ESCRIBIO = 0.54, PRIVADO = 1.07, ESP1 = 2.34, ESP2 = 3.07;
+      ilustrar(".s04-cape", 0, 0.45, 0.5);
+      ilustrar(".s04-tronco", 0, 0.4, 0.5);
+      tl.set(qa(".s04-cape .tinta, .s04-cape .tinta-f, .s04-tronco"), { opacity: 1 }, 0);
+      ilustrar(".s04-luna", 0.2, 0.4);
+      escribir(q(".s04-enviado"), ESCRIBIO, 0.5);
+      tl.to(q(".s04-cape-celu"), { y: -10, duration: 0.15, yoyo: true, repeat: 3 }, ESCRIBIO);
+      ilustrar(".s04-reloj", PRIVADO - 0.2, 0.5);
+      pop(q(".s04-h1"), PRIVADO);
+      // la arena baja y las horas pasan
+      tl.fromTo(q(".s04-arriba"), { scaleY: 1, svgOrigin: "790 950" }, { scaleY: 0.15, svgOrigin: "790 950", duration: DUR - PRIVADO - 0.3, ease: "none" }, PRIVADO);
+      tl.fromTo(q(".s04-abajo"), { scaleY: 0.15, svgOrigin: "790 1086" }, { scaleY: 1, svgOrigin: "790 1086", duration: DUR - PRIVADO - 0.3, ease: "none" }, PRIVADO);
+      tl.to(q(".s04-reloj"), { rotation: 180, svgOrigin: "790 960", duration: 0.35, ease: "back.inOut(1.4)" }, ESP1 - 0.1);
+      tl.set(q(".s04-h1"), { opacity: 0 }, ESP1); tl.set(q(".s04-h2"), { opacity: 1 }, ESP1);
+      tl.set(q(".s04-h2"), { opacity: 0 }, ESP2); tl.set(q(".s04-h3"), { opacity: 1 }, ESP2);
+      tl.fromTo(q(".s04-h2"), { scale: 1.3 }, { scale: 1, duration: 0.2, immediateRender: false }, ESP1);
+      tl.fromTo(q(".s04-h3"), { scale: 1.3 }, { scale: 1, duration: 0.2, immediateRender: false }, ESP2);
+      // la luna cruza el cielo
+      tl.fromTo(q(".s04-luna"), { x: 0, y: 0 }, { x: -260, y: -10, duration: DUR, ease: "none" }, 0);
+      // telaraña y caracol
+      dibujar(q(".s04-tela"), ESP1, 0.6);
+      dibujar(q(".s04-hilo"), ESP1 + 0.3, 0.3);
+      pop(q(".s04-arana"), ESP1 + 0.55);
+      tl.to(q(".s04-arana"), { y: 30, duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, ESP1 + 0.9);
+      gsap.set(q(".s04-caracol"), { x: 560, y: 1262, opacity: 0 });
+      tl.to(q(".s04-caracol"), { opacity: 1, duration: 0.2 }, ESP1 + 0.2);
+      tl.to(q(".s04-caracol"), { x: 420, duration: DUR - ESP1 - 0.5, ease: "none" }, ESP1 + 0.2);
+      escribir(q(".s04-zzz"), ESP2 - 0.1, 0.5);
+      tl.to(q(".s04-cape"), { rotation: -3, svgOrigin: "300 1170", duration: 0.5, ease: "sine.inOut" }, ESP2);
+      etiquetas([["<b>CAPÍTULO IV</b> La espera", 0.15]]);
+      tl.to(q("#s04-espera-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

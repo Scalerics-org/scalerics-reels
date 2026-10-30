@@ -1,0 +1,130 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-canasta"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-canasta"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-canasta"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-canasta"] .tinta { fill: none; stroke: #2e2a3b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-canasta"] .tinta-f { fill: none; stroke: #2e2a3b; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-canasta"] .etq { position: absolute; left: 0; right: 0; top: 1296px; text-align: center; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 40px; color: #2e2a3b; white-space: nowrap; }
+    [data-composition-id="s14-canasta"] .etq b { font-family: "Cinzel", serif; font-style: normal; font-weight: 700; font-size: 26px; letter-spacing: 0.22em; color: #c0392b; margin-right: 14px; }
+    [data-composition-id="s14-canasta"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+
+    [data-composition-id="s14-canasta"] .s14-cinta { position: absolute; left: 300px; top: 622px; width: 480px; text-align: center; font-size: 50px; color: #2e2a3b; }
+    [data-composition-id="s14-canasta"] .s14-preg { position: absolute; left: 880px; top: 1060px; font-size: 130px; color: #c0392b; }
+  </style>
+  <div id="root" data-composition-id="s14-canasta" data-width="1080" data-height="1920" data-duration="4.26">
+    <div id="s14-canasta-escena" class="capa clip" data-start="0" data-duration="4.26" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <filter id="s14-canasta-acu" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G" /></filter>
+          </defs>
+
+      <path class="lav s14-banda-l" d="M290 630 H790 L760 662 L790 694 H290 L320 662 Z" fill="#f6ecd6" style="opacity:1" filter="url(#s14-canasta-acu)" /><path class="tinta s14-banda" d="M290 630 H790 L760 662 L790 694 H290 L320 662 Z" />
+      <path class="lav s14-ped-l" d="M420 1252 H660 L630 1214 H450 Z M462 1214 V1094 H618 V1214 Z M440 1094 H640 V1070 H440 Z" fill="#e8cf9c" style="opacity:1" filter="url(#s14-canasta-acu)" /><path class="tinta s14-ped" d="M420 1252 H660 L630 1214 H450 Z M462 1214 V1094 H618 V1214 Z M440 1094 H640 V1070 H440 Z" />
+      <g class="s14-cesta"><path class="lav s14-cn-l" d="M396 900 H684 L650 1062 H430 Z" fill="#d49a2a" style="opacity:0.95" filter="url(#s14-canasta-acu)" /><path class="tinta s14-cn" d="M396 900 H684 L650 1062 H430 Z" />
+        <path class="tinta s14-asa" d="M414 900 C424 720 656 720 666 900" style="stroke-width:7" />
+        <path class="tinta-f s14-trama" d="M410 950 H670 M418 1000 H662 M480 900 L470 1062 M540 900 V1062 M600 900 L610 1062" style="opacity:.55" />
+        <path class="s14-mantel" d="M402 902 L440 856 L480 902 L520 852 L560 902 L600 852 L640 902 L678 860 L680 902 Z" fill="#c0392b" opacity=".9" /></g>
+      <g class="s14-laurel"><path class="s14-hoja" d="M360 1040 q-34 -12 -44 -42 q34 4 44 42 Z" fill="#4f7a4a" opacity=".9" /><path class="s14-hoja" d="M339.0925108427736 980 q-34 -12 -44 -42 q34 4 44 42 Z" fill="#4f7a4a" opacity=".9" /><path class="s14-hoja" d="M324.3517055975426 920 q-34 -12 -44 -42 q34 4 44 42 Z" fill="#4f7a4a" opacity=".9" /><path class="s14-hoja" d="M320.1253988618432 860 q-34 -12 -44 -42 q34 4 44 42 Z" fill="#4f7a4a" opacity=".9" /><path class="s14-hoja" d="M327.6601438472164 800 q-34 -12 -44 -42 q34 4 44 42 Z" fill="#4f7a4a" opacity=".9" /><path class="s14-hoja" d="M720 1040 q34 -12 44 -42 q-34 4 -44 42 Z" fill="#4f7a4a" opacity=".9" /><path class="s14-hoja" d="M740.9074891572263 980 q34 -12 44 -42 q-34 4 -44 42 Z" fill="#4f7a4a" opacity=".9" /><path class="s14-hoja" d="M755.6482944024574 920 q34 -12 44 -42 q-34 4 -44 42 Z" fill="#4f7a4a" opacity=".9" /><path class="s14-hoja" d="M759.8746011381568 860 q34 -12 44 -42 q-34 4 -44 42 Z" fill="#4f7a4a" opacity=".9" /><path class="s14-hoja" d="M752.3398561527836 800 q34 -12 44 -42 q-34 4 -44 42 Z" fill="#4f7a4a" opacity=".9" /></g>
+      <g class="s14-brillos"><path class="s14-b" d="M380 782 L384.5 795.5 L398 800 L384.5 804.5 L380 818 L375.5 804.5 L362 800 L375.5 795.5 Z" fill="#d49a2a"/><path class="s14-b" d="M720 756 L723.5 766.5 L734 770 L723.5 773.5 L720 784 L716.5 773.5 L706 770 L716.5 766.5 Z" fill="#d49a2a"/><path class="s14-b" d="M700 988 L703 997 L712 1000 L703 1003 L700 1012 L697 1003 L688 1000 L697 997 Z" fill="#d49a2a"/><path class="s14-b" d="M350 1000 L352.5 1007.5 L360 1010 L352.5 1012.5 L350 1020 L347.5 1012.5 L340 1010 L347.5 1007.5 Z" fill="#d49a2a"/></g>
+      <circle class="s14-pt" cx="660" cy="1236" r="8" fill="#d49a2a" /><circle class="s14-pt" cx="700" cy="1232" r="8" fill="#d49a2a" /><circle class="s14-pt" cx="740" cy="1224" r="8" fill="#d49a2a" /><circle class="s14-pt" cx="780" cy="1214" r="8" fill="#d49a2a" /><circle class="s14-pt" cx="820" cy="1200" r="8" fill="#d49a2a" /><circle class="s14-pt" cx="856" cy="1184" r="8" fill="#d49a2a" />
+      <path class="tinta s14-borde" d="M880 1190 L900 1240 L880 1290" style="stroke-width:4;opacity:.6" />
+        </svg>
+
+        <div class="mano s14-cinta">la mejor del bosque</div>
+        <div class="mano s14-preg">?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-canasta";
+      const DUR = 4.26;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazos de tinta que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.03));
+          tl.fromTo(el, { strokeDashoffset: (L + 2) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // la acuarela se pinta: aparece la mancha
+      const pintar = (els, t, dur) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const op = Number(el.style.opacity || 1);
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: op, duration: dur ?? 0.45, ease: "power1.out" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // un dibujo entero (grupo con .tinta y .lav adentro): primero la tinta, después el color
+      const ilustrar = (sel, t, dur, desde) => {
+        const g = typeof sel === "string" ? q(sel) : sel;
+        dibujar([...g.querySelectorAll(".tinta, .tinta-f")], t, dur ?? 0.6, desde);
+        pintar([...g.querySelectorAll(".lav")], t + (dur ?? 0.6) * 0.45, 0.4);
+        const resto = [...g.querySelectorAll(":scope > :not(.tinta):not(.tinta-f):not(.lav):not(g), :scope g > :not(.tinta):not(.tinta-f):not(.lav):not(g)")];
+        resto.forEach((el) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.3 }, t + (dur ?? 0.6) * 0.6); });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const escribir = (el, t, dur) => {
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // vaivén suave mientras dura la escena (determinista)
+      const vaiven = (el, t0, prop, per) => {
+        const n = Math.max(1, Math.floor((DUR - 0.3 - t0) / per));
+        tl.to(el, { ...prop, duration: per, ease: "sine.inOut", yoyo: true, repeat: n - 1 }, t0);
+      };
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+
+      const MEJOR = 0.54, CANASTA = 0.93, BOSQUE = 1.54, FALTO = 2.31, CAMINO = 2.85;
+      ilustrar(".s14-ped", 0, 0.5, 0.5);
+      tl.set(q(".s14-ped"), { opacity: 1 }, 0);
+      ilustrar(".s14-cesta", MEJOR - 0.3, 0.6);
+      popSvg(q(".s14-cesta"), MEJOR - 0.3, "540 1062", 0.5);
+      qa(".s14-hoja").forEach((h, i) => popSvg(h, CANASTA + (i % 5) * 0.06, "540 1000"));
+      ilustrar(".s14-banda", BOSQUE - 0.4, 0.4);
+      pop(q(".s14-cinta"), BOSQUE - 0.2);
+      qa(".s14-b").forEach((b, i) => { gsap.set(b, { opacity: 0 }); tl.fromTo(b, { opacity: 0, scale: 0.2, svgOrigin: "540 900" }, { opacity: 1, scale: 1, svgOrigin: "540 900", duration: 0.3, ease: "back.out(3)", immediateRender: false }, CANASTA + 0.2 + i * 0.1); tl.to(b, { opacity: 0.4, duration: 0.4, yoyo: true, repeat: 3 }, CANASTA + 0.6 + i * 0.1); });
+      tl.to(q(".s14-cesta"), { y: -10, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, CANASTA + 0.3);
+      // te faltó el camino: el caminito se corta
+      qa(".s14-pt").forEach((pt, i) => popSvg(pt, FALTO + i * 0.08, "0 0"));
+      dibujar(q(".s14-borde"), CAMINO - 0.2, 0.3);
+      pop(q(".s14-preg"), CAMINO + 0.1);
+      tl.to(q(".s14-preg"), { rotation: 12, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, CAMINO + 0.4);
+      etiquetas([["<b>NOTA DE LA ABUELA</b> lo que te faltó", 0.15]]);
+      tl.to(q("#s14-canasta-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

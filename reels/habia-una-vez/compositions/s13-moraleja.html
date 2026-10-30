@@ -1,0 +1,149 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-moraleja"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-moraleja"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-moraleja"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-moraleja"] .tinta { fill: none; stroke: #2e2a3b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-moraleja"] .tinta-f { fill: none; stroke: #2e2a3b; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-moraleja"] .etq { position: absolute; left: 0; right: 0; top: 1296px; text-align: center; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 40px; color: #2e2a3b; white-space: nowrap; }
+    [data-composition-id="s13-moraleja"] .etq b { font-family: "Cinzel", serif; font-style: normal; font-weight: 700; font-size: 26px; letter-spacing: 0.22em; color: #c0392b; margin-right: 14px; }
+    [data-composition-id="s13-moraleja"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+
+    [data-composition-id="s13-moraleja"] .s13-tit { position: absolute; left: 0; right: 0; top: 664px; text-align: center; font-family: "Cinzel", serif; font-weight: 900; font-size: 62px; letter-spacing: 0.16em; color: #c0392b; }
+    [data-composition-id="s13-moraleja"] .s13-sello { position: absolute; left: 650px; top: 1010px; padding: 8px 22px; border: 7px solid #c0392b; border-radius: 10px; font-family: "Cinzel", serif; font-weight: 900; font-size: 46px; letter-spacing: 0.1em; color: #c0392b; transform: rotate(-12deg); }
+    [data-composition-id="s13-moraleja"] .s13-unico { position: absolute; left: 200px; top: 1010px; font-size: 46px; color: #2e2a3b; transform: rotate(-6deg); }
+  </style>
+  <div id="root" data-composition-id="s13-moraleja" data-width="1080" data-height="1920" data-duration="4.74">
+    <div id="s13-moraleja-escena" class="capa clip" data-start="0" data-duration="4.74" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <filter id="s13-moraleja-acu" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G" /></filter>
+          </defs>
+
+      <path class="lav s13-marco-l" d="M540 612 C760 612 930 650 930 720 V1180 C930 1240 760 1262 540 1262 C320 1262 150 1240 150 1180 V720 C150 650 320 612 540 612 Z" fill="#f8edd2" style="opacity:1" filter="url(#s13-moraleja-acu)" /><path class="tinta s13-marco" d="M540 612 C760 612 930 650 930 720 V1180 C930 1240 760 1262 540 1262 C320 1262 150 1240 150 1180 V720 C150 650 320 612 540 612 Z" />
+      <path class="tinta s13-orla" d="M540 632 C740 632 908 668 908 728 V1172 C908 1222 740 1242 540 1242 C340 1242 172 1222 172 1172 V728 C172 668 340 632 540 632 Z" style="stroke:#d49a2a;stroke-width:3" />
+      <path class="tinta s13-flor" d="M300 760 C380 730 460 760 540 740 C620 760 700 730 780 760" style="stroke:#c0392b;stroke-width:3" />
+      <g class="s13-lobo"><g transform="translate(540 1230) scale(0.66 0.66)">
+    <path class="lav s13-lobo-cola-l" d="M70 -110 C170 -130 214 -220 180 -320 C160 -246 126 -196 60 -170 Z" fill="#7d8597" style="opacity:0.8" filter="url(#s13-moraleja-acu)" /><path class="tinta s13-lobo-cola" d="M70 -110 C170 -130 214 -220 180 -320 C160 -246 126 -196 60 -170 Z" />
+    <path class="tinta s13-lobo-pier" d="M-42 -40 V-8 M42 -40 V-8"/>
+    <path d="M-80 -4 A30 11 0 1 0 -20 -4 A30 11 0 1 0 -80 -4 Z M20 -4 A30 11 0 1 0 80 -4 A30 11 0 1 0 20 -4 Z" fill="#2e2a3b"/>
+    <path class="lav s13-lobo-cuerpo-l" d="M-95 -320 C-130 -220 -120 -90 -88 -30 L88 -30 C120 -90 130 -220 95 -320 C60 -345 -60 -345 -95 -320 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s13-moraleja-acu)" /><path class="tinta s13-lobo-cuerpo" d="M-95 -320 C-130 -220 -120 -90 -88 -30 L88 -30 C120 -90 130 -220 95 -320 C60 -345 -60 -345 -95 -320 Z" />
+    <path class="lav s13-lobo-delantal-l" d="M-62 -268 L62 -268 L78 -44 L-78 -44 Z" fill="#4f7a4a" style="opacity:0.9" filter="url(#s13-moraleja-acu)" /><path class="tinta s13-lobo-delantal" d="M-62 -268 L62 -268 L78 -44 L-78 -44 Z" />
+    <path class="tinta-f" d="M-62 -268 C-50 -304 50 -304 62 -268 M-30 -160 H30 V-110 H-30 Z" style="stroke:#f6ecd6;opacity:.8"/>
+    <path class="lav s13-lobo-bi-l" d="M-92 -300 C-150 -250 -160 -180 -140 -140 C-125 -135 -115 -140 -110 -150 C-120 -190 -110 -240 -80 -270 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s13-moraleja-acu)" /><path class="tinta s13-lobo-bi" d="M-92 -300 C-150 -250 -160 -180 -140 -140 C-125 -135 -115 -140 -110 -150 C-120 -190 -110 -240 -80 -270 Z" />
+    <path class="lav s13-lobo-bd-l" d="M92 -300 C150 -250 160 -180 140 -140 C125 -135 115 -140 110 -150 C120 -190 110 -240 80 -270 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s13-moraleja-acu)" /><path class="tinta s13-lobo-bd" d="M92 -300 C150 -250 160 -180 140 -140 C125 -135 115 -140 110 -150 C120 -190 110 -240 80 -270 Z" />
+    <path class="lav s13-lobo-orejas-l" d="M-74 -446 L-96 -546 L-24 -476 Z M74 -446 L96 -546 L24 -476 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s13-moraleja-acu)" /><path class="tinta s13-lobo-orejas" d="M-74 -446 L-96 -546 L-24 -476 Z M74 -446 L96 -546 L24 -476 Z" />
+    <path d="M-74 -462 L-88 -522 L-44 -478 Z M74 -462 L88 -522 L44 -478 Z" fill="#d49a2a" opacity=".6"/>
+    <path class="lav s13-lobo-cabeza-l" d="M-92 -410 C-96 -470 -50 -492 0 -492 C50 -492 96 -470 92 -410 C104 -396 108 -380 96 -370 C80 -336 40 -322 0 -322 C-40 -322 -80 -336 -96 -370 C-108 -380 -104 -396 -92 -410 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s13-moraleja-acu)" /><path class="tinta s13-lobo-cabeza" d="M-92 -410 C-96 -470 -50 -492 0 -492 C50 -492 96 -470 92 -410 C104 -396 108 -380 96 -370 C80 -336 40 -322 0 -322 C-40 -322 -80 -336 -96 -370 C-108 -380 -104 -396 -92 -410 Z" />
+    <path class="lav s13-lobo-hocico-l" d="M-60 -372 A60 44 0 1 0 60 -372 A60 44 0 1 0 -60 -372 Z" fill="#f6ecd6" style="opacity:1" filter="url(#s13-moraleja-acu)" /><path class="tinta s13-lobo-hocico" d="M-60 -372 A60 44 0 1 0 60 -372 A60 44 0 1 0 -60 -372 Z" />
+    <path d="M-19 -404 A19 13 0 1 0 19 -404 A19 13 0 1 0 -19 -404 Z" fill="#2e2a3b"/>
+    <g class="s13-lobo-ojos"><circle cx="-38" cy="-440" r="11" fill="#2e2a3b"/><circle cx="38" cy="-440" r="11" fill="#2e2a3b"/><circle cx="-34" cy="-444" r="3.5" fill="#f6ecd6"/><circle cx="42" cy="-444" r="3.5" fill="#f6ecd6"/></g>
+    <path class="tinta s13-lobo-cejas" d="M-58 -466 L-20 -458 M58 -466 L20 -458"/>
+    <path class="s13-lobo-boca" d="M-52 -372 Q0 -312 52 -372 Q0 -352 -52 -372 Z" fill="#f6ecd6" stroke="#2e2a3b" stroke-width="5" stroke-linejoin="round"/><path class="tinta-f" d="M-36 -364 l7 12 l7 -10 M22 -362 l7 12 l7 -12" style="opacity:.8"/></g></g>
+      <path class="s13-halo" d="M466 846 A74 18 0 1 0 614 846 A74 18 0 1 0 466 846 Z" fill="none" stroke="#d49a2a" stroke-width="9" />
+      <g class="s13-medalla"><path d="M520 1010 L540 1050 L560 1010" stroke="#c0392b" stroke-width="10" fill="none" /><circle cx="540" cy="1066" r="22" fill="#d49a2a" stroke="#2e2a3b" stroke-width="4" /></g>
+        </svg>
+
+        <div class="s13-tit">MORALEJA</div>
+        <div class="mano s13-unico">el único</div>
+        <div class="s13-sello">VENDIÓ</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-moraleja";
+      const DUR = 4.74;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazos de tinta que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.03));
+          tl.fromTo(el, { strokeDashoffset: (L + 2) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // la acuarela se pinta: aparece la mancha
+      const pintar = (els, t, dur) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const op = Number(el.style.opacity || 1);
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: op, duration: dur ?? 0.45, ease: "power1.out" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // un dibujo entero (grupo con .tinta y .lav adentro): primero la tinta, después el color
+      const ilustrar = (sel, t, dur, desde) => {
+        const g = typeof sel === "string" ? q(sel) : sel;
+        dibujar([...g.querySelectorAll(".tinta, .tinta-f")], t, dur ?? 0.6, desde);
+        pintar([...g.querySelectorAll(".lav")], t + (dur ?? 0.6) * 0.45, 0.4);
+        const resto = [...g.querySelectorAll(":scope > :not(.tinta):not(.tinta-f):not(.lav):not(g), :scope g > :not(.tinta):not(.tinta-f):not(.lav):not(g)")];
+        resto.forEach((el) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.3 }, t + (dur ?? 0.6) * 0.6); });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const escribir = (el, t, dur) => {
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // vaivén suave mientras dura la escena (determinista)
+      const vaiven = (el, t0, prop, per) => {
+        const n = Math.max(1, Math.floor((DUR - 0.3 - t0) / per));
+        tl.to(el, { ...prop, duration: per, ease: "sine.inOut", yoyo: true, repeat: n - 1 }, t0);
+      };
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+
+      const LOBO = 1.23, MALO = 2.23, ERA = 3.01, UNICO = 3.31, VENDIO = 3.84;
+      dibujar(q(".s13-marco"), 0, 0.6, 0.5);
+      tl.set(q(".s13-marco"), { opacity: 1 }, 0);
+      pintar(q(".s13-marco-l"), 0.05, 0.3);
+      dibujar(q(".s13-orla"), 0.15, 0.6);
+      gsap.set(q(".s13-tit"), { opacity: 0 });
+      tl.fromTo(q(".s13-tit"), { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.05);
+      dibujar(q(".s13-flor"), 0.3, 0.6);
+      ilustrar(".s13-lobo", LOBO - 0.4, 0.5);
+      // no era malo: aureola
+      popSvg(q(".s13-halo"), MALO - 0.1, "540 846");
+      tl.to(q(".s13-halo"), { y: -8, duration: 0.4, yoyo: true, repeat: 4, ease: "sine.inOut" }, MALO + 0.3);
+      tl.to(q(".s13-lobo-cola"), { rotation: 10, svgOrigin: "580 1157", duration: 0.2, yoyo: true, repeat: 5 }, MALO);
+      tl.to(q(".s13-lobo-cola-l"), { rotation: 10, svgOrigin: "580 1157", duration: 0.2, yoyo: true, repeat: 5 }, MALO);
+      // el único que le vendió
+      popSvg(q(".s13-medalla"), UNICO - 0.1, "540 1040");
+      pop(q(".s13-unico"), UNICO);
+      gsap.set(q(".s13-sello"), { opacity: 0 });
+      tl.fromTo(q(".s13-sello"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, VENDIO - 0.25);
+      temblor(q(".escenario"), VENDIO - 0.09, 0.6);
+      etiquetas([["<b>FIN DEL CUENTO</b> y la moraleja", 0.15]]);
+      tl.to(q("#s13-moraleja-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

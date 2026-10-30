@@ -1,0 +1,168 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-abuela"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-abuela"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-abuela"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-abuela"] .tinta { fill: none; stroke: #2e2a3b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abuela"] .tinta-f { fill: none; stroke: #2e2a3b; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abuela"] .etq { position: absolute; left: 0; right: 0; top: 1296px; text-align: center; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 40px; color: #2e2a3b; white-space: nowrap; }
+    [data-composition-id="s12-abuela"] .etq b { font-family: "Cinzel", serif; font-style: normal; font-weight: 700; font-size: 26px; letter-spacing: 0.22em; color: #c0392b; margin-right: 14px; }
+    [data-composition-id="s12-abuela"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+
+    [data-composition-id="s12-abuela"] .s12-n1 { position: absolute; left: 110px; top: 700px; font-size: 46px; color: #c0392b; transform: rotate(-6deg); }
+    [data-composition-id="s12-abuela"] .s12-n2 { position: absolute; left: 730px; top: 820px; font-size: 46px; color: #4f7a4a; transform: rotate(5deg); }
+  </style>
+  <div id="root" data-composition-id="s12-abuela" data-width="1080" data-height="1920" data-duration="4.05">
+    <div id="s12-abuela-escena" class="capa clip" data-start="0" data-duration="4.05" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <filter id="s12-abuela-acu" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G" /></filter>
+          </defs>
+
+      <g class="s12-lobo"><g transform="translate(540 1280) scale(0.82 0.82)">
+    <path class="lav s12-lobo-cola-l" d="M70 -110 C170 -130 214 -220 180 -320 C160 -246 126 -196 60 -170 Z" fill="#7d8597" style="opacity:0.8" filter="url(#s12-abuela-acu)" /><path class="tinta s12-lobo-cola" d="M70 -110 C170 -130 214 -220 180 -320 C160 -246 126 -196 60 -170 Z" />
+    <path class="tinta s12-lobo-pier" d="M-42 -40 V-8 M42 -40 V-8"/>
+    <path d="M-80 -4 A30 11 0 1 0 -20 -4 A30 11 0 1 0 -80 -4 Z M20 -4 A30 11 0 1 0 80 -4 A30 11 0 1 0 20 -4 Z" fill="#2e2a3b"/>
+    <path class="lav s12-lobo-cuerpo-l" d="M-95 -320 C-130 -220 -120 -90 -88 -30 L88 -30 C120 -90 130 -220 95 -320 C60 -345 -60 -345 -95 -320 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s12-abuela-acu)" /><path class="tinta s12-lobo-cuerpo" d="M-95 -320 C-130 -220 -120 -90 -88 -30 L88 -30 C120 -90 130 -220 95 -320 C60 -345 -60 -345 -95 -320 Z" />
+    <path class="lav s12-lobo-delantal-l" d="M-62 -268 L62 -268 L78 -44 L-78 -44 Z" fill="#4f7a4a" style="opacity:0.9" filter="url(#s12-abuela-acu)" /><path class="tinta s12-lobo-delantal" d="M-62 -268 L62 -268 L78 -44 L-78 -44 Z" />
+    <path class="tinta-f" d="M-62 -268 C-50 -304 50 -304 62 -268 M-30 -160 H30 V-110 H-30 Z" style="stroke:#f6ecd6;opacity:.8"/>
+    <path class="lav s12-lobo-bi-l" d="M-92 -300 C-150 -250 -160 -180 -140 -140 C-125 -135 -115 -140 -110 -150 C-120 -190 -110 -240 -80 -270 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s12-abuela-acu)" /><path class="tinta s12-lobo-bi" d="M-92 -300 C-150 -250 -160 -180 -140 -140 C-125 -135 -115 -140 -110 -150 C-120 -190 -110 -240 -80 -270 Z" />
+    <path class="lav s12-lobo-bd-l" d="M92 -300 C140 -330 170 -380 175 -430 C188 -432 196 -425 196 -418 C192 -360 160 -300 108 -270 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s12-abuela-acu)" /><path class="tinta s12-lobo-bd" d="M92 -300 C140 -330 170 -380 175 -430 C188 -432 196 -425 196 -418 C192 -360 160 -300 108 -270 Z" />
+    <path class="lav s12-lobo-orejas-l" d="M-74 -446 L-96 -546 L-24 -476 Z M74 -446 L96 -546 L24 -476 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s12-abuela-acu)" /><path class="tinta s12-lobo-orejas" d="M-74 -446 L-96 -546 L-24 -476 Z M74 -446 L96 -546 L24 -476 Z" />
+    <path d="M-74 -462 L-88 -522 L-44 -478 Z M74 -462 L88 -522 L44 -478 Z" fill="#d49a2a" opacity=".6"/>
+    <path class="lav s12-lobo-cabeza-l" d="M-92 -410 C-96 -470 -50 -492 0 -492 C50 -492 96 -470 92 -410 C104 -396 108 -380 96 -370 C80 -336 40 -322 0 -322 C-40 -322 -80 -336 -96 -370 C-108 -380 -104 -396 -92 -410 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s12-abuela-acu)" /><path class="tinta s12-lobo-cabeza" d="M-92 -410 C-96 -470 -50 -492 0 -492 C50 -492 96 -470 92 -410 C104 -396 108 -380 96 -370 C80 -336 40 -322 0 -322 C-40 -322 -80 -336 -96 -370 C-108 -380 -104 -396 -92 -410 Z" />
+    <path class="lav s12-lobo-hocico-l" d="M-60 -372 A60 44 0 1 0 60 -372 A60 44 0 1 0 -60 -372 Z" fill="#f6ecd6" style="opacity:1" filter="url(#s12-abuela-acu)" /><path class="tinta s12-lobo-hocico" d="M-60 -372 A60 44 0 1 0 60 -372 A60 44 0 1 0 -60 -372 Z" />
+    <path d="M-19 -404 A19 13 0 1 0 19 -404 A19 13 0 1 0 -19 -404 Z" fill="#2e2a3b"/>
+    <g class="s12-lobo-ojos"><circle cx="-38" cy="-440" r="11" fill="#2e2a3b"/><circle cx="38" cy="-440" r="11" fill="#2e2a3b"/><circle cx="-34" cy="-444" r="3.5" fill="#f6ecd6"/><circle cx="42" cy="-444" r="3.5" fill="#f6ecd6"/></g>
+    <path class="tinta s12-lobo-cejas" d="M-58 -466 L-20 -458 M58 -466 L20 -458"/>
+    <path class="s12-lobo-boca" d="M-52 -372 Q0 -312 52 -372 Q0 -352 -52 -372 Z" fill="#f6ecd6" stroke="#2e2a3b" stroke-width="5" stroke-linejoin="round"/><path class="tinta-f" d="M-36 -364 l7 12 l7 -10 M22 -362 l7 12 l7 -12" style="opacity:.8"/></g></g>
+      <g class="s12-cape"><g transform="translate(230 1280) scale(0.62 0.62)">
+    <path class="tinta s12-cape-pier" d="M-28 -44 V-8 M28 -44 V-8"/>
+    <path d="M-56 -4 A22 10 0 1 0 -12 -4 A22 10 0 1 0 -56 -4 Z M12 -4 A22 10 0 1 0 56 -4 A22 10 0 1 0 12 -4 Z" fill="#2e2a3b"/>
+    <path class="lav s12-cape-vest-l" d="M-46 -252 L-80 -40 L80 -40 L46 -252 Z" fill="#f6ecd6" style="opacity:1" filter="url(#s12-abuela-acu)" /><path class="tinta s12-cape-vest" d="M-46 -252 L-80 -40 L80 -40 L46 -252 Z" />
+    <path class="tinta-f" d="M-30 -200 v2 M10 -170 v2 M-40 -110 v2 M30 -90 v2 M0 -130 v2 M-10 -70 v2 M40 -150 v2" style="stroke-width:9;opacity:.5"/>
+    <path class="lav s12-cape-capa-l" d="M0 -442 C-86 -442 -110 -374 -100 -314 C-126 -222 -144 -122 -152 -42 Q-118 -28 -84 -36 L-48 -252 L48 -252 L84 -36 Q118 -28 152 -42 C144 -122 126 -222 100 -314 C110 -374 86 -442 0 -442 Z" fill="#c0392b" style="opacity:0.9" filter="url(#s12-abuela-acu)" /><path class="tinta s12-cape-capa" d="M0 -442 C-86 -442 -110 -374 -100 -314 C-126 -222 -144 -122 -152 -42 Q-118 -28 -84 -36 L-48 -252 L48 -252 L84 -36 Q118 -28 152 -42 C144 -122 126 -222 100 -314 C110 -374 86 -442 0 -442 Z" />
+    <path class="lav s12-cape-cara-l" d="M-58 -334 A58 58 0 1 0 58 -334 A58 58 0 1 0 -58 -334 Z" fill="#f5d6b8" style="opacity:1" filter="url(#s12-abuela-acu)" /><path class="tinta s12-cape-cara" d="M-58 -334 A58 58 0 1 0 58 -334 A58 58 0 1 0 -58 -334 Z" />
+    <path class="s12-cape-flequi" d="M-54 -350 C-46 -398 46 -398 54 -350 C30 -372 0 -360 -14 -380 C-24 -362 -40 -362 -54 -350 Z" fill="#5a3b2a"/>
+    <circle class="s12-cape-ojo" cx="-21" cy="-336" r="6.5" fill="#2e2a3b"/><circle class="s12-cape-ojo" cx="21" cy="-336" r="6.5" fill="#2e2a3b"/>
+    <circle cx="-34" cy="-314" r="10" fill="#c0392b" opacity=".3"/><circle cx="34" cy="-314" r="10" fill="#c0392b" opacity=".3"/>
+    <path class="tinta s12-cape-boca" d="M-18 -312 q18 14 36 0"/>
+    <path d="M-26 -282 L0 -270 L-26 -258 Z M26 -282 L0 -270 L26 -258 Z" fill="#8e2a20"/>
+    <path class="tinta s12-cape-brazo" d="M62 -236 C92 -206 104 -180 100 -150"/><g class="s12-cape-canasta"><path class="lav s12-cape-cn-l" d="M64 -150 H166 L152 -84 H78 Z" fill="#d49a2a" style="opacity:0.9" filter="url(#s12-abuela-acu)" /><path class="tinta s12-cape-cn" d="M64 -150 H166 L152 -84 H78 Z" /><path class="tinta s12-cape-asa" d="M74 -150 C84 -222 146 -222 156 -150"/><path class="tinta-f" d="M72 -128 H158 M76 -106 H154" style="opacity:.6"/><path class="s12-cape-mantel" d="M80 -152 L100 -170 L118 -152 L136 -168 L152 -152 Z" fill="#c0392b" opacity=".85"/></g><path class="tinta s12-cape-bi" d="M-62 -236 C-90 -200 -96 -170 -88 -140"/></g></g>
+      <g class="s12-abuela"><g transform="translate(860 1280) scale(0.66 0.66)">
+    <path class="tinta s12-abuela-pier" d="M-30 -40 V-8 M30 -40 V-8"/>
+    <path d="M-58 -4 A22 10 0 1 0 -14 -4 A22 10 0 1 0 -58 -4 Z M14 -4 A22 10 0 1 0 58 -4 A22 10 0 1 0 14 -4 Z" fill="#2e2a3b"/>
+    <path class="lav s12-abuela-vest-l" d="M-104 -38 C-114 -160 -92 -252 -62 -282 L62 -282 C92 -252 114 -160 104 -38 Z" fill="#4f7a4a" style="opacity:0.85" filter="url(#s12-abuela-acu)" /><path class="tinta s12-abuela-vest" d="M-104 -38 C-114 -160 -92 -252 -62 -282 L62 -282 C92 -252 114 -160 104 -38 Z" />
+    <path class="lav s12-abuela-chal-l" d="M-86 -286 C-70 -214 70 -214 86 -286 L70 -306 L-70 -306 Z" fill="#d49a2a" style="opacity:0.9" filter="url(#s12-abuela-acu)" /><path class="tinta s12-abuela-chal" d="M-86 -286 C-70 -214 70 -214 86 -286 L70 -306 L-70 -306 Z" />
+    <path class="lav s12-abuela-cara-l" d="M-56 -350 A56 58 0 1 0 56 -350 A56 58 0 1 0 -56 -350 Z" fill="#f5d6b8" style="opacity:1" filter="url(#s12-abuela-acu)" /><path class="tinta s12-abuela-cara" d="M-56 -350 A56 58 0 1 0 56 -350 A56 58 0 1 0 -56 -350 Z" />
+    <path class="lav s12-abuela-pelo-l" d="M-58 -352 C-64 -410 64 -410 58 -352 C44 -388 -44 -388 -58 -352 Z" fill="#d9d4ca" style="opacity:1" filter="url(#s12-abuela-acu)" /><path class="tinta s12-abuela-pelo" d="M-58 -352 C-64 -410 64 -410 58 -352 C44 -388 -44 -388 -58 -352 Z" />
+    <path class="lav s12-abuela-rodete-l" d="M-28 -414 A28 22 0 1 0 28 -414 A28 22 0 1 0 -28 -414 Z" fill="#d9d4ca" style="opacity:1" filter="url(#s12-abuela-acu)" /><path class="tinta s12-abuela-rodete" d="M-28 -414 A28 22 0 1 0 28 -414 A28 22 0 1 0 -28 -414 Z" />
+    <path class="tinta-f" d="M-37 -352 a16 16 0 1 0 32 0 a16 16 0 1 0 -32 0 M5 -352 a16 16 0 1 0 32 0 a16 16 0 1 0 -32 0 M-5 -354 h10"/>
+    <circle cx="-21" cy="-352" r="4.5" fill="#2e2a3b"/><circle cx="21" cy="-352" r="4.5" fill="#2e2a3b"/>
+    <circle cx="-36" cy="-326" r="10" fill="#c0392b" opacity=".28"/><circle cx="36" cy="-326" r="10" fill="#c0392b" opacity=".28"/>
+    <path class="tinta s12-abuela-boca" d="M-18 -322 q18 14 36 0"/>
+    <path class="tinta s12-abuela-brazo" d="M64 -250 C92 -220 104 -190 98 -160"/><path class="tinta s12-abuela-bi" d="M-64 -250 C-92 -220 -104 -190 -98 -160"/></g></g>
+      <g class="s12-celu"><rect x="902" y="1124" width="48" height="80" rx="8" fill="#f6ecd6" stroke="#2e2a3b" stroke-width="4" /><path d="M912 1150 l8 8 l16 -18" stroke="#4f7a4a" stroke-width="5" fill="none" /></g>
+      <path class="s12-c1" d="M390 760 C370 744 354 754 354 770 C354 788 390 806 390 806 C390 806 426 788 426 770 C426 754 410 744 390 760 Z" fill="#c0392b" /><path class="s12-c2" d="M680 720 C664 707.2 651.2 715.2 651.2 728 C651.2 742.4 680 756.8 680 756.8 C680 756.8 708.8 742.4 708.8 728 C708.8 715.2 696 707.2 680 720 Z" fill="#c0392b" /><path class="s12-c3" d="M980 760 C966 748.8 954.8 755.8 954.8 767 C954.8 779.6 980 792.2 980 792.2 C980 792.2 1005.2 779.6 1005.2 767 C1005.2 755.8 994 748.8 980 760 Z" fill="#c0392b" />
+        </svg>
+
+        <div class="mano s12-n1">clienta nueva</div>
+        <div class="mano s12-n2">y la abuela también</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-abuela";
+      const DUR = 4.05;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazos de tinta que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.03));
+          tl.fromTo(el, { strokeDashoffset: (L + 2) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // la acuarela se pinta: aparece la mancha
+      const pintar = (els, t, dur) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const op = Number(el.style.opacity || 1);
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: op, duration: dur ?? 0.45, ease: "power1.out" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // un dibujo entero (grupo con .tinta y .lav adentro): primero la tinta, después el color
+      const ilustrar = (sel, t, dur, desde) => {
+        const g = typeof sel === "string" ? q(sel) : sel;
+        dibujar([...g.querySelectorAll(".tinta, .tinta-f")], t, dur ?? 0.6, desde);
+        pintar([...g.querySelectorAll(".lav")], t + (dur ?? 0.6) * 0.45, 0.4);
+        const resto = [...g.querySelectorAll(":scope > :not(.tinta):not(.tinta-f):not(.lav):not(g), :scope g > :not(.tinta):not(.tinta-f):not(.lav):not(g)")];
+        resto.forEach((el) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.3 }, t + (dur ?? 0.6) * 0.6); });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const escribir = (el, t, dur) => {
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // vaivén suave mientras dura la escena (determinista)
+      const vaiven = (el, t0, prop, per) => {
+        const n = Math.max(1, Math.floor((DUR - 0.3 - t0) / per));
+        tl.to(el, { ...prop, duration: per, ease: "sine.inOut", yoyo: true, repeat: n - 1 }, t0);
+      };
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+
+      const LOBO = 0.23, QUEDO = 1, CAPE = 1.46, Y = 2.23, ABUELA = 3.15;
+      ilustrar(".s12-lobo", 0, 0.5, 0.5);
+      tl.set(qa(".s12-lobo .tinta, .s12-lobo .tinta-f"), { opacity: 1 }, 0);
+      tl.to(q(".s12-lobo-bd"), { rotation: -10, svgOrigin: "615 1034", duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, LOBO);
+      // se quedó con Caperucita
+      ilustrar(".s12-cape", QUEDO - 0.3, 0.45);
+      tl.fromTo(q(".s12-cape"), { x: -200 }, { x: 0, duration: 0.5, ease: "back.out(1.4)", immediateRender: false }, QUEDO - 0.2);
+      pop(q(".s12-n1"), CAPE);
+      popSvg(q(".s12-c1"), CAPE + 0.1, "390 783");
+      // y con la abuela
+      ilustrar(".s12-abuela", Y + 0.1, 0.5);
+      tl.fromTo(q(".s12-abuela"), { x: 220 }, { x: 0, duration: 0.5, ease: "back.out(1.4)", immediateRender: false }, Y + 0.2);
+      pop(q(".s12-celu"), ABUELA - 0.1);
+      pop(q(".s12-n2"), ABUELA);
+      popSvg(q(".s12-c2"), ABUELA + 0.1, "680 738");
+      popSvg(q(".s12-c3"), ABUELA + 0.2, "980 776");
+      qa(".s12-c1, .s12-c2, .s12-c3").forEach((c, i) => tl.to(c, { y: -26, duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, ABUELA + 0.3 + i * 0.1));
+      tl.to(q(".s12-celu"), { rotation: 10, svgOrigin: "926 1204", duration: 0.2, yoyo: true, repeat: 3 }, ABUELA + 0.3);
+      etiquetas([["<b>CAPÍTULO XII</b> El final del cuento", 0.15]]);
+      tl.to(q("#s12-abuela-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

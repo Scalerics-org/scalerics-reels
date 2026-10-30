@@ -1,0 +1,142 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-camioneta"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-camioneta"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-camioneta"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-camioneta"] .tinta { fill: none; stroke: #2e2a3b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-camioneta"] .tinta-f { fill: none; stroke: #2e2a3b; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-camioneta"] .etq { position: absolute; left: 0; right: 0; top: 1296px; text-align: center; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 40px; color: #2e2a3b; white-space: nowrap; }
+    [data-composition-id="s11-camioneta"] .etq b { font-family: "Cinzel", serif; font-style: normal; font-weight: 700; font-size: 26px; letter-spacing: 0.22em; color: #c0392b; margin-right: 14px; }
+    [data-composition-id="s11-camioneta"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+
+    [data-composition-id="s11-camioneta"] .s11-manana { position: absolute; left: 560px; top: 640px; padding: 10px 30px; background: #c0392b; font-family: "Cinzel", serif; font-weight: 900; font-size: 50px; letter-spacing: 0.12em; color: #f6ecd6; transform: rotate(-4deg); }
+    [data-composition-id="s11-camioneta"] .s11-dir { position: absolute; left: 80px; top: 880px; font-size: 44px; color: #c0392b; transform: rotate(-6deg); }
+  </style>
+  <div id="root" data-composition-id="s11-camioneta" data-width="1080" data-height="1920" data-duration="5.41">
+    <div id="s11-camioneta-escena" class="capa clip" data-start="0" data-duration="5.41" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <filter id="s11-camioneta-acu" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G" /></filter>
+          </defs>
+
+      <g class="s11-casa"><path class="lav s11-pared-l" d="M70 1250 V1060 H330 V1250 Z" fill="#f3d9b0" style="opacity:1" filter="url(#s11-camioneta-acu)" /><path class="tinta s11-pared" d="M70 1250 V1060 H330 V1250 Z" /><path class="lav s11-techo-l" d="M44 1070 L200 950 L356 1070 Z" fill="#c0392b" style="opacity:0.9" filter="url(#s11-camioneta-acu)" /><path class="tinta s11-techo" d="M44 1070 L200 950 L356 1070 Z" /><path class="lav s11-puerta-l" d="M170 1250 V1160 H230 V1250 Z" fill="#9a7a52" style="opacity:0.9" filter="url(#s11-camioneta-acu)" /><path class="tinta s11-puerta" d="M170 1250 V1160 H230 V1250 Z" />
+        <path d="M200 1110 C190 1100 180 1106 180 1116 C180 1128 200 1138 200 1138 C200 1138 220 1128 220 1116 C220 1106 210 1100 200 1110 Z" fill="#c0392b" /></g>
+      <g class="s11-paquete"><path class="lav s11-pq-l" d="M240 1180 H330 V1250 H240 Z" fill="#d49a2a" style="opacity:1" filter="url(#s11-camioneta-acu)" /><path class="tinta s11-pq" d="M240 1180 H330 V1250 H240 Z" /><path d="M285 1180 V1250 M240 1212 H330" stroke="#c0392b" stroke-width="7" /><path d="M285 1180 C265 1160 260 1176 285 1180 C310 1160 305 1176 285 1180" stroke="#c0392b" stroke-width="5" fill="none" /></g>
+      
+      <g class="s11-van"><g transform="translate(640 1230)">
+        <path class="tinta-f s11-vel" d="M330 -200 H420 M350 -150 H460 M330 -100 H410" style="opacity:.6" />
+        <path class="lav s11-caja-l" d="M-290 -40 V-250 Q-290 -272 -268 -272 H120 V-40 Z" fill="#d49a2a" style="opacity:0.95" filter="url(#s11-camioneta-acu)" /><path class="tinta s11-caja" d="M-290 -40 V-250 Q-290 -272 -268 -272 H120 V-40 Z" />
+        <path class="lav s11-cab-l" d="M120 -40 V-210 H212 L276 -130 V-40 Z" fill="#4f7a4a" style="opacity:0.95" filter="url(#s11-camioneta-acu)" /><path class="tinta s11-cab" d="M120 -40 V-210 H212 L276 -130 V-40 Z" />
+        <path class="lav s11-vent-l" d="M140 -192 H204 L248 -136 H140 Z" fill="#b9c6cf" style="opacity:0.9" filter="url(#s11-camioneta-acu)" /><path class="tinta s11-vent" d="M140 -192 H204 L248 -136 H140 Z" />
+        <path d="M168 -186 L160 -212 L182 -194 Z M206 -186 L214 -212 L192 -194 Z" fill="#7d8597" stroke="#2e2a3b" stroke-width="3" />
+        <path d="M161 -162 A26 22 0 1 0 213 -162 A26 22 0 1 0 161 -162 Z" fill="#7d8597" stroke="#2e2a3b" stroke-width="3" />
+        <path d="M194 -156 A12 8 0 1 0 218 -156 A12 8 0 1 0 194 -156 Z" fill="#f6ecd6" /><circle cx="180" cy="-168" r="4" fill="#2e2a3b" /><circle cx="196" cy="-168" r="4" fill="#2e2a3b" />
+        <text x="-85" y="-140" text-anchor="middle" style="font-family:'Cinzel',serif;font-weight:900;font-size:58px;letter-spacing:.08em" fill="#2e2a3b">ENVÍOS</text>
+        <text x="-85" y="-92" text-anchor="middle" style="font-family:'Cinzel',serif;font-weight:700;font-size:24px;letter-spacing:.14em" fill="#2e2a3b">EL DE ENFRENTE</text>
+        <g class="s11-r1"><circle cx="-170" cy="-40" r="46" fill="#2e2a3b" /><circle cx="-170" cy="-40" r="18" fill="#f6ecd6" /><path d="M-170 -74 V-6" stroke="#f6ecd6" stroke-width="5" /></g>
+        <g class="s11-r2"><circle cx="180" cy="-40" r="46" fill="#2e2a3b" /><circle cx="180" cy="-40" r="18" fill="#f6ecd6" /><path d="M180 -74 V-6" stroke="#f6ecd6" stroke-width="5" /></g>
+      </g></g>
+        </svg>
+
+        <div class="s11-manana">MAÑANA</div>
+        <div class="mano s11-dir">lo de la abuela</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-camioneta";
+      const DUR = 5.41;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazos de tinta que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.03));
+          tl.fromTo(el, { strokeDashoffset: (L + 2) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // la acuarela se pinta: aparece la mancha
+      const pintar = (els, t, dur) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const op = Number(el.style.opacity || 1);
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: op, duration: dur ?? 0.45, ease: "power1.out" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // un dibujo entero (grupo con .tinta y .lav adentro): primero la tinta, después el color
+      const ilustrar = (sel, t, dur, desde) => {
+        const g = typeof sel === "string" ? q(sel) : sel;
+        dibujar([...g.querySelectorAll(".tinta, .tinta-f")], t, dur ?? 0.6, desde);
+        pintar([...g.querySelectorAll(".lav")], t + (dur ?? 0.6) * 0.45, 0.4);
+        const resto = [...g.querySelectorAll(":scope > :not(.tinta):not(.tinta-f):not(.lav):not(g), :scope g > :not(.tinta):not(.tinta-f):not(.lav):not(g)")];
+        resto.forEach((el) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.3 }, t + (dur ?? 0.6) * 0.6); });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const escribir = (el, t, dur) => {
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // vaivén suave mientras dura la escena (determinista)
+      const vaiven = (el, t0, prop, per) => {
+        const n = Math.max(1, Math.floor((DUR - 0.3 - t0) / per));
+        tl.to(el, { ...prop, duration: per, ease: "sine.inOut", yoyo: true, repeat: n - 1 }, t0);
+      };
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+
+      const CAMIONETA = 0.26, GRANDE = 1.22, ES = 2.3, LLEVAR = 2.65, MANANA = 3.18, ABUELA = 4.14;
+      // la camioneta entra desde la derecha
+      ilustrar(".s11-van", 0, 0.4, 0.5);
+      tl.set(qa(".s11-van .tinta, .s11-van .tinta-f, .s11-van text"), { opacity: 1 }, 0);
+      tl.fromTo(q(".s11-van"), { x: 480 }, { x: 0, duration: Math.max(0.6, CAMIONETA + 0.4), ease: "power3.out" }, 0);
+      tl.fromTo([q(".s11-r1"), q(".s11-r2")], { rotation: 0 }, { rotation: -720, svgOrigin: (i) => (i ? "820 1190" : "470 1190"), duration: Math.max(0.6, CAMIONETA + 0.4), ease: "power3.out" }, 0);
+      dibujar(q(".s11-vel"), 0, 0.4);
+      tl.to(q(".s11-vel"), { opacity: 0, duration: 0.3 }, Math.max(0.6, CAMIONETA + 0.4));
+      // tan grande
+      tl.to(q(".s11-van"), { scale: 1.08, svgOrigin: "640 1230", duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out" }, GRANDE);
+      vaiven(q(".s11-van > g"), GRANDE + 0.5, { y: 1226 }, 0.18);
+      // mañana
+      gsap.set(q(".s11-manana"), { opacity: 0 });
+      tl.fromTo(q(".s11-manana"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, MANANA - 0.05);
+      // a lo de tu abuela: aparece la casa y el paquete salta a la puerta
+      ilustrar(".s11-casa", LLEVAR, 0.5);
+      pop(q(".s11-dir"), LLEVAR + 0.4);
+      tl.to(q(".s11-van"), { x: -6, duration: 0.6, ease: "power2.inOut" }, ABUELA - 0.6);
+      gsap.set(q(".s11-paquete"), { opacity: 0 });
+      tl.fromTo(q(".s11-paquete"), { opacity: 1, x: 260, y: -120 }, { x: 0, y: 0, duration: 0.45, ease: "bounce.out", immediateRender: false }, ABUELA);
+      etiquetas([["<b>CAPÍTULO XI</b> ¡Qué camioneta tan grande!", 0.15]]);
+      tl.to(q("#s11-camioneta-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

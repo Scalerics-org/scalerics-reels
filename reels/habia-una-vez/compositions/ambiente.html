@@ -1,0 +1,82 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-grano { position: absolute; inset: 0; opacity: 0.16; mix-blend-mode: multiply; }
+    [data-composition-id="ambiente"] .amb-lomo { position: absolute; left: 0; top: 0; width: 70px; height: 1920px; background: linear-gradient(90deg, rgba(90, 62, 30, 0.38) 0%, rgba(90, 62, 30, 0.12) 45%, rgba(90, 62, 30, 0) 100%); }
+    [data-composition-id="ambiente"] .amb-cantos { position: absolute; right: 0; top: 0; width: 26px; height: 1920px; background: repeating-linear-gradient(90deg, rgba(46, 42, 59, 0.0) 0 4px, rgba(46, 42, 59, 0.14) 4px 5px); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 820px 1180px at 540px 900px, rgba(150, 110, 60, 0) 60%, rgba(150, 110, 60, 0.28) 100%); }
+    [data-composition-id="ambiente"] .amb-borde { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="ambiente"] .amb-cabecera { position: absolute; left: 0; right: 0; top: 92px; text-align: center; font-family: "Cinzel", serif; font-weight: 600; font-size: 24px; letter-spacing: 0.32em; color: rgba(46, 42, 59, 0.6); }
+    [data-composition-id="ambiente"] .amb-num { position: absolute; left: 0; right: 0; top: 1808px; text-align: center; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 34px; color: rgba(46, 42, 59, 0.6); opacity: 0; }
+    [data-composition-id="ambiente"] .amb-hoja { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; opacity: 0;
+      background: linear-gradient(90deg, #e9d7b0 0%, #f6ecd6 18%, #f8efdc 70%, #e4cfa2 100%); box-shadow: 0 0 60px rgba(70, 45, 20, 0.35); }
+    [data-composition-id="ambiente"] .amb-sombra { position: absolute; left: 0; top: 0; width: 140px; height: 1920px; opacity: 0; background: linear-gradient(90deg, rgba(70, 45, 20, 0) 0%, rgba(70, 45, 20, 0.28) 100%); }
+    [data-composition-id="ambiente"] .amb-mota { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: #d49a2a; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="76.85">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="76.85" data-track-index="0">
+      <svg class="amb-grano" viewBox="0 0 1080 1920" aria-hidden="true"><filter id="amb-ruido"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11" /><feColorMatrix values="0 0 0 0 0.35  0 0 0 0 0.25  0 0 0 0 0.12  0 0 0 -1.6 1.1" /></filter><rect width="1080" height="1920" filter="url(#amb-ruido)" /></svg>
+      <div class="amb-mota"></div><div class="amb-mota"></div><div class="amb-mota"></div><div class="amb-mota"></div><div class="amb-mota"></div><div class="amb-mota"></div>
+      <div class="amb-hoja"></div>
+      <div class="amb-sombra"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-lomo"></div>
+      <div class="amb-cantos"></div>
+      <svg class="amb-borde" viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect x="40" y="40" width="1000" height="1840" fill="none" stroke="rgba(46,42,59,0.45)" stroke-width="3" />
+        <rect x="52" y="52" width="976" height="1816" fill="none" stroke="rgba(46,42,59,0.3)" stroke-width="1.5" />
+        <g fill="none" stroke="rgba(192,57,43,0.75)" stroke-width="3" stroke-linecap="round">
+          <path d="M52 112 C52 70 70 52 112 52 M66 96 C76 80 86 72 100 66 M84 84 a10 10 0 1 1 -1 0" />
+          <path d="M1028 112 C1028 70 1010 52 968 52 M1014 96 C1004 80 994 72 980 66 M996 84 a10 10 0 1 0 1 0" />
+          <path d="M52 1808 C52 1850 70 1868 112 1868 M66 1824 C76 1840 86 1848 100 1854 M84 1836 a10 10 0 1 0 -1 0" />
+          <path d="M1028 1808 C1028 1850 1010 1868 968 1868 M1014 1824 C1004 1840 994 1848 980 1854 M996 1836 a10 10 0 1 1 1 0" />
+        </g>
+        <path d="M380 140 H700" stroke="rgba(46,42,59,0.35)" stroke-width="1.5" />
+        <path d="M540 132 l8 8 l-8 8 l-8 -8 Z" fill="rgba(192,57,43,0.7)" />
+      </svg>
+      <div class="amb-cabecera">CAPERUCITA Y TU COMERCIO</div>
+      <div class="amb-num">· 1 ·</div><div class="amb-num">· 2 ·</div><div class="amb-num">· 3 ·</div><div class="amb-num">· 4 ·</div><div class="amb-num">· 5 ·</div><div class="amb-num">· 6 ·</div><div class="amb-num">· 7 ·</div><div class="amb-num">· 8 ·</div><div class="amb-num">· 9 ·</div><div class="amb-num">· 10 ·</div><div class="amb-num">· 11 ·</div><div class="amb-num">· 12 ·</div><div class="amb-num">· 13 ·</div><div class="amb-num">· 14 ·</div><div class="amb-num">· 15 ·</div><div class="amb-num">· 16 ·</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 76.85;
+      const CORTES = [6.08,10.99,13.86,17.81,21.91,25.36,29.44,32.91,37.83,42.24,47.65,51.7,56.44,60.7,69.49];
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // números de página
+      const nums = qa(".amb-num");
+      const T = [0, ...CORTES];
+      nums.forEach((n, i) => {
+        tl.set(n, { opacity: 1 }, T[i]);
+        if (i + 1 < T.length) tl.set(n, { opacity: 0 }, T[i + 1]);
+      });
+      // la página que pasa: entra desde el canto derecho, tapa un instante y se va hacia el lomo
+      const hoja = q(".amb-hoja"), sombra = q(".amb-sombra");
+      CORTES.forEach((c) => {
+        tl.set(hoja, { opacity: 1, transformOrigin: "100% 50%", scaleX: 0, skewY: 0 }, c - 0.2);
+        tl.to(hoja, { scaleX: 1, skewY: -2, duration: 0.2, ease: "power2.in" }, c - 0.2);
+        tl.set(hoja, { transformOrigin: "0% 50%" }, c);
+        tl.to(hoja, { scaleX: 0, skewY: 1.5, duration: 0.24, ease: "power2.out" }, c);
+        tl.set(hoja, { opacity: 0 }, c + 0.25);
+        tl.fromTo(sombra, { opacity: 0.9, x: 0 }, { opacity: 0, x: 0, duration: 0.3, ease: "power1.out", immediateRender: false }, c + 0.02);
+      });
+      // motas doradas que flotan
+      const M = [[180, 760], [900, 680], [300, 1220], [820, 1160], [560, 640], [700, 1500]];
+      qa(".amb-mota").forEach((m, i) => {
+        gsap.set(m, { x: M[i][0], y: M[i][1], opacity: 0 });
+        const per = 3.2 + (i % 3) * 0.8;
+        tl.fromTo(m, { y: M[i][1], opacity: 0 }, { y: M[i][1] - 110, opacity: 0.35 + (i % 2) * 0.2, duration: per, ease: "sine.inOut", yoyo: true, repeat: Math.floor((DUR - 1) / per) - 1 }, (i * 0.53) % 2);
+      });
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

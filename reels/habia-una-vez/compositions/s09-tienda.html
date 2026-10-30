@@ -1,0 +1,172 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-tienda"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-tienda"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-tienda"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-tienda"] .tinta { fill: none; stroke: #2e2a3b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tienda"] .tinta-f { fill: none; stroke: #2e2a3b; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-tienda"] .etq { position: absolute; left: 0; right: 0; top: 1296px; text-align: center; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 40px; color: #2e2a3b; white-space: nowrap; }
+    [data-composition-id="s09-tienda"] .etq b { font-family: "Cinzel", serif; font-style: normal; font-weight: 700; font-size: 26px; letter-spacing: 0.22em; color: #c0392b; margin-right: 14px; }
+    [data-composition-id="s09-tienda"] .mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; }
+
+    [data-composition-id="s09-tienda"] .s09-cab { position: absolute; left: 130px; top: 664px; width: 390px; text-align: center; font-family: "Cinzel", serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: #f6ecd6; }
+    [data-composition-id="s09-tienda"] .s09-precio { position: absolute; width: 170px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; color: #2e2a3b; }
+    [data-composition-id="s09-tienda"] .s09-boton { position: absolute; left: 150px; top: 1170px; width: 350px; height: 58px; border-radius: 29px; background: #4f7a4a; border: 4px solid #2e2a3b; display: flex; align-items: center; justify-content: center; font-family: "Cinzel", serif; font-weight: 900; font-size: 30px; letter-spacing: 0.14em; color: #f6ecd6; }
+    [data-composition-id="s09-tienda"] .s09-wow { position: absolute; left: 590px; top: 960px; font-size: 52px; color: #c0392b; transform: rotate(-8deg); }
+  </style>
+  <div id="root" data-composition-id="s09-tienda" data-width="1080" data-height="1920" data-duration="4.92">
+    <div id="s09-tienda-escena" class="capa clip" data-start="0" data-duration="4.92" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <filter id="s09-tienda-acu" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G" /></filter>
+          </defs>
+
+      <g class="s09-celu">
+        <path class="lav s09-marco-l" d="M150 616 H500 C522 616 536 630 536 652 V1220 C536 1242 522 1256 500 1256 H150 C128 1256 114 1242 114 1220 V652 C114 630 128 616 150 616 Z" fill="#f6ecd6" style="opacity:1" filter="url(#s09-tienda-acu)" /><path class="tinta s09-marco" d="M150 616 H500 C522 616 536 630 536 652 V1220 C536 1242 522 1256 500 1256 H150 C128 1256 114 1242 114 1220 V652 C114 630 128 616 150 616 Z" />
+        <path d="M130 650 H520 V700 H130 Z" fill="#4f7a4a" />
+        
+      <g class="s09-card s09-c1"><path class="lav s09-cd1-l" d="M140 720 H310 V920 H140 Z" fill="#fbf3df" style="opacity:1" filter="url(#s09-tienda-acu)" /><path class="tinta s09-cd1" d="M140 720 H310 V920 H140 Z" /><path d="M175 820 H275 L263 866 H187 Z" fill="#d49a2a" stroke="#2e2a3b" stroke-width="4"/><path class="tinta-f" d="M183 820 C189 760 261 760 267 820"/></g>
+      <g class="s09-card s09-c2"><path class="lav s09-cd2-l" d="M334 720 H504 V920 H334 Z" fill="#fbf3df" style="opacity:1" filter="url(#s09-tienda-acu)" /><path class="tinta s09-cd2" d="M334 720 H504 V920 H334 Z" /><path d="M369 810 H469 V864 H369 Z" fill="#f6ecd6" stroke="#2e2a3b" stroke-width="4"/><path d="M369 810 H469 V830 H369 Z" fill="#c0392b" opacity=".85"/><path class="tinta-f" d="M419 808 V780"/><circle cx="419" cy="774" r="6" fill="#d49a2a"/></g>
+      <g class="s09-card s09-c3"><path class="lav s09-cd3-l" d="M140 944 H310 V1144 H140 Z" fill="#fbf3df" style="opacity:1" filter="url(#s09-tienda-acu)" /><path class="tinta s09-cd3" d="M140 944 H310 V1144 H140 Z" /><path class="tinta-f" d="M225 1094 V1044 M195 1094 L199 1054 M255 1094 L251 1054" style="stroke:#4f7a4a;stroke-width:5"/><circle cx="225" cy="1032" r="18" fill="#c0392b"/><circle cx="197" cy="1048" r="15" fill="#d49a2a"/><circle cx="253" cy="1048" r="15" fill="#c0392b" opacity=".8"/></g>
+      <g class="s09-card s09-c4"><path class="lav s09-cd4-l" d="M334 944 H504 V1144 H334 Z" fill="#fbf3df" style="opacity:1" filter="url(#s09-tienda-acu)" /><path class="tinta s09-cd4" d="M334 944 H504 V1144 H334 Z" /><path d="M385 1024 H453 V1094 H385 Z" fill="#d49a2a" opacity=".85" stroke="#2e2a3b" stroke-width="4"/><path d="M379 1008 H459 V1024 H379 Z" fill="#c0392b" stroke="#2e2a3b" stroke-width="4"/></g>
+      </g>
+      <g class="s09-cape"><g transform="translate(600 1290) scale(0.42 0.42)">
+    <path class="tinta s09-cape-pier" d="M-28 -44 V-8 M28 -44 V-8"/>
+    <path d="M-56 -4 A22 10 0 1 0 -12 -4 A22 10 0 1 0 -56 -4 Z M12 -4 A22 10 0 1 0 56 -4 A22 10 0 1 0 12 -4 Z" fill="#2e2a3b"/>
+    <path class="lav s09-cape-vest-l" d="M-46 -252 L-80 -40 L80 -40 L46 -252 Z" fill="#f6ecd6" style="opacity:1" filter="url(#s09-tienda-acu)" /><path class="tinta s09-cape-vest" d="M-46 -252 L-80 -40 L80 -40 L46 -252 Z" />
+    <path class="tinta-f" d="M-30 -200 v2 M10 -170 v2 M-40 -110 v2 M30 -90 v2 M0 -130 v2 M-10 -70 v2 M40 -150 v2" style="stroke-width:9;opacity:.5"/>
+    <path class="lav s09-cape-capa-l" d="M0 -442 C-86 -442 -110 -374 -100 -314 C-126 -222 -144 -122 -152 -42 Q-118 -28 -84 -36 L-48 -252 L48 -252 L84 -36 Q118 -28 152 -42 C144 -122 126 -222 100 -314 C110 -374 86 -442 0 -442 Z" fill="#c0392b" style="opacity:0.9" filter="url(#s09-tienda-acu)" /><path class="tinta s09-cape-capa" d="M0 -442 C-86 -442 -110 -374 -100 -314 C-126 -222 -144 -122 -152 -42 Q-118 -28 -84 -36 L-48 -252 L48 -252 L84 -36 Q118 -28 152 -42 C144 -122 126 -222 100 -314 C110 -374 86 -442 0 -442 Z" />
+    <path class="lav s09-cape-cara-l" d="M-58 -334 A58 58 0 1 0 58 -334 A58 58 0 1 0 -58 -334 Z" fill="#f5d6b8" style="opacity:1" filter="url(#s09-tienda-acu)" /><path class="tinta s09-cape-cara" d="M-58 -334 A58 58 0 1 0 58 -334 A58 58 0 1 0 -58 -334 Z" />
+    <path class="s09-cape-flequi" d="M-54 -350 C-46 -398 46 -398 54 -350 C30 -372 0 -360 -14 -380 C-24 -362 -40 -362 -54 -350 Z" fill="#5a3b2a"/>
+    <circle class="s09-cape-ojo" cx="-21" cy="-336" r="6.5" fill="#2e2a3b"/><circle class="s09-cape-ojo" cx="21" cy="-336" r="6.5" fill="#2e2a3b"/>
+    <circle cx="-34" cy="-314" r="10" fill="#c0392b" opacity=".3"/><circle cx="34" cy="-314" r="10" fill="#c0392b" opacity=".3"/>
+    <path class="s09-cape-boca" d="M-10 -308 A10 13 0 1 0 10 -308 A10 13 0 1 0 -10 -308 Z" fill="#2e2a3b"/>
+    <path d="M-26 -282 L0 -270 L-26 -258 Z M26 -282 L0 -270 L26 -258 Z" fill="#8e2a20"/>
+    <path class="tinta s09-cape-brazo" d="M62 -236 C92 -206 104 -180 100 -150"/><g class="s09-cape-canasta"><path class="lav s09-cape-cn-l" d="M64 -150 H166 L152 -84 H78 Z" fill="#d49a2a" style="opacity:0.9" filter="url(#s09-tienda-acu)" /><path class="tinta s09-cape-cn" d="M64 -150 H166 L152 -84 H78 Z" /><path class="tinta s09-cape-asa" d="M74 -150 C84 -222 146 -222 156 -150"/><path class="tinta-f" d="M72 -128 H158 M76 -106 H154" style="opacity:.6"/><path class="s09-cape-mantel" d="M80 -152 L100 -170 L118 -152 L136 -168 L152 -152 Z" fill="#c0392b" opacity=".85"/></g><path class="tinta s09-cape-bi" d="M-62 -236 C-90 -200 -96 -170 -88 -140"/></g></g>
+      <g class="s09-lobo"><g transform="translate(820 1290) scale(0.85 0.85)">
+    <path class="lav s09-lobo-cola-l" d="M70 -110 C170 -130 214 -220 180 -320 C160 -246 126 -196 60 -170 Z" fill="#7d8597" style="opacity:0.8" filter="url(#s09-tienda-acu)" /><path class="tinta s09-lobo-cola" d="M70 -110 C170 -130 214 -220 180 -320 C160 -246 126 -196 60 -170 Z" />
+    <path class="tinta s09-lobo-pier" d="M-42 -40 V-8 M42 -40 V-8"/>
+    <path d="M-80 -4 A30 11 0 1 0 -20 -4 A30 11 0 1 0 -80 -4 Z M20 -4 A30 11 0 1 0 80 -4 A30 11 0 1 0 20 -4 Z" fill="#2e2a3b"/>
+    <path class="lav s09-lobo-cuerpo-l" d="M-95 -320 C-130 -220 -120 -90 -88 -30 L88 -30 C120 -90 130 -220 95 -320 C60 -345 -60 -345 -95 -320 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s09-tienda-acu)" /><path class="tinta s09-lobo-cuerpo" d="M-95 -320 C-130 -220 -120 -90 -88 -30 L88 -30 C120 -90 130 -220 95 -320 C60 -345 -60 -345 -95 -320 Z" />
+    <path class="lav s09-lobo-delantal-l" d="M-62 -268 L62 -268 L78 -44 L-78 -44 Z" fill="#4f7a4a" style="opacity:0.9" filter="url(#s09-tienda-acu)" /><path class="tinta s09-lobo-delantal" d="M-62 -268 L62 -268 L78 -44 L-78 -44 Z" />
+    <path class="tinta-f" d="M-62 -268 C-50 -304 50 -304 62 -268 M-30 -160 H30 V-110 H-30 Z" style="stroke:#f6ecd6;opacity:.8"/>
+    <path class="lav s09-lobo-bi-l" d="M-92 -300 C-150 -250 -160 -180 -140 -140 C-125 -135 -115 -140 -110 -150 C-120 -190 -110 -240 -80 -270 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s09-tienda-acu)" /><path class="tinta s09-lobo-bi" d="M-92 -300 C-150 -250 -160 -180 -140 -140 C-125 -135 -115 -140 -110 -150 C-120 -190 -110 -240 -80 -270 Z" />
+    <path class="lav s09-lobo-bd-l" d="M92 -300 C140 -330 170 -380 175 -430 C188 -432 196 -425 196 -418 C192 -360 160 -300 108 -270 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s09-tienda-acu)" /><path class="tinta s09-lobo-bd" d="M92 -300 C140 -330 170 -380 175 -430 C188 -432 196 -425 196 -418 C192 -360 160 -300 108 -270 Z" />
+    <path class="lav s09-lobo-orejas-l" d="M-74 -446 L-96 -546 L-24 -476 Z M74 -446 L96 -546 L24 -476 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s09-tienda-acu)" /><path class="tinta s09-lobo-orejas" d="M-74 -446 L-96 -546 L-24 -476 Z M74 -446 L96 -546 L24 -476 Z" />
+    <path d="M-74 -462 L-88 -522 L-44 -478 Z M74 -462 L88 -522 L44 -478 Z" fill="#d49a2a" opacity=".6"/>
+    <path class="lav s09-lobo-cabeza-l" d="M-92 -410 C-96 -470 -50 -492 0 -492 C50 -492 96 -470 92 -410 C104 -396 108 -380 96 -370 C80 -336 40 -322 0 -322 C-40 -322 -80 -336 -96 -370 C-108 -380 -104 -396 -92 -410 Z" fill="#7d8597" style="opacity:0.88" filter="url(#s09-tienda-acu)" /><path class="tinta s09-lobo-cabeza" d="M-92 -410 C-96 -470 -50 -492 0 -492 C50 -492 96 -470 92 -410 C104 -396 108 -380 96 -370 C80 -336 40 -322 0 -322 C-40 -322 -80 -336 -96 -370 C-108 -380 -104 -396 -92 -410 Z" />
+    <path class="lav s09-lobo-hocico-l" d="M-60 -372 A60 44 0 1 0 60 -372 A60 44 0 1 0 -60 -372 Z" fill="#f6ecd6" style="opacity:1" filter="url(#s09-tienda-acu)" /><path class="tinta s09-lobo-hocico" d="M-60 -372 A60 44 0 1 0 60 -372 A60 44 0 1 0 -60 -372 Z" />
+    <path d="M-19 -404 A19 13 0 1 0 19 -404 A19 13 0 1 0 -19 -404 Z" fill="#2e2a3b"/>
+    <g class="s09-lobo-ojos"><circle cx="-38" cy="-440" r="11" fill="#2e2a3b"/><circle cx="38" cy="-440" r="11" fill="#2e2a3b"/><circle cx="-34" cy="-444" r="3.5" fill="#f6ecd6"/><circle cx="42" cy="-444" r="3.5" fill="#f6ecd6"/></g>
+    <path class="tinta s09-lobo-cejas" d="M-58 -466 L-20 -458 M58 -466 L20 -458"/>
+    <path class="s09-lobo-boca" d="M-52 -372 Q0 -312 52 -372 Q0 -352 -52 -372 Z" fill="#f6ecd6" stroke="#2e2a3b" stroke-width="5" stroke-linejoin="round"/><path class="tinta-f" d="M-36 -364 l7 12 l7 -10 M22 -362 l7 12 l7 -12" style="opacity:.8"/></g></g>
+        </svg>
+
+        <div class="s09-pant" style="position:absolute;inset:0;transform-origin:114px 1256px">
+        <div class="s09-cab">EL DE ENFRENTE</div>
+        <div class="s09-precio" style="left:140px;top:876px">$ 890</div>
+        <div class="s09-precio" style="left:334px;top:876px">$ 1.150</div>
+        <div class="s09-precio" style="left:140px;top:1100px">$ 640</div>
+        <div class="s09-precio" style="left:334px;top:1100px">$ 420</div>
+        <div class="s09-boton">COMPRAR</div>
+        </div>
+        <div class="mano s09-wow">¡oh!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-tienda";
+      const DUR = 4.92;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // trazos de tinta que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.03));
+          tl.fromTo(el, { strokeDashoffset: (L + 2) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // la acuarela se pinta: aparece la mancha
+      const pintar = (els, t, dur) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const op = Number(el.style.opacity || 1);
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: op, duration: dur ?? 0.45, ease: "power1.out" }, Math.max(0, t + i * 0.03));
+        });
+      };
+      // un dibujo entero (grupo con .tinta y .lav adentro): primero la tinta, después el color
+      const ilustrar = (sel, t, dur, desde) => {
+        const g = typeof sel === "string" ? q(sel) : sel;
+        dibujar([...g.querySelectorAll(".tinta, .tinta-f")], t, dur ?? 0.6, desde);
+        pintar([...g.querySelectorAll(".lav")], t + (dur ?? 0.6) * 0.45, 0.4);
+        const resto = [...g.querySelectorAll(":scope > :not(.tinta):not(.tinta-f):not(.lav):not(g), :scope g > :not(.tinta):not(.tinta-f):not(.lav):not(g)")];
+        resto.forEach((el) => { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.3 }, t + (dur ?? 0.6) * 0.6); });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: d ?? 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const escribir = (el, t, dur) => {
+        gsap.set(el, { clipPath: "inset(0 100% 0 0)" });
+        tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: dur, ease: "none" }, t);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // vaivén suave mientras dura la escena (determinista)
+      const vaiven = (el, t0, prop, per) => {
+        const n = Math.max(1, Math.floor((DUR - 0.3 - t0) / per));
+        tl.to(el, { ...prop, duration: per, ease: "sine.inOut", yoyo: true, repeat: n - 1 }, t0);
+      };
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+
+      const QUE = 0.44, TIENDA = 0.96, GRANDE = 1.92, ES = 3.13, VENDERTE = 3.57, MEJOR = 3.92;
+      ilustrar(".s09-lobo", 0, 0.5, 0.5);
+      tl.set(qa(".s09-lobo .tinta, .s09-lobo .tinta-f"), { opacity: 1 }, 0);
+      ilustrar(".s09-cape", 0.1, 0.4);
+      // la tienda online aparece en la pata del lobo
+      ilustrar(".s09-celu", TIENDA - 0.4, 0.5);
+      pop(q(".s09-cab"), TIENDA);
+      qa(".s09-card").forEach((c, i) => popSvg(c, TIENDA + 0.1 + i * 0.1, (i % 2 ? 419 : 225) + " " + (i < 2 ? 820 : 1044)));
+      qa(".s09-precio").forEach((c, i) => pop(c, TIENDA + 0.2 + i * 0.1));
+      pop(q(".s09-boton"), TIENDA + 0.6);
+      pop(q(".s09-wow"), QUE);
+      // tan grande: la pantalla crece
+      tl.to(q(".s09-celu"), { scale: 1.08, svgOrigin: "114 1256", duration: 0.3, ease: "back.out(2)" }, GRANDE - 0.05);
+      tl.to(q(".s09-pant"), { scale: 1.08, duration: 0.3, ease: "back.out(2)" }, GRANDE - 0.05);
+      tl.to(q(".s09-cape"), { y: -16, duration: 0.15, yoyo: true, repeat: 1 }, GRANDE);
+      // es para venderte mejor: guiño y el botón late
+      tl.to(q(".s09-lobo-ojos"), { scaleY: 0.1, svgOrigin: "820 916", duration: 0.08, yoyo: true, repeat: 1 }, ES);
+      tl.to(q(".s09-lobo-bd"), { rotation: -12, svgOrigin: "898 1035", duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, VENDERTE - 0.2);
+      tl.to(q(".s09-boton"), { scale: 1.16, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, MEJOR - 0.1);
+      etiquetas([["<b>CAPÍTULO IX</b> ¡Qué tienda tan grande!", 0.15]]);
+      tl.to(q("#s09-tienda-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
