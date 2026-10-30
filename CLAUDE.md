@@ -135,6 +135,19 @@ Lo que se vende (no prometer nada fuera de esto):
   premios; si deja de venir le llega un aviso; el dueño ve quiénes son y cada cuánto vienen.
 - Tienda online: vende sola, con envíos (DAC, Correo, PedidosYa) y Mercado Pago.
 - Sitio web: rápido en el celular, con horarios, ubicación y botón a WhatsApp o a la tienda.
+- **Automatizaciones** (pedido de Juan 29-10: "que cubra más temas"): sacarle al dueño las tareas
+  repetidas que hace a mano: pasar pedidos de WhatsApp a una planilla, avisar que un pedido está
+  listo, recordar turnos y pagos, actualizar el stock en la tienda cuando vende en el local,
+  mandar el reporte del día al celular. Ángulos: el dueño que trabaja de "copiar y pegar", la
+  planilla de Excel que manda en el local, las tres horas por noche haciendo lo mismo.
+- **Sistemas a medida**: el programa de gestión hecho para cómo trabaja ese negocio (stock,
+  pedidos, proveedores, caja, varios locales), en vez del cuaderno, el Excel o un sistema
+  enlatado que no se adapta. Ángulos: el cuaderno que nadie más entiende, "eso lo sabe solo Marta",
+  el sistema que te obliga a trabajar como él quiere.
+- **CRM**: saber quiénes son tus clientes, qué te compraron, a quién le prometiste algo y a quién
+  hay que volver a escribirle; el seguimiento de cada venta en un solo lugar en vez de en la
+  cabeza, en post-its o en cinco chats. Ángulos: el cliente que te pidió presupuesto y nunca
+  llamaste, "¿quién era este?", la venta que se perdió en el chat.
 
 Reglas: voseo uruguayo; Scalerics habla en plural ("hacemos", "te contamos"); 130-175 palabras
 (con Orus son ~45-58 s; con diálogos y personajes se acepta hasta ~190 y ~70 s); frases cortas;
@@ -148,10 +161,12 @@ Instagram/TikTok (gancho, 2-3 líneas, la acción del cierre y 5-6 hashtags), qu
 Cada corrida de la rutina hace **5 reels** (pedido de Juan, 27-10). Vos sos el coordinador:
 
 1. Elegí los 5 temas (paso 1) distintos entre sí, **cada uno con un formato y un estilo distintos** (ver "La regla número uno"), y reservalos los 5 juntos en `ideas.md`, en un
-   solo commit y push a `main`. **Productos** (Juan, 28-10): la mayoría de cada tanda (3 o 4
-   de 5) sobre **agentes de IA**, cada uno con un ángulo distinto; los otros, tienda online o sitio
-   web. **Puntos: como mucho 1 por tanda y solo si el reel es de puntos** ("lo de los puntos en
-   todos los videos cansa"). Mirá las últimas tandas en "Hechos" para no repetir ángulos.
+   solo commit y push a `main`. **Productos** (Juan, 29-10: "que cubra más temas: automatizaciones,
+   sistemas, CRM"): por tanda de 5, **2 de agentes de IA** (ángulos distintos), **1 de
+   automatizaciones**, **1 de sistema a medida o CRM** (alternalos entre noches) y **1 de tienda
+   online o sitio web**. **Puntos: como mucho 1 por tanda y solo si el reel es de puntos** ("lo de
+   los puntos en todos los videos cansa"), en lugar de uno de los otros. Mirá las últimas tandas en
+   "Hechos" para no repetir ángulos ni temas.
 2. Lanzá 5 subagentes con la herramienta Agent, **todos en el mismo mensaje** para que corran a la
    vez, uno por reel. A cada uno le pasás el `<slug>` y el tema, y le decís que haga los pasos 2 a 9
    de este archivo en `reels/<slug>/` (sin renderizar ni commitear) y que te devuelva el gancho y

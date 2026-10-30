@@ -70,6 +70,16 @@
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
 
+**Automatizaciones, sistemas y CRM** (Juan, 29-10: "que cubra más temas"):
+- **El copiar y pegar** (automatización): documental de naturaleza del dueño a las 23:00 pasando pedidos de WhatsApp a la planilla, uno por uno; "una especie que ya debería estar extinta".
+- **La planilla manda** (automatización): el Excel del local como personaje tirano que da órdenes ("¡actualizame!", "¡no me cierres sin guardar!"); giro: se puede jubilar.
+- **Tres horas por noche** (automatización): reloj en cuenta regresiva de todo lo que el dueño hace a mano después de cerrar; "¿y si eso lo hace solo mientras dormís?".
+- **Eso lo sabe solo Marta** (sistema a medida): telenovela/thriller: Marta se va de vacaciones y nadie sabe cuánto stock hay ni a quién se le debe; el cuaderno de Marta como reliquia.
+- **El enlatado** (sistema a medida): el sistema que compraste te obliga a trabajar como él quiere; pelea de boxeo "tu negocio vs. el sistema de la caja".
+- **¿Quién era este?** (CRM): el dueño mira un chat de hace 3 meses sin saber quién es; programa de preguntas "¿quién quiere ser cliente?".
+- **El presupuesto perdido** (CRM): documental de crímenes: el cliente que pidió presupuesto, nunca lo llamaron y compró en otro lado; "¿quién mató la venta?" versión pizarra con hilos rojos.
+- **Post-it** (CRM): el local sostenido por 47 post-its pegados en la caja; uno se cae y se pierde un cliente.
+
 **Polémicos con personaje (el tipo que más le gusta a Juan, 28-10). Elegí de acá primero. Todos
 venden el AGENTE DE IA salvo que se diga otra cosa; puntos casi nunca:**
 - **El agente que no duerme**: 3:47 de la mañana, el local cerrado, el dueño roncando, y el agente de IA atendiendo a un cliente insomne, cerrando una venta y dejándole una nota al dueño: "Vendí 2. Dormí tranquilo."
