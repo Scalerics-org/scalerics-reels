@@ -66,6 +66,11 @@
 
 ## En curso
 
+- 30-10 · `poseido` · Automatizaciones · especial Halloween: exorcismo del dueño poseído por el copiar y pegar [formato H · estilo terror a la luz de una vela con planilla fosforescente] (en curso, rutina 30-10)
+- 30-10 · `codigo-rojo` · Agente de IA · serie de médicos: un comercio llega a la guardia con "visto crónico" [formato P · estilo guardia de hospital con monitor cardíaco] (en curso, rutina 30-10)
+- 30-10 · `visto-anonimos` · Agente de IA · grupo de apoyo: "Hola, me llamo Gustavo, y hace tres días que dejo en visto" [formato B · estilo salón parroquial con tubo fluorescente] (en curso, rutina 30-10)
+- 30-10 · `el-detective` · CRM · cine negro: un detective busca a la clienta que pidió presupuesto y nadie llamó [formato D · estilo cine negro con lluvia y persianas] (en curso, rutina 30-10)
+- 30-10 · `el-museo` · Tienda online · visita guiada al museo del comercio viejo: la pieza que sigue en uso es tu local [formato A · estilo museo con vitrinas y placas de bronce] (en curso, rutina 30-10)
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
