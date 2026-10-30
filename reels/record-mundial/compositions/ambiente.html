@@ -1,0 +1,140 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-haz { position: absolute; top: 90px; width: 1080px; height: 1500px; mix-blend-mode: screen;
+      background: linear-gradient(180deg, rgba(244, 247, 255, 0.16) 0%, rgba(47, 107, 255, 0.07) 60%, rgba(47, 107, 255, 0) 100%); }
+    [data-composition-id="ambiente"] .amb-haz.izq { left: 0; clip-path: polygon(70px 0px, 150px 0px, 760px 1500px, 360px 1500px); }
+    [data-composition-id="ambiente"] .amb-haz.der { left: 0; clip-path: polygon(930px 0px, 1010px 0px, 720px 1500px, 320px 1500px); }
+    [data-composition-id="ambiente"] .amb-marc { position: absolute; left: 150px; top: 64px; width: 780px; height: 142px; border-radius: 18px; background: #050b24; border: 5px solid #2f6bff; box-shadow: 0 0 24px rgba(47, 107, 255, 0.45); }
+    [data-composition-id="ambiente"] .amb-t1 { position: absolute; left: 28px; top: 24px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; color: #f4f7ff; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="ambiente"] .amb-t2 { position: absolute; left: 30px; top: 86px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; line-height: 1; color: #2f6bff; white-space: nowrap; letter-spacing: 0.12em; }
+    [data-composition-id="ambiente"] .amb-t2 span { position: absolute; left: 0; top: 0; }
+    [data-composition-id="ambiente"] .amb-cont { position: absolute; right: 16px; top: 14px; width: 226px; height: 104px; border-radius: 12px; background: #0c1f5c; border: 4px solid #ffc93c; }
+    [data-composition-id="ambiente"] .amb-num { position: absolute; left: 0; right: 0; top: 6px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 92px; line-height: 1; color: #ffc93c; letter-spacing: 0.04em; text-shadow: 0 0 18px rgba(255, 201, 60, 0.6); }
+    [data-composition-id="ambiente"] .amb-vivo { position: absolute; left: 92px; top: 1566px; width: 320px; height: 112px; background: rgba(5, 11, 36, 0.88); border: 4px solid #2f6bff; border-radius: 14px; }
+    [data-composition-id="ambiente"] .amb-punto { position: absolute; left: 22px; top: 22px; width: 26px; height: 26px; border-radius: 50%; background: #ff3d55; border: 4px solid #f4f7ff; }
+    [data-composition-id="ambiente"] .amb-vivo-a { position: absolute; left: 62px; top: 16px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 32px; letter-spacing: 0.16em; color: #f4f7ff; }
+    [data-composition-id="ambiente"] .amb-vivo-b { position: absolute; left: 22px; top: 64px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.04em; color: #ffc93c; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-reloj { position: absolute; left: 668px; top: 1566px; width: 320px; height: 112px; background: rgba(5, 11, 36, 0.88); border: 4px solid #2f6bff; border-radius: 14px; }
+    [data-composition-id="ambiente"] .amb-rel-a { position: absolute; left: 0; right: 0; top: 14px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; color: #2f6bff; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-rel-a span { position: absolute; left: 0; right: 0; top: 0; }
+    [data-composition-id="ambiente"] .amb-rel-b { position: absolute; left: 0; right: 0; top: 46px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 52px; line-height: 1; color: #f4f7ff; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #ffffff; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="78.02">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="78.02" data-track-index="0">
+      <div class="amb-haz izq"></div>
+      <div class="amb-haz der"></div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="amb-torre izq"><rect x="-40" y="40" width="150" height="96" rx="10" fill="#0c1f5c" stroke="#2f6bff" stroke-width="4" /><circle class="amb-lamp" cx="-14" cy="62" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="19" cy="62" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="52" cy="62" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="85" cy="62" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="-14" cy="88" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="19" cy="88" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="52" cy="88" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="85" cy="88" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="-14" cy="114" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="19" cy="114" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="52" cy="114" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="85" cy="114" r="10" fill="#f4f7ff" /></g>
+        <g class="amb-torre der"><rect x="970" y="40" width="150" height="96" rx="10" fill="#0c1f5c" stroke="#2f6bff" stroke-width="4" /><circle class="amb-lamp" cx="996" cy="62" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="1029" cy="62" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="1062" cy="62" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="1095" cy="62" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="996" cy="88" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="1029" cy="88" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="1062" cy="88" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="1095" cy="88" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="996" cy="114" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="1029" cy="114" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="1062" cy="114" r="10" fill="#f4f7ff" /><circle class="amb-lamp" cx="1095" cy="114" r="10" fill="#f4f7ff" /></g>
+        <g class="amb-publico"><g class="amb-p amb-p0"><circle cx="30" cy="1478" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M-10 1548 Q-8 1508 30 1506 Q68 1508 70 1548 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /></g><g class="amb-p amb-p1"><circle cx="108" cy="1488" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M68 1558 Q70 1518 108 1516 Q146 1518 148 1558 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path class="amb-brazo" d="M134 1524 L154 1458" stroke="#2f6bff" stroke-width="10" stroke-linecap="round" /></g><g class="amb-p amb-p2"><circle cx="166" cy="1498" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M126 1568 Q128 1528 166 1526 Q204 1528 206 1568 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /></g><g class="amb-p amb-p0"><circle cx="244" cy="1478" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M204 1548 Q206 1508 244 1506 Q282 1508 284 1548 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /></g><g class="amb-p amb-p1"><circle cx="302" cy="1488" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M262 1558 Q264 1518 302 1516 Q340 1518 342 1558 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /></g><g class="amb-p amb-p2"><circle cx="380" cy="1498" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M340 1568 Q342 1528 380 1526 Q418 1528 420 1568 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path class="amb-brazo" d="M406 1534 L426 1468" stroke="#2f6bff" stroke-width="10" stroke-linecap="round" /></g><g class="amb-p amb-p0"><circle cx="438" cy="1478" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M398 1548 Q400 1508 438 1506 Q476 1508 478 1548 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /></g><g class="amb-p amb-p1"><circle cx="516" cy="1488" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M476 1558 Q478 1518 516 1516 Q554 1518 556 1558 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /></g><g class="amb-p amb-p2"><circle cx="574" cy="1498" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M534 1568 Q536 1528 574 1526 Q612 1528 614 1568 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /></g><g class="amb-p amb-p0"><circle cx="652" cy="1478" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M612 1548 Q614 1508 652 1506 Q690 1508 692 1548 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path class="amb-brazo" d="M678 1514 L698 1448" stroke="#2f6bff" stroke-width="10" stroke-linecap="round" /></g><g class="amb-p amb-p1"><circle cx="710" cy="1488" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M670 1558 Q672 1518 710 1516 Q748 1518 750 1558 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /></g><g class="amb-p amb-p2"><circle cx="788" cy="1498" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M748 1568 Q750 1528 788 1526 Q826 1528 828 1568 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /></g><g class="amb-p amb-p0"><circle cx="846" cy="1478" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M806 1548 Q808 1508 846 1506 Q884 1508 886 1548 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /></g><g class="amb-p amb-p1"><circle cx="924" cy="1488" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M884 1558 Q886 1518 924 1516 Q962 1518 964 1558 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path class="amb-brazo" d="M950 1524 L970 1458" stroke="#2f6bff" stroke-width="10" stroke-linecap="round" /></g><g class="amb-p amb-p2"><circle cx="982" cy="1498" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M942 1568 Q944 1528 982 1526 Q1020 1528 1022 1568 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /></g><g class="amb-p amb-p0"><circle cx="1060" cy="1478" r="26" fill="#050b24" stroke="#2f6bff" stroke-width="4" /><path d="M1020 1548 Q1022 1508 1060 1506 Q1098 1508 1100 1548 Z" fill="#050b24" stroke="#2f6bff" stroke-width="4" /></g></g>
+      </svg>
+      <div class="amb-marc">
+        <div class="amb-t1">RÉCORD MUNDIAL</div>
+        <div class="amb-t2"><span class="amb-l1">PEDIDOS A MANO</span><span class="amb-l2" style="color:#5ce611;opacity:0">PASAN SOLOS</span></div>
+        <div class="amb-cont"><div class="amb-num">000</div></div>
+      </div>
+      <div class="amb-vivo"><div class="amb-punto"></div><div class="amb-vivo-a">EN VIVO</div><div class="amb-vivo-b">DESDE EL CERRO</div></div>
+      <div class="amb-reloj"><div class="amb-rel-a"><span class="amb-r1">HORA</span><span class="amb-r2" style="opacity:0;color:#ff3d55">MAÑANA</span><span class="amb-r3" style="opacity:0;color:#ff3d55">PASADO</span></div><div class="amb-rel-b">23:12</div></div>
+      <div class="amb-confeti"></div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 78.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      let semilla = 11;
+      const azar = () => { semilla = (semilla * 16807) % 2147483647; return (semilla - 1) / 2147483646; };
+
+      // ---------- haces y lamparitas ----------
+      tl.fromTo(q(".amb-haz.izq"), { rotation: -7, transformOrigin: "110px 0px" }, { rotation: 7, transformOrigin: "110px 0px", duration: 2.8, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 2.8) - 1), ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".amb-haz.der"), { rotation: 7, transformOrigin: "970px 0px" }, { rotation: -7, transformOrigin: "970px 0px", duration: 3.3, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 3.3) - 1), ease: "sine.inOut" }, 0);
+      tl.fromTo(qa(".amb-lamp"), { opacity: 1 }, { opacity: 0.55, duration: 0.6, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 0.6) - 1), stagger: { each: 0.05 }, ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".amb-punto"), { opacity: 1 }, { opacity: 0.25, duration: 0.5, yoyo: true, repeat: Math.max(0, Math.floor((DUR - 0.5) / 0.5) - 1), ease: "steps(1)" }, 0.3);
+
+      // ---------- público: se mueve siempre un poco y salta en la euforia ----------
+      tl.to(qa(".amb-p0"), { y: -6, duration: 0.7, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 0.7) - 1), ease: "sine.inOut" }, 0);
+      tl.to(qa(".amb-p1"), { y: -6, duration: 0.9, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 0.9) - 1), ease: "sine.inOut" }, 0.2);
+      const EUFORIA = [5.2, 21.0, 39.1, 41.5, 42.35, 43.5, 72.8];
+      EUFORIA.forEach((t) => tl.to(qa(".amb-p"), { y: -34, duration: 0.16, yoyo: true, repeat: 3, stagger: 0.02, ease: "power2.out" }, t));
+
+      // ---------- contador ----------
+      const num = q(".amb-num");
+      const pad = (v) => String(Math.max(0, Math.round(v))).padStart(3, "0");
+      const c = { v: 0 };
+      const seg = (t, a, b, d, ease = "none") => tl.fromTo(c, { v: a }, { v: b, duration: d, ease, immediateRender: false, onUpdate: () => { num.textContent = pad(c.v); } }, t);
+      seg(13.55, 0, 86, 7.4);
+      seg(21.0, 86, 87, 0.05);
+      seg(25.6, 87, 139, 12.9);
+      seg(39.05, 139, 140, 0.05);
+      seg(41.4, 140, 141, 0.05);
+      tl.to(q(".amb-cont"), { scale: 1.12, transformOrigin: "50% 50%", duration: 0.2, yoyo: true, repeat: 7, ease: "sine.inOut" }, 42.35);
+      tl.to(num, { opacity: 0.3, duration: 0.12, yoyo: true, repeat: 9, ease: "steps(1)" }, 42.35);
+      // mañana y pasado: vuelve a cero, en rojo
+      seg(49.75, 141, 0, 0.05);
+      tl.to(num, { color: "#ff3d55", textShadow: "0 0 18px rgba(255, 61, 85, 0.6)", duration: 0.05 }, 49.75);
+      seg(49.9, 0, 30, 1.9);
+      seg(51.9, 30, 0, 0.05);
+      seg(52.0, 0, 18, 1.2);
+      // automatizaciones: verde y solo
+      seg(63.6, 18, 0, 0.05);
+      tl.to(num, { color: "#5ce611", textShadow: "0 0 18px rgba(92, 230, 17, 0.6)", duration: 0.05 }, 63.6);
+      tl.to(q(".amb-cont"), { borderColor: "#5ce611", duration: 0.2 }, 63.6);
+      seg(63.7, 0, 141, 2.0, "power1.in");
+      tl.to(q(".amb-l1"), { opacity: 0, duration: 0.2 }, 63.6);
+      tl.to(q(".amb-l2"), { opacity: 1, duration: 0.2 }, 63.7);
+
+      // ---------- reloj de la noche ----------
+      const hora = q(".amb-rel-b");
+      const hh = (m) => { const t = (23 * 60 + 12 + Math.round(m)) % 1440; return String(Math.floor(t / 60)).padStart(2, "0") + ":" + String(t % 60).padStart(2, "0"); };
+      const r = { m: 0 };
+      tl.fromTo(r, { m: 0 }, { m: 272, duration: 37, ease: "none", immediateRender: false, onUpdate: () => { hora.textContent = hh(r.m); } }, 5.2);
+      const r2 = { m: 0 };
+      const fija = (t, txt) => tl.fromTo(r2, { m: 0 }, { m: 1, duration: 0.05, immediateRender: false, onUpdate: () => { hora.textContent = r2.m > 0.5 ? txt : hh(272); } }, t);
+      fija(49.75, "23:00");
+      tl.to(q(".amb-r1"), { opacity: 0, duration: 0.1 }, 49.75);
+      tl.to(q(".amb-r2"), { opacity: 1, duration: 0.1 }, 49.75);
+      tl.to(q(".amb-r2"), { opacity: 0, duration: 0.1 }, 51.9);
+      tl.to(q(".amb-r3"), { opacity: 1, duration: 0.1 }, 51.9);
+      tl.to(q(".amb-r3"), { opacity: 0, duration: 0.2 }, 62.7);
+      tl.to(q(".amb-r1"), { opacity: 1, duration: 0.2 }, 62.7);
+
+      // ---------- confeti ----------
+      const conf = q(".amb-confeti");
+      const COLORES = ["#ffc93c", "#f4f7ff", "#2f6bff", "#ffc93c", "#f4f7ff"];
+      [42.35, 72.8].forEach((t0) => {
+        for (let i = 0; i < 50; i++) {
+          const el = document.createElement("div");
+          const w = 12 + Math.floor(azar() * 12), h = 20 + Math.floor(azar() * 16);
+          el.style.cssText = "position:absolute;left:" + Math.floor(90 + azar() * 900) + "px;top:-60px;width:" + w + "px;height:" + h + "px;background:" + COLORES[i % 5] + ";border-radius:3px;opacity:0;";
+          conf.appendChild(el);
+          const t = t0 + azar() * 0.8, caida = 2.6 + azar() * 1.4, x = (azar() - 0.5) * 260;
+          tl.set(el, { opacity: 1 }, t);
+          tl.fromTo(el, { y: 0, x: 0, rotation: azar() * 180 }, { y: 1700 + azar() * 250, x, rotation: 360 + azar() * 540, duration: caida, ease: "power1.in", immediateRender: false }, t);
+          tl.to(el, { opacity: 0, duration: 0.3 }, t + caida - 0.3);
+        }
+      });
+
+      // ---------- flashes ----------
+      [1.67, 42.35].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.5, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

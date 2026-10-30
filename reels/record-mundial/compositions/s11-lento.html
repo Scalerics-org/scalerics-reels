@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-lento"] .capa, [data-composition-id="s11-lento"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s11-lento"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-lento"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #050b24; paint-order: stroke fill; color: #f4f7ff; }
+    [data-composition-id="s11-lento"] .oro { color: #ffc93c; text-shadow: 0 0 28px rgba(255, 201, 60, 0.45); }
+    [data-composition-id="s11-lento"] .rojo { color: #ff3d55; }
+    [data-composition-id="s11-lento"] .verde { color: #5ce611; }
+    [data-composition-id="s11-lento"] .tag, [data-composition-id="s11-lento"] [class$="-tag"] { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; fill: #050b24; }
+    [data-composition-id="s11-lento"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s11-lento"] .lex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    
+  </style>
+  <div id="root" data-composition-id="s11-lento" data-width="1080" data-height="1920" data-duration="4.54">
+    <div id="s11-lento-escena" class="capa clip" data-start="0" data-duration="4.54" data-track-index="0">
+      <div class="esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+  <g class="s11-mundo"><circle cx="540" cy="900" r="250" fill="none" stroke="#2f6bff" stroke-width="6" />
+    <ellipse cx="540" cy="900" rx="110" ry="250" fill="none" stroke="#2f6bff" stroke-width="5" />
+    <path d="M290 900 H790 M320 780 H760 M320 1020 H760" stroke="#2f6bff" stroke-width="5" /></g>
+  <path class="s11-est" d="M280 656 Q285.44 684.56 314 690 Q285.44 695.44 280 724 Q274.56 695.44 246 690 Q274.56 684.56 280 656 Z" fill="#ffc93c" /><path class="s11-est" d="M820 692 Q824.48 715.52 848 720 Q824.48 724.48 820 748 Q815.52 724.48 792 720 Q815.52 715.52 820 692 Z" fill="#ffc93c" /><path class="s11-est" d="M850 1016 Q853.84 1036.16 874 1040 Q853.84 1043.84 850 1064 Q846.16 1043.84 826 1040 Q846.16 1036.16 850 1016 Z" fill="#f4f7ff" />
+  <rect x="170" y="1280" width="220" height="160" rx="6" fill="#0c1f5c" stroke="#2f6bff" stroke-width="5" />
+  <rect x="690" y="1320" width="220" height="120" rx="6" fill="#0c1f5c" stroke="#2f6bff" stroke-width="5" />
+  <text x="280" y="1390" text-anchor="middle" class="lex" font-size="70" fill="#2f6bff">2</text><text x="800" y="1410" text-anchor="middle" class="lex" font-size="64" fill="#2f6bff">3</text>
+  <rect x="390" y="1150" width="300" height="290" rx="6" fill="#ffc93c" stroke="#050b24" stroke-width="6" />
+  <text x="540" y="1340" text-anchor="middle" class="lex" font-size="150" fill="#050b24">1</text>
+  
+<g transform="translate(540 860) scale(0.8)"><g class="s11-wal">
+  <path d="M-200 360 L-188 170 Q-168 96 0 88 Q168 96 188 170 L200 360 Z" fill="#050b24" stroke="#f4f7ff" stroke-width="6" stroke-linejoin="round" />
+  <path d="M-96 118 L96 118 L124 360 L-124 360 Z" fill="#2f6bff" stroke="#f4f7ff" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-96 118 Q-70 92 -44 92 M96 118 Q70 92 44 92" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" />
+  <rect x="-72" y="168" width="144" height="44" rx="8" fill="#f4f7ff" stroke="#050b24" stroke-width="3" />
+  <text x="0" y="200" text-anchor="middle" class="s11-tag" data-layout-ignore>WALTER</text>
+  <ellipse cx="-74" cy="10" rx="13" ry="21" fill="#050b24" stroke="#f4f7ff" stroke-width="5" />
+  <ellipse cx="74" cy="10" rx="13" ry="21" fill="#050b24" stroke="#f4f7ff" stroke-width="5" />
+  <circle cx="0" cy="0" r="72" fill="#050b24" stroke="#f4f7ff" stroke-width="6" />
+  <path d="M-68 -6 Q-78 -40 -56 -58 M-60 4 Q-70 -26 -50 -42 M68 -6 Q78 -40 56 -58 M60 4 Q70 -26 50 -42" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" />
+  <path d="M-30 -58 Q-6 -68 18 -62" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" opacity="0.5" />
+  <path d="M-71 -22 Q0 -46 71 -22" fill="none" stroke="#ffc93c" stroke-width="16" stroke-linecap="round" />
+  <path class="s11-cejas" d="M-44 -4 L-14 -10 M14 -10 L44 -4" fill="none" stroke="#f4f7ff" stroke-width="6" stroke-linecap="round" />
+  <circle class="s11-ojo" cx="-28" cy="12" r="7" fill="#f4f7ff" />
+  <circle class="s11-ojo" cx="28" cy="12" r="7" fill="#f4f7ff" />
+  <path d="M-44 42 Q-22 26 0 36 Q22 26 44 42 Q22 52 0 44 Q-22 52 -44 42 Z" fill="#f4f7ff" />
+  <path class="s11-boca" d="M-16 58 Q0 64 16 58" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" />
+  <path d="M-40 96 L0 236 L40 96" fill="none" stroke="#ffc93c" stroke-width="8" /><circle cx="0" cy="256" r="30" fill="#ffc93c" stroke="#050b24" stroke-width="4" /><circle cx="0" cy="256" r="16" fill="none" stroke="#050b24" stroke-width="3" />
+</g></g>
+  <g class="s11-tortuga">
+    <path d="M140 720 Q150 630 240 626 Q330 630 340 720 Z" fill="#2f6bff" stroke="#f4f7ff" stroke-width="6" stroke-linejoin="round" />
+    <path d="M190 690 L240 650 L290 690 M240 650 V720" fill="none" stroke="#f4f7ff" stroke-width="4" />
+    <circle cx="370" cy="700" r="28" fill="#050b24" stroke="#f4f7ff" stroke-width="6" /><circle cx="378" cy="694" r="5" fill="#f4f7ff" />
+    <path d="M170 720 V746 M310 720 V746" stroke="#f4f7ff" stroke-width="12" stroke-linecap="round" />
+  </g>
+  <path class="s11-tacha1" d="M120 760 L420 610" stroke="#ff3d55" stroke-width="16" stroke-linecap="round" />
+  <g class="s11-mano"><rect x="650" y="610" width="320" height="110" rx="14" fill="#050b24" stroke="#f4f7ff" stroke-width="6" /><text x="810" y="686" text-anchor="middle" class="lex" font-size="60" fill="#f4f7ff">A MANO</text></g>
+  <path class="s11-tacha2" d="M640 730 L980 600" stroke="#ff3d55" stroke-width="16" stroke-linecap="round" />
+
+        </svg>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-lento";
+      const DUR = 4.54;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const esc = q(".esc");
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(esc, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (sel, t, d = 0.6) => qa(sel).forEach((el) => { const L = el.getTotalLength ? el.getTotalLength() : 400; gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      const pop = (sel, t, d = 0.35) => qa(sel).forEach((el) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(2)", immediateRender: false }, t); });
+      const cae = (sel, t, rot = 0) => { const el = q(sel); gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.6, rotation: rot - 6 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const fuera = (sel, t) => tl.to(qa(sel), { opacity: 0, y: -30, duration: 0.15 }, t);
+
+      tl.fromTo(q(".s11-wal"), { y: -40, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.to(q(".s11-wal"), { rotation: 2, svgOrigin: "0 360", duration: 0.4, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0.3);
+      pop(".s11-tortuga", 0.3);
+      tl.to(q(".s11-tortuga"), { x: 16, duration: 0.6, ease: "none" }, 0.4);
+      dibujar(".s11-tacha1", 0.71, 0.2);
+      sacudon(0.75, 0.8);
+      dibujar(".s11-mundo circle, .s11-mundo ellipse, .s11-mundo path", 1.45, 0.6);
+      pop(".s11-est", 2.0);
+      tl.to(qa(".s11-est"), { rotation: 90, transformOrigin: "50% 50%", duration: 2, ease: "none" }, 2.2);
+      tl.to(q(".s11-mundo"), { rotation: 10, svgOrigin: "540 900", duration: 2.5, ease: "none" }, 2.0);
+      tl.to(qa(".s11-tortuga, .s11-tacha1"), { opacity: 0, duration: 0.2 }, 2.8);
+      pop(".s11-mano", 3.0);
+      dibujar(".s11-tacha2", 3.75, 0.2);
+      sacudon(3.8, 1.2);
+
+      tl.to(q("#" + ID + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

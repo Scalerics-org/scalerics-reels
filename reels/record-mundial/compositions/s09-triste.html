@@ -1,0 +1,130 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-triste"] .capa, [data-composition-id="s09-triste"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s09-triste"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-triste"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #050b24; paint-order: stroke fill; color: #f4f7ff; }
+    [data-composition-id="s09-triste"] .oro { color: #ffc93c; text-shadow: 0 0 28px rgba(255, 201, 60, 0.45); }
+    [data-composition-id="s09-triste"] .rojo { color: #ff3d55; }
+    [data-composition-id="s09-triste"] .verde { color: #5ce611; }
+    [data-composition-id="s09-triste"] .tag, [data-composition-id="s09-triste"] [class$="-tag"] { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; fill: #050b24; }
+    [data-composition-id="s09-triste"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s09-triste"] .lex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    
+  </style>
+  <div id="root" data-composition-id="s09-triste" data-width="1080" data-height="1920" data-duration="7.3">
+    <div id="s09-triste-escena" class="capa clip" data-start="0" data-duration="7.3" data-track-index="0">
+      <div class="esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+  <g class="s09-cert">
+    <rect x="100" y="610" width="690" height="610" rx="12" fill="#f4f7ff" stroke="#ffc93c" stroke-width="16" />
+    <rect x="128" y="638" width="634" height="554" rx="6" fill="none" stroke="#050b24" stroke-width="3" />
+    <text x="445" y="712" text-anchor="middle" class="lex" font-size="46" fill="#050b24">CERTIFICADO</text>
+    <text x="445" y="756" text-anchor="middle" class="mono" font-size="28" fill="#2f6bff" letter-spacing="5">RÉCORD MUNDIAL</text>
+    <path d="M190 786 H700" stroke="#ffc93c" stroke-width="5" />
+    <text x="445" y="880" text-anchor="middle" class="lex" font-size="96" fill="#050b24">WALTER</text>
+    <text x="445" y="960" text-anchor="middle" class="lex" font-size="48" fill="#2f6bff">141 PEDIDOS</text>
+    <text x="445" y="1006" text-anchor="middle" class="mono" font-size="30" fill="#050b24" letter-spacing="2">COPIADOS A MANO</text>
+    <text x="300" y="1136" text-anchor="middle" class="mono" font-size="26" fill="#050b24" opacity="0.6" data-layout-ignore>EN UNA NOCHE</text>
+    <path d="M186 1100 H414" stroke="#050b24" stroke-width="3" />
+    <path d="M590 1130 L560 1250 L600 1226 L620 1268 L640 1150 Z" fill="#2f6bff" stroke="#050b24" stroke-width="4" stroke-linejoin="round" />
+    <path d="M660 1130 L690 1250 L650 1226 L630 1268 L610 1150 Z" fill="#2f6bff" stroke="#050b24" stroke-width="4" stroke-linejoin="round" />
+    <circle cx="625" cy="1100" r="70" fill="#ff3d55" stroke="#050b24" stroke-width="5" />
+    <path class="s09-sello" d="M625 1060 Q631.4 1093.6 665 1100 Q631.4 1106.4 625 1140 Q618.6 1106.4 585 1100 Q618.6 1093.6 625 1060 Z" fill="#f4f7ff" />
+  </g>
+  <path class="s09-bri" d="M120 586 Q125.44 614.56 154 620 Q125.44 625.44 120 654 Q114.56 625.44 86 620 Q114.56 614.56 120 586 Z" fill="#ffc93c" /><path class="s09-bri" d="M780 1172 Q784.48 1195.52 808 1200 Q784.48 1204.48 780 1228 Q775.52 1204.48 752 1200 Q775.52 1195.52 780 1172 Z" fill="#ffc93c" />
+  <rect class="s09-velo" x="0" y="560" width="1080" height="900" fill="#050b24" opacity="0" />
+  <g class="s09-hoja1">
+    <rect x="130" y="640" width="620" height="560" rx="12" fill="#f4f7ff" stroke="#050b24" stroke-width="6" />
+    <rect x="130" y="640" width="620" height="130" rx="12" fill="#ff3d55" stroke="#050b24" stroke-width="6" />
+    <circle cx="250" cy="640" r="14" fill="#050b24" /><circle cx="630" cy="640" r="14" fill="#050b24" />
+    <text x="440" y="730" text-anchor="middle" class="lex" font-size="72" fill="#f4f7ff">MAÑANA</text>
+    <text x="440" y="1010" text-anchor="middle" class="mono" font-size="210" fill="#ff3d55">000</text>
+    <text x="440" y="1110" text-anchor="middle" class="mono" font-size="30" fill="#050b24" letter-spacing="3">PEDIDOS A MANO</text>
+  </g>
+  <g class="s09-hoja2">
+    <rect x="160" y="670" width="620" height="560" rx="12" fill="#f4f7ff" stroke="#050b24" stroke-width="6" />
+    <rect x="160" y="670" width="620" height="130" rx="12" fill="#ff3d55" stroke="#050b24" stroke-width="6" />
+    <circle cx="280" cy="670" r="14" fill="#050b24" /><circle cx="660" cy="670" r="14" fill="#050b24" />
+    <text x="470" y="760" text-anchor="middle" class="lex" font-size="72" fill="#f4f7ff">PASADO</text>
+    <text x="470" y="1040" text-anchor="middle" class="mono" font-size="210" fill="#ff3d55">000</text>
+    <text x="470" y="1140" text-anchor="middle" class="mono" font-size="30" fill="#050b24" letter-spacing="3">OTRA VEZ</text>
+  </g>
+  
+<g transform="translate(880 920) scale(0.85)"><g class="s09-juez">
+  <path d="M-124 560 L-114 140 Q-104 78 0 72 Q104 78 114 140 L124 560 Z" fill="#050b24" stroke="#f4f7ff" stroke-width="6" stroke-linejoin="round" />
+  <path d="M-32 78 L0 176 L32 78 Z" fill="#f4f7ff" />
+  <path d="M-32 78 L-10 200 L-60 150 M32 78 L10 200 L60 150" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-30 80 L0 92 L30 80 L30 104 L0 92 L-30 104 Z" fill="#ffc93c" stroke="#050b24" stroke-width="3" stroke-linejoin="round" />
+  <path d="M0 380 L0 560" stroke="#f4f7ff" stroke-width="5" />
+  <circle cx="0" cy="0" r="56" fill="#050b24" stroke="#f4f7ff" stroke-width="6" />
+  <path d="M-56 -6 Q-60 -62 0 -62 Q50 -62 58 -14 Q20 -46 -20 -40 Q-40 -30 -56 -6 Z" fill="#f4f7ff" />
+  <g class="s09-lentes"><rect x="-44" y="-4" width="36" height="24" rx="5" fill="none" stroke="#f4f7ff" stroke-width="5" />
+  <rect x="8" y="-4" width="36" height="24" rx="5" fill="none" stroke="#f4f7ff" stroke-width="5" />
+  <path d="M-8 6 L8 6" stroke="#f4f7ff" stroke-width="4" /></g>
+  <path class="s09-boca" d="M-16 34 L16 34" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" />
+  <g class="s09-clip">
+    <rect x="40" y="170" width="160" height="210" rx="10" fill="#ffc93c" stroke="#050b24" stroke-width="5" />
+    <rect x="56" y="198" width="128" height="166" rx="4" fill="#f4f7ff" />
+    <rect x="92" y="160" width="56" height="26" rx="6" fill="#050b24" stroke="#f4f7ff" stroke-width="4" />
+    <path d="M72 230 H168 M72 262 H168 M72 294 H150 M72 326 H160" stroke="#050b24" stroke-width="5" stroke-linecap="round" opacity="0.5" />
+  </g>
+  <path class="s09-brazo" d="M108 140 Q150 230 96 300" fill="none" stroke="#050b24" stroke-width="40" stroke-linecap="round" />
+  <path d="M108 140 Q150 230 96 300" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" opacity="0.7" />
+  
+</g></g>
+
+        </svg>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-triste";
+      const DUR = 7.3;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const esc = q(".esc");
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(esc, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (sel, t, d = 0.6) => qa(sel).forEach((el) => { const L = el.getTotalLength ? el.getTotalLength() : 400; gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      const pop = (sel, t, d = 0.35) => qa(sel).forEach((el) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(2)", immediateRender: false }, t); });
+      const cae = (sel, t, rot = 0) => { const el = q(sel); gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.6, rotation: rot - 6 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const fuera = (sel, t) => tl.to(qa(sel), { opacity: 0, y: -30, duration: 0.15 }, t);
+
+      tl.fromTo(q(".s09-cert"), { scale: 0.8, rotation: -6, opacity: 0.5, transformOrigin: "50% 50%" }, { scale: 1, rotation: -2, opacity: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.8)" }, 0);
+      pop(".s09-bri", 0.2);
+      tl.to(qa(".s09-bri"), { rotation: 90, transformOrigin: "50% 50%", duration: 1.6, ease: "none" }, 0.3);
+      tl.to(q(".s09-sello"), { rotation: 45, transformOrigin: "50% 50%", duration: 1.5, ease: "none" }, 0.2);
+      tl.fromTo(q(".s09-juez"), { x: 300 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0.1);
+      // lo triste: baja la luz, el juez se inclina
+      tl.to(q(".s09-velo"), { opacity: 0.45, duration: 0.5 }, 1.8);
+      tl.to(qa(".s09-bri"), { opacity: 0, duration: 0.3 }, 1.8);
+      tl.to(q(".s09-juez"), { rotation: -6, svgOrigin: "0 560", x: -40, duration: 0.6, ease: "power2.out" }, 1.9);
+      tl.to(q(".s09-boca"), { attr: { d: "M-16 36 Q0 28 16 36" }, duration: 0.3 }, 2.0);
+      tl.to(q(".s09-cert"), { y: 20, rotation: 0, duration: 2, ease: "sine.inOut" }, 2.0);
+      // mañana / pasado: hojas de calendario que tapan el certificado
+      gsap.set([q(".s09-hoja1"), q(".s09-hoja2")], { opacity: 0 });
+      tl.set(q(".s09-hoja1"), { opacity: 1 }, 4.05);
+      tl.fromTo(q(".s09-hoja1"), { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, transformOrigin: "50% 0%", duration: 0.22, ease: "power3.out", immediateRender: false }, 4.05);
+      sacudon(4.2, 1.2);
+      tl.set(q(".s09-cert"), { opacity: 0 }, 4.3);
+      tl.to(q(".s09-hoja1"), { rotation: -3, transformOrigin: "50% 0%", duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 4.4);
+      tl.set(q(".s09-hoja2"), { opacity: 1 }, 6.2);
+      tl.fromTo(q(".s09-hoja2"), { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, transformOrigin: "50% 0%", duration: 0.22, ease: "power3.out", immediateRender: false }, 6.2);
+      sacudon(6.35, 1.2);
+      tl.set(q(".s09-hoja1"), { opacity: 0 }, 6.45);
+
+      tl.to(q("#" + ID + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

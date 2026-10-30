@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-reglamento"] .capa, [data-composition-id="s03-reglamento"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-reglamento"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-reglamento"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #050b24; paint-order: stroke fill; color: #f4f7ff; }
+    [data-composition-id="s03-reglamento"] .oro { color: #ffc93c; text-shadow: 0 0 28px rgba(255, 201, 60, 0.45); }
+    [data-composition-id="s03-reglamento"] .rojo { color: #ff3d55; }
+    [data-composition-id="s03-reglamento"] .verde { color: #5ce611; }
+    [data-composition-id="s03-reglamento"] .tag, [data-composition-id="s03-reglamento"] [class$="-tag"] { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; fill: #050b24; }
+    [data-composition-id="s03-reglamento"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s03-reglamento"] .lex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    
+  </style>
+  <div id="root" data-composition-id="s03-reglamento" data-width="1080" data-height="1920" data-duration="6.97">
+    <div id="s03-reglamento-escena" class="capa clip" data-start="0" data-duration="6.97" data-track-index="0">
+      <div class="esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+  <g class="s03-hoja">
+    <rect x="96" y="590" width="540" height="790" rx="10" fill="#f4f7ff" stroke="#050b24" stroke-width="6" />
+    <rect x="96" y="590" width="540" height="150" rx="10" fill="#ffc93c" stroke="#050b24" stroke-width="6" />
+    <text x="366" y="660" text-anchor="middle" class="lex" font-size="52" fill="#050b24">REGLAMENTO</text>
+    <text x="366" y="712" text-anchor="middle" class="mono" font-size="32" fill="#050b24" letter-spacing="6">OFICIAL</text>
+  </g>
+  <g class="s03-r1"><g class="s03-k1"><rect x="130" y="782" width="180" height="86" rx="14" fill="#2f6bff" stroke="#f4f7ff" stroke-width="4" /><g class="s03-k1-cap"><rect x="130" y="772" width="180" height="80" rx="14" fill="#050b24" stroke="#f4f7ff" stroke-width="5" /><text x="220" y="827.84" text-anchor="middle" class="lex" font-size="44" fill="#f4f7ff">CTRL</text></g></g><text x="338" y="830" class="lex" font-size="56" fill="#050b24">+</text><g class="s03-k2"><rect x="390" y="782" width="110" height="86" rx="14" fill="#2f6bff" stroke="#f4f7ff" stroke-width="4" /><g class="s03-k2-cap"><rect x="390" y="772" width="110" height="80" rx="14" fill="#050b24" stroke="#f4f7ff" stroke-width="5" /><text x="445" y="832.16" text-anchor="middle" class="lex" font-size="56" fill="#f4f7ff">C</text></g></g></g>
+  <path class="s03-tilde1" d="M530 812 L560 846 L612 780" fill="none" stroke="#ffc93c" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+  <g class="s03-r2"><g class="s03-k3"><rect x="130" y="910" width="180" height="86" rx="14" fill="#2f6bff" stroke="#f4f7ff" stroke-width="4" /><g class="s03-k3-cap"><rect x="130" y="900" width="180" height="80" rx="14" fill="#050b24" stroke="#f4f7ff" stroke-width="5" /><text x="220" y="955.84" text-anchor="middle" class="lex" font-size="44" fill="#f4f7ff">CTRL</text></g></g><text x="338" y="958" class="lex" font-size="56" fill="#050b24">+</text><g class="s03-k4"><rect x="390" y="910" width="110" height="86" rx="14" fill="#2f6bff" stroke="#f4f7ff" stroke-width="4" /><g class="s03-k4-cap"><rect x="390" y="900" width="110" height="80" rx="14" fill="#050b24" stroke="#f4f7ff" stroke-width="5" /><text x="445" y="960.16" text-anchor="middle" class="lex" font-size="56" fill="#f4f7ff">V</text></g></g></g>
+  <path class="s03-tilde2" d="M530 940 L560 974 L612 908" fill="none" stroke="#ffc93c" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+  <g class="s03-r3"><text x="136" y="1096" class="lex" font-size="50" fill="#050b24">SIN AYUDA</text></g>
+  <g class="s03-x1"><circle cx="560" cy="1080" r="40" fill="#ff3d55" /><path d="M542 1062 L578 1098 M578 1062 L542 1098" stroke="#f4f7ff" stroke-width="9" stroke-linecap="round" /></g>
+  <g class="s03-r4"><text x="136" y="1220" class="lex" font-size="50" fill="#050b24">SIN CENAR</text>
+    <ellipse cx="366" cy="1300" rx="96" ry="40" fill="#f4f7ff" stroke="#050b24" stroke-width="6" /><ellipse cx="366" cy="1300" rx="56" ry="22" fill="none" stroke="#050b24" stroke-width="4" />
+    <path d="M240 1270 V1330 M488 1270 V1330" stroke="#050b24" stroke-width="7" stroke-linecap="round" /></g>
+  <path class="s03-tacha" d="M240 1350 L500 1250" stroke="#ff3d55" stroke-width="14" stroke-linecap="round" />
+  <g class="s03-x2"><circle cx="560" cy="1204" r="40" fill="#ff3d55" /><path d="M542 1186 L578 1222 M578 1186 L542 1222" stroke="#f4f7ff" stroke-width="9" stroke-linecap="round" /></g>
+  
+<g transform="translate(800 830) scale(1)"><g class="s03-juez">
+  <path d="M-124 560 L-114 140 Q-104 78 0 72 Q104 78 114 140 L124 560 Z" fill="#050b24" stroke="#f4f7ff" stroke-width="6" stroke-linejoin="round" />
+  <path d="M-32 78 L0 176 L32 78 Z" fill="#f4f7ff" />
+  <path d="M-32 78 L-10 200 L-60 150 M32 78 L10 200 L60 150" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-30 80 L0 92 L30 80 L30 104 L0 92 L-30 104 Z" fill="#ffc93c" stroke="#050b24" stroke-width="3" stroke-linejoin="round" />
+  <path d="M0 380 L0 560" stroke="#f4f7ff" stroke-width="5" />
+  <circle cx="0" cy="0" r="56" fill="#050b24" stroke="#f4f7ff" stroke-width="6" />
+  <path d="M-56 -6 Q-60 -62 0 -62 Q50 -62 58 -14 Q20 -46 -20 -40 Q-40 -30 -56 -6 Z" fill="#f4f7ff" />
+  <g class="s03-lentes"><rect x="-44" y="-4" width="36" height="24" rx="5" fill="none" stroke="#f4f7ff" stroke-width="5" />
+  <rect x="8" y="-4" width="36" height="24" rx="5" fill="none" stroke="#f4f7ff" stroke-width="5" />
+  <path d="M-8 6 L8 6" stroke="#f4f7ff" stroke-width="4" /></g>
+  <path class="s03-boca" d="M-16 34 L16 34" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" />
+  <g class="s03-clip">
+    <rect x="40" y="170" width="160" height="210" rx="10" fill="#ffc93c" stroke="#050b24" stroke-width="5" />
+    <rect x="56" y="198" width="128" height="166" rx="4" fill="#f4f7ff" />
+    <rect x="92" y="160" width="56" height="26" rx="6" fill="#050b24" stroke="#f4f7ff" stroke-width="4" />
+    <path d="M72 230 H168 M72 262 H168 M72 294 H150 M72 326 H160" stroke="#050b24" stroke-width="5" stroke-linecap="round" opacity="0.5" />
+  </g>
+  <path class="s03-brazo" d="M108 140 Q150 230 96 300" fill="none" stroke="#050b24" stroke-width="40" stroke-linecap="round" />
+  <path d="M108 140 Q150 230 96 300" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" opacity="0.7" />
+  
+</g></g>
+
+        </svg>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-reglamento";
+      const DUR = 6.97;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const esc = q(".esc");
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(esc, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (sel, t, d = 0.6) => qa(sel).forEach((el) => { const L = el.getTotalLength ? el.getTotalLength() : 400; gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      const pop = (sel, t, d = 0.35) => qa(sel).forEach((el) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(2)", immediateRender: false }, t); });
+      const cae = (sel, t, rot = 0) => { const el = q(sel); gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.6, rotation: rot - 6 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const fuera = (sel, t) => tl.to(qa(sel), { opacity: 0, y: -30, duration: 0.15 }, t);
+
+      gsap.set(q(".s03-hoja"), { scaleY: 0.12, transformOrigin: "50% 0%" });
+      tl.to(q(".s03-hoja"), { scaleY: 1, transformOrigin: "50% 0%", duration: 0.35, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s03-juez"), { x: 300 }, { x: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.to(q(".s03-lentes"), { y: -8, duration: 0.15, yoyo: true, repeat: 3 }, 0.75);
+      tl.to(q(".s03-juez"), { rotation: -2, svgOrigin: "0 560", duration: 0.6, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0.4);
+      tl.to(q(".s03-clip"), { rotation: -8, svgOrigin: "120 380", duration: 0.3, yoyo: true, repeat: 3 }, 2.3);
+      pop(".s03-r1", 1.95);
+      tl.to(q(".s03-k1-cap"), { y: 10, duration: 0.08, yoyo: true, repeat: 1 }, 2.05);
+      tl.to(q(".s03-k2-cap"), { y: 10, duration: 0.08, yoyo: true, repeat: 1 }, 2.34);
+      dibujar(".s03-tilde1", 2.5, 0.25);
+      pop(".s03-r2", 2.55);
+      tl.to(q(".s03-k3-cap"), { y: 10, duration: 0.08, yoyo: true, repeat: 1 }, 2.65);
+      tl.to(q(".s03-k4-cap"), { y: 10, duration: 0.08, yoyo: true, repeat: 1 }, 3.18);
+      dibujar(".s03-tilde2", 3.4, 0.25);
+      pop(".s03-r3", 4.15);
+      pop(".s03-x1", 4.42);
+      sacudon(4.45, 0.6);
+      pop(".s03-r4", 5.6);
+      dibujar(".s03-tacha", 5.92, 0.2);
+      pop(".s03-x2", 6.0);
+      sacudon(5.95, 1);
+      tl.to(q(".s03-boca"), { attr: { d: "M-16 34 Q0 28 16 34" }, duration: 0.2 }, 5.9);
+
+      tl.to(q("#" + ID + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

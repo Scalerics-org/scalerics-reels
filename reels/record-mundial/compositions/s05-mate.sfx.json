@@ -1,0 +1,6 @@
+[
+  {"t":0,"sfx":"whoosh-short","vol":0.25},
+  {"t":0.1,"sfx":"typing","vol":0.25,"max":2.2},
+  {"t":1.5,"sfx":"pop","vol":0.25},
+  {"t":2.4,"sfx":"sparkle","vol":0.25}
+]

@@ -1,0 +1,98 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-listo"] .capa, [data-composition-id="s06-listo"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s06-listo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-listo"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #050b24; paint-order: stroke fill; color: #f4f7ff; }
+    [data-composition-id="s06-listo"] .oro { color: #ffc93c; text-shadow: 0 0 28px rgba(255, 201, 60, 0.45); }
+    [data-composition-id="s06-listo"] .rojo { color: #ff3d55; }
+    [data-composition-id="s06-listo"] .verde { color: #5ce611; }
+    [data-composition-id="s06-listo"] .tag, [data-composition-id="s06-listo"] [class$="-tag"] { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; fill: #050b24; }
+    [data-composition-id="s06-listo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s06-listo"] .lex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s06-listo"] .s06-a { top: 590px; font-size: 140px; }
+    [data-composition-id="s06-listo"] .s06-b { top: 610px; font-size: 180px; }
+  </style>
+  <div id="root" data-composition-id="s06-listo" data-width="1080" data-height="1920" data-duration="4.02">
+    <div id="s06-listo-escena" class="capa clip" data-start="0" data-duration="4.02" data-track-index="0">
+      <div class="esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+  
+<g transform="translate(330 960) scale(1.1)"><g class="s06-wal">
+  <path d="M-200 360 L-188 170 Q-168 96 0 88 Q168 96 188 170 L200 360 Z" fill="#050b24" stroke="#f4f7ff" stroke-width="6" stroke-linejoin="round" />
+  <path d="M-96 118 L96 118 L124 360 L-124 360 Z" fill="#2f6bff" stroke="#f4f7ff" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-96 118 Q-70 92 -44 92 M96 118 Q70 92 44 92" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" />
+  <rect x="-72" y="168" width="144" height="44" rx="8" fill="#f4f7ff" stroke="#050b24" stroke-width="3" />
+  <text x="0" y="200" text-anchor="middle" class="s06-tag" data-layout-ignore>WALTER</text>
+  <ellipse cx="-74" cy="10" rx="13" ry="21" fill="#050b24" stroke="#f4f7ff" stroke-width="5" />
+  <ellipse cx="74" cy="10" rx="13" ry="21" fill="#050b24" stroke="#f4f7ff" stroke-width="5" />
+  <circle cx="0" cy="0" r="72" fill="#050b24" stroke="#f4f7ff" stroke-width="6" />
+  <path d="M-68 -6 Q-78 -40 -56 -58 M-60 4 Q-70 -26 -50 -42 M68 -6 Q78 -40 56 -58 M60 4 Q70 -26 50 -42" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" />
+  <path d="M-30 -58 Q-6 -68 18 -62" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" opacity="0.5" />
+  <path d="M-71 -22 Q0 -46 71 -22" fill="none" stroke="#ffc93c" stroke-width="16" stroke-linecap="round" />
+  <path class="s06-cejas" d="M-44 -4 L-14 -10 M14 -10 L44 -4" fill="none" stroke="#f4f7ff" stroke-width="6" stroke-linecap="round" />
+  <circle class="s06-ojo" cx="-28" cy="12" r="7" fill="#f4f7ff" />
+  <circle class="s06-ojo" cx="28" cy="12" r="7" fill="#f4f7ff" />
+  <path d="M-44 42 Q-22 26 0 36 Q22 26 44 42 Q22 52 0 44 Q-22 52 -44 42 Z" fill="#f4f7ff" />
+  <path class="s06-boca" d="M-16 58 Q0 64 16 58" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" />
+  <path d="M-60 -100 L-40 -80 M-80 -70 L-56 -62 M60 -100 L40 -80 M80 -70 L56 -62" stroke="#ff3d55" stroke-width="7" stroke-linecap="round" class="s06-enojo" />
+</g></g>
+  <g class="s06-cel"><rect x="470" y="1110" width="80" height="140" rx="14" fill="#050b24" stroke="#f4f7ff" stroke-width="5" /><rect x="480" y="1126" width="60" height="96" rx="6" fill="#2f6bff" /></g>
+  <g class="s06-g"><path d="M580 800 H900 Q920 800 920 820 V850 Q920 870 900 870 H620 L582 898 L594 870 H580 Q560 870 560 850 V820 Q560 800 580 800 Z" fill="#f4f7ff" stroke="#050b24" stroke-width="5" stroke-linejoin="round" />
+  <text x="588" y="860" class="lex" font-size="32" fill="#050b24">YA ESTÁ LISTO</text></g><g class="s06-g"><path d="M620 894 H940 Q960 894 960 914 V944 Q960 964 940 964 H660 L622 992 L634 964 H620 Q600 964 600 944 V914 Q600 894 620 894 Z" fill="#f4f7ff" stroke="#050b24" stroke-width="5" stroke-linejoin="round" />
+  <text x="628" y="954" class="lex" font-size="32" fill="#050b24">YA ESTÁ LISTO</text></g><g class="s06-g"><path d="M580 988 H900 Q920 988 920 1008 V1038 Q920 1058 900 1058 H620 L582 1086 L594 1058 H580 Q560 1058 560 1038 V1008 Q560 988 580 988 Z" fill="#f4f7ff" stroke="#050b24" stroke-width="5" stroke-linejoin="round" />
+  <text x="588" y="1048" class="lex" font-size="32" fill="#050b24">YA ESTÁ LISTO</text></g><g class="s06-g"><path d="M620 1082 H940 Q960 1082 960 1102 V1132 Q960 1152 940 1152 H660 L622 1180 L634 1152 H620 Q600 1152 600 1132 V1102 Q600 1082 620 1082 Z" fill="#f4f7ff" stroke="#050b24" stroke-width="5" stroke-linejoin="round" />
+  <text x="628" y="1142" class="lex" font-size="32" fill="#050b24">YA ESTÁ LISTO</text></g><g class="s06-g"><path d="M580 1176 H900 Q920 1176 920 1196 V1226 Q920 1246 900 1246 H620 L582 1274 L594 1246 H580 Q560 1246 560 1226 V1196 Q560 1176 580 1176 Z" fill="#f4f7ff" stroke="#050b24" stroke-width="5" stroke-linejoin="round" />
+  <text x="588" y="1236" class="lex" font-size="32" fill="#050b24">YA ESTÁ LISTO</text></g><g class="s06-g"><path d="M620 1270 H940 Q960 1270 960 1290 V1320 Q960 1340 940 1340 H660 L622 1368 L634 1340 H620 Q600 1340 600 1320 V1290 Q600 1270 620 1270 Z" fill="#f4f7ff" stroke="#050b24" stroke-width="5" stroke-linejoin="round" />
+  <text x="628" y="1330" class="lex" font-size="32" fill="#050b24">YA ESTÁ LISTO</text></g>
+
+        </svg>
+
+        <div class="big rojo s06-a">¡Ahora no!</div>
+        <div class="big oro s06-b">Listo</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-listo";
+      const DUR = 4.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const esc = q(".esc");
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(esc, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (sel, t, d = 0.6) => qa(sel).forEach((el) => { const L = el.getTotalLength ? el.getTotalLength() : 400; gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      const pop = (sel, t, d = 0.35) => qa(sel).forEach((el) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(2)", immediateRender: false }, t); });
+      const cae = (sel, t, rot = 0) => { const el = q(sel); gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.6, rotation: rot - 6 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const fuera = (sel, t) => tl.to(qa(sel), { opacity: 0, y: -30, duration: 0.15 }, t);
+
+      tl.to(q(".s06-boca"), { attr: { d: "M-26 58 Q0 50 26 58 Q22 96 0 98 Q-22 96 -26 58 Z" }, duration: 0.1 }, 0);
+      tl.set(q(".s06-boca"), { fill: "#f4f7ff" }, 0);
+      tl.to(q(".s06-cejas"), { attr: { d: "M-44 -16 L-14 -2 M14 -2 L44 -16" }, duration: 0.1 }, 0);
+      tl.fromTo(q(".s06-wal"), { scale: 0.9, svgOrigin: "0 360" }, { scale: 1, svgOrigin: "0 360", duration: 0.25, ease: "back.out(3)" }, 0);
+      pop(".s06-enojo", 0.1);
+      tl.to(q(".s06-enojo"), { scale: 1.2, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 9 }, 0.3);
+      cae(".s06-a", 0.15, -4);
+      sacudon(0.1, 1.8);
+      tl.to(q(".s06-a"), { x: 8, duration: 0.05, yoyo: true, repeat: 9 }, 0.3);
+      fuera(".s06-a", 1.45);
+      tl.to(q(".s06-cel"), { rotation: -8, svgOrigin: "510 1250", duration: 0.08, yoyo: true, repeat: 27 }, 1.5);
+      const gs = qa(".s06-g");
+      gs.forEach((g, i) => { gsap.set(g, { opacity: 0 }); tl.fromTo(g, { opacity: 0, x: -200, scale: 0.4, transformOrigin: "0% 100%" }, { opacity: 1, x: 0, scale: 1, transformOrigin: "0% 100%", duration: 0.2, ease: "back.out(2)", immediateRender: false }, 1.65 + i * 0.2); });
+      cae(".s06-b", 2.9, -3);
+      sacudon(2.92, 1.4);
+      tl.to(gs, { y: -12, duration: 0.12, yoyo: true, repeat: 5, stagger: 0.03 }, 3.0);
+
+      tl.to(q("#" + ID + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

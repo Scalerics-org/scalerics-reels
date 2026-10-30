@@ -1,0 +1,109 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-calambre"] .capa, [data-composition-id="s07-calambre"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s07-calambre"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-calambre"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #050b24; paint-order: stroke fill; color: #f4f7ff; }
+    [data-composition-id="s07-calambre"] .oro { color: #ffc93c; text-shadow: 0 0 28px rgba(255, 201, 60, 0.45); }
+    [data-composition-id="s07-calambre"] .rojo { color: #ff3d55; }
+    [data-composition-id="s07-calambre"] .verde { color: #5ce611; }
+    [data-composition-id="s07-calambre"] .tag, [data-composition-id="s07-calambre"] [class$="-tag"] { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; fill: #050b24; }
+    [data-composition-id="s07-calambre"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s07-calambre"] .lex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s07-calambre"] .s07-b { position: absolute; left: 90px; right: 90px; top: 596px; height: 100px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 66px; line-height: 100px; color: #f4f7ff; white-space: nowrap; }
+    [data-composition-id="s07-calambre"] .s07-b span { position: absolute; left: 0; right: 0; top: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-calambre" data-width="1080" data-height="1920" data-duration="5.19">
+    <div id="s07-calambre-escena" class="capa clip" data-start="0" data-duration="5.19" data-track-index="0">
+      <div class="esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+  <rect class="s07-banda" x="90" y="596" width="900" height="100" rx="14" fill="#ff3d55" stroke="#f4f7ff" stroke-width="5" />
+  <rect class="s07-banda2" x="90" y="596" width="900" height="100" rx="14" fill="#2f6bff" stroke="#f4f7ff" stroke-width="5" />
+  <g class="s07-sirena"><path d="M120 680 L130 620 Q150 600 170 620 L180 680 Z" fill="#ffc93c" stroke="#050b24" stroke-width="4" /></g>
+  <g class="s07-tecla"><rect x="300" y="980" width="220" height="150" rx="20" fill="#2f6bff" stroke="#f4f7ff" stroke-width="5" /><rect x="300" y="960" width="220" height="140" rx="20" fill="#050b24" stroke="#f4f7ff" stroke-width="6" /><text x="410" y="1062" text-anchor="middle" class="lex" font-size="80" fill="#f4f7ff">V</text></g>
+  <g class="s07-mano">
+    <path d="M1000 1440 L760 1200" stroke="#f4f7ff" stroke-width="180" stroke-linecap="round" />
+    <path d="M1000 1440 L760 1200" stroke="#050b24" stroke-width="168" stroke-linecap="round" />
+    <path d="M700 1180 Q720 1300 860 1310 M760 1110 L880 1080 M780 1160 L900 1150" fill="none" stroke="#f4f7ff" stroke-width="6" stroke-linecap="round" />
+    <path d="M740 1170 L560 1010" stroke="#f4f7ff" stroke-width="80" stroke-linecap="round" />
+    <path d="M740 1170 L560 1010" stroke="#050b24" stroke-width="68" stroke-linecap="round" />
+    <g class="s07-punta">
+      <path d="M560 1010 L450 960" stroke="#f4f7ff" stroke-width="76" stroke-linecap="round" />
+      <path d="M560 1010 L450 960" stroke="#050b24" stroke-width="64" stroke-linecap="round" />
+      <path d="M434 944 Q446 936 460 944" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" />
+      <g class="s07-curita"><rect x="470" y="950" width="90" height="56" rx="12" fill="#ffc93c" stroke="#050b24" stroke-width="4" transform="rotate(24 515 978)" /><circle cx="505" cy="972" r="4" fill="#050b24" /><circle cx="525" cy="984" r="4" fill="#050b24" /></g>
+    </g>
+    <path d="M552 990 Q570 1006 560 1030" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" />
+  </g>
+  <path class="s07-z" d="M600 900 L630 870 L620 920 L660 880" fill="none" stroke="#ff3d55" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+  <path class="s07-z" d="M630 1060 L680 1050 L640 1090 L700 1090" fill="none" stroke="#ff3d55" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+  <path class="s07-z" d="M470 880 L490 840 L500 880 L520 830" fill="none" stroke="#ff3d55" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+  <circle class="s07-circ" cx="540" cy="1000" r="110" fill="none" stroke="#ff3d55" stroke-width="10" />
+  <g class="s07-clip"><rect x="110" y="1130" width="210" height="270" rx="12" fill="#ffc93c" stroke="#050b24" stroke-width="5" /><rect x="128" y="1162" width="174" height="222" rx="4" fill="#f4f7ff" /><rect x="180" y="1118" width="70" height="28" rx="6" fill="#050b24" stroke="#f4f7ff" stroke-width="4" />
+    <path d="M150 1200 H280 M150 1236 H280 M150 1272 H250" stroke="#050b24" stroke-width="5" stroke-linecap="round" opacity="0.5" /></g>
+  <g class="s07-valido"><rect x="104" y="1290" width="240" height="80" rx="10" fill="#050b24" stroke="#ffc93c" stroke-width="7" /><text x="224" y="1346" text-anchor="middle" class="lex" font-size="48" fill="#ffc93c">VÁLIDO</text></g>
+
+        </svg>
+
+        <div class="s07-b"><span class="s07-t1">ATENCIÓN</span><span class="s07-t2">CALAMBRE</span><span class="s07-t3">SIGUE EN PIE</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-calambre";
+      const DUR = 5.19;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const esc = q(".esc");
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(esc, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (sel, t, d = 0.6) => qa(sel).forEach((el) => { const L = el.getTotalLength ? el.getTotalLength() : 400; gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      const pop = (sel, t, d = 0.35) => qa(sel).forEach((el) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(2)", immediateRender: false }, t); });
+      const cae = (sel, t, rot = 0) => { const el = q(sel); gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.6, rotation: rot - 6 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const fuera = (sel, t) => tl.to(qa(sel), { opacity: 0, y: -30, duration: 0.15 }, t);
+
+      gsap.set([q(".s07-t2"), q(".s07-t3"), q(".s07-banda2")], { opacity: 0 });
+      pop(".s07-banda", 0); pop(".s07-t1", 0.05);
+      tl.to(q(".s07-banda"), { opacity: 0.55, duration: 0.18, yoyo: true, repeat: 15, ease: "steps(1)" }, 0.2);
+      tl.to(q(".s07-sirena"), { scaleX: -1, svgOrigin: "150 650", duration: 0.2, yoyo: true, repeat: 23 }, 0);
+      tl.fromTo(q(".s07-mano"), { x: 220, y: 220 }, { x: 0, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      pop(".s07-tecla", 0.1);
+      tl.to(q(".s07-tecla"), { y: 10, duration: 0.09, yoyo: true, repeat: 7 }, 0.3);
+      // calambre: el dedo se tuerce y tiembla
+      tl.to(q(".s07-t1"), { opacity: 0, duration: 0.08 }, 0.9);
+      tl.to(q(".s07-t2"), { opacity: 1, duration: 0.08 }, 0.94);
+      tl.fromTo(q(".s07-t2"), { scale: 1.6 }, { scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, 0.9);
+      tl.to(q(".s07-punta"), { rotation: 38, svgOrigin: "560 1010", duration: 0.12, ease: "power4.out" }, 0.94);
+      sacudon(0.95, 1.6);
+      tl.to(q(".s07-mano"), { x: 6, y: -4, duration: 0.04, yoyo: true, repeat: 39, ease: "none" }, 1.0);
+      dibujar(".s07-z", 1.0, 0.2);
+      tl.to(qa(".s07-z"), { opacity: 0.2, duration: 0.1, yoyo: true, repeat: 11, ease: "steps(1)" }, 1.3);
+      dibujar(".s07-circ", 1.62, 0.3);
+      tl.to(q(".s07-circ"), { scale: 1.08, transformOrigin: "50% 50%", duration: 0.2, yoyo: true, repeat: 5 }, 1.95);
+      // sigue en pie: curita y VÁLIDO
+      tl.to(qa(".s07-z, .s07-circ"), { opacity: 0, duration: 0.2 }, 2.85);
+      tl.to(q(".s07-t2"), { opacity: 0, duration: 0.08 }, 2.9);
+      tl.to(q(".s07-banda2"), { opacity: 1, duration: 0.08 }, 2.94);
+      tl.to(q(".s07-banda"), { opacity: 0, duration: 0.08 }, 2.94);
+      tl.to(q(".s07-t3"), { opacity: 1, duration: 0.08 }, 2.94);
+      pop(".s07-curita", 3.0);
+      tl.to(q(".s07-punta"), { rotation: 10, svgOrigin: "560 1010", duration: 0.3, ease: "back.out(2)" }, 3.2);
+      tl.fromTo(q(".s07-clip"), { x: -480, rotation: -10, transformOrigin: "50% 50%" }, { x: 0, rotation: 0, transformOrigin: "50% 50%", duration: 0.35, ease: "power3.out" }, 3.0);
+      gsap.set(q(".s07-clip"), { x: -480 });
+      gsap.set(q(".s07-valido"), { opacity: 0 });
+      tl.fromTo(q(".s07-valido"), { opacity: 0, scale: 2.4, rotation: -14, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: -8, transformOrigin: "50% 50%", duration: 0.15, ease: "power4.in", immediateRender: false }, 4.0);
+      sacudon(4.15, 1.2);
+
+      tl.to(q("#" + ID + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

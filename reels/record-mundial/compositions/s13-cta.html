@@ -1,0 +1,93 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-cta"] .capa, [data-composition-id="s13-cta"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-cta"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #050b24; paint-order: stroke fill; color: #f4f7ff; }
+    [data-composition-id="s13-cta"] .oro { color: #ffc93c; text-shadow: 0 0 28px rgba(255, 201, 60, 0.45); }
+    [data-composition-id="s13-cta"] .rojo { color: #ff3d55; }
+    [data-composition-id="s13-cta"] .verde { color: #5ce611; }
+    [data-composition-id="s13-cta"] .tag, [data-composition-id="s13-cta"] [class$="-tag"] { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; fill: #050b24; }
+    [data-composition-id="s13-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s13-cta"] .lex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s13-cta"] .s13-a { top: 590px; font-size: 92px; }
+    [data-composition-id="s13-cta"] .s13-b { top: 694px; font-size: 92px; }
+    [data-composition-id="s13-cta"] .s13-c { top: 798px; font-size: 76px; }
+    [data-composition-id="s13-cta"] .s13-z { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; color: #f4f7ff; line-height: 1; }
+  </style>
+  <div id="root" data-composition-id="s13-cta" data-width="1080" data-height="1920" data-duration="6.9">
+    <div id="s13-cta-escena" class="capa clip" data-start="0" data-duration="6.9" data-track-index="0">
+      <div class="esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+  <path d="M922 930 A46 46 0 1 0 960 1010 A38 38 0 1 1 922 930 Z" fill="#ffc93c" class="s13-luna" />
+  <rect x="120" y="1000" width="40" height="400" rx="10" fill="#0c1f5c" stroke="#f4f7ff" stroke-width="6" />
+  <rect x="150" y="1220" width="800" height="110" rx="14" fill="#0c1f5c" stroke="#f4f7ff" stroke-width="6" />
+  <path d="M180 1330 V1400 M920 1330 V1400" stroke="#f4f7ff" stroke-width="12" stroke-linecap="round" />
+  <ellipse cx="270" cy="1180" rx="100" ry="50" fill="#f4f7ff" stroke="#050b24" stroke-width="5" />
+  <g class="s13-cabeza">
+    <circle cx="300" cy="1120" r="72" fill="#050b24" stroke="#f4f7ff" stroke-width="6" />
+    <path d="M232 1096 Q300 1072 368 1096" fill="none" stroke="#ffc93c" stroke-width="16" stroke-linecap="round" />
+    <path d="M266 1130 Q276 1140 286 1130 M314 1130 Q324 1140 334 1130" fill="none" stroke="#f4f7ff" stroke-width="5" stroke-linecap="round" />
+    <path d="M256 1160 Q278 1144 300 1154 Q322 1144 344 1160 Q322 1170 300 1162 Q278 1170 256 1160 Z" fill="#f4f7ff" />
+  </g>
+  <path class="s13-manta" d="M360 1110 Q600 1070 930 1120 L930 1240 L340 1240 Z" fill="#2f6bff" stroke="#f4f7ff" stroke-width="6" stroke-linejoin="round" />
+  <g class="s13-medalla"><path d="M560 1090 L590 1140 L620 1090" fill="none" stroke="#f4f7ff" stroke-width="10" /><circle cx="590" cy="1160" r="40" fill="#ffc93c" stroke="#050b24" stroke-width="5" /><text x="590" y="1172" text-anchor="middle" class="lex" font-size="32" fill="#050b24" data-layout-ignore>141</text></g>
+  <g class="s13-arroba"><circle cx="160" cy="950" r="54" fill="#2f6bff" stroke="#f4f7ff" stroke-width="6" /><text x="160" y="974" text-anchor="middle" class="lex" font-size="74" fill="#f4f7ff">@</text></g>
+  <path class="s13-est" d="M640 1094 Q644.16 1115.84 666 1120 Q644.16 1124.16 640 1146 Q635.84 1124.16 614 1120 Q635.84 1115.84 640 1094 Z" fill="#f4f7ff" /><path class="s13-est" d="M860 878 Q863.52 896.48 882 900 Q863.52 903.52 860 922 Q856.48 903.52 838 900 Q856.48 896.48 860 878 Z" fill="#ffc93c" />
+
+        </svg>
+
+        <div data-layout-ignore class="s13-z" style="left:400px;top:1040px;font-size:56px">Z</div>
+        <div data-layout-ignore class="s13-z" style="left:450px;top:990px;font-size:68px">Z</div>
+        <div data-layout-ignore class="s13-z" style="left:516px;top:930px;font-size:80px">Z</div>
+        <div class="big s13-a">Etiquetá al</div>
+        <div class="big oro s13-b">campeón mundial</div>
+        <div class="big s13-c">de copiar y pegar</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-cta";
+      const DUR = 6.9;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const esc = q(".esc");
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(esc, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (sel, t, d = 0.6) => qa(sel).forEach((el) => { const L = el.getTotalLength ? el.getTotalLength() : 400; gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      const pop = (sel, t, d = 0.35) => qa(sel).forEach((el) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(2)", immediateRender: false }, t); });
+      const cae = (sel, t, rot = 0) => { const el = q(sel); gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.6, rotation: rot - 6 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const fuera = (sel, t) => tl.to(qa(sel), { opacity: 0, y: -30, duration: 0.15 }, t);
+
+      tl.fromTo(esc, { scale: 1.06, transformOrigin: "50% 60%" }, { scale: 1, duration: 1.2, ease: "power2.out", transformOrigin: "50% 60%" }, 0);
+      tl.to(q(".s13-manta"), { scaleY: 1.04, transformOrigin: "50% 100%", duration: 0.8, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0);
+      tl.to(q(".s13-cabeza"), { rotation: 3, svgOrigin: "300 1180", duration: 0.8, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0);
+      const zs = qa(".s13-z");
+      zs.forEach((z, i) => { gsap.set(z, { opacity: 0 }); tl.fromTo(z, { opacity: 0, y: 20 }, { opacity: 1, y: -10, duration: 0.4, ease: "power2.out", immediateRender: false }, 0.2 + i * 0.2); tl.to(z, { y: -30, opacity: 0.35, duration: 0.8, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.8 + i * 0.2); });
+      pop(".s13-luna", 0.1);
+      pop(".s13-medalla", 0.6);
+      tl.to(q(".s13-medalla"), { rotation: 6, svgOrigin: "590 1090", duration: 0.5, yoyo: true, repeat: 9, ease: "sine.inOut" }, 1.0);
+      cae(".s13-a", 1.63, -2);
+      cae(".s13-b", 2.14, 1);
+      cae(".s13-c", 2.85, -1);
+      sacudon(1.65, 1);
+      sacudon(2.16, 1.4);
+      pop(".s13-arroba", 1.75);
+      tl.to(q(".s13-arroba"), { scale: 1.12, transformOrigin: "50% 50%", duration: 0.3, yoyo: true, repeat: 13, ease: "sine.inOut" }, 2.1);
+      pop(".s13-est", 2.4);
+      tl.to(qa(".s13-est"), { rotation: 180, transformOrigin: "50% 50%", duration: 4, ease: "none" }, 2.6);
+      tl.to(q(".s13-b"), { scale: 1.04, duration: 0.3, yoyo: true, repeat: 9, ease: "sine.inOut" }, 3.2);
+
+      tl.to(q("#" + ID + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

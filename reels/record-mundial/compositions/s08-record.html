@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-record"] .capa, [data-composition-id="s08-record"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s08-record"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-record"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; -webkit-text-stroke: 12px #050b24; paint-order: stroke fill; color: #f4f7ff; }
+    [data-composition-id="s08-record"] .oro { color: #ffc93c; text-shadow: 0 0 28px rgba(255, 201, 60, 0.45); }
+    [data-composition-id="s08-record"] .rojo { color: #ff3d55; }
+    [data-composition-id="s08-record"] .verde { color: #5ce611; }
+    [data-composition-id="s08-record"] .tag, [data-composition-id="s08-record"] [class$="-tag"] { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; fill: #050b24; }
+    [data-composition-id="s08-record"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s08-record"] .lex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s08-record"] .s08-num { position: absolute; left: 0; right: 0; top: 650px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 250px; line-height: 1; color: #ffc93c; text-shadow: 0 0 40px rgba(255, 201, 60, 0.55); letter-spacing: 0.04em; }
+    [data-composition-id="s08-record"] .s08-lbl { position: absolute; left: 0; right: 0; top: 606px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; color: #2f6bff; letter-spacing: 0.3em; }
+    [data-composition-id="s08-record"] .s08-a { top: 590px; font-size: 118px; }
+    [data-composition-id="s08-record"] .s08-b { top: 714px; font-size: 112px; }
+  </style>
+  <div id="root" data-composition-id="s08-record" data-width="1080" data-height="1920" data-duration="7.12">
+    <div id="s08-record-escena" class="capa clip" data-start="0" data-duration="7.12" data-track-index="0">
+      <div class="esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+  <g class="s08-rayos"><path d="M540 1080 L1060 1080 L1049 1188 Z" fill="#ffc93c" opacity="0.18" /><path d="M540 1080 L990 1340 L926 1428 Z" fill="#ffc93c" opacity="0.18" /><path d="M540 1080 L800 1530 L701 1575 Z" fill="#ffc93c" opacity="0.18" /><path d="M540 1080 L540 1600 L432 1589 Z" fill="#ffc93c" opacity="0.18" /><path d="M540 1080 L280 1530 L192 1466 Z" fill="#ffc93c" opacity="0.18" /><path d="M540 1080 L90 1340 L45 1241 Z" fill="#ffc93c" opacity="0.18" /><path d="M540 1080 L20 1080 L31 972 Z" fill="#ffc93c" opacity="0.18" /><path d="M540 1080 L90 820 L154 732 Z" fill="#ffc93c" opacity="0.18" /><path d="M540 1080 L280 630 L379 585 Z" fill="#ffc93c" opacity="0.18" /><path d="M540 1080 L540 560 L648 571 Z" fill="#ffc93c" opacity="0.18" /><path d="M540 1080 L800 630 L888 694 Z" fill="#ffc93c" opacity="0.18" /><path d="M540 1080 L990 820 L1035 919 Z" fill="#ffc93c" opacity="0.18" /></g>
+  <g class="s08-panel"><rect x="140" y="586" width="800" height="340" rx="24" fill="#050b24" stroke="#ffc93c" stroke-width="8" /></g>
+  <g class="s08-medalla">
+    <path d="M420 840 L500 1000 L580 1000 L500 840 Z" fill="#2f6bff" stroke="#f4f7ff" stroke-width="5" stroke-linejoin="round" />
+    <path d="M660 840 L580 1000 L500 1000 L580 840 Z" fill="#2f6bff" stroke="#f4f7ff" stroke-width="5" stroke-linejoin="round" />
+    <circle cx="540" cy="1120" r="170" fill="#ffc93c" stroke="#050b24" stroke-width="8" />
+    <circle cx="540" cy="1120" r="132" fill="none" stroke="#050b24" stroke-width="5" stroke-dasharray="14 10" />
+    <text x="540" y="1100" text-anchor="middle" class="mono" font-size="40" fill="#050b24" letter-spacing="4">PEDIDOS</text>
+    <text x="540" y="1196" text-anchor="middle" class="lex" font-size="110" fill="#050b24">141</text>
+    <path class="s08-brillo-m" d="M440 1040 Q470 1000 520 990" fill="none" stroke="#f4f7ff" stroke-width="10" stroke-linecap="round" opacity="0.8" />
+  </g>
+  <path class="s08-est" d="M220 960 Q226.4 993.6 260 1000 Q226.4 1006.4 220 1040 Q213.6 1006.4 180 1000 Q213.6 993.6 220 960 Z" fill="#ffc93c" /><path class="s08-est" d="M870 906 Q875.44 934.56 904 940 Q875.44 945.44 870 974 Q864.56 945.44 836 940 Q864.56 934.56 870 906 Z" fill="#ffc93c" /><path class="s08-est" d="M830 1292 Q834.48 1315.52 858 1320 Q834.48 1324.48 830 1348 Q825.52 1324.48 802 1320 Q825.52 1315.52 830 1292 Z" fill="#f4f7ff" /><path class="s08-est" d="M250 1274 Q254.16 1295.84 276 1300 Q254.16 1304.16 250 1326 Q245.84 1304.16 224 1300 Q245.84 1295.84 250 1274 Z" fill="#f4f7ff" />
+
+        </svg>
+
+        <div class="s08-lbl">PEDIDO N°</div>
+        <div class="s08-num">139</div>
+        <div class="big oro s08-a">¡Nuevo récord</div>
+        <div class="big s08-b">mundial!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-record";
+      const DUR = 7.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const esc = q(".esc");
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(esc, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (sel, t, d = 0.6) => qa(sel).forEach((el) => { const L = el.getTotalLength ? el.getTotalLength() : 400; gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); });
+      const pop = (sel, t, d = 0.35) => qa(sel).forEach((el) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(2)", immediateRender: false }, t); });
+      const cae = (sel, t, rot = 0) => { const el = q(sel); gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.6, rotation: rot - 6 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const fuera = (sel, t) => tl.to(qa(sel), { opacity: 0, y: -30, duration: 0.15 }, t);
+
+      const num = q(".s08-num");
+      const c = { v: 139 };
+      const paso = (t, a, b) => tl.fromTo(c, { v: a }, { v: b, duration: 0.02, immediateRender: false, onUpdate: () => { num.textContent = String(Math.round(c.v)); } }, t);
+      tl.to(num, { scale: 1.04, duration: 0.12, yoyo: true, repeat: 3 }, 0);
+      paso(0.52, 139, 140);
+      tl.fromTo(num, { scale: 1.5 }, { scale: 1, duration: 0.18, ease: "power4.in", immediateRender: false }, 0.45);
+      sacudon(0.55, 1.4);
+      tl.to(num, { x: 6, duration: 0.05, yoyo: true, repeat: 15 }, 1.6);
+      paso(2.88, 140, 141);
+      tl.fromTo(num, { scale: 1.7 }, { scale: 1, duration: 0.18, ease: "power4.in", immediateRender: false }, 2.8);
+      sacudon(2.9, 2);
+      // nuevo récord: el panel se va, cae la medalla
+      tl.to([q(".s08-panel"), num, q(".s08-lbl")], { opacity: 0, y: -80, scale: 0.7, transformOrigin: "50% 0%", duration: 0.25, ease: "power2.in" }, 3.6);
+      cae(".s08-a", 3.78, -3);
+      cae(".s08-b", 4.19, 2);
+      sacudon(3.8, 1.6);
+      gsap.set(q(".s08-medalla"), { opacity: 0 });
+      tl.set(q(".s08-medalla"), { opacity: 1 }, 3.85);
+      tl.fromTo(q(".s08-medalla"), { y: -900 }, { y: 50, duration: 0.6, ease: "bounce.out", immediateRender: false }, 3.85);
+      tl.to(q(".s08-medalla"), { rotation: 4, svgOrigin: "540 840", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 4.5);
+      gsap.set(q(".s08-rayos"), { opacity: 0 });
+      tl.to(q(".s08-rayos"), { opacity: 1, duration: 0.3 }, 4.2);
+      tl.fromTo(q(".s08-rayos"), { rotation: 0, svgOrigin: "540 1080" }, { rotation: 60, svgOrigin: "540 1080", duration: 2.9, ease: "none" }, 4.2);
+      pop(".s08-est", 4.4);
+      tl.to(qa(".s08-est"), { scale: 1.3, transformOrigin: "50% 50%", duration: 0.3, yoyo: true, repeat: 5, stagger: 0.1 }, 4.8);
+      tl.to(q(".s08-a"), { scale: 1.05, duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, 4.6);
+
+      tl.to(q("#" + ID + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
