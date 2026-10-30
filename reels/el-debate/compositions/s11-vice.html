@@ -1,0 +1,147 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-vice"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-vice"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-vice"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-vice"] .linea { fill: none; stroke: #f4f4f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-vice"] .silueta { fill: #0b1a3a; stroke: #f4f4f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-vice"] .rojo { fill: none; stroke: #e63946; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-vice"] .celeste { fill: none; stroke: #57c4e5; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-vice"] .dorado { fill: none; stroke: #f2c14e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-vice"] .verde { fill: none; stroke: #2ec27e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-vice"] .etq { position: absolute; left: 0; right: 0; top: 1300px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #f2c14e; white-space: nowrap; }
+    [data-composition-id="s11-vice"] .zocalo { position: absolute; padding: 10px 20px 8px; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 34px; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; border-radius: 4px; }
+    [data-composition-id="s11-vice"] .z-rojo { background: #e63946; color: #f4f4f4; }
+    [data-composition-id="s11-vice"] .z-celeste { background: #57c4e5; color: #0b1a3a; }
+    [data-composition-id="s11-vice"] .z-dorado { background: #f2c14e; color: #0b1a3a; }
+    [data-composition-id="s11-vice"] .tarjeta { position: absolute; background: #f4f4f4; border-radius: 22px; box-sizing: border-box; }
+    [data-composition-id="s11-vice"] .cinta { position: absolute; left: 0; right: 0; top: 0; height: 64px; border-radius: 22px 22px 0 0; background: #f2c14e; color: #0b1a3a; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.26em; line-height: 64px; text-align: center; }
+    [data-composition-id="s11-vice"] .globo { position: absolute; padding: 16px 24px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 42px; line-height: 1.2; white-space: nowrap; box-sizing: border-box; }
+    [data-composition-id="s11-vice"] .g-cli { background: #dfe6f2; color: #0b1a3a; border-bottom-left-radius: 6px; }
+    [data-composition-id="s11-vice"] .g-loc { background: #57c4e5; color: #0b1a3a; border-bottom-right-radius: 6px; }
+    [data-composition-id="s11-vice"] .g-osc { background: #16306a; color: #f4f4f4; border-bottom-right-radius: 6px; }
+    [data-composition-id="s11-vice"] .hora { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; color: #5a6b8c; white-space: nowrap; }
+    [data-composition-id="s11-vice"] .sello { position: absolute; padding: 6px 30px 4px; border: 9px solid #e63946; border-radius: 14px; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 110px; line-height: 1; letter-spacing: 0.06em; color: #e63946; white-space: nowrap; background: rgba(244, 244, 244, 0.88); }
+    [data-composition-id="s11-vice"] .s-verde { border-color: #2ec27e; color: #2ec27e; }
+    [data-composition-id="s11-vice"] .cartel { position: absolute; padding: 18px 30px 14px; border-radius: 10px; font-family: "Outfit", sans-serif; font-weight: 900; line-height: 1.02; text-transform: uppercase; text-align: center; white-space: nowrap; }
+    [data-composition-id="s11-vice"] .c-rojo { background: #e63946; color: #f4f4f4; border: 5px solid #f4f4f4; }
+    [data-composition-id="s11-vice"] .c-dorado { background: #f2c14e; color: #0b1a3a; border: 5px solid #f4f4f4; }
+    [data-composition-id="s11-vice"] .c-celeste { background: #57c4e5; color: #0b1a3a; border: 5px solid #f4f4f4; }
+    [data-composition-id="s11-vice"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s11-vice"] .s11-boleta { position: absolute; left: 110px; top: 596px; width: 860px; height: 380px; background: #f4f4f4; border-radius: 18px; border: 8px solid #f2c14e; box-sizing: border-box; }
+    [data-composition-id="s11-vice"] .s11-tit { position: absolute; left: 0; right: 0; top: 14px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #5a6b8c; }
+    [data-composition-id="s11-vice"] .s11-fila { position: absolute; left: 30px; right: 30px; height: 130px; display: flex; align-items: center; gap: 24px; border-top: 3px solid #d5dbe6; }
+    [data-composition-id="s11-vice"] .s11-cargo { width: 340px; flex: none; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 46px; color: #0b1a3a; }
+    [data-composition-id="s11-vice"] .s11-nombre { position: relative; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 44px; color: #0b1a3a; }
+    [data-composition-id="s11-vice"] .s11-x { position: absolute; left: -16px; right: -16px; top: 50%; height: 10px; margin-top: -5px; background: #e63946; border-radius: 5px; transform-origin: 0 50%; }
+    [data-composition-id="s11-vice"] .s11-tilde { font-family: "Outfit", sans-serif; font-weight: 900; font-size: 64px; color: #2ec27e; }
+  </style>
+  <div id="root" data-composition-id="s11-vice" data-width="1080" data-height="1920" data-duration="3.27">
+    <div id="s11-vice-escena" class="capa clip" data-start="0" data-duration="3.27" data-track-index="0">
+      <div class="escenario">
+        <div class="s11-boleta">
+          <div class="s11-tit">BOLETA · TU LOCAL</div>
+          <div class="s11-fila" style="top: 64px"><div class="s11-cargo">PRESIDENTE</div><div class="s11-nombre s11-n1">Agente de IA<div class="s11-x"></div></div></div>
+          <div class="s11-fila" style="top: 214px"><div class="s11-cargo s11-c2">VICE</div><div class="s11-nombre s11-n2">Agente de IA</div><div class="s11-tilde">✓</div></div>
+        </div>
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 1160) scale(0.95)"><g class="s11-a">
+          <path class="silueta s11-a-cuerpo" d="M-120 110 C-115 25 -70 -5 0 -5 C70 -5 115 25 120 110 Z" />
+          <path class="celeste s11-a-cuello" d="M-30 -3 L0 35 L30 -3" />
+          <path class="linea s11-a-antena" d="M0 -158 V-188" />
+          <circle class="s11-a-bombita" cx="0" cy="-196" r="9" fill="#57c4e5" />
+          <rect class="silueta s11-a-cabeza" x="-72" y="-158" width="144" height="122" rx="28" style="stroke: #57c4e5" />
+          <g class="s11-a-ojos"><circle cx="-27" cy="-104" r="10" fill="#57c4e5" /><circle cx="27" cy="-104" r="10" fill="#57c4e5" /></g>
+          <path class="celeste s11-a-boca" d="M-24 -72 q24 16 48 0" />
+        </g></g>
+          <g class="s11-manos">
+            <path class="silueta" d="M445 1150 C420 1100 410 1060 420 1030 L445 1035 C440 1065 450 1100 470 1140 Z" />
+            <path class="silueta" d="M635 1150 C660 1100 670 1060 660 1030 L635 1035 C640 1065 630 1100 610 1140 Z" />
+            <circle class="silueta" cx="430" cy="1022" r="18" /><circle class="silueta" cx="650" cy="1022" r="18" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-vice";
+      const DUR = 3.27;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.04));
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const subir = (el, t, dy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: dy ?? 120 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const salir = (el, t) => tl.to(el, { opacity: 0, scale: 0.9, duration: 0.18, ease: "power2.in" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -10 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12);
+        temblor(q(".escenario"), t + 0.03, 0.8);
+      };
+      const tipear = (el, t, cps) => {
+        const txt = el.textContent;
+        el.innerHTML = [...txt].map((c) => `<span class="k" style="opacity:0">${c === " " ? "&nbsp;" : c}</span>`).join("");
+        el.querySelectorAll(".k").forEach((k, i) => tl.to(k, { opacity: 1, duration: 0.01 }, t + i / (cps ?? 30)));
+      };
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+      const NO = 0.41, POSTULO = 0.91, PRESIDENTE = 1.25, VICE = 2.5;
+      tl.fromTo(q(".s11-a"), { y: 40, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 0);
+      // "Tranquilo": manos arriba, calma
+      gsap.set(q(".s11-manos"), { opacity: 0 });
+      tl.fromTo(q(".s11-manos"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, 0.05);
+      tl.to(q(".s11-manos"), { y: -10, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.4);
+      // la boleta
+      tl.fromTo(q(".s11-boleta"), { opacity: 0.3, y: -60, rotation: -2 }, { opacity: 1, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.4)" }, 0);
+      pop(q(".s11-n1"), POSTULO - 0.1);
+      const x = q(".s11-x");
+      gsap.set(x, { scaleX: 0 });
+      tl.to(x, { scaleX: 1, duration: 0.2, ease: "power2.out" }, PRESIDENTE + 0.25);
+      tl.to(q(".s11-n1"), { opacity: 0.45, duration: 0.2 }, PRESIDENTE + 0.4);
+      pop(q(".s11-n2"), VICE - 0.25);
+      gsap.set(q(".s11-tilde"), { opacity: 0 });
+      tl.fromTo(q(".s11-tilde"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, VICE - 0.05);
+      tl.to(q(".s11-c2"), { color: "#2ec27e", scale: 1.15, duration: 0.15, yoyo: true, repeat: 1 }, VICE);
+      tl.to(q(".s11-a-boca"), { scaleY: 1.6, svgOrigin: "0 -66", duration: 0.15, yoyo: true, repeat: 1 }, VICE);
+      etiquetas([["TRANQUILO", 0.05], ["SE POSTULA A...", POSTULO], ["VICE", VICE]]);
+      tl.to(q("#s11-vice-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

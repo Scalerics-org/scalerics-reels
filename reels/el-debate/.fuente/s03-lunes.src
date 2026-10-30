@@ -1,0 +1,39 @@
+@@DUR
+4.34
+@@CSS
+$ .s03-tarjeta { left: 110px; top: 600px; width: 860px; height: 650px; }
+$ .s03-dias { position: absolute; left: 0; right: 0; top: 300px; display: flex; justify-content: center; gap: 18px; }
+$ .s03-dia { width: 150px; height: 90px; border-radius: 14px; border: 5px solid #b7c2d8; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; line-height: 80px; text-align: center; color: #5a6b8c; box-sizing: border-box; }
+$ .s03-sello { left: 230px; top: 820px; font-size: 140px; }
+@@HTML
+<div class="tarjeta s03-tarjeta">
+  <div class="cinta">CHEQUEO DE DATOS</div>
+  <div class="hora s03-h1" style="left: 40px; top: 96px">LUNES · 09:12</div>
+  <div class="globo g-cli s03-g1" style="left: 40px; top: 142px">¿Lo tenés en talle M?</div>
+  <div class="s03-dias"><div class="s03-dia">MAR</div><div class="s03-dia">MIÉ</div><div class="s03-dia">JUE</div></div>
+  <div class="hora s03-h2" style="right: 40px; top: 440px">VIERNES · 18:40</div>
+  <div class="globo g-loc s03-g2" style="right: 40px; top: 486px">¡Sí! Perdón la demora</div>
+</div>
+<div class="sello s03-sello">FALSO</div>
+@@JS
+      const DATOS = 0.41, LUNES = 1.47, CONTESTASTE = 2.05, VIERNES = 2.54, FALSO = 3.64;
+      // cuadro 0: la tarjeta ya está entrando
+      tl.fromTo(q(".s03-tarjeta"), { opacity: 0.5, y: 60, rotation: 2 }, { opacity: 1, y: 0, rotation: 0, duration: 0.4, ease: "back.out(1.5)" }, 0);
+      pop(q(".s03-g1"), DATOS + 0.1);
+      pop(q(".s03-h1"), LUNES - 0.1);
+      tl.to(q(".s03-h1"), { color: "#e63946", duration: 0.1 }, LUNES);
+      // los días pasan sin respuesta
+      qa(".s03-dia").forEach((d, i) => {
+        pop(d, CONTESTASTE - 0.4 + i * 0.16, 0.2);
+        tl.to(d, { borderColor: "#e63946", color: "#e63946", duration: 0.08 }, CONTESTASTE - 0.25 + i * 0.16);
+      });
+      pop(q(".s03-h2"), VIERNES - 0.1);
+      tl.to(q(".s03-h2"), { color: "#e63946", duration: 0.1 }, VIERNES);
+      gsap.set(q(".s03-g2"), { opacity: 0 });
+      tl.fromTo(q(".s03-g2"), { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, VIERNES + 0.1);
+      // FALSO
+      sello(q(".s03-sello"), FALSO, -12);
+      tl.to(q(".s03-tarjeta"), { opacity: 0.75, duration: 0.2 }, FALSO);
+      etiquetas([["CHEQUEO DE DATOS", 0.05], ["TARDÓ CUATRO DÍAS", VIERNES + 0.2], ["PROMESA Nº 1: FALSA", FALSO]]);
+@@SFX
+[{"t": 0.0, "sfx": "beep", "vol": 0.3}, {"t": 0.5, "sfx": "pop", "vol": 0.3}, {"t": 1.65, "sfx": "tic", "vol": 0.35}, {"t": 1.81, "sfx": "tic", "vol": 0.35}, {"t": 1.97, "sfx": "tic", "vol": 0.35}, {"t": 2.64, "sfx": "notification", "vol": 0.3}, {"t": 3.52, "sfx": "impact-bass-1", "vol": 0.45, "max": 0.7}, {"t": 3.55, "sfx": "glitch-1", "vol": 0.2, "max": 0.4}]

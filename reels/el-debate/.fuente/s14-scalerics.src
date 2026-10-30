@@ -1,0 +1,51 @@
+@@DUR
+6.86
+@@CSS
+$ .s14-tit { top: 596px; font-size: 76px; color: #f4f4f4; }
+$ .s14-tit span { color: #57c4e5; }
+$ .s14-cel { position: absolute; left: 470px; top: 700px; width: 520px; height: 590px; border-radius: 50px; border: 6px solid #f4f4f4; background: #0b1a3a; box-sizing: border-box; overflow: hidden; }
+$ .s14-cab { position: absolute; left: 0; right: 0; top: 0; height: 84px; background: #16306a; padding-left: 28px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 84px; color: #f4f4f4; }
+$ .s14-tag { position: absolute; left: 26px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; color: #f2c14e; }
+$ .s14-g { white-space: normal; width: 440px; font-size: 34px; right: 22px; }
+$ .s14-veda { left: 40px; top: 780px; width: 400px; font-size: 54px; transform: rotate(-4deg); }
+$ .s14-veda small { display: block; font-size: 26px; letter-spacing: 0.1em; margin-top: 6px; }
+@@HTML
+<svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+  {{agente 250 1170 1.05 s14-a}}
+  <path class="dorado s14-luna" d="M200 690 a50 50 0 1 0 60 60 a40 40 0 1 1 -60 -60 Z" style="stroke-width: 5" />
+</svg>
+<div class="grande s14-tit">TU <span>AGENTE DE IA</span></div>
+<div class="s14-cel">
+  <div class="s14-cab">Tu local · agente de IA</div>
+  <div class="s14-tag s14-t1" style="top: 104px">PREGUNTÓ Y NO COMPRÓ</div>
+  <div class="globo g-loc s14-g s14-g1" style="top: 144px">¿Te quedó alguna duda? Te lo reservo.</div>
+  <div class="s14-tag s14-t2" style="top: 330px">DEJÓ DE VENIR</div>
+  <div class="globo g-loc s14-g s14-g2" style="top: 370px">¡Hace mucho que no venís! Te guardamos algo.</div>
+</div>
+<div class="cartel c-dorado s14-veda">SIN VEDA<small>NI DOMINGOS LIBRES</small></div>
+@@JS
+      const SCALERICS = 0.34, AGENTE = 1.28, ESCRIBE = 2.39, PREGUNTO = 2.9, DEJO = 4.61, VEDA = 5.63;
+      // entra la luz: cambio de plano
+      tl.fromTo(q(".escenario"), { opacity: 0.3, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s14-a"), { y: 40 }, { y: 0, duration: 0.4, ease: "back.out(1.4)" }, 0);
+      gsap.set(q(".s14-tit"), { opacity: 0 });
+      tl.fromTo(q(".s14-tit"), { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, AGENTE - 0.2);
+      gsap.set(q(".s14-cel"), { opacity: 0 });
+      tl.fromTo(q(".s14-cel"), { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, SCALERICS);
+      pop(q(".s14-t1"), ESCRIBE);
+      gsap.set(q(".s14-g1"), { opacity: 0 });
+      tl.fromTo(q(".s14-g1"), { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, PREGUNTO - 0.1);
+      pop(q(".s14-t2"), DEJO - 0.3);
+      gsap.set(q(".s14-g2"), { opacity: 0 });
+      tl.fromTo(q(".s14-g2"), { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, DEJO);
+      tl.to(q(".s14-a-ojos"), { scaleY: 0.1, svgOrigin: "0 -104", duration: 0.06, yoyo: true, repeat: 1 }, 2.0);
+      tl.to(q(".s14-a-bombita"), { fill: "#2ec27e", duration: 0.1, yoyo: true, repeat: 3 }, PREGUNTO);
+      tl.to(q(".s14-a-bombita"), { fill: "#2ec27e", duration: 0.1, yoyo: true, repeat: 3 }, DEJO);
+      // "y no tiene veda"
+      dibujar([q(".s14-luna")], VEDA - 0.3, 0.4);
+      gsap.set(q(".s14-veda"), { opacity: 0 });
+      tl.fromTo(q(".s14-veda"), { opacity: 0, scale: 2.2, rotation: -4 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.16, ease: "power4.in", immediateRender: false }, VEDA + 0.3);
+      temblor(q(".escenario"), VEDA + 0.45, 0.5);
+      etiquetas([["SCALERICS", 0.05], ["SEGUIMIENTO SOLO", ESCRIBE], ["SIEMPRE EN CAMPAÑA", VEDA + 0.3]]);
+@@SFX
+[{"t": 0.0, "sfx": "whoosh-cinematic", "vol": 0.25, "max": 1.2}, {"t": 0.34, "sfx": "sparkle", "vol": 0.25}, {"t": 2.8, "sfx": "notification", "vol": 0.3}, {"t": 4.51, "sfx": "notification", "vol": 0.3}, {"t": 5.9, "sfx": "impact-bass-2", "vol": 0.3, "max": 0.5}]

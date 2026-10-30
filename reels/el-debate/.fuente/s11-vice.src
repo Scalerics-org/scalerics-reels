@@ -1,0 +1,46 @@
+@@DUR
+3.27
+@@CSS
+$ .s11-boleta { position: absolute; left: 110px; top: 596px; width: 860px; height: 380px; background: #f4f4f4; border-radius: 18px; border: 8px solid #f2c14e; box-sizing: border-box; }
+$ .s11-tit { position: absolute; left: 0; right: 0; top: 14px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #5a6b8c; }
+$ .s11-fila { position: absolute; left: 30px; right: 30px; height: 130px; display: flex; align-items: center; gap: 24px; border-top: 3px solid #d5dbe6; }
+$ .s11-cargo { width: 340px; flex: none; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 46px; color: #0b1a3a; }
+$ .s11-nombre { position: relative; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 44px; color: #0b1a3a; }
+$ .s11-x { position: absolute; left: -16px; right: -16px; top: 50%; height: 10px; margin-top: -5px; background: #e63946; border-radius: 5px; transform-origin: 0 50%; }
+$ .s11-tilde { font-family: "Outfit", sans-serif; font-weight: 900; font-size: 64px; color: #2ec27e; }
+@@HTML
+<div class="s11-boleta">
+  <div class="s11-tit">BOLETA · TU LOCAL</div>
+  <div class="s11-fila" style="top: 64px"><div class="s11-cargo">PRESIDENTE</div><div class="s11-nombre s11-n1">Agente de IA<div class="s11-x"></div></div></div>
+  <div class="s11-fila" style="top: 214px"><div class="s11-cargo s11-c2">VICE</div><div class="s11-nombre s11-n2">Agente de IA</div><div class="s11-tilde">✓</div></div>
+</div>
+<svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+  {{agente 540 1160 0.95 s11-a}}
+  <g class="s11-manos">
+    <path class="silueta" d="M445 1150 C420 1100 410 1060 420 1030 L445 1035 C440 1065 450 1100 470 1140 Z" />
+    <path class="silueta" d="M635 1150 C660 1100 670 1060 660 1030 L635 1035 C640 1065 630 1100 610 1140 Z" />
+    <circle class="silueta" cx="430" cy="1022" r="18" /><circle class="silueta" cx="650" cy="1022" r="18" />
+  </g>
+</svg>
+@@JS
+      const NO = 0.41, POSTULO = 0.91, PRESIDENTE = 1.25, VICE = 2.5;
+      tl.fromTo(q(".s11-a"), { y: 40, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 0);
+      // "Tranquilo": manos arriba, calma
+      gsap.set(q(".s11-manos"), { opacity: 0 });
+      tl.fromTo(q(".s11-manos"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, 0.05);
+      tl.to(q(".s11-manos"), { y: -10, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.4);
+      // la boleta
+      tl.fromTo(q(".s11-boleta"), { opacity: 0.3, y: -60, rotation: -2 }, { opacity: 1, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.4)" }, 0);
+      pop(q(".s11-n1"), POSTULO - 0.1);
+      const x = q(".s11-x");
+      gsap.set(x, { scaleX: 0 });
+      tl.to(x, { scaleX: 1, duration: 0.2, ease: "power2.out" }, PRESIDENTE + 0.25);
+      tl.to(q(".s11-n1"), { opacity: 0.45, duration: 0.2 }, PRESIDENTE + 0.4);
+      pop(q(".s11-n2"), VICE - 0.25);
+      gsap.set(q(".s11-tilde"), { opacity: 0 });
+      tl.fromTo(q(".s11-tilde"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, VICE - 0.05);
+      tl.to(q(".s11-c2"), { color: "#2ec27e", scale: 1.15, duration: 0.15, yoyo: true, repeat: 1 }, VICE);
+      tl.to(q(".s11-a-boca"), { scaleY: 1.6, svgOrigin: "0 -66", duration: 0.15, yoyo: true, repeat: 1 }, VICE);
+      etiquetas([["TRANQUILO", 0.05], ["SE POSTULA A...", POSTULO], ["VICE", VICE]]);
+@@SFX
+[{"t": 0.05, "sfx": "whoosh-short", "vol": 0.2}, {"t": 0.85, "sfx": "pop", "vol": 0.3}, {"t": 1.5, "sfx": "key-press", "vol": 0.35}, {"t": 2.45, "sfx": "chime", "vol": 0.3}, {"t": 2.6, "sfx": "risas", "vol": 0.2, "max": 1.2}]

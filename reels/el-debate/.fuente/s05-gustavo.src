@@ -1,0 +1,49 @@
+@@DUR
+4.24
+@@CSS
+$ .s05-tarjeta { left: 110px; top: 600px; width: 860px; height: 650px; }
+$ .s05-cab { position: absolute; left: 40px; top: 92px; display: flex; align-items: center; gap: 18px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; color: #0b1a3a; }
+$ .s05-av { width: 70px; height: 70px; border-radius: 50%; background: #0b1a3a; color: #f4f4f4; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 38px; line-height: 70px; text-align: center; }
+$ .s05-cal { position: absolute; left: 520px; top: 370px; width: 280px; height: 220px; border-radius: 18px; border: 6px solid #0b1a3a; box-sizing: border-box; overflow: hidden; }
+$ .s05-cal-top { position: absolute; left: 0; right: 0; top: 0; height: 52px; background: #e63946; }
+$ .s05-mes { position: absolute; left: 0; right: 0; top: 70px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 84px; line-height: 1; color: #0b1a3a; }
+$ .s05-sello { left: 250px; top: 760px; font-size: 140px; }
+$ .s05-tela { position: absolute; left: 0; top: 330px; width: 320px; height: 320px; }
+$ .s05-tela path { fill: none; stroke: #8b97ad; stroke-width: 3; stroke-linecap: round; }
+$ .s05-visto { position: absolute; left: 40px; top: 290px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #5a6b8c; letter-spacing: 0.08em; }
+@@HTML
+<div class="tarjeta s05-tarjeta">
+  <div class="cinta">CHEQUEO DE DATOS</div>
+  <div class="s05-cab"><div class="s05-av">G</div>Gustavo</div>
+  <div class="globo g-cli s05-g1" style="left: 40px; top: 190px">¿Me pasás un presupuesto?</div>
+  <div class="s05-visto">MAYO · SIN RESPUESTA</div>
+  <svg class="s05-tela" viewBox="0 0 320 320" aria-hidden="true">
+    <path class="s05-t" d="M0 320 L250 70" /><path class="s05-t" d="M0 320 L120 0" /><path class="s05-t" d="M0 320 L320 230" />
+    <path class="s05-t" d="M60 160 Q110 200 150 220 Q190 250 200 290" /><path class="s05-t" d="M35 225 Q70 245 90 260 Q110 275 115 300" />
+  </svg>
+  <div class="s05-cal"><div class="s05-cal-top"></div><div class="s05-mes s05-m1">MAYO</div><div class="s05-mes s05-m2">JUN</div><div class="s05-mes s05-m3">AGO</div><div class="s05-mes s05-m4">OCT</div></div>
+</div>
+<div class="sello s05-sello">FALSO</div>
+@@JS
+      const FALSO = 0.12, PRESUPUESTO = 0.9, GUSTAVO = 1.47, SIGUE = 1.88, MAYO = 3.03;
+      tl.fromTo(q(".s05-tarjeta"), { opacity: 0.6, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0);
+      sello(q(".s05-sello"), FALSO, -10);
+      // el sello se corre arriba a la derecha para dejar ver la prueba
+      tl.to(q(".s05-sello"), { x: 280, y: -170, scale: 0.5, duration: 0.35, ease: "power3.inOut" }, PRESUPUESTO - 0.3);
+      pop(q(".s05-cab"), PRESUPUESTO - 0.2);
+      pop(q(".s05-g1"), PRESUPUESTO);
+      tl.to(q(".s05-av"), { scale: 1.2, duration: 0.15, yoyo: true, repeat: 1 }, GUSTAVO);
+      pop(q(".s05-visto"), SIGUE);
+      tl.to(q(".s05-visto"), { color: "#e63946", duration: 0.1 }, SIGUE + 0.4);
+      dibujar(qa(".s05-t"), SIGUE + 0.1, 0.5);
+      // el calendario pasa meses hasta hoy
+      pop(q(".s05-cal"), MAYO - 0.5);
+      const meses = qa(".s05-mes");
+      gsap.set(meses.slice(1), { opacity: 0 });
+      meses.slice(1).forEach((m, i) => {
+        tl.to(meses[i], { opacity: 0, y: -50, duration: 0.1 }, MAYO + 0.2 + i * 0.22);
+        tl.fromTo(m, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.12, immediateRender: false }, MAYO + 0.24 + i * 0.22);
+      });
+      etiquetas([["PROMESA Nº 2: FALSA", 0.05], ["SIGUE ESPERANDO", SIGUE + 0.2]]);
+@@SFX
+[{"t": 0.0, "sfx": "impact-bass-1", "vol": 0.45, "max": 0.7}, {"t": 0.02, "sfx": "glitch-1", "vol": 0.2, "max": 0.4}, {"t": 0.95, "sfx": "pop", "vol": 0.3}, {"t": 2.0, "sfx": "drama", "vol": 0.22, "max": 1.2}, {"t": 3.25, "sfx": "tic", "vol": 0.3}, {"t": 3.47, "sfx": "tic", "vol": 0.3}, {"t": 3.69, "sfx": "tic", "vol": 0.3}]

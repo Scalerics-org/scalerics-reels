@@ -1,0 +1,142 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-gustavo"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-gustavo"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-gustavo"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-gustavo"] .linea { fill: none; stroke: #f4f4f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-gustavo"] .silueta { fill: #0b1a3a; stroke: #f4f4f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-gustavo"] .rojo { fill: none; stroke: #e63946; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-gustavo"] .celeste { fill: none; stroke: #57c4e5; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-gustavo"] .dorado { fill: none; stroke: #f2c14e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-gustavo"] .verde { fill: none; stroke: #2ec27e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-gustavo"] .etq { position: absolute; left: 0; right: 0; top: 1300px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #f2c14e; white-space: nowrap; }
+    [data-composition-id="s05-gustavo"] .zocalo { position: absolute; padding: 10px 20px 8px; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 34px; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; border-radius: 4px; }
+    [data-composition-id="s05-gustavo"] .z-rojo { background: #e63946; color: #f4f4f4; }
+    [data-composition-id="s05-gustavo"] .z-celeste { background: #57c4e5; color: #0b1a3a; }
+    [data-composition-id="s05-gustavo"] .z-dorado { background: #f2c14e; color: #0b1a3a; }
+    [data-composition-id="s05-gustavo"] .tarjeta { position: absolute; background: #f4f4f4; border-radius: 22px; box-sizing: border-box; }
+    [data-composition-id="s05-gustavo"] .cinta { position: absolute; left: 0; right: 0; top: 0; height: 64px; border-radius: 22px 22px 0 0; background: #f2c14e; color: #0b1a3a; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.26em; line-height: 64px; text-align: center; }
+    [data-composition-id="s05-gustavo"] .globo { position: absolute; padding: 16px 24px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 42px; line-height: 1.2; white-space: nowrap; box-sizing: border-box; }
+    [data-composition-id="s05-gustavo"] .g-cli { background: #dfe6f2; color: #0b1a3a; border-bottom-left-radius: 6px; }
+    [data-composition-id="s05-gustavo"] .g-loc { background: #57c4e5; color: #0b1a3a; border-bottom-right-radius: 6px; }
+    [data-composition-id="s05-gustavo"] .g-osc { background: #16306a; color: #f4f4f4; border-bottom-right-radius: 6px; }
+    [data-composition-id="s05-gustavo"] .hora { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; color: #5a6b8c; white-space: nowrap; }
+    [data-composition-id="s05-gustavo"] .sello { position: absolute; padding: 6px 30px 4px; border: 9px solid #e63946; border-radius: 14px; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 110px; line-height: 1; letter-spacing: 0.06em; color: #e63946; white-space: nowrap; background: rgba(244, 244, 244, 0.88); }
+    [data-composition-id="s05-gustavo"] .s-verde { border-color: #2ec27e; color: #2ec27e; }
+    [data-composition-id="s05-gustavo"] .cartel { position: absolute; padding: 18px 30px 14px; border-radius: 10px; font-family: "Outfit", sans-serif; font-weight: 900; line-height: 1.02; text-transform: uppercase; text-align: center; white-space: nowrap; }
+    [data-composition-id="s05-gustavo"] .c-rojo { background: #e63946; color: #f4f4f4; border: 5px solid #f4f4f4; }
+    [data-composition-id="s05-gustavo"] .c-dorado { background: #f2c14e; color: #0b1a3a; border: 5px solid #f4f4f4; }
+    [data-composition-id="s05-gustavo"] .c-celeste { background: #57c4e5; color: #0b1a3a; border: 5px solid #f4f4f4; }
+    [data-composition-id="s05-gustavo"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s05-gustavo"] .s05-tarjeta { left: 110px; top: 600px; width: 860px; height: 650px; }
+    [data-composition-id="s05-gustavo"] .s05-cab { position: absolute; left: 40px; top: 92px; display: flex; align-items: center; gap: 18px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; color: #0b1a3a; }
+    [data-composition-id="s05-gustavo"] .s05-av { width: 70px; height: 70px; border-radius: 50%; background: #0b1a3a; color: #f4f4f4; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 38px; line-height: 70px; text-align: center; }
+    [data-composition-id="s05-gustavo"] .s05-cal { position: absolute; left: 520px; top: 370px; width: 280px; height: 220px; border-radius: 18px; border: 6px solid #0b1a3a; box-sizing: border-box; overflow: hidden; }
+    [data-composition-id="s05-gustavo"] .s05-cal-top { position: absolute; left: 0; right: 0; top: 0; height: 52px; background: #e63946; }
+    [data-composition-id="s05-gustavo"] .s05-mes { position: absolute; left: 0; right: 0; top: 70px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 84px; line-height: 1; color: #0b1a3a; }
+    [data-composition-id="s05-gustavo"] .s05-sello { left: 250px; top: 760px; font-size: 140px; }
+    [data-composition-id="s05-gustavo"] .s05-tela { position: absolute; left: 0; top: 330px; width: 320px; height: 320px; }
+    [data-composition-id="s05-gustavo"] .s05-tela path { fill: none; stroke: #8b97ad; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s05-gustavo"] .s05-visto { position: absolute; left: 40px; top: 290px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #5a6b8c; letter-spacing: 0.08em; }
+  </style>
+  <div id="root" data-composition-id="s05-gustavo" data-width="1080" data-height="1920" data-duration="4.24">
+    <div id="s05-gustavo-escena" class="capa clip" data-start="0" data-duration="4.24" data-track-index="0">
+      <div class="escenario">
+        <div class="tarjeta s05-tarjeta">
+          <div class="cinta">CHEQUEO DE DATOS</div>
+          <div class="s05-cab"><div class="s05-av">G</div>Gustavo</div>
+          <div class="globo g-cli s05-g1" style="left: 40px; top: 190px">¿Me pasás un presupuesto?</div>
+          <div class="s05-visto">MAYO · SIN RESPUESTA</div>
+          <svg class="s05-tela" viewBox="0 0 320 320" aria-hidden="true">
+            <path class="s05-t" d="M0 320 L250 70" /><path class="s05-t" d="M0 320 L120 0" /><path class="s05-t" d="M0 320 L320 230" />
+            <path class="s05-t" d="M60 160 Q110 200 150 220 Q190 250 200 290" /><path class="s05-t" d="M35 225 Q70 245 90 260 Q110 275 115 300" />
+          </svg>
+          <div class="s05-cal"><div class="s05-cal-top"></div><div class="s05-mes s05-m1">MAYO</div><div class="s05-mes s05-m2">JUN</div><div class="s05-mes s05-m3">AGO</div><div class="s05-mes s05-m4">OCT</div></div>
+        </div>
+        <div class="sello s05-sello">FALSO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-gustavo";
+      const DUR = 4.24;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.04));
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const subir = (el, t, dy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: dy ?? 120 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const salir = (el, t) => tl.to(el, { opacity: 0, scale: 0.9, duration: 0.18, ease: "power2.in" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -10 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12);
+        temblor(q(".escenario"), t + 0.03, 0.8);
+      };
+      const tipear = (el, t, cps) => {
+        const txt = el.textContent;
+        el.innerHTML = [...txt].map((c) => `<span class="k" style="opacity:0">${c === " " ? "&nbsp;" : c}</span>`).join("");
+        el.querySelectorAll(".k").forEach((k, i) => tl.to(k, { opacity: 1, duration: 0.01 }, t + i / (cps ?? 30)));
+      };
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+      const FALSO = 0.12, PRESUPUESTO = 0.9, GUSTAVO = 1.47, SIGUE = 1.88, MAYO = 3.03;
+      tl.fromTo(q(".s05-tarjeta"), { opacity: 0.6, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0);
+      sello(q(".s05-sello"), FALSO, -10);
+      // el sello se corre arriba a la derecha para dejar ver la prueba
+      tl.to(q(".s05-sello"), { x: 280, y: -170, scale: 0.5, duration: 0.35, ease: "power3.inOut" }, PRESUPUESTO - 0.3);
+      pop(q(".s05-cab"), PRESUPUESTO - 0.2);
+      pop(q(".s05-g1"), PRESUPUESTO);
+      tl.to(q(".s05-av"), { scale: 1.2, duration: 0.15, yoyo: true, repeat: 1 }, GUSTAVO);
+      pop(q(".s05-visto"), SIGUE);
+      tl.to(q(".s05-visto"), { color: "#e63946", duration: 0.1 }, SIGUE + 0.4);
+      dibujar(qa(".s05-t"), SIGUE + 0.1, 0.5);
+      // el calendario pasa meses hasta hoy
+      pop(q(".s05-cal"), MAYO - 0.5);
+      const meses = qa(".s05-mes");
+      gsap.set(meses.slice(1), { opacity: 0 });
+      meses.slice(1).forEach((m, i) => {
+        tl.to(meses[i], { opacity: 0, y: -50, duration: 0.1 }, MAYO + 0.2 + i * 0.22);
+        tl.fromTo(m, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.12, immediateRender: false }, MAYO + 0.24 + i * 0.22);
+      });
+      etiquetas([["PROMESA Nº 2: FALSA", 0.05], ["SIGUE ESPERANDO", SIGUE + 0.2]]);
+      tl.to(q("#s05-gustavo-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

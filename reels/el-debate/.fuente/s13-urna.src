@@ -1,0 +1,45 @@
+@@DUR
+4.03
+@@CSS
+$ .s13-tit { top: 600px; font-size: 92px; color: #f2c14e; letter-spacing: 0.04em; }
+$ .s13-sub { position: absolute; left: 0; right: 0; top: 708px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.24em; color: #f4f4f4; }
+$ .s13-sello { left: 250px; top: 790px; font-size: 96px; }
+@@HTML
+<svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+  <g class="s13-urna">
+    <path class="silueta s13-caja" d="M380 960 H700 L680 1250 H400 Z" style="stroke: #f2c14e; stroke-width: 7" />
+    <path class="linea s13-ranura" d="M470 960 H610" style="stroke-width: 12" />
+    <path class="dorado s13-tapa" d="M360 960 H720" style="stroke-width: 10" />
+    <text x="540" y="1130" text-anchor="middle" font-family="Outfit" font-weight="900" font-size="54" fill="#f2c14e" letter-spacing="4">URNA</text>
+  </g>
+  <g class="s13-cli s13-cli1"><circle class="silueta" cx="180" cy="990" r="46" /><path class="silueta" d="M100 1180 C105 1090 140 1060 180 1060 C220 1060 255 1090 260 1180 Z" /></g>
+  <g class="s13-cli s13-cli2"><circle class="silueta" cx="900" cy="990" r="46" /><path class="silueta" d="M820 1180 C825 1090 860 1060 900 1060 C940 1060 975 1090 980 1180 Z" /></g>
+  <g class="s13-sobre s13-s1"><rect x="230" y="1020" width="110" height="74" rx="6" fill="#f4f4f4" /><path d="M230 1020 L285 1062 L340 1020" fill="none" stroke="#8b97ad" stroke-width="4" /></g>
+  <g class="s13-sobre s13-s2"><rect x="740" y="1020" width="110" height="74" rx="6" fill="#f4f4f4" /><path d="M740 1020 L795 1062 L850 1020" fill="none" stroke="#8b97ad" stroke-width="4" /></g>
+  <path class="linea s13-duda1" d="M170 905 q0 -26 22 -26 q22 0 22 20 q0 14 -18 20 v10 M196 948 v2" />
+  <path class="linea s13-duda2" d="M890 905 q0 -26 22 -26 q22 0 22 20 q0 14 -18 20 v10 M916 948 v2" />
+</svg>
+<div class="grande s13-tit">BOCA DE URNA</div>
+<div class="s13-sub">SIN SEGUIMIENTO</div>
+<div class="sello s13-sello">EN BLANCO</div>
+@@JS
+      const URNA = 0.42, SIN = 1.01, CLIENTES = 2.2, VOTAN = 2.46, BLANCO = 2.88;
+      tl.fromTo(q(".s13-tit"), { opacity: 0.4, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 0);
+      dibujar([q(".s13-caja")], 0, 0.5, 0.4);
+      popSvg(q(".s13-tapa"), URNA - 0.1, "540 960");
+      tl.to(q(".s13-urna"), { y: -10, duration: 0.15, yoyo: true, repeat: 1 }, URNA);
+      pop(q(".s13-sub"), SIN);
+      // los clientes dudan con su sobre
+      gsap.set(qa(".s13-cli"), { opacity: 0 });
+      tl.fromTo(qa(".s13-cli"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.1, ease: "back.out(1.6)", immediateRender: false }, SIN + 0.2);
+      dibujar([q(".s13-duda1"), q(".s13-duda2")], SIN + 0.5, 0.35);
+      gsap.set(qa(".s13-sobre"), { opacity: 0 });
+      tl.to(qa(".s13-sobre"), { opacity: 1, duration: 0.15 }, CLIENTES - 0.1);
+      // "votan en blanco": los sobres vacíos caen en la urna
+      tl.to(q(".s13-s1"), { x: 255, y: -130, rotation: 20, svgOrigin: "285 1057", duration: 0.35, ease: "power2.out" }, VOTAN);
+      tl.to(q(".s13-s2"), { x: -255, y: -130, rotation: -20, svgOrigin: "795 1057", duration: 0.35, ease: "power2.out" }, VOTAN + 0.1);
+      tl.to(qa(".s13-sobre"), { y: -40, opacity: 0, duration: 0.2, ease: "power2.in" }, VOTAN + 0.45);
+      sello(q(".s13-sello"), BLANCO + 0.1, -8);
+      etiquetas([["ENCUESTA", 0.05], ["TUS CLIENTES", CLIENTES - 0.1]]);
+@@SFX
+[{"t": 0.0, "sfx": "redoble", "vol": 0.25, "max": 1.0}, {"t": 0.42, "sfx": "impact-bass-2", "vol": 0.3, "max": 0.5}, {"t": 2.5, "sfx": "whoosh-short", "vol": 0.25}, {"t": 2.86, "sfx": "impact-bass-1", "vol": 0.4, "max": 0.7}, {"t": 3.0, "sfx": "uuh", "vol": 0.3, "max": 1.2}]

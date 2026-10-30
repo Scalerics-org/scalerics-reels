@@ -1,0 +1,47 @@
+@@DUR
+3.15
+@@CSS
+$ .s08-z { left: 140px; top: 1214px; font-size: 36px; }
+$ .s08-reloj-txt { position: absolute; left: 700px; top: 752px; width: 240px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 72px; line-height: 1; color: #f2c14e; height: 80px; }
+$ .s08-n { position: absolute; left: 0; right: 0; top: 4px; }
+$ .s08-reloj-lbl { position: absolute; left: 640px; top: 945px; width: 360px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; color: #f4f4f4; }
+@@HTML
+<svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+  {{agente 380 1040 1.6 s08-a}}
+  <path class="silueta s08-atril" d="M110 1196 H650 L630 1286 H130 Z" />
+  <path class="s08-banda" d="M110 1196 H650 L647 1210 H113 Z" fill="#57c4e5" />
+  <g class="s08-reloj">
+    <circle cx="820" cy="795" r="125" fill="#0b1a3a" stroke="#f4f4f4" stroke-width="5" />
+    <circle class="s08-arco" cx="820" cy="795" r="104" fill="none" stroke="#f2c14e" stroke-width="16" transform="rotate(-90 820 795)" />
+    <path class="linea" d="M800 660 h40 M820 660 v10" />
+  </g>
+</svg>
+<div class="zocalo z-celeste s08-z">CANDIDATO · AGENTE DE IA</div>
+<div class="s08-reloj-txt"><span class="s08-n s08-n0">1:00</span><span class="s08-n s08-n1">0:59</span><span class="s08-n s08-n2">0:58</span></div>
+<div class="s08-reloj-lbl">MINUTO DE RÉPLICA</div>
+@@JS
+      const AGENTE = 0.41, IA = 0.9, MINUTO = 1.64, REPLICA = 2.05;
+      tl.fromTo(q(".s08-a"), { y: 60, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, 0);
+      dibujar([q(".s08-atril")], 0, 0.4, 0.5);
+      tl.fromTo(q(".s08-banda"), { scaleX: 0.3, svgOrigin: "380 1203" }, { scaleX: 1, svgOrigin: "380 1203", duration: 0.4, ease: "power3.out" }, 0);
+      pop(q(".s08-z"), AGENTE);
+      // la pantalla-cara parpadea y sonríe
+      tl.to(q(".s08-a-ojos"), { scaleY: 0.1, svgOrigin: "0 -104", duration: 0.06, yoyo: true, repeat: 1 }, IA);
+      tl.to(q(".s08-a-bombita"), { fill: "#f2c14e", duration: 0.1, yoyo: true, repeat: 5 }, IA);
+      // el cronómetro
+      popSvg(q(".s08-reloj"), MINUTO - 0.5, "820 795");
+      pop(q(".s08-reloj-txt"), MINUTO - 0.45);
+      pop(q(".s08-reloj-lbl"), MINUTO - 0.3);
+      const arco = q(".s08-arco");
+      const L = 2 * Math.PI * 104;
+      gsap.set(arco, { strokeDasharray: L, strokeDashoffset: 0 });
+      tl.to(arco, { strokeDashoffset: L * 0.04, duration: 3.15 - MINUTO, ease: "none" }, MINUTO);
+      gsap.set([q(".s08-n1"), q(".s08-n2")], { opacity: 0 });
+      tl.set(q(".s08-n0"), { opacity: 0 }, MINUTO + 0.5);
+      tl.set(q(".s08-n1"), { opacity: 1 }, MINUTO + 0.5);
+      tl.set(q(".s08-n1"), { opacity: 0 }, MINUTO + 1.0);
+      tl.set(q(".s08-n2"), { opacity: 1 }, MINUTO + 1.0);
+      tl.to(q(".s08-reloj"), { scale: 1.05, svgOrigin: "820 795", duration: 0.12, yoyo: true, repeat: 1 }, REPLICA);
+      etiquetas([["SU TURNO", 0.05]]);
+@@SFX
+[{"t": 0.0, "sfx": "click", "vol": 0.3}, {"t": 0.41, "sfx": "pop", "vol": 0.3}, {"t": 1.64, "sfx": "beep", "vol": 0.35}, {"t": 2.14, "sfx": "tic", "vol": 0.3}, {"t": 2.64, "sfx": "tic", "vol": 0.3}]

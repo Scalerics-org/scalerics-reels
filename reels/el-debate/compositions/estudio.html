@@ -1,0 +1,55 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="estudio"] .est-capa { position: absolute; inset: 0; }
+    [data-composition-id="estudio"] svg.est-lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="estudio"] .est-haz { fill: #cfe6ff; }
+    [data-composition-id="estudio"] .est-panel { fill: none; stroke: #57c4e5; stroke-width: 2; }
+    [data-composition-id="estudio"] .est-piso { fill: none; stroke: #57c4e5; stroke-width: 2; }
+    [data-composition-id="estudio"] .est-brillo { position: absolute; left: 140px; top: 1300px; width: 800px; height: 260px; border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(244, 244, 244, 0.16) 0%, rgba(87, 196, 229, 0.06) 45%, rgba(87, 196, 229, 0) 72%); }
+  </style>
+  <div id="root" data-composition-id="estudio" data-width="1080" data-height="1920" data-duration="72.81">
+    <div id="est-escena" class="est-capa clip" data-start="0" data-duration="72.81" data-track-index="0">
+      <svg class="est-lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- haces de los reflectores, desde arriba -->
+        <polygon class="est-haz est-h1" points="150,-40 210,-40 520,1400 120,1400" opacity="0.05" />
+        <polygon class="est-haz est-h2" points="870,-40 930,-40 960,1400 560,1400" opacity="0.05" />
+        <polygon class="est-haz est-h3" points="515,-40 565,-40 760,1400 320,1400" opacity="0.035" />
+        <!-- paneles de la pared del fondo -->
+        <g class="est-pared" opacity="0.12">
+          <rect class="est-panel" x="70" y="600" width="210" height="560" rx="6" />
+          <rect class="est-panel" x="300" y="600" width="210" height="560" rx="6" />
+          <rect class="est-panel" x="570" y="600" width="210" height="560" rx="6" />
+          <rect class="est-panel" x="800" y="600" width="210" height="560" rx="6" />
+        </g>
+        <!-- piso brillante en perspectiva -->
+        <g class="est-pisog" opacity="0.16">
+          <path class="est-piso" d="M0 1272 H1080" />
+          <path class="est-piso" d="M0 1330 H1080 M0 1410 H1080 M0 1520 H1080 M0 1670 H1080" opacity="0.6" />
+          <path class="est-piso" d="M540 1272 V1920 M400 1272 L120 1920 M680 1272 L960 1920 M260 1272 L-300 1920 M820 1272 L1380 1920" opacity="0.6" />
+        </g>
+      </svg>
+      <div class="est-brillo"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "estudio";
+      const DUR = 72.81;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      // los reflectores barren despacio
+      tl.fromTo(q(".est-h1"), { rotation: -6, svgOrigin: "180 -40" }, { rotation: 7, svgOrigin: "180 -40", duration: 4.2, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(DUR / 4.2) }, 0);
+      tl.fromTo(q(".est-h2"), { rotation: 6, svgOrigin: "900 -40" }, { rotation: -7, svgOrigin: "900 -40", duration: 3.7, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(DUR / 3.7) }, 0);
+      tl.fromTo(q(".est-h3"), { rotation: -4, svgOrigin: "540 -40", opacity: 0.02 }, { rotation: 4, svgOrigin: "540 -40", opacity: 0.05, duration: 5.1, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(DUR / 5.1) }, 0);
+      tl.fromTo(q(".est-brillo"), { opacity: 0.7, scaleX: 0.95 }, { opacity: 1, scaleX: 1.05, duration: 3, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(DUR / 3) }, 0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

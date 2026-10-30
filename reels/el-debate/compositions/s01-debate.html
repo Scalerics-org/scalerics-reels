@@ -1,0 +1,136 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-debate"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-debate"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-debate"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-debate"] .linea { fill: none; stroke: #f4f4f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-debate"] .silueta { fill: #0b1a3a; stroke: #f4f4f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-debate"] .rojo { fill: none; stroke: #e63946; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-debate"] .celeste { fill: none; stroke: #57c4e5; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-debate"] .etq { position: absolute; left: 0; right: 0; top: 1300px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #f2c14e; white-space: nowrap; }
+    [data-composition-id="s01-debate"] .zocalo { position: absolute; top: 1196px; padding: 10px 20px 8px; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 34px; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; border-radius: 4px; }
+    [data-composition-id="s01-debate"] .z-rojo { background: #e63946; color: #f4f4f4; }
+    [data-composition-id="s01-debate"] .z-celeste { background: #57c4e5; color: #0b1a3a; }
+    [data-composition-id="s01-debate"] .s01-titulo { position: absolute; left: 0; right: 0; top: 590px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 118px; line-height: 1; letter-spacing: 0.04em; color: #f2c14e; }
+    [data-composition-id="s01-debate"] .s01-sub { position: absolute; left: 0; right: 0; top: 714px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.34em; color: #f4f4f4; }
+    [data-composition-id="s01-debate"] .s01-vs { position: absolute; left: 470px; top: 1000px; width: 140px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 92px; color: #f4f4f4; }
+  </style>
+  <div id="root" data-composition-id="s01-debate" data-width="1080" data-height="1920" data-duration="5.71">
+    <div id="s01-debate-escena" class="capa clip" data-start="0" data-duration="5.71" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- DUEÑO (izquierda) -->
+          <g class="s01-duenio">
+            <path class="silueta s01-d-cuerpo" d="M150 1010 C155 925 200 895 270 895 C340 895 385 925 390 1010 Z" />
+            <path class="linea s01-d-cuello" d="M235 897 L270 945 L305 897" />
+            <path class="s01-d-corbata" d="M262 945 L278 945 L286 1005 L270 1022 L254 1005 Z" fill="#e63946" />
+            <ellipse class="silueta s01-d-cabeza" cx="270" cy="815" rx="64" ry="76" />
+            <path class="linea s01-d-pelo" d="M208 800 C200 770 212 752 226 748 M332 800 C340 770 328 752 314 748" />
+            <path class="linea s01-d-cara" d="M251 805 v3 M289 805 v3" style="stroke-width: 11" /><path class="linea" d="M240 822 q11 6 22 0 M278 822 q11 6 22 0" style="stroke-width: 3; opacity: 0.6" /><path class="linea" d="M244 850 q26 -16 52 0 M254 864 q16 10 32 0" />
+          </g>
+          <!-- AGENTE DE IA (derecha) -->
+          <g class="s01-agente">
+            <path class="silueta s01-a-cuerpo" d="M690 1010 C695 925 740 895 810 895 C880 895 925 925 930 1010 Z" />
+            <path class="celeste s01-a-cuello" d="M780 897 L810 935 L840 897" />
+            <path class="linea s01-a-antena" d="M810 742 V712" />
+            <circle class="s01-a-bombita" cx="810" cy="704" r="9" fill="#57c4e5" />
+            <rect class="silueta s01-a-cabeza" x="738" y="742" width="144" height="122" rx="28" style="stroke: #57c4e5" />
+            <circle class="s01-a-ojo1" cx="783" cy="796" r="10" fill="#57c4e5" />
+            <circle class="s01-a-ojo2" cx="837" cy="796" r="10" fill="#57c4e5" />
+            <path class="celeste s01-a-boca" d="M786 828 q24 16 48 0" />
+          </g>
+          <!-- atriles -->
+          <g class="s01-atril1">
+            <path class="silueta s01-at1" d="M110 1060 H430 L406 1270 H132 Z" />
+            <path class="s01-at1-banda" d="M110 1060 H430 L427 1096 H113 Z" fill="#e63946" />
+            <path class="linea s01-mic1" d="M300 1060 L340 1005" />
+          </g>
+          <g class="s01-atril2">
+            <path class="silueta s01-at2" d="M650 1060 H970 L946 1270 H672 Z" />
+            <path class="s01-at2-banda" d="M650 1060 H970 L967 1096 H653 Z" fill="#57c4e5" />
+            <path class="linea s01-mic2" d="M780 1060 L740 1005" />
+          </g>
+        </svg>
+        <div class="s01-titulo">EL DEBATE</div>
+        <div class="s01-sub">QUE DEFINE TU LOCAL</div>
+        <div class="s01-vs">VS</div>
+        <div class="zocalo z-rojo s01-z1" style="left: 120px">VOS · EL DUEÑO</div>
+        <div class="zocalo z-celeste s01-z2" style="left: 660px">AGENTE DE IA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-debate";
+      const DUR = 5.71;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.04));
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+      const DEBATE = 1.08, VOS = 2.67, AGENTE = 4.17;
+
+      // cuadro 0: los atriles ya a medio dibujar
+      dibujar(qa(".s01-at1, .s01-at2"), 0, 0.6, 0.5);
+      gsap.set(qa(".s01-at1, .s01-at2"), { opacity: 1 });
+      tl.fromTo([q(".s01-at1-banda"), q(".s01-at2-banda")], { opacity: 0.4, scaleX: 0.3, svgOrigin: "540 1078" }, { opacity: 1, scaleX: 1, svgOrigin: "540 1078", duration: 0.5, ease: "power3.out" }, 0);
+      dibujar(qa(".s01-mic1, .s01-mic2"), 0.3, 0.4);
+      // "EL DEBATE": el título cae
+      gsap.set(q(".s01-titulo"), { opacity: 0 });
+      tl.fromTo(q(".s01-titulo"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.in", immediateRender: false }, DEBATE - 0.15);
+      temblor(q(".escenario"), DEBATE + 0.06, 0.6);
+      pop(q(".s01-sub"), DEBATE + 0.5);
+      // "vos": entra el dueño
+      gsap.set(q(".s01-duenio"), { opacity: 0 });
+      tl.fromTo(q(".s01-duenio"), { opacity: 0, y: 150 }, { opacity: 1, y: 60, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, VOS - 0.15);
+      pop(q(".s01-z1"), VOS);
+      // "agente de IA": entra el agente
+      gsap.set(q(".s01-agente"), { opacity: 0 });
+      tl.fromTo(q(".s01-agente"), { opacity: 0, y: 150 }, { opacity: 1, y: 60, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, AGENTE - 0.15);
+      pop(q(".s01-z2"), AGENTE);
+      // VS late
+      gsap.set(q(".s01-vs"), { opacity: 0 });
+      tl.fromTo(q(".s01-vs"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, AGENTE + 0.4);
+      tl.to(q(".s01-vs"), { scale: 1.12, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, AGENTE + 0.6);
+      // el agente parpadea, el dueño se acomoda la corbata
+      tl.to([q(".s01-a-ojo1"), q(".s01-a-ojo2")], { scaleY: 0.15, svgOrigin: "810 796", duration: 0.06, yoyo: true, repeat: 1 }, AGENTE + 0.9);
+      tl.to(q(".s01-d-corbata"), { rotation: 8, svgOrigin: "270 945", duration: 0.15, yoyo: true, repeat: 3 }, VOS + 0.5);
+      etiquetas([["ESTA NOCHE", 0.05], ["CANDIDATO 1: VOS", VOS], ["CANDIDATO 2: LA IA", AGENTE]]);
+      tl.to(q("#s01-debate-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

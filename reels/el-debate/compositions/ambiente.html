@@ -1,0 +1,72 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1100px at 540px 900px, rgba(7, 16, 38, 0) 55%, rgba(7, 16, 38, 0.85) 100%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #f4f4f4; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-voto { position: absolute; left: 90px; top: 1388px; width: 900px; height: 120px; }
+    [data-composition-id="ambiente"] .amb-titulo { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; color: #f4f4f4; opacity: 0.9; }
+    [data-composition-id="ambiente"] .amb-lado { position: absolute; top: -4px; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 28px; letter-spacing: 0.06em; }
+    [data-composition-id="ambiente"] .amb-l1 { left: 0; color: #ff5d68; }
+    [data-composition-id="ambiente"] .amb-l2 { right: 0; color: #57c4e5; }
+    [data-composition-id="ambiente"] .amb-barra { position: absolute; left: 0; top: 44px; width: 900px; height: 40px; border-radius: 20px; overflow: hidden; background: #e63946; border: 3px solid #f4f4f4; box-sizing: border-box; }
+    [data-composition-id="ambiente"] .amb-ag { position: absolute; right: 0; top: 0; width: 900px; height: 40px; background: #57c4e5; transform-origin: 100% 50%; }
+    [data-composition-id="ambiente"] .amb-oro { position: absolute; left: 0; top: 0; width: 900px; height: 40px; background: #f2c14e; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-formula { position: absolute; left: 0; right: 0; top: 44px; height: 34px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 26px; line-height: 34px; letter-spacing: 0.12em; color: #0b1a3a; opacity: 0; }
+    [data-composition-id="ambiente"] .est-vivo { position: absolute; left: 60px; top: 74px; display: flex; align-items: center; gap: 16px; }
+    [data-composition-id="ambiente"] .est-punto { width: 22px; height: 22px; border-radius: 50%; background: #e63946; }
+    [data-composition-id="ambiente"] .est-vivo-txt { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; color: #f4f4f4; }
+    [data-composition-id="ambiente"] .est-titulo { position: absolute; right: 60px; top: 66px; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 40px; letter-spacing: 0.06em; color: #f2c14e; }
+    [data-composition-id="ambiente"] .est-titulo span { color: #f4f4f4; font-weight: 500; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="72.81">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="72.81" data-track-index="0">
+      <div class="amb-vineta"></div>
+      <div class="amb-voto">
+        <div class="amb-titulo">INTENCIÓN DE VOTO</div>
+        <div class="amb-lado amb-l1">DUEÑO</div>
+        <div class="amb-lado amb-l2">AGENTE</div>
+        <div class="amb-barra"><div class="amb-ag"></div><div class="amb-oro"></div></div>
+        <div class="amb-formula">FÓRMULA: DUEÑO + AGENTE</div>
+      </div>
+      <div class="est-vivo"><div class="est-punto"></div><div class="est-vivo-txt">EN VIVO</div></div>
+      <div class="est-titulo">EL DEBATE <span>· TU LOCAL</span></div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(q(".est-punto"), { opacity: 1 }, { opacity: 0.25, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(72.81 / 0.6) }, 0);
+      // la barra aparece con el título del debate
+      tl.fromTo(q(".amb-voto"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 1.1);
+      tl.fromTo(q(".amb-ag"), { scaleX: 0.5 }, { scaleX: 0.3, duration: 0.9, ease: "power2.out" }, 1.2);
+      // cada FALSO corre la barra hacia el agente; VERDADERO la empuja más
+      [[13.37, 0.42], [17.37, 0.53], [32.34, 0.66], [44.84, 0.8]].forEach(([t, v]) => {
+        tl.to(q(".amb-ag"), { scaleX: v, duration: 0.5, ease: "back.out(2)" }, t + 0.05);
+        tl.to(q(".amb-voto"), { y: -6, duration: 0.08, yoyo: true, repeat: 1 }, t + 0.05);
+      });
+      // "me postulo de vice": las dos barras se funden en una fórmula dorada
+      const VICE = 50.57;
+      tl.to(q(".amb-oro"), { opacity: 1, duration: 0.4, ease: "power2.out" }, VICE);
+      tl.to(q(".amb-formula"), { opacity: 1, duration: 0.3 }, VICE + 0.2);
+      tl.to([q(".amb-l1"), q(".amb-l2")], { opacity: 0, duration: 0.3 }, VICE);
+      tl.to(q(".amb-voto"), { scale: 1.04, duration: 0.2, yoyo: true, repeat: 1 }, VICE);
+      // se va cuando entra Scalerics
+      tl.to(q(".amb-voto"), { opacity: 0, y: 20, duration: 0.4, ease: "power2.in" }, 59.6);
+      // flashes de cámara en cada sello
+      [13.37, 17.37, 32.34, 44.84].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.22, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.04);
+      });
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,47 @@
+@@DUR
+4.46
+@@CSS
+$ .s12-cartel { left: 190px; top: 588px; width: 700px; font-size: 62px; }
+$ .s12-cartel small { display: block; font-size: 34px; letter-spacing: 0.08em; margin-top: 6px; }
+$ .s12-chip { position: absolute; padding: 8px 16px; border-radius: 16px; background: #57c4e5; color: #0b1a3a; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; white-space: nowrap; }
+$ .s12-pasa { position: absolute; left: 600px; top: 830px; padding: 14px 22px; border-radius: 22px; background: #f2c14e; color: #0b1a3a; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; white-space: nowrap; }
+@@HTML
+<svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+  {{duenio 300 1100 1.25 s12-d}}
+  <path class="s12-banda" d="M175 1120 L390 1238" stroke="#f2c14e" stroke-width="26" stroke-linecap="butt" fill="none" />
+  {{agente 790 1110 1.15 s12-a}}
+  <path class="silueta" d="M90 1196 H520 L505 1286 H105 Z" />
+  <path d="M90 1196 H520 L517 1230 H93 Z" fill="#e63946" />
+  <path class="silueta" d="M570 1196 H1010 L996 1286 H584 Z" />
+  <path d="M570 1196 H1010 L1007 1230 H573 Z" fill="#57c4e5" />
+</svg>
+<div class="cartel c-dorado s12-cartel">LA FÓRMULA<small>VOS GOBERNÁS · YO SIGO</small></div>
+<div class="s12-chip s12-c1" style="left: 560px; top: 900px">¿Te quedó alguna duda?</div>
+<div class="s12-chip s12-c2" style="left: 600px; top: 900px">¡Te extrañamos!</div>
+<div class="s12-chip s12-c3" style="left: 580px; top: 900px">¿Confirmás el turno?</div>
+<div class="s12-pasa">Quiere hablar con vos</div>
+@@JS
+      const GOBERNAS = 0.14, HAGO = 0.98, SEGUIMIENTO = 1.23, CHARLA = 2.48, VOS = 2.89, PASO = 3.56;
+      tl.fromTo(q(".s12-d"), { y: 30, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3 }, 0);
+      tl.fromTo(q(".s12-a"), { y: 30, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3 }, 0.05);
+      gsap.set(q(".s12-cartel"), { opacity: 0 });
+      tl.fromTo(q(".s12-cartel"), { opacity: 0, y: -200 }, { opacity: 1, y: 0, duration: 0.4, ease: "bounce.out", immediateRender: false }, 0.05);
+      // "gobernás": banda presidencial dorada
+      dibujar([q(".s12-banda")], GOBERNAS + 0.1, 0.4);
+      tl.to(q(".s12-d"), { scale: 1.05, svgOrigin: "0 110", duration: 0.3, yoyo: true, repeat: 1 }, GOBERNAS + 0.4);
+      // "yo hago el seguimiento": salen chats del agente
+      qa(".s12-chip").forEach((c, i) => {
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { opacity: 0, x: 0, y: 0, scale: 0.6 }, { opacity: 1, x: 0, y: -90, scale: 1, duration: 0.4, ease: "power2.out", immediateRender: false }, SEGUIMIENTO + i * 0.22);
+        tl.to(c, { opacity: 0, y: -150, duration: 0.2, ease: "power1.in" }, SEGUIMIENTO + 0.42 + i * 0.22);
+      });
+      tl.to(q(".s12-a-bombita"), { fill: "#2ec27e", duration: 0.1, yoyo: true, repeat: 5 }, SEGUIMIENTO);
+      // "te la paso": la charla vuela al dueño
+      gsap.set(q(".s12-pasa"), { opacity: 0 });
+      tl.fromTo(q(".s12-pasa"), { opacity: 0, x: 0, y: 0, scale: 0.7 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, CHARLA);
+      tl.to(q(".s12-pasa"), { x: -380, y: -20, rotation: -4, duration: 0.5, ease: "power2.inOut" }, VOS + 0.1);
+      tl.to(q(".s12-d-boca"), { scaleX: 1.4, scaleY: 1.4, svgOrigin: "0 -31", duration: 0.2 }, PASO);
+      tl.to(q(".s12-d"), { rotation: -3, svgOrigin: "0 110", duration: 0.25, yoyo: true, repeat: 1 }, PASO);
+      etiquetas([["PRESIDENTE: VOS", 0.05], ["VICE: EL SEGUIMIENTO", SEGUIMIENTO], ["LO IMPORTANTE, A VOS", PASO]]);
+@@SFX
+[{"t": 0.05, "sfx": "whoosh", "vol": 0.22}, {"t": 0.3, "sfx": "sparkle", "vol": 0.25}, {"t": 1.25, "sfx": "notification", "vol": 0.25}, {"t": 1.5, "sfx": "notification", "vol": 0.2}, {"t": 2.5, "sfx": "pop", "vol": 0.3}, {"t": 3.0, "sfx": "whoosh-short", "vol": 0.25}, {"t": 3.56, "sfx": "aplausos", "vol": 0.22, "max": 1.0}]

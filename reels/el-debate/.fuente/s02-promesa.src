@@ -1,0 +1,48 @@
+@@DUR
+4.01
+@@CSS
+$ .s02-cartel { left: 140px; top: 588px; width: 800px; font-size: 64px; transform: rotate(-3deg); }
+$ .s02-cartel small { display: block; font-size: 34px; letter-spacing: 0.1em; margin-top: 8px; }
+$ .s02-conf { position: absolute; width: 18px; height: 30px; background: #f2c14e; border-radius: 3px; }
+@@HTML
+<svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+  {{duenio 540 1010 1.7 s02-d}}
+  <g transform="translate(540 1010) scale(1.7)"><g class="s02-brazo">
+    <path class="silueta s02-manga" d="M-112 70 C-100 30 -60 40 -20 62 L-26 86 C-60 74 -84 72 -96 104 Z" />
+    <circle class="silueta s02-mano" cx="-12" cy="70" r="20" />
+  </g></g>
+  <path class="silueta s02-atril" d="M250 1196 H830 L810 1286 H270 Z" />
+  <path class="s02-banda" d="M250 1196 H830 L827 1232 H253 Z" fill="#e63946" />
+</svg>
+<div class="cartel c-rojo s02-cartel">CONTESTO TODO<small>EN EL DÍA · VOTÁ DUEÑO</small></div>
+<div class="s02-confs"></div>
+@@JS
+      const PROMETO = 0.92, TODOS = 2.09, DIA = 3.04;
+      // cuadro 0: el dueño ya está, el atril se dibuja
+      tl.fromTo(q(".s02-d"), { y: 30, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 0);
+      dibujar([q(".s02-atril")], 0, 0.5, 0.5);
+      tl.fromTo(q(".s02-banda"), { scaleX: 0.3, svgOrigin: "540 1214" }, { scaleX: 1, svgOrigin: "540 1214", duration: 0.5, ease: "power3.out" }, 0);
+      // "prometo": mano al pecho, cae el cartel de campaña
+      gsap.set(q(".s02-brazo"), { opacity: 0 });
+      tl.fromTo(q(".s02-brazo"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, PROMETO - 0.1);
+      gsap.set(q(".s02-cartel"), { opacity: 0 });
+      tl.fromTo(q(".s02-cartel"), { opacity: 0, y: -260, rotation: 6 }, { opacity: 1, y: 0, rotation: -3, duration: 0.45, ease: "bounce.out", immediateRender: false }, PROMETO);
+      // el dueño se infla de orgullo
+      tl.to(q(".s02-d"), { scale: 1.04, svgOrigin: "0 100", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, PROMETO + 0.3);
+      tl.to(q(".s02-cartel"), { rotation: 0, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, TODOS);
+      // "día": confeti dorado
+      const conf = q(".s02-confs");
+      for (let i = 0; i < 18; i++) {
+        const c = document.createElement("div");
+        c.className = "s02-conf";
+        c.style.left = (120 + ((i * 197) % 840)) + "px";
+        c.style.top = "580px";
+        c.style.background = i % 3 === 0 ? "#f4f4f4" : i % 3 === 1 ? "#f2c14e" : "#e63946";
+        conf.appendChild(c);
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { opacity: 1, y: 0, rotation: i * 40 }, { opacity: 0.9, y: 380 + (i * 53) % 260, rotation: i * 40 + 360, duration: 0.9, ease: "power1.in", immediateRender: false }, DIA - 0.05 + (i % 6) * 0.03);
+        tl.to(c, { opacity: 0, duration: 0.2 }, DIA + 0.85);
+      }
+      etiquetas([["PROMESA Nº 1", 0.05], ["CONTESTAR EN EL DÍA", PROMETO + 0.4]]);
+@@SFX
+[{"t": 0.92, "sfx": "whoosh", "vol": 0.25}, {"t": 1.3, "sfx": "impact-bass-2", "vol": 0.25, "max": 0.4}, {"t": 3.0, "sfx": "aplausos", "vol": 0.22, "max": 1.0}, {"t": 3.04, "sfx": "sparkle", "vol": 0.25}]

@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-urna"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-urna"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-urna"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-urna"] .linea { fill: none; stroke: #f4f4f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-urna"] .silueta { fill: #0b1a3a; stroke: #f4f4f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-urna"] .rojo { fill: none; stroke: #e63946; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-urna"] .celeste { fill: none; stroke: #57c4e5; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-urna"] .dorado { fill: none; stroke: #f2c14e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-urna"] .verde { fill: none; stroke: #2ec27e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-urna"] .etq { position: absolute; left: 0; right: 0; top: 1300px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #f2c14e; white-space: nowrap; }
+    [data-composition-id="s13-urna"] .zocalo { position: absolute; padding: 10px 20px 8px; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 34px; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; border-radius: 4px; }
+    [data-composition-id="s13-urna"] .z-rojo { background: #e63946; color: #f4f4f4; }
+    [data-composition-id="s13-urna"] .z-celeste { background: #57c4e5; color: #0b1a3a; }
+    [data-composition-id="s13-urna"] .z-dorado { background: #f2c14e; color: #0b1a3a; }
+    [data-composition-id="s13-urna"] .tarjeta { position: absolute; background: #f4f4f4; border-radius: 22px; box-sizing: border-box; }
+    [data-composition-id="s13-urna"] .cinta { position: absolute; left: 0; right: 0; top: 0; height: 64px; border-radius: 22px 22px 0 0; background: #f2c14e; color: #0b1a3a; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.26em; line-height: 64px; text-align: center; }
+    [data-composition-id="s13-urna"] .globo { position: absolute; padding: 16px 24px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 42px; line-height: 1.2; white-space: nowrap; box-sizing: border-box; }
+    [data-composition-id="s13-urna"] .g-cli { background: #dfe6f2; color: #0b1a3a; border-bottom-left-radius: 6px; }
+    [data-composition-id="s13-urna"] .g-loc { background: #57c4e5; color: #0b1a3a; border-bottom-right-radius: 6px; }
+    [data-composition-id="s13-urna"] .g-osc { background: #16306a; color: #f4f4f4; border-bottom-right-radius: 6px; }
+    [data-composition-id="s13-urna"] .hora { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; color: #5a6b8c; white-space: nowrap; }
+    [data-composition-id="s13-urna"] .sello { position: absolute; padding: 6px 30px 4px; border: 9px solid #e63946; border-radius: 14px; font-family: "Outfit", sans-serif; font-weight: 900; font-size: 110px; line-height: 1; letter-spacing: 0.06em; color: #e63946; white-space: nowrap; background: rgba(244, 244, 244, 0.88); }
+    [data-composition-id="s13-urna"] .s-verde { border-color: #2ec27e; color: #2ec27e; }
+    [data-composition-id="s13-urna"] .cartel { position: absolute; padding: 18px 30px 14px; border-radius: 10px; font-family: "Outfit", sans-serif; font-weight: 900; line-height: 1.02; text-transform: uppercase; text-align: center; white-space: nowrap; }
+    [data-composition-id="s13-urna"] .c-rojo { background: #e63946; color: #f4f4f4; border: 5px solid #f4f4f4; }
+    [data-composition-id="s13-urna"] .c-dorado { background: #f2c14e; color: #0b1a3a; border: 5px solid #f4f4f4; }
+    [data-composition-id="s13-urna"] .c-celeste { background: #57c4e5; color: #0b1a3a; border: 5px solid #f4f4f4; }
+    [data-composition-id="s13-urna"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Outfit", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s13-urna"] .s13-tit { top: 600px; font-size: 92px; color: #f2c14e; letter-spacing: 0.04em; }
+    [data-composition-id="s13-urna"] .s13-sub { position: absolute; left: 0; right: 0; top: 708px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.24em; color: #f4f4f4; }
+    [data-composition-id="s13-urna"] .s13-sello { left: 250px; top: 790px; font-size: 96px; }
+  </style>
+  <div id="root" data-composition-id="s13-urna" data-width="1080" data-height="1920" data-duration="4.03">
+    <div id="s13-urna-escena" class="capa clip" data-start="0" data-duration="4.03" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s13-urna">
+            <path class="silueta s13-caja" d="M380 960 H700 L680 1250 H400 Z" style="stroke: #f2c14e; stroke-width: 7" />
+            <path class="linea s13-ranura" d="M470 960 H610" style="stroke-width: 12" />
+            <path class="dorado s13-tapa" d="M360 960 H720" style="stroke-width: 10" />
+            <text x="540" y="1130" text-anchor="middle" font-family="Outfit" font-weight="900" font-size="54" fill="#f2c14e" letter-spacing="4">URNA</text>
+          </g>
+          <g class="s13-cli s13-cli1"><circle class="silueta" cx="180" cy="990" r="46" /><path class="silueta" d="M100 1180 C105 1090 140 1060 180 1060 C220 1060 255 1090 260 1180 Z" /></g>
+          <g class="s13-cli s13-cli2"><circle class="silueta" cx="900" cy="990" r="46" /><path class="silueta" d="M820 1180 C825 1090 860 1060 900 1060 C940 1060 975 1090 980 1180 Z" /></g>
+          <g class="s13-sobre s13-s1"><rect x="230" y="1020" width="110" height="74" rx="6" fill="#f4f4f4" /><path d="M230 1020 L285 1062 L340 1020" fill="none" stroke="#8b97ad" stroke-width="4" /></g>
+          <g class="s13-sobre s13-s2"><rect x="740" y="1020" width="110" height="74" rx="6" fill="#f4f4f4" /><path d="M740 1020 L795 1062 L850 1020" fill="none" stroke="#8b97ad" stroke-width="4" /></g>
+          <path class="linea s13-duda1" d="M170 905 q0 -26 22 -26 q22 0 22 20 q0 14 -18 20 v10 M196 948 v2" />
+          <path class="linea s13-duda2" d="M890 905 q0 -26 22 -26 q22 0 22 20 q0 14 -18 20 v10 M916 948 v2" />
+        </svg>
+        <div class="grande s13-tit">BOCA DE URNA</div>
+        <div class="s13-sub">SIN SEGUIMIENTO</div>
+        <div class="sello s13-sello">EN BLANCO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-urna";
+      const DUR = 4.03;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.04));
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const subir = (el, t, dy) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: dy ?? 120 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const salir = (el, t) => tl.to(el, { opacity: 0, scale: 0.9, duration: 0.18, ease: "power2.in" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -10 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12);
+        temblor(q(".escenario"), t + 0.03, 0.8);
+      };
+      const tipear = (el, t, cps) => {
+        const txt = el.textContent;
+        el.innerHTML = [...txt].map((c) => `<span class="k" style="opacity:0">${c === " " ? "&nbsp;" : c}</span>`).join("");
+        el.querySelectorAll(".k").forEach((k, i) => tl.to(k, { opacity: 1, duration: 0.01 }, t + i / (cps ?? 30)));
+      };
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+      const URNA = 0.42, SIN = 1.01, CLIENTES = 2.2, VOTAN = 2.46, BLANCO = 2.88;
+      tl.fromTo(q(".s13-tit"), { opacity: 0.4, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 0);
+      dibujar([q(".s13-caja")], 0, 0.5, 0.4);
+      popSvg(q(".s13-tapa"), URNA - 0.1, "540 960");
+      tl.to(q(".s13-urna"), { y: -10, duration: 0.15, yoyo: true, repeat: 1 }, URNA);
+      pop(q(".s13-sub"), SIN);
+      // los clientes dudan con su sobre
+      gsap.set(qa(".s13-cli"), { opacity: 0 });
+      tl.fromTo(qa(".s13-cli"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.1, ease: "back.out(1.6)", immediateRender: false }, SIN + 0.2);
+      dibujar([q(".s13-duda1"), q(".s13-duda2")], SIN + 0.5, 0.35);
+      gsap.set(qa(".s13-sobre"), { opacity: 0 });
+      tl.to(qa(".s13-sobre"), { opacity: 1, duration: 0.15 }, CLIENTES - 0.1);
+      // "votan en blanco": los sobres vacíos caen en la urna
+      tl.to(q(".s13-s1"), { x: 255, y: -130, rotation: 20, svgOrigin: "285 1057", duration: 0.35, ease: "power2.out" }, VOTAN);
+      tl.to(q(".s13-s2"), { x: -255, y: -130, rotation: -20, svgOrigin: "795 1057", duration: 0.35, ease: "power2.out" }, VOTAN + 0.1);
+      tl.to(qa(".s13-sobre"), { y: -40, opacity: 0, duration: 0.2, ease: "power2.in" }, VOTAN + 0.45);
+      sello(q(".s13-sello"), BLANCO + 0.1, -8);
+      etiquetas([["ENCUESTA", 0.05], ["TUS CLIENTES", CLIENTES - 0.1]]);
+      tl.to(q("#s13-urna-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

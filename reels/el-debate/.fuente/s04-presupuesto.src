@@ -1,0 +1,51 @@
+@@DUR
+3.31
+@@CSS
+$ .s04-cartel { left: 140px; top: 588px; width: 800px; font-size: 64px; transform: rotate(2deg); }
+$ .s04-cartel small { display: block; font-size: 30px; letter-spacing: 0.06em; margin-top: 8px; }
+$ .s04-lista { position: absolute; left: 640px; top: 790px; width: 330px; padding: 20px 26px; border-radius: 18px; background: #f4f4f4; box-sizing: border-box; }
+$ .s04-tit { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; color: #5a6b8c; margin-bottom: 10px; }
+$ .s04-item { display: flex; align-items: center; gap: 16px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; color: #0b1a3a; line-height: 1.6; }
+$ .s04-caja { width: 30px; height: 30px; border: 4px solid #0b1a3a; border-radius: 6px; box-sizing: border-box; }
+@@HTML
+<svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+  {{duenio 330 1030 1.5 s04-d}}
+  <g class="s04-mega">
+    <path class="s04-cono" d="M370 960 L560 880 L560 1040 Z" fill="#e63946" stroke="#f4f4f4" stroke-width="5" stroke-linejoin="round" />
+    <path class="linea s04-mango" d="M420 985 L430 1030" />
+  </g>
+  <path class="linea s04-o1" d="M585 920 Q605 960 585 1000" />
+  <path class="linea s04-o2" d="M612 895 Q642 960 612 1025" />
+  <path class="silueta s04-atril" d="M110 1196 H560 L544 1286 H126 Z" />
+  <path class="s04-banda" d="M110 1196 H560 L557 1232 H113 Z" fill="#e63946" />
+</svg>
+<div class="cartel c-rojo s04-cartel">LLAMO A TODOS<small>LOS QUE PIDIERON PRESUPUESTO</small></div>
+<div class="s04-lista">
+  <div class="s04-tit">PRESUPUESTOS</div>
+  <div class="s04-item s04-i1"><div class="s04-caja"></div>Gustavo</div>
+  <div class="s04-item s04-i2"><div class="s04-caja"></div>Sofía</div>
+  <div class="s04-item s04-i3"><div class="s04-caja"></div>Raúl</div>
+</div>
+@@JS
+      const LLAMAR = 0.43, TODOS = 0.78, PIDIERON = 1.74, PRESUPUESTO = 2.08;
+      tl.fromTo(q(".s04-d"), { y: 30, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 0);
+      dibujar([q(".s04-atril")], 0, 0.4, 0.5);
+      tl.fromTo(q(".s04-banda"), { scaleX: 0.3, svgOrigin: "335 1214" }, { scaleX: 1, svgOrigin: "335 1214", duration: 0.4, ease: "power3.out" }, 0);
+      popSvg(q(".s04-mega"), 0.05, "380 960");
+      gsap.set(q(".s04-cartel"), { opacity: 0 });
+      tl.fromTo(q(".s04-cartel"), { opacity: 0, y: -240 }, { opacity: 1, y: 0, duration: 0.4, ease: "bounce.out", immediateRender: false }, LLAMAR - 0.1);
+      // el megáfono grita
+      [LLAMAR, TODOS + 0.3, PRESUPUESTO].forEach((t) => {
+        tl.fromTo([q(".s04-o1"), q(".s04-o2")], { opacity: 1, x: 0 }, { opacity: 0, x: 60, duration: 0.45, stagger: 0.08, ease: "power1.out", immediateRender: false }, t);
+        tl.fromTo(q(".s04-mega"), { rotation: -4, svgOrigin: "380 960" }, { rotation: 3, svgOrigin: "380 960", duration: 0.1, yoyo: true, repeat: 3, immediateRender: false }, t);
+      });
+      gsap.set([q(".s04-o1"), q(".s04-o2")], { opacity: 0 });
+      // la lista de los que pidieron presupuesto
+      pop(q(".s04-lista"), TODOS - 0.05);
+      gsap.set(qa(".s04-item"), { opacity: 0 });
+      qa(".s04-item").forEach((it, i) => tl.fromTo(it, { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.2, immediateRender: false }, TODOS + 0.2 + i * 0.3));
+      tl.to(q(".s04-lista"), { rotation: -3, duration: 0.15, yoyo: true, repeat: 1 }, PRESUPUESTO);
+      temblor(q(".s04-d"), PRESUPUESTO, 0.5);
+      etiquetas([["PROMESA Nº 2", 0.05], ["LLAMAR A TODOS", PIDIERON]]);
+@@SFX
+[{"t": 0.33, "sfx": "whoosh", "vol": 0.25}, {"t": 0.43, "sfx": "impact-bass-2", "vol": 0.25, "max": 0.4}, {"t": 0.95, "sfx": "pop", "vol": 0.25}, {"t": 1.25, "sfx": "pop", "vol": 0.25}, {"t": 1.55, "sfx": "pop", "vol": 0.25}, {"t": 2.1, "sfx": "aplausos", "vol": 0.18, "max": 0.9}]
