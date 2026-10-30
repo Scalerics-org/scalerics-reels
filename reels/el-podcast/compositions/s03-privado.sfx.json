@@ -1,0 +1,7 @@
+[
+  {"t": 0.7, "sfx": "pop", "vol": 0.3},
+  {"t": 1.75, "sfx": "notification", "vol": 0.3},
+  {"t": 2.45, "sfx": "typing", "vol": 0.2, "max": 0.8},
+  {"t": 3.3, "sfx": "ping", "vol": 0.3},
+  {"t": 3.75, "sfx": "impact-bass-1", "vol": 0.35, "max": 0.6}
+]

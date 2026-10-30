@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pod.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-no-existe"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-no-existe"] svg.s01-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-no-existe"] .s01-sello { position: absolute; left: 590px; top: 790px; width: 440px; text-align: center; }
+    [data-composition-id="s01-no-existe"] .s01-sello span { display: inline-block; padding: 14px 22px 12px; border: 6px solid #ff2d55; border-radius: 14px; background: #0e0d10; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 42px; color: #ff2d55; letter-spacing: 0.02em; white-space: nowrap; }
+    [data-composition-id="s01-no-existe"] .s01-cartel { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.06em; }
+  </style>
+  <div id="root" data-composition-id="s01-no-existe" data-width="1080" data-height="1920" data-duration="4.04">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.04" data-track-index="0">
+      <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s01-recorte"><rect x="0" y="560" width="1080" height="776" /></clipPath></defs>
+        <g clip-path="url(#s01-recorte)">
+          <!-- el local de barrio que "no existe" -->
+          <g class="s01-local">
+            <g class="s01-local-fill">
+              <rect x="664" y="760" width="292" height="190" fill="#2a262d" />
+              <rect x="700" y="800" width="110" height="80" fill="#ffc53d" opacity="0.85" />
+              <rect x="840" y="800" width="80" height="150" fill="#4a4450" />
+              <path d="M650 712 H970 L990 772 H630 Z" fill="#f4ead6" />
+              <path d="M690 712 L670 772 H710 L730 712 Z M770 712 L750 772 H790 L810 712 Z M850 712 L830 772 H870 L890 712 Z M930 712 L910 772 H950 L970 712 Z" fill="#ff6a13" />
+              <rect x="700" y="650" width="220" height="54" rx="8" fill="#ff6a13" />
+            </g>
+            <g class="s01-local-trazo" fill="none" stroke="#f4ead6" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+              <rect x="664" y="760" width="292" height="190" />
+              <rect x="700" y="800" width="110" height="80" />
+              <rect x="840" y="800" width="80" height="150" />
+              <path d="M650 712 H970 L990 772 H630 Z" />
+              <rect x="700" y="650" width="220" height="54" rx="8" />
+              <path d="M630 950 H990" />
+            </g>
+            <text class="s01-cartel" x="810" y="690" text-anchor="middle" fill="#0e0d10">TU LOCAL</text>
+          </g>
+          <!-- wifi tachado -->
+          <g class="s01-wifi" fill="none" stroke-linecap="round">
+            <path d="M548 692 Q590 656 632 692" stroke="#f4ead6" stroke-width="8" />
+            <path d="M562 712 Q590 688 618 712" stroke="#f4ead6" stroke-width="8" />
+            <circle cx="590" cy="732" r="7" fill="#f4ead6" stroke="none" />
+            <path class="s01-tacha" d="M552 744 L628 668" stroke="#ff2d55" stroke-width="10" />
+          </g>
+          <!-- Sofi y su micrófono -->
+          <g class="s01-quien"><g class="s01-sofi" transform="translate(28 610)"></g></g>
+          <g class="s01-micw"><g class="s01-mic" transform="translate(500 960) rotate(-12)"></g></g>
+          <g class="s01-mesa"></g>
+        </g>
+      </svg>
+      <div class="s01-sello"><span>404 · NO EXISTE</span></div>
+      <div class="pd-etiqueta"><span class="s01-et">TEMA · <b>COMPRARLE AL BARRIO</b></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-no-existe";
+      const DUR = 4.04;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s01-sofi").innerHTML = PD.sofi({ mirada: 3 });
+      root.querySelector(".s01-mic").innerHTML = PD.mic("der");
+      root.querySelector(".s01-mesa").innerHTML = PD.mesa(1250);
+      const tl = gsap.timeline({ paused: true });
+      const K = PD.kit(tl, root);
+      const { q, qa } = K;
+
+      const LOCAL = 1.36, INTERNET = 2.2, NO = 3.0;
+
+      // cuadro 0: Sofi ya está, entrando con un empujoncito; el micrófono entra desde la derecha
+      tl.fromTo(q(".s01-quien"), { x: -40, opacity: 0.75 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-micw"), { x: 160, y: 40, rotation: 8, svgOrigin: "500 960" }, { x: 0, y: 0, rotation: 0, svgOrigin: "500 960", duration: 0.5, ease: "back.out(1.4)" }, 0);
+      K.habla(q(".s01-sofi .pd-boca"), 0.05, 3.55);
+      K.parpadeo(q(".s01-sofi .pd-ojos"), [1.05, 2.9]);
+      K.respira(q(".s01-sofi .pd-sofi"), 0.5, 3.3, 5);
+      // la mano izquierda acompaña (se levanta en "internet")
+      tl.to(q(".s01-sofi .pd-brazo-i"), { rotation: -14, svgOrigin: "96 1062", duration: 0.3, ease: "power2.out" }, INTERNET - 0.2);
+      tl.to(q(".s01-sofi .pd-brazo-i"), { rotation: 0, svgOrigin: "96 1062", duration: 0.3, ease: "power2.inOut" }, NO + 0.2);
+
+      // "local": el local hace pop
+      K.pop(q(".s01-local"), LOCAL - 0.12, 0.38);
+      // "internet": wifi con tachadura
+      K.pop(q(".s01-wifi"), INTERNET - 0.1);
+      gsap.set(q(".s01-tacha"), { opacity: 0 });
+      K.dibujar(q(".s01-tacha"), INTERNET + 0.2, 0.25);
+
+      // "no existe": glitch, el relleno se va y quedan los contornos punteados
+      const loc = q(".s01-local");
+      [[14, 0.3], [-18, 1], [10, 0.2], [-6, 1], [0, 1]].forEach(([x, o], i) => tl.to(loc, { x, opacity: o, duration: 0.05, ease: "none" }, NO + i * 0.05));
+      tl.to(q(".s01-local-fill"), { opacity: 0, duration: 0.2, ease: "power2.in" }, NO + 0.1);
+      tl.to(q(".s01-cartel"), { opacity: 0, duration: 0.2 }, NO + 0.1);
+      tl.set(qa(".s01-local-trazo > *"), { attr: { "stroke-dasharray": "12 16" } }, NO + 0.15);
+      tl.to(q(".s01-local-trazo"), { opacity: 0.45, duration: 0.3 }, NO + 0.2);
+      K.golpe(q(".s01-sello"), NO + 0.12, -6);
+      K.sacudon(q(".s01-sello"), NO + 0.14, 0.8);
+
+      K.etiqueta(q(".s01-et"), [[0.15, "TEMA · <b>COMPRARLE AL BARRIO</b>"]]);
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

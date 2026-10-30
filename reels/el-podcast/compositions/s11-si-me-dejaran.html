@@ -1,0 +1,120 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pod.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-si-me-dejaran"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-si-me-dejaran"] svg.s11-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-si-me-dejaran"] .s11-posta { position: absolute; left: 470px; top: 780px; }
+    [data-composition-id="s11-si-me-dejaran"] .s11-posta span { display: inline-block; padding: 18px 34px 14px; border-radius: 50px; background: #ff6a13; border: 7px solid #0e0d10; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 92px; color: #0e0d10; white-space: nowrap; }
+    [data-composition-id="s11-si-me-dejaran"] .s11-mes { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; }
+    [data-composition-id="s11-si-me-dejaran"] .s11-t1 { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 30px; }
+    [data-composition-id="s11-si-me-dejaran"] .s11-t2 { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; }
+  </style>
+  <div id="root" data-composition-id="s11-si-me-dejaran" data-width="1080" data-height="1920" data-duration="7.01">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="7.01" data-track-index="0">
+      <svg class="s11-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s11-recorte"><rect x="0" y="560" width="1080" height="776" /></clipPath></defs>
+        <g clip-path="url(#s11-recorte)">
+          <!-- A: Sofi sorprendida -->
+          <g class="s11-sofiw"><g class="s11-sofi" transform="translate(20 700) scale(0.84)"></g></g>
+          <!-- B: el mapa del barrio -->
+          <g class="s11-mapa">
+            <g stroke="#f4ead6" stroke-width="26" opacity="0.13" stroke-linecap="round">
+              <path d="M140 760 H940 M140 960 H940 M140 1160 H940 M260 640 V1240 M540 640 V1240 M820 640 V1240" />
+            </g>
+            <g fill="#2a262d" stroke="#4a4450" stroke-width="4">
+              <rect x="290" y="790" width="220" height="140" rx="10" /><rect x="570" y="790" width="220" height="140" rx="10" /><rect x="290" y="990" width="220" height="140" rx="10" /><rect x="570" y="990" width="220" height="140" rx="10" />
+              <rect x="150" y="790" width="80" height="140" rx="10" /><rect x="850" y="990" width="90" height="140" rx="10" /><rect x="150" y="990" width="80" height="140" rx="10" />
+            </g>
+            <path class="s11-camino" d="M200 1220 V1160 H540 V960 H260 V760 H820 V720" fill="none" stroke="#ff6a13" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+            <circle class="s11-yo" cx="200" cy="1220" r="18" fill="#ffc53d" stroke="#0e0d10" stroke-width="6" />
+            <g class="s11-vidriera">
+              <rect x="860" y="640" width="110" height="80" rx="8" fill="#ffc53d" stroke="#0e0d10" stroke-width="6" />
+              <path d="M915 600 l10 24 l26 2 l-20 16 l7 25 l-23 -14 l-23 14 l7 -25 l-20 -16 l26 -2 Z" fill="#ff6a13" stroke="#0e0d10" stroke-width="5" stroke-linejoin="round" />
+            </g>
+          </g>
+          <!-- C: el calendario con todos los meses -->
+          <g class="s11-cal">
+            <rect x="140" y="620" width="800" height="600" rx="24" fill="#1f1b21" stroke="#f4ead6" stroke-width="6" />
+            <rect x="140" y="620" width="800" height="70" rx="24" fill="#ffc53d" stroke="#f4ead6" stroke-width="6" />
+            <text class="s11-t1" x="540" y="668" text-anchor="middle" fill="#0e0d10">COMPRAS EN EL LOCAL</text>
+            <g class="s11-meses"></g>
+          </g>
+          <!-- D: la puerta que se cierra -->
+          <g class="s11-puerta">
+            <rect x="330" y="630" width="420" height="640" rx="10" fill="#2a262d" stroke="#f4ead6" stroke-width="7" />
+            <rect x="370" y="680" width="340" height="250" rx="8" fill="#1a171c" stroke="#f4ead6" stroke-width="5" />
+            <rect x="400" y="960" width="280" height="120" rx="12" fill="#f4ead6" stroke="#0e0d10" stroke-width="6" />
+            <text class="s11-t1" x="540" y="1008" text-anchor="middle" fill="#0e0d10">CERRADO</text>
+            <text class="s11-t2" x="540" y="1052" text-anchor="middle" fill="#ff2d55">DE 9 A 18 HS</text>
+          </g>
+          <g class="s11-candado" transform="translate(490 1110)">
+            <path d="M22 50 V34 Q22 8 50 8 Q78 8 78 34 V50" fill="none" stroke="#0e0d10" stroke-width="18" stroke-linecap="round" />
+            <path d="M22 50 V34 Q22 8 50 8 Q78 8 78 34 V50" fill="none" stroke="#f4ead6" stroke-width="8" stroke-linecap="round" />
+            <rect x="4" y="46" width="92" height="70" rx="14" fill="#ff2d55" stroke="#0e0d10" stroke-width="6" />
+            <circle cx="50" cy="76" r="9" fill="#0e0d10" />
+          </g>
+        </g>
+      </svg>
+      <div class="s11-posta"><span>¿POSTA?</span></div>
+      <div class="pd-etiqueta"><span class="s11-et"></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-si-me-dejaran";
+      const DUR = 7.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s11-sofi").innerHTML = PD.sofi({ mirada: 6 });
+      const MES = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SET", "OCT", "NOV", "DIC"];
+      let h = "";
+      MES.forEach((m, i) => {
+        const x = 180 + (i % 4) * 185, y = 720 + Math.floor(i / 4) * 160;
+        h += `<g class="s11-m"><rect x="${x}" y="${y}" width="165" height="140" rx="14" fill="#2a262d" stroke="#4a4450" stroke-width="4"/><text class="s11-mes" x="${x + 82}" y="${y + 44}" text-anchor="middle" fill="#f4ead6">${m}</text>
+          <path class="s11-tick" d="M${x + 50} ${y + 90} l22 22 l46 -50" fill="none" stroke="#ff6a13" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+      });
+      root.querySelector(".s11-meses").innerHTML = h;
+      const tl = gsap.timeline({ paused: true });
+      const K = PD.kit(tl, root);
+      const { q, qa } = K;
+      const LA = 0.82, CASU = 1.33, LE = 2.73, TODOS = 3.97, SI = 5.41, DEJ = 5.82;
+
+      // A: "¿Posta?"
+      tl.fromTo(q(".s11-sofiw"), { x: -200 }, { x: 0, duration: 0.25, ease: "back.out(1.6)" }, 0);
+      gsap.set(q(".s11-sofi .pd-ojos"), { scale: 1.25, transformOrigin: "50% 50%" });
+      tl.to(q(".s11-sofi .pd-cejas"), { y: -16, duration: 0.12 }, 0.05);
+      K.habla(q(".s11-sofi .pd-boca"), 0.02, 0.55);
+      K.golpe(q(".s11-posta"), 0.12, -6);
+      tl.to([q(".s11-sofiw"), q(".s11-posta")], { x: -300, opacity: 0, duration: 0.25, ease: "power2.in" }, LA - 0.2);
+      // B: el mapa, el camino de casualidad
+      gsap.set(q(".s11-mapa"), { opacity: 0 });
+      tl.fromTo(q(".s11-mapa"), { opacity: 0, scale: 0.92, svgOrigin: "540 940" }, { opacity: 1, scale: 1, svgOrigin: "540 940", duration: 0.3, ease: "power2.out", immediateRender: false }, LA - 0.05);
+      K.dibujar(q(".s11-camino"), LA + 0.1, 1.3, "power1.inOut");
+      [[200, 1160, 0.12], [540, 1160, 0.28], [540, 960, 0.15], [260, 960, 0.25], [260, 760, 0.15], [820, 760, 0.3], [820, 720, 0.05]].reduce((t, [x, y, d]) => { tl.to(q(".s11-yo"), { attr: { cx: x, cy: y }, duration: d * 1.3, ease: "none" }, t); return t + d * 1.3; }, LA + 0.1);
+      gsap.set(q(".s11-yo"), { opacity: 0 });
+      tl.to(q(".s11-yo"), { opacity: 1, duration: 0.1 }, LA + 0.05);
+      K.pop(q(".s11-vidriera"), CASU + 0.15, 0.4);
+      K.late(q(".s11-vidriera"), CASU + 0.6, 1.0, 1.08);
+      tl.to(q(".s11-mapa"), { opacity: 0, scale: 0.9, svgOrigin: "540 940", duration: 0.25, ease: "power2.in" }, LE - 0.2);
+      // C: todos los meses, con tilde
+      gsap.set(q(".s11-cal"), { opacity: 0 });
+      tl.fromTo(q(".s11-cal"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, LE - 0.05);
+      qa(".s11-tick").forEach((t, i) => K.dibujar(t, LE + 0.45 + i * 0.17, 0.18));
+      K.late(q(".s11-cal"), TODOS, 0.6, 1.03);
+      // D: "si me dejaran": la puerta se cierra encima, candado
+      gsap.set(q(".s11-puerta"), { opacity: 0 });
+      tl.fromTo(q(".s11-puerta"), { opacity: 1, x: 700 }, { x: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, SI - 0.05);
+      tl.to(q(".s11-cal"), { opacity: 0.25, duration: 0.3 }, SI);
+      K.golpe(q(".s11-candado"), DEJ + 0.05, 10);
+      K.sacudon(q(".s11-puerta"), DEJ + 0.08, 1);
+
+      K.etiqueta(q(".s11-et"), [[0.1, "<b>¿POSTA?</b>"], [LA, "DE <b>CASUALIDAD</b>"], [LE, "<b>TODOS</b> LOS MESES"], [SI, "<b>SI ME DEJARAN</b>"]]);
+      K.salida(q("#s11-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
