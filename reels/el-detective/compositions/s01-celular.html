@@ -1,0 +1,108 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Maquina"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-celular"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-celular"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-celular"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-celular"] .linea { fill: none; stroke: #ecebe6; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-celular"] .gris { fill: none; stroke: #8a8a90; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-celular"] .tiza { fill: none; stroke: #ecebe6; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 14 12; }
+    [data-composition-id="s01-celular"] .rojo { fill: none; stroke: #e0283f; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s01-celular"] .sombra { fill: #0d0d0f; stroke: #8a8a90; stroke-width: 3; stroke-linejoin: round; }
+    [data-composition-id="s01-celular"] .s01-ficha { position: absolute; left: 140px; top: 1322px; width: 800px; text-align: center; font-family: "Maquina", monospace; font-weight: 700; font-size: 46px; letter-spacing: 0.12em; color: #ecebe6; white-space: nowrap; }
+    [data-composition-id="s01-celular"] .s01-ficha .k { opacity: 0; }
+    [data-composition-id="s01-celular"] .s01-ficha .r { color: #e0283f; }
+  </style>
+  <div id="root" data-composition-id="s01-celular" data-width="1080" data-height="1920" data-duration="5.67">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.67" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el celular: la escena del crimen -->
+          <rect class="linea s01-cel" x="250" y="600" width="380" height="690" rx="52" />
+          <path class="gris s01-barra" d="M400 640 H480" />
+          <!-- silueta de tiza de la clienta, adentro de la pantalla -->
+          <g class="s01-silueta">
+            <circle class="tiza s01-cabeza" cx="440" cy="760" r="44" />
+            <path class="tiza s01-cuerpo" d="M418 808 L462 808 L530 860 L560 960 L538 968 L505 885 L512 1000 L560 1120 L494 1120 L482 1230 L462 1230 L452 1120 L428 1120 L418 1230 L398 1230 L386 1120 L320 1120 L368 1000 L375 885 L342 968 L320 960 L350 860 Z" />
+          </g>
+          <!-- círculo rojo -->
+          <path class="rojo s01-circulo" d="M440 690 C580 690 610 860 600 990 C590 1150 520 1270 430 1265 C330 1260 285 1130 290 980 C295 820 330 692 452 700" />
+          <!-- la lupa -->
+          <g class="s01-lupa">
+            <circle cx="0" cy="0" r="74" fill="rgba(236,235,230,0.07)" stroke="#ecebe6" stroke-width="7" />
+            <path d="M52 52 L130 130" stroke="#ecebe6" stroke-width="16" stroke-linecap="round" />
+          </g>
+          <!-- el detective, en primer plano -->
+          <g class="s01-detective"><g transform="translate(700 690)">
+            <path class="sombra" d="M58 236 Q150 196 242 236 L300 600 L0 600 Z" />
+            <path class="gris" d="M150 222 L150 600 M112 300 L150 360 L188 300" />
+            <path class="sombra" d="M84 230 L104 150 L150 226 L196 150 L216 230" />
+            <ellipse class="sombra" cx="150" cy="158" rx="52" ry="62" />
+            <path class="sombra" d="M80 112 L94 42 Q150 20 206 42 L220 112 Z" />
+            <path class="gris" d="M86 96 H214" />
+            <path class="sombra" d="M10 122 Q150 92 290 122 Q150 146 10 122 Z" />
+          </g></g>
+        </svg>
+        <div class="s01-ficha"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-celular";
+      const DUR = 5.67;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const tipear = (el, txt, t, cps, rojo) => {
+        el.innerHTML = [...txt].map((c) => `<span class="k${rojo && rojo.includes(c) ? " r" : ""}">${c === " " ? "&nbsp;" : c}</span>`).join("");
+        el.querySelectorAll(".k").forEach((k, i) => tl.to(k, { opacity: 1, duration: 0.01 }, t + i / cps));
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const CLIENTA = 0.75, CELULAR = 2.58, CONTRATARON = 3.62, ENCONTRARLA = 4.42;
+
+      // cuadro 0: el celular ya a medio dibujar, cámara que se acerca
+      tl.fromTo(q(".s01-escenario"), { scale: 1.07 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      dibujar([q(".s01-cel")], 0, 0.55, 0.45);
+      dibujar([q(".s01-barra")], 0.2, 0.3);
+      gsap.set(q(".s01-cel"), { opacity: 1 });
+      // el detective entra desde la derecha
+      tl.fromTo(q(".s01-detective"), { x: 140, opacity: 0.85 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      // "clienta": la silueta de tiza se dibuja
+      dibujar([q(".s01-cabeza"), q(".s01-cuerpo")], CLIENTA - 0.3, 1.0);
+      // las rayitas de tiza: se rehace el dasharray después de dibujar
+      tl.set([q(".s01-cabeza"), q(".s01-cuerpo")], { strokeDasharray: "14 12", strokeDashoffset: 0 }, CLIENTA + 0.85);
+      // "celular": tiembla y el círculo rojo
+      temblor(q(".s01-escenario"), CELULAR);
+      dibujar([q(".s01-circulo")], CELULAR + 0.05, 0.5);
+      // "contrataron": la ficha se tipea
+      tipear(q(".s01-ficha"), "EXPEDIENTE: LUCÍA", CONTRATARON, 22, "LUCÍA");
+      // la lupa entra y pasa sobre la pantalla
+      gsap.set(q(".s01-lupa"), { opacity: 0, x: 900, y: 1150 });
+      tl.to(q(".s01-lupa"), { opacity: 1, duration: 0.1 }, ENCONTRARLA - 0.5);
+      tl.to(q(".s01-lupa"), { x: 520, y: 880, duration: 0.6, ease: "power2.out" }, ENCONTRARLA - 0.5);
+      tl.to(q(".s01-lupa"), { x: 410, y: 780, duration: 0.6, ease: "sine.inOut" }, ENCONTRARLA + 0.15);
+      tl.to(q(".s01-detective"), { rotation: -3, svgOrigin: "850 1290", duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.0);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

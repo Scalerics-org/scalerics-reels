@@ -1,0 +1,121 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Maquina"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-postit"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-postit"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-postit"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-postit"] .linea { fill: none; stroke: #ecebe6; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-postit"] .gris { fill: none; stroke: #8a8a90; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-postit"] .rojo { fill: none; stroke: #e0283f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-postit"] .sombra { fill: #0d0d0f; stroke: #8a8a90; stroke-width: 3; stroke-linejoin: round; }
+    [data-composition-id="s03-postit"] .etq { position: absolute; left: 0; right: 0; top: 1326px; text-align: center; font-family: "Maquina", monospace; font-weight: 700; font-size: 32px; letter-spacing: 0.2em; color: #b9b9b4; white-space: nowrap; }
+    [data-composition-id="s03-postit"] .sello { position: absolute; padding: 8px 22px; border: 6px solid #e0283f; border-radius: 8px; font-family: "Maquina", monospace; font-weight: 700; color: #e0283f; letter-spacing: 0.08em; white-space: nowrap; text-transform: uppercase; background: rgba(13, 13, 15, 0.85); }
+    [data-composition-id="s03-postit"] .k { opacity: 0; }
+    [data-composition-id="s03-postit"] .r { color: #e0283f; }
+    [data-composition-id="s03-postit"] .s03-postit { position: absolute; left: 285px; top: 770px; width: 250px; height: 230px; background: #ecebe6; border-radius: 3px; box-shadow: 0 10px 0 rgba(0,0,0,0.35); transform-origin: 50% 0%; }
+    [data-composition-id="s03-postit"] .s03-nombre { position: absolute; left: 22px; top: 40px; font-family: "Caveat", cursive; font-weight: 700; font-size: 92px; color: #151517; line-height: 1; transform: rotate(-4deg); }
+    [data-composition-id="s03-postit"] .s03-preg { position: absolute; left: 30px; top: 140px; font-family: "Caveat", cursive; font-weight: 700; font-size: 76px; color: #e0283f; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s03-postit"] .s03-preg span { display: inline-block; margin-right: 6px; }
+    [data-composition-id="s03-postit"] .s03-cinta { position: absolute; left: 80px; top: -18px; width: 90px; height: 34px; background: rgba(185, 185, 180, 0.7); transform: rotate(-3deg); }
+  </style>
+  <div id="root" data-composition-id="s03-postit" data-width="1080" data-height="1920" data-duration="5.85">
+    <div id="s03-postit-escena" class="capa clip" data-start="0" data-duration="5.85" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s03-caja">
+            <path class="linea s03-cuerpo" d="M300 980 H780 L830 1250 H250 Z" />
+            <path class="linea s03-cajon" d="M260 1190 H820 M490 1220 H590" />
+            <path class="linea s03-visor" d="M560 980 V930 M620 980 V930 M520 930 V820 H780 V930 Z" />
+            <path class="gris s03-numeros" d="M550 860 H750 M550 895 H690" />
+            <circle class="gris s03-tecla" cx="360" cy="1040" r="18" /><circle class="gris s03-tecla" cx="430" cy="1040" r="18" /><circle class="gris s03-tecla" cx="500" cy="1040" r="18" /><circle class="gris s03-tecla" cx="570" cy="1040" r="18" /><circle class="gris s03-tecla" cx="360" cy="1095" r="18" /><circle class="gris s03-tecla" cx="430" cy="1095" r="18" /><circle class="gris s03-tecla" cx="500" cy="1095" r="18" /><circle class="gris s03-tecla" cx="570" cy="1095" r="18" /><circle class="gris s03-tecla" cx="360" cy="1150" r="18" /><circle class="gris s03-tecla" cx="430" cy="1150" r="18" /><circle class="gris s03-tecla" cx="500" cy="1150" r="18" /><circle class="gris s03-tecla" cx="570" cy="1150" r="18" />
+            <rect class="gris s03-total" x="660" y="1020" width="110" height="140" rx="10" />
+          </g>
+        </svg>
+        <div class="s03-postit"><div class="s03-cinta"></div><div class="s03-nombre">Lucía</div><div class="s03-preg"><span>?</span><span>?</span><span>?</span></div></div>
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s03-lupa"><g transform="translate(0 0)">
+            <circle cx="0" cy="0" r="120" fill="rgba(236,235,230,0.08)" stroke="#ecebe6" stroke-width="8" />
+            <path d="M86 86 L200 200" stroke="#ecebe6" stroke-width="22" stroke-linecap="round" />
+          </g></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-postit";
+      const DUR = 5.85;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const tipear = (el, txt, t, cps, rojo) => {
+        el.innerHTML = [...txt].map((c) => `<span class="k${rojo && rojo.includes(c) ? " r" : ""}">${c === " " ? "&nbsp;" : c}</span>`).join("");
+        el.querySelectorAll(".k").forEach((k, i) => tl.to(k, { opacity: 1, duration: 0.01 }, t + i / cps));
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -8 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+      const POSTIT = 1.2, CAJA = 2.16, LUCIA = 3.0, TRES = 4.08, SIGNOS = 4.32, PREGUNTA = 4.8;
+      dibujar([q(".s03-cuerpo"), q(".s03-visor"), q(".s03-cajon")], 0, 0.55, 0.4);
+      dibujar(qa(".s03-tecla"), 0.15, 0.25);
+      dibujar([q(".s03-numeros"), q(".s03-total")], 0.3, 0.4);
+      // el post-it: pop y aleteo
+      pop(q(".s03-postit"), POSTIT - 0.1);
+      tl.fromTo(q(".s03-postit"), { rotation: -6 }, { rotation: -10, duration: 0.5, yoyo: true, repeat: 7, ease: "sine.inOut" }, POSTIT + 0.2);
+      qa(".s03-preg span").forEach((s) => gsap.set(s, { opacity: 0 }));
+      // la lupa entra y se para sobre el post-it
+      gsap.set(q(".s03-lupa"), { opacity: 0, x: 980, y: 1300 });
+      tl.to(q(".s03-lupa"), { opacity: 1, duration: 0.1 }, CAJA - 0.6);
+      tl.to(q(".s03-lupa"), { x: 410, y: 885, duration: 0.6, ease: "power3.out" }, CAJA - 0.6);
+      tl.to(q(".s03-lupa"), { x: 440, y: 900, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut" }, CAJA + 0.05);
+      // "Lucía": la cámara se mete en el post-it
+      tl.to(q(".escenario"), { scale: 1.28, x: 120, y: -70, transformOrigin: "410px 885px", duration: 0.5, ease: "power3.inOut" }, LUCIA - 0.15);
+      tl.to(q(".s03-caja"), { opacity: 0.5, duration: 0.4 }, LUCIA);
+      // los tres signos de pregunta, rojos
+      [TRES, SIGNOS, PREGUNTA].forEach((t, i) => {
+        const s = qa(".s03-preg span")[i];
+        tl.fromTo(s, { opacity: 0, scale: 2.2, rotation: -20 + i * 15 }, { opacity: 1, scale: 1, rotation: -6 + i * 8, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      temblor(q(".s03-postit"), PREGUNTA + 0.08, 0.6);
+      etiquetas([["PISTA 1 · LA CAJA", 0.05], ["“LUCÍA ???”", LUCIA]]);
+      tl.to(q("#s03-postit-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

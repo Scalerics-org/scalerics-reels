@@ -1,0 +1,152 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Maquina"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-lampara"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-lampara"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-lampara"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-lampara"] .linea { fill: none; stroke: #ecebe6; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-lampara"] .gris { fill: none; stroke: #8a8a90; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-lampara"] .rojo { fill: none; stroke: #e0283f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-lampara"] .sombra { fill: #0d0d0f; stroke: #8a8a90; stroke-width: 3; stroke-linejoin: round; }
+    [data-composition-id="s06-lampara"] .etq { position: absolute; left: 0; right: 0; top: 1326px; text-align: center; font-family: "Maquina", monospace; font-weight: 700; font-size: 32px; letter-spacing: 0.2em; color: #b9b9b4; white-space: nowrap; }
+    [data-composition-id="s06-lampara"] .sello { position: absolute; padding: 8px 22px; border: 6px solid #e0283f; border-radius: 8px; font-family: "Maquina", monospace; font-weight: 700; color: #e0283f; letter-spacing: 0.08em; white-space: nowrap; text-transform: uppercase; background: rgba(13, 13, 15, 0.85); }
+    [data-composition-id="s06-lampara"] .k { opacity: 0; }
+    [data-composition-id="s06-lampara"] .r { color: #e0283f; }
+    [data-composition-id="s06-lampara"] .s06-cono { fill: #ecebe6; }
+    [data-composition-id="s06-lampara"] .s06-preg { position: absolute; left: 0; right: 0; top: 700px; text-align: center; font-family: "Maquina", monospace; font-weight: 700; font-size: 96px; color: #ecebe6; letter-spacing: 0.04em; }
+    [data-composition-id="s06-lampara"] .s06-globo { position: absolute; left: 90px; top: 690px; width: 900px; padding: 22px 30px; background: #ecebe6; border-radius: 26px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 66px; line-height: 1.05; color: #0d0d0f; text-transform: uppercase; box-sizing: border-box; }
+    [data-composition-id="s06-lampara"] .s06-globo:after { content: ""; position: absolute; left: 420px; bottom: -34px; border-left: 30px solid transparent; border-right: 30px solid transparent; border-top: 40px solid #ecebe6; }
+    [data-composition-id="s06-lampara"] .s06-nube { position: absolute; left: 640px; top: 700px; width: 330px; height: 170px; }
+    [data-composition-id="s06-lampara"] .s06-puntos { position: absolute; left: 640px; top: 730px; width: 330px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 70px; color: #0d0d0f; }
+    [data-composition-id="s06-lampara"] .s06-quien { position: absolute; left: 680px; top: 660px; width: 300px; text-align: center; font-family: "Maquina", monospace; font-weight: 700; font-size: 340px; line-height: 1; color: #e0283f; }
+  </style>
+  <div id="root" data-composition-id="s06-lampara" data-width="1080" data-height="1920" data-duration="7.92">
+    <div id="s06-lampara-escena" class="capa clip" data-start="0" data-duration="7.92" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s06-lampara">
+            <polygon class="s06-cono" points="470,680 610,680 920,1250 160,1250" opacity="0.03" />
+            <path class="gris" d="M540 470 V600" />
+            <path class="sombra s06-pantalla" d="M490 600 H590 L640 680 H440 Z" style="stroke: #ecebe6; stroke-width: 5" />
+            <ellipse class="s06-foco" cx="540" cy="686" rx="40" ry="10" fill="#8a8a90" />
+          </g>
+          <g class="s06-duenio">
+            <path class="sombra s06-hombros" d="M370 1160 C380 1040 450 1010 540 1010 C630 1010 700 1040 710 1160 Z" />
+            <ellipse class="sombra s06-cabeza" cx="540" cy="925" rx="72" ry="88" />
+            <path class="gris s06-cara" d="M510 915 h12 M558 915 h12 M520 965 Q540 955 560 965" />
+            <path class="linea s06-gota1" d="M630 880 q10 18 0 26 q-10 -8 0 -26 Z" />
+            <path class="linea s06-gota2" d="M452 900 q10 18 0 26 q-10 -8 0 -26 Z" />
+            <path class="linea s06-mano" d="M620 860 q30 -30 60 -10 q10 20 -20 40" />
+          </g>
+          <path class="linea s06-mesa" d="M150 1160 H930 L990 1260 H90 Z" />
+          <ellipse class="sombra s06-m1" cx="430" cy="1185" rx="44" ry="18" />
+          <ellipse class="sombra s06-m2" cx="650" cy="1185" rx="44" ry="18" />
+        </svg>
+        <div class="s06-preg">¿LUCÍA?</div>
+        <div class="s06-globo">¡Yo me acuerdo de todo!</div>
+        <svg class="s06-nube" viewBox="0 0 330 170" aria-hidden="true"><path d="M60 140 C10 140 10 80 50 74 C40 30 100 10 130 40 C150 0 230 0 240 40 C290 20 330 70 300 100 C330 140 280 160 250 145 C230 170 160 170 140 150 C110 170 70 165 60 140 Z" fill="#ecebe6" /><circle cx="40" cy="160" r="0" /></svg>
+        <div class="s06-puntos"><span class="s06-p1">...</span> <span class="s06-p2">...</span></div>
+        <div class="s06-quien">?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-lampara";
+      const DUR = 7.92;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const tipear = (el, txt, t, cps, rojo) => {
+        el.innerHTML = [...txt].map((c) => `<span class="k${rojo && rojo.includes(c) ? " r" : ""}">${c === " " ? "&nbsp;" : c}</span>`).join("");
+        el.querySelectorAll(".k").forEach((k, i) => tl.to(k, { opacity: 1, duration: 0.01 }, t + i / cps));
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -8 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+      const LAMPARA = 1.25, LUCIA = 2.37, YO = 3.27, L1 = 4.55, L2 = 5.57, QUIEN = 6.6;
+      // la lámpara se balancea todo el tiempo
+      tl.fromTo(q(".s06-lampara"), { rotation: -5, svgOrigin: "540 470" }, { rotation: 5, svgOrigin: "540 470", duration: 1.3, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(DUR / 1.3) }, 0);
+      tl.fromTo(q(".s06-pantalla"), { opacity: 0.6 }, { opacity: 1, duration: 0.3 }, 0);
+      tl.fromTo(q(".s06-duenio"), { opacity: 0.35, y: 30 }, { opacity: 0.7, y: 0, duration: 0.6, ease: "power2.out" }, 0);
+      dibujar([q(".s06-mesa")], 0.1, 0.5);
+      // "lámpara": se prende de golpe
+      tl.to(q(".s06-cono"), { opacity: 0.16, duration: 0.05 }, LAMPARA - 0.05);
+      tl.to(q(".s06-cono"), { opacity: 0.05, duration: 0.05 }, LAMPARA + 0.05);
+      tl.to(q(".s06-cono"), { opacity: 0.16, duration: 0.05 }, LAMPARA + 0.12);
+      tl.to(q(".s06-foco"), { fill: "#ecebe6", duration: 0.05 }, LAMPARA - 0.05);
+      tl.to(q(".s06-duenio"), { opacity: 1, duration: 0.1 }, LAMPARA);
+      tl.to([q(".s06-cabeza"), q(".s06-hombros")], { stroke: "#ecebe6", duration: 0.1 }, LAMPARA);
+      // "¿Lucía?"
+      gsap.set(q(".s06-preg"), { opacity: 0 });
+      tipear(q(".s06-preg"), "¿LUCÍA?", LUCIA - 0.05, 18);
+      tl.set(q(".s06-preg"), { opacity: 1 }, LUCIA - 0.05);
+      tl.to(q(".s06-preg"), { opacity: 0, duration: 0.12 }, YO - 0.2);
+      // "¡Yo me acuerdo de todo!"
+      gsap.set(q(".s06-globo"), { opacity: 0, rotation: -3 });
+      tl.fromTo(q(".s06-globo"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.5)", immediateRender: false }, YO - 0.1);
+      temblor(q(".s06-globo"), YO + 0.4, 0.8);
+      temblor(q(".s06-duenio"), YO + 0.1, 0.6);
+      tl.to(q(".s06-globo"), { opacity: 0, scale: 0.8, duration: 0.15 }, L1 - 0.25);
+      // las gotas de sudor
+      [[".s06-gota1", YO + 0.6], [".s06-gota2", L2]].forEach(([s, t]) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, y: 0 }, { opacity: 1, y: 60, duration: 0.9, ease: "power1.in", immediateRender: false }, t);
+        tl.to(q(s), { opacity: 0, duration: 0.15 }, t + 0.9);
+      });
+      // "Lucía... Lucía...": la nube vacía
+      pop(q(".s06-nube"), L1 - 0.1);
+      gsap.set([q(".s06-p1"), q(".s06-p2")], { opacity: 0 });
+      tl.to(q(".s06-p1"), { opacity: 1, duration: 0.2 }, L1 + 0.1);
+      tl.to(q(".s06-p2"), { opacity: 1, duration: 0.2 }, L2 + 0.1);
+      tl.to(q(".s06-duenio"), { rotation: 4, svgOrigin: "540 1160", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, L1);
+      // "¿Quién era esta?": un "?" rojo gigante, se rasca la cabeza
+      tl.to([q(".s06-nube"), q(".s06-puntos")], { opacity: 0, duration: 0.12 }, QUIEN - 0.15);
+      gsap.set(q(".s06-quien"), { opacity: 0 });
+      tl.fromTo(q(".s06-quien"), { opacity: 0, scale: 2.4 }, { opacity: 0.92, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, QUIEN - 0.1);
+      temblor(q(".escenario"), QUIEN + 0.08);
+      tl.to(q(".s06-quien"), { rotation: 8, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, QUIEN + 0.3);
+      dibujar([q(".s06-mano")], QUIEN, 0.3);
+      tl.to(q(".s06-mano"), { x: 8, y: -6, duration: 0.1, yoyo: true, repeat: 5 }, QUIEN + 0.3);
+      etiquetas([["INTERROGATORIO", 0.05], ["EL SOSPECHOSO: VOS", LAMPARA], ["SIN COARTADA", QUIEN]]);
+      tl.to(q("#s06-lampara-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Maquina"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-lluvia"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-lluvia"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-lluvia"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-lluvia"] .linea { fill: none; stroke: #ecebe6; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-lluvia"] .gris { fill: none; stroke: #8a8a90; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-lluvia"] .rojo { fill: none; stroke: #e0283f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-lluvia"] .sombra { fill: #0d0d0f; stroke: #8a8a90; stroke-width: 3; stroke-linejoin: round; }
+    [data-composition-id="s02-lluvia"] .etq { position: absolute; left: 0; right: 0; top: 1326px; text-align: center; font-family: "Maquina", monospace; font-weight: 700; font-size: 32px; letter-spacing: 0.2em; color: #b9b9b4; white-space: nowrap; }
+    [data-composition-id="s02-lluvia"] .sello { position: absolute; padding: 8px 22px; border: 6px solid #e0283f; border-radius: 8px; font-family: "Maquina", monospace; font-weight: 700; color: #e0283f; letter-spacing: 0.08em; white-space: nowrap; text-transform: uppercase; background: rgba(13, 13, 15, 0.85); }
+    [data-composition-id="s02-lluvia"] .k { opacity: 0; }
+    [data-composition-id="s02-lluvia"] .r { color: #e0283f; }
+    [data-composition-id="s02-lluvia"] .s02-gota { fill: none; stroke: #b9b9b4; stroke-width: 3; stroke-linecap: round; opacity: 0.55; }
+    [data-composition-id="s02-lluvia"] .s02-luz { fill: #b9b9b4; opacity: 0.35; }
+    [data-composition-id="s02-lluvia"] .s02-ciudad { fill: #151517; stroke: #8a8a90; stroke-width: 3; stroke-linejoin: round; }
+    [data-composition-id="s02-lluvia"] .s02-ficha { position: absolute; left: 230px; top: 950px; width: 620px; height: 330px; background: #ecebe6; border-radius: 6px; padding: 30px 40px; box-sizing: border-box; }
+    [data-composition-id="s02-lluvia"] .s02-ficha .tit { font-family: "Maquina", monospace; font-weight: 700; font-size: 28px; letter-spacing: 0.2em; color: #8a8a90; border-bottom: 3px solid #151517; padding-bottom: 8px; }
+    [data-composition-id="s02-lluvia"] .s02-ficha .ln { font-family: "Maquina", monospace; font-weight: 700; color: #151517; white-space: nowrap; height: 50px; }
+    [data-composition-id="s02-lluvia"] .s02-nombre { font-size: 64px; margin-top: 14px; height: 76px !important; }
+    [data-composition-id="s02-lluvia"] .s02-l1, [data-composition-id="s02-lluvia"] .s02-l2 { font-size: 30px; margin-top: 8px; }
+    [data-composition-id="s02-lluvia"] .s02-cursor { display: inline-block; width: 18px; height: 30px; background: #151517; vertical-align: -4px; margin-left: 4px; opacity: 0; }
+    [data-composition-id="s02-lluvia"] .s02-sello { left: 470px; top: 1170px; font-size: 36px; background: rgba(236, 235, 230, 0.0); }
+  </style>
+  <div id="root" data-composition-id="s02-lluvia" data-width="1080" data-height="1920" data-duration="6.92">
+    <div id="s02-lluvia-escena" class="capa clip" data-start="0" data-duration="6.92" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs><clipPath id="s02-vidrio"><rect x="200" y="600" width="680" height="460" /></clipPath></defs>
+          <g class="s02-ventana">
+            <g clip-path="url(#s02-vidrio)">
+              <path class="s02-ciudad" d="M200 1062 V960 H260 V900 H330 V980 H380 V860 H420 V780 H440 V730 H460 V780 H480 V860 H520 V940 H600 V880 H680 V960 H740 V910 H820 V990 H880 V1062 Z" />
+              <g class="s02-luces"><rect class="s02-luz" x="272" y="920" width="12" height="16" /><rect class="s02-luz" x="292" y="945" width="12" height="16" /><rect class="s02-luz" x="392" y="880" width="12" height="16" /><rect class="s02-luz" x="392" y="910" width="12" height="16" /><rect class="s02-luz" x="432" y="800" width="12" height="16" /><rect class="s02-luz" x="452" y="820" width="12" height="16" /><rect class="s02-luz" x="540" y="960" width="12" height="16" /><rect class="s02-luz" x="612" y="900" width="12" height="16" /><rect class="s02-luz" x="632" y="930" width="12" height="16" /><rect class="s02-luz" x="692" y="975" width="12" height="16" /><rect class="s02-luz" x="752" y="930" width="12" height="16" /><rect class="s02-luz" x="772" y="955" width="12" height="16" /><rect class="s02-luz" x="832" y="1010" width="12" height="16" /></g>
+              <g class="s02-gotas"><path class="s02-gota" d="M215 590 l-4 30" /><path class="s02-gota" d="M312 763 l-4 37" /><path class="s02-gota" d="M409 936 l-4 44" /><path class="s02-gota" d="M506 669 l-4 51" /><path class="s02-gota" d="M603 842 l-4 58" /><path class="s02-gota" d="M700 1015 l-4 35" /><path class="s02-gota" d="M797 748 l-4 42" /><path class="s02-gota" d="M244 921 l-4 49" /><path class="s02-gota" d="M341 654 l-4 56" /><path class="s02-gota" d="M438 827 l-4 33" /><path class="s02-gota" d="M535 1000 l-4 40" /><path class="s02-gota" d="M632 733 l-4 47" /><path class="s02-gota" d="M729 906 l-4 54" /><path class="s02-gota" d="M826 639 l-4 31" /><path class="s02-gota" d="M273 812 l-4 38" /><path class="s02-gota" d="M370 985 l-4 45" /><path class="s02-gota" d="M467 718 l-4 52" /><path class="s02-gota" d="M564 891 l-4 59" /><path class="s02-gota" d="M661 624 l-4 36" /><path class="s02-gota" d="M758 797 l-4 43" /><path class="s02-gota" d="M855 970 l-4 50" /><path class="s02-gota" d="M302 703 l-4 57" /><path class="s02-gota" d="M399 876 l-4 34" /><path class="s02-gota" d="M496 609 l-4 41" /><path class="s02-gota" d="M593 782 l-4 48" /><path class="s02-gota" d="M690 955 l-4 55" /></g>
+            </g>
+            <rect class="linea s02-marco" x="200" y="600" width="680" height="460" rx="6" />
+            <path class="linea s02-cruz" d="M540 600 V1060 M200 830 H880" />
+            <path class="gris s02-alfeizar" d="M170 1080 H910" />
+          </g>
+        </svg>
+        <div class="s02-ficha">
+          <div class="tit">CLIENTA</div>
+          <div class="ln s02-nombre"></div>
+          <div class="ln s02-l1"></div>
+          <div class="ln s02-l2"><span class="s02-l2t"></span><span class="s02-cursor"></span></div>
+        </div>
+        <div class="sello s02-sello">Sin respuesta</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-lluvia";
+      const DUR = 6.92;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const tipear = (el, txt, t, cps, rojo) => {
+        el.innerHTML = [...txt].map((c) => `<span class="k${rojo && rojo.includes(c) ? " r" : ""}">${c === " " ? "&nbsp;" : c}</span>`).join("");
+        el.querySelectorAll(".k").forEach((k, i) => tl.to(k, { opacity: 1, duration: 0.01 }, t + i / cps));
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -8 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+      const LLOVIA = 0.64, LUCIA = 2.24, MARZO = 3.2, DESPUES = 5.12, NADA = 6.03;
+      dibujar([q(".s02-marco")], 0, 0.5, 0.5);
+      dibujar([q(".s02-cruz"), q(".s02-alfeizar")], 0.1, 0.4);
+      tl.fromTo(q(".s02-ciudad"), { y: 120 }, { y: 0, duration: 0.6, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s02-luces"), { y: 120, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 0);
+      // lluvia en el vidrio: cada gota baja en loop
+      qa(".s02-gota").forEach((g, i) => { const o = ((i * 53) % 240) - 120; tl.fromTo(g, { y: o }, { y: o + 240, duration: 0.8 + (i % 4) * 0.12, ease: "none", repeat: Math.ceil(DUR / 0.8) }, 0); });
+      // "Llovía": la ciudad se ilumina con el relámpago
+      tl.to(q(".s02-luces"), { opacity: 0.2, duration: 0.05, yoyo: true, repeat: 3 }, LLOVIA - 0.2);
+      tl.fromTo(q(".s02-ventana"), { scale: 1 }, { scale: 1.05, svgOrigin: "540 830", duration: LUCIA, ease: "none" }, 0);
+      // "Lucía": sube la ficha y se tipea
+      gsap.set(q(".s02-ficha"), { opacity: 0 });
+      tl.fromTo(q(".s02-ficha"), { opacity: 0, y: 220, rotation: 4 }, { opacity: 1, y: 0, rotation: -2, duration: 0.4, ease: "power3.out", immediateRender: false }, LUCIA - 0.3);
+      tl.to(q(".s02-ventana"), { opacity: 0.45, duration: 0.4 }, LUCIA - 0.3);
+      tipear(q(".s02-nombre"), "LUCÍA", LUCIA, 14);
+      tipear(q(".s02-l1"), "MARZO: PIDIÓ PRESUPUESTO", MARZO, 24);
+      tipear(q(".s02-l2t"), "DESPUÉS: ...", DESPUES, 12);
+      for (let t = DESPUES + 1.0; t < DUR - 0.2; t += 0.4) tl.set(q(".s02-cursor"), { opacity: Math.round((t - DESPUES) / 0.4) % 2 }, t);
+      sello(q(".s02-sello"), NADA, -9);
+      temblor(q(".s02-ficha"), NADA + 0.04, 0.8);
+      etiquetas([["MONTEVIDEO · DE NOCHE", 0.1], ["LA CLIENTA", LUCIA]]);
+      tl.to(q("#s02-lluvia-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

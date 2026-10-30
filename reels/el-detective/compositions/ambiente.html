@@ -1,0 +1,102 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Maquina"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* sombras de persiana en diagonal */
+    [data-composition-id="ambiente"] .amb-persiana { position: absolute; left: -500px; top: -400px; width: 2100px; height: 2800px; transform: rotate(-24deg);
+      background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 70px, rgba(0, 0, 0, 0.34) 70px, rgba(0, 0, 0, 0.34) 118px); }
+    /* lluvia: dos tiras iguales que caen */
+    [data-composition-id="ambiente"] .amb-lluvia { position: absolute; left: -120px; top: -1920px; width: 1320px; height: 3840px; opacity: 0.2; }
+    [data-composition-id="ambiente"] .amb-lluvia svg { position: absolute; left: 0; width: 1320px; height: 1920px; }
+    [data-composition-id="ambiente"] .amb-gota { stroke: #b9b9b4; stroke-width: 2; stroke-linecap: round; }
+    /* humo */
+    [data-composition-id="ambiente"] .amb-humo { position: absolute; border-radius: 50%; background: rgba(185, 185, 180, 0.07); filter: blur(60px); }
+    /* grano */
+    [data-composition-id="ambiente"] .amb-grano { position: absolute; left: -100px; top: -100px; width: 1280px; height: 2120px; opacity: 0.1; mix-blend-mode: screen; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 720px 1080px at 540px 930px, rgba(8, 8, 10, 0) 52%, rgba(8, 8, 10, 0.9) 100%); }
+    [data-composition-id="ambiente"] .amb-parpadeo { position: absolute; inset: 0; background: #000; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-luz { position: absolute; inset: 0; opacity: 0;
+      background: radial-gradient(ellipse 760px 900px at 700px 760px, rgba(236, 235, 230, 0.16) 0%, rgba(236, 235, 230, 0.05) 50%, rgba(236, 235, 230, 0) 80%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #ecebe6; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; left: 60px; top: 1600px; font-family: "Maquina", monospace; font-weight: 700; font-size: 24px; letter-spacing: 0.22em; color: #8a8a90; opacity: 0.7; line-height: 1.5; }
+    [data-composition-id="ambiente"] .amb-rec { color: #e0283f; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="75.13">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="75.13" data-track-index="0">
+      <div class="amb-humo amb-h1" style="left: -200px; top: 700px; width: 900px; height: 500px"></div>
+      <div class="amb-humo amb-h2" style="left: 500px; top: 1050px; width: 800px; height: 420px"></div>
+      <div class="amb-humo amb-h3" style="left: 100px; top: 1350px; width: 1000px; height: 380px"></div>
+      <div class="amb-lluvia"><svg class="amb-t1" style="top: 0" viewBox="0 0 1320 1920" aria-hidden="true"></svg><svg class="amb-t2" style="top: 1920px" viewBox="0 0 1320 1920" aria-hidden="true"></svg></div>
+      <div class="amb-persiana"></div>
+      <svg class="amb-grano" viewBox="0 0 1280 2120" aria-hidden="true">
+        <filter id="amb-ruido"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" /><feColorMatrix type="saturate" values="0" /></filter>
+        <rect width="1280" height="2120" filter="url(#amb-ruido)" />
+      </svg>
+      <div class="amb-luz"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-parpadeo"></div>
+      <div class="amb-rotulo" data-layout-ignore>ARCHIVO PRIVADO<br /><span class="amb-rec">●</span> ROLLO 1</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 75.13;
+      const LUZ = 58.45; // "En Scalerics": se abren las persianas
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // lluvia: rayas deterministas, la misma tira dos veces, cae en loop
+      const NS = "http://www.w3.org/2000/svg";
+      for (const sel of [".amb-t1", ".amb-t2"]) {
+        const svg = q(sel);
+        for (let i = 0; i < 90; i++) {
+          const x = (i * 157 + 23) % 1320, y = (i * 389 + 71) % 1920, l = 40 + (i * 37) % 70;
+          const ln = document.createElementNS(NS, "line");
+          ln.setAttribute("class", "amb-gota");
+          ln.setAttribute("x1", x); ln.setAttribute("y1", y); ln.setAttribute("x2", x - l * 0.18); ln.setAttribute("y2", y + l);
+          ln.setAttribute("opacity", 0.4 + ((i * 13) % 60) / 100);
+          svg.appendChild(ln);
+        }
+      }
+      const VUELTA = 1.4;
+      const N = Math.ceil(LUZ / VUELTA);
+      tl.fromTo(q(".amb-lluvia"), { y: 0, x: 0 }, { y: 1920, x: 340, duration: VUELTA, ease: "none", repeat: N - 1 }, 0);
+      tl.to(q(".amb-lluvia"), { opacity: 0, duration: 1.2, ease: "power1.in" }, LUZ);
+
+      // persiana: deriva lenta; en LUZ se abre (se va hacia arriba y se desvanece)
+      tl.fromTo(q(".amb-persiana"), { y: 0 }, { y: 40, duration: LUZ, ease: "none" }, 0);
+      tl.to(q(".amb-persiana"), { opacity: 0, scaleY: 0.3, duration: 1.4, ease: "power2.inOut" }, LUZ);
+      tl.to(q(".amb-luz"), { opacity: 1, duration: 1.6, ease: "power2.out" }, LUZ + 0.1);
+
+      // humo
+      tl.fromTo(q(".amb-h1"), { x: 0, y: 0 }, { x: 260, y: -120, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".amb-h2"), { x: 0, y: 0 }, { x: -300, y: -90, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".amb-h3"), { x: 0, y: 0 }, { x: 180, y: -160, duration: DUR, ease: "none" }, 0);
+
+      // grano: salta de lugar 12 veces por segundo
+      tl.to(q(".amb-grano"), { x: 90, y: -70, duration: DUR, ease: "steps(" + Math.round(DUR * 12) + ")" }, 0);
+
+      // parpadeo de la luz (proyector viejo), solo en la parte de noche
+      [2.1, 9.4, 15.8, 21.7, 26.3, 33.9, 41.2, 50.6, 56.2].forEach((t, k) => {
+        tl.to(q(".amb-parpadeo"), { opacity: 0.16 + (k % 3) * 0.04, duration: 0.04, ease: "none" }, t);
+        tl.to(q(".amb-parpadeo"), { opacity: 0, duration: 0.08, ease: "none" }, t + 0.07);
+      });
+
+      // relámpagos (segundos globales): "Llovía", "Caso cerrado", "Spade"
+      [5.98, 44.7, 57.2].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.35, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0.05, duration: 0.06 }, t + 0.04);
+        tl.to(q(".amb-flash"), { opacity: 0.25, duration: 0.03 }, t + 0.12);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.4, ease: "power2.out" }, t + 0.16);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

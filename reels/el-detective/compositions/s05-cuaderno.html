@@ -1,0 +1,116 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Maquina"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-cuaderno"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-cuaderno"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-cuaderno"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-cuaderno"] .linea { fill: none; stroke: #ecebe6; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-cuaderno"] .gris { fill: none; stroke: #8a8a90; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-cuaderno"] .rojo { fill: none; stroke: #e0283f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-cuaderno"] .sombra { fill: #0d0d0f; stroke: #8a8a90; stroke-width: 3; stroke-linejoin: round; }
+    [data-composition-id="s05-cuaderno"] .etq { position: absolute; left: 0; right: 0; top: 1326px; text-align: center; font-family: "Maquina", monospace; font-weight: 700; font-size: 32px; letter-spacing: 0.2em; color: #b9b9b4; white-space: nowrap; }
+    [data-composition-id="s05-cuaderno"] .sello { position: absolute; padding: 8px 22px; border: 6px solid #e0283f; border-radius: 8px; font-family: "Maquina", monospace; font-weight: 700; color: #e0283f; letter-spacing: 0.08em; white-space: nowrap; text-transform: uppercase; background: rgba(13, 13, 15, 0.85); }
+    [data-composition-id="s05-cuaderno"] .k { opacity: 0; }
+    [data-composition-id="s05-cuaderno"] .r { color: #e0283f; }
+    [data-composition-id="s05-cuaderno"] .s05-renglon { fill: none; stroke: #8a8a90; stroke-width: 2; opacity: 0.6; }
+    [data-composition-id="s05-cuaderno"] .s05-tinta { fill: none; stroke: #ecebe6; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-cuaderno"] .s05-lu { position: absolute; left: 225px; top: 790px; font-family: "Caveat", cursive; font-weight: 700; font-size: 64px; color: #ecebe6; transform: rotate(-5deg); }
+    [data-composition-id="s05-cuaderno"] .s05-sello { left: 300px; top: 950px; font-size: 76px; }
+  </style>
+  <div id="root" data-composition-id="s05-cuaderno" data-width="1080" data-height="1920" data-duration="4.56">
+    <div id="s05-cuaderno-escena" class="capa clip" data-start="0" data-duration="4.56" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s05-cuaderno">
+            <path class="linea s05-hojas" d="M540 790 C440 760 300 760 180 790 V1230 C300 1200 440 1200 540 1230 C640 1200 780 1200 900 1230 V790 C780 760 640 760 540 790 Z" />
+            <path class="linea s05-lomo" d="M540 790 V1230" />
+            <path class="s05-renglon" d="M210 868 H510" /><path class="s05-renglon" d="M210 928 H510" /><path class="s05-renglon" d="M210 988 H510" /><path class="s05-renglon" d="M210 1048 H510" /><path class="s05-renglon" d="M210 1108 H510" /><path class="s05-renglon" d="M210 1168 H510" /><path class="s05-renglon" d="M570 868 H870" /><path class="s05-renglon" d="M570 928 H870" /><path class="s05-renglon" d="M570 988 H870" /><path class="s05-renglon" d="M570 1048 H870" /><path class="s05-renglon" d="M570 1108 H870" /><path class="s05-renglon" d="M570 1168 H870" />
+            <path class="s05-tinta" d="M220 920 c5 -18 16 -18 10 0 s-3 9 10 -4 c7 -29 23 -29 14 0 s-5 14 14 0 c5 -18 16 -18 10 0 s-3 9 10 4 c7 -29 23 -29 14 0 s-5 14 14 -4 c5 -18 16 -18 10 0 s-3 9 10 0 c7 -29 23 -29 14 0 s-5 14 14 4 c5 -18 16 -18 10 0 s-3 9 10 -4 c7 -29 23 -29 14 0 s-5 14 14 0 c5 -18 16 -18 10 0 s-3 9 10 4 c7 -29 23 -29 14 0 s-5 14 14 -4" /><path class="s05-tinta" d="M220 980 c6 -23 19 -23 11 0 s-4 12 11 -4 c8 -34 26 -34 16 0 s-5 17 16 0 c6 -23 19 -23 11 0 s-4 12 11 4 c8 -34 26 -34 16 0 s-5 17 16 -4 c6 -23 19 -23 11 0 s-4 12 11 0 c8 -34 26 -34 16 0 s-5 17 16 4 c6 -23 19 -23 11 0 s-4 12 11 -4 c8 -34 26 -34 16 0 s-5 17 16 0" /><path class="s05-tinta" d="M220 1040 c7 -28 22 -28 13 0 s-4 14 13 -4 c9 -39 29 -39 17 0 s-6 20 17 0 c7 -28 22 -28 13 0 s-4 14 13 4 c9 -39 29 -39 17 0 s-6 20 17 -4 c7 -28 22 -28 13 0 s-4 14 13 0 c9 -39 29 -39 17 0 s-6 20 17 4" /><path class="s05-tinta" d="M220 1100 c8 -33 25 -33 15 0 s-5 16 15 -4 c5 -22 18 -22 11 0 s-4 11 11 0 c8 -33 25 -33 15 0 s-5 16 15 4 c5 -22 18 -22 11 0 s-4 11 11 -4 c8 -33 25 -33 15 0 s-5 16 15 0 c5 -22 18 -22 11 0 s-4 11 11 4 c8 -33 25 -33 15 0 s-5 16 15 -4 c5 -22 18 -22 11 0 s-4 11 11 0 c8 -33 25 -33 15 0 s-5 16 15 4" /><path class="s05-tinta" d="M220 1160 c8 -38 28 -38 17 0 s-6 19 17 -4 c6 -27 21 -27 13 0 s-4 14 13 0 c8 -38 28 -38 17 0 s-6 19 17 4 c6 -27 21 -27 13 0 s-4 14 13 -4 c8 -38 28 -38 17 0 s-6 19 17 0 c6 -27 21 -27 13 0 s-4 14 13 4 c8 -38 28 -38 17 0 s-6 19 17 -4" /><path class="s05-tinta" d="M580 860 c5 -21 17 -21 10 0 s-3 10 10 -4 c7 -32 24 -32 14 0 s-5 16 14 0 c5 -21 17 -21 10 0 s-3 10 10 4 c7 -32 24 -32 14 0 s-5 16 14 -4 c5 -21 17 -21 10 0 s-3 10 10 0 c7 -32 24 -32 14 0 s-5 16 14 4 c5 -21 17 -21 10 0 s-3 10 10 -4 c7 -32 24 -32 14 0 s-5 16 14 0 c5 -21 17 -21 10 0 s-3 10 10 4" /><path class="s05-tinta" d="M580 920 c6 -26 20 -26 12 0 s-4 13 12 -4 c8 -37 27 -37 16 0 s-5 18 16 0 c6 -26 20 -26 12 0 s-4 13 12 4 c8 -37 27 -37 16 0 s-5 18 16 -4 c6 -26 20 -26 12 0 s-4 13 12 0 c8 -37 27 -37 16 0 s-5 18 16 4 c6 -26 20 -26 12 0 s-4 13 12 -4" /><path class="s05-tinta" d="M580 980 c7 -31 23 -31 14 0 s-5 16 14 -4 c5 -20 16 -20 10 0 s-3 10 10 0 c7 -31 23 -31 14 0 s-5 16 14 4 c5 -20 16 -20 10 0 s-3 10 10 -4 c7 -31 23 -31 14 0 s-5 16 14 0 c5 -20 16 -20 10 0 s-3 10 10 4 c7 -31 23 -31 14 0 s-5 16 14 -4 c5 -20 16 -20 10 0 s-3 10 10 0 c7 -31 23 -31 14 0 s-5 16 14 4 c5 -20 16 -20 10 0 s-3 10 10 -4 c7 -31 23 -31 14 0 s-5 16 14 0" /><path class="s05-tinta" d="M580 1040 c8 -36 26 -36 16 0 s-5 18 16 -4 c6 -25 19 -25 11 0 s-4 12 11 0 c8 -36 26 -36 16 0 s-5 18 16 4 c6 -25 19 -25 11 0 s-4 12 11 -4 c8 -36 26 -36 16 0 s-5 18 16 0 c6 -25 19 -25 11 0 s-4 12 11 4 c8 -36 26 -36 16 0 s-5 18 16 -4 c6 -25 19 -25 11 0 s-4 12 11 0 c8 -36 26 -36 16 0 s-5 18 16 4" /><path class="s05-tinta" d="M580 1100 c9 -19 29 -19 17 0 s-6 10 17 -4 c7 -30 22 -30 13 0 s-4 15 13 0 c9 -19 29 -19 17 0 s-6 10 17 4 c7 -30 22 -30 13 0 s-4 15 13 -4 c9 -19 29 -19 17 0 s-6 10 17 0 c7 -30 22 -30 13 0 s-4 15 13 4" /><path class="s05-tinta" d="M580 1160 c5 -24 18 -24 11 0 s-4 12 11 -4 c8 -35 25 -35 15 0 s-5 18 15 0 c5 -24 18 -24 11 0 s-4 12 11 4 c8 -35 25 -35 15 0 s-5 18 15 -4 c5 -24 18 -24 11 0 s-4 12 11 0 c8 -35 25 -35 15 0 s-5 18 15 4" />
+            <circle class="gris s05-mancha" cx="780" cy="1130" r="58" />
+            <circle class="gris s05-mancha2" cx="786" cy="1126" r="46" opacity="0.5" />
+          </g>
+          <g class="s05-lupa">
+            <circle cx="0" cy="0" r="120" fill="rgba(236,235,230,0.08)" stroke="#ecebe6" stroke-width="8" />
+            <path d="M86 86 L200 200" stroke="#ecebe6" stroke-width="22" stroke-linecap="round" />
+          </g>
+        </svg>
+        <div class="s05-lu">Lu...</div>
+        <div class="sello s05-sello">Ilegible</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-cuaderno";
+      const DUR = 4.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const tipear = (el, txt, t, cps, rojo) => {
+        el.innerHTML = [...txt].map((c) => `<span class="k${rojo && rojo.includes(c) ? " r" : ""}">${c === " " ? "&nbsp;" : c}</span>`).join("");
+        el.querySelectorAll(".k").forEach((k, i) => tl.to(k, { opacity: 1, duration: 0.01 }, t + i / cps));
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -8 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+      const CUADERNO = 0.91, LETRA = 2.21, MARLOWE = 3.11;
+      dibujar([q(".s05-hojas"), q(".s05-lomo")], 0, 0.5, 0.5);
+      qa(".s05-renglon").forEach((r, i) => tl.fromTo(r, { opacity: 0 }, { opacity: 0.6, duration: 0.2 }, 0.1 + i * 0.02));
+      // "cuaderno": los garabatos se escriben solos
+      dibujar(qa(".s05-tinta"), CUADERNO - 0.5, 0.45);
+      gsap.set(q(".s05-lu"), { opacity: 0 });
+      tl.fromTo(q(".s05-lu"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, immediateRender: false }, CUADERNO - 0.5);
+      dibujar([q(".s05-mancha"), q(".s05-mancha2")], CUADERNO, 0.4);
+      // "letra": la lupa recorre
+      gsap.set(q(".s05-lupa"), { opacity: 0, x: 140, y: 1400 });
+      tl.to(q(".s05-lupa"), { opacity: 1, duration: 0.1 }, LETRA - 0.5);
+      tl.to(q(".s05-lupa"), { x: 330, y: 960, duration: 0.5, ease: "power3.out" }, LETRA - 0.5);
+      tl.to(q(".s05-lupa"), { x: 700, y: 990, duration: 0.5, ease: "sine.inOut" }, LETRA + 0.05);
+      tl.to(qa(".s05-tinta"), { y: (i) => (i % 2 ? 3 : -3), duration: 0.12, yoyo: true, repeat: 7, ease: "sine.inOut" }, LETRA);
+      tl.fromTo(q(".s05-cuaderno"), { scale: 1 }, { scale: 1.06, svgOrigin: "540 1000", duration: DUR, ease: "none" }, 0);
+      // "Marlowe": ILEGIBLE
+      tl.to(q(".s05-lupa"), { x: 960, y: 760, opacity: 0, duration: 0.3, ease: "power2.in" }, MARLOWE - 0.35);
+      sello(q(".s05-sello"), MARLOWE, -10);
+      temblor(q(".escenario"), MARLOWE + 0.04, 0.7);
+      etiquetas([["PISTA 3 · EL CUADERNO", 0.05], ["NI PHILIP MARLOWE", MARLOWE - 0.3]]);
+      tl.to(q("#s05-cuaderno-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

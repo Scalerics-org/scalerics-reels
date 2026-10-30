@@ -1,0 +1,110 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Maquina"; font-weight: 700; font-display: block; src: url("assets/fonts/FreeMonoBold.ttf") format("truetype"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-spade"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-spade"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-spade"] svg.lienzo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-spade"] .linea { fill: none; stroke: #ecebe6; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-spade"] .gris { fill: none; stroke: #8a8a90; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-spade"] .rojo { fill: none; stroke: #e0283f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-spade"] .sombra { fill: #0d0d0f; stroke: #8a8a90; stroke-width: 3; stroke-linejoin: round; }
+    [data-composition-id="s11-spade"] .etq { position: absolute; left: 0; right: 0; top: 1326px; text-align: center; font-family: "Maquina", monospace; font-weight: 700; font-size: 32px; letter-spacing: 0.2em; color: #b9b9b4; white-space: nowrap; }
+    [data-composition-id="s11-spade"] .sello { position: absolute; padding: 8px 22px; border: 6px solid #e0283f; border-radius: 8px; font-family: "Maquina", monospace; font-weight: 700; color: #e0283f; letter-spacing: 0.08em; white-space: nowrap; text-transform: uppercase; background: rgba(13, 13, 15, 0.85); }
+    [data-composition-id="s11-spade"] .k { opacity: 0; }
+    [data-composition-id="s11-spade"] .r { color: #e0283f; }
+    [data-composition-id="s11-spade"] .s11-ni { position: absolute; left: 0; right: 0; top: 1200px; text-align: center; font-family: "Maquina", monospace; font-weight: 700; font-size: 64px; color: #e0283f; letter-spacing: 0.06em; }
+  </style>
+  <div id="root" data-composition-id="s11-spade" data-width="1080" data-height="1920" data-duration="3.54">
+    <div id="s11-spade-escena" class="capa clip" data-start="0" data-duration="3.54" data-track-index="0">
+      <div class="escenario">
+        <svg class="lienzo" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-det"><g transform="translate(330 640) scale(1.4)">
+            <path class="sombra" d="M58 236 Q150 196 242 236 L300 400 L0 400 Z" />
+            <path class="gris" d="M150 222 L150 400 M112 300 L150 360 L188 300" />
+            <path class="sombra" d="M84 230 L104 150 L150 226 L196 150 L216 230" />
+            <ellipse class="sombra" cx="150" cy="158" rx="52" ry="62" />
+          </g></g>
+          <g class="s11-pila"><g transform="translate(0 40)"><g class="s11-it" transform="rotate(-8 440 610)"><rect x="380" y="560" width="130" height="100" fill="#ecebe6"/><path d="M400 600 h80 M400 624 h50" stroke="#151517" stroke-width="5" stroke-linecap="round"/></g><g class="s11-it" transform="rotate(6 540 510)"><rect x="470" y="470" width="150" height="80" rx="24" fill="#26262a" stroke="#ecebe6" stroke-width="5"/><path d="M500 510 h90" stroke="#8a8a90" stroke-width="6" stroke-linecap="round"/></g><g class="s11-it" transform="rotate(-4 480 420)"><rect x="360" y="380" width="250" height="80" rx="6" fill="#151517" stroke="#ecebe6" stroke-width="5"/><path d="M380 400 v40" stroke="#8a8a90" stroke-width="5"/></g><g class="s11-it" transform="rotate(12 580 350)"><rect x="520" y="300" width="130" height="100" fill="#ecebe6"/><path d="M540 340 h80 M540 364 h50" stroke="#151517" stroke-width="5" stroke-linecap="round"/></g></g></g>
+          <g class="s11-som"><g transform="translate(330 640) scale(1.4)">
+            <path class="sombra" d="M80 112 L94 42 Q150 20 206 42 L220 112 Z" />
+            <path class="gris" d="M86 96 H214" />
+            <path class="sombra" d="M10 122 Q150 92 290 122 Q150 146 10 122 Z" />
+          </g></g>
+        </svg>
+        <div class="s11-ni">NI SAM SPADE.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-spade";
+      const DUR = 3.54;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popSvg = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const tipear = (el, txt, t, cps, rojo) => {
+        el.innerHTML = [...txt].map((c) => `<span class="k${rojo && rojo.includes(c) ? " r" : ""}">${c === " " ? "&nbsp;" : c}</span>`).join("");
+        el.querySelectorAll(".k").forEach((k, i) => tl.to(k, { opacity: 1, duration: 0.01 }, t + i / cps));
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot ?? -8 });
+        tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiquetas = (lista) => {
+        lista.forEach(([txt, t], i) => {
+          const el = document.createElement("div");
+          el.className = "etq";
+          el.innerHTML = txt;
+          q(".capa").appendChild(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(el, { opacity: 0, y: 10, duration: 0.15 }, lista[i + 1][1] - 0.15);
+        });
+      };
+      const NADIE = 0.71, NI = 1.51, SPADE = 2.07;
+      tl.fromTo([q(".s11-det"), q(".s11-som")], { opacity: 0.4, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0);
+      // la pila le cae encima: post-its, chats, cuaderno
+      const its = qa(".s11-it");
+      its.forEach((it, i) => {
+        gsap.set(it, { opacity: 0 });
+        tl.fromTo(it, { opacity: 0, y: -700 }, { opacity: 1, y: 0, duration: 0.22, ease: "power3.in", immediateRender: false }, NADIE - 0.35 + i * 0.08);
+      });
+      // se encorva
+      tl.to([q(".s11-det"), q(".s11-som"), q(".s11-pila")], { scaleY: 0.9, svgOrigin: "540 1200", duration: 0.2, ease: "power2.out" }, NADIE + 0.15);
+      tl.to(q(".s11-pila"), { rotation: 4, svgOrigin: "540 900", duration: 0.35, yoyo: true, repeat: 5, ease: "sine.inOut" }, NADIE + 0.3);
+      // "Spade": se le cae el sombrero
+      tl.to(q(".s11-pila"), { y: 70, duration: 0.25, ease: "power3.in" }, SPADE + 0.05);
+      tl.to(q(".s11-som"), { x: 420, y: 560, rotation: 70, svgOrigin: "540 800", duration: 0.6, ease: "power2.in" }, SPADE - 0.1);
+      gsap.set(q(".s11-ni"), { opacity: 0 });
+      tipear(q(".s11-ni"), "NI SAM SPADE.", NI, 20);
+      tl.set(q(".s11-ni"), { opacity: 1 }, NI);
+      etiquetas([["NADIE PUEDE SOLO", 0.05]]);
+      tl.to(q("#s11-spade-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
