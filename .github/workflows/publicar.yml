@@ -20,6 +20,10 @@ on:
         description: "Lo manda el panel de aprobación (no tocar a mano)"
         type: string
         default: ""
+      turno:
+        description: "Como la corrida de la hora: solo publica si hay un horario pendiente y lo marca (lo usa el reloj externo)"
+        type: boolean
+        default: false
       tiktok_inbox:
         description: "Prueba: manda ese reel (slug) a la bandeja de TikTok, sin anotar nada"
         type: string
@@ -38,7 +42,7 @@ jobs:
       # (sin bajar los videos). Pendiente = ya pasó y el publicador no lo atendió (turnos.json).
       - id: toca
         run: |
-          if [ "${{ github.event_name }}" != "schedule" ]; then echo "si=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if [ "${{ github.event_name }}" != "schedule" ] && [ "${{ inputs.turno }}" != "true" ]; then echo "si=true" >> "$GITHUB_OUTPUT"; exit 0; fi
           T=$(curl -sf --max-time 20 "https://reels.scalerics.com/api/horarios?turno=1" || echo '{"redes":[],"turnos":{}}')
           REDES=$(echo "$T" | jq -r '.redes | join(",")')
           echo "pendientes: ${REDES:-ninguno} $(echo "$T" | jq -c .turnos)"
