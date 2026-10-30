@@ -1,0 +1,93 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-rincones"] .esc-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-rincones"] .esc-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-rincones"] svg.esc-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-rincones"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.01em; }
+    [data-composition-id="s02-rincones"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-rincones"] .sello { position: absolute; padding: 8px 24px; border: 7px solid currentColor; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s02-rincones"] .s02-nombre { top: 590px; font-size: 112px; }
+    [data-composition-id="s02-rincones"] .s02-rojo { color: #e5383b; text-shadow: 0 0 34px rgba(229, 56, 59, 0.4); }
+    [data-composition-id="s02-rincones"] .s02-azul { color: #2f6bff; text-shadow: 0 0 34px rgba(47, 107, 255, 0.45); }
+    [data-composition-id="s02-rincones"] .s02-rot { position: absolute; left: 0; right: 0; text-align: center; top: 716px; font-size: 30px; }
+    [data-composition-id="s02-rincones"] .s02-rot-r { color: #e5383b; }
+    [data-composition-id="s02-rincones"] .s02-rot-a { color: #2f6bff; }
+    [data-composition-id="s02-rincones"] .s02-caja { position: absolute; left: 0; right: 0; top: 708px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 56px; color: #f5f1e8; text-transform: uppercase; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s02-rincones" data-width="1080" data-height="1920" data-duration="7.39">
+    <div id="s02-rincones-escena" class="esc-capa clip" data-start="0" data-duration="7.39" data-track-index="0">
+      <div class="esc-escenario">
+
+        <svg class="esc-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <linearGradient id="s02-luz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5f1e8" stop-opacity="0.22"/><stop offset="1" stop-color="#f5f1e8" stop-opacity="0.02"/></linearGradient>
+          </defs>
+          <path class="s02-luzR" d="M230 0 H330 L520 1420 H10 Z" fill="url(#s02-luz)" />
+          <path class="s02-luzA" d="M760 0 H860 L1080 1420 H560 Z" fill="url(#s02-luz)" />
+          <g transform="translate(40 840) scale(0.95)"><g class="s02-duenio"></g></g>
+          <g transform="translate(640 820) scale(0.82)"><g class="s02-robot"></g></g>
+          <g transform="translate(390 1010) scale(0.78)"><g class="s02-anun"></g></g>
+        </svg>
+        <div class="txt s02-nombre s02-rojo">Tu negocio</div>
+        <div class="mono s02-rot s02-rot-r">RINCÓN ROJO</div>
+        <div class="txt s02-nombre s02-azul">El enlatado</div>
+        <div class="mono s02-rot s02-rot-a" style="top: 786px">RINCÓN AZUL</div>
+        <div class="s02-caja">de la caja</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-rincones";
+      const DUR = 7.39;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const K = window.KIT;
+      const esc = q(".esc-escenario");
+      const tl = gsap.timeline({ paused: true });
+
+      q(".s02-duenio").innerHTML = K.duenio({ cara: "guardia" });
+      q(".s02-robot").innerHTML = K.enlatado({ pantalla: ["", "HOLA"] });
+      q(".s02-anun").innerHTML = K.anunciador();
+      const RINCON1 = 0.5, NEGOCIO = 1.42, OTRO = 2.92, RINCON2 = 3.25, ENLATADO = 5.0, CAJA = 5.84;
+      // el anunciador ya está; el micrófono baja del techo
+      tl.fromTo(q(".s02-anun"), { y: -40 }, { y: 0, duration: 0.4, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s02-anun .k-a-boca"), { scaleY: 0.5, svgOrigin: "200 224" }, { scaleY: 1.6, svgOrigin: "200 224", duration: 0.16, yoyo: true, repeat: 41, ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".s02-anun .k-a-cabeza"), { rotation: -4, svgOrigin: "200 260" }, { rotation: 4, svgOrigin: "200 260", duration: 0.6, yoyo: true, repeat: 11, ease: "sine.inOut" }, 0);
+      // rincón rojo
+      gsap.set([q(".s02-luzR"), q(".s02-luzA"), q(".s02-duenio"), q(".s02-robot")], { opacity: 0 });
+      tl.to(q(".s02-luzR"), { opacity: 1, duration: 0.08 }, RINCON1);
+      tl.fromTo(q(".s02-duenio"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, RINCON1);
+      tl.to(q(".s02-duenio .k-d-brazoD"), { y: -60, duration: 0.2, yoyo: true, repeat: 3, ease: "power2.out" }, NEGOCIO);
+      K.golpe(tl, q(".s02-rojo"), NEGOCIO);
+      K.pop(tl, q(".s02-rot-r"), NEGOCIO + 0.15);
+      K.sacudir(tl, esc, NEGOCIO + 0.05, 10);
+      // rincón azul: se apaga el rojo
+      tl.to([q(".s02-luzR")], { opacity: 0.25, duration: 0.2 }, OTRO);
+      tl.to(q(".s02-duenio"), { opacity: 0.35, duration: 0.2 }, OTRO);
+      tl.to([q(".s02-rojo"), q(".s02-rot-r")], { opacity: 0, x: -200, duration: 0.25, ease: "power2.in" }, OTRO);
+      tl.to(q(".s02-luzA"), { opacity: 1, duration: 0.08 }, RINCON2);
+      tl.fromTo(q(".s02-robot"), { opacity: 0, y: -300 }, { opacity: 1, y: 0, duration: 0.35, ease: "bounce.out", immediateRender: false }, RINCON2);
+      K.pantalla(tl, q(".s02-robot"), 1, RINCON2 + 0.4);
+      K.golpe(tl, q(".s02-azul"), ENLATADO);
+      K.pop(tl, q(".s02-rot-a"), ENLATADO + 0.2);
+      K.sacudir(tl, esc, ENLATADO + 0.05, 14);
+      K.golpe(tl, q(".s02-caja"), CAJA, 1.8);
+      tl.to(q(".s02-robot .k-e-cajon"), { y: 30, duration: 0.12, yoyo: true, repeat: 3 }, CAJA);
+      tl.to(q(".s02-robot .k-e-brazoI"), { y: -40, duration: 0.2, yoyo: true, repeat: 3 }, CAJA);
+      tl.to(q(".s02-robot .k-e-brazoD"), { y: -40, duration: 0.2, yoyo: true, repeat: 3 }, CAJA + 0.1);
+
+      // salida
+      tl.to(q("#s02-rincones-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

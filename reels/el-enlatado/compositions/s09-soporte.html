@@ -1,0 +1,102 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-soporte"] .esc-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-soporte"] .esc-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-soporte"] svg.esc-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-soporte"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.01em; }
+    [data-composition-id="s09-soporte"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-soporte"] .sello { position: absolute; padding: 8px 24px; border: 7px solid currentColor; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s09-soporte"] .s09-soporte { top: 590px; font-size: 90px; color: #2f6bff; text-shadow: 0 0 34px rgba(47, 107, 255, 0.45); }
+    [data-composition-id="s09-soporte"] .s09-ayuda { position: absolute; left: 330px; top: 760px; padding: 12px 24px; background: #f5f1e8; color: #0d0e14; border-radius: 24px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 52px; white-space: nowrap; }
+    [data-composition-id="s09-soporte"] .s09-cal { position: absolute; left: 640px; top: 1110px; width: 300px; height: 190px; background: #f5f1e8; border-radius: 12px; border-top: 40px solid #e5383b; overflow: hidden; }
+    [data-composition-id="s09-soporte"] .s09-dia { position: absolute; left: 0; right: 0; top: 46px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; color: #0d0e14; text-transform: uppercase; opacity: 0; }
+    [data-composition-id="s09-soporte"] .s09-espera { position: absolute; left: 90px; top: 1400px; width: 900px; }
+    [data-composition-id="s09-soporte"] .s09-espera .mono { font-size: 30px; color: #ffc531; }
+    [data-composition-id="s09-soporte"] .s09-barra { margin-top: 12px; height: 26px; border: 4px solid #ffc531; border-radius: 14px; overflow: hidden; }
+    [data-composition-id="s09-soporte"] .s09-relleno { height: 100%; width: 100%; background: #ffc531; transform-origin: 0 50%; transform: scaleX(0); }
+  </style>
+  <div id="root" data-composition-id="s09-soporte" data-width="1080" data-height="1920" data-duration="7.75">
+    <div id="s09-soporte-escena" class="esc-capa clip" data-start="0" data-duration="7.75" data-track-index="0">
+      <div class="esc-escenario">
+
+        <svg class="esc-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 860)"><g class="s09-tarjeta"></g></g>
+          <g class="s09-sala">
+            <g transform="translate(20 830) scale(0.98)"><g class="s09-duenio"></g></g>
+            <g class="s09-tel"><rect x="246" y="905" width="44" height="110" rx="10" fill="#0d0e14" stroke="#f5f1e8" stroke-width="5" transform="rotate(-18 268 960)"/></g>
+            <g class="s09-telar" fill="none" stroke="#f5f1e8" stroke-opacity="0.75" stroke-width="3">
+              <path d="M30 720 L240 720 M30 720 L30 930 M30 720 L200 880 M30 720 L120 920 M30 720 L230 790"/>
+              <path d="M80 720 Q70 760 30 770 M150 720 Q130 800 30 830 M220 720 Q190 840 30 890"/>
+            </g>
+            <g transform="translate(790 900)">
+              <circle r="130" fill="#0d0e14" stroke="#f5f1e8" stroke-width="8"/>
+              <g stroke="#f5f1e8" stroke-width="6" stroke-linecap="round"><path d="M0 -112 V-96 M0 112 V96 M-112 0 H-96 M112 0 H96"/></g>
+              <path class="s09-horas" d="M0 0 V-60" stroke="#ffc531" stroke-width="12" stroke-linecap="round"/>
+              <path class="s09-min" d="M0 0 V-96" stroke="#f5f1e8" stroke-width="7" stroke-linecap="round"/>
+              <circle r="10" fill="#ffc531"/>
+            </g>
+          </g>
+        </svg>
+        <div class="txt s09-soporte">Llame al soporte</div>
+        <div class="s09-ayuda">¿Hola? ¿Ayuda?</div>
+        <div class="s09-cal"><div class="s09-dia s09-d0">Lunes</div><div class="s09-dia s09-d1">Martes</div><div class="s09-dia s09-d2">Miércoles</div><div class="s09-dia s09-d3">Jueves</div><div class="s09-dia s09-d4">Viernes</div></div>
+        <div class="s09-espera"><div class="mono">EN ESPERA · NO CORTE</div><div class="s09-barra"><div class="s09-relleno"></div></div></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-soporte";
+      const DUR = 7.75;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const K = window.KIT;
+      const esc = q(".esc-escenario");
+      const tl = gsap.timeline({ paused: true });
+
+      q(".s09-tarjeta").innerHTML = K.tarjeta(4);
+      q(".s09-duenio").innerHTML = K.duenio({ cara: "dolor" });
+      const PIDE = 1.02, LLAME = 1.91, SOPORTE = 2.63, SU = 3.79, IMPORTANTE = 5.11;
+      // ROUND 4
+      tl.fromTo(q(".s09-tarjeta"), { opacity: 0.4, rotation: 12, scale: 1.5, svgOrigin: "0 0" }, { opacity: 1, rotation: 3, scale: 1, svgOrigin: "0 0", duration: 0.28, ease: "back.out(2)" }, 0);
+      tl.to(q(".s09-tarjeta"), { opacity: 0, y: -260, duration: 0.25, ease: "power3.in" }, PIDE - 0.3);
+      // el dueño con el teléfono pide ayuda
+      gsap.set(q(".s09-sala"), { opacity: 0 });
+      tl.fromTo(q(".s09-sala"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, PIDE - 0.1);
+      gsap.set([q(".s09-telar"), q(".s09-cal"), q(".s09-espera")], { opacity: 0 });
+      tl.to([q(".s09-cal"), q(".s09-espera")], { opacity: 1, duration: 0.2 }, SU - 0.15);
+      K.pop(tl, q(".s09-ayuda"), PIDE + 0.1);
+      tl.to(q(".s09-ayuda"), { opacity: 0, duration: 0.15 }, LLAME);
+      K.golpe(tl, q(".s09-soporte"), SOPORTE, 2.0);
+      K.sacudir(tl, esc, SOPORTE + 0.05, 10);
+      // la espera: reloj que vuela, los días pasan, telarañas, la barra que nunca llega
+      tl.to(q(".s09-min"), { rotation: 360 * 9, svgOrigin: "0 0", duration: DUR - LLAME, ease: "none" }, LLAME);
+      tl.to(q(".s09-horas"), { rotation: 360 * 2, svgOrigin: "0 0", duration: DUR - LLAME, ease: "none" }, LLAME);
+      const dias = [".s09-d0", ".s09-d1", ".s09-d2", ".s09-d3", ".s09-d4"];
+      dias.forEach((d, i) => {
+        const t = SU + i * 0.75;
+        tl.fromTo(q(d), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.15, immediateRender: false }, t);
+        if (i < dias.length - 1) tl.to(q(d), { opacity: 0, y: -40, duration: 0.15 }, t + 0.7);
+      });
+      tl.to(q(".s09-soporte"), { opacity: 0.3, duration: 0.3 }, SU);
+      tl.fromTo(q(".s09-relleno"), { scaleX: 0 }, { scaleX: 0.92, duration: 1.4, ease: "power1.out" }, SU);
+      tl.to(q(".s09-relleno"), { scaleX: 0.06, duration: 0.12 }, IMPORTANTE + 0.1);
+      tl.to(q(".s09-relleno"), { scaleX: 0.7, duration: 2.2, ease: "power1.out" }, IMPORTANTE + 0.3);
+      tl.to(q(".s09-telar"), { opacity: 1, duration: 1.2 }, IMPORTANTE);
+      tl.to(q(".s09-duenio"), { y: 30, duration: 1.8, ease: "sine.inOut" }, IMPORTANTE);
+      tl.to(q(".s09-tel"), { y: 30, duration: 1.8, ease: "sine.inOut" }, IMPORTANTE);
+
+      // salida
+      tl.to(q("#s09-soporte-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

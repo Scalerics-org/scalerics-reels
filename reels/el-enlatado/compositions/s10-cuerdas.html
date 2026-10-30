@@ -1,0 +1,89 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-cuerdas"] .esc-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-cuerdas"] .esc-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-cuerdas"] svg.esc-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-cuerdas"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.01em; }
+    [data-composition-id="s10-cuerdas"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-cuerdas"] .sello { position: absolute; padding: 8px 24px; border: 7px solid currentColor; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s10-cuerdas"] .s10-cuerdas { top: 596px; font-size: 80px; color: #e5383b; text-shadow: 0 0 34px rgba(229, 56, 59, 0.4); }
+    [data-composition-id="s10-cuerdas"] .s10-quiere { position: absolute; left: 0; right: 0; top: 1410px; text-align: center; }
+    [data-composition-id="s10-cuerdas"] .s10-quiere span { display: inline-block; padding: 10px 26px; border: 6px solid #2f6bff; border-radius: 12px; background: #0d0e14; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; color: #2f6bff; text-transform: uppercase; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s10-cuerdas" data-width="1080" data-height="1920" data-duration="4.22">
+    <div id="s10-cuerdas-escena" class="esc-capa clip" data-start="0" data-duration="4.22" data-track-index="0">
+      <div class="esc-escenario">
+
+        <svg class="esc-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(560 740) scale(0.9)"><g class="s10-robot"></g></g>
+          <g transform="translate(60 840)"><g class="s10-duenio"></g></g>
+          <g class="s10-cruz"><path d="M150 640 H380 M265 600 V700" stroke="#2f6bff" stroke-width="16" stroke-linecap="round"/><path class="s10-vara" d="M380 640 L600 880" stroke="#f5f1e8" stroke-opacity="0.8" stroke-width="8"/></g>
+          <g class="s10-sogas" fill="none" stroke="#f5f1e8" stroke-width="9" stroke-linecap="round">
+            <path class="s10-s1" d="M0 1010 Q160 1010 520 1010" /><path class="s10-s2" d="M0 1110 Q160 1110 520 1110" /><path class="s10-s3" d="M0 1210 Q160 1210 520 1210" />
+          </g>
+        </svg>
+        <div class="txt s10-cuerdas">Contra las cuerdas</div>
+        <div class="s10-quiere"><span>Como él quiere</span></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-cuerdas";
+      const DUR = 4.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const K = window.KIT;
+      const esc = q(".esc-escenario");
+      const tl = gsap.timeline({ paused: true });
+
+      q(".s10-robot").innerHTML = K.enlatado({ pantalla: ["EMPUJAR", "ASÍ NO", "ASÍ"] });
+      q(".s10-duenio").innerHTML = K.duenio({ cara: "dolor" });
+      // hilos de marioneta: se cuelgan de cada guante y de la cabeza del dueño
+      const NS = "http://www.w3.org/2000/svg";
+      const hilo = (sel, d) => { const p = document.createElementNS(NS, "path"); p.setAttribute("d", d); p.setAttribute("class", "s10-hilo"); p.setAttribute("stroke", "#f5f1e8"); p.setAttribute("stroke-width", "3"); p.setAttribute("fill", "none"); q(".s10-duenio " + sel).appendChild(p); };
+      hilo(".k-d-brazoI", "M112 150 V-200");
+      hilo(".k-d-brazoD", "M288 150 V-200");
+      hilo(".k-d-cabeza", "M200 76 V-240");
+      const CUERDAS = 0.41, SISTEMA = 1.48, OBLIGA = 1.97, COMO = 2.46, QUIERE = 3.12;
+      // el enlatado lo empuja contra las cuerdas (las sogas se doblan)
+      tl.fromTo(q(".s10-duenio"), { x: 120 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s10-robot"), { x: 120 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      [[".s10-s1", 1010], [".s10-s2", 1110], [".s10-s3", 1210]].forEach(([s, y], i) => {
+        tl.to(q(s), { attr: { d: `M0 ${y} Q${200 - i * 20} ${y + 40} 520 ${y}` }, duration: 0.25, ease: "power2.out" }, CUERDAS - 0.1);
+      });
+      K.golpe(tl, q(".s10-cuerdas"), CUERDAS);
+      K.sacudir(tl, esc, CUERDAS + 0.05, 14);
+      // "el sistema lo obliga": aparece la cruz de marioneta y los hilos
+      tl.to(q(".s10-cuerdas"), { opacity: 0, duration: 0.2 }, SISTEMA - 0.25);
+      gsap.set([q(".s10-cruz")], { opacity: 0 });
+      qa(".s10-hilo").forEach((h) => gsap.set(h, { opacity: 0 }));
+      tl.fromTo(q(".s10-cruz"), { opacity: 0, y: -200 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, SISTEMA - 0.1);
+      qa(".s10-hilo").forEach((h) => tl.to(h, { opacity: 0.85, duration: 0.15 }, SISTEMA + 0.15));
+      K.pantalla(tl, q(".s10-robot"), 1, SISTEMA);
+      // lo maneja: brazos arriba y abajo a destiempo
+      for (let k = 0; k < 6; k++) {
+        const t = OBLIGA + k * 0.32;
+        tl.to(q(".s10-cruz"), { rotation: k % 2 ? 10 : -10, svgOrigin: "265 640", duration: 0.16, ease: "sine.inOut" }, t);
+        tl.to(q(".s10-duenio .k-d-brazoI"), { y: k % 2 ? 0 : -70, duration: 0.16, ease: "sine.inOut" }, t);
+        tl.to(q(".s10-duenio .k-d-brazoD"), { y: k % 2 ? -70 : 0, duration: 0.16, ease: "sine.inOut" }, t);
+        tl.to(q(".s10-duenio .k-d-cabeza"), { rotation: k % 2 ? 8 : -8, svgOrigin: "200 210", duration: 0.16 }, t);
+      }
+      K.pantalla(tl, q(".s10-robot"), 2, COMO);
+      K.golpe(tl, q(".s10-quiere"), QUIERE, 2.0);
+      K.sacudir(tl, esc, QUIERE + 0.05, 10);
+
+      // salida
+      tl.to(q("#s10-cuerdas-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
