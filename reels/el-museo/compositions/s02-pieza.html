@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/museo.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-pieza"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-pieza"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-pieza"] .s02-ped { position: absolute; left: 270px; top: 1040px; width: 540px; height: 400px; }
+    [data-composition-id="s02-pieza"] .s02-vit { position: absolute; left: 300px; top: 600px; width: 480px; height: 440px; }
+    [data-composition-id="s02-pieza"] svg.s02-local { position: absolute; left: 300px; top: 600px; width: 480px; height: 440px; overflow: hidden; }
+    [data-composition-id="s02-pieza"] .s02-placa { left: 310px; top: 1100px; width: 460px; }
+    [data-composition-id="s02-pieza"] svg.s02-estrellas { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s02-pieza" data-width="1080" data-height="1920" data-duration="4.67">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.67" data-track-index="0">
+      <div class="s02-escenario">
+        <div class="s02-ped" data-mu="pedestal" data-w="540" data-h="400"></div>
+        <!-- el localcito en miniatura, adentro de la vitrina -->
+        <svg class="s02-local" viewBox="0 0 480 440" aria-hidden="true">
+          <g class="s02-edif">
+            <rect x="70" y="120" width="340" height="320" fill="#d8cfc0" stroke="#120d0f" stroke-width="5" />
+            <rect x="60" y="100" width="360" height="30" fill="#a69f93" stroke="#120d0f" stroke-width="5" />
+            <!-- toldo a rayas bordó -->
+            <path d="M70 160 H410 L430 220 H50 Z" fill="#7a1424" stroke="#120d0f" stroke-width="5" stroke-linejoin="round" />
+            <path d="M130 160 L120 220 M190 160 L185 220 M250 160 L250 220 M310 160 L315 220 M370 160 L380 220" stroke="#ece8e1" stroke-width="16" opacity="0.85" />
+            <path d="M50 220 Q70 240 90 220 Q110 240 130 220 Q150 240 170 220 Q190 240 210 220 Q230 240 250 220 Q270 240 290 220 Q310 240 330 220 Q350 240 370 220 Q390 240 410 220 Q420 232 430 220" fill="#7a1424" stroke="#120d0f" stroke-width="4" />
+            <!-- vidriera y puerta -->
+            <rect x="100" y="260" width="130" height="120" fill="#2a1a1e" stroke="#120d0f" stroke-width="5" />
+            <rect x="270" y="250" width="110" height="190" fill="#120d0f" stroke="#120d0f" stroke-width="5" />
+            <rect x="282" y="262" width="86" height="166" fill="#e8b866" opacity="0.9" />
+          </g>
+          <!-- persiana que sube en "abre" -->
+          <g class="s02-persiana">
+            <rect x="270" y="250" width="110" height="190" fill="#8f887d" stroke="#120d0f" stroke-width="5" />
+            <path d="M270 274 H380 M270 298 H380 M270 322 H380 M270 346 H380 M270 370 H380 M270 394 H380 M270 418 H380" stroke="#5d574f" stroke-width="3" />
+          </g>
+          <!-- cartelito ABIERTO / CERRADO -->
+          <g class="s02-cartel">
+            <rect x="110" y="292" width="110" height="46" rx="6" fill="#ece8e1" stroke="#120d0f" stroke-width="4" />
+            <text class="s02-cerrado" x="165" y="324" text-anchor="middle" font-family="Cinzel, serif" font-weight="800" font-size="20" fill="#7a1424">CERRADO</text>
+            <text class="s02-abierto" x="165" y="324" text-anchor="middle" font-family="Cinzel, serif" font-weight="800" font-size="20" fill="#2b1a0b">ABIERTO</text>
+          </g>
+          <text x="240" y="152" text-anchor="middle" font-family="Cinzel, serif" font-weight="800" font-size="26" letter-spacing="3" fill="#120d0f">TU LOCAL</text>
+        </svg>
+        <div class="s02-vit" data-mu="vitrina" data-w="480" data-h="440"></div>
+        <svg class="s02-estrellas" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s02-est" d="M210 700 l14 30 33 4 -24 22 7 32 -30 -16 -30 16 7 -32 -24 -22 33 -4 Z" fill="#e8b866" stroke="#120d0f" stroke-width="4" stroke-linejoin="round" />
+          <path class="s02-est" d="M870 660 l11 24 26 3 -19 17 5 25 -23 -13 -23 13 5 -25 -19 -17 26 -3 Z" fill="#e8b866" stroke="#120d0f" stroke-width="4" stroke-linejoin="round" />
+          <path class="s02-est" d="M850 940 l9 20 22 3 -16 14 4 21 -19 -11 -19 11 4 -21 -16 -14 22 -3 Z" fill="#f3d69a" stroke="#120d0f" stroke-width="4" stroke-linejoin="round" />
+          <path class="s02-est" d="M200 980 l9 20 22 3 -16 14 4 21 -19 -11 -19 11 4 -21 -16 -14 22 -3 Z" fill="#f3d69a" stroke="#120d0f" stroke-width="4" stroke-linejoin="round" />
+        </svg>
+        <div class="mu-placa s02-placa"><div class="mu-t">TU LOCAL</div><div class="mu-d">pieza en uso</div><div class="mu-f">CIRCA SIEMPRE</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-pieza";
+      const DUR = 4.67;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      MU.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = MU.kit(tl, root);
+      const { q, qa } = K;
+
+      const ESTRELLA = 0.58;
+      const ABRE = 1.67;
+      const ES = 3.19;
+
+      // entrada: pedestal y vitrina suben, la cámara se acerca
+      tl.fromTo(q(".s02-ped"), { y: 80, opacity: 0.3 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo([q(".s02-vit"), q(".s02-local")], { y: -120, opacity: 0.3 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.3)" }, 0.05);
+      tl.fromTo(q(".s02-escenario"), { scale: 1 }, { scale: 1.07, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+
+      // "estrella": destellos alrededor
+      qa(".s02-est").forEach((e, i) => {
+        gsap.set(e, { opacity: 0 });
+        tl.fromTo(e, { opacity: 0, scale: 0.2, rotation: -90, svgOrigin: e.getBBox().x + e.getBBox().width / 2 + " " + (e.getBBox().y + e.getBBox().height / 2) },
+          { opacity: 1, scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2)", immediateRender: false }, ESTRELLA - 0.15 + i * 0.08);
+        tl.to(e, { opacity: 0.35, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, ESTRELLA + 0.5 + i * 0.1);
+      });
+
+      // "abre todos los días": sube la persiana, el cartel se da vuelta a ABIERTO
+      gsap.set(q(".s02-abierto"), { opacity: 0 });
+      tl.to(q(".s02-persiana"), { scaleY: 0.08, svgOrigin: "325 250", duration: 0.45, ease: "power2.inOut" }, ABRE - 0.1);
+      tl.to(q(".s02-cartel"), { scaleX: 0, svgOrigin: "165 315", duration: 0.12, ease: "power1.in" }, ABRE + 0.2);
+      tl.set(q(".s02-cerrado"), { opacity: 0 }, ABRE + 0.32);
+      tl.set(q(".s02-abierto"), { opacity: 1 }, ABRE + 0.32);
+      tl.to(q(".s02-cartel"), { scaleX: 1, svgOrigin: "165 315", duration: 0.12, ease: "power1.out" }, ABRE + 0.32);
+      tl.to(q(".s02-local"), { y: -6, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 2.0);
+
+      // "Es tu local": cae la placa, reflejo, sacudón
+      K.golpe(q(".s02-placa"), ES + 0.3);
+      K.sacudon(q(".s02-escenario"), ES + 0.36, 0.8);
+      K.reflejo(q(".s02-vit"), ES + 0.5);
+
+      K.salida(q("#s02-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

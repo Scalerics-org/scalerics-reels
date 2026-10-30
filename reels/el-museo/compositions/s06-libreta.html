@@ -1,0 +1,107 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/museo.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-libreta"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-libreta"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-libreta"] .s06-sala { left: 320px; top: 572px; width: 440px; }
+    [data-composition-id="s06-libreta"] .s06-ped { position: absolute; left: 270px; top: 1150px; width: 540px; height: 290px; }
+    [data-composition-id="s06-libreta"] .s06-vit { position: absolute; left: 190px; top: 660px; width: 700px; height: 490px; }
+    [data-composition-id="s06-libreta"] .s06-libro { position: absolute; left: 225px; top: 715px; width: 630px; height: 400px; transform: perspective(900px) rotateX(18deg); transform-origin: 50% 100%; }
+    [data-composition-id="s06-libreta"] .s06-pag { position: absolute; top: 0; width: 315px; height: 400px; box-sizing: border-box; background: #f3ecd9; border: 5px solid #120d0f; padding: 26px 22px 0 30px;
+      background-image: repeating-linear-gradient(180deg, transparent 0 43px, rgba(110, 140, 170, 0.45) 43px 45px); background-position: 0 30px; }
+    [data-composition-id="s06-libreta"] .s06-izq { left: 0; border-radius: 10px 0 0 10px; }
+    [data-composition-id="s06-libreta"] .s06-der { left: 315px; border-radius: 0 10px 10px 0; }
+    [data-composition-id="s06-libreta"] .s06-l { font-family: "Caveat", cursive; font-weight: 700; font-size: 36px; line-height: 44px; color: #23233a; white-space: nowrap; }
+    [data-composition-id="s06-libreta"] .s06-l.s06-tit { color: #7a1424; text-decoration: underline; }
+    [data-composition-id="s06-libreta"] svg.s06-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-libreta"] .s06-placa { left: 280px; top: 1196px; width: 520px; }
+    [data-composition-id="s06-libreta"] .s06-sello { left: 520px; top: 990px; font-size: 52px; }
+  </style>
+  <div id="root" data-composition-id="s06-libreta" data-width="1080" data-height="1920" data-duration="6.58">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="6.58" data-track-index="0">
+      <div class="s06-escenario">
+        <div class="mu-sala s06-sala">VITRINA III</div>
+        <div class="s06-ped" data-mu="pedestal" data-w="540" data-h="290"></div>
+        <div class="s06-libro">
+          <div class="s06-pag s06-izq">
+            <div class="s06-l s06-tit">Pedidos</div>
+            <div class="s06-l">Sra. esquina: 2</div>
+            <div class="s06-l">Pedro: ¿?</div>
+            <div class="s06-l">la del perro: azul</div>
+            <div class="s06-l">llamar a ...</div>
+          </div>
+          <div class="s06-pag s06-der">
+            <div class="s06-l s06-tit">Marzo</div>
+            <div class="s06-l">1 mesa + 4 sillas</div>
+            <div class="s06-l">seña: sí (?)</div>
+            <div class="s06-l">entregar el lunes</div>
+          </div>
+        </div>
+        <svg class="s06-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la mancha de café -->
+          <g class="s06-cafe">
+            <circle cx="380" cy="930" r="62" fill="none" stroke="#8a5a2b" stroke-width="12" opacity="0.65" />
+            <circle cx="380" cy="930" r="54" fill="#8a5a2b" opacity="0.18" />
+            <path d="M330 990 q8 18 -4 30" fill="none" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round" opacity="0.5" />
+          </g>
+          <!-- el círculo del pedido de marzo -->
+          <path class="s06-circulo" d="M590 770 C 700 730, 860 745, 850 810 C 845 870, 700 880, 600 860 C 540 845, 545 785, 610 760" fill="none" stroke="#a8303f" stroke-width="8" stroke-linecap="round" />
+        </svg>
+        <div class="s06-vit" data-mu="vitrina" data-w="700" data-h="490"></div>
+        <div class="mu-sello s06-sello">SIN ENTREGAR</div>
+        <div class="mu-placa s06-placa"><div class="mu-t">LIBRETA DE PEDIDOS</div><div class="mu-d">manuscrito, ilegible</div><div class="mu-f">SIGLO PASADO</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-libreta";
+      const DUR = 6.58;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      MU.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = MU.kit(tl, root);
+      const { q, qa } = K;
+
+      const LIBRETA = 1.19;
+      const MANCHA = 2.88;
+      const PEDIDO = 4.07;
+      const NADIE = 5.19;
+
+      tl.fromTo(q(".s06-escenario"), { x: 260, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      K.pop(q(".s06-sala"), 0.1);
+      tl.fromTo(q(".s06-escenario"), { scale: 1 }, { scale: 1.05, duration: DUR - 0.5, ease: "none", transformOrigin: "50% 50%" }, 0.45);
+      K.reflejo(q(".s06-vit"), 0.5);
+
+      // "libreta": las líneas aparecen como escritas, la placa cae
+      qa(".s06-l").forEach((l, i) => {
+        gsap.set(l, { opacity: 0 });
+        tl.fromTo(l, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.18, ease: "power2.out", immediateRender: false }, LIBRETA - 0.4 + i * 0.12);
+      });
+      K.golpe(q(".s06-placa"), LIBRETA + 0.4);
+      K.sacudon(q(".s06-escenario"), LIBRETA + 0.46, 0.5);
+
+      // "mancha de café": el anillo cae
+      gsap.set(q(".s06-cafe"), { opacity: 0 });
+      tl.fromTo(q(".s06-cafe"), { opacity: 0, scale: 1.6, svgOrigin: "380 930" }, { opacity: 1, scale: 1, svgOrigin: "380 930", duration: 0.2, ease: "power3.in", immediateRender: false }, MANCHA - 0.05);
+
+      // "pedido de marzo": se encierra en un círculo
+      K.dibujar(q(".s06-circulo"), PEDIDO, 0.5);
+
+      // "nadie entregó": sello
+      K.golpe(q(".s06-sello"), NADIE, -10);
+      K.sacudon(q(".s06-escenario"), NADIE + 0.06, 0.9);
+      K.reflejo(q(".s06-vit"), 5.6);
+
+      K.salida(q("#s06-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

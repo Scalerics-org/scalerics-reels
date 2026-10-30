@@ -1,0 +1,141 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/museo.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-turista"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-turista"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-turista"] svg.s10-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-turista"] .s10-cel { position: absolute; left: 560px; top: 600px; width: 400px; height: 720px; box-sizing: border-box; border: 8px solid #120d0f; border-radius: 48px; background: #f6f3ee; overflow: hidden; box-shadow: 0 0 0 4px #a69f93, 0 14px 0 rgba(18, 13, 15, 0.6); }
+    [data-composition-id="s10-turista"] .s10-barra { position: absolute; left: 0; right: 0; top: 0; height: 84px; background: #120d0f; color: #e8b866; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.12em; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+    [data-composition-id="s10-turista"] .s10-prod { position: absolute; left: 28px; right: 28px; top: 108px; height: 250px; border-radius: 16px; background: #ece8e1; border: 4px solid #cfc8bc; }
+    [data-composition-id="s10-turista"] .s10-nom { position: absolute; left: 28px; top: 378px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; color: #120d0f; white-space: nowrap; }
+    [data-composition-id="s10-turista"] .s10-precio { position: absolute; left: 28px; top: 422px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; color: #120d0f; white-space: nowrap; }
+    [data-composition-id="s10-turista"] .s10-boton { position: absolute; left: 28px; right: 28px; top: 500px; height: 92px; border-radius: 20px; background: #a8762f; border: 4px solid #120d0f; color: #f6f3ee; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 36px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+    [data-composition-id="s10-turista"] .s10-pagado { position: absolute; left: 0; right: 0; top: 84px; bottom: 0; background: #f6f3ee; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; }
+    [data-composition-id="s10-turista"] .s10-tilde { width: 150px; height: 150px; }
+    [data-composition-id="s10-turista"] .s10-pt { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; color: #120d0f; white-space: nowrap; }
+    [data-composition-id="s10-turista"] .s10-chip { position: absolute; left: 560px; top: 1210px; width: 400px; height: 96px; box-sizing: border-box; border-radius: 48px; background: #120d0f; border: 4px solid #e8b866; color: #e8b866; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 36px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s10-turista" data-width="1080" data-height="1920" data-duration="6.58">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="6.58" data-track-index="0">
+      <div class="s10-escenario">
+        <svg class="s10-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s10-turista" stroke="#120d0f" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+            <!-- piernas: bermuda y championes -->
+            <rect x="250" y="1270" width="70" height="80" fill="#a69f93" />
+            <rect x="340" y="1270" width="70" height="80" fill="#a69f93" />
+            <rect x="262" y="1350" width="44" height="70" fill="#e3b88f" />
+            <rect x="352" y="1350" width="44" height="70" fill="#e3b88f" />
+            <ellipse cx="282" cy="1426" rx="44" ry="18" fill="#ece8e1" />
+            <ellipse cx="376" cy="1426" rx="44" ry="18" fill="#ece8e1" />
+            <!-- camisa de turista con flores de bronce -->
+            <path d="M230 1290 Q226 1080 290 1050 L330 1040 L370 1050 Q434 1080 430 1290 Z" fill="#ece8e1" />
+            <circle cx="275" cy="1130" r="16" fill="#e8b866" stroke-width="4" />
+            <circle cx="385" cy="1170" r="16" fill="#7a1424" stroke-width="4" />
+            <circle cx="300" cy="1240" r="16" fill="#7a1424" stroke-width="4" />
+            <circle cx="395" cy="1260" r="13" fill="#e8b866" stroke-width="4" />
+            <!-- correa de la cámara -->
+            <path d="M290 1050 L380 1220" stroke="#120d0f" stroke-width="8" />
+            <rect x="350" y="1200" width="70" height="50" rx="8" fill="#2a1a1e" />
+            <circle cx="385" cy="1225" r="14" fill="#a69f93" />
+            <!-- brazo que sostiene el celular -->
+            <g class="s10-brazo">
+              <path d="M420 1090 L500 1000 L560 960" fill="none" stroke-width="36" stroke="#120d0f" />
+              <path d="M420 1090 L500 1000 L560 960" fill="none" stroke-width="26" stroke="#ece8e1" />
+              <circle cx="566" cy="956" r="20" fill="#e3b88f" />
+            </g>
+            <!-- cabeza con piluso y lentes de sol -->
+            <rect x="310" y="1004" width="40" height="44" fill="#d9a77c" />
+            <ellipse cx="330" cy="940" rx="78" ry="86" fill="#e3b88f" />
+            <path d="M232 880 Q250 790 330 788 Q410 790 428 880 Z" fill="#a8762f" />
+            <path d="M222 880 H438" stroke-width="12" />
+            <rect x="282" y="916" width="44" height="28" rx="8" fill="#120d0f" />
+            <rect x="338" y="916" width="44" height="28" rx="8" fill="#120d0f" />
+            <path d="M326 928 H338" />
+            <path class="s10-boca" d="M300 985 Q332 1010 362 985" fill="none" stroke-width="6" />
+          </g>
+          <!-- destello de la foto -->
+          <g class="s10-flash" stroke="#f3d69a" stroke-width="8" stroke-linecap="round">
+            <path d="M600 900 L560 860 M640 880 L640 830 M680 900 L720 860 M600 960 L550 960" />
+          </g>
+        </svg>
+        <div class="s10-cel">
+          <div class="s10-barra">OTRA TIENDA</div>
+          <div class="s10-prod">
+            <svg viewBox="0 0 336 242" width="336" height="242" aria-hidden="true">
+              <path d="M110 70 Q110 40 168 40 Q226 40 226 70 L238 190 Q238 210 168 210 Q98 210 98 190 Z" fill="#a8762f" stroke="#120d0f" stroke-width="5" />
+              <path d="M150 40 L176 10 L190 14 L170 44" fill="#cfc8bc" stroke="#120d0f" stroke-width="5" stroke-linejoin="round" />
+              <path d="M112 100 Q168 118 224 100" fill="none" stroke="#7a1424" stroke-width="8" />
+            </svg>
+          </div>
+          <div class="s10-nom">Lo mismo que el tuyo</div>
+          <div class="s10-precio">$ 890</div>
+          <div class="s10-boton">COMPRAR</div>
+          <div class="s10-pagado">
+            <svg class="s10-tilde" viewBox="0 0 150 150" aria-hidden="true"><circle cx="75" cy="75" r="68" fill="#a8762f" stroke="#120d0f" stroke-width="6" /><path class="s10-check" d="M42 78 L66 102 L110 52" fill="none" stroke="#f6f3ee" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <div class="s10-pt">PAGADO</div>
+          </div>
+        </div>
+        <div class="s10-chip">LLEGA MAÑANA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-turista";
+      const DUR = 6.58;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = MU.kit(tl, root);
+      const { q, qa } = K;
+
+      const RELIQUIA = 0.10;
+      const FOTO = 1.76;
+      const COMPRO = 3.38;
+      const TIENDA = 4.26;
+      const MANANA = 4.91;
+
+      // el turista entra paseando
+      tl.fromTo(q(".s10-turista"), { x: -260, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0);
+      tl.to(q(".s10-turista"), { y: -8, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.1);
+      tl.fromTo(q(".s10-escenario"), { scale: 1 }, { scale: 1.04, duration: DUR, ease: "none", transformOrigin: "40% 60%" }, 0);
+      // levanta el celular para la foto
+      tl.fromTo(q(".s10-brazo"), { rotation: 50, svgOrigin: "420 1090" }, { rotation: 0, svgOrigin: "420 1090", duration: 0.35, ease: "back.out(2)" }, 1.1);
+
+      // el celular: primero de costado, chico
+      gsap.set(q(".s10-cel"), { opacity: 0 });
+      tl.fromTo(q(".s10-cel"), { opacity: 0, scale: 0.5, rotation: -12, transformOrigin: "0% 60%" }, { opacity: 1, scale: 1, rotation: 0, duration: 0.4, ease: "back.out(1.6)", immediateRender: false }, 1.25);
+
+      // "foto": destello (el flash blanco lo pone ambiente)
+      gsap.set(q(".s10-flash"), { opacity: 0 });
+      tl.fromTo(q(".s10-flash"), { opacity: 1, scale: 0.6, svgOrigin: "620 920" }, { opacity: 0, scale: 1.4, svgOrigin: "620 920", duration: 0.45, ease: "power2.out", immediateRender: false }, FOTO);
+
+      // "ya que estoy": aparece la otra tienda, el producto late
+      tl.fromTo(q(".s10-prod"), { scale: 0.9 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 2.5);
+      // "compro": aprieta COMPRAR
+      tl.to(q(".s10-boton"), { scale: 0.9, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, COMPRO);
+      // "tienda": PAGADO
+      gsap.set(q(".s10-pagado"), { opacity: 0 });
+      tl.fromTo(q(".s10-pagado"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, TIENDA - 0.3);
+      K.dibujar(q(".s10-check"), TIENDA - 0.1, 0.3);
+      // sonríe
+      tl.to(q(".s10-boca"), { scaleY: 1.6, svgOrigin: "331 990", duration: 0.2 }, TIENDA);
+
+      // "me llega mañana": chip
+      K.golpe(q(".s10-chip"), MANANA, -3);
+      K.sacudon(q(".s10-escenario"), MANANA + 0.06, 0.6);
+      // se va silbando
+      tl.to(q(".s10-turista"), { x: -420, duration: 0.6, ease: "power2.in" }, 5.8);
+
+      K.salida(q("#s10-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

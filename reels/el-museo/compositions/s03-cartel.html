@@ -1,0 +1,84 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/museo.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-cartel"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-cartel"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-cartel"] .s03-sala { left: 340px; top: 572px; width: 400px; }
+    [data-composition-id="s03-cartel"] .s03-ped { position: absolute; left: 290px; top: 1110px; width: 500px; height: 330px; }
+    [data-composition-id="s03-cartel"] .s03-vit { position: absolute; left: 250px; top: 670px; width: 580px; height: 440px; }
+    [data-composition-id="s03-cartel"] .s03-carton { position: absolute; left: 320px; top: 735px; width: 440px; height: 320px; box-sizing: border-box; background: #b98c55; border: 5px solid #120d0f; border-radius: 6px;
+      box-shadow: inset 0 0 0 10px rgba(122, 85, 40, 0.35), 0 8px 0 rgba(18, 13, 15, 0.5); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    [data-composition-id="s03-cartel"] .s03-carton .s03-w { font-family: "Caveat", cursive; font-weight: 700; font-size: 74px; line-height: 0.98; color: #1c1210; white-space: nowrap; }
+    [data-composition-id="s03-cartel"] .s03-carton .s03-w.s03-r { color: #7a1424; }
+    [data-composition-id="s03-cartel"] .s03-cinta { position: absolute; width: 90px; height: 30px; background: rgba(236, 232, 225, 0.75); border: 2px solid rgba(18, 13, 15, 0.3); }
+    [data-composition-id="s03-cartel"] .s03-placa { left: 320px; top: 1160px; width: 440px; }
+  </style>
+  <div id="root" data-composition-id="s03-cartel" data-width="1080" data-height="1920" data-duration="5.97">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="5.97" data-track-index="0">
+      <div class="s03-escenario">
+        <div class="mu-sala s03-sala">VITRINA I</div>
+        <div class="s03-ped" data-mu="pedestal" data-w="500" data-h="330"></div>
+        <div class="s03-carton">
+          <div class="s03-w s03-w1">Consultá</div>
+          <div class="s03-w s03-w2">precio</div>
+          <div class="s03-w s03-r s03-w3">por privado</div>
+        </div>
+        <div class="s03-cinta" style="left: 300px; top: 728px; transform: rotate(-30deg)"></div>
+        <div class="s03-cinta" style="left: 690px; top: 728px; transform: rotate(30deg)"></div>
+        <div class="s03-vit" data-mu="vitrina" data-w="580" data-h="440"></div>
+        <div class="mu-placa s03-placa"><div class="mu-t">CARTEL DE PRECIO</div><div class="mu-d">cartón y marcador</div><div class="mu-f s03-fecha">CIRCA 2015</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-cartel";
+      const DUR = 5.97;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      MU.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = MU.kit(tl, root);
+      const { q, qa } = K;
+
+      const CARTEL = 1.28;
+      const PALABRAS = [2.18, 2.87, 3.2];
+      const CIRCA = 4.23;
+      const ANIO = 4.56;
+
+      // la visita avanza: todo entra desde la derecha (paneo)
+      tl.fromTo(q(".s03-escenario"), { x: 260, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      K.pop(q(".s03-sala"), 0.1);
+      tl.fromTo(q(".s03-escenario"), { scale: 1 }, { scale: 1.05, duration: DUR - 0.5, ease: "none", transformOrigin: "50% 55%" }, 0.45);
+
+      // "cartel": el cartón aparece colgado, se hamaca
+      gsap.set(q(".s03-carton"), { opacity: 0 });
+      tl.fromTo(q(".s03-carton"), { opacity: 0, y: -60, rotation: 6 }, { opacity: 1, y: 0, rotation: -3, duration: 0.45, ease: "back.out(1.8)", immediateRender: false }, CARTEL - 0.2);
+      tl.to(q(".s03-carton"), { rotation: -1, duration: 0.7, yoyo: true, repeat: 5, ease: "sine.inOut" }, CARTEL + 0.3);
+      qa(".s03-cinta").forEach((c, i) => K.pop(c, CARTEL + 0.1 + i * 0.08, 0.2));
+      K.reflejo(q(".s03-vit"), 0.4);
+
+      // las palabras del cartón, en la palabra que se dice
+      qa(".s03-w").forEach((w, i) => {
+        gsap.set(w, { opacity: 0 });
+        tl.fromTo(w, { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power3.out", immediateRender: false }, PALABRAS[i] - 0.05);
+      });
+      tl.to(q(".s03-w3"), { x: 6, duration: 0.04, yoyo: true, repeat: 5, ease: "none" }, PALABRAS[2] + 0.2);
+
+      // "Circa 2015": la placa cae, la fecha late
+      K.golpe(q(".s03-placa"), CIRCA);
+      K.sacudon(q(".s03-escenario"), CIRCA + 0.06, 0.6);
+      tl.fromTo(q(".s03-fecha"), { scale: 1 }, { scale: 1.18, duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, ANIO);
+      K.reflejo(q(".s03-vit"), ANIO + 0.3);
+
+      K.salida(q("#s03-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

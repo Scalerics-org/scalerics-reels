@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-vin { position: absolute; inset: 0; background: radial-gradient(ellipse 720px 1150px at 540px 900px, rgba(15, 11, 12, 0) 58%, rgba(15, 11, 12, 0.6) 100%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #fffaf0; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-notocar { position: absolute; left: 430px; top: 1452px; width: 220px; height: 62px; box-sizing: border-box; background: #120d0f; border: 3px solid #c9a24a; border-radius: 6px;
+      font-family: "Cinzel", serif; font-weight: 800; font-size: 28px; letter-spacing: 0.14em; color: #e8b866; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.26">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="73.26" data-track-index="0">
+      <!-- haces de luz cálida desde el techo, pozo de luz en el piso -->
+      <svg class="amb-luz" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs>
+          <linearGradient id="amb-haz" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffe2a8" stop-opacity="0.16" />
+            <stop offset="0.6" stop-color="#ffe2a8" stop-opacity="0.07" />
+            <stop offset="1" stop-color="#ffe2a8" stop-opacity="0.02" />
+          </linearGradient>
+          <radialGradient id="amb-pozo" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0" stop-color="#ffe2a8" stop-opacity="0.28" />
+            <stop offset="1" stop-color="#ffe2a8" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <path class="amb-haz amb-h1" d="M470 0 H610 L860 1450 H220 Z" fill="url(#amb-haz)" />
+        <path class="amb-haz amb-h2" d="M40 0 H110 L330 1450 H60 Z" fill="url(#amb-haz)" opacity="0.45" />
+        <path class="amb-haz amb-h3" d="M970 0 H1040 L1020 1450 H750 Z" fill="url(#amb-haz)" opacity="0.45" />
+        <ellipse class="amb-pozo" cx="540" cy="1470" rx="420" ry="70" fill="url(#amb-pozo)" />
+        <g class="amb-polvo" fill="#fff1d0"></g>
+      </svg>
+      <div class="amb-vin"></div>
+      <!-- el cordón de terciopelo, en primer plano -->
+      <svg class="amb-cordon" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="amb-postes">
+          <g transform="translate(70 0)">
+            <ellipse cx="0" cy="1612" rx="54" ry="14" fill="#7d5a1e" stroke="#120d0f" stroke-width="4" />
+            <rect x="-11" y="1340" width="22" height="270" fill="#c9a24a" stroke="#120d0f" stroke-width="4" />
+            <rect x="-4" y="1350" width="5" height="250" fill="#f3d69a" opacity="0.7" />
+            <circle cx="0" cy="1328" r="22" fill="#c9a24a" stroke="#120d0f" stroke-width="4" />
+            <circle cx="-7" cy="1320" r="6" fill="#f3d69a" />
+          </g>
+          <g transform="translate(1010 0)">
+            <ellipse cx="0" cy="1612" rx="54" ry="14" fill="#7d5a1e" stroke="#120d0f" stroke-width="4" />
+            <rect x="-11" y="1340" width="22" height="270" fill="#c9a24a" stroke="#120d0f" stroke-width="4" />
+            <rect x="-4" y="1350" width="5" height="250" fill="#f3d69a" opacity="0.7" />
+            <circle cx="0" cy="1328" r="22" fill="#c9a24a" stroke="#120d0f" stroke-width="4" />
+            <circle cx="-7" cy="1320" r="6" fill="#f3d69a" />
+          </g>
+        </g>
+        <!-- colgado entre los dos postes -->
+        <g class="amb-soga">
+          <path d="M88 1352 C 300 1500, 780 1500, 992 1352" fill="none" stroke="#120d0f" stroke-width="30" stroke-linecap="round" />
+          <path d="M88 1352 C 300 1500, 780 1500, 992 1352" fill="none" stroke="#7a1424" stroke-width="22" stroke-linecap="round" />
+          <path d="M100 1350 C 300 1490, 780 1490, 980 1350" fill="none" stroke="#a8303f" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 14" />
+          <path d="M540 1462 V1452" stroke="#c9a24a" stroke-width="5" />
+        </g>
+        <!-- desenganchado: cuelga del poste izquierdo -->
+        <g class="amb-caida">
+          <path d="M88 1352 C 120 1470, 70 1560, 170 1640" fill="none" stroke="#120d0f" stroke-width="30" stroke-linecap="round" />
+          <path d="M88 1352 C 120 1470, 70 1560, 170 1640" fill="none" stroke="#7a1424" stroke-width="22" stroke-linecap="round" />
+          <path d="M96 1360 C 122 1470, 76 1555, 166 1630" fill="none" stroke="#a8303f" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 14" />
+        </g>
+      </svg>
+      <div class="amb-notocar">NO TOCAR</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.26;
+      const GIRO = 49.13; // "no es de museo"
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // polvo: partículas fijas (pseudoaleatorio con semilla) dentro del haz central
+      let semilla = 23;
+      const azar = () => ((semilla = (semilla * 16807) % 2147483647) / 2147483647);
+      const NS = "http://www.w3.org/2000/svg";
+      const polvo = q(".amb-polvo");
+      const motas = [];
+      for (let i = 0; i < 46; i++) {
+        const y = 480 + azar() * 940;
+        const ancho = 70 + (y / 1450) * 320;
+        const c = document.createElementNS(NS, "circle");
+        c.setAttribute("cx", (540 + (azar() * 2 - 1) * ancho).toFixed(1));
+        c.setAttribute("cy", y.toFixed(1));
+        c.setAttribute("r", (1.6 + azar() * 2.8).toFixed(1));
+        c.setAttribute("opacity", (0.25 + azar() * 0.5).toFixed(2));
+        polvo.appendChild(c);
+        motas.push([c, azar(), azar()]);
+      }
+      for (const [c, a, b] of motas) {
+        const per = 5 + a * 6;
+        tl.fromTo(c, { x: 0, y: 0 }, { x: (b * 2 - 1) * 40, y: -50 - a * 60, duration: per, ease: "sine.inOut", yoyo: true, repeat: Math.floor(DUR / per) }, b * 2);
+      }
+      // el haz respira apenas
+      tl.fromTo(q(".amb-h1"), { opacity: 0.85 }, { opacity: 1, duration: 2.4, ease: "sine.inOut", yoyo: true, repeat: Math.floor(DUR / 2.4) - 1 }, 0);
+      tl.fromTo(q(".amb-pozo"), { opacity: 0.8 }, { opacity: 1, duration: 1.9, ease: "sine.inOut", yoyo: true, repeat: Math.floor(DUR / 1.9) - 1 }, 0);
+
+      // el cartelito NO TOCAR se hamaca
+      gsap.set(q(".amb-notocar"), { transformOrigin: "50% 0%" });
+      tl.fromTo(q(".amb-notocar"), { rotation: -3 }, { rotation: 3, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: Math.floor(GIRO / 1.6) - 1 }, 0);
+
+      // el giro: el cordón se desengancha del poste derecho y cae; el cartel se cae al piso
+      gsap.set(q(".amb-caida"), { opacity: 0 });
+      tl.to(q(".amb-soga"), { opacity: 0, duration: 0.05 }, GIRO);
+      tl.set(q(".amb-caida"), { opacity: 1 }, GIRO);
+      tl.fromTo(q(".amb-caida"), { rotation: -38, svgOrigin: "88 1352" }, { rotation: 0, svgOrigin: "88 1352", duration: 0.9, ease: "elastic.out(1, 0.45)", immediateRender: false }, GIRO);
+      tl.to(q(".amb-notocar"), { y: 240, x: -60, rotation: -70, opacity: 0, duration: 0.5, ease: "power2.in" }, GIRO);
+
+      // flash de cámara del turista ("foto")
+      const FOTO = 43.03;
+      tl.fromTo(q(".amb-flash"), { opacity: 0 }, { opacity: 0.85, duration: 0.04, immediateRender: false }, FOTO);
+      tl.to(q(".amb-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, FOTO + 0.06);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/museo.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-nene"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-nene"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-nene"] svg.s08-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-nene"] .s08-globo { position: absolute; left: 110px; top: 590px; width: 860px; height: 190px; box-sizing: border-box; background: #f6f3ee; border: 6px solid #120d0f; border-radius: 40px; box-shadow: 0 8px 0 #120d0f;
+      display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 58px; color: #120d0f; white-space: nowrap; }
+    [data-composition-id="s08-nene"] .s08-globo .s08-ac { color: #7a1424; margin-left: 0.25em; }
+    [data-composition-id="s08-nene"] .s08-cola { position: absolute; left: 520px; top: 768px; width: 70px; height: 80px; }
+  </style>
+  <div id="root" data-composition-id="s08-nene" data-width="1080" data-height="1920" data-duration="2.80">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="2.80" data-track-index="0">
+      <div class="s08-escenario">
+        <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s08-nene" stroke="#120d0f" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+            <!-- mochila -->
+            <rect x="400" y="1080" width="70" height="170" rx="24" fill="#a8762f" />
+            <!-- piernas y championes -->
+            <rect x="482" y="1290" width="38" height="120" fill="#2a1a1e" />
+            <rect x="560" y="1290" width="38" height="120" fill="#2a1a1e" />
+            <ellipse cx="496" cy="1420" rx="40" ry="18" fill="#ece8e1" />
+            <ellipse cx="584" cy="1420" rx="40" ry="18" fill="#ece8e1" />
+            <!-- túnica blanca -->
+            <path d="M470 1060 H610 L650 1310 H430 Z" fill="#f6f3ee" />
+            <path d="M540 1070 V1300" stroke="#cfc8bc" stroke-width="4" />
+            <!-- brazo de abajo -->
+            <path d="M478 1090 L440 1230" stroke-width="30" stroke="#120d0f" />
+            <path d="M478 1090 L440 1230" stroke-width="20" stroke="#f6f3ee" />
+            <circle cx="438" cy="1240" r="17" fill="#e0b48a" />
+            <!-- brazo levantado -->
+            <g class="s08-brazo">
+              <path d="M602 1090 L730 975 L752 860" fill="none" stroke-width="30" stroke="#120d0f" />
+              <path d="M602 1090 L730 975 L752 860" fill="none" stroke-width="20" stroke="#f6f3ee" />
+              <circle cx="754" cy="842" r="22" fill="#e0b48a" />
+            </g>
+            <!-- moña -->
+            <path d="M540 1068 L500 1046 L500 1092 Z M540 1068 L580 1046 L580 1092 Z" fill="#7a1424" />
+            <circle cx="540" cy="1068" r="10" fill="#7a1424" />
+            <!-- cabeza -->
+            <circle cx="540" cy="960" r="92" fill="#e0b48a" />
+            <path d="M450 940 Q455 860 540 858 Q630 860 632 940 Q600 905 540 908 Q480 905 450 940 Z" fill="#5a3a22" />
+            <!-- gorrito -->
+            <path d="M452 912 Q460 846 540 842 Q620 846 630 912 Z" fill="#7a1424" />
+            <path d="M600 900 H690" stroke-width="12" stroke="#7a1424" />
+            <circle class="s08-ojo" cx="508" cy="968" r="9" fill="#120d0f" stroke="none" />
+            <circle class="s08-ojo" cx="574" cy="968" r="9" fill="#120d0f" stroke="none" />
+            <ellipse class="s08-boca" cx="541" cy="1012" rx="12" ry="15" fill="#7a1424" stroke-width="4" />
+          </g>
+        </svg>
+        <svg class="s08-cola" viewBox="0 0 60 60" aria-hidden="true"><path d="M4 0 L56 0 L20 56 Z" fill="#f6f3ee" stroke="#120d0f" stroke-width="6" stroke-linejoin="round" /><path d="M2 -4 H58" stroke="#f6f3ee" stroke-width="10" /></svg>
+        <div class="s08-globo"><span class="s08-p1">¿Y la gente&nbsp;</span><span class="s08-ac s08-p2">compraba así?</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-nene";
+      const DUR = 2.80;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = MU.kit(tl, root);
+      const { q, qa } = K;
+
+      const Y = 0.98;
+      const COMPRABA = 1.51;
+
+      // el nene entra de abajo y la mano sube en "Señora"
+      tl.fromTo(q(".s08-nene"), { y: 160, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".s08-brazo"), { rotation: 120, svgOrigin: "602 1090" }, { rotation: 0, svgOrigin: "602 1090", duration: 0.35, ease: "back.out(2)" }, 0.1);
+      tl.to(q(".s08-brazo"), { rotation: -10, svgOrigin: "602 1090", duration: 0.12, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.5);
+      tl.to(q(".s08-nene"), { y: -16, duration: 0.15, yoyo: true, repeat: 3, ease: "power1.out" }, 0.45);
+      // parpadeo
+      tl.to(qa(".s08-ojo"), { scaleY: 0.1, svgOrigin: "540 968", duration: 0.06, yoyo: true, repeat: 1 }, 1.9);
+      tl.fromTo(q(".s08-escenario"), { scale: 1 }, { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+
+      // el globo con la pregunta
+      gsap.set([q(".s08-globo"), q(".s08-cola")], { opacity: 0 });
+      tl.fromTo([q(".s08-globo"), q(".s08-cola")], { opacity: 0, scale: 0.6, transformOrigin: "60% 100%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, Y - 0.1);
+      gsap.set(q(".s08-p2"), { opacity: 0 });
+      tl.fromTo(q(".s08-p2"), { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power3.out", immediateRender: false }, COMPRABA);
+      K.sacudon(q(".s08-globo"), COMPRABA + 0.1, 0.5);
+
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

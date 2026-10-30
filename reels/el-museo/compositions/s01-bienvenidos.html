@@ -1,0 +1,92 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/museo.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-bienvenidos"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-bienvenidos"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-bienvenidos"] svg.s01-fachada { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-bienvenidos"] .s01-friso { position: absolute; left: 0; right: 0; top: 806px; text-align: center; font-family: "Cinzel", serif; font-weight: 800; font-size: 50px; letter-spacing: 0.16em; color: #2b1a0b; white-space: nowrap; }
+    [data-composition-id="s01-bienvenidos"] .s01-antiguo { position: absolute; left: 90px; width: 900px; top: 990px; height: 170px; box-sizing: border-box; background: #120d0f; border: 5px solid #e8b866; box-shadow: inset 0 0 0 9px #120d0f, inset 0 0 0 12px #a8762f, 0 10px 0 rgba(18, 13, 15, 0.6);
+      display: flex; align-items: center; justify-content: center; font-family: "Cinzel", serif; font-weight: 900; font-size: 128px; letter-spacing: 0.1em; color: #e8b866; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s01-bienvenidos" data-width="1080" data-height="1920" data-duration="2.75">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="2.75" data-track-index="0">
+      <div class="s01-escenario">
+        <svg class="s01-fachada" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- frontón -->
+          <path class="s01-fill s01-fronton" d="M110 770 L540 590 L970 770 Z" fill="#ece8e1" stroke="#120d0f" stroke-width="6" stroke-linejoin="round" />
+          <path class="s01-ln" d="M210 748 L540 618 L870 748 Z" fill="none" stroke="#a69f93" stroke-width="4" stroke-linejoin="round" />
+          <circle class="s01-fill" cx="540" cy="700" r="26" fill="#a8762f" stroke="#120d0f" stroke-width="4" />
+          <!-- friso -->
+          <rect class="s01-fill" x="90" y="770" width="900" height="110" fill="#e6e1d8" stroke="#120d0f" stroke-width="6" />
+          <rect class="s01-fill" x="70" y="880" width="940" height="26" fill="#f6f3ee" stroke="#120d0f" stroke-width="5" />
+          <!-- columnas -->
+          <g class="s01-col">
+            <rect x="140" y="906" width="90" height="400" fill="#ece8e1" stroke="#120d0f" stroke-width="5" />
+            <path d="M162 920 V1296 M185 920 V1296 M208 920 V1296" stroke="#a69f93" stroke-width="3" />
+          </g>
+          <g class="s01-col">
+            <rect x="350" y="906" width="90" height="400" fill="#ece8e1" stroke="#120d0f" stroke-width="5" />
+            <path d="M372 920 V1296 M395 920 V1296 M418 920 V1296" stroke="#a69f93" stroke-width="3" />
+          </g>
+          <g class="s01-col">
+            <rect x="640" y="906" width="90" height="400" fill="#ece8e1" stroke="#120d0f" stroke-width="5" />
+            <path d="M662 920 V1296 M685 920 V1296 M708 920 V1296" stroke="#a69f93" stroke-width="3" />
+          </g>
+          <g class="s01-col">
+            <rect x="850" y="906" width="90" height="400" fill="#ece8e1" stroke="#120d0f" stroke-width="5" />
+            <path d="M872 920 V1296 M895 920 V1296 M918 920 V1296" stroke="#a69f93" stroke-width="3" />
+          </g>
+          <!-- puerta oscura entre las columnas del medio -->
+          <path class="s01-fill" d="M470 1306 V1110 Q540 1050 610 1110 V1306 Z" fill="#120d0f" stroke="#a8762f" stroke-width="5" />
+          <!-- escalinata -->
+          <rect class="s01-fill" x="100" y="1306" width="880" height="40" fill="#f6f3ee" stroke="#120d0f" stroke-width="5" />
+          <rect class="s01-fill" x="60" y="1346" width="960" height="44" fill="#e6e1d8" stroke="#120d0f" stroke-width="5" />
+          <rect class="s01-fill" x="20" y="1390" width="1040" height="48" fill="#d8d2c7" stroke="#120d0f" stroke-width="5" />
+        </svg>
+        <div class="s01-friso">MUSEO DEL COMERCIO</div>
+        <div class="s01-antiguo">ANTIGUO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-bienvenidos";
+      const DUR = 2.75;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = MU.kit(tl, root);
+      const { q, qa } = K;
+
+      const MUSEO = 0.75;
+      const COMERCIO = 1.33;
+      const ANTIGUO = 1.92;
+
+      // cuadro 0: la fachada ya está armándose (nada negro): las piezas suben desde el piso
+      tl.fromTo(qa(".s01-fill"), { opacity: 0.35, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out", stagger: 0.04 }, 0);
+      qa(".s01-col").forEach((c, i) => tl.fromTo(c, { scaleY: 0.4, opacity: 0.4, svgOrigin: "540 1306" }, { scaleY: 1, opacity: 1, svgOrigin: "540 1306", duration: 0.45, ease: "back.out(1.4)" }, 0.05 + i * 0.06));
+      K.dibujar(q(".s01-ln"), 0.3, 0.6);
+      // cámara que se acerca lento
+      tl.fromTo(q(".s01-escenario"), { scale: 1.0 }, { scale: 1.06, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+
+      // "Museo" / "Comercio": el friso se escribe
+      gsap.set(q(".s01-friso"), { opacity: 0 });
+      tl.fromTo(q(".s01-friso"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", immediateRender: false }, MUSEO - 0.1);
+      tl.to(q(".s01-friso"), { scale: 1.06, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, COMERCIO - 0.05);
+
+      // "Antiguo": el cartel cae de golpe con sacudón
+      K.golpe(q(".s01-antiguo"), ANTIGUO, -2);
+      K.sacudon(q(".s01-escenario"), ANTIGUO + 0.06, 1);
+      tl.to(q(".s01-antiguo"), { rotation: 0, duration: 0.3, ease: "back.out(2)" }, ANTIGUO + 0.25);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

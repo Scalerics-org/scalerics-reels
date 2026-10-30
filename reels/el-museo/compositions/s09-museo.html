@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/museo.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-museo"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-museo"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-museo"] svg.s09-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-museo"] .s09-no { left: 560px; top: 610px; font-size: 140px; padding: 10px 40px; }
+    [data-composition-id="s09-museo"] .s09-ped { position: absolute; left: 720px; top: 1180px; width: 260px; height: 260px; }
+    [data-composition-id="s09-museo"] .s09-vit { position: absolute; left: 730px; top: 930px; width: 240px; height: 250px; }
+    [data-composition-id="s09-museo"] .s09-placa { left: 690px; top: 1230px; width: 320px; padding: 10px 14px; }
+    [data-composition-id="s09-museo"] .s09-placa .mu-t { font-size: 28px; }
+  </style>
+  <div id="root" data-composition-id="s09-museo" data-width="1080" data-height="1920" data-duration="2.59">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="2.59" data-track-index="0">
+      <div class="s09-escenario">
+        <div class="s09-ped" data-mu="pedestal" data-w="260" data-h="260"></div>
+        <svg class="s09-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la piecita en la vitrina chica: el local -->
+          <g class="s09-pieza" stroke="#120d0f" stroke-width="4" stroke-linejoin="round">
+            <rect x="775" y="1030" width="150" height="140" fill="#d8cfc0" />
+            <path d="M770 1030 H930 L940 1065 H760 Z" fill="#7a1424" />
+            <rect x="850" y="1090" width="50" height="80" fill="#8f887d" />
+            <rect x="790" y="1090" width="45" height="45" fill="#2a1a1e" />
+          </g>
+          <!-- la guía -->
+          <g class="s09-guia" stroke="#120d0f" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+            <!-- saco bordó -->
+            <path d="M250 1440 Q250 1130 330 1100 L420 1080 L510 1100 Q590 1130 590 1440 Z" fill="#7a1424" />
+            <path d="M420 1080 L385 1200 L420 1440 M420 1080 L455 1200 L420 1440" fill="none" stroke="#5a0e1a" stroke-width="5" />
+            <path d="M395 1088 L420 1150 L445 1088 Z" fill="#ece8e1" />
+            <!-- prendedor de bronce -->
+            <circle cx="500" cy="1180" r="14" fill="#e8b866" />
+            <!-- cuello y cabeza -->
+            <rect x="398" y="1030" width="44" height="56" fill="#d9a77c" />
+            <ellipse cx="420" cy="950" rx="92" ry="104" fill="#e3b88f" />
+            <!-- pelo gris con rodete -->
+            <circle cx="420" cy="836" r="44" fill="#a69f93" />
+            <path d="M326 960 Q320 850 420 846 Q522 850 514 960 Q500 900 420 890 Q340 900 326 960 Z" fill="#a69f93" />
+            <!-- anteojos -->
+            <circle cx="384" cy="952" r="26" fill="#f6f3ee" fill-opacity="0.35" />
+            <circle cx="458" cy="952" r="26" fill="#f6f3ee" fill-opacity="0.35" />
+            <path d="M410 952 H432" />
+            <circle class="s09-ojo" cx="386" cy="954" r="6" fill="#120d0f" stroke="none" />
+            <circle class="s09-ojo" cx="456" cy="954" r="6" fill="#120d0f" stroke="none" />
+            <!-- cejas levantadas, boca seca -->
+            <path class="s09-ceja" d="M360 912 L404 920 M436 920 L480 912" stroke-width="6" />
+            <path d="M398 1008 H444" stroke-width="6" />
+          </g>
+          <!-- brazo con el puntero -->
+          <g class="s09-brazo" stroke="#120d0f" stroke-linecap="round">
+            <path d="M540 1150 L640 1110" stroke-width="40" />
+            <path d="M540 1150 L640 1110" stroke="#7a1424" stroke-width="28" />
+            <circle cx="652" cy="1104" r="20" fill="#e3b88f" stroke-width="5" />
+            <path d="M650 1104 L860 1020" stroke="#120d0f" stroke-width="16" />
+            <path d="M650 1104 L860 1020" stroke="#a8762f" stroke-width="9" />
+            <circle cx="862" cy="1019" r="8" fill="#e8b866" stroke-width="4" />
+          </g>
+        </svg>
+        <div class="s09-vit" data-mu="vitrina" data-w="240" data-h="250"></div>
+        <div class="mu-placa s09-placa"><div class="mu-t">PIEZA DE MUSEO</div></div>
+        <div class="mu-sello s09-no">NO.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-museo";
+      const DUR = 2.59;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      MU.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = MU.kit(tl, root);
+      const { q, qa } = K;
+
+      const NO = 0.0;
+      const MUSEO = 1.31;
+
+      // la guía ya está (cuadro 0 con sello entrando)
+      tl.fromTo(q(".s09-guia"), { x: -40, opacity: 0.5 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      K.golpe(q(".s09-no"), NO + 0.1, -8);
+      K.sacudon(q(".s09-escenario"), NO + 0.16, 1.1);
+      tl.fromTo(q(".s09-ceja"), { y: 0 }, { y: -8, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, 0.3);
+      tl.fromTo(q(".s09-escenario"), { scale: 1.04 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+
+      // "por eso está en el museo": el puntero señala la vitrina, el NO se apaga
+      gsap.set(q(".s09-brazo"), { opacity: 0 });
+      tl.fromTo(q(".s09-brazo"), { opacity: 1, rotation: 40, svgOrigin: "540 1150" }, { opacity: 1, rotation: 0, svgOrigin: "540 1150", duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.65);
+      tl.fromTo([q(".s09-ped"), q(".s09-vit"), q(".s09-pieza")], { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.55);
+      tl.to(q(".s09-no"), { opacity: 0.25, scale: 0.8, duration: 0.25 }, MUSEO - 0.2);
+      tl.to(q(".s09-brazo"), { rotation: -4, svgOrigin: "540 1150", duration: 0.1, yoyo: true, repeat: 3, ease: "sine.inOut" }, MUSEO);
+      K.golpe(q(".s09-placa"), MUSEO + 0.05);
+      K.reflejo(q(".s09-vit"), MUSEO + 0.2);
+
+      K.salida(q("#s09-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

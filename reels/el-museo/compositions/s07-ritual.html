@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/museo.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-ritual"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-ritual"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-ritual"] .s07-sala { left: 290px; top: 572px; width: 500px; }
+    [data-composition-id="s07-ritual"] svg.s07-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-ritual"] .s07-ped { position: absolute; left: 300px; top: 1130px; width: 480px; height: 310px; }
+    [data-composition-id="s07-ritual"] .s07-vit { position: absolute; left: 250px; top: 650px; width: 580px; height: 480px; }
+    [data-composition-id="s07-ritual"] .s07-cartel { position: absolute; left: 330px; top: 770px; width: 420px; height: 250px; perspective: 1000px; }
+    [data-composition-id="s07-ritual"] .s07-cara { position: absolute; inset: 0; box-sizing: border-box; border: 6px solid #120d0f; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; backface-visibility: hidden; }
+    [data-composition-id="s07-ritual"] .s07-frente { background: #ece8e1; }
+    [data-composition-id="s07-ritual"] .s07-dorso { background: #7a1424; }
+    [data-composition-id="s07-ritual"] .s07-g { font-family: "Caveat", cursive; font-weight: 700; font-size: 60px; line-height: 0.95; color: #1c1210; white-space: nowrap; }
+    [data-composition-id="s07-ritual"] .s07-h { font-family: "Caveat", cursive; font-weight: 700; font-size: 50px; line-height: 1; color: #7a1424; white-space: nowrap; margin-top: 10px; }
+    [data-composition-id="s07-ritual"] .s07-cerrado { font-family: "Cinzel", serif; font-weight: 900; font-size: 74px; letter-spacing: 0.08em; color: #ece8e1; white-space: nowrap; }
+    [data-composition-id="s07-ritual"] .s07-placa { left: 240px; top: 1176px; width: 600px; }
+  </style>
+  <div id="root" data-composition-id="s07-ritual" data-width="1080" data-height="1920" data-duration="7.04">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="7.04" data-track-index="0">
+      <div class="s07-escenario">
+        <svg class="s07-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <linearGradient id="s07-foco" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffe2a8" stop-opacity="0.35" />
+              <stop offset="1" stop-color="#ffe2a8" stop-opacity="0.04" />
+            </linearGradient>
+          </defs>
+          <path class="s07-foco" d="M480 560 H600 L840 1440 H240 Z" fill="url(#s07-foco)" />
+          <g class="s07-destellos" fill="#f3d69a" stroke="#120d0f" stroke-width="3" stroke-linejoin="round">
+            <path d="M200 760 l8 -26 8 26 26 8 -26 8 -8 26 -8 -26 -26 -8 Z" />
+            <path d="M880 720 l7 -22 7 22 22 7 -22 7 -7 22 -7 -22 -22 -7 Z" />
+            <path d="M900 1010 l6 -18 6 18 18 6 -18 6 -6 18 -6 -18 -18 -6 Z" />
+            <path d="M180 1040 l6 -18 6 18 18 6 -18 6 -6 18 -6 -18 -18 -6 Z" />
+          </g>
+          <!-- el soporte de bronce del que cuelga el cartelito -->
+          <path class="s07-soporte" d="M540 1100 V700 M420 700 H660 M440 700 V770 M640 700 V770" fill="none" stroke="#c9a24a" stroke-width="10" stroke-linecap="round" />
+          <rect x="460" y="1090" width="160" height="30" rx="6" fill="#7a1424" stroke="#120d0f" stroke-width="4" />
+        </svg>
+        <div class="s07-ped" data-mu="pedestal" data-w="480" data-h="310"></div>
+        <div class="s07-cartel" data-layout-allow-overlap>
+          <div class="s07-cara s07-frente"><div class="s07-g">Pasá a buscarlo</div><div class="s07-h s07-hora">de 9 a 18</div></div>
+          <div class="s07-cara s07-dorso"><div class="s07-cerrado">CERRADO</div></div>
+        </div>
+        <div class="s07-vit" data-mu="vitrina" data-w="580" data-h="480"></div>
+        <div class="mu-sala s07-sala">SALA DE HONOR</div>
+        <div class="mu-placa s07-placa"><div class="mu-t">EL RITUAL</div><div class="mu-d">«pasá a buscarlo»</div><div class="mu-f">PATRIMONIO DEL BARRIO</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-ritual";
+      const DUR = 7.04;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      MU.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = MU.kit(tl, root);
+      const { q, qa } = K;
+
+      const JOYA = 0.25;
+      const RITUAL = 1.89;
+      const PASA = 3.02;
+      const NUEVE = 4.43;
+      const SI = 5.64;
+
+      // la visita llega a la sala de honor
+      tl.fromTo(q(".s07-escenario"), { x: 260, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s07-escenario"), { scale: 1 }, { scale: 1.06, duration: DUR - 0.4, ease: "none", transformOrigin: "50% 50%" }, 0.4);
+      K.pop(q(".s07-sala"), 0.1);
+
+      // "joya": se prende el foco, destellos
+      tl.fromTo(q(".s07-foco"), { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, JOYA);
+      tl.to(q(".s07-foco"), { opacity: 0.7, duration: 0.5, yoyo: true, repeat: 7, ease: "sine.inOut" }, JOYA + 0.4);
+      qa(".s07-destellos path").forEach((d, i) => {
+        const b = d.getBBox();
+        const o = (b.x + b.width / 2) + " " + (b.y + b.height / 2);
+        gsap.set(d, { opacity: 0 });
+        tl.fromTo(d, { opacity: 0, scale: 0, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.25, ease: "back.out(3)", immediateRender: false }, JOYA + 0.1 + i * 0.1);
+        tl.to(d, { scale: 0.5, rotation: 45, svgOrigin: o, duration: 0.4, yoyo: true, repeat: 7, ease: "sine.inOut" }, JOYA + 0.5 + i * 0.12);
+      });
+      K.dibujar(q(".s07-soporte"), 0.1, 0.6);
+
+      // "ritual": la placa
+      K.golpe(q(".s07-placa"), RITUAL);
+      K.sacudon(q(".s07-escenario"), RITUAL + 0.06, 0.5);
+
+      // "pasá a buscarlo": el cartelito cuelga
+      gsap.set(q(".s07-cartel"), { opacity: 0 });
+      gsap.set(q(".s07-dorso"), { rotationY: 180 });
+      tl.fromTo(q(".s07-cartel"), { opacity: 0, y: -80, rotation: 8 }, { opacity: 1, y: 0, rotation: 0, duration: 0.45, ease: "back.out(2)", immediateRender: false }, PASA - 0.1);
+      tl.to(q(".s07-cartel"), { rotation: -2, duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut", transformOrigin: "50% 0%" }, PASA + 0.4);
+      gsap.set(q(".s07-hora"), { opacity: 0 });
+      tl.fromTo(q(".s07-hora"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out", immediateRender: false }, NUEVE);
+
+      // "si estaba abierto": se da vuelta y dice CERRADO
+      tl.to(q(".s07-frente"), { rotationY: -180, duration: 0.35, ease: "power2.inOut" }, SI);
+      tl.to(q(".s07-dorso"), { rotationY: 0, duration: 0.35, ease: "power2.inOut" }, SI);
+      K.sacudon(q(".s07-escenario"), SI + 0.4, 0.6);
+      K.reflejo(q(".s07-vit"), SI + 0.5);
+
+      K.salida(q("#s07-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

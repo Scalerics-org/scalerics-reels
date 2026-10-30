@@ -1,0 +1,71 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/museo.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-precio"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-precio"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-precio"] svg.s04-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-precio"] .s04-q { position: absolute; font-family: "Cinzel", serif; font-weight: 900; color: #e8b866; line-height: 1; text-shadow: 0 6px 0 #120d0f; }
+    [data-composition-id="s04-precio"] .s04-sello { left: 120px; top: 1180px; width: 840px; font-size: 56px; }
+  </style>
+  <div id="root" data-composition-id="s04-precio" data-width="1080" data-height="1920" data-duration="2.63">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="2.63" data-track-index="0">
+      <div class="s04-escenario">
+        <div class="s04-q" style="left: 140px; top: 640px; font-size: 130px; transform: rotate(-14deg)">?</div>
+        <div class="s04-q" style="left: 840px; top: 610px; font-size: 110px; transform: rotate(12deg)">?</div>
+        <div class="s04-q" style="left: 110px; top: 960px; font-size: 96px; transform: rotate(8deg)">?</div>
+        <div class="s04-q" style="left: 860px; top: 930px; font-size: 140px; transform: rotate(-10deg)">?</div>
+        <div class="s04-q" style="left: 250px; top: 1110px; font-size: 80px; transform: rotate(-6deg)">?</div>
+        <div class="s04-q" style="left: 760px; top: 1120px; font-size: 86px; transform: rotate(16deg)">?</div>
+        <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s04-hilo" d="M540 560 V700" stroke="#ece8e1" stroke-width="5" stroke-linecap="round" />
+          <g class="s04-etiqueta">
+            <path d="M540 690 L700 780 V1120 H380 V780 Z" fill="#b98c55" stroke="#120d0f" stroke-width="7" stroke-linejoin="round" />
+            <path d="M540 708 L684 790 V1104 H396 V790 Z" fill="none" stroke="#7a5528" stroke-width="3" opacity="0.6" />
+            <circle cx="540" cy="760" r="20" fill="#2a1a1e" stroke="#120d0f" stroke-width="5" />
+            <text x="540" y="1010" text-anchor="middle" font-family="Caveat, cursive" font-weight="700" font-size="200" fill="#1c1210">$ ?</text>
+          </g>
+        </svg>
+        <div class="mu-sello s04-sello">PRECIO DESCONOCIDO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-precio";
+      const DUR = 2.63;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = MU.kit(tl, root);
+      const { q, qa } = K;
+
+      const CUANTO = 1.10;
+      const NADA = 1.71;
+
+      // la etiqueta entra hamacándose desde el hilo
+      tl.fromTo(q(".s04-etiqueta"), { rotation: 28, svgOrigin: "540 700", opacity: 0.4 }, { rotation: -10, svgOrigin: "540 700", opacity: 1, duration: 0.5, ease: "power2.out" }, 0);
+      tl.to(q(".s04-etiqueta"), { rotation: 7, svgOrigin: "540 700", duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0.5);
+      tl.fromTo(q(".s04-escenario"), { scale: 1.08 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+
+      // "cuánto": se multiplican los signos de pregunta
+      qa(".s04-q").forEach((el, i) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.4)", immediateRender: false }, CUANTO - 0.1 + i * 0.07);
+        tl.to(el, { y: -14, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, CUANTO + 0.3 + i * 0.05);
+      });
+
+      // "nada": sello
+      K.golpe(q(".s04-sello"), NADA, -6);
+      K.sacudon(q(".s04-escenario"), NADA + 0.06, 1);
+
+      K.salida(q("#s04-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

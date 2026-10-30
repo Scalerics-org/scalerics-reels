@@ -1,0 +1,73 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/museo.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-cta"] .s15-capa { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-boton { position: absolute; left: 230px; top: 584px; width: 620px; height: 110px; box-sizing: border-box; border-radius: 55px; background: #5ce611; border: 5px solid #120d0f; box-shadow: 0 8px 0 #120d0f;
+      display: flex; align-items: center; justify-content: center; gap: 20px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; color: #120d0f; white-space: nowrap; }
+    [data-composition-id="s15-cta"] .s15-boton svg { width: 56px; height: 56px; }
+    [data-composition-id="s15-cta"] .s15-ped { position: absolute; left: 300px; top: 1130px; width: 480px; height: 310px; }
+    [data-composition-id="s15-cta"] .s15-vit { position: absolute; left: 330px; top: 770px; width: 420px; height: 360px; }
+    [data-composition-id="s15-cta"] .s15-placa { left: 200px; top: 1170px; width: 680px; }
+    [data-composition-id="s15-cta"] .s15-placa .mu-d { font-size: 30px; }
+    [data-composition-id="s15-cta"] .s15-proxima { left: 380px; top: 930px; width: 320px; font-size: 34px; padding: 10px 14px; }
+  </style>
+  <div id="root" data-composition-id="s15-cta" data-width="1080" data-height="1920" data-duration="7.13">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="7.13" data-track-index="0">
+      <div class="s15-escenario">
+        <div class="s15-boton">
+          <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M4 26 L52 6 L40 50 L28 34 Z" fill="#f6f3ee" stroke="#120d0f" stroke-width="4" stroke-linejoin="round" /><path d="M28 34 L52 6" stroke="#120d0f" stroke-width="4" /></svg>
+          <span>Mandáselo</span>
+        </div>
+        <div class="s15-ped" data-mu="pedestal" data-w="480" data-h="310"></div>
+        <div class="mu-sello s15-proxima">LIBRE</div>
+        <div class="s15-vit" data-mu="vitrina" data-w="420" data-h="360"></div>
+        <div class="mu-placa s15-placa"><div class="mu-t">VITRINA RESERVADA</div><div class="mu-d">para el que todavía dice «pasá a buscarlo»</div><div class="mu-f">PRÓXIMA PIEZA</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-cta";
+      const DUR = 7.13;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      MU.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = MU.kit(tl, root);
+      const { q, qa } = K;
+
+      const PASA = 1.18;
+      const ANTES = 2.51;
+      const VITRINA = 3.36;
+
+      // "Mandáselo": el botón entra y late hasta el final
+      tl.fromTo(q(".s15-boton"), { opacity: 0.4, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 0);
+      tl.to(q(".s15-boton"), { scale: 1.05, duration: 0.4, yoyo: true, repeat: Math.floor((DUR - 0.6) / 0.4) - 1, ease: "sine.inOut" }, 0.4);
+      tl.fromTo(q(".s15-boton svg"), { x: 0, y: 0 }, { x: 10, y: -8, duration: 0.3, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.4);
+
+      // el pedestal vacío y su placa
+      tl.fromTo(q(".s15-ped"), { y: 80, opacity: 0.3 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.05);
+      K.golpe(q(".s15-placa"), PASA);
+      K.sacudon(q(".s15-escenario"), PASA + 0.06, 0.5);
+
+      // "antes de que lo pongan en una vitrina": la vitrina cae sobre el pedestal vacío
+      gsap.set(q(".s15-vit"), { opacity: 0 });
+      tl.fromTo(q(".s15-vit"), { opacity: 1, y: -700 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.in", immediateRender: false }, VITRINA - 0.45);
+      K.sacudon(q(".s15-escenario"), VITRINA, 1.1);
+      K.golpe(q(".s15-proxima"), VITRINA + 0.35, -8);
+      K.reflejo(q(".s15-vit"), VITRINA + 0.8);
+      K.reflejo(q(".s15-vit"), VITRINA + 2.4);
+      tl.fromTo(q(".s15-escenario"), { scale: 1 }, { scale: 1.04, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

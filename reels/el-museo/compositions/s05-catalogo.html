@@ -1,0 +1,92 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/museo.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-catalogo"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-catalogo"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-catalogo"] .s05-sala { left: 330px; top: 572px; width: 420px; }
+    [data-composition-id="s05-catalogo"] .s05-ped { position: absolute; left: 290px; top: 1150px; width: 500px; height: 290px; }
+    [data-composition-id="s05-catalogo"] .s05-vit { position: absolute; left: 300px; top: 650px; width: 480px; height: 500px; }
+    [data-composition-id="s05-catalogo"] .s05-cel { position: absolute; left: 395px; top: 672px; width: 290px; height: 470px; box-sizing: border-box; border: 6px solid #120d0f; border-radius: 34px; background: #2a1a1e; overflow: hidden; box-shadow: 0 0 0 3px #a69f93; }
+    [data-composition-id="s05-catalogo"] .s05-barras { position: absolute; left: 14px; right: 14px; top: 14px; height: 6px; display: flex; gap: 6px; }
+    [data-composition-id="s05-catalogo"] .s05-barra { flex: 1; height: 6px; border-radius: 3px; background: rgba(236, 232, 225, 0.3); overflow: hidden; }
+    [data-composition-id="s05-catalogo"] .s05-lleno { width: 100%; height: 100%; background: #ece8e1; transform-origin: 0% 50%; transform: scaleX(0); }
+    [data-composition-id="s05-catalogo"] .s05-cab { position: absolute; left: 16px; top: 30px; display: flex; align-items: center; gap: 10px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 22px; color: #ece8e1; white-space: nowrap; }
+    [data-composition-id="s05-catalogo"] .s05-avatar { width: 34px; height: 34px; border-radius: 50%; background: #7a1424; border: 3px solid #e8b866; }
+    [data-composition-id="s05-catalogo"] .s05-foto { position: absolute; border: 4px solid #ece8e1; border-radius: 6px; filter: blur(5px); }
+    [data-composition-id="s05-catalogo"] .s05-nada { position: absolute; left: 20px; right: 20px; top: 190px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 26px; line-height: 1.25; color: #ece8e1; }
+    [data-composition-id="s05-catalogo"] .s05-placa { left: 295px; top: 1196px; width: 490px; }
+  </style>
+  <div id="root" data-composition-id="s05-catalogo" data-width="1080" data-height="1920" data-duration="6.24">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="6.24" data-track-index="0">
+      <div class="s05-escenario">
+        <div class="mu-sala s05-sala">VITRINA II</div>
+        <div class="s05-ped" data-mu="pedestal" data-w="500" data-h="290"></div>
+        <div class="s05-cel">
+          <div class="s05-barras"><div class="s05-barra"><div class="s05-lleno"></div></div><div class="s05-barra"><div class="s05-lleno"></div></div><div class="s05-barra"><div class="s05-lleno"></div></div></div>
+          <div class="s05-cab"><div class="s05-avatar"></div><span>tu.local · 23 h</span></div>
+          <div class="s05-foto" style="left: 24px; top: 90px; width: 150px; height: 170px; background: #a8762f; transform: rotate(-6deg)"></div>
+          <div class="s05-foto" style="left: 110px; top: 170px; width: 150px; height: 160px; background: #7a1424; transform: rotate(5deg)"></div>
+          <div class="s05-foto" style="left: 40px; top: 270px; width: 170px; height: 150px; background: #a69f93; transform: rotate(-2deg)"></div>
+          <div class="s05-nada">Esta historia ya no está disponible</div>
+        </div>
+        <div class="s05-vit" data-mu="vitrina" data-w="480" data-h="500"></div>
+        <div class="mu-placa s05-placa"><div class="mu-t">CATÁLOGO EFÍMERO</div><div class="mu-d">duraba un día</div><div class="mu-f">CIRCA 2019</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-catalogo";
+      const DUR = 6.24;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      MU.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = MU.kit(tl, root);
+      const { q, qa } = K;
+
+      const CATALOGO = 1.23;
+      const FOTOS = [1.72, 2.21, 2.54];
+      const BORRABA = 4.5;
+
+      tl.fromTo(q(".s05-escenario"), { x: 260, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      K.pop(q(".s05-sala"), 0.1);
+      tl.fromTo(q(".s05-escenario"), { scale: 1 }, { scale: 1.06, duration: DUR - 0.5, ease: "none", transformOrigin: "50% 50%" }, 0.45);
+      K.reflejo(q(".s05-vit"), 0.5);
+
+      // "el catálogo": la placa
+      K.golpe(q(".s05-placa"), CATALOGO);
+      K.sacudon(q(".s05-escenario"), CATALOGO + 0.06, 0.5);
+
+      // tres fotos borrosas, de a una; las barras de la historia corren
+      const fotos = qa(".s05-foto");
+      fotos.forEach((f, i) => {
+        gsap.set(f, { opacity: 0 });
+        tl.fromTo(f, { opacity: 0, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out", immediateRender: false }, FOTOS[i] - 0.05);
+      });
+      const llenos = qa(".s05-lleno");
+      tl.to(llenos[0], { scaleX: 1, duration: 0.8, ease: "none" }, 1.4);
+      tl.to(llenos[1], { scaleX: 1, duration: 1.0, ease: "none" }, 2.2);
+      tl.to(llenos[2], { scaleX: 1, duration: 1.3, ease: "none" }, 3.2);
+      // "borrosas": se ven peor todavía
+      tl.to(fotos, { filter: "blur(9px)", duration: 0.3 }, 2.6);
+
+      // "se borraba sola": las fotos se esfuman, queda el aviso
+      gsap.set(q(".s05-nada"), { opacity: 0 });
+      tl.to(fotos, { opacity: 0, scale: 0.8, duration: 0.35, stagger: 0.08, ease: "power2.in" }, BORRABA - 0.1);
+      tl.to(qa(".s05-barras, .s05-cab"), { opacity: 0, duration: 0.3 }, BORRABA);
+      tl.fromTo(q(".s05-nada"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, BORRABA + 0.35);
+      K.reflejo(q(".s05-vit"), 5.2);
+
+      K.salida(q("#s05-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
