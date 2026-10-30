@@ -1,0 +1,73 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tele.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-sabe"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-sabe"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-sabe"] svg.s09-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-sabe"] .s09-b { position: absolute; left: 520px; width: 500px; font-size: 62px; padding: 18px 0; }
+    [data-composition-id="s09-sabe"] .s09-b1 { top: 560px; transform: rotate(-3deg); }
+    [data-composition-id="s09-sabe"] .s09-b2 { top: 700px; transform: rotate(2deg); background: #19d3ff; }
+    [data-composition-id="s09-sabe"] .s09-b3 { top: 840px; transform: rotate(-2deg); background: #ff2e88; color: #ffffff; }
+    [data-composition-id="s09-sabe"] .s09-tick { position: absolute; left: 560px; top: 990px; width: 420px; box-sizing: border-box; padding: 18px 24px; background: #ffffff; border: 6px solid #0d0630; box-shadow: 10px 10px 0 #0d0630; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; line-height: 1.45; color: #0d0630; }
+    [data-composition-id="s09-sabe"] .s09-tick b { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 36px; display: block; }
+    [data-composition-id="s09-sabe"] .s09-tick .s09-l { opacity: 0; }
+    [data-composition-id="s09-sabe"] .s09-res { position: absolute; left: 640px; top: 1130px; box-sizing: border-box; padding: 8px 22px; border: 8px solid #ff2e88; border-radius: 12px; color: #ff2e88; background: rgba(255, 255, 255, 0.85); font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; transform: rotate(-12deg); }
+  </style>
+  <div id="root" data-composition-id="s09-sabe" data-width="1080" data-height="1920" data-duration="4.64">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.64" data-track-index="0">
+      <div class="s09-escenario">
+        <svg class="s09-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(-10 600)"><g class="s09-asis"></g></g>
+          <g class="s09-mesa"></g>
+        </svg>
+        <div class="tv-banda s09-b s09-b1">Precios</div>
+        <div class="tv-banda s09-b s09-b2">Stock</div>
+        <div class="tv-banda s09-b s09-b3">Horarios</div>
+        <div class="s09-tick"><b>PEDIDO</b><div class="s09-l">1 torta de chocolate</div><div class="s09-l">Sábado, 10:00</div></div>
+        <div class="s09-res">RESERVADO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-sabe";
+      const DUR = 4.64;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s09-asis").innerHTML = TV.asis();
+      root.querySelector(".s09-mesa").innerHTML = TV.mesa(30, 1020);
+      TV.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = TV.kit(tl, root);
+      const { q, qa } = K;
+      const A = q(".s09-asis");
+
+      const PRECIOS = 0.59, STOCK = 1.17, HORARIOS = 1.92, PEDIDOS = 3.0, RESERVAS = 3.5;
+
+      tl.fromTo(A, { x: -200 }, { x: 0, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      K.habla(A.querySelector(".tv-boca"), 0, 4.2);
+      const bd = A.querySelector(".tv-brazo-d");
+      K.origen(bd, 366, 430);
+      // presenta cada cosa con el brazo
+      [[PRECIOS, 30], [STOCK, 50], [HORARIOS, 70], [PEDIDOS, 85]].forEach(([t, r]) => tl.to(bd, { rotation: r, duration: 0.18, ease: "back.out(2)" }, t - 0.12));
+      [[".s09-b1", PRECIOS, -3], [".s09-b2", STOCK, 2], [".s09-b3", HORARIOS, -2]].forEach(([s, t, r]) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 1, x: 700, rotation: r }, { opacity: 1, x: 0, rotation: r, duration: 0.22, ease: "back.out(1.4)", immediateRender: false }, t - 0.1);
+        K.sacudon(q(s), t + 0.12, 0.5);
+      });
+      // "pedidos y reservas": el ticket y el sello
+      K.pop(q(".s09-tick"), PEDIDOS - 0.15);
+      qa(".s09-l").forEach((l, i) => tl.to(l, { opacity: 1, duration: 0.1 }, PEDIDOS + 0.05 + i * 0.2));
+      K.golpe(q(".s09-res"), RESERVAS + 0.05, -12);
+      K.sacudon(q(".s09-escenario"), RESERVAS + 0.1, 0.5);
+      tl.to([q(".s09-b1"), q(".s09-b2"), q(".s09-b3")], { y: -8, duration: 0.3, yoyo: true, repeat: 7, ease: "sine.inOut", stagger: 0.1 }, HORARIOS + 0.3);
+
+      K.salida(q("#s09-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

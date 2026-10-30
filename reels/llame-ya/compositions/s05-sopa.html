@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tele.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-sopa"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-sopa"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-sopa"] svg.s05-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-sopa"] .s05-antes-c { left: 690px; top: 520px; font-size: 54px; }
+    [data-composition-id="s05-sopa"] .s05-plop { position: absolute; left: 20px; top: 820px; width: 420px; height: 300px; }
+    [data-composition-id="s05-sopa"] .s05-plop-t { position: absolute; left: 20px; top: 820px; width: 420px; height: 300px; display: flex; align-items: center; justify-content: center; font-size: 96px; transform: rotate(-10deg); }
+  </style>
+  <div id="root" data-composition-id="s05-sopa" data-width="1080" data-height="1920" data-duration="3.01">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.01" data-track-index="0">
+      <div class="tv-antes">
+        <div class="tv-antes-fondo"></div>
+        <div class="s05-escenario">
+          <svg class="s05-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+            <g transform="translate(400 600) scale(1)"><g class="s05-duenio"></g></g>
+            <!-- la cocina: hornalla y olla -->
+            <rect x="40" y="1400" width="520" height="80" fill="#3a3a3a" stroke="#0d0630" stroke-width="7" />
+            <g class="s05-vapor" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity="0.8">
+              <path d="M170 1160 q-30 -50 0 -100 q30 -50 0 -100" /><path d="M260 1150 q-30 -50 0 -100 q30 -50 0 -100" /><path d="M350 1160 q-30 -50 0 -100 q30 -50 0 -100" />
+            </g>
+            <g class="s05-olla">
+              <path d="M90 1200 H430 V1360 Q430 1400 390 1400 H130 Q90 1400 90 1360 Z" fill="#9a9a9a" stroke="#0d0630" stroke-width="8" stroke-linejoin="round" />
+              <rect x="40" y="1220" width="60" height="26" rx="10" fill="#555" stroke="#0d0630" stroke-width="6" />
+              <rect x="420" y="1220" width="60" height="26" rx="10" fill="#555" stroke="#0d0630" stroke-width="6" />
+              <ellipse cx="260" cy="1200" rx="170" ry="30" fill="#e8c070" stroke="#0d0630" stroke-width="8" />
+            </g>
+            <!-- el celular que vuela -->
+            <g class="s05-vuela">
+              <rect x="-32" y="-56" width="64" height="112" rx="12" fill="#1a1060" stroke="#0d0630" stroke-width="6" />
+              <rect x="-22" y="-42" width="44" height="78" rx="4" fill="#19d3ff" />
+            </g>
+            <g class="s05-gotas" fill="#e8c070" stroke="#0d0630" stroke-width="5">
+              <circle class="s05-g" cx="260" cy="1190" r="18" /><circle class="s05-g" cx="260" cy="1190" r="14" /><circle class="s05-g" cx="260" cy="1190" r="20" />
+              <circle class="s05-g" cx="260" cy="1190" r="12" /><circle class="s05-g" cx="260" cy="1190" r="16" /><circle class="s05-g" cx="260" cy="1190" r="13" />
+            </g>
+          </svg>
+          <svg class="s05-plop" data-tv="estrella" width="420" height="300" data-puntas="14" data-color="#ffffff"></svg>
+          <div class="tv-grueso tv-blanco s05-plop-t">¡Plop!</div>
+        </div>
+        <div data-tv="grano"></div>
+      </div>
+      <div class="tv-cartel s05-antes-c">ANTES</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-sopa";
+      const DUR = 3.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s05-duenio").innerHTML = TV.duenio();
+      TV.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = TV.kit(tl, root);
+      const { q, qa } = K;
+      const D = q(".s05-duenio");
+      const brazo = D.querySelector(".tv-brazo-d");
+      K.origen(brazo, 360, 440);
+
+      const NO = 1.22, SOPA = 1.81;
+
+      K.granular(q(".tv-grano"), DUR);
+      tl.fromTo(q(".s05-escenario"), { scale: 1 }, { scale: 1.06, duration: DUR, ease: "none", transformOrigin: "40% 60%" }, 0);
+      // el vapor sube
+      qa(".s05-vapor path").forEach((p, i) => tl.fromTo(p, { y: 0, opacity: 0.8 }, { y: -40, opacity: 0.3, duration: 0.7, ease: "sine.inOut", yoyo: true, repeat: 3 }, i * 0.15));
+      tl.fromTo(D, { x: 60 }, { x: 0, duration: 0.35, ease: "power3.out" }, 0);
+      // "Ahí te contesto": levanta el celular despacio, con pachorra
+      tl.to(brazo, { rotation: -25, duration: 0.8, ease: "sine.inOut" }, 0.1);
+      K.habla(D.querySelector(".tv-boca"), 0, 1.0);
+      // "¡no!": se le resbala: el celular de la mano desaparece y vuela a la olla
+      gsap.set(q(".s05-vuela"), { opacity: 0 });
+      tl.set(brazo.querySelector(".tv-cel"), { opacity: 0 }, NO - 0.05);
+      tl.set(q(".s05-vuela"), { opacity: 1 }, NO - 0.05);
+      tl.fromTo(q(".s05-vuela"), { x: 760, y: 1020, rotation: -20 }, { x: 260, y: 1190, rotation: -380, duration: SOPA - NO + 0.05, ease: "power1.in", immediateRender: false }, NO - 0.05);
+      tl.to(q(".s05-vuela"), { opacity: 0, duration: 0.05 }, SOPA);
+      tl.to(brazo, { rotation: 30, duration: 0.15, ease: "back.out(2)" }, NO);
+      tl.to(D.querySelector(".tv-ojos"), { scale: 1.4, transformOrigin: "50% 50%", duration: 0.12 }, NO);
+      tl.to(D.querySelector(".tv-boca"), { scaleY: 2.2, scaleX: 1.3, transformOrigin: "50% 30%", duration: 0.12 }, NO);
+      tl.to(D, { y: -30, duration: 0.1, yoyo: true, repeat: 1 }, NO);
+      // "sopa": splash
+      qa(".s05-g").forEach((g, i) => {
+        const a = (-160 + i * 28) * (Math.PI / 180);
+        gsap.set(g, { opacity: 0 });
+        tl.set(g, { opacity: 1 }, SOPA);
+        tl.fromTo(g, { x: 0, y: 0 }, { x: Math.cos(a) * 220, y: Math.sin(a) * 260 + 60, duration: 0.6, ease: "power1.out", immediateRender: false }, SOPA);
+        tl.to(g, { opacity: 0, duration: 0.2 }, SOPA + 0.5);
+      });
+      K.golpe(q(".s05-plop"), SOPA + 0.05, -10);
+      K.golpe(q(".s05-plop-t"), SOPA + 0.07, -10);
+      K.sacudon(q(".s05-escenario"), SOPA + 0.05, 1.2);
+      K.late(q(".s05-plop-t"), SOPA + 0.3, 0.8, 1.08);
+
+      K.salida(q("#s05-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

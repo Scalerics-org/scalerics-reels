@@ -1,0 +1,62 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tele.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-hay-mas"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-hay-mas"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-hay-mas"] svg.s11-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-hay-mas"] .s11-l1 { left: 0; top: 590px; width: 1080px; font-size: 150px; }
+    [data-composition-id="s11-hay-mas"] .s11-l2 { left: 0; top: 760px; width: 1080px; font-size: 150px; }
+    [data-composition-id="s11-hay-mas"] .s11-est { position: absolute; left: 40px; top: 940px; width: 1000px; height: 520px; }
+    [data-composition-id="s11-hay-mas"] .s11-l3 { left: 40px; top: 940px; width: 1000px; height: 520px; display: flex; align-items: center; justify-content: center; font-size: 170px; }
+  </style>
+  <div id="root" data-composition-id="s11-hay-mas" data-width="1080" data-height="1920" data-duration="1.97">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="1.97" data-track-index="0">
+      <div class="s11-escenario">
+        <svg class="s11-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-rayos"></g>
+        </svg>
+        <div class="tv-grueso tv-blanco s11-l1">¡Pero</div>
+        <div class="tv-grueso s11-l2">espere,</div>
+        <svg class="s11-est" data-tv="estrella" width="1000" height="520" data-puntas="20" data-color="#ff2e88"></svg>
+        <div class="tv-grueso s11-l3">¡hay más!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-hay-mas";
+      const DUR = 1.97;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      let rayos = "";
+      for (let i = 0; i < 16; i++) {
+        const a = (i / 16) * Math.PI * 2, b = ((i + 0.5) / 16) * Math.PI * 2, R = 1500;
+        rayos += `<path d="M540 1000 L${(540 + Math.cos(a) * R).toFixed(0)} ${(1000 + Math.sin(a) * R).toFixed(0)} L${(540 + Math.cos(b) * R).toFixed(0)} ${(1000 + Math.sin(b) * R).toFixed(0)} Z" fill="#ffd400" opacity="0.16"/>`;
+      }
+      root.querySelector(".s11-rayos").innerHTML = rayos;
+      TV.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = TV.kit(tl, root);
+      const { q } = K;
+
+      const ESPERE = 0.17, HAY = 0.8;
+
+      tl.fromTo(q(".s11-rayos"), { rotation: 0, svgOrigin: "540 1000" }, { rotation: 60, svgOrigin: "540 1000", duration: DUR, ease: "none" }, 0);
+      K.golpe(q(".s11-l1"), 0.06);
+      K.golpe(q(".s11-l2"), ESPERE + 0.05);
+      K.sacudon(q(".s11-escenario"), ESPERE + 0.1, 0.6);
+      K.golpe(q(".s11-est"), HAY, 0);
+      K.golpe(q(".s11-l3"), HAY + 0.03, -6);
+      K.sacudon(q(".s11-escenario"), HAY + 0.1, 1.2);
+      K.gira(q(".s11-est"), HAY, DUR - HAY, 25);
+      K.late(q(".s11-l3"), HAY + 0.25, DUR - HAY - 0.4, 1.08);
+      tl.fromTo(q(".s11-escenario"), { scale: 1 }, { scale: 1.08, duration: DUR, ease: "none", transformOrigin: "50% 55%", immediateRender: false }, 0);
+
+      K.salida(q("#s11-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

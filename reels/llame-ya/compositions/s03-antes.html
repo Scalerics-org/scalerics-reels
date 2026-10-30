@@ -1,0 +1,90 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tele.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-antes"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-antes"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-antes"] svg.s03-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-antes"] .s03-antes-c { left: 690px; top: 520px; font-size: 54px; }
+    [data-composition-id="s03-antes"] .s03-noti { position: absolute; left: 230px; top: 1000px; width: 420px; box-sizing: border-box; padding: 16px 20px; background: #ffffff; border: 6px solid #0d0630; border-radius: 22px; box-shadow: 8px 8px 0 #0d0630; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 30px; line-height: 1.2; color: #0d0630; }
+    [data-composition-id="s03-antes"] .s03-noti small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 26px; letter-spacing: 0.1em; color: #ff2e88; }
+    [data-composition-id="s03-antes"] .s03-hora { position: absolute; left: 700px; top: 985px; width: 300px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 56px; color: #ffffff; text-shadow: 4px 4px 0 #0d0630; }
+  </style>
+  <div id="root" data-composition-id="s03-antes" data-width="1080" data-height="1920" data-duration="2.93">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="2.93" data-track-index="0">
+      <div class="tv-antes">
+        <div class="tv-antes-fondo"></div>
+        <div class="s03-escenario">
+          <svg class="s03-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+            <!-- ventana de noche con luna -->
+            <g class="s03-ventana">
+              <rect x="80" y="620" width="300" height="340" fill="#1a1060" stroke="#0d0630" stroke-width="8" />
+              <path d="M230 620 V960 M80 790 H380" stroke="#0d0630" stroke-width="8" />
+              <path d="M300 660 a46 46 0 1 0 40 70 a36 36 0 1 1 -40 -70 Z" fill="#ffffff" stroke="#0d0630" stroke-width="5" />
+              <g class="s03-estrellas" fill="#ffffff"><circle cx="130" cy="680" r="6" /><circle cx="180" cy="740" r="5" /><circle cx="130" cy="880" r="6" /><circle cx="300" cy="880" r="5" /><circle cx="190" cy="910" r="4" /></g>
+            </g>
+            <!-- reloj de pared -->
+            <g class="s03-reloj">
+              <circle cx="850" cy="820" r="140" fill="#ffffff" stroke="#0d0630" stroke-width="9" />
+              <g stroke="#0d0630" stroke-width="7" stroke-linecap="round"><path d="M850 696 V716 M850 924 V944 M726 820 H746 M954 820 H974" /></g>
+              <path class="s03-hor" d="M850 820 L790 820" stroke="#0d0630" stroke-width="12" stroke-linecap="round" />
+              <path class="s03-min" d="M850 820 L850 715" stroke="#ff2e88" stroke-width="8" stroke-linecap="round" />
+              <circle cx="850" cy="820" r="12" fill="#0d0630" />
+            </g>
+            <!-- el celular sobre la mesa -->
+            <g class="s03-cel">
+              <rect x="400" y="1120" width="280" height="300" rx="36" fill="#ff2e88" stroke="#0d0630" stroke-width="8" />
+              <rect x="424" y="1150" width="232" height="250" rx="16" fill="#1a1060" />
+              <g class="s03-ondas" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"><path d="M370 1170 q-24 40 0 80 M342 1150 q-40 60 0 120 M710 1170 q24 40 0 80 M738 1150 q40 60 0 120" /></g>
+            </g>
+            <path d="M0 1440 H1080 V1490 H0 Z" fill="#3a3a3a" stroke="#0d0630" stroke-width="6" />
+          </svg>
+          <div class="s03-noti"><small>WHATSAPP · 21:00</small>Clienta: 1 mensaje nuevo</div>
+          <div class="s03-hora">21:00</div>
+        </div>
+        <div data-tv="grano"></div>
+      </div>
+      <div class="tv-cartel s03-antes-c">ANTES</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-antes";
+      const DUR = 2.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      TV.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = TV.kit(tl, root);
+      const { q, qa } = K;
+
+      const ESCRIBE = 0.74, NUEVE = 1.49, NOCHE = 2.24;
+
+      K.granular(q(".tv-grano"), DUR);
+      K.golpe(q(".s03-antes-c"), 0.08, -4);
+      tl.fromTo(q(".s03-escenario"), { scale: 1.08 }, { scale: 1, duration: DUR, ease: "power1.out", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s03-ventana"), { x: -60, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s03-reloj"), { x: 60, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s03-cel"), { y: 80, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.05);
+      // "escribe": vibra el celular y salta la notificación
+      gsap.set(q(".s03-ondas"), { opacity: 0 });
+      tl.set(q(".s03-ondas"), { opacity: 1 }, ESCRIBE);
+      for (let i = 0; i < 8; i++) tl.to(q(".s03-cel"), { x: i % 2 ? -8 : 8, duration: 0.05, ease: "none" }, ESCRIBE + i * 0.05);
+      tl.to(q(".s03-cel"), { x: 0, duration: 0.05 }, ESCRIBE + 0.4);
+      tl.to(q(".s03-ondas"), { opacity: 0.2, duration: 0.15, yoyo: true, repeat: 7 }, ESCRIBE + 0.1);
+      K.pop(q(".s03-noti"), ESCRIBE);
+      // "nueve": las agujas giran hasta las nueve y aparece la hora
+      tl.fromTo(q(".s03-min"), { rotation: -300, svgOrigin: "850 820" }, { rotation: 0, svgOrigin: "850 820", duration: 0.7, ease: "power2.out" }, NUEVE - 0.6);
+      tl.fromTo(q(".s03-hor"), { rotation: -40, svgOrigin: "850 820" }, { rotation: 0, svgOrigin: "850 820", duration: 0.7, ease: "power2.out" }, NUEVE - 0.6);
+      K.golpe(q(".s03-hora"), NUEVE);
+      // "noche": titilan las estrellas de la ventana
+      qa(".s03-estrellas circle").forEach((c, i) => tl.fromTo(c, { opacity: 0.2 }, { opacity: 1, duration: 0.15, yoyo: true, repeat: 3, immediateRender: false }, NOCHE - 0.6 + i * 0.08));
+
+      K.salida(q("#s03-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

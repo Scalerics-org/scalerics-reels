@@ -1,0 +1,94 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tele.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-nuevo"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-nuevo"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-nuevo"] svg.s08-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-nuevo"] .s08-flash { position: absolute; inset: 0; background: #ffffff; opacity: 0; }
+    [data-composition-id="s08-nuevo"] .s08-est { position: absolute; left: 600px; top: 520px; width: 440px; height: 320px; }
+    [data-composition-id="s08-nuevo"] .s08-est-t { position: absolute; left: 600px; top: 520px; width: 440px; height: 320px; display: flex; align-items: center; justify-content: center; font-size: 84px; transform: rotate(-12deg); }
+    [data-composition-id="s08-nuevo"] .s08-inst { position: absolute; left: 40px; top: 1150px; font-size: 52px; padding: 14px 24px; transform: rotate(-6deg); }
+    [data-composition-id="s08-nuevo"] .s08-feriado { position: absolute; left: 290px; top: 1340px; width: 500px; font-size: 60px; padding: 14px 0; transform: rotate(3deg); background: #19d3ff; }
+  </style>
+  <div id="root" data-composition-id="s08-nuevo" data-width="1080" data-height="1920" data-duration="4.93">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.93" data-track-index="0">
+      <div class="s08-escenario">
+        <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(320 560)"><g class="s08-rolo"></g></g>
+          <g class="s08-mesa"></g>
+          <!-- rayo -->
+          <path class="s08-rayo" d="M150 760 L250 760 L200 900 L290 900 L140 1120 L180 950 L100 950 Z" fill="#ffd400" stroke="#0d0630" stroke-width="8" stroke-linejoin="round" />
+          <!-- sol -->
+          <g class="s08-sol">
+            <circle cx="160" cy="1010" r="70" fill="#ffd400" stroke="#0d0630" stroke-width="8" />
+            <g stroke="#0d0630" stroke-width="10" stroke-linecap="round"><path d="M160 910 V890 M160 1110 V1130 M60 1010 H40 M260 1010 H280 M90 940 L76 926 M230 1080 L244 1094 M230 940 L244 926 M90 1080 L76 1094" /></g>
+            <circle cx="140" cy="1000" r="8" fill="#0d0630" /><circle cx="180" cy="1000" r="8" fill="#0d0630" /><path d="M136 1030 Q160 1050 184 1030" fill="none" stroke="#0d0630" stroke-width="6" stroke-linecap="round" />
+          </g>
+          <!-- luna -->
+          <g class="s08-luna">
+            <path d="M930 930 a90 90 0 1 0 60 150 a70 70 0 1 1 -60 -150 Z" fill="#ffffff" stroke="#0d0630" stroke-width="8" stroke-linejoin="round" />
+            <path d="M905 1020 q10 8 20 0" fill="none" stroke="#0d0630" stroke-width="6" stroke-linecap="round" />
+            <text x="980" y="930" font-family="Lexend" font-weight="900" font-size="40" fill="#ffffff" stroke="#0d0630" stroke-width="3">z</text>
+          </g>
+        </svg>
+        <div class="tv-banda s08-inst">¡Al instante!</div>
+        <div class="tv-banda s08-feriado">¡Y en feriado!</div>
+        <svg class="s08-est" data-tv="estrella" width="440" height="320" data-puntas="16"></svg>
+        <div class="tv-grueso tv-mag s08-est-t">¡Nuevo!</div>
+        <div class="s08-flash"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-nuevo";
+      const DUR = 4.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s08-rolo").innerHTML = TV.rolo();
+      root.querySelector(".s08-mesa").innerHTML = TV.mesa(150, 780);
+      TV.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = TV.kit(tl, root);
+      const { q, qa } = K;
+      const R = q(".s08-rolo");
+
+      const NUEVO = 0.75, CONTESTA = 1.54, INST = 2.0, DIA = 2.67, NOCHE = 3.34, FERIADO = 4.0;
+
+      // vuelve el color de golpe: flash blanco
+      tl.fromTo(q(".s08-flash"), { opacity: 0.9 }, { opacity: 0, duration: 0.35, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s08-escenario"), { scale: 1.12 }, { scale: 1, duration: 0.5, ease: "power3.out", transformOrigin: "50% 60%" }, 0);
+      tl.fromTo(R, { y: 200 }, { y: 0, duration: 0.35, ease: "back.out(1.8)" }, 0);
+      K.habla(R.querySelector(".tv-boca"), 0, 4.5);
+      // "nuevo": la estrella
+      K.golpe(q(".s08-est"), NUEVO, 0);
+      K.golpe(q(".s08-est-t"), NUEVO + 0.03, -12);
+      K.gira(q(".s08-est"), NUEVO, DUR - NUEVO, 40);
+      K.late(q(".s08-est-t"), NUEVO + 0.2, DUR - NUEVO - 0.5, 1.1);
+      const bi = R.querySelector(".tv-brazo-i");
+      K.origen(bi, 68, 420);
+      tl.to(bi, { rotation: 110, duration: 0.2, ease: "back.out(2)" }, NUEVO);
+      // "contesta al instante": rayo
+      gsap.set(q(".s08-rayo"), { opacity: 0 });
+      tl.fromTo(q(".s08-rayo"), { opacity: 1, y: -200, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, CONTESTA);
+      for (let i = 0; i < 4; i++) tl.set(q(".s08-rayo"), { opacity: i % 2 ? 1 : 0.3 }, CONTESTA + 0.2 + i * 0.08);
+      tl.to(q(".s08-rayo"), { opacity: 0, duration: 0.15 }, DIA - 0.2);
+      K.golpe(q(".s08-inst"), INST, -6);
+      tl.to(q(".s08-inst"), { opacity: 0, duration: 0.15 }, DIA - 0.15);
+      tl.to(bi, { rotation: 40, duration: 0.2 }, DIA - 0.2);
+      // día, noche, feriado
+      K.pop(q(".s08-sol"), DIA - 0.05);
+      K.gira(q(".s08-sol"), DIA, DUR - DIA, 60);
+      K.pop(q(".s08-luna"), NOCHE - 0.05);
+      tl.to(q(".s08-luna"), { rotation: -12, transformOrigin: "50% 50%", duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, NOCHE + 0.3);
+      K.golpe(q(".s08-feriado"), FERIADO, 3);
+      K.sacudon(q(".s08-escenario"), FERIADO + 0.06, 0.6);
+
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,119 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tele.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-cumple"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-cumple"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-cumple"] svg.s07-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-cumple"] .s07-antes-c { left: 690px; top: 520px; font-size: 54px; }
+    [data-composition-id="s07-cumple"] .s07-otro { position: absolute; left: 700px; top: 930px; font-size: 54px; padding: 14px 24px; transform: rotate(8deg); }
+    [data-composition-id="s07-cumple"] .s07-oooh { position: absolute; left: 0; top: 760px; width: 1080px; font-size: 230px; }
+  </style>
+  <div id="root" data-composition-id="s07-cumple" data-width="1080" data-height="1920" data-duration="5.93">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.93" data-track-index="0">
+      <div class="tv-antes">
+        <div class="tv-antes-fondo"></div>
+        <div class="s07-escenario">
+          <svg class="s07-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+            <!-- banderines -->
+            <g class="s07-guirnalda">
+              <path d="M0 560 Q540 700 1080 560" fill="none" stroke="#0d0630" stroke-width="6" />
+              <g class="s07-band" stroke="#0d0630" stroke-width="5" stroke-linejoin="round">
+                <path d="M80 582 L150 600 L108 668 Z" fill="#ff2e88" /><path d="M230 614 L300 628 L258 700 Z" fill="#ffd400" /><path d="M380 636 L450 644 L410 718 Z" fill="#19d3ff" />
+                <path d="M630 644 L700 636 L670 718 Z" fill="#ff2e88" /><path d="M780 628 L850 614 L822 700 Z" fill="#ffd400" /><path d="M930 600 L1000 582 L972 668 Z" fill="#19d3ff" />
+              </g>
+            </g>
+            <g transform="translate(130 640) scale(0.95)"><g class="s07-clienta"></g></g>
+            <!-- la torta de otro -->
+            <g class="s07-torta">
+              <ellipse cx="690" cy="1310" rx="200" ry="38" fill="#ffffff" stroke="#0d0630" stroke-width="7" />
+              <path d="M520 1120 V1290 Q690 1336 860 1290 V1120 Z" fill="#f2d0e0" stroke="#0d0630" stroke-width="7" stroke-linejoin="round" />
+              <path d="M520 1200 Q690 1244 860 1200" fill="none" stroke="#ff2e88" stroke-width="10" />
+              <ellipse cx="690" cy="1120" rx="170" ry="40" fill="#ffffff" stroke="#0d0630" stroke-width="7" />
+              <rect x="620" y="1030" width="20" height="80" fill="#19d3ff" stroke="#0d0630" stroke-width="5" />
+              <rect x="740" y="1030" width="20" height="80" fill="#ffd400" stroke="#0d0630" stroke-width="5" />
+              <path class="s07-llama" d="M630 1028 q-12 -22 0 -40 q12 18 0 40 Z M750 1028 q-12 -22 0 -40 q12 18 0 40 Z" fill="#ffd400" stroke="#0d0630" stroke-width="4" />
+              <path class="s07-palito" d="M690 1120 V960" stroke="#0d0630" stroke-width="7" stroke-linecap="round" />
+            </g>
+            <g class="s07-confeti"></g>
+            <!-- el público del estudio (siluetas) -->
+            <g class="s07-publico" fill="#0d0630">
+              <g class="s07-p"><circle cx="90" cy="1400" r="62" /><rect x="10" y="1440" width="160" height="80" rx="40" /></g>
+              <g class="s07-p"><circle cx="270" cy="1420" r="58" /><rect x="190" y="1460" width="160" height="80" rx="40" /></g>
+              <g class="s07-p"><circle cx="450" cy="1404" r="64" /><rect x="370" y="1446" width="160" height="80" rx="40" /></g>
+              <g class="s07-p"><circle cx="630" cy="1420" r="58" /><rect x="550" y="1460" width="160" height="80" rx="40" /></g>
+              <g class="s07-p"><circle cx="810" cy="1402" r="62" /><rect x="730" y="1444" width="160" height="80" rx="40" /></g>
+              <g class="s07-p"><circle cx="990" cy="1420" r="58" /><rect x="910" y="1460" width="160" height="80" rx="40" /></g>
+            </g>
+          </svg>
+          <div class="tv-banda s07-otro">De otro</div>
+          <div class="tv-grueso tv-blanco s07-oooh" data-layout-ignore>¡OOOH!</div>
+        </div>
+        <div data-tv="grano"></div>
+      </div>
+      <div class="tv-cartel s07-antes-c">ANTES</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-cumple";
+      const DUR = 5.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s07-clienta").innerHTML = TV.clienta(true);
+      TV.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = TV.kit(tl, root);
+      const { q, qa } = K;
+      const C = q(".s07-clienta");
+
+      const FESTEJO = 0.58, TORTA = 2.5, OTRO = 3.0, OOOH = 4.04;
+
+      K.granular(q(".tv-grano"), DUR);
+      tl.fromTo(q(".s07-escenario"), { scale: 1 }, { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      tl.fromTo(C, { x: -120, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s07-torta"), { y: 140, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 0.08);
+      tl.fromTo(q(".s07-guirnalda"), { y: -120 }, { y: 0, duration: 0.4, ease: "bounce.out" }, 0);
+      qa(".s07-band path").forEach((p, i) => tl.to(p, { rotation: i % 2 ? 6 : -6, transformOrigin: "50% 0%", duration: 0.4, yoyo: true, repeat: 12, ease: "sine.inOut" }, i * 0.07));
+      tl.to(q(".s07-llama"), { scaleY: 0.8, transformOrigin: "50% 100%", duration: 0.12, yoyo: true, repeat: 23, ease: "sine.inOut" }, 0);
+      // "festejó el cumpleaños": confeti y ella festeja con los brazos
+      const conf = q(".s07-confeti");
+      const NS = "http://www.w3.org/2000/svg";
+      const cols = ["#ff2e88", "#ffd400", "#19d3ff", "#ffffff"];
+      for (let i = 0; i < 26; i++) {
+        const r = document.createElementNS(NS, "rect");
+        const x = 80 + ((i * 397) % 920);
+        r.setAttribute("x", x); r.setAttribute("y", 540); r.setAttribute("width", 18); r.setAttribute("height", 30);
+        r.setAttribute("fill", cols[i % 4]); r.setAttribute("stroke", "#0d0630"); r.setAttribute("stroke-width", 3);
+        r.setAttribute("opacity", 0);
+        conf.appendChild(r);
+        tl.set(r, { opacity: 1 }, FESTEJO + (i % 6) * 0.05);
+        tl.fromTo(r, { y: 0, rotation: 0, transformOrigin: "50% 50%" }, { y: 650 + ((i * 131) % 300), rotation: 360 + i * 40, duration: 1.8, ease: "power1.in", immediateRender: false }, FESTEJO + (i % 6) * 0.05);
+        tl.to(r, { opacity: 0, duration: 0.2 }, FESTEJO + 1.7);
+      }
+      ["tv-brazo-d", "tv-brazo-i"].forEach((b, i) => {
+        const el = C.querySelector("." + b);
+        K.origen(el, i ? 80 : 360, 440);
+        tl.to(el, { rotation: i ? 140 : -140, duration: 0.2, ease: "back.out(2)" }, FESTEJO);
+        tl.to(el, { rotation: i ? 120 : -120, duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, FESTEJO + 0.25);
+        tl.to(el, { rotation: 0, duration: 0.25 }, TORTA - 0.2);
+      });
+      // "la torta de otro": el cartelito clavado
+      K.dibujar(q(".s07-palito"), TORTA - 0.1, 0.15);
+      K.golpe(q(".s07-otro"), OTRO, 8);
+      K.late(q(".s07-otro"), OTRO + 0.2, 0.9, 1.08);
+      // "¡Oooh!": el público
+      gsap.set(q(".s07-publico"), { y: 200, opacity: 0 });
+      tl.to(q(".s07-publico"), { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.5)" }, OOOH - 0.3);
+      qa(".s07-p").forEach((p, i) => tl.to(p, { y: -16, rotation: i % 2 ? 4 : -4, transformOrigin: "50% 100%", duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, OOOH + i * 0.04));
+      K.golpe(q(".s07-oooh"), OOOH);
+      tl.to(q(".s07-oooh"), { scale: 1.12, duration: DUR - OOOH - 0.3, ease: "sine.out" }, OOOH + 0.1);
+
+      K.salida(q("#s07-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,69 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tele.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s16-lindo"] .s16-capa { position: absolute; inset: 0; }
+    [data-composition-id="s16-lindo"] .s16-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s16-lindo"] svg.s16-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s16-lindo"] .s16-lindo { left: 90px; top: 1150px; width: 900px; font-size: 84px; transform: rotate(-6deg); }
+  </style>
+  <div id="root" data-composition-id="s16-lindo" data-width="1080" data-height="1920" data-duration="3.15">
+    <div id="s16-escena" class="s16-capa clip" data-start="0" data-duration="3.15" data-track-index="0">
+      <div class="s16-escenario">
+        <svg class="s16-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el cartel de neón colgado de dos cadenas -->
+          <g class="s16-cartel">
+            <path d="M260 450 V560" stroke="#0d0630" stroke-width="6" stroke-dasharray="14 8" />
+            <path class="s16-cadena-d" d="M820 450 V560" stroke="#0d0630" stroke-width="6" stroke-dasharray="14 8" />
+            <rect x="180" y="560" width="720" height="130" rx="20" fill="#0d0630" stroke="#ff2e88" stroke-width="10" />
+            <text class="s16-neon" x="540" y="652" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="84" fill="#19d3ff" stroke="#ffffff" stroke-width="2" letter-spacing="4">TELETIENDA</text>
+          </g>
+          <g transform="translate(320 640)"><g class="s16-rolo"></g></g>
+          <g class="s16-mesa"></g>
+        </svg>
+        <div class="tv-grueso s16-lindo">¡Quedaba lindo!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s16-lindo";
+      const DUR = 3.15;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s16-rolo").innerHTML = TV.rolo();
+      root.querySelector(".s16-mesa").innerHTML = TV.mesa(150, 780);
+      TV.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = TV.kit(tl, root);
+      const { q, qa } = K;
+      const R = q(".s16-rolo");
+
+      const TELE = 0.71, QUEDABA = 1.78;
+
+      tl.fromTo(R, { y: 60 }, { y: 0, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      K.habla(R.querySelector(".tv-boca"), 0, 2.6);
+      tl.fromTo(q(".s16-cartel"), { y: -260 }, { y: 0, duration: 0.3, ease: "bounce.out" }, 0);
+      // el neón titila y se descuelga de la derecha en "teletienda"
+      [0.4, 0.5, 0.62, 0.7, 0.9, 1.05].forEach((t, i) => tl.set(q(".s16-neon"), { opacity: i % 2 ? 1 : 0.25 }, t));
+      tl.set(q(".s16-cadena-d"), { opacity: 0 }, TELE + 0.05);
+      tl.to(q(".s16-cartel"), { rotation: 28, svgOrigin: "260 560", duration: 0.5, ease: "elastic.out(1, 0.4)" }, TELE + 0.05);
+      tl.to(q(".s16-cartel"), { rotation: 24, svgOrigin: "260 560", duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, TELE + 0.6);
+      // Rolo se ríe con el hombro, cómplice
+      tl.to(R, { rotation: -3, transformOrigin: "50% 100%", duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, TELE + 0.2);
+      // "quedaba lindo": pulgar arriba y el diente que brilla
+      const bi = R.querySelector(".tv-brazo-i");
+      K.origen(bi, 68, 420);
+      tl.to(bi, { rotation: 100, duration: 0.2, ease: "back.out(2)" }, QUEDABA - 0.1);
+      tl.fromTo(R.querySelector(".tv-brillo"), { scale: 0.3, rotation: 0, transformOrigin: "50% 50%" }, { scale: 2.6, rotation: 90, duration: 0.3, ease: "back.out(3)", transformOrigin: "50% 50%" }, QUEDABA);
+      tl.to(R.querySelector(".tv-brillo"), { scale: 1.2, duration: 0.3 }, QUEDABA + 0.4);
+      K.golpe(q(".s16-lindo"), QUEDABA + 0.1, -6);
+      K.late(q(".s16-lindo"), QUEDABA + 0.3, DUR - QUEDABA - 0.5, 1.06);
+
+      K.salida(q("#s16-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

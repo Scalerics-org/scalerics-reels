@@ -1,0 +1,75 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/momentos.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="estudio"] .est-capa { position: absolute; inset: 0; }
+    [data-composition-id="estudio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="estudio" data-width="1080" data-height="1920" data-duration="73.72">
+    <div id="est-escena" class="est-capa clip" data-start="0" data-duration="73.72" data-track-index="0">
+      <!-- set de teletienda: rayos que giran detrás, piso de estudio en damero, focos -->
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="est-rayos"></g>
+        <circle cx="540" cy="980" r="330" fill="#ff2e88" opacity="0.14" />
+        <circle cx="540" cy="980" r="210" fill="#ffd400" opacity="0.08" />
+        <g class="est-piso"></g>
+        <path d="M0 1478 H1080" stroke="#ffd400" stroke-width="8" />
+        <path d="M0 1490 H1080" stroke="#0d0630" stroke-width="6" />
+        <g class="est-chispas" fill="#ffffff"></g>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "estudio";
+      const DUR = window.TVM.DUR;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const NS = "http://www.w3.org/2000/svg";
+      const tl = gsap.timeline({ paused: true });
+
+      // rayos: 24 cuñas alternadas desde el centro del set
+      let rayos = "";
+      for (let i = 0; i < 24; i++) {
+        const a = (i / 24) * Math.PI * 2, b = ((i + 0.5) / 24) * Math.PI * 2, R = 1700;
+        const c = i % 2 ? "#19d3ff" : "#ff2e88";
+        rayos += `<path d="M540 980 L${(540 + Math.cos(a) * R).toFixed(0)} ${(980 + Math.sin(a) * R).toFixed(0)} L${(540 + Math.cos(b) * R).toFixed(0)} ${(980 + Math.sin(b) * R).toFixed(0)} Z" fill="${c}" opacity="${i % 2 ? 0.07 : 0.12}"/>`;
+      }
+      q(".est-rayos").innerHTML = rayos;
+      tl.fromTo(q(".est-rayos"), { rotation: 0, svgOrigin: "540 980" }, { rotation: 40, svgOrigin: "540 980", duration: DUR, ease: "none" }, 0);
+
+      // piso en damero con perspectiva (y 1490 a 1920)
+      let piso = `<rect x="0" y="1490" width="1080" height="430" fill="#1a1060"/>`;
+      const filas = [1490, 1540, 1600, 1672, 1760, 1870, 1990];
+      for (let f = 0; f < filas.length - 1; f++) {
+        const y0 = filas[f], y1 = filas[f + 1];
+        for (let c = -8; c < 8; c++) {
+          if ((c + f) % 2 === 0) continue;
+          const k0 = 1 + f * 0.55, k1 = 1 + (f + 1) * 0.55;
+          const x = (cc, k) => (540 + cc * 90 * k).toFixed(0);
+          piso += `<path d="M${x(c, k0)} ${y0} L${x(c + 1, k0)} ${y0} L${x(c + 1, k1)} ${y1} L${x(c, k1)} ${y1} Z" fill="#ff2e88" opacity="0.32"/>`;
+        }
+      }
+      q(".est-piso").innerHTML = piso;
+
+      // chispas que titilan (fijas, pseudoaleatorio con semilla)
+      let semilla = 31;
+      const azar = () => ((semilla = (semilla * 16807) % 2147483647) / 2147483647);
+      const chispas = q(".est-chispas");
+      for (let i = 0; i < 18; i++) {
+        const x = 60 + azar() * 960, y = 470 + azar() * 960, s = 6 + azar() * 10;
+        const p = document.createElementNS(NS, "path");
+        p.setAttribute("d", `M${x} ${y - s * 2} L${x + s * 0.5} ${y - s * 0.5} L${x + s * 2} ${y} L${x + s * 0.5} ${y + s * 0.5} L${x} ${y + s * 2} L${x - s * 0.5} ${y + s * 0.5} L${x - s * 2} ${y} L${x - s * 0.5} ${y - s * 0.5} Z`);
+        p.setAttribute("opacity", "0");
+        chispas.appendChild(p);
+        const per = 1.4 + azar() * 1.6;
+        tl.fromTo(p, { opacity: 0 }, { opacity: 0.55, duration: per / 2, ease: "sine.inOut", yoyo: true, repeat: Math.floor(DUR / per) * 2 - 1 }, azar() * 1.5);
+      }
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

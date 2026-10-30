@@ -1,0 +1,62 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tele.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s18-cta"] .s18-capa { position: absolute; inset: 0; }
+    [data-composition-id="s18-cta"] .s18-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s18-cta"] .s18-est { position: absolute; left: 40px; top: 520px; width: 1000px; height: 420px; }
+    [data-composition-id="s18-cta"] .s18-est-t { position: absolute; left: 40px; top: 520px; width: 1000px; height: 420px; display: flex; align-items: center; justify-content: center; font-size: 100px; transform: rotate(-5deg); }
+    [data-composition-id="s18-cta"] .s18-bot { position: absolute; top: 980px; height: 130px; box-sizing: border-box; border: 7px solid #0d0630; border-radius: 65px; box-shadow: 0 12px 0 #0d0630; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; color: #0d0630; text-transform: uppercase; }
+    [data-composition-id="s18-cta"] .s18-si { left: 110px; width: 360px; background: #19d3ff; }
+    [data-composition-id="s18-cta"] .s18-obvio { left: 520px; width: 450px; background: #ff2e88; color: #ffffff; }
+    [data-composition-id="s18-cta"] .s18-globo { position: absolute; left: 120px; top: 1180px; width: 840px; box-sizing: border-box; padding: 24px 30px; background: #ffffff; border: 7px solid #0d0630; border-radius: 36px; box-shadow: 10px 10px 0 #0d0630; display: flex; align-items: center; gap: 24px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; line-height: 1.12; color: #0d0630; }
+    [data-composition-id="s18-cta"] .s18-globo svg { width: 84px; height: 84px; flex: none; }
+    [data-composition-id="s18-cta"] .s18-cola { position: absolute; left: 200px; top: 1350px; width: 70px; height: 70px; }
+  </style>
+  <div id="root" data-composition-id="s18-cta" data-width="1080" data-height="1920" data-duration="5.82">
+    <div id="s18-escena" class="s18-capa clip" data-start="0" data-duration="5.82" data-track-index="0">
+      <div class="s18-escenario">
+        <svg class="s18-est" data-tv="estrella" width="1000" height="420" data-puntas="22"></svg>
+        <div class="tv-grueso tv-mag s18-est-t">¿Lo comprarías?</div>
+        <div class="s18-bot s18-si">Sí</div>
+        <div class="s18-bot s18-obvio">Obvio</div>
+        <svg class="s18-cola" viewBox="0 0 70 70" aria-hidden="true"><path d="M6 0 L64 0 L14 64 Z" fill="#ffffff" stroke="#0d0630" stroke-width="7" stroke-linejoin="round" /><path d="M4 -5 H66" stroke="#ffffff" stroke-width="10" /></svg>
+        <div class="s18-globo">
+          <svg viewBox="0 0 84 84" aria-hidden="true"><path d="M10 14 H74 Q80 14 80 20 V56 Q80 62 74 62 H34 L18 76 V62 H10 Q4 62 4 56 V20 Q4 14 10 14 Z" fill="#ffd400" stroke="#0d0630" stroke-width="6" stroke-linejoin="round" /><circle cx="26" cy="38" r="5" fill="#0d0630" /><circle cx="42" cy="38" r="5" fill="#0d0630" /><circle cx="58" cy="38" r="5" fill="#0d0630" /></svg>
+          <span>Te leemos en los comentarios</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s18-cta";
+      const DUR = 5.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      TV.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = TV.kit(tl, root);
+      const { q, qa } = K;
+
+      const COMPRARIAS = 0.34, LEEMOS = 1.27;
+
+      K.golpe(q(".s18-est"), 0.1, 0);
+      K.golpe(q(".s18-est-t"), COMPRARIAS, -5);
+      K.sacudon(q(".s18-escenario"), COMPRARIAS + 0.08, 0.8);
+      K.gira(q(".s18-est"), 0.1, DUR, 8);
+      K.pop(q(".s18-si"), COMPRARIAS + 0.35);
+      K.pop(q(".s18-obvio"), COMPRARIAS + 0.5);
+      tl.to(q(".s18-si"), { scale: 1.06, duration: 0.3, yoyo: true, repeat: 13, ease: "sine.inOut" }, 1.0);
+      tl.to(q(".s18-obvio"), { scale: 1.06, duration: 0.3, yoyo: true, repeat: 13, ease: "sine.inOut" }, 1.15);
+      K.pop(q(".s18-globo"), LEEMOS);
+      K.pop(q(".s18-cola"), LEEMOS + 0.05);
+      qa(".s18-globo circle").forEach((c, i) => tl.to(c, { y: -8, duration: 0.2, yoyo: true, repeat: 9, ease: "sine.inOut" }, LEEMOS + 0.3 + i * 0.1));
+      K.late(q(".s18-est-t"), 1.0, DUR - 1.2, 1.05);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,77 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tele.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-torta"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-torta"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-torta"] svg.s04-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-torta"] .s04-antes-c { left: 690px; top: 520px; font-size: 54px; }
+    [data-composition-id="s04-torta"] .s04-globo { position: absolute; left: 90px; top: 640px; width: 600px; box-sizing: border-box; padding: 26px 30px; background: #ffffff; border: 7px solid #0d0630; border-radius: 34px 34px 34px 8px; box-shadow: 10px 10px 0 #0d0630; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 46px; line-height: 1.2; color: #0d0630; }
+    [data-composition-id="s04-torta"] .s04-globo .s04-p { opacity: 0; }
+    [data-composition-id="s04-torta"] .s04-quien { position: absolute; left: 90px; top: 580px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.2em; color: #ffffff; text-shadow: 3px 3px 0 #0d0630; }
+    [data-composition-id="s04-torta"] .s04-sabado { position: absolute; left: 110px; top: 1220px; font-size: 64px; padding: 16px 30px; transform: rotate(-5deg); }
+  </style>
+  <div id="root" data-composition-id="s04-torta" data-width="1080" data-height="1920" data-duration="3.12">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.12" data-track-index="0">
+      <div class="tv-antes">
+        <div class="tv-antes-fondo"></div>
+        <div class="s04-escenario">
+          <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+            <!-- la torta con velitas -->
+            <g class="s04-torta">
+              <ellipse cx="800" cy="1400" rx="210" ry="40" fill="#ffffff" stroke="#0d0630" stroke-width="7" />
+              <path d="M620 1180 V1370 Q800 1420 980 1370 V1180 Z" fill="#5a3a22" stroke="#0d0630" stroke-width="7" stroke-linejoin="round" />
+              <path d="M620 1270 Q800 1316 980 1270" fill="none" stroke="#ffffff" stroke-width="10" />
+              <ellipse cx="800" cy="1180" rx="180" ry="44" fill="#3a2414" stroke="#0d0630" stroke-width="7" />
+              <path class="s04-choco" d="M622 1186 Q640 1250 660 1200 Q690 1270 716 1208 Q740 1240 770 1210 Q800 1290 830 1212 Q860 1250 890 1208 Q920 1262 950 1204 Q966 1236 978 1188" fill="#3a2414" stroke="#0d0630" stroke-width="6" stroke-linejoin="round" />
+              <g class="s04-velas">
+                <rect x="730" y="1080" width="22" height="90" fill="#ff2e88" stroke="#0d0630" stroke-width="5" />
+                <rect x="790" y="1066" width="22" height="104" fill="#19d3ff" stroke="#0d0630" stroke-width="5" />
+                <rect x="850" y="1080" width="22" height="90" fill="#ffd400" stroke="#0d0630" stroke-width="5" />
+                <path class="s04-llama" d="M741 1078 q-14 -24 0 -44 q14 20 0 44 Z M801 1064 q-14 -24 0 -44 q14 20 0 44 Z M861 1078 q-14 -24 0 -44 q14 20 0 44 Z" fill="#ffd400" stroke="#0d0630" stroke-width="4" />
+              </g>
+            </g>
+          </svg>
+          <div class="s04-quien">CLIENTA · 21:00</div>
+          <div class="s04-globo"><span class="s04-p">Hola,</span> <span class="s04-p">¿me</span> <span class="s04-p">hacés</span> <span class="s04-p">una</span> <span class="s04-p">torta</span> <span class="s04-p">de</span> <span class="s04-p">chocolate</span> <span class="s04-p">para</span> <span class="s04-p">el</span> <span class="s04-p">sábado?</span></div>
+          <div class="tv-banda s04-sabado">Sábado</div>
+        </div>
+        <div data-tv="grano"></div>
+      </div>
+      <div class="tv-cartel s04-antes-c">ANTES</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-torta";
+      const DUR = 3.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      TV.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = TV.kit(tl, root);
+      const { q, qa } = K;
+
+      const TIEMPOS = [0, 0.53, 0.62, 0.71, 0.98, 1.34, 1.43, 1.6, 1.96, 2.14];
+      const TORTA = 0.98, CHOCO = 1.43, SABADO = 2.14;
+
+      K.granular(q(".tv-grano"), DUR);
+      tl.fromTo(q(".s04-escenario"), { scale: 1 }, { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s04-globo"), { opacity: 0.3, scale: 0.8, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s04-quien"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.05);
+      qa(".s04-p").forEach((p, i) => tl.fromTo(p, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.12, immediateRender: false }, TIEMPOS[i]));
+      // "torta": cae la torta; "chocolate": chorrea
+      gsap.set(q(".s04-torta"), { opacity: 0 });
+      tl.fromTo(q(".s04-torta"), { opacity: 1, y: -500 }, { opacity: 1, y: 0, duration: 0.3, ease: "bounce.out", immediateRender: false }, TORTA - 0.1);
+      tl.fromTo(q(".s04-choco"), { scaleY: 0.3, svgOrigin: "800 1190" }, { scaleY: 1, svgOrigin: "800 1190", duration: 0.5, ease: "power2.out" }, CHOCO);
+      tl.to(q(".s04-llama"), { scaleY: 0.8, svgOrigin: "800 1078", duration: 0.12, yoyo: true, repeat: 15, ease: "sine.inOut" }, 0);
+      K.golpe(q(".s04-sabado"), SABADO, -5);
+
+      K.salida(q("#s04-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

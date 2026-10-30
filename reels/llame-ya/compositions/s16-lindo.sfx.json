@@ -1,0 +1,6 @@
+[
+  {"t": 0.4, "sfx": "glitch-3", "vol": 0.2},
+  {"t": 0.76, "sfx": "click", "vol": 0.35},
+  {"t": 0.9, "sfx": "risas", "vol": 0.3, "max": 2.0},
+  {"t": 1.78, "sfx": "sparkle", "vol": 0.35}
+]

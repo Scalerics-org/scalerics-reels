@@ -1,0 +1,71 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tele.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-set"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-set"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-set"] svg.s02-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-set"] .s02-flash { position: absolute; inset: 0; background: #ffffff; opacity: 0; }
+    [data-composition-id="s02-set"] .s02-cartel { position: absolute; left: 340px; top: 560px; width: 400px; height: 120px; }
+    [data-composition-id="s02-set"] .s02-cartel-txt { position: absolute; left: 340px; top: 560px; width: 400px; height: 120px; display: flex; align-items: center; justify-content: center; font-size: 60px; }
+  </style>
+  <div id="root" data-composition-id="s02-set" data-width="1080" data-height="1920" data-duration="1.84">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="1.84" data-track-index="0">
+      <div class="s02-escenario">
+        <svg class="s02-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(30 560) scale(0.98)"><g class="s02-rolo"></g></g>
+          <g transform="translate(590 580) scale(0.96)"><g class="s02-asis"></g></g>
+          <g class="s02-mesa"></g>
+        </svg>
+        <div class="tv-grueso s02-cartel-txt">¡Así es!</div>
+        <div class="s02-flash"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-set";
+      const DUR = 1.84;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q0 = (s) => root.querySelector(s);
+      q0(".s02-rolo").innerHTML = TV.rolo();
+      q0(".s02-asis").innerHTML = TV.asis();
+      q0(".s02-mesa").innerHTML = TV.mesa(40, 1000);
+      TV.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = TV.kit(tl, root);
+      const { q, qa } = K;
+      const R = q(".s02-rolo"), A = q(".s02-asis");
+
+      const ROLO = 0.58, MIRA = 1.35;
+
+      // entran los dos desde abajo, con rebote
+      tl.fromTo(R, { y: 120 }, { y: 0, duration: 0.3, ease: "back.out(1.8)" }, 0);
+      tl.fromTo(A, { y: 160 }, { y: 0, duration: 0.3, ease: "back.out(1.8)" }, 0.04);
+      K.golpe(q(".s02-cartel-txt"), 0.08, -6);
+      // ella aplaude con el brazo arriba
+      const ab = A.querySelector(".tv-brazo-d");
+      K.origen(ab, 366, 430);
+      tl.fromTo(ab, { rotation: 20 }, { rotation: -12, duration: 0.11, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.05);
+      K.habla(A.querySelector(".tv-boca"), 0.0, 1.7);
+      // "Rolo": brilla el diente y él saluda con el brazo libre
+      tl.fromTo(R.querySelector(".tv-brillo"), { scale: 0.2, rotation: 0, transformOrigin: "50% 50%" }, { scale: 2.2, rotation: 90, duration: 0.25, ease: "back.out(3)", transformOrigin: "50% 50%" }, ROLO);
+      tl.to(R.querySelector(".tv-brillo"), { scale: 1, duration: 0.2 }, ROLO + 0.3);
+      const ri = R.querySelector(".tv-brazo-i");
+      K.origen(ri, 68, 420);
+      tl.to(ri, { rotation: 70, duration: 0.18, ease: "back.out(2)" }, ROLO);
+      tl.to(ri, { rotation: 55, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, ROLO + 0.2);
+      tl.to(q(".s02-cartel-txt"), { opacity: 0, y: -40, duration: 0.2 }, ROLO + 0.2);
+      // "Mirá": ella señala a un costado y la imagen se apaga al blanco y negro
+      tl.to(ab, { rotation: 55, duration: 0.15, ease: "back.out(2)" }, MIRA - 0.1);
+      tl.fromTo(q(".s02-escenario"), { filter: "grayscale(0)" }, { filter: "grayscale(1)", duration: 0.3, ease: "none", immediateRender: false }, MIRA);
+      tl.fromTo(q(".s02-escenario"), { scale: 1 }, { scale: 1.06, duration: DUR, ease: "none", transformOrigin: "50% 60%", immediateRender: false }, 0);
+      tl.to(q(".s02-flash"), { opacity: 0.8, duration: 0.12 }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

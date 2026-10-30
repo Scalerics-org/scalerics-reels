@@ -1,0 +1,82 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tele.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-cuchillo"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-cuchillo"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-cuchillo"] svg.s13-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-cuchillo"] .s13-preg { left: 380px; top: 520px; font-size: 260px; }
+  </style>
+  <div id="root" data-composition-id="s13-cuchillo" data-width="1080" data-height="1920" data-duration="2.79">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="2.79" data-track-index="0">
+      <div class="s13-escenario">
+        <svg class="s13-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(600 600) scale(0.95)"><g class="s13-asis"></g></g>
+          <g class="s13-mesa"></g>
+          <!-- la lata, en dos mitades -->
+          <g class="s13-lata-a">
+            <path d="M120 1000 H380 V1120 H120 Z" fill="#19d3ff" stroke="#0d0630" stroke-width="8" stroke-linejoin="round" />
+            <ellipse cx="250" cy="1000" rx="130" ry="30" fill="#ffffff" stroke="#0d0630" stroke-width="8" />
+            <path d="M120 1060 H380" stroke="#ffd400" stroke-width="16" />
+          </g>
+          <g class="s13-lata-b">
+            <path d="M120 1120 H380 V1250 Q250 1290 120 1250 Z" fill="#19d3ff" stroke="#0d0630" stroke-width="8" stroke-linejoin="round" />
+            <path d="M120 1180 H380" stroke="#ffd400" stroke-width="16" />
+          </g>
+          <path class="s13-corte" d="M90 1122 H420" stroke="#ffffff" stroke-width="10" stroke-linecap="round" />
+          <!-- el cuchillo de teletienda -->
+          <g class="s13-cuchillo">
+            <path d="M440 1080 L140 1100 Q120 1070 150 1056 L440 1046 Z" fill="#ffffff" stroke="#0d0630" stroke-width="7" stroke-linejoin="round" />
+            <path d="M160 1086 l14 -12 l14 12 l14 -12 l14 12 l14 -12 l14 12 l14 -12 l14 12" fill="none" stroke="#0d0630" stroke-width="4" />
+            <rect x="438" y="1036" width="160" height="56" rx="18" fill="#ff2e88" stroke="#0d0630" stroke-width="7" />
+            <circle cx="480" cy="1064" r="8" fill="#ffd400" /><circle cx="550" cy="1064" r="8" fill="#ffd400" />
+          </g>
+          <g class="s13-chispas" fill="#ffd400" stroke="#0d0630" stroke-width="4">
+            <path d="M440 1110 l10 -30 l10 30 l30 10 l-30 10 l-10 30 l-10 -30 l-30 -10 Z" />
+            <path d="M70 1080 l8 -22 l8 22 l22 8 l-22 8 l-8 22 l-8 -22 l-22 -8 Z" />
+          </g>
+        </svg>
+        <div class="tv-grueso tv-cia s13-preg">?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-cuchillo";
+      const DUR = 2.79;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s13-asis").innerHTML = TV.asis();
+      root.querySelector(".s13-mesa").innerHTML = TV.mesa(40, 1000);
+      TV.llenar(root);
+      const tl = gsap.timeline({ paused: true });
+      const K = TV.kit(tl, root);
+      const { q, qa } = K;
+      const A = q(".s13-asis");
+
+      const ROLO = 0.81, CUCHILLO = 1.17, CORTA = 1.67;
+
+      tl.fromTo(A, { x: 200 }, { x: 0, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      K.habla(A.querySelector(".tv-boca"), 0, 2.4);
+      tl.to(A, { rotation: -5, transformOrigin: "50% 100%", duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.2);
+      K.golpe(q(".s13-preg"), ROLO, 10);
+      tl.to(q(".s13-preg"), { rotation: -10, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, ROLO + 0.2);
+      // la lata entera y el cuchillo que entra
+      tl.fromTo([q(".s13-lata-a"), q(".s13-lata-b")], { y: 200, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0.4);
+      gsap.set(q(".s13-cuchillo"), { opacity: 0 });
+      tl.fromTo(q(".s13-cuchillo"), { opacity: 1, x: 500, y: 60 }, { opacity: 1, x: 0, y: 60, duration: 0.3, ease: "power3.out", immediateRender: false }, CUCHILLO - 0.1);
+      tl.to(q(".s13-cuchillo"), { x: -60, duration: 0.08, yoyo: true, repeat: 3, ease: "none" }, CUCHILLO + 0.2);
+      // "corta": corte limpio
+      tl.to(q(".s13-cuchillo"), { x: -380, duration: 0.2, ease: "power2.in" }, CORTA - 0.1);
+      K.dibujar(q(".s13-corte"), CORTA, 0.15);
+      tl.to(q(".s13-corte"), { opacity: 0, duration: 0.2 }, CORTA + 0.3);
+      tl.to(q(".s13-lata-a"), { x: -40, y: -60, rotation: -12, transformOrigin: "50% 100%", duration: 0.3, ease: "back.out(2)" }, CORTA + 0.1);
+      qa(".s13-chispas path").forEach((p, i) => { gsap.set(p, { opacity: 0 }); tl.fromTo(p, { opacity: 1, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 0, scale: 1.6, duration: 0.4, immediateRender: false }, CORTA + i * 0.06); });
+
+      K.salida(q("#s13-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
