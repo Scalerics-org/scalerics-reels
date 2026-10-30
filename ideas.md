@@ -71,6 +71,12 @@
 
 ## En curso
 
+- 30-10 · `llame-ya` · Agente de IA · teletienda: "¿Todavía contestás el WhatsApp con un dedo, a los tres días? ¡Eso se terminó!" (corrida 30-10 noche)
+- 30-10 · `el-debate` · Agente de IA · debate electoral: el dueño contra el agente de IA, con chequeo de datos "FALSO" (corrida 30-10 noche)
+- 30-10 · `rehenes` · Automatizaciones · película de rehenes: la planilla de Excel secuestró al dueño y pide rescate todas las noches (corrida 30-10 noche)
+- 30-10 · `houston-marta` · Sistema a medida · control de misión: "Houston, tenemos un problema: Marta se fue de vacaciones" (corrida 30-10 noche)
+- 30-10 · `mision-horario` · Sitio web · película de espías: encontrar el horario de tu local es una misión imposible (corrida 30-10 noche)
+
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
