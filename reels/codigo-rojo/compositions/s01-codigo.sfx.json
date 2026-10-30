@@ -1,0 +1,25 @@
+[
+ {
+  "t": 0.0,
+  "sfx": "whoosh-cinematic",
+  "vol": 0.3,
+  "max": 0.9
+ },
+ {
+  "t": 0.05,
+  "sfx": "pop",
+  "vol": 0.25
+ },
+ {
+  "t": 1.18,
+  "sfx": "impact-bass-2",
+  "vol": 0.45,
+  "max": 0.8
+ },
+ {
+  "t": 1.2,
+  "sfx": "glitch-1",
+  "vol": 0.2,
+  "max": 0.4
+ }
+]

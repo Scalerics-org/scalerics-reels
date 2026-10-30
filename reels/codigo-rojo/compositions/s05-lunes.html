@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-lunes"] .s05-capa, [data-composition-id="s05-lunes"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-lunes"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-lunes"] .b { fill: #0b2e35; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lunes"] .l { fill: none; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lunes"] .q { fill: #4fc3b0; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lunes"] .ql { fill: none; stroke: #4fc3b0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lunes"] .r { fill: #ff3341; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lunes"] .rl { fill: none; stroke: #ff3341; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lunes"] .x { fill: #0b2e35; stroke: #9fe3ff; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lunes"] .xl { fill: none; stroke: #9fe3ff; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lunes"] .g { fill: #0b2e35; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lunes"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lunes"] .w { fill: #eef6f5; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lunes"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s05-lunes"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s05-lunes"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s05-lunes"] .s05-globo { position: absolute; left: 90px; top: 470px; padding: 22px 32px 18px; border-radius: 34px 34px 34px 8px; background: #eef6f5; color: #0b2e35; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; white-space: nowrap; }
+    [data-composition-id="s05-lunes"] .s05-cal { position: absolute; left: 290px; top: 680px; width: 500px; height: 560px; }
+    [data-composition-id="s05-lunes"] .s05-base { position: absolute; inset: 0; border-radius: 30px; background: #0b2e35; border: 8px solid #eef6f5; }
+    [data-composition-id="s05-lunes"] .s05-top { position: absolute; left: 0; top: 0; width: 100%; height: 120px; border-radius: 30px 30px 0 0; background: #ff3341; border: 8px solid #eef6f5; }
+    [data-composition-id="s05-lunes"] .s05-hoja { position: absolute; left: 24px; top: 140px; width: 452px; height: 390px; border-radius: 14px; background: #eef6f5; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 88px; color: #0b2e35; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s05-lunes"] .s05-hoja.s05-h4 { color: #ff3341; }
+    [data-composition-id="s05-lunes"] .s05-sello { left: 520px; top: 1150px; color: #ff3341; border: 10px solid #ff3341; border-radius: 16px; background: rgba(3, 23, 27, 0.85); font-size: 70px; padding: 14px 20px 8px; }
+
+  </style>
+  <div id="root" data-composition-id="s05-lunes" data-width="1080" data-height="1920" data-duration="4.09">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.09" data-track-index="0">
+      <div class="s05-escenario">
+
+        <div class="s05-globo">"Te contesto el lunes"</div>
+        <div class="s05-cal" data-layout-allow-overlap>
+          <div class="s05-base"></div><div class="s05-top"></div>
+          <div class="s05-hoja s05-h4">jueves</div>
+          <div class="s05-hoja s05-h3" style="font-size: 62px">miércoles</div>
+          <div class="s05-hoja s05-h2">martes</div>
+          <div class="s05-hoja s05-h1">lunes</div>
+        </div>
+        <div class="cartela s05-sello">VENCIDO</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-lunes";
+      const DUR = 4.09;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s05-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const CONTESTO = 0.74, LUNES = 1.38, QUE = 2.08, JUEVES = 2.68;
+      tl.fromTo(q(".s05-cal"), { y: 140, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.5)" }, 0);
+      pop(".s05-globo", 0.35, { transformOrigin: "0% 100%" });
+      tl.fromTo(q(".s05-h1"), { scale: 1 }, { scale: 1.1, duration: 0.14, yoyo: true, repeat: 1, immediateRender: false }, LUNES);
+      // las hojas vuelan
+      [[".s05-h1", QUE - 0.1], [".s05-h2", QUE + 0.18], [".s05-h3", QUE + 0.42]].forEach(([s, t], i) => {
+        tl.to(q(s), { y: -700, x: (i % 2 ? 260 : -260), rotation: (i % 2 ? 30 : -30), opacity: 0, duration: 0.35, ease: "power2.in" }, t);
+      });
+      tl.fromTo(q(".s05-h4"), { scale: 1 }, { scale: 1.12, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, JUEVES + 0.05);
+      tl.to(q(".s05-globo"), { x: -20, rotation: -3, duration: 0.08, yoyo: true, repeat: 5 }, JUEVES);
+      gsap.set(q(".s05-sello"), { opacity: 0 });
+      tl.fromTo(q(".s05-sello"), { opacity: 0, scale: 2.5, rotation: -25 }, { opacity: 1, scale: 1, rotation: -12, duration: 0.15, ease: "power4.in", immediateRender: false }, JUEVES + 0.35);
+      sacudon(JUEVES + 0.5, 1.2);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

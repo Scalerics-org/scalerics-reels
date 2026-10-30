@@ -1,0 +1,55 @@
+ID = "s04-sintomas"; DUR = 5.38
+TK = '<svg class="s04-ck" viewBox="0 0 60 60" width="56" height="56"><rect x="4" y="4" width="52" height="52" rx="8" fill="none" stroke="#0b2e35" stroke-width="5"/><path class="s04-x" d="M14 30 L26 42 L48 16" fill="none" stroke="#ff3341" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+CSS = """
+    $ .s04-tabla { position: absolute; left: 110px; top: 470px; width: 860px; height: 900px; border-radius: 30px; background: #4fc3b0; border: 8px solid #eef6f5; }
+    $ .s04-clip { position: absolute; left: 330px; top: -40px; width: 200px; height: 80px; border-radius: 16px; background: #0b2e35; border: 7px solid #eef6f5; }
+    $ .s04-hoja { position: absolute; left: 40px; top: 60px; width: 764px; height: 800px; background: #eef6f5; border-radius: 10px; }
+    $ .s04-tit { position: absolute; left: 40px; top: 36px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; color: #0b2e35; white-space: nowrap; }
+    $ .s04-pac { position: absolute; left: 40px; top: 100px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; color: #0b2e35; white-space: nowrap; }
+    $ .s04-pac b { color: #ff3341; }
+    $ .s04-linea { position: absolute; left: 40px; top: 160px; width: 684px; height: 5px; background: #0b2e35; }
+    $ .s04-r { position: absolute; left: 36px; display: flex; align-items: center; gap: 22px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; line-height: 1.05; color: #0b2e35; white-space: nowrap; }
+    $ .s04-r small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.1em; color: #ff3341; margin-top: 6px; }
+    $ svg.s04-ck { position: static; width: 56px; height: 56px; flex: none; }
+"""
+HTML = f"""
+        <div class="s04-tabla">
+          <div class="s04-clip"></div>
+          <div class="s04-hoja">
+            <div class="s04-tit">HISTORIA CLÍNICA</div>
+            <div class="s04-pac">PACIENTE: <b>TU COMERCIO</b></div>
+            <div class="s04-linea"></div>
+            <div class="s04-r s04-r1" style="top: 210px">{TK}<div>VISTO<small>CRÓNICO</small></div></div>
+            <div class="s04-r s04-r2" style="top: 370px">{TK}<div>"CONSULTÁ POR PRIVADO"<small>AGUDO</small></div></div>
+            <div class="s04-r s04-r3" style="top: 530px">{TK}<div>MENSAJES DE LAS 23:00<small>SIN LEER</small></div></div>
+          </div>
+        </div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s04-reloj">
+            <circle class="b" cx="820" cy="1230" r="100" />
+            <path class="l" d="M820 1230 V1160 M820 1230 L775 1203" stroke-width="10" />
+            <circle cx="820" cy="1230" r="10" fill="#eef6f5" />
+            <text x="690" y="1248" text-anchor="end" font-family="IBM Plex Mono" font-weight="500" font-size="56" fill="#ff3341">23:00</text>
+          </g>
+        </svg>
+"""
+JS = """
+      const VISTO = 0.0, CRONICO = 0.38, CONSULTA = 1.43, AGUDO = 2.50, MENSAJES = 3.50, ONCE = 4.17, LEER = 5.19;
+      tl.fromTo(q(".s04-tabla"), { y: 120, rotation: 4, opacity: 0.6 }, { y: 0, rotation: -1.5, opacity: 1, duration: 0.3, ease: "back.out(1.5)" }, 0);
+      tl.to(q(".s04-tabla"), { rotation: 1, duration: 1.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.3);
+      const fila = (s, t, tk) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.22, ease: "power3.out", immediateRender: false }, t);
+        const x = q(s + " .s04-x"); const L = 60;
+        gsap.set(x, { strokeDasharray: L, strokeDashoffset: L });
+        tl.to(x, { strokeDashoffset: 0, duration: 0.2, ease: "power2.out" }, tk);
+        tl.fromTo(q(s + " small"), { scale: 1 }, { scale: 1.25, duration: 0.12, yoyo: true, repeat: 1, transformOrigin: "0% 50%", immediateRender: false }, tk);
+      };
+      fila(".s04-r1", 0.02, CRONICO);
+      fila(".s04-r2", CONSULTA - 0.1, AGUDO);
+      fila(".s04-r3", MENSAJES - 0.1, LEER - 0.2);
+      pop(".s04-reloj", ONCE - 0.15, { svgOrigin: "820 1230" });
+      tl.fromTo(q(".s04-reloj"), { rotation: -8, svgOrigin: "820 1230" }, { rotation: 8, svgOrigin: "820 1230", duration: 0.08, yoyo: true, repeat: 7, immediateRender: false }, ONCE + 0.2);
+      sacudon(AGUDO + 0.02, 0.7);
+"""
+SFX = [{"t": 0.05, "sfx": "whoosh-short", "vol": 0.2}, {"t": 0.38, "sfx": "key-press", "vol": 0.35}, {"t": 2.5, "sfx": "key-press", "vol": 0.35}, {"t": 2.52, "sfx": "impact-bass-1", "vol": 0.3, "max": 0.5}, {"t": 4.05, "sfx": "pop", "vol": 0.25}, {"t": 4.99, "sfx": "key-press", "vol": 0.35}]

@@ -1,0 +1,43 @@
+[
+ {
+  "t": 0.05,
+  "sfx": "whoosh-short",
+  "vol": 0.2
+ },
+ {
+  "t": 0.92,
+  "sfx": "typing",
+  "vol": 0.25,
+  "max": 0.5
+ },
+ {
+  "t": 1.9,
+  "sfx": "whoosh",
+  "vol": 0.22
+ },
+ {
+  "t": 2.05,
+  "sfx": "sparkle",
+  "vol": 0.25
+ },
+ {
+  "t": 2.72,
+  "sfx": "notification",
+  "vol": 0.22
+ },
+ {
+  "t": 4.39,
+  "sfx": "ping",
+  "vol": 0.2
+ },
+ {
+  "t": 6.36,
+  "sfx": "chime",
+  "vol": 0.22
+ },
+ {
+  "t": 7.35,
+  "sfx": "notification",
+  "vol": 0.22
+ }
+]

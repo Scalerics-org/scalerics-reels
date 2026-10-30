@@ -1,0 +1,118 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-greys"] .s03-capa, [data-composition-id="s03-greys"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-greys"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-greys"] .b { fill: #0b2e35; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-greys"] .l { fill: none; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-greys"] .q { fill: #4fc3b0; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-greys"] .ql { fill: none; stroke: #4fc3b0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-greys"] .r { fill: #ff3341; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-greys"] .rl { fill: none; stroke: #ff3341; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-greys"] .x { fill: #0b2e35; stroke: #9fe3ff; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-greys"] .xl { fill: none; stroke: #9fe3ff; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-greys"] .g { fill: #0b2e35; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-greys"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-greys"] .w { fill: #eef6f5; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-greys"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s03-greys"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s03-greys"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s03-greys"] .s03-cartel { position: absolute; left: 0; right: 0; margin: 0 auto; top: 470px; width: 860px; text-align: center; }
+    [data-composition-id="s03-greys"] .s03-noes { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.24em; color: #4fc3b0; }
+    [data-composition-id="s03-greys"] .s03-greys { position: relative; display: inline-block; margin-top: 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 92px; color: #eef6f5; white-space: nowrap; text-transform: uppercase; letter-spacing: -0.02em; }
+    [data-composition-id="s03-greys"] .s03-sint { left: 600px; top: 900px; background: #ff3341; color: #eef6f5; font-size: 60px; box-shadow: 8px 8px 0 #03171b; transform: rotate(4deg); }
+
+  </style>
+  <div id="root" data-composition-id="s03-greys" data-width="1080" data-height="1920" data-duration="3.39">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.39" data-track-index="0">
+      <div class="s03-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s03-doc">
+            <g transform="translate(140 690) scale(1.2)">
+              
+      <path class="q" d="M30 520 C30 400 90 360 180 360 C270 360 330 400 330 520 Z" />
+      <path class="l" d="M140 364 L180 424 L220 364" />
+      <path class="l" d="M118 374 C100 444 138 486 180 486 C222 486 260 444 242 374" stroke-width="6" />
+      <circle class="w" cx="180" cy="490" r="15" />
+      <path class="l" d="M262 430 V470 M276 430 V466" stroke-width="5" />
+      <ellipse class="b" cx="180" cy="234" rx="78" ry="90" />
+      <path class="q" d="M98 200 C92 112 268 112 262 200 C222 184 138 184 98 200 Z" />
+      <circle cx="232" cy="150" r="5" fill="#eef6f5" /><circle cx="140" cy="146" r="5" fill="#eef6f5" /><circle cx="186" cy="134" r="5" fill="#eef6f5" />
+      <rect class="l" x="120" y="216" width="52" height="38" rx="13" stroke-width="5" />
+      <rect class="l" x="188" y="216" width="52" height="38" rx="13" stroke-width="5" />
+      <path class="l" d="M172 232 H188" stroke-width="5" />
+      <circle class="s03-dojos" cx="146" cy="236" r="7" fill="#eef6f5" /><circle class="s03-dojos" cx="214" cy="236" r="7" fill="#eef6f5" />
+      <path class="l s03-dcejas" d="M124 204 L166 200 M236 204 L194 200" stroke-width="6" />
+      <path class="b s03-dboca" d="M160 290 C172 298 188 298 200 290 Z" />
+
+              <path class="l s03-brazo" d="M300 420 C370 390 410 330 430 270" stroke-width="22" stroke="#4fc3b0" />
+              <g class="s03-mano"><circle cx="436" cy="258" r="26" fill="#eef6f5" stroke="#eef6f5" stroke-width="7" /><path class="l" d="M446 240 L480 196" stroke-width="16" /></g>
+            </g>
+          </g>
+          <path class="s03-tacha" d="M150 590 L930 552" fill="none" stroke="#ff3341" stroke-width="16" stroke-linecap="round" />
+        </svg>
+        <div class="s03-cartel"><div class="s03-noes">ESTO NO ES</div><div class="s03-greys">Grey's Anatomy</div></div>
+        <div class="cartela s03-sint">SÍNTOMAS</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-greys";
+      const DUR = 3.39;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s03-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const NO = 0.20, GREYS = 0.60, RAPIDO = 1.84, SINT = 2.29;
+      tl.fromTo(q(".s03-doc"), { y: 520 }, { y: 0, duration: 0.4, ease: "back.out(1.3)" }, 0);
+      tl.to(q(".s03-doc"), { y: 8, duration: 0.45, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.45);
+      habla(".s03-dboca", 0.05, 1.3, "180 292");
+      habla(".s03-dboca", RAPIDO, 1.1, "180 292");
+      // cejas: una sube (ironía)
+      tl.to(q(".s03-dcejas"), { y: -10, duration: 0.15, ease: "back.out(2)" }, GREYS);
+      pop(".s03-noes", NO);
+      golpe(".s03-greys", GREYS, 2.2);
+      dibujar(".s03-tacha", GREYS + 0.45, 0.3);
+      sacudon(GREYS + 0.75, 0.8);
+      tl.to(q(".s03-cartel"), { opacity: 0.4, duration: 0.2 }, RAPIDO);
+      gsap.set(q(".s03-brazo"), { opacity: 0 }); gsap.set(q(".s03-mano"), { opacity: 0 });
+      tl.to([q(".s03-brazo"), q(".s03-mano")], { opacity: 1, duration: 0.05 }, RAPIDO);
+      tl.fromTo([q(".s03-brazo"), q(".s03-mano")], { rotation: 50, svgOrigin: "300 420" }, { rotation: 0, svgOrigin: "300 420", duration: 0.25, ease: "back.out(2)", immediateRender: false }, RAPIDO);
+      golpe(".s03-sint", SINT, 2.2);
+      sacudon(SINT + 0.05, 1);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

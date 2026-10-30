@@ -1,0 +1,110 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-radiografia"] .s10-capa, [data-composition-id="s10-radiografia"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-radiografia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-radiografia"] .b { fill: #0b2e35; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-radiografia"] .l { fill: none; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-radiografia"] .q { fill: #4fc3b0; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-radiografia"] .ql { fill: none; stroke: #4fc3b0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-radiografia"] .r { fill: #ff3341; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-radiografia"] .rl { fill: none; stroke: #ff3341; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-radiografia"] .x { fill: #0b2e35; stroke: #9fe3ff; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-radiografia"] .xl { fill: none; stroke: #9fe3ff; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-radiografia"] .g { fill: #0b2e35; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-radiografia"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-radiografia"] .w { fill: #eef6f5; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-radiografia"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s10-radiografia"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-radiografia"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s10-radiografia"] .s10-perf { left: 560px; top: 700px; color: #4fc3b0; border: 10px solid #4fc3b0; border-radius: 16px; background: rgba(3, 23, 27, 0.88); font-size: 64px; padding: 14px 20px 8px; }
+    [data-composition-id="s10-radiografia"] .s10-ok { position: absolute; padding: 12px 22px 8px; background: #4fc3b0; color: #03171b; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; white-space: nowrap; box-shadow: 6px 6px 0 #03171b; }
+    [data-composition-id="s10-radiografia"] .s10-ok b { color: #eef6f5; }
+
+  </style>
+  <div id="root" data-composition-id="s10-radiografia" data-width="1080" data-height="1920" data-duration="6.17">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="6.17" data-track-index="0">
+      <div class="s10-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          
+      <rect x="150" y="450" width="780" height="900" rx="26" fill="#0b2e35" stroke="#eef6f5" stroke-width="8" />
+      <rect x="180" y="480" width="720" height="840" rx="12" fill="#9fe3ff" opacity="0.12" />
+      <rect class="s10-luz" x="180" y="480" width="720" height="840" rx="12" fill="#9fe3ff" opacity="0.06" />
+      <path class="l" d="M200 1350 V1400 M880 1350 V1400" stroke-width="10" opacity="0.6" />
+      <g class="s10-rx">
+        <circle class="xl s10-ln" cx="540" cy="560" r="58" />
+        <path class="xl s10-ln" d="M508 618 V668 M572 618 V668" />
+        <path class="xl s10-ln" d="M540 670 C420 670 300 690 250 760 L236 1260 M540 670 C660 670 780 690 830 760 L844 1260" />
+        <path class="xl s10-ln" d="M330 720 C400 700 470 704 520 716 M560 716 C610 704 680 700 750 720" />
+        <rect x="522" y="690" width="36" height="34" rx="8" fill="#9fe3ff" opacity="0.55" /><rect x="522" y="736" width="36" height="34" rx="8" fill="#9fe3ff" opacity="0.55" /><rect x="522" y="782" width="36" height="34" rx="8" fill="#9fe3ff" opacity="0.55" /><rect x="522" y="828" width="36" height="34" rx="8" fill="#9fe3ff" opacity="0.55" /><rect x="522" y="874" width="36" height="34" rx="8" fill="#9fe3ff" opacity="0.55" /><rect x="522" y="920" width="36" height="34" rx="8" fill="#9fe3ff" opacity="0.55" /><rect x="522" y="966" width="36" height="34" rx="8" fill="#9fe3ff" opacity="0.55" /><rect x="522" y="1012" width="36" height="34" rx="8" fill="#9fe3ff" opacity="0.55" /><rect x="522" y="1058" width="36" height="34" rx="8" fill="#9fe3ff" opacity="0.55" /><rect x="522" y="1104" width="36" height="34" rx="8" fill="#9fe3ff" opacity="0.55" /><rect x="522" y="1150" width="36" height="34" rx="8" fill="#9fe3ff" opacity="0.55" /><rect x="522" y="1196" width="36" height="34" rx="8" fill="#9fe3ff" opacity="0.55" />
+        <path class="xl s10-cos" d="M526 770 C440 756 350 780 312 840" /><path class="xl s10-cos" d="M554 770 C640 756 730 780 768 840" /><path class="xl s10-cos" d="M526 832 C440 818 350 842 312 902" /><path class="xl s10-cos" d="M554 832 C640 818 730 842 768 902" /><path class="xl s10-cos" d="M526 894 C440 880 350 904 312 964" /><path class="xl s10-cos" d="M554 894 C640 880 730 904 768 964" /><path class="xl s10-cos" d="M526 956 C440 942 350 966 312 1026" /><path class="xl s10-cos" d="M554 956 C640 942 730 966 768 1026" /><path class="xl s10-cos" d="M526 1018 C440 1004 350 1028 312 1088" /><path class="xl s10-cos" d="M554 1018 C640 1004 730 1028 768 1088" /><path class="xl s10-cos" d="M526 1080 C440 1066 350 1090 312 1150" /><path class="xl s10-cos" d="M554 1080 C640 1066 730 1090 768 1150" />
+      </g>
+
+          <g class="s10-cor"><path class="s10-corp" transform="translate(590 880) scale(1.15)" d="M0 30 C-10 10 -60 -10 -60 -40 C-60 -70 -20 -80 0 -50 C20 -80 60 -70 60 -40 C60 -10 10 10 0 30 Z" fill="#9fe3ff" stroke="#eef6f5" stroke-width="6" stroke-linejoin="round" /></g>
+          <path class="s10-f1" d="M330 1150 C400 1060 470 960 540 900" fill="none" stroke="#4fc3b0" stroke-width="7" stroke-linecap="round" />
+          <path class="s10-f2" d="M760 1240 C720 1120 680 1000 640 920" fill="none" stroke="#4fc3b0" stroke-width="7" stroke-linecap="round" />
+        </svg>
+        <div class="cartela s10-perf">PERFECTO</div>
+        <div class="s10-ok s10-ok1" style="left: 90px; top: 1150px">MERCADERÍA: <b>OK</b></div>
+        <div class="s10-ok s10-ok2" style="left: 560px; top: 1240px">ATENCIÓN: <b>OK</b></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-radiografia";
+      const DUR = 6.17;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s10-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const RADIO = 0.63, CORAZON = 1.82, PERFECTO = 2.45, MERC = 3.63, ATEN = 4.82;
+      // cuadro 0: el negatoscopio se prende
+      tl.fromTo(q(".s10-luz"), { opacity: 0.6 }, { opacity: 0.06, duration: 0.3 }, 0);
+      tl.fromTo(q(".s10-luz"), { opacity: 0.06 }, { opacity: 0.4, duration: 0.03, yoyo: true, repeat: 3, immediateRender: false }, 0.1);
+      dibujar(".s10-ln", 0.05, 0.6);
+      dibujar(".s10-cos", RADIO - 0.1, 0.7);
+      pop(".s10-cor", CORAZON - 0.1, { svgOrigin: "590 880" });
+      for (let t = CORAZON + 0.3; t < DUR - 0.3; t += 0.55) tl.fromTo(q(".s10-corp"), { scale: 1.15 }, { scale: 1.32, svgOrigin: "0 0", duration: 0.1, yoyo: true, repeat: 1, immediateRender: false }, t);
+      gsap.set(q(".s10-perf"), { opacity: 0 });
+      tl.fromTo(q(".s10-perf"), { opacity: 0, scale: 2.4, rotation: 20 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.15, ease: "power4.in", immediateRender: false }, PERFECTO);
+      sacudon(PERFECTO + 0.15, 1);
+      dibujar(".s10-f1", MERC - 0.1, 0.3);
+      pop(".s10-ok1", MERC, { transformOrigin: "0% 50%" });
+      dibujar(".s10-f2", ATEN - 0.1, 0.3);
+      pop(".s10-ok2", ATEN, { transformOrigin: "0% 50%" });
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

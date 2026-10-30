@@ -1,0 +1,41 @@
+[
+ {
+  "t": 0.0,
+  "sfx": "riser",
+  "vol": 0.3,
+  "max": 1.25
+ },
+ {
+  "t": 1.25,
+  "sfx": "impact-bass-2",
+  "vol": 0.45,
+  "max": 0.8
+ },
+ {
+  "t": 1.26,
+  "sfx": "glitch-3",
+  "vol": 0.3,
+  "max": 0.5
+ },
+ {
+  "t": 2.45,
+  "sfx": "impact-bass-1",
+  "vol": 0.3,
+  "max": 0.6
+ },
+ {
+  "t": 3.95,
+  "sfx": "notification",
+  "vol": 0.25
+ },
+ {
+  "t": 4.33,
+  "sfx": "click",
+  "vol": 0.3
+ },
+ {
+  "t": 5.99,
+  "sfx": "pop",
+  "vol": 0.28
+ }
+]

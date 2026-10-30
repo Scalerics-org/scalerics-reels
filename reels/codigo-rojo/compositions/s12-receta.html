@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-receta"] .s12-capa, [data-composition-id="s12-receta"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-receta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-receta"] .b { fill: #0b2e35; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-receta"] .l { fill: none; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-receta"] .q { fill: #4fc3b0; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-receta"] .ql { fill: none; stroke: #4fc3b0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-receta"] .r { fill: #ff3341; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-receta"] .rl { fill: none; stroke: #ff3341; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-receta"] .x { fill: #0b2e35; stroke: #9fe3ff; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-receta"] .xl { fill: none; stroke: #9fe3ff; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-receta"] .g { fill: #0b2e35; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-receta"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-receta"] .w { fill: #eef6f5; stroke: #eef6f5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-receta"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s12-receta"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s12-receta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s12-receta"] .s12-rec { position: absolute; left: 200px; top: 480px; width: 680px; height: 700px; background: #eef6f5; border-radius: 16px; border-top: 26px solid #4fc3b0; box-shadow: 12px 12px 0 #03171b; }
+    [data-composition-id="s12-receta"] .s12-rec .s12-h { position: absolute; left: 40px; top: 28px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.18em; color: #0b2e35; }
+    [data-composition-id="s12-receta"] .s12-rp { position: absolute; left: 40px; top: 110px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 92px; color: #4fc3b0; }
+    [data-composition-id="s12-receta"] .s12-med { position: absolute; left: 40px; top: 260px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 84px; line-height: 1; color: #2f9e0a; white-space: nowrap; }
+    [data-composition-id="s12-receta"] .s12-ind { position: absolute; left: 40px; top: 380px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; color: #0b2e35; line-height: 1.5; }
+    [data-composition-id="s12-receta"] .s12-firma { position: absolute; left: 340px; top: 600px; width: 300px; border-top: 4px solid #0b2e35; padding-top: 8px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; color: #0b2e35; }
+    [data-composition-id="s12-receta"] .s12-b { position: absolute; padding: 14px 24px 12px; border-radius: 26px; background: #0b2e35; border: 5px solid #5ce611; color: #eef6f5; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; white-space: nowrap; }
+    [data-composition-id="s12-receta"] .s12-b small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.1em; color: #5ce611; margin-bottom: 4px; }
+
+  </style>
+  <div id="root" data-composition-id="s12-receta" data-width="1080" data-height="1920" data-duration="8.89">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="8.89" data-track-index="0">
+      <div class="s12-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s12-ag"><g transform="translate(540 960) scale(0.82) translate(-540 -940)">
+            <circle class="s12-halo" cx="540" cy="940" r="300" fill="#5ce611" opacity="0.1" />
+            
+      <path class="gl" d="M330 860 C330 700 750 700 750 860" stroke-width="16" />
+      <rect class="g" x="300" y="840" width="70" height="140" rx="26" />
+      <rect class="g" x="710" y="840" width="70" height="140" rx="26" />
+      <path class="gl" d="M740 980 C760 1060 700 1090 640 1080" stroke-width="8" />
+      <circle cx="636" cy="1080" r="14" fill="#5ce611" />
+      <rect x="380" y="700" width="320" height="480" rx="46" fill="#0b2e35" stroke="#5ce611" stroke-width="9" />
+      <rect x="490" y="720" width="100" height="12" rx="6" fill="#5ce611" opacity="0.6" />
+      <g class="s12-aojos"><path class="gl" d="M460 880 h50 M570 880 h50" stroke-width="14" /></g>
+      <path class="gl s12-aboca" d="M480 960 C520 1000 560 1000 600 960" stroke-width="10" />
+
+          </g></g>
+        </svg>
+        <div class="s12-rec">
+          <div class="s12-h">GUARDIA · RECETA</div>
+          <div class="s12-rp">Rp/</div>
+          <div class="s12-med">AGENTE DE IA</div>
+                    <div class="s12-firma">LA DOCTORA</div>
+        </div>
+        <div class="s12-b s12-b1" style="left: 50px; top: 560px">Al instante</div>
+        <div class="s12-b s12-b2" style="left: 700px; top: 540px"><small>03:12</small>¡Hola! Sí</div>
+        <div class="s12-b s12-b3" style="left: 40px; top: 800px">Precio: al toque</div>
+        <div class="s12-b s12-b4" style="left: 770px; top: 790px">Hay stock</div>
+        <div class="s12-b s12-b5" style="left: 40px; top: 1040px">Horario: 9 a 20</div>
+        <div class="s12-b s12-b6" style="left: 740px; top: 1030px">Turno agendado</div>
+        <div class="s12-b s12-b7" style="left: 385px; top: 1270px"><small>AL QUE NO COMPRÓ</small>¿Te lo guardo?</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-receta";
+      const DUR = 8.89;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s12-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const RECETA = 0.0, AGENTE = 0.92, ATIENDE = 2.01, INST = 2.77, HORA = 3.52, PREC = 4.44, STOCK = 5.09, HOR = 5.74, AGENDA = 6.41, PREG = 7.40, NOCOMPRO = 7.96;
+      tl.fromTo(q(".s12-rec"), { y: 160, rotation: 6, opacity: 0.4 }, { y: 0, rotation: -2, opacity: 1, duration: 0.3, ease: "back.out(1.5)" }, 0);
+      pop(".s12-rp", 0.1, { transformOrigin: "0% 50%" });
+      gsap.set(q(".s12-med"), { opacity: 0 });
+      tl.fromTo(q(".s12-med"), { opacity: 1, clipPath: "inset(0 100% 0 0)" }, { opacity: 1, clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power1.inOut", immediateRender: false }, AGENTE);
+      pop(".s12-firma", AGENTE + 0.7);
+      tl.to(q(".s12-rec"), { x: -1400, rotation: -18, opacity: 0, duration: 0.4, ease: "power3.in" }, ATIENDE - 0.15);
+      gsap.set(q(".s12-ag"), { opacity: 0 });
+      tl.fromTo(q(".s12-ag"), { opacity: 1, scale: 0.4, svgOrigin: "540 960" }, { opacity: 1, scale: 1, svgOrigin: "540 960", duration: 0.4, ease: "back.out(1.8)", immediateRender: false }, ATIENDE);
+      tl.fromTo(q(".s12-halo"), { scale: 0.7, svgOrigin: "540 940" }, { scale: 1.15, svgOrigin: "540 940", duration: 0.5, yoyo: true, repeat: 11, ease: "sine.inOut", immediateRender: false }, ATIENDE);
+      tl.to(q(".s12-aojos"), { scaleY: 0.15, svgOrigin: "540 880", duration: 0.06, yoyo: true, repeat: 1 }, 4.0);
+      tl.to(q(".s12-aojos"), { scaleY: 0.15, svgOrigin: "540 880", duration: 0.06, yoyo: true, repeat: 1 }, 6.9);
+      [[".s12-b1", INST], [".s12-b2", HORA], [".s12-b3", PREC], [".s12-b4", STOCK], [".s12-b5", HOR], [".s12-b6", AGENDA], [".s12-b7", PREG]].forEach(([s, t]) => {
+        pop(s, t - 0.05);
+        tl.to(q(s), { y: -14, duration: 0.6, yoyo: true, repeat: Math.max(1, Math.floor((DUR - t - 0.3) / 0.6)), ease: "sine.inOut" }, t + 0.3);
+      });
+      tl.fromTo(q(".s12-b7"), { scale: 1 }, { scale: 1.1, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, NOCOMPRO);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
