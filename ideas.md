@@ -91,6 +91,11 @@
 
 ## En curso
 
+- 31-10 · `la-trasnoche` · Agente de IA (le escribe al que dejó de venir y sigue al que preguntó y no compró) · radio de trasnoche de corazones solitarios · lo está haciendo la corrida del 31-10
+- 31-10 · `el-interrogatorio` · Agente de IA (reservas y turnos a cualquier hora) · interrogatorio policial al dueño · lo está haciendo la corrida del 31-10
+- 31-10 · `el-mago` · Automatizaciones · show de magia que hace desaparecer las tres horas de copiar y pegar · lo está haciendo la corrida del 31-10
+- 31-10 · `paro-de-post-its` · CRM · los post-its de la caja se declaran en paro · lo está haciendo la corrida del 31-10
+- 31-10 · `cambio-extremo` · Tienda online · reality de cambio extremo al local que no vende por internet · lo está haciendo la corrida del 31-10
 
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
