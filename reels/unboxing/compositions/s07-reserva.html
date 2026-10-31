@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-reserva"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-reserva"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-reserva"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-reserva"] .ab { position: absolute; }
+    [data-composition-id="s07-reserva"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f7f5f0; }
+    [data-composition-id="s07-reserva"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.14em; }
+    [data-composition-id="s07-reserva"] .pill { position: absolute; padding: 14px 34px 12px; border-radius: 999px; background: #ff3d3d; color: #fff; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; letter-spacing: 0.01em; }
+    [data-composition-id="s07-reserva"] .sticker { position: absolute; padding: 14px 30px 12px; border-radius: 14px; background: #ffc83d; color: #141417; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; border: 5px solid #141417; box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s07-reserva"] .sello { position: absolute; padding: 12px 26px 10px; border: 8px solid #ff3d3d; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #ff3d3d; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; background: rgba(14, 14, 17, 0.55); }
+    [data-composition-id="s07-reserva"] .tarjeta { position: absolute; background: #f7f5f0; color: #141417; border-radius: 26px; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s07-reserva"] .globo { position: absolute; padding: 18px 26px 18px; border-radius: 30px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 36px; line-height: 1.25; color: #141417; }
+    [data-composition-id="s07-reserva"] .globo.cli { background: #f7f5f0; border-bottom-left-radius: 8px; }
+    [data-composition-id="s07-reserva"] .globo.ag { background: #c89a5e; border-bottom-right-radius: 8px; }
+    [data-composition-id="s07-reserva"] .globo .hora { display: block; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 22px; opacity: 0.55; margin-top: 4px; }
+    
+    [data-composition-id="s07-reserva"] .s07-ticket { left: 170px; top: 590px; width: 740px; height: 880px; }
+    [data-composition-id="s07-reserva"] .s07-tit { position: absolute; left: 0; right: 0; top: 34px; text-align: center; font-size: 30px; letter-spacing: 0.4em; color: #ff3d3d; }
+    [data-composition-id="s07-reserva"] .s07-nom { position: absolute; left: 0; right: 0; top: 84px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 104px; line-height: 1; color: #141417; text-transform: uppercase; }
+    [data-composition-id="s07-reserva"] .s07-raya { position: absolute; left: 40px; right: 40px; top: 222px; border-top: 5px dashed rgba(20, 20, 23, 0.35); }
+    [data-composition-id="s07-reserva"] .s07-mesa4 { position: absolute; left: 0; right: 0; top: 578px; text-align: center; font-size: 30px; letter-spacing: 0.2em; color: #141417; opacity: 0.7; }
+    [data-composition-id="s07-reserva"] .s07-cal { position: absolute; left: 70px; top: 650px; width: 230px; height: 180px; border-radius: 20px; background: #141417; overflow: hidden; }
+    [data-composition-id="s07-reserva"] .s07-cal .tope { height: 52px; background: #ff3d3d; }
+    [data-composition-id="s07-reserva"] .s07-cal .d { position: absolute; left: 0; right: 0; top: 66px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 84px; line-height: 1; color: #f7f5f0; }
+    [data-composition-id="s07-reserva"] .s07-hr { position: absolute; left: 340px; top: 660px; width: 340px; height: 160px; border-radius: 20px; border: 6px solid #141417; display: flex; align-items: center; justify-content: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 96px; color: #141417; }
+    [data-composition-id="s07-reserva"] .s07-sello { left: 250px; top: 1030px; font-size: 72px; }
+  
+  </style>
+  <div id="root" data-composition-id="s07-reserva" data-width="1080" data-height="1920" data-duration="4.69">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.69" data-track-index="0">
+      <div class="s07-escenario">
+
+        <div class="tarjeta s07-ticket">
+          <div class="mono s07-tit">Reserva</div>
+          <div class="s07-nom">Lucía</div>
+          <div class="s07-raya"></div>
+          <div class="mono s07-mesa4">Mesa para 4</div>
+          <div class="s07-cal"><div class="tope"></div><div class="d">SÁB</div></div>
+          <div class="s07-hr">21:00</div>
+        </div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 860) rotate(0)"><g class="s07-silla"><rect x="-46" y="-30" width="92" height="60" rx="16" fill="#f7f5f0" stroke="#141417" stroke-width="6" /><rect x="-46" y="14" width="92" height="16" rx="8" fill="#141417" /></g></g><g transform="translate(680 1000) rotate(90)"><g class="s07-silla"><rect x="-46" y="-30" width="92" height="60" rx="16" fill="#f7f5f0" stroke="#141417" stroke-width="6" /><rect x="-46" y="14" width="92" height="16" rx="8" fill="#141417" /></g></g><g transform="translate(540 1140) rotate(180)"><g class="s07-silla"><rect x="-46" y="-30" width="92" height="60" rx="16" fill="#f7f5f0" stroke="#141417" stroke-width="6" /><rect x="-46" y="14" width="92" height="16" rx="8" fill="#141417" /></g></g><g transform="translate(400 1000) rotate(-90)"><g class="s07-silla"><rect x="-46" y="-30" width="92" height="60" rx="16" fill="#f7f5f0" stroke="#141417" stroke-width="6" /><rect x="-46" y="14" width="92" height="16" rx="8" fill="#141417" /></g></g>
+          <g transform="translate(540 1000)"><g class="s07-mesa">
+            <circle r="112" fill="#c89a5e" stroke="#141417" stroke-width="7" />
+            <circle cx="-50" cy="-40" r="24" fill="#f7f5f0" stroke="#141417" stroke-width="4" /><circle cx="50" cy="-40" r="24" fill="#f7f5f0" stroke="#141417" stroke-width="4" />
+            <circle cx="-50" cy="42" r="24" fill="#f7f5f0" stroke="#141417" stroke-width="4" /><circle cx="50" cy="42" r="24" fill="#f7f5f0" stroke="#141417" stroke-width="4" />
+          </g></g>
+        </svg>
+        <div class="sello s07-sello">Confirmada</div>
+  
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-reserva";
+      const DUR = 4.69;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.5, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.6 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // la boca del youtuber se mueve mientras habla (patrón fijo, determinista)
+      const PASOS = [0.11, 0.15, 0.12, 0.17, 0.1, 0.14];
+      const hablar = (raiz, t0, t1) => {
+        const a = qa(raiz + " .yt-ba"), c = qa(raiz + " .yt-bc");
+        let t = t0, k = 0, abierta = false;
+        while (t < t1) { abierta = !abierta; tl.set(a, { opacity: abierta ? 1 : 0 }, t); tl.set(c, { opacity: abierta ? 0 : 1 }, t); t += PASOS[k++ % PASOS.length]; }
+        tl.set(a, { opacity: 0 }, t1); tl.set(c, { opacity: 1 }, t1);
+      };
+      const parpadeo = (raiz, t) => qa(raiz + " .yt-ojo, " + raiz + " .ag-ojo").forEach((o) => {
+        tl.to(o, { scaleY: 0.12, smoothOrigin: false, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      });
+
+      const LUCIA = 0.29, MESA = 1.08, CUATRO = 1.53, SABADO = 1.91, NUEVE = 2.86, ESPERAMOS = 3.53;
+      tl.fromTo(q(".s07-ticket"), { y: 200, rotation: 6, opacity: 0.5 }, { y: 0, rotation: -1.5, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      escribir(".s07-nom", LUCIA, 0.45);
+      pop(".s07-mesa", MESA - 0.1);
+      qa(".s07-silla").forEach((s, i) => pop(s, CUATRO - 0.2 + i * 0.1));
+      pop(".s07-mesa4", CUATRO, { y: 14 });
+      tl.to(q(".s07-mesa"), { rotation: 90, smoothOrigin: false, transformOrigin: "50% 50%", duration: 2.5, ease: "sine.inOut" }, CUATRO + 0.3);
+      pop(".s07-cal", SABADO - 0.05, { rotation: -10 });
+      pop(".s07-hr", NUEVE - 0.05, { y: 20 });
+      golpe(".s07-sello", ESPERAMOS, 2.6, -11);
+      sacudon(ESPERAMOS + 0.06, 1.2);
+  
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(8px)", y: -50, duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

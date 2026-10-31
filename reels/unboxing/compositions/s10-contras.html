@@ -1,0 +1,116 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-contras"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-contras"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-contras"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-contras"] .ab { position: absolute; }
+    [data-composition-id="s10-contras"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f7f5f0; }
+    [data-composition-id="s10-contras"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.14em; }
+    [data-composition-id="s10-contras"] .pill { position: absolute; padding: 14px 34px 12px; border-radius: 999px; background: #ff3d3d; color: #fff; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; letter-spacing: 0.01em; }
+    [data-composition-id="s10-contras"] .sticker { position: absolute; padding: 14px 30px 12px; border-radius: 14px; background: #ffc83d; color: #141417; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; border: 5px solid #141417; box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s10-contras"] .sello { position: absolute; padding: 12px 26px 10px; border: 8px solid #ff3d3d; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #ff3d3d; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; background: rgba(14, 14, 17, 0.55); }
+    [data-composition-id="s10-contras"] .tarjeta { position: absolute; background: #f7f5f0; color: #141417; border-radius: 26px; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s10-contras"] .globo { position: absolute; padding: 18px 26px 18px; border-radius: 30px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 36px; line-height: 1.25; color: #141417; }
+    [data-composition-id="s10-contras"] .globo.cli { background: #f7f5f0; border-bottom-left-radius: 8px; }
+    [data-composition-id="s10-contras"] .globo.ag { background: #c89a5e; border-bottom-right-radius: 8px; }
+    [data-composition-id="s10-contras"] .globo .hora { display: block; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 22px; opacity: 0.55; margin-top: 4px; }
+    
+    [data-composition-id="s10-contras"] .s10-pros { left: 100px; top: 590px; width: 880px; height: 270px; overflow: hidden; }
+    [data-composition-id="s10-contras"] .s10-contras { left: 100px; top: 910px; width: 880px; height: 480px; overflow: hidden; }
+    [data-composition-id="s10-contras"] .s10-bar { height: 76px; display: flex; align-items: center; padding-left: 36px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; letter-spacing: 0.04em; }
+    [data-composition-id="s10-contras"] .s10-pros .s10-bar { background: #ffc83d; color: #141417; }
+    [data-composition-id="s10-contras"] .s10-contras .s10-bar { background: #ff3d3d; color: #fff; }
+    [data-composition-id="s10-contras"] .s10-item { position: absolute; left: 36px; display: flex; align-items: center; gap: 26px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; line-height: 1.05; color: #141417; white-space: nowrap; }
+    [data-composition-id="s10-contras"] .s10-ok { width: 70px; height: 70px; border-radius: 50%; background: #ffc83d; border: 5px solid #141417; display: flex; align-items: center; justify-content: center; }
+    [data-composition-id="s10-contras"] .s10-escoba { width: 96px; height: 136px; }
+    [data-composition-id="s10-contras"] .s10-menos { width: 70px; height: 70px; border-radius: 50%; background: #ff3d3d; display: flex; align-items: center; justify-content: center; }
+    [data-composition-id="s10-contras"] .s10-sello { left: 590px; top: 1250px; font-size: 54px; background: #f7f5f0; }
+  
+  </style>
+  <div id="root" data-composition-id="s10-contras" data-width="1080" data-height="1920" data-duration="4.99">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="4.99" data-track-index="0">
+      <div class="s10-escenario">
+
+        <div class="tarjeta s10-pros"><div class="s10-bar">PROS</div>
+          <div class="s10-item s10-i1" style="top: 120px"><div class="s10-ok"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M6 21 L16 31 L34 9" stroke="#141417" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg></div><div>Recupera al que no compró</div></div>
+        </div>
+        <div class="tarjeta s10-contras"><div class="s10-bar">CONTRAS</div>
+          <div class="s10-item s10-i2" style="top: 120px"><svg class="s10-escoba" viewBox="0 0 120 170" aria-hidden="true"><path d="M60 6 V96" stroke="#8a6439" stroke-width="12" stroke-linecap="round" /><path d="M30 96 H90 L112 164 H8 Z" fill="#c89a5e" stroke="#141417" stroke-width="5" stroke-linejoin="round" /><path d="M34 112 L22 160 M60 112 V160 M86 112 L98 160" stroke="#141417" stroke-width="4" /></svg><div>No barre</div></div>
+          <div class="s10-item s10-i3" style="top: 310px"><div class="s10-menos"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 20 H32" stroke="#fff" stroke-width="7" stroke-linecap="round" /></svg></div><div>Te deja<br />sin excusas</div></div>
+        </div>
+        <div class="sello s10-sello">Gravísimo</div>
+  
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-contras";
+      const DUR = 4.99;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.5, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.6 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // la boca del youtuber se mueve mientras habla (patrón fijo, determinista)
+      const PASOS = [0.11, 0.15, 0.12, 0.17, 0.1, 0.14];
+      const hablar = (raiz, t0, t1) => {
+        const a = qa(raiz + " .yt-ba"), c = qa(raiz + " .yt-bc");
+        let t = t0, k = 0, abierta = false;
+        while (t < t1) { abierta = !abierta; tl.set(a, { opacity: abierta ? 1 : 0 }, t); tl.set(c, { opacity: abierta ? 0 : 1 }, t); t += PASOS[k++ % PASOS.length]; }
+        tl.set(a, { opacity: 0 }, t1); tl.set(c, { opacity: 1 }, t1);
+      };
+      const parpadeo = (raiz, t) => qa(raiz + " .yt-ojo, " + raiz + " .ag-ojo").forEach((o) => {
+        tl.to(o, { scaleY: 0.12, smoothOrigin: false, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      });
+
+      const COMPRO = 1.0, CONTRAS = 1.37, BARRE = 2.73, EXCUSAS = 4.0;
+      tl.fromTo(q(".s10-pros"), { x: -300, rotation: -4, opacity: 0.4 }, { x: 0, rotation: -1, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      pop(".s10-i1", 0.15, { x: -40 });
+      pop(".s10-ok", COMPRO - 0.05);
+      tl.to(q(".s10-ok"), { rotation: 360, duration: 0.4, ease: "power2.out" }, COMPRO);
+      golpe(".s10-contras", CONTRAS, 1.6, 2);
+      sacudon(CONTRAS + 0.06, 1);
+      tl.to(q(".s10-pros"), { opacity: 0.55, duration: 0.3 }, CONTRAS + 0.1);
+      pop(".s10-i2", BARRE - 0.2, { x: -40 });
+      tl.to(q(".s10-escoba"), { rotation: 18, duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut", transformOrigin: "50% 10%" }, BARRE);
+      pop(".s10-i3", EXCUSAS - 0.45, { x: -40 });
+      golpe(".s10-sello", EXCUSAS + 0.25, 2.6, -9);
+      sacudon(EXCUSAS + 0.31, 1.2);
+  
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(8px)", y: -50, duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

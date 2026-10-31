@@ -1,0 +1,140 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-caja"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-caja"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-caja"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-caja"] .ab { position: absolute; }
+    [data-composition-id="s03-caja"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f7f5f0; }
+    [data-composition-id="s03-caja"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.14em; }
+    [data-composition-id="s03-caja"] .pill { position: absolute; padding: 14px 34px 12px; border-radius: 999px; background: #ff3d3d; color: #fff; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; letter-spacing: 0.01em; }
+    [data-composition-id="s03-caja"] .sticker { position: absolute; padding: 14px 30px 12px; border-radius: 14px; background: #ffc83d; color: #141417; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; border: 5px solid #141417; box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s03-caja"] .sello { position: absolute; padding: 12px 26px 10px; border: 8px solid #ff3d3d; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #ff3d3d; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; background: rgba(14, 14, 17, 0.55); }
+    [data-composition-id="s03-caja"] .tarjeta { position: absolute; background: #f7f5f0; color: #141417; border-radius: 26px; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s03-caja"] .globo { position: absolute; padding: 18px 26px 18px; border-radius: 30px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 36px; line-height: 1.25; color: #141417; }
+    [data-composition-id="s03-caja"] .globo.cli { background: #f7f5f0; border-bottom-left-radius: 8px; }
+    [data-composition-id="s03-caja"] .globo.ag { background: #c89a5e; border-bottom-right-radius: 8px; }
+    [data-composition-id="s03-caja"] .globo .hora { display: block; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 22px; opacity: 0.55; margin-top: 4px; }
+    
+    [data-composition-id="s03-caja"] .s03-pill { left: 300px; top: 572px; font-size: 66px; }
+    [data-composition-id="s03-caja"] .s03-lab { position: absolute; width: 400px; text-align: center; font-size: 30px; color: #f7f5f0; }
+    [data-composition-id="s03-caja"] .s03-burb { left: 230px; top: 1035px; width: 620px; padding: 22px 30px; border-radius: 34px; border-bottom-left-radius: 8px; background: #f7f5f0; color: #141417; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 50px; text-align: center; white-space: nowrap; }
+  
+  </style>
+  <div id="root" data-composition-id="s03-caja" data-width="1080" data-height="1920" data-duration="6.61">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="6.61" data-track-index="0">
+      <div class="s03-escenario">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(510 1520) scale(0.68)"><g class="s03-caja"><g class="cja ">
+  <path d="M-140 -360 L300 -360 L220 -300 L-220 -300 Z" fill="#141417" />
+  <path class="cja-sol-f" d="M-140 -360 L300 -360 L360 -470 L-80 -470 Z" fill="#8a6439" stroke="#141417" stroke-width="5" stroke-linejoin="round" />
+  <path class="cja-sol-i" d="M-220 -300 L-140 -360 L-250 -430 L-330 -370 Z" fill="#d9b07a" stroke="#141417" stroke-width="5" stroke-linejoin="round" />
+  <path d="M220 -300 L300 -360 L300 -60 L220 0 Z" fill="#8a6439" stroke="#141417" stroke-width="5" stroke-linejoin="round" />
+  <path class="cja-sol-d" d="M220 -300 L300 -360 L410 -430 L330 -370 Z" fill="#d9b07a" stroke="#141417" stroke-width="5" stroke-linejoin="round" />
+  <rect x="-220" y="-300" width="440" height="300" fill="#c89a5e" stroke="#141417" stroke-width="5" />
+  <path class="cja-sol-a" d="M-220 -300 L220 -300 L180 -210 L-260 -210 Z" fill="#d9b07a" stroke="#141417" stroke-width="5" stroke-linejoin="round" />
+</g></g></g>
+          <g transform="translate(290 800)"><g class="s03-reloj"><circle cx="0" cy="0" r="96" fill="#f7f5f0" stroke="#141417" stroke-width="7" />
+  <path d="M0 -60 V0 L44 26" stroke="#141417" stroke-width="10" stroke-linecap="round" fill="none" />
+  <path d="M0 -84 v12 M84 0 h-12 M0 84 v-12 M-84 0 h12" stroke="#141417" stroke-width="7" stroke-linecap="round" /></g></g>
+          <g transform="translate(800 810)"><g class="s03-somb"><path d="M0 -60 V110" stroke="#f7f5f0" stroke-width="9" stroke-linecap="round" />
+  <path d="M-110 -40 Q-110 -130 0 -130 Q110 -130 110 -40 Q82 -58 55 -40 Q28 -58 0 -40 Q-28 -58 -55 -40 Q-82 -58 -110 -40 Z" fill="#ff3d3d" stroke="#141417" stroke-width="6" stroke-linejoin="round" />
+  <path d="M-55 -40 Q-40 -110 0 -130 Q40 -110 55 -40 Q28 -58 0 -40 Q-28 -58 -55 -40 Z" fill="#f7f5f0" stroke="#141417" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-130 112 Q0 80 130 112" stroke="#ffc83d" stroke-width="9" fill="none" stroke-linecap="round" /></g></g>
+          <g transform="translate(290 800)"><g class="s03-no1"><circle class="s03-no1-c" cx="0" cy="0" r="128" fill="none" stroke="#ff3d3d" stroke-width="18" /><path class="s03-no1-b" d="M-89.6 -89.6 L89.6 89.6" stroke="#ff3d3d" stroke-width="18" stroke-linecap="round" /></g></g>
+          <g transform="translate(800 800)"><g class="s03-no2"><circle class="s03-no2-c" cx="0" cy="0" r="128" fill="none" stroke="#ff3d3d" stroke-width="18" /><path class="s03-no2-b" d="M-89.6 -89.6 L89.6 89.6" stroke="#ff3d3d" stroke-width="18" stroke-linecap="round" /></g></g>
+        </svg>
+        <div class="pill s03-pill">No incluye</div>
+        <div class="ab mono s03-lab s03-lab1" style="left: 90px; top: 942px">Horario</div>
+        <div class="ab mono s03-lab s03-lab2" style="left: 600px; top: 942px">Vacaciones</div>
+        <div class="ab s03-burb">«te contesto el lunes»</div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s03-x" d="M215 1030 L865 1160" stroke="#ff3d3d" stroke-width="22" stroke-linecap="round" />
+          <path class="s03-x" d="M865 1030 L215 1160" stroke="#ff3d3d" stroke-width="22" stroke-linecap="round" />
+        </svg>
+  
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-caja";
+      const DUR = 6.61;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.5, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.6 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s03-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // la boca del youtuber se mueve mientras habla (patrón fijo, determinista)
+      const PASOS = [0.11, 0.15, 0.12, 0.17, 0.1, 0.14];
+      const hablar = (raiz, t0, t1) => {
+        const a = qa(raiz + " .yt-ba"), c = qa(raiz + " .yt-bc");
+        let t = t0, k = 0, abierta = false;
+        while (t < t1) { abierta = !abierta; tl.set(a, { opacity: abierta ? 1 : 0 }, t); tl.set(c, { opacity: abierta ? 0 : 1 }, t); t += PASOS[k++ % PASOS.length]; }
+        tl.set(a, { opacity: 0 }, t1); tl.set(c, { opacity: 1 }, t1);
+      };
+      const parpadeo = (raiz, t) => qa(raiz + " .yt-ojo, " + raiz + " .ag-ojo").forEach((o) => {
+        tl.to(o, { scaleY: 0.12, smoothOrigin: false, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      });
+
+      const CAJA = 0.82, HORARIO = 2.0, VACA = 3.18, FAMOSO = 4.67, LUNES = 5.82;
+      // cuadro 0: la caja abierta ya está, sacudiéndose
+      tl.fromTo(q(".s03-caja"), { scale: 0.85, opacity: 0.6 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2)", smoothOrigin: false, transformOrigin: "50% 100%" }, 0);
+      golpe(".s03-pill", CAJA, 2.4, -4);
+      sacudon(CAJA + 0.06, 0.8);
+      // cada cosa sale de la caja y le cae el "prohibido"
+      const sale = (s, t) => { gsap.set(q(s), { opacity: 0 }); tl.fromTo(q(s), { opacity: 0, y: 380, scale: 0.3 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.5)", immediateRender: false }, t); };
+      sale(".s03-reloj", HORARIO - 0.35);
+      pop(".s03-lab1", HORARIO - 0.1, { y: 20 });
+      dibujar(".s03-no1-c", HORARIO + 0.2, 0.3);
+      dibujar(".s03-no1-b", HORARIO + 0.45, 0.15);
+      tl.to(q(".s03-reloj"), { rotation: 25, smoothOrigin: false, transformOrigin: "50% 50%", duration: 0.08, yoyo: true, repeat: 3 }, HORARIO + 0.6);
+      sale(".s03-somb", VACA - 0.35);
+      pop(".s03-lab2", VACA - 0.1, { y: 20 });
+      dibujar(".s03-no2-c", VACA + 0.2, 0.3);
+      dibujar(".s03-no2-b", VACA + 0.45, 0.15);
+      tl.to(qa(".s03-reloj, .s03-somb, .s03-no1, .s03-no2, .s03-lab1, .s03-lab2"), { opacity: 0.45, duration: 0.3 }, FAMOSO - 0.3);
+      // el clásico "te contesto el lunes"
+      gsap.set(q(".s03-burb"), { opacity: 0 });
+      tl.fromTo(q(".s03-burb"), { opacity: 0, y: 300, scale: 0.4 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.5)", immediateRender: false }, FAMOSO - 0.2);
+      tl.to(q(".s03-burb"), { rotation: -3, duration: 0.5, ease: "sine.inOut" }, FAMOSO + 0.3);
+      dibujar(".s03-x", LUNES - 0.05, 0.14);
+      sacudon(LUNES + 0.1, 1.4);
+      tl.to(q(".s03-burb"), { opacity: 0.7, duration: 0.1 }, LUNES + 0.1);
+  
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(8px)", y: -50, duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

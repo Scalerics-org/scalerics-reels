@@ -1,0 +1,122 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-scalerics"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-scalerics"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-scalerics"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-scalerics"] .ab { position: absolute; }
+    [data-composition-id="s14-scalerics"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f7f5f0; }
+    [data-composition-id="s14-scalerics"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.14em; }
+    [data-composition-id="s14-scalerics"] .pill { position: absolute; padding: 14px 34px 12px; border-radius: 999px; background: #ff3d3d; color: #fff; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; letter-spacing: 0.01em; }
+    [data-composition-id="s14-scalerics"] .sticker { position: absolute; padding: 14px 30px 12px; border-radius: 14px; background: #ffc83d; color: #141417; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; border: 5px solid #141417; box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s14-scalerics"] .sello { position: absolute; padding: 12px 26px 10px; border: 8px solid #ff3d3d; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #ff3d3d; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; background: rgba(14, 14, 17, 0.55); }
+    [data-composition-id="s14-scalerics"] .tarjeta { position: absolute; background: #f7f5f0; color: #141417; border-radius: 26px; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s14-scalerics"] .globo { position: absolute; padding: 18px 26px 18px; border-radius: 30px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 36px; line-height: 1.25; color: #141417; }
+    [data-composition-id="s14-scalerics"] .globo.cli { background: #f7f5f0; border-bottom-left-radius: 8px; }
+    [data-composition-id="s14-scalerics"] .globo.ag { background: #c89a5e; border-bottom-right-radius: 8px; }
+    [data-composition-id="s14-scalerics"] .globo .hora { display: block; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 22px; opacity: 0.55; margin-top: 4px; }
+    
+    [data-composition-id="s14-scalerics"] .s14-tag { position: absolute; left: 150px; display: flex; align-items: center; gap: 22px; padding: 18px 30px 18px 22px; border-radius: 14px; background: #f7f5f0; border: 5px solid #141417; box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.45); font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; color: #141417; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s14-scalerics"] .s14-et { left: 368px; top: 1262px; width: 300px; height: 150px; display: flex; align-items: center; justify-content: center; text-align: center; background: #f7f5f0; border: 4px solid #141417; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; line-height: 1.05; color: #141417; text-transform: uppercase; }
+    [data-composition-id="s14-scalerics"] .s14-hace { top: 640px; font-size: 104px; line-height: 1.05; }
+    [data-composition-id="s14-scalerics"] .s14-hace span { color: #5ce611; }
+    [data-composition-id="s14-scalerics"] .s14-sello { left: 210px; top: 1040px; font-size: 60px; border-color: #5ce611; color: #5ce611; background: rgba(14, 14, 17, 0.8); }
+  
+  </style>
+  <div id="root" data-composition-id="s14-scalerics" data-width="1080" data-height="1920" data-duration="7.55">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="7.55" data-track-index="0">
+      <div class="s14-escenario">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(520 1490) scale(0.85)"><g class="s14-caja"><g class="cj ">
+  <path d="M220 -300 L300 -360 L300 -60 L220 0 Z" fill="#8a6439" stroke="#141417" stroke-width="5" stroke-linejoin="round" />
+  <rect x="-220" y="-300" width="440" height="300" fill="#c89a5e" stroke="#141417" stroke-width="5" />
+  <g class="cj-tapa"><path d="M-220 -300 L-140 -360 L300 -360 L220 -300 Z" fill="#d9b07a" stroke="#141417" stroke-width="5" stroke-linejoin="round" />
+  <path d="M10 -360 L-70 -300 L-30 -300 L50 -360 Z" fill="#e8c48f" opacity="0.9" /></g>
+  <rect x="-50" y="-300" width="40" height="110" fill="#e8c48f" opacity="0.9" />
+  <path d="M-190 -40 h40 M-190 -60 h40 M-170 -80 v-30 m-14 12 l14 -14 l14 14" stroke="#141417" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.55" />
+  
+</g></g></g>
+        </svg>
+        <div class="ab s14-et"><div class="s14-et-t">Agente<br />de IA</div></div>
+        <div class="s14-tag s14-t1" style="top: 600px"><svg viewBox="-40 -40 80 80" width="64" height="64"><path d="M-30 -26 H30 Q36 -26 36 -20 V12 Q36 18 30 18 H-6 L-22 32 L-20 18 H-30 Q-36 18 -36 12 V-20 Q-36 -26 -30 -26 Z" fill="#c89a5e" stroke="#141417" stroke-width="5" stroke-linejoin="round" /></svg>Atiende tu WhatsApp</div>
+        <div class="s14-tag s14-t2" style="top: 755px"><svg viewBox="-40 -40 80 80" width="64" height="64"><rect x="-34" y="-24" width="68" height="48" rx="8" fill="#ffc83d" stroke="#141417" stroke-width="5" /><path d="M-20 -6 H20 M-20 8 H8" stroke="#141417" stroke-width="5" stroke-linecap="round" /></svg>Como un empleado más</div>
+        <div class="s14-tag s14-t3" style="top: 910px"><svg viewBox="-40 -40 80 80" width="64" height="64"><circle r="32" fill="#f7f5f0" stroke="#141417" stroke-width="5" /><path d="M0 -20 V0 L14 10" stroke="#141417" stroke-width="5" fill="none" stroke-linecap="round" /></svg>A cualquier hora</div>
+        <div class="grande s14-hace">Lo hacemos<br /><span>nosotros</span></div>
+        <div class="sello s14-sello">Hecho en Scalerics</div>
+  
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-scalerics";
+      const DUR = 7.55;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.5, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.6 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s14-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // la boca del youtuber se mueve mientras habla (patrón fijo, determinista)
+      const PASOS = [0.11, 0.15, 0.12, 0.17, 0.1, 0.14];
+      const hablar = (raiz, t0, t1) => {
+        const a = qa(raiz + " .yt-ba"), c = qa(raiz + " .yt-bc");
+        let t = t0, k = 0, abierta = false;
+        while (t < t1) { abierta = !abierta; tl.set(a, { opacity: abierta ? 1 : 0 }, t); tl.set(c, { opacity: abierta ? 0 : 1 }, t); t += PASOS[k++ % PASOS.length]; }
+        tl.set(a, { opacity: 0 }, t1); tl.set(c, { opacity: 1 }, t1);
+      };
+      const parpadeo = (raiz, t) => qa(raiz + " .yt-ojo, " + raiz + " .ag-ojo").forEach((o) => {
+        tl.to(o, { scaleY: 0.12, smoothOrigin: false, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      });
+
+      const AGENTE = 0.3, IA = 0.8, WA = 1.8, EMPLEADO = 2.72, CUALQ = 3.6, LO = 4.79, NOSOTROS = 5.2, SCAL = 6.25;
+      tl.fromTo(q(".s14-caja"), { y: -300, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.5, ease: "bounce.out" }, 0);
+      tl.fromTo(q(".s14-et"), { y: -300, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.5, ease: "bounce.out" }, 0);
+      escribir(".s14-et-t", AGENTE, IA - AGENTE + 0.2);
+      [[".s14-t1", WA, -3], [".s14-t2", EMPLEADO, 2], [".s14-t3", CUALQ, -2]].forEach(([s, t, r]) => {
+        gsap.set(q(s), { opacity: 0, rotation: r });
+        tl.fromTo(q(s), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.25);
+        sacudon(t - 0.1, 0.6);
+      });
+      tl.to(qa(".s14-tag"), { y: -60, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.05 }, LO - 0.3);
+      pop(".s14-hace", LO, { y: 30 });
+      tl.fromTo(q(".s14-hace span"), { opacity: 0.2 }, { opacity: 1, duration: 0.15, immediateRender: false }, NOSOTROS);
+      golpe(".s14-sello", SCAL - 0.05, 2.6, -6);
+      sacudon(SCAL + 0.02, 1.3);
+      tl.to(qa(".s14-caja, .s14-et"), { y: -14, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, SCAL + 0.2);
+  
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

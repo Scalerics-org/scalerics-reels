@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-pregunta"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-pregunta"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-pregunta"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-pregunta"] .ab { position: absolute; }
+    [data-composition-id="s05-pregunta"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f7f5f0; }
+    [data-composition-id="s05-pregunta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.14em; }
+    [data-composition-id="s05-pregunta"] .pill { position: absolute; padding: 14px 34px 12px; border-radius: 999px; background: #ff3d3d; color: #fff; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; letter-spacing: 0.01em; }
+    [data-composition-id="s05-pregunta"] .sticker { position: absolute; padding: 14px 30px 12px; border-radius: 14px; background: #ffc83d; color: #141417; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; border: 5px solid #141417; box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s05-pregunta"] .sello { position: absolute; padding: 12px 26px 10px; border: 8px solid #ff3d3d; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #ff3d3d; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; background: rgba(14, 14, 17, 0.55); }
+    [data-composition-id="s05-pregunta"] .tarjeta { position: absolute; background: #f7f5f0; color: #141417; border-radius: 26px; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s05-pregunta"] .globo { position: absolute; padding: 18px 26px 18px; border-radius: 30px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 36px; line-height: 1.25; color: #141417; }
+    [data-composition-id="s05-pregunta"] .globo.cli { background: #f7f5f0; border-bottom-left-radius: 8px; }
+    [data-composition-id="s05-pregunta"] .globo.ag { background: #c89a5e; border-bottom-right-radius: 8px; }
+    [data-composition-id="s05-pregunta"] .globo .hora { display: block; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 22px; opacity: 0.55; margin-top: 4px; }
+    
+    [data-composition-id="s05-pregunta"] .s-cab { left: 268px; top: 640px; width: 544px; height: 100px; display: flex; align-items: center; gap: 20px; border-bottom: 3px solid rgba(247, 245, 240, 0.15); }
+    [data-composition-id="s05-pregunta"] .s-av { width: 72px; height: 72px; border-radius: 50%; background: #f7f5f0; color: #141417; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 38px; display: flex; align-items: center; justify-content: center; }
+    [data-composition-id="s05-pregunta"] .s-nom { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 40px; color: #f7f5f0; line-height: 1.1; }
+    [data-composition-id="s05-pregunta"] .s-linea { font-size: 22px; color: #c89a5e; letter-spacing: 0.1em; }
+    [data-composition-id="s05-pregunta"] .s-hora { left: 290px; top: 604px; font-size: 22px; color: rgba(247, 245, 240, 0.7); }
+    [data-composition-id="s05-pregunta"] .g1 { left: 270px; top: 780px; width: 470px; }
+    [data-composition-id="s05-pregunta"] .g2 { right: 270px; top: 975px; width: 460px; }
+    [data-composition-id="s05-pregunta"] .g3 { left: 270px; top: 1235px; }
+    [data-composition-id="s05-pregunta"] .g4 { left: 270px; top: 1340px; }
+    [data-composition-id="s05-pregunta"] .tipeo { right: 270px; top: 975px; width: 150px; height: 70px; border-radius: 30px; border-bottom-right-radius: 8px; background: #c89a5e; }
+    [data-composition-id="s05-pregunta"] .tipeo span { position: absolute; top: 26px; width: 18px; height: 18px; border-radius: 50%; background: #141417; }
+
+  </style>
+  <div id="root" data-composition-id="s05-pregunta" data-width="1080" data-height="1920" data-duration="2.6">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="2.6" data-track-index="0">
+      <div class="s05-escenario">
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><g class="s-cel"><rect x="230" y="570" width="620" height="950" rx="64" fill="#141417" stroke="#f7f5f0" stroke-width="6" />
+  <rect x="248" y="588" width="584" height="914" rx="48" fill="#1d1c22" />
+  <rect x="480" y="600" width="120" height="26" rx="13" fill="#141417" /></g></svg>
+        <div class="ab s-cab"><div class="s-av">L</div><div><div class="s-nom">Lucía</div><div class="mono s-linea" data-layout-ignore>en línea</div></div></div>
+        <div class="ab mono s-hora" data-layout-ignore>23:04</div><div class="globo cli g1"><div class="g1-a">Hola, ¿tienen mesa</div><div class="g1-b">para cuatro el sábado?</div><span class="hora" data-layout-ignore>23:04</span></div>
+        <div class="ab tipeo"><span style="left: 30px"></span><span style="left: 66px"></span><span style="left: 102px"></span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-pregunta";
+      const DUR = 2.6;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.5, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.6 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s05-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // la boca del youtuber se mueve mientras habla (patrón fijo, determinista)
+      const PASOS = [0.11, 0.15, 0.12, 0.17, 0.1, 0.14];
+      const hablar = (raiz, t0, t1) => {
+        const a = qa(raiz + " .yt-ba"), c = qa(raiz + " .yt-bc");
+        let t = t0, k = 0, abierta = false;
+        while (t < t1) { abierta = !abierta; tl.set(a, { opacity: abierta ? 1 : 0 }, t); tl.set(c, { opacity: abierta ? 0 : 1 }, t); t += PASOS[k++ % PASOS.length]; }
+        tl.set(a, { opacity: 0 }, t1); tl.set(c, { opacity: 1 }, t1);
+      };
+      const parpadeo = (raiz, t) => qa(raiz + " .yt-ojo, " + raiz + " .ag-ojo").forEach((o) => {
+        tl.to(o, { scaleY: 0.12, smoothOrigin: false, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      });
+
+      tl.fromTo(q(".s05-escenario"), { y: 160, scale: 0.94 }, { y: 0, scale: 1, duration: 0.4, ease: "power3.out" }, 0);
+      pop(".g1", 0.05, { y: 30 });
+      escribir(".g1-a", 0.05, 0.95);
+      escribir(".g1-b", 1.05, 0.7);
+      pop(".tipeo", 2.0, { y: 20 });
+      qa(".tipeo span").forEach((p, i) => tl.to(p, { y: -10, duration: 0.12, yoyo: true, repeat: 1 }, 2.15 + i * 0.1));
+  
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

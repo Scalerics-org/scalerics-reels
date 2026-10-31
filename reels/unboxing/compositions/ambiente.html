@@ -1,0 +1,62 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 780px 1140px at 540px 920px, rgba(14, 14, 17, 0) 58%, rgba(14, 14, 17, 0.82) 100%); }
+    /* barra de reproducción de video genérica */
+    [data-composition-id="ambiente"] .amb-barra { position: absolute; left: 60px; top: 1626px; width: 960px; height: 8px; border-radius: 4px; background: rgba(247, 245, 240, 0.22); }
+    [data-composition-id="ambiente"] .amb-carga { position: absolute; left: 0; top: 0; width: 960px; height: 8px; border-radius: 4px; background: rgba(247, 245, 240, 0.28); transform-origin: 0 50%; }
+    [data-composition-id="ambiente"] .amb-prog { position: absolute; left: 0; top: 0; width: 960px; height: 8px; border-radius: 4px; background: #ff3d3d; transform-origin: 0 50%; }
+    [data-composition-id="ambiente"] .amb-bolita { position: absolute; left: -12px; top: -8px; width: 24px; height: 24px; border-radius: 50%; background: #ff3d3d; }
+    [data-composition-id="ambiente"] .amb-cap { position: absolute; top: -2px; width: 4px; height: 12px; background: #0e0e11; }
+    [data-composition-id="ambiente"] .amb-ctrl { position: absolute; left: 60px; top: 1652px; height: 40px; display: flex; align-items: center; gap: 22px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.06em; color: rgba(247, 245, 240, 0.7); }
+    [data-composition-id="ambiente"] .amb-rec { position: absolute; right: 60px; top: 1652px; height: 40px; display: flex; align-items: center; gap: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.2em; color: rgba(247, 245, 240, 0.7); }
+    [data-composition-id="ambiente"] .amb-punto { width: 16px; height: 16px; border-radius: 50%; background: #ff3d3d; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #fff8ec; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="72.64">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="72.64" data-track-index="0">
+      <div class="amb-vineta"></div>
+      <div class="amb-barra" data-layout-ignore>
+        <div class="amb-carga"></div>
+        <div class="amb-prog"></div>
+        <div class="amb-cap" style="left: 98px"></div>
+        <div class="amb-cap" style="left: 190px"></div>
+        <div class="amb-cap" style="left: 413px"></div>
+        <div class="amb-cap" style="left: 581px"></div>
+        <div class="amb-cap" style="left: 772px"></div>
+        <div class="amb-bolita"></div>
+      </div>
+      <div class="amb-ctrl" data-layout-ignore>
+        <svg width="26" height="30" viewBox="0 0 26 30"><path d="M3 3 L23 15 L3 27 Z" fill="rgba(247,245,240,0.8)" /></svg>
+        <span>UNBOXING · MI NUEVO EMPLEADO</span>
+      </div>
+      <div class="amb-rec" data-layout-ignore><span class="amb-punto"></span>REC</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 72.64;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      // la barra avanza con el video; el buffer va adelante
+      tl.fromTo(q(".amb-prog"), { scaleX: 0 }, { scaleX: 1, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".amb-carga"), { scaleX: 0.12 }, { scaleX: 1, duration: DUR * 0.8, ease: "none" }, 0);
+      tl.fromTo(q(".amb-bolita"), { x: 0 }, { x: 960, duration: DUR, ease: "none" }, 0);
+      // el puntito de REC titila (finito, determinista)
+      tl.to(q(".amb-punto"), { opacity: 0.15, duration: 0.5, yoyo: true, repeat: Math.max(1, Math.floor(DUR / 0.5) - 1), ease: "steps(1)" }, 0);
+      // flashes de cámara: "unboxing", "al instante", "cinco estrellas", "Scalerics"
+      [0.8, 31.4, 53.0, 64.7].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.5, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

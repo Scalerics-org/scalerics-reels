@@ -1,0 +1,129 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-martin"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-martin"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-martin"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-martin"] .ab { position: absolute; }
+    [data-composition-id="s09-martin"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f7f5f0; }
+    [data-composition-id="s09-martin"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.14em; }
+    [data-composition-id="s09-martin"] .pill { position: absolute; padding: 14px 34px 12px; border-radius: 999px; background: #ff3d3d; color: #fff; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; letter-spacing: 0.01em; }
+    [data-composition-id="s09-martin"] .sticker { position: absolute; padding: 14px 30px 12px; border-radius: 14px; background: #ffc83d; color: #141417; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; border: 5px solid #141417; box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s09-martin"] .sello { position: absolute; padding: 12px 26px 10px; border: 8px solid #ff3d3d; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #ff3d3d; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; background: rgba(14, 14, 17, 0.55); }
+    [data-composition-id="s09-martin"] .tarjeta { position: absolute; background: #f7f5f0; color: #141417; border-radius: 26px; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s09-martin"] .globo { position: absolute; padding: 18px 26px 18px; border-radius: 30px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 36px; line-height: 1.25; color: #141417; }
+    [data-composition-id="s09-martin"] .globo.cli { background: #f7f5f0; border-bottom-left-radius: 8px; }
+    [data-composition-id="s09-martin"] .globo.ag { background: #c89a5e; border-bottom-right-radius: 8px; }
+    [data-composition-id="s09-martin"] .globo .hora { display: block; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 22px; opacity: 0.55; margin-top: 4px; }
+    
+    [data-composition-id="s09-martin"] .s-cab { left: 268px; top: 640px; width: 544px; height: 100px; display: flex; align-items: center; gap: 20px; border-bottom: 3px solid rgba(247, 245, 240, 0.15); }
+    [data-composition-id="s09-martin"] .s-av { width: 72px; height: 72px; border-radius: 50%; background: #f7f5f0; color: #141417; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 38px; display: flex; align-items: center; justify-content: center; }
+    [data-composition-id="s09-martin"] .s-nom { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 40px; color: #f7f5f0; line-height: 1.1; }
+    [data-composition-id="s09-martin"] .s-linea { font-size: 22px; color: #c89a5e; letter-spacing: 0.1em; }
+    [data-composition-id="s09-martin"] .s-hora { left: 290px; top: 604px; font-size: 22px; color: rgba(247, 245, 240, 0.7); }
+    [data-composition-id="s09-martin"] .g1 { left: 270px; top: 780px; width: 470px; }
+    [data-composition-id="s09-martin"] .g2 { right: 270px; top: 975px; width: 460px; }
+    [data-composition-id="s09-martin"] .g3 { left: 270px; top: 1235px; }
+    [data-composition-id="s09-martin"] .g4 { left: 270px; top: 1340px; }
+    [data-composition-id="s09-martin"] .tipeo { right: 270px; top: 975px; width: 150px; height: 70px; border-radius: 30px; border-bottom-right-radius: 8px; background: #c89a5e; }
+    [data-composition-id="s09-martin"] .tipeo span { position: absolute; top: 26px; width: 18px; height: 18px; border-radius: 50%; background: #141417; }
+
+    [data-composition-id="s09-martin"] .s09-ayer { left: 470px; top: 760px; padding: 6px 18px; border-radius: 12px; background: #2a2930; color: rgba(247, 245, 240, 0.8); font-size: 22px; }
+    [data-composition-id="s09-martin"] .s09-g1 { left: 270px; top: 815px; width: 470px; opacity: 0.85; }
+    [data-composition-id="s09-martin"] .s09-visto { left: 280px; top: 954px; font-size: 26px; color: #ff3d3d; letter-spacing: 0.1em; }
+    [data-composition-id="s09-martin"] .s09-g2 { right: 268px; top: 1010px; width: 530px; }
+    [data-composition-id="s09-martin"] .s09-g3 { left: 270px; top: 1300px; }
+    [data-composition-id="s09-martin"] .s09-pill { left: 510px; top: 540px; font-size: 44px; }
+    [data-composition-id="s09-martin"] .s09-cor { position: absolute; left: 690px; top: 1300px; width: 80px; height: 80px; }
+  
+  </style>
+  <div id="root" data-composition-id="s09-martin" data-width="1080" data-height="1920" data-duration="5.29">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="5.29" data-track-index="0">
+      <div class="s09-escenario">
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><g class="s-cel"><rect x="230" y="570" width="620" height="950" rx="64" fill="#141417" stroke="#f7f5f0" stroke-width="6" />
+  <rect x="248" y="588" width="584" height="914" rx="48" fill="#1d1c22" />
+  <rect x="480" y="600" width="120" height="26" rx="13" fill="#141417" /></g></svg>
+        <div class="ab s-cab"><div class="s-av">M</div><div><div class="s-nom">Martín</div><div class="mono s-linea" data-layout-ignore>en línea</div></div></div>
+        <div class="ab mono s-hora" data-layout-ignore>10:15</div>
+        <div class="ab mono s09-ayer" data-layout-ignore>Ayer</div>
+        <div class="globo cli s09-g1">¿Cuánto sale el menú para un cumple?</div>
+        <div class="ab mono s09-visto">Visto · sin reservar</div>
+        <div class="globo ag s09-g2"><div class="l1">Hola, Martín.</div><div class="l2">Ayer preguntaste por</div><div class="l3">el menú del cumple.</div><div class="l4">¿Te guardo la mesa grande?</div><span class="hora" data-layout-ignore>10:15</span></div>
+        <div class="globo cli s09-g3">¡Dale! Guardámela.</div>
+        <svg class="s09-cor" viewBox="-50 -50 100 100"><path d="M0 34 C-60 -6 -34 -50 0 -20 C34 -50 60 -6 0 34 Z" fill="#ffc83d" stroke="#141417" stroke-width="5" /></svg>
+        <div class="pill s09-pill">Le escribe solo</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-martin";
+      const DUR = 5.29;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.5, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.6 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s09-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // la boca del youtuber se mueve mientras habla (patrón fijo, determinista)
+      const PASOS = [0.11, 0.15, 0.12, 0.17, 0.1, 0.14];
+      const hablar = (raiz, t0, t1) => {
+        const a = qa(raiz + " .yt-ba"), c = qa(raiz + " .yt-bc");
+        let t = t0, k = 0, abierta = false;
+        while (t < t1) { abierta = !abierta; tl.set(a, { opacity: abierta ? 1 : 0 }, t); tl.set(c, { opacity: abierta ? 0 : 1 }, t); t += PASOS[k++ % PASOS.length]; }
+        tl.set(a, { opacity: 0 }, t1); tl.set(c, { opacity: 1 }, t1);
+      };
+      const parpadeo = (raiz, t) => qa(raiz + " .yt-ojo, " + raiz + " .ag-ojo").forEach((o) => {
+        tl.to(o, { scaleY: 0.12, smoothOrigin: false, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      });
+
+      const MARTIN = 0.38, AYER = 0.86, MENU = 2.38, TE = 3.61, GRANDE = 4.38;
+      tl.fromTo(q(".s09-escenario"), { x: 260, rotation: 4, opacity: 0.4 }, { x: 0, rotation: 0, opacity: 1, duration: 0.4, ease: "power3.out", transformOrigin: "50% 60%" }, 0);
+      golpe(".s09-pill", 0.45, 2.4, 6);
+      sacudon(0.5, 0.8);
+      pop(".s09-g2", 0.05, { y: 30 });
+      escribir(".s09-g2 .l1", 0.05, 0.6);
+      pop(".s09-ayer", AYER - 0.1);
+      tl.fromTo(q(".s09-g1"), { backgroundColor: "#f7f5f0" }, { backgroundColor: "#ffc83d", duration: 0.15, yoyo: true, repeat: 1 }, AYER);
+      escribir(".s09-g2 .l2", AYER, 1.0);
+      escribir(".s09-g2 .l3", MENU - 0.35, 0.8);
+      pop(".s09-visto", 1.6, { x: -20 });
+      escribir(".s09-g2 .l4", TE - 0.05, 0.85);
+      pop(".s09-g3", GRANDE + 0.3, { y: 30 });
+      pop(".s09-cor", GRANDE + 0.45);
+      tl.to(q(".s09-cor"), { scale: 1.25, duration: 0.12, yoyo: true, repeat: 1 }, GRANDE + 0.8);
+  
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(8px)", y: -50, duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

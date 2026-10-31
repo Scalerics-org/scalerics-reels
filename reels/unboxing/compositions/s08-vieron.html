@@ -1,0 +1,130 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-vieron"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-vieron"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-vieron"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-vieron"] .ab { position: absolute; }
+    [data-composition-id="s08-vieron"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f7f5f0; }
+    [data-composition-id="s08-vieron"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.14em; }
+    [data-composition-id="s08-vieron"] .pill { position: absolute; padding: 14px 34px 12px; border-radius: 999px; background: #ff3d3d; color: #fff; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; letter-spacing: 0.01em; }
+    [data-composition-id="s08-vieron"] .sticker { position: absolute; padding: 14px 30px 12px; border-radius: 14px; background: #ffc83d; color: #141417; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; border: 5px solid #141417; box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s08-vieron"] .sello { position: absolute; padding: 12px 26px 10px; border: 8px solid #ff3d3d; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #ff3d3d; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; background: rgba(14, 14, 17, 0.55); }
+    [data-composition-id="s08-vieron"] .tarjeta { position: absolute; background: #f7f5f0; color: #141417; border-radius: 26px; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s08-vieron"] .globo { position: absolute; padding: 18px 26px 18px; border-radius: 30px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 36px; line-height: 1.25; color: #141417; }
+    [data-composition-id="s08-vieron"] .globo.cli { background: #f7f5f0; border-bottom-left-radius: 8px; }
+    [data-composition-id="s08-vieron"] .globo.ag { background: #c89a5e; border-bottom-right-radius: 8px; }
+    [data-composition-id="s08-vieron"] .globo .hora { display: block; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 22px; opacity: 0.55; margin-top: 4px; }
+    
+    [data-composition-id="s08-vieron"] .s08-vieron { top: 580px; font-size: 160px; }
+    [data-composition-id="s08-vieron"] .s08-inst { left: 150px; top: 1330px; font-size: 84px; }
+  
+  </style>
+  <div id="root" data-composition-id="s08-vieron" data-width="1080" data-height="1920" data-duration="2.98">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="2.98" data-track-index="0">
+      <div class="s08-escenario">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(520 1110) scale(1.4)"><g class="s08-yt"><g class="yt ">
+  <path d="M-195 335 C-195 205 -125 150 0 150 C125 150 195 205 195 335 Z" fill="#2a2930" stroke="#f7f5f0" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-80 152 Q0 236 80 152" fill="none" stroke="#f7f5f0" stroke-width="5" stroke-linecap="round" />
+  <path d="M-30 200 L-36 268 M30 200 L36 268" stroke="#f7f5f0" stroke-width="5" stroke-linecap="round" />
+  <rect x="-30" y="78" width="60" height="80" fill="#f7f5f0" />
+  <path d="M-98 138 Q0 206 98 138" fill="none" stroke="#ffc83d" stroke-width="14" stroke-linecap="round" />
+  <ellipse cx="-100" cy="138" rx="24" ry="32" fill="#ffc83d" stroke="#141417" stroke-width="4" />
+  <ellipse cx="100" cy="138" rx="24" ry="32" fill="#ffc83d" stroke="#141417" stroke-width="4" />
+  <circle cx="0" cy="0" r="100" fill="#f7f5f0" />
+  <path d="M-106 -22 C-106 -136 106 -136 106 -22 Z" fill="#ff3d3d" />
+  <rect x="-112" y="-46" width="224" height="42" rx="18" fill="#ff3d3d" stroke="#141417" stroke-width="4" />
+  <circle class="yt-pompon" cx="0" cy="-122" r="22" fill="#f7f5f0" stroke="#141417" stroke-width="4" />
+  <g class="yt-cejas"><path d="M-58 4 L-18 -2" stroke="#141417" stroke-width="8" stroke-linecap="round" /><path d="M18 -2 L58 4" stroke="#141417" stroke-width="8" stroke-linecap="round" /></g>
+  <ellipse class="yt-ojo" cx="-36" cy="28" rx="11" ry="15" fill="#141417" />
+  <ellipse class="yt-ojo yt-ojo-d" cx="36" cy="28" rx="11" ry="15" fill="#141417" />
+  <path class="yt-bc" d="M-30 60 Q0 82 30 60" fill="none" stroke="#141417" stroke-width="7" stroke-linecap="round" />
+  <path class="yt-ba" d="M-32 56 Q0 52 32 56 Q28 96 0 96 Q-28 96 -32 56 Z" fill="#141417" opacity="0" />
+</g></g></g>
+          <g class="s08-vel"><path d="M40 1350 h80 M10 1395 h110 M50 1440 h70" stroke="#f7f5f0" stroke-width="9" stroke-linecap="round" /></g>
+          <path class="s08-flecha" d="M790 900 H1010" stroke="#ff3d3d" stroke-width="30" stroke-linecap="round" />
+          <path class="s08-punta" d="M950 840 L1020 900 L950 960" stroke="#ff3d3d" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </svg>
+        <div class="grande s08-vieron">¿Vieron?</div>
+        <div class="sticker s08-inst">Al instante</div>
+  
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-vieron";
+      const DUR = 2.98;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.5, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.6 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s08-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // la boca del youtuber se mueve mientras habla (patrón fijo, determinista)
+      const PASOS = [0.11, 0.15, 0.12, 0.17, 0.1, 0.14];
+      const hablar = (raiz, t0, t1) => {
+        const a = qa(raiz + " .yt-ba"), c = qa(raiz + " .yt-bc");
+        let t = t0, k = 0, abierta = false;
+        while (t < t1) { abierta = !abierta; tl.set(a, { opacity: abierta ? 1 : 0 }, t); tl.set(c, { opacity: abierta ? 0 : 1 }, t); t += PASOS[k++ % PASOS.length]; }
+        tl.set(a, { opacity: 0 }, t1); tl.set(c, { opacity: 1 }, t1);
+      };
+      const parpadeo = (raiz, t) => qa(raiz + " .yt-ojo, " + raiz + " .ag-ojo").forEach((o) => {
+        tl.to(o, { scaleY: 0.12, smoothOrigin: false, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      });
+
+      const INST = 0.82, MIREN = 1.36, SOLO = 2.18;
+      tl.fromTo(q(".s08-escenario"), { scale: 1.15 }, { scale: 1, duration: 0.35, ease: "power3.out", transformOrigin: "50% 60%" }, 0);
+      golpe(".s08-vieron", 0.05, 2.2);
+      // cara de asombro
+      tl.set(qa(".s08-yt .yt-ba"), { opacity: 1 }, 0); tl.set(qa(".s08-yt .yt-bc"), { opacity: 0 }, 0);
+      tl.fromTo(qa(".s08-yt .yt-cejas"), { y: 0 }, { y: -18, duration: 0.15, ease: "back.out(3)" }, 0.02);
+      tl.to(qa(".s08-yt .yt-pompon"), { y: -16, duration: 0.1, yoyo: true, repeat: 3 }, 0.05);
+      hablar(".s08-yt", 0.7, 2.7);
+      golpe(".s08-inst", INST, 2.4, -6);
+      sacudon(INST + 0.06, 1.2);
+      dibujar(".s08-vel path", INST + 0.05, 0.15);
+      tl.to(q(".s08-vel"), { x: -30, opacity: 0.3, duration: 0.5 }, INST + 0.25);
+      // "miren": señala a la derecha y la mirada se va para allá
+      dibujar(".s08-flecha", MIREN - 0.05, 0.2);
+      dibujar(".s08-punta", MIREN + 0.12, 0.12);
+      tl.to(qa(".s08-yt .yt-ojo"), { x: 12, duration: 0.12 }, MIREN);
+      tl.to(qa(".s08-flecha, .s08-punta"), { x: 20, duration: 0.15, yoyo: true, repeat: 3 }, MIREN + 0.3);
+      tl.to(q(".s08-escenario"), { x: -50, duration: 0.6, ease: "power2.in" }, SOLO);
+  
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(8px)", y: -50, duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,9 @@
+[
+  {"t":0.05,"sfx":"pop","vol":0.3},
+  {"t":0.3,"sfx":"click-soft","vol":0.25},
+  {"t":0.76,"sfx":"impact-bass-1","vol":0.45,"max":0.6},
+  {"t":1.68,"sfx":"key-press","vol":0.3},
+  {"t":2.79,"sfx":"click","vol":0.3},
+  {"t":3,"sfx":"click","vol":0.25},
+  {"t":3.77,"sfx":"impact-bass-2","vol":0.45,"max":0.7}
+]

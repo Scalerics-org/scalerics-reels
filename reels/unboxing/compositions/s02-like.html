@@ -1,0 +1,136 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-like"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-like"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-like"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-like"] .ab { position: absolute; }
+    [data-composition-id="s02-like"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #f7f5f0; }
+    [data-composition-id="s02-like"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.14em; }
+    [data-composition-id="s02-like"] .pill { position: absolute; padding: 14px 34px 12px; border-radius: 999px; background: #ff3d3d; color: #fff; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; letter-spacing: 0.01em; }
+    [data-composition-id="s02-like"] .sticker { position: absolute; padding: 14px 30px 12px; border-radius: 14px; background: #ffc83d; color: #141417; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; line-height: 1; border: 5px solid #141417; box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s02-like"] .sello { position: absolute; padding: 12px 26px 10px; border: 8px solid #ff3d3d; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #ff3d3d; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; background: rgba(14, 14, 17, 0.55); }
+    [data-composition-id="s02-like"] .tarjeta { position: absolute; background: #f7f5f0; color: #141417; border-radius: 26px; box-shadow: 0 18px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s02-like"] .globo { position: absolute; padding: 18px 26px 18px; border-radius: 30px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 36px; line-height: 1.25; color: #141417; }
+    [data-composition-id="s02-like"] .globo.cli { background: #f7f5f0; border-bottom-left-radius: 8px; }
+    [data-composition-id="s02-like"] .globo.ag { background: #c89a5e; border-bottom-right-radius: 8px; }
+    [data-composition-id="s02-like"] .globo .hora { display: block; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 22px; opacity: 0.55; margin-top: 4px; }
+    
+    [data-composition-id="s02-like"] .s02-sus { left: 470px; top: 724px; font-size: 54px; }
+    [data-composition-id="s02-like"] .s02-sus.gris { background: #2a2930; color: rgba(247, 245, 240, 0.75); }
+    [data-composition-id="s02-like"] .s02-mas { left: 330px; top: 600px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 70px; color: #ffc83d; }
+    [data-composition-id="s02-like"] .s02-asmr { left: 0; right: 0; top: 1478px; text-align: center; font-size: 36px; color: #ffc83d; letter-spacing: 0.3em; }
+  
+  </style>
+  <div id="root" data-composition-id="s02-like" data-width="1080" data-height="1920" data-duration="2.86">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="2.86" data-track-index="0">
+      <div class="s02-escenario">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(300 770)"><g class="s02-like">
+            <circle cx="0" cy="0" r="130" fill="#2a2930" stroke="#f7f5f0" stroke-width="6" />
+            <g transform="translate(-22 4)"><g class="s02-pulgar-b" fill="#f7f5f0"><path d="M-62 -6 h34 v92 h-34 z M-16 -6 L22 -78 Q34 -102 54 -92 Q70 -82 62 -52 L54 -20 H108 Q134 -20 128 8 L114 72 Q108 86 90 86 H-16 Z" stroke="#141417" stroke-width="6" stroke-linejoin="round" /></g><g class="s02-pulgar-a" fill="#ffc83d" opacity="0"><path d="M-62 -6 h34 v92 h-34 z M-16 -6 L22 -78 Q34 -102 54 -92 Q70 -82 62 -52 L54 -20 H108 Q134 -20 128 8 L114 72 Q108 86 90 86 H-16 Z" stroke="#141417" stroke-width="6" stroke-linejoin="round" /></g></g>
+          </g></g>
+          <g class="s02-abajo">
+            <rect x="90" y="1090" width="900" height="360" rx="18" fill="#c89a5e" stroke="#141417" stroke-width="6" />
+            <path d="M540 1090 V1450" stroke="#141417" stroke-width="5" opacity="0.6" />
+            <path d="M120 1180 Q300 1170 520 1190 M580 1330 Q760 1320 960 1340" stroke="#8a6439" stroke-width="5" fill="none" stroke-linecap="round" />
+            <g transform="translate(470 1090)"><rect class="s02-cinta" x="0" y="0" width="140" height="360" fill="#e8c48f" opacity="0.95" /></g>
+            <g transform="translate(470 1090)"><path class="s02-rulo" d="M0 0 Q70 -60 140 0 L140 -12 Q70 -90 0 -12 Z" fill="#e8c48f" stroke="#141417" stroke-width="4" /></g>
+            <path class="s02-onda" d="M60 1200 Q20 1270 60 1340" stroke="#ffc83d" stroke-width="8" fill="none" stroke-linecap="round" />
+            <path class="s02-onda" d="M20 1160 Q-40 1270 20 1380" stroke="#ffc83d" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.6" />
+            <path class="s02-onda" d="M1020 1200 Q1060 1270 1020 1340" stroke="#ffc83d" stroke-width="8" fill="none" stroke-linecap="round" />
+            <path class="s02-onda" d="M1060 1160 Q1120 1270 1060 1380" stroke="#ffc83d" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.6" />
+          </g>
+          <g class="s02-cursor"><path d="M0 0 L0 70 L18 54 L31 82 L44 76 L31 49 L54 49 Z" fill="#f7f5f0" stroke="#141417" stroke-width="5" stroke-linejoin="round" /></g>
+        </svg>
+        <div class="pill s02-sus s02-sus-r">Suscribirme</div>
+        <div class="pill gris s02-sus s02-sus-g">Suscripto</div>
+        <div class="ab s02-mas">+1</div>
+        <div class="ab mono s02-asmr">ASMR del cartón</div>
+  
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-like";
+      const DUR = 2.86;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.5, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (s, t, de) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.6 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s02-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% 0%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% 0%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      // la boca del youtuber se mueve mientras habla (patrón fijo, determinista)
+      const PASOS = [0.11, 0.15, 0.12, 0.17, 0.1, 0.14];
+      const hablar = (raiz, t0, t1) => {
+        const a = qa(raiz + " .yt-ba"), c = qa(raiz + " .yt-bc");
+        let t = t0, k = 0, abierta = false;
+        while (t < t1) { abierta = !abierta; tl.set(a, { opacity: abierta ? 1 : 0 }, t); tl.set(c, { opacity: abierta ? 0 : 1 }, t); t += PASOS[k++ % PASOS.length]; }
+        tl.set(a, { opacity: 0 }, t1); tl.set(c, { opacity: 1 }, t1);
+      };
+      const parpadeo = (raiz, t) => qa(raiz + " .yt-ojo, " + raiz + " .ag-ojo").forEach((o) => {
+        tl.to(o, { scaleY: 0.12, smoothOrigin: false, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      });
+
+      const LIKE = 0.19, SUS = 0.64, ESCUCHEN = 1.64, CARTON = 2.1;
+      tl.fromTo(q(".s02-like"), { scale: 0.7, opacity: 0.5 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      pop(".s02-sus-r", 0.05);
+      gsap.set(q(".s02-sus-g"), { opacity: 0 });
+      // el cursor viaja: like, suscribirme
+      gsap.set(q(".s02-cursor"), { x: 700, y: 1250 });
+      tl.to(q(".s02-cursor"), { x: 320, y: 790, duration: 0.2, ease: "power2.out" }, 0);
+      tl.to(q(".s02-cursor"), { scale: 0.85, duration: 0.05, yoyo: true, repeat: 1 }, LIKE);
+      tl.to(q(".s02-pulgar-a"), { opacity: 1, duration: 0.05 }, LIKE + 0.02);
+      tl.fromTo(q(".s02-like"), { scale: 1 }, { scale: 1.18, duration: 0.1, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, LIKE + 0.02);
+      gsap.set(q(".s02-mas"), { opacity: 0 });
+      tl.fromTo(q(".s02-mas"), { opacity: 1, y: 40 }, { opacity: 0, y: -90, duration: 0.9, ease: "power2.out", immediateRender: false }, LIKE + 0.05);
+      tl.to(q(".s02-cursor"), { x: 720, y: 770, duration: 0.25, ease: "power2.inOut" }, LIKE + 0.15);
+      tl.to(q(".s02-cursor"), { scale: 0.85, duration: 0.05, yoyo: true, repeat: 1 }, SUS);
+      tl.to(q(".s02-sus-r"), { opacity: 0, duration: 0.05 }, SUS + 0.03);
+      tl.fromTo(q(".s02-sus-g"), { opacity: 0, scale: 1.15 }, { opacity: 1, scale: 1, duration: 0.2, immediateRender: false }, SUS + 0.03);
+      tl.to(q(".s02-cursor"), { x: 1150, y: 1500, duration: 0.4, ease: "power2.in" }, SUS + 0.35);
+      // abajo: la cinta de la caja de cerca, que se despega
+      gsap.set(q(".s02-abajo"), { opacity: 0 });
+      tl.fromTo(q(".s02-abajo"), { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 1.35);
+      tl.fromTo(q(".s02-cinta"), { scaleY: 1 }, { scaleY: 0.25, smoothOrigin: false, transformOrigin: "50% 100%", duration: 0.75, ease: "power1.in", immediateRender: false }, ESCUCHEN);
+      tl.fromTo(q(".s02-rulo"), { y: 0 }, { y: 270, duration: 0.75, ease: "power1.in", immediateRender: false }, ESCUCHEN);
+      dibujar(".s02-onda", ESCUCHEN + 0.1, 0.3);
+      [CARTON, CARTON + 0.25, CARTON + 0.5].forEach((t) => tl.fromTo(qa(".s02-onda"), { opacity: 1 }, { opacity: 0.25, duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, t));
+      pop(".s02-asmr", CARTON - 0.1, { y: 20 });
+  
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(8px)", y: -50, duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
