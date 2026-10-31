@@ -1,0 +1,68 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-cab { position: absolute; left: 72px; right: 72px; top: 96px; height: 40px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; color: rgba(31, 43, 77, 0.72); text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-cab .der { position: absolute; right: 0; top: 0; color: #d64532; }
+    [data-composition-id="ambiente"] .amb-linea { position: absolute; left: 72px; right: 72px; top: 142px; height: 4px; background: rgba(31, 43, 77, 0.5); }
+    /* pasacasete de abajo */
+    [data-composition-id="ambiente"] .amb-deck { position: absolute; left: 60px; top: 1600px; width: 960px; height: 96px; border: 5px solid #1f2b4d; border-radius: 16px; background: #f8f2e2; }
+    [data-composition-id="ambiente"] .amb-lado { position: absolute; top: 28px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.2em; color: #1f2b4d; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-barra { position: absolute; left: 640px; top: 40px; width: 280px; height: 10px; border-radius: 5px; background: rgba(31, 43, 77, 0.2); }
+    [data-composition-id="ambiente"] .amb-prog { position: absolute; left: 0; top: 0; width: 280px; height: 10px; border-radius: 5px; background: #d64532; transform-origin: 0 50%; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="75.16">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="75.16" data-track-index="0">
+      <div class="amb-cab" data-layout-ignore>Aprenda uruguayo comerciante<span class="der">En 10 lecciones</span></div>
+      <div class="amb-linea"></div>
+      <div class="amb-deck" data-layout-ignore>
+        <svg style="position:absolute;left:18px;top:12px" width="120" height="66" viewBox="0 0 120 66">
+          <rect x="3" y="3" width="114" height="60" rx="8" fill="#1f2b4d" />
+          <rect x="22" y="18" width="76" height="24" rx="12" fill="#f2e8cf" />
+          <g class="amb-bob"><circle cx="38" cy="30" r="9" fill="#1f2b4d" /><rect x="36" y="22" width="4" height="16" fill="#f2e8cf" /></g>
+          <g class="amb-bob"><circle cx="82" cy="30" r="9" fill="#1f2b4d" /><rect x="80" y="22" width="4" height="16" fill="#f2e8cf" /></g>
+        </svg>
+        <svg style="position:absolute;left:160px;top:16px" width="280" height="60" viewBox="0 0 280 60">
+          <rect x="2" y="2" width="84" height="56" rx="8" fill="#f2e8cf" stroke="#1f2b4d" stroke-width="4" />
+          <path d="M44 16 L22 30 L44 44 Z M66 16 L44 30 L66 44 Z" fill="#1f2b4d" />
+          <rect class="amb-play-bg" x="98" y="2" width="84" height="56" rx="8" fill="#e3a92b" stroke="#1f2b4d" stroke-width="4" />
+          <path d="M128 14 L156 30 L128 46 Z" fill="#1f2b4d" />
+          <rect class="amb-stop-bg" x="194" y="2" width="84" height="56" rx="8" fill="#f2e8cf" stroke="#1f2b4d" stroke-width="4" />
+          <rect x="222" y="16" width="28" height="28" fill="#1f2b4d" />
+        </svg>
+        <div class="amb-lado amb-la" style="left:462px">LADO A</div>
+        <div class="amb-lado amb-lb" style="left:462px;opacity:0">LADO B</div>
+        <div class="amb-barra"><div class="amb-prog"></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 75.16;
+      const FIN_A = 33.0, LADO_B = 37.1;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // las bobinas giran, paran en el fin del lado A y vuelven con el lado B
+      qa(".amb-bob").forEach((b) => {
+        tl.to(b, { rotation: Math.round(FIN_A * 240), transformOrigin: "50% 50%", duration: FIN_A, ease: "none" }, 0);
+        tl.to(b, { rotation: "+=" + Math.round((DUR - LADO_B) * 240), transformOrigin: "50% 50%", duration: DUR - LADO_B, ease: "none" }, LADO_B);
+      });
+      tl.fromTo(q(".amb-prog"), { scaleX: 0 }, { scaleX: 1, duration: FIN_A, ease: "none" }, 0);
+      tl.set(q(".amb-play-bg"), { fill: "#f2e8cf" }, FIN_A);
+      tl.set(q(".amb-stop-bg"), { fill: "#d64532" }, FIN_A);
+      tl.set(q(".amb-play-bg"), { fill: "#e3a92b" }, LADO_B);
+      tl.set(q(".amb-stop-bg"), { fill: "#f2e8cf" }, LADO_B);
+      tl.set(q(".amb-la"), { opacity: 0 }, LADO_B - 0.3);
+      tl.set(q(".amb-lb"), { opacity: 1 }, LADO_B - 0.3);
+      tl.set(q(".amb-prog"), { scaleX: 0 }, LADO_B);
+      tl.to(q(".amb-prog"), { scaleX: 1, duration: DUR - LADO_B, ease: "none" }, LADO_B);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

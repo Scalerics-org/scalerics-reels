@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-manana"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-manana"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s07-manana"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-manana"] .ab { position: absolute; }
+    [data-composition-id="s07-manana"] .titulo { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #1f2b4d; }
+    [data-composition-id="s07-manana"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.16em; color: #1f2b4d; }
+    [data-composition-id="s07-manana"] .manus { position: absolute; font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; color: #d64532; }
+    [data-composition-id="s07-manana"] .pill { position: absolute; padding: 12px 24px 10px; border-radius: 10px; background: #1f2b4d; color: #f2e8cf; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; line-height: 1.1; }
+    [data-composition-id="s07-manana"] .pill.roja { background: #d64532; }
+    [data-composition-id="s07-manana"] .pill.mostaza { background: #e3a92b; color: #1f2b4d; }
+    [data-composition-id="s07-manana"] .sello { position: absolute; padding: 12px 26px 8px; border: 8px solid #d64532; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #d64532; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; background: rgba(248, 242, 226, 0.88); }
+    [data-composition-id="s07-manana"] .caja { position: absolute; background: #f8f2e2; border: 6px solid #1f2b4d; border-radius: 6px; box-shadow: 12px 12px 0 #1f2b4d; }
+    [data-composition-id="s07-manana"] .caja .cab { position: absolute; left: 0; right: 0; top: 0; height: 58px; background: #1f2b4d; color: #f2e8cf; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; line-height: 58px; padding-left: 26px; text-transform: uppercase; }
+    [data-composition-id="s07-manana"] .caja .cab.roja { background: #d64532; }
+    [data-composition-id="s07-manana"] .frase { position: absolute; font-family: "Lexend", sans-serif; font-weight: 800; color: #1f2b4d; line-height: 1.1; white-space: nowrap; }
+    [data-composition-id="s07-manana"] .fon { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; color: #1f2b4d; opacity: 0.7; white-space: nowrap; letter-spacing: 0.04em; }
+    [data-composition-id="s07-manana"] .globo { position: absolute; padding: 22px 30px 20px; background: #f8f2e2; border: 6px solid #1f2b4d; border-radius: 36px; font-family: "Lexend", sans-serif; font-weight: 700; color: #1f2b4d; line-height: 1.15; }
+    [data-composition-id="s07-manana"] .resalta { position: absolute; background: #e3a92b; border-radius: 4px; }
+    [data-composition-id="s07-manana"] .chip { position: absolute; padding: 14px 26px 12px 18px; background: #f8f2e2; border: 5px solid #1f2b4d; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; color: #1f2b4d; text-transform: uppercase; white-space: nowrap; line-height: 1; box-shadow: 8px 8px 0 #1f2b4d; }
+  </style>
+  <div id="root" data-composition-id="s07-manana" data-width="1080" data-height="1920" data-duration="4.04">
+    <div id="s07-escena" class="capa clip" data-start="0" data-duration="4.04" data-track-index="0">
+      <div class="esc">
+
+        <div class="pill s07-pill" style="left:72px;top:570px">Conjugación</div>
+        <div class="manus s07-verbo" style="left:420px;top:560px;font-size:70px">verbo: atender</div>
+        <div class="caja s07-tabla" style="left:90px;top:680px;width:900px;height:380px">
+          <div class="chip" style="left:28px;top:44px;box-shadow:none;background:#e3a92b">Hoy</div>
+          <div class="frase s07-f1" style="left:300px;top:50px;font-size:58px">se pregunta.</div>
+          <div style="position:absolute;left:0;right:0;top:184px;height:6px;background:#1f2b4d;opacity:0.25"></div>
+          <div class="chip" style="left:28px;top:226px;box-shadow:none;background:#e3a92b">Mañana</div>
+          <div class="frase s07-f2" style="left:300px;top:232px;font-size:58px">se contesta.</div>
+        </div>
+        <svg class="full">
+          <path d="M260 1130 H820 L860 1200 H220 Z" fill="#d64532" stroke="#1f2b4d" stroke-width="7" stroke-linejoin="round" />
+          <path d="M330 1130 L310 1200 H370 L380 1130 Z" fill="#f8f2e2" /><path d="M470 1130 L460 1200 H520 L520 1130 Z" fill="#f8f2e2" /><path d="M610 1130 L610 1200 H670 L660 1130 Z" fill="#f8f2e2" /><path d="M750 1130 L760 1200 H820 L800 1130 Z" fill="#f8f2e2" />
+          <rect x="250" y="1200" width="580" height="290" fill="#f8f2e2" stroke="#1f2b4d" stroke-width="7" />
+          <g class="s07-pers">
+            <rect x="262" y="1210" width="556" height="270" fill="#2c3b66" />
+            <path d="M262 1236 H818" stroke="#f2e8cf" stroke-width="4" opacity="0.5" /><path d="M262 1264 H818" stroke="#f2e8cf" stroke-width="4" opacity="0.5" /><path d="M262 1292 H818" stroke="#f2e8cf" stroke-width="4" opacity="0.5" /><path d="M262 1320 H818" stroke="#f2e8cf" stroke-width="4" opacity="0.5" /><path d="M262 1348 H818" stroke="#f2e8cf" stroke-width="4" opacity="0.5" /><path d="M262 1376 H818" stroke="#f2e8cf" stroke-width="4" opacity="0.5" /><path d="M262 1404 H818" stroke="#f2e8cf" stroke-width="4" opacity="0.5" /><path d="M262 1432 H818" stroke="#f2e8cf" stroke-width="4" opacity="0.5" /><path d="M262 1460 H818" stroke="#f2e8cf" stroke-width="4" opacity="0.5" />
+          </g>
+        </svg>
+        <div class="sello s07-cerrado" style="left:330px;top:1270px;font-size:84px">Cerrado</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-manana";
+      const DUR = 4.04;
+
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.5, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote (rot: rotación final fija)
+      const pop = (s, t, de, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.6 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% -5%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% -5%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      const fuera = (s, t, d) => tl.to(els(s), { opacity: 0, scale: 0.9, duration: d || 0.2, ease: "power2.in" }, t);
+      // boca que se mueve mientras habla (patrón fijo, determinista)
+      const PASOS = [0.11, 0.15, 0.12, 0.17, 0.1, 0.14];
+      const hablar = (raiz, t0, t1) => {
+        const a = qa(raiz + " .boca-a"), c = qa(raiz + " .boca-c");
+        let t = t0, k = 0, abierta = false;
+        while (t < t1) { abierta = !abierta; tl.set(a, { opacity: abierta ? 1 : 0 }, t); tl.set(c, { opacity: abierta ? 0 : 1 }, t); t += PASOS[k++ % PASOS.length]; }
+        tl.set(a, { opacity: 0 }, t1); tl.set(c, { opacity: 1 }, t1);
+      };
+      const parpadeo = (raiz, t) => qa(raiz + " .ojo").forEach((o) => {
+        tl.to(o, { scaleY: 0.12, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      });
+      // bobinas del casete girando de t0 a t1
+      const girar = (raiz, t0, t1, vel) => qa(raiz + " .bobina").forEach((b) => {
+        tl.to(b, { rotation: "+=" + Math.round((t1 - t0) * (vel || 300)), transformOrigin: "50% 50%", duration: t1 - t0, ease: "none" }, t0);
+      });
+      // vaivén suave para que nada quede quieto
+      const flotar = (s, t0, t1, amp) => els(s).forEach((el) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.9));
+        tl.to(el, { y: "-=" + (amp || 8), duration: (t1 - t0) / (n * 2), yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t0);
+      });
+
+
+      pop(".s07-pill", 0.02, { x: -30 });
+      escribir(".s07-verbo", 0.2, 0.5);
+      pop(".s07-tabla", 0.05, { y: 40 });
+      escribir(".s07-f1", 0.20, 0.60 + 0.35 - 0.20);
+      escribir(".s07-f2", 1.35, 1.80 + 0.4 - 1.35);
+      tl.fromTo(q(".s07-pers"), { scaleY: 0 }, { scaleY: 1, svgOrigin: "540 1210", duration: 0.45, ease: "bounce.out" }, 2.63);
+      golpe(".s07-cerrado", 3.00 + 0.05, 2.2, -6);
+      sacudon(3.00 + 0.1, 1.2);
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(8px)", y: -40, duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

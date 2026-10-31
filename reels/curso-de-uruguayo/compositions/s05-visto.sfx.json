@@ -1,0 +1,8 @@
+[
+  {"t":0.02,"sfx":"notification","vol":0.3},
+  {"t":0.1,"sfx":"pop","vol":0.3},
+  {"t":1,"sfx":"click","vol":0.3},
+  {"t":1.2,"sfx":"click","vol":0.3},
+  {"t":2.58,"sfx":"pop","vol":0.25},
+  {"t":4.3,"sfx":"impact-bass-2","vol":0.45,"max":0.7}
+]

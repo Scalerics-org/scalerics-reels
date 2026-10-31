@@ -1,0 +1,161 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-lado-b"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-lado-b"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s10-lado-b"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-lado-b"] .ab { position: absolute; }
+    [data-composition-id="s10-lado-b"] .titulo { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #1f2b4d; }
+    [data-composition-id="s10-lado-b"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.16em; color: #1f2b4d; }
+    [data-composition-id="s10-lado-b"] .manus { position: absolute; font-family: "Caveat", cursive; font-weight: 700; white-space: nowrap; line-height: 1; color: #d64532; }
+    [data-composition-id="s10-lado-b"] .pill { position: absolute; padding: 12px 24px 10px; border-radius: 10px; background: #1f2b4d; color: #f2e8cf; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; line-height: 1.1; }
+    [data-composition-id="s10-lado-b"] .pill.roja { background: #d64532; }
+    [data-composition-id="s10-lado-b"] .pill.mostaza { background: #e3a92b; color: #1f2b4d; }
+    [data-composition-id="s10-lado-b"] .sello { position: absolute; padding: 12px 26px 8px; border: 8px solid #d64532; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; color: #d64532; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.03em; line-height: 1; background: rgba(248, 242, 226, 0.88); }
+    [data-composition-id="s10-lado-b"] .caja { position: absolute; background: #f8f2e2; border: 6px solid #1f2b4d; border-radius: 6px; box-shadow: 12px 12px 0 #1f2b4d; }
+    [data-composition-id="s10-lado-b"] .caja .cab { position: absolute; left: 0; right: 0; top: 0; height: 58px; background: #1f2b4d; color: #f2e8cf; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; line-height: 58px; padding-left: 26px; text-transform: uppercase; }
+    [data-composition-id="s10-lado-b"] .caja .cab.roja { background: #d64532; }
+    [data-composition-id="s10-lado-b"] .frase { position: absolute; font-family: "Lexend", sans-serif; font-weight: 800; color: #1f2b4d; line-height: 1.1; white-space: nowrap; }
+    [data-composition-id="s10-lado-b"] .fon { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; color: #1f2b4d; opacity: 0.7; white-space: nowrap; letter-spacing: 0.04em; }
+    [data-composition-id="s10-lado-b"] .globo { position: absolute; padding: 22px 30px 20px; background: #f8f2e2; border: 6px solid #1f2b4d; border-radius: 36px; font-family: "Lexend", sans-serif; font-weight: 700; color: #1f2b4d; line-height: 1.15; }
+    [data-composition-id="s10-lado-b"] .resalta { position: absolute; background: #e3a92b; border-radius: 4px; }
+    [data-composition-id="s10-lado-b"] .chip { position: absolute; padding: 14px 26px 12px 18px; background: #f8f2e2; border: 5px solid #1f2b4d; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; color: #1f2b4d; text-transform: uppercase; white-space: nowrap; line-height: 1; box-shadow: 8px 8px 0 #1f2b4d; }
+  </style>
+  <div id="root" data-composition-id="s10-lado-b" data-width="1080" data-height="1920" data-duration="7.44">
+    <div id="s10-escena" class="capa clip" data-start="0" data-duration="7.44" data-track-index="0">
+      <div class="esc">
+
+        <div class="resalta s10-res" style="left:60px;top:640px;width:400px;height:44px"></div>
+        <div class="titulo s10-tit" style="left:72px;top:566px;font-size:128px">Lado B</div>
+        <div class="frase s10-mal" style="left:560px;top:720px;font-size:56px;padding:10px 20px;border:5px solid #1f2b4d;background:#f8f2e2">MALEDUCADO</div>
+        <svg class="full"><path class="s10-tach" d="M560 760 L1000 742" stroke="#d64532" stroke-width="14" stroke-linecap="round" /></svg>
+        <div class="manus s10-no" style="left:470px;top:700px;font-size:80px">no</div>
+        <svg class="ab s10-com" style="left:330px;top:840px;width:420px;height:525px" viewBox="-200 -150 400 500" overflow="visible">
+  <path d="M-156 340 C-156 196 -104 126 0 126 C104 126 156 196 156 340 Z" fill="#f8f2e2" stroke="#1f2b4d" stroke-width="6" stroke-linejoin="round" />
+  <path d="M-90 340 V196 Q0 172 90 196 V340 Z" fill="#e3a92b" stroke="#1f2b4d" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-90 200 L-60 132 M90 200 L60 132" stroke="#1f2b4d" stroke-width="5" />
+  <rect x="-28" y="74" width="56" height="58" fill="#f8f2e2" stroke="#1f2b4d" stroke-width="5" />
+  <circle cx="0" cy="0" r="90" fill="#f8f2e2" stroke="#1f2b4d" stroke-width="6" />
+  <path d="M-90 10 C-96 -30 -84 -50 -70 -56 L-62 -10 Z M90 10 C96 -30 84 -50 70 -56 L62 -10 Z" fill="#1f2b4d" />
+  <g class="cejas"><path d="M-56 -24 L-18 -20" stroke="#1f2b4d" stroke-width="7" stroke-linecap="round" /><path d="M18 -20 L56 -24" stroke="#1f2b4d" stroke-width="7" stroke-linecap="round" /></g>
+  <circle class="ojo" cx="-34" cy="6" r="9" fill="#1f2b4d" /><circle class="ojo" cx="34" cy="6" r="9" fill="#1f2b4d" />
+  <path d="M-48 40 Q-24 26 0 36 Q24 26 48 40 Q24 52 0 44 Q-24 52 -48 40 Z" fill="#1f2b4d" />
+  <path class="boca-c" d="M-20 62 Q0 78 20 62" fill="none" stroke="#1f2b4d" stroke-width="6" stroke-linecap="round" />
+  <path class="boca-a" d="M-18 58 Q0 56 18 58 Q14 94 0 94 Q-14 94 -18 58 Z" fill="#1f2b4d" opacity="0" />
+  <path class="s10-gota" d="M-110 -40 Q-126 -10 -110 0 Q-94 -10 -110 -40 Z" fill="#5b9bd5" stroke="#1f2b4d" stroke-width="4" /><path class="s10-gota2" d="M112 -60 Q96 -30 112 -20 Q128 -30 112 -60 Z" fill="#5b9bd5" stroke="#1f2b4d" stroke-width="4" />
+</svg>
+        <div class="sello s10-solo" style="left:72px;top:780px;font-size:62px">Está solo</div>
+        <svg class="ab s10-caja" style="left:110px;top:1140px;width:260px;height:200px" viewBox="0 0 260 200" overflow="visible">
+          <path d="M30 70 H230 L250 190 H10 Z" fill="#5b9bd5" stroke="#1f2b4d" stroke-width="7" stroke-linejoin="round" />
+          <rect x="60" y="14" width="140" height="60" rx="8" fill="#f8f2e2" stroke="#1f2b4d" stroke-width="6" />
+          <rect x="58" y="104" width="34" height="22" rx="4" fill="#f8f2e2" stroke="#1f2b4d" stroke-width="4" /><rect x="58" y="140" width="34" height="22" rx="4" fill="#f8f2e2" stroke="#1f2b4d" stroke-width="4" /><rect x="108" y="104" width="34" height="22" rx="4" fill="#f8f2e2" stroke="#1f2b4d" stroke-width="4" /><rect x="108" y="140" width="34" height="22" rx="4" fill="#f8f2e2" stroke="#1f2b4d" stroke-width="4" /><rect x="158" y="104" width="34" height="22" rx="4" fill="#f8f2e2" stroke="#1f2b4d" stroke-width="4" /><rect x="158" y="140" width="34" height="22" rx="4" fill="#f8f2e2" stroke="#1f2b4d" stroke-width="4" />
+        </svg>
+        <svg class="ab s10-cel" style="left:780px;top:1060px;width:160px;height:280px" viewBox="0 0 160 280" overflow="visible">
+          <rect x="10" y="10" width="140" height="260" rx="22" fill="#1f2b4d" />
+          <rect x="22" y="36" width="116" height="200" rx="8" fill="#f8f2e2" />
+          <rect x="32" y="52" width="92" height="40" rx="12" fill="#5b9bd5" /><rect x="32" y="110" width="70" height="40" rx="12" fill="#5b9bd5" /><rect x="32" y="168" width="92" height="40" rx="12" fill="#5b9bd5" />
+          <circle class="s10-badge" cx="146" cy="16" r="22" fill="#d64532" stroke="#1f2b4d" stroke-width="4" />
+        </svg>
+        <svg class="full"><path class="s10-vib" d="M760 1100 Q745 1130 760 1160 M960 1100 Q975 1130 960 1160" fill="none" stroke="#d64532" stroke-width="6" stroke-linecap="round" /></svg>
+        <svg class="ab s10-most" style="left:60px;top:1300px;width:960px;height:220px" viewBox="0 0 960 220" overflow="visible">
+          <rect x="6" y="6" width="948" height="40" rx="6" fill="#e3a92b" stroke="#1f2b4d" stroke-width="7" />
+          <rect x="30" y="46" width="900" height="168" fill="#f8f2e2" stroke="#1f2b4d" stroke-width="7" />
+          <path d="M120 70 V190" stroke="#1f2b4d" stroke-width="4" opacity="0.3" /><path d="M360 70 V190" stroke="#1f2b4d" stroke-width="4" opacity="0.3" /><path d="M600 70 V190" stroke="#1f2b4d" stroke-width="4" opacity="0.3" /><path d="M840 70 V190" stroke="#1f2b4d" stroke-width="4" opacity="0.3" />
+        </svg>
+        <div class="pill s10-l1" style="left:390px;top:1410px">Mostrador</div>
+        <div class="pill roja s10-l2" style="left:140px;top:1080px;font-size:28px">Caja</div>
+        <div class="pill roja s10-l3" style="left:770px;top:1000px;font-size:28px">Celular</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-lado-b";
+      const DUR = 7.44;
+
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const els = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // un trazo que se dibuja (opacity 0 hasta que arranca: nada de puntitos de los caps)
+      const dibujar = (s, t, d) => els(s).forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d || 0.5, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote (rot: rotación final fija)
+      const pop = (s, t, de, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, Object.assign({ opacity: 0, scale: 0.6 }, de || {}), { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe como un sello o una palabra gigante
+      const golpe = (s, t, esc, rot) => els(s).forEach((el) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: esc || 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+      });
+      const sacudon = (t, f) => {
+        f = f || 1;
+        [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      // se escribe de izquierda a derecha
+      const escribir = (s, t, d) => els(s).forEach((el) => {
+        gsap.set(el, { clipPath: "inset(-30% 100% -30% -5%)" });
+        tl.to(el, { clipPath: "inset(-30% 0% -30% -5%)", duration: d || 0.5, ease: "none" }, t);
+      });
+      const fuera = (s, t, d) => tl.to(els(s), { opacity: 0, scale: 0.9, duration: d || 0.2, ease: "power2.in" }, t);
+      // boca que se mueve mientras habla (patrón fijo, determinista)
+      const PASOS = [0.11, 0.15, 0.12, 0.17, 0.1, 0.14];
+      const hablar = (raiz, t0, t1) => {
+        const a = qa(raiz + " .boca-a"), c = qa(raiz + " .boca-c");
+        let t = t0, k = 0, abierta = false;
+        while (t < t1) { abierta = !abierta; tl.set(a, { opacity: abierta ? 1 : 0 }, t); tl.set(c, { opacity: abierta ? 0 : 1 }, t); t += PASOS[k++ % PASOS.length]; }
+        tl.set(a, { opacity: 0 }, t1); tl.set(c, { opacity: 1 }, t1);
+      };
+      const parpadeo = (raiz, t) => qa(raiz + " .ojo").forEach((o) => {
+        tl.to(o, { scaleY: 0.12, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1, ease: "none" }, t);
+      });
+      // bobinas del casete girando de t0 a t1
+      const girar = (raiz, t0, t1, vel) => qa(raiz + " .bobina").forEach((b) => {
+        tl.to(b, { rotation: "+=" + Math.round((t1 - t0) * (vel || 300)), transformOrigin: "50% 50%", duration: t1 - t0, ease: "none" }, t0);
+      });
+      // vaivén suave para que nada quede quieto
+      const flotar = (s, t0, t1, amp) => els(s).forEach((el) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.9));
+        tl.to(el, { y: "-=" + (amp || 8), duration: (t1 - t0) / (n * 2), yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t0);
+      });
+
+
+      tl.fromTo(qa(".s10-tit, .s10-res"), { scale: 1.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(1.6)", transformOrigin: "0% 50%" }, 0);
+      tl.fromTo(q(".s10-res"), { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.out", transformOrigin: "0% 50%" }, 0.05);
+      tl.fromTo(q(".s10-com"), { y: 520, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.3)", immediateRender: true }, 1.19 - 0.2);
+      parpadeo(".s10-com", 1.19 + 0.8);
+      pop(".s10-mal", 1.90, { y: -30 }, 3);
+      dibujar(".s10-tach", 2.90, 0.3);
+      golpe(".s10-no", 2.90 + 0.1, 1.8, -8);
+      tl.to(qa(".s10-mal, .s10-tach, .s10-no"), { opacity: 0, y: -30, duration: 0.25 }, 3.55 + 0.3);
+      golpe(".s10-solo", 4.20, 2.2, -6);
+      sacudon(4.20 + 0.06, 0.9);
+      tl.to(q(".s10-com .cejas"), { y: 8, duration: 0.2 }, 4.20);
+      tl.fromTo(q(".s10-most"), { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.4)", immediateRender: true }, 4.80 - 0.2);
+      pop(".s10-l1", 4.80 + 0.1);
+      pop(".s10-caja", 5.80 - 0.05, { y: 40 });
+      pop(".s10-l2", 5.80 + 0.1, {}, -4);
+      pop(".s10-cel", 6.60 - 0.1, { y: 40 });
+      pop(".s10-l3", 6.60, {}, 4);
+      pop(".s10-badge", 6.60 + 0.2);
+      dibujar(".s10-vib", 6.60 + 0.2, 0.2);
+      tl.to(q(".s10-cel"), { rotation: 5, duration: 0.05, yoyo: true, repeat: 11, ease: "none" }, 6.60 + 0.25);
+      tl.fromTo(qa(".s10-gota, .s10-gota2"), { y: 0, opacity: 0 }, { y: 60, opacity: 1, duration: 0.6, stagger: 0.25, ease: "power1.in" }, 5.80);
+      tl.to(q(".s10-com"), { x: -10, duration: 0.06, yoyo: true, repeat: 9, ease: "none" }, 6.60 + 0.1);
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(8px)", y: -40, duration: 0.22, ease: "power3.in" }, DUR - 0.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

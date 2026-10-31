@@ -1,0 +1,6 @@
+[
+  {"t":0.03,"sfx":"pop","vol":0.3},
+  {"t":1.6,"sfx":"sparkle","vol":0.3,"max":0.8},
+  {"t":2.4,"sfx":"impact-bass-2","vol":0.4,"max":0.6},
+  {"t":2.52,"sfx":"chime","vol":0.3,"max":1}
+]
