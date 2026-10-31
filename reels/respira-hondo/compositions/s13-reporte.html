@@ -1,0 +1,118 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-reporte"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-reporte"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s13-reporte"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-reporte"] .abs { position: absolute; }
+    [data-composition-id="s13-reporte"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; line-height: 0.98; white-space: nowrap; letter-spacing: -0.01em;
+      color: #fff7ee; text-shadow: 0 7px 0 #1d1a3a, 0 0 30px rgba(29, 26, 58, 0.55); }
+    [data-composition-id="s13-reporte"] .big.lav { color: #c9b8ff; } [data-composition-id="s13-reporte"] .big.dur { color: #ffb38a; } [data-composition-id="s13-reporte"] .big.men { color: #8ee6c5; } [data-composition-id="s13-reporte"] .big.rojo { color: #ff4757; } [data-composition-id="s13-reporte"] .big.verde { color: #5ce611; }
+    [data-composition-id="s13-reporte"] .pill { position: absolute; left: 50%; transform: translateX(-50%); padding: 14px 34px 12px; border-radius: 999px; background: rgba(29, 26, 58, 0.55); border: 3px solid rgba(201, 184, 255, 0.55);
+      font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; letter-spacing: 0.2em; color: #fff7ee; white-space: nowrap; }
+    [data-composition-id="s13-reporte"] .pill b { color: #8ee6c5; font-weight: 600; }
+    [data-composition-id="s13-reporte"] .pill.rojo { background: #ff4757; border-color: #1d1a3a; color: #fff7ee; }
+    [data-composition-id="s13-reporte"] .notif { position: absolute; left: 70px; width: 940px; padding: 22px 28px 24px 132px; border-radius: 38px; background: #fff7ee; box-shadow: 0 12px 0 rgba(29, 26, 58, 0.45); }
+    [data-composition-id="s13-reporte"] .notif .ico { position: absolute; left: 26px; top: 24px; width: 84px; height: 84px; border-radius: 22px; }
+    [data-composition-id="s13-reporte"] .notif .ico svg { width: 100%; height: 100%; }
+    [data-composition-id="s13-reporte"] .notif .app { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.06em; color: #6b5fa8; white-space: nowrap; }
+    [data-composition-id="s13-reporte"] .notif .app i { font-style: normal; float: right; color: #8f86b8; }
+    [data-composition-id="s13-reporte"] .notif .tit { margin-top: 4px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 38px; line-height: 1.12; color: #1d1a3a; white-space: nowrap; }
+    [data-composition-id="s13-reporte"] .notif .txt { margin-top: 4px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 33px; line-height: 1.2; color: #1d1a3a; white-space: nowrap; }
+    [data-composition-id="s13-reporte"] .notif.alerta { box-shadow: 0 12px 0 #ff4757; border: 5px solid #ff4757; }
+    [data-composition-id="s13-reporte"] .planilla { position: absolute; border-radius: 22px; overflow: hidden; background: #fff7ee; border: 5px solid #1d1a3a; box-shadow: 0 12px 0 rgba(29, 26, 58, 0.45); }
+    [data-composition-id="s13-reporte"] .planilla .barra { height: 58px; background: #8ee6c5; border-bottom: 4px solid #1d1a3a; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 27px; letter-spacing: 0.1em; color: #1d1a3a; padding: 13px 22px 0; white-space: nowrap; }
+    [data-composition-id="s13-reporte"] .planilla .fila { display: flex; border-bottom: 3px solid rgba(29, 26, 58, 0.25); }
+    [data-composition-id="s13-reporte"] .planilla .fila span { flex: 1; padding: 12px 16px 10px; border-right: 3px solid rgba(29, 26, 58, 0.25); font-family: "Lexend", sans-serif; font-weight: 600; font-size: 29px; color: #1d1a3a; white-space: nowrap; overflow: hidden; }
+    [data-composition-id="s13-reporte"] .planilla .fila span:last-child { border-right: 0; }
+    [data-composition-id="s13-reporte"] .planilla .fila.cab span { background: #b9a7f5; font-family: "IBM Plex Mono", monospace; font-size: 28px; letter-spacing: 0.06em; }
+    [data-composition-id="s13-reporte"] .tecla { position: absolute; width: 230px; height: 200px; border-radius: 34px; background: #fff7ee; border: 6px solid #1d1a3a; box-shadow: 0 18px 0 #1d1a3a;
+      font-family: "Lexend", sans-serif; font-weight: 800; color: #1d1a3a; text-align: center; }
+    [data-composition-id="s13-reporte"] .tecla.ancha { width: 330px; }
+    [data-composition-id="s13-reporte"] .tecla span { display: block; padding-top: 44px; font-size: 92px; line-height: 1; }
+    [data-composition-id="s13-reporte"] .tecla.ancha span { font-size: 78px; padding-top: 52px; }
+    [data-composition-id="s13-reporte"] .globo { position: absolute; padding: 20px 30px 18px; border-radius: 34px; background: #fff7ee; border: 5px solid #1d1a3a; box-shadow: 0 8px 0 rgba(29, 26, 58, 0.45);
+      font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; line-height: 1.15; color: #1d1a3a; white-space: nowrap; }
+    [data-composition-id="s13-reporte"] .globo.men { background: #8ee6c5; }
+    [data-composition-id="s13-reporte"] .globo small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.05em; color: #6b5fa8; }
+    [data-composition-id="s13-reporte"] .sello { position: absolute; padding: 16px 40px 12px; border: 10px solid currentColor; border-radius: 24px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap;
+      background: rgba(29, 26, 58, 0.85); text-transform: uppercase; }
+    [data-composition-id="s13-reporte"] .etq { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.3em; color: #c9b8ff; white-space: nowrap; }
+  
+[data-composition-id="s13-reporte"] .s13-cel { position: absolute; left: 250px; top: 560px; width: 580px; height: 960px; border-radius: 70px; background: #1d1a3a; border: 10px solid #fff7ee; box-shadow: 0 14px 0 rgba(29, 26, 58, 0.5); }
+      [data-composition-id="s13-reporte"] .s13-cab { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; color: #fff7ee; }
+      [data-composition-id="s13-reporte"] .s13-cab small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.12em; color: #8ee6c5; }
+      [data-composition-id="s13-reporte"] .s13-m { position: absolute; right: 30px; top: 170px; width: 440px; padding: 20px 24px 18px; border-radius: 30px 30px 6px 30px; background: #8ee6c5; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; line-height: 1.2; color: #1d1a3a; }
+      [data-composition-id="s13-reporte"] .s13-m svg { display: block; margin: 6px 0 0 auto; width: 70px; height: 36px; }
+      [data-composition-id="s13-reporte"] .s13-auto { position: absolute; left: 30px; top: 420px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.1em; color: #5ce611; white-space: nowrap; }
+      [data-composition-id="s13-reporte"] .s13-hora { position: absolute; left: 0; right: 0; top: 140px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 300; font-size: 170px; line-height: 1; color: #fff7ee; }
+      [data-composition-id="s13-reporte"] .s13-n { left: 40px; top: 1040px; width: 1000px; }
+      [data-composition-id="s13-reporte"] .s13-barras { position: absolute; left: 330px; top: 1230px; width: 420px; height: 200px; }
+  </style>
+  <div id="root" data-composition-id="s13-reporte" data-width="1080" data-height="1920" data-duration="4.89">
+    <div id="s13-reporte-escena" class="capa clip" data-start="0" data-duration="4.89" data-track-index="0">
+      <div class="esc">
+<div class="s13-cel">
+          <div class="s13-cab s13-chat"><small>WHATSAPP</small>Gómez</div>
+          <div class="s13-m s13-chat">Gómez, tu pedido está listo. ¡Te esperamos!<svg viewBox="0 0 70 36"><path d="M4 18 L16 30 L36 6 M30 26 L34 30 L62 6" fill="none" stroke="#1f6fd1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="s13-auto s13-chat">ENVIADO SOLO · 18:02</div>
+          <div class="s13-hora">23:00</div>
+        </div>
+        <div class="notif s13-n "><div class="ico"><svg viewBox="0 0 84 84"><rect width="84" height="84" rx="22" fill="#5ce611"/><path d="M20 64 V46 M34 64 V34 M48 64 V40 M62 64 V22" stroke="#1d1a3a" stroke-width="9" stroke-linecap="round"/></svg></div><div class="app">SCALERICS · 23:00<i>ahora</i></div><div class="tit">Tu reporte del día</div><div class="txt">Pedidos, ventas y stock: todo al día</div></div>
+        <svg class="s13-barras" viewBox="0 0 420 200"><rect class="s13-b" x="20" y="130" width="56" height="60" rx="10" fill="#c9b8ff" stroke="#1d1a3a" stroke-width="5"/><rect class="s13-b" x="102" y="80" width="56" height="110" rx="10" fill="#c9b8ff" stroke="#1d1a3a" stroke-width="5"/><rect class="s13-b" x="184" y="110" width="56" height="80" rx="10" fill="#c9b8ff" stroke="#1d1a3a" stroke-width="5"/><rect class="s13-b" x="266" y="40" width="56" height="150" rx="10" fill="#5ce611" stroke="#1d1a3a" stroke-width="5"/><rect class="s13-b" x="348" y="60" width="56" height="130" rx="10" fill="#c9b8ff" stroke="#1d1a3a" stroke-width="5"/></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-reporte";
+      const DUR = 4.89;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, d = 0.35, from = 0.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const golpe = (el, t, rot = -3, sc = 2.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const fuera = (el, t, d = 0.2) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { y: 400 }, d = 0.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.4)", immediateRender: false }, t); };
+      const cae = (el, t, d = 0.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: -160 }, { opacity: 1, y: 0, duration: d, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1, el) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(el || q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const tiembla = (el, t, d, f = 1) => { const n = Math.max(2, Math.round(d / 0.06)); for (let i = 0; i < n; i++) tl.to(el, { x: (i % 2 ? 1 : -1) * 7 * f, y: (i % 3 - 1) * 4 * f, duration: 0.06, ease: "none" }, t + i * 0.06); tl.to(el, { x: 0, y: 0, duration: 0.06 }, t + n * 0.06); };
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      const habla = (el, t, d, origin) => tl.fromTo(el, { scaleY: 1, svgOrigin: origin }, { scaleY: 1.8, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      const dibujar = (els, t, d = 0.6, stag = 0.05) => [].concat(els).forEach((el, i) => { const L = el.getTotalLength ? el.getTotalLength() : 1000; gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t + i * stag); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * stag); });
+      // cara del círculo: z serena · a abierta · e enojada · s sorprendida
+      const cara = (p, est, t) => ["z", "a", "e", "s"].forEach((k) => tl.set(q("." + p + "c" + k), { opacity: k === est ? 1 : 0 }, t));
+      const caraYa = (p, est) => ["z", "a", "e", "s"].forEach((k) => gsap.set(q("." + p + "c" + k), { opacity: k === est ? 1 : 0 }));
+      // el círculo respira: de escala s0 a s1 en d segundos (con anillos)
+      const respira = (p, t, d, s0, s1, o = "540 1000") => { tl.fromTo(q("." + p + "circ"), { scale: s0, svgOrigin: o }, { scale: s1, svgOrigin: o, duration: d, ease: "sine.inOut", immediateRender: false }, t);
+        tl.fromTo([q("." + p + "an2"), q("." + p + "an3")], { scale: 0.92, svgOrigin: o }, { scale: s1 > s0 ? 1.08 : 0.9, svgOrigin: o, duration: d, ease: "sine.inOut", immediateRender: false }, t); };
+      const enRojo = (p, t, o = 1, d = 0.2) => tl.to(q("." + p + "rojo"), { opacity: o, duration: d, ease: "power2.out" }, t);
+      // una pila de spans: muestra el k-ésimo en t (para contadores 4·3·2·1)
+      const cuenta = (els, t0, paso) => els.forEach((el, k) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power2.out", immediateRender: false }, t0 + k * paso); if (k < els.length - 1) tl.set(el, { opacity: 0 }, t0 + (k + 1) * paso); });
+
+
+      entra(q(".s13-cel"), 0, { y: 300 }, 0.35);
+      gsap.set(q(".s13-hora"), { opacity: 0 });
+      pop(q(".s13-m"), 0.47 - 0.1, 0.35);
+      tl.fromTo(q(".s13-m"), { x: 0 }, { x: 0, duration: 0.01, immediateRender: false }, 0.93);
+      tl.to(q(".s13-m path"), { stroke: "#5ce611", duration: 0.01 }, 1.29);
+      pop(q(".s13-auto"), 1.29, 0.3, 0.8);
+      // a las once
+      tl.to(qa(".s13-chat"), { opacity: 0, y: -40, duration: 0.25 }, 2.02 - 0.15);
+      pop(q(".s13-hora"), 2.2 - 0.1, 0.4, 0.7);
+      cae(q(".s13-n"), 2.65 - 0.1, 0.35);
+      tl.to(q(".s13-cel"), { scale: 0.96, duration: 0.15, yoyo: true, repeat: 1 }, 2.65);
+      qa(".s13-b").forEach((b, i) => { gsap.set(b, { opacity: 0 }); tl.fromTo(b, { opacity: 1, scaleY: 0, svgOrigin: (48 + i * 82) + " 190" }, { opacity: 1, scaleY: 1, svgOrigin: (48 + i * 82) + " 190", duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, 2.93 + i * 0.08); });
+      tl.to(q(".s13-n"), { y: -10, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 3.74);
+      // salida
+      tl.to(q("#s13-reporte-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

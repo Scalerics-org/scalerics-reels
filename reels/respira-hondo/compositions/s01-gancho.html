@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .abs { position: absolute; }
+    [data-composition-id="s01-gancho"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; line-height: 0.98; white-space: nowrap; letter-spacing: -0.01em;
+      color: #fff7ee; text-shadow: 0 7px 0 #1d1a3a, 0 0 30px rgba(29, 26, 58, 0.55); }
+    [data-composition-id="s01-gancho"] .big.lav { color: #c9b8ff; } [data-composition-id="s01-gancho"] .big.dur { color: #ffb38a; } [data-composition-id="s01-gancho"] .big.men { color: #8ee6c5; } [data-composition-id="s01-gancho"] .big.rojo { color: #ff4757; } [data-composition-id="s01-gancho"] .big.verde { color: #5ce611; }
+    [data-composition-id="s01-gancho"] .pill { position: absolute; left: 50%; transform: translateX(-50%); padding: 14px 34px 12px; border-radius: 999px; background: rgba(29, 26, 58, 0.55); border: 3px solid rgba(201, 184, 255, 0.55);
+      font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; letter-spacing: 0.2em; color: #fff7ee; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .pill b { color: #8ee6c5; font-weight: 600; }
+    [data-composition-id="s01-gancho"] .pill.rojo { background: #ff4757; border-color: #1d1a3a; color: #fff7ee; }
+    [data-composition-id="s01-gancho"] .notif { position: absolute; left: 70px; width: 940px; padding: 22px 28px 24px 132px; border-radius: 38px; background: #fff7ee; box-shadow: 0 12px 0 rgba(29, 26, 58, 0.45); }
+    [data-composition-id="s01-gancho"] .notif .ico { position: absolute; left: 26px; top: 24px; width: 84px; height: 84px; border-radius: 22px; }
+    [data-composition-id="s01-gancho"] .notif .ico svg { width: 100%; height: 100%; }
+    [data-composition-id="s01-gancho"] .notif .app { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.06em; color: #6b5fa8; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .notif .app i { font-style: normal; float: right; color: #8f86b8; }
+    [data-composition-id="s01-gancho"] .notif .tit { margin-top: 4px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 38px; line-height: 1.12; color: #1d1a3a; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .notif .txt { margin-top: 4px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 33px; line-height: 1.2; color: #1d1a3a; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .notif.alerta { box-shadow: 0 12px 0 #ff4757; border: 5px solid #ff4757; }
+    [data-composition-id="s01-gancho"] .planilla { position: absolute; border-radius: 22px; overflow: hidden; background: #fff7ee; border: 5px solid #1d1a3a; box-shadow: 0 12px 0 rgba(29, 26, 58, 0.45); }
+    [data-composition-id="s01-gancho"] .planilla .barra { height: 58px; background: #8ee6c5; border-bottom: 4px solid #1d1a3a; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 27px; letter-spacing: 0.1em; color: #1d1a3a; padding: 13px 22px 0; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .planilla .fila { display: flex; border-bottom: 3px solid rgba(29, 26, 58, 0.25); }
+    [data-composition-id="s01-gancho"] .planilla .fila span { flex: 1; padding: 12px 16px 10px; border-right: 3px solid rgba(29, 26, 58, 0.25); font-family: "Lexend", sans-serif; font-weight: 600; font-size: 29px; color: #1d1a3a; white-space: nowrap; overflow: hidden; }
+    [data-composition-id="s01-gancho"] .planilla .fila span:last-child { border-right: 0; }
+    [data-composition-id="s01-gancho"] .planilla .fila.cab span { background: #b9a7f5; font-family: "IBM Plex Mono", monospace; font-size: 28px; letter-spacing: 0.06em; }
+    [data-composition-id="s01-gancho"] .tecla { position: absolute; width: 230px; height: 200px; border-radius: 34px; background: #fff7ee; border: 6px solid #1d1a3a; box-shadow: 0 18px 0 #1d1a3a;
+      font-family: "Lexend", sans-serif; font-weight: 800; color: #1d1a3a; text-align: center; }
+    [data-composition-id="s01-gancho"] .tecla.ancha { width: 330px; }
+    [data-composition-id="s01-gancho"] .tecla span { display: block; padding-top: 44px; font-size: 92px; line-height: 1; }
+    [data-composition-id="s01-gancho"] .tecla.ancha span { font-size: 78px; padding-top: 52px; }
+    [data-composition-id="s01-gancho"] .globo { position: absolute; padding: 20px 30px 18px; border-radius: 34px; background: #fff7ee; border: 5px solid #1d1a3a; box-shadow: 0 8px 0 rgba(29, 26, 58, 0.45);
+      font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; line-height: 1.15; color: #1d1a3a; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .globo.men { background: #8ee6c5; }
+    [data-composition-id="s01-gancho"] .globo small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.05em; color: #6b5fa8; }
+    [data-composition-id="s01-gancho"] .sello { position: absolute; padding: 16px 40px 12px; border: 10px solid currentColor; border-radius: 24px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap;
+      background: rgba(29, 26, 58, 0.85); text-transform: uppercase; }
+    [data-composition-id="s01-gancho"] .etq { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.3em; color: #c9b8ff; white-space: nowrap; }
+  
+[data-composition-id="s01-gancho"] .s01-pill { top: 560px; } [data-composition-id="s01-gancho"] .s01-n1 { top: 600px; } [data-composition-id="s01-gancho"] .s01-n2 { top: 790px; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="4.38">
+    <div id="s01-gancho-escena" class="capa clip" data-start="0" data-duration="4.38" data-track-index="0">
+      <div class="esc">
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+  <defs>
+    <radialGradient id="s01-gm" cx="45%" cy="38%" r="65%"><stop offset="0" stop-color="#e6fff5"/><stop offset="0.5" stop-color="#8ee6c5"/><stop offset="1" stop-color="#b9a7f5"/></radialGradient>
+    <radialGradient id="s01-gr" cx="45%" cy="38%" r="65%"><stop offset="0" stop-color="#ffd6d9"/><stop offset="0.55" stop-color="#ff7d88"/><stop offset="1" stop-color="#ff4757"/></radialGradient>
+  </defs>
+  <g class="s01-circ">
+    <circle class="s01-an3" cx="540" cy="1150" r="360" fill="none" stroke="#c9b8ff" stroke-width="3" opacity="0.22"/>
+    <circle class="s01-an2" cx="540" cy="1150" r="310" fill="none" stroke="#c9b8ff" stroke-width="4" opacity="0.35"/>
+    <circle class="s01-an1" cx="540" cy="1150" r="266" fill="#c9b8ff" opacity="0.2"/>
+    <circle class="s01-cuerpo" cx="540" cy="1150" r="230" fill="url(#s01-gm)"/>
+    <circle class="s01-rojo" cx="540" cy="1150" r="230" fill="url(#s01-gr)" opacity="0"/>
+    <g class="s01-cara">
+      <ellipse cx="410" cy="1198" rx="34" ry="20" fill="#ffb38a" opacity="0.7"/>
+      <ellipse cx="670" cy="1198" rx="34" ry="20" fill="#ffb38a" opacity="0.7"/>
+      <g class="s01-cz"><path d="M420 1140 Q458 1174 496 1140" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" /><path d="M584 1140 Q622 1174 660 1140" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" /><path d="M488 1216 Q540 1258 592 1216" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" /></g>
+      <g class="s01-ca" opacity="0"><ellipse cx="458" cy="1144" rx="16" ry="22" fill="#1d1a3a"/><ellipse cx="622" cy="1144" rx="16" ry="22" fill="#1d1a3a"/><path d="M488 1216 Q540 1254 592 1216" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" />
+        <path class="s01-boca" d="M500 1224 Q540 1268 580 1224 Z" fill="#1d1a3a" opacity="0"/></g>
+      <g class="s01-ce" opacity="0"><circle cx="460" cy="1154" r="17" fill="#1d1a3a"/><circle cx="620" cy="1154" r="17" fill="#1d1a3a"/>
+        <path d="M405 1088 L495 1120" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><path d="M675 1088 L585 1120" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><path d="M480 1236 Q540 1212 600 1236" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" /></g>
+      <g class="s01-cs" opacity="0"><circle cx="458" cy="1142" r="34" fill="#fff7ee" stroke="#1d1a3a" stroke-width="8"/><circle cx="622" cy="1142" r="34" fill="#fff7ee" stroke="#1d1a3a" stroke-width="8"/>
+        <circle cx="458" cy="1146" r="12" fill="#1d1a3a"/><circle cx="622" cy="1146" r="12" fill="#1d1a3a"/><ellipse cx="540" cy="1242" rx="30" ry="38" fill="#1d1a3a"/></g>
+    </g>
+  </g></svg>
+        <div class="pill s01-pill s01-p1">INHALÁ · <b>4</b></div>
+        <div class="pill s01-pill s01-p2">SOSTENÉ · <b>4</b></div>
+        <div class="notif s01-n1 "><div class="ico"><svg viewBox="0 0 84 84"><rect width="84" height="84" rx="22" fill="#8ee6c5"/><path d="M42 18 C26 18 16 28 16 41 C16 47 18 52 22 56 L19 67 L31 63 C34 65 38 66 42 66 C58 66 68 55 68 42 C68 28 58 18 42 18 Z" fill="#fff7ee" stroke="#1d1a3a" stroke-width="4" stroke-linejoin="round"/><circle cx="31" cy="42" r="4" fill="#1d1a3a"/><circle cx="42" cy="42" r="4" fill="#1d1a3a"/><circle cx="53" cy="42" r="4" fill="#1d1a3a"/></svg></div><div class="app">WHATSAPP<i>ahora</i></div><div class="tit">Nuevo pedido</div><div class="txt">«¿Me anotás 2 docenas para mañana?»</div></div>
+        <div class="notif s01-n2 alerta"><div class="ico"><svg viewBox="0 0 84 84"><rect width="84" height="84" rx="22" fill="#8ee6c5"/><rect x="16" y="18" width="52" height="48" rx="4" fill="#fff7ee" stroke="#1d1a3a" stroke-width="4"/><path d="M16 34 H68 M16 50 H68 M34 18 V66" stroke="#1d1a3a" stroke-width="4"/></svg></div><div class="app">PLANILLA<i>ahora</i></div><div class="tit">3 pedidos sin pasar</div><div class="txt">Pendiente desde las 19:40</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 4.38;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, d = 0.35, from = 0.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const golpe = (el, t, rot = -3, sc = 2.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const fuera = (el, t, d = 0.2) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { y: 400 }, d = 0.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.4)", immediateRender: false }, t); };
+      const cae = (el, t, d = 0.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: -160 }, { opacity: 1, y: 0, duration: d, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1, el) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(el || q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const tiembla = (el, t, d, f = 1) => { const n = Math.max(2, Math.round(d / 0.06)); for (let i = 0; i < n; i++) tl.to(el, { x: (i % 2 ? 1 : -1) * 7 * f, y: (i % 3 - 1) * 4 * f, duration: 0.06, ease: "none" }, t + i * 0.06); tl.to(el, { x: 0, y: 0, duration: 0.06 }, t + n * 0.06); };
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      const habla = (el, t, d, origin) => tl.fromTo(el, { scaleY: 1, svgOrigin: origin }, { scaleY: 1.8, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      const dibujar = (els, t, d = 0.6, stag = 0.05) => [].concat(els).forEach((el, i) => { const L = el.getTotalLength ? el.getTotalLength() : 1000; gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t + i * stag); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * stag); });
+      // cara del círculo: z serena · a abierta · e enojada · s sorprendida
+      const cara = (p, est, t) => ["z", "a", "e", "s"].forEach((k) => tl.set(q("." + p + "c" + k), { opacity: k === est ? 1 : 0 }, t));
+      const caraYa = (p, est) => ["z", "a", "e", "s"].forEach((k) => gsap.set(q("." + p + "c" + k), { opacity: k === est ? 1 : 0 }));
+      // el círculo respira: de escala s0 a s1 en d segundos (con anillos)
+      const respira = (p, t, d, s0, s1, o = "540 1000") => { tl.fromTo(q("." + p + "circ"), { scale: s0, svgOrigin: o }, { scale: s1, svgOrigin: o, duration: d, ease: "sine.inOut", immediateRender: false }, t);
+        tl.fromTo([q("." + p + "an2"), q("." + p + "an3")], { scale: 0.92, svgOrigin: o }, { scale: s1 > s0 ? 1.08 : 0.9, svgOrigin: o, duration: d, ease: "sine.inOut", immediateRender: false }, t); };
+      const enRojo = (p, t, o = 1, d = 0.2) => tl.to(q("." + p + "rojo"), { opacity: o, duration: d, ease: "power2.out" }, t);
+      // una pila de spans: muestra el k-ésimo en t (para contadores 4·3·2·1)
+      const cuenta = (els, t0, paso) => els.forEach((el, k) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power2.out", immediateRender: false }, t0 + k * paso); if (k < els.length - 1) tl.set(el, { opacity: 0 }, t0 + (k + 1) * paso); });
+
+
+      caraYa("s01-", "z");
+      // cuadro 0: el círculo ya está, a medio inflar
+      respira("s01-", 0, 1.4, 0.82, 1.06, "540 1150");
+      gsap.set(q(".s01-p1"), { opacity: 1 });
+      tl.from(q(".s01-p1"), { y: 20, duration: 0.4, ease: "power2.out" }, 0);
+      tl.to(q(".s01-p1"), { opacity: 0, duration: 0.15 }, 1.46 - 0.1);
+      pop(q(".s01-p2"), 1.46);
+      vaiven(q(".s01-circ"), 1.45, 0.8, { scale: 1.09, svgOrigin: "540 1150" }, 0.4);
+      // el pedido rompe la calma
+      cae(q(".s01-n1"), 2.04 - 0.05);
+      tl.to(q(".s01-p2"), { opacity: 0, duration: 0.1 }, 2.04 - 0.05);
+      enRojo("s01-", 2.04, 0.45);
+      cara("s01-", "s", 2.69);
+      tiembla(q(".s01-circ"), 2.04 + 0.1, 0.5, 0.8);
+      cae(q(".s01-n2"), 3.24 - 0.12);
+      enRojo("s01-", 3.24, 0.9, 0.12);
+      tiembla(q(".s01-circ"), 3.24, 4.38 - 3.24 - 0.25, 1.8);
+      sacudon(3.24 + 0.02, 1.4);
+      // salida
+      tl.to(q("#s01-gancho-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

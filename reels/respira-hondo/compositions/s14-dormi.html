@@ -1,0 +1,180 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-dormi"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-dormi"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s14-dormi"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-dormi"] .abs { position: absolute; }
+    [data-composition-id="s14-dormi"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; line-height: 0.98; white-space: nowrap; letter-spacing: -0.01em;
+      color: #fff7ee; text-shadow: 0 7px 0 #1d1a3a, 0 0 30px rgba(29, 26, 58, 0.55); }
+    [data-composition-id="s14-dormi"] .big.lav { color: #c9b8ff; } [data-composition-id="s14-dormi"] .big.dur { color: #ffb38a; } [data-composition-id="s14-dormi"] .big.men { color: #8ee6c5; } [data-composition-id="s14-dormi"] .big.rojo { color: #ff4757; } [data-composition-id="s14-dormi"] .big.verde { color: #5ce611; }
+    [data-composition-id="s14-dormi"] .pill { position: absolute; left: 50%; transform: translateX(-50%); padding: 14px 34px 12px; border-radius: 999px; background: rgba(29, 26, 58, 0.55); border: 3px solid rgba(201, 184, 255, 0.55);
+      font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; letter-spacing: 0.2em; color: #fff7ee; white-space: nowrap; }
+    [data-composition-id="s14-dormi"] .pill b { color: #8ee6c5; font-weight: 600; }
+    [data-composition-id="s14-dormi"] .pill.rojo { background: #ff4757; border-color: #1d1a3a; color: #fff7ee; }
+    [data-composition-id="s14-dormi"] .notif { position: absolute; left: 70px; width: 940px; padding: 22px 28px 24px 132px; border-radius: 38px; background: #fff7ee; box-shadow: 0 12px 0 rgba(29, 26, 58, 0.45); }
+    [data-composition-id="s14-dormi"] .notif .ico { position: absolute; left: 26px; top: 24px; width: 84px; height: 84px; border-radius: 22px; }
+    [data-composition-id="s14-dormi"] .notif .ico svg { width: 100%; height: 100%; }
+    [data-composition-id="s14-dormi"] .notif .app { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.06em; color: #6b5fa8; white-space: nowrap; }
+    [data-composition-id="s14-dormi"] .notif .app i { font-style: normal; float: right; color: #8f86b8; }
+    [data-composition-id="s14-dormi"] .notif .tit { margin-top: 4px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 38px; line-height: 1.12; color: #1d1a3a; white-space: nowrap; }
+    [data-composition-id="s14-dormi"] .notif .txt { margin-top: 4px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 33px; line-height: 1.2; color: #1d1a3a; white-space: nowrap; }
+    [data-composition-id="s14-dormi"] .notif.alerta { box-shadow: 0 12px 0 #ff4757; border: 5px solid #ff4757; }
+    [data-composition-id="s14-dormi"] .planilla { position: absolute; border-radius: 22px; overflow: hidden; background: #fff7ee; border: 5px solid #1d1a3a; box-shadow: 0 12px 0 rgba(29, 26, 58, 0.45); }
+    [data-composition-id="s14-dormi"] .planilla .barra { height: 58px; background: #8ee6c5; border-bottom: 4px solid #1d1a3a; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 27px; letter-spacing: 0.1em; color: #1d1a3a; padding: 13px 22px 0; white-space: nowrap; }
+    [data-composition-id="s14-dormi"] .planilla .fila { display: flex; border-bottom: 3px solid rgba(29, 26, 58, 0.25); }
+    [data-composition-id="s14-dormi"] .planilla .fila span { flex: 1; padding: 12px 16px 10px; border-right: 3px solid rgba(29, 26, 58, 0.25); font-family: "Lexend", sans-serif; font-weight: 600; font-size: 29px; color: #1d1a3a; white-space: nowrap; overflow: hidden; }
+    [data-composition-id="s14-dormi"] .planilla .fila span:last-child { border-right: 0; }
+    [data-composition-id="s14-dormi"] .planilla .fila.cab span { background: #b9a7f5; font-family: "IBM Plex Mono", monospace; font-size: 28px; letter-spacing: 0.06em; }
+    [data-composition-id="s14-dormi"] .tecla { position: absolute; width: 230px; height: 200px; border-radius: 34px; background: #fff7ee; border: 6px solid #1d1a3a; box-shadow: 0 18px 0 #1d1a3a;
+      font-family: "Lexend", sans-serif; font-weight: 800; color: #1d1a3a; text-align: center; }
+    [data-composition-id="s14-dormi"] .tecla.ancha { width: 330px; }
+    [data-composition-id="s14-dormi"] .tecla span { display: block; padding-top: 44px; font-size: 92px; line-height: 1; }
+    [data-composition-id="s14-dormi"] .tecla.ancha span { font-size: 78px; padding-top: 52px; }
+    [data-composition-id="s14-dormi"] .globo { position: absolute; padding: 20px 30px 18px; border-radius: 34px; background: #fff7ee; border: 5px solid #1d1a3a; box-shadow: 0 8px 0 rgba(29, 26, 58, 0.45);
+      font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; line-height: 1.15; color: #1d1a3a; white-space: nowrap; }
+    [data-composition-id="s14-dormi"] .globo.men { background: #8ee6c5; }
+    [data-composition-id="s14-dormi"] .globo small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.05em; color: #6b5fa8; }
+    [data-composition-id="s14-dormi"] .sello { position: absolute; padding: 16px 40px 12px; border: 10px solid currentColor; border-radius: 24px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap;
+      background: rgba(29, 26, 58, 0.85); text-transform: uppercase; }
+    [data-composition-id="s14-dormi"] .etq { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.3em; color: #c9b8ff; white-space: nowrap; }
+  
+[data-composition-id="s14-dormi"] .s14-q { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 130px; line-height: 1; color: #c9b8ff; text-shadow: 0 7px 0 #1d1a3a; }
+      [data-composition-id="s14-dormi"] .s14-q1 { left: 190px; top: 760px; } [data-composition-id="s14-dormi"] .s14-q2 { left: 800px; top: 720px; } [data-composition-id="s14-dormi"] .s14-q3 { left: 860px; top: 930px; }
+      [data-composition-id="s14-dormi"] .s14-z { position: absolute; font-family: "Lexend", sans-serif; font-weight: 800; line-height: 1; color: #fff7ee; text-shadow: 0 5px 0 #1d1a3a; }
+      [data-composition-id="s14-dormi"] .s14-z1 { left: 690px; top: 1010px; font-size: 64px; } [data-composition-id="s14-dormi"] .s14-z2 { left: 760px; top: 920px; font-size: 84px; } [data-composition-id="s14-dormi"] .s14-z3 { left: 850px; top: 810px; font-size: 104px; }
+  </style>
+  <div id="root" data-composition-id="s14-dormi" data-width="1080" data-height="1920" data-duration="4.55">
+    <div id="s14-dormi-escena" class="capa clip" data-start="0" data-duration="4.55" data-track-index="0">
+      <div class="esc">
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          
+  <defs>
+    <radialGradient id="s14-gm" cx="45%" cy="38%" r="65%"><stop offset="0" stop-color="#e6fff5"/><stop offset="0.5" stop-color="#8ee6c5"/><stop offset="1" stop-color="#b9a7f5"/></radialGradient>
+    <radialGradient id="s14-gr" cx="45%" cy="38%" r="65%"><stop offset="0" stop-color="#ffd6d9"/><stop offset="0.55" stop-color="#ff7d88"/><stop offset="1" stop-color="#ff4757"/></radialGradient>
+  </defs>
+  <g class="s14-circ">
+    <circle class="s14-an3" cx="320" cy="760" r="250" fill="none" stroke="#c9b8ff" stroke-width="3" opacity="0.22"/>
+    <circle class="s14-an2" cx="320" cy="760" r="200" fill="none" stroke="#c9b8ff" stroke-width="4" opacity="0.35"/>
+    <circle class="s14-an1" cx="320" cy="760" r="156" fill="#c9b8ff" opacity="0.2"/>
+    <circle class="s14-cuerpo" cx="320" cy="760" r="120" fill="url(#s14-gm)"/>
+    <circle class="s14-rojo" cx="320" cy="760" r="120" fill="url(#s14-gr)" opacity="0"/>
+    <g class="s14-cara">
+      <ellipse cx="190" cy="808" rx="34" ry="20" fill="#ffb38a" opacity="0.7"/>
+      <ellipse cx="450" cy="808" rx="34" ry="20" fill="#ffb38a" opacity="0.7"/>
+      <g class="s14-cz"><path d="M200 750 Q238 784 276 750" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" /><path d="M364 750 Q402 784 440 750" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" /><path d="M268 826 Q320 868 372 826" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" /></g>
+      <g class="s14-ca" opacity="0"><ellipse cx="238" cy="754" rx="16" ry="22" fill="#1d1a3a"/><ellipse cx="402" cy="754" rx="16" ry="22" fill="#1d1a3a"/><path d="M268 826 Q320 864 372 826" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" />
+        <path class="s14-boca" d="M280 834 Q320 878 360 834 Z" fill="#1d1a3a" opacity="0"/></g>
+      <g class="s14-ce" opacity="0"><circle cx="240" cy="764" r="17" fill="#1d1a3a"/><circle cx="400" cy="764" r="17" fill="#1d1a3a"/>
+        <path d="M185 698 L275 730" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><path d="M455 698 L365 730" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/><path d="M260 846 Q320 822 380 846" fill="none" stroke="#1d1a3a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" /></g>
+      <g class="s14-cs" opacity="0"><circle cx="238" cy="752" r="34" fill="#fff7ee" stroke="#1d1a3a" stroke-width="8"/><circle cx="402" cy="752" r="34" fill="#fff7ee" stroke="#1d1a3a" stroke-width="8"/>
+        <circle cx="238" cy="756" r="12" fill="#1d1a3a"/><circle cx="402" cy="756" r="12" fill="#1d1a3a"/><ellipse cx="320" cy="852" rx="30" ry="38" fill="#1d1a3a"/></g>
+    </g>
+  </g>
+          <g class="s14-parado"><g transform="translate(340 900) scale(1)"><g class="s14-dueno" >
+    <path d="M24 470 Q34 318 200 306 Q366 318 376 470 Z" fill="#ffb38a" stroke="#1d1a3a" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M150 312 Q200 372 250 312" fill="none" stroke="#1d1a3a" stroke-width="7" stroke-linecap="round"/>
+    <path d="M172 340 L166 400 M228 340 L234 400" stroke="#fff7ee" stroke-width="7" stroke-linecap="round"/>
+    <rect x="170" y="262" width="60" height="56" fill="#ffe6d4" stroke="#1d1a3a" stroke-width="7"/>
+    <ellipse cx="94" cy="186" rx="22" ry="30" fill="#ffe6d4" stroke="#1d1a3a" stroke-width="7"/><ellipse cx="306" cy="186" rx="22" ry="30" fill="#ffe6d4" stroke="#1d1a3a" stroke-width="7"/>
+    <ellipse cx="200" cy="178" rx="108" ry="120" fill="#ffe6d4" stroke="#1d1a3a" stroke-width="7"/>
+    <path d="M96 150 Q84 64 150 58 L160 30 L184 56 L204 22 L222 56 L252 32 L256 64 Q318 72 304 150 Q290 104 250 98 Q200 120 140 98 Q108 108 96 150 Z" fill="#1d1a3a" stroke="#1d1a3a" stroke-width="6" stroke-linejoin="round"/>
+    <g opacity="0.3" fill="#1d1a3a"><circle cx="150" cy="248" r="3"/><circle cx="170" cy="262" r="3"/><circle cx="196" cy="268" r="3"/><circle cx="222" cy="262" r="3"/><circle cx="246" cy="248" r="3"/><circle cx="136" cy="230" r="3"/><circle cx="262" cy="230" r="3"/><circle cx="186" cy="282" r="3"/><circle cx="210" cy="282" r="3"/></g>
+    <ellipse cx="156" cy="200" rx="30" ry="12" fill="#b9a7f5" opacity="0.85"/><ellipse cx="244" cy="200" rx="30" ry="12" fill="#b9a7f5" opacity="0.85"/>
+    <g class="s14-d-ojos"><circle cx="156" cy="176" r="24" fill="#fff7ee" stroke="#1d1a3a" stroke-width="6"/><circle cx="244" cy="176" r="24" fill="#fff7ee" stroke="#1d1a3a" stroke-width="6"/>
+      <circle class="s14-d-pup" cx="160" cy="178" r="9" fill="#1d1a3a"/><circle class="s14-d-pup" cx="240" cy="178" r="9" fill="#1d1a3a"/>
+      <path class="s14-d-parp" d="M130 170 Q156 150 182 170 L182 160 Q156 140 130 160 Z M218 170 Q244 150 270 170 L270 160 Q244 140 218 160 Z" fill="#ffe6d4" stroke="#1d1a3a" stroke-width="5" stroke-linejoin="round"/></g>
+    <g class="s14-d-cerrados" opacity="0"><path d="M132 180 Q156 196 180 180 M220 180 Q244 196 268 180" fill="none" stroke="#1d1a3a" stroke-width="7" stroke-linecap="round"/></g>
+    <path class="s14-d-cejas" d="M128 136 L180 146 M220 146 L272 136" stroke="#1d1a3a" stroke-width="10" stroke-linecap="round"/>
+    <path d="M196 196 Q186 226 204 230" fill="none" stroke="#1d1a3a" stroke-width="5" stroke-linecap="round"/>
+    <ellipse class="s14-d-boca" cx="200" cy="254" rx="30" ry="14" fill="#1d1a3a"/>
+    <path class="s14-d-gota" d="M318 96 Q332 124 318 136 Q304 124 318 96 Z" fill="#8ee6c5" stroke="#1d1a3a" stroke-width="5" opacity="0"/>
+  </g></g></g>
+          <g class="s14-cama">
+            <rect x="110" y="1220" width="860" height="150" rx="30" fill="#fff7ee" stroke="#1d1a3a" stroke-width="8"/>
+            <rect x="90" y="1130" width="50" height="320" rx="20" fill="#ffb38a" stroke="#1d1a3a" stroke-width="8"/>
+            <rect x="150" y="1160" width="220" height="90" rx="40" fill="#fff7ee" stroke="#1d1a3a" stroke-width="8"/>
+            <g transform="translate(320 1170) rotate(-90) scale(0.55)"><g class="s14-cabdormida"><g class="s14b-dueno" >
+    <path d="M24 470 Q34 318 200 306 Q366 318 376 470 Z" fill="#ffb38a" stroke="#1d1a3a" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M150 312 Q200 372 250 312" fill="none" stroke="#1d1a3a" stroke-width="7" stroke-linecap="round"/>
+    <path d="M172 340 L166 400 M228 340 L234 400" stroke="#fff7ee" stroke-width="7" stroke-linecap="round"/>
+    <rect x="170" y="262" width="60" height="56" fill="#ffe6d4" stroke="#1d1a3a" stroke-width="7"/>
+    <ellipse cx="94" cy="186" rx="22" ry="30" fill="#ffe6d4" stroke="#1d1a3a" stroke-width="7"/><ellipse cx="306" cy="186" rx="22" ry="30" fill="#ffe6d4" stroke="#1d1a3a" stroke-width="7"/>
+    <ellipse cx="200" cy="178" rx="108" ry="120" fill="#ffe6d4" stroke="#1d1a3a" stroke-width="7"/>
+    <path d="M96 150 Q84 64 150 58 L160 30 L184 56 L204 22 L222 56 L252 32 L256 64 Q318 72 304 150 Q290 104 250 98 Q200 120 140 98 Q108 108 96 150 Z" fill="#1d1a3a" stroke="#1d1a3a" stroke-width="6" stroke-linejoin="round"/>
+    <g opacity="0.3" fill="#1d1a3a"><circle cx="150" cy="248" r="3"/><circle cx="170" cy="262" r="3"/><circle cx="196" cy="268" r="3"/><circle cx="222" cy="262" r="3"/><circle cx="246" cy="248" r="3"/><circle cx="136" cy="230" r="3"/><circle cx="262" cy="230" r="3"/><circle cx="186" cy="282" r="3"/><circle cx="210" cy="282" r="3"/></g>
+    <ellipse cx="156" cy="200" rx="30" ry="12" fill="#b9a7f5" opacity="0.85"/><ellipse cx="244" cy="200" rx="30" ry="12" fill="#b9a7f5" opacity="0.85"/>
+    <g class="s14b-d-ojos"><circle cx="156" cy="176" r="24" fill="#fff7ee" stroke="#1d1a3a" stroke-width="6"/><circle cx="244" cy="176" r="24" fill="#fff7ee" stroke="#1d1a3a" stroke-width="6"/>
+      <circle class="s14b-d-pup" cx="160" cy="178" r="9" fill="#1d1a3a"/><circle class="s14b-d-pup" cx="240" cy="178" r="9" fill="#1d1a3a"/>
+      <path class="s14b-d-parp" d="M130 170 Q156 150 182 170 L182 160 Q156 140 130 160 Z M218 170 Q244 150 270 170 L270 160 Q244 140 218 160 Z" fill="#ffe6d4" stroke="#1d1a3a" stroke-width="5" stroke-linejoin="round"/></g>
+    <g class="s14b-d-cerrados" opacity="0"><path d="M132 180 Q156 196 180 180 M220 180 Q244 196 268 180" fill="none" stroke="#1d1a3a" stroke-width="7" stroke-linecap="round"/></g>
+    <path class="s14b-d-cejas" d="M128 136 L180 146 M220 146 L272 136" stroke="#1d1a3a" stroke-width="10" stroke-linecap="round"/>
+    <path d="M196 196 Q186 226 204 230" fill="none" stroke="#1d1a3a" stroke-width="5" stroke-linecap="round"/>
+    <ellipse class="s14b-d-boca" cx="200" cy="254" rx="30" ry="14" fill="#1d1a3a"/>
+    <path class="s14b-d-gota" d="M318 96 Q332 124 318 136 Q304 124 318 96 Z" fill="#8ee6c5" stroke="#1d1a3a" stroke-width="5" opacity="0"/>
+  </g></g></g>
+            <path d="M330 1180 Q520 1120 940 1170 L960 1300 L330 1300 Z" fill="#b9a7f5" stroke="#1d1a3a" stroke-width="8" stroke-linejoin="round"/>
+            <path d="M420 1220 Q600 1180 900 1210" fill="none" stroke="#fff7ee" stroke-width="6" opacity="0.6"/></g></svg>
+        <div class="s14-q s14-q1">?</div><div class="s14-q s14-q2">?</div><div class="s14-q s14-q3">?</div>
+        <div class="s14-z s14-z1">z</div><div class="s14-z s14-z2">z</div><div class="s14-z s14-z3">Z</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-dormi";
+      const DUR = 4.55;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, d = 0.35, from = 0.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const golpe = (el, t, rot = -3, sc = 2.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const fuera = (el, t, d = 0.2) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { y: 400 }, d = 0.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.4)", immediateRender: false }, t); };
+      const cae = (el, t, d = 0.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: -160 }, { opacity: 1, y: 0, duration: d, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1, el) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(el || q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const tiembla = (el, t, d, f = 1) => { const n = Math.max(2, Math.round(d / 0.06)); for (let i = 0; i < n; i++) tl.to(el, { x: (i % 2 ? 1 : -1) * 7 * f, y: (i % 3 - 1) * 4 * f, duration: 0.06, ease: "none" }, t + i * 0.06); tl.to(el, { x: 0, y: 0, duration: 0.06 }, t + n * 0.06); };
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      const habla = (el, t, d, origin) => tl.fromTo(el, { scaleY: 1, svgOrigin: origin }, { scaleY: 1.8, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      const dibujar = (els, t, d = 0.6, stag = 0.05) => [].concat(els).forEach((el, i) => { const L = el.getTotalLength ? el.getTotalLength() : 1000; gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t + i * stag); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * stag); });
+      // cara del círculo: z serena · a abierta · e enojada · s sorprendida
+      const cara = (p, est, t) => ["z", "a", "e", "s"].forEach((k) => tl.set(q("." + p + "c" + k), { opacity: k === est ? 1 : 0 }, t));
+      const caraYa = (p, est) => ["z", "a", "e", "s"].forEach((k) => gsap.set(q("." + p + "c" + k), { opacity: k === est ? 1 : 0 }));
+      // el círculo respira: de escala s0 a s1 en d segundos (con anillos)
+      const respira = (p, t, d, s0, s1, o = "540 1000") => { tl.fromTo(q("." + p + "circ"), { scale: s0, svgOrigin: o }, { scale: s1, svgOrigin: o, duration: d, ease: "sine.inOut", immediateRender: false }, t);
+        tl.fromTo([q("." + p + "an2"), q("." + p + "an3")], { scale: 0.92, svgOrigin: o }, { scale: s1 > s0 ? 1.08 : 0.9, svgOrigin: o, duration: d, ease: "sine.inOut", immediateRender: false }, t); };
+      const enRojo = (p, t, o = 1, d = 0.2) => tl.to(q("." + p + "rojo"), { opacity: o, duration: d, ease: "power2.out" }, t);
+      // una pila de spans: muestra el k-ésimo en t (para contadores 4·3·2·1)
+      const cuenta = (els, t0, paso) => els.forEach((el, k) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power2.out", immediateRender: false }, t0 + k * paso); if (k < els.length - 1) tl.set(el, { opacity: 0 }, t0 + (k + 1) * paso); });
+
+
+      caraYa("s14-", "a");
+      gsap.set(q(".s14b-d-ojos"), { opacity: 0 });
+      gsap.set(q(".s14b-d-cerrados"), { opacity: 1 });
+      // ¿y ahora qué hago?
+      entra(q(".s14-parado"), 0, { y: 300 }, 0.35);
+      habla(q(".s14-d-boca"), 0.05, 1.0, "200 254");
+      tl.to(q(".s14-d-pup"), { x: -14, y: -10, duration: 0.2, yoyo: true, repeat: 3 }, 0.3);
+      ["q1", "q2", "q3"].forEach((k, i) => pop(q(".s14-" + k), 0.25 + i * 0.22, 0.35, 0.3));
+      tl.to(qa(".s14-q"), { rotation: 12, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.9);
+      gsap.set(q(".s14-circ"), { opacity: 0 }); tl.to(q(".s14-circ"), { opacity: 1, duration: 0.3 }, 1.82);
+      // dormí, querido
+      tl.to([q(".s14-parado"), ...qa(".s14-q")], { opacity: 0, y: 80, duration: 0.3, ease: "power2.in" }, 1.82 - 0.2);
+      entra(q(".s14-cama"), 1.82 - 0.05, { y: 260 }, 0.4);
+      tl.to(q(".s14-circ"), { x: 400, y: -120, scale: 1.2, svgOrigin: "320 760", duration: 0.5, ease: "power2.inOut" }, 1.82);
+      cara("s14-", "z", 1.82 + 0.3);
+      vaiven(q(".s14-circ"), 1.82 + 0.6, 4.55 - 1.82 - 0.6, { scale: 1.28, svgOrigin: "320 760" }, 0.9);
+      ["z1", "z2", "z3"].forEach((k, i) => { gsap.set(q(".s14-" + k), { opacity: 0 }); tl.fromTo(q(".s14-" + k), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "sine.out", immediateRender: false }, 2.19 + i * 0.35); tl.to(q(".s14-" + k), { y: -16, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, 2.19 + 0.4 + i * 0.35); });
+      vaiven(q(".s14-cama"), 1.82 + 0.5, 4.55 - 1.82 - 0.6, { y: -6 }, 0.9);
+      // salida
+      tl.to(q("#s14-dormi-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

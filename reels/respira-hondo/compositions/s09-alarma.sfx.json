@@ -1,0 +1,9 @@
+[
+  {"t":0.02,"sfx":"chime","vol":0.15},
+  {"t":1.13,"sfx":"notification","vol":0.42},
+  {"t":1.18,"sfx":"glitch-1","vol":0.25,"max":0.4},
+  {"t":3.33,"sfx":"notification","vol":0.42},
+  {"t":3.9699999999999998,"sfx":"ping","vol":0.3},
+  {"t":4.12,"sfx":"ping","vol":0.3},
+  {"t":4.27,"sfx":"glitch-1","vol":0.3,"max":0.5}
+]

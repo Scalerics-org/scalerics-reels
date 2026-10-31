@@ -1,0 +1,93 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg.am-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    /* barra de estado */
+    [data-composition-id="ambiente"] .am-estado { position: absolute; left: 60px; right: 60px; top: 34px; height: 44px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; color: #fff7ee; }
+    [data-composition-id="ambiente"] .am-reloj { position: absolute; left: 0; top: 0; }
+    [data-composition-id="ambiente"] .am-bat { position: absolute; right: 0; top: 6px; width: 64px; height: 30px; border: 4px solid #fff7ee; border-radius: 9px; }
+    [data-composition-id="ambiente"] .am-bat i { position: absolute; left: 3px; top: 3px; bottom: 3px; width: 14px; border-radius: 3px; background: #ff4757; }
+    [data-composition-id="ambiente"] .am-senal { position: absolute; right: 90px; top: 4px; width: 50px; height: 34px; }
+    /* cabecera de la app */
+    [data-composition-id="ambiente"] .am-cab { position: absolute; left: 60px; right: 60px; top: 112px; height: 90px; }
+    [data-composition-id="ambiente"] .am-titulo { position: absolute; left: 0; top: 14px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 36px; color: #fff7ee; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-titulo svg { width: 52px; height: 40px; vertical-align: -8px; margin-right: 12px; }
+    [data-composition-id="ambiente"] .am-calma { position: absolute; right: 0; top: 0; width: 300px; height: 90px; }
+    [data-composition-id="ambiente"] .am-calma b { position: absolute; left: 0; top: 4px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.16em; color: #c9b8ff; }
+    [data-composition-id="ambiente"] .am-v { position: absolute; right: 0; top: -4px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; color: #8ee6c5; opacity: 0; }
+    [data-composition-id="ambiente"] .am-v.am-cero { color: #ff4757; }
+    [data-composition-id="ambiente"] .am-v.am-ok { color: #5ce611; }
+    [data-composition-id="ambiente"] .am-pista { position: absolute; left: 0; right: 0; top: 56px; height: 14px; border-radius: 7px; background: rgba(201, 184, 255, 0.25); overflow: hidden; }
+    [data-composition-id="ambiente"] .am-medidor { position: absolute; left: 0; top: 0; width: 300px; height: 14px; border-radius: 7px; background: #8ee6c5; }
+    /* barra de la sesión */
+    [data-composition-id="ambiente"] .am-ses { position: absolute; left: 90px; right: 90px; top: 1580px; height: 120px; }
+    [data-composition-id="ambiente"] .am-ses .am-nom { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.18em; color: #fff7ee; opacity: 0.85; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-ses .am-barra { position: absolute; left: 0; right: 0; top: 54px; height: 10px; border-radius: 5px; background: rgba(255, 247, 238, 0.3); }
+    [data-composition-id="ambiente"] .am-ses .am-prog { position: absolute; left: 0; top: 0; width: 900px; height: 10px; border-radius: 5px; background: #fff7ee; }
+    [data-composition-id="ambiente"] .am-ses .am-t { position: absolute; top: 76px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; color: #1d1a3a; }
+    [data-composition-id="ambiente"] .am-alarma { position: absolute; inset: 0; box-shadow: inset 0 0 160px 40px rgba(255, 71, 87, 0.75); opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.87">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="73.87" data-track-index="0">
+      <svg class="am-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="am-estrellas"><circle class="am-est" cx="60" cy="260" r="5" fill="#fff7ee"/><circle class="am-est" cx="1010" cy="300" r="3" fill="#fff7ee"/><circle class="am-est" cx="40" cy="520" r="3" fill="#fff7ee"/><circle class="am-est" cx="1040" cy="560" r="5" fill="#fff7ee"/><circle class="am-est" cx="70" cy="900" r="3" fill="#fff7ee"/><circle class="am-est" cx="1030" cy="980" r="3" fill="#fff7ee"/><circle class="am-est" cx="50" cy="1300" r="5" fill="#fff7ee"/><circle class="am-est" cx="1035" cy="1380" r="3" fill="#fff7ee"/><circle class="am-est" cx="140" cy="220" r="3" fill="#fff7ee"/><circle class="am-est" cx="560" cy="210" r="5" fill="#fff7ee"/></g>
+        <g class="am-ondas"><path class="am-onda am-o1" d="M-300 1520 q 90 -26 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0" fill="none" stroke="#8ee6c5" stroke-width="5" opacity="0.35"/><path class="am-onda am-o2" d="M-300 1548 q 90 -26 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0" fill="none" stroke="#c9b8ff" stroke-width="5" opacity="0.3"/><path class="am-onda am-o3" d="M-300 1576 q 90 -26 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0" fill="none" stroke="#fff7ee" stroke-width="5" opacity="0.22"/></g>
+      </svg>
+      <div class="am-estado"><span class="am-reloj">23:00</span>
+        <svg class="am-senal" viewBox="0 0 50 34"><rect x="2" y="24" width="8" height="10" rx="2" fill="#fff7ee"/><rect x="14" y="16" width="8" height="18" rx="2" fill="#fff7ee"/><rect x="26" y="8" width="8" height="26" rx="2" fill="#fff7ee"/><rect x="38" y="0" width="8" height="34" rx="2" fill="#fff7ee" opacity="0.4"/></svg>
+        <div class="am-bat"><i></i></div></div>
+      <div class="am-cab">
+        <div class="am-titulo"><svg viewBox="0 0 52 40"><path d="M26 38 Q14 26 26 4 Q38 26 26 38 Z M26 38 Q6 34 2 16 Q18 18 26 38 Z M26 38 Q46 34 50 16 Q34 18 26 38 Z" fill="#b9a7f5" stroke="#fff7ee" stroke-width="2.5" stroke-linejoin="round"/></svg>Meditación nocturna</div>
+        <div class="am-calma"><b>CALMA</b><span class="am-v am-v0">92%</span><span class="am-v am-v1">71%</span><span class="am-v am-v2">48%</span><span class="am-v am-v3">36%</span><span class="am-v am-v4">27%</span><span class="am-v am-v5">18%</span><span class="am-v am-v6">9%</span><span class="am-v am-v7">3%</span><span class="am-v am-v8 am-cero">ERROR</span><span class="am-v am-v9 am-ok">64%</span><span class="am-v am-v10 am-ok">100%</span><div class="am-pista"><div class="am-medidor"></div></div></div>
+      </div>
+      <div class="am-ses"><div class="am-nom">SESIÓN · DORMIR SIN PENDIENTES</div><div class="am-barra"><div class="am-prog"></div></div>
+        <div class="am-t" style="left:0">00:00</div><div class="am-t" style="right:0">10:00</div></div>
+      <div class="am-alarma"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.87;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      // estrellas que titilan, ondas que corren, progreso de la sesión
+      qa(".am-est").forEach((e, i) => tl.fromTo(e, { opacity: 0.9 }, { opacity: 0.2, duration: 0.9 + (i % 4) * 0.3, yoyo: true, repeat: Math.floor(DUR / (0.9 + (i % 4) * 0.3)) - 1, ease: "sine.inOut", immediateRender: false }, (i % 5) * 0.2));
+      tl.fromTo(q(".am-o1"), { x: 0 }, { x: -180 * 10, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".am-o2"), { x: -180 * 10 }, { x: 0, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".am-o3"), { x: 0 }, { x: -180 * 6, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".am-ondas"), { y: 0 }, { y: -10, duration: 2, yoyo: true, repeat: Math.floor(DUR / 2) - 1, ease: "sine.inOut", immediateRender: false }, 0);
+      gsap.set(q(".am-prog"), { scaleX: 0.02, transformOrigin: "0% 50%" });
+      tl.to(q(".am-prog"), { scaleX: 0.3, duration: 46.9, ease: "none" }, 0);
+      tl.to(q(".am-prog"), { scaleX: 1, background: "#5ce611", duration: 1.2, ease: "power2.inOut" }, 59.67);
+      tl.fromTo(q(".am-bat i"), { opacity: 1 }, { opacity: 0.2, duration: 0.5, ease: "steps(1)", yoyo: true, repeat: Math.floor(53.67 / 0.5) - 1, immediateRender: false }, 0);
+
+      // el medidor de calma
+      const CALMA = [[0,92],[2.04,71],[10.66,48],[21.46,36],[22.83,27],[29.55,18],[36.84,9],[39.09,3],[42.43,0],[57.03,64],[59.67,100]];
+      CALMA.forEach(([a, v], k) => {
+        const el = q(".am-v" + k);
+        const fin = k + 1 < CALMA.length ? CALMA[k + 1][0] : DUR;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, scale: k ? 1.6 : 1 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, a);
+        tl.to(el, { opacity: 0, duration: 0.01 }, fin - 0.01);
+      });
+      gsap.set(q(".am-medidor"), { scaleX: 0.92, transformOrigin: "0% 50%" });
+      CALMA.slice(1).forEach(([a, v], k) => tl.to(q(".am-medidor"), { scaleX: Math.max(0.02, v / 100), backgroundColor: v >= 60 && a > 53.67 ? "#5ce611" : v < 30 ? "#ff4757" : v < 60 ? "#ffb38a" : "#8ee6c5", duration: 0.35, ease: "power2.out" }, a));
+
+      // alarmas: los bordes se ponen rojos
+      [2.04, 3.24, 10.66, 22.83, 23.83, 36.84, 39.09, 39.48, 45.7].forEach((a) => { tl.to(q(".am-alarma"), { opacity: 1, duration: 0.06 }, a); tl.to(q(".am-alarma"), { opacity: 0, duration: 0.7, ease: "power2.out" }, a + 0.1); });
+
+      // entra Scalerics: la sesión se calma
+      tl.to(q(".am-nom"), { opacity: 0, duration: 0.3 }, 53.67);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
