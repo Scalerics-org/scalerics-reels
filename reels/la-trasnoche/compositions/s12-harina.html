@@ -1,0 +1,76 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/radio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-harina"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-harina"] svg.s12-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-harina"] .s12-frio { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; letter-spacing: 0.04em; }
+  </style>
+  <div id="root" data-composition-id="s12-harina" data-width="1080" data-height="1920" data-duration="3.40">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="3.40" data-track-index="0">
+      <svg class="s12-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s12-recorte"><rect x="0" y="560" width="1080" height="776" /></clipPath></defs>
+        <g clip-path="url(#s12-recorte)">
+          <g class="s12-hq"><g class="s12-hugo" transform="translate(-30 720) scale(0.82)"></g></g>
+          <g class="s12-rq"><g class="s12-raul" transform="translate(600 700) scale(0.85)"></g></g>
+          <!-- el cartel de FRÍO, con copo, que se tacha -->
+          <g class="s12-cartel">
+            <rect x="620" y="610" width="300" height="84" rx="12" fill="#9fd0e8" stroke="#140b09" stroke-width="7" />
+            <text class="s12-frio" x="800" y="668" text-anchor="middle" fill="#140b09">FRÍO</text>
+            <g stroke="#140b09" stroke-width="6" stroke-linecap="round"><path d="M676 630 V674 M656 642 L696 662 M656 662 L696 642" /></g>
+            <path class="s12-tacha" d="M610 700 L930 604" stroke="#ff3b2f" stroke-width="14" stroke-linecap="round" />
+          </g>
+          <!-- la nube de harina -->
+          <g class="s12-nube" fill="#fffaf0" stroke="#140b09" stroke-width="5">
+            <circle class="s12-p" cx="700" cy="900" r="70" /><circle class="s12-p" cx="880" cy="880" r="80" />
+            <circle class="s12-p" cx="790" cy="820" r="70" /><circle class="s12-p" cx="660" cy="1040" r="60" />
+            <circle class="s12-p" cx="940" cy="1020" r="64" /><circle class="s12-p" cx="800" cy="1120" r="80" />
+            <circle class="s12-p" cx="600" cy="940" r="44" /><circle class="s12-p" cx="1000" cy="920" r="46" />
+          </g>
+          <g class="s12-ojitos"><circle cx="760" cy="920" r="12" fill="#140b09" /><circle cx="836" cy="920" r="12" fill="#140b09" /><path d="M770 980 Q798 996 826 980" fill="none" stroke="#140b09" stroke-width="6" stroke-linecap="round" /></g>
+        </g>
+      </svg>
+      <div class="rd-etiqueta"><span class="s12-et"></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-harina";
+      const DUR = 3.40;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s12-hugo").innerHTML = RD.hugo({ mirada: 6, brazoD: "M372 452 Q470 470 500 400", manoD: [504, 392] });
+      root.querySelector(".s12-raul").innerHTML = RD.raul({ mirada: -6 });
+      const tl = gsap.timeline({ paused: true });
+      const K = RD.kit(tl, root);
+      const { q, qa } = K;
+      const FRIO = 0.54, CORAZONES = 0.92, TAPADO = 1.92, HARINA = 2.31;
+
+      tl.fromTo(q(".s12-hq"), { x: -60, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s12-rq"), { x: 60, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      K.habla(q(".s12-hugo .rd-boca"), 0.02, 2.9);
+      K.mece(q(".s12-hugo .rd-hugo"), 0, 3.2, 2, "220 800");
+      tl.to(q(".s12-raul .rd-cejas"), { y: 8, duration: 0.2 }, 0.05);
+      // "frío": cartel; "corazones": tachado
+      K.pop(q(".s12-cartel"), FRIO - 0.15);
+      gsap.set(q(".s12-tacha"), { opacity: 0 });
+      K.dibujar(q(".s12-tacha"), CORAZONES, 0.25);
+      tl.to(q(".s12-cartel"), { opacity: 0, y: -30, duration: 0.25 }, TAPADO - 0.3);
+      // "tapado de harina": nube de harina que lo cubre
+      qa(".s12-p").forEach((p, i) => {
+        gsap.set(p, { opacity: 0 });
+        tl.fromTo(p, { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(2)", immediateRender: false }, TAPADO + 0.1 + i * 0.05);
+      });
+      tl.to(q(".s12-nube"), { y: -10, duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, HARINA);
+      K.pop(q(".s12-ojitos"), HARINA, 0.3);
+      K.parpadeo(q(".s12-ojitos"), [HARINA + 0.6]);
+
+      K.etiqueta(q(".s12-et"), [[0.15, "NO ES FRÍO · <b>ESTÁ SOLO</b>"]]);
+      K.salida(q("#s12-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

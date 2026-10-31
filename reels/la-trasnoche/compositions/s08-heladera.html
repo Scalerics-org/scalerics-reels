@@ -1,0 +1,81 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/radio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-heladera"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-heladera"] svg.s08-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-heladera"] .s08-cel { left: 520px; top: 596px; width: 500px; height: 650px; }
+    [data-composition-id="s08-heladera"] .rd-globo { font-size: 27px; }
+    [data-composition-id="s08-heladera"] .s08-g1 { right: 20px; top: 166px; }
+    [data-composition-id="s08-heladera"] .s08-g2 { left: 20px; top: 270px; }
+    [data-composition-id="s08-heladera"] .s08-g3 { right: 20px; top: 386px; }
+    [data-composition-id="s08-heladera"] .s08-dia { position: absolute; left: 50%; top: 500px; transform: translateX(-50%); padding: 8px 18px; border-radius: 10px; background: #3a2a26; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.1em; color: #e9b9a0; white-space: nowrap; }
+    [data-composition-id="s08-heladera"] .s08-d2 { top: 560px; color: #ff7a6b; }
+  </style>
+  <div id="root" data-composition-id="s08-heladera" data-width="1080" data-height="1920" data-duration="4.63">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.63" data-track-index="0">
+      <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s08-recorte"><rect x="0" y="560" width="1080" height="776" /></clipPath></defs>
+        <g clip-path="url(#s08-recorte)">
+          <g class="s08-quien"><g class="s08-matias" transform="translate(-20 650) scale(0.88)"></g></g>
+        </g>
+      </svg>
+      <div class="rd-cel s08-cel">
+        <div class="rd-isla"></div>
+        <div class="rd-cab"><i></i><div>Electro del Barrio<small>en línea</small></div></div>
+        <div class="rd-globo rd-yo s08-g1">¿Precio de la heladera?<small>23:41</small></div>
+        <div class="rd-globo rd-el s08-g2">¡Hola! Está en oferta.<br />¿Te la reservo?<small>23:58</small></div>
+        <div class="rd-globo rd-yo s08-g3">Lo pienso y te aviso<small>00:02</small></div>
+        <div class="s08-dia s08-d1">UNA SEMANA DESPUÉS</div>
+        <div class="s08-dia s08-d2">UN MES DESPUÉS · NADA</div>
+      </div>
+      <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- telaraña en la esquina del chat -->
+        <g class="s08-tela" fill="none" stroke="#cbbba5" stroke-width="3" stroke-linecap="round">
+          <path d="M1012 1236 L880 1236 M1012 1236 L1012 1104 M1012 1236 L900 1130 M1012 1236 L950 1112 M1012 1236 L890 1180" />
+          <path d="M970 1236 Q975 1206 1012 1196 M930 1236 Q938 1180 1012 1160 M900 1236 Q904 1150 1012 1126" />
+        </g>
+      </svg>
+      <div class="rd-etiqueta"><span class="s08-et"></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-heladera";
+      const DUR = 4.63;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s08-matias").innerHTML = RD.matias({ mirada: 5 });
+      const tl = gsap.timeline({ paused: true });
+      const K = RD.kit(tl, root);
+      const { q, qa } = K;
+      const PRECIO = 1.33, CONTESTARON = 2.58, Y = 3.08, NUNCA = 3.75;
+
+      tl.fromTo(q(".s08-quien"), { x: -80, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s08-cel"), { x: 120, opacity: 0.5 }, { x: 0, opacity: 1, duration: 0.45, ease: "back.out(1.3)" }, 0);
+      K.habla(q(".s08-matias .rd-boca"), 0.02, 4.4);
+      K.parpadeo(q(".s08-matias .rd-ojos"), [0.8, 2.9]);
+      K.respira(q(".s08-matias .rd-matias"), 0.2, 4.2, 5);
+      // "precio de una heladera"
+      K.entra(q(".s08-g1"), PRECIO - 0.2, { x: 40 }, 0.3);
+      // "Me contestaron": el local contesta; él dice que lo piensa
+      K.entra(q(".s08-g2"), CONTESTARON - 0.15, { x: -40 }, 0.3);
+      K.entra(q(".s08-g3"), Y - 0.1, { x: 40 }, 0.3);
+      tl.to(q(".s08-matias .rd-cejas"), { y: -8, duration: 0.2 }, CONTESTARON);
+      // "y nunca más": pasan los días, telaraña
+      tl.to(q(".s08-g1"), { opacity: 0, duration: 0.25 }, NUNCA - 0.2);
+      tl.to([q(".s08-g2"), q(".s08-g3")], { y: -100, duration: 0.4, ease: "power2.inOut" }, NUNCA - 0.2);
+      K.entra(q(".s08-d1"), NUNCA - 0.05, { y: 30 }, 0.25);
+      K.entra(q(".s08-d2"), NUNCA + 0.35, { y: 30 }, 0.25);
+      qa(".s08-tela path").forEach((p, i) => K.dibujar(p, NUNCA + 0.1 + i * 0.05, 0.4));
+      tl.to(q(".s08-matias .rd-cejas"), { y: 6, duration: 0.2 }, NUNCA);
+
+      K.etiqueta(q(".s08-et"), [[0.15, "LÍNEA 2 · <b>MATÍAS</b>"], [NUNCA, "PREGUNTÓ · <b>NADIE LO SIGUIÓ</b>"]]);
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

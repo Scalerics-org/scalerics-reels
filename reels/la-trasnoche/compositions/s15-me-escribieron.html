@@ -1,0 +1,76 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/radio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-me-escribieron"] .s15-capa { position: absolute; inset: 0; }
+    [data-composition-id="s15-me-escribieron"] svg.s15-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s15-me-escribieron"] .s15-notif { position: absolute; left: 470px; top: 610px; width: 560px; box-sizing: border-box; display: flex; gap: 16px; align-items: center; padding: 18px 22px; border-radius: 22px; background: #f5e6c8; border: 6px solid #140b09; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; line-height: 1.2; color: #140b09; }
+    [data-composition-id="s15-me-escribieron"] .s15-notif i { width: 58px; height: 58px; border-radius: 14px; background: #ffb03b; border: 4px solid #140b09; flex: none; }
+    [data-composition-id="s15-me-escribieron"] .s15-notif small { display: block; font-family: "IBM Plex Mono", monospace; font-size: 18px; letter-spacing: 0.1em; color: #7d1f2b; }
+    [data-composition-id="s15-me-escribieron"] .s15-sello { left: 560px; top: 1130px; font-size: 52px; border-color: #ffb03b; color: #ffb03b; }
+  </style>
+  <div id="root" data-composition-id="s15-me-escribieron" data-width="1080" data-height="1920" data-duration="4.06">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="4.06" data-track-index="0">
+      <svg class="s15-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s15-recorte"><rect x="0" y="560" width="1080" height="776" /></clipPath></defs>
+        <g clip-path="url(#s15-recorte)">
+          <g class="s15-cors">
+            <g class="s15-c" transform="translate(110 760)"></g><g class="s15-c" transform="translate(480 820)"></g>
+            <g class="s15-c" transform="translate(80 1000)"></g><g class="s15-c" transform="translate(520 1020)"></g>
+            <g class="s15-c" transform="translate(300 700)"></g>
+          </g>
+          <g class="s15-quien"><g class="s15-carmen" transform="translate(80 660) scale(0.9)"></g></g>
+          <!-- la bolsa de bizcochos -->
+          <g class="s15-bolsa">
+            <path d="M700 1000 L940 1000 L960 1240 H680 Z" fill="#e8d2a6" stroke="#140b09" stroke-width="7" stroke-linejoin="round" />
+            <path d="M700 1000 L720 960 H920 L940 1000" fill="#d9bd88" stroke="#140b09" stroke-width="6" stroke-linejoin="round" />
+            <path d="M730 980 Q750 920 800 930 Q840 900 880 940 Q920 930 910 980 Z" fill="#ffb03b" stroke="#140b09" stroke-width="6" />
+            <path class="s15-cor-bolsa" d="M820 1150 C760 1110 760 1060 795 1056 C810 1054 818 1064 820 1072 C822 1064 830 1054 845 1056 C880 1060 880 1110 820 1150 Z" fill="#ff3b2f" stroke="#140b09" stroke-width="5" />
+          </g>
+        </g>
+      </svg>
+      <div class="s15-notif"><i></i><div><small>PANADERÍA RAÚL · AHORA</small>¿Te guardo media docena?</div></div>
+      <div class="rd-sello s15-sello">¡VUELVE!</div>
+      <div class="rd-etiqueta"><span class="s15-et"></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-me-escribieron";
+      const DUR = 4.06;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s15-carmen").innerHTML = RD.carmen({ mirada: 4 });
+      root.querySelectorAll(".s15-c").forEach((c, i) => { c.innerHTML = RD.corazon(22 + (i % 3) * 6, i % 2 ? "#ffb03b" : "#ff7a6b"); });
+      const tl = gsap.timeline({ paused: true });
+      const K = RD.kit(tl, root);
+      const { q, qa } = K;
+      const ESCRIBIERON = 0.9, MANANA = 2.21, BIZ = 2.79;
+
+      // cuadro 0: Carmen entra saltando de contenta
+      tl.fromTo(q(".s15-quien"), { y: 90, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 0);
+      K.habla(q(".s15-carmen .rd-boca"), 0.02, 3.6);
+      tl.fromTo(q(".s15-carmen .rd-carmen"), { y: 0 }, { y: -24, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 7, immediateRender: false }, 0.4);
+      tl.to(q(".s15-carmen .rd-cejas"), { y: -12, duration: 0.15 }, 0.1);
+      tl.fromTo(q(".s15-carmen .rd-ruleros"), { rotation: -5 }, { rotation: 5, svgOrigin: "220 110", duration: 0.18, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, 0.4);
+      // "¡Me escribieron!": la notificación y los corazones
+      K.entra(q(".s15-notif"), ESCRIBIERON - 0.3, { y: -60 }, 0.35);
+      qa(".s15-c").forEach((c, i) => {
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { opacity: 0, scale: 0.3, y: 30, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, y: -40, transformOrigin: "50% 50%", duration: 0.6, ease: "back.out(2)", immediateRender: false }, ESCRIBIERON + i * 0.1);
+        tl.to(c, { y: -90, opacity: 0, duration: 0.8, ease: "sine.in" }, ESCRIBIERON + 1.6 + i * 0.1);
+      });
+      // "Mañana voy por bizcochos": la bolsa y el sello
+      K.entra(q(".s15-bolsa"), MANANA, { y: 80 }, 0.35);
+      K.golpe(q(".s15-sello"), BIZ, -6);
+      K.late(q(".s15-cor-bolsa"), BIZ, 1.0, 1.15, 0.25);
+
+      K.etiqueta(q(".s15-et"), [[0.15, "LÍNEA 1 · <b>CARMEN OTRA VEZ</b>"], [ESCRIBIERON, "¡LE <b>ESCRIBIERON</b>!"]]);
+      K.salida(q("#s15-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

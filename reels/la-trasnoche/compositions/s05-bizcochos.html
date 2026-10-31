@@ -1,0 +1,84 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/radio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-bizcochos"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-bizcochos"] svg.s05-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-bizcochos"] .s05-txt { left: 500px; top: 650px; width: 520px; font-size: 60px; text-align: center; color: #7d1f2b; }
+  </style>
+  <div id="root" data-composition-id="s05-bizcochos" data-width="1080" data-height="1920" data-duration="3.48">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.48" data-track-index="0">
+      <svg class="s05-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s05-recorte"><rect x="0" y="560" width="1080" height="776" /></clipPath></defs>
+        <g clip-path="url(#s05-recorte)">
+          <!-- el globo soñado -->
+          <g class="s05-globo">
+            <path d="M500 620 H1020 Q1050 620 1050 650 V1180 Q1050 1210 1020 1210 H560 Q530 1210 530 1180 V860 L450 880 L520 800 V650 Q520 620 500 620 Z" fill="#f5e6c8" stroke="#140b09" stroke-width="7" stroke-linejoin="round" />
+            <path d="M560 650 H1010 V1180 H560 Z" fill="none" stroke="#ff7a6b" stroke-width="4" stroke-dasharray="14 12" />
+          </g>
+          <!-- la bandeja de bizcochos -->
+          <g class="s05-bandeja">
+            <path d="M590 1130 H990 L960 1170 H620 Z" fill="#cbbba5" stroke="#140b09" stroke-width="6" stroke-linejoin="round" />
+            <g class="s05-biz">
+              <path d="M620 1130 Q630 1060 690 1056 Q750 1060 760 1130 Z" fill="#e8a24a" stroke="#140b09" stroke-width="6" />
+              <path d="M650 1070 L670 1130 M690 1058 V1130 M730 1070 L710 1130" stroke="#7a3d12" stroke-width="4" />
+              <path d="M760 1130 Q770 1050 830 1046 Q890 1050 900 1130 Z" fill="#ffb03b" stroke="#140b09" stroke-width="6" />
+              <path d="M790 1060 L810 1130 M830 1048 V1130 M870 1060 L850 1130" stroke="#7a3d12" stroke-width="4" />
+              <path d="M880 1130 Q888 1076 930 1072 Q972 1076 980 1130 Z" fill="#e8a24a" stroke="#140b09" stroke-width="6" />
+            </g>
+            <g class="s05-humo" fill="none" stroke="#c97a1c" stroke-width="6" stroke-linecap="round">
+              <path d="M690 1040 q-16 -24 0 -44 q16 -20 0 -44" />
+              <path d="M830 1030 q-16 -24 0 -44 q16 -20 0 -44" />
+              <path d="M930 1056 q-14 -20 0 -38 q14 -18 0 -36" />
+            </g>
+            <g class="s05-c1" transform="translate(620 960)"></g>
+            <g class="s05-c2" transform="translate(990 950)"></g>
+          </g>
+          <!-- Hugo, galán -->
+          <g class="s05-quien"><g class="s05-hugo" transform="translate(-10 640) scale(0.9)"></g></g>
+        </g>
+      </svg>
+      <div class="rd-mano s05-txt">"Carmen, tengo<br />bizcochos<br />calentitos..."</div>
+      <div class="rd-etiqueta"><span class="s05-et"></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-bizcochos";
+      const DUR = 3.48;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s05-hugo").innerHTML = RD.hugo({ mirada: 5 });
+      root.querySelector(".s05-c1").innerHTML = RD.corazon(22, "#ff7a6b");
+      root.querySelector(".s05-c2").innerHTML = RD.corazon(26, "#ff3b2f");
+      const tl = gsap.timeline({ paused: true });
+      const K = RD.kit(tl, root);
+      const { q, qa } = K;
+      const CARMEN = 0.9, BIZ = 1.84, CAL = 2.3;
+
+      tl.fromTo(q(".s05-quien"), { x: -60, opacity: 0.7 }, { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      K.habla(q(".s05-hugo .rd-boca"), 0.02, 3.0);
+      K.mece(q(".s05-hugo .rd-hugo"), 0, 3.3, 3, "220 800");
+      // cejas de galán
+      tl.fromTo(q(".s05-hugo .rd-cejas"), { y: 0 }, { y: -10, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, CARMEN);
+      // "Carmen...": el globo soñado y el texto a mano
+      K.pop(q(".s05-globo"), CARMEN - 0.35, 0.35);
+      K.escribe(q(".s05-txt"), CARMEN, 1.6);
+      // "bizcochos": la bandeja
+      K.entra(q(".s05-bandeja"), BIZ - 0.15, { y: 50 }, 0.35);
+      // "calentitos": humo que se dibuja y corazoncitos
+      qa(".s05-humo path").forEach((p, i) => K.dibujar(p, CAL + i * 0.1, 0.5));
+      tl.to(q(".s05-humo"), { y: -14, duration: 0.8, ease: "sine.inOut" }, CAL + 0.4);
+      K.pop(q(".s05-c1"), CAL + 0.2);
+      K.pop(q(".s05-c2"), CAL + 0.4);
+      K.late(q(".s05-c2"), CAL + 0.7, 0.6, 1.15, 0.3);
+
+      K.etiqueta(q(".s05-et"), [[0.15, "LO QUE <b>QUERÍA LEER</b>"]]);
+      K.salida(q("#s05-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

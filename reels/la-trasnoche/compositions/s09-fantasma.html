@@ -1,0 +1,81 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/radio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-fantasma"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-fantasma"] svg.s09-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-fantasma"] .s09-sello { left: 80px; top: 640px; font-size: 50px; }
+    [data-composition-id="s09-fantasma"] .s09-l3 { left: 560px; top: 640px; width: 440px; height: 92px; font-size: 40px; }
+  </style>
+  <div id="root" data-composition-id="s09-fantasma" data-width="1080" data-height="1920" data-duration="4.22">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.22" data-track-index="0">
+      <svg class="s09-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s09-recorte"><rect x="0" y="560" width="1080" height="776" /></clipPath></defs>
+        <g clip-path="url(#s09-recorte)">
+          <!-- la heladera disfrazada de fantasma -->
+          <g class="s09-fant">
+            <g class="s09-flota">
+              <rect x="660" y="1160" width="40" height="40" fill="#cbbba5" stroke="#140b09" stroke-width="6" />
+              <rect x="860" y="1160" width="40" height="40" fill="#cbbba5" stroke="#140b09" stroke-width="6" />
+              <path d="M620 1170 V820 Q620 720 780 712 Q940 720 940 820 V1170 Q905 1140 870 1170 Q835 1200 800 1170 Q765 1140 730 1170 Q695 1200 660 1170 Q640 1150 620 1170 Z" fill="#f5e6c8" stroke="#140b09" stroke-width="8" stroke-linejoin="round" />
+              <path d="M650 900 Q660 1000 650 1120 M910 900 Q900 1000 910 1120" fill="none" stroke="#cbbba5" stroke-width="6" stroke-linecap="round" />
+              <ellipse class="s09-o1" cx="730" cy="850" rx="26" ry="34" fill="#140b09" /><ellipse class="s09-o2" cx="830" cy="850" rx="26" ry="34" fill="#140b09" />
+              <ellipse class="s09-boca" cx="780" cy="940" rx="30" ry="22" fill="#140b09" />
+              <rect x="700" y="1010" width="160" height="34" rx="8" fill="#ffb03b" stroke="#140b09" stroke-width="5" />
+            </g>
+            <ellipse cx="780" cy="1250" rx="160" ry="20" fill="#140b09" opacity="0.5" />
+          </g>
+          <!-- Hugo, chiquito, se agarra la cabeza -->
+          <g class="s09-quien"><g class="s09-hugo" transform="translate(30 760) scale(0.72)"></g></g>
+          <!-- el teléfono de la línea 3 -->
+          <g class="s09-telw"><g class="s09-sw"><g class="s09-tel" transform="translate(780 1060) scale(0.95)"></g></g></g>
+          <g class="s09-ring" fill="none" stroke="#ff3b2f" stroke-width="10" stroke-linecap="round"><path d="M590 930 l-36 -28 M624 890 l-16 -42 M970 930 l36 -28 M936 890 l16 -42" /></g>
+        </g>
+      </svg>
+      <div class="rd-sello s09-sello">GHOSTEADO</div>
+      <div class="rd-alaire s09-l3">LÍNEA 3 · RAÚL</div>
+      <div class="rd-etiqueta"><span class="s09-et"></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-fantasma";
+      const DUR = 4.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s09-hugo").innerHTML = RD.hugo({ mirada: 6 });
+      root.querySelector(".s09-tel").innerHTML = RD.telefono({ color: "#ff3b2f" });
+      const tl = gsap.timeline({ paused: true });
+      const K = RD.kit(tl, root);
+      const { q, qa } = K;
+      const MATIAS = 0.92, PARA = 2.16, ESTA = 2.69, RAUL = 3.15;
+
+      tl.fromTo(q(".s09-quien"), { x: -60, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      K.habla(q(".s09-hugo .rd-boca"), 0.02, 3.6);
+      // "ghostearon": la heladera-fantasma aparece flotando
+      tl.fromTo(q(".s09-fant"), { opacity: 0.4, scale: 0.8, svgOrigin: "780 1200" }, { opacity: 1, scale: 1, svgOrigin: "780 1200", duration: 0.35, ease: "back.out(1.8)" }, 0);
+      tl.fromTo(q(".s09-flota"), { y: 0 }, { y: -26, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, 0.2);
+      tl.fromTo(q(".s09-boca"), { scaleY: 1 }, { scaleY: 1.5, transformOrigin: "50% 50%", duration: 0.2, yoyo: true, repeat: 3, immediateRender: false }, 0.3);
+      // "Matías": sello GHOSTEADO
+      K.golpe(q(".s09-sello"), MATIAS, -6);
+      // "Pará...": el fantasma se desvanece, Hugo levanta las cejas
+      tl.to(q(".s09-fant"), { opacity: 0, y: -40, duration: 0.35, ease: "power2.in" }, PARA);
+      tl.to(q(".s09-sello"), { opacity: 0, duration: 0.2 }, PARA);
+      tl.to(q(".s09-hugo .rd-cejas"), { y: -12, duration: 0.15 }, PARA);
+      // "¡está llamando Raúl!": el teléfono rojo suena
+      K.pop(q(".s09-telw"), ESTA - 0.25, 0.3);
+      K.suena(q(".s09-sw"), ESTA, 1.3, "780 1060");
+      gsap.set(q(".s09-ring"), { opacity: 0 });
+      K.titila(q(".s09-ring"), ESTA, 1.4, 0.18);
+      K.golpe(q(".s09-l3"), RAUL, 0);
+      K.late(q(".s09-l3"), RAUL + 0.2, 0.8, 1.06, 0.2);
+
+      K.etiqueta(q(".s09-et"), [[0.15, "MATÍAS · <b>GHOSTEADO</b>"], [ESTA, "ÚLTIMO MOMENTO · <b>LLAMA RAÚL</b>"]]);
+      K.salida(q("#s09-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/radio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-seguimiento"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-seguimiento"] svg.s14-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-seguimiento"] .s14-luz { position: absolute; inset: 0; background: radial-gradient(ellipse 560px 520px at 540px 920px, rgba(255, 176, 59, 0.28) 0%, rgba(255, 176, 59, 0.08) 55%, rgba(255, 176, 59, 0) 80%); }
+    [data-composition-id="s14-seguimiento"] .s14-cel { left: 250px; top: 590px; width: 580px; height: 660px; }
+    [data-composition-id="s14-seguimiento"] .rd-cab i { background: #ffb03b; box-shadow: 0 0 0 4px #140b09, 0 0 18px #ffb03b; }
+    [data-composition-id="s14-seguimiento"] .s14-dato { position: absolute; left: 50%; top: 162px; transform: translateX(-50%); padding: 6px 16px; border-radius: 8px; background: #3a2a26; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.1em; color: #ff7a6b; white-space: nowrap; }
+    [data-composition-id="s14-seguimiento"] .rd-globo { font-size: 28px; }
+    [data-composition-id="s14-seguimiento"] .s14-msg { right: 24px; top: 216px; }
+    [data-composition-id="s14-seguimiento"] .s14-resp { left: 24px; top: 412px; }
+    [data-composition-id="s14-seguimiento"] .s14-hora { position: absolute; left: 50%; top: 540px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 8px; border: 3px solid #ffb03b; background: #2a1512; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.12em; color: #ffb03b; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s14-seguimiento" data-width="1080" data-height="1920" data-duration="5.81">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="5.81" data-track-index="0">
+      <div class="s14-luz"></div>
+      <div class="rd-cel s14-cel">
+        <div class="rd-isla"></div>
+        <div class="rd-cab"><i></i><div>Matías<small>electro del barrio · agente de IA</small></div></div>
+        <div class="s14-dato">PREGUNTÓ · NO COMPRÓ</div>
+        <div class="rd-globo rd-yo s14-msg">¡Hola, Matías! ¿Pudiste pensar<br />lo de la heladera? Te la guardo<br />hasta el viernes.<small>03:40 · agente de IA</small></div>
+        <div class="rd-globo rd-el s14-resp">¡Dale! Paso mañana.<small>08:05</small></div>
+        <div class="s14-hora">WHATSAPP · A CUALQUIER HORA</div>
+      </div>
+      <svg class="s14-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s14-recorte"><rect x="0" y="560" width="1080" height="776" /></clipPath></defs>
+        <g clip-path="url(#s14-recorte)">
+          <!-- mientras tanto, Raúl amasa tranquilo -->
+          <g class="s14-rw">
+            <g class="s14-raul" transform="translate(740 930) scale(0.5)"></g>
+            <path d="M720 1250 Q720 1320 850 1320 Q980 1320 980 1250 Z" fill="#7d1f2b" stroke="#140b09" stroke-width="7" stroke-linejoin="round" />
+            <path d="M740 1250 Q770 1210 850 1206 Q930 1210 960 1250 Z" fill="#f5e6c8" stroke="#140b09" stroke-width="6" />
+            <g class="s14-notas" fill="#ffb03b"><circle cx="980" cy="980" r="10" /><path d="M988 980 V940 L1010 950" stroke="#ffb03b" stroke-width="5" fill="none" /></g>
+          </g>
+        </g>
+      </svg>
+      <div class="rd-etiqueta"><span class="s14-et"></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-seguimiento";
+      const DUR = 5.81;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s14-raul").innerHTML = RD.raul({ mirada: 0, brazoI: "M68 452 Q20 560 120 600", manoI: [126, 604], brazoD: "M372 452 Q420 560 320 600", manoD: [314, 604] });
+      const tl = gsap.timeline({ paused: true });
+      const K = RD.kit(tl, root);
+      const { q, qa } = K;
+      const SEGUIMIENTO = 0.78, PREGUNTO = 1.56, COMPRO = 2.17, WHATSAPP = 3.04, CUALQUIER = 3.65, MIENTRAS = 4.34, AMASAS = 4.87;
+
+      // cuadro 0: cambia el chat (sigue el mismo celular)
+      tl.fromTo(q(".s14-cel"), { x: 60, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      K.entra(q(".s14-msg"), SEGUIMIENTO - 0.2, { y: 30 }, 0.35);
+      K.entra(q(".s14-dato"), PREGUNTO - 0.1, { y: -14 }, 0.25);
+      K.late(q(".s14-dato"), COMPRO, 0.4, 1.08, 0.2);
+      // la respuesta de Matías
+      K.entra(q(".s14-resp"), COMPRO + 0.45, { x: -40 }, 0.3);
+      // "Por WhatsApp, a cualquier hora"
+      K.pop(q(".s14-hora"), WHATSAPP - 0.1, 0.3);
+      tl.fromTo(q(".s14-hora"), { scale: 1 }, { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, CUALQUIER);
+      // "mientras vos amasás": el celu se corre y aparece Raúl amasando tranquilo
+      tl.to(q(".s14-cel"), { x: -140, duration: 0.4, ease: "power2.inOut" }, MIENTRAS - 0.3);
+      tl.to(q(".s14-luz"), { x: -140, duration: 0.4, ease: "power2.inOut" }, MIENTRAS - 0.3);
+      K.entra(q(".s14-rw"), MIENTRAS - 0.1, { x: 120 }, 0.4);
+      const br = [q(".s14-raul .rd-brazo-i"), q(".s14-raul .rd-brazo-d")];
+      tl.fromTo(br, { y: 0 }, { y: 20, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 5, immediateRender: false }, MIENTRAS + 0.2);
+      tl.fromTo(q(".s14-notas"), { y: 0, opacity: 0 }, { y: -30, opacity: 1, duration: 0.6, ease: "sine.out", immediateRender: false }, AMASAS);
+
+      K.etiqueta(q(".s14-et"), [[0.15, "<b>SEGUIMIENTO</b> · SOLO"], [MIENTRAS, "VOS <b>A LO TUYO</b>"]]);
+      K.salida(q("#s14-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

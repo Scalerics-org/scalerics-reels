@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/radio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-solo"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-solo"] svg.s11-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-solo"] .s11-lbl { font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s11-solo"] .s11-big { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; }
+    [data-composition-id="s11-solo"] .s11-q { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 96px; }
+  </style>
+  <div id="root" data-composition-id="s11-solo" data-width="1080" data-height="1920" data-duration="5.86">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="5.86" data-track-index="0">
+      <svg class="s11-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s11-recorte"><rect x="0" y="560" width="1080" height="776" /></clipPath></defs>
+        <g clip-path="url(#s11-recorte)">
+          <!-- el foco: está solo -->
+          <path class="s11-foco" d="M480 560 H600 L760 1330 H320 Z" fill="#ffb03b" opacity="0.14" />
+          <ellipse class="s11-piso" cx="540" cy="1290" rx="220" ry="30" fill="#ffb03b" opacity="0.18" />
+          <!-- Raúl -->
+          <g class="s11-quien"><g class="s11-raul" transform="translate(375 740) scale(0.75)"></g></g>
+          <!-- las tareas -->
+          <g class="s11-t s11-masa">
+            <path d="M80 1120 Q80 1210 180 1210 Q280 1210 280 1120 Z" fill="#7d1f2b" stroke="#140b09" stroke-width="7" stroke-linejoin="round" />
+            <path d="M100 1120 Q120 1070 180 1066 Q240 1070 260 1120 Z" fill="#f5e6c8" stroke="#140b09" stroke-width="6" />
+            <text class="s11-lbl" x="180" y="1250" text-anchor="middle" fill="#f5e6c8">AMASAR</text>
+          </g>
+          <g class="s11-t s11-reloj">
+            <circle cx="180" cy="760" r="90" fill="#f5e6c8" stroke="#140b09" stroke-width="8" />
+            <path d="M180 690 V700 M180 820 V830 M110 760 H120 M240 760 H250" stroke="#140b09" stroke-width="6" />
+            <path class="s11-hh" d="M180 760 L240 760" stroke="#140b09" stroke-width="10" stroke-linecap="round" />
+            <path class="s11-mm" d="M180 760 L180 690" stroke="#ff3b2f" stroke-width="6" stroke-linecap="round" />
+            <text class="s11-big" x="180" y="900" text-anchor="middle" fill="#ffb03b">4:00</text>
+          </g>
+          <g class="s11-t s11-campana">
+            <path d="M840 800 Q840 710 900 706 Q960 710 960 800 Z" fill="#ffb03b" stroke="#140b09" stroke-width="7" stroke-linejoin="round" />
+            <rect x="820" y="800" width="160" height="22" rx="8" fill="#cbbba5" stroke="#140b09" stroke-width="6" />
+            <circle cx="900" cy="700" r="10" fill="#cbbba5" stroke="#140b09" stroke-width="5" />
+            <text class="s11-lbl" x="900" y="870" text-anchor="middle" fill="#f5e6c8">ATENDER</text>
+          </g>
+          <g class="s11-t s11-caja">
+            <path d="M810 1210 L830 1100 H970 L990 1210 Z" fill="#3a2018" stroke="#140b09" stroke-width="7" stroke-linejoin="round" />
+            <rect x="840" y="1060" width="120" height="44" rx="6" fill="#ffb03b" stroke="#140b09" stroke-width="6" />
+            <g fill="#cbbba5"><rect x="846" y="1124" width="26" height="18" /><rect x="886" y="1124" width="26" height="18" /><rect x="926" y="1124" width="26" height="18" /><rect x="846" y="1156" width="26" height="18" /><rect x="886" y="1156" width="26" height="18" /><rect x="926" y="1156" width="26" height="18" /></g>
+            <text class="s11-lbl" x="900" y="1250" text-anchor="middle" fill="#f5e6c8">LA CAJA</text>
+          </g>
+          <!-- y el mensaje para Carmen -->
+          <g class="s11-msj">
+            <rect x="470" y="600" width="140" height="120" rx="20" fill="#140b09" stroke="#f5e6c8" stroke-width="6" />
+            <text class="s11-q" x="540" y="698" text-anchor="middle" fill="#ff7a6b">?</text>
+          </g>
+          <g class="s11-sudor" fill="#9fd0e8" stroke="#140b09" stroke-width="4">
+            <path d="M440 860 Q430 884 440 894 Q452 884 440 860 Z" /><path d="M650 850 Q640 874 650 884 Q662 874 650 850 Z" />
+          </g>
+        </g>
+      </svg>
+      <div class="rd-etiqueta"><span class="s11-et"></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-solo";
+      const DUR = 5.86;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s11-raul").innerHTML = RD.raul({ mirada: 0, brazoI: "M68 452 Q20 560 120 600", manoI: [126, 604], brazoD: "M372 452 Q420 560 320 600", manoD: [314, 604] });
+      const tl = gsap.timeline({ paused: true });
+      const K = RD.kit(tl, root);
+      const { q, qa } = K;
+      const SOLO = 0.26, AMASO = 1.71, CUATRO = 2.30, ATIENDO = 2.63, CAJA = 3.43, CUANDO = 4.59;
+
+      tl.fromTo(q(".s11-quien"), { y: 60, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      K.habla(q(".s11-raul .rd-boca"), 0.02, 5.4);
+      tl.to(q(".s11-raul .rd-cejas"), { y: 8, duration: 0.2 }, 0.1);
+      // "solo": el foco se prende arriba de él
+      K.prende(q(".s11-foco"), SOLO);
+      tl.fromTo(q(".s11-foco"), { opacity: 0.14 }, { opacity: 0.2, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, SOLO + 0.4);
+      // las tareas aparecen una atrás de otra; Raúl amasa sin parar
+      K.pop(q(".s11-masa"), AMASO - 0.15);
+      const br = [q(".s11-raul .rd-brazo-i"), q(".s11-raul .rd-brazo-d")];
+      tl.fromTo(br, { y: 0 }, { y: 24, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 23, immediateRender: false }, AMASO);
+      K.pop(q(".s11-reloj"), CUATRO - 0.15);
+      tl.fromTo(q(".s11-mm"), { rotation: 0 }, { rotation: 720, svgOrigin: "180 760", duration: 1.2, ease: "power1.inOut", immediateRender: false }, CUATRO);
+      K.pop(q(".s11-campana"), ATIENDO - 0.1);
+      tl.fromTo(q(".s11-campana"), { rotation: -8 }, { rotation: 8, svgOrigin: "900 820", duration: 0.08, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, ATIENDO + 0.25);
+      K.pop(q(".s11-caja"), CAJA - 0.15);
+      K.sacudon(q(".s11-caja"), CAJA + 0.25, 0.5);
+      // gira todo alrededor: la tarea que toca late
+      // "¿Cuándo le escribo?": el celu con el signo de pregunta, sudor
+      K.pop(q(".s11-msj"), CUANDO - 0.1, 0.35);
+      K.late(q(".s11-msj"), CUANDO + 0.3, 1.0, 1.1, 0.25);
+      tl.to([q(".s11-masa"), q(".s11-reloj"), q(".s11-campana"), q(".s11-caja")], { opacity: 0.45, duration: 0.25 }, CUANDO);
+      qa(".s11-sudor path").forEach((p, i) => {
+        gsap.set(p, { opacity: 0 });
+        tl.fromTo(p, { opacity: 1, y: 0 }, { opacity: 0, y: 70, duration: 0.6, ease: "power1.in", immediateRender: false }, CUANDO + 0.1 + i * 0.25);
+      });
+
+      K.etiqueta(q(".s11-et"), [[0.15, "RAÚL · <b>SOLO CON TODO</b>"], [CUANDO, "¿Y EL MENSAJE <b>CUÁNDO?</b>"]]);
+      K.salida(q("#s11-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,104 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/radio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg.s01-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .s01-aire { left: 640px; top: 600px; width: 360px; height: 96px; font-size: 46px; }
+    [data-composition-id="s01-gancho"] .s01-vos { left: 600px; top: 760px; width: 420px; font-size: 150px; color: #ffb03b; text-shadow: 0 8px 0 #140b09; }
+    [data-composition-id="s01-gancho"] .s01-sello { left: 470px; top: 1110px; transform-origin: 50% 50%; font-size: 44px; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="5.74">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.74" data-track-index="0">
+      <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s01-recorte"><rect x="0" y="560" width="1080" height="776" /></clipPath></defs>
+        <g clip-path="url(#s01-recorte)">
+          <g class="s01-ventana"></g>
+          <!-- ondas de radio que salen del micrófono -->
+          <g class="s01-ondas" fill="none" stroke="#ffb03b" stroke-width="9" stroke-linecap="round">
+            <path class="s01-o1" d="M560 820 Q600 880 560 940" />
+            <path class="s01-o2" d="M600 790 Q660 880 600 970" />
+            <path class="s01-o3" d="M640 760 Q720 880 640 1000" />
+          </g>
+          <!-- Hugo, el locutor -->
+          <g class="s01-quien"><g class="s01-hugo" transform="translate(20 640) scale(0.98)"></g></g>
+          <g class="s01-micw"><g class="s01-mic" transform="translate(470 920) rotate(-8)"></g></g>
+          <!-- el teléfono que suena -->
+          <g class="s01-telw"><g class="s01-sw"><g class="s01-tel" transform="translate(820 1150) scale(0.78)"></g></g></g>
+          <g class="s01-ring" fill="none" stroke="#ff3b2f" stroke-width="8" stroke-linecap="round">
+            <path d="M676 1040 l-26 -22 M700 1012 l-12 -32 M964 1040 l26 -22 M940 1012 l12 -32" />
+          </g>
+        </g>
+      </svg>
+      <div class="rd-alaire s01-aire">AL AIRE</div>
+      <div class="rd-grueso s01-vos">VOS</div>
+      <div class="rd-sello s01-sello">NO TE VA A GUSTAR</div>
+      <div class="rd-etiqueta"><span class="s01-et"></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 5.74;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s01-hugo").innerHTML = RD.hugo({ mirada: 4, brazoD: "M372 452 Q470 520 480 610", manoD: [478, 618] });
+      root.querySelector(".s01-mic").innerHTML = RD.mic(420);
+      root.querySelector(".s01-tel").innerHTML = RD.telefono({});
+      root.querySelector(".s01-ventana").innerHTML = RD.ventana(690, 720, 300, 250);
+      const tl = gsap.timeline({ paused: true });
+      const K = RD.kit(tl, root);
+      const { q, qa } = K;
+
+      // tiempos (relativos a la escena)
+      const CLIENTES = 1.08, LLAMAN = 1.54, RADIO = 2.08, VOS = 3.08, NO = 3.95, GUSTAR = 4.54;
+
+      // cuadro 0: Hugo ya está, entrando; el AL AIRE ya prendido a medias
+      tl.fromTo(q(".s01-quien"), { x: -50, opacity: 0.7 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-micw"), { y: 160, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s01-aire"), { opacity: 0.45, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.12, ease: "none" }, 0.05);
+      tl.set(q(".s01-aire"), { opacity: 0.3 }, 0.2); tl.set(q(".s01-aire"), { opacity: 1 }, 0.28);
+      tl.fromTo(q(".s01-ventana"), { opacity: 0.3 }, { opacity: 0.55, duration: 0.6 }, 0);
+      K.habla(q(".s01-hugo .rd-boca"), 0.02, 5.0);
+      K.parpadeo(q(".s01-hugo .rd-ojos"), [1.0, 3.2]);
+      K.mece(q(".s01-hugo .rd-hugo"), 0.2, 3.6, 2, "220 800");
+
+      // "tus clientes llaman": el teléfono aparece y suena
+      K.pop(q(".s01-telw"), CLIENTES - 0.1, 0.35);
+      gsap.set(q(".s01-ring"), { opacity: 0 });
+      K.suena(q(".s01-sw"), LLAMAN, 1.0, "820 1150");
+      K.titila(q(".s01-ring"), LLAMAN, 1.1, 0.18);
+      tl.set(q(".s01-ring"), { opacity: 0 }, LLAMAN + 1.15);
+
+      // "radio": las ondas salen del micrófono
+      qa(".s01-ondas path").forEach((p, i) => {
+        gsap.set(p, { opacity: 0 });
+        for (let k = 0; k < 3; k++) {
+          const t = RADIO - 0.2 + k * 0.5 + i * 0.12;
+          tl.fromTo(p, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.18, ease: "power2.out", immediateRender: false }, t);
+          tl.to(p, { opacity: 0, x: 20, duration: 0.25, ease: "power2.in" }, t + 0.25);
+        }
+      });
+
+      // "de vos": Hugo te señala; el teléfono se va y aparece VOS
+      tl.to(q(".s01-telw"), { opacity: 0, y: 40, duration: 0.2 }, VOS - 0.3);
+      K.golpe(q(".s01-vos"), VOS, -4);
+      tl.to(q(".s01-hugo .rd-brazo-d"), { rotation: -38, svgOrigin: "372 452", duration: 0.25, ease: "power2.out" }, VOS - 0.25);
+      tl.to(q(".s01-ventana"), { opacity: 0.25, duration: 0.3 }, VOS);
+
+      // "no te va a gustar": ceja arriba, sello rojo
+      tl.to(q(".s01-hugo .rd-cejas"), { y: -10, duration: 0.2, ease: "power2.out" }, NO - 0.1);
+      tl.to(q(".s01-vos"), { scale: 0.8, y: -40, opacity: 0.6, duration: 0.3, ease: "power2.out" }, NO);
+      K.golpe(q(".s01-sello"), GUSTAR, -5);
+      K.sacudon(q(".s01-sello"), GUSTAR + 0.06, 0.8);
+      tl.to(q(".s01-aire"), { scale: 1.08, duration: 0.12, yoyo: true, repeat: 1 }, GUSTAR);
+
+      K.etiqueta(q(".s01-et"), [[0.15, "AM 1270 · <b>02:14</b>"], [CLIENTES, "LLAMAN <b>TUS CLIENTES</b>"]]);
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

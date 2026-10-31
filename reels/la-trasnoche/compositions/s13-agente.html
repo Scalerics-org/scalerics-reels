@@ -1,0 +1,63 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/radio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-agente"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-agente"] .s13-luz { position: absolute; inset: 0; background: radial-gradient(ellipse 560px 520px at 540px 920px, rgba(255, 176, 59, 0.28) 0%, rgba(255, 176, 59, 0.08) 55%, rgba(255, 176, 59, 0) 80%); }
+    [data-composition-id="s13-agente"] .s13-cel { left: 250px; top: 590px; width: 580px; height: 660px; }
+    [data-composition-id="s13-agente"] .rd-cab i { background: #ffb03b; box-shadow: 0 0 0 4px #140b09, 0 0 18px #ffb03b; }
+    [data-composition-id="s13-agente"] .s13-chip { position: absolute; left: 50%; top: 162px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 8px; border: 3px solid #ffb03b; background: #2a1512; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.12em; color: #ffb03b; white-space: nowrap; }
+    [data-composition-id="s13-agente"] .s13-chip b { width: 14px; height: 14px; border-radius: 50%; background: #ffb03b; }
+    [data-composition-id="s13-agente"] .s13-dato { position: absolute; left: 50%; top: 226px; transform: translateX(-50%); padding: 6px 16px; border-radius: 8px; background: #3a2a26; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.1em; color: #ff7a6b; white-space: nowrap; }
+    [data-composition-id="s13-agente"] .s13-dots { position: absolute; right: 24px; top: 290px; display: flex; gap: 10px; padding: 18px 22px; border-radius: 24px; background: #ffb03b; }
+    [data-composition-id="s13-agente"] .s13-dots i { width: 14px; height: 14px; border-radius: 50%; background: #140b09; }
+    [data-composition-id="s13-agente"] .s13-msg { right: 24px; top: 290px; font-size: 29px; }
+  </style>
+  <div id="root" data-composition-id="s13-agente" data-width="1080" data-height="1920" data-duration="3.83">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="3.83" data-track-index="0">
+      <div class="s13-luz"></div>
+      <div class="rd-cel s13-cel">
+        <div class="rd-isla"></div>
+        <div class="rd-cab"><i></i><div>Carmen<small>panadería raúl · 03:12</small></div></div>
+        <div class="s13-chip"><b></b>AGENTE DE IA · ATENDIENDO</div>
+        <div class="s13-dato">NO VIENE DESDE JULIO</div>
+        <div class="s13-dots"><i></i><i></i><i></i></div>
+        <div class="rd-globo rd-yo s13-msg">¡Hola, Carmen! Hace rato<br />que no te vemos. Mañana salen<br />bizcochos calentitos.<br />¿Te guardo media docena?<small>03:12 · agente de IA</small></div>
+      </div>
+      <div class="rd-etiqueta"><span class="s13-et"></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-agente";
+      const DUR = 3.83;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = RD.kit(tl, root);
+      const { q, qa } = K;
+      const SCALERICS = 0.35, AGENTE = 1.30, LE = 1.75, DEJO = 3.30;
+
+      // entra Scalerics: se prende una luz más cálida y el celular sube
+      tl.fromTo(q(".s13-luz"), { opacity: 0.3 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s13-cel"), { y: 140, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.3)" }, 0);
+      // "agente de IA": la pastilla del agente
+      K.pop(q(".s13-chip"), SCALERICS + 0.2, 0.35);
+      tl.fromTo(q(".s13-chip b"), { opacity: 1 }, { opacity: 0.2, duration: 0.25, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, SCALERICS + 0.5);
+      // "le escribe": escribiendo... y el mensaje
+      K.pop(q(".s13-dots"), LE - 0.15, 0.25);
+      qa(".s13-dots i").forEach((d, i) => tl.fromTo(d, { y: 0 }, { y: -8, duration: 0.12, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, LE + i * 0.08));
+      tl.set(q(".s13-dots"), { opacity: 0 }, LE + 0.38);
+      K.entra(q(".s13-msg"), LE + 0.38, { y: 30 }, 0.35);
+      // "al que dejó de venir": el dato
+      K.entra(q(".s13-dato"), DEJO - 0.1, { y: -14 }, 0.25);
+
+      K.etiqueta(q(".s13-et"), [[0.15, "<b>SCALERICS</b> · AL AIRE"], [AGENTE, "TU <b>AGENTE DE IA</b>"], [DEJO, "LE ESCRIBE <b>AL QUE NO VUELVE</b>"]]);
+      K.salida(q("#s13-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

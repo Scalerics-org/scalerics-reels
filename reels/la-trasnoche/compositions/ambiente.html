@@ -1,0 +1,110 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/momentos.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-vin { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1150px at 540px 940px, rgba(20, 11, 9, 0) 58%, rgba(20, 11, 9, 0.7) 100%); }
+    /* barra de arriba: AL AIRE, el nombre del programa y la hora */
+    [data-composition-id="ambiente"] .amb-bar { position: absolute; left: 72px; top: 96px; width: 936px; height: 60px; display: flex; align-items: center; gap: 18px; }
+    [data-composition-id="ambiente"] .amb-aire { display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 20px 0 16px; border-radius: 8px; border: 4px solid #140b09; background: #ff3b2f; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.14em; color: #fff1e6; white-space: nowrap; box-shadow: 0 0 16px rgba(255, 59, 47, 0.75), 0 0 40px rgba(255, 59, 47, 0.35); }
+    [data-composition-id="ambiente"] .amb-punto { width: 16px; height: 16px; border-radius: 50%; background: #fff1e6; }
+    [data-composition-id="ambiente"] .amb-nombre { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; color: #f5e6c8; letter-spacing: 0.01em; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-nombre b { color: #ffb03b; font-weight: 800; }
+    [data-composition-id="ambiente"] .amb-hora { margin-left: auto; display: flex; align-items: center; gap: 10px; height: 56px; padding: 0 18px; border-radius: 8px; border: 3px solid #5a2a22; background: rgba(20, 11, 9, 0.75); font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; color: #ffb03b; white-space: nowrap; text-shadow: 0 0 10px rgba(255, 176, 59, 0.6); }
+    [data-composition-id="ambiente"] .amb-hora small { font-size: 18px; color: #c9a37a; text-shadow: none; letter-spacing: 0.1em; }
+    /* el dial de la radio */
+    [data-composition-id="ambiente"] .amb-dial { position: absolute; left: 80px; top: 1392px; width: 920px; height: 118px; border-radius: 16px; border: 6px solid #140b09; background: linear-gradient(180deg, #ffcf7a 0%, #ffb03b 55%, #e08a1e 100%); box-shadow: 0 0 30px rgba(255, 176, 59, 0.45), inset 0 0 26px rgba(120, 50, 0, 0.55); overflow: hidden; }
+    [data-composition-id="ambiente"] .amb-dial .amb-t { position: absolute; top: 0; width: 3px; background: #3a1a08; }
+    [data-composition-id="ambiente"] .amb-dial .amb-n { position: absolute; top: 58px; width: 80px; margin-left: -40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 26px; color: #3a1a08; }
+    [data-composition-id="ambiente"] .amb-dial .amb-am { position: absolute; left: 18px; top: 82px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 22px; letter-spacing: 0.1em; color: #7d1f2b; }
+    [data-composition-id="ambiente"] .amb-aguja { position: absolute; left: 0; top: -6px; width: 8px; height: 130px; margin-left: -4px; background: #ff3b2f; border: 2px solid #140b09; border-radius: 3px; }
+    /* las líneas del teléfono */
+    [data-composition-id="ambiente"] .amb-lineas { position: absolute; left: 80px; top: 1538px; width: 920px; height: 70px; display: flex; gap: 20px; }
+    [data-composition-id="ambiente"] .amb-l { flex: 1; display: flex; align-items: center; gap: 14px; padding: 0 18px; border-radius: 10px; border: 3px solid #5a2a22; background: rgba(20, 11, 9, 0.8); font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.12em; color: #c9a58c; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-foco { width: 26px; height: 26px; border-radius: 50%; border: 3px solid #140b09; background: #4a2a22; flex: none; }
+    [data-composition-id="ambiente"] .amb-l b { color: #f5e6c8; font-weight: 600; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="77.61">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="77.61" data-track-index="0">
+      <div class="amb-vin"></div>
+      <div class="amb-bar">
+        <div class="amb-aire"><div class="amb-punto"></div>AL AIRE</div>
+        <div class="amb-nombre">Corazones de <b>Medianoche</b></div>
+        <div class="amb-hora"><small>AM 1270</small><span class="amb-reloj">02:14</span></div>
+      </div>
+      <div class="amb-dial" data-layout-allow-overflow><div class="amb-escala"></div><div class="amb-am">AM · KHZ</div><div class="amb-aguja"></div></div>
+      <div class="amb-lineas">
+        <div class="amb-l amb-l1"><div class="amb-foco"></div>LÍNEA 1 <b>CARMEN</b></div>
+        <div class="amb-l amb-l2"><div class="amb-foco"></div>LÍNEA 2 <b>MATÍAS</b></div>
+        <div class="amb-l amb-l3"><div class="amb-foco"></div>LÍNEA 3 <b>RAÚL</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const M = window.RADM;
+      const DUR = M.DUR;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // la luz de AL AIRE late suave
+      const P = q(".amb-punto");
+      for (let t = 0.4; t < DUR - 0.5; t += 1.2) { tl.to(P, { opacity: 0.25, duration: 0.3, ease: "sine.inOut" }, t); tl.to(P, { opacity: 1, duration: 0.3, ease: "sine.inOut" }, t + 0.6); }
+
+      // la hora de la madrugada avanza un minuto cada ~12 s
+      const reloj = q(".amb-reloj");
+      const o = { v: 14 };
+      tl.fromTo(o, { v: 14 }, { v: 14 + Math.floor(DUR / 12), duration: DUR, ease: "none", immediateRender: false, onUpdate: () => { reloj.textContent = "02:" + String(Math.floor(o.v)).padStart(2, "0"); } }, 0);
+
+      // el dial: escala de 530 a 1700 kHz; la aguja busca la emisora al principio y se queda en 1270
+      const esc = q(".amb-escala");
+      const X = (k) => 40 + (k - 530) / (1700 - 530) * 840;
+      for (let k = 550; k <= 1700; k += 25) {
+        const t = document.createElement("div");
+        t.className = "amb-t";
+        t.style.left = X(k) + "px";
+        t.style.height = (k % 100 === 0 ? 44 : 22) + "px";
+        esc.appendChild(t);
+      }
+      for (const n of [6, 7, 8, 10, 12, 14, 16]) {
+        const d = document.createElement("div");
+        d.className = "amb-n";
+        d.style.left = X(n * 100) + "px";
+        d.textContent = n * 10;
+        esc.appendChild(d);
+      }
+      const ag = q(".amb-aguja");
+      gsap.set(ag, { x: X(820) });
+      tl.to(ag, { x: X(1400), duration: 0.5, ease: "power2.inOut" }, 0);
+      tl.to(ag, { x: X(1270), duration: 0.4, ease: "back.out(2)" }, 0.5);
+      // tiembla apenas cada tanto, como una radio vieja
+      for (let t = 3; t < DUR - 1; t += 4.3) tl.to(ag, { x: X(1270) + (Math.round(t) % 2 ? 3 : -3), duration: 0.08, yoyo: true, repeat: 3, ease: "none" }, t);
+
+      // las líneas: titilan rojo cuando suena el teléfono y quedan ámbar mientras esa persona habla
+      const L = { c: q(".amb-l1"), m: q(".amb-l2"), r: q(".amb-l3") };
+      const ROJO = "#ff3b2f", AMB = "#ffb03b", APAG = "#4a2a22";
+      for (const [k, t] of [["c", M.l1], ["m", M.l2], ["r", M.l3], ["c", M.l1b]]) {
+        if (t == null) continue;
+        const f = L[k].querySelector(".amb-foco");
+        for (let i = 0; i < 4; i++) { tl.set(f, { backgroundColor: ROJO, boxShadow: "0 0 14px #ff3b2f" }, t - 1.1 + i * 0.26); tl.set(f, { backgroundColor: APAG, boxShadow: "0 0 0px #ff3b2f" }, t - 0.97 + i * 0.26); }
+      }
+      // quién habla: su línea en ámbar y un poco más grande
+      const voces = M.voces;
+      voces.forEach(([t, v], i) => {
+        for (const k of ["c", "m", "r"]) {
+          const on = k === v;
+          tl.to(L[k], { borderColor: on ? AMB : "#5a2a22", scale: on ? 1.04 : 1, duration: 0.15, ease: "power2.out" }, Math.max(0, t));
+          tl.to(L[k].querySelector(".amb-foco"), { backgroundColor: on ? AMB : APAG, boxShadow: on ? "0 0 16px #ffb03b" : "0 0 0px #ffb03b", duration: 0.15 }, Math.max(0, t) + 0.01);
+        }
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

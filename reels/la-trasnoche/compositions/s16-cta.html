@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/radio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s16-cta"] .s16-capa { position: absolute; inset: 0; }
+    [data-composition-id="s16-cta"] svg.s16-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s16-cta"] .s16-carta { position: absolute; left: 430px; top: 620px; width: 560px; height: 470px; transform: rotate(4deg); }
+    [data-composition-id="s16-cta"] .s16-l { left: 80px; font-size: 48px; }
+    [data-composition-id="s16-cta"] .s16-l1 { top: 34px; color: #7d1f2b; }
+    [data-composition-id="s16-cta"] .s16-l2 { top: 120px; }
+    [data-composition-id="s16-cta"] .s16-l3 { top: 290px; color: #7d1f2b; }
+    [data-composition-id="s16-cta"] .s16-sello { left: 390px; top: 1130px; font-size: 46px; border-color: #ffb03b; color: #ffb03b; }
+  </style>
+  <div id="root" data-composition-id="s16-cta" data-width="1080" data-height="1920" data-duration="7.90">
+    <div id="s16-escena" class="s16-capa clip" data-start="0" data-duration="7.90" data-track-index="0">
+      <svg class="s16-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s16-recorte"><rect x="0" y="560" width="1080" height="776" /></clipPath></defs>
+        <g clip-path="url(#s16-recorte)">
+          <g class="s16-hoja"></g>
+          <g class="s16-quien"><g class="s16-hugo" transform="translate(-30 700) scale(0.82)"></g></g>
+          <g class="s16-micw"><g class="s16-mic" transform="translate(360 960) rotate(-8) scale(0.85)"></g></g>
+          <g class="s16-cor" transform="translate(930 1040)"></g>
+          <!-- el avioncito de papel: mandalo -->
+          <g class="s16-avion"><path d="M600 1240 L760 1180 L650 1270 Z M650 1270 L760 1180 L670 1300 Z" fill="#f5e6c8" stroke="#140b09" stroke-width="6" stroke-linejoin="round" /></g>
+        </g>
+      </svg>
+      <div class="s16-carta">
+        <div class="rd-mano s16-l s16-l1">Para:</div>
+        <div class="rd-mano s16-l s16-l2">ese cliente que hace<br />meses que no ves</div>
+        <div class="rd-mano s16-l s16-l3">Te extrañamos.</div>
+      </div>
+      <div class="rd-sello s16-sello">DEDICALE ESTE VIDEO</div>
+      <div class="rd-etiqueta"><span class="s16-et"></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s16-cta";
+      const DUR = 7.90;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s16-hugo").innerHTML = RD.hugo({ mirada: 5 });
+      root.querySelector(".s16-mic").innerHTML = RD.mic(420);
+      root.querySelector(".s16-hoja").innerHTML = RD.hoja(430, 620, 560, 470, 4);
+      root.querySelector(".s16-cor").innerHTML = RD.corazon(40, "#ff3b2f");
+      const tl = gsap.timeline({ paused: true });
+      const K = RD.kit(tl, root);
+      const { q, qa } = K;
+      const DEDICALE = 0.73, VIDEO = 1.54, CLIENTE = 2.62, MESES = 3.54, VES = 4.23;
+
+      tl.fromTo(q(".s16-quien"), { x: -60, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s16-micw"), { y: 120, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.4)" }, 0);
+      K.habla(q(".s16-hugo .rd-boca"), 0.02, 4.6);
+      K.mece(q(".s16-hugo .rd-hugo"), 0, 7.4, 2, "220 800");
+      K.parpadeo(q(".s16-hugo .rd-ojos"), [1.2, 3.4, 5.8]);
+      // "dedicale": la carta entra
+      tl.fromTo([q(".s16-hoja"), q(".s16-carta")], { y: 80, opacity: 0, rotation: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.5)", immediateRender: false }, DEDICALE - 0.25);
+      gsap.set([q(".s16-hoja"), q(".s16-carta")], { opacity: 0 });
+      K.escribe(q(".s16-l1"), DEDICALE + 0.2, 0.4);
+      // "ese cliente que hace meses que no ves": se escribe a mano
+      K.escribe(q(".s16-l2"), CLIENTE - 0.4, VES - CLIENTE + 0.5);
+      K.escribe(q(".s16-l3"), VES + 0.4, 0.7);
+      K.pop(q(".s16-cor"), VES + 1.1, 0.35);
+      K.late(q(".s16-cor"), VES + 1.5, 2.0, 1.12, 0.5);
+      // el sello del cierre
+      K.golpe(q(".s16-sello"), VIDEO, -3);
+      K.late(q(".s16-sello"), VES + 0.3, 1.2, 1.05, 0.4);
+      // y el avioncito sale volando: mandáselo
+      gsap.set(q(".s16-avion"), { opacity: 0 });
+      tl.fromTo(q(".s16-avion"), { opacity: 1, x: 0, y: 0 }, { x: 420, y: -320, opacity: 0, duration: 1.4, ease: "power1.in", immediateRender: false }, VES + 2.0);
+
+      K.etiqueta(q(".s16-et"), [[0.15, "<b>DEDICATORIA</b> DE LA NOCHE"], [CLIENTE, "PARA <b>TU EX CLIENTE</b>"]]);
+      tl.to(q("#s16-escena"), { opacity: 1, duration: 0.01 }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

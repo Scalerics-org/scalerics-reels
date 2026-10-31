@@ -1,0 +1,89 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/radio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-titanic"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-titanic"] svg.s07-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s07-titanic" data-width="1080" data-height="1920" data-duration="2.97">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="2.97" data-track-index="0">
+      <svg class="s07-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs>
+          <clipPath id="s07-recorte"><rect x="0" y="560" width="1080" height="776" /></clipPath>
+          <clipPath id="s07-mar"><rect x="470" y="600" width="580" height="380" rx="24" /></clipPath>
+        </defs>
+        <g clip-path="url(#s07-recorte)">
+          <!-- el cuadrito: un barco que se hunde, de noche -->
+          <g class="s07-cuadro">
+            <rect x="470" y="600" width="580" height="380" rx="24" fill="#22100f" stroke="#140b09" stroke-width="8" />
+            <g clip-path="url(#s07-mar)">
+              <circle cx="960" cy="680" r="34" fill="#f5e6c8" /><circle cx="976" cy="670" r="30" fill="#22100f" />
+              <g class="s07-barco">
+                <path d="M600 880 L920 880 L880 940 H640 Z" fill="#140b09" stroke="#cbbba5" stroke-width="5" stroke-linejoin="round" />
+                <rect x="640" y="846" width="250" height="34" fill="#f5e6c8" stroke="#140b09" stroke-width="5" />
+                <g fill="#ffb03b"><circle cx="670" cy="900" r="6" /><circle cx="710" cy="900" r="6" /><circle cx="750" cy="900" r="6" /><circle cx="790" cy="900" r="6" /><circle cx="830" cy="900" r="6" /><circle cx="870" cy="900" r="6" /></g>
+                <g fill="#ffb03b" stroke="#140b09" stroke-width="5"><rect x="670" y="796" width="36" height="52" /><rect x="726" y="796" width="36" height="52" /><rect x="782" y="796" width="36" height="52" /><rect x="838" y="796" width="36" height="52" /></g>
+                <path d="M670 808 H706 M726 808 H762 M782 808 H818 M838 808 H874" stroke="#140b09" stroke-width="8" />
+              </g>
+              <path class="s07-olas" d="M440 930 q30 -18 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 V1000 H440 Z" fill="#7d1f2b" stroke="#140b09" stroke-width="5" />
+            </g>
+            <rect x="470" y="600" width="580" height="380" rx="24" fill="none" stroke="#c97a1c" stroke-width="6" />
+          </g>
+          <!-- Hugo llora con el pañuelo -->
+          <g class="s07-quien"><g class="s07-hugo" transform="translate(-20 700) scale(0.85)"></g></g>
+          <g class="s07-panuelo"><path d="M250 940 L330 900 L370 980 L300 1010 Z" fill="#f5e6c8" stroke="#140b09" stroke-width="6" stroke-linejoin="round" /><path d="M262 950 L328 918 M276 976 L340 944" stroke="#ff7a6b" stroke-width="4" /></g>
+          <g class="s07-lag" fill="#9fd0e8" stroke="#140b09" stroke-width="4">
+            <path class="s07-l1" d="M128 900 Q116 928 128 940 Q142 928 128 900 Z" />
+            <path class="s07-l2" d="M220 900 Q208 928 220 940 Q234 928 220 900 Z" />
+          </g>
+          <!-- el teléfono de la línea 2 -->
+          <g class="s07-telw"><g class="s07-sw"><g class="s07-tel" transform="translate(800 1170) scale(0.62)"></g></g></g>
+          <g class="s07-ring" fill="none" stroke="#ff3b2f" stroke-width="8" stroke-linecap="round"><path d="M676 1090 l-26 -22 M700 1064 l-12 -32 M924 1090 l26 -22 M900 1064 l12 -32" /></g>
+        </g>
+      </svg>
+      <div class="rd-etiqueta"><span class="s07-et"></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-titanic";
+      const DUR = 2.97;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s07-hugo").innerHTML = RD.hugo({ mirada: 0, brazoD: "M372 452 Q420 400 360 330", manoD: [356, 322] });
+      root.querySelector(".s07-tel").innerHTML = RD.telefono({ color: "#7d1f2b" });
+      const tl = gsap.timeline({ paused: true });
+      const K = RD.kit(tl, root);
+      const { q, qa } = K;
+      const FINAL = 0.54, TITANIC = 0.84, OTRA = 1.82;
+
+      tl.fromTo(q(".s07-quien"), { y: 60, opacity: 0.7 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      K.habla(q(".s07-hugo .rd-boca"), 0.02, 2.6);
+      tl.fromTo(q(".s07-panuelo"), { y: 40 }, { y: 0, duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s07-panuelo"), { rotation: -6 }, { rotation: 6, svgOrigin: "310 960", duration: 0.15, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, 0.3);
+      // lágrimas que caen
+      qa(".s07-lag path").forEach((l, i) => {
+        gsap.set(l, { opacity: 0 });
+        for (let k = 0; k < 3; k++) tl.fromTo(l, { opacity: 1, y: 0 }, { opacity: 0, y: 130, duration: 0.6, ease: "power1.in", immediateRender: false }, 0.1 + i * 0.25 + k * 0.7);
+      });
+      // "el final de Titanic": el cuadrito y el barco se hunde de punta
+      tl.fromTo(q(".s07-cuadro"), { scale: 0.7, opacity: 0, svgOrigin: "760 790" }, { scale: 1, opacity: 1, svgOrigin: "760 790", duration: 0.35, ease: "back.out(1.6)" }, FINAL - 0.4);
+      tl.to(q(".s07-barco"), { rotation: -28, svgOrigin: "760 900", duration: 0.5, ease: "power2.in" }, TITANIC - 0.1);
+      tl.to(q(".s07-barco"), { y: 200, duration: 1.0, ease: "power2.in" }, TITANIC + 0.3);
+      tl.fromTo(q(".s07-olas"), { x: 0 }, { x: -60, duration: 2.5, ease: "none" }, 0);
+      // "Otra llamada": suena el teléfono de la línea 2
+      tl.to(q(".s07-cuadro"), { opacity: 0.25, duration: 0.25 }, OTRA - 0.1);
+      K.pop(q(".s07-telw"), OTRA - 0.1, 0.3);
+      K.suena(q(".s07-sw"), OTRA + 0.15, 0.7, "800 1170");
+      gsap.set(q(".s07-ring"), { opacity: 0 });
+      K.titila(q(".s07-ring"), OTRA + 0.15, 0.75, 0.18);
+
+      K.etiqueta(q(".s07-et"), [[0.15, "MÁS TRISTE QUE <b>EL FINAL</b>"], [OTRA, "<b>LÍNEA 2</b> · SONANDO"]]);
+      K.salida(q("#s07-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
