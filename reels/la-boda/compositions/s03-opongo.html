@@ -1,0 +1,161 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-opongo"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-opongo"] .s03-esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-opongo"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-opongo"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s03-opongo"] .fig svg, [data-composition-id="s03-opongo"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s03-opongo"] .obj { position: absolute; }
+    [data-composition-id="s03-opongo"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #2a1220; paint-order: stroke fill; }
+    [data-composition-id="s03-opongo"] .big.m { color: #fbf4e6; text-shadow: 9px 9px 0 #9b2445; }
+    [data-composition-id="s03-opongo"] .big.d { color: #e3b448; text-shadow: 9px 9px 0 #9b2445; }
+    [data-composition-id="s03-opongo"] .big.r { color: #eba5b3; text-shadow: 9px 9px 0 #2a1220; }
+    [data-composition-id="s03-opongo"] .big.a { color: #5b8ee0; text-shadow: 9px 9px 0 #2a1220; }
+    [data-composition-id="s03-opongo"] .big.v { color: #9b2445; text-shadow: 9px 9px 0 #e3b448; }
+    [data-composition-id="s03-opongo"] .big.g { color: #5ce611; text-shadow: 8px 8px 0 #2a1220; }
+    [data-composition-id="s03-opongo"] .script { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; color: #e3b448; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s03-opongo"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s03-opongo"] .sello { position: absolute; padding: 18px 46px 10px; border: 12px solid currentColor; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #2a1220; }
+    [data-composition-id="s03-opongo"] .centro { left: 0; right: 0; margin-left: auto; margin-right: auto; width: max-content; }
+    [data-composition-id="s03-opongo"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #2a1220; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #2a1220; background: #fbf4e6; box-shadow: 8px 8px 0 #2a1220; }
+    [data-composition-id="s03-opongo"] .cel { position: absolute; border-radius: 52px; border: 8px solid #2a1220; background: #2a1220; box-shadow: 0 0 0 6px #e3b448, 12px 12px 0 6px #2a1220; }
+    [data-composition-id="s03-opongo"] .cel .barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #2a1220; z-index: 2; }
+    [data-composition-id="s03-opongo"] .cel .pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 44px; background: #fbf4e6; overflow: hidden; }
+    [data-composition-id="s03-opongo"] .cel .head { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: #9b2445; border-bottom: 5px solid #2a1220; }
+    [data-composition-id="s03-opongo"] .cel .head b { position: absolute; left: 110px; top: 50px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 32px; color: #fbf4e6; white-space: nowrap; }
+    [data-composition-id="s03-opongo"] .cel .head small { position: absolute; left: 110px; top: 88px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; color: #eba5b3; white-space: nowrap; }
+    [data-composition-id="s03-opongo"] .cel .head i { position: absolute; left: 30px; top: 50px; width: 64px; height: 64px; border-radius: 50%; background: #eba5b3; border: 4px solid #2a1220; }
+    [data-composition-id="s03-opongo"] .msg { position: absolute; max-width: 80%; padding: 14px 20px 12px; border-radius: 22px; border: 4px solid #2a1220; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.18; color: #2a1220; }
+    [data-composition-id="s03-opongo"] .msg.yo { right: 18px; background: #eba5b3; border-bottom-right-radius: 6px; }
+    [data-composition-id="s03-opongo"] .msg.el { left: 18px; background: #ffffff; border-bottom-left-radius: 6px; }
+    [data-composition-id="s03-opongo"] .msg small { display: block; margin-top: 4px; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 600; opacity: 0.65; }
+
+    [data-composition-id="s03-opongo"] .s03-pu { left: 190px; top: 700px; width: 700px; height: 820px; }
+    [data-composition-id="s03-opongo"] .s03-due { left: 340px; top: 780px; transform-origin: 50% 100%; }
+    [data-composition-id="s03-opongo"] .s03-t1 { top: 548px; font-size: 120px; }
+    [data-composition-id="s03-opongo"] .s03-t2 { top: 676px; font-size: 140px; }
+    [data-composition-id="s03-opongo"] .s03-cm { top: 1130px; font-size: 120px; }
+    [data-composition-id="s03-opongo"] .s03-sello { top: 1290px; font-size: 64px; color: #e3b448; }
+
+  </style>
+  <div id="root" data-composition-id="s03-opongo" data-width="1080" data-height="1920" data-duration="5.44">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="5.44" data-track-index="0">
+      <div class="s03-esc esc">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><g class="s03-rayos" data-layout-allow-overflow><path class="s03-rayo" d="M540 1100 L1440 1100" stroke="#fbf4e6" stroke-width="40" opacity="0.10"/><path class="s03-rayo" d="M540 1100 L1268 1629" stroke="#fbf4e6" stroke-width="40" opacity="0.10"/><path class="s03-rayo" d="M540 1100 L818 1956" stroke="#fbf4e6" stroke-width="40" opacity="0.10"/><path class="s03-rayo" d="M540 1100 L262 1956" stroke="#fbf4e6" stroke-width="40" opacity="0.10"/><path class="s03-rayo" d="M540 1100 L-188 1629" stroke="#fbf4e6" stroke-width="40" opacity="0.10"/><path class="s03-rayo" d="M540 1100 L-360 1100" stroke="#fbf4e6" stroke-width="40" opacity="0.10"/><path class="s03-rayo" d="M540 1100 L-188 571" stroke="#fbf4e6" stroke-width="40" opacity="0.10"/><path class="s03-rayo" d="M540 1100 L262 244" stroke="#fbf4e6" stroke-width="40" opacity="0.10"/><path class="s03-rayo" d="M540 1100 L818 244" stroke="#fbf4e6" stroke-width="40" opacity="0.10"/><path class="s03-rayo" d="M540 1100 L1268 571" stroke="#fbf4e6" stroke-width="40" opacity="0.10"/></g></svg>
+        <div class="obj s03-pu"><svg viewBox="0 0 600 800" aria-hidden="true">
+  <path d="M40 800 V300 Q40 30 300 30 Q560 30 560 300 V800" fill="none" stroke="#2a1220" stroke-width="40"/>
+  <path d="M40 800 V300 Q40 30 300 30 Q560 30 560 300 V800" fill="none" stroke="#e3b448" stroke-width="22"/>
+  <path class="s03p-luz" d="M60 800 V300 Q60 60 300 60 Q540 60 540 300 V800 Z" fill="#fbf4e6"/>
+  <g class="s03p-pi"><path d="M60 800 V300 Q60 60 300 60 L300 800 Z" transform="" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M90 320 H270" stroke="#2a1220" stroke-width="5" opacity="0.5"/><path d="M90 390 H270" stroke="#2a1220" stroke-width="5" opacity="0.5"/><path d="M90 460 H270" stroke="#2a1220" stroke-width="5" opacity="0.5"/><path d="M90 530 H270" stroke="#2a1220" stroke-width="5" opacity="0.5"/><path d="M90 600 H270" stroke="#2a1220" stroke-width="5" opacity="0.5"/><path d="M90 670 H270" stroke="#2a1220" stroke-width="5" opacity="0.5"/><path d="M90 740 H270" stroke="#2a1220" stroke-width="5" opacity="0.5"/><circle cx="266" cy="520" r="14" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></g>
+  <g class="s03p-pd"><path d="M300 800 V300 Q300 60 300 60 L300 800 Z" transform="translate(600 0) scale(-1 1)" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M330 320 H510" stroke="#2a1220" stroke-width="5" opacity="0.5"/><path d="M330 390 H510" stroke="#2a1220" stroke-width="5" opacity="0.5"/><path d="M330 460 H510" stroke="#2a1220" stroke-width="5" opacity="0.5"/><path d="M330 530 H510" stroke="#2a1220" stroke-width="5" opacity="0.5"/><path d="M330 600 H510" stroke="#2a1220" stroke-width="5" opacity="0.5"/><path d="M330 670 H510" stroke="#2a1220" stroke-width="5" opacity="0.5"/><path d="M330 740 H510" stroke="#2a1220" stroke-width="5" opacity="0.5"/><circle cx="334" cy="520" r="14" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></g>
+</svg></div>
+        <div class="fig s03-due"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="s03d-cuerpo">
+  <path d="M176 480 L170 684 M224 480 L230 684" stroke="#2a1220" stroke-width="50" stroke-linecap="round" fill="none"/>
+  <path d="M176 480 L170 684 M224 480 L230 684" stroke="#4a3550" stroke-width="36" stroke-linecap="round" fill="none"/>
+  <path d="M130 680 Q130 656 168 656 Q194 656 194 694 L130 702 Z M270 680 Q270 656 232 656 Q206 656 206 694 L270 702 Z" fill="#2a1220" stroke="#fbf4e6" stroke-width="3"/>
+  <g class="s03d-bi">
+    <path d="M150 292 L114 388 L116 466" stroke="#2a1220" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M150 292 L114 388 L116 466" stroke="#5b8ee0" stroke-width="31" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="116" cy="474" r="18" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="s03d-bd">
+    <path d="M250 292 L286 388 L284 466" stroke="#2a1220" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M250 292 L286 388 L284 466" stroke="#5b8ee0" stroke-width="31" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="284" cy="474" r="18" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <path d="M140 278 Q200 262 260 278 Q278 390 268 494 Q200 508 132 494 Q122 390 140 278 Z" fill="#5b8ee0" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M160 330 L240 330 L250 520 Q200 530 150 520 Z" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M160 330 L150 290 M240 330 L250 290" stroke="#9b2445" stroke-width="8"/>
+  <rect x="176" y="380" width="48" height="40" rx="6" fill="none" stroke="#2a1220" stroke-width="4"/>
+  <path d="M184 392 H216" stroke="#e3b448" stroke-width="5"/>
+  <rect x="184" y="242" width="32" height="32" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s03d-cabeza">
+    <circle cx="134" cy="204" r="15" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="266" cy="204" r="15" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse cx="200" cy="196" rx="66" ry="68" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M132 176 Q120 120 160 118 Q150 96 190 104 Q206 84 230 104 Q270 96 262 128 Q284 140 268 180 Q256 150 230 146 Q210 160 188 146 Q160 156 132 176 Z" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M200 104 Q214 70 236 76 M172 112 Q164 84 146 86" stroke="#2a1220" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <g class="s03d-ojos"><circle cx="176" cy="194" r="12" fill="#fbf4e6" stroke="#2a1220" stroke-width="4"/><circle cx="224" cy="194" r="12" fill="#fbf4e6" stroke="#2a1220" stroke-width="4"/>
+      <circle cx="176" cy="196" r="5" fill="#2a1220"/><circle cx="224" cy="196" r="5" fill="#2a1220"/></g>
+    <path class="s03d-cejas" d="M156 170 L192 176 M208 176 L244 170" stroke="#2a1220" stroke-width="9" stroke-linecap="round"/>
+    <path d="M200 200 Q192 216 202 220" stroke="#2a1220" stroke-width="4" fill="none"/>
+    <path d="M164 232 Q182 218 200 226 Q218 218 236 232 Q218 236 200 232 Q182 236 164 232 Z" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse class="s03d-boca" cx="200" cy="250" rx="18" ry="10" fill="#2a1220"/>
+    <g class="s03d-gotas" opacity="0">
+      <path d="M268 140 C262 156 258 168 266 172 C274 176 278 166 274 154 Z" fill="#5b8ee0" stroke="#2a1220" stroke-width="3"/>
+      <path d="M128 150 C122 166 118 178 126 182 C134 186 138 176 134 164 Z" fill="#5b8ee0" stroke="#2a1220" stroke-width="3"/>
+    </g>
+  </g>
+</g></svg></div>
+        <div class="big m s03-t1">¡Yo me</div>
+        <div class="big d s03-t2">opongo!</div>
+        <div class="big a s03-cm">Clienta mía</div>
+        <div class="sello centro s03-sello">de toda la vida</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-opongo";
+      const DUR = 5.44;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+
+
+      const YO = 0.0, OPONGO = 0.37, LUCIA = 1.37, CASES = 2.13, CLIENTA = 3.24, MIA = 3.61, TODA = 4.07;
+      // cuadro 0: las puertas cerradas, y se abren de golpe
+      gsap.set(q(".s03p-luz"), { opacity: 0.2 });
+      tl.to(q(".s03p-pi"), { scaleX: 0.12, svgOrigin: "60 800", duration: 0.28, ease: "power4.out" }, 0.08);
+      tl.to(q(".s03p-pd"), { scaleX: 0.12, svgOrigin: "540 800", duration: 0.28, ease: "power4.out" }, 0.08);
+      tl.to(q(".s03p-luz"), { opacity: 1, duration: 0.2 }, 0.08);
+      tl.fromTo(qa(".s03-rayo"), { opacity: 0 }, { opacity: 0.12, duration: 0.3, immediateRender: false }, 0.1);
+      tl.to(q(".s03-rayos"), { rotation: 12, svgOrigin: "540 1100", duration: 5.2, ease: "none" }, 0.1);
+      // Ricardo a contraluz que se va iluminando
+      gsap.set(q(".s03-due"), { opacity: 0 });
+      tl.fromTo(q(".s03-due"), { opacity: 1, scale: 0.8, filter: "brightness(0.12)" }, { opacity: 1, scale: 0.86, filter: "brightness(0.12)", duration: 0.2, immediateRender: false }, 0.12);
+      gsap.set(q(".s03d-bi"), { rotation: 60, svgOrigin: "150 292" });
+      gsap.set(q(".s03d-bd"), { rotation: -60, svgOrigin: "250 292" });
+      tl.to(q(".s03d-bi"), { rotation: 125, svgOrigin: "150 292", duration: 0.25, ease: "back.out(2)" }, 0.15);
+      tl.to(q(".s03d-bd"), { rotation: -125, svgOrigin: "250 292", duration: 0.25, ease: "back.out(2)" }, 0.15);
+      golpe(q(".s03-t1"), YO + 0.18, -3, 2.4);
+      golpe(q(".s03-t2"), OPONGO + 0.12, 3, 3);
+      sacudon(OPONGO + 0.15, 2);
+      habla(".s03d-boca", 0.1, 5.0, "200 250");
+      // ¡Lucía, no te cases!: corre hacia adelante
+      tl.to(q(".s03-due"), { scale: 1.12, y: 40, filter: "brightness(1)", duration: 0.5, ease: "power2.out" }, LUCIA - 0.1);
+      tl.to(q(".s03d-gotas"), { opacity: 1, duration: 0.1 }, LUCIA);
+      tl.fromTo(q(".s03d-gotas"), { y: 0 }, { y: 30, duration: 0.4, repeat: 7, ease: "power1.in", immediateRender: false }, LUCIA);
+      tl.to(q(".s03d-bi"), { rotation: 30, svgOrigin: "150 292", duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, CASES);
+      tl.to(q(".s03d-bd"), { rotation: -30, svgOrigin: "250 292", duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, CASES);
+      tl.to([q(".s03-t1"), q(".s03-t2")], { opacity: 0.3, scale: 0.85, duration: 0.25 }, CLIENTA - 0.2);
+      golpe(q(".s03-cm"), CLIENTA + 0.1, -3, 2.4);
+      sacudon(MIA + 0.05, 1);
+      golpe(q(".s03-sello"), TODA, 4, 2.2);
+      vaiven(q(".s03-due"), LUCIA + 0.5, 3.4, { rotation: 2 }, 0.2);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

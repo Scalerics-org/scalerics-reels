@@ -1,0 +1,122 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg.am-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    /* placa de la invitación arriba */
+    [data-composition-id="ambiente"] .am-top { position: absolute; left: 140px; right: 140px; top: 58px; height: 136px; text-align: center; }
+    [data-composition-id="ambiente"] .am-placa { position: absolute; left: 0; right: 0; top: 0; height: 136px; border: 5px solid #e3b448; border-radius: 68px; background: rgba(42, 18, 32, 0.85); box-shadow: 0 0 0 5px #2a1220, 0 0 0 9px rgba(227, 180, 72, 0.4); }
+    [data-composition-id="ambiente"] .am-placa small { position: absolute; left: 0; right: 0; top: 18px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.3em; color: #eba5b3; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-placa b { position: absolute; left: 0; right: 0; top: 50px; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; font-size: 64px; line-height: 1; color: #e3b448; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-rec { position: absolute; right: 36px; top: 22px; width: 16px; height: 16px; border-radius: 50%; background: #9b2445; border: 3px solid #eba5b3; }
+    /* zócalo de telenovela: quién habla */
+    [data-composition-id="ambiente"] .am-zocalo { position: absolute; left: 44px; top: 1560px; width: 900px; height: 130px; }
+    [data-composition-id="ambiente"] .am-z { position: absolute; left: 0; top: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .am-z b { display: inline-block; padding: 10px 26px 8px; border: 5px solid #2a1220; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; line-height: 1; color: #2a1220; white-space: nowrap; transform: rotate(-1.5deg); box-shadow: 6px 6px 0 #2a1220; }
+    [data-composition-id="ambiente"] .am-z small { display: block; width: max-content; margin: 2px 0 0 26px; padding: 6px 16px 4px; background: #fbf4e6; border: 4px solid #2a1220; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 26px; letter-spacing: 0.06em; color: #2a1220; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #fbf4e6; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.28">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="73.28" data-track-index="0">
+      <svg class="am-full" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="am-haces" data-layout-allow-overflow>
+          <path class="am-h1" d="M40 520 L120 470 L640 1560 L380 1560 Z" fill="#eba5b3" opacity="0.06" />
+          <path class="am-h2" d="M1040 520 L960 470 L700 1560 L440 1560 Z" fill="#5b8ee0" opacity="0.07" />
+        </g>
+        <g class="am-petalos" data-layout-allow-overflow></g>
+        <g class="am-arroz" data-layout-allow-overflow></g>
+      </svg>
+      <div class="am-top">
+        <div class="am-placa"><small>HOY SE CASAN</small><b>Lucía &amp; el de enfrente</b><i class="am-rec"></i></div>
+      </div>
+      <div class="am-zocalo">
+        <div class="am-z am-zt"><b style="background:#eba5b3">LA TÍA ELSA</b><small>primer banco · ya lloró dos veces</small></div>
+        <div class="am-z am-zc"><b style="background:#e3b448">EL PADRE</b><small>casó a medio barrio</small></div>
+        <div class="am-z am-zd"><b style="background:#7fa6ea">RICARDO</b><small>Calzados Ricardo · no estaba invitado</small></div>
+        <div class="am-z am-zn"><b style="background:#fbf4e6">LUCÍA</b><small>la novia · tu mejor clienta</small></div>
+        <div class="am-z am-zv"><b style="background:#e3b448">EL DE ENFRENTE</b><small>el novio · contesta al toque</small></div>
+      </div>
+      <div class="am-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const FIN = 55.8; // entra Scalerics: se apaga la iglesia
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+
+      // haces de luz de los vitrales que respiran
+      tl.fromTo(q(".am-h1"), { opacity: 0.04 }, { opacity: 0.1, duration: 2.4, yoyo: true, repeat: Math.floor(FIN / 2.4), ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".am-h2"), { opacity: 0.1 }, { opacity: 0.04, duration: 2.9, yoyo: true, repeat: Math.floor(FIN / 2.9), ease: "sine.inOut" }, 0);
+      // la placa: el punto de "en vivo" titila
+      tl.fromTo(q(".am-rec"), { opacity: 1 }, { opacity: 0.2, duration: 0.5, ease: "steps(1)", yoyo: true, repeat: Math.floor(FIN / 0.5), immediateRender: false }, 0);
+      tl.fromTo(q(".am-placa"), { scale: 1 }, { scale: 1.03, duration: 0.7, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.1);
+
+      // pétalos que caen todo el casamiento (deterministas)
+      const pet = q(".am-petalos");
+      const COL = ["#eba5b3", "#fbf4e6", "#eba5b3", "#9b2445", "#e3b448"];
+      for (let i = 0; i < 22; i++) {
+        const p = document.createElementNS(NS, "path");
+        const s = 0.8 + (i % 4) * 0.25;
+        p.setAttribute("d", `M0 ${-14 * s} Q${12 * s} 0 0 ${14 * s} Q${-12 * s} 0 0 ${-14 * s} Z`);
+        p.setAttribute("fill", COL[i % 5]); p.setAttribute("stroke", "#2a1220"); p.setAttribute("stroke-width", 2); p.setAttribute("opacity", 0.75);
+        const g = document.createElementNS(NS, "g"); g.appendChild(p); pet.appendChild(g);
+        const x = (i * 211 + 37) % 1080, caida = 6 + (i % 5) * 1.3, fr = ((i * 0.37) % 1);
+        const dx = (i % 2) ? 120 : -120, r0 = (i * 53) % 360;
+        // primer tramo: arranca ya a mitad de la caída (el cuadro 0 tiene pétalos)
+        const resto = caida * (1 - fr);
+        tl.fromTo(g, { x: x + dx * fr, y: -40 + 2000 * fr, rotation: r0 }, { x: x + dx, y: 1960, rotation: r0 + 420 * (1 - fr), duration: resto, ease: "none", immediateRender: true }, 0);
+        const vueltas = Math.max(0, Math.floor((FIN - resto) / caida) - 1);
+        tl.fromTo(g, { x, y: -40, rotation: r0 }, { x: x + dx, y: 1960, rotation: r0 + 420, duration: caida, ease: "none", repeat: vueltas, immediateRender: false }, resto);
+      }
+
+      // zócalo: quién habla
+      const Z = [[".am-zt", 0, 5.2], [".am-zc", 5.23, 11.56], [".am-zd", 11.59, 17.0], [".am-zt", 17.03, 20.06], [".am-zn", 20.09, 31.39],
+        [".am-zc", 31.42, 33.0], [".am-zd", 33.02, 37.1], [".am-zn", 37.14, 38.58], [".am-zv", 38.61, 44.14], [".am-zd", 44.17, 46.0],
+        [".am-zv", 46.03, 51.94], [".am-zc", 51.97, FIN - 0.05]];
+      Z.forEach(([s, a, b], i) => {
+        const el = q(s);
+        if (i === 0) gsap.set(el, { opacity: 1 });
+        else tl.fromTo(el, { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, a);
+        tl.to(el, { opacity: 0, x: -40, duration: 0.12, ease: "power2.in" }, b - 0.1);
+      });
+
+      // flash cuando se abren las puertas ("¡Yo me opongo!") y en el "¡un pulgar!"
+      const flash = (t, o) => { tl.to(q(".am-flash"), { opacity: o, duration: 0.04 }, t); tl.to(q(".am-flash"), { opacity: 0, duration: 0.35 }, t + 0.06); };
+      flash(11.55, 0.6); flash(29.9, 0.3); flash(37.15, 0.35);
+
+      // arroz: "¡Tiren el arroz!" (53.8)
+      const arr = q(".am-arroz");
+      for (let i = 0; i < 90; i++) {
+        const e = document.createElementNS(NS, "ellipse");
+        e.setAttribute("rx", 4); e.setAttribute("ry", 9); e.setAttribute("fill", "#fbf4e6"); e.setAttribute("stroke", "#2a1220"); e.setAttribute("stroke-width", 1.5);
+        const g = document.createElementNS(NS, "g"); g.appendChild(e); arr.appendChild(g);
+        const lado = i % 2 ? 1 : -1, x0 = lado > 0 ? 1100 : -20, t = 53.75 + (i % 10) * 0.04;
+        const x1 = 540 - lado * ((i * 37) % 520), y0 = 1300 + (i * 23) % 300, ymax = 500 + (i * 41) % 500;
+        gsap.set(g, { x: x0, y: y0, opacity: 0 });
+        tl.set(g, { opacity: 1 }, t);
+        tl.to(g, { x: x1, duration: 1.6, ease: "power1.out" }, t);
+        tl.to(g, { y: ymax, duration: 0.7, ease: "power2.out" }, t);
+        tl.to(g, { y: 1950, duration: 1.1, ease: "power2.in" }, t + 0.7);
+        tl.to(g, { rotation: (i * 97) % 720, duration: 1.8, ease: "none" }, t);
+        tl.set(g, { opacity: 0 }, t + 1.8);
+      }
+
+      // Scalerics: se apaga la iglesia
+      tl.to(q(".am-top"), { opacity: 0, y: -40, duration: 0.3 }, FIN);
+      tl.to(q(".am-haces"), { opacity: 0, duration: 0.5 }, FIN);
+      tl.to(q(".am-petalos"), { opacity: 0.35, duration: 0.6 }, FIN);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

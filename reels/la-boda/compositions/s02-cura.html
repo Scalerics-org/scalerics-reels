@@ -1,0 +1,158 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-cura"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-cura"] .s02-esc { position: absolute; inset: 0; }
+    [data-composition-id="s02-cura"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-cura"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s02-cura"] .fig svg, [data-composition-id="s02-cura"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s02-cura"] .obj { position: absolute; }
+    [data-composition-id="s02-cura"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #2a1220; paint-order: stroke fill; }
+    [data-composition-id="s02-cura"] .big.m { color: #fbf4e6; text-shadow: 9px 9px 0 #9b2445; }
+    [data-composition-id="s02-cura"] .big.d { color: #e3b448; text-shadow: 9px 9px 0 #9b2445; }
+    [data-composition-id="s02-cura"] .big.r { color: #eba5b3; text-shadow: 9px 9px 0 #2a1220; }
+    [data-composition-id="s02-cura"] .big.a { color: #5b8ee0; text-shadow: 9px 9px 0 #2a1220; }
+    [data-composition-id="s02-cura"] .big.v { color: #9b2445; text-shadow: 9px 9px 0 #e3b448; }
+    [data-composition-id="s02-cura"] .big.g { color: #5ce611; text-shadow: 8px 8px 0 #2a1220; }
+    [data-composition-id="s02-cura"] .script { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; color: #e3b448; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s02-cura"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s02-cura"] .sello { position: absolute; padding: 18px 46px 10px; border: 12px solid currentColor; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #2a1220; }
+    [data-composition-id="s02-cura"] .centro { left: 0; right: 0; margin-left: auto; margin-right: auto; width: max-content; }
+    [data-composition-id="s02-cura"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #2a1220; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #2a1220; background: #fbf4e6; box-shadow: 8px 8px 0 #2a1220; }
+    [data-composition-id="s02-cura"] .cel { position: absolute; border-radius: 52px; border: 8px solid #2a1220; background: #2a1220; box-shadow: 0 0 0 6px #e3b448, 12px 12px 0 6px #2a1220; }
+    [data-composition-id="s02-cura"] .cel .barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #2a1220; z-index: 2; }
+    [data-composition-id="s02-cura"] .cel .pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 44px; background: #fbf4e6; overflow: hidden; }
+    [data-composition-id="s02-cura"] .cel .head { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: #9b2445; border-bottom: 5px solid #2a1220; }
+    [data-composition-id="s02-cura"] .cel .head b { position: absolute; left: 110px; top: 50px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 32px; color: #fbf4e6; white-space: nowrap; }
+    [data-composition-id="s02-cura"] .cel .head small { position: absolute; left: 110px; top: 88px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; color: #eba5b3; white-space: nowrap; }
+    [data-composition-id="s02-cura"] .cel .head i { position: absolute; left: 30px; top: 50px; width: 64px; height: 64px; border-radius: 50%; background: #eba5b3; border: 4px solid #2a1220; }
+    [data-composition-id="s02-cura"] .msg { position: absolute; max-width: 80%; padding: 14px 20px 12px; border-radius: 22px; border: 4px solid #2a1220; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.18; color: #2a1220; }
+    [data-composition-id="s02-cura"] .msg.yo { right: 18px; background: #eba5b3; border-bottom-right-radius: 6px; }
+    [data-composition-id="s02-cura"] .msg.el { left: 18px; background: #ffffff; border-bottom-left-radius: 6px; }
+    [data-composition-id="s02-cura"] .msg small { display: block; margin-top: 4px; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 600; opacity: 0.65; }
+
+    [data-composition-id="s02-cura"] .s02-arco { left: 140px; top: 700px; width: 800px; height: 800px; }
+    [data-composition-id="s02-cura"] .s02-cura { left: 340px; top: 830px; transform-origin: 50% 40%; }
+    [data-composition-id="s02-cura"] .s02-t1 { top: 548px; font-size: 96px; }
+    [data-composition-id="s02-cura"] .s02-t1b { top: 650px; font-size: 96px; }
+    [data-composition-id="s02-cura"] .s02-t2 { top: 1250px; font-size: 120px; }
+    [data-composition-id="s02-cura"] .s02-t3 { top: 1380px; font-size: 120px; }
+    [data-composition-id="s02-cura"] .s02-vela { width: 90px; height: 300px; top: 1130px; }
+
+  </style>
+  <div id="root" data-composition-id="s02-cura" data-width="1080" data-height="1920" data-duration="6.36">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="6.36" data-track-index="0">
+      <div class="s02-esc esc">
+
+        <div class="obj s02-arco"><svg viewBox="0 0 900 900" aria-hidden="true">
+  <path d="M70 900 V430 A380 380 0 0 1 830 430 V900" fill="none" stroke="#2a1220" stroke-width="40"/>
+  <path d="M70 900 V430 A380 380 0 0 1 830 430 V900" fill="none" stroke="#e3b448" stroke-width="24"/>
+  <g class="s02a-flor"><circle cx="70" cy="430" r="28" fill="#eba5b3" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="70" cy="430" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="76" cy="364" r="34" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="76" cy="364" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="93" cy="300" r="28" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="93" cy="300" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="121" cy="240" r="34" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="121" cy="240" r="9" fill="#9b2445"/></g><g class="s02a-flor"><circle cx="159" cy="186" r="28" fill="#eba5b3" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="159" cy="186" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="206" cy="139" r="34" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="206" cy="139" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="260" cy="101" r="28" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="260" cy="101" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="320" cy="73" r="34" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="320" cy="73" r="9" fill="#9b2445"/></g><g class="s02a-flor"><circle cx="384" cy="56" r="28" fill="#eba5b3" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="384" cy="56" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="450" cy="50" r="34" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="450" cy="50" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="516" cy="56" r="28" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="516" cy="56" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="580" cy="73" r="34" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="580" cy="73" r="9" fill="#9b2445"/></g><g class="s02a-flor"><circle cx="640" cy="101" r="28" fill="#eba5b3" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="640" cy="101" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="694" cy="139" r="34" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="694" cy="139" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="741" cy="186" r="28" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="741" cy="186" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="779" cy="240" r="34" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="779" cy="240" r="9" fill="#9b2445"/></g><g class="s02a-flor"><circle cx="807" cy="300" r="28" fill="#eba5b3" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="807" cy="300" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="824" cy="364" r="34" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="824" cy="364" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="830" cy="430" r="28" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="830" cy="430" r="9" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="62" cy="500" r="26" fill="#eba5b3" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="62" cy="500" r="8" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="78" cy="590" r="26" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="78" cy="590" r="8" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="62" cy="680" r="26" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="62" cy="680" r="8" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="78" cy="770" r="26" fill="#eba5b3" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="78" cy="770" r="8" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="62" cy="860" r="26" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="62" cy="860" r="8" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="822" cy="500" r="26" fill="#eba5b3" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="822" cy="500" r="8" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="838" cy="590" r="26" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="838" cy="590" r="8" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="822" cy="680" r="26" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="822" cy="680" r="8" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="838" cy="770" r="26" fill="#eba5b3" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="838" cy="770" r="8" fill="#e3b448"/></g><g class="s02a-flor"><circle cx="822" cy="860" r="26" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="822" cy="860" r="8" fill="#e3b448"/></g>
+</svg></div>
+        <div class="obj s02-vela" style="left:90px"><svg viewBox="0 0 90 300" aria-hidden="true"><rect x="25" y="90" width="40" height="190" rx="6" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M10 280 H80 L70 296 H20 Z" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M45 90 V72" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <path class="s02-llama" d="M45 20 Q62 48 45 70 Q28 48 45 20 Z" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="obj s02-vela" style="left:900px"><svg viewBox="0 0 90 300" aria-hidden="true"><rect x="25" y="90" width="40" height="190" rx="6" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M10 280 H80 L70 296 H20 Z" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M45 90 V72" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <path class="s02-llama" d="M45 20 Q62 48 45 70 Q28 48 45 20 Z" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div class="fig s02-cura"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="s02c-cuerpo">
+  <ellipse cx="166" cy="702" rx="30" ry="12" fill="#2a1220"/><ellipse cx="234" cy="702" rx="30" ry="12" fill="#2a1220"/>
+  <path d="M146 280 Q200 264 254 280 L300 696 Q200 712 100 696 Z" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M180 290 L176 690 M220 290 L224 690" stroke="#2a1220" stroke-width="4" opacity="0.18"/>
+  <path d="M172 284 L164 640 L196 640 L200 300 L204 640 L236 640 L228 284 Z" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M180 600 H190 M180 590 V612 M210 600 H220 M215 590 V612" stroke="#9b2445" stroke-width="5"/>
+  <path d="M164 640 L180 664 L196 640 M204 640 L220 664 L236 640" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s02c-bi">
+    <path d="M150 296 L128 380 L176 420" stroke="#2a1220" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M150 296 L128 380 L176 420" stroke="#fbf4e6" stroke-width="31" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="176" cy="428" r="18" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="s02c-bd">
+    <path d="M250 296 L272 380 L224 420" stroke="#2a1220" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M250 296 L272 380 L224 420" stroke="#fbf4e6" stroke-width="31" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="224" cy="428" r="18" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="s02c-libreta">
+    <rect x="140" y="380" width="120" height="86" rx="8" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M200 396 V450 M184 414 H216" stroke="#e3b448" stroke-width="7" stroke-linecap="round"/>
+    <path d="M150 466 H250" stroke="#fbf4e6" stroke-width="5"/>
+  </g>
+  <circle cx="176" cy="428" r="18" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="224" cy="428" r="18" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="184" y="244" width="32" height="34" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="182" y="262" width="36" height="16" fill="#fbf4e6" stroke="#2a1220" stroke-width="4"/>
+  <rect x="192" y="262" width="16" height="16" fill="#fbf4e6" stroke="#2a1220" stroke-width="3"/>
+  <g class="s02c-cabeza">
+    <circle cx="136" cy="200" r="16" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="264" cy="200" r="16" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse cx="200" cy="192" rx="64" ry="72" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M138 214 Q130 160 150 150 Q146 190 160 196 Z M262 214 Q270 160 250 150 Q254 190 240 196 Z" fill="#d9d2c4" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M180 132 Q200 124 220 132" stroke="#2a1220" stroke-width="4" fill="none" opacity="0.4"/>
+    <g class="s02c-ojos"><circle cx="178" cy="198" r="6" fill="#2a1220"/><circle cx="222" cy="198" r="6" fill="#2a1220"/></g>
+    <circle cx="178" cy="198" r="18" fill="none" stroke="#e3b448" stroke-width="5"/><circle cx="222" cy="198" r="18" fill="none" stroke="#e3b448" stroke-width="5"/>
+    <path d="M196 196 H204" stroke="#e3b448" stroke-width="5"/>
+    <path class="s02c-cejas" d="M160 172 Q176 164 192 172 M208 172 Q224 164 240 172" stroke="#d9d2c4" stroke-width="11" fill="none" stroke-linecap="round"/>
+    <path d="M200 204 Q192 220 202 224" stroke="#2a1220" stroke-width="4" fill="none"/>
+    <circle cx="164" cy="228" r="10" fill="#eba5b3" opacity="0.6"/><circle cx="236" cy="228" r="10" fill="#eba5b3" opacity="0.6"/>
+    <ellipse class="s02c-boca" cx="200" cy="242" rx="16" ry="6" fill="#9b2445" stroke="#2a1220" stroke-width="4"/>
+  </g>
+</g></svg></div>
+        <div class="big d s02-t1">¿Alguien</div>
+        <div class="big d s02-t1b">se opone?</div>
+        <div class="big m s02-t2">O calle</div>
+        <div class="big v s02-t3">para siempre</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-cura";
+      const DUR = 6.36;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+
+
+      const OPONE = 1.00, HABLE = 3.18, CALLE = 4.48, SIEMPRE = 5.09;
+      gsap.set(q(".s02-cura"), { opacity: 1 });
+      tl.fromTo(q(".s02-cura"), { y: 40, scale: 0.96 }, { y: 0, scale: 1, duration: 0.5, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s02-arco"), { scale: 1.06, transformOrigin: "50% 100%" }, { scale: 1, duration: 0.6, ease: "power2.out" }, 0);
+      habla(".s02c-boca", 0.0, 5.9, "200 242");
+      tl.fromTo(q(".s02c-cejas"), { y: 0 }, { y: -6, duration: 0.5, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0.2);
+      // la libreta: la mira y levanta la vista
+      tl.to(q(".s02c-cabeza"), { y: 8, rotation: 4, svgOrigin: "200 240", duration: 0.5, ease: "sine.inOut" }, 0.1);
+      tl.to(q(".s02c-cabeza"), { y: 0, rotation: 0, svgOrigin: "200 240", duration: 0.4, ease: "sine.inOut" }, OPONE - 0.2);
+      qa(".s02-llama").forEach((l, i) => tl.fromTo(l, { scaleY: 1, svgOrigin: "45 70" }, { scaleY: 1.25, svgOrigin: "45 70", duration: 0.18 + i * 0.05, yoyo: true, repeat: 25, ease: "sine.inOut" }, 0));
+      golpe(q(".s02-t1"), OPONE - 0.25, -2, 2.4);
+      golpe(q(".s02-t1b"), OPONE + 0.05, 2, 2.4);
+      sacudon(OPONE + 0.05, 0.8);
+      // que hable ahora: la cámara se acerca
+      tl.to(q(".s02-cura"), { scale: 1.12, duration: 1.2, ease: "power2.inOut" }, HABLE);
+      tl.to(q(".s02-arco"), { scale: 1.06, duration: 1.2, ease: "power2.inOut" }, HABLE);
+      golpe(q(".s02-t2"), CALLE, 2, 2.4);
+      golpe(q(".s02-t3"), SIEMPRE + 0.05, -3, 2.6);
+      sacudon(SIEMPRE + 0.1, 1.1);
+      tl.to([q(".s02-t1"), q(".s02-t1b")], { opacity: 0.4, duration: 0.3 }, CALLE);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

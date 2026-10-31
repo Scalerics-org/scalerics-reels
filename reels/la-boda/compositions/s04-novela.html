@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-novela"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-novela"] .s04-esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-novela"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-novela"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s04-novela"] .fig svg, [data-composition-id="s04-novela"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s04-novela"] .obj { position: absolute; }
+    [data-composition-id="s04-novela"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #2a1220; paint-order: stroke fill; }
+    [data-composition-id="s04-novela"] .big.m { color: #fbf4e6; text-shadow: 9px 9px 0 #9b2445; }
+    [data-composition-id="s04-novela"] .big.d { color: #e3b448; text-shadow: 9px 9px 0 #9b2445; }
+    [data-composition-id="s04-novela"] .big.r { color: #eba5b3; text-shadow: 9px 9px 0 #2a1220; }
+    [data-composition-id="s04-novela"] .big.a { color: #5b8ee0; text-shadow: 9px 9px 0 #2a1220; }
+    [data-composition-id="s04-novela"] .big.v { color: #9b2445; text-shadow: 9px 9px 0 #e3b448; }
+    [data-composition-id="s04-novela"] .big.g { color: #5ce611; text-shadow: 8px 8px 0 #2a1220; }
+    [data-composition-id="s04-novela"] .script { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; color: #e3b448; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s04-novela"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s04-novela"] .sello { position: absolute; padding: 18px 46px 10px; border: 12px solid currentColor; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #2a1220; }
+    [data-composition-id="s04-novela"] .centro { left: 0; right: 0; margin-left: auto; margin-right: auto; width: max-content; }
+    [data-composition-id="s04-novela"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #2a1220; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #2a1220; background: #fbf4e6; box-shadow: 8px 8px 0 #2a1220; }
+    [data-composition-id="s04-novela"] .cel { position: absolute; border-radius: 52px; border: 8px solid #2a1220; background: #2a1220; box-shadow: 0 0 0 6px #e3b448, 12px 12px 0 6px #2a1220; }
+    [data-composition-id="s04-novela"] .cel .barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #2a1220; z-index: 2; }
+    [data-composition-id="s04-novela"] .cel .pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 44px; background: #fbf4e6; overflow: hidden; }
+    [data-composition-id="s04-novela"] .cel .head { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: #9b2445; border-bottom: 5px solid #2a1220; }
+    [data-composition-id="s04-novela"] .cel .head b { position: absolute; left: 110px; top: 50px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 32px; color: #fbf4e6; white-space: nowrap; }
+    [data-composition-id="s04-novela"] .cel .head small { position: absolute; left: 110px; top: 88px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; color: #eba5b3; white-space: nowrap; }
+    [data-composition-id="s04-novela"] .cel .head i { position: absolute; left: 30px; top: 50px; width: 64px; height: 64px; border-radius: 50%; background: #eba5b3; border: 4px solid #2a1220; }
+    [data-composition-id="s04-novela"] .msg { position: absolute; max-width: 80%; padding: 14px 20px 12px; border-radius: 22px; border: 4px solid #2a1220; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.18; color: #2a1220; }
+    [data-composition-id="s04-novela"] .msg.yo { right: 18px; background: #eba5b3; border-bottom-right-radius: 6px; }
+    [data-composition-id="s04-novela"] .msg.el { left: 18px; background: #ffffff; border-bottom-left-radius: 6px; }
+    [data-composition-id="s04-novela"] .msg small { display: block; margin-top: 4px; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 600; opacity: 0.65; }
+
+    [data-composition-id="s04-novela"] .s04-tia { left: 340px; top: 760px; transform-origin: 50% 30%; }
+    [data-composition-id="s04-novela"] .s04-rot { top: 556px; font-size: 120px; }
+    [data-composition-id="s04-novela"] .s04-cap { left: 0; right: 0; top: 690px; text-align: center; font-size: 30px; letter-spacing: 0.3em; color: #eba5b3; }
+
+  </style>
+  <div id="root" data-composition-id="s04-novela" data-width="1080" data-height="1920" data-duration="3.06">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.06" data-track-index="0">
+      <div class="s04-esc esc">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="s04-c" transform="translate(170 1100) scale(1.2)" d="M0 30 C-50 -6 -34 -50 0 -24 C34 -50 50 -6 0 30 Z" fill="#eba5b3" stroke="#2a1220" stroke-width="4.2"/><path class="s04-c" transform="translate(900 1000) scale(1.5)" d="M0 30 C-50 -6 -34 -50 0 -24 C34 -50 50 -6 0 30 Z" fill="#9b2445" stroke="#2a1220" stroke-width="3.3"/><path class="s04-c" transform="translate(240 820) scale(0.9)" d="M0 30 C-50 -6 -34 -50 0 -24 C34 -50 50 -6 0 30 Z" fill="#e3b448" stroke="#2a1220" stroke-width="5.6"/><path class="s04-c" transform="translate(840 760) scale(1.1)" d="M0 30 C-50 -6 -34 -50 0 -24 C34 -50 50 -6 0 30 Z" fill="#eba5b3" stroke="#2a1220" stroke-width="4.5"/><path class="s04-c" transform="translate(130 1300) scale(1.0)" d="M0 30 C-50 -6 -34 -50 0 -24 C34 -50 50 -6 0 30 Z" fill="#9b2445" stroke="#2a1220" stroke-width="5.0"/><path class="s04-c" transform="translate(950 1260) scale(1.0)" d="M0 30 C-50 -6 -34 -50 0 -24 C34 -50 50 -6 0 30 Z" fill="#eba5b3" stroke="#2a1220" stroke-width="5.0"/><path class="s04-d" d="M250 1276 Q256.24 1293.76 274 1300 Q256.24 1306.24 250 1324 Q243.76 1306.24 226 1300 Q243.76 1293.76 250 1276 Z" fill="#e3b448" stroke="#2a1220" stroke-width="4"/><path class="s04-d" d="M830 1300 Q837.8 1322.2 860 1330 Q837.8 1337.8 830 1360 Q822.2 1337.8 800 1330 Q822.2 1322.2 830 1300 Z" fill="#fbf4e6" stroke="#2a1220" stroke-width="4"/><path class="s04-d" d="M540 1262 Q544.68 1275.32 558 1280 Q544.68 1284.68 540 1298 Q535.32 1284.68 522 1280 Q535.32 1275.32 540 1262 Z" fill="#e3b448" stroke="#2a1220" stroke-width="4"/></svg>
+        <div class="fig s04-tia"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="s04t-cuerpo">
+  <path d="M178 560 L174 690 M222 560 L226 690" stroke="#2a1220" stroke-width="38" stroke-linecap="round" fill="none"/>
+  <path d="M178 560 L174 690 M222 560 L226 690" stroke="#fbf4e6" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <ellipse cx="164" cy="700" rx="30" ry="13" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="236" cy="700" rx="30" ry="13" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s04t-bi">
+    <path d="M150 296 L120 392 L130 466" stroke="#2a1220" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M150 296 L120 392 L130 466" stroke="#5b8ee0" stroke-width="31" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="130" cy="474" r="18" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <path d="M146 282 Q200 266 254 282 L292 630 Q200 650 108 630 Z" fill="#5b8ee0" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="160" cy="330" r="7" fill="#fbf4e6" opacity="0.85"/><circle cx="232" cy="350" r="7" fill="#fbf4e6" opacity="0.85"/><circle cx="190" cy="400" r="7" fill="#fbf4e6" opacity="0.85"/><circle cx="150" cy="450" r="7" fill="#fbf4e6" opacity="0.85"/><circle cx="246" cy="430" r="7" fill="#fbf4e6" opacity="0.85"/><circle cx="200" cy="500" r="7" fill="#fbf4e6" opacity="0.85"/><circle cx="140" cy="540" r="7" fill="#fbf4e6" opacity="0.85"/><circle cx="260" cy="520" r="7" fill="#fbf4e6" opacity="0.85"/><circle cx="196" cy="580" r="7" fill="#fbf4e6" opacity="0.85"/><circle cx="240" cy="600" r="7" fill="#fbf4e6" opacity="0.85"/><circle cx="160" cy="610" r="7" fill="#fbf4e6" opacity="0.85"/>
+  <path d="M146 282 Q200 266 254 282 L292 630 Q200 650 108 630 Z" fill="none" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M164 290 Q200 330 236 290" fill="none" stroke="#fbf4e6" stroke-width="9" stroke-dasharray="2 14" stroke-linecap="round"/>
+  <g class="s04t-bd">
+    <path d="M250 296 L282 392 L270 466" stroke="#2a1220" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M250 296 L282 392 L270 466" stroke="#5b8ee0" stroke-width="31" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <g class="s04t-panuelo"><path d="M262 470 Q300 470 316 500 Q300 540 268 548 Q246 520 262 470 Z" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M270 490 Q290 500 298 516" stroke="#eba5b3" stroke-width="4" fill="none"/></g><circle cx="270" cy="474" r="18" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <rect x="186" y="242" width="28" height="30" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s04t-cabeza">
+    <circle cx="140" cy="176" r="30" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="260" cy="176" r="30" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="148" cy="226" r="26" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="252" cy="226" r="26" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse cx="200" cy="196" rx="60" ry="64" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M142 176 Q160 132 200 138 Q240 132 258 176 Q232 156 200 160 Q168 156 142 176 Z" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="s04t-ojos"><path d="M168 194 Q178 186 188 194 M212 194 Q222 186 232 194" stroke="#2a1220" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M166 186 L162 180 M234 186 L238 180" stroke="#2a1220" stroke-width="4" stroke-linecap="round"/></g>
+    <circle cx="178" cy="196" r="19" fill="none" stroke="#2a1220" stroke-width="4"/><circle cx="222" cy="196" r="19" fill="none" stroke="#2a1220" stroke-width="4"/>
+    <path d="M197 194 H203" stroke="#2a1220" stroke-width="4"/>
+    <circle cx="160" cy="226" r="11" fill="#eba5b3" opacity="0.8"/><circle cx="240" cy="226" r="11" fill="#eba5b3" opacity="0.8"/>
+    <ellipse class="s04t-boca" cx="200" cy="236" rx="14" ry="8" fill="#9b2445" stroke="#2a1220" stroke-width="4"/>
+    <path d="M170 262 Q200 276 230 262" stroke="#fbf4e6" stroke-width="9" stroke-dasharray="1 13" stroke-linecap="round" fill="none"/>
+    <g class="s04t-lagrimas" opacity="0">
+      <path d="M166 214 C160 232 156 246 164 252 C172 256 178 246 174 232 Z" fill="#5b8ee0" stroke="#2a1220" stroke-width="3"/>
+      <path d="M234 214 C228 232 224 246 232 252 C240 256 246 246 242 232 Z" fill="#5b8ee0" stroke="#2a1220" stroke-width="3"/>
+      <path d="M160 214 Q140 260 150 300 M240 214 Q262 260 252 300" stroke="#5b8ee0" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.9"/>
+    </g>
+    <g class="s04t-sombrero">
+      <ellipse cx="196" cy="140" rx="128" ry="30" fill="#eba5b3" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-8 196 140)"/>
+      <path d="M140 136 Q140 74 196 72 Q252 74 250 128 Z" fill="#eba5b3" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M142 122 Q196 136 250 114" stroke="#9b2445" stroke-width="12" fill="none"/>
+      <circle cx="244" cy="104" r="18" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="244" cy="104" r="7" fill="#e3b448"/>
+      <path d="M258 96 Q292 60 300 30" stroke="#2a1220" stroke-width="4" fill="none"/><path d="M300 30 Q330 56 302 80 Q290 60 300 30 Z" fill="#fbf4e6" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    </g>
+  </g>
+</g></svg></div>
+        <div class="script s04-rot">Pasión de barrio</div>
+        <div class="mono s04-cap">CAPÍTULO FINAL</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-novela";
+      const DUR = 3.06;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+
+
+      const COMO = 1.02, NOVELA = 1.43;
+      gsap.set(q(".s04-tia"), { scale: 1.3 });
+      tl.fromTo(q(".s04-tia"), { y: 60 }, { y: 0, duration: 0.35, ease: "back.out(2)" }, 0);
+      // llora de emoción con el pañuelo
+      gsap.set(q(".s04t-bd"), { rotation: -150, svgOrigin: "250 296" });
+      tl.to(q(".s04t-bd"), { rotation: -165, svgOrigin: "250 296", duration: 0.16, yoyo: true, repeat: 17, ease: "sine.inOut" }, 0.1);
+      tl.to(q(".s04t-lagrimas"), { opacity: 1, duration: 0.15 }, 0.1);
+      tl.fromTo(q(".s04t-lagrimas"), { y: 0 }, { y: 16, duration: 0.25, yoyo: true, repeat: 11, ease: "sine.inOut", immediateRender: false }, 0.1);
+      tl.to(q(".s04t-ojos"), { scaleY: 0.4, svgOrigin: "200 194", duration: 0.1 }, 0.1);
+      habla(".s04t-boca", 0, 2.4, "200 236");
+      vaiven(q(".s04-tia"), 0.2, 2.6, { rotation: 4 }, 0.18);
+      qa(".s04-c").forEach((c, i) => { tl.fromTo(c, { opacity: 0, y: 80 }, { opacity: 1, y: -260, duration: 2.4, ease: "power1.out", immediateRender: false }, 0.1 + i * 0.12); });
+      gsap.set(qa(".s04-c"), { opacity: 0 });
+      // el rótulo de telenovela
+      gsap.set([q(".s04-rot"), q(".s04-cap")], { opacity: 0 });
+      tl.fromTo(q(".s04-rot"), { opacity: 0, scale: 1.6, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out", immediateRender: false }, NOVELA - 0.1);
+      tl.fromTo(q(".s04-cap"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, NOVELA + 0.2);
+      qa(".s04-d").forEach((d, i) => { gsap.set(d, { opacity: 0 }); tl.fromTo(d, { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1.2, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, NOVELA + i * 0.12); });
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

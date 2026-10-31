@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-empleado"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-empleado"] .s11-esc { position: absolute; inset: 0; }
+    [data-composition-id="s11-empleado"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-empleado"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s11-empleado"] .fig svg, [data-composition-id="s11-empleado"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s11-empleado"] .obj { position: absolute; }
+    [data-composition-id="s11-empleado"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #2a1220; paint-order: stroke fill; }
+    [data-composition-id="s11-empleado"] .big.m { color: #fbf4e6; text-shadow: 9px 9px 0 #9b2445; }
+    [data-composition-id="s11-empleado"] .big.d { color: #e3b448; text-shadow: 9px 9px 0 #9b2445; }
+    [data-composition-id="s11-empleado"] .big.r { color: #eba5b3; text-shadow: 9px 9px 0 #2a1220; }
+    [data-composition-id="s11-empleado"] .big.a { color: #5b8ee0; text-shadow: 9px 9px 0 #2a1220; }
+    [data-composition-id="s11-empleado"] .big.v { color: #9b2445; text-shadow: 9px 9px 0 #e3b448; }
+    [data-composition-id="s11-empleado"] .big.g { color: #5ce611; text-shadow: 8px 8px 0 #2a1220; }
+    [data-composition-id="s11-empleado"] .script { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; color: #e3b448; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s11-empleado"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s11-empleado"] .sello { position: absolute; padding: 18px 46px 10px; border: 12px solid currentColor; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #2a1220; }
+    [data-composition-id="s11-empleado"] .centro { left: 0; right: 0; margin-left: auto; margin-right: auto; width: max-content; }
+    [data-composition-id="s11-empleado"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #2a1220; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #2a1220; background: #fbf4e6; box-shadow: 8px 8px 0 #2a1220; }
+    [data-composition-id="s11-empleado"] .cel { position: absolute; border-radius: 52px; border: 8px solid #2a1220; background: #2a1220; box-shadow: 0 0 0 6px #e3b448, 12px 12px 0 6px #2a1220; }
+    [data-composition-id="s11-empleado"] .cel .barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #2a1220; z-index: 2; }
+    [data-composition-id="s11-empleado"] .cel .pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 44px; background: #fbf4e6; overflow: hidden; }
+    [data-composition-id="s11-empleado"] .cel .head { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: #9b2445; border-bottom: 5px solid #2a1220; }
+    [data-composition-id="s11-empleado"] .cel .head b { position: absolute; left: 110px; top: 50px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 32px; color: #fbf4e6; white-space: nowrap; }
+    [data-composition-id="s11-empleado"] .cel .head small { position: absolute; left: 110px; top: 88px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; color: #eba5b3; white-space: nowrap; }
+    [data-composition-id="s11-empleado"] .cel .head i { position: absolute; left: 30px; top: 50px; width: 64px; height: 64px; border-radius: 50%; background: #eba5b3; border: 4px solid #2a1220; }
+    [data-composition-id="s11-empleado"] .msg { position: absolute; max-width: 80%; padding: 14px 20px 12px; border-radius: 22px; border: 4px solid #2a1220; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.18; color: #2a1220; }
+    [data-composition-id="s11-empleado"] .msg.yo { right: 18px; background: #eba5b3; border-bottom-right-radius: 6px; }
+    [data-composition-id="s11-empleado"] .msg.el { left: 18px; background: #ffffff; border-bottom-left-radius: 6px; }
+    [data-composition-id="s11-empleado"] .msg small { display: block; margin-top: 4px; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 600; opacity: 0.65; }
+
+    [data-composition-id="s11-empleado"] .s11-cel { left: 350px; top: 700px; box-shadow: 0 0 0 6px #e3b448, 0 0 90px 30px rgba(227, 180, 72, 0.35); }
+    [data-composition-id="s11-empleado"] .s11-cel .head { background: #5b8ee0; }
+    [data-composition-id="s11-empleado"] .s11-sello { top: 570px; font-size: 76px; color: #e3b448; }
+    [data-composition-id="s11-empleado"] .s11-hora { position: absolute; left: 40px; top: 760px; padding: 12px 22px 6px; background: #2a1220; border: 6px solid #eba5b3; border-radius: 18px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 54px; color: #eba5b3; transform: rotate(-6deg); }
+    [data-composition-id="s11-empleado"] .s11-nd { left: 20px; top: 870px; width: 340px; text-align: left; font-size: 74px; }
+    [data-composition-id="s11-empleado"] .s11-st { top: 1380px; font-size: 92px; }
+    [data-composition-id="s11-empleado"] .s11-cajas { left: 862px; top: 900px; width: 210px; height: 294px; }
+
+  </style>
+  <div id="root" data-composition-id="s11-empleado" data-width="1080" data-height="1920" data-duration="4.7">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.7" data-track-index="0">
+      <div class="s11-esc esc">
+
+        <div class="cel s11-cel" style="width:500px;height:780px"><div class="barra"></div><div class="pant"><div class="head"><i></i><b>El de enfrente</b><small>en línea · siempre</small></div>
+          <div class="msg el s11-m1" style="top:170px">¿Abren mañana?<small>03:12</small></div>
+          <div class="msg yo s11-m2" style="top:290px">¡Sí! De 9 a 19<small>03:12</small></div>
+          <div class="msg el s11-m3" style="top:410px">¿Quedan en 40?<small>03:13</small></div>
+          <div class="msg yo s11-m4" style="top:530px">Quedan 2 pares<small>03:13</small></div>
+        </div></div>
+        <div class="sello centro s11-sello">Empleado nuevo</div>
+        <div class="s11-hora">03:12</div>
+        <div class="big r s11-nd">No<br>duerme</div>
+        <div class="obj s11-cajas"><svg viewBox="0 0 300 420" aria-hidden="true"><g class="s11-caja"><rect x="20" y="20" width="260" height="80" rx="8" fill="#9b2445" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><text x="60" y="72" font-family="Lexend" font-weight="900" font-size="34" fill="#2a1220">38</text><path class="s11-tic" d="M200 60 L220 80 L256 38" stroke="#fbf4e6" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><g class="s11-caja"><rect x="20" y="120" width="260" height="80" rx="8" fill="#eba5b3" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><text x="60" y="172" font-family="Lexend" font-weight="900" font-size="34" fill="#2a1220">39</text><path class="s11-tic" d="M200 160 L220 180 L256 138" stroke="#fbf4e6" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><g class="s11-caja"><rect x="20" y="220" width="260" height="80" rx="8" fill="#e3b448" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><text x="60" y="272" font-family="Lexend" font-weight="900" font-size="34" fill="#2a1220">40</text><path class="s11-tic" d="M200 260 L220 280 L256 238" stroke="#fbf4e6" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><g class="s11-caja"><rect x="20" y="320" width="260" height="80" rx="8" fill="#5b8ee0" stroke="#2a1220" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><text x="60" y="372" font-family="Lexend" font-weight="900" font-size="34" fill="#2a1220">41</text><path class="s11-tic" d="M200 360 L220 380 L256 338" stroke="#fbf4e6" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>
+        <div class="big d s11-st">Stock de memoria</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-empleado";
+      const DUR = 4.7;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+
+
+      const CONTESTA = 0.21, EMPLEADO = 0.76, DUERME = 2.12, STOCK = 3.12, MEMORIA = 3.57;
+      // cuadro 0: el celular encendido en la oscuridad
+      tl.fromTo(q(".s11-cel"), { scale: 0.92, y: 30 }, { scale: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, 0);
+      vaiven(q(".s11-cel"), 0.4, 4.2, { y: -10 }, 0.5);
+      pop(q(".s11-m1"), 0.05, 0.25, { transformOrigin: "0% 100%" });
+      pop(q(".s11-m2"), CONTESTA + 0.1, 0.25, { transformOrigin: "100% 100%" });
+      golpe(q(".s11-sello"), EMPLEADO + 0.1, -4, 2.4);
+      sacudon(EMPLEADO + 0.15, 1);
+      pop(q(".s11-m3"), 1.5, 0.25, { transformOrigin: "0% 100%" });
+      // no duerme: 03:12
+      pop(q(".s11-hora"), DUERME - 0.2, 0.3);
+      golpe(q(".s11-nd"), DUERME, -6, 2.2);
+      pop(q(".s11-m4"), DUERME + 0.4, 0.25, { transformOrigin: "100% 100%" });
+      // stock de memoria: las cajas se tildan
+      gsap.set(qa(".s11-caja"), { opacity: 0 });
+      qa(".s11-caja").forEach((c, i) => tl.fromTo(c, { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, STOCK - 0.3 + i * 0.08));
+      qa(".s11-tic").forEach((t, i) => { const L = 90; gsap.set(t, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(t, { opacity: 1 }, MEMORIA + i * 0.12); tl.to(t, { strokeDashoffset: 0, duration: 0.2, ease: "power2.out" }, MEMORIA + i * 0.12); });
+      golpe(q(".s11-st"), STOCK + 0.1, 3, 2.2);
+      sacudon(MEMORIA + 0.05, 0.8);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

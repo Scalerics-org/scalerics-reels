@@ -1,0 +1,101 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-invitado"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-invitado"] .s14-esc { position: absolute; inset: 0; }
+    [data-composition-id="s14-invitado"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-invitado"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s14-invitado"] .fig svg, [data-composition-id="s14-invitado"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s14-invitado"] .obj { position: absolute; }
+    [data-composition-id="s14-invitado"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #2a1220; paint-order: stroke fill; }
+    [data-composition-id="s14-invitado"] .big.m { color: #fbf4e6; text-shadow: 9px 9px 0 #9b2445; }
+    [data-composition-id="s14-invitado"] .big.d { color: #e3b448; text-shadow: 9px 9px 0 #9b2445; }
+    [data-composition-id="s14-invitado"] .big.r { color: #eba5b3; text-shadow: 9px 9px 0 #2a1220; }
+    [data-composition-id="s14-invitado"] .big.a { color: #5b8ee0; text-shadow: 9px 9px 0 #2a1220; }
+    [data-composition-id="s14-invitado"] .big.v { color: #9b2445; text-shadow: 9px 9px 0 #e3b448; }
+    [data-composition-id="s14-invitado"] .big.g { color: #5ce611; text-shadow: 8px 8px 0 #2a1220; }
+    [data-composition-id="s14-invitado"] .script { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; color: #e3b448; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s14-invitado"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s14-invitado"] .sello { position: absolute; padding: 18px 46px 10px; border: 12px solid currentColor; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #2a1220; }
+    [data-composition-id="s14-invitado"] .centro { left: 0; right: 0; margin-left: auto; margin-right: auto; width: max-content; }
+    [data-composition-id="s14-invitado"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #2a1220; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #2a1220; background: #fbf4e6; box-shadow: 8px 8px 0 #2a1220; }
+    [data-composition-id="s14-invitado"] .cel { position: absolute; border-radius: 52px; border: 8px solid #2a1220; background: #2a1220; box-shadow: 0 0 0 6px #e3b448, 12px 12px 0 6px #2a1220; }
+    [data-composition-id="s14-invitado"] .cel .barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #2a1220; z-index: 2; }
+    [data-composition-id="s14-invitado"] .cel .pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 44px; background: #fbf4e6; overflow: hidden; }
+    [data-composition-id="s14-invitado"] .cel .head { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: #9b2445; border-bottom: 5px solid #2a1220; }
+    [data-composition-id="s14-invitado"] .cel .head b { position: absolute; left: 110px; top: 50px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 32px; color: #fbf4e6; white-space: nowrap; }
+    [data-composition-id="s14-invitado"] .cel .head small { position: absolute; left: 110px; top: 88px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; color: #eba5b3; white-space: nowrap; }
+    [data-composition-id="s14-invitado"] .cel .head i { position: absolute; left: 30px; top: 50px; width: 64px; height: 64px; border-radius: 50%; background: #eba5b3; border: 4px solid #2a1220; }
+    [data-composition-id="s14-invitado"] .msg { position: absolute; max-width: 80%; padding: 14px 20px 12px; border-radius: 22px; border: 4px solid #2a1220; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.18; color: #2a1220; }
+    [data-composition-id="s14-invitado"] .msg.yo { right: 18px; background: #eba5b3; border-bottom-right-radius: 6px; }
+    [data-composition-id="s14-invitado"] .msg.el { left: 18px; background: #ffffff; border-bottom-left-radius: 6px; }
+    [data-composition-id="s14-invitado"] .msg small { display: block; margin-top: 4px; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 600; opacity: 0.65; }
+
+    [data-composition-id="s14-invitado"] .s14-inv { position: absolute; left: 110px; top: 600px; width: 860px; height: 540px; background: #fbf4e6; border: 8px solid #2a1220; border-radius: 26px; box-shadow: 14px 14px 0 #e3b448; text-align: center; }
+    [data-composition-id="s14-invitado"] .s14-inv:before { content: ""; position: absolute; inset: 18px; border: 4px solid #e3b448; border-radius: 16px; }
+    [data-composition-id="s14-invitado"] .s14-inv small { display: block; margin-top: 60px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.3em; color: #9b2445; }
+    [data-composition-id="s14-invitado"] .s14-inv em { display: block; margin-top: 18px; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; font-size: 84px; line-height: 1; color: #9b2445; }
+    [data-composition-id="s14-invitado"] .s14-inv b { display: block; margin-top: 26px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 62px; line-height: 1.05; color: #2a1220; text-transform: uppercase; }
+    [data-composition-id="s14-invitado"] .s14-inv b span { display: inline-block; margin-top: 10px; padding: 8px 26px 4px; background: #5ce611; border: 6px solid #2a1220; border-radius: 16px; }
+    [data-composition-id="s14-invitado"] .s14-mesa { position: absolute; left: 290px; top: 1190px; width: 500px; height: 260px; background: #fbf4e6; border: 7px solid #2a1220; border-radius: 18px; box-shadow: 10px 10px 0 #2a1220; text-align: center; }
+    [data-composition-id="s14-invitado"] .s14-mesa small { display: block; margin-top: 30px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.2em; color: #9b2445; }
+    [data-composition-id="s14-invitado"] .s14-mesa b { display: block; margin-top: 8px; font-family: "Cormorant", serif; font-style: italic; font-weight: 500; font-size: 92px; line-height: 1; color: #2a1220; }
+    [data-composition-id="s14-invitado"] .s14-mesa i { display: block; margin-top: 8px; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 26px; color: #2a1220; }
+    [data-composition-id="s14-invitado"] .s14-x { left: 270px; top: 1170px; width: 540px; height: 300px; }
+
+  </style>
+  <div id="root" data-composition-id="s14-invitado" data-width="1080" data-height="1920" data-duration="3.8">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="3.8" data-track-index="0">
+      <div class="s14-esc esc">
+
+        <div class="s14-inv"><small>INVITACIÓN</small><em>Tu empleado nuevo</em><b>te lo hacemos en<br><span>Scalerics</span></b></div>
+        <div class="s14-mesa"><small>INVITADO</small><b>vos</b><i>mesa 14 · al fondo</i></div>
+        <div class="obj s14-x"><svg viewBox="0 0 540 300" aria-hidden="true"><path class="s14-x1" d="M30 30 L510 270" stroke="#9b2445" stroke-width="30" stroke-linecap="round"/><path class="s14-x2" d="M510 30 L30 270" stroke="#9b2445" stroke-width="30" stroke-linecap="round"/></svg></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-invitado";
+      const DUR = 3.8;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+
+
+      const SCAL = 0.08, HACEMOS = 1.00, TUYO = 1.53, ANTES = 2.24, INVITADO = 3.26;
+      // cuadro 0: la invitación ya cae
+      tl.fromTo(q(".s14-inv"), { y: -200, rotation: -8, scale: 0.9 }, { y: 0, rotation: -2, scale: 1, duration: 0.45, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".s14-inv span"), { scale: 0.5 }, { scale: 1, duration: 0.3, ease: "back.out(3)" }, SCAL + 0.25);
+      tl.to(q(".s14-inv span"), { scale: 1.1, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, TUYO);
+      vaiven(q(".s14-inv"), 0.5, 3.2, { rotation: 0 }, 0.6);
+      // la tarjetita de mesa, y se tacha
+      gsap.set(q(".s14-mesa"), { opacity: 0 });
+      tl.fromTo(q(".s14-mesa"), { opacity: 1, y: 500, rotation: 8 }, { opacity: 1, y: 0, rotation: 3, duration: 0.35, ease: "back.out(1.5)", immediateRender: false }, ANTES - 0.1);
+      [".s14-x1", ".s14-x2"].forEach((s, i) => { const L = 540; gsap.set(q(s), { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(q(s), { opacity: 1 }, INVITADO - 0.1 + i * 0.15); tl.to(q(s), { strokeDashoffset: 0, duration: 0.18, ease: "power2.out" }, INVITADO - 0.1 + i * 0.15); });
+      sacudon(INVITADO + 0.2, 1.2);
+
+      // salida
+      tl.to(q("#s14-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
