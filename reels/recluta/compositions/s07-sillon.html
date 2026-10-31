@@ -1,0 +1,131 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-sillon"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-sillon"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-sillon"] .s07-ventana { position: absolute; inset: 0; clip-path: inset(552px 0 372px 0); }
+    [data-composition-id="s07-sillon"] .s07-cam { position: absolute; inset: 0; }
+    [data-composition-id="s07-sillon"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-sillon"] .tz { stroke: #121410; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sillon"] .s07-sello { position: absolute; padding: 12px 24px 8px; border: 8px solid #ff7a1a; border-radius: 10px; font-family: "Black Ops One", sans-serif; font-size: 56px; line-height: 1; color: #ff7a1a; background: rgba(18, 20, 16, 0.9); white-space: nowrap; }
+    [data-composition-id="s07-sillon"] .s07-sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.2em; margin-bottom: 8px; }
+    [data-composition-id="s07-sillon"] .s07-s1 { left: 90px; top: 1330px; }
+  </style>
+  <div id="root" data-composition-id="s07-sillon" data-width="1080" data-height="1920" data-duration="3.75">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="3.75" data-track-index="0">
+      <div class="s07-escenario">
+        <div class="s07-ventana"><div class="s07-cam">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s07-tablero">
+            <rect class="tz" x="70" y="600" width="940" height="860" rx="10" fill="#d9c58f" />
+            <path d="M150 600 V1460 M230 600 V1460 M310 600 V1460 M390 600 V1460 M470 600 V1460 M550 600 V1460 M630 600 V1460 M710 600 V1460 M790 600 V1460 M870 600 V1460 M950 600 V1460 M70 680 H1010 M70 760 H1010 M70 840 H1010 M70 920 H1010 M70 1000 H1010 M70 1080 H1010 M70 1160 H1010 M70 1240 H1010 M70 1320 H1010 M70 1400 H1010" stroke="#8a7a4a" stroke-width="2" opacity="0.45" />
+            <path d="M560 640 C520 800 600 1000 540 1200 C510 1300 560 1400 540 1440" fill="none" stroke="#3a4224" stroke-width="6" stroke-dasharray="4 14" stroke-linecap="round" opacity="0.6" />
+            <text x="92" y="644" font-family="IBM Plex Mono" font-weight="600" font-size="24" letter-spacing="4" fill="#3a4224">MAPA TÁCTICO · BLACK FRIDAY</text>
+          </g>
+          <!-- A: los clientes, en el sillón -->
+          <g class="s07-clientes">
+            <rect class="tz" x="170" y="760" width="260" height="110" rx="30" fill="#4b5320" />
+            <rect class="tz" x="150" y="850" width="300" height="80" rx="24" fill="#3a4224" />
+            <rect class="tz" x="128" y="800" width="60" height="140" rx="26" fill="#4b5320" />
+            <rect class="tz" x="412" y="800" width="60" height="140" rx="26" fill="#4b5320" />
+            <rect class="tz" x="258" y="800" width="84" height="90" rx="28" fill="#b9b8ad" stroke-width="7" />
+            <path d="M285 885 L272 958 M315 885 L328 958" stroke="#121410" stroke-width="14" stroke-linecap="round" />
+            <ellipse class="tz s07-pantu" cx="262" cy="968" rx="32" ry="16" fill="#ff7a1a" stroke-width="6" />
+            <ellipse class="tz s07-pantu" cx="338" cy="968" rx="32" ry="16" fill="#ff7a1a" stroke-width="6" />
+            <circle class="tz" cx="300" cy="768" r="42" fill="#f1ecdc" stroke-width="7" />
+            <path d="M282 770 h8 M310 770 h8 M290 790 q10 8 20 0" stroke="#121410" stroke-width="5" stroke-linecap="round" fill="none" />
+            <rect class="s07-celu" x="336" y="806" width="34" height="54" rx="7" fill="#121410" stroke="#f1ecdc" stroke-width="4" />
+            <text x="300" y="1016" text-anchor="middle" font-family="Black Ops One" font-size="40" fill="#121410">CLIENTES</text>
+          </g>
+          <!-- B: el de enfrente, un fuerte con su tienda online -->
+          <g class="s07-fuerte">
+            <path class="tz" d="M640 1150 V950 H680 V905 H720 V950 H760 V905 H800 V950 H840 V905 H880 V950 H940 V1150 Z" fill="#4b5320" />
+            <path class="tz" d="M760 1150 V1090 A30 30 0 0 1 820 1090 V1150" fill="#121410" stroke-width="6" />
+            <path d="M790 905 V780" stroke="#121410" stroke-width="7" stroke-linecap="round" />
+            <path class="tz s07-bandera" d="M790 782 L890 800 L790 830 Z" fill="#ff7a1a" stroke-width="5" />
+            <rect class="tz" x="664" y="990" width="252" height="66" rx="8" fill="#f1ecdc" stroke-width="6" />
+            <text x="790" y="1034" text-anchor="middle" font-family="Black Ops One" font-size="30" fill="#121410">TIENDA ONLINE</text>
+            <text x="790" y="1204" text-anchor="middle" font-family="Black Ops One" font-size="36" fill="#121410">EL DE ENFRENTE</text>
+          </g>
+          <g class="s07-cobra">
+            <circle class="tz" cx="940" cy="880" r="44" fill="#f1ecdc" stroke-width="7" />
+            <path d="M918 880 l15 16 l28 -32" fill="none" stroke="#3a4224" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="940" y="808" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="26" fill="#121410">COBRA</text>
+          </g>
+          <!-- rutas de los envíos: del fuerte al sillón -->
+          <path class="s07-ruta s07-r1" d="M640 1020 C560 980 520 900 470 880" fill="none" stroke="#ff7a1a" stroke-width="9" stroke-dasharray="4 16" stroke-linecap="round" />
+          <path class="s07-ruta s07-r2" d="M700 1150 C640 1260 520 1180 460 950" fill="none" stroke="#ff7a1a" stroke-width="9" stroke-dasharray="4 16" stroke-linecap="round" />
+          <rect class="tz s07-caja s07-c1" x="-22" y="-18" width="44" height="36" fill="#c9a86a" stroke-width="5" />
+          <rect class="tz s07-caja s07-c2" x="-22" y="-18" width="44" height="36" fill="#c9a86a" stroke-width="5" />
+          <!-- C: vos, con el cuaderno -->
+          <g class="s07-vos">
+            <rect class="tz" x="150" y="1300" width="300" height="24" rx="6" fill="#8a7a4a" stroke-width="6" />
+            <path d="M180 1324 V1400 M420 1324 V1400" stroke="#121410" stroke-width="8" stroke-linecap="round" />
+            <path class="tz" d="M245 1300 C245 1250 335 1250 335 1300 Z" fill="#f1ecdc" stroke-width="6" />
+            <path class="tz" d="M232 1262 C232 1200 348 1200 348 1262 Z" fill="#4b5320" stroke-width="6" />
+            <circle cx="276" cy="1282" r="6" fill="#121410" /><circle cx="304" cy="1282" r="6" fill="#121410" />
+            <g transform="rotate(-6 380 1280)"><rect class="tz" x="350" y="1250" width="80" height="54" rx="4" fill="#f1ecdc" stroke-width="5" /><path d="M362 1266 H418 M362 1282 H410" stroke="#8a7a4a" stroke-width="4" /></g>
+            <text x="300" y="1236" text-anchor="middle" font-family="Black Ops One" font-size="30" fill="#3a4224">UN CUADERNO</text>
+          </g>
+          <circle class="s07-mira" cx="300" cy="1300" r="150" fill="none" stroke="#ff7a1a" stroke-width="12" />
+          <path class="s07-mira-x" d="M190 1190 L410 1410 M410 1190 L190 1410" stroke="#ff7a1a" stroke-width="10" stroke-linecap="round" opacity="0" />
+          <!-- el puntero del sargento -->
+          <g class="s07-puntero">
+            <path d="M1000 1580 L1700 1580" stroke="#121410" stroke-width="24" stroke-linecap="round" />
+            <path d="M1000 1580 L1700 1580" stroke="#8a7a4a" stroke-width="14" stroke-linecap="round" />
+            <path d="M1000 1580 L1060 1580" stroke="#121410" stroke-width="18" stroke-linecap="round" />
+          </g>
+        </svg>
+        </div></div>
+        <div class="s07-sello s07-s1"><small>OBJETIVO A</small>EN PANTUFLAS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-sillon";
+      const DUR = 3.75;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const golpe = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const sello = (sel, t, rot) => {
+        gsap.set(q(sel), { opacity: 0, rotation: rot });
+        tl.fromTo(q(sel), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.08);
+        golpe(t + 0.06, 0.8);
+      };
+      // puntero: ángulos que apuntan a cada zona del mapa (origen 1000,1580)
+      const APUNTA = { clientes: -137, fuerte: -97, vos: -160, fuera: -60 };
+      const puntero = (zona, t, d = 0.3) => tl.to(q(".s07-puntero"), { rotation: APUNTA[zona], svgOrigin: "1000 1580", duration: d, ease: "back.out(1.4)" }, t);
+      // cámara: zoom a una zona (x, y = centro en el mapa)
+      const camara = (x, y, s, t, d = 0.5, ease = "power3.inOut") => tl.to(q(".s07-cam"), { scale: s, x: (540 - x) * s, y: (1030 - y) * s, transformOrigin: "540px 1030px", duration: d, ease }, t);
+
+      // estado de las piezas del mapa
+      gsap.set([q(".s07-cobra"), q(".s07-c1"), q(".s07-c2")], { opacity: 0 });
+      gsap.set(qa(".s07-ruta"), { opacity: 0 });
+      gsap.set(q(".s07-mira"), { opacity: 0 });
+
+      const CLIENTES = 0.87, SILLON = 2.18, PANTUFLAS = 2.61;
+      // cuadro 0: el mapa entero, y la cámara entra a los clientes
+      tl.fromTo(q(".s07-cam"), { scale: 1, x: 0, y: 0 }, { scale: 1, x: 0, y: 0, duration: 0.01 }, 0);
+      gsap.set(q(".s07-puntero"), { rotation: -60, svgOrigin: "1000 1580" });
+      puntero("clientes", 0.05, 0.4);
+      camara(300, 870, 1.55, 0.1, 0.7);
+      tl.fromTo(q(".s07-clientes"), { scale: 0.9, svgOrigin: "300 900" }, { scale: 1.08, svgOrigin: "300 900", duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out" }, CLIENTES);
+      tl.to(q(".s07-celu"), { stroke: "#ff7a1a", duration: 0.1, yoyo: true, repeat: 7, ease: "steps(1)" }, CLIENTES + 0.2);
+      // "en el sillón": el sillón rebota
+      tl.to(q(".s07-clientes"), { y: 12, duration: 0.1, yoyo: true, repeat: 3, ease: "sine.inOut" }, SILLON);
+      // "en pantuflas": las pantuflas se mueven y cae el sello
+      tl.to(qa(".s07-pantu"), { rotation: 12, svgOrigin: "300 968", duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut" }, PANTUFLAS);
+      sello(".s07-s1", PANTUFLAS + 0.05, -6);
+      camara(300, 900, 1.65, PANTUFLAS, 1.0, "sine.inOut");
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

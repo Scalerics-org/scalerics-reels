@@ -1,0 +1,104 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* lona: trama fina de tela */
+    [data-composition-id="ambiente"] .am-lona { position: absolute; inset: 0; opacity: 0.5;
+      background-image: repeating-linear-gradient(45deg, rgba(18, 20, 16, 0.18) 0px, rgba(18, 20, 16, 0.18) 2px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 9px),
+        repeating-linear-gradient(-45deg, rgba(217, 197, 143, 0.05) 0px, rgba(217, 197, 143, 0.05) 2px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 9px); }
+    [data-composition-id="ambiente"] .am-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 720px 1080px at 540px 930px, rgba(21, 26, 14, 0) 55%, rgba(18, 20, 16, 0.9) 100%); }
+    /* cartel del campamento arriba */
+    [data-composition-id="ambiente"] .am-top { position: absolute; left: 56px; right: 56px; top: 74px; height: 110px; }
+    [data-composition-id="ambiente"] .am-cartel { position: absolute; left: 0; top: 0; padding: 14px 24px 10px; background: #121410; border: 5px solid #d9c58f; border-radius: 6px; transform: rotate(-1.5deg); box-shadow: 6px 6px 0 #121410; }
+    [data-composition-id="ambiente"] .am-cartel b { display: block; font-family: "Black Ops One", sans-serif; font-weight: 400; font-size: 40px; line-height: 1; color: #d9c58f; letter-spacing: 0.04em; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-cartel small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.2em; color: #f1ecdc; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-cuenta { position: absolute; right: 0; top: 4px; padding: 12px 20px 8px; background: #121410; border: 5px solid #ff7a1a; border-radius: 8px; text-align: center; }
+    [data-composition-id="ambiente"] .am-cuenta small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.2em; color: #ff7a1a; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-cuenta b { display: block; margin-top: 4px; font-family: "Black Ops One", sans-serif; font-weight: 400; font-size: 44px; line-height: 1; color: #f1ecdc; white-space: nowrap; }
+    /* chapita de quién habla, abajo a la izquierda */
+    [data-composition-id="ambiente"] .am-chapas { position: absolute; left: 50px; top: 1560px; width: 620px; height: 140px; }
+    [data-composition-id="ambiente"] .am-ch { position: absolute; left: 0; top: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .am-ch .am-placa { position: relative; display: inline-block; padding: 14px 30px 10px 58px; background: #b9b8ad; border: 5px solid #121410; border-radius: 26px; box-shadow: inset 0 0 0 5px #d8d7cc, 5px 5px 0 #121410; }
+    [data-composition-id="ambiente"] .am-ch .am-placa::before { content: ""; position: absolute; left: 20px; top: 50%; width: 18px; height: 18px; margin-top: -9px; border-radius: 50%; background: #3a4224; border: 4px solid #121410; }
+    [data-composition-id="ambiente"] .am-ch b { display: block; font-family: "Black Ops One", sans-serif; font-weight: 400; font-size: 38px; line-height: 1; color: #121410; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-ch small { display: block; margin-top: 4px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.12em; color: #3a4224; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #f1ecdc; opacity: 0; }
+    [data-composition-id="ambiente"] .am-alerta { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 620px 620px at 0% 0%, rgba(255, 122, 26, 0.38), rgba(255, 122, 26, 0) 70%), radial-gradient(ellipse 620px 620px at 100% 100%, rgba(255, 122, 26, 0.38), rgba(255, 122, 26, 0) 70%); }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="70.5">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="70.5" data-track-index="0">
+      <div class="am-lona"></div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- manchas de camuflaje en los bordes -->
+        <g class="am-camu" data-layout-allow-overflow>
+          <path d="M-60 520 C40 470 120 540 90 640 C60 730 140 780 60 860 C-10 930 -80 860 -60 760 Z" fill="#4b5320" opacity="0.55" />
+          <path d="M-40 980 C60 940 150 1010 110 1100 C70 1180 -20 1190 -60 1120 Z" fill="#121410" opacity="0.4" />
+          <path d="M-70 1250 C30 1200 160 1260 130 1360 C100 1450 10 1500 -70 1450 Z" fill="#8a7a4a" opacity="0.35" />
+          <path d="M1140 600 C1040 560 950 640 990 730 C1030 820 960 880 1040 950 C1100 1000 1160 940 1150 860 Z" fill="#8a7a4a" opacity="0.35" />
+          <path d="M1130 1080 C1030 1040 950 1110 990 1200 C1030 1280 1110 1300 1150 1230 Z" fill="#4b5320" opacity="0.55" />
+          <path d="M1150 1380 C1060 1350 980 1420 1010 1500 C1040 1570 1120 1590 1160 1530 Z" fill="#121410" opacity="0.4" />
+          <path d="M120 1820 C220 1770 360 1800 380 1870 C390 1930 200 1950 120 1910 Z" fill="#4b5320" opacity="0.5" />
+          <path d="M700 1830 C800 1790 960 1810 980 1880 C990 1940 800 1950 720 1910 Z" fill="#8a7a4a" opacity="0.3" />
+        </g>
+      </svg>
+      <div class="am-vineta"></div>
+      <div class="am-top">
+        <div class="am-cartel"><b>CAMPAMENTO</b><small>OPERACIÓN BLACK FRIDAY</small></div>
+        <div class="am-cuenta"><small>FALTAN</small><b>4 SEMANAS</b></div>
+      </div>
+      <div class="am-chapas">
+        <div class="am-ch am-chs"><div class="am-placa"><b>SARGENTO</b><small>INSTRUCTOR</small></div></div>
+        <div class="am-ch am-chr"><div class="am-placa"><b>RECLUTA</b><small>DUEÑO · TIENDA DE ROPA</small></div></div>
+        <div class="am-ch am-cho"><div class="am-placa" style="background:#5ce611"><b>SCALERICS</b><small style="color:#121410">EQUIPAMOS TU TIENDA</small></div></div>
+      </div>
+      <div class="am-alerta"></div>
+      <div class="am-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 70.5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      // segundos globales (de assets/voice/palabras.json)
+      const CUENTA = [1.83, 60.14];
+      const TURNOS = [[0.0, "s"], [5.92, "r"], [7.8, "s"], [10.54, "r"], [13.9, "s"], [16.64, "r"], [19.95, "s"], [21.4, "r"], [25.36, "s"], [42.84, "r"], [45.59, "s"], [50.32, "o"], [62.09, "s"], [65.64, "r"]];
+      const ALERTAS = [[0.05, 1.0], [8.15, 0.8], [28.93, 0.8]];
+      const FLASHES = [50.32, 61.08];
+
+      // el camuflaje respira despacio
+      tl.fromTo(q(".am-camu"), { x: 0, y: 0 }, { x: -14, y: 30, duration: DUR, ease: "none" }, 0);
+      // el cartel entra de entrada
+      tl.fromTo(q(".am-cartel"), { y: -30, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".am-cuenta"), { scale: 1.4, opacity: 0.4 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power4.out" }, 0.1);
+      // la cuenta late con el redoble en "cuatro semanas"
+      CUENTA.forEach((t) => tl.to(q(".am-cuenta"), { scale: 1.15, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, t));
+
+      // chapitas: quién habla (segundos globales)
+      const CH = { s: ".am-chs", r: ".am-chr", o: ".am-cho" };
+      let ant = null;
+      TURNOS.forEach(([t, quien]) => {
+        const el = q(CH[quien]);
+        if (ant && ant !== el) tl.to(ant, { opacity: 0, x: -30, duration: 0.12, ease: "power2.in" }, t - 0.12);
+        if (ant !== el) tl.fromTo(el, { opacity: 0, x: -40, rotation: -6 }, { opacity: 1, x: 0, rotation: 0, duration: 0.25, ease: "back.out(2.2)", immediateRender: false }, t);
+        ant = el;
+      });
+
+      // alerta naranja en las esquinas y flashes (segundos globales)
+      ALERTAS.forEach(([t, d]) => tl.to(q(".am-alerta"), { opacity: 1, duration: 0.1, yoyo: true, repeat: Math.max(1, Math.round(d / 0.2)) * 2 - 1, ease: "steps(1)" }, t));
+      FLASHES.forEach((t) => {
+        tl.to(q(".am-flash"), { opacity: 0.55, duration: 0.03 }, t);
+        tl.to(q(".am-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

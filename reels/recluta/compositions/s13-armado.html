@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-armado"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-armado"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-armado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-armado"] .tz { stroke: #121410; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-armado"] .s13-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Black Ops One", sans-serif; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s13-armado"] .s13-noti { position: absolute; left: 520px; width: 470px; padding: 18px 22px 14px; background: #f1ecdc; border: 6px solid #121410; border-left: 18px solid #5ce611; border-radius: 16px; font-family: "Black Ops One", sans-serif; font-size: 36px; line-height: 1; color: #121410; white-space: nowrap; box-shadow: 6px 6px 0 #121410; }
+    [data-composition-id="s13-armado"] .s13-noti small { display: block; margin-top: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.1em; color: #3a4224; }
+    [data-composition-id="s13-armado"] .s13-n1 { top: 600px; } [data-composition-id="s13-armado"] .s13-n2 { top: 740px; } [data-composition-id="s13-armado"] .s13-n3 { top: 880px; }
+    [data-composition-id="s13-armado"] .s13-bf { top: 590px; font-size: 110px; color: #ff7a1a; -webkit-text-stroke: 9px #121410; paint-order: stroke fill; text-shadow: 7px 7px 0 #121410; }
+    [data-composition-id="s13-armado"] .s13-sello { position: absolute; left: 0; right: 0; top: 1400px; text-align: center; }
+    [data-composition-id="s13-armado"] .s13-sello span { display: inline-block; padding: 14px 34px 10px; border: 10px solid #5ce611; border-radius: 12px; font-family: "Black Ops One", sans-serif; font-size: 96px; line-height: 1; color: #5ce611; background: rgba(18, 20, 16, 0.9); white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s13-armado" data-width="1080" data-height="1920" data-duration="4.0">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="4.0" data-track-index="0">
+      <div class="s13-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- 1: durmiendo en el catre -->
+          <g class="s13-noche">
+            <path class="tz" d="M170 1250 H910" fill="none" />
+            <rect class="tz" x="170" y="1180" width="740" height="60" rx="14" fill="#4b5320" />
+            <path d="M210 1240 L250 1340 M870 1240 L830 1340 M250 1340 L210 1240" stroke="#121410" stroke-width="10" stroke-linecap="round" />
+            <path class="tz" d="M360 1180 C360 1100 820 1100 860 1180 Z" fill="#d9c58f" />
+            <circle class="tz" cx="290" cy="1120" r="80" fill="#f1ecdc" />
+            <path class="tz" d="M200 1110 C200 1000 380 1000 380 1110 Z" fill="#4b5320" transform="rotate(-20 290 1110)" />
+            <path d="M262 1140 q12 10 24 0 M306 1140 q12 10 24 0" fill="none" stroke="#121410" stroke-width="6" stroke-linecap="round" />
+            <g class="s13-z" font-family="Black Ops One" fill="#d9c58f"><text x="400" y="1010" font-size="54">Z</text><text x="450" y="950" font-size="68">Z</text><text x="510" y="880" font-size="84">Z</text></g>
+          </g>
+          <!-- 2: el recluta, equipado -->
+          <g transform="translate(540 1030)"><g class="s13-rec">
+            <path class="tz" d="M-230 470 C-215 340 -130 300 -70 290 L0 330 L70 290 C130 300 215 340 230 470 Z" fill="#d9c58f" />
+            <path class="tz" d="M-50 200 L-55 300 L0 330 L55 300 L50 200 Z" fill="#e2d6b8" />
+            <path d="M-46 300 Q0 372 46 300" fill="none" stroke="#121410" stroke-width="5" stroke-dasharray="2 9" stroke-linecap="round" />
+            <rect class="tz s13-chapa" x="-28" y="352" width="56" height="76" rx="14" fill="#b9b8ad" stroke-width="6" />
+            <path class="tz" d="M-130 0 C-130 -120 130 -120 130 0 L125 100 C115 190 60 225 0 225 C-60 225 -115 190 -125 100 Z" fill="#f1ecdc" />
+            <path class="tz" d="M128 50 C170 44 172 120 124 120" fill="#f1ecdc" />
+            <circle class="tz" cx="-52" cy="70" r="36" fill="#f1ecdc" stroke-width="7" />
+            <circle class="tz" cx="52" cy="70" r="36" fill="#f1ecdc" stroke-width="7" />
+            <circle class="s13-pup" cx="-46" cy="76" r="12" fill="#121410" />
+            <circle class="s13-pup" cx="58" cy="76" r="12" fill="#121410" />
+            <path d="M-88 6 L-26 22 M88 6 L26 22" fill="none" stroke="#121410" stroke-width="11" stroke-linecap="round" />
+            <path d="M8 98 L-6 140 L14 142" fill="none" stroke="#121410" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+            <path class="s13-boca" d="M-48 166 q48 34 96 0" fill="none" stroke="#121410" stroke-width="9" stroke-linecap="round" />
+            
+            <g class="s13-casco">
+              <path class="tz" d="M-175 18 C-175 -230 175 -230 175 18 Z" fill="#4b5320" />
+              <ellipse cx="-80" cy="-90" rx="42" ry="22" fill="#8a7a4a" /><ellipse cx="60" cy="-140" rx="36" ry="18" fill="#8a7a4a" />
+              <ellipse cx="100" cy="-40" rx="32" ry="16" fill="#121410" opacity="0.5" /><ellipse cx="-20" cy="-30" rx="30" ry="14" fill="#121410" opacity="0.5" />
+              <path class="tz" d="M-200 6 Q0 46 200 6 L205 32 Q0 72 -205 32 Z" fill="#3a4224" />
+            </g>
+            <!-- correaje con el celular de la tienda -->
+            <path d="M-150 320 L120 460" stroke="#121410" stroke-width="30" stroke-linecap="round" /><path d="M-150 320 L120 460" stroke="#3a4224" stroke-width="18" stroke-linecap="round" />
+            <g class="s13-celu"><rect class="tz" x="40" y="330" width="70" height="110" rx="12" fill="#121410" stroke-width="6" /><rect x="52" y="346" width="46" height="70" rx="4" fill="#5ce611" /></g>
+            <!-- la venia -->
+            <g class="s13-brazo">
+              <path d="M-200 330 L-262 170 L-150 30" fill="none" stroke="#121410" stroke-width="64" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M-200 330 L-262 170 L-150 30" fill="none" stroke="#d9c58f" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" />
+              <path class="tz" d="M-176 6 L-108 -6 L-100 30 L-170 50 Z" fill="#f1ecdc" stroke-width="6" />
+            </g>
+          </g></g>
+        </svg>
+        <div class="s13-noti s13-n1">PEDIDO NUEVO<small>03:12 · PAGADO · CON ENVÍO</small></div>
+        <div class="s13-noti s13-n2">PEDIDO NUEVO<small>03:40 · PAGADO · CON ENVÍO</small></div>
+        <div class="s13-noti s13-n3">PEDIDO NUEVO<small>04:05 · PAGADO · CON ENVÍO</small></div>
+        <div class="s13-txt s13-bf">BLACK FRIDAY</div>
+        <div class="s13-sello"><span>ARMADO</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-armado";
+      const DUR = 4.0;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const golpe = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s13-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const SOLA = 0.26, DORMIS = 0.71, LLEGAS = 1.62, BLACK = 2.05, ARMADO = 2.99;
+      // cuadro 0: el recluta duerme; los pedidos entran solos
+      tl.fromTo(q(".s13-noche"), { opacity: 0.5, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(qa(".s13-z text"), { opacity: 0, y: 20 }, { opacity: 1, y: -20, duration: 0.5, stagger: 0.15, ease: "sine.out" }, 0.05);
+      tl.to(q(".s13-noche"), { scaleY: 1.02, svgOrigin: "540 1250", duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      [[".s13-n1", SOLA - 0.1], [".s13-n2", DORMIS - 0.15], [".s13-n3", 1.1]].forEach(([s, t]) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, x: 300 }, { opacity: 1, x: 0, duration: 0.28, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // "y llegás": corte, el recluta parado, equipado
+      gsap.set(q(".s13-rec"), { opacity: 0 });
+      tl.to([q(".s13-noche"), q(".s13-n1"), q(".s13-n2"), q(".s13-n3")], { opacity: 0, duration: 0.12 }, LLEGAS - 0.15);
+      tl.fromTo(q(".s13-rec"), { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, LLEGAS - 0.05);
+      tl.fromTo(q(".s13-brazo"), { rotation: 70, svgOrigin: "-200 330" }, { rotation: 0, svgOrigin: "-200 330", duration: 0.25, ease: "back.out(2.5)" }, LLEGAS + 0.15);
+      tl.to(q(".s13-celu rect:last-child"), { fill: "#f1ecdc", duration: 0.1, yoyo: true, repeat: 5, ease: "steps(1)" }, LLEGAS + 0.3);
+      // "Black Friday"
+      gsap.set(q(".s13-bf"), { opacity: 0 });
+      tl.fromTo(q(".s13-bf"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, BLACK - 0.05);
+      golpe(BLACK + 0.1, 0.9);
+      // "armado": sello verde (flash de ambiente)
+      gsap.set(q(".s13-sello"), { opacity: 0, rotation: -6 });
+      tl.fromTo(q(".s13-sello"), { opacity: 0, scale: 2.6 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, ARMADO - 0.08);
+      golpe(ARMADO + 0.08, 1.4);
+      tl.to(q(".s13-rec"), { scale: 1.04, svgOrigin: "0 470", duration: 0.5, ease: "sine.out" }, ARMADO);
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
