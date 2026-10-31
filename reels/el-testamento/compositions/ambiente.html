@@ -1,0 +1,82 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* cono de luz de la lámpara de banquero, de arriba */
+    [data-composition-id="ambiente"] .amb-luz { position: absolute; inset: 0; opacity: 0.8;
+      background: radial-gradient(ellipse 620px 760px at 540px 860px, rgba(240, 200, 120, 0.10) 0%, rgba(240, 200, 120, 0.04) 50%, rgba(240, 200, 120, 0) 80%); }
+    /* luz de telenovela: un golpe rojizo en los momentos de drama */
+    [data-composition-id="ambiente"] .amb-drama { position: absolute; inset: 0; opacity: 0;
+      background: radial-gradient(ellipse 760px 1000px at 540px 900px, rgba(168, 32, 42, 0) 40%, rgba(168, 32, 42, 0.38) 100%); }
+    /* la calma de Scalerics: luz dorada pareja */
+    [data-composition-id="ambiente"] .amb-calma { position: absolute; inset: 0; opacity: 0;
+      background: radial-gradient(ellipse 820px 980px at 540px 900px, rgba(232, 180, 76, 0.13) 0%, rgba(232, 180, 76, 0.05) 50%, rgba(232, 180, 76, 0) 82%); }
+    [data-composition-id="ambiente"] .amb-polvo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="ambiente"] .amb-grano { position: absolute; left: -100px; top: -100px; width: 1280px; height: 2120px; opacity: 0.08; mix-blend-mode: screen; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 680px 1040px at 540px 930px, rgba(20, 11, 6, 0) 55%, rgba(20, 11, 6, 0.9) 100%); }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; left: 0; right: 0; top: 1640px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 30px; letter-spacing: 0.22em; color: #efe2c2; opacity: 0.55; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="ambiente"] .amb-r2 { opacity: 0; color: #e8b44c; }
+    [data-composition-id="ambiente"] .amb-linea { position: absolute; left: 340px; width: 400px; top: 1626px; height: 2px; background: #e8b44c; opacity: 0.35; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="72.74">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="72.74" data-track-index="0">
+      <div class="amb-luz"></div>
+      <div class="amb-drama"></div>
+      <div class="amb-calma"></div>
+      <svg class="amb-polvo" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g fill="#f3e6c8">
+          <circle class="amb-mota" cx="210" cy="700" r="3" opacity="0.35" />
+          <circle class="amb-mota" cx="380" cy="1040" r="2" opacity="0.3" />
+          <circle class="amb-mota" cx="520" cy="620" r="2.5" opacity="0.28" />
+          <circle class="amb-mota" cx="640" cy="900" r="3" opacity="0.3" />
+          <circle class="amb-mota" cx="780" cy="760" r="2" opacity="0.35" />
+          <circle class="amb-mota" cx="880" cy="1120" r="2.5" opacity="0.26" />
+          <circle class="amb-mota" cx="300" cy="1250" r="2" opacity="0.3" />
+          <circle class="amb-mota" cx="720" cy="1300" r="3" opacity="0.24" />
+          <circle class="amb-mota" cx="150" cy="980" r="2" opacity="0.26" />
+          <circle class="amb-mota" cx="940" cy="640" r="2.5" opacity="0.3" />
+        </g>
+      </svg>
+      <svg class="amb-grano" viewBox="0 0 1280 2120" aria-hidden="true">
+        <filter id="amb-f-grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="11" /><feColorMatrix type="saturate" values="0" /></filter>
+        <rect width="1280" height="2120" filter="url(#amb-f-grano)" />
+      </svg>
+      <div class="amb-vineta"></div>
+      <div class="amb-linea"></div>
+      <div class="amb-rotulo amb-r1" data-layout-ignore>Escribanía · Sucesión Don Hugo</div>
+      <div class="amb-rotulo amb-r2" data-layout-ignore>Herencia en orden</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 72.74;
+      const DRAMA = [2.87, 13.52, 39.09, 46.04]; // golpes de telenovela
+      const SCALERICS = 54.45; // "En Scalerics": luz dorada
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // polvo que flota en la luz de la lámpara (determinista)
+      root.querySelectorAll(".amb-mota").forEach((m, i) => {
+        const dx = ((i * 37) % 60) - 30, dy = -60 - ((i * 53) % 80);
+        tl.fromTo(m, { x: 0, y: 0 }, { x: dx, y: dy, duration: DUR, ease: "none" }, 0);
+      });
+      tl.fromTo(q(".amb-luz"), { opacity: 0.7 }, { opacity: 0.95, duration: 2.4, ease: "sine.inOut", yoyo: true, repeat: Math.floor(DUR / 2.4) - 1 }, 0);
+      tl.to(q(".amb-grano"), { x: 90, y: -70, duration: DUR, ease: "steps(" + Math.round(DUR * 12) + ")" }, 0);
+
+      DRAMA.forEach((t) => {
+        tl.to(q(".amb-drama"), { opacity: 1, duration: 0.12, ease: "power2.out" }, t);
+        tl.to(q(".amb-drama"), { opacity: 0, duration: 1.2, ease: "power2.in" }, t + 0.5);
+      });
+      tl.to(q(".amb-calma"), { opacity: 1, duration: 1.4, ease: "power2.out" }, SCALERICS);
+      tl.to(q(".amb-r1"), { opacity: 0, duration: 0.3 }, SCALERICS);
+      tl.to(q(".amb-r2"), { opacity: 0.7, duration: 0.3 }, SCALERICS + 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

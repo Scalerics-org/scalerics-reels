@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-cuaderno"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-cuaderno"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-cuaderno"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-cuaderno"] .tinta { stroke: #140b06; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-cuaderno"] .serif { font-family: "Cormorant Garamond", serif; font-weight: 600; }
+    [data-composition-id="s05-cuaderno"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s05-cuaderno"] .sans { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s05-cuaderno"] .s05-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; letter-spacing: 0.22em; color: #e8b44c; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s05-cuaderno"] .s05-etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-cuaderno" data-width="1080" data-height="1920" data-duration="5.61">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="5.61" data-track-index="0">
+      <div class="s05-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s05-cuaderno"><g transform="rotate(-3 540 980)">
+            <rect x="190" y="650" width="700" height="660" rx="10" fill="#4a2d18" class="tinta" />
+            <rect x="210" y="666" width="660" height="630" fill="#f2e8cc" class="tinta" stroke-width="4" />
+            <path d="M210 760 H870 M210 860 H870 M210 960 H870 M210 1060 H870 M210 1160 H870 M210 1260 H870" stroke="#9fb7b0" stroke-width="2" opacity="0.7" />
+            <path d="M290 666 V1296" stroke="#a8202a" stroke-width="2" opacity="0.5" />
+            <g fill="none" stroke="#140b06" stroke-width="5">
+              <circle cx="280" cy="660" r="14" /><circle cx="380" cy="660" r="14" /><circle cx="480" cy="660" r="14" /><circle cx="580" cy="660" r="14" /><circle cx="680" cy="660" r="14" /><circle cx="780" cy="660" r="14" />
+            </g>
+            <!-- mancha de grasa -->
+            <ellipse cx="780" cy="1210" rx="70" ry="50" fill="#c9a46a" opacity="0.45" />
+            <ellipse cx="780" cy="1210" rx="70" ry="50" fill="none" stroke="#a8792a" stroke-width="4" opacity="0.5" />
+            <!-- lo viejo, tachado -->
+            <text class="mano" x="310" y="740" font-size="48" fill="#6b4426">Clavos: pedir el jueves (¿cuál?)</text>
+            <path class="s05-tach" d="M300 726 Q420 708 520 732 T 760 722 Q690 744 560 738 T 310 744" fill="none" stroke="#a8202a" stroke-width="7" stroke-linecap="round" />
+            <text class="mano s05-l1" x="310" y="840" font-size="74" fill="#140b06">Tornillos:</text>
+            <text class="mano s05-l2" x="330" y="940" font-size="74" fill="#140b06">los de siempre,</text>
+            <text class="mano s05-l3" x="330" y="1040" font-size="74" fill="#140b06">en el cajón</text>
+            <text class="mano s05-l4" x="330" y="1140" font-size="74" fill="#140b06">de siempre.</text>
+            <path class="s05-sub" d="M520 1156 Q600 1166 700 1150" fill="none" stroke="#a8202a" stroke-width="6" stroke-linecap="round" />
+            <path class="s05-sub" d="M520 1170 Q610 1180 690 1166" fill="none" stroke="#a8202a" stroke-width="5" stroke-linecap="round" />
+            <text class="mano s05-firma" x="610" y="1250" font-size="52" fill="#6b4426">H.</text>
+          </g></g>
+          <!-- el sello de lacre -->
+          <g class="s05-lacre"><g transform="translate(830 700) rotate(-12)">
+            <path d="M0 -76 Q34 -82 52 -58 Q84 -50 78 -16 Q96 14 70 40 Q66 76 30 74 Q4 96 -24 76 Q-60 82 -66 50 Q-94 26 -76 -6 Q-86 -46 -52 -58 Q-34 -86 0 -76 Z" fill="#a8202a" class="tinta" stroke-width="4" />
+            <circle cx="0" cy="0" r="52" fill="none" stroke="#7a1820" stroke-width="5" />
+            <text class="serif" x="0" y="-6" font-size="28" fill="#efe2c2" text-anchor="middle" letter-spacing="2">ANEXO</text>
+            <text class="serif" x="0" y="34" font-size="40" fill="#efe2c2" text-anchor="middle">I</text>
+          </g></g>
+        </svg>
+      </div>
+      <div class="s05-etiqueta"><span class="s05-e1">Anexo I · el cuaderno</span><span class="s05-e2">Sistema de stock: «siempre»</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-cuaderno";
+      const DUR = 5.61;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const sello = (el, t) => tl.fromTo(el, { opacity: 0, scale: 2.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // escribir: revela un texto de izquierda a derecha con un clip
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0%)", opacity: 1 }, { clipPath: "inset(-20% 0% -20% 0%)", duration: d, ease: "none" }, t);
+      const parpadeo = (els, t) => tl.to(els, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1 }, t);
+      const etiqueta = (sel, t) => tl.fromTo(q(sel), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      const quitar = (sel, t) => tl.to(q(sel), { opacity: 0, y: -12, duration: 0.2 }, t);
+      const ANEXO = 0.0, CUADERNO = 1.16, TORNILLOS = 2.0, LOS = 2.97, CAJON = 4.08, SIEMPRE = 4.7;
+      tl.fromTo(q(".s05-cuaderno"), { y: 140, rotation: 8, opacity: 0.5, svgOrigin: "540 980" }, { y: 0, rotation: 0, opacity: 1, svgOrigin: "540 980", duration: 0.5, ease: "back.out(1.2)" }, 0);
+      tl.fromTo(q(".s05-escenario"), { scale: 1 }, { scale: 1.06, duration: DUR, ease: "none", transformOrigin: "540px 980px" }, 0);
+      sello(q(".s05-lacre"), ANEXO + 0.35);
+      temblor(q(".s05-cuaderno"), ANEXO + 0.5, 0.5);
+      etiqueta(".s05-e1", 0.2);
+      dibujar([q(".s05-tach")], CUADERNO - 0.1, 0.5);
+      gsap.set([q(".s05-l1"), q(".s05-l2"), q(".s05-l3"), q(".s05-l4"), q(".s05-firma")], { opacity: 0 });
+      escribir(q(".s05-l1"), TORNILLOS - 0.1, 0.5);
+      escribir(q(".s05-l2"), LOS - 0.05, 0.55);
+      escribir(q(".s05-l3"), 3.54, 0.5);
+      escribir(q(".s05-l4"), SIEMPRE - 0.2, 0.5);
+      dibujar(Array.from(qa(".s05-sub")), SIEMPRE + 0.3, 0.25);
+      escribir(q(".s05-firma"), SIEMPRE + 0.5, 0.2);
+      quitar(".s05-e1", CAJON);
+      etiqueta(".s05-e2", CAJON + 0.1);
+
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

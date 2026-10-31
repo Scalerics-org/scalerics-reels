@@ -1,0 +1,151 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-corvina"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-corvina"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-corvina"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-corvina"] .tinta { stroke: #140b06; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-corvina"] .serif { font-family: "Cormorant Garamond", serif; font-weight: 600; }
+    [data-composition-id="s10-corvina"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s10-corvina"] .sans { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s10-corvina"] .s10-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; letter-spacing: 0.22em; color: #e8b44c; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-corvina"] .s10-etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s10-corvina" data-width="1080" data-height="1920" data-duration="5.53">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="5.53" data-track-index="0">
+      <div class="s10-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la costa -->
+          <g class="s10-costa">
+            <rect x="0" y="600" width="1080" height="560" fill="#f3d9a0" opacity="0.18" />
+            <circle class="s10-sol" cx="820" cy="760" r="70" fill="#e8b44c" opacity="0.9" />
+            <g transform="translate(960 1150)"><path d="M-26 0 L-17 -190 L17 -190 L26 0 Z" fill="#f7f0de" class="tinta" stroke-width="4" /><path d="M-24 -50 H24 M-21 -110 H21" stroke="#a8202a" stroke-width="20" /><rect x="-24" y="-226" width="48" height="36" fill="#e8b44c" class="tinta" stroke-width="4" /><path d="M-30 -230 L0 -258 L30 -230 Z" fill="#a8202a" class="tinta" stroke-width="4" /></g>
+            <rect x="0" y="1150" width="1080" height="180" fill="#3f7f86" />
+            <path class="s10-ola" d="M-100 1180 Q-60 1160 -20 1180 T 60 1180 T 140 1180 T 220 1180 T 300 1180 T 380 1180 T 460 1180 T 540 1180 T 620 1180 T 700 1180 T 780 1180 T 860 1180 T 940 1180 T 1020 1180 T 1100 1180 T 1180 1180" fill="none" stroke="#efe2c2" stroke-width="5" />
+            <path class="s10-ola2" d="M-100 1250 Q-60 1230 -20 1250 T 60 1250 T 140 1250 T 220 1250 T 300 1250 T 380 1250 T 460 1250 T 540 1250 T 620 1250 T 700 1250 T 780 1250 T 860 1250 T 940 1250 T 1020 1250 T 1100 1250 T 1180 1250" fill="none" stroke="#efe2c2" stroke-width="4" opacity="0.6" />
+          </g>
+          <!-- la caña y la línea -->
+          <path class="s10-cana" d="M520 1080 Q700 860 900 690" fill="none" stroke="#4a2d18" stroke-width="10" stroke-linecap="round" />
+          <path class="s10-linea" d="M900 690 Q910 900 880 1160" fill="none" stroke="#140b06" stroke-width="2.5" />
+          <!-- la corvina -->
+          <g class="s10-pez"><g transform="translate(830 1060) rotate(-30)">
+            <path d="M-70 0 Q-20 -40 50 -10 L90 -36 L80 0 L90 36 L50 10 Q-20 40 -70 0 Z" fill="#d6d0c2" class="tinta" stroke-width="4" />
+            <circle cx="-40" cy="-6" r="6" fill="#140b06" />
+            <path d="M-10 -20 Q0 0 -10 20" fill="none" class="tinta" stroke-width="3" />
+          </g></g>
+          <g class="s10-gotas" fill="#efe2c2"><circle cx="780" cy="1150" r="9" /><circle cx="860" cy="1130" r="7" /><circle cx="900" cy="1160" r="8" /><circle cx="820" cy="1110" r="6" /></g>
+          <!-- Don Hugo -->
+          <g class="s10-hugo"><g transform="translate(380 980) scale(1.25)">
+            <path d="M-150 280 Q-140 120 0 104 Q140 120 150 280 Z" fill="#efe2c2" class="tinta" />
+            <path d="M-40 106 L0 150 L40 106" fill="none" class="tinta" />
+            <path d="M-110 170 Q-90 200 -60 190" fill="none" class="tinta" stroke-width="4" />
+            <rect x="-24" y="56" width="48" height="52" fill="#c48a5e" />
+<ellipse cx="0" cy="-6" rx="66" ry="76" fill="#c48a5e" class="tinta" />
+    <path d="M-68 -14 Q-74 -90 -20 -92 Q30 -100 62 -70 Q74 -46 68 -14 L60 -44 Q20 -70 -50 -50 Z" fill="#e9e3d4" class="tinta" />
+    <circle cx="-70" cy="-2" r="13" fill="#c48a5e" class="tinta" /><circle cx="70" cy="-2" r="13" fill="#c48a5e" class="tinta" />
+    <g class="s10-hugo-cejas"><path d="M-46 -28 Q-28 -40 -10 -28 M46 -28 Q28 -40 10 -28" fill="none" stroke="#e9e3d4" stroke-width="12" stroke-linecap="round" /></g>
+    <ellipse class="s10-hugo-ojo" cx="-26" cy="-10" rx="7" ry="9" fill="#140b06" /><ellipse class="s10-hugo-ojo" cx="26" cy="-10" rx="7" ry="9" fill="#140b06" />
+    <path d="M0 -4 Q-8 18 4 22" fill="none" class="tinta" stroke-width="4" />
+    <path d="M-50 36 Q-30 18 0 30 Q30 18 50 36 Q40 50 18 44 Q0 52 -18 44 Q-40 50 -50 36 Z" fill="#e9e3d4" class="tinta" stroke-width="4" />
+    <path class="s10-hugo-boca" d="M-18 54 Q0 66 18 54" fill="#7a1820" class="tinta" stroke-width="4" />
+<path d="M-110 -50 Q0 -80 110 -50 Q90 -36 0 -40 Q-90 -36 -110 -50 Z" fill="#e8b44c" class="tinta" />
+    <path d="M-62 -48 Q-60 -122 0 -122 Q60 -122 62 -48 Z" fill="#e8b44c" class="tinta" />
+    <path d="M-62 -62 Q0 -74 62 -62" fill="none" stroke="#a8202a" stroke-width="10" />
+          </g></g>
+          <!-- la mano que dice "no" -->
+          <g class="s10-mano"><g transform="translate(190 1000)">
+            <path d="M0 220 Q-10 120 0 60" fill="none" stroke="#efe2c2" stroke-width="56" stroke-linecap="round" />
+            <ellipse cx="0" cy="30" rx="36" ry="44" fill="#c48a5e" class="tinta" stroke-width="4" />
+            <rect x="-8" y="-50" width="22" height="70" rx="11" fill="#c48a5e" class="tinta" stroke-width="4" />
+          </g></g>
+          <!-- la mano en la caña -->
+          <circle cx="540" cy="1080" r="34" fill="#c48a5e" class="tinta" stroke-width="4" />
+          <!-- mensaje grabado: barra con onda -->
+          <g class="s10-rec"><g transform="translate(540 640)">
+            <rect x="-330" y="-46" width="660" height="92" rx="46" fill="#140b06" stroke="#e8b44c" stroke-width="4" />
+            <circle class="s10-punto" cx="-286" cy="0" r="14" fill="#a8202a" />
+            <text class="serif" x="-256" y="12" font-size="32" fill="#e8b44c" letter-spacing="3">MENSAJE DE PAPÁ</text>
+            <g class="s10-onda" fill="#efe2c2" transform="translate(40 0)">
+              <rect x="60" y="-8" width="10" height="16" rx="5" /><rect x="80" y="-18" width="10" height="36" rx="5" /><rect x="100" y="-12" width="10" height="24" rx="5" /><rect x="120" y="-26" width="10" height="52" rx="5" /><rect x="140" y="-14" width="10" height="28" rx="5" /><rect x="160" y="-22" width="10" height="44" rx="5" /><rect x="180" y="-10" width="10" height="20" rx="5" /><rect x="200" y="-20" width="10" height="40" rx="5" /><rect x="220" y="-8" width="10" height="16" rx="5" /><rect x="240" y="-16" width="10" height="32" rx="5" /><rect x="260" y="-6" width="10" height="12" rx="5" />
+            </g>
+          </g></g>
+          <!-- el sobre que se rompe al principio -->
+          <g class="s10-sobre"><g transform="translate(540 960)">
+            <g class="s10-sobre-a"><path d="M-260 -150 H0 V150 H-260 Z" fill="#efe2c2" class="tinta" /><path d="M-260 -150 L0 20" class="tinta" fill="none" /></g>
+            <g class="s10-sobre-b"><path d="M0 -150 H260 V150 H0 Z" fill="#efe2c2" class="tinta" /><path d="M260 -150 L0 20" class="tinta" fill="none" /></g>
+            <circle class="s10-lacre" cx="0" cy="20" r="54" fill="#a8202a" class="tinta" />
+          </g></g>
+        </svg>
+      </div>
+      <div class="s10-etiqueta"><span class="s10-e1">Grabado en La Paloma</span><span class="s10-e2">Horario de atención: de tarde</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-corvina";
+      const DUR = 5.53;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const sello = (el, t) => tl.fromTo(el, { opacity: 0, scale: 2.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // escribir: revela un texto de izquierda a derecha con un clip
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0%)", opacity: 1 }, { clipPath: "inset(-20% 0% -20% 0%)", duration: d, ease: "none" }, t);
+      const parpadeo = (els, t) => tl.to(els, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1 }, t);
+      const etiqueta = (sel, t) => tl.fromTo(q(sel), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      const quitar = (sel, t) => tl.to(q(sel), { opacity: 0, y: -12, duration: 0.2 }, t);
+      const LLAMAN = 1.75, PERO = 2.58, NO = 3.07, PICA = 3.59, CORVINA = 4.03;
+      // el sobre se abre y se va
+      tl.fromTo(q(".s10-sobre"), { opacity: 1 }, { opacity: 1, duration: 0.01 }, 0);
+      tl.to(q(".s10-lacre"), { scale: 1.3, opacity: 0, transformOrigin: "50% 50%", duration: 0.2 }, 0.15);
+      tl.to(q(".s10-sobre-a"), { x: -700, rotation: -20, svgOrigin: "0 0", duration: 0.45, ease: "power2.in" }, 0.2);
+      tl.to(q(".s10-sobre-b"), { x: 700, rotation: 20, svgOrigin: "0 0", duration: 0.45, ease: "power2.in" }, 0.2);
+      tl.fromTo(q(".s10-escenario"), { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "540px 1000px" }, 0);
+      tl.fromTo(q(".s10-hugo"), { y: 30 }, { y: 0, duration: 0.5, ease: "power2.out" }, 0.2);
+      pop(q(".s10-rec"), 0.4, 0.8);
+      tl.fromTo(q(".s10-punto"), { opacity: 1 }, { opacity: 0.2, duration: 0.3, yoyo: true, repeat: 14, ease: "none" }, 0.4);
+      qa(".s10-onda rect").forEach((r, i) => tl.fromTo(r, { scaleY: 0.4, transformOrigin: "50% 50%" }, { scaleY: 1.3, duration: 0.18, yoyo: true, repeat: 22, ease: "sine.inOut" }, 0.4 + (i % 4) * 0.05));
+      tl.fromTo(q(".s10-ola"), { x: 0 }, { x: -80, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s10-ola2"), { x: -40 }, { x: 40, duration: DUR, ease: "none" }, 0);
+      etiqueta(".s10-e1", 0.3);
+      // Don Hugo habla
+      tl.fromTo(q(".s10-hugo-boca"), { scaleY: 1, svgOrigin: "0 56" }, { scaleY: 1.6, svgOrigin: "0 56", duration: 0.13, yoyo: true, repeat: 27, ease: "none" }, 0.3);
+      parpadeo(qa(".s10-hugo-ojo"), 1.2);
+      // "mañana no": la mano con el dedo
+      gsap.set(q(".s10-mano"), { opacity: 0 });
+      tl.fromTo(q(".s10-mano"), { opacity: 0, y: 140 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.5)" }, PERO);
+      [0, 0.18, 0.36, 0.54].forEach((d, i) => tl.to(q(".s10-mano"), { rotation: i % 2 ? 12 : -12, svgOrigin: "190 1200", duration: 0.16, ease: "sine.inOut" }, NO - 0.1 + d));
+      tl.to(q(".s10-mano"), { y: 200, opacity: 0, duration: 0.3, ease: "power2.in" }, CORVINA - 0.2);
+      // "corvina": salta el pez, la caña se dobla
+      gsap.set([q(".s10-pez"), q(".s10-gotas")], { opacity: 0 });
+      tl.to(q(".s10-cana"), { attr: { d: "M520 1080 Q760 820 860 900" }, duration: 0.25, ease: "power3.out" }, PICA);
+      tl.to(q(".s10-linea"), { attr: { d: "M860 900 Q870 1000 840 1100" }, duration: 0.25, ease: "power3.out" }, PICA);
+      tl.fromTo(q(".s10-pez"), { opacity: 0, y: 200 }, { opacity: 1, y: -60, duration: 0.45, ease: "power3.out" }, CORVINA - 0.1);
+      tl.to(q(".s10-pez"), { rotation: 25, svgOrigin: "830 1060", duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, CORVINA + 0.3);
+      tl.set(q(".s10-gotas"), { opacity: 1, y: 40 }, CORVINA);
+      tl.to(q(".s10-gotas"), { opacity: 0, y: -120, duration: 0.6, ease: "power2.out" }, CORVINA);
+      tl.to(q(".s10-hugo-cejas"), { y: -10, duration: 0.15 }, CORVINA);
+      quitar(".s10-e1", NO);
+      etiqueta(".s10-e2", NO + 0.1);
+
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

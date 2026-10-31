@@ -1,0 +1,157 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .tinta { stroke: #140b06; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .serif { font-family: "Cormorant Garamond", serif; font-weight: 600; }
+    [data-composition-id="s01-gancho"] .s01-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; letter-spacing: 0.22em; color: #e8b44c; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .s01-etiqueta span { position: absolute; left: 0; right: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="5.52">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.52" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el retrato de Don Hugo en la pared -->
+          <g class="s01-retrato"><g transform="translate(470 830)">
+            <ellipse cx="0" cy="0" rx="196" ry="238" fill="#e8b44c" class="tinta" />
+            <ellipse cx="0" cy="0" rx="176" ry="218" fill="none" stroke="#a8792a" stroke-width="6" />
+            <clipPath id="s01-oval"><ellipse cx="0" cy="0" rx="164" ry="206" /></clipPath>
+            <ellipse cx="0" cy="0" rx="164" ry="206" fill="#d9c79c" />
+            <g clip-path="url(#s01-oval)">
+              <!-- camisa y delantal -->
+              <path d="M-170 230 Q-160 110 -60 92 L60 92 Q160 110 170 230 Z" fill="#efe2c2" class="tinta" />
+              <path d="M-90 230 L-80 120 L80 120 L90 230 Z" fill="#1f5b3f" class="tinta" />
+              <path d="M-80 120 L-60 92 M80 120 L60 92" class="tinta" fill="none" />
+              <rect x="-24" y="58" width="48" height="42" fill="#d9a77c" />
+              <!-- cabeza -->
+              <ellipse cx="0" cy="-6" rx="66" ry="76" fill="#d9a77c" class="tinta" />
+              <path d="M-68 -14 Q-74 -90 -20 -92 Q30 -100 62 -70 Q74 -46 68 -14 L60 -44 Q20 -70 -50 -50 Z" fill="#e9e3d4" class="tinta" />
+              <circle cx="-70" cy="-2" r="13" fill="#d9a77c" class="tinta" />
+              <circle cx="70" cy="-2" r="13" fill="#d9a77c" class="tinta" />
+              <!-- lápiz en la oreja -->
+              <g transform="translate(78 -34) rotate(62)"><rect x="-8" y="-40" width="16" height="70" fill="#e8b44c" class="tinta" stroke-width="3" /><path d="M-8 30 L0 46 L8 30 Z" fill="#d9a77c" class="tinta" stroke-width="3" /></g>
+              <g class="s01-cejas"><path d="M-46 -28 Q-28 -40 -10 -28 M46 -28 Q28 -40 10 -28" fill="none" stroke="#e9e3d4" stroke-width="12" stroke-linecap="round" /></g>
+              <ellipse class="s01-ojo" cx="-26" cy="-10" rx="7" ry="9" fill="#140b06" />
+              <ellipse class="s01-ojo" cx="26" cy="-10" rx="7" ry="9" fill="#140b06" />
+              <path d="M0 -4 Q-8 18 4 22" fill="none" class="tinta" stroke-width="4" />
+              <path d="M-50 36 Q-30 18 0 30 Q30 18 50 36 Q40 50 18 44 Q0 52 -18 44 Q-40 50 -50 36 Z" fill="#e9e3d4" class="tinta" stroke-width="4" />
+              <path d="M-16 54 Q0 62 16 54" fill="none" class="tinta" stroke-width="4" />
+            </g>
+            <ellipse cx="0" cy="0" rx="164" ry="206" fill="none" class="tinta" />
+          </g></g>
+          <!-- plaquita -->
+          <g class="s01-placa"><g transform="translate(470 1100)">
+            <rect x="-210" y="-30" width="420" height="60" rx="6" fill="#e8b44c" class="tinta" stroke-width="4" />
+            <text class="serif" x="0" y="10" font-size="27" fill="#140b06" text-anchor="middle" letter-spacing="2">FERRETERÍA DON HUGO</text>
+          </g></g>
+          <!-- globo de pensamiento: el negocio entero en la cabeza -->
+          <g class="s01-globo">
+            <circle class="s01-burb s01-b1" cx="600" cy="700" r="12" fill="#efe2c2" />
+            <circle class="s01-burb s01-b2" cx="640" cy="664" r="20" fill="#efe2c2" />
+            <g class="s01-nube">
+              <path d="M700 650 Q690 590 750 588 Q770 552 830 566 Q880 540 920 580 Q990 584 980 650 Q1010 700 960 730 Q950 790 880 780 Q840 812 790 784 Q730 800 716 752 Q666 730 700 650 Z" fill="#efe2c2" class="tinta" />
+              <!-- tornillo -->
+              <g class="s01-ico" transform="translate(770 650) rotate(-20)"><rect x="-20" y="-30" width="40" height="14" rx="3" fill="#6b4426" /><rect x="-7" y="-16" width="14" height="52" fill="#6b4426" /><path d="M-7 -6 L7 -2 M-7 6 L7 10 M-7 18 L7 22" stroke="#efe2c2" stroke-width="3" /></g>
+              <!-- factura -->
+              <g class="s01-ico" transform="translate(860 630) rotate(8)"><rect x="-26" y="-34" width="52" height="68" fill="#fff" stroke="#140b06" stroke-width="3" /><path d="M-16 -18 H16 M-16 -6 H16 M-16 6 H8" stroke="#a8202a" stroke-width="4" /></g>
+              <!-- llave -->
+              <g class="s01-ico" transform="translate(940 690) rotate(30)"><circle cx="0" cy="-22" r="14" fill="none" stroke="#a8792a" stroke-width="8" /><path d="M0 -8 V34 M0 20 H12 M0 30 H10" stroke="#a8792a" stroke-width="8" stroke-linecap="round" /></g>
+              <!-- caja -->
+              <g class="s01-ico" transform="translate(830 730)"><rect x="-34" y="-22" width="68" height="44" fill="#c9a46a" stroke="#140b06" stroke-width="3" /><path d="M-34 -6 H34" stroke="#140b06" stroke-width="3" /></g>
+              <text class="serif s01-ico" x="745" y="752" font-size="56" fill="#a8202a">?</text>
+            </g>
+          </g>
+          <!-- lámpara de banquero -->
+          <g class="s01-lampara">
+            <rect x="160" y="1146" width="170" height="20" rx="6" fill="#e8b44c" class="tinta" stroke-width="4" />
+            <rect x="238" y="1064" width="14" height="86" fill="#e8b44c" class="tinta" stroke-width="4" />
+            <path d="M140 1086 Q245 1010 350 1086 Z" fill="#1f5b3f" class="tinta" />
+            <path d="M170 1068 Q245 1030 320 1068" fill="none" stroke="#2f7a55" stroke-width="8" stroke-linecap="round" />
+            <path class="s01-cono" d="M160 1088 L330 1088 L400 1150 L90 1150 Z" fill="#f3d27a" opacity="0.18" />
+          </g>
+          <!-- el escritorio -->
+          <g class="s01-escritorio">
+            <rect x="20" y="1150" width="1040" height="34" fill="#4a2d18" />
+            <rect x="40" y="1184" width="1000" height="150" fill="#6b4426" />
+            <path d="M80 1220 Q300 1210 520 1226 T 1000 1218 M60 1280 Q260 1272 480 1288 T 1020 1282" fill="none" stroke="#4a2d18" stroke-width="4" opacity="0.7" />
+          </g>
+          <!-- el sobre lacrado sobre el escritorio -->
+          <g class="s01-sobre"><g transform="translate(545 1222) rotate(-4) scale(0.85)">
+            <rect x="-110" y="-62" width="220" height="124" fill="#efe2c2" class="tinta" stroke-width="4" />
+            <path d="M-110 -62 L0 12 L110 -62" fill="none" class="tinta" stroke-width="4" />
+            <circle cx="0" cy="10" r="26" fill="#a8202a" />
+            <text class="serif" x="0" y="22" font-size="34" fill="#efe2c2" text-anchor="middle">H</text>
+          </g></g>
+          <!-- los dos hijos, de espaldas -->
+          <g class="s01-hija"><g transform="translate(230 1232)">
+            <path d="M-130 80 Q-120 0 0 -10 Q120 0 130 80 Z" fill="#a8202a" class="tinta" />
+            <ellipse cx="0" cy="-70" rx="74" ry="80" fill="#2b170c" class="tinta" />
+            <path d="M-74 -60 Q-90 20 -60 40 L60 40 Q90 20 74 -60" fill="#2b170c" class="tinta" />
+          </g></g>
+          <g class="s01-hijo"><g transform="translate(870 1232)">
+            <path d="M-140 80 Q-130 0 0 -12 Q130 0 140 80 Z" fill="#e8b44c" class="tinta" />
+            <ellipse cx="0" cy="-66" rx="66" ry="74" fill="#d9a77c" class="tinta" />
+            <path d="M-66 -70 Q-64 -144 0 -142 Q64 -144 66 -70 Q40 -96 0 -94 Q-40 -96 -66 -70 Z" fill="#2b170c" class="tinta" />
+          </g></g>
+        </svg>
+      </div>
+      <div class="s01-etiqueta"><span class="s01-e1">Sucesión · Don Hugo</span><span class="s01-e2">El negocio: en su cabeza</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 5.52;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const FERRETERIA = 1.15, HIJOS = 1.97, PROBLEMA = 2.87, NEGOCIO = 3.77, CABEZA = 4.67;
+
+      // cuadro 0: ya a medio armar, la cámara se acerca despacio
+      tl.fromTo(q(".s01-escenario"), { scale: 1.05 }, { scale: 1, duration: PROBLEMA, ease: "none", transformOrigin: "540px 900px" }, 0);
+      tl.fromTo(q(".s01-retrato"), { opacity: 0.5, y: -30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-escritorio"), { y: 40 }, { y: 0, duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-lampara"), { y: 40, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-cono"), { opacity: 0.05 }, { opacity: 0.22, duration: 0.3, yoyo: true, repeat: 1 }, 0.2);
+      tl.fromTo(q(".s01-sobre"), { y: -60, opacity: 0, rotation: -14, svgOrigin: "545 1222" }, { y: 0, opacity: 1, rotation: 0, svgOrigin: "705 1128", duration: 0.4, ease: "back.out(1.5)" }, 0.25);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, 0.15);
+
+      // "ferretería": la plaquita
+      pop(q(".s01-placa"), FERRETERIA - 0.05);
+      // "hijos": entran por abajo
+      tl.fromTo(q(".s01-hija"), { y: 220, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.3)" }, HIJOS - 0.15);
+      tl.fromTo(q(".s01-hijo"), { y: 220, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.3)" }, HIJOS - 0.02);
+
+      // "problema": golpe de telenovela sobre el retrato
+      tl.to(q(".s01-escenario"), { scale: 1.12, duration: 0.18, ease: "power3.out", transformOrigin: "470px 830px" }, PROBLEMA);
+      tl.to(q(".s01-escenario"), { scale: 1.08, duration: 1.6, ease: "sine.inOut", transformOrigin: "470px 830px" }, PROBLEMA + 0.2);
+      tl.to(q(".s01-cejas"), { y: -6, duration: 0.15, yoyo: true, repeat: 1 }, PROBLEMA);
+      tl.to(qa(".s01-ojo"), { scaleY: 0.1, svgOrigin: "470 820", duration: 0.06, yoyo: true, repeat: 1 }, NEGOCIO);
+
+      // "cabeza": el globo con todo el negocio adentro
+      gsap.set(qa(".s01-burb, .s01-nube"), { opacity: 0 });
+      pop(q(".s01-b1"), CABEZA - 0.35, 0.3);
+      pop(q(".s01-b2"), CABEZA - 0.2, 0.3);
+      pop(q(".s01-nube"), CABEZA - 0.05, 0.5);
+      qa(".s01-ico").forEach((el, i) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.12 }, CABEZA + 0.1 + i * 0.07));
+      temblor(q(".s01-nube"), CABEZA + 0.45, 0.5);
+      tl.to(q(".s01-e1"), { opacity: 0, y: -12, duration: 0.2 }, CABEZA - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, CABEZA);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

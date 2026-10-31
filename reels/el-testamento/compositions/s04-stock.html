@@ -1,0 +1,107 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-stock"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-stock"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-stock"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-stock"] .tinta { stroke: #140b06; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-stock"] .serif { font-family: "Cormorant Garamond", serif; font-weight: 600; }
+    [data-composition-id="s04-stock"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s04-stock"] .sans { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s04-stock"] .s04-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; letter-spacing: 0.22em; color: #e8b44c; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-stock"] .s04-etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-stock" data-width="1080" data-height="1920" data-duration="2.63">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="2.63" data-track-index="0">
+      <div class="s04-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- estanterías de la ferretería con cajas -->
+          <g class="s04-estantes">
+            <g class="s04-izq">
+              <path d="M60 620 V1320 M300 620 V1320 M60 760 H300 M60 920 H300 M60 1080 H300 M60 1240 H300" stroke="#6b4426" stroke-width="14" stroke-linecap="round" />
+            </g>
+            <g class="s04-der">
+              <path d="M780 620 V1320 M1020 620 V1320 M780 760 H1020 M780 920 H1020 M780 1080 H1020 M780 1240 H1020" stroke="#6b4426" stroke-width="14" stroke-linecap="round" />
+            </g>
+            <g class="s04-cajas">
+              <g class="s04-caja"><rect x="80" y="680" width="90" height="74" fill="#c9a46a" class="tinta" stroke-width="4" /><text class="serif" x="125" y="736" font-size="56" fill="#a8202a" text-anchor="middle">?</text></g>
+              <g class="s04-caja"><rect x="190" y="700" width="90" height="54" fill="#c9a46a" class="tinta" stroke-width="4" /><text class="serif" x="235" y="744" font-size="46" fill="#a8202a" text-anchor="middle">?</text></g>
+              <g class="s04-caja"><rect x="90" y="840" width="110" height="74" fill="#c9a46a" class="tinta" stroke-width="4" /><text class="serif" x="145" y="896" font-size="56" fill="#a8202a" text-anchor="middle">?</text></g>
+              <g class="s04-caja"><rect x="80" y="1000" width="90" height="74" fill="#c9a46a" class="tinta" stroke-width="4" /><text class="serif" x="125" y="1056" font-size="56" fill="#a8202a" text-anchor="middle">?</text></g>
+              <g class="s04-caja"><rect x="800" y="690" width="100" height="64" fill="#c9a46a" class="tinta" stroke-width="4" /><text class="serif" x="850" y="742" font-size="52" fill="#a8202a" text-anchor="middle">?</text></g>
+              <g class="s04-caja"><rect x="910" y="840" width="90" height="74" fill="#c9a46a" class="tinta" stroke-width="4" /><text class="serif" x="955" y="896" font-size="56" fill="#a8202a" text-anchor="middle">?</text></g>
+              <g class="s04-caja"><rect x="800" y="1000" width="110" height="74" fill="#c9a46a" class="tinta" stroke-width="4" /><text class="serif" x="855" y="1056" font-size="56" fill="#a8202a" text-anchor="middle">?</text></g>
+              <g class="s04-caja"><rect x="920" y="1170" width="80" height="64" fill="#c9a46a" class="tinta" stroke-width="4" /><text class="serif" x="960" y="1222" font-size="50" fill="#a8202a" text-anchor="middle">?</text></g>
+            </g>
+          </g>
+          <!-- la hija, primer plano -->
+          <g class="s04-hija"><g transform="translate(540 850) scale(1.6)">
+<g class="s04-hija-cuerpo"><path d="M-150 270 Q-140 124 0 108 Q140 124 150 270 Z" fill="#a8202a" class="tinta" />
+    <path d="M-88 -40 Q-104 140 -72 176 L72 176 Q104 140 88 -40 Z" fill="#2b170c" class="tinta" /></g>
+    <rect x="-22" y="60" width="44" height="52" fill="#d9a77c" />
+    <path d="M-30 108 Q0 132 30 108" fill="none" class="tinta" />
+    <ellipse cx="0" cy="0" rx="64" ry="76" fill="#d9a77c" class="tinta" />
+    <path d="M-72 14 Q-82 -88 0 -88 Q82 -88 72 14 Q64 -36 24 -52 Q-26 -42 -72 14 Z" fill="#2b170c" class="tinta" />
+    <circle cx="-66" cy="30" r="9" fill="#e8b44c" class="tinta" stroke-width="3" /><circle cx="66" cy="30" r="9" fill="#e8b44c" class="tinta" stroke-width="3" />
+    <ellipse class="s04-hija-ojo" cx="-24" cy="-4" rx="7" ry="9" fill="#140b06" /><ellipse class="s04-hija-ojo" cx="24" cy="-4" rx="7" ry="9" fill="#140b06" />
+    <g class="s04-hija-cejas"><path d="M-40 -24 L-12 -20 M40 -24 L12 -20" fill="none" class="tinta" stroke-width="6" /></g>
+    <path d="M-4 4 Q-8 20 4 22" fill="none" class="tinta" stroke-width="4" />
+    <ellipse class="s04-hija-boca" cx="0" cy="42" rx="16" ry="10" fill="#7a1820" class="tinta" stroke-width="4" />
+          </g></g>
+          <text class="serif s04-signo" x="740" y="700" font-size="150" fill="#e8b44c">?</text>
+        </svg>
+      </div>
+      <div class="s04-etiqueta"><span class="s04-e1">La hija</span><span class="s04-e2">Stock: sin datos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-stock";
+      const DUR = 2.63;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const sello = (el, t) => tl.fromTo(el, { opacity: 0, scale: 2.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      // escribir: revela un texto de izquierda a derecha con un clip
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0%)", opacity: 1 }, { clipPath: "inset(-20% 0% -20% 0%)", duration: d, ease: "none" }, t);
+      const parpadeo = (els, t) => tl.to(els, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1 }, t);
+      const etiqueta = (sel, t) => tl.fromTo(q(sel), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      const quitar = (sel, t) => tl.to(q(sel), { opacity: 0, y: -12, duration: 0.2 }, t);
+      const CABEZA = 0.53, STOCK = 1.69;
+      tl.fromTo(q(".s04-hija"), { scale: 0.9, opacity: 0.4, svgOrigin: "540 1000" }, { scale: 1, opacity: 1, svgOrigin: "540 1000", duration: 0.3, ease: "power3.out" }, 0);
+      tl.to(q(".s04-hija-cejas"), { rotation: 0, y: -10, svgOrigin: "0 -24", duration: 0.15 }, 0.05);
+      tl.fromTo(q(".s04-hija-boca"), { scaleY: 1, svgOrigin: "0 42" }, { scaleY: 2.2, svgOrigin: "0 42", duration: 0.12, yoyo: true, repeat: 3 }, 0.1);
+      etiqueta(".s04-e1", 0.1);
+      gsap.set(q(".s04-estantes"), { opacity: 0 });
+      tl.to(q(".s04-estantes"), { opacity: 0.35, duration: 0.3 }, 0);
+      pop(q(".s04-signo"), CABEZA, 0.4);
+      // "stock": las cajas con "?" aparecen y el zoom de telenovela
+      tl.to(q(".s04-estantes"), { opacity: 1, duration: 0.2 }, STOCK - 0.2);
+      qa(".s04-caja").forEach((c, i) => pop(c, STOCK - 0.15 + i * 0.05, 0.4));
+      tl.to(q(".s04-escenario"), { scale: 1.06, duration: 0.16, ease: "power3.out", transformOrigin: "540px 860px" }, STOCK);
+      temblor(q(".s04-hija"), STOCK + 0.1, 0.6);
+      quitar(".s04-e1", STOCK - 0.1);
+      etiqueta(".s04-e2", STOCK);
+
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
