@@ -1,0 +1,187 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Special Elite"; font-display: block; src: url("assets/fonts/SpecialElite.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .tinta { stroke: #141515; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .maq { font-family: "Special Elite", monospace; }
+    [data-composition-id="s01-gancho"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s01-gancho"] .ui { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s01-gancho"] .s01-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 50px; text-align: center; font-family: "Special Elite", monospace; font-size: 36px; letter-spacing: 0.14em; color: #ff6f59; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .s01-etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="4.75">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.75" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s01-zona"><rect x="0" y="560" width="1080" height="770" /></clipPath></defs>
+        <g clip-path="url(#s01-zona)"><g class="s01-cam">
+
+          <g class="s01-fotog"><g transform="translate(540 690) scale(0.85)">
+    <clipPath id="s01-cl-izq"><polygon points="-180,-140 0,-120 12,-80 -8,-40 10,0 -10,40 8,80 -4,120 -180,140" /></clipPath>
+    <clipPath id="s01-cl-der"><polygon points="0,-120 12,-80 -8,-40 10,0 -10,40 8,80 -4,120 180,140 180,-140" /></clipPath>
+    <g class="s01-foto-izq"><g clip-path="url(#s01-cl-izq)">
+    <rect x="-160" y="-120" width="320" height="240" fill="#f5f4ef" class="tinta" />
+    <rect x="-140" y="-102" width="280" height="166" fill="#7fd8b4" />
+    <path d="M-140 40 Q-60 10 0 30 Q70 50 140 20 L140 64 L-140 64 Z" fill="#4fae8a" />
+    <g transform="translate(-52 62) scale(0.62)"><path d="M-90 0 Q-86 -80 0 -90 Q86 -80 90 0 Z" fill="#8a8f8c" class="tinta" /><circle cx="0" cy="-128" r="42" fill="#d9a77c" class="tinta" /><path d="M-18 -112 Q0 -100 18 -112" fill="none" class="tinta" /><path d="M-24 -104 Q0 -114 24 -104" fill="none" stroke="#c9ccc7" stroke-width="8" stroke-linecap="round" /></g>
+    <g transform="translate(52 62) scale(0.62)"><path d="M-90 0 Q-86 -80 0 -90 Q86 -80 90 0 Z" fill="#ff6f59" class="tinta" /><circle cx="0" cy="-128" r="42" fill="#c48a5e" class="tinta" /><path d="M-40 -136 Q-40 -186 10 -180 Q46 -176 44 -140 Q20 -160 -40 -136 Z" fill="#141515" /><path d="M-18 -112 Q0 -100 18 -112" fill="none" class="tinta" /></g>
+    <path d="M-30 -58 Q0 -78 30 -58" fill="none" stroke="#f5f4ef" stroke-width="7" stroke-linecap="round" />
+    <text class="maq" x="0" y="100" font-size="24" fill="#141515" text-anchor="middle" letter-spacing="4">EL EQUIPO</text></g></g>
+    <g class="s01-foto-der"><g clip-path="url(#s01-cl-der)">
+    <rect x="-160" y="-120" width="320" height="240" fill="#f5f4ef" class="tinta" />
+    <rect x="-140" y="-102" width="280" height="166" fill="#7fd8b4" />
+    <path d="M-140 40 Q-60 10 0 30 Q70 50 140 20 L140 64 L-140 64 Z" fill="#4fae8a" />
+    <g transform="translate(-52 62) scale(0.62)"><path d="M-90 0 Q-86 -80 0 -90 Q86 -80 90 0 Z" fill="#8a8f8c" class="tinta" /><circle cx="0" cy="-128" r="42" fill="#d9a77c" class="tinta" /><path d="M-18 -112 Q0 -100 18 -112" fill="none" class="tinta" /><path d="M-24 -104 Q0 -114 24 -104" fill="none" stroke="#c9ccc7" stroke-width="8" stroke-linecap="round" /></g>
+    <g transform="translate(52 62) scale(0.62)"><path d="M-90 0 Q-86 -80 0 -90 Q86 -80 90 0 Z" fill="#ff6f59" class="tinta" /><circle cx="0" cy="-128" r="42" fill="#c48a5e" class="tinta" /><path d="M-40 -136 Q-40 -186 10 -180 Q46 -176 44 -140 Q20 -160 -40 -136 Z" fill="#141515" /><path d="M-18 -112 Q0 -100 18 -112" fill="none" class="tinta" /></g>
+    <path d="M-30 -58 Q0 -78 30 -58" fill="none" stroke="#f5f4ef" stroke-width="7" stroke-linecap="round" />
+    <text class="maq" x="0" y="100" font-size="24" fill="#141515" text-anchor="middle" letter-spacing="4">EL EQUIPO</text></g></g></g></g>
+          <g class="s01-dueno"><g transform="translate(240 1010) scale(0.8)">
+  <path d="M-178 240 Q-170 70 -62 34 L62 34 Q170 70 178 240 Z" fill="#8a8f8c" class="tinta" />
+  <path d="M-46 34 L0 118 L46 34 Z" fill="#f5f4ef" class="tinta" />
+  <path d="M-46 34 L-12 240 M46 34 L12 240" fill="none" class="tinta" />
+  <circle cx="-22" cy="170" r="7" fill="#141515" /><circle cx="-28" cy="210" r="7" fill="#141515" />
+  <rect x="-24" y="-30" width="48" height="66" fill="#d9a77c" class="tinta" />
+  <circle cx="-74" cy="-96" r="15" fill="#d9a77c" class="tinta" /><circle cx="74" cy="-96" r="15" fill="#d9a77c" class="tinta" />
+  <ellipse cx="0" cy="-100" rx="74" ry="82" fill="#d9a77c" class="tinta" />
+  <path d="M-68 -136 Q-84 -104 -72 -70 M68 -136 Q84 -104 72 -70" fill="none" stroke="#c9ccc7" stroke-width="16" stroke-linecap="round" />
+  <path d="M-30 -158 Q-8 -170 14 -164" fill="none" stroke="#f5f4ef" stroke-width="7" stroke-linecap="round" opacity="0.55" />
+  <g class="s01-due-cejas"><path d="M-48 -118 L-16 -131 M16 -131 L48 -118" stroke="#141515" stroke-width="7" stroke-linecap="round" /></g>
+  <g class="s01-due-ojos"><ellipse cx="-28" cy="-103" rx="6" ry="8" fill="#141515" /><ellipse cx="28" cy="-103" rx="6" ry="8" fill="#141515" /></g>
+  <path d="M0 -96 Q-15 -66 6 -62" fill="none" class="tinta" stroke-width="4" />
+  <path d="M-44 -48 Q-22 -64 0 -54 Q22 -64 44 -48 Q30 -36 0 -42 Q-30 -36 -44 -48 Z" fill="#c9ccc7" class="tinta" stroke-width="4" />
+  <path class="s01-due-boca" d="M-20 -20 Q0 -31 20 -20" fill="none" stroke="#141515" stroke-width="5" stroke-linecap="round" />
+  <ellipse class="s01-due-o" cx="0" cy="-16" rx="11" ry="13" fill="#141515" opacity="0" />
+  <path class="s01-due-sonrisa" d="M-24 -28 Q0 -4 24 -28" fill="none" stroke="#141515" stroke-width="5" stroke-linecap="round" opacity="0" /></g></g>
+          <g class="s01-med"><g transform="translate(540 990) scale(0.75)">
+  <path d="M-170 240 Q-166 70 -60 34 L60 34 Q166 70 170 240 Z" fill="#7fd8b4" class="tinta" />
+  <path d="M-44 34 L0 120 L44 34 Z" fill="#f5f4ef" class="tinta" />
+  <path d="M-60 36 L-24 150 M60 36 L24 150" fill="none" class="tinta" />
+  <rect x="-22" y="-30" width="44" height="66" fill="#e3b08a" class="tinta" />
+  <circle cx="0" cy="-186" r="38" fill="#c9ccc7" class="tinta" />
+  <ellipse cx="0" cy="-100" rx="70" ry="80" fill="#e3b08a" class="tinta" />
+  <path d="M-72 -96 Q-78 -184 0 -184 Q78 -184 72 -96 Q62 -150 0 -152 Q-62 -150 -72 -96 Z" fill="#c9ccc7" class="tinta" />
+  <g class="s01-med-cejas"><path d="M-46 -124 L-14 -119 M14 -119 L46 -124" stroke="#141515" stroke-width="7" stroke-linecap="round" /></g>
+  <g class="s01-med-ojos"><ellipse cx="-28" cy="-101" rx="6" ry="7" fill="#141515" /><ellipse cx="28" cy="-101" rx="6" ry="7" fill="#141515" /></g>
+  <path d="M0 -92 Q-9 -70 5 -66" fill="none" class="tinta" stroke-width="4" />
+  <g class="s01-med-lentes"><rect x="-58" y="-84" width="46" height="26" rx="5" fill="#f5f4ef" fill-opacity="0.3" stroke="#141515" stroke-width="5" /><rect x="12" y="-84" width="46" height="26" rx="5" fill="#f5f4ef" fill-opacity="0.3" stroke="#141515" stroke-width="5" /><path d="M-12 -74 L12 -74" stroke="#141515" stroke-width="5" /></g>
+  <path class="s01-med-boca" d="M-22 -40 L22 -40" stroke="#141515" stroke-width="5" stroke-linecap="round" /></g></g>
+          <g class="s01-ven"><g transform="translate(830 1010) scale(0.8)">
+  <path d="M-176 240 Q-166 70 -60 34 L60 34 Q166 70 176 240 Z" fill="#ff6f59" class="tinta" />
+  <path d="M-28 34 L0 96 L28 34 Z" fill="#c48a5e" class="tinta" />
+  <path d="M-60 34 L-34 86 L-6 40 Z M60 34 L34 86 L6 40 Z" fill="#ff6f59" class="tinta" />
+  <path class="s01-ven-bolsillo tinta" d="M44 110 L116 110 L112 176 L48 176 Z" fill="#ff6f59" />
+  <rect x="-22" y="-30" width="44" height="66" fill="#c48a5e" class="tinta" />
+  <circle cx="-72" cy="-96" r="14" fill="#c48a5e" class="tinta" /><circle cx="72" cy="-96" r="14" fill="#c48a5e" class="tinta" />
+  <ellipse cx="0" cy="-100" rx="70" ry="80" fill="#c48a5e" class="tinta" />
+  <path d="M-72 -96 Q-86 -178 -20 -194 Q52 -224 98 -168 Q76 -172 60 -160 Q80 -134 72 -96 Q56 -146 0 -148 Q-52 -146 -72 -96 Z" fill="#141515" class="tinta" />
+  <g><rect x="-60" y="-180" width="48" height="22" rx="9" fill="#4b5052" stroke="#f5f4ef" stroke-width="3" /><rect x="10" y="-180" width="48" height="22" rx="9" fill="#4b5052" stroke="#f5f4ef" stroke-width="3" /><path d="M-12 -170 L10 -170" stroke="#f5f4ef" stroke-width="3" /></g>
+  <g class="s01-ven-cejas"><path d="M-46 -122 Q-30 -136 -12 -124 M12 -120 L46 -117" fill="none" stroke="#141515" stroke-width="7" stroke-linecap="round" /></g>
+  <g class="s01-ven-ojos"><ellipse cx="-28" cy="-100" rx="7" ry="5" fill="#141515" /><ellipse cx="28" cy="-100" rx="7" ry="5" fill="#141515" /></g>
+  <path d="M0 -92 Q-10 -70 6 -66" fill="none" class="tinta" stroke-width="4" />
+  <path class="s01-ven-boca" d="M-26 -44 Q6 -26 34 -56" fill="none" stroke="#141515" stroke-width="5" stroke-linecap="round" />
+            <g class="s01-clis">
+              <g class="s01-cli"><g transform="translate(56 132) scale(0.7)">
+  <path d="M-30 0 Q-30 -34 0 -34 Q30 -34 30 0 Z" fill="#7fd8b4" class="tinta" stroke-width="4" />
+  <circle cx="0" cy="-58" r="22" fill="#e3b08a" class="tinta" stroke-width="4" />
+  <path d="M-22 -62 Q-20 -84 0 -84 Q20 -84 22 -62 Q10 -74 -22 -62 Z" fill="#141515" />
+  <circle cx="-8" cy="-58" r="3" fill="#141515" /><circle cx="8" cy="-58" r="3" fill="#141515" />
+  <path d="M-7 -48 Q0 -43 7 -48" fill="none" stroke="#141515" stroke-width="3" stroke-linecap="round" /></g></g>
+              <g class="s01-cli"><g transform="translate(82 124) scale(0.7)">
+  <path d="M-30 0 Q-30 -34 0 -34 Q30 -34 30 0 Z" fill="#f5f4ef" class="tinta" stroke-width="4" />
+  <circle cx="0" cy="-58" r="22" fill="#d9a77c" class="tinta" stroke-width="4" />
+  <path d="M-22 -62 Q-20 -84 0 -84 Q20 -84 22 -62 Q10 -74 -22 -62 Z" fill="#4b5052" />
+  <circle cx="-8" cy="-58" r="3" fill="#141515" /><circle cx="8" cy="-58" r="3" fill="#141515" />
+  <path d="M-7 -48 Q0 -43 7 -48" fill="none" stroke="#141515" stroke-width="3" stroke-linecap="round" /></g></g>
+              <g class="s01-cli"><g transform="translate(108 132) scale(0.7)">
+  <path d="M-30 0 Q-30 -34 0 -34 Q30 -34 30 0 Z" fill="#8a8f8c" class="tinta" stroke-width="4" />
+  <circle cx="0" cy="-58" r="22" fill="#c48a5e" class="tinta" stroke-width="4" />
+  <path d="M-22 -62 Q-20 -84 0 -84 Q20 -84 22 -62 Q10 -74 -22 -62 Z" fill="#141515" />
+  <circle cx="-8" cy="-58" r="3" fill="#141515" /><circle cx="8" cy="-58" r="3" fill="#141515" />
+  <path d="M-7 -48 Q0 -43 7 -48" fill="none" stroke="#141515" stroke-width="3" stroke-linecap="round" /></g></g>
+            </g>
+            <path class="s01-bolsillo-frente tinta" d="M42 112 L118 112 L113 178 L47 178 Z" fill="#ff6f59" />
+          </g></g>
+          <g class="s01-estrella"><g transform="translate(930 790)"><path d="M0.0 -40.0 L10.6 -14.6 L38.0 -12.4 L17.1 5.6 L23.5 32.4 L0.0 18.0 L-23.5 32.4 L-17.1 5.6 L-38.0 -12.4 L-10.6 -14.6 Z" fill="#ff6f59" class="tinta" stroke-width="4" /></g></g>
+          
+  <path d="M10 1150 L1070 1150 L1046 1190 L34 1190 Z" fill="#c9ccc7" class="tinta" />
+  <rect x="34" y="1190" width="1012" height="160" fill="#8a8f8c" class="tinta" />
+  <path d="M60 1230 L1020 1230" stroke="#4b5052" stroke-width="4" opacity="0.6" />
+          <g class="s01-carpetas">
+            <rect x="140" y="1124" width="190" height="34" rx="4" fill="#7fd8b4" class="tinta" />
+            <rect x="440" y="1118" width="200" height="40" rx="4" fill="#f5f4ef" class="tinta" />
+            <path d="M462 1134 L600 1134 M462 1146 L570 1146" stroke="#4b5052" stroke-width="4" />
+            <rect x="740" y="1126" width="170" height="32" rx="4" fill="#ff6f59" class="tinta" />
+          </g>
+        </g></g>
+      </svg>
+      <div class="s01-etiqueta"><span class="s01-e1">Expediente · Dueño c/ Vendedor</span><span class="s01-e2">En disputa: los clientes</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 4.75;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const golpe = (el, t) => tl.fromTo(el, { opacity: 0, scale: 2.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in" }, t - 0.16);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const parpadeo = (el, t) => tl.to(el, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1 }, t);
+      const etq = (i, t) => {
+        const s = qa(".s01-etiqueta span");
+        if (i > 0) tl.to(s[i - 1], { opacity: 0, y: -12, duration: 0.2 }, t - 0.12);
+        tl.fromTo(s[i], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      };
+
+      const VENDEDOR = 0.37, ESTRELLA = 0.74, VA = 1.67, CLIENTES = 2.96, BOLSILLO = 3.52;
+      tl.fromTo(q(".s01-cam"), { scale: 1.07, svgOrigin: "540 950" }, { scale: 1, svgOrigin: "540 950", duration: 2.7, ease: "none" }, 0);
+      tl.fromTo(q(".s01-fotog"), { opacity: 0.5, y: -24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0);
+      [".s01-dueno", ".s01-med", ".s01-ven"].forEach((s, i) => tl.fromTo(q(s), { opacity: 0.5, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)" }, i * 0.06));
+      tl.fromTo(q(".s01-carpetas"), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+      tl.set(qa(".s01-cli"), { y: 70 }, 0);
+      etq(0, 0.05);
+
+      // "vendedor": salta; "estrella": la estrella
+      tl.to(q(".s01-ven"), { y: -16, duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out" }, VENDEDOR);
+      tl.fromTo(q(".s01-estrella"), { opacity: 0, scale: 0.2, rotation: -90, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, ESTRELLA - 0.05);
+      tl.to(q(".s01-estrella"), { rotation: 20, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut", transformOrigin: "50% 50%" }, ESTRELLA + 0.4);
+
+      // "se va": la foto se parte
+      tl.to(q(".s01-foto-der"), { rotation: 16, x: 46, y: 70, duration: 0.45, ease: "power2.in", transformOrigin: "50% 0%" }, VA - 0.12);
+      temblor(q(".s01-foto-izq"), VA + 0.3, 0.6);
+      tl.to(q(".s01-ven"), { x: 26, duration: 0.4, ease: "power2.out" }, VA);
+      tl.to(q(".s01-due-cejas"), { y: -6, duration: 0.15 }, VA + 0.1);
+      parpadeo(q(".s01-due-ojos"), VA + 0.35);
+      parpadeo(q(".s01-med-ojos"), 1.1);
+
+      // "clientes": zoom al bolsillo, asoman los clientes
+      tl.to(q(".s01-foto-der"), { y: 400, rotation: 40, opacity: 0, duration: 0.5, ease: "power2.in", transformOrigin: "50% 0%" }, 2.3);
+      tl.to(q(".s01-cam"), { scale: 1.8, svgOrigin: "880 1060", duration: 0.5, ease: "power3.inOut" }, CLIENTES - 0.35);
+      qa(".s01-cli").forEach((el, i) => tl.to(el, { y: 0, duration: 0.32, ease: "back.out(1.8)" }, CLIENTES + i * 0.1));
+      // "bolsillo": palmadita y guiño
+      tl.to(q(".s01-bolsillo-frente"), { scaleY: 0.9, transformOrigin: "50% 0%", duration: 0.08, yoyo: true, repeat: 1 }, BOLSILLO);
+      parpadeo(q(".s01-ven-ojos"), BOLSILLO + 0.15);
+      tl.to(q(".s01-ven-cejas"), { y: -5, duration: 0.15, yoyo: true, repeat: 1 }, BOLSILLO + 0.1);
+      qa(".s01-cli").forEach((el, i) => tl.to(el, { rotation: i % 2 ? 6 : -6, transformOrigin: "50% 100%", duration: 0.3, yoyo: true, repeat: 2, ease: "sine.inOut" }, BOLSILLO + 0.3 + i * 0.05));
+      etq(1, CLIENTES);
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

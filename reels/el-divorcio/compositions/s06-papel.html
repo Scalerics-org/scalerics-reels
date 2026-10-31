@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Special Elite"; font-display: block; src: url("assets/fonts/SpecialElite.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-papel"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-papel"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-papel"] .tinta { stroke: #141515; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-papel"] .maq { font-family: "Special Elite", monospace; }
+    [data-composition-id="s06-papel"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s06-papel"] .ui { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s06-papel"] .s06-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 50px; text-align: center; font-family: "Special Elite", monospace; font-size: 36px; letter-spacing: 0.14em; color: #ff6f59; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-papel"] .s06-etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s06-papel" data-width="1080" data-height="1920" data-duration="3.99">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="3.99" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s06-zona"><rect x="0" y="560" width="1080" height="770" /></clipPath></defs>
+        <g clip-path="url(#s06-zona)"><g class="s06-cam">
+
+          <g class="s06-med"><g transform="translate(320 1110) scale(1.1)">
+  <path d="M-170 240 Q-166 70 -60 34 L60 34 Q166 70 170 240 Z" fill="#7fd8b4" class="tinta" />
+  <path d="M-44 34 L0 120 L44 34 Z" fill="#f5f4ef" class="tinta" />
+  <path d="M-60 36 L-24 150 M60 36 L24 150" fill="none" class="tinta" />
+  <rect x="-22" y="-30" width="44" height="66" fill="#e3b08a" class="tinta" />
+  <circle cx="0" cy="-186" r="38" fill="#c9ccc7" class="tinta" />
+  <ellipse cx="0" cy="-100" rx="70" ry="80" fill="#e3b08a" class="tinta" />
+  <path d="M-72 -96 Q-78 -184 0 -184 Q78 -184 72 -96 Q62 -150 0 -152 Q-62 -150 -72 -96 Z" fill="#c9ccc7" class="tinta" />
+  <g class="s06-med-cejas"><path d="M-46 -124 L-14 -119 M14 -119 L46 -124" stroke="#141515" stroke-width="7" stroke-linecap="round" /></g>
+  <g class="s06-med-ojos"><ellipse cx="-28" cy="-101" rx="6" ry="7" fill="#141515" /><ellipse cx="28" cy="-101" rx="6" ry="7" fill="#141515" /></g>
+  <path d="M0 -92 Q-9 -70 5 -66" fill="none" class="tinta" stroke-width="4" />
+  <g class="s06-med-lentes"><rect x="-58" y="-84" width="46" height="26" rx="5" fill="#f5f4ef" fill-opacity="0.3" stroke="#141515" stroke-width="5" /><rect x="12" y="-84" width="46" height="26" rx="5" fill="#f5f4ef" fill-opacity="0.3" stroke="#141515" stroke-width="5" /><path d="M-12 -74 L12 -74" stroke="#141515" stroke-width="5" /></g>
+  <path class="s06-med-boca" d="M-22 -40 L22 -40" stroke="#141515" stroke-width="5" stroke-linecap="round" /></g></g>
+          <g class="s06-doc"><g transform="translate(770 900) rotate(4)">
+            <rect x="-200" y="-250" width="400" height="500" fill="#f5f4ef" class="tinta" />
+            <text class="maq" x="0" y="-180" font-size="34" fill="#141515" text-anchor="middle" letter-spacing="2">TÍTULO DE</text>
+            <text class="maq" x="0" y="-138" font-size="34" fill="#141515" text-anchor="middle" letter-spacing="2">PROPIEDAD</text>
+            <path d="M-160 -110 L160 -110" stroke="#141515" stroke-width="3" />
+            <text class="maq" x="-160" y="-50" font-size="28" fill="#141515">Clientes de:</text>
+            <path d="M-160 0 L160 0" stroke="#4b5052" stroke-width="4" stroke-dasharray="12 10" />
+            <path class="s06-blanco" d="M-160 0 L160 0" stroke="#ff6f59" stroke-width="8" stroke-linecap="round" />
+            <text class="maq" x="-160" y="80" font-size="28" fill="#141515">Firma:</text>
+            <path d="M-60 80 L160 80" stroke="#4b5052" stroke-width="4" stroke-dasharray="12 10" />
+            <circle cx="90" cy="170" r="52" fill="none" stroke="#4b5052" stroke-width="4" stroke-dasharray="10 8" />
+            <text class="maq s06-preg" x="90" y="206" font-size="110" fill="#ff6f59" text-anchor="middle">?</text>
+          </g></g>
+        </g></g>
+      </svg>
+      <div class="s06-etiqueta"><span class="s06-e1">Prueba requerida: un papel</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-papel";
+      const DUR = 3.99;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const golpe = (el, t) => tl.fromTo(el, { opacity: 0, scale: 2.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in" }, t - 0.16);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const parpadeo = (el, t) => tl.to(el, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1 }, t);
+      const etq = (i, t) => {
+        const s = qa(".s06-etiqueta span");
+        if (i > 0) tl.to(s[i - 1], { opacity: 0, y: -12, duration: 0.2 }, t - 0.12);
+        tl.fromTo(s[i], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      };
+
+      const SENOR = 0, PAPEL = 1.07, CLIENTES = 2.41, SUYOS = 2.94;
+      tl.fromTo(q(".s06-med"), { opacity: 0.4, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s06-med-lentes"), { y: 10 }, { y: -4, duration: 0.3, ease: "power2.out" }, 0.15);
+      tl.to(q(".s06-med-ojos"), { x: 8, duration: 0.2 }, 0.3);
+      
+      tl.fromTo(q(".s06-doc"), { opacity: 0, scale: 0.5, rotation: -20, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 0, duration: 0.4, ease: "back.out(1.5)" }, PAPEL - 0.15);
+      etq(0, PAPEL);
+      tl.fromTo(q(".s06-blanco"), { opacity: 0 }, { opacity: 1, duration: 0.15, yoyo: true, repeat: 3 }, CLIENTES);
+      tl.to(q(".s06-med-cejas"), { y: -10, duration: 0.2 }, CLIENTES);
+      tl.to(q(".s06-med-lentes"), { y: 8, duration: 0.3 }, CLIENTES + 0.1);
+      golpe(q(".s06-preg"), SUYOS);
+      temblor(q(".s06-doc"), SUYOS, 0.5);
+      tl.to(q(".s06-doc"), { rotation: 3, transformOrigin: "50% 50%", duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, SUYOS + 0.2);
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

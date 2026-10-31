@@ -1,0 +1,67 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Special Elite"; font-display: block; src: url("assets/fonts/SpecialElite.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* tubo fluorescente de oficina pública, arriba: luz fría que parpadea de vez en cuando */
+    [data-composition-id="ambiente"] .amb-tubo { position: absolute; inset: 0; opacity: 0.85;
+      background: radial-gradient(ellipse 700px 420px at 540px 520px, rgba(201, 204, 199, 0.09) 0%, rgba(201, 204, 199, 0.03) 55%, rgba(201, 204, 199, 0) 85%); }
+    /* golpe coral en los momentos de drama */
+    [data-composition-id="ambiente"] .amb-drama { position: absolute; inset: 0; opacity: 0;
+      background: radial-gradient(ellipse 760px 1000px at 540px 900px, rgba(255, 111, 89, 0) 40%, rgba(255, 111, 89, 0.34) 100%); }
+    /* desde que entra Scalerics: luz menta pareja */
+    [data-composition-id="ambiente"] .amb-calma { position: absolute; inset: 0; opacity: 0;
+      background: radial-gradient(ellipse 820px 980px at 540px 900px, rgba(127, 216, 180, 0.12) 0%, rgba(127, 216, 180, 0.045) 50%, rgba(127, 216, 180, 0) 82%); }
+    [data-composition-id="ambiente"] .amb-grano { position: absolute; left: -100px; top: -100px; width: 1280px; height: 2120px; opacity: 0.07; mix-blend-mode: screen; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 700px 1040px at 540px 930px, rgba(22, 24, 25, 0) 55%, rgba(22, 24, 25, 0.88) 100%); }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; left: 0; right: 0; top: 1640px; text-align: center; font-family: "Special Elite", monospace; font-size: 28px; letter-spacing: 0.18em; color: #c9ccc7; opacity: 0.55; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="ambiente"] .amb-r2 { opacity: 0; color: #7fd8b4; }
+    [data-composition-id="ambiente"] .amb-linea { position: absolute; left: 340px; width: 400px; top: 1626px; height: 2px; background: #ff6f59; opacity: 0.35; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="70.53">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="70.53" data-track-index="0">
+      <div class="amb-tubo"></div>
+      <div class="amb-drama"></div>
+      <div class="amb-calma"></div>
+      <svg class="amb-grano" viewBox="0 0 1280 2120" aria-hidden="true">
+        <filter id="amb-f-grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="7" /><feColorMatrix type="saturate" values="0" /></filter>
+        <rect width="1280" height="2120" filter="url(#amb-f-grano)" />
+      </svg>
+      <div class="amb-vineta"></div>
+      <div class="amb-linea"></div>
+      <div class="amb-rotulo amb-r1" data-layout-ignore>Sala de mediación · Dueño c/ Vendedor</div>
+      <div class="amb-rotulo amb-r2" data-layout-ignore>Los clientes, en el negocio</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 70.53;
+      const DRAMA = [1.67,16.86,36.53,42.45,63.46];
+      const CALMA = 43.44;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      tl.to(q(".amb-grano"), { x: 90, y: -70, duration: DUR, ease: "steps(" + Math.round(DUR * 12) + ")" }, 0);
+      // parpadeos del tubo (deterministas)
+      [6.2, 19.8, 28.4, 33.1].forEach((t) => {
+        tl.to(q(".amb-tubo"), { opacity: 0.2, duration: 0.05 }, t);
+        tl.to(q(".amb-tubo"), { opacity: 0.85, duration: 0.05 }, t + 0.08);
+        tl.to(q(".amb-tubo"), { opacity: 0.3, duration: 0.04 }, t + 0.16);
+        tl.to(q(".amb-tubo"), { opacity: 0.85, duration: 0.06 }, t + 0.22);
+      });
+      DRAMA.forEach((t) => {
+        tl.to(q(".amb-drama"), { opacity: 1, duration: 0.12, ease: "power2.out" }, t);
+        tl.to(q(".amb-drama"), { opacity: 0, duration: 1.1, ease: "power2.in" }, t + 0.45);
+      });
+      tl.to(q(".amb-calma"), { opacity: 1, duration: 1.4, ease: "power2.out" }, CALMA);
+      tl.to(q(".amb-tubo"), { opacity: 0.4, duration: 1.4 }, CALMA);
+      tl.to(q(".amb-r1"), { opacity: 0, duration: 0.3 }, CALMA);
+      tl.to(q(".amb-r2"), { opacity: 0.7, duration: 0.3 }, CALMA + 0.3);
+      tl.to(q(".amb-linea"), { backgroundColor: "#7fd8b4", duration: 0.3 }, CALMA + 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

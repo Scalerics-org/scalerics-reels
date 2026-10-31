@@ -1,0 +1,4 @@
+{ "t": 4.2, "chica": "Tu vendedor se va", "grande": "con tus clientes", "sello": "¿Y la custodia?",
+  "acento": "#ff6f59", "sello_color": "#ff6f59", "velo": "22,24,25", "fondo": "#161819",
+  "zoom": 1.35, "foco": "50%", "foco_x": "75%",
+  "circulo": { "x": 860, "y": 800, "r": 165 }, "flecha": { "x": 470, "y": 1010, "rot": -35 } }

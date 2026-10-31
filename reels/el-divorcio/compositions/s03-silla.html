@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Special Elite"; font-display: block; src: url("assets/fonts/SpecialElite.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-silla"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-silla"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-silla"] .tinta { stroke: #141515; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-silla"] .maq { font-family: "Special Elite", monospace; }
+    [data-composition-id="s03-silla"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s03-silla"] .ui { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s03-silla"] .s03-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 50px; text-align: center; font-family: "Special Elite", monospace; font-size: 36px; letter-spacing: 0.14em; color: #ff6f59; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s03-silla"] .s03-etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s03-silla" data-width="1080" data-height="1920" data-duration="3.89">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.89" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s03-zona"><rect x="0" y="560" width="1080" height="770" /></clipPath></defs>
+        <g clip-path="url(#s03-zona)"><g class="s03-cam">
+
+          <g class="s03-silla"><g transform="translate(540 990)">
+            <g class="s03-base"><path d="M0 130 L-150 175 M0 130 L-70 195 M0 130 L70 195 M0 130 L150 175" stroke="#141515" stroke-width="14" stroke-linecap="round" />
+              <circle cx="-150" cy="182" r="15" fill="#141515" /><circle cx="-70" cy="202" r="15" fill="#141515" /><circle cx="70" cy="202" r="15" fill="#141515" /><circle cx="150" cy="182" r="15" fill="#141515" />
+              <rect x="-12" y="6" width="24" height="126" fill="#8a8f8c" class="tinta" /></g>
+            <g class="s03-giro">
+              <g class="s03-resp"><rect x="-110" y="-320" width="220" height="250" rx="46" fill="#4b5052" class="tinta" /><rect x="-84" y="-294" width="168" height="198" rx="34" fill="#7fd8b4" /><path d="M-40 -60 L-30 -20 M40 -60 L30 -20" class="tinta" stroke-width="10" /></g>
+              <rect x="-130" y="-50" width="260" height="58" rx="26" fill="#4b5052" class="tinta" />
+              <path d="M-150 -40 L-150 -110 L-110 -110 M150 -40 L150 -110 L110 -110" fill="none" stroke="#141515" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+          </g></g>
+          <path class="s03-arco" d="M330 840 Q540 720 750 840" fill="none" stroke="#ff6f59" stroke-width="9" stroke-linecap="round" />
+          <path class="s03-arco" d="M750 1010 Q540 1130 330 1010" fill="none" stroke="#ff6f59" stroke-width="9" stroke-linecap="round" />
+          <g class="s03-sello"><g transform="translate(540 880) rotate(-10)"><rect x="-192" y="-55.099999999999994" width="384" height="110.19999999999999" rx="10" fill="none" stroke="#4fae8a" stroke-width="8" />
+  <rect x="-180" y="-43.099999999999994" width="360" height="86.19999999999999" rx="6" fill="none" stroke="#4fae8a" stroke-width="3" />
+  <text class="maq" x="0" y="19.720000000000002" font-size="58" fill="#4fae8a" text-anchor="middle" letter-spacing="3">DEL LOCAL</text></g></g>
+          <g class="s03-mareo"><g transform="translate(540 650)"><g class="s03-esp"><path d="M0 0 L1.2 0.4 L2.0 1.7 L1.9 3.4 L0.9 5.1 L-1.2 6.4 L-3.9 6.7 L-7.0 5.8 L-9.8 3.5 L-11.7 -0.1 L-12.2 -4.6 L-10.9 -9.3 L-7.6 -13.6 L-2.7 -16.7 L3.4 -17.9 L10.0 -16.7 L16.1 -13.1 L20.9 -7.2 L23.4 0.4 L23.1 8.9 L19.6 17.1 L13.2 23.9 L4.4 28.3 L-5.8 29.3 L-16.2 26.7 L-25.4 20.3 L-32.0 10.8 L-35.1 -0.9 L-33.9 -13.3 L-28.2 -25.0 L-18.5 -34.3 L-5.8 -39.9 L8.4 -40.7 L22.6 -36.5 L34.7 -27.3 L43.2 -14.2 L46.8 1.6 L44.6 18.0 L36.7 33.1 L23.7 44.8 L7.1 51.5 L-11.3 52.1 L-29.1 46.2 L-44.2 34.2 L-54.5 17.3 L-58.4 -2.5 L-55.3 -22.8 L-45.0 -41.3 L-28.7 -55.4 L-8.2 -63.2 L14.3 -63.4 L35.8 -55.8 L53.8 -40.9 L65.8 -20.3 L70.1 3.5 L65.8 27.9 L53.2 49.6 L33.6 66.1 L9.1 74.9 L-17.5 74.7 L-42.7 65.3" fill="none" stroke="#ff6f59" stroke-width="7" stroke-linecap="round" /></g>
+            <g class="s03-orbita"><circle cx="110" cy="0" r="10" fill="#f5f4ef" /><circle cx="-110" cy="0" r="10" fill="#f5f4ef" /><circle cx="0" cy="-40" r="8" fill="#7fd8b4" /></g></g></g>
+        </g></g>
+      </svg>
+      <div class="s03-etiqueta"><span class="s03-e1">Bien Nº 2: la silla</span><span class="s03-e2">Queda en el local</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-silla";
+      const DUR = 3.89;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, Math.max(0, t + i * 0.04));
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const golpe = (el, t) => tl.fromTo(el, { opacity: 0, scale: 2.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in" }, t - 0.16);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const parpadeo = (el, t) => tl.to(el, { scaleY: 0.1, transformOrigin: "50% 50%", duration: 0.06, yoyo: true, repeat: 1 }, t);
+      const etq = (i, t) => {
+        const s = qa(".s03-etiqueta span");
+        if (i > 0) tl.to(s[i - 1], { opacity: 0, y: -12, duration: 0.2 }, t - 0.12);
+        tl.fromTo(s[i], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      };
+
+      const SILLA = 0.18, GIRA = 0.55, DEL = 1.76, MAREA = 2.89;
+      tl.fromTo(q(".s03-base"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".s03-giro"), { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.5)" }, SILLA - 0.1);
+      etq(0, 0.05);
+      // "giratoria": gira
+      tl.to(q(".s03-resp"), { scaleX: -1, transformOrigin: "50% 50%", duration: 0.22, yoyo: true, repeat: 3, ease: "sine.inOut" }, GIRA);
+      tl.to(q(".s03-giro"), { x: 14, duration: 0.11, yoyo: true, repeat: 7, ease: "sine.inOut" }, GIRA);
+      dibujar(qa(".s03-arco"), GIRA, 0.4);
+      tl.to(qa(".s03-arco"), { opacity: 0, duration: 0.25 }, GIRA + 0.8);
+      // "del local": sello
+      golpe(q(".s03-sello"), DEL + 0.12);
+      temblor(q(".s03-silla"), DEL + 0.12, 0.6);
+      etq(1, DEL);
+      // "me mareaba"
+      tl.fromTo(q(".s03-mareo"), { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 2.25);
+      tl.fromTo(q(".s03-esp"), { rotation: 0, svgOrigin: "0 0" }, { rotation: 900, svgOrigin: "0 0", duration: 1.7, ease: "none" }, 2.2);
+      tl.fromTo(q(".s03-orbita"), { rotation: 0, svgOrigin: "0 0" }, { rotation: -540, svgOrigin: "0 0", duration: 1.7, ease: "none" }, 2.2);
+      tl.to(q(".s03-silla"), { rotation: 5, transformOrigin: "50% 100%", duration: 0.25, yoyo: true, repeat: 4, ease: "sine.inOut" }, MAREA - 0.4);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
