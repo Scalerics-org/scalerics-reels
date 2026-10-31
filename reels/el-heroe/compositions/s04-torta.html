@@ -1,0 +1,152 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Bangers"; font-weight: 400; font-display: block; src: url("assets/fonts/Bangers.woff2") format("woff2"); }
+    @font-face { font-family: "Comic Neue"; font-weight: 700; font-display: block; src: url("assets/fonts/ComicNeue-700.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-torta"] .s04-capa, [data-composition-id="s04-torta"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-torta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-torta"] .k { fill: #111111; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .n { fill: #1d2b53; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .nn { fill: #0b1430; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .y { fill: #ffd23f; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .r { fill: #e63946; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .a { fill: #2f6fe0; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .c { fill: #4fc3ff; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .p { fill: #fdf6e3; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .l { fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .pl { fill: none; stroke: #fdf6e3; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .yl { fill: none; stroke: #ffd23f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .rl { fill: none; stroke: #e63946; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .cl { fill: none; stroke: #4fc3ff; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-torta"] .marco { fill: none; stroke: #111111; stroke-width: 10; stroke-linejoin: miter; }
+    [data-composition-id="s04-torta"] .ono { position: absolute; font-family: "Bangers", sans-serif; font-weight: 400; line-height: 0.9; white-space: nowrap; letter-spacing: 0.03em; -webkit-text-stroke: 12px #111111; paint-order: stroke fill; text-shadow: 10px 10px 0 #111111; }
+    [data-composition-id="s04-torta"] .caja { position: absolute; padding: 12px 22px 8px; background: #ffd23f; border: 6px solid #111111; box-shadow: 8px 8px 0 #111111; font-family: "Bangers", sans-serif; font-size: 50px; line-height: 1; letter-spacing: 0.04em; color: #111111; white-space: nowrap; }
+    [data-composition-id="s04-torta"] .globo { position: absolute; padding: 22px 30px 24px; background: #fdf6e3; border: 6px solid #111111; border-radius: 46px; font-family: "Comic Neue", sans-serif; font-weight: 700; color: #111111; line-height: 1.12; text-align: center; }
+    [data-composition-id="s04-torta"] .globo .cola { position: absolute; width: 70px; height: 70px; overflow: visible; }
+    [data-composition-id="s04-torta"] .globo b { color: #e63946; }
+
+    [data-composition-id="s04-torta"] .s04-msj { position: absolute; left: 470px; top: 620px; width: 520px; padding: 22px 26px 18px; background: #fdf6e3; border: 6px solid #111111; border-radius: 26px; box-shadow: 10px 10px 0 #111111; font-family: "Comic Neue", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; color: #111111; }
+    [data-composition-id="s04-torta"] .s04-msj small { display: block; margin-top: 10px; text-align: right; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; color: #2f6fe0; }
+    [data-composition-id="s04-torta"] .s04-feliz { position: absolute; }
+
+  </style>
+  <div id="root" data-composition-id="s04-torta" data-width="1080" data-height="1920" data-duration="4.39">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.39" data-track-index="0">
+      <div class="s04-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <pattern id="s04-ht" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="3.4" fill="#111111" /></pattern>
+            <pattern id="s04-htg" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="13" cy="13" r="6" fill="#111111" /></pattern>
+            <pattern id="s04-hty" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#ffd23f" /><circle cx="11" cy="11" r="4.4" fill="#e63946" opacity="0.55" /></pattern>
+            <pattern id="s04-htc" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#2f6fe0" /><circle cx="10" cy="10" r="4" fill="#4fc3ff" opacity="0.6" /></pattern>
+            <pattern id="s04-htn" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#14214a" /><circle cx="11" cy="11" r="4" fill="#4fc3ff" opacity="0.22" /></pattern>
+            <pattern id="s04-htp" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#fdf6e3" /><circle cx="10" cy="10" r="3" fill="#e63946" opacity="0.28" /></pattern>
+          </defs>
+          <g class="s04-v">
+            <rect x="74" y="574" width="960" height="940" fill="#111111" />
+            <clipPath id="s04-cp-s04-v"><rect x="60" y="560" width="960" height="940" /></clipPath>
+            <rect x="60" y="560" width="960" height="940" fill="#fdf6e3" />
+            <g clip-path="url(#s04-cp-s04-v)">
+            <rect x="60" y="560" width="960" height="940" fill="url(#s04-htp)" />
+            <path class="s04-rayos" d="M960 900 L1660 900 M988 965 L1625 1148 M946 983 L1582 1266 M945 1055 L1449 1479 M899 1055 L1362 1569 M867 1120 L1154 1709 M826 1102 L1038 1756 M769 1149 L791 1799 M737 1115 L666 1795 M665 1135 L423 1734 M650 1091 L310 1679 M575 1078 L112 1525 M579 1032 L32 1429 M515 989 L-86 1208 M537 947 L-120 1087 M496 881 L-138 837 M533 852 L-120 713 M523 774 L-35 477 M569 761 L32 371 M635 740 L206 191 M640 692 L310 121 M710 699 L542 27 M734 657 L666 5 M797 692 L916 14 M837 664 L1038 44 M880 722 L1263 154 M929 713 L1362 231 M946 784 L1523 423 M994 796 L1582 534 M981 869 L1651 775 " stroke="#ffd23f" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.5" />
+            <g class="s04-cli"><g transform="translate(40 860) scale(1.15)">
+              <path class="k" d="M96 250 C84 340 104 392 140 404 L222 404 C258 392 276 340 266 250 Z" />
+              <path class="r" d="M30 600 C30 450 92 388 180 388 C268 388 330 450 330 600 Z" />
+              <path d="M60 600 C60 500 90 440 140 410" fill="url(#s04-ht)" opacity="0.35" stroke="none" />
+              <path class="p" d="M154 304 V394 C164 402 196 402 206 394 V304" />
+              <ellipse class="p" cx="180" cy="236" rx="70" ry="80" />
+              <path class="k" d="M106 232 C96 160 138 126 182 126 C228 126 266 160 256 232 C234 196 204 186 180 198 C154 186 126 204 106 232 Z" />
+              <path class="k" d="M236 150 C300 126 330 190 312 262 C300 232 280 204 246 196 Z" />
+              <circle class="y" cx="112" cy="268" r="10" stroke-width="5" /><circle class="y" cx="250" cy="268" r="10" stroke-width="5" />
+              <g class="s04-cojos"><ellipse cx="154" cy="246" rx="9" ry="12" fill="#111111" /><ellipse cx="208" cy="246" rx="9" ry="12" fill="#111111" />
+              <path d="M140 232 L134 226 M222 232 L228 226" stroke="#111111" stroke-width="5" stroke-linecap="round" /></g>
+              <circle cx="138" cy="276" r="11" fill="#e63946" opacity="0.45" /><circle cx="224" cy="276" r="11" fill="#e63946" opacity="0.45" />
+              <path class="s04-boca" d="M160 284 C170 300 192 300 202 284 Z" fill="#e63946" stroke="#111111" stroke-width="5" stroke-linejoin="round" />
+              <g class="s04-cbrazo">
+                <path class="r" d="M300 470 C350 440 360 380 330 330 L298 342 C316 380 310 420 270 440 Z" />
+                <circle class="p" cx="318" cy="324" r="22" />
+                <g transform="rotate(12 333 270)"><rect class="a" x="298" y="196" width="72" height="128" rx="14" /><rect class="s04-cpant" x="308" y="210" width="52" height="88" rx="6" fill="#fdf6e3" /></g>
+              </g>
+</g></g>
+            <g class="s04-torta"><g transform="translate(620 950) scale(1.1)">
+              <g class="s04-t">
+              <ellipse class="p" cx="150" cy="292" rx="150" ry="26" />
+              <path class="k" d="M30 170 L30 270 C30 290 270 290 270 270 L270 170 Z" />
+              <path d="M44 176 L44 262 C70 276 100 280 120 280 L120 176 Z" fill="url(#s04-htg)" opacity="0" stroke="none" />
+              <path class="pl" d="M40 222 C90 232 210 232 260 222" stroke-width="6" opacity="0.8" />
+              <ellipse class="k" cx="150" cy="170" rx="120" ry="30" />
+              <path class="p" d="M32 172 C40 196 50 196 56 182 C64 208 78 208 84 186 C96 200 108 198 114 190 C126 212 140 210 146 192 C158 204 170 204 178 192 C188 214 204 212 210 190 C222 204 236 202 242 186 C252 200 262 196 268 172 C240 150 60 150 32 172 Z" stroke-width="5" />
+              <rect class="y" x="140" y="96" width="20" height="62" rx="4" stroke-width="5" />
+              <path class="r s04-t-llama" d="M150 92 C136 76 140 56 150 40 C160 56 164 76 150 92 Z" stroke-width="5" />
+              <circle class="r" cx="96" cy="156" r="12" stroke-width="5" /><circle class="r" cx="206" cy="156" r="12" stroke-width="5" />
+              </g></g></g>
+</g>
+            <rect class="marco" x="60" y="560" width="960" height="940" />
+          </g></svg>
+        <div class="s04-msj">Hola, ¿tienen la <b style="color:#e63946">torta de chocolate</b> para mañana?<small>23:02</small></div>
+        <div class="ono s04-cumple" style="left:420px;top:1340px;font-size:92px;color:#ffd23f;transform:rotate(-5deg);">¡ES EL CUMPLE!</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-torta";
+      const DUR = 4.39;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s04-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // golpe: entra de grande a su tamaño, seco
+      const golpe = (sel, t, desde = 2.4, extra = {}) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 0, scale: desde, ...extra }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 0, scale: 0.6, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }, d = 0.3) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: d, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const sale = (sel, t, a = { opacity: 0, scale: 0.8 }, d = 0.2) => tl.to(qa(sel), { ...a, duration: d, ease: "power2.in" }, t);
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(qa(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      const habla = (sel, t, d, origin) => tl.fromTo(qa(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.2, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // titila (onomatopeyas, ojos que brillan)
+      const late = (sel, t, n = 3, s = 1.08, per = 0.14) => tl.to(qa(sel), { scale: s, duration: per, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t);
+      // zoom lento de cámara sobre la viñeta
+      const camara = (sel, t, d, desde, hasta, origen = "50% 50%") => tl.fromTo(qa(sel), { scale: desde, transformOrigin: origen }, { scale: hasta, transformOrigin: origen, duration: d, ease: "none", immediateRender: false }, t);
+
+      const HOLA = 0.0, TIENEN = 0.26, TORTA = 1.13, CUMPLE = 3.05;
+      entra(".s04-cli", 0, { x: -300 }, 0.35);
+      habla(".s04-boca", 0.0, 2.2, "181 290");
+      tl.fromTo(q(".s04-cbrazo"), { rotation: 0, svgOrigin: "300 470" }, { rotation: -10, svgOrigin: "300 470", duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, 0.3);
+      gsap.set(q(".s04-msj"), { opacity: 0 });
+      tl.fromTo(q(".s04-msj"), { opacity: 0, scale: 0.4, x: -120, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, x: 0, transformOrigin: "0% 100%", duration: 0.3, ease: "back.out(2)", immediateRender: false }, TIENEN);
+      gsap.set(q(".s04-torta"), { opacity: 0 });
+      tl.fromTo(q(".s04-torta"), { opacity: 0, y: 200, scale: 0.6, svgOrigin: "785 1270" }, { opacity: 1, y: 0, scale: 1, svgOrigin: "785 1270", duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, TORTA);
+      tl.fromTo(q(".s04-t-llama"), { scaleY: 1, svgOrigin: "150 92" }, { scaleY: 1.25, svgOrigin: "150 92", duration: 0.12, yoyo: true, repeat: 21, ease: "sine.inOut" }, TORTA + 0.3);
+      tl.fromTo(q(".s04-rayos"), { rotation: 0, svgOrigin: "760 900" }, { rotation: 10, svgOrigin: "760 900", duration: DUR, ease: "none" }, 0);
+      golpe(".s04-cumple", CUMPLE, 2.0);
+      late(".s04-cumple", CUMPLE + 0.2, 2, 1.06, 0.14);
+      respira(".s04-cli", 1.0, 3.0, 6, 0.4);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

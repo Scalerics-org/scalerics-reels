@@ -1,0 +1,86 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Bangers"; font-weight: 400; font-display: block; src: url("assets/fonts/Bangers.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    /* cabecera de revista de historietas */
+    [data-composition-id="ambiente"] .am-cab { position: absolute; left: 52px; top: 92px; display: flex; align-items: flex-end; gap: 16px; }
+    [data-composition-id="ambiente"] .am-titulo { padding: 8px 20px 2px; background: #ffd23f; border: 6px solid #111111; box-shadow: 8px 8px 0 #111111; font-family: "Bangers", sans-serif; font-size: 62px; line-height: 1; letter-spacing: 0.04em; color: #e63946; -webkit-text-stroke: 3px #111111; paint-order: stroke fill; transform: rotate(-3deg); }
+    [data-composition-id="ambiente"] .am-num { padding: 6px 14px 2px; background: #e63946; border: 5px solid #111111; font-family: "Bangers", sans-serif; font-size: 32px; line-height: 1; letter-spacing: 0.08em; color: #fdf6e3; transform: rotate(2deg); }
+    /* quién habla */
+    [data-composition-id="ambiente"] .am-quien { position: absolute; right: 52px; top: 104px; width: 380px; height: 70px; }
+    [data-composition-id="ambiente"] .am-quien span { position: absolute; right: 0; top: 0; padding: 8px 18px 4px; background: #111111; border: 4px solid #fdf6e3; font-family: "Bangers", sans-serif; font-size: 38px; line-height: 1; letter-spacing: 0.08em; color: #fdf6e3; white-space: nowrap; opacity: 0; }
+    [data-composition-id="ambiente"] .am-quien .am-v { color: #4fc3ff; border-color: #4fc3ff; }
+    [data-composition-id="ambiente"] .am-quien .am-a { background: #2f6fe0; color: #ffd23f; }
+    [data-composition-id="ambiente"] .am-quien .am-n { background: #ffd23f; color: #111111; border-color: #111111; }
+    /* marco de página que destella en los golpes */
+    [data-composition-id="ambiente"] .am-borde { position: absolute; inset: 0; border: 20px solid #ffd23f; opacity: 0; }
+    [data-composition-id="ambiente"] .am-borde-r { position: absolute; inset: 0; border: 20px solid #e63946; opacity: 0; }
+    [data-composition-id="ambiente"] .am-borde-c { position: absolute; inset: 0; border: 20px solid #4fc3ff; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="77.34">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="77.34" data-track-index="0">
+      <div class="am-cab"><div class="am-titulo">EL HÉROE</div><div class="am-num">EL ORIGEN</div></div>
+      <div class="am-quien">
+        <span class="am-q0 am-n">NARRADOR</span>
+        <span class="am-q1 am-v">EL VISTO</span>
+        <span class="am-q2">LA CLIENTA</span>
+        <span class="am-q3 am-v">EL VISTO</span>
+        <span class="am-q4 am-n">NARRADOR</span>
+        <span class="am-q5">EL DUEÑO</span>
+        <span class="am-q6 am-n">NARRADOR</span>
+        <span class="am-q7 am-a">¿¿ ?? ??</span>
+        <span class="am-q8">LA CLIENTA</span>
+        <span class="am-q9 am-v">EL VISTO</span>
+        <span class="am-q10 am-a">AGENTE DE IA</span>
+        <span class="am-q11 am-n">NARRADOR</span>
+        <span class="am-q12">EL DUEÑO</span>
+        <span class="am-q13 am-a">AGENTE DE IA</span>
+      </div>
+      <div class="am-borde"></div>
+      <div class="am-borde-r"></div>
+      <div class="am-borde-c"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const FIN = 69.0; // entra Scalerics: se va la cabecera
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      // la cabecera entra de golpe y late un poco
+      tl.fromTo(q(".am-titulo"), { scale: 1.6, opacity: 0.4 }, { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".am-num"), { x: -120, opacity: 0 }, { x: 0, opacity: 1, duration: 0.25, ease: "back.out(2)" }, 0.15);
+      tl.to(q(".am-titulo"), { rotation: -1, duration: 1.2, yoyo: true, repeat: Math.floor(FIN / 1.2) - 1, ease: "sine.inOut" }, 0.4);
+
+      // quién habla (inicio de cada parlamento; 08 sigue el narrador)
+      const QT = [0, 5.47, 11.36, 15.75, 20.75, 26.66, 31.41, 41.69, 46.14, 49.25, 52.0, 57.24, 61.97, 63.77, FIN];
+      QT.slice(0, -1).forEach((a, i) => {
+        const el = q(".am-q" + i);
+        tl.fromTo(el, { opacity: 0, scale: 1.5, rotation: i % 2 ? 4 : -4 }, { opacity: 1, scale: 1, rotation: i % 2 ? 2 : -2, duration: 0.18, ease: "back.out(2.5)", immediateRender: i === 0 }, a);
+        tl.to(el, { opacity: 0, duration: 0.08 }, QT[i + 1] - 0.08);
+      });
+
+      // destellos del marco en los golpes
+      const flash = (sel, t, n = 2) => { for (let k = 0; k < n; k++) { tl.to(q(sel), { opacity: 1, duration: 0.03 }, t + k * 0.14); tl.to(q(sel), { opacity: 0, duration: 0.08 }, t + k * 0.14 + 0.06); } };
+      flash(".am-borde-c", 4.5, 3);   // El Visto
+      flash(".am-borde-c", 15.75, 2); // Visto
+      flash(".am-borde-c", 19.1, 2);  // un pulgar
+      flash(".am-borde", 20.75, 3);   // ¡Zas!
+      flash(".am-borde-r", 30.3, 2);  // ¡el celular no para!
+      flash(".am-borde", 40.3, 3);    // se prendió solo
+      flash(".am-borde-r", 49.25, 3); // ¡Nooo!
+      flash(".am-borde", 58.33, 2);   // capa
+
+      // Scalerics: se va la cabecera
+      tl.to(q(".am-cab"), { y: -220, opacity: 0, duration: 0.3, ease: "power2.in" }, FIN);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

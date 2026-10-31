@@ -1,0 +1,144 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Bangers"; font-weight: 400; font-display: block; src: url("assets/fonts/Bangers.woff2") format("woff2"); }
+    @font-face { font-family: "Comic Neue"; font-weight: 700; font-display: block; src: url("assets/fonts/ComicNeue-700.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-quien"] .s12-capa, [data-composition-id="s12-quien"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-quien"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-quien"] .k { fill: #111111; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .n { fill: #1d2b53; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .nn { fill: #0b1430; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .y { fill: #ffd23f; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .r { fill: #e63946; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .a { fill: #2f6fe0; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .c { fill: #4fc3ff; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .p { fill: #fdf6e3; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .l { fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .pl { fill: none; stroke: #fdf6e3; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .yl { fill: none; stroke: #ffd23f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .rl { fill: none; stroke: #e63946; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .cl { fill: none; stroke: #4fc3ff; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-quien"] .marco { fill: none; stroke: #111111; stroke-width: 10; stroke-linejoin: miter; }
+    [data-composition-id="s12-quien"] .ono { position: absolute; font-family: "Bangers", sans-serif; font-weight: 400; line-height: 0.9; white-space: nowrap; letter-spacing: 0.03em; -webkit-text-stroke: 12px #111111; paint-order: stroke fill; text-shadow: 10px 10px 0 #111111; }
+    [data-composition-id="s12-quien"] .caja { position: absolute; padding: 12px 22px 8px; background: #ffd23f; border: 6px solid #111111; box-shadow: 8px 8px 0 #111111; font-family: "Bangers", sans-serif; font-size: 50px; line-height: 1; letter-spacing: 0.04em; color: #111111; white-space: nowrap; }
+    [data-composition-id="s12-quien"] .globo { position: absolute; padding: 22px 30px 24px; background: #fdf6e3; border: 6px solid #111111; border-radius: 46px; font-family: "Comic Neue", sans-serif; font-weight: 700; color: #111111; line-height: 1.12; text-align: center; }
+    [data-composition-id="s12-quien"] .globo .cola { position: absolute; width: 70px; height: 70px; overflow: visible; }
+    [data-composition-id="s12-quien"] .globo b { color: #e63946; }
+
+  </style>
+  <div id="root" data-composition-id="s12-quien" data-width="1080" data-height="1920" data-duration="2.75">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="2.75" data-track-index="0">
+      <div class="s12-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <pattern id="s12-ht" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="3.4" fill="#111111" /></pattern>
+            <pattern id="s12-htg" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="13" cy="13" r="6" fill="#111111" /></pattern>
+            <pattern id="s12-hty" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#ffd23f" /><circle cx="11" cy="11" r="4.4" fill="#e63946" opacity="0.55" /></pattern>
+            <pattern id="s12-htc" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#2f6fe0" /><circle cx="10" cy="10" r="4" fill="#4fc3ff" opacity="0.6" /></pattern>
+            <pattern id="s12-htn" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#14214a" /><circle cx="11" cy="11" r="4" fill="#4fc3ff" opacity="0.22" /></pattern>
+            <pattern id="s12-htp" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#fdf6e3" /><circle cx="10" cy="10" r="3" fill="#e63946" opacity="0.28" /></pattern>
+          </defs>
+          <g class="s12-v">
+            <rect x="74" y="574" width="960" height="940" fill="#111111" />
+            <clipPath id="s12-cp-s12-v"><rect x="60" y="560" width="960" height="940" /></clipPath>
+            <rect x="60" y="560" width="960" height="940" fill="#2f6fe0" />
+            <g clip-path="url(#s12-cp-s12-v)">
+            <rect x="60" y="560" width="960" height="940" fill="url(#s12-htc)" />
+            <path class="s12-rayos" d="M460 1100 L1200 1100 M493 1142 L1180 1290 M457 1146 L1164 1354 M477 1196 L1091 1530 M441 1191 L1057 1587 M445 1245 L937 1736 M413 1230 L889 1780 M400 1283 L732 1889 M373 1260 L674 1919 M346 1308 L493 1979 M326 1278 L428 1991 M285 1316 L237 1998 M274 1282 L172 1991 M223 1307 L-13 1944 M222 1271 L-74 1919 M165 1280 L-238 1821 M174 1245 L-289 1780 M117 1237 L-420 1640 M135 1206 L-457 1587 M147 1157 L-543 1416 M108 1156 L-564 1354 M133 1112 L-598 1165 M96 1100 L-600 1100 M133 1064 L-580 910 M100 1041 L-564 846 M146 1016 L-491 670 M122 985 L-457 613 M173 974 L-337 464 M159 937 L-289 420 M212 940 L-132 311 M209 900 L-74 281 M260 917 L107 221 M268 878 L172 209 M313 909 L363 202 M332 874 L428 209 M368 917 L613 256 M367 953 L674 281 M419 941 L838 379 M409 975 L889 420 M462 978 L1020 560 M443 1008 L1057 613 M494 1027 L1143 784 M467 1051 L1164 846 M510 1085 L1198 1035 " stroke="#111111" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.55" />
+            <g class="s12-vis"><g transform="translate(90 820) scale(1.15) rotate(-8 200 600)">
+              <path class="r" d="M24 640 C40 480 80 370 140 330 L260 330 C320 370 360 480 376 640 Z" />
+              <path class="nn" d="M40 640 C58 486 96 384 150 344 L250 344 C304 384 342 486 360 640 Z" />
+              <path class="r" d="M120 352 L58 250 L168 318 Z M280 352 L342 250 L232 318 Z" />
+              <path class="n" d="M84 640 C84 490 124 410 200 410 C276 410 316 490 316 640 Z" />
+              <path d="M110 640 C110 520 140 450 178 430" fill="url(#s12-ht)" opacity="0.5" stroke="none" />
+              <circle class="y" cx="200" cy="520" r="52" />
+              <path d="M164 518 L182 536 L214 500 M196 534 L228 498" fill="none" stroke="#111111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+              <path class="n" d="M114 360 C96 262 126 150 200 112 C274 150 304 262 286 360 C250 384 150 384 114 360 Z" />
+              <path class="k" d="M144 340 C134 270 158 216 200 212 C242 216 266 270 256 340 C230 356 170 356 144 340 Z" />
+              <g class="s12-ojos">
+                <path d="M158 270 L174 286 L198 258" fill="none" stroke="#4fc3ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M204 270 L220 286 L244 258" fill="none" stroke="#4fc3ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+              <path class="s12-boca" d="M170 314 C186 328 214 328 230 314" fill="none" stroke="#fdf6e3" stroke-width="6" stroke-linecap="round" />
+              <path d="M178 318 L182 326 M192 322 L194 330 M208 322 L206 330 M222 318 L218 326" stroke="#fdf6e3" stroke-width="4" stroke-linecap="round" />
+              <g class="s12-vbrazo"><path class="n" d="M300 470 C340 470 360 520 356 600 L316 600 C318 540 310 510 290 500 Z" /></g>
+</g></g>
+            <g class="s12-sombra"><g transform="translate(720 880) scale(1.05)">
+              <rect x="20" y="36" width="220" height="370" rx="42" fill="#111111" />
+              <path d="M28 250 C0 226 -14 188 -6 150 M232 250 C262 270 270 300 252 320 M96 396 L88 462 M164 396 L172 462" stroke="#111111" stroke-width="12" stroke-linecap="round" fill="none" />
+              <circle cx="-6" cy="140" r="20" fill="#111111" />
+              <path d="M54 176 C74 150 116 154 130 172 C144 154 186 150 206 176 C204 212 166 220 130 202 C94 220 56 212 54 176 Z" fill="#e63946" />
+              <text x="130" y="330" text-anchor="middle" font-family="Bangers" font-size="120" fill="#ffd23f">?</text>
+            </g></g>
+</g>
+            <rect class="marco" x="60" y="560" width="960" height="940" />
+          </g></svg>
+        <div class="ono s12-no" style="left:90px;top:600px;font-size:220px;color:#e63946;transform:rotate(-8deg);">¡NOOO!</div>
+        <div class="globo s12-g" style="left:330px;top:780px;width:400px;font-size:60px;background:#fdf6e3">¿<b>Quién</b> sos?<svg class="cola" style="left:70px;top:auto;bottom:-62px;" viewBox="0 0 70 70"><path d="M8 0 L4 58 L52 0" fill="#fdf6e3" stroke="none" /><path d="M8 0 L4 58 L52 0" fill="none" stroke="#111111" stroke-width="6" stroke-linejoin="round" stroke-dasharray="none" /><path d="M8 0 L52 0" stroke="#fdf6e3" stroke-width="9" /></svg></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-quien";
+      const DUR = 2.75;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s12-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // golpe: entra de grande a su tamaño, seco
+      const golpe = (sel, t, desde = 2.4, extra = {}) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 0, scale: desde, ...extra }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 0, scale: 0.6, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }, d = 0.3) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: d, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const sale = (sel, t, a = { opacity: 0, scale: 0.8 }, d = 0.2) => tl.to(qa(sel), { ...a, duration: d, ease: "power2.in" }, t);
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(qa(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      const habla = (sel, t, d, origin) => tl.fromTo(qa(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.2, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // titila (onomatopeyas, ojos que brillan)
+      const late = (sel, t, n = 3, s = 1.08, per = 0.14) => tl.to(qa(sel), { scale: s, duration: per, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t);
+      // zoom lento de cámara sobre la viñeta
+      const camara = (sel, t, d, desde, hasta, origen = "50% 50%") => tl.fromTo(qa(sel), { scale: desde, transformOrigin: origen }, { scale: hasta, transformOrigin: origen, duration: d, ease: "none", immediateRender: false }, t);
+
+      const NO = 0.0, QUIEN = 1.40;
+      gsap.set(q(".s12-vis"), { opacity: 1 });
+      tl.fromTo(q(".s12-vis"), { x: 60, rotation: 0, svgOrigin: "270 1500" }, { x: -10, rotation: -6, svgOrigin: "270 1500", duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s12-no"), { opacity: 0.4, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in" }, NO);
+      sacudon(0.05, 1.6);
+      tl.fromTo(q(".s12-vis"), { x: -16 }, { x: -4, duration: 0.05, yoyo: true, repeat: 13, ease: "none", immediateRender: false }, 0.35);
+      habla(".s12-boca", 0.0, 1.0, "200 316");
+      tl.fromTo(q(".s12-ojos"), { scale: 1, svgOrigin: "200 272" }, { scale: 1.4, svgOrigin: "200 272", duration: 0.15, yoyo: true, repeat: 3, immediateRender: false }, 0.1);
+      // la sombra del héroe
+      gsap.set(q(".s12-sombra"), { opacity: 0 });
+      tl.fromTo(q(".s12-sombra"), { opacity: 0, x: 200 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, 0.9);
+      gsap.set(q(".s12-g"), { opacity: 0 });
+      tl.fromTo(q(".s12-g"), { opacity: 0, scale: 0.4, transformOrigin: "20% 100%" }, { opacity: 1, scale: 1, transformOrigin: "20% 100%", duration: 0.25, ease: "back.out(2)", immediateRender: false }, QUIEN - 0.05);
+      tl.to(q(".s12-no"), { opacity: 0, y: -30, duration: 0.2 }, QUIEN - 0.2);
+      habla(".s12-boca", QUIEN, 0.5, "200 316");
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

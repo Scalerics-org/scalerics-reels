@@ -1,0 +1,151 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Bangers"; font-weight: 400; font-display: block; src: url("assets/fonts/Bangers.woff2") format("woff2"); }
+    @font-face { font-family: "Comic Neue"; font-weight: 700; font-display: block; src: url("assets/fonts/ComicNeue-700.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-agente"] .s13-capa, [data-composition-id="s13-agente"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-agente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-agente"] .k { fill: #111111; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .n { fill: #1d2b53; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .nn { fill: #0b1430; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .y { fill: #ffd23f; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .r { fill: #e63946; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .a { fill: #2f6fe0; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .c { fill: #4fc3ff; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .p { fill: #fdf6e3; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .l { fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .pl { fill: none; stroke: #fdf6e3; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .yl { fill: none; stroke: #ffd23f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .rl { fill: none; stroke: #e63946; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .cl { fill: none; stroke: #4fc3ff; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-agente"] .marco { fill: none; stroke: #111111; stroke-width: 10; stroke-linejoin: miter; }
+    [data-composition-id="s13-agente"] .ono { position: absolute; font-family: "Bangers", sans-serif; font-weight: 400; line-height: 0.9; white-space: nowrap; letter-spacing: 0.03em; -webkit-text-stroke: 12px #111111; paint-order: stroke fill; text-shadow: 10px 10px 0 #111111; }
+    [data-composition-id="s13-agente"] .caja { position: absolute; padding: 12px 22px 8px; background: #ffd23f; border: 6px solid #111111; box-shadow: 8px 8px 0 #111111; font-family: "Bangers", sans-serif; font-size: 50px; line-height: 1; letter-spacing: 0.04em; color: #111111; white-space: nowrap; }
+    [data-composition-id="s13-agente"] .globo { position: absolute; padding: 22px 30px 24px; background: #fdf6e3; border: 6px solid #111111; border-radius: 46px; font-family: "Comic Neue", sans-serif; font-weight: 700; color: #111111; line-height: 1.12; text-align: center; }
+    [data-composition-id="s13-agente"] .globo .cola { position: absolute; width: 70px; height: 70px; overflow: visible; }
+    [data-composition-id="s13-agente"] .globo b { color: #e63946; }
+
+    [data-composition-id="s13-agente"] .s13-reloj { position: absolute; left: 600px; top: 760px; width: 380px; text-align: center; }
+
+  </style>
+  <div id="root" data-composition-id="s13-agente" data-width="1080" data-height="1920" data-duration="5.24">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="5.24" data-track-index="0">
+      <div class="s13-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <pattern id="s13-ht" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="3.4" fill="#111111" /></pattern>
+            <pattern id="s13-htg" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="13" cy="13" r="6" fill="#111111" /></pattern>
+            <pattern id="s13-hty" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#ffd23f" /><circle cx="11" cy="11" r="4.4" fill="#e63946" opacity="0.55" /></pattern>
+            <pattern id="s13-htc" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#2f6fe0" /><circle cx="10" cy="10" r="4" fill="#4fc3ff" opacity="0.6" /></pattern>
+            <pattern id="s13-htn" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#14214a" /><circle cx="11" cy="11" r="4" fill="#4fc3ff" opacity="0.22" /></pattern>
+            <pattern id="s13-htp" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#fdf6e3" /><circle cx="10" cy="10" r="3" fill="#e63946" opacity="0.28" /></pattern>
+          </defs>
+          <g class="s13-v">
+            <rect x="74" y="574" width="960" height="940" fill="#111111" />
+            <clipPath id="s13-cp-s13-v"><rect x="60" y="560" width="960" height="940" /></clipPath>
+            <rect x="60" y="560" width="960" height="940" fill="#ffd23f" />
+            <g clip-path="url(#s13-cp-s13-v)">
+            <rect x="60" y="560" width="960" height="940" fill="url(#s13-hty)" />
+            <path class="s13-rayos" d="M580 1060 L1380 1060 M612 1110 L1357 1271 M576 1117 L1339 1342 M592 1175 L1258 1538 M555 1172 L1221 1601 M553 1233 L1088 1766 M519 1220 L1035 1816 M500 1278 L860 1937 M470 1256 L795 1970 M434 1307 L594 2037 M411 1278 L522 2050 M362 1316 L310 2058 M348 1282 L238 2050 M289 1305 L32 1997 M285 1267 L-35 1970 M221 1272 L-218 1861 M228 1235 L-275 1816 M165 1222 L-420 1660 M181 1188 L-461 1601 M190 1131 L-556 1411 M150 1128 L-579 1342 M174 1075 L-617 1133 M136 1060 L-620 1060 M174 1015 L-597 849 M142 990 L-579 778 M191 957 L-498 582 M168 924 L-461 519 M225 905 L-328 354 M212 867 L-275 304 M273 864 L-100 183 M272 823 L-35 150 M331 838 L166 83 M342 799 L238 70 M396 830 L450 62 M418 795 L522 70 M462 840 L728 123 M464 876 L795 150 M523 868 L978 259 M515 904 L1035 304 M574 914 L1180 460 M557 946 L1221 519 M611 973 L1316 709 M585 1000 L1339 778 M630 1042 L1377 987 " stroke="#e63946" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.5" />
+            <g class="s13-ag"><g transform="translate(150 830) scale(1.3)">
+              <path class="l" d="M96 396 L88 462 M164 396 L172 462" stroke-width="9" />
+              <ellipse class="k" cx="80" cy="468" rx="30" ry="14" /><ellipse class="k" cx="180" cy="468" rx="30" ry="14" />
+              <path class="l s13-abr1" d="M28 250 C0 226 -14 188 -6 150" stroke-width="9" /><circle class="p" cx="-6" cy="140" r="18" stroke-width="6" /><path class="l s13-abr2" d="M232 250 C262 270 270 300 252 320" stroke-width="9" /><circle class="p" cx="250" cy="326" r="16" stroke-width="6" />
+              <rect class="a" x="20" y="36" width="220" height="370" rx="42" />
+              <path d="M30 120 L30 360 C30 380 40 396 60 396 L80 396 L80 60 C50 60 30 80 30 120 Z" fill="url(#s13-ht)" opacity="0.35" stroke="none" />
+              <rect class="p s13-apant" x="42" y="76" width="176" height="290" rx="18" />
+              <rect x="104" y="52" width="52" height="10" rx="5" fill="#111111" />
+              <path class="r" d="M54 176 C74 150 116 154 130 172 C144 154 186 150 206 176 C204 212 166 220 130 202 C94 220 56 212 54 176 Z" stroke-width="6" />
+              <g class="s13-aojos"><ellipse cx="94" cy="182" rx="13" ry="10" fill="#fdf6e3" stroke="#111111" stroke-width="4" /><ellipse cx="166" cy="182" rx="13" ry="10" fill="#fdf6e3" stroke="#111111" stroke-width="4" /></g>
+              <path class="s13-boca" d="M98 250 C116 276 144 276 162 250" fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round" />
+              <g class="s13-aemb"><path class="y" d="M86 300 H174 C186 300 192 306 192 318 V336 C192 348 186 354 174 354 H120 L102 370 L104 354 H86 C74 354 68 348 68 336 V318 C68 306 74 300 86 300 Z" stroke-width="5" />
+              <text x="130" y="340" text-anchor="middle" font-family="Bangers" font-size="34" fill="#111111">IA</text></g>
+</g></g>
+</g>
+            <rect class="marco" x="60" y="560" width="960" height="940" />
+          </g>
+          <g class="s13-sol"><g transform="translate(790 820)">
+            <circle r="90" fill="#fdf6e3" stroke="#111111" stroke-width="8" />
+            <path d="M0 -90 A90 90 0 0 1 0 90 A90 90 0 0 1 0 -90" fill="#14214a" stroke="#111111" stroke-width="8" />
+            <path class="s13-aguja" d="M0 0 V-62" stroke="#e63946" stroke-width="10" stroke-linecap="round" />
+            <path class="s13-aguja2" d="M0 0 H44" stroke="#111111" stroke-width="10" stroke-linecap="round" />
+            <circle r="12" fill="#111111" />
+          </g></g>
+        </svg>
+        <div class="caja s13-cap" style="left:90px;top:590px;font-size:72px;background:#2f6fe0;color:#ffd23f;transform:rotate(-3deg)">AGENTE DE IA</div>
+        <div class="caja s13-hora" style="left:640px;top:930px;font-size:44px;background:#111111;color:#fdf6e3;transform:rotate(4deg)">DÍA Y NOCHE</div>
+        <div class="caja s13-b1" style="left:640px;top:1060px;font-size:58px;background:#fdf6e3;color:#111111">PRECIOS</div>
+        <div class="caja s13-b2" style="left:690px;top:1180px;font-size:58px;background:#e63946;color:#fdf6e3">STOCK</div>
+        <div class="caja s13-b3" style="left:620px;top:1300px;font-size:58px;background:#2f6fe0;color:#fdf6e3">HORARIOS</div>
+        <div class="ono s13-ta" style="left:560px;top:640px;font-size:120px;color:#e63946;transform:rotate(-8deg);">¡TA-DÁ!</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-agente";
+      const DUR = 5.24;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s13-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // golpe: entra de grande a su tamaño, seco
+      const golpe = (sel, t, desde = 2.4, extra = {}) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 0, scale: desde, ...extra }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 0, scale: 0.6, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }, d = 0.3) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: d, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const sale = (sel, t, a = { opacity: 0, scale: 0.8 }, d = 0.2) => tl.to(qa(sel), { ...a, duration: d, ease: "power2.in" }, t);
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(qa(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      const habla = (sel, t, d, origin) => tl.fromTo(qa(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.2, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // titila (onomatopeyas, ojos que brillan)
+      const late = (sel, t, n = 3, s = 1.08, per = 0.14) => tl.to(qa(sel), { scale: s, duration: per, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t);
+      // zoom lento de cámara sobre la viñeta
+      const camara = (sel, t, d, desde, hasta, origen = "50% 50%") => tl.fromTo(qa(sel), { scale: desde, transformOrigin: origen }, { scale: hasta, transformOrigin: origen, duration: d, ease: "none", immediateRender: false }, t);
+
+      const AGENTE = 0.22, ATIENDO = 1.91, PRECIOS = 3.22, STOCK = 3.65, HORARIOS = 4.17;
+      entra(".s13-ag", 0, { y: 500 }, 0.4);
+      golpe(".s13-cap", AGENTE, 2.0, { rotation: -10 });
+      golpe(".s13-ta", 0.5, 2.2);
+      sacudon(0.25, 1.0);
+      tl.to(q(".s13-ta"), { opacity: 0, scale: 0.6, duration: 0.2 }, 1.6);
+      tl.fromTo(q(".s13-rayos"), { rotation: 0, svgOrigin: "380 1060" }, { rotation: -14, svgOrigin: "380 1060", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s13-abr1"), { rotation: 0, svgOrigin: "28 250" }, { rotation: 8, svgOrigin: "28 250", duration: 0.3, yoyo: true, repeat: 13, ease: "sine.inOut", immediateRender: false }, 0.4);
+      habla(".s13-boca", 0.1, 4.6, "130 255");
+      // a cualquier hora: el reloj día/noche gira
+      gsap.set(q(".s13-sol"), { opacity: 0 });
+      tl.fromTo(q(".s13-sol"), { opacity: 0, scale: 0.3, svgOrigin: "790 820" }, { opacity: 1, scale: 1, svgOrigin: "790 820", duration: 0.3, ease: "back.out(2)", immediateRender: false }, ATIENDO - 0.1);
+      tl.fromTo(q(".s13-aguja"), { rotation: 0, svgOrigin: "0 0" }, { rotation: 720, svgOrigin: "0 0", duration: 2.8, ease: "power1.inOut", immediateRender: false }, ATIENDO);
+      tl.fromTo(q(".s13-aguja2"), { rotation: 0, svgOrigin: "0 0" }, { rotation: 120, svgOrigin: "0 0", duration: 2.8, ease: "power1.inOut", immediateRender: false }, ATIENDO);
+      pop(".s13-hora", ATIENDO + 0.3, { rotation: 10 });
+      golpe(".s13-b1", PRECIOS, 1.8, { rotation: -10 });
+      golpe(".s13-b2", STOCK, 1.8, { rotation: 8 });
+      golpe(".s13-b3", HORARIOS, 1.8, { rotation: -6 });
+      sacudon(HORARIOS + 0.05, 0.7);
+
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

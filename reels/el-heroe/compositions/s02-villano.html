@@ -1,0 +1,150 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Bangers"; font-weight: 400; font-display: block; src: url("assets/fonts/Bangers.woff2") format("woff2"); }
+    @font-face { font-family: "Comic Neue"; font-weight: 700; font-display: block; src: url("assets/fonts/ComicNeue-700.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-villano"] .s02-capa, [data-composition-id="s02-villano"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-villano"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-villano"] .k { fill: #111111; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .n { fill: #1d2b53; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .nn { fill: #0b1430; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .y { fill: #ffd23f; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .r { fill: #e63946; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .a { fill: #2f6fe0; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .c { fill: #4fc3ff; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .p { fill: #fdf6e3; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .l { fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .pl { fill: none; stroke: #fdf6e3; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .yl { fill: none; stroke: #ffd23f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .rl { fill: none; stroke: #e63946; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .cl { fill: none; stroke: #4fc3ff; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-villano"] .marco { fill: none; stroke: #111111; stroke-width: 10; stroke-linejoin: miter; }
+    [data-composition-id="s02-villano"] .ono { position: absolute; font-family: "Bangers", sans-serif; font-weight: 400; line-height: 0.9; white-space: nowrap; letter-spacing: 0.03em; -webkit-text-stroke: 12px #111111; paint-order: stroke fill; text-shadow: 10px 10px 0 #111111; }
+    [data-composition-id="s02-villano"] .caja { position: absolute; padding: 12px 22px 8px; background: #ffd23f; border: 6px solid #111111; box-shadow: 8px 8px 0 #111111; font-family: "Bangers", sans-serif; font-size: 50px; line-height: 1; letter-spacing: 0.04em; color: #111111; white-space: nowrap; }
+    [data-composition-id="s02-villano"] .globo { position: absolute; padding: 22px 30px 24px; background: #fdf6e3; border: 6px solid #111111; border-radius: 46px; font-family: "Comic Neue", sans-serif; font-weight: 700; color: #111111; line-height: 1.12; text-align: center; }
+    [data-composition-id="s02-villano"] .globo .cola { position: absolute; width: 70px; height: 70px; overflow: visible; }
+    [data-composition-id="s02-villano"] .globo b { color: #e63946; }
+
+    [data-composition-id="s02-villano"] .s02-nombre { position: absolute; left: 60px; top: 1290px; width: 960px; text-align: center; }
+    [data-composition-id="s02-villano"] .s02-nombre .ono { position: relative; display: inline-block; }
+
+  </style>
+  <div id="root" data-composition-id="s02-villano" data-width="1080" data-height="1920" data-duration="3.41">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="3.41" data-track-index="0">
+      <div class="s02-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <pattern id="s02-ht" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="3.4" fill="#111111" /></pattern>
+            <pattern id="s02-htg" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="13" cy="13" r="6" fill="#111111" /></pattern>
+            <pattern id="s02-hty" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#ffd23f" /><circle cx="11" cy="11" r="4.4" fill="#e63946" opacity="0.55" /></pattern>
+            <pattern id="s02-htc" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#2f6fe0" /><circle cx="10" cy="10" r="4" fill="#4fc3ff" opacity="0.6" /></pattern>
+            <pattern id="s02-htn" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#14214a" /><circle cx="11" cy="11" r="4" fill="#4fc3ff" opacity="0.22" /></pattern>
+            <pattern id="s02-htp" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#fdf6e3" /><circle cx="10" cy="10" r="3" fill="#e63946" opacity="0.28" /></pattern>
+          </defs>
+          <g class="s02-v">
+            <rect x="74" y="574" width="960" height="940" fill="#111111" />
+            <clipPath id="s02-cp-s02-v"><rect x="60" y="560" width="960" height="940" /></clipPath>
+            <rect x="60" y="560" width="960" height="940" fill="#2f6fe0" />
+            <g clip-path="url(#s02-cp-s02-v)">
+            <rect x="60" y="560" width="960" height="940" fill="url(#s02-htc)" />
+            <path class="s02-rayos" d="M760 1050 L1440 1050 M790 1108 L1417 1253 M753 1119 L1396 1328 M764 1184 L1311 1514 M724 1184 L1268 1579 M714 1250 L1130 1729 M676 1238 L1069 1778 M645 1298 L892 1879 M613 1274 L818 1906 M564 1322 L618 1947 M540 1290 L540 1950 M478 1320 L337 1927 M465 1282 L262 1906 M395 1291 L76 1821 M394 1251 L11 1778 M325 1237 L-139 1640 M336 1198 L-188 1579 M274 1163 L-289 1402 M297 1129 L-316 1328 M318 1069 L-357 1128 M280 1050 L-360 1050 M319 999 L-337 847 M289 968 L-316 772 M342 931 L-231 586 M323 892 L-188 521 M386 873 L-50 371 M380 830 L11 322 M447 830 L188 221 M455 788 L262 194 M519 808 L462 153 M540 770 L540 150 M596 809 L743 173 M628 780 L818 194 M669 835 L1004 279 M709 817 L1069 322 M732 883 L1219 460 M720 920 L1268 521 M778 949 L1369 698 M755 980 L1396 772 M802 1027 L1437 972 " stroke="#111111" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.55" />
+            <g class="s02-puerta"><rect class="nn" x="120" y="700" width="230" height="760" transform="rotate(-18 120 1460)" /><circle cx="300" cy="1100" r="12" fill="#ffd23f" transform="rotate(-18 120 1460)" /></g>
+            <g class="s02-vis"><g transform="translate(280 700) scale(1.3)">
+              <path class="r" d="M24 640 C40 480 80 370 140 330 L260 330 C320 370 360 480 376 640 Z" />
+              <path class="nn" d="M40 640 C58 486 96 384 150 344 L250 344 C304 384 342 486 360 640 Z" />
+              <path class="r" d="M120 352 L58 250 L168 318 Z M280 352 L342 250 L232 318 Z" />
+              <path class="n" d="M84 640 C84 490 124 410 200 410 C276 410 316 490 316 640 Z" />
+              <path d="M110 640 C110 520 140 450 178 430" fill="url(#s02-ht)" opacity="0.5" stroke="none" />
+              <circle class="y" cx="200" cy="520" r="52" />
+              <path d="M164 518 L182 536 L214 500 M196 534 L228 498" fill="none" stroke="#111111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+              <path class="n" d="M114 360 C96 262 126 150 200 112 C274 150 304 262 286 360 C250 384 150 384 114 360 Z" />
+              <path class="k" d="M144 340 C134 270 158 216 200 212 C242 216 266 270 256 340 C230 356 170 356 144 340 Z" />
+              <g class="s02-ojos">
+                <path d="M158 270 L174 286 L198 258" fill="none" stroke="#4fc3ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M204 270 L220 286 L244 258" fill="none" stroke="#4fc3ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+              <path class="s02-boca" d="M170 314 C186 328 214 328 230 314" fill="none" stroke="#fdf6e3" stroke-width="6" stroke-linecap="round" />
+              <path d="M178 318 L182 326 M192 322 L194 330 M208 322 L206 330 M222 318 L218 326" stroke="#fdf6e3" stroke-width="4" stroke-linecap="round" />
+              <g class="s02-vbrazo">
+                <path class="n" d="M300 470 C356 440 366 372 340 322 L306 334 C324 376 316 410 278 432 Z" />
+                <circle class="k" cx="326" cy="320" r="26" />
+                <g transform="rotate(14 340 270)"><rect class="k" x="304" y="200" width="78" height="134" rx="14" /><rect x="314" y="214" width="58" height="96" rx="6" fill="#4fc3ff" /></g>
+              </g>
+</g></g>
+</g>
+            <rect class="marco" x="60" y="560" width="960" height="940" />
+          </g>
+          <polygon class="s02-est" points="250,637 280,668 345,625 328,696 397,690 367,734 400,760 362,785 415,838 328,824 335,881 281,856 250,883 220,852 155,895 172,824 103,830 133,786 100,760 138,735 85,682 172,696 165,639 219,664" fill="#ffd23f" stroke="#111111" stroke-width="8" stroke-linejoin="miter"  />
+        </svg>
+        <div class="ono s02-bam" style="left:130px;top:690px;font-size:130px;color:#e63946;transform:rotate(-12deg);">¡BAM!</div>
+        <div class="caja s02-cap" style="left:520px;top:590px;font-size:44px;background:#ffd23f;color:#111111;transform:rotate(3deg)">EL VILLANO YA ENTRÓ...</div>
+        <div class="s02-nombre"><div class="ono s02-n" style="font-size:210px;color:#4fc3ff;transform:rotate(-4deg)">EL VISTO</div></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-villano";
+      const DUR = 3.41;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s02-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // golpe: entra de grande a su tamaño, seco
+      const golpe = (sel, t, desde = 2.4, extra = {}) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 0, scale: desde, ...extra }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 0, scale: 0.6, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }, d = 0.3) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: d, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const sale = (sel, t, a = { opacity: 0, scale: 0.8 }, d = 0.2) => tl.to(qa(sel), { ...a, duration: d, ease: "power2.in" }, t);
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(qa(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      const habla = (sel, t, d, origin) => tl.fromTo(qa(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.2, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // titila (onomatopeyas, ojos que brillan)
+      const late = (sel, t, n = 3, s = 1.08, per = 0.14) => tl.to(qa(sel), { scale: s, duration: per, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t);
+      // zoom lento de cámara sobre la viñeta
+      const camara = (sel, t, d, desde, hasta, origen = "50% 50%") => tl.fromTo(qa(sel), { scale: desde, transformOrigin: origen }, { scale: hasta, transformOrigin: origen, duration: d, ease: "none", immediateRender: false }, t);
+
+      const VILLANO = 0.19, ENTRO = 0.86, VISTO = 2.44;
+      // patada a la puerta
+      tl.fromTo(q(".s02-puerta"), { rotation: 18, svgOrigin: "120 1460" }, { rotation: -40, svgOrigin: "120 1460", duration: 0.2, ease: "power4.out" }, 0.02);
+      tl.fromTo(q(".s02-est"), { scale: 0.2, svgOrigin: "250 760" }, { scale: 1, svgOrigin: "250 760", duration: 0.15, ease: "back.out(2)" }, 0.02);
+      golpe(".s02-bam", 0.12, 2.2);
+      sacudon(0.1, 1.3);
+      // entra el villano
+      entra(".s02-vis", VILLANO, { x: 500, rotation: 10 }, 0.35);
+      pop(".s02-cap", ENTRO, { rotation: 8 });
+      tl.fromTo(q(".s02-rayos"), { opacity: 0.2 }, { opacity: 0.6, duration: 0.3 }, ENTRO);
+      tl.fromTo(q(".s02-vis"), { scale: 1, transformOrigin: "540px 1300px" }, { scale: 1.08, transformOrigin: "540px 1300px", duration: 1.5, ease: "power1.inOut", immediateRender: false }, ENTRO);
+      habla(".s02-boca", 1.57, 0.6, "200 316");
+      // EL VISTO: los ojos brillan y cae el nombre
+      tl.fromTo(q(".s02-ojos"), { filter: "drop-shadow(0 0 0 #4fc3ff)" }, { filter: "drop-shadow(0 0 18px #4fc3ff)", duration: 0.15, yoyo: true, repeat: 5, immediateRender: false }, VISTO - 0.1);
+      golpe(".s02-n", VISTO, 2.8);
+      sacudon(VISTO + 0.05, 1.4);
+      tl.to([q(".s02-bam"), q(".s02-est")], { opacity: 0, scale: 0.6, duration: 0.2 }, 1.4);
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

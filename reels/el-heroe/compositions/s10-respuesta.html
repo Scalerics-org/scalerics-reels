@@ -1,0 +1,128 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Bangers"; font-weight: 400; font-display: block; src: url("assets/fonts/Bangers.woff2") format("woff2"); }
+    @font-face { font-family: "Comic Neue"; font-weight: 700; font-display: block; src: url("assets/fonts/ComicNeue-700.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-respuesta"] .s10-capa, [data-composition-id="s10-respuesta"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-respuesta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-respuesta"] .k { fill: #111111; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .n { fill: #1d2b53; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .nn { fill: #0b1430; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .y { fill: #ffd23f; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .r { fill: #e63946; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .a { fill: #2f6fe0; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .c { fill: #4fc3ff; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .p { fill: #fdf6e3; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .l { fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .pl { fill: none; stroke: #fdf6e3; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .yl { fill: none; stroke: #ffd23f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .rl { fill: none; stroke: #e63946; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .cl { fill: none; stroke: #4fc3ff; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-respuesta"] .marco { fill: none; stroke: #111111; stroke-width: 10; stroke-linejoin: miter; }
+    [data-composition-id="s10-respuesta"] .ono { position: absolute; font-family: "Bangers", sans-serif; font-weight: 400; line-height: 0.9; white-space: nowrap; letter-spacing: 0.03em; -webkit-text-stroke: 12px #111111; paint-order: stroke fill; text-shadow: 10px 10px 0 #111111; }
+    [data-composition-id="s10-respuesta"] .caja { position: absolute; padding: 12px 22px 8px; background: #ffd23f; border: 6px solid #111111; box-shadow: 8px 8px 0 #111111; font-family: "Bangers", sans-serif; font-size: 50px; line-height: 1; letter-spacing: 0.04em; color: #111111; white-space: nowrap; }
+    [data-composition-id="s10-respuesta"] .globo { position: absolute; padding: 22px 30px 24px; background: #fdf6e3; border: 6px solid #111111; border-radius: 46px; font-family: "Comic Neue", sans-serif; font-weight: 700; color: #111111; line-height: 1.12; text-align: center; }
+    [data-composition-id="s10-respuesta"] .globo .cola { position: absolute; width: 70px; height: 70px; overflow: visible; }
+    [data-composition-id="s10-respuesta"] .globo b { color: #e63946; }
+
+    [data-composition-id="s10-respuesta"] .s10-m { position: absolute; padding: 16px 22px 12px; border: 5px solid #111111; border-radius: 24px; font-family: "Comic Neue", sans-serif; font-weight: 700; font-size: 38px; line-height: 1.12; color: #111111; }
+    [data-composition-id="s10-respuesta"] .s10-m small { display: block; margin-top: 6px; text-align: right; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; color: #2f6fe0; }
+    [data-composition-id="s10-respuesta"] .s10-cli { left: 290px; top: 760px; width: 420px; background: #fdf6e3; }
+    [data-composition-id="s10-respuesta"] .s10-a1 { left: 370px; top: 960px; width: 420px; background: #ffd23f; }
+    [data-composition-id="s10-respuesta"] .s10-a2 { left: 330px; top: 1120px; width: 460px; background: #ffd23f; }
+    [data-composition-id="s10-respuesta"] .s10-esc { position: absolute; left: 290px; top: 960px; padding: 12px 22px; background: #fdf6e3; border: 5px solid #111111; border-radius: 24px; font-family: "Lexend"; font-weight: 700; font-size: 34px; color: #2f6fe0; }
+
+  </style>
+  <div id="root" data-composition-id="s10-respuesta" data-width="1080" data-height="1920" data-duration="4.45">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="4.45" data-track-index="0">
+      <div class="s10-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <pattern id="s10-ht" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="3.4" fill="#111111" /></pattern>
+            <pattern id="s10-htg" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="13" cy="13" r="6" fill="#111111" /></pattern>
+            <pattern id="s10-hty" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#ffd23f" /><circle cx="11" cy="11" r="4.4" fill="#e63946" opacity="0.55" /></pattern>
+            <pattern id="s10-htc" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#2f6fe0" /><circle cx="10" cy="10" r="4" fill="#4fc3ff" opacity="0.6" /></pattern>
+            <pattern id="s10-htn" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#14214a" /><circle cx="11" cy="11" r="4" fill="#4fc3ff" opacity="0.22" /></pattern>
+            <pattern id="s10-htp" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#fdf6e3" /><circle cx="10" cy="10" r="3" fill="#e63946" opacity="0.28" /></pattern>
+          </defs>
+          <path class="s10-rayos" d="M840 1050 L1640 1050 M869 1121 L1615 1282 M832 1136 L1595 1360 M840 1213 L1506 1576 M799 1217 L1465 1645 M784 1294 L1319 1827 M744 1286 L1260 1881 M708 1356 L1069 2015 M671 1337 L997 2051 M616 1395 L775 2125 M586 1367 L697 2139 M515 1406 L463 2147 M494 1371 L383 2139 M414 1388 L157 2081 M404 1348 L83 2051 M322 1343 L-118 1932 M323 1301 L-180 1881 M245 1272 L-340 1710 M257 1232 L-385 1645 M256 1156 L-490 1436 M214 1146 L-515 1360 M234 1072 L-557 1130 M196 1050 L-560 1050 M236 984 L-535 818 M206 952 L-515 740 M263 899 L-426 524 M244 860 L-385 455 M314 825 L-239 273 M307 781 L-180 219 M385 767 L11 85 M390 723 L83 49 M470 731 L305 -25 M488 690 L383 -39 M563 720 L617 -47 M592 686 L697 -39 M657 736 L923 19 M665 775 L997 49 M743 778 L1198 168 M740 819 L1260 219 M814 844 L1420 390 M801 882 L1465 455 M865 928 L1570 664 M841 962 L1595 740 M890 1024 L1637 970 " stroke="#ffd23f" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.5" />
+          
+          <g class="s10-cel">
+            <rect x="266" y="576" width="580" height="900" rx="60" fill="#111111" />
+            <rect x="250" y="560" width="580" height="900" rx="60" fill="#111111" stroke="#111111" stroke-width="8" />
+            <rect x="272" y="582" width="536" height="856" rx="40" fill="#fdf6e3" />
+            <path d="M272 710 V622 Q272 582 312 582 H768 Q808 582 808 622 V710 Z" fill="#2f6fe0" />
+            <rect x="480.0" y="594" width="120" height="16" rx="8" fill="#111111" />
+            <circle cx="330" cy="660" r="30" fill="#ffd23f" stroke="#111111" stroke-width="5" />
+            <text x="376" y="672" font-family="Lexend" font-weight="700" font-size="32" fill="#fdf6e3">Confitería del Barrio</text>
+          </g>
+        </svg>
+        <div class="s10-m s10-cli">¿Tienen la torta de chocolate para mañana?<small>23:02</small></div>
+        <div class="s10-esc">escribiendo...</div>
+        <div class="s10-m s10-a1">¡Hola! Sí, tenemos la de <b>chocolate</b>.<small>23:02</small></div>
+        <div class="s10-m s10-a2">¿Te la <b>reservo</b> para mañana a las 10?<small>23:02</small></div>
+        <div class="ono s10-al" style="left:120px;top:1380px;font-size:120px;color:#ffd23f;transform:rotate(-6deg);width:840px;text-align:center;">¡AL INSTANTE!</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-respuesta";
+      const DUR = 4.45;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s10-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // golpe: entra de grande a su tamaño, seco
+      const golpe = (sel, t, desde = 2.4, extra = {}) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 0, scale: desde, ...extra }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 0, scale: 0.6, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }, d = 0.3) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: d, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const sale = (sel, t, a = { opacity: 0, scale: 0.8 }, d = 0.2) => tl.to(qa(sel), { ...a, duration: d, ease: "power2.in" }, t);
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(qa(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      const habla = (sel, t, d, origin) => tl.fromTo(qa(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.2, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // titila (onomatopeyas, ojos que brillan)
+      const late = (sel, t, n = 3, s = 1.08, per = 0.14) => tl.to(qa(sel), { scale: s, duration: per, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t);
+      // zoom lento de cámara sobre la viñeta
+      const camara = (sel, t, d, desde, hasta, origen = "50% 50%") => tl.fromTo(qa(sel), { scale: desde, transformOrigin: origen }, { scale: hasta, transformOrigin: origen, duration: d, ease: "none", immediateRender: false }, t);
+
+      const HOLA = 0.0, SI = 0.73, TE = 2.53, DIEZ = 3.74;
+      entra(".s10-cel", 0, { y: 400 }, 0.3);
+      tl.fromTo(q(".s10-rayos"), { rotation: 0, svgOrigin: "540 1050" }, { rotation: 10, svgOrigin: "540 1050", duration: DUR, ease: "none" }, 0);
+      entra(".s10-cli", 0.05, { y: 400 }, 0.3);
+      pop(".s10-esc", 0.15);
+      tl.to(q(".s10-esc"), { opacity: 0, duration: 0.08 }, 0.5);
+      gsap.set(q(".s10-a1"), { opacity: 0 }); gsap.set(q(".s10-a2"), { opacity: 0 });
+      tl.fromTo(q(".s10-a1"), { opacity: 0, scale: 0.5, transformOrigin: "100% 0%" }, { opacity: 1, scale: 1, transformOrigin: "100% 0%", duration: 0.28, ease: "back.out(2)", immediateRender: false }, 0.5);
+      golpe(".s10-al", SI, 2.2);
+      sacudon(SI + 0.05, 0.8);
+      tl.fromTo(q(".s10-a2"), { opacity: 0, scale: 0.5, transformOrigin: "100% 0%" }, { opacity: 1, scale: 1, transformOrigin: "100% 0%", duration: 0.28, ease: "back.out(2)", immediateRender: false }, TE - 0.1);
+      late(".s10-al", 1.2, 4, 1.05, 0.15);
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

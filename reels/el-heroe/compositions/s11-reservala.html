@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Bangers"; font-weight: 400; font-display: block; src: url("assets/fonts/Bangers.woff2") format("woff2"); }
+    @font-face { font-family: "Comic Neue"; font-weight: 700; font-display: block; src: url("assets/fonts/ComicNeue-700.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-reservala"] .s11-capa, [data-composition-id="s11-reservala"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-reservala"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-reservala"] .k { fill: #111111; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .n { fill: #1d2b53; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .nn { fill: #0b1430; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .y { fill: #ffd23f; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .r { fill: #e63946; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .a { fill: #2f6fe0; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .c { fill: #4fc3ff; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .p { fill: #fdf6e3; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .l { fill: none; stroke: #111111; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .pl { fill: none; stroke: #fdf6e3; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .yl { fill: none; stroke: #ffd23f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .rl { fill: none; stroke: #e63946; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .cl { fill: none; stroke: #4fc3ff; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-reservala"] .marco { fill: none; stroke: #111111; stroke-width: 10; stroke-linejoin: miter; }
+    [data-composition-id="s11-reservala"] .ono { position: absolute; font-family: "Bangers", sans-serif; font-weight: 400; line-height: 0.9; white-space: nowrap; letter-spacing: 0.03em; -webkit-text-stroke: 12px #111111; paint-order: stroke fill; text-shadow: 10px 10px 0 #111111; }
+    [data-composition-id="s11-reservala"] .caja { position: absolute; padding: 12px 22px 8px; background: #ffd23f; border: 6px solid #111111; box-shadow: 8px 8px 0 #111111; font-family: "Bangers", sans-serif; font-size: 50px; line-height: 1; letter-spacing: 0.04em; color: #111111; white-space: nowrap; }
+    [data-composition-id="s11-reservala"] .globo { position: absolute; padding: 22px 30px 24px; background: #fdf6e3; border: 6px solid #111111; border-radius: 46px; font-family: "Comic Neue", sans-serif; font-weight: 700; color: #111111; line-height: 1.12; text-align: center; }
+    [data-composition-id="s11-reservala"] .globo .cola { position: absolute; width: 70px; height: 70px; overflow: visible; }
+    [data-composition-id="s11-reservala"] .globo b { color: #e63946; }
+
+  </style>
+  <div id="root" data-composition-id="s11-reservala" data-width="1080" data-height="1920" data-duration="3.11">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="3.11" data-track-index="0">
+      <div class="s11-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <pattern id="s11-ht" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="3.4" fill="#111111" /></pattern>
+            <pattern id="s11-htg" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="13" cy="13" r="6" fill="#111111" /></pattern>
+            <pattern id="s11-hty" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#ffd23f" /><circle cx="11" cy="11" r="4.4" fill="#e63946" opacity="0.55" /></pattern>
+            <pattern id="s11-htc" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#2f6fe0" /><circle cx="10" cy="10" r="4" fill="#4fc3ff" opacity="0.6" /></pattern>
+            <pattern id="s11-htn" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#14214a" /><circle cx="11" cy="11" r="4" fill="#4fc3ff" opacity="0.22" /></pattern>
+            <pattern id="s11-htp" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#fdf6e3" /><circle cx="10" cy="10" r="3" fill="#e63946" opacity="0.28" /></pattern>
+          </defs>
+          <g class="s11-v">
+            <rect x="74" y="574" width="960" height="940" fill="#111111" />
+            <clipPath id="s11-cp-s11-v"><rect x="60" y="560" width="960" height="940" /></clipPath>
+            <rect x="60" y="560" width="960" height="940" fill="#ffd23f" />
+            <g clip-path="url(#s11-cp-s11-v)">
+            <rect x="60" y="560" width="960" height="940" fill="url(#s11-hty)" />
+            <path class="s11-rayos" d="M740 1050 L1440 1050 M771 1103 L1417 1253 M734 1113 L1396 1328 M747 1174 L1311 1514 M708 1172 L1268 1579 M701 1235 L1130 1729 M665 1222 L1069 1778 M637 1279 L892 1879 M607 1255 L818 1906 M562 1302 L618 1947 M540 1270 L540 1950 M482 1300 L337 1927 M471 1263 L262 1906 M406 1274 L76 1821 M406 1234 L11 1778 M340 1224 L-139 1640 M352 1186 L-188 1579 M292 1155 L-289 1402 M316 1123 L-316 1328 M338 1068 L-357 1128 M300 1050 L-360 1050 M338 1003 L-337 847 M308 975 L-316 772 M359 941 L-231 586 M339 904 L-188 521 M399 888 L-50 371 M392 846 L11 322 M454 848 L188 221 M461 807 L262 194 M521 828 L462 153 M540 790 L540 150 M591 829 L743 173 M622 799 L818 194 M659 852 L1004 279 M698 833 L1069 322 M717 896 L1219 460 M703 931 L1268 521 M760 957 L1369 698 M736 986 L1396 772 M782 1029 L1437 972 " stroke="#e63946" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.45" />
+            <g class="s11-c1"><g transform="translate(300 860) scale(1.2)">
+              <path class="k" d="M96 250 C84 340 104 392 140 404 L222 404 C258 392 276 340 266 250 Z" />
+              <path class="r" d="M30 600 C30 450 92 388 180 388 C268 388 330 450 330 600 Z" />
+              <path d="M60 600 C60 500 90 440 140 410" fill="url(#s11-ht)" opacity="0.35" stroke="none" />
+              <path class="p" d="M154 304 V394 C164 402 196 402 206 394 V304" />
+              <ellipse class="p" cx="180" cy="236" rx="70" ry="80" />
+              <path class="k" d="M106 232 C96 160 138 126 182 126 C228 126 266 160 256 232 C234 196 204 186 180 198 C154 186 126 204 106 232 Z" />
+              <path class="k" d="M236 150 C300 126 330 190 312 262 C300 232 280 204 246 196 Z" />
+              <circle class="y" cx="112" cy="268" r="10" stroke-width="5" /><circle class="y" cx="250" cy="268" r="10" stroke-width="5" />
+              <g class="s11-cojos"><ellipse cx="154" cy="246" rx="9" ry="12" fill="#111111" /><ellipse cx="208" cy="246" rx="9" ry="12" fill="#111111" />
+              <path d="M140 232 L134 226 M222 232 L228 226" stroke="#111111" stroke-width="5" stroke-linecap="round" /></g>
+              <circle cx="138" cy="276" r="11" fill="#e63946" opacity="0.45" /><circle cx="224" cy="276" r="11" fill="#e63946" opacity="0.45" />
+              <path class="s11-boca" d="M160 284 C170 300 192 300 202 284 Z" fill="#e63946" stroke="#111111" stroke-width="5" stroke-linejoin="round" />
+              <g class="s11-cbrazo">
+                <path class="r" d="M300 470 C350 440 360 380 330 330 L298 342 C316 380 310 420 270 440 Z" />
+                <circle class="p" cx="318" cy="324" r="22" />
+                <g transform="rotate(12 333 270)"><rect class="a" x="298" y="196" width="72" height="128" rx="14" /><rect class="s11-cpant" x="308" y="210" width="52" height="88" rx="6" fill="#fdf6e3" /></g>
+              </g>
+<g class="s11-o"><ellipse cx="181" cy="292" rx="30" ry="16" fill="#fdf6e3" /><ellipse class="s11-oo" cx="181" cy="292" rx="15" ry="19" fill="#e63946" stroke="#111111" stroke-width="5" /></g></g></g>
+</g>
+            <rect class="marco" x="60" y="560" width="960" height="940" />
+          </g></svg>
+        <div class="ono s11-once" style="left:120px;top:640px;font-size:120px;color:#fdf6e3;transform:rotate(-6deg);">¿A LAS ONCE?</div>
+        <div class="ono s11-si" style="left:720px;top:960px;font-size:200px;color:#e63946;transform:rotate(10deg);">¡SÍ!</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-reservala";
+      const DUR = 3.11;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s11-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // golpe: entra de grande a su tamaño, seco
+      const golpe = (sel, t, desde = 2.4, extra = {}) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 0, scale: desde, ...extra }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 0, scale: 0.6, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }, d = 0.3) => {
+        gsap.set(qa(sel), { opacity: 0 });
+        tl.fromTo(qa(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: d, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const sale = (sel, t, a = { opacity: 0, scale: 0.8 }, d = 0.2) => tl.to(qa(sel), { ...a, duration: d, ease: "power2.in" }, t);
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(qa(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      const habla = (sel, t, d, origin) => tl.fromTo(qa(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.2, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // titila (onomatopeyas, ojos que brillan)
+      const late = (sel, t, n = 3, s = 1.08, per = 0.14) => tl.to(qa(sel), { scale: s, duration: per, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t);
+      // zoom lento de cámara sobre la viñeta
+      const camara = (sel, t, d, desde, hasta, origen = "50% 50%") => tl.fromTo(qa(sel), { scale: desde, transformOrigin: origen }, { scale: hasta, transformOrigin: origen, duration: d, ease: "none", immediateRender: false }, t);
+
+      const ONCE = 0.89, SI = 1.78;
+      entra(".s11-c1", 0, { x: 300 }, 0.3);
+      tl.fromTo(q(".s11-c1"), { scale: 1, transformOrigin: "50% 100%" }, { scale: 1.1, transformOrigin: "50% 100%", duration: 1.6, ease: "power2.out", immediateRender: false }, 0.3);
+      golpe(".s11-once", ONCE, 2.2);
+      tl.fromTo(q(".s11-oo"), { scaleY: 0.7, svgOrigin: "181 292" }, { scaleY: 1.15, svgOrigin: "181 292", duration: 0.12, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.05);
+      // ¡sí, reservala!: la boca pasa a sonrisa y salta
+      tl.to(q(".s11-o"), { opacity: 0, duration: 0.05 }, SI - 0.05);
+      tl.fromTo(q(".s11-c1"), { y: 0 }, { y: -50, duration: 0.18, yoyo: true, repeat: 3, ease: "power2.out", immediateRender: false }, SI);
+      golpe(".s11-si", SI + 0.05, 2.4);
+      sacudon(SI + 0.08, 1.0);
+      tl.fromTo(q(".s11-rayos"), { rotation: 0, svgOrigin: "540 1050" }, { rotation: 14, svgOrigin: "540 1050", duration: DUR, ease: "none" }, 0);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
