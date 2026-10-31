@@ -1,0 +1,5 @@
+[
+  {"t": 0.1, "sfx": "whoosh-short", "vol": 0.2},
+  {"t": 2.2, "sfx": "chime", "vol": 0.25},
+  {"t": 2.4, "sfx": "click-soft", "vol": 0.25}
+]

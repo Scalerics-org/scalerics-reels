@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-fiat"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-fiat"] .s03-esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-fiat"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-fiat"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s03-fiat"] .fig svg, [data-composition-id="s03-fiat"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s03-fiat"] .obj { position: absolute; }
+    [data-composition-id="s03-fiat"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s03-fiat"] .big span { display: inline-block; padding: 0 30px; transform: skewX(-8deg); color: transparent; -webkit-background-clip: text; background-clip: text;
+      -webkit-text-stroke: 4px #120621; filter: drop-shadow(8px 8px 0 #7b2ff7) drop-shadow(0 0 22px rgba(255, 42, 157, 0.7)); }
+    [data-composition-id="s03-fiat"] .big.cr span { background-image: linear-gradient(180deg, #fdf6ff 0%, #fdf6ff 42%, #22e4ff 52%, #7b2ff7 100%); }
+    [data-composition-id="s03-fiat"] .big.mg span { background-image: linear-gradient(180deg, #ffe3f1 0%, #ff2a9d 50%, #ff8a3d 100%); }
+    [data-composition-id="s03-fiat"] .big.nj span { background-image: linear-gradient(180deg, #fdf6ff 0%, #ffd2b3 38%, #ff8a3d 55%, #ff2a9d 100%); }
+    [data-composition-id="s03-fiat"] .big.cy span { background-image: linear-gradient(180deg, #fdf6ff 0%, #22e4ff 55%, #7b2ff7 100%); filter: drop-shadow(8px 8px 0 #120621) drop-shadow(0 0 22px rgba(34, 228, 255, 0.7)); }
+    [data-composition-id="s03-fiat"] .big.vd span { background-image: linear-gradient(180deg, #fdf6ff 0%, #5ce611 60%, #2f8a08 100%); filter: drop-shadow(8px 8px 0 #120621) drop-shadow(0 0 22px rgba(92, 230, 17, 0.6)); }
+    [data-composition-id="s03-fiat"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s03-fiat"] .reloj { position: absolute; padding: 16px 30px 12px; border: 6px solid #120621; border-radius: 18px; background: #120621; box-shadow: 0 0 0 4px #ff2a9d, 0 0 40px 6px rgba(255, 42, 157, 0.45);
+      font-family: "IBM Plex Mono", monospace; font-weight: 600; line-height: 1; white-space: nowrap; color: #ff8a3d; text-shadow: 0 0 18px rgba(255, 138, 61, 0.9); text-align: center; }
+    [data-composition-id="s03-fiat"] .reloj small { display: block; font-size: 26px; letter-spacing: 0.24em; color: #22e4ff; text-shadow: 0 0 10px rgba(34, 228, 255, 0.8); margin-bottom: 8px; }
+    [data-composition-id="s03-fiat"] .reloj.cy { color: #22e4ff; text-shadow: 0 0 18px rgba(34, 228, 255, 0.9); box-shadow: 0 0 0 4px #22e4ff, 0 0 40px 6px rgba(34, 228, 255, 0.4); }
+    [data-composition-id="s03-fiat"] .sello { position: absolute; padding: 16px 40px 10px; border: 10px solid currentColor; border-radius: 20px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #120621;
+      box-shadow: 0 0 30px 4px currentColor; }
+    [data-composition-id="s03-fiat"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #120621; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; line-height: 1.12; white-space: nowrap; color: #120621; background: #fdf6ff; box-shadow: 8px 8px 0 #7b2ff7; }
+    [data-composition-id="s03-fiat"] .cel { position: absolute; border-radius: 54px; border: 8px solid #120621; background: #120621; box-shadow: 0 0 0 6px #22e4ff, 0 0 50px 10px rgba(34, 228, 255, 0.35); }
+    [data-composition-id="s03-fiat"] .cel-barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #120621; z-index: 2; }
+    [data-composition-id="s03-fiat"] .pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 46px; background: #1d0b36; overflow: hidden; }
+    [data-composition-id="s03-fiat"] .chat-head { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: #2a1046; border-bottom: 4px solid #22e4ff; }
+    [data-composition-id="s03-fiat"] .chat-head b { position: absolute; left: 110px; top: 54px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; color: #fdf6ff; }
+    [data-composition-id="s03-fiat"] .chat-head i { position: absolute; left: 30px; top: 46px; width: 62px; height: 62px; border-radius: 50%; background: #ff2a9d; border: 4px solid #fdf6ff; }
+    [data-composition-id="s03-fiat"] .msg { position: absolute; left: 26px; max-width: 360px; padding: 16px 22px; border-radius: 26px 26px 26px 6px; background: #fdf6ff; border: 4px solid #120621;
+      font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; line-height: 1.15; color: #120621; white-space: nowrap; }
+    [data-composition-id="s03-fiat"] .msg.yo { left: auto; right: 26px; border-radius: 26px 26px 6px 26px; background: #22e4ff; }
+    [data-composition-id="s03-fiat"] .msg small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-size: 24px; font-weight: 600; color: #5a3b80; text-align: right; }
+
+    [data-composition-id="s03-fiat"] .s03-auto { left: 230px; top: 960px; width: 700px; height: 380px; }
+    [data-composition-id="s03-fiat"] .s03-fuego { left: -360px; top: 1192px; width: 640px; height: 150px; }
+    [data-composition-id="s03-fiat"] .s03-fiat { top: 560px; font-size: 180px; }
+    [data-composition-id="s03-fiat"] .s03-del { top: 560px; font-size: 150px; }
+    [data-composition-id="s03-fiat"] .s03-x { left: 160px; top: 520px; width: 760px; height: 260px; }
+    [data-composition-id="s03-fiat"] .s03-lunes { left: 50%; top: 770px; margin-left: -390px; width: 780px; text-align: center; font-size: 72px; color: #ff2a9d; }
+
+  </style>
+  <div id="root" data-composition-id="s03-fiat" data-width="1080" data-height="1920" data-duration="3.83">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.83" data-track-index="0">
+      <div class="s03-esc esc">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="s03-ch" d="M702 1205 L774 1193 L826 1243 L897 1231 L949 1281" fill="none" stroke="#22e4ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M702 1205 L774 1193 L826 1243 L897 1231 L949 1281" fill="none" stroke="#fdf6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M647 1266 L711 1299 L724 1370 L789 1402 L802 1473" fill="none" stroke="#22e4ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M647 1266 L711 1299 L724 1370 L789 1402 L802 1473" fill="none" stroke="#fdf6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M566 1283 L599 1347 L568 1412 L601 1477 L570 1542" fill="none" stroke="#22e4ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M566 1283 L599 1347 L568 1412 L601 1477 L570 1542" fill="none" stroke="#fdf6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M490 1249 L479 1321 L416 1355 L405 1426 L341 1461" fill="none" stroke="#22e4ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M490 1249 L479 1321 L416 1355 L405 1426 L341 1461" fill="none" stroke="#fdf6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M449 1178 L398 1229 L327 1219 L276 1271 L204 1261" fill="none" stroke="#22e4ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M449 1178 L398 1229 L327 1219 L276 1271 L204 1261" fill="none" stroke="#fdf6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M458 1095 L386 1107 L334 1057 L263 1069 L211 1019" fill="none" stroke="#22e4ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M458 1095 L386 1107 L334 1057 L263 1069 L211 1019" fill="none" stroke="#fdf6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M513 1034 L449 1001 L436 930 L371 898 L358 827" fill="none" stroke="#22e4ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M513 1034 L449 1001 L436 930 L371 898 L358 827" fill="none" stroke="#fdf6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M594 1017 L561 953 L592 888 L559 823 L590 758" fill="none" stroke="#22e4ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M594 1017 L561 953 L592 888 L559 823 L590 758" fill="none" stroke="#fdf6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M670 1051 L681 979 L744 945 L755 874 L819 839" fill="none" stroke="#22e4ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M670 1051 L681 979 L744 945 L755 874 L819 839" fill="none" stroke="#fdf6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M711 1122 L762 1071 L833 1081 L884 1029 L956 1039" fill="none" stroke="#22e4ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path class="s03-ch" d="M711 1122 L762 1071 L833 1081 L884 1029 L956 1039" fill="none" stroke="#fdf6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="obj s03-fuego"><svg class="s03-fg" viewBox="0 0 640 120" aria-hidden="true">
+  <rect x="0" y="34" width="640" height="14" rx="7" fill="#ff2a9d"/><rect x="0" y="94" width="640" height="14" rx="7" fill="#ff2a9d"/>
+  <path d="M0 40 Q14 0 30 26 Q40 6 54 40 Z" fill="#ff8a3d"/><path d="M46 40 Q60 0 76 26 Q86 6 100 40 Z" fill="#ff8a3d"/><path d="M92 40 Q106 0 122 26 Q132 6 146 40 Z" fill="#ff8a3d"/><path d="M138 40 Q152 0 168 26 Q178 6 192 40 Z" fill="#ff8a3d"/><path d="M184 40 Q198 0 214 26 Q224 6 238 40 Z" fill="#ff8a3d"/><path d="M230 40 Q244 0 260 26 Q270 6 284 40 Z" fill="#ff8a3d"/><path d="M276 40 Q290 0 306 26 Q316 6 330 40 Z" fill="#ff8a3d"/><path d="M322 40 Q336 0 352 26 Q362 6 376 40 Z" fill="#ff8a3d"/><path d="M368 40 Q382 0 398 26 Q408 6 422 40 Z" fill="#ff8a3d"/><path d="M414 40 Q428 0 444 26 Q454 6 468 40 Z" fill="#ff8a3d"/><path d="M460 40 Q474 0 490 26 Q500 6 514 40 Z" fill="#ff8a3d"/><path d="M506 40 Q520 0 536 26 Q546 6 560 40 Z" fill="#ff8a3d"/><path d="M552 40 Q566 0 582 26 Q592 6 606 40 Z" fill="#ff8a3d"/><path d="M598 40 Q612 0 628 26 Q638 6 652 40 Z" fill="#ff8a3d"/><path d="M0 100 Q14 60 30 86 Q40 66 54 100 Z" fill="#ff8a3d"/><path d="M46 100 Q60 60 76 86 Q86 66 100 100 Z" fill="#ff8a3d"/><path d="M92 100 Q106 60 122 86 Q132 66 146 100 Z" fill="#ff8a3d"/><path d="M138 100 Q152 60 168 86 Q178 66 192 100 Z" fill="#ff8a3d"/><path d="M184 100 Q198 60 214 86 Q224 66 238 100 Z" fill="#ff8a3d"/><path d="M230 100 Q244 60 260 86 Q270 66 284 100 Z" fill="#ff8a3d"/><path d="M276 100 Q290 60 306 86 Q316 66 330 100 Z" fill="#ff8a3d"/><path d="M322 100 Q336 60 352 86 Q362 66 376 100 Z" fill="#ff8a3d"/><path d="M368 100 Q382 60 398 86 Q408 66 422 100 Z" fill="#ff8a3d"/><path d="M414 100 Q428 60 444 86 Q454 66 468 100 Z" fill="#ff8a3d"/><path d="M460 100 Q474 60 490 86 Q500 66 514 100 Z" fill="#ff8a3d"/><path d="M506 100 Q520 60 536 86 Q546 66 560 100 Z" fill="#ff8a3d"/><path d="M552 100 Q566 60 582 86 Q592 66 606 100 Z" fill="#ff8a3d"/><path d="M598 100 Q612 60 628 86 Q638 66 652 100 Z" fill="#ff8a3d"/>
+  <rect x="0" y="38" width="640" height="6" rx="3" fill="#fdf6ff"/><rect x="0" y="98" width="640" height="6" rx="3" fill="#fdf6ff"/>
+</svg></div>
+        <div class="obj s03-auto"><svg viewBox="0 0 700 380" aria-hidden="true"><g class="s03a-cuerpo">
+  <path d="M40 300 L40 210 Q40 190 70 186 L170 176 L240 96 Q250 84 270 84 L470 84 Q490 84 498 104 L540 186 L640 196 Q670 200 670 230 L670 300 Z" fill="#ff8a3d" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M262 108 L208 180 L360 180 L360 108 Z" fill="#22e4ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M384 108 L384 180 L512 180 L476 108 Z" fill="#22e4ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M272 120 L250 150 M398 120 L398 150" stroke="#fdf6ff" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+  <path d="M372 96 V296" stroke="#120621" stroke-width="5"/>
+  <path d="M40 236 H670" stroke="#120621" stroke-width="5"/>
+  <path d="M40 252 H670" stroke="#ff2a9d" stroke-width="10"/>
+  <rect class="s03a-farol" x="640" y="206" width="30" height="24" rx="6" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="34" y="210" width="20" height="26" rx="4" fill="#ff2a9d" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="300" y="200" width="40" height="10" rx="4" fill="#120621"/><rect x="420" y="200" width="40" height="10" rx="4" fill="#120621"/>
+  <g class="s03a-rueda"><circle cx="170" cy="312" r="52" fill="#120621" stroke="#fdf6ff" stroke-width="5"/><circle cx="170" cy="312" r="20" fill="#fdf6ff"/><path d="M170 266 V358 M124 312 H216" stroke="#fdf6ff" stroke-width="5"/></g>
+  <g class="s03a-rueda"><circle cx="540" cy="312" r="52" fill="#120621" stroke="#fdf6ff" stroke-width="5"/><circle cx="540" cy="312" r="20" fill="#fdf6ff"/><path d="M540 266 V358 M494 312 H586" stroke="#fdf6ff" stroke-width="5"/></g>
+  <g class="s03a-humo" opacity="0"><circle cx="20" cy="290" r="26" fill="#7b2ff7" opacity="0.7"/><circle cx="-20" cy="270" r="34" fill="#7b2ff7" opacity="0.5"/><circle cx="-70" cy="250" r="42" fill="#7b2ff7" opacity="0.35"/></g>
+</g></svg></div>
+        <div class="big cr s03-fiat"><span>Fiat 147</span></div>
+        <div class="big cy s03-del"><span>DeLorean</span></div>
+        <div class="obj s03-x"><svg viewBox="0 0 760 260"><path d="M40 30 L720 230 M720 30 L40 230" stroke="#120621" stroke-width="56" stroke-linecap="round"/><path d="M40 30 L720 230 M720 30 L40 230" stroke="#ff2a9d" stroke-width="34" stroke-linecap="round"/></svg></div>
+        <div class="sello s03-lunes">Pasá el lunes</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-fiat";
+      const DUR = 3.83;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.2, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // chispazo: los elementos titilan de t a t+d
+      const chispazo = (els, t, d = 0.6) => { gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 1 }, { opacity: 0, duration: 0.06, ease: "steps(1)", yoyo: true, repeat: Math.max(1, Math.round(d / 0.06)) | 1, stagger: 0.02, immediateRender: false }, t); tl.set(els, { opacity: 0 }, t + d + 0.2); };
+      // cuenta: varios <span> apilados (posición absoluta); se ve uno a la vez y frena en el último
+      const cuenta = (els, t, paso = 0.06) => { gsap.set(els, { opacity: 0 }); els.forEach((e, i) => { tl.set(e, { opacity: 1 }, t + i * paso); if (i < els.length - 1) tl.set(e, { opacity: 0 }, t + (i + 1) * paso); }); };
+
+
+      const N147 = 0.43, DEL = 2.0, DIJO = 2.52, PASA = 2.69;
+      // cuadro 0: el auto recién aterrizado, fuego y chispas
+      chispazo(qa(".s03-ch"), 0, 0.7);
+      tl.fromTo(q(".s03-auto"), { x: -60, rotation: -2 }, { x: 0, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s03-fuego"), { scaleX: 0.6, transformOrigin: "100% 50%" }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s03-fuego"), { opacity: 1 }, { opacity: 0.6, duration: 0.09, yoyo: true, repeat: 30, ease: "steps(1)", immediateRender: false }, 0.3);
+      tl.set(q(".s03a-humo"), { opacity: 1 }, 0);
+      tl.fromTo(q(".s03a-humo"), { x: 0 }, { x: -30, y: -20, duration: 0.4, yoyo: true, repeat: 8, ease: "sine.inOut" }, 0);
+      vaiven(q(".s03-auto"), 0.4, 3.4, { y: -6 }, 0.12);
+      // FIAT 147
+      golpe(q(".s03-fiat"), N147, -3, 2.6);
+      sacudon(N147 + 0.05, 1.3);
+      tl.to(q(".s03-fiat"), { opacity: 0, y: -60, duration: 0.2, ease: "power2.in" }, DEL - 0.3);
+      // DeLorean: tachado
+      golpe(q(".s03-del"), DEL, 2, 2.2);
+      gsap.set(q(".s03-x"), { opacity: 0 });
+      tl.fromTo(q(".s03-x"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, DIJO - 0.1);
+      sacudon(DIJO + 0.05, 1);
+      tl.to([q(".s03-del"), q(".s03-x")], { opacity: 0.45, duration: 0.2 }, PASA);
+      // pasá el lunes
+      golpe(q(".s03-lunes"), PASA + 0.05, -6, 2.4);
+      sacudon(PASA + 0.1, 1.4);
+      tl.to(q(".s03-lunes"), { rotation: -4, scale: 1.05, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, PASA + 0.3);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

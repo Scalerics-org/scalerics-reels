@@ -1,0 +1,223 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-terminator"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-terminator"] .s14-esc { position: absolute; inset: 0; }
+    [data-composition-id="s14-terminator"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-terminator"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s14-terminator"] .fig svg, [data-composition-id="s14-terminator"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s14-terminator"] .obj { position: absolute; }
+    [data-composition-id="s14-terminator"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s14-terminator"] .big span { display: inline-block; padding: 0 30px; transform: skewX(-8deg); color: transparent; -webkit-background-clip: text; background-clip: text;
+      -webkit-text-stroke: 4px #120621; filter: drop-shadow(8px 8px 0 #7b2ff7) drop-shadow(0 0 22px rgba(255, 42, 157, 0.7)); }
+    [data-composition-id="s14-terminator"] .big.cr span { background-image: linear-gradient(180deg, #fdf6ff 0%, #fdf6ff 42%, #22e4ff 52%, #7b2ff7 100%); }
+    [data-composition-id="s14-terminator"] .big.mg span { background-image: linear-gradient(180deg, #ffe3f1 0%, #ff2a9d 50%, #ff8a3d 100%); }
+    [data-composition-id="s14-terminator"] .big.nj span { background-image: linear-gradient(180deg, #fdf6ff 0%, #ffd2b3 38%, #ff8a3d 55%, #ff2a9d 100%); }
+    [data-composition-id="s14-terminator"] .big.cy span { background-image: linear-gradient(180deg, #fdf6ff 0%, #22e4ff 55%, #7b2ff7 100%); filter: drop-shadow(8px 8px 0 #120621) drop-shadow(0 0 22px rgba(34, 228, 255, 0.7)); }
+    [data-composition-id="s14-terminator"] .big.vd span { background-image: linear-gradient(180deg, #fdf6ff 0%, #5ce611 60%, #2f8a08 100%); filter: drop-shadow(8px 8px 0 #120621) drop-shadow(0 0 22px rgba(92, 230, 17, 0.6)); }
+    [data-composition-id="s14-terminator"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s14-terminator"] .reloj { position: absolute; padding: 16px 30px 12px; border: 6px solid #120621; border-radius: 18px; background: #120621; box-shadow: 0 0 0 4px #ff2a9d, 0 0 40px 6px rgba(255, 42, 157, 0.45);
+      font-family: "IBM Plex Mono", monospace; font-weight: 600; line-height: 1; white-space: nowrap; color: #ff8a3d; text-shadow: 0 0 18px rgba(255, 138, 61, 0.9); text-align: center; }
+    [data-composition-id="s14-terminator"] .reloj small { display: block; font-size: 26px; letter-spacing: 0.24em; color: #22e4ff; text-shadow: 0 0 10px rgba(34, 228, 255, 0.8); margin-bottom: 8px; }
+    [data-composition-id="s14-terminator"] .reloj.cy { color: #22e4ff; text-shadow: 0 0 18px rgba(34, 228, 255, 0.9); box-shadow: 0 0 0 4px #22e4ff, 0 0 40px 6px rgba(34, 228, 255, 0.4); }
+    [data-composition-id="s14-terminator"] .sello { position: absolute; padding: 16px 40px 10px; border: 10px solid currentColor; border-radius: 20px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #120621;
+      box-shadow: 0 0 30px 4px currentColor; }
+    [data-composition-id="s14-terminator"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #120621; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; line-height: 1.12; white-space: nowrap; color: #120621; background: #fdf6ff; box-shadow: 8px 8px 0 #7b2ff7; }
+    [data-composition-id="s14-terminator"] .cel { position: absolute; border-radius: 54px; border: 8px solid #120621; background: #120621; box-shadow: 0 0 0 6px #22e4ff, 0 0 50px 10px rgba(34, 228, 255, 0.35); }
+    [data-composition-id="s14-terminator"] .cel-barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #120621; z-index: 2; }
+    [data-composition-id="s14-terminator"] .pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 46px; background: #1d0b36; overflow: hidden; }
+    [data-composition-id="s14-terminator"] .chat-head { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: #2a1046; border-bottom: 4px solid #22e4ff; }
+    [data-composition-id="s14-terminator"] .chat-head b { position: absolute; left: 110px; top: 54px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; color: #fdf6ff; }
+    [data-composition-id="s14-terminator"] .chat-head i { position: absolute; left: 30px; top: 46px; width: 62px; height: 62px; border-radius: 50%; background: #ff2a9d; border: 4px solid #fdf6ff; }
+    [data-composition-id="s14-terminator"] .msg { position: absolute; left: 26px; max-width: 360px; padding: 16px 22px; border-radius: 26px 26px 26px 6px; background: #fdf6ff; border: 4px solid #120621;
+      font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; line-height: 1.15; color: #120621; white-space: nowrap; }
+    [data-composition-id="s14-terminator"] .msg.yo { left: auto; right: 26px; border-radius: 26px 26px 6px 26px; background: #22e4ff; }
+    [data-composition-id="s14-terminator"] .msg small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-size: 24px; font-weight: 600; color: #5a3b80; text-align: right; }
+
+    [data-composition-id="s14-terminator"] .s14-hoy { left: 40px; top: 820px; }
+    [data-composition-id="s14-terminator"] .s14-fut { left: 560px; top: 780px; }
+    [data-composition-id="s14-terminator"] .s14-glo { left: 50px; top: 600px; font-size: 50px; background: #22e4ff; }
+    [data-composition-id="s14-terminator"] .s14-glo2 { left: 560px; top: 640px; font-size: 48px; background: #ff8a3d; }
+    [data-composition-id="s14-terminator"] .s14-vol { top: 560px; font-size: 170px; }
+    [data-composition-id="s14-terminator"] .s14-pero { top: 740px; font-size: 96px; }
+    [data-composition-id="s14-terminator"] .s14-fuego { left: -200px; top: 1380px; width: 1300px; height: 150px; }
+
+  </style>
+  <div id="root" data-composition-id="s14-terminator" data-width="1080" data-height="1920" data-duration="8.24">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="8.24" data-track-index="0">
+      <div class="s14-esc esc">
+
+        <div class="obj s14-fuego"><svg class="s14-fg" viewBox="0 0 1300 120" aria-hidden="true">
+  <rect x="0" y="34" width="1300" height="14" rx="7" fill="#ff2a9d"/><rect x="0" y="94" width="1300" height="14" rx="7" fill="#ff2a9d"/>
+  <path d="M0 40 Q14 0 30 26 Q40 6 54 40 Z" fill="#ff8a3d"/><path d="M46 40 Q60 0 76 26 Q86 6 100 40 Z" fill="#ff8a3d"/><path d="M92 40 Q106 0 122 26 Q132 6 146 40 Z" fill="#ff8a3d"/><path d="M138 40 Q152 0 168 26 Q178 6 192 40 Z" fill="#ff8a3d"/><path d="M184 40 Q198 0 214 26 Q224 6 238 40 Z" fill="#ff8a3d"/><path d="M230 40 Q244 0 260 26 Q270 6 284 40 Z" fill="#ff8a3d"/><path d="M276 40 Q290 0 306 26 Q316 6 330 40 Z" fill="#ff8a3d"/><path d="M322 40 Q336 0 352 26 Q362 6 376 40 Z" fill="#ff8a3d"/><path d="M368 40 Q382 0 398 26 Q408 6 422 40 Z" fill="#ff8a3d"/><path d="M414 40 Q428 0 444 26 Q454 6 468 40 Z" fill="#ff8a3d"/><path d="M460 40 Q474 0 490 26 Q500 6 514 40 Z" fill="#ff8a3d"/><path d="M506 40 Q520 0 536 26 Q546 6 560 40 Z" fill="#ff8a3d"/><path d="M552 40 Q566 0 582 26 Q592 6 606 40 Z" fill="#ff8a3d"/><path d="M598 40 Q612 0 628 26 Q638 6 652 40 Z" fill="#ff8a3d"/><path d="M644 40 Q658 0 674 26 Q684 6 698 40 Z" fill="#ff8a3d"/><path d="M690 40 Q704 0 720 26 Q730 6 744 40 Z" fill="#ff8a3d"/><path d="M736 40 Q750 0 766 26 Q776 6 790 40 Z" fill="#ff8a3d"/><path d="M782 40 Q796 0 812 26 Q822 6 836 40 Z" fill="#ff8a3d"/><path d="M828 40 Q842 0 858 26 Q868 6 882 40 Z" fill="#ff8a3d"/><path d="M874 40 Q888 0 904 26 Q914 6 928 40 Z" fill="#ff8a3d"/><path d="M920 40 Q934 0 950 26 Q960 6 974 40 Z" fill="#ff8a3d"/><path d="M966 40 Q980 0 996 26 Q1006 6 1020 40 Z" fill="#ff8a3d"/><path d="M1012 40 Q1026 0 1042 26 Q1052 6 1066 40 Z" fill="#ff8a3d"/><path d="M1058 40 Q1072 0 1088 26 Q1098 6 1112 40 Z" fill="#ff8a3d"/><path d="M1104 40 Q1118 0 1134 26 Q1144 6 1158 40 Z" fill="#ff8a3d"/><path d="M1150 40 Q1164 0 1180 26 Q1190 6 1204 40 Z" fill="#ff8a3d"/><path d="M1196 40 Q1210 0 1226 26 Q1236 6 1250 40 Z" fill="#ff8a3d"/><path d="M1242 40 Q1256 0 1272 26 Q1282 6 1296 40 Z" fill="#ff8a3d"/><path d="M0 100 Q14 60 30 86 Q40 66 54 100 Z" fill="#ff8a3d"/><path d="M46 100 Q60 60 76 86 Q86 66 100 100 Z" fill="#ff8a3d"/><path d="M92 100 Q106 60 122 86 Q132 66 146 100 Z" fill="#ff8a3d"/><path d="M138 100 Q152 60 168 86 Q178 66 192 100 Z" fill="#ff8a3d"/><path d="M184 100 Q198 60 214 86 Q224 66 238 100 Z" fill="#ff8a3d"/><path d="M230 100 Q244 60 260 86 Q270 66 284 100 Z" fill="#ff8a3d"/><path d="M276 100 Q290 60 306 86 Q316 66 330 100 Z" fill="#ff8a3d"/><path d="M322 100 Q336 60 352 86 Q362 66 376 100 Z" fill="#ff8a3d"/><path d="M368 100 Q382 60 398 86 Q408 66 422 100 Z" fill="#ff8a3d"/><path d="M414 100 Q428 60 444 86 Q454 66 468 100 Z" fill="#ff8a3d"/><path d="M460 100 Q474 60 490 86 Q500 66 514 100 Z" fill="#ff8a3d"/><path d="M506 100 Q520 60 536 86 Q546 66 560 100 Z" fill="#ff8a3d"/><path d="M552 100 Q566 60 582 86 Q592 66 606 100 Z" fill="#ff8a3d"/><path d="M598 100 Q612 60 628 86 Q638 66 652 100 Z" fill="#ff8a3d"/><path d="M644 100 Q658 60 674 86 Q684 66 698 100 Z" fill="#ff8a3d"/><path d="M690 100 Q704 60 720 86 Q730 66 744 100 Z" fill="#ff8a3d"/><path d="M736 100 Q750 60 766 86 Q776 66 790 100 Z" fill="#ff8a3d"/><path d="M782 100 Q796 60 812 86 Q822 66 836 100 Z" fill="#ff8a3d"/><path d="M828 100 Q842 60 858 86 Q868 66 882 100 Z" fill="#ff8a3d"/><path d="M874 100 Q888 60 904 86 Q914 66 928 100 Z" fill="#ff8a3d"/><path d="M920 100 Q934 60 950 86 Q960 66 974 100 Z" fill="#ff8a3d"/><path d="M966 100 Q980 60 996 86 Q1006 66 1020 100 Z" fill="#ff8a3d"/><path d="M1012 100 Q1026 60 1042 86 Q1052 66 1066 100 Z" fill="#ff8a3d"/><path d="M1058 100 Q1072 60 1088 86 Q1098 66 1112 100 Z" fill="#ff8a3d"/><path d="M1104 100 Q1118 60 1134 86 Q1144 66 1158 100 Z" fill="#ff8a3d"/><path d="M1150 100 Q1164 60 1180 86 Q1190 66 1204 100 Z" fill="#ff8a3d"/><path d="M1196 100 Q1210 60 1226 86 Q1236 66 1250 100 Z" fill="#ff8a3d"/><path d="M1242 100 Q1256 60 1272 86 Q1282 66 1296 100 Z" fill="#ff8a3d"/>
+  <rect x="0" y="38" width="1300" height="6" rx="3" fill="#fdf6ff"/><rect x="0" y="98" width="1300" height="6" rx="3" fill="#fdf6ff"/>
+</svg></div>
+        <div class="fig s14-hoy"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="s14h-cuerpo">
+  <path d="M176 480 L172 690 M224 480 L228 690" stroke="#120621" stroke-width="46" stroke-linecap="round" fill="none"/>
+  <path d="M176 480 L172 690 M224 480 L228 690" stroke="#7b2ff7" stroke-width="32" stroke-linecap="round" fill="none"/>
+  <ellipse cx="160" cy="700" rx="32" ry="14" fill="#120621"/><ellipse cx="240" cy="700" rx="32" ry="14" fill="#120621"/>
+  <g class="s14h-bi">
+    <path d="M150 292 L116 392 L120 466" stroke="#120621" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M150 292 L116 392 L120 466" stroke="#fdf6ff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="120" cy="476" r="18" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="s14h-bd">
+    <path d="M250 292 L284 392 L280 466" stroke="#120621" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M250 292 L284 392 L280 466" stroke="#fdf6ff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="280" cy="476" r="18" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <path d="M140 280 Q200 264 260 280 Q276 390 268 496 Q200 510 132 496 Q124 390 140 280 Z" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M156 330 Q200 320 244 330 L258 500 Q200 512 142 500 Z" fill="#22e4ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M156 330 L170 282 M244 330 L230 282" stroke="#22e4ff" stroke-width="10"/>
+  <rect x="176" y="390" width="48" height="40" rx="6" fill="none" stroke="#120621" stroke-width="5"/>
+  <rect x="186" y="244" width="28" height="30" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s14h-cabeza">
+    <path d="M136 186 Q128 108 200 104 Q272 108 264 186 Z" fill="#120621" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse cx="200" cy="196" rx="60" ry="64" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M140 172 Q150 120 200 120 Q246 118 262 160 Q236 140 220 150 Q200 132 176 150 Q160 140 140 172 Z" fill="#120621" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="140" cy="204" r="13" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="260" cy="204" r="13" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="s14h-ojos"><ellipse cx="178" cy="196" rx="8" ry="10" fill="#120621"/><ellipse cx="222" cy="196" rx="8" ry="10" fill="#120621"/>
+      <circle cx="181" cy="192" r="3" fill="#fdf6ff"/><circle cx="225" cy="192" r="3" fill="#fdf6ff"/></g>
+    <path d="M164 174 L190 170 M210 170 L236 174" stroke="#120621" stroke-width="6" stroke-linecap="round"/>
+    <path d="M200 200 Q194 214 202 218" stroke="#120621" stroke-width="4" fill="none"/>
+    <path class="s14h-boca" d="M180 234 Q200 250 220 234" stroke="#120621" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <ellipse class="s14h-boca-o" cx="200" cy="240" rx="14" ry="18" fill="#120621" opacity="0"/>
+    <path class="s14h-gota" d="M262 150 Q274 170 266 178 Q256 182 254 172 Q254 162 262 150 Z" fill="#22e4ff" stroke="#120621" stroke-width="3" opacity="0"/>
+    <g class="s14h-susto" opacity="0">
+      <path d="M120 120 L96 92 M146 96 L134 62 M200 86 V48 M254 96 L266 62 M280 120 L304 92" stroke="#22e4ff" stroke-width="8" stroke-linecap="round"/>
+    </g>
+  </g>
+</g></svg></div>
+        <div class="fig s14-fut"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="s14f-cuerpo">
+  <path d="M174 480 L170 690 M226 480 L230 690" stroke="#120621" stroke-width="48" stroke-linecap="round" fill="none"/>
+  <path d="M174 480 L170 690 M226 480 L230 690" stroke="#3a1a5c" stroke-width="34" stroke-linecap="round" fill="none"/>
+  <ellipse cx="160" cy="700" rx="34" ry="15" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="240" cy="700" rx="34" ry="15" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s14f-bi">
+    <path d="M150 292 L114 392 L118 466" stroke="#120621" stroke-width="46" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M150 292 L114 392 L118 466" stroke="#ff2a9d" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="118" cy="476" r="19" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="s14f-bd">
+    <path d="M250 292 L286 392 L282 466" stroke="#120621" stroke-width="46" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M250 292 L286 392 L282 466" stroke="#ff2a9d" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="282" cy="476" r="19" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M282 492 L282 528" stroke="#120621" stroke-width="20" stroke-linecap="round"/><path d="M282 492 L282 528" stroke="#fdf6ff" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <path d="M136 280 Q200 262 264 280 Q282 390 272 500 Q200 514 128 500 Q118 390 136 280 Z" fill="#ff2a9d" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M180 278 L200 330 L220 278 Z" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M200 330 V500" stroke="#120621" stroke-width="5"/>
+  <path d="M140 330 H176 M224 330 H260" stroke="#ff8a3d" stroke-width="10" stroke-linecap="round"/>
+  <path d="M136 280 Q170 300 180 278 M264 280 Q230 300 220 278" fill="none" stroke="#120621" stroke-width="5"/>
+  <rect x="184" y="240" width="32" height="34" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s14f-cabeza">
+    <ellipse cx="200" cy="192" rx="64" ry="70" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="s14f-canas">
+      <path d="M140 196 Q112 186 118 160 Q100 150 116 128 Q112 108 138 110 Q140 140 146 160 Z" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M260 196 Q288 186 282 160 Q300 150 284 128 Q288 108 262 110 Q260 140 254 160 Z" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M176 126 Q170 104 182 96 M200 124 Q200 98 210 92 M222 128 Q230 108 240 104" stroke="#120621" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </g>
+    <circle cx="134" cy="204" r="14" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="266" cy="204" r="14" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M164 160 Q180 156 194 164 M206 164 Q220 156 236 160" stroke="#120621" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <g class="s14f-antiparras">
+      <path d="M140 140 Q200 122 260 140" stroke="#120621" stroke-width="12" fill="none"/>
+      <rect x="152" y="118" width="40" height="30" rx="12" fill="#ff8a3d" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><rect x="208" y="118" width="40" height="30" rx="12" fill="#ff8a3d" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M160 126 L172 126" stroke="#fdf6ff" stroke-width="5" stroke-linecap="round"/><path d="M216 126 L228 126" stroke="#fdf6ff" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <g class="s14f-ojos"><ellipse cx="178" cy="188" rx="6" ry="7" fill="#120621"/><ellipse cx="222" cy="188" rx="6" ry="7" fill="#120621"/></g>
+    <path d="M166 200 Q178 208 190 200 M210 200 Q222 208 234 200" stroke="#7b2ff7" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M166 174 L192 178 M208 178 L234 174" stroke="#fdf6ff" stroke-width="12" stroke-linecap="round"/>
+    <path d="M166 174 L192 178 M208 178 L234 174" stroke="#120621" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+    <path d="M200 194 Q192 214 202 218" stroke="#120621" stroke-width="4" fill="none"/>
+    <path d="M150 224 Q156 232 160 226 M240 224 Q244 232 250 226" stroke="#120621" stroke-width="3" fill="none" opacity="0.5"/>
+    <ellipse class="s14f-boca" cx="200" cy="244" rx="15" ry="5" fill="#120621"/>
+    <path d="M162 230 Q182 214 200 224 Q218 214 238 230 Q226 240 200 234 Q174 240 162 230 Z" fill="#fdf6ff" stroke="#120621" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="s14f-lentes" opacity="0">
+      <path d="M148 182 H252" stroke="#120621" stroke-width="10"/>
+      <path d="M150 176 H194 L190 204 Q172 212 156 204 Z M206 176 H250 L244 204 Q228 212 210 204 Z" fill="#120621" stroke="#120621" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M160 184 L176 184 M216 184 L232 184" stroke="#22e4ff" stroke-width="5" stroke-linecap="round"/>
+    </g>
+  </g>
+</g></svg></div>
+        <div class="globo s14-glo">¿Y vos lo tenés?</div>
+        <div class="globo s14-glo2">Yo no.</div>
+        <div class="big cr s14-vol"><span>Volveré...</span></div>
+        <div class="big nj s14-pero"><span>pero descansado</span></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-terminator";
+      const DUR = 8.24;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.2, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // chispazo: los elementos titilan de t a t+d
+      const chispazo = (els, t, d = 0.6) => { gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 1 }, { opacity: 0, duration: 0.06, ease: "steps(1)", yoyo: true, repeat: Math.max(1, Math.round(d / 0.06)) | 1, stagger: 0.02, immediateRender: false }, t); tl.set(els, { opacity: 0 }, t + d + 0.2); };
+      // cuenta: varios <span> apilados (posición absoluta); se ve uno a la vez y frena en el último
+      const cuenta = (els, t, paso = 0.06) => { gsap.set(els, { opacity: 0 }); els.forEach((e, i) => { tl.set(e, { opacity: 1 }, t + i * paso); if (i < els.length - 1) tl.set(e, { opacity: 0 }, t + (i + 1) * paso); }); };
+
+
+      const TENES = 0.28, YONO = 1.25, CANAS = 2.65, HACELO = 3.43, TERM = 4.82, VOL = 5.96, PERO = 6.77, DESC = 6.91;
+      const fut = q(".s14-fut"), hoy = q(".s14-hoy");
+      gsap.set([fut, hoy], { scale: 1.05, transformOrigin: "50% 100%" });
+      // ¿y vos lo tenés?
+      tl.fromTo(q(".s14h-ojos"), { scaleY: 1, svgOrigin: "200 196" }, { scaleY: 0.4, svgOrigin: "200 196", duration: 0.15 }, 0.05);
+      tl.to(q(".s14h-bd"), { rotation: -40, svgOrigin: "250 292", duration: 0.25, ease: "back.out(2)" }, 0.1);
+      pop(q(".s14-glo"), TENES - 0.2, 0.25, { rotation: -3 });
+      // yo no: se encoge de hombros
+      tl.to(q(".s14-glo"), { opacity: 0, y: -30, duration: 0.2 }, YONO - 0.2);
+      habla(".s14f-boca", YONO, 5.6, "200 244");
+      tl.to(q(".s14f-bi"), { rotation: 70, svgOrigin: "150 292", duration: 0.2, ease: "back.out(2)" }, YONO);
+      tl.to(q(".s14f-bd"), { rotation: -70, svgOrigin: "250 292", duration: 0.2, ease: "back.out(2)" }, YONO);
+      tl.fromTo(q(".s14f-cabeza"), { y: 0 }, { y: 14, duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, YONO);
+      pop(q(".s14-glo2"), YONO, 0.25, { rotation: 3 });
+      // por eso las canas: se erizan
+      tl.to(q(".s14f-canas"), { scale: 1.35, svgOrigin: "200 170", duration: 0.15, ease: "back.out(3)" }, CANAS - 0.1);
+      tl.to(q(".s14f-canas"), { scale: 1.2, svgOrigin: "200 170", duration: 0.1, yoyo: true, repeat: 3 }, CANAS + 0.1);
+      sacudon(CANAS, 0.8);
+      tl.to(q(".s14-glo2"), { opacity: 0, duration: 0.2 }, HACELO - 0.2);
+      // hacelo vos: lo señala
+      tl.to(q(".s14f-bd"), { rotation: 0, svgOrigin: "250 292", duration: 0.2 }, HACELO - 0.1);
+      tl.to(q(".s14f-bi"), { rotation: 95, svgOrigin: "150 292", duration: 0.22, ease: "back.out(2.5)" }, HACELO - 0.1);
+      tl.to(q(".s14f-canas"), { scale: 1, svgOrigin: "200 170", duration: 0.2 }, HACELO);
+      tl.to(hoy, { x: -20, rotation: -4, duration: 0.2, yoyo: true, repeat: 1 }, HACELO);
+      // Terminator: lentes oscuros
+      tl.to(q(".s14f-bi"), { rotation: 0, svgOrigin: "150 292", duration: 0.2 }, TERM - 0.4);
+      tl.fromTo(q(".s14f-lentes"), { opacity: 1, y: -260 }, { opacity: 1, y: 0, duration: 0.3, ease: "bounce.out", immediateRender: false }, TERM - 0.3);
+      tl.to(q(".s14f-bd"), { rotation: -150, svgOrigin: "250 292", duration: 0.2 }, TERM - 0.3);
+      tl.to(q(".s14f-bd"), { rotation: 0, svgOrigin: "250 292", duration: 0.2 }, TERM + 0.1);
+      tl.to(fut, { scale: 1.15, duration: 0.3, ease: "power2.out" }, TERM);
+      // volveré... pero descansado
+      golpe(q(".s14-vol"), VOL, -4, 2.6);
+      sacudon(VOL + 0.05, 1.5);
+      golpe(q(".s14-pero"), DESC, 3, 2.4);
+      sacudon(DESC + 0.05, 1.2);
+      // se va dejando huellas de fuego
+      gsap.set(q(".s14-fuego"), { opacity: 0 });
+      tl.to(fut, { x: 800, rotation: 10, duration: 0.35, ease: "power3.in" }, 7.45);
+      tl.fromTo(q(".s14-fuego"), { opacity: 1, scaleX: 0, transformOrigin: "0% 50%" }, { opacity: 1, scaleX: 1, duration: 0.35, ease: "power3.in", immediateRender: false }, 7.45);
+      tl.to(q(".s14-fuego"), { opacity: 0.6, duration: 0.06, yoyo: true, repeat: 5, ease: "steps(1)" }, 7.8);
+
+      // salida
+      tl.to(q("#s14-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

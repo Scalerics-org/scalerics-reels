@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="cielo"] .ci-capa { position: absolute; inset: 0; }
+    [data-composition-id="cielo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+  </style>
+  <!-- yo-del-futuro: el cielo synthwave, DEBAJO de las escenas: estrellas, sol de rayas, montañas y grilla en perspectiva -->
+  <div id="root" data-composition-id="cielo" data-width="1080" data-height="1920" data-duration="74.04">
+    <div id="ci-escena" class="ci-capa clip" data-start="0" data-duration="74.04" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs>
+          <linearGradient id="ci-sol-g" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffd2b3" /><stop offset="0.35" stop-color="#ff8a3d" /><stop offset="1" stop-color="#ff2a9d" />
+          </linearGradient>
+          <linearGradient id="ci-piso-g" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3a0d4f" stop-opacity="1" /><stop offset="0.25" stop-color="#1a0b2e" stop-opacity="0.6" /><stop offset="1" stop-color="#0d0420" stop-opacity="0" />
+          </linearGradient>
+          <mask id="ci-rayas" maskUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1920">
+            <rect x="0" y="0" width="1080" height="1920" fill="#fff" />
+            <g class="ci-cortes"></g>
+          </mask>
+        </defs>
+        <g class="ci-estrellas"></g>
+        <g class="ci-sol-todo">
+          <circle cx="540" cy="1250" r="330" fill="#ff2a9d" opacity="0.18" />
+          <circle class="ci-sol" cx="540" cy="1250" r="270" fill="url(#ci-sol-g)" mask="url(#ci-rayas)" opacity="0.62" />
+        </g>
+        <path d="M0 1460 L0 1360 L120 1300 L210 1350 L330 1250 L430 1340 L520 1300 L600 1360 L700 1280 L820 1350 L930 1290 L1080 1380 L1080 1460 Z" fill="#1a0b2e" stroke="#ff2a9d" stroke-width="4" stroke-linejoin="round" opacity="0.9" />
+        <rect x="0" y="1460" width="1080" height="460" fill="#120621" />
+        <g class="ci-grilla" data-layout-allow-overflow>
+          <g class="ci-verticales"></g>
+          <g class="ci-horizontales"></g>
+        </g>
+        <rect x="0" y="1460" width="1080" height="200" fill="url(#ci-piso-g)" />
+        <path d="M0 1460 H1080" stroke="#ff2a9d" stroke-width="5" />
+        <path d="M0 1460 H1080" stroke="#fdf6ff" stroke-width="1.5" opacity="0.8" />
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "cielo";
+      const DUR = 74.04;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const NS = "http://www.w3.org/2000/svg";
+      const tl = gsap.timeline({ paused: true });
+      const el = (tag, at, padre) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); padre.appendChild(e); return e; };
+
+      // rayas del sol (cortes horizontales cada vez más gruesos hacia abajo)
+      const cortes = q(".ci-cortes");
+      for (let i = 0; i < 7; i++) el("rect", { x: 0, y: 1262 + i * 38 + i * i * 2, width: 1080, height: 6 + i * 4, fill: "#000" }, cortes);
+      // estrellas (deterministas)
+      const est = q(".ci-estrellas");
+      const estrellas = [];
+      for (let i = 0; i < 34; i++) {
+        const x = (i * 317 + 61) % 1080, y = 180 + ((i * 191) % 1080), r = 2 + (i % 3) * 1.5;
+        estrellas.push(el("circle", { cx: x, cy: y, r, fill: i % 5 === 0 ? "#22e4ff" : "#fdf6ff", opacity: 0.7 }, est));
+      }
+      estrellas.forEach((s, i) => tl.to(s, { opacity: 0.15, duration: 0.6 + (i % 4) * 0.25, yoyo: true, repeat: Math.floor(DUR / (0.6 + (i % 4) * 0.25)) - 1, ease: "sine.inOut" }, (i % 7) * 0.2));
+      // grilla: verticales que fugan al centro del horizonte
+      const ver = q(".ci-verticales");
+      for (let k = -14; k <= 14; k++) el("path", { d: `M${540 + k * 26} 1460 L${540 + k * 260} 1920`, stroke: "#ff2a9d", "stroke-width": 3, opacity: 0.75 }, ver);
+      // horizontales en progresión geométrica: escalar el grupo por Q desde el horizonte = loop perfecto
+      const hor = q(".ci-horizontales");
+      const Q = 1.35;
+      for (let k = 0, d = 3; k < 22; k++, d *= Q) el("path", { d: `M0 ${1460 + d} H1080`, stroke: "#7b2ff7", "stroke-width": 3, "vector-effect": "non-scaling-stroke" }, hor);
+      const P = 0.9;
+      tl.fromTo(hor, { scaleY: 1, svgOrigin: "540 1460" }, { scaleY: Q, svgOrigin: "540 1460", duration: P, ease: "none", repeat: Math.max(0, Math.floor(DUR / P) - 1) }, 0);
+      // el sol respira
+      tl.fromTo(q(".ci-sol-todo"), { y: 0 }, { y: -16, duration: 3, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 3) - 1), ease: "sine.inOut" }, 0);
+      // entra Scalerics: el sol se apaga un poco
+      tl.to(q(".ci-sol"), { opacity: 0.3, duration: 0.6 }, 61.39);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

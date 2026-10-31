@@ -1,0 +1,110 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s16-cta"] .s16-capa { position: absolute; inset: 0; }
+    [data-composition-id="s16-cta"] .s16-esc { position: absolute; inset: 0; }
+    [data-composition-id="s16-cta"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s16-cta"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s16-cta"] .fig svg, [data-composition-id="s16-cta"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s16-cta"] .obj { position: absolute; }
+    [data-composition-id="s16-cta"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s16-cta"] .big span { display: inline-block; padding: 0 30px; transform: skewX(-8deg); color: transparent; -webkit-background-clip: text; background-clip: text;
+      -webkit-text-stroke: 4px #120621; filter: drop-shadow(8px 8px 0 #7b2ff7) drop-shadow(0 0 22px rgba(255, 42, 157, 0.7)); }
+    [data-composition-id="s16-cta"] .big.cr span { background-image: linear-gradient(180deg, #fdf6ff 0%, #fdf6ff 42%, #22e4ff 52%, #7b2ff7 100%); }
+    [data-composition-id="s16-cta"] .big.mg span { background-image: linear-gradient(180deg, #ffe3f1 0%, #ff2a9d 50%, #ff8a3d 100%); }
+    [data-composition-id="s16-cta"] .big.nj span { background-image: linear-gradient(180deg, #fdf6ff 0%, #ffd2b3 38%, #ff8a3d 55%, #ff2a9d 100%); }
+    [data-composition-id="s16-cta"] .big.cy span { background-image: linear-gradient(180deg, #fdf6ff 0%, #22e4ff 55%, #7b2ff7 100%); filter: drop-shadow(8px 8px 0 #120621) drop-shadow(0 0 22px rgba(34, 228, 255, 0.7)); }
+    [data-composition-id="s16-cta"] .big.vd span { background-image: linear-gradient(180deg, #fdf6ff 0%, #5ce611 60%, #2f8a08 100%); filter: drop-shadow(8px 8px 0 #120621) drop-shadow(0 0 22px rgba(92, 230, 17, 0.6)); }
+    [data-composition-id="s16-cta"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s16-cta"] .reloj { position: absolute; padding: 16px 30px 12px; border: 6px solid #120621; border-radius: 18px; background: #120621; box-shadow: 0 0 0 4px #ff2a9d, 0 0 40px 6px rgba(255, 42, 157, 0.45);
+      font-family: "IBM Plex Mono", monospace; font-weight: 600; line-height: 1; white-space: nowrap; color: #ff8a3d; text-shadow: 0 0 18px rgba(255, 138, 61, 0.9); text-align: center; }
+    [data-composition-id="s16-cta"] .reloj small { display: block; font-size: 26px; letter-spacing: 0.24em; color: #22e4ff; text-shadow: 0 0 10px rgba(34, 228, 255, 0.8); margin-bottom: 8px; }
+    [data-composition-id="s16-cta"] .reloj.cy { color: #22e4ff; text-shadow: 0 0 18px rgba(34, 228, 255, 0.9); box-shadow: 0 0 0 4px #22e4ff, 0 0 40px 6px rgba(34, 228, 255, 0.4); }
+    [data-composition-id="s16-cta"] .sello { position: absolute; padding: 16px 40px 10px; border: 10px solid currentColor; border-radius: 20px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #120621;
+      box-shadow: 0 0 30px 4px currentColor; }
+    [data-composition-id="s16-cta"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #120621; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; line-height: 1.12; white-space: nowrap; color: #120621; background: #fdf6ff; box-shadow: 8px 8px 0 #7b2ff7; }
+    [data-composition-id="s16-cta"] .cel { position: absolute; border-radius: 54px; border: 8px solid #120621; background: #120621; box-shadow: 0 0 0 6px #22e4ff, 0 0 50px 10px rgba(34, 228, 255, 0.35); }
+    [data-composition-id="s16-cta"] .cel-barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #120621; z-index: 2; }
+    [data-composition-id="s16-cta"] .pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 46px; background: #1d0b36; overflow: hidden; }
+    [data-composition-id="s16-cta"] .chat-head { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: #2a1046; border-bottom: 4px solid #22e4ff; }
+    [data-composition-id="s16-cta"] .chat-head b { position: absolute; left: 110px; top: 54px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; color: #fdf6ff; }
+    [data-composition-id="s16-cta"] .chat-head i { position: absolute; left: 30px; top: 46px; width: 62px; height: 62px; border-radius: 50%; background: #ff2a9d; border: 4px solid #fdf6ff; }
+    [data-composition-id="s16-cta"] .msg { position: absolute; left: 26px; max-width: 360px; padding: 16px 22px; border-radius: 26px 26px 26px 6px; background: #fdf6ff; border: 4px solid #120621;
+      font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; line-height: 1.15; color: #120621; white-space: nowrap; }
+    [data-composition-id="s16-cta"] .msg.yo { left: auto; right: 26px; border-radius: 26px 26px 6px 26px; background: #22e4ff; }
+    [data-composition-id="s16-cta"] .msg small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-size: 24px; font-weight: 600; color: #5a3b80; text-align: right; }
+
+    [data-composition-id="s16-cta"] .s16-com { left: 70px; top: 580px; width: 940px; height: 420px; padding: 34px 40px; border: 8px solid #120621; border-radius: 40px 40px 40px 8px; background: #fdf6ff; box-shadow: 12px 12px 0 #7b2ff7, 0 0 50px rgba(255, 42, 157, 0.5); }
+    [data-composition-id="s16-cta"] .s16-user { display: flex; align-items: center; gap: 18px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 32px; color: #7b2ff7; }
+    [data-composition-id="s16-cta"] .s16-user i { display: block; width: 64px; height: 64px; border-radius: 50%; background: #22e4ff; border: 4px solid #120621; }
+    [data-composition-id="s16-cta"] .s16-linea { position: relative; margin-top: 26px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 58px; line-height: 1.15; color: #120621; white-space: nowrap; }
+    [data-composition-id="s16-cta"] .s16-tapa { position: absolute; left: -6px; right: -20px; top: -4px; bottom: -4px; background: #fdf6ff; transform-origin: 100% 50%; }
+    [data-composition-id="s16-cta"] .s16-cursor { display: inline-block; width: 6px; height: 56px; margin-left: 6px; background: #ff2a9d; vertical-align: -6px; }
+    [data-composition-id="s16-cta"] .s16-escri { top: 1100px; font-size: 150px; }
+    [data-composition-id="s16-cta"] .s16-en { top: 1280px; font-size: 76px; }
+
+  </style>
+  <div id="root" data-composition-id="s16-cta" data-width="1080" data-height="1920" data-duration="6.59">
+    <div id="s16-escena" class="s16-capa clip" data-start="0" data-duration="6.59" data-track-index="0">
+      <div class="s16-esc esc">
+
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="s16-st" d="M90 1058 Q95.72 1074.28 112 1080 Q95.72 1085.72 90 1102 Q84.28 1085.72 68 1080 Q84.28 1074.28 90 1058 Z" fill="#22e4ff"/><path class="s16-st" d="M990 1034 Q996.76 1053.24 1016 1060 Q996.76 1066.76 990 1086 Q983.24 1066.76 964 1060 Q983.24 1053.24 990 1034 Z" fill="#ff8a3d"/><path class="s16-st" d="M140 1402 Q144.68 1415.32 158 1420 Q144.68 1424.68 140 1438 Q135.32 1424.68 122 1420 Q135.32 1415.32 140 1402 Z" fill="#ff2a9d"/><path class="s16-st" d="M950 1418 Q955.72 1434.28 972 1440 Q955.72 1445.72 950 1462 Q944.28 1445.72 928 1440 Q944.28 1434.28 950 1418 Z" fill="#22e4ff"/><path class="s16-st" d="M540 1024 Q544.16 1035.84 556 1040 Q544.16 1044.16 540 1056 Q535.84 1044.16 524 1040 Q535.84 1035.84 540 1024 Z" fill="#fdf6ff"/></svg>
+        <div class="obj s16-com">
+          <div class="s16-user"><i></i>@vos_hoy</div>
+          <div class="s16-linea s16-l1">Querido yo del futuro:<div class="s16-tapa"></div></div>
+          <div class="s16-linea s16-l2">ya empecé hoy<span class="s16-cursor"></span><div class="s16-tapa"></div></div>
+        </div>
+        <div class="big cr s16-escri"><span>Escribile</span></div>
+        <div class="big mg s16-en"><span>en los comentarios</span></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s16-cta";
+      const DUR = 6.59;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.2, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // chispazo: los elementos titilan de t a t+d
+      const chispazo = (els, t, d = 0.6) => { gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 1 }, { opacity: 0, duration: 0.06, ease: "steps(1)", yoyo: true, repeat: Math.max(1, Math.round(d / 0.06)) | 1, stagger: 0.02, immediateRender: false }, t); tl.set(els, { opacity: 0 }, t + d + 0.2); };
+      // cuenta: varios <span> apilados (posición absoluta); se ve uno a la vez y frena en el último
+      const cuenta = (els, t, paso = 0.06) => { gsap.set(els, { opacity: 0 }); els.forEach((e, i) => { tl.set(e, { opacity: 1 }, t + i * paso); if (i < els.length - 1) tl.set(e, { opacity: 0 }, t + (i + 1) * paso); }); };
+
+
+      const ESC = 0.0, FUTURO = 1.62, COM = 2.42;
+      tl.fromTo(q(".s16-com"), { opacity: 0.3, scale: 0.85, rotation: -3 }, { opacity: 1, scale: 1, rotation: -1.5, duration: 0.3, ease: "back.out(2)" }, 0);
+      const tapas = qa(".s16-tapa");
+      tl.fromTo(tapas[0], { scaleX: 1 }, { scaleX: 0, duration: 1.3, ease: "steps(22)" }, 0.3);
+      tl.fromTo(tapas[1], { scaleX: 1 }, { scaleX: 0, duration: 0.9, ease: "steps(13)" }, 3.2);
+      tl.fromTo(q(".s16-cursor"), { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "steps(1)", yoyo: true, repeat: 19 }, 0);
+      golpe(q(".s16-escri"), COM - 0.6, -3, 2.4);
+      sacudon(COM - 0.55, 1.2);
+      golpe(q(".s16-en"), COM, 2, 2.4);
+      sacudon(COM + 0.05, 1.2);
+      tl.to([q(".s16-escri"), q(".s16-en")], { scale: 1.05, duration: 0.4, yoyo: true, repeat: 7, stagger: 0.2, ease: "sine.inOut" }, COM + 0.4);
+      qa(".s16-st").forEach((s, i) => { const b = s.getBBox(); const o = (b.x + b.width / 2) + " " + (b.y + b.height / 2);
+        tl.fromTo(s, { scale: 0.3, svgOrigin: o }, { scale: 1.2, svgOrigin: o, duration: 0.4, yoyo: true, repeat: 9, ease: "sine.inOut" }, i * 0.15); });
+
+      // salida
+      tl.to(q("#s16-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
