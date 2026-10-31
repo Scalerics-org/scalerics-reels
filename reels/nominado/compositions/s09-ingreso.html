@@ -1,0 +1,88 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-ingreso"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-ingreso"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-ingreso"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-ingreso"] .tinta { stroke: #12051f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-ingreso"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s09-ingreso"] .tv { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s09-ingreso"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s09-ingreso"] .s09-flash { position: absolute; inset: 0; opacity: 0; }
+    [data-composition-id="s09-ingreso"] .s09-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 44px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.26em; color: #ffd23f; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-ingreso"] .s09-etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s09-ingreso" data-width="1080" data-height="1920" data-duration="2.37">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="2.37" data-track-index="0">
+      <div class="s09-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s09-cartel"><g transform="translate(540 650)">
+            <rect x="-330" y="-50" width="660" height="100" rx="50" fill="#12051f" stroke="#ff3d9a" stroke-width="8" />
+            <text class="tv" x="0" y="18" font-size="50" fill="#ff3d9a" text-anchor="middle" letter-spacing="4">INGRESO SORPRESA</text>
+          </g></g>
+          <g class="s09-marco">
+            <rect x="330" y="730" width="420" height="600" fill="#6a2fb0" class="tinta" stroke-width="8" />
+            <rect x="360" y="760" width="360" height="570" fill="#ffd23f" />
+          </g>
+          <g class="s09-rayos" fill="#ffd23f" opacity="0.35">
+            <path d="M540 1000 L120 760 L120 860 Z" /><path d="M540 1000 L960 760 L960 860 Z" /><path d="M540 1000 L100 1100 L120 1200 Z" /><path d="M540 1000 L980 1100 L960 1200 Z" />
+          </g>
+          <g class="s09-silueta"><g transform="translate(540 1330)">
+            <path d="M-150 0 Q-140 -130 -60 -150 L60 -150 Q140 -130 150 0 Z" fill="#12051f" />
+            <rect x="-90" y="-330" width="180" height="160" rx="44" fill="#12051f" />
+            <rect x="-52" y="-282" width="28" height="40" rx="13" fill="#ffd23f" /><rect x="24" y="-282" width="28" height="40" rx="13" fill="#ffd23f" />
+          </g></g>
+          <g class="s09-puerta"><rect x="360" y="760" width="360" height="570" fill="#8f55d6" class="tinta" stroke-width="6" />
+            <rect x="400" y="800" width="280" height="200" rx="8" fill="none" stroke="#12051f" stroke-width="5" opacity="0.5" />
+            <rect x="400" y="1050" width="280" height="230" rx="8" fill="none" stroke="#12051f" stroke-width="5" opacity="0.5" />
+            <circle cx="680" cy="1040" r="14" fill="#ffd23f" class="tinta" stroke-width="4" /></g>
+          <g class="s09-humo" fill="#f7f2ff" opacity="0.5"><circle cx="300" cy="1300" r="60" /><circle cx="380" cy="1320" r="48" /><circle cx="760" cy="1310" r="56" /><circle cx="830" cy="1290" r="44" /></g>
+          <rect class="s09-cf" x="140" y="620" width="14" height="26" rx="3" fill="#ff3d9a" transform="rotate(0 140 620)" /><rect class="s09-cf" x="193" y="717" width="18" height="22" rx="3" fill="#ffd23f" transform="rotate(37 193 717)" /><rect class="s09-cf" x="246" y="814" width="22" height="18" rx="3" fill="#f7f2ff" transform="rotate(74 246 814)" /><rect class="s09-cf" x="299" y="651" width="14" height="26" rx="3" fill="#8f55d6" transform="rotate(21 299 651)" /><rect class="s09-cf" x="352" y="748" width="18" height="22" rx="3" fill="#ff3d9a" transform="rotate(58 352 748)" /><rect class="s09-cf" x="405" y="845" width="22" height="18" rx="3" fill="#ffd23f" transform="rotate(5 405 845)" /><rect class="s09-cf" x="458" y="682" width="14" height="26" rx="3" fill="#f7f2ff" transform="rotate(42 458 682)" /><rect class="s09-cf" x="511" y="779" width="18" height="22" rx="3" fill="#8f55d6" transform="rotate(79 511 779)" /><rect class="s09-cf" x="564" y="876" width="22" height="18" rx="3" fill="#ff3d9a" transform="rotate(26 564 876)" /><rect class="s09-cf" x="617" y="713" width="14" height="26" rx="3" fill="#ffd23f" transform="rotate(63 617 713)" /><rect class="s09-cf" x="670" y="810" width="18" height="22" rx="3" fill="#f7f2ff" transform="rotate(10 670 810)" /><rect class="s09-cf" x="723" y="647" width="22" height="18" rx="3" fill="#8f55d6" transform="rotate(47 723 647)" /><rect class="s09-cf" x="776" y="744" width="14" height="26" rx="3" fill="#ff3d9a" transform="rotate(84 776 744)" /><rect class="s09-cf" x="829" y="841" width="18" height="22" rx="3" fill="#ffd23f" transform="rotate(31 829 841)" /><rect class="s09-cf" x="882" y="678" width="22" height="18" rx="3" fill="#f7f2ff" transform="rotate(68 882 678)" /><rect class="s09-cf" x="935" y="775" width="14" height="26" rx="3" fill="#8f55d6" transform="rotate(15 935 775)" />
+        </svg>
+      </div>
+      
+      <div class="s09-flash"></div>
+      <div class="s09-etiqueta"><span class="s09-e1">¡Ingreso sorpresa!</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-ingreso";
+      const DUR = 2.37;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const entra = (el, t, desde) => tl.fromTo(el, { opacity: 0, x: (desde && desde[0]) || 0, y: (desde && desde[1]) ?? 160 }, { opacity: 1, x: 0, y: 0, duration: 0.42, ease: "back.out(1.3)" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (el, t, d) => { const L = el.getTotalLength ? el.getTotalLength() : 1000; gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d ?? 0.6, ease: "power2.inOut" }, t); };
+      const ET = [...qa(".s09-etiqueta span")];
+      const etiqueta = (k, t) => { ET.forEach((s, i) => { if (i !== k) tl.to(s, { opacity: 0, y: -12, duration: 0.2 }, t - 0.1); }); tl.fromTo(ET[k], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t); };
+      const flash = (t, color) => { tl.set(q(".s09-flash"), { background: color || "#ff3d9a" }, t); tl.fromTo(q(".s09-flash"), { opacity: 0.45 }, { opacity: 0, duration: 0.5, ease: "power2.out" }, t); };
+
+      const SORPRESA = 0.53, CASA = 1.25;
+      tl.fromTo(q(".s09-marco"), { opacity: 0.5, scale: 0.94, svgOrigin: "540 1030" }, { opacity: 1, scale: 1, svgOrigin: "540 1030", duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s09-cartel"), { opacity: 0.3, scale: 0.6, svgOrigin: "540 650" }, { opacity: 1, scale: 1, svgOrigin: "540 650", duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.to(q(".s09-cartel"), { opacity: 0.5, duration: 0.08, yoyo: true, repeat: 5, ease: "steps(1)" }, 0.35);
+      etiqueta(0, 0.1);
+      gsap.set(q(".s09-silueta"), { opacity: 0 });
+      gsap.set(q(".s09-rayos"), { opacity: 0 });
+      tl.to(q(".s09-puerta"), { scaleX: 0.08, svgOrigin: "360 1045", duration: 0.45, ease: "power3.in" }, SORPRESA - 0.2);
+      tl.to(q(".s09-rayos"), { opacity: 0.35, duration: 0.25 }, SORPRESA + 0.2);
+      tl.fromTo(q(".s09-rayos"), { rotation: -4, svgOrigin: "540 1000" }, { rotation: 4, svgOrigin: "540 1000", duration: 1.6, ease: "sine.inOut" }, SORPRESA + 0.2);
+      tl.fromTo(q(".s09-silueta"), { opacity: 0, scale: 0.85, svgOrigin: "540 1330" }, { opacity: 1, scale: 1, svgOrigin: "540 1330", duration: 0.4, ease: "back.out(1.4)" }, SORPRESA + 0.35);
+      tl.fromTo(q(".s09-humo"), { opacity: 0, scale: 0.6, svgOrigin: "540 1310" }, { opacity: 0.55, scale: 1.2, svgOrigin: "540 1310", duration: 1.2, ease: "power2.out" }, SORPRESA + 0.2);
+      flash(CASA, "#ffd23f");
+      qa(".s09-cf").forEach((c, i) => tl.fromTo(c, { opacity: 0, y: -120 }, { opacity: 1, y: 380 + (i % 4) * 60, x: ((i * 29) % 80) - 40, rotation: 180 + i * 20, duration: 1.1, ease: "power1.in" }, CASA - 0.1 + (i % 5) * 0.04));
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,120 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .tinta { stroke: #12051f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s01-gancho"] .tv { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s01-gancho"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s01-gancho"] .s01-flash { position: absolute; inset: 0; opacity: 0; }
+    [data-composition-id="s01-gancho"] .s01-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 44px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.26em; color: #ffd23f; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .s01-etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="4.67">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.67" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s01-pantalla">
+            <rect x="150" y="610" width="780" height="450" rx="22" fill="#12051f" stroke="#f7f2ff" stroke-width="6" />
+            <rect x="150" y="610" width="780" height="78" rx="22" fill="#6a2fb0" />
+            <rect x="150" y="660" width="780" height="28" fill="#6a2fb0" />
+            <text class="tv" x="540" y="664" font-size="38" fill="#ffd23f" text-anchor="middle" letter-spacing="3">PLACA DE NOMINADOS</text>
+            <g class="s01-puntos" fill="#8f55d6" opacity="0.5">
+              <circle cx="200" cy="740" r="6" /><circle cx="880" cy="740" r="6" /><circle cx="200" cy="1010" r="6" /><circle cx="880" cy="1010" r="6" />
+            </g>
+            <g class="s01-local"><g transform="translate(540 1000) scale(1.05)">
+  <rect x="-130" y="-150" width="260" height="190" fill="#cfc8dc" class="tinta" />
+  <path d="M-150 -150 L150 -150 L130 -200 L-130 -200 Z" fill="#8f55d6" class="tinta" />
+  <path d="M-110 -150 v-50 M-60 -150 v-50 M-10 -150 v-50 M40 -150 v-50 M90 -150 v-50" stroke="#12051f" stroke-width="3" opacity="0.4" />
+  <rect x="-100" y="-120" width="110" height="110" fill="#6f6488" class="tinta" stroke-width="4" />
+  <rect x="34" y="-110" width="66" height="150" fill="#6f6488" class="tinta" stroke-width="4" />
+  <path d="M-100 -100 H10 M-100 -80 H10 M-100 -60 H10 M-100 -40 H10 M-100 -20 H10" stroke="#12051f" stroke-width="3" opacity="0.6" /></g></g>
+            <g class="s01-sello"><g transform="translate(560 850) rotate(-10)">
+              <rect x="-250" y="-56" width="500" height="112" rx="12" fill="none" stroke="#ff3d9a" stroke-width="12" />
+              <text class="tv" x="0" y="26" font-size="76" fill="#ff3d9a" text-anchor="middle" letter-spacing="6">NOMINADO</text>
+            </g></g>
+          </g>
+          <g class="s01-trofeo"><g transform="translate(850 1150)">
+            <path d="M-60 -150 H60 Q60 -50 0 -40 Q-60 -50 -60 -150 Z" fill="#ffd23f" class="tinta" />
+            <path d="M-60 -130 Q-100 -130 -90 -100 Q-80 -76 -50 -80 M60 -130 Q100 -130 90 -100 Q80 -76 50 -80" fill="none" class="tinta" stroke-width="8" />
+            <rect x="-12" y="-42" width="24" height="40" fill="#ffd23f" class="tinta" stroke-width="4" />
+            <rect x="-50" y="-4" width="100" height="30" rx="4" fill="#8f55d6" class="tinta" stroke-width="4" />
+            <path class="s01-x1" d="M-90 -170 L90 30" stroke="#ff3d9a" stroke-width="16" stroke-linecap="round" />
+            <path class="s01-x2" d="M90 -170 L-90 30" stroke="#ff3d9a" stroke-width="16" stroke-linecap="round" />
+          </g></g>
+          <g class="s01-cond"><g transform="translate(250 1330) scale(1.12)">
+  <path d="M-160 0 Q-150 -130 -64 -150 L64 -150 Q150 -130 160 0 Z" fill="#ff3d9a" class="tinta" />
+  <path d="M-64 -150 L0 -88 L64 -150" fill="none" stroke="#12051f" stroke-width="5" stroke-linejoin="round" />
+  <circle cx="-90" cy="-70" r="5" fill="#f7f2ff" opacity="0.8" /><circle cx="96" cy="-40" r="4" fill="#f7f2ff" opacity="0.8" /><circle cx="60" cy="-100" r="3" fill="#f7f2ff" opacity="0.8" />
+  <rect x="-22" y="-186" width="44" height="44" fill="#e3a982" />
+  <path d="M-78 -262 Q-92 -196 -62 -178 L62 -178 Q92 -196 78 -262 Z" fill="#fff1c2" class="tinta" />
+  <ellipse cx="0" cy="-250" rx="62" ry="72" fill="#e3a982" class="tinta" />
+  <path d="M-66 -262 Q-70 -340 -6 -344 Q60 -350 76 -300 Q84 -270 66 -250 Q40 -300 -10 -290 Q-40 -300 -66 -262 Z" fill="#fff1c2" class="tinta" />
+  <path d="M-30 -330 Q10 -380 60 -340" fill="none" stroke="#12051f" stroke-width="5" />
+  <circle cx="-64" cy="-226" r="10" fill="#ffd23f" class="tinta" stroke-width="3" /><circle cx="64" cy="-226" r="10" fill="#ffd23f" class="tinta" stroke-width="3" />
+  <g class="s01-cond-ojos"><ellipse cx="-24" cy="-258" rx="7" ry="9" fill="#12051f" /><ellipse cx="24" cy="-258" rx="7" ry="9" fill="#12051f" /></g>
+  <path d="M-38 -276 L-12 -282 M38 -276 L12 -282" stroke="#12051f" stroke-width="5" stroke-linecap="round" />
+  <path class="s01-cond-boca" d="M-26 -222 Q0 -192 26 -222 Z" fill="#12051f" />
+  <path d="M-38 -238 Q-30 -232 -22 -236 M38 -238 Q30 -232 22 -236" stroke="#ff3d9a" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+  <g class="s01-cond-mic">
+    <path d="M110 -40 Q130 -110 96 -160" fill="none" stroke="#e3a982" stroke-width="30" stroke-linecap="round" />
+    <path d="M110 -40 Q130 -110 96 -160" fill="none" stroke="#12051f" stroke-width="40" stroke-linecap="round" opacity="0" />
+    <rect x="72" y="-210" width="22" height="80" rx="8" fill="#c9c2da" class="tinta" stroke-width="4" transform="rotate(18 83 -170)" />
+    <rect x="58" y="-214" width="50" height="34" rx="4" fill="#ffd23f" class="tinta" stroke-width="4" transform="rotate(18 83 -197)" />
+    <circle cx="74" cy="-232" r="24" fill="#c9c2da" class="tinta" stroke-width="4" />
+    <circle cx="96" cy="-160" r="18" fill="#e3a982" class="tinta" stroke-width="4" />
+  </g></g></g>
+        </svg>
+      </div>
+      
+      <div class="s01-flash"></div>
+      <div class="s01-etiqueta"><span class="s01-e1">Gala en vivo</span><span class="s01-e2">Nominado: tu local</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 4.67;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const entra = (el, t, desde) => tl.fromTo(el, { opacity: 0, x: (desde && desde[0]) || 0, y: (desde && desde[1]) ?? 160 }, { opacity: 1, x: 0, y: 0, duration: 0.42, ease: "back.out(1.3)" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (el, t, d) => { const L = el.getTotalLength ? el.getTotalLength() : 1000; gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d ?? 0.6, ease: "power2.inOut" }, t); };
+      const ET = [...qa(".s01-etiqueta span")];
+      const etiqueta = (k, t) => { ET.forEach((s, i) => { if (i !== k) tl.to(s, { opacity: 0, y: -12, duration: 0.2 }, t - 0.1); }); tl.fromTo(ET[k], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t); };
+      const flash = (t, color) => { tl.set(q(".s01-flash"), { background: color || "#ff3d9a" }, t); tl.fromTo(q(".s01-flash"), { opacity: 0.45 }, { opacity: 0, duration: 0.5, ease: "power2.out" }, t); };
+
+      const CLIENTES = 1.05, NOMINARON = 2.06, NO = 3.16, PREMIO = 3.68;
+      tl.fromTo(q(".s01-escenario"), { scale: 1.06 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "540px 960px" }, 0);
+      tl.fromTo(q(".s01-pantalla"), { opacity: 0.5, y: -30 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-cond"), { opacity: 0.6, x: -120 }, { opacity: 1, x: 0, duration: 0.45, ease: "back.out(1.3)" }, 0);
+      tl.fromTo(q(".s01-puntos"), { opacity: 0.2 }, { opacity: 0.8, duration: 0.3, yoyo: true, repeat: 7, ease: "none" }, 0);
+      etiqueta(0, 0.1);
+      pop(q(".s01-local"), CLIENTES - 0.1);
+      tl.to(q(".s01-cond-boca"), { scaleY: 0.4, svgOrigin: "250 1080", duration: 0.12, yoyo: true, repeat: 5 }, 0.3);
+      gsap.set(q(".s01-sello"), { opacity: 0 });
+      tl.fromTo(q(".s01-sello"), { opacity: 0, scale: 2.2, svgOrigin: "560 850" }, { opacity: 1, scale: 1, svgOrigin: "560 850", duration: 0.22, ease: "power4.in" }, NOMINARON - 0.1);
+      temblor(q(".s01-pantalla"), NOMINARON + 0.12, 1.2);
+      flash(NOMINARON + 0.12);
+      etiqueta(1, NOMINARON + 0.1);
+      pop(q(".s01-trofeo"), NO - 0.1);
+      dibujar(q(".s01-x1"), PREMIO, 0.22);
+      dibujar(q(".s01-x2"), PREMIO + 0.18, 0.22);
+      temblor(q(".s01-trofeo"), PREMIO + 0.4, 0.8);
+      tl.to(q(".s01-cond"), { rotation: -4, svgOrigin: "250 1330", duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, PREMIO);
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

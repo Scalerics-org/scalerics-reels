@@ -1,0 +1,129 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-confesionario"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-confesionario"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-confesionario"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-confesionario"] .tinta { stroke: #12051f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-confesionario"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s03-confesionario"] .tv { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s03-confesionario"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s03-confesionario"] .s03-flash { position: absolute; inset: 0; opacity: 0; }
+    [data-composition-id="s03-confesionario"] .s03-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 44px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.26em; color: #ffd23f; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s03-confesionario"] .s03-etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s03-confesionario" data-width="1080" data-height="1920" data-duration="4.07">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="4.07" data-track-index="0">
+      <div class="s03-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s03-luz" d="M440 600 L640 600 L900 1330 L180 1330 Z" fill="#8f55d6" opacity="0.16" />
+          <g class="s03-cartel"><text class="tv" x="540" y="660" font-size="44" fill="#ff3d9a" text-anchor="middle" letter-spacing="10">CONFESIONARIO</text>
+            <rect x="250" y="612" width="580" height="66" rx="12" fill="none" stroke="#ff3d9a" stroke-width="4" opacity="0.7" /></g>
+          <g class="s03-sillon"><g transform="translate(540 1290) scale(0.95)">
+  <path d="M-260 -10 Q-270 -470 0 -480 Q270 -470 260 -10 Z" fill="#6a2fb0" class="tinta" />
+  <g fill="#12051f" opacity="0.55">
+    <circle cx="-160" cy="-380" r="7" /><circle cx="-60" cy="-400" r="7" /><circle cx="60" cy="-400" r="7" /><circle cx="160" cy="-380" r="7" />
+    <circle cx="-200" cy="-270" r="7" /><circle cx="-110" cy="-300" r="7" /><circle cx="0" cy="-310" r="7" /><circle cx="110" cy="-300" r="7" /><circle cx="200" cy="-270" r="7" />
+    <circle cx="-160" cy="-180" r="7" /><circle cx="160" cy="-180" r="7" />
+  </g>
+  <path d="M-160 -380 L-110 -300 L-60 -400 L0 -310 L60 -400 L110 -300 L160 -380 M-200 -270 L-110 -300 M200 -270 L110 -300" fill="none" stroke="#12051f" stroke-width="3" opacity="0.35" />
+  <rect x="-330" y="-200" width="110" height="210" rx="50" fill="#8f55d6" class="tinta" />
+  <rect x="220" y="-200" width="110" height="210" rx="50" fill="#8f55d6" class="tinta" />
+  <rect x="-300" y="-6" width="600" height="60" rx="18" fill="#8f55d6" class="tinta" /></g></g>
+          <g class="s03-cli"><g transform="translate(540 1262)">
+  <path d="M-160 0 Q-150 -130 -60 -150 L60 -150 Q150 -130 160 0 Z" fill="#f7f2ff" class="tinta" />
+  <path d="M-50 -150 L-30 0 M50 -150 L30 0" stroke="#12051f" stroke-width="5" />
+  <path d="M-46 -150 Q0 -120 46 -150 L30 0 L-30 0 Z" fill="#ffd23f" class="tinta" />
+  <path d="M-60 -150 L-90 -100 L-56 -96 Z M60 -150 L90 -100 L56 -96 Z" fill="#dcd4ee" class="tinta" stroke-width="4" />
+  <rect x="-20" y="-180" width="40" height="36" fill="#e3a982" />
+  <circle cx="0" cy="-352" r="40" fill="#5a2e1a" class="tinta" />
+  <ellipse cx="0" cy="-246" rx="64" ry="72" fill="#e3a982" class="tinta" />
+  <path d="M-66 -240 Q-74 -320 0 -322 Q74 -320 66 -240 Q58 -286 0 -290 Q-58 -286 -66 -240 Z" fill="#5a2e1a" class="tinta" />
+  <circle cx="-66" cy="-214" r="12" fill="none" stroke="#ff3d9a" stroke-width="6" /><circle cx="66" cy="-214" r="12" fill="none" stroke="#ff3d9a" stroke-width="6" />
+  <g class="s03-cli-ojos"><ellipse cx="-24" cy="-252" rx="7" ry="9" fill="#12051f" /><ellipse cx="24" cy="-252" rx="7" ry="9" fill="#12051f" /></g><path d="M-40 -276 Q-26 -286 -12 -276 M40 -284 L12 -276" fill="none" stroke="#12051f" stroke-width="6" stroke-linecap="round" />
+  <path d="M0 -246 Q-6 -232 4 -228" fill="none" stroke="#12051f" stroke-width="4" stroke-linecap="round" />
+  <g class="s03-cli-boca"><path d="M-18 -214 Q4 -206 20 -220" fill="none" stroke="#12051f" stroke-width="5" stroke-linecap="round" /></g></g></g>
+          <g class="s03-ojo"><g transform="translate(180 820) scale(0.75)">
+  <rect x="-20" y="-150" width="40" height="70" fill="#8a80a3" class="tinta" stroke-width="4" />
+  <path d="M-100 -84 H100 V-10 Q100 60 0 60 Q-100 60 -100 -10 Z" fill="#12051f" stroke="#f7f2ff" stroke-width="6" />
+  <ellipse cx="0" cy="0" rx="70" ry="42" fill="#f7f2ff" class="tinta" stroke-width="4" />
+  <g class="s03-iris"><circle cx="0" cy="0" r="30" fill="#8f55d6" class="tinta" stroke-width="4" /><circle cx="0" cy="0" r="13" fill="#12051f" /><circle cx="8" cy="-8" r="5" fill="#f7f2ff" /></g>
+  <circle class="s03-rec" cx="78" cy="-62" r="10" fill="#ff3d9a" /></g></g>
+          <g class="s03-ondas" fill="none" stroke="#ffd23f" stroke-width="6" stroke-linecap="round">
+            <path class="s03-o1" d="M262 790 Q280 820 262 850" /><path class="s03-o2" d="M286 770 Q314 820 286 870" /><path class="s03-o3" d="M310 750 Q348 820 310 890" />
+          </g>
+          <g class="s03-polaroid"><g transform="translate(800 960) rotate(8)">
+            <rect x="-120" y="-140" width="240" height="280" rx="8" fill="#f7f2ff" class="tinta" />
+            <rect x="-100" y="-120" width="200" height="196" fill="#6a2fb0" />
+            <clipPath id="s03-clip"><rect x="-100" y="-120" width="200" height="196" /></clipPath>
+            <g clip-path="url(#s03-clip)"><g transform="translate(0 150) scale(0.62)">
+  <path d="M-170 0 Q-160 -130 -64 -150 L64 -150 Q160 -130 170 0 Z" fill="#d9c8f5" class="tinta" />
+  <path d="M-40 -150 L0 -110 L40 -150" fill="#f7f2ff" class="tinta" stroke-width="4" />
+  <path d="M-22 -110 V-60" stroke="#12051f" stroke-width="4" /><circle cx="-12" cy="-90" r="4" fill="#12051f" /><circle cx="-12" cy="-72" r="4" fill="#12051f" />
+  <path d="M-60 -150 Q-70 -80 -80 0" fill="none" stroke="#ffd23f" stroke-width="22" />
+  <path d="M60 -150 Q72 -70 70 -10" fill="none" stroke="#ffd23f" stroke-width="22" />
+  <path d="M-72 -110 h12 M-76 -80 h12 M-78 -50 h12 M-80 -20 h12 M64 -120 h12 M68 -90 h12 M70 -60 h12 M70 -30 h12" stroke="#12051f" stroke-width="3" />
+  <rect x="-22" y="-182" width="44" height="40" fill="#c98a62" />
+  <ellipse cx="0" cy="-240" rx="68" ry="76" fill="#c98a62" class="tinta" />
+  <path d="M-68 -230 Q-76 -280 -56 -296 Q-50 -260 -60 -220 Z M68 -230 Q76 -280 56 -296 Q50 -260 60 -220 Z" fill="#cfc8dc" class="tinta" stroke-width="4" />
+  <path d="M-30 -312 Q0 -320 30 -312" fill="none" stroke="#12051f" stroke-width="3" opacity="0.4" />
+  <g class="s03-wal-ojeras"><path d="M-36 -238 Q-24 -230 -12 -238 M36 -238 Q24 -230 12 -238" fill="none" stroke="#6a2fb0" stroke-width="5" stroke-linecap="round" opacity="0.8" /></g>
+  <g class="s03-wal-ojos"><ellipse cx="-24" cy="-252" rx="7" ry="8" fill="#12051f" /><ellipse cx="24" cy="-252" rx="7" ry="8" fill="#12051f" /></g><path d="M-40 -276 L-12 -270 M40 -276 L12 -270" stroke="#cfc8dc" stroke-width="9" stroke-linecap="round" />
+  <path d="M0 -244 Q-8 -226 6 -222" fill="none" stroke="#12051f" stroke-width="4" stroke-linecap="round" />
+  <path d="M-40 -210 Q-20 -226 0 -214 Q20 -226 40 -210 Q30 -200 0 -206 Q-30 -200 -40 -210 Z" fill="#cfc8dc" class="tinta" stroke-width="4" />
+  <g class="s03-wal-boca"><path d="M-20 -194 Q0 -204 20 -194" fill="none" stroke="#12051f" stroke-width="5" stroke-linecap="round" /></g></g></g>
+            <text class="tv" x="0" y="118" font-size="34" fill="#12051f" text-anchor="middle">WALTER</text>
+            <circle class="s03-circulo" cx="0" cy="-30" r="112" fill="none" stroke="#ff3d9a" stroke-width="9" />
+          </g></g>
+        </svg>
+      </div>
+      
+      <div class="s03-flash"></div>
+      <div class="s03-etiqueta"><span class="s03-e1">Confesionario</span><span class="s03-e2">Nomina a: Walter</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-confesionario";
+      const DUR = 4.07;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const entra = (el, t, desde) => tl.fromTo(el, { opacity: 0, x: (desde && desde[0]) || 0, y: (desde && desde[1]) ?? 160 }, { opacity: 1, x: 0, y: 0, duration: 0.42, ease: "back.out(1.3)" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (el, t, d) => { const L = el.getTotalLength ? el.getTotalLength() : 1000; gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d ?? 0.6, ease: "power2.inOut" }, t); };
+      const ET = [...qa(".s03-etiqueta span")];
+      const etiqueta = (k, t) => { ET.forEach((s, i) => { if (i !== k) tl.to(s, { opacity: 0, y: -12, duration: 0.2 }, t - 0.1); }); tl.fromTo(ET[k], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t); };
+      const flash = (t, color) => { tl.set(q(".s03-flash"), { background: color || "#ff3d9a" }, t); tl.fromTo(q(".s03-flash"), { opacity: 0.45 }, { opacity: 0, duration: 0.5, ease: "power2.out" }, t); };
+
+      const NOMINAS = 1.41, PORQUE = 2.32, WALTER = 3.49;
+      tl.fromTo(q(".s03-sillon"), { opacity: 0.5, scale: 1.08, svgOrigin: "540 1290" }, { opacity: 1, scale: 1, svgOrigin: "540 1290", duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s03-cli"), { opacity: 0.4, y: 80 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)" }, 0.05);
+      tl.fromTo(q(".s03-luz"), { opacity: 0.08 }, { opacity: 0.2, duration: 0.6, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+      pop(q(".s03-ojo"), 0.05);
+      pop(q(".s03-cartel"), 0.15);
+      etiqueta(0, 0.2);
+      // el Hermano habla: ondas del parlante y el iris que mira a la clienta
+      ["0", "0.83", "1.41", "2.1"].forEach((t) => {
+        qa(".s03-ondas path").forEach((o, i) => tl.fromTo(o, { opacity: 0 }, { opacity: 1, duration: 0.12, yoyo: true, repeat: 1 }, Number(t) + i * 0.08));
+      });
+      tl.fromTo(q(".s03-iris"), { x: -10 }, { x: 14, y: 6, duration: 0.6, ease: "power2.inOut" }, 0.3);
+      tl.to(q(".s03-cli"), { rotation: -3, svgOrigin: "540 1262", duration: 0.3, yoyo: true, repeat: 1 }, NOMINAS);
+      tl.to(q(".s03-cli-ojos"), { x: 10, duration: 0.2 }, PORQUE);
+      gsap.set(q(".s03-polaroid"), { opacity: 0 });
+      tl.fromTo(q(".s03-polaroid"), { opacity: 0, y: 200, rotation: 30, svgOrigin: "800 960" }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "800 960", duration: 0.4, ease: "back.out(1.4)" }, WALTER - 0.4);
+      dibujar(q(".s03-circulo"), WALTER, 0.4);
+      etiqueta(1, WALTER);
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

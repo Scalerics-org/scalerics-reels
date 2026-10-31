@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-votos"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-votos"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-votos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-votos"] .tinta { stroke: #12051f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-votos"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s06-votos"] .tv { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s06-votos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s06-votos"] .s06-flash { position: absolute; inset: 0; opacity: 0; }
+    [data-composition-id="s06-votos"] .s06-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 44px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.26em; color: #ffd23f; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-votos"] .s06-etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s06-votos" data-width="1080" data-height="1920" data-duration="5.29">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.29" data-track-index="0">
+      <div class="s06-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s06-tablero">
+            <rect x="140" y="604" width="800" height="500" rx="24" fill="#12051f" stroke="#f7f2ff" stroke-width="6" />
+            <rect x="140" y="604" width="800" height="84" rx="24" fill="#ff3d9a" /><rect x="140" y="660" width="800" height="28" fill="#ff3d9a" />
+            <circle class="s06-dot" cx="214" cy="646" r="14" fill="#ffd23f" />
+            <text class="tv" x="560" y="662" font-size="42" fill="#f7f2ff" text-anchor="middle" letter-spacing="4">VOTACIÓN EN VIVO</text>
+            <path d="M200 1020 H880" stroke="#8f55d6" stroke-width="4" />
+            <path d="M200 920 H880 M200 820 H880" stroke="#8f55d6" stroke-width="2" stroke-dasharray="8 12" opacity="0.6" />
+            <rect class="s06-b1" x="280" y="720" width="160" height="300" rx="10" fill="#8f55d6" />
+            <rect class="s06-b2" x="640" y="720" width="160" height="300" rx="10" fill="#8f55d6" />
+            <text class="tv" x="360" y="1072" font-size="34" fill="#f7f2ff" text-anchor="middle">TU LOCAL</text>
+            <text class="tv" x="720" y="1072" font-size="34" fill="#f7f2ff" text-anchor="middle">ENFRENTE</text>
+          </g>
+          <g class="s06-abajo"><path d="M360 830 V930 M320 890 L360 932 L400 890" fill="none" stroke="#ff3d9a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" /></g>
+          <g class="s06-arriba"><path d="M720 820 V720 M680 760 L720 718 L760 760" fill="none" stroke="#12051f" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" /></g>
+          <g class="s06-brillos" stroke="#ffd23f" stroke-width="7" stroke-linecap="round"><path d="M860 720 v40 M840 740 h40" /><path d="M600 760 v30 M585 775 h30" /></g>
+          <g class="s06-publico"><g class="s06-p"><g transform="translate(130 1326)">
+    <path d="M-62 0 Q-58 -70 0 -76 Q58 -70 62 0 Z" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <circle cx="0" cy="-104" r="34" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <g class="s06-pal"><path d="M44 -60 L56 -120" stroke="#f7f2ff" stroke-width="7" stroke-linecap="round" /><rect x="34" y="-166" width="50" height="50" rx="10" fill="#ffd23f" class="tinta" stroke-width="4" transform="rotate(10 59 -141)" /></g>
+  </g></g><g class="s06-p"><g transform="translate(266 1312)">
+    <path d="M-62 0 Q-58 -70 0 -76 Q58 -70 62 0 Z" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <circle cx="0" cy="-104" r="34" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <g class="s06-pal"><path d="M44 -60 L56 -120" stroke="#f7f2ff" stroke-width="7" stroke-linecap="round" /><rect x="34" y="-166" width="50" height="50" rx="10" fill="#ff3d9a" class="tinta" stroke-width="4" transform="rotate(10 59 -141)" /></g>
+  </g></g><g class="s06-p"><g transform="translate(402 1326)">
+    <path d="M-62 0 Q-58 -70 0 -76 Q58 -70 62 0 Z" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <circle cx="0" cy="-104" r="34" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <g class="s06-pal"><path d="M44 -60 L56 -120" stroke="#f7f2ff" stroke-width="7" stroke-linecap="round" /><rect x="34" y="-166" width="50" height="50" rx="10" fill="#ffd23f" class="tinta" stroke-width="4" transform="rotate(10 59 -141)" /></g>
+  </g></g><g class="s06-p"><g transform="translate(538 1312)">
+    <path d="M-62 0 Q-58 -70 0 -76 Q58 -70 62 0 Z" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <circle cx="0" cy="-104" r="34" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <g class="s06-pal"><path d="M44 -60 L56 -120" stroke="#f7f2ff" stroke-width="7" stroke-linecap="round" /><rect x="34" y="-166" width="50" height="50" rx="10" fill="#ffd23f" class="tinta" stroke-width="4" transform="rotate(10 59 -141)" /></g>
+  </g></g><g class="s06-p"><g transform="translate(674 1326)">
+    <path d="M-62 0 Q-58 -70 0 -76 Q58 -70 62 0 Z" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <circle cx="0" cy="-104" r="34" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <g class="s06-pal"><path d="M44 -60 L56 -120" stroke="#f7f2ff" stroke-width="7" stroke-linecap="round" /><rect x="34" y="-166" width="50" height="50" rx="10" fill="#ff3d9a" class="tinta" stroke-width="4" transform="rotate(10 59 -141)" /></g>
+  </g></g><g class="s06-p"><g transform="translate(810 1312)">
+    <path d="M-62 0 Q-58 -70 0 -76 Q58 -70 62 0 Z" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <circle cx="0" cy="-104" r="34" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <g class="s06-pal"><path d="M44 -60 L56 -120" stroke="#f7f2ff" stroke-width="7" stroke-linecap="round" /><rect x="34" y="-166" width="50" height="50" rx="10" fill="#ffd23f" class="tinta" stroke-width="4" transform="rotate(10 59 -141)" /></g>
+  </g></g><g class="s06-p"><g transform="translate(946 1326)">
+    <path d="M-62 0 Q-58 -70 0 -76 Q58 -70 62 0 Z" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <circle cx="0" cy="-104" r="34" fill="#12051f" stroke="#8f55d6" stroke-width="4" />
+    <g class="s06-pal"><path d="M44 -60 L56 -120" stroke="#f7f2ff" stroke-width="7" stroke-linecap="round" /><rect x="34" y="-166" width="50" height="50" rx="10" fill="#ffd23f" class="tinta" stroke-width="4" transform="rotate(10 59 -141)" /></g>
+  </g></g></g>
+        </svg>
+      </div>
+      
+      <div class="s06-flash"></div>
+      <div class="s06-etiqueta"><span class="s06-e1">Votación en vivo</span><span class="s06-e2">Tu local: abajo</span><span class="s06-e3">Enfrente: arriba</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-votos";
+      const DUR = 5.29;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const entra = (el, t, desde) => tl.fromTo(el, { opacity: 0, x: (desde && desde[0]) || 0, y: (desde && desde[1]) ?? 160 }, { opacity: 1, x: 0, y: 0, duration: 0.42, ease: "back.out(1.3)" }, t);
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (el, t, d) => { const L = el.getTotalLength ? el.getTotalLength() : 1000; gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d ?? 0.6, ease: "power2.inOut" }, t); };
+      const ET = [...qa(".s06-etiqueta span")];
+      const etiqueta = (k, t) => { ET.forEach((s, i) => { if (i !== k) tl.to(s, { opacity: 0, y: -12, duration: 0.2 }, t - 0.1); }); tl.fromTo(ET[k], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t); };
+      const flash = (t, color) => { tl.set(q(".s06-flash"), { background: color || "#ff3d9a" }, t); tl.fromTo(q(".s06-flash"), { opacity: 0.45 }, { opacity: 0, duration: 0.5, ease: "power2.out" }, t); };
+
+      const PUBLICO = 0.39, VIVO = 1.15, LOCAL = 1.84, ABAJO = 2.57, ENFRENTE = 3.54, ARRIBA = 4.31;
+      tl.fromTo(q(".s06-tablero"), { opacity: 0.4, scale: 0.92, svgOrigin: "540 854" }, { opacity: 1, scale: 1, svgOrigin: "540 854", duration: 0.4, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s06-dot"), { opacity: 1 }, { opacity: 0.2, duration: 0.3, ease: "steps(1)", yoyo: true, repeat: 16 }, 0);
+      etiqueta(0, 0.15);
+      gsap.set(qa(".s06-b1, .s06-b2"), { scaleY: 0.05, svgOrigin: "0 1020" });
+      qa(".s06-p").forEach((p, i) => tl.fromTo(p, { opacity: 0, y: 140 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.5)" }, PUBLICO - 0.25 + i * 0.05));
+      qa(".s06-pal").forEach((p, i) => tl.fromTo(p, { rotation: -14, svgOrigin: "44 -60" }, { rotation: 10, svgOrigin: "44 -60", duration: 0.28, yoyo: true, repeat: 15, ease: "sine.inOut" }, PUBLICO + i * 0.07));
+      tl.to(qa(".s06-b1, .s06-b2"), { scaleY: 0.5, svgOrigin: "0 1020", duration: 0.5, ease: "power2.out" }, VIVO - 0.2);
+      tl.to(q(".s06-b1"), { scaleY: 0.12, svgOrigin: "0 1020", fill: "#ff3d9a", duration: 0.5, ease: "power3.in" }, ABAJO - 0.4);
+      tl.fromTo(q(".s06-abajo"), { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.3 }, ABAJO);
+      tl.to(q(".s06-abajo"), { y: 20, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, ABAJO + 0.3);
+      temblor(q(".s06-tablero"), ABAJO + 0.1, 0.6);
+      etiqueta(1, ABAJO);
+      tl.to(q(".s06-b2"), { scaleY: 1, svgOrigin: "0 1020", fill: "#ffd23f", duration: 0.6, ease: "back.out(1.4)" }, ENFRENTE);
+      tl.fromTo(q(".s06-arriba"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3 }, ARRIBA - 0.2);
+      tl.fromTo(q(".s06-brillos"), { opacity: 0, scale: 0.4, svgOrigin: "720 740" }, { opacity: 1, scale: 1, svgOrigin: "720 740", duration: 0.35, ease: "back.out(2)" }, ARRIBA);
+      etiqueta(2, ARRIBA - 0.2);
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
