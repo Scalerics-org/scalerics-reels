@@ -1,0 +1,125 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    /* cintas de peligro en los bordes */
+    [data-composition-id="ambiente"] .am-cinta { position: absolute; left: -900px; width: 2900px; height: 34px; border-top: 4px solid #16191d; border-bottom: 4px solid #16191d;
+      background: repeating-linear-gradient(-45deg, #ffd21f 0px, #ffd21f 26px, #16191d 26px, #16191d 52px); }
+    [data-composition-id="ambiente"] .am-c1 { top: 0; }
+    [data-composition-id="ambiente"] .am-c2 { top: 1886px; }
+    /* barra del programa */
+    [data-composition-id="ambiente"] .am-top { position: absolute; left: 48px; right: 48px; top: 66px; height: 96px; }
+    [data-composition-id="ambiente"] .am-logo { position: absolute; left: 0; top: 0; padding: 12px 22px 10px; background: #14c4b8; border: 5px solid #16191d; border-radius: 14px; box-shadow: 6px 6px 0 #ff7a1a; transform: rotate(-2deg); }
+    [data-composition-id="ambiente"] .am-logo b { display: block; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 38px; line-height: 1; color: #fbfaf5; letter-spacing: 0.01em; -webkit-text-stroke: 6px #16191d; paint-order: stroke fill; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-logo small { display: block; margin-top: 4px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.18em; color: #16191d; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-estado { position: absolute; right: 0; top: 10px; width: 290px; height: 66px; }
+    [data-composition-id="ambiente"] .am-estado div { position: absolute; right: 0; top: 0; padding: 12px 22px 8px; border: 5px solid #16191d; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 34px; line-height: 1; letter-spacing: 0.06em; white-space: nowrap; color: #16191d; }
+    [data-composition-id="ambiente"] .am-antes { background: #ff7a1a; }
+    [data-composition-id="ambiente"] .am-despues { background: #14c4b8; opacity: 0; }
+    [data-composition-id="ambiente"] .am-rec { display: inline-block; width: 16px; height: 16px; margin-right: 12px; border-radius: 50%; background: #16191d; vertical-align: 4px; }
+    /* zócalo del reality */
+    [data-composition-id="ambiente"] .am-zocalo { position: absolute; left: 44px; top: 1574px; width: 760px; height: 120px; }
+    [data-composition-id="ambiente"] .am-z { position: absolute; left: 0; top: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .am-z b { display: inline-block; padding: 10px 24px 6px; border: 5px solid #16191d; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; line-height: 1; color: #16191d; white-space: nowrap; transform: rotate(-1.5deg); }
+    [data-composition-id="ambiente"] .am-z small { display: block; width: max-content; margin: -2px 0 0 26px; padding: 6px 16px 4px; background: #fbfaf5; border: 4px solid #16191d; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 26px; letter-spacing: 0.08em; color: #16191d; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #fbfaf5; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="76.53">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="76.53" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="am-haces" data-layout-allow-overflow>
+          <path class="am-h1" d="M90 0 L150 0 L560 1560 L240 1560 Z" fill="#14c4b8" opacity="0.07" />
+          <path class="am-h2" d="M930 0 L990 0 L840 1560 L520 1560 Z" fill="#ffd21f" opacity="0.05" />
+        </g>
+        <g class="am-confeti" data-layout-allow-overflow></g>
+      </svg>
+      <div class="am-cinta am-c1"></div>
+      <div class="am-cinta am-c2"></div>
+      <div class="am-top">
+        <div class="am-logo"><b>CAMBIO RADICAL</b><small>EDICIÓN COMERCIO</small></div>
+        <div class="am-estado">
+          <div class="am-antes"><span class="am-rec"></span>ANTES</div>
+          <div class="am-despues"><span class="am-rec"></span>DESPUÉS</div>
+        </div>
+      </div>
+      <div class="am-zocalo">
+        <div class="am-z am-zc"><b style="background:#14c4b8">VICKY</b><small>conductora</small></div>
+        <div class="am-z am-zm"><b style="background:#ff7a1a">MÓNICA</b><small>dueña de Regalos Mónica</small></div>
+        <div class="am-z am-zk"><b style="background:#ffd21f">EL TANO</b><small>capataz de obra</small></div>
+        <div class="am-z am-zt"><b style="background:#ffd21f">TODO EL EQUIPO</b><small>¡a la cuenta de tres!</small></div>
+      </div>
+      <div class="am-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const FIN = 63.59; // entra Scalerics: se apaga el set
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+
+      // cintas que corren
+      tl.fromTo(q(".am-c1"), { x: 0 }, { x: -73.5 * 10, duration: FIN, ease: "none" }, 0);
+      tl.fromTo(q(".am-c2"), { x: -73.5 * 10 }, { x: 0, duration: FIN, ease: "none" }, 0);
+      // haces que barren
+      tl.fromTo(q(".am-h1"), { rotation: -7, svgOrigin: "120 0" }, { rotation: 9, svgOrigin: "120 0", duration: 3.6, yoyo: true, repeat: Math.floor(FIN / 3.6), ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".am-h2"), { rotation: 7, svgOrigin: "960 0" }, { rotation: -9, svgOrigin: "960 0", duration: 3.1, yoyo: true, repeat: Math.floor(FIN / 3.1), ease: "sine.inOut" }, 0);
+      // REC titila
+      tl.fromTo(qa(".am-rec"), { opacity: 1 }, { opacity: 0.15, duration: 0.5, ease: "steps(1)", yoyo: true, repeat: Math.floor(FIN / 0.5), immediateRender: false }, 0);
+      tl.fromTo(q(".am-logo"), { scale: 1 }, { scale: 1.04, duration: 0.6, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.2);
+
+      // ANTES -> DESPUÉS en la revelación
+      const REV = 47.08;
+      tl.to(q(".am-antes"), { opacity: 0, y: -30, duration: 0.15 }, REV);
+      tl.fromTo(q(".am-despues"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.5)", immediateRender: false }, REV + 0.05);
+
+      // zócalo: quién habla
+      const Z = [[".am-zc", 0, 11.2], [".am-zm", 11.24, 15.3], [".am-zc", 15.34, 18.72], [".am-zk", 18.76, 28.2], [".am-zc", 28.24, 29.3],
+        [".am-zk", 29.34, 32.6], [".am-zm", 32.64, 34.92], [".am-zc", 34.96, 43.66], [".am-zt", 43.7, 47.04], [".am-zm", 47.08, 51.36],
+        [".am-zc", 51.4, 56.02], [".am-zm", 56.06, 61.41], [".am-zk", 61.45, FIN - 0.05]];
+      Z.forEach(([s, a, b], i) => {
+        const el = q(s);
+        if (i === 0) gsap.set(el, { opacity: 1 });
+        else tl.fromTo(el, { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, a);
+        tl.to(el, { opacity: 0, x: -40, duration: 0.12, ease: "power2.in" }, b - 0.1);
+      });
+
+      // flash del camión
+      const flash = (t, o) => { tl.to(q(".am-flash"), { opacity: o, duration: 0.04 }, t); tl.to(q(".am-flash"), { opacity: 0, duration: 0.3 }, t + 0.06); };
+      flash(44.4, 0.5); flash(REV, 0.7); flash(57.7, 0.35);
+
+      // confeti (determinista) en la revelación y en el pedido
+      const conf = q(".am-confeti");
+      const COL = ["#14c4b8", "#ff7a1a", "#ffd21f", "#fbfaf5", "#ffd21f"];
+      [[REV + 0.05, 70], [57.7, 46]].forEach(([t0, n], tanda) => {
+        for (let i = 0; i < n; i++) {
+          const r = document.createElementNS(NS, "rect");
+          const x = (i * 337 + tanda * 151) % 1080, w = 14 + (i * 7) % 12, h = 26 + (i * 11) % 18;
+          r.setAttribute("x", -w / 2); r.setAttribute("y", -h / 2); r.setAttribute("width", w); r.setAttribute("height", h);
+          r.setAttribute("fill", COL[(i + tanda) % 5]); r.setAttribute("stroke", "#16191d"); r.setAttribute("stroke-width", 2);
+          const g = document.createElementNS(NS, "g"); g.appendChild(r); conf.appendChild(g);
+          const t = t0 + (i % 8) * 0.05, caida = 2.4 + (i % 6) * 0.35, y0 = -60 - ((i * 53) % 500);
+          gsap.set(g, { x, y: y0, opacity: 0 });
+          tl.set(g, { opacity: 1 }, t);
+          tl.fromTo(g, { x, y: y0, rotation: (i * 47) % 360 }, { x: x + ((i % 2) ? 90 : -90), y: 1980, rotation: (i * 47) % 360 + 540, duration: caida, ease: "none", immediateRender: false }, t);
+          tl.set(g, { opacity: 0 }, t + caida);
+        }
+      });
+
+      // Scalerics: se apaga el set
+      tl.to(q(".am-top"), { opacity: 0, y: -40, duration: 0.3 }, FIN);
+      tl.to(q(".am-haces"), { opacity: 0, duration: 0.5 }, FIN);
+      tl.to(qa(".am-cinta"), { opacity: 0.35, duration: 0.5 }, FIN);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

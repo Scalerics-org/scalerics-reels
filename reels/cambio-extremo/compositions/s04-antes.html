@@ -1,0 +1,186 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-antes"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-antes"] .s04-esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-antes"] svg.s04-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-antes"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s04-antes"] .fig svg, [data-composition-id="s04-antes"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s04-antes"] .obj { position: absolute; }
+    [data-composition-id="s04-antes"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #16191d; paint-order: stroke fill; }
+    [data-composition-id="s04-antes"] .big.w { color: #fbfaf5; text-shadow: 9px 9px 0 #ff7a1a; }
+    [data-composition-id="s04-antes"] .big.n { color: #ff7a1a; text-shadow: 9px 9px 0 #16191d; }
+    [data-composition-id="s04-antes"] .big.t { color: #14c4b8; text-shadow: 9px 9px 0 #16191d; }
+    [data-composition-id="s04-antes"] .big.y { color: #ffd21f; text-shadow: 9px 9px 0 #ff7a1a; }
+    [data-composition-id="s04-antes"] .big.wt { color: #fbfaf5; text-shadow: 9px 9px 0 #14c4b8; }
+    [data-composition-id="s04-antes"] .big.v { color: #5ce611; text-shadow: 8px 8px 0 #16191d; }
+    [data-composition-id="s04-antes"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s04-antes"] .sello { position: absolute; padding: 18px 46px 10px; border: 14px solid currentColor; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #16191d; }
+    [data-composition-id="s04-antes"] .cinta { position: absolute; left: -200px; width: 1480px; height: 76px; overflow: hidden; border: 5px solid #16191d;
+      background: repeating-linear-gradient(-45deg, #ffd21f 0px, #ffd21f 38px, #16191d 38px, #16191d 76px); }
+    [data-composition-id="s04-antes"] .cinta span { position: absolute; left: 0; right: 0; top: 11px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; color: #16191d;
+      letter-spacing: 0.06em; white-space: nowrap; }
+    [data-composition-id="s04-antes"] .cinta span { -webkit-text-stroke: 0; background: #ffd21f; display: inline-block; left: 50%; right: auto; transform: translateX(-50%); padding: 0 24px; }
+    [data-composition-id="s04-antes"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #16191d; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #16191d; background: #fbfaf5; box-shadow: 8px 8px 0 #16191d; }
+
+    [data-composition-id="s04-antes"] .s04-antes { left: 150px; top: 570px; font-size: 170px; color: #ff7a1a; }
+    [data-composition-id="s04-antes"] .s04-cap { left: 340px; top: 830px; }
+    [data-composition-id="s04-antes"] .s04-o1 { left: 60px; top: 900px; }
+    [data-composition-id="s04-antes"] .s04-o2 { left: 620px; top: 900px; }
+    [data-composition-id="s04-antes"] .s04-o1, [data-composition-id="s04-antes"] .s04-o2 { opacity: 0.5; }
+
+  </style>
+  <div id="root" data-composition-id="s04-antes" data-width="1080" data-height="1920" data-duration="3.42">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.42" data-track-index="0">
+      <div class="s04-esc esc">
+
+        <div class="fig s04-o1"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="s04a-cuerpo">
+  <path d="M176 480 L170 680 M224 480 L230 680" stroke="#16191d" stroke-width="52" stroke-linecap="round" fill="none"/>
+  <path d="M176 480 L170 680 M224 480 L230 680" stroke="#2c4a66" stroke-width="38" stroke-linecap="round" fill="none"/>
+  <path d="M130 676 Q130 650 170 650 Q196 650 196 690 L130 700 Z M270 676 Q270 650 230 650 Q204 650 204 690 L270 700 Z" fill="#ff7a1a" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s04a-bi">
+    <path d="M148 296 L110 392 L112 470" stroke="#16191d" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M148 296 L110 392 L112 470" stroke="#fbfaf5" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+    <circle cx="114" cy="474" r="20" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="s04a-bd">
+    <path d="M252 296 L290 392 L288 470" stroke="#16191d" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M252 296 L290 392 L288 470" stroke="#fbfaf5" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="288" cy="476" r="20" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <path d="M138 282 Q200 266 262 282 Q282 390 270 494 Q200 508 130 494 Q118 390 138 282 Z" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M138 282 L180 282 L176 494 L130 494 Q118 390 138 282 Z M262 282 L220 282 L224 494 L270 494 Q282 390 262 282 Z" fill="#ff7a1a" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M128 400 H178 M222 400 H272 M126 440 H176 M224 440 H274" stroke="#ffd21f" stroke-width="14"/>
+  <rect x="184" y="244" width="32" height="32" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s04a-cabeza">
+    <ellipse cx="200" cy="196" rx="66" ry="68" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="134" cy="204" r="15" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="266" cy="204" r="15" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="s04a-ojos"><circle cx="176" cy="192" r="7" fill="#16191d"/><circle cx="224" cy="192" r="7" fill="#16191d"/></g>
+    <path class="s04a-ceja" d="M156 172 L194 178 M206 178 L244 172" stroke="#16191d" stroke-width="10" stroke-linecap="round"/>
+    <path d="M200 196 Q192 214 200 218" stroke="#16191d" stroke-width="4" fill="none"/>
+    <path d="M160 232 Q180 214 200 226 Q220 214 240 232 Q220 236 200 232 Q180 236 160 232 Z" fill="#16191d" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse class="s04a-boca" cx="200" cy="246" rx="14" ry="6" fill="#16191d"/>
+    <path d="M128 160 Q126 92 200 88 Q274 92 272 160 Z" fill="#ffd21f" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M104 162 Q200 142 296 162 L300 178 Q200 160 100 178 Z" fill="#ffd21f" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M200 90 V156 M168 96 Q160 120 162 156 M232 96 Q240 120 238 156" stroke="#16191d" stroke-width="5" fill="none"/>
+  </g>
+</g></svg></div>
+        <div class="fig s04-o2"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="s04b-cuerpo">
+  <path d="M176 480 L170 680 M224 480 L230 680" stroke="#16191d" stroke-width="52" stroke-linecap="round" fill="none"/>
+  <path d="M176 480 L170 680 M224 480 L230 680" stroke="#2c4a66" stroke-width="38" stroke-linecap="round" fill="none"/>
+  <path d="M130 676 Q130 650 170 650 Q196 650 196 690 L130 700 Z M270 676 Q270 650 230 650 Q204 650 204 690 L270 700 Z" fill="#ff7a1a" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s04b-bi">
+    <path d="M148 296 L110 392 L112 470" stroke="#16191d" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M148 296 L110 392 L112 470" stroke="#fbfaf5" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+    <circle cx="114" cy="474" r="20" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="s04b-bd">
+    <path d="M252 296 L290 392 L288 470" stroke="#16191d" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M252 296 L290 392 L288 470" stroke="#fbfaf5" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="288" cy="476" r="20" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <path d="M138 282 Q200 266 262 282 Q282 390 270 494 Q200 508 130 494 Q118 390 138 282 Z" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M138 282 L180 282 L176 494 L130 494 Q118 390 138 282 Z M262 282 L220 282 L224 494 L270 494 Q282 390 262 282 Z" fill="#ff7a1a" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M128 400 H178 M222 400 H272 M126 440 H176 M224 440 H274" stroke="#ffd21f" stroke-width="14"/>
+  <rect x="184" y="244" width="32" height="32" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s04b-cabeza">
+    <ellipse cx="200" cy="196" rx="66" ry="68" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="134" cy="204" r="15" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="266" cy="204" r="15" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="s04b-ojos"><circle cx="176" cy="192" r="7" fill="#16191d"/><circle cx="224" cy="192" r="7" fill="#16191d"/></g>
+    <path class="s04b-ceja" d="M156 172 L194 178 M206 178 L244 172" stroke="#16191d" stroke-width="10" stroke-linecap="round"/>
+    <path d="M200 196 Q192 214 200 218" stroke="#16191d" stroke-width="4" fill="none"/>
+    <path d="M160 232 Q180 214 200 226 Q220 214 240 232 Q220 236 200 232 Q180 236 160 232 Z" fill="#16191d" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse class="s04b-boca" cx="200" cy="246" rx="14" ry="6" fill="#16191d"/>
+    <path d="M128 160 Q126 92 200 88 Q274 92 272 160 Z" fill="#ffd21f" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M104 162 Q200 142 296 162 L300 178 Q200 160 100 178 Z" fill="#ffd21f" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M200 90 V156 M168 96 Q160 120 162 156 M232 96 Q240 120 238 156" stroke="#16191d" stroke-width="5" fill="none"/>
+  </g>
+</g></svg></div>
+        <div class="fig s04-cap"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="s04c-cuerpo">
+  <path d="M176 480 L170 680 M224 480 L230 680" stroke="#16191d" stroke-width="52" stroke-linecap="round" fill="none"/>
+  <path d="M176 480 L170 680 M224 480 L230 680" stroke="#2c4a66" stroke-width="38" stroke-linecap="round" fill="none"/>
+  <path d="M130 676 Q130 650 170 650 Q196 650 196 690 L130 700 Z M270 676 Q270 650 230 650 Q204 650 204 690 L270 700 Z" fill="#ff7a1a" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s04c-bi">
+    <path d="M148 296 L110 392 L112 470" stroke="#16191d" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M148 296 L110 392 L112 470" stroke="#fbfaf5" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <g class="s04c-planilla"><rect x="62" y="404" width="96" height="124" rx="8" fill="#ff7a1a" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="72" y="420" width="76" height="98" fill="#fbfaf5" stroke="#16191d" stroke-width="3"/>
+      <rect x="94" y="396" width="32" height="16" rx="4" fill="#16191d"/>
+      <path d="M82 440 H138 M82 460 H138 M82 480 H124 M82 500 H132" stroke="#16191d" stroke-width="4"/></g>
+    <circle cx="114" cy="474" r="20" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="s04c-bd">
+    <path d="M252 296 L290 392 L288 470" stroke="#16191d" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M252 296 L290 392 L288 470" stroke="#fbfaf5" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="288" cy="476" r="20" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <path d="M138 282 Q200 266 262 282 Q282 390 270 494 Q200 508 130 494 Q118 390 138 282 Z" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M138 282 L180 282 L176 494 L130 494 Q118 390 138 282 Z M262 282 L220 282 L224 494 L270 494 Q282 390 262 282 Z" fill="#ff7a1a" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M128 400 H178 M222 400 H272 M126 440 H176 M224 440 H274" stroke="#ffd21f" stroke-width="14"/>
+  <rect x="184" y="244" width="32" height="32" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s04c-cabeza">
+    <ellipse cx="200" cy="196" rx="66" ry="68" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="134" cy="204" r="15" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="266" cy="204" r="15" fill="#fbfaf5" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="s04c-ojos"><circle cx="176" cy="192" r="7" fill="#16191d"/><circle cx="224" cy="192" r="7" fill="#16191d"/></g>
+    <path class="s04c-ceja" d="M156 172 L194 178 M206 178 L244 172" stroke="#16191d" stroke-width="10" stroke-linecap="round"/>
+    <path d="M200 196 Q192 214 200 218" stroke="#16191d" stroke-width="4" fill="none"/>
+    <path d="M160 232 Q180 214 200 226 Q220 214 240 232 Q220 236 200 232 Q180 236 160 232 Z" fill="#16191d" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse class="s04c-boca" cx="200" cy="246" rx="14" ry="6" fill="#16191d"/>
+    <path d="M128 160 Q126 92 200 88 Q274 92 272 160 Z" fill="#ffd21f" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M104 162 Q200 142 296 162 L300 178 Q200 160 100 178 Z" fill="#ffd21f" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M200 90 V156 M168 96 Q160 120 162 156 M232 96 Q240 120 238 156" stroke="#16191d" stroke-width="5" fill="none"/>
+  </g>
+</g></svg></div>
+        <div class="sello s04-antes">ANTES</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-antes";
+      const DUR = 3.42;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+
+
+      const ANTES = 0.66, EQUIPO = 1.55, ENC = 2.25;
+      // cuadro 0: sombra del equipo atrás
+      gsap.set([q(".s04-o1"), q(".s04-o2")], { scale: 0.85, transformOrigin: "50% 100%", filter: "brightness(0.35)" });
+      tl.fromTo([q(".s04-o1"), q(".s04-o2")], { y: 60 }, { y: 0, duration: 0.5, ease: "power2.out" }, 0);
+      golpe(q(".s04-antes"), ANTES, -8, 2.8);
+      sacudon(ANTES + 0.05, 1.6);
+      tl.to(q(".s04-antes"), { rotation: -6, scale: 1.03, duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, ANTES + 0.2);
+      // el capataz
+      entra(q(".s04-cap"), EQUIPO - 0.1, { y: 900 }, 0.35);
+      tl.to([q(".s04-o1"), q(".s04-o2")], { filter: "brightness(0.8)", duration: 0.3 }, EQUIPO);
+      tl.to(q(".s04-o1"), { x: -20, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, EQUIPO);
+      tl.to(q(".s04-o2"), { x: 20, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, EQUIPO);
+      tl.to(q(".s04c-bi"), { rotation: 70, svgOrigin: "148 296", duration: 0.3, ease: "back.out(2)" }, ENC);
+      tl.to(q(".s04-antes"), { y: -30, duration: 0.3 }, ENC);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

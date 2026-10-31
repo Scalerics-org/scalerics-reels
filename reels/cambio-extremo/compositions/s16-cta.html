@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s16-cta"] .s16-capa { position: absolute; inset: 0; }
+    [data-composition-id="s16-cta"] .s16-esc { position: absolute; inset: 0; }
+    [data-composition-id="s16-cta"] svg.s16-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s16-cta"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s16-cta"] .fig svg, [data-composition-id="s16-cta"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s16-cta"] .obj { position: absolute; }
+    [data-composition-id="s16-cta"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #16191d; paint-order: stroke fill; }
+    [data-composition-id="s16-cta"] .big.w { color: #fbfaf5; text-shadow: 9px 9px 0 #ff7a1a; }
+    [data-composition-id="s16-cta"] .big.n { color: #ff7a1a; text-shadow: 9px 9px 0 #16191d; }
+    [data-composition-id="s16-cta"] .big.t { color: #14c4b8; text-shadow: 9px 9px 0 #16191d; }
+    [data-composition-id="s16-cta"] .big.y { color: #ffd21f; text-shadow: 9px 9px 0 #ff7a1a; }
+    [data-composition-id="s16-cta"] .big.wt { color: #fbfaf5; text-shadow: 9px 9px 0 #14c4b8; }
+    [data-composition-id="s16-cta"] .big.v { color: #5ce611; text-shadow: 8px 8px 0 #16191d; }
+    [data-composition-id="s16-cta"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s16-cta"] .sello { position: absolute; padding: 18px 46px 10px; border: 14px solid currentColor; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #16191d; }
+    [data-composition-id="s16-cta"] .cinta { position: absolute; left: -200px; width: 1480px; height: 76px; overflow: hidden; border: 5px solid #16191d;
+      background: repeating-linear-gradient(-45deg, #ffd21f 0px, #ffd21f 38px, #16191d 38px, #16191d 76px); }
+    [data-composition-id="s16-cta"] .cinta span { position: absolute; left: 0; right: 0; top: 11px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; color: #16191d;
+      letter-spacing: 0.06em; white-space: nowrap; }
+    [data-composition-id="s16-cta"] .cinta span { -webkit-text-stroke: 0; background: #ffd21f; display: inline-block; left: 50%; right: auto; transform: translateX(-50%); padding: 0 24px; }
+    [data-composition-id="s16-cta"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #16191d; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #16191d; background: #fbfaf5; box-shadow: 8px 8px 0 #16191d; }
+
+    [data-composition-id="s16-cta"] .s16-nom { top: 560px; font-size: 170px; }
+    [data-composition-id="s16-cta"] .s16-card { position: absolute; left: 70px; top: 780px; width: 940px; padding: 40px 30px 36px; background: #14c4b8; border: 10px solid #16191d; border-radius: 30px; box-shadow: 14px 14px 0 #ffd21f; text-align: center; }
+    [data-composition-id="s16-cta"] .s16-card small { display: block; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 50px; line-height: 1.1; color: #16191d; }
+    [data-composition-id="s16-cta"] .s16-card b { display: block; margin-top: 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 116px; line-height: 0.95; color: #fbfaf5; -webkit-text-stroke: 14px #16191d; paint-order: stroke fill; text-transform: uppercase; }
+    [data-composition-id="s16-cta"] .s16-casco { left: 720px; top: 640px; width: 280px; height: 200px; }
+    [data-composition-id="s16-cta"] .s16-com { position: absolute; left: 70px; top: 1240px; width: 940px; height: 170px; background: #fbfaf5; border: 8px solid #16191d; border-radius: 30px 30px 30px 6px; box-shadow: 10px 10px 0 #16191d; }
+    [data-composition-id="s16-cta"] .s16-arroba { position: absolute; left: 24px; top: 20px; width: 120px; height: 120px; border-radius: 50%; background: #5ce611; border: 7px solid #16191d; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 84px; line-height: 100px; color: #16191d; }
+    [data-composition-id="s16-cta"] .s16-user { position: absolute; left: 170px; top: 46px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 60px; color: #16191d; white-space: nowrap; }
+    [data-composition-id="s16-cta"] .s16-cursor { display: inline-block; width: 6px; height: 60px; margin-left: 4px; background: #16191d; vertical-align: -8px; }
+
+  </style>
+  <div id="root" data-composition-id="s16-cta" data-width="1080" data-height="1920" data-duration="7.5">
+    <div id="s16-escena" class="s16-capa clip" data-start="0" data-duration="7.5" data-track-index="0">
+      <div class="s16-esc esc">
+
+        <div class="big y s16-nom">¡Nominá!</div>
+        <div class="s16-card"><small>a un local que necesita un</small><b>cambio extremo</b></div>
+        <div class="obj s16-casco"><svg viewBox="0 0 280 200" aria-hidden="true"><path d="M40 140 Q36 30 140 26 Q244 30 240 140 Z" fill="#ffd21f" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M10 142 Q140 116 270 142 L272 164 Q140 140 8 164 Z" fill="#ffd21f" stroke="#16191d" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M140 28 V136 M96 36 Q84 80 88 136 M184 36 Q196 80 192 136" stroke="#16191d" stroke-width="6" fill="none"/></svg></div>
+        <div class="s16-com"><div class="s16-arroba">@</div><div class="s16-user"><span class="s16-l">@</span><span class="s16-l">t</span><span class="s16-l">u</span><span class="s16-l">_</span><span class="s16-l">l</span><span class="s16-l">o</span><span class="s16-l">c</span><span class="s16-l">a</span><span class="s16-l">l</span><span class="s16-l">_</span><span class="s16-l">f</span><span class="s16-l">a</span><span class="s16-l">v</span><span class="s16-l">o</span><span class="s16-l">r</span><span class="s16-l">i</span><span class="s16-l">t</span><span class="s16-l">o</span></div></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s16-cta";
+      const DUR = 7.5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+
+
+      const LOCAL = 0.45, CAMBIO = 1.70, ETIQ = 2.84;
+      // cuadro 0 de la escena: NOMINÁ
+      gsap.set(q(".s16-nom"), { opacity: 1, rotation: -4 });
+      tl.fromTo(q(".s16-nom"), { scale: 2 }, { scale: 1, duration: 0.18, ease: "power4.in" }, 0);
+      sacudon(0.15, 1.2);
+      vaiven(q(".s16-nom"), 0.4, 6.6, { rotation: -1, scale: 1.04 }, 0.5);
+      // la tarjeta de nominación
+      gsap.set(q(".s16-card"), { opacity: 0 });
+      tl.fromTo(q(".s16-card"), { opacity: 1, y: 900, rotation: 6 }, { opacity: 1, y: 0, rotation: -1, duration: 0.4, ease: "back.out(1.4)", immediateRender: false }, LOCAL);
+      tl.fromTo(q(".s16-card b"), { scale: 1 }, { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, CAMBIO);
+      // el casco cae sobre la tarjeta
+      gsap.set(q(".s16-casco"), { opacity: 0 });
+      tl.fromTo(q(".s16-casco"), { opacity: 1, y: -900, rotation: -30 }, { opacity: 1, y: 0, rotation: 12, duration: 0.4, ease: "bounce.out", immediateRender: false }, CAMBIO - 0.15);
+      sacudon(CAMBIO + 0.1, 1);
+      tl.to(q(".s16-casco"), { y: -16, rotation: 6, duration: 0.45, yoyo: true, repeat: 9, ease: "sine.inOut" }, CAMBIO + 0.5);
+      // etiquetalo
+      pop(q(".s16-com"), ETIQ - 0.05, 0.3);
+      tl.fromTo(q(".s16-arroba"), { rotation: -180, scale: 0.3 }, { rotation: 0, scale: 1, duration: 0.4, ease: "back.out(2)", immediateRender: false }, ETIQ);
+      gsap.set(qa(".s16-l"), { opacity: 0 });
+      qa(".s16-l").forEach((l, i) => tl.set(l, { opacity: 1 }, ETIQ + 0.25 + i * 0.06));
+
+      vaiven(q(".s16-arroba"), ETIQ + 1.5, 3, { scale: 1.12 }, 0.4);
+
+      // salida
+      tl.to(q("#s16-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
