@@ -101,6 +101,11 @@
 
 ## En curso
 
+- 31-10 · `el-heroe` · Agente de IA · cómic de superhéroes: el origen del héroe que vence al villano El Visto (lo hace la corrida del 31-10)
+- 31-10 · `unboxing` · Agente de IA · review de youtuber: unboxing de "mi nuevo empleado", un agente de IA (lo hace la corrida del 31-10)
+- 31-10 · `no-soy-un-robot` · Automatizaciones · captcha "¿sos un robot?": el dueño trabaja como uno todas las noches (lo hace la corrida del 31-10)
+- 31-10 · `quien-es-quien` · CRM · juego de mesa de adivinar quién es el contacto "Cliente nuevo" del celular (lo hace la corrida del 31-10)
+- 31-10 · `recluta` · Tienda online · película de guerra: el sargento entrena al dueño para el Black Friday sin tienda online (lo hace la corrida del 31-10)
 
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
