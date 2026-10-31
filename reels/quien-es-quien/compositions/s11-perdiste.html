@@ -1,0 +1,68 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/caritas.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-perdiste"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-perdiste"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-perdiste"] .s11-carta { position: absolute; left: 290px; top: 760px; width: 500px; height: 580px; border-radius: 30px; background: #fbf3e0; border: 9px solid #14182b; box-shadow: 0 16px 0 #14182b; }
+    [data-composition-id="s11-perdiste"] .s11-cara { position: absolute; left: 60px; top: 24px; width: 362px; height: 386px; }
+    [data-composition-id="s11-perdiste"] .s11-placa { position: absolute; left: 22px; right: 22px; bottom: 24px; height: 104px; border-radius: 16px; background: #ffc928; border: 7px solid #14182b; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 42px; line-height: 90px; color: #14182b; white-space: nowrap; }
+    [data-composition-id="s11-perdiste"] .s11-p2 { font-size: 64px; }
+    [data-composition-id="s11-perdiste"] .s11-era { position: absolute; left: 0; right: 0; top: 590px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 130px; line-height: 1; color: #ffc928; -webkit-text-stroke: 8px #14182b; paint-order: stroke fill; text-shadow: 0 12px 0 #14182b; white-space: nowrap; }
+    [data-composition-id="s11-perdiste"] .s11-ram { position: absolute; left: 600px; top: 900px; width: 420px; height: 483px; }
+    [data-composition-id="s11-perdiste"] .s11-perdiste { position: absolute; left: 0; right: 0; top: 1400px; text-align: center; }
+    [data-composition-id="s11-perdiste"] .s11-sello { display: inline-block; padding: 14px 40px; border-radius: 22px; background: #e63946; border: 9px solid #14182b; box-shadow: 0 12px 0 #14182b; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 110px; line-height: 1; color: #fbf3e0; }
+  </style>
+  <div id="root" data-composition-id="s11-perdiste" data-width="1080" data-height="1920" data-duration="4.45">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.45" data-track-index="0">
+      <div class="s11-escenario">
+        <div class="s11-era">¡ERA SILVIA!</div>
+        <div class="s11-carta"><div class="s11-cara"></div><div class="s11-placa s11-p1">LA DEL CALEFÓN</div><div class="s11-placa s11-p2">SILVIA</div></div>
+        <div class="s11-ram"></div>
+        <div class="s11-perdiste"><span class="s11-sello">PERDISTE</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-perdiste";
+      const DUR = 4.45;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: aparece de golpe (escala grande -> 1) en t
+      const golpe = (el, t, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: extra.desde || 2.3, rotation: extra.rot || 0 }, { opacity: 1, scale: 1, rotation: extra.rot || 0, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      // pop: aparece con rebote en t
+      const pop = (el, t, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6, y: extra.y || 0 }, { opacity: 1, scale: 1, y: 0, duration: 0.32, ease: "back.out(2)", immediateRender: false }, t); };
+      // sacudón del escenario en t
+      const sacudon = (t, f = 1) => [[-14, 7], [11, -5], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      q(".s11-cara").innerHTML = QQ.carita("calefon");
+      q(".s11-ram").innerHTML = QQ.ramiro("mal");
+      const SILVIA = 0.27, CALEFON = 1.61, RAMIRO = 2.79, PERDISTE = 3.13;
+      // la carta se levanta de golpe (se da vuelta la respuesta)
+      tl.fromTo(q(".s11-carta"), { rotationX: -85, transformOrigin: "50% 100%", transformPerspective: 1400 }, { rotationX: 0, duration: 0.35, ease: "back.out(2)" }, 0);
+      gsap.set(q(".s11-p2"), { opacity: 0 });
+      tl.to(q(".s11-p1"), { opacity: 0, rotationX: 90, duration: 0.12 }, SILVIA);
+      tl.fromTo(q(".s11-p2"), { opacity: 0, rotationX: -90 }, { opacity: 1, rotationX: 0, duration: 0.14, immediateRender: false }, SILVIA + 0.1);
+      golpe(q(".s11-era"), SILVIA + 0.05, { rot: -3 });
+      sacudon(SILVIA + 0.1);
+      tl.to(q(".s11-carta"), { scale: 1.06, duration: 0.18, yoyo: true, repeat: 1 }, CALEFON);
+      // "Ramiro": la carta se corre y aparece él; "perdiste": sello rojo
+      tl.to(q(".s11-carta"), { x: -230, scale: 0.86, duration: 0.3, ease: "power3.inOut" }, RAMIRO - 0.2);
+      gsap.set(q(".s11-ram"), { opacity: 0 });
+      tl.fromTo(q(".s11-ram"), { opacity: 0, y: 260 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.5)", immediateRender: false }, RAMIRO - 0.15);
+      golpe(q(".s11-perdiste"), PERDISTE, { rot: -5 });
+      sacudon(PERDISTE + 0.05, 1.4);
+      tl.to(q(".s11-ram"), { rotation: -5, transformOrigin: "50% 100%", duration: 0.12, yoyo: true, repeat: 5 }, PERDISTE + 0.1);
+
+      tl.to(q("#s11-escena"), { opacity: 0, scale: 0.96, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

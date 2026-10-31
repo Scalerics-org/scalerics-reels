@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-giro"] .esc, [data-composition-id="s13-giro"] .cam { position: absolute; inset: 0; }
+    [data-composition-id="s13-giro"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-giro"] .ui { font-family: "Lexend", sans-serif; }
+    [data-composition-id="s13-giro"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s13-giro"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; line-height: 1; white-space: nowrap; color: #1d2433; }
+    [data-composition-id="s13-giro"] .rotulo { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; white-space: nowrap; color: #2f6fed; }
+    [data-composition-id="s13-giro"] .sello { position: absolute; padding: 10px 30px; border: 9px solid #e5484d; border-radius: 16px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; color: #e5484d; background: rgba(255,255,255,0.92); line-height: 1.05; }
+[data-composition-id="s13-giro"] .s13-que { top: 600px; font-size: 96px; font-weight: 900; color: #2f6fed; }
+    [data-composition-id="s13-giro"] .s13-frase { top: 600px; font-size: 56px; font-weight: 800; line-height: 1.15; white-space: normal; padding: 0 90px; }
+  </style>
+  <div id="root" data-composition-id="s13-giro" data-width="1080" data-height="1920" data-duration="5.58">
+    <div id="s13-giro-esc" class="esc clip" data-start="0" data-duration="5.58" data-track-index="0">
+      <div class="cam">
+
+        <div class="txt s13-que">¿?</div>
+        <svg class="full" viewBox="0 0 1080 1920">
+          <g class="s13-duenog"><g transform="translate(140 920) scale(0.78)"><g class="dueno">
+    <path class="d-traz" d="M60 400 C70 320 120 292 200 292 C280 292 330 320 340 400" fill="#ffffff" fill="none" stroke="#1d2433" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+    <path class="d-traz" d="M168 262 v30 M232 262 v30" fill="none" stroke="#1d2433" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+    <ellipse class="d-traz" cx="200" cy="160" rx="96" ry="112" fill="#ffffff" fill="none" stroke="#1d2433" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+    <path class="d-traz" d="M104 130 C110 50 290 50 296 130 M126 82 l-22 -30 M166 58 l-6 -38 M214 54 l10 -36 M258 70 l28 -26 M286 104 l30 -10" fill="none" stroke="#1d2433" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+    <path class="d-traz" d="M150 150 h36 M214 150 h36" fill="none" stroke="#1d2433" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
+    <path class="d-traz" d="M148 172 q20 14 40 0 M212 172 q20 14 40 0" fill="none" stroke="#6b7689" stroke-width="4" stroke-linecap="round" />
+    <path class="d-traz" d="M198 176 q-8 24 6 28" fill="none" stroke="#1d2433" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" />
+    <path class="d-traz d-boca" d="M176 236 q24 -12 48 0" fill="none" stroke="#1d2433" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" />
+  </g></g></g>
+          <g transform="translate(660 790) scale(1.4)"><g class="s13-esc"><g class="escudo ">
+    <path d="M60 6 L110 24 V62 C110 94 88 114 60 126 C32 114 10 94 10 62 V24 Z" fill="#ffffff" stroke="#2f6fed" stroke-width="7" stroke-linejoin="round" />
+    <g class="ojos">
+      <ellipse class="ojo" cx="42" cy="62" rx="9" ry="12" fill="#1d2433" />
+      <ellipse class="ojo" cx="78" cy="62" rx="9" ry="12" fill="#1d2433" />
+    </g>
+    <path class="parpados" d="M28 50 L56 58 M92 50 L64 58" stroke="#1d2433" stroke-width="6" stroke-linecap="round" fill="none" opacity="0" />
+    <path class="boca" d="M46 92 H74" stroke="#1d2433" stroke-width="5" stroke-linecap="round" fill="none" />
+  </g></g></g>
+          <g class="s13-pila">
+            <g transform="translate(560 1250)"><g class="s13-p"><rect x="0" y="0" width="300" height="62" rx="8" fill="#ffffff" stroke="#1d2433" stroke-width="4" /><text class="mono" x="150" y="42" font-size="28" fill="#1d2433" text-anchor="middle" letter-spacing="3">PEDIDOS</text></g></g><g transform="translate(560 1178)"><g class="s13-p"><rect x="0" y="0" width="300" height="62" rx="8" fill="#ffffff" stroke="#1d2433" stroke-width="4" /><text class="mono" x="150" y="42" font-size="28" fill="#1d2433" text-anchor="middle" letter-spacing="3">AVISOS</text></g></g><g transform="translate(560 1106)"><g class="s13-p"><rect x="0" y="0" width="300" height="62" rx="8" fill="#ffffff" stroke="#1d2433" stroke-width="4" /><text class="mono" x="150" y="42" font-size="28" fill="#1d2433" text-anchor="middle" letter-spacing="3">STOCK</text></g></g><g transform="translate(560 1034)"><g class="s13-p"><rect x="0" y="0" width="300" height="62" rx="8" fill="#ffffff" stroke="#1d2433" stroke-width="4" /><text class="mono" x="150" y="42" font-size="28" fill="#1d2433" text-anchor="middle" letter-spacing="3">REPORTE</text></g></g>
+          </g>
+          <g class="s13-brazo">
+            <path d="M1100 900 H930 L860 1000 V1040" fill="none" stroke="#2f6fed" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="930" cy="900" r="20" fill="#ffffff" stroke="#2f6fed" stroke-width="7" />
+            <circle cx="860" cy="1000" r="18" fill="#ffffff" stroke="#2f6fed" stroke-width="7" />
+            <path d="M820 1080 l20 -40 h40 l20 40" fill="none" stroke="#2f6fed" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <g class="s13-ok">
+            <rect x="160" y="1390" width="760" height="150" rx="16" fill="rgba(29,36,51,0.07)" />
+   <rect class="" x="160" y="1380" width="760" height="150" rx="16" fill="#ffffff" stroke="#c9d1dc" stroke-width="3" />
+            <rect x="200" y="1415" width="80" height="80" rx="10" fill="#ffffff" stroke="#c9d1dc" stroke-width="5" />
+            <path class="s13-tilde" d="M216 1457 L234 1475 L266 1435" fill="none" stroke="#1fae5b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+            <text class="ui" x="310" y="1472" font-size="48" font-weight="600" fill="#1d2433">Soy una persona</text>
+          </g>
+        </svg>
+        <div class="txt s13-frase">Si el trabajo es de robot, que lo haga un robot.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-giro";
+      const DUR = 5.58;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const lista = (s) => (typeof s === "string" ? qa(s) : [].concat(s));
+      const tl = gsap.timeline({ paused: true });
+      // trazos que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      function dibujar(s, t, d = 0.6) {
+        lista(s).forEach((el) => {
+          const L = (el.getTotalLength ? el.getTotalLength() : 1200) + 2;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t);
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        });
+      }
+      function pop(s, t, d = 0.35) {
+        const els = lista(s);
+        gsap.set(els, { opacity: 0 });
+        tl.fromTo(els, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.6)", immediateRender: false }, t);
+      }
+      function golpe(s, t, desde = 2.2) {
+        const els = lista(s);
+        gsap.set(els, { opacity: 0 });
+        tl.fromTo(els, { opacity: 0, scale: desde, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.14, ease: "power4.in", immediateRender: false }, Math.max(0, t - 0.1));
+      }
+      function sacudir(t, a = 14) {
+        [[-a, a * 0.6], [a * 0.8, -a * 0.5], [-a * 0.4, a * 0.25], [0, 0]].forEach(([x, y], i) => tl.to(q(".cam"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      }
+      function fuera(s, t, d = 0.2) { tl.to(lista(s), { opacity: 0, duration: d, ease: "power2.in" }, t); }
+      // cámara: se acerca despacio toda la escena
+      tl.fromTo(q(".cam"), { scale: 1.035 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+
+      // "¿Y entonces qué hago?"
+      tl.fromTo(q(".s13-duenog"), { opacity: 0.5, y: 20 }, { opacity: 1, y: 0, duration: 0.3 }, 0);
+      golpe(".s13-que", 0.94, 1.8);
+      tl.to(q(".s13-que"), { rotation: 8, duration: 0.2, yoyo: true, repeat: 1 }, 1.1);
+      tl.to(q(".s13-que"), { opacity: 0, duration: 0.15 }, 1.75);
+      // el escudo habla calmado (ojos normales, boca que se mueve)
+      pop(".s13-esc", 1.75);
+      tl.to(q(".s13-esc .boca"), { scaleY: 3, svgOrigin: "60 92", duration: 0.1, yoyo: true, repeat: 9 }, 1.9);
+      gsap.set(q(".s13-frase"), { opacity: 0 });
+      tl.fromTo(q(".s13-frase"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, 1.95);
+      // la pila de tareas aparece junto al dueño
+      qa(".s13-pila .s13-p").forEach((g, i) => tl.fromTo(g, { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.2, ease: "back.out(2)", immediateRender: true }, 2.1 + i * 0.12));
+      // "que lo haga un robot": el brazo baja y se la lleva
+      gsap.set(q(".s13-brazo"), { x: 300, y: -200 });
+      tl.to(q(".s13-brazo"), { x: 0, y: 0, duration: 0.4, ease: "power3.out" }, 3.0);
+      tl.to([q(".s13-brazo"), q(".s13-pila")], { x: 600, y: -300, duration: 0.5, ease: "power3.in" }, 3.5);
+      // "Vos volvé a ser persona": la casilla verde, el dueño sonríe
+      tl.to([q(".s13-esc"), q(".s13-frase")], { opacity: 0, duration: 0.2 }, 3.85);
+      pop(".s13-ok", 3.9);
+      dibujar(".s13-tilde", 4.35, 0.3);
+      tl.to(q(".s13-duenog"), { x: 290, duration: 0.5, ease: "power2.inOut" }, 3.9);
+      tl.to(q(".s13-duenog .d-boca"), { scaleY: -1, svgOrigin: "200 236", duration: 0.2 }, 4.5);
+      // salida
+      tl.to(q(".esc"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

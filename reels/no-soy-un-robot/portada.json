@@ -1,0 +1,16 @@
+{
+ "t": 3.4,
+ "chica": "De noche trabajás",
+ "grande": "como un robot",
+ "sello": "¿Sos un robot?",
+ "acento": "#2f6fed",
+ "sello_color": "#e5484d",
+ "zoom": 2.2,
+ "foco": "47%",
+ "foco_x": "77%",
+ "circulo": {
+  "x": 810,
+  "y": 930,
+  "r": 175
+ }
+}

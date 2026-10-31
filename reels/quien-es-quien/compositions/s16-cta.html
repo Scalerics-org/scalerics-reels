@@ -1,0 +1,88 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/caritas.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s16-cta"] .s16-capa { position: absolute; inset: 0; }
+    [data-composition-id="s16-cta"] .s16-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s16-cta"] .s16-cel { position: absolute; left: 230px; top: 580px; width: 620px; height: 700px; border-radius: 60px; background: #fbf3e0; border: 8px solid #14182b; box-shadow: 0 16px 0 #14182b; overflow: hidden; }
+    [data-composition-id="s16-cta"] .s16-barra { position: absolute; left: 0; right: 0; top: 0; height: 120px; background: #e63946; border-bottom: 6px solid #14182b; z-index: 2; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 114px; color: #fbf3e0; padding-left: 40px; }
+    [data-composition-id="s16-cta"] .s16-lista { position: absolute; left: 0; right: 0; top: 126px; }
+    [data-composition-id="s16-cta"] .s16-fila { position: absolute; left: 24px; right: 24px; height: 100px; border-bottom: 4px solid rgba(20, 24, 43, 0.25); }
+    [data-composition-id="s16-cta"] .s16-av { position: absolute; left: 6px; top: 12px; width: 76px; height: 76px; border-radius: 50%; background: #ffc928; border: 5px solid #14182b; overflow: hidden; }
+    [data-composition-id="s16-cta"] .s16-n { position: absolute; left: 104px; top: 26px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 40px; color: #14182b; white-space: nowrap; }
+    [data-composition-id="s16-cta"] .s16-cuenta { position: absolute; left: 780px; top: 540px; width: 200px; height: 200px; border-radius: 50%; background: #ffc928; border: 8px solid #14182b; box-shadow: 0 10px 0 #14182b; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 110px; line-height: 184px; color: #14182b; }
+    [data-composition-id="s16-cta"] .s16-com { position: absolute; left: 80px; top: 1250px; width: 920px; padding: 26px 34px 30px; border-radius: 34px 34px 34px 10px; background: #2f5bea; border: 8px solid #14182b; box-shadow: 0 14px 0 #14182b; }
+    [data-composition-id="s16-cta"] .s16-com-t { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 60px; line-height: 1.05; color: #fbf3e0; }
+    [data-composition-id="s16-cta"] .s16-com-t b { color: #ffc928; }
+    [data-composition-id="s16-cta"] .s16-input { margin-top: 18px; height: 80px; border-radius: 40px; background: #fbf3e0; border: 5px solid #14182b; position: relative; }
+    [data-composition-id="s16-cta"] .s16-escr { position: absolute; left: 30px; top: 14px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; color: #14182b; white-space: nowrap; }
+    [data-composition-id="s16-cta"] .s16-caret { position: absolute; top: 16px; width: 5px; height: 44px; background: #14182b; }
+  </style>
+  <div id="root" data-composition-id="s16-cta" data-width="1080" data-height="1920" data-duration="7.5">
+    <div id="s16-escena" class="s16-capa clip" data-start="0" data-duration="7.5" data-track-index="0">
+      <div class="s16-escenario">
+        <div class="s16-cel">
+          <div class="s16-barra">Contactos</div>
+          <div class="s16-lista"></div>
+        </div>
+        <div class="s16-cuenta">?</div>
+        <div class="s16-com">
+          <div class="s16-com-t">¿Cuántos tenés?<br /><b>Contalo en los comentarios.</b></div>
+          <div class="s16-input"><div class="s16-escr">Yo tengo...</div><div class="s16-caret"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s16-cta";
+      const DUR = 7.5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: aparece de golpe (escala grande -> 1) en t
+      const golpe = (el, t, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: extra.desde || 2.3, rotation: extra.rot || 0 }, { opacity: 1, scale: 1, rotation: extra.rot || 0, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      // pop: aparece con rebote en t
+      const pop = (el, t, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6, y: extra.y || 0 }, { opacity: 1, scale: 1, y: 0, duration: 0.32, ease: "back.out(2)", immediateRender: false }, t); };
+      // sacudón del escenario en t
+      const sacudon = (t, f = 1) => [[-14, 7], [11, -5], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s16-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const CLIENTE = 0.28, AGENDADOS = 1.48, CELULAR = 2.22, CONTALO = 2.99, COMENT = 3.52;
+      const NOMBRES = ["Cliente nuevo", "Cliente nuevo 2", "Cliente nuevo 3", "Señora ¿?", "Gómez", "Gómez (otro)", "Cliente nuevo 4", "El de la obra", "Cliente nuevo 5", "Presupuesto ¿?", "Cliente nuevo 6", "Gómez 3", "Cliente nuevo 7", "Cliente nuevo 8"];
+      const lista = q(".s16-lista");
+      NOMBRES.forEach((n, i) => {
+        const f = document.createElement("div");
+        f.className = "s16-fila";
+        f.style.top = i * 104 + "px";
+        f.innerHTML = '<div class="s16-av">' + QQ.carita(n.startsWith("Gómez") ? "gomez" : n.startsWith("El de") ? "obra" : "misterio") + '</div><div class="s16-n">' + n + "</div>";
+        lista.appendChild(f);
+      });
+      tl.fromTo(q(".s16-cel"), { y: 100, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      // la lista scrollea sin fin
+      tl.fromTo(lista, { y: 0 }, { y: -(NOMBRES.length * 104 - 560), duration: CONTALO + 0.4, ease: "power1.inOut" }, CLIENTE);
+      qa(".s16-fila").forEach((f, i) => { if (NOMBRES[i].startsWith("Cliente")) tl.to(f.querySelector(".s16-n"), { color: "#e63946", duration: 0.1 }, CLIENTE + i * 0.18); });
+      // "agendados": la ficha cuenta
+      golpe(q(".s16-cuenta"), AGENDADOS, { rot: 8, desde: 2 });
+      tl.to(q(".s16-cuenta"), { rotation: -8, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, AGENDADOS + 0.2);
+      sacudon(CELULAR, 0.6);
+      // "Contalo en los comentarios": entra el globo de comentario y se escribe
+      gsap.set(q(".s16-com"), { transformOrigin: "0% 100%" });
+      pop(q(".s16-com"), CONTALO - 0.15, { y: 80 });
+      tl.to(q(".s16-com"), { scale: 1.04, duration: 0.15, yoyo: true, repeat: 1 }, COMENT + 0.3);
+      const escr = q(".s16-escr"), caret = q(".s16-caret");
+      gsap.set(escr, { clipPath: "inset(0 100% 0 0)" });
+      tl.to(escr, { clipPath: "inset(0 0% 0 0)", duration: 1.0, ease: "steps(11)" }, COMENT + 0.6);
+      tl.fromTo(caret, { x: 30 }, { x: 250, duration: 1.0, ease: "steps(11)" }, COMENT + 0.6);
+      for (let k = 0; k < 12; k++) tl.set(caret, { opacity: k % 2 ? 1 : 0 }, COMENT + 1.7 + k * 0.4);
+      tl.to(q(".s16-cel"), { rotation: -2, duration: 2, ease: "sine.inOut" }, CONTALO + 0.5);
+
+      tl.to(q("#s16-escena"), { opacity: 0, scale: 0.96, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/caritas.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-crm"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-crm"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-crm"] .s14-tit { position: absolute; left: 0; right: 0; top: 580px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 120px; line-height: 1; color: #fbf3e0; -webkit-text-stroke: 8px #14182b; paint-order: stroke fill; text-shadow: 0 10px 0 #14182b; white-space: nowrap; }
+    [data-composition-id="s14-crm"] .s14-tit b { color: #5ce611; font-weight: 900; }
+    [data-composition-id="s14-crm"] .s14-panel { position: absolute; left: 70px; top: 740px; width: 940px; height: 560px; border-radius: 36px; background: #2f5bea; border: 8px solid #14182b; box-shadow: 0 16px 0 #14182b; }
+    [data-composition-id="s14-crm"] .s14-ficha { position: absolute; left: 28px; top: 28px; width: 868px; height: 488px; border-radius: 24px; background: #fbf3e0; border: 6px solid #14182b; }
+    [data-composition-id="s14-crm"] .s14-cara { position: absolute; left: 24px; top: 30px; width: 230px; height: 244px; border-radius: 20px; background: #ffc928; border: 6px solid #14182b; overflow: hidden; }
+    [data-composition-id="s14-crm"] .s14-nom { position: absolute; left: 284px; top: 36px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; line-height: 1; color: #14182b; white-space: nowrap; }
+    [data-composition-id="s14-crm"] .s14-apodo { position: absolute; left: 288px; top: 112px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #2f5bea; white-space: nowrap; }
+    [data-composition-id="s14-crm"] .s14-fila { position: absolute; left: 284px; width: 560px; padding: 14px 20px; border-radius: 16px; border: 5px solid #14182b; background: #ffffff; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; line-height: 1.15; color: #14182b; }
+    [data-composition-id="s14-crm"] .s14-fila small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; color: #2f5bea; margin-bottom: 4px; }
+    [data-composition-id="s14-crm"] .s14-f1 { top: 172px; }
+    [data-composition-id="s14-crm"] .s14-f2 { top: 318px; background: #ffc928; }
+    [data-composition-id="s14-crm"] .s14-tick { position: absolute; left: 60px; top: 320px; width: 160px; height: 140px; }
+    [data-composition-id="s14-crm"] .s14-gomez { position: absolute; left: 70px; top: 1340px; width: 940px; height: 200px; }
+    [data-composition-id="s14-crm"] .s14-g { position: absolute; top: 0; width: 290px; height: 190px; border-radius: 20px; background: #fbf3e0; border: 6px solid #14182b; box-shadow: 0 8px 0 #14182b; }
+    [data-composition-id="s14-crm"] .s14-gcara { position: absolute; left: 10px; top: 14px; width: 120px; height: 128px; }
+    [data-composition-id="s14-crm"] .s14-gnom { position: absolute; left: 130px; top: 30px; width: 150px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 30px; line-height: 1.1; color: #14182b; }
+    [data-composition-id="s14-crm"] .s14-gdato { position: absolute; left: 14px; top: 146px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; color: #2f5bea; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s14-crm" data-width="1080" data-height="1920" data-duration="6.76">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="6.76" data-track-index="0">
+      <div class="s14-escenario">
+        <div class="s14-tit">TU <b>CRM</b></div>
+        <div class="s14-panel">
+          <div class="s14-ficha">
+            <div class="s14-cara"><div class="s14-c0" style="position:absolute;inset:0"></div><div class="s14-c1" style="position:absolute;inset:0;background:#ffc928"></div></div>
+            <div class="s14-nom">SILVIA</div>
+            <div class="s14-apodo">la del calefón</div>
+            <div class="s14-fila s14-f1"><small>TE COMPRÓ</small>Canillas, cinta y una llave</div>
+            <div class="s14-fila s14-f2"><small>LE PROMETISTE</small>Presupuesto del calefón</div>
+            <svg class="s14-tick" viewBox="0 0 160 140" aria-hidden="true"><circle cx="80" cy="70" r="60" fill="#5ce611" stroke="#14182b" stroke-width="7" /><path class="s14-tk" d="M50 72 l22 22 l40 -46" fill="none" stroke="#14182b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </div>
+        </div>
+        <div class="s14-gomez">
+          <div class="s14-g" style="left: 0"><div class="s14-gcara"></div><div class="s14-gnom">RAÚL GÓMEZ</div><div class="s14-gdato">el de la obra</div></div>
+          <div class="s14-g" style="left: 325px"><div class="s14-gcara"></div><div class="s14-gnom">TITO GÓMEZ</div><div class="s14-gdato">pinturería</div></div>
+          <div class="s14-g" style="left: 650px"><div class="s14-gcara"></div><div class="s14-gnom">ELBIO GÓMEZ</div><div class="s14-gdato">pide factura</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-crm";
+      const DUR = 6.76;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: aparece de golpe (escala grande -> 1) en t
+      const golpe = (el, t, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: extra.desde || 2.3, rotation: extra.rot || 0 }, { opacity: 1, scale: 1, rotation: extra.rot || 0, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      // pop: aparece con rebote en t
+      const pop = (el, t, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6, y: extra.y || 0 }, { opacity: 1, scale: 1, y: 0, duration: 0.32, ease: "back.out(2)", immediateRender: false }, t); };
+      // sacudón del escenario en t
+      const sacudon = (t, f = 1) => [[-14, 7], [11, -5], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s14-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      q(".s14-c0").innerHTML = QQ.carita("misterio");
+      q(".s14-c1").innerHTML = QQ.carita("calefon");
+      qa(".s14-gcara").forEach((c) => (c.innerHTML = QQ.carita("gomez")));
+      const SCALERICS = 0.06, CRM = 1.64, CARITA = 3.04, NOMBRE = 3.74, COMPRO = 4.71, PROMETISTE = 5.76;
+      // el tablero se vuelve azul: entra el panel
+      tl.fromTo(q(".s14-panel"), { y: 140, scale: 0.9, opacity: 0.4 }, { y: 0, scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      gsap.set([q(".s14-ficha")], { transformOrigin: "50% 100%" });
+      tl.fromTo(q(".s14-ficha"), { rotationX: -80, transformPerspective: 1400 }, { rotationX: 0, duration: 0.35, ease: "back.out(2)" }, 0.25);
+      gsap.set([q(".s14-nom"), q(".s14-apodo"), q(".s14-f1"), q(".s14-f2"), q(".s14-tick"), q(".s14-c1")], { opacity: 0 });
+      golpe(q(".s14-tit"), CRM, { rot: -2 });
+      sacudon(CRM + 0.05);
+      tl.to(q(".s14-tit"), { scale: 1.06, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, CRM + 0.3);
+      // "cada carita": aparece la cara; "con su nombre": SILVIA
+      tl.to(q(".s14-cara"), { rotationY: 90, duration: 0.1 }, CARITA - 0.1);
+      tl.set(q(".s14-c1"), { opacity: 1 }, CARITA);
+      tl.to(q(".s14-cara"), { rotationY: 0, duration: 0.15, ease: "back.out(2)" }, CARITA);
+      tl.to(q(".s14-c0"), { scale: 1.12, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.7);
+      golpe(q(".s14-nom"), NOMBRE, { desde: 1.8 });
+      pop(q(".s14-apodo"), NOMBRE + 0.2);
+      // los tres Gómez, cada uno con su nombre
+      qa(".s14-g").forEach((g, i) => pop(g, NOMBRE + 0.1 + i * 0.15, { y: 60 }));
+      // qué te compró / qué le prometiste
+      pop(q(".s14-f1"), COMPRO - 0.05, { y: 20 });
+      pop(q(".s14-f2"), PROMETISTE - 0.05, { y: 20 });
+      tl.to(q(".s14-f2"), { scale: 1.05, duration: 0.15, yoyo: true, repeat: 1 }, PROMETISTE + 0.3);
+      pop(q(".s14-tick"), PROMETISTE + 0.25);
+      const tk = q(".s14-tk"), L = tk.getTotalLength();
+      gsap.set(tk, { strokeDasharray: L, strokeDashoffset: L });
+      tl.to(tk, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, PROMETISTE + 0.4);
+
+      tl.to(q("#s14-escena"), { opacity: 0, scale: 0.96, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,77 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* dos cañones de luz de estudio que barren desde arriba */
+    [data-composition-id="ambiente"] .amb-luz { position: absolute; top: -200px; width: 520px; height: 2100px; opacity: 0.55;
+      background: linear-gradient(180deg, rgba(255, 201, 40, 0.16) 0%, rgba(255, 201, 40, 0.05) 55%, rgba(255, 201, 40, 0) 100%);
+      clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%); }
+    [data-composition-id="ambiente"] .amb-luz-a { left: -120px; }
+    [data-composition-id="ambiente"] .amb-luz-b { left: 680px; }
+    /* borde de lamparitas, como en los programas de juegos */
+    [data-composition-id="ambiente"] .amb-foco { position: absolute; width: 18px; height: 18px; border-radius: 50%; background: #ffc928; opacity: 0.25; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1120px at 540px 920px, rgba(14, 22, 54, 0) 58%, rgba(14, 22, 54, 0.85) 100%); }
+    [data-composition-id="ambiente"] .amb-rojo { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 620px 620px at 0% 50%, rgba(230, 57, 70, 0.45), rgba(230, 57, 70, 0) 70%), radial-gradient(ellipse 620px 620px at 100% 50%, rgba(230, 57, 70, 0.45), rgba(230, 57, 70, 0) 70%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #fbf3e0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.99">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="73.99" data-track-index="0">
+      <div class="amb-luz amb-luz-a"></div>
+      <div class="amb-luz amb-luz-b"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-focos"></div>
+      <div class="amb-rojo"></div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.99;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // lamparitas en los bordes izquierdo y derecho (y 520 a 1500)
+      const cont = q(".amb-focos");
+      const focos = [];
+      for (let i = 0; i < 14; i++) {
+        for (const x of [20, 1042]) {
+          const f = document.createElement("div");
+          f.className = "amb-foco";
+          f.style.left = x + "px";
+          f.style.top = 520 + i * 72 + "px";
+          cont.appendChild(f);
+          focos.push([f, i]);
+        }
+      }
+      // persecución de luces: cada 0.5 s se prende un tercio
+      const PASO = 0.5;
+      for (let k = 0; k * PASO < DUR; k++) {
+        focos.forEach(([f, i]) => {
+          tl.set(f, { opacity: (i + k) % 3 === 0 ? 0.95 : 0.25 }, k * PASO);
+        });
+      }
+
+      // los cañones de luz barren despacio
+      tl.fromTo(q(".amb-luz-a"), { rotation: -14, transformOrigin: "50% 0%" }, { rotation: 10, duration: DUR / 4, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0);
+      tl.fromTo(q(".amb-luz-b"), { rotation: 14, transformOrigin: "50% 0%" }, { rotation: -10, duration: DUR / 4, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0);
+
+      // alarma roja (segundos globales): errores
+      const ROJO = [[32.4, 0.8], [34.2, 0.8], [47.2, 1.0]];
+      ROJO.forEach(([t, d]) => {
+        tl.to(q(".amb-rojo"), { opacity: 1, duration: 0.1, yoyo: true, repeat: Math.max(1, Math.round(d / 0.2)) * 2 - 1, ease: "steps(1)" }, t);
+      });
+      // flashes de estudio
+      const FLASH = [6.5, 44.37, 57.78];
+      FLASH.forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.55, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
