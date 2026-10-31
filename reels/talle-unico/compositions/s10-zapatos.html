@@ -1,0 +1,108 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-zapatos"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-zapatos"] .s10-esc { position: absolute; inset: 0; }
+    [data-composition-id="s10-zapatos"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-zapatos"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s10-zapatos"] .fig svg, [data-composition-id="s10-zapatos"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s10-zapatos"] .obj { position: absolute; }
+    [data-composition-id="s10-zapatos"] .rev { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cormorant", serif; font-weight: 600; text-transform: uppercase; line-height: 0.9; white-space: nowrap; letter-spacing: 0.01em; color: #f6f1ea; text-shadow: 0 6px 0 #0e0c10, 0 0 30px rgba(14, 12, 16, 0.9); }
+    [data-composition-id="s10-zapatos"] .rev.it { font-style: italic; font-weight: 500; text-transform: none; }
+    [data-composition-id="s10-zapatos"] .rev.f { color: #ff2e88; }
+    [data-composition-id="s10-zapatos"] .rev.d { color: #d8b25c; }
+    [data-composition-id="s10-zapatos"] .rev.v { color: #5ce611; }
+    [data-composition-id="s10-zapatos"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-zapatos"] .sello { position: absolute; padding: 16px 40px 8px; border: 10px solid currentColor; border-radius: 8px; font-family: "Cormorant", serif; font-weight: 600; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #0e0c10; }
+    [data-composition-id="s10-zapatos"] .tag { position: absolute; border: 6px solid #0e0c10; border-radius: 10px 40px 40px 10px; text-align: center; box-shadow: 8px 8px 0 #0e0c10; }
+    [data-composition-id="s10-zapatos"] .tag .tag-ag { position: absolute; right: 22px; top: 50%; width: 22px; height: 22px; margin-top: -11px; border-radius: 50%; background: #0e0c10; }
+    [data-composition-id="s10-zapatos"] .tag b { display: block; margin: 20px 66px 0 22px; font-family: "Cormorant", serif; font-weight: 600; font-size: 56px; line-height: 0.95; color: #0e0c10; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-zapatos"] .tag small { display: block; margin: 6px 66px 0 22px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.12em; color: #0e0c10; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-zapatos"] .globo { position: absolute; padding: 20px 30px; border-radius: 28px; border: 6px solid #0e0c10; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 42px; line-height: 1.12; white-space: nowrap; color: #0e0c10; background: #f6f1ea; box-shadow: 8px 8px 0 #ff2e88; }
+
+    [data-composition-id="s10-zapatos"] .s10-zap { left: 40px; top: 560px; width: 1000px; height: 900px; }
+    [data-composition-id="s10-zapatos"] .s10-ta { left: 80px; top: 1260px; }
+    [data-composition-id="s10-zapatos"] .s10-tb { left: 600px; top: 1260px; }
+    [data-composition-id="s10-zapatos"] .s10-g1 { left: 90px; top: 520px; }
+    [data-composition-id="s10-zapatos"] .s10-g2 { left: 640px; top: 520px; box-shadow: 8px 8px 0 #d8b25c; }
+
+  </style>
+  <div id="root" data-composition-id="s10-zapatos" data-width="1080" data-height="1920" data-duration="3.73">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="3.73" data-track-index="0">
+      <div class="s10-esc esc">
+
+        <div class="obj s10-zap"><svg viewBox="0 0 1000 900" aria-hidden="true">
+  <g class="s10-pi"><path d="M250 160 L250 470" stroke="#0e0c10" stroke-width="84" stroke-linecap="round" fill="none"/><path d="M250 160 L250 470" stroke="#f6f1ea" stroke-width="70" stroke-linecap="round" fill="none"/>
+    <path d="M110 560 L330 470 Q380 470 380 520 L380 560 Q240 640 130 640 Q90 620 110 560 Z" fill="#ff2e88" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M330 560 L350 760" stroke="#0e0c10" stroke-width="22" stroke-linecap="round"/><path d="M330 560 L350 760" stroke="#ff2e88" stroke-width="12" stroke-linecap="round"/>
+    <path d="M130 600 Q240 590 360 540" stroke="#f6f1ea" stroke-width="5" fill="none" opacity="0.6"/></g>
+  <g class="s10-pd"><path d="M740 160 L740 380" stroke="#0e0c10" stroke-width="84" stroke-linecap="round" fill="none"/><path d="M740 160 L740 380" stroke="#f6f1ea" stroke-width="70" stroke-linecap="round" fill="none"/>
+    <path d="M640 360 L840 360 L850 640 L930 650 Q980 680 960 740 L640 740 Z" fill="#8d8892" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M640 420 H840 M640 460 H840" stroke="#0e0c10" stroke-width="5"/>
+    <path d="M650 740 V770 L960 770 V740" fill="#0e0c10"/></g>
+  <path class="s10-corte" d="M500 300 L500 800" stroke="#ff2e88" stroke-width="10" stroke-dasharray="26 22"/>
+  <g class="s10-x"><path d="M440 520 L560 640 M560 520 L440 640" stroke="#0e0c10" stroke-width="40" stroke-linecap="round"/><path d="M440 520 L560 640 M560 520 L440 640" stroke="#ff2e88" stroke-width="24" stroke-linecap="round"/></g>
+</svg></div>
+        <div class="tag s10-ta" data-layout-allow-overlap style="height:150px;background:#ff2e88;transform:rotate(-6deg)"><i class="tag-ag"></i><b>Sistema A</b><small>local 1</small></div>
+        <div class="tag s10-tb" data-layout-allow-overlap style="height:150px;background:#d8b25c;transform:rotate(6deg)"><i class="tag-ag"></i><b>Sistema B</b><small>local 2</small></div>
+        <div class="globo s10-g1">¿Stock?</div>
+        <div class="globo s10-g2">¿Ventas?</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-zapatos";
+      const DUR = 3.73;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // desfila: camina por la pasarela (balanceo + paso)
+      const desfila = (el, t, d, per = 0.32) => { tl.to(el, { rotation: 3, duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut", transformOrigin: "50% 100%" }, t); tl.to(el, { y: -10, duration: per / 2, yoyo: true, repeat: Math.max(1, Math.floor(d / (per / 2))) | 1, ease: "sine.inOut" }, t); };
+      // dibujar un trazo (stroke-dashoffset)
+      const dibujar = (el, t, d = 0.6) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); };
+
+
+      const ZAP = 0.17, CADA = 0.95, PAR = 1.10, DOS = 1.80, SIS = 1.95, NO = 2.55, HAB = 2.71;
+      // cuadro 0: los pies ya en primer plano
+      tl.fromTo(q(".s10-pi"), { y: -60 }, { y: 0, duration: 0.3, ease: "bounce.out" }, 0);
+      tl.fromTo(q(".s10-pd"), { y: -60, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.3, ease: "bounce.out" }, 0.08);
+      tl.to(q(".s10-pi"), { rotation: -6, svgOrigin: "250 160", duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, ZAP);
+      tl.to(q(".s10-pd"), { rotation: 6, svgOrigin: "740 160", duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, CADA);
+      dibujar(q(".s10-corte"), PAR - 0.1, 0.4);
+      // dos sistemas que no se hablan
+      gsap.set([q(".s10-ta"), q(".s10-tb")], { transformOrigin: "100% 50%" });
+      golpe(q(".s10-ta"), DOS, -6, 2.2);
+      golpe(q(".s10-tb"), SIS + 0.1, 6, 2.2);
+      pop(q(".s10-g1"), SIS + 0.2, 0.3);
+      pop(q(".s10-g2"), NO - 0.1, 0.3);
+      gsap.set(q(".s10-x"), { opacity: 0 });
+      tl.fromTo(q(".s10-x"), { opacity: 1, scale: 2.5, svgOrigin: "500 580" }, { opacity: 1, scale: 1, svgOrigin: "500 580", duration: 0.18, ease: "power4.in", immediateRender: false }, HAB - 0.1);
+      sacudon(HAB + 0.05, 1.3);
+      tl.to(q(".s10-g1"), { x: -30, rotation: -6, duration: 0.2 }, HAB + 0.1);
+      tl.to(q(".s10-g2"), { x: 30, rotation: 6, duration: 0.2 }, HAB + 0.1);
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

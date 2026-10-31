@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-next"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-next"] .s06-esc { position: absolute; inset: 0; }
+    [data-composition-id="s06-next"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-next"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s06-next"] .fig svg, [data-composition-id="s06-next"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s06-next"] .obj { position: absolute; }
+    [data-composition-id="s06-next"] .rev { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cormorant", serif; font-weight: 600; text-transform: uppercase; line-height: 0.9; white-space: nowrap; letter-spacing: 0.01em; color: #f6f1ea; text-shadow: 0 6px 0 #0e0c10, 0 0 30px rgba(14, 12, 16, 0.9); }
+    [data-composition-id="s06-next"] .rev.it { font-style: italic; font-weight: 500; text-transform: none; }
+    [data-composition-id="s06-next"] .rev.f { color: #ff2e88; }
+    [data-composition-id="s06-next"] .rev.d { color: #d8b25c; }
+    [data-composition-id="s06-next"] .rev.v { color: #5ce611; }
+    [data-composition-id="s06-next"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-next"] .sello { position: absolute; padding: 16px 40px 8px; border: 10px solid currentColor; border-radius: 8px; font-family: "Cormorant", serif; font-weight: 600; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #0e0c10; }
+    [data-composition-id="s06-next"] .tag { position: absolute; border: 6px solid #0e0c10; border-radius: 10px 40px 40px 10px; text-align: center; box-shadow: 8px 8px 0 #0e0c10; }
+    [data-composition-id="s06-next"] .tag .tag-ag { position: absolute; right: 22px; top: 50%; width: 22px; height: 22px; margin-top: -11px; border-radius: 50%; background: #0e0c10; }
+    [data-composition-id="s06-next"] .tag b { display: block; margin: 20px 66px 0 22px; font-family: "Cormorant", serif; font-weight: 600; font-size: 56px; line-height: 0.95; color: #0e0c10; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-next"] .tag small { display: block; margin: 6px 66px 0 22px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.12em; color: #0e0c10; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-next"] .globo { position: absolute; padding: 20px 30px; border-radius: 28px; border: 6px solid #0e0c10; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 42px; line-height: 1.12; white-space: nowrap; color: #0e0c10; background: #f6f1ea; box-shadow: 8px 8px 0 #ff2e88; }
+
+    [data-composition-id="s06-next"] .s06-hugo { left: 140px; top: 660px; }
+    [data-composition-id="s06-next"] .s06-caja { left: 520px; top: 1080px; width: 300px; height: 240px; }
+    [data-composition-id="s06-next"] .s06-next { top: 520px; font-size: 260px; }
+    [data-composition-id="s06-next"] .s06-gancho { left: -1100px; top: 560px; width: 1100px; height: 400px; }
+
+  </style>
+  <div id="root" data-composition-id="s06-next" data-width="1080" data-height="1920" data-duration="2.65">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="2.65" data-track-index="0">
+      <div class="s06-esc esc">
+
+        <div class="obj s06-caja"><svg viewBox="0 0 300 240" aria-hidden="true"><path d="M20 70 L150 20 L280 70 L280 210 L150 236 L20 210 Z" fill="#8d8892" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M20 70 L150 110 L280 70 M150 110 V236" stroke="#0e0c10" stroke-width="5" fill="none"/>
+  <text x="84" y="170" text-anchor="middle" transform="rotate(14 84 170)" font-family="IBM Plex Mono" font-weight="600" font-size="22" fill="#0e0c10">SISTEMA</text>
+  <text x="216" y="166" text-anchor="middle" transform="rotate(-14 216 166)" font-family="IBM Plex Mono" font-weight="600" font-size="22" fill="#0e0c10">1 TALLE</text></svg></div>
+        <div class="fig s06-hugo"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="s06h-cuerpo">
+  <path d="M172 480 L166 680" stroke="#0e0c10" stroke-width="54" stroke-linecap="round" fill="none"/><path d="M172 480 L166 680" stroke="#2a2530" stroke-width="40" stroke-linecap="round" fill="none"/><path d="M228 480 L234 680" stroke="#0e0c10" stroke-width="54" stroke-linecap="round" fill="none"/><path d="M228 480 L234 680" stroke="#2a2530" stroke-width="40" stroke-linecap="round" fill="none"/>
+  <path d="M126 676 Q126 652 166 652 Q194 652 194 690 L126 702 Z M274 676 Q274 652 234 652 Q206 652 206 690 L274 702 Z" fill="#8d8892" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s06h-bi"><path d="M148 300 L108 390 L112 466" stroke="#0e0c10" stroke-width="46" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M148 300 L108 390 L112 466" stroke="#f6f1ea" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="112" cy="474" r="18" fill="#f6f1ea" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></g>
+  <g class="s06h-bd"><path d="M252 300 L292 390 L288 466" stroke="#0e0c10" stroke-width="46" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M252 300 L292 390 L288 466" stroke="#f6f1ea" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="288" cy="474" r="18" fill="#f6f1ea" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></g>
+  <path d="M146 300 L118 352 L102 344 Z M254 300 L282 352 L298 344 Z" fill="#8d8892" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s06h-panza"><path d="M134 380 Q110 470 150 500 Q200 520 250 500 Q290 470 266 380 Z" fill="#f6f1ea" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M196 450 Q202 456 196 462" stroke="#0e0c10" stroke-width="5" fill="none"/></g>
+  <path d="M138 286 Q200 270 262 286 Q274 340 270 398 Q200 414 130 398 Q126 340 138 286 Z" fill="#8d8892" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M130 392 Q200 408 270 392" stroke="#0e0c10" stroke-width="5" fill="none" opacity="0.5"/>
+  <g class="s06h-costura"><path d="M150 330 L170 336 M230 336 L250 330 M158 360 L180 362 M220 362 L242 360" stroke="#0e0c10" stroke-width="4" stroke-linecap="round" opacity="0.55"/></g>
+  <path d="M138 286 Q200 270 262 286 Q200 300 138 286 Z" fill="#8d8892" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="184" y="246" width="32" height="34" fill="#f6f1ea" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s06h-tag"><path d="M226 300 L250 360" stroke="#d8b25c" stroke-width="3"/>
+      <path d="M232 356 L280 352 L292 392 L246 404 Z" fill="#d8b25c" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="246" cy="366" r="5" fill="#0e0c10"/>
+      <text data-layout-ignore x="268" y="386" text-anchor="middle" transform="rotate(-8 268 386)" font-family="IBM Plex Mono" font-weight="600" font-size="15" fill="#0e0c10">ÚNICO</text></g>
+  <g class="s06h-cabeza">
+    <ellipse cx="200" cy="194" rx="66" ry="68" fill="#f6f1ea" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M134 210 Q130 160 146 150 L150 200 Z M266 210 Q270 160 254 150 L250 200 Z" fill="#8d8892" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="134" cy="206" r="14" fill="#f6f1ea" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="266" cy="206" r="14" fill="#f6f1ea" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M170 140 Q200 130 230 140" stroke="#0e0c10" stroke-width="4" fill="none" opacity="0.35"/>
+    <circle cx="176" cy="190" r="7" fill="#0e0c10"/><circle cx="224" cy="190" r="7" fill="#0e0c10"/>
+    <path class="s06h-ceja" d="M158 168 L192 176 M208 176 L242 168" stroke="#8d8892" stroke-width="10" stroke-linecap="round"/>
+    <path d="M200 194 Q192 212 200 216" stroke="#0e0c10" stroke-width="4" fill="none"/>
+    <ellipse class="s06h-boca" cx="200" cy="246" rx="14" ry="7" fill="#0e0c10"/>
+    <path d="M156 232 Q180 214 200 226 Q220 214 244 232 Q222 238 200 232 Q178 238 156 232 Z" fill="#8d8892" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+</g></svg></div>
+        <div class="obj s06-gancho"><svg viewBox="0 0 1100 400" aria-hidden="true"><path d="M0 230 L1000 230 Q1080 230 1080 150 Q1080 80 1010 80 Q950 80 950 140" fill="none" stroke="#0e0c10" stroke-width="44" stroke-linecap="round"/>
+  <path d="M0 230 L1000 230 Q1080 230 1080 150 Q1080 80 1010 80 Q950 80 950 140" fill="none" stroke="#d8b25c" stroke-width="28" stroke-linecap="round"/></svg></div>
+        <div class="rev it f s06-next">Next.</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-next";
+      const DUR = 2.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // desfila: camina por la pasarela (balanceo + paso)
+      const desfila = (el, t, d, per = 0.32) => { tl.to(el, { rotation: 3, duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut", transformOrigin: "50% 100%" }, t); tl.to(el, { y: -10, duration: per / 2, yoyo: true, repeat: Math.max(1, Math.floor(d / (per / 2))) | 1, ease: "sine.inOut" }, t); };
+      // dibujar un trazo (stroke-dashoffset)
+      const dibujar = (el, t, d = 0.6) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); };
+
+
+      const PERO = 0.0, VENIA = 0.46, NEXT = 1.67;
+      const h = q(".s06-hugo");
+      // cuadro 0: Don Hugo indignado con la caja del sistema
+      gsap.set(h, { scale: 1.05, transformOrigin: "50% 100%" });
+      tl.fromTo(h, { x: -40 }, { x: 0, duration: 0.25, ease: "power2.out" }, 0);
+      tl.to(q(".s06h-bi"), { rotation: 150, svgOrigin: "148 300", duration: 0.25, ease: "back.out(2)" }, 0.05);
+      tl.to(q(".s06h-bd"), { rotation: -110, svgOrigin: "252 300", duration: 0.25, ease: "back.out(2)" }, 0.1);
+      habla(".s06h-boca", 0.0, 1.0, "200 246");
+      tl.to(h, { y: -18, duration: 0.1, yoyo: true, repeat: 5 }, VENIA - 0.2);
+      pop(q(".s06-caja"), VENIA - 0.1, 0.3, { rotation: 6 });
+      // NEXT: el gancho de vodevil se lo lleva
+      golpe(q(".s06-next"), NEXT, -4, 3);
+      sacudon(NEXT + 0.04, 1.4);
+      tl.to(q(".s06-gancho"), { x: 1100 + 80, duration: 0.22, ease: "power3.out" }, NEXT - 0.25);
+      tl.to([q(".s06-gancho"), h, q(".s06-caja")], { x: "-=1300", duration: 0.45, ease: "power3.in" }, NEXT + 0.1);
+      tl.to(h, { rotation: -20, duration: 0.3 }, NEXT + 0.1);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

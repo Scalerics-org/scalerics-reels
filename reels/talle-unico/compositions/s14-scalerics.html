@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-scalerics"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-scalerics"] .s14-esc { position: absolute; inset: 0; }
+    [data-composition-id="s14-scalerics"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-scalerics"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s14-scalerics"] .fig svg, [data-composition-id="s14-scalerics"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s14-scalerics"] .obj { position: absolute; }
+    [data-composition-id="s14-scalerics"] .rev { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cormorant", serif; font-weight: 600; text-transform: uppercase; line-height: 0.9; white-space: nowrap; letter-spacing: 0.01em; color: #f6f1ea; text-shadow: 0 6px 0 #0e0c10, 0 0 30px rgba(14, 12, 16, 0.9); }
+    [data-composition-id="s14-scalerics"] .rev.it { font-style: italic; font-weight: 500; text-transform: none; }
+    [data-composition-id="s14-scalerics"] .rev.f { color: #ff2e88; }
+    [data-composition-id="s14-scalerics"] .rev.d { color: #d8b25c; }
+    [data-composition-id="s14-scalerics"] .rev.v { color: #5ce611; }
+    [data-composition-id="s14-scalerics"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s14-scalerics"] .sello { position: absolute; padding: 16px 40px 8px; border: 10px solid currentColor; border-radius: 8px; font-family: "Cormorant", serif; font-weight: 600; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #0e0c10; }
+    [data-composition-id="s14-scalerics"] .tag { position: absolute; border: 6px solid #0e0c10; border-radius: 10px 40px 40px 10px; text-align: center; box-shadow: 8px 8px 0 #0e0c10; }
+    [data-composition-id="s14-scalerics"] .tag .tag-ag { position: absolute; right: 22px; top: 50%; width: 22px; height: 22px; margin-top: -11px; border-radius: 50%; background: #0e0c10; }
+    [data-composition-id="s14-scalerics"] .tag b { display: block; margin: 20px 66px 0 22px; font-family: "Cormorant", serif; font-weight: 600; font-size: 56px; line-height: 0.95; color: #0e0c10; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s14-scalerics"] .tag small { display: block; margin: 6px 66px 0 22px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.12em; color: #0e0c10; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s14-scalerics"] .globo { position: absolute; padding: 20px 30px; border-radius: 28px; border: 6px solid #0e0c10; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 42px; line-height: 1.12; white-space: nowrap; color: #0e0c10; background: #f6f1ea; box-shadow: 8px 8px 0 #ff2e88; }
+
+    [data-composition-id="s14-scalerics"] .s14-t1 { top: 470px; font-size: 104px; }
+    [data-composition-id="s14-scalerics"] .s14-t2 { top: 570px; font-size: 96px; }
+    [data-composition-id="s14-scalerics"] .s14-local { left: 260px; top: 720px; width: 560px; height: 640px; }
+    [data-composition-id="s14-scalerics"] .s14-chip { position: absolute; padding: 12px 22px 10px 18px; background: #0e0c10; border: 5px solid #5ce611; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.12em; color: #f6f1ea; white-space: nowrap; }
+    [data-composition-id="s14-scalerics"] .s14-chip i { display: inline-block; width: 16px; height: 28px; margin-right: 14px; border-right: 6px solid #5ce611; border-bottom: 6px solid #5ce611; transform: rotate(45deg) translateY(-6px); }
+
+  </style>
+  <div id="root" data-composition-id="s14-scalerics" data-width="1080" data-height="1920" data-duration="6.33">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="6.33" data-track-index="0">
+      <div class="s14-esc esc">
+
+        <div class="rev s14-t1">Hecho</div>
+        <div class="rev it v s14-t2">a medida</div>
+        <div class="obj s14-local"><svg viewBox="0 0 560 640" aria-hidden="true">
+  <rect x="80" y="260" width="400" height="360" fill="#2a2530" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M60 290 L500 290 L516 360 L44 360 Z" fill="#0e0c10" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><rect x="70" y="290" width="30" height="70" fill="#f6f1ea"/><rect x="130" y="290" width="30" height="70" fill="#f6f1ea"/><rect x="190" y="290" width="30" height="70" fill="#f6f1ea"/><rect x="250" y="290" width="30" height="70" fill="#f6f1ea"/><rect x="310" y="290" width="30" height="70" fill="#f6f1ea"/><rect x="370" y="290" width="30" height="70" fill="#f6f1ea"/><rect x="430" y="290" width="30" height="70" fill="#f6f1ea"/><path d="M60 290 L500 290 L516 360 L44 360 Z" fill="none" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="110" y="390" width="190" height="190" fill="#5ce611" opacity="0.18" stroke="#f6f1ea" stroke-width="6"/>
+  <rect x="330" y="400" width="120" height="210" fill="#0e0c10" stroke="#f6f1ea" stroke-width="6"/><circle cx="436" cy="510" r="8" fill="#d8b25c"/>
+  <rect x="60" y="606" width="440" height="22" fill="#f6f1ea" stroke="#0e0c10" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s14-saco"><path d="M70 150 Q280 120 490 150 L500 300 Q280 316 60 300 Z" fill="#0e0c10" stroke="#f6f1ea" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M200 140 L280 250 L360 140" fill="none" stroke="#5ce611" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M280 250 V306" stroke="#f6f1ea" stroke-width="4"/><circle cx="296" cy="276" r="7" fill="#5ce611"/>
+    <path class="s14-pesp" d="M84 170 Q280 142 476 170 M74 286 Q280 300 486 286" stroke="#5ce611" stroke-width="4" stroke-dasharray="10 10" fill="none"/>
+    <path d="M400 190 L440 190 L440 210" stroke="#ff2e88" stroke-width="10" fill="none"/></g>
+  <g class="s14-cartel"><rect x="160" y="10" width="240" height="120" rx="10" fill="#0e0c10" stroke="#f6f1ea" stroke-width="6"/>
+    <text x="280" y="62" text-anchor="middle" font-family="Cormorant" font-weight="600" font-size="40" fill="#f6f1ea">TU</text>
+    <text x="280" y="110" text-anchor="middle" font-family="Cormorant" font-weight="600" font-size="40" fill="#f6f1ea">NEGOCIO</text></g>
+  <path class="s14-cinta" d="M20 330 Q280 380 540 330" stroke="#5ce611" stroke-width="12" fill="none" stroke-linecap="round"/>
+</svg></div>
+        <div class="s14-chip s14-c0" style="left:50px;top:760px;transform:rotate(-4deg)"><i></i>STOCK</div><div class="s14-chip s14-c1" style="left:740px;top:820px;transform:rotate(4deg)"><i></i>PEDIDOS</div><div class="s14-chip s14-c2" style="left:30px;top:1010px;transform:rotate(3deg)"><i></i>PROVEEDORES</div><div class="s14-chip s14-c3" style="left:800px;top:1060px;transform:rotate(-3deg)"><i></i>CAJA</div><div class="s14-chip s14-c4" style="left:330px;top:1390px;transform:rotate(-2deg)"><i></i>TUS LOCALES</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-scalerics";
+      const DUR = 6.33;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // desfila: camina por la pasarela (balanceo + paso)
+      const desfila = (el, t, d, per = 0.32) => { tl.to(el, { rotation: 3, duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut", transformOrigin: "50% 100%" }, t); tl.to(el, { y: -10, duration: per / 2, yoyo: true, repeat: Math.max(1, Math.floor(d / (per / 2))) | 1, ease: "sine.inOut" }, t); };
+      // dibujar un trazo (stroke-dashoffset)
+      const dibujar = (el, t, d = 0.6) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); };
+
+
+      const SCAL = 0.08, HAC = 0.69, SIS = 1.20, MED = 1.77, STOCK = 2.31, PED = 2.99, PROV = 3.67, CAJA = 4.54, LOC = 5.69;
+      // cuadro 0: tu negocio, ahora con un saco a medida
+      tl.fromTo(q(".s14-local"), { scale: 0.85, opacity: 0.3, transformOrigin: "50% 100%" }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s14-saco"), { y: -500, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.3)" }, HAC);
+      golpe(q(".s14-t1"), SIS, -2, 2);
+      golpe(q(".s14-t2"), MED, 2, 2);
+      dibujar(q(".s14-cinta"), MED, 0.5);
+      tl.fromTo(q(".s14-pesp"), { strokeDashoffset: 0 }, { strokeDashoffset: -80, duration: 4.5, ease: "none" }, MED);
+      const T = [STOCK, PED, PROV, CAJA, LOC - 0.3];
+      T.forEach((t, i) => pop(q(".s14-c" + i), t - 0.05, 0.3));
+      tl.to(q(".s14-local"), { scale: 1.04, duration: 0.15, yoyo: true, repeat: 1 }, LOC);
+      vaiven(q(".s14-cartel"), 2.0, 4.0, { y: -6 }, 0.4);
+
+      // salida
+      tl.to(q("#s14-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
