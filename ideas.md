@@ -110,6 +110,11 @@
 
 ## En curso
 
+- 31-10 · `nominado` · Agente de IA · reality de convivencia tipo Gran Hermano: tus clientes te nominaron (corrida nocturna 3, reservado)
+- 31-10 · `pit-stop` · Agente de IA · transmisión de Fórmula 1: la parada en boxes de tu cliente (corrida nocturna 3, reservado)
+- 31-10 · `manos-a-la-obra` · Automatizaciones · programa infantil de manualidades: hoy hacemos el reporte del día a mano (corrida nocturna 3, reservado)
+- 31-10 · `el-divorcio` · CRM · mediación de divorcio: el vendedor se va y se lleva a los clientes en su celular (corrida nocturna 3, reservado)
+- 31-10 · `el-sommelier` · Tienda online · cata de vinos: el sommelier cata la experiencia de comprarte por Instagram (corrida nocturna 3, reservado)
 - 31-10 · `chimentos` · Automatizaciones · programa de chimentos (corrida nocturna 2, reservado)
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
