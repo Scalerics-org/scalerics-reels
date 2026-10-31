@@ -1,0 +1,104 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* luz de estudio que respira */
+    [data-composition-id="ambiente"] .amb-luz { position: absolute; inset: 0; opacity: 0.7;
+      background: radial-gradient(ellipse 600px 700px at 540px 920px, rgba(255, 240, 200, 0.10) 0%, rgba(255, 240, 200, 0.03) 55%, rgba(255, 240, 200, 0) 80%); }
+    /* se durmió: se apagan las luces del estudio */
+    [data-composition-id="ambiente"] .amb-noche { position: absolute; inset: 0; opacity: 0;
+      background: radial-gradient(ellipse 620px 760px at 540px 980px, rgba(8, 12, 50, 0.15) 0%, rgba(8, 12, 50, 0.62) 70%, rgba(8, 12, 50, 0.85) 100%); }
+    /* Scalerics: luz pareja y cálida */
+    [data-composition-id="ambiente"] .amb-calma { position: absolute; inset: 0; opacity: 0;
+      background: radial-gradient(ellipse 800px 980px at 540px 900px, rgba(255, 210, 63, 0.13) 0%, rgba(255, 210, 63, 0.05) 50%, rgba(255, 210, 63, 0) 82%); }
+    [data-composition-id="ambiente"] .amb-grano { position: absolute; left: -100px; top: -100px; width: 1280px; height: 2120px; opacity: 0.07; mix-blend-mode: screen; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 700px 1060px at 540px 930px, rgba(14, 26, 100, 0) 58%, rgba(14, 26, 100, 0.7) 100%); }
+    [data-composition-id="ambiente"] .amb-rot { font-family: "Fredoka", sans-serif; font-weight: 700; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.7">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="73.7" data-track-index="0">
+      <div class="amb-luz"></div>
+      <svg class="amb-grano" viewBox="0 0 1280 2120" aria-hidden="true">
+        <filter id="amb-f-grano"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="5" /><feColorMatrix type="saturate" values="0" /></filter>
+        <rect width="1280" height="2120" filter="url(#amb-f-grano)" />
+      </svg>
+      <div class="amb-vineta"></div>
+      <div class="amb-noche"></div>
+      <div class="amb-calma"></div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- guirnalda de banderines de cartulina, arriba de los subtítulos -->
+        <g class="amb-guirnalda">
+          <path d="M-20 40 Q540 150 1100 40" fill="none" stroke="#fbf8f0" stroke-width="4" opacity="0.8" />
+          <g class="amb-ban" transform="translate(40 58)"><path d="M-34 0 L34 6 L-2 74 Z" fill="#ffd23f" stroke="#141a3c" stroke-width="4" stroke-linejoin="round" /></g>
+          <g class="amb-ban" transform="translate(150 80)"><path d="M-34 0 L34 5 L-2 74 Z" fill="#ef4b3c" stroke="#141a3c" stroke-width="4" stroke-linejoin="round" /></g>
+          <g class="amb-ban" transform="translate(262 97)"><path d="M-34 0 L34 3 L0 74 Z" fill="#7ccf3a" stroke="#141a3c" stroke-width="4" stroke-linejoin="round" /></g>
+          <g class="amb-ban" transform="translate(376 108)"><path d="M-34 0 L34 2 L0 74 Z" fill="#fbf8f0" stroke="#141a3c" stroke-width="4" stroke-linejoin="round" /></g>
+          <g class="amb-ban" transform="translate(490 113)"><path d="M-34 0 L34 0 L0 74 Z" fill="#ffd23f" stroke="#141a3c" stroke-width="4" stroke-linejoin="round" /></g>
+          <g class="amb-ban" transform="translate(604 112)"><path d="M-34 0 L34 -1 L0 74 Z" fill="#ef4b3c" stroke="#141a3c" stroke-width="4" stroke-linejoin="round" /></g>
+          <g class="amb-ban" transform="translate(718 105)"><path d="M-34 0 L34 -3 L0 74 Z" fill="#7ccf3a" stroke="#141a3c" stroke-width="4" stroke-linejoin="round" /></g>
+          <g class="amb-ban" transform="translate(830 92)"><path d="M-34 0 L34 -5 L2 74 Z" fill="#fbf8f0" stroke="#141a3c" stroke-width="4" stroke-linejoin="round" /></g>
+          <g class="amb-ban" transform="translate(940 72)"><path d="M-34 0 L34 -6 L2 74 Z" fill="#ffd23f" stroke="#141a3c" stroke-width="4" stroke-linejoin="round" /></g>
+          <g class="amb-ban" transform="translate(1046 48)"><path d="M-34 0 L34 -7 L2 74 Z" fill="#ef4b3c" stroke="#141a3c" stroke-width="4" stroke-linejoin="round" /></g>
+        </g>
+        <!-- papelitos en los bordes -->
+        <g class="amb-papelitos">
+          <rect class="amb-p" x="40" y="720" width="22" height="14" fill="#ffd23f" transform="rotate(20 51 727)" />
+          <circle class="amb-p" cx="1030" cy="820" r="9" fill="#ef4b3c" />
+          <rect class="amb-p" x="1010" y="1100" width="20" height="12" fill="#7ccf3a" transform="rotate(-30 1020 1106)" />
+          <circle class="amb-p" cx="52" cy="1180" r="8" fill="#fbf8f0" />
+          <path class="amb-p" d="M30 960 L52 950 L46 974 Z" fill="#ef4b3c" />
+          <path class="amb-p" d="M1040 620 L1062 628 L1044 646 Z" fill="#ffd23f" />
+          <circle class="amb-p" cx="1036" cy="1400" r="8" fill="#ffd23f" />
+          <rect class="amb-p" x="34" y="1440" width="18" height="12" fill="#7ccf3a" transform="rotate(14 43 1446)" />
+        </g>
+        <!-- rótulo de abajo: tira de cartulina recortada con tijera dentada -->
+        <g class="amb-tira">
+          <path d="M250 1608 L830 1608 L840 1618 L830 1628 L840 1638 L830 1648 L840 1658 L830 1668 L250 1668 L240 1658 L250 1648 L240 1638 L250 1628 L240 1618 Z" fill="#ffd23f" stroke="#141a3c" stroke-width="4" stroke-linejoin="round" transform="rotate(-1.5 540 1638)" />
+          <g class="amb-r1"><circle class="amb-vivo" cx="282" cy="1638" r="10" fill="#ef4b3c" /><text class="amb-rot" x="556" y="1649" font-size="30" fill="#141a3c" text-anchor="middle" letter-spacing="3">MANOS A LA OBRA · EN VIVO</text></g>
+          <g class="amb-r2" opacity="0"><text class="amb-rot" x="540" y="1650" font-size="34" fill="#141a3c" text-anchor="middle" letter-spacing="3">SHHH · EL AYUDANTE DUERME</text></g>
+          <g class="amb-r3" opacity="0"><text class="amb-rot" x="540" y="1650" font-size="34" fill="#141a3c" text-anchor="middle" letter-spacing="3">TU NOCHE, PARA VOS</text></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.7;
+      const DUERME = 48.59; // "se durmió": se apaga el estudio
+      const SCALERICS = 50.93; // entra Orus: luz cálida
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // banderines que se hamacan (determinista)
+      root.querySelectorAll(".amb-ban").forEach((b, i) => {
+        const p = b.getAttribute("transform").match(/translate\(([-\d.]+) ([-\d.]+)\)/);
+        const per = 1.6 + (i % 3) * 0.25, n = Math.floor(DUR / per);
+        tl.fromTo(b, { rotation: -6, svgOrigin: p[1] + " " + p[2] }, { rotation: 6, svgOrigin: p[1] + " " + p[2], duration: per, ease: "sine.inOut", yoyo: true, repeat: Math.max(0, n - 1) }, (i % 4) * 0.2);
+      });
+      root.querySelectorAll(".amb-p").forEach((m, i) => {
+        tl.fromTo(m, { y: 0, rotation: 0 }, { y: -40 - (i % 3) * 20, rotation: (i % 2 ? 1 : -1) * 90, transformOrigin: "50% 50%", duration: DUR, ease: "none" }, 0);
+      });
+      tl.fromTo(q(".amb-luz"), { opacity: 0.6 }, { opacity: 0.9, duration: 2.2, ease: "sine.inOut", yoyo: true, repeat: Math.max(0, Math.floor(DUR / 2.2) - 1) }, 0);
+      tl.to(q(".amb-grano"), { x: 90, y: -70, duration: DUR, ease: "steps(" + Math.round(DUR * 12) + ")" }, 0);
+      tl.fromTo(q(".amb-vivo"), { opacity: 1 }, { opacity: 0.25, duration: 0.6, ease: "steps(1)", yoyo: true, repeat: Math.max(0, Math.floor(DUERME / 0.6) - 1) }, 0);
+
+      // se durmió
+      tl.to(q(".amb-noche"), { opacity: 1, duration: 0.8, ease: "power2.inOut" }, DUERME);
+      tl.to(q(".amb-r1"), { opacity: 0, duration: 0.3 }, DUERME);
+      tl.to(q(".amb-r2"), { opacity: 1, duration: 0.3 }, DUERME + 0.3);
+      // Scalerics
+      tl.to(q(".amb-noche"), { opacity: 0, duration: 1.0, ease: "power2.out" }, SCALERICS);
+      tl.to(q(".amb-calma"), { opacity: 1, duration: 1.4, ease: "power2.out" }, SCALERICS);
+      tl.to(q(".amb-r2"), { opacity: 0, duration: 0.3 }, SCALERICS);
+      tl.to(q(".amb-r3"), { opacity: 1, duration: 0.3 }, SCALERICS + 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

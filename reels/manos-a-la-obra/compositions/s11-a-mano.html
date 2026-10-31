@@ -1,0 +1,150 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-a-mano"] .escena { position: absolute; inset: 0; }
+    [data-composition-id="s11-a-mano"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-a-mano"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; filter: drop-shadow(8px 10px 0 rgba(20, 26, 60, 0.28)); }
+    [data-composition-id="s11-a-mano"] .t { stroke: #141a3c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-a-mano"] .fr { font-family: "Fredoka", sans-serif; font-weight: 700; }
+    [data-composition-id="s11-a-mano"] .cv { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s11-a-mano"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; }
+
+  </style>
+  <div id="root" data-composition-id="s11-a-mano" data-width="1080" data-height="1920" data-duration="6.40">
+    <div id="s11-escena" class="escena clip" data-start="0" data-duration="6.40" data-track-index="0">
+      <div class="escenario">
+        <svg class="principal" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-titulo"></g>
+          <!-- el regalo envuelto a mano -->
+          <g class="s11-regalo"><g transform="translate(300 960) rotate(-4)">
+            <rect x="-140" y="-80" width="280" height="220" fill="#ef4b3c" class="t" />
+            <rect x="-160" y="-130" width="320" height="60" fill="#ef4b3c" class="t" />
+            <rect x="-22" y="-130" width="44" height="270" fill="#ffd23f" class="t" stroke-width="4" />
+            <ellipse cx="-56" cy="-160" rx="56" ry="30" fill="#ffd23f" class="t" transform="rotate(-20 -56 -160)" />
+            <ellipse cx="56" cy="-160" rx="56" ry="30" fill="#ffd23f" class="t" transform="rotate(20 56 -160)" />
+            <circle cx="0" cy="-140" r="20" fill="#ffd23f" class="t" />
+            <path d="M-110 -30 L-90 -10 M90 40 L110 60 M-100 80 L-80 100 M70 -40 L90 -20" stroke="#fbf8f0" stroke-width="6" stroke-linecap="round" opacity="0.7" />
+          </g></g>
+          <!-- la tarjeta de cumpleaños -->
+          <g class="s11-tarjeta"><g transform="translate(780 950) rotate(5)">
+            <path d="M-150 -170 L150 -170 L150 170 L-150 170 Z" fill="#fbf8f0" class="t" />
+            <path d="M0 40 C-130 -40 -80 -150 0 -90 C80 -150 130 -40 0 40 Z" fill="#ef4b3c" class="t" />
+            <g class="s11-brillo" fill="#ffd23f">
+              <circle cx="-50" cy="-80" r="6" /><circle cx="30" cy="-70" r="5" /><circle cx="-10" cy="-30" r="6" /><circle cx="50" cy="-40" r="4" /><circle cx="-40" cy="-40" r="4" /><circle cx="10" cy="-100" r="4" />
+            </g>
+            <text class="cv" x="0" y="112" font-size="54" fill="#141a3c" text-anchor="middle">¡Feliz cumple!</text>
+          </g></g>
+          <g class="s11-chispas" fill="#ffd23f"></g>
+          <!-- tu noche -->
+          <g class="s11-noche"><g transform="translate(540 960)">
+            <circle cx="0" cy="0" r="180" fill="#141a3c" class="t" stroke-width="6" />
+            <path d="M-36 -126 A130 130 0 1 0 90 72 A100 100 0 1 1 -36 -126 Z" fill="#ffd23f" />
+            <circle cx="120" cy="-100" r="8" fill="#fbf8f0" /><circle cx="70" cy="-150" r="5" fill="#fbf8f0" /><circle cx="150" cy="-30" r="5" fill="#fbf8f0" />
+            <g transform="translate(84 92)">
+              <circle cx="0" cy="0" r="78" fill="#fbf8f0" class="t" />
+              <path d="M0 0 V-40" stroke="#141a3c" stroke-width="11" stroke-linecap="round" />
+              <path class="s11-aguja" d="M0 0 V-60" stroke="#ef4b3c" stroke-width="8" stroke-linecap="round" />
+              <circle cx="0" cy="0" r="8" fill="#141a3c" />
+            </g>
+          </g></g>
+          <path class="s11-x1" d="M330 760 L760 1170" fill="none" stroke="#ef4b3c" stroke-width="40" stroke-linecap="round" />
+          <path class="s11-x2" d="M760 760 L330 1170" fill="none" stroke="#ef4b3c" stroke-width="40" stroke-linecap="round" />
+          <g class="s11-tick1"><circle cx="300" cy="1200" r="34" fill="#7ccf3a" class="t" /><path d="M284 1200 L296 1214 L318 1188" fill="none" stroke="#141a3c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></g>
+          <g class="s11-tick2"><circle cx="790" cy="1200" r="34" fill="#7ccf3a" class="t" /><path d="M774 1200 L786 1214 L808 1188" fill="none" stroke="#141a3c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-a-mano";
+      const DUR = 6.40;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, at, padre) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); if (padre) padre.appendChild(e); return e; };
+      // letras recortadas: cada letra en su papelito de color, torcida
+      const COL = ["#ffd23f", "#ef4b3c", "#7ccf3a", "#fbf8f0"];
+      const ROT = [-7, 5, -3, 8, -5, 4, -8, 3, 6, -4, 7, -6];
+      const recorte = (padre, txt, cx, cy, s, k0, cols, giro) => {
+        const C = cols || COL, out = [], paso = s * 0.92, letras = [...txt];
+        const ancho = letras.reduce((a, c, i) => a + (i ? (c === " " || letras[i - 1] === " " ? paso * 0.85 : paso) : 0), 0);
+        let x = cx - ancho / 2;
+        letras.forEach((c, i) => {
+          if (c !== " ") {
+            const k = (k0 + i) % C.length;
+            const g = mk("g", { transform: `translate(${x.toFixed(1)} ${cy}) rotate(${ROT[(k0 + i) % ROT.length] * (giro ?? 1)})` }, padre);
+            const h = mk("g", {}, g);
+            mk("rect", { x: -s * 0.42, y: -s * 0.5, width: s * 0.84, height: s, fill: C[k], class: "t", "stroke-width": 4 }, h);
+            mk("text", { x: 0, y: s * 0.02, "font-size": s * 0.72, fill: C[k] === "#ef4b3c" || C[k] === "#2347c9" ? "#fbf8f0" : "#141a3c", "text-anchor": "middle", "dominant-baseline": "central", class: "fr" }, h).textContent = c;
+            out.push(h);
+          }
+          x += c === " " || letras[i + 1] === " " ? paso * 0.85 : paso;
+        });
+        return out;
+      };
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (el, t, d) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d ?? 0.5, ease: "power2.inOut" }, t); };
+      const temblor = (el, t, f) => { let px = 0, py = 0; [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => { tl.to(el, { x: "+=" + (x - px) * (f ?? 1), y: "+=" + (y - py) * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045); px = x; py = y; }); };
+      // etiqueta debajo del dibujo: tira de papel con borde dentado; textos [[texto, t, color], ...]
+      const etiquetas = (lista) => {
+        const g = mk("g", { class: "etq" }, q("svg.principal"));
+        const tira = mk("path", { d: "M250 1342 L830 1342 L842 1356 L830 1370 L842 1384 L830 1398 L250 1398 L238 1384 L250 1370 L238 1356 Z", fill: "#fbf8f0", class: "t", "stroke-width": 4 }, g);
+        tl.fromTo(tira, { opacity: 0, scaleX: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, duration: 0.3, ease: "back.out(1.6)" }, 0.05);
+        lista.forEach(([txt, t, col], i) => {
+          const e = mk("text", { x: 540, y: 1382, "font-size": 34, fill: col || "#141a3c", "text-anchor": "middle", "letter-spacing": 4, class: "fr", opacity: 0 }, g);
+          e.textContent = txt;
+          tl.fromTo(e, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+          if (i + 1 < lista.length) tl.to(e, { opacity: 0, y: -10, duration: 0.2 }, lista[i + 1][1] - 0.2);
+        });
+      };
+      // el número de PASO: la estrella entra girando y "PASO" se pega en letras recortadas
+      const entraPaso = (x, y, t, tnum) => {
+        const letras = recorte(q(".paso-titulo"), "PASO", x + 290, y - 40, 66, 0);
+        letras.forEach((h, i) => tl.fromTo(h, { opacity: 0, scale: 1.7, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, t + i * 0.05));
+        tl.fromTo(q(".paso"), { opacity: 0.3, scale: 0.4, rotation: -160, svgOrigin: `${x} ${y}` }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: `${x} ${y}`, duration: 0.45, ease: "back.out(1.5)" }, t);
+        tl.to(q(".paso"), { scale: 1.18, svgOrigin: `${x} ${y}`, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, tnum);
+        tl.to(q(".paso"), { rotation: 8, svgOrigin: `${x} ${y}`, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 7 }, tnum + 0.3);
+      };
+
+      const COSAS = 0.08, LINDAS = 0.85, MANO = 1.71, REGALO = 2.56, TARJETA = 3.5, CUMPLE = 3.93, NOCHE = 5.13, NO = 5.67;
+      etiquetas([["HECHO A MANO", 0.15], ["A MANO: SÍ", MANO], ["TU NOCHE: NO", NOCHE - 0.05, "#ef4b3c"]]);
+      const tit = recorte(q(".s11-titulo"), "HECHO A MANO", 540, 660, 76, 0);
+      tit.forEach((h, i) => tl.fromTo(h, { opacity: 0, scale: 1.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, 0.0 + i * 0.06));
+      tl.to(tit, { y: -8, duration: 0.3, ease: "sine.inOut", stagger: 0.04, yoyo: true, repeat: 1 }, LINDAS);
+      // "regalo" y "tarjeta"
+      gsap.set(qa(".s11-regalo, .s11-tarjeta, .s11-tick1, .s11-tick2, .s11-noche"), { opacity: 0 });
+      tl.fromTo(q(".s11-regalo"), { opacity: 0, y: 200, rotation: -20, svgOrigin: "300 960" }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "300 960", duration: 0.4, ease: "back.out(1.6)" }, LINDAS - 0.1);
+      tl.to(q(".s11-regalo"), { y: -12, duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 3 }, REGALO + 0.3);
+      pop(q(".s11-tick1"), REGALO + 0.1, 0.3);
+      tl.fromTo(q(".s11-tarjeta"), { opacity: 0, y: 200, rotation: 20, svgOrigin: "780 950" }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "780 950", duration: 0.4, ease: "back.out(1.6)" }, MANO - 0.1);
+      pop(q(".s11-tick2"), CUMPLE + 0.2, 0.3);
+      qa(".s11-brillo circle").forEach((c, i) => tl.fromTo(c, { opacity: 0.3 }, { opacity: 1, duration: 0.18, yoyo: true, repeat: 5, ease: "steps(1)" }, CUMPLE + i * 0.07));
+      // chispitas de brillantina
+      for (let i = 0; i < 10; i++) {
+        const x = 160 + ((i * 113) % 760), y = 760 + ((i * 89) % 380);
+        const s = mk("path", { d: `M${x} ${y - 16} L${x + 5} ${y - 5} L${x + 16} ${y} L${x + 5} ${y + 5} L${x} ${y + 16} L${x - 5} ${y + 5} L${x - 16} ${y} L${x - 5} ${y - 5} Z` }, q(".s11-chispas"));
+        tl.fromTo(s, { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, CUMPLE - 0.2 + (i % 5) * 0.12);
+      }
+      // "Tu noche, no.": se van los manualidades, entra la noche y se tacha
+      tl.to(q(".s11-regalo"), { x: -600, rotation: -30, svgOrigin: "300 960", duration: 0.35, ease: "power2.in" }, NOCHE - 0.4);
+      tl.to(q(".s11-tarjeta"), { x: 600, rotation: 30, svgOrigin: "780 950", duration: 0.35, ease: "power2.in" }, NOCHE - 0.4);
+      tl.to(qa(".s11-tick1, .s11-tick2"), { opacity: 0, duration: 0.15 }, NOCHE - 0.4);
+      tl.to(q(".s11-titulo"), { opacity: 0, y: -40, duration: 0.25 }, NOCHE - 0.3);
+      tl.fromTo(q(".s11-noche"), { opacity: 0, scale: 0.4, rotation: -60, svgOrigin: "540 960" }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: "540 960", duration: 0.4, ease: "back.out(1.5)" }, NOCHE - 0.1);
+      tl.fromTo(q(".s11-aguja"), { rotation: 0, svgOrigin: "0 0" }, { rotation: 720, svgOrigin: "0 0", duration: 1.2, ease: "none" }, NOCHE);
+      dibujar(q(".s11-x1"), NO - 0.08, 0.18);
+      dibujar(q(".s11-x2"), NO + 0.1, 0.18);
+      temblor(q(".s11-noche"), NO + 0.12, 0.8);
+      tl.to(q(".escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

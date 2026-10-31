@@ -1,0 +1,216 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-paso-cuatro"] .escena { position: absolute; inset: 0; }
+    [data-composition-id="s07-paso-cuatro"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-paso-cuatro"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; filter: drop-shadow(8px 10px 0 rgba(20, 26, 60, 0.28)); }
+    [data-composition-id="s07-paso-cuatro"] .t { stroke: #141a3c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-paso-cuatro"] .fr { font-family: "Fredoka", sans-serif; font-weight: 700; }
+    [data-composition-id="s07-paso-cuatro"] .cv { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s07-paso-cuatro"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; }
+
+  </style>
+  <div id="root" data-composition-id="s07-paso-cuatro" data-width="1080" data-height="1920" data-duration="6.08">
+    <div id="s07-escena" class="escena clip" data-start="0" data-duration="6.08" data-track-index="0">
+      <div class="escenario">
+        <svg class="principal" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s07-grito"></g>
+          <g class="seno"><g transform="translate(540 1020) scale(0.92)"><g class="seno-pelo" fill="#ef4b3c" stroke="#141a3c" stroke-width="5">
+              <circle cx="-92" cy="-112" r="46" /><circle cx="-104" cy="-44" r="44" /><circle cx="-84" cy="16" r="36" />
+              <circle cx="92" cy="-112" r="46" /><circle cx="104" cy="-44" r="44" /><circle cx="84" cy="16" r="36" />
+              <circle cx="-52" cy="-170" r="46" /><circle cx="0" cy="-186" r="48" /><circle cx="52" cy="-170" r="46" />
+            </g>
+            <!-- brazo de la mesa -->
+            <path d="M-118 80 Q-170 190 -150 300" fill="none" stroke="#141a3c" stroke-width="56" stroke-linecap="round" />
+            <path d="M-118 80 Q-170 190 -150 300" fill="none" stroke="#fbf8f0" stroke-width="46" stroke-linecap="round" />
+            <path d="M-150 360 Q-160 90 -60 40 L60 40 Q160 90 150 360 Z" fill="#fbf8f0" class="t" />
+            <path d="M-95 360 L-85 120 Q0 100 85 120 L95 360 Z" fill="#7ccf3a" class="t" />
+            <path d="M-85 120 L-55 44 M85 120 L55 44" fill="none" class="t" stroke-width="8" stroke="#7ccf3a" />
+            <rect x="-36" y="168" width="14" height="50" fill="#ffd23f" class="t" stroke-width="3" />
+            <rect x="-12" y="160" width="14" height="58" fill="#ef4b3c" class="t" stroke-width="3" />
+            <rect x="12" y="172" width="14" height="46" fill="#2347c9" class="t" stroke-width="3" />
+            <rect x="-52" y="198" width="104" height="70" rx="10" fill="#7ccf3a" class="t" />
+            <rect x="-24" y="-16" width="48" height="62" fill="#f6c49a" />
+            <ellipse cx="0" cy="-80" rx="74" ry="84" fill="#f6c49a" class="t" />
+            <g fill="#ef4b3c" stroke="#141a3c" stroke-width="5"><circle cx="-46" cy="-150" r="28" /><circle cx="0" cy="-160" r="30" /><circle cx="46" cy="-150" r="28" /></g>
+            <path d="M-80 -128 Q0 -176 80 -128" fill="none" stroke="#ffd23f" stroke-width="16" stroke-linecap="round" />
+            <g class="seno-ojos">
+              <ellipse cx="-28" cy="-92" rx="11" ry="15" fill="#141a3c" /><ellipse cx="28" cy="-92" rx="11" ry="15" fill="#141a3c" />
+              <circle cx="-24" cy="-97" r="4" fill="#fbf8f0" /><circle cx="32" cy="-97" r="4" fill="#fbf8f0" />
+            </g>
+            <path d="M-40 -104 L-48 -112 M-34 -108 L-38 -118 M40 -104 L48 -112 M34 -108 L38 -118" fill="none" class="t" stroke-width="4" />
+            <circle cx="-50" cy="-58" r="14" fill="#ef4b3c" opacity="0.45" /><circle cx="50" cy="-58" r="14" fill="#ef4b3c" opacity="0.45" />
+            <path d="M-6 -72 Q0 -64 6 -72" fill="none" class="t" stroke-width="4" />
+            <g class="seno-boca">
+              <path d="M-40 -48 Q0 -42 40 -48 Q32 0 0 2 Q-32 0 -40 -48 Z" fill="#141a3c" />
+              <path d="M-34 -46 Q0 -41 34 -46 L31 -36 Q0 -32 -31 -36 Z" fill="#fbf8f0" />
+              <path d="M-18 -12 Q0 -24 18 -12 Q10 0 0 1 Q-10 0 -18 -12 Z" fill="#ef4b3c" />
+            </g>
+            <!-- brazo que saluda -->
+            <g class="seno-brazo">
+              <path d="M118 80 Q190 40 214 -50" fill="none" stroke="#141a3c" stroke-width="56" stroke-linecap="round" />
+              <path d="M118 80 Q190 40 214 -50" fill="none" stroke="#fbf8f0" stroke-width="46" stroke-linecap="round" />
+              <g transform="translate(220 -88)">
+                <ellipse cx="0" cy="10" rx="30" ry="32" fill="#f6c49a" class="t" />
+                <rect x="-30" y="-44" width="14" height="40" rx="7" fill="#f6c49a" class="t" stroke-width="4" />
+                <rect x="-13" y="-54" width="14" height="48" rx="7" fill="#f6c49a" class="t" stroke-width="4" />
+                <rect x="4" y="-50" width="14" height="44" rx="7" fill="#f6c49a" class="t" stroke-width="4" />
+                <rect x="20" y="-36" width="13" height="34" rx="6.5" fill="#f6c49a" class="t" stroke-width="4" />
+                <ellipse cx="0" cy="14" rx="26" ry="24" fill="#f6c49a" />
+              </g>
+            </g>
+</g></g>
+          <g class="s07-pasos"><g class="paso"><g transform="translate(190 690)"><path class="paso-estrella t" d="M0 -100 L27 -38 L95 -31 L44 15 L59 81 L0 47 L-59 81 L-44 15 L-95 -31 L-27 -38 Z" fill="#ffd23f" stroke-width="6" />
+            <text class="fr paso-num" x="0" y="34" font-size="104" fill="#141a3c" text-anchor="middle">4</text>
+</g></g>
+          <g class="paso-titulo"></g></g>
+          <!-- la compu de cartón con la tienda online -->
+          <g class="s07-compu">
+            <rect x="160" y="790" width="760" height="380" rx="22" fill="#141a3c" class="t" />
+            <rect x="184" y="814" width="712" height="332" rx="8" fill="#fbf8f0" />
+            <rect x="184" y="814" width="712" height="50" fill="#7ccf3a" />
+            <text class="fr" x="210" y="850" font-size="28" fill="#141a3c" letter-spacing="2">MI TIENDA ONLINE</text>
+            <g transform="translate(320 1010)">
+              <rect x="-110" y="-120" width="220" height="250" rx="10" fill="#ffd23f" class="t" stroke-width="4" />
+              <path d="M-60 -40 H60 V10 H-60 Z M-60 -40 Q0 -76 60 -40" fill="#7a4a2a" class="t" stroke-width="4" />
+              <path d="M-60 -20 H60" stroke="#fbf8f0" stroke-width="6" />
+              <circle cx="0" cy="-66" r="9" fill="#ef4b3c" />
+              <text class="lx" x="0" y="50" font-size="26" fill="#141a3c" text-anchor="middle">Torta</text>
+              <text class="lx" x="-28" y="100" font-size="28" fill="#141a3c" text-anchor="middle">stock:</text>
+              <text class="cv s07-tres" x="52" y="106" font-size="54" fill="#141a3c" text-anchor="middle">3</text>
+              <path class="s07-borron" d="M30 82 Q52 70 74 84 Q52 96 30 88" fill="none" stroke="#ef4b3c" stroke-width="5" opacity="0" />
+              <path class="s07-dos" d="M38 74 Q52 60 66 74 Q70 86 40 108 H70" fill="none" stroke="#141a3c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <g transform="translate(540 1010)">
+              <rect x="-100" y="-120" width="200" height="250" rx="10" fill="#fbf8f0" class="t" stroke-width="4" />
+              <ellipse cx="0" cy="-30" rx="58" ry="34" fill="#e8a24f" class="t" stroke-width="4" />
+              <path d="M-30 -42 Q-24 -30 -30 -18 M0 -46 Q6 -30 0 -14 M30 -42 Q36 -30 30 -18" fill="none" stroke="#141a3c" stroke-width="3" />
+              <text class="lx" x="0" y="50" font-size="26" fill="#141a3c" text-anchor="middle">Pan</text>
+              <text class="lx" x="0" y="100" font-size="28" fill="#141a3c" text-anchor="middle">stock: ¿?</text>
+            </g>
+            <g transform="translate(760 1010)">
+              <rect x="-100" y="-120" width="200" height="250" rx="10" fill="#fbf8f0" class="t" stroke-width="4" />
+              <ellipse cx="0" cy="-30" rx="48" ry="22" fill="#7a4a2a" class="t" stroke-width="4" />
+              <ellipse cx="0" cy="-40" rx="48" ry="22" fill="#fbf8f0" class="t" stroke-width="4" />
+              <ellipse cx="0" cy="-50" rx="48" ry="22" fill="#7a4a2a" class="t" stroke-width="4" />
+              <text class="lx" x="0" y="50" font-size="26" fill="#141a3c" text-anchor="middle">Alfajor</text>
+              <text class="lx" x="0" y="100" font-size="28" fill="#141a3c" text-anchor="middle">stock: ¿?</text>
+            </g>
+            <path d="M110 1170 H970 L940 1212 H140 Z" fill="#b9bccb" class="t" />
+          </g>
+          <!-- el lápiz con goma -->
+          <g class="s07-lapiz"><g transform="translate(372 1116)"><g class="s07-lapiz-r"><g transform="rotate(35)">
+            <path d="M0 0 L-14 -36 L14 -36 Z" fill="#f6c49a" class="t" stroke-width="4" />
+            <path d="M0 0 L-5 -13 L5 -13 Z" fill="#141a3c" />
+            <rect x="-14" y="-236" width="28" height="200" fill="#ffd23f" class="t" stroke-width="4" />
+            <rect x="-14" y="-268" width="28" height="32" rx="6" fill="#ef4b3c" class="t" stroke-width="4" />
+          </g></g></g></g>
+          <g class="s07-amano"></g>
+          <g class="s07-papelitos"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-paso-cuatro";
+      const DUR = 6.08;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, at, padre) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); if (padre) padre.appendChild(e); return e; };
+      // letras recortadas: cada letra en su papelito de color, torcida
+      const COL = ["#ffd23f", "#ef4b3c", "#7ccf3a", "#fbf8f0"];
+      const ROT = [-7, 5, -3, 8, -5, 4, -8, 3, 6, -4, 7, -6];
+      const recorte = (padre, txt, cx, cy, s, k0, cols, giro) => {
+        const C = cols || COL, out = [], paso = s * 0.92, letras = [...txt];
+        const ancho = letras.reduce((a, c, i) => a + (i ? (c === " " || letras[i - 1] === " " ? paso * 0.85 : paso) : 0), 0);
+        let x = cx - ancho / 2;
+        letras.forEach((c, i) => {
+          if (c !== " ") {
+            const k = (k0 + i) % C.length;
+            const g = mk("g", { transform: `translate(${x.toFixed(1)} ${cy}) rotate(${ROT[(k0 + i) % ROT.length] * (giro ?? 1)})` }, padre);
+            const h = mk("g", {}, g);
+            mk("rect", { x: -s * 0.42, y: -s * 0.5, width: s * 0.84, height: s, fill: C[k], class: "t", "stroke-width": 4 }, h);
+            mk("text", { x: 0, y: s * 0.02, "font-size": s * 0.72, fill: C[k] === "#ef4b3c" || C[k] === "#2347c9" ? "#fbf8f0" : "#141a3c", "text-anchor": "middle", "dominant-baseline": "central", class: "fr" }, h).textContent = c;
+            out.push(h);
+          }
+          x += c === " " || letras[i + 1] === " " ? paso * 0.85 : paso;
+        });
+        return out;
+      };
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (el, t, d) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d ?? 0.5, ease: "power2.inOut" }, t); };
+      const temblor = (el, t, f) => { let px = 0, py = 0; [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => { tl.to(el, { x: "+=" + (x - px) * (f ?? 1), y: "+=" + (y - py) * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045); px = x; py = y; }); };
+      // etiqueta debajo del dibujo: tira de papel con borde dentado; textos [[texto, t, color], ...]
+      const etiquetas = (lista) => {
+        const g = mk("g", { class: "etq" }, q("svg.principal"));
+        const tira = mk("path", { d: "M250 1342 L830 1342 L842 1356 L830 1370 L842 1384 L830 1398 L250 1398 L238 1384 L250 1370 L238 1356 Z", fill: "#fbf8f0", class: "t", "stroke-width": 4 }, g);
+        tl.fromTo(tira, { opacity: 0, scaleX: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, duration: 0.3, ease: "back.out(1.6)" }, 0.05);
+        lista.forEach(([txt, t, col], i) => {
+          const e = mk("text", { x: 540, y: 1382, "font-size": 34, fill: col || "#141a3c", "text-anchor": "middle", "letter-spacing": 4, class: "fr", opacity: 0 }, g);
+          e.textContent = txt;
+          tl.fromTo(e, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+          if (i + 1 < lista.length) tl.to(e, { opacity: 0, y: -10, duration: 0.2 }, lista[i + 1][1] - 0.2);
+        });
+      };
+      // el número de PASO: la estrella entra girando y "PASO" se pega en letras recortadas
+      const entraPaso = (x, y, t, tnum) => {
+        const letras = recorte(q(".paso-titulo"), "PASO", x + 290, y - 40, 66, 0);
+        letras.forEach((h, i) => tl.fromTo(h, { opacity: 0, scale: 1.7, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, t + i * 0.05));
+        tl.fromTo(q(".paso"), { opacity: 0.3, scale: 0.4, rotation: -160, svgOrigin: `${x} ${y}` }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: `${x} ${y}`, duration: 0.45, ease: "back.out(1.5)" }, t);
+        tl.to(q(".paso"), { scale: 1.18, svgOrigin: `${x} ${y}`, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, tnum);
+        tl.to(q(".paso"), { rotation: 8, svgOrigin: `${x} ${y}`, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 7 }, tnum + 0.3);
+      };
+
+      const CUARENTA = 0.25, PASO = 1.56, CUATRO = 1.75, ACTUALIZAMOS = 2.41, STOCK = 3.17, ONLINE = 4.08, MANO = 4.8;
+      etiquetas([["¡A LOS CUARENTA!", 0.1, "#ef4b3c"], ["PASO CUATRO: EL STOCK", PASO], ["A MANO, CLARO", MANO - 0.05, "#ef4b3c"]]);
+      // "¡A los cuarenta!": la Seño festeja con papelitos
+      const grito = recorte(q(".s07-grito"), "¡A LOS 40!", 540, 680, 92, 0);
+      grito.forEach((h, i) => tl.fromTo(h, { opacity: i < 3 ? 1 : 0, scale: i < 3 ? 1 : 1.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, i < 3 ? 0 : i * 0.06));
+      tl.fromTo(q(".seno"), { y: 40 }, { y: 0, duration: 0.3, ease: "back.out(2)" }, 0);
+      gsap.set(q(".seno-brazo"), { svgOrigin: "120 80" });
+      for (let i = 0; i < 6; i++) tl.to(q(".seno-brazo"), { rotation: i % 2 ? -14 : 14, duration: 0.15, ease: "sine.inOut" }, i * 0.15);
+      tl.to(q(".seno"), { y: -26, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 3 }, 0.2);
+      const PC = ["#ffd23f", "#ef4b3c", "#7ccf3a", "#fbf8f0"];
+      for (let i = 0; i < 18; i++) {
+        const x = 120 + ((i * 197) % 840), r = mk("rect", { x: x, y: 560, width: 18, height: 12, fill: PC[i % 4] }, q(".s07-papelitos"));
+        tl.fromTo(r, { y: 0, rotation: 0, opacity: 1 }, { y: 520 + (i % 5) * 60, rotation: 180 + i * 40, transformOrigin: "50% 50%", duration: 1.4, ease: "power1.in" }, 0.05 + (i % 6) * 0.05);
+        tl.to(r, { opacity: 0, duration: 0.2 }, 1.3);
+      }
+      tl.to(grito, { y: -400, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.02 }, PASO - 0.3);
+      tl.to(q(".seno"), { x: -900, duration: 0.4, ease: "power2.in" }, PASO - 0.3);
+
+      // paso cuatro: la compu de cartón
+      tl.fromTo(q(".s07-pasos"), { opacity: 0 }, { opacity: 1, duration: 0.1 }, PASO - 0.1);
+      entraPaso(190, 690, PASO - 0.05, CUATRO);
+      tl.fromTo(q(".s07-compu"), { opacity: 0, y: 140 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)" }, PASO);
+      // "stock": la goma borra el 3
+      gsap.set(q(".s07-lapiz-r"), { rotation: 180, svgOrigin: "0 0" });
+      tl.fromTo(q(".s07-lapiz"), { opacity: 0, x: 400, y: 0 }, { opacity: 1, x: 154, y: -232, duration: 0.4, ease: "power2.out" }, ACTUALIZAMOS);
+      tl.to(q(".s07-lapiz"), { x: 174, duration: 0.08, yoyo: true, repeat: 7, ease: "none" }, STOCK - 0.15);
+      tl.to(q(".s07-tres"), { opacity: 0, duration: 0.6 }, STOCK - 0.1);
+      tl.to(q(".s07-borron"), { opacity: 0.5, duration: 0.3 }, STOCK);
+      // "online": da vuelta el lápiz y escribe el 2
+      tl.to(q(".s07-lapiz-r"), { rotation: 0, svgOrigin: "0 0", duration: 0.35, ease: "back.inOut(1.4)" }, ONLINE - 0.45);
+      tl.to(q(".s07-lapiz"), { x: 4, y: -20, duration: 0.35, ease: "back.inOut(1.4)" }, ONLINE - 0.45);
+      dibujar(q(".s07-dos"), ONLINE, 0.55);
+      tl.to(q(".s07-lapiz"), { x: 24, y: -36, duration: 0.14, yoyo: true, repeat: 3, ease: "sine.inOut" }, ONLINE);
+      // "¡a mano!"
+      const am = recorte(q(".s07-amano"), "¡A MANO!", 540, 690, 104, 1);
+      am.forEach((h, i) => tl.fromTo(h, { opacity: 0, scale: 2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, MANO - 0.15 + i * 0.05));
+      tl.to(q(".s07-pasos"), { opacity: 0, duration: 0.15 }, MANO - 0.2);
+      temblor(q(".s07-compu"), MANO + 0.2, 0.6);
+
+      tl.to(q(".escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

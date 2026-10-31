@@ -1,0 +1,11 @@
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="__ID__"] .escena { position: absolute; inset: 0; }
+    [data-composition-id="__ID__"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="__ID__"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; filter: drop-shadow(8px 10px 0 rgba(20, 26, 60, 0.28)); }
+    [data-composition-id="__ID__"] .t { stroke: #141a3c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="__ID__"] .fr { font-family: "Fredoka", sans-serif; font-weight: 700; }
+    [data-composition-id="__ID__"] .cv { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="__ID__"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; }

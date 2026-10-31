@@ -1,0 +1,113 @@
+<!-- DUR 9.19 -->
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+{{estilo}}
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="1080" data-height="1920" data-duration="__DUR__">
+    <div id="s03-escena" class="escena clip" data-start="0" data-duration="__DUR__" data-track-index="0">
+      <div class="escenario">
+        <svg class="principal" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la cartulina de materiales -->
+          <g class="s03-carton">
+            <rect x="110" y="590" width="860" height="720" fill="#fbf8f0" class="t" transform="rotate(-1.5 540 950)" />
+            <rect x="100" y="574" width="90" height="34" fill="#ffd23f" opacity="0.85" transform="rotate(-30 145 591)" />
+            <rect x="890" y="574" width="90" height="34" fill="#ffd23f" opacity="0.85" transform="rotate(30 935 591)" />
+            <rect x="96" y="1282" width="90" height="34" fill="#ffd23f" opacity="0.85" transform="rotate(30 141 1299)" />
+            <rect x="892" y="1282" width="90" height="34" fill="#ffd23f" opacity="0.85" transform="rotate(-30 937 1299)" />
+          </g>
+          <g class="s03-titulo"></g>
+
+          <!-- 1: cuarenta chats -->
+          <g class="s03-item s03-chats"><g transform="translate(330 846)">
+            <g class="s03-burbujas"></g>
+            <g class="s03-badge"><circle cx="112" cy="-82" r="42" fill="#ef4b3c" class="t" /><text class="fr s03-num" x="112" y="-70" font-size="34" fill="#fbf8f0" text-anchor="middle">x1</text></g>
+          </g></g>
+          <!-- 2: una planilla -->
+          <g class="s03-item s03-planilla"><g transform="translate(750 846) rotate(3)">
+            <rect x="-120" y="-90" width="240" height="170" fill="#fbf8f0" class="t" />
+            <rect x="-120" y="-90" width="240" height="34" fill="#7ccf3a" class="t" />
+            <path d="M-120 -22 H120 M-120 12 H120 M-120 46 H120 M-60 -90 V80 M0 -90 V80 M60 -90 V80" stroke="#2347c9" stroke-width="3" opacity="0.6" />
+            <path d="M-120 -90 H120 V80 H-120 Z" fill="none" class="t" />
+          </g></g>
+          <!-- 3: plasticola -->
+          <g class="s03-item s03-cola"><g transform="translate(330 1168) rotate(-6) scale(0.7)">
+            <path d="M-22 -150 L0 -196 L22 -150 Z" fill="#ef4b3c" class="t" />
+            <rect x="-42" y="-152" width="84" height="28" rx="8" fill="#ef4b3c" class="t" />
+            <rect x="-64" y="-126" width="128" height="200" rx="28" fill="#fbf8f0" class="t" />
+            <rect x="-64" y="-70" width="128" height="80" fill="#ffd23f" class="t" />
+            <text class="fr" x="0" y="-22" font-size="30" fill="#141a3c" text-anchor="middle">COLA</text>
+          </g></g>
+          <!-- 4: tres horas de tu noche -->
+          <g class="s03-item s03-noche"><g transform="translate(750 1140) scale(0.86)">
+            <circle cx="0" cy="0" r="104" fill="#141a3c" class="t" />
+            <path d="M-20 -70 A72 72 0 1 0 50 40 A56 56 0 1 1 -20 -70 Z" fill="#ffd23f" />
+            <circle cx="70" cy="-60" r="5" fill="#fbf8f0" /><circle cx="40" cy="-84" r="3" fill="#fbf8f0" /><circle cx="84" cy="-20" r="3" fill="#fbf8f0" />
+            <g transform="translate(46 52)">
+              <circle cx="0" cy="0" r="48" fill="#fbf8f0" class="t" />
+              <path d="M0 -40 V-32 M40 0 H32 M0 40 V32 M-40 0 H-32" stroke="#141a3c" stroke-width="4" stroke-linecap="round" />
+              <path class="s03-aguja-h" d="M0 0 V-22" stroke="#141a3c" stroke-width="7" stroke-linecap="round" />
+              <path class="s03-aguja-m" d="M0 0 V-34" stroke="#ef4b3c" stroke-width="5" stroke-linecap="round" />
+              <circle cx="0" cy="0" r="5" fill="#141a3c" />
+            </g>
+          </g></g>
+          <!-- rótulos manuscritos -->
+          <text class="cv s03-r s03-r1" x="330" y="1004" font-size="46" fill="#141a3c" text-anchor="middle">40 chats</text>
+          <text class="cv s03-r s03-r2" x="750" y="1004" font-size="46" fill="#141a3c" text-anchor="middle">1 planilla</text>
+          <text class="cv s03-r s03-r3" x="330" y="1262" font-size="46" fill="#141a3c" text-anchor="middle">plasticola</text>
+          <text class="cv s03-r s03-r4" x="750" y="1268" font-size="44" fill="#ef4b3c" text-anchor="middle">3 horas de tu noche</text>
+          <path class="s03-circ" d="M590 1236 Q750 1196 910 1236 Q930 1290 750 1292 Q570 1290 590 1236 Z" fill="none" stroke="#ef4b3c" stroke-width="6" stroke-linecap="round" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+{{helpers}}
+      const NECESITAR = 0.5, CUARENTA = 0.67, CHATS = 1.75, WHATSAPP = 3.17, PLANILLA = 4.58, PLASTICOLA = 6.22, TRES = 7.17, HORAS = 7.5, NOCHE = 8.25;
+      const tit = recorte(q(".s03-titulo"), "NECESITAMOS", 540, 668, 66, 1);
+      // la pila de chats: globitos de papel verde y blanco
+      const bur = [];
+      for (let i = 0; i < 6; i++) {
+        const g = mk("g", { transform: `translate(${-30 + (i % 3) * 22 - 20} ${-40 + i * 18}) rotate(${[-8, 6, -4, 9, -6, 3][i]})` }, q(".s03-burbujas"));
+        const h = mk("g", {}, g);
+        mk("path", { d: "M-100 -36 H100 Q112 -36 112 -24 V24 Q112 36 100 36 H-70 L-96 56 L-88 36 H-100 Q-112 36 -112 24 V-24 Q-112 -36 -100 -36 Z", fill: i % 2 ? "#fbf8f0" : "#7ccf3a", class: "t", "stroke-width": 4 }, h);
+        mk("path", { d: "M-84 -8 H60 M-84 14 H20", stroke: "#141a3c", "stroke-width": 6, "stroke-linecap": "round", opacity: 0.45 }, h);
+        bur.push(h);
+      }
+      etiquetas([["MATERIALES", 0.1], ["LO MÁS CARO: TU NOCHE", TRES - 0.1, "#ef4b3c"]]);
+
+      // cuadro 0: la cartulina ya está, el título se pega letra por letra
+      tl.fromTo(q(".s03-carton"), { y: 40, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tit.forEach((h, i) => tl.fromTo(h, { opacity: 0, scale: 1.7, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, 0.02 + i * 0.045));
+      gsap.set(qa(".s03-r"), { opacity: 0 });
+      const rotulo = (el, t) => tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, t);
+
+      // "cuarenta chats de WhatsApp": la pila crece y el contador sube
+      bur.forEach((b, i) => tl.fromTo(b, { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, CUARENTA + i * 0.35));
+      pop(q(".s03-badge"), CUARENTA + 0.1, 0.4);
+      const cont = { n: 1 };
+      tl.to(cont, { n: 40, duration: WHATSAPP - CUARENTA, ease: "power1.in", onUpdate: () => { q(".s03-num").textContent = "x" + Math.round(cont.n); } }, CUARENTA + 0.1);
+      temblor(q(".s03-badge"), WHATSAPP, 0.6);
+      rotulo(q(".s03-r1"), CHATS);
+      tl.to(q(".s03-burbujas"), { rotation: -3, svgOrigin: "330 846", duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 9 }, WHATSAPP);
+
+      // "una planilla"
+      pop(q(".s03-planilla"), PLANILLA - 0.15, 0.5);
+      rotulo(q(".s03-r2"), PLANILLA + 0.1);
+      // "plasticola"
+      tl.fromTo(q(".s03-cola"), { opacity: 0, y: -160, rotation: -30, svgOrigin: "330 1168" }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "330 1168", duration: 0.4, ease: "bounce.out" }, PLASTICOLA - 0.25);
+      rotulo(q(".s03-r3"), PLASTICOLA + 0.1);
+      // "¡y tres horas de tu noche!": la luna con el reloj, las agujas vuelan
+      gsap.set(q(".s03-noche"), { opacity: 0 });
+      tl.fromTo(q(".s03-noche"), { opacity: 0, scale: 0.3, rotation: -90, svgOrigin: "750 1140" }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: "750 1140", duration: 0.5, ease: "back.out(1.6)" }, TRES - 0.2);
+      tl.fromTo(q(".s03-aguja-m"), { rotation: 0, svgOrigin: "0 0" }, { rotation: 360 * 3, svgOrigin: "0 0", duration: DUR - HORAS, ease: "none" }, HORAS);
+      tl.fromTo(q(".s03-aguja-h"), { rotation: 0, svgOrigin: "0 0" }, { rotation: 90, svgOrigin: "0 0", duration: DUR - HORAS, ease: "none" }, HORAS);
+      rotulo(q(".s03-r4"), HORAS);
+      dibujar(q(".s03-circ"), NOCHE - 0.15, 0.45);
+      temblor(q(".s03-noche"), NOCHE + 0.1, 0.7);
+
+      {{salida}}
+    })();
+  </script>
+</template>

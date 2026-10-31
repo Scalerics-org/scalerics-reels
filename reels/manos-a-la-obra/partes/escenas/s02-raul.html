@@ -1,0 +1,82 @@
+<!-- DUR 5.02 -->
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+{{estilo}}
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="1080" data-height="1920" data-duration="__DUR__">
+    <div id="s02-escena" class="escena clip" data-start="0" data-duration="__DUR__" data-track-index="0">
+      <div class="escenario">
+        <svg class="principal" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- cartel de aplausos con lamparitas -->
+          <g class="s02-cartel">
+            <rect x="290" y="604" width="500" height="112" rx="24" fill="#ef4b3c" class="t" />
+            <text class="fr s02-aplausos" x="540" y="680" font-size="58" fill="#fbf8f0" text-anchor="middle" letter-spacing="6" opacity="0.45">APLAUSOS</text>
+            <g class="s02-focos"></g>
+          </g>
+          <!-- flecha de papel: dueño de un comercio -->
+          <g class="s02-flecha"><g transform="translate(560 800) rotate(14)">
+            <path d="M-150 -34 L60 -34 L60 -62 L130 0 L60 62 L60 34 L-150 34 L-130 0 Z" fill="#ffd23f" class="t" />
+            <text class="cv" x="-30" y="12" font-size="38" fill="#141a3c" text-anchor="middle">dueño de un</text>
+          </g></g>
+          <g class="s02-local"><g transform="translate(560 900) rotate(-6)">
+            <rect x="-90" y="-20" width="180" height="110" fill="#fbf8f0" class="t" />
+            <path d="M-104 -20 L104 -20 L92 -64 L-92 -64 Z" fill="#7ccf3a" class="t" />
+            <path d="M-56 -64 L-62 -20 M-18 -64 L-20 -20 M18 -64 L20 -20 M56 -64 L62 -20" stroke="#fbf8f0" stroke-width="10" />
+            <path d="M-104 -20 L104 -20 L92 -64 L-92 -64 Z" fill="none" class="t" />
+            <rect x="-24" y="20" width="48" height="70" fill="#2347c9" class="t" stroke-width="4" />
+            <text class="cv" x="0" y="8" font-size="30" fill="#141a3c" text-anchor="middle">comercio</text>
+          </g></g>
+          {{seno 250 1010 0.8}}
+          {{raul 820 1016 0.86}}
+          {{mesa}}
+          <!-- grillito de silencio -->
+          <g class="s02-cri"><text class="cv" x="930" y="806" font-size="44" fill="#fbf8f0" text-anchor="middle">cri, cri</text></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+{{helpers}}
+      const DUENO = 0.66, COMERCIO = 1.33, SALUDA = 2.15, RAUL = 2.58, HOLA = 3.8;
+      // lamparitas alrededor del cartel
+      const focos = [];
+      for (let i = 0; i < 9; i++) { focos.push(mk("circle", { cx: 310 + i * 57.5, cy: 604, r: 9, fill: "#ffd23f", class: "t", "stroke-width": 3 }, q(".s02-focos"))); focos.push(mk("circle", { cx: 310 + i * 57.5, cy: 716, r: 9, fill: "#ffd23f", class: "t", "stroke-width": 3 }, q(".s02-focos"))); }
+      etiquetas([["EL AYUDANTE DE HOY", 0.15], ["MODO: AGOTADO", HOLA - 0.05, "#ef4b3c"]]);
+
+      // entrada: la Seño ya está, Raúl entra arrastrando los pies desde la derecha
+      tl.fromTo(q(".seno"), { x: -40, opacity: 0.7 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".mesa"), { y: 30 }, { y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".raul"), { x: 320 }, { x: 0, duration: 0.9, ease: "power1.out" }, 0);
+      tl.to(q(".raul"), { y: -8, duration: 0.15, ease: "sine.inOut", yoyo: true, repeat: 5 }, 0);
+      tl.fromTo(q(".s02-cartel"), { opacity: 0.4, y: -20 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0);
+      // la Seño lo señala
+      gsap.set(q(".seno-brazo"), { svgOrigin: "120 80" });
+      tl.to(q(".seno-brazo"), { rotation: 62, duration: 0.3, ease: "back.out(1.6)" }, DUENO - 0.3);
+      tl.fromTo(q(".s02-flecha"), { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.6)" }, DUENO - 0.05);
+      pop(q(".s02-local"), COMERCIO - 0.1, 0.5);
+      tl.to(q(".s02-flecha"), { x: 10, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 3 }, DUENO + 0.3);
+
+      // "¡Saludá, Raúl!": el cartel se prende
+      tl.to(q(".s02-aplausos"), { opacity: 1, duration: 0.1 }, SALUDA);
+      focos.forEach((f, i) => tl.fromTo(f, { fill: "#ffd23f" }, { fill: "#fbf8f0", duration: 0.12, ease: "steps(1)", yoyo: true, repeat: 7 }, SALUDA + (i % 2) * 0.12));
+      temblor(q(".s02-cartel"), SALUDA, 0.5);
+      tl.to(q(".seno-brazo"), { rotation: 20, duration: 0.25, ease: "back.out(1.6)" }, RAUL - 0.1);
+      tl.to(q(".seno-brazo"), { rotation: 0, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 2 }, RAUL + 0.2);
+      tl.to(q(".seno"), { y: -14, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, SALUDA);
+
+      // "Hola.": se apaga todo; Raúl levanta la mano apenitas
+      tl.to(q(".s02-aplausos"), { opacity: 0.35, duration: 0.15 }, HOLA - 0.25);
+      gsap.set(q(".raul-brazo"), { svgOrigin: "118 80" });
+      tl.to(q(".raul-brazo"), { rotation: -38, duration: 0.6, ease: "power1.inOut" }, HOLA - 0.2);
+      tl.to(q(".raul-brazo"), { rotation: -30, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, HOLA + 0.4);
+      tl.to(q(".raul-parpado"), { scaleY: 1.7, svgOrigin: "0 -96", duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 1 }, HOLA + 0.2);
+      tl.to(q(".raul-cabeza"), { rotation: 6, svgOrigin: "0 0", duration: 0.8, ease: "sine.inOut" }, HOLA);
+      tl.fromTo(q(".s02-cri"), { opacity: 0, y: 10 }, { opacity: 0.85, y: 0, duration: 0.3 }, HOLA + 0.4);
+      tl.to(q(".s02-cri"), { x: 6, duration: 0.1, yoyo: true, repeat: 5 }, HOLA + 0.5);
+
+      {{salida}}
+    })();
+  </script>
+</template>

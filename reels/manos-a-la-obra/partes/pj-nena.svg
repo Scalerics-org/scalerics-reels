@@ -1,0 +1,17 @@
+<path d="M-110 260 Q-104 60 0 46 Q104 60 110 260 Z" fill="#ffd23f" class="t" />
+            <g class="nena-brazo">
+              <path d="M70 80 Q120 0 118 -110" fill="none" stroke="#141a3c" stroke-width="40" stroke-linecap="round" />
+              <path d="M70 80 Q120 0 118 -110" fill="none" stroke="#ffd23f" stroke-width="31" stroke-linecap="round" />
+              <ellipse cx="118" cy="-134" rx="20" ry="24" fill="#f6c49a" class="t" stroke-width="4" />
+            </g>
+            <ellipse cx="-80" cy="-70" rx="22" ry="40" fill="#7a4a2a" class="t" transform="rotate(20 -80 -70)" />
+            <ellipse cx="80" cy="-70" rx="22" ry="40" fill="#7a4a2a" class="t" transform="rotate(-20 80 -70)" />
+            <path d="M-76 -112 L-96 -126 L-94 -98 Z M-76 -112 L-56 -126 L-58 -98 Z" fill="#ef4b3c" class="t" stroke-width="3" />
+            <path d="M76 -112 L96 -126 L94 -98 Z M76 -112 L56 -126 L58 -98 Z" fill="#ef4b3c" class="t" stroke-width="3" />
+            <rect x="-18" y="0" width="36" height="50" fill="#f6c49a" />
+            <circle cx="0" cy="-60" r="64" fill="#f6c49a" class="t" />
+            <path d="M-64 -66 Q-60 -130 0 -128 Q60 -130 64 -66 Q40 -96 0 -92 Q-40 -96 -64 -66 Z" fill="#7a4a2a" class="t" stroke-width="4" />
+            <ellipse cx="-22" cy="-56" rx="7" ry="10" fill="#141a3c" /><ellipse cx="22" cy="-56" rx="7" ry="10" fill="#141a3c" />
+            <circle cx="-19" cy="-60" r="3" fill="#fbf8f0" /><circle cx="25" cy="-60" r="3" fill="#fbf8f0" />
+            <circle cx="-38" cy="-34" r="10" fill="#ef4b3c" opacity="0.4" /><circle cx="38" cy="-34" r="10" fill="#ef4b3c" opacity="0.4" />
+            <ellipse class="nena-boca" cx="0" cy="-22" rx="9" ry="11" fill="#141a3c" />

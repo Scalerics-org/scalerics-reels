@@ -1,0 +1,99 @@
+<!-- DUR 5.66 -->
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+{{estilo}}
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="1080" data-height="1920" data-duration="__DUR__">
+    <div id="s05-escena" class="escena clip" data-start="0" data-duration="__DUR__" data-track-index="0">
+      <div class="escenario">
+        <svg class="principal" viewBox="0 0 1080 1920" aria-hidden="true">
+          {{paso 2 190 690}}
+          <g class="paso-titulo"></g>
+          {{raul 930 1080 0.62}}
+          <!-- la planilla de papel -->
+          <g class="s05-planilla">
+            <rect x="110" y="790" width="700" height="380" fill="#fbf8f0" class="t" />
+            <rect x="110" y="790" width="700" height="56" fill="#7ccf3a" class="t" />
+            <text class="fr" x="140" y="830" font-size="28" fill="#141a3c" letter-spacing="2">PEDIDO</text>
+            <text class="fr" x="470" y="830" font-size="28" fill="#141a3c" letter-spacing="2">CLIENTE</text>
+            <text class="fr" x="670" y="830" font-size="28" fill="#141a3c" letter-spacing="2">LISTO</text>
+            <path d="M110 910 H810 M450 846 V1170 M650 846 V1170" stroke="#2347c9" stroke-width="3" opacity="0.55" />
+            <text class="cv" x="130" y="892" font-size="36" fill="#141a3c">medialunas x12</text>
+            <text class="cv" x="470" y="892" font-size="36" fill="#141a3c">Ana</text>
+            <path d="M700 870 L716 888 L746 856" fill="none" stroke="#7ccf3a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- filas de abajo: las que se corren -->
+            <g class="s05-filas">
+              <path d="M110 974 H810 M110 1038 H810 M110 1102 H810" stroke="#2347c9" stroke-width="3" opacity="0.55" />
+              <g class="s05-tira"><g transform="translate(380 942) rotate(0)">
+                <rect x="-262" y="-26" width="524" height="54" fill="#ffd23f" class="t" stroke-width="4" />
+                <text class="cv" x="-240" y="12" font-size="36" fill="#141a3c">torta chocolate</text>
+                <text class="cv" x="100" y="12" font-size="36" fill="#141a3c">Marta</text>
+              </g></g>
+              <text class="cv" x="130" y="1020" font-size="36" fill="#141a3c">pan dulce</text>
+              <text class="cv" x="470" y="1020" font-size="36" fill="#141a3c">Jorge</text>
+              <text class="cv" x="130" y="1084" font-size="36" fill="#141a3c">alfajores x6</text>
+              <text class="cv" x="470" y="1084" font-size="36" fill="#141a3c">Sofi</text>
+            </g>
+            <path d="M110 790 H810 V1170 H110 Z" fill="none" class="t" />
+          </g>
+          <!-- el gotón de plasticola -->
+          <path class="s05-gota" d="M300 930 Q330 912 370 928 Q410 914 440 932 Q420 956 370 952 Q320 958 300 930 Z" fill="#fbf8f0" class="t" stroke-width="3" />
+          <g class="s05-cola"><g transform="translate(470 880) rotate(150) scale(0.6)">
+            <path d="M-22 -150 L0 -196 L22 -150 Z" fill="#ef4b3c" class="t" />
+            <rect x="-42" y="-152" width="84" height="28" rx="8" fill="#ef4b3c" class="t" />
+            <rect x="-64" y="-126" width="128" height="200" rx="28" fill="#fbf8f0" class="t" />
+            <rect x="-64" y="-70" width="128" height="80" fill="#ffd23f" class="t" />
+          </g></g>
+          <!-- la regla de "bien derechito" -->
+          <g class="s05-regla">
+            <rect x="96" y="962" width="560" height="44" fill="#7ccf3a" class="t" stroke-width="4" />
+            <path d="M136 962 V980 M176 962 V990 M216 962 V980 M256 962 V990 M296 962 V980 M336 962 V990 M376 962 V980 M416 962 V990 M456 962 V980 M496 962 V990 M536 962 V980 M576 962 V990 M616 962 V980" stroke="#141a3c" stroke-width="3" />
+          </g>
+          <path class="s05-ok" d="M690 930 L712 954 L752 908" fill="none" stroke="#7ccf3a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+          <!-- se corrió: círculo de crayón y signo -->
+          <path class="s05-circ" d="M90 920 Q450 870 830 940 Q860 1110 460 1130 Q80 1120 90 920 Z" fill="none" stroke="#ef4b3c" stroke-width="7" stroke-linecap="round" />
+          <text class="fr s05-uy" x="860" y="900" font-size="80" fill="#ef4b3c" text-anchor="middle">?!</text>
+          {{mesa}}
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+{{helpers}}
+      const DOS = 0.25, PEGAMOS = 0.91, PLANILLA = 1.5, BIEN = 2.46, DERECHITO = 2.75, CORRIO = 3.98, FILA = 4.58;
+      etiquetas([["PASO DOS: PEGAR", 0.15], ["BIEN DERECHITO", BIEN, "#2347c9"], ["UPS", CORRIO, "#ef4b3c"]]);
+      entraPaso(190, 690, 0, DOS);
+      tl.fromTo(q(".s05-planilla"), { y: 70, opacity: 0, rotation: -3, svgOrigin: "460 980" }, { y: 0, opacity: 1, rotation: 0, svgOrigin: "460 980", duration: 0.4, ease: "back.out(1.4)" }, 0.05);
+      tl.fromTo(q(".mesa"), { y: 30 }, { y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".raul"), { x: 100, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 0.1);
+
+      // "pegamos": la plasticola aprieta y la tira se pega
+      tl.fromTo(q(".s05-cola"), { opacity: 0, y: -120 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.5)" }, PEGAMOS - 0.45);
+      tl.to(q(".s05-cola"), { scaleX: 0.9, svgOrigin: "470 880", duration: 0.1, yoyo: true, repeat: 3 }, PEGAMOS - 0.15);
+      tl.fromTo(q(".s05-gota"), { opacity: 0, scale: 0.2, svgOrigin: "370 934" }, { opacity: 1, scale: 1, svgOrigin: "370 934", duration: 0.3, ease: "back.out(2)" }, PEGAMOS - 0.1);
+      tl.to(q(".s05-cola"), { opacity: 0, y: -140, duration: 0.25 }, PEGAMOS + 0.3);
+      tl.fromTo(q(".s05-tira"), { opacity: 0, y: -200, rotation: -14, scale: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, rotation: 0, scale: 1, transformOrigin: "50% 50%", duration: 0.25, ease: "power3.in" }, PLANILLA - 0.2);
+      tl.to(q(".s05-gota"), { opacity: 0, duration: 0.05 }, PLANILLA + 0.05);
+      temblor(q(".s05-planilla"), PLANILLA + 0.06, 0.5);
+
+      // "¡Bien derechito!": la regla pasa y tilde verde
+      tl.fromTo(q(".s05-regla"), { opacity: 0, x: -400 }, { opacity: 1, x: 0, duration: 0.35, ease: "power2.out" }, BIEN - 0.1);
+      tl.to(q(".s05-regla"), { x: 60, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, BIEN + 0.3);
+      tl.to(q(".s05-regla"), { opacity: 0, y: 80, duration: 0.25 }, CORRIO - 0.45);
+      dibujar(q(".s05-ok"), DERECHITO + 0.1, 0.3);
+
+      // "Se me corrió una fila.": las filas de abajo se van torcidas
+      tl.to(q(".s05-ok"), { opacity: 0, duration: 0.15 }, CORRIO - 0.1);
+      tl.to(q(".s05-filas"), { rotation: 4, x: 46, y: 18, svgOrigin: "110 960", duration: 0.5, ease: "back.out(2)" }, CORRIO - 0.05);
+      tl.to(q(".s05-tira"), { rotation: -7, x: 30, transformOrigin: "50% 50%", duration: 0.4, ease: "back.out(2)" }, CORRIO + 0.1);
+      dibujar(q(".s05-circ"), FILA - 0.15, 0.5);
+      pop(q(".s05-uy"), FILA, 0.4);
+      tl.to(q(".raul-parpado"), { scaleY: 1.7, svgOrigin: "0 -96", duration: 0.25, ease: "sine.inOut" }, CORRIO + 0.2);
+      tl.to(q(".raul-cabeza"), { rotation: -8, svgOrigin: "0 0", duration: 0.5, ease: "sine.inOut" }, CORRIO);
+
+      {{salida}}
+    })();
+  </script>
+</template>

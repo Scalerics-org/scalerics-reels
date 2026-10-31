@@ -1,0 +1,78 @@
+<!-- DUR 5.07 -->
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+{{estilo}}
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="1080" data-height="1920" data-duration="__DUR__">
+    <div id="s12-escena" class="escena clip" data-start="0" data-duration="__DUR__" data-track-index="0">
+      <div class="escenario">
+        <svg class="principal" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s12-titulo"></g>
+          <!-- celular con WhatsApp -->
+          <g class="s12-cel">
+            <rect x="110" y="780" width="270" height="420" rx="36" fill="#141a3c" class="t" />
+            <rect x="128" y="814" width="234" height="370" rx="8" fill="#fbf8f0" />
+            <rect x="128" y="814" width="234" height="50" fill="#7ccf3a" />
+            <text class="lx" x="245" y="848" font-size="28" fill="#141a3c" text-anchor="middle">Pedidos</text>
+            <g class="s12-msgs"></g>
+          </g>
+          <!-- el camino de papel -->
+          <path class="s12-camino" d="M390 990 C460 900 500 1100 560 990" fill="none" stroke="#ffd23f" stroke-width="10" stroke-linecap="round" stroke-dasharray="4 22" />
+          <!-- la planilla que se llena sola -->
+          <g class="s12-planilla">
+            <rect x="570" y="780" width="400" height="420" fill="#fbf8f0" class="t" />
+            <rect x="570" y="780" width="400" height="54" fill="#7ccf3a" class="t" />
+            <text class="fr" x="594" y="818" font-size="26" fill="#141a3c" letter-spacing="2">PEDIDOS</text>
+            <text class="fr" x="870" y="818" font-size="26" fill="#141a3c" letter-spacing="2">OK</text>
+            <path d="M570 900 H970 M570 966 H970 M570 1032 H970 M570 1098 H970 M850 834 V1200" stroke="#2347c9" stroke-width="3" opacity="0.5" />
+            <g class="s12-filas"></g>
+            <path d="M570 780 H970 V1200 H570 Z" fill="none" class="t" />
+          </g>
+          <g class="s12-solo"><g transform="translate(470 1110) rotate(-8)">
+            <rect x="-80" y="-30" width="160" height="60" rx="8" fill="#ffd23f" class="t" stroke-width="4" />
+            <text class="fr" x="0" y="13" font-size="34" fill="#141a3c" text-anchor="middle" letter-spacing="3">SOLOS</text>
+          </g></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+{{helpers}}
+      const SCALERICS = 0.17, AUTO = 1.28, PEDIDOS = 2.65, WHATSAPP = 3.08, PASAN = 3.63, SOLOS = 3.85, PLANILLA = 4.27;
+      etiquetas([["SCALERICS", 0.1, "#2347c9"], ["SIN PLASTICOLA", PEDIDOS, "#2347c9"]]);
+      // "automatizaciones": letras recortadas, pero todas derechitas
+      const tit = recorte(q(".s12-titulo"), "AUTOMATIZACIONES", 540, 672, 58, 2, ["#7ccf3a", "#fbf8f0"], 0);
+      tit.forEach((h, i) => tl.fromTo(h, { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, AUTO - 0.25 + i * 0.025));
+      tl.fromTo(q(".s12-cel"), { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s12-planilla"), { opacity: 0, x: 200 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0.1);
+      tl.fromTo(q(".s12-camino"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.3);
+      tl.fromTo(q(".s12-camino"), { strokeDashoffset: 0 }, { strokeDashoffset: -260, duration: DUR, ease: "none" }, 0);
+      // los mensajes llegan y viajan solos a la planilla
+      const N = 4;
+      for (let i = 0; i < N; i++) {
+        const y = 900 + i * 70;
+        const m = mk("rect", { x: 144, y: y, width: 180, height: 50, rx: 14, fill: "#7ccf3a", class: "t", "stroke-width": 3 }, q(".s12-msgs"));
+        mk("path", { d: `M162 ${y + 25} H${270 - i * 14}`, stroke: "#141a3c", "stroke-width": 6, "stroke-linecap": "round", opacity: 0.4 }, q(".s12-msgs"));
+        const t0 = PEDIDOS - 0.9 + i * 0.4;
+        tl.fromTo(m, { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2)" }, t0);
+        // el papelito que viaja
+        const v = mk("rect", { x: 380, y: 970, width: 70, height: 40, rx: 8, fill: "#7ccf3a", class: "t", "stroke-width": 3, opacity: 0 }, q("svg.principal"));
+        const tv = PASAN - 0.6 + i * 0.32;
+        tl.fromTo(v, { opacity: 1, x: 0, y: 0 }, { x: 190, y: -40 + i * 10, duration: 0.3, ease: "power1.inOut" }, tv);
+        tl.to(v, { opacity: 0, duration: 0.08 }, tv + 0.3);
+        // y aparece la fila escrita, con su tilde
+        const fy = 868 + i * 66;
+        const f = mk("g", {}, q(".s12-filas"));
+        mk("rect", { x: 586, y: fy - 22, width: 250, height: 40, rx: 6, fill: "#ffd23f", opacity: 0.55 }, f);
+        mk("text", { x: 596, y: fy + 8, "font-size": 30, fill: "#141a3c", class: "lx" }, f).textContent = ["Torta · Marta", "Pan · Jorge", "Alfajores · Sofi", "Medialunas · Ana"][i];
+        mk("path", { d: `M884 ${fy} L898 ${fy + 14} L926 ${fy - 14}`, fill: "none", stroke: "#7ccf3a", "stroke-width": 8, "stroke-linecap": "round", "stroke-linejoin": "round" }, f);
+        tl.fromTo(f, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.2, ease: "power2.out" }, tv + 0.28);
+      }
+      tl.fromTo(q(".s12-solo"), { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, SOLOS - 0.05);
+      tl.to(q(".s12-planilla"), { y: -8, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, PLANILLA);
+      {{salida}}
+    })();
+  </script>
+</template>

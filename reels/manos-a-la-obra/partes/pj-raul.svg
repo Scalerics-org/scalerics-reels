@@ -1,0 +1,43 @@
+<!-- brazo izquierdo, colgando -->
+            <path d="M-118 80 Q-160 200 -146 300" fill="none" stroke="#141a3c" stroke-width="56" stroke-linecap="round" />
+            <path d="M-118 80 Q-160 200 -146 300" fill="none" stroke="#fbf8f0" stroke-width="46" stroke-linecap="round" />
+            <path d="M-150 360 Q-160 90 -60 40 L60 40 Q160 90 150 360 Z" fill="#fbf8f0" class="t" />
+            <path d="M-100 360 L-90 150 Q0 132 90 150 L100 360 Z" fill="#ffd23f" class="t" />
+            <path d="M-90 150 L-58 46 M90 150 L58 46" fill="none" stroke="#ffd23f" stroke-width="12" />
+            <path d="M-90 150 L-58 46 M90 150 L58 46" fill="none" stroke="#141a3c" stroke-width="3" opacity="0.5" />
+            <g transform="rotate(12 0 60)">
+              <path d="M-10 74 L-24 210 L0 236 L22 210 L10 74 Z" fill="#ef4b3c" class="t" stroke-width="4" />
+              <path d="M-15 52 L15 52 L11 76 L-11 76 Z" fill="#ef4b3c" class="t" stroke-width="4" />
+            </g>
+            <path d="M-92 168 Q0 152 92 168 L96 360 L-96 360 Z" fill="#ffd23f" />
+            <path d="M-92 168 Q0 152 92 168" fill="none" class="t" stroke-width="4" />
+            <text class="fr" x="0" y="232" font-size="33" fill="#141a3c" text-anchor="middle" letter-spacing="0">AYUDANTE</text>
+            <path d="M-46 44 L-18 82 L0 54 L18 82 L46 44" fill="#fbf8f0" class="t" stroke-width="4" />
+            <rect x="-24" y="-14" width="48" height="60" fill="#f6c49a" />
+            <path d="M-24 46 L0 56 L24 46" fill="none" class="t" stroke-width="4" />
+            <g class="raul-cabeza">
+              <circle cx="-72" cy="-76" r="15" fill="#f6c49a" class="t" stroke-width="4" />
+              <circle cx="72" cy="-76" r="15" fill="#f6c49a" class="t" stroke-width="4" />
+              <ellipse cx="0" cy="-82" rx="72" ry="86" fill="#f6c49a" class="t" />
+              <path d="M-74 -112 Q-92 -70 -74 -34 L-62 -46 Q-74 -80 -58 -114 Z" fill="#b9bccb" class="t" stroke-width="4" />
+              <path d="M74 -112 Q92 -70 74 -34 L62 -46 Q74 -80 58 -114 Z" fill="#b9bccb" class="t" stroke-width="4" />
+              <path d="M-14 -166 Q-4 -186 8 -168 M6 -168 Q18 -184 26 -164" fill="none" stroke="#b9bccb" stroke-width="5" stroke-linecap="round" />
+              <path d="M-48 -110 L-14 -118 M48 -110 L14 -118" fill="none" class="t" stroke-width="7" stroke="#8e92a8" />
+              <ellipse cx="-30" cy="-88" rx="16" ry="12" fill="#fbf8f0" class="t" stroke-width="3" />
+              <ellipse cx="30" cy="-88" rx="16" ry="12" fill="#fbf8f0" class="t" stroke-width="3" />
+              <circle cx="-30" cy="-83" r="5.5" fill="#141a3c" /><circle cx="30" cy="-83" r="5.5" fill="#141a3c" />
+              <g class="raul-parpado">
+                <path d="M-48 -88 Q-30 -104 -12 -88 Z" fill="#f6c49a" class="t" stroke-width="3" />
+                <path d="M48 -88 Q30 -104 12 -88 Z" fill="#f6c49a" class="t" stroke-width="3" />
+              </g>
+              <path d="M-44 -70 Q-30 -62 -16 -70 M44 -70 Q30 -62 16 -70" fill="none" stroke="#7d86b8" stroke-width="5" stroke-linecap="round" />
+              <path d="M2 -82 Q-12 -56 6 -52" fill="none" class="t" stroke-width="4" />
+              <path d="M-42 -36 Q-22 -52 0 -42 Q22 -52 42 -36 Q22 -26 0 -34 Q-22 -26 -42 -36 Z" fill="#b9bccb" class="t" stroke-width="4" />
+              <path class="raul-boca t" d="M-14 -18 Q0 -22 14 -18" fill="none" stroke-width="4" />
+            </g>
+            <!-- brazo derecho (el que saluda sin ganas) -->
+            <g class="raul-brazo">
+              <path d="M118 80 Q160 200 146 300" fill="none" stroke="#141a3c" stroke-width="56" stroke-linecap="round" />
+              <path d="M118 80 Q160 200 146 300" fill="none" stroke="#fbf8f0" stroke-width="46" stroke-linecap="round" />
+              <ellipse cx="146" cy="324" rx="26" ry="28" fill="#f6c49a" class="t" stroke-width="4" />
+            </g>

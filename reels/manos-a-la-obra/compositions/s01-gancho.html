@@ -1,0 +1,219 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; filter: drop-shadow(8px 10px 0 rgba(20, 26, 60, 0.28)); }
+    [data-composition-id="s01-gancho"] .t { stroke: #141a3c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .fr { font-family: "Fredoka", sans-serif; font-weight: 700; }
+    [data-composition-id="s01-gancho"] .cv { font-family: "Caveat", cursive; font-weight: 700; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="6.68">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="6.68" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s01-titulo"></g>
+
+          <!-- el dibujo del jardín: "mi negocio" -->
+          <g class="s01-dibujo"><g transform="translate(800 935) rotate(5)">
+            <rect x="-170" y="-140" width="340" height="280" fill="#fbf8f0" class="t" />
+            <path class="s01-cray" d="M-120 40 L-120 -30 L0 -100 L120 -30 L120 40" fill="none" stroke="#ef4b3c" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+            <path class="s01-cray" d="M-120 40 L120 40 M-30 40 L-30 -10 L20 -10 L20 40" fill="none" stroke="#2347c9" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+            <path class="s01-cray" d="M-104 76 Q-60 64 -10 80 Q40 92 104 74" fill="none" stroke="#7ccf3a" stroke-width="9" stroke-linecap="round" />
+            <circle class="s01-sol" cx="120" cy="-96" r="22" fill="#ffd23f" />
+            <path class="s01-cray" d="M120 -134 V-126 M158 -96 H150 M147 -123 L141 -117 M93 -123 L99 -117" fill="none" stroke="#ffd23f" stroke-width="6" stroke-linecap="round" />
+            <text class="cv s01-cartel" x="-4" y="124" font-size="38" fill="#141a3c" text-anchor="middle" transform="rotate(-3)">MI NEGOCIO</text>
+            <!-- monigote -->
+            <path class="s01-cray" d="M78 10 V60 M78 22 L60 40 M78 22 L96 40 M78 60 L64 84 M78 60 L92 84" fill="none" stroke="#141a3c" stroke-width="6" stroke-linecap="round" />
+            <circle class="s01-cabecita" cx="78" cy="-2" r="12" fill="none" stroke="#141a3c" stroke-width="6" />
+            <circle cx="0" cy="-128" r="11" fill="#ef4b3c" class="t" stroke-width="3" />
+          </g></g>
+          <!-- manito pintada que se estampa -->
+          <g class="s01-manito"><g transform="translate(690 1040) rotate(-14)">
+            <ellipse cx="0" cy="12" rx="34" ry="38" fill="#ffd23f" />
+            <rect x="-34" y="-50" width="15" height="44" rx="7.5" fill="#ffd23f" />
+            <rect x="-15" y="-62" width="15" height="54" rx="7.5" fill="#ffd23f" />
+            <rect x="4" y="-58" width="15" height="50" rx="7.5" fill="#ffd23f" />
+            <rect x="22" y="-42" width="14" height="38" rx="7" fill="#ffd23f" />
+            <rect x="-66" y="-2" width="40" height="15" rx="7.5" fill="#ffd23f" transform="rotate(-30 -46 5)" />
+          </g></g>
+
+          <!-- la Seño Pochi -->
+          <g class="s01-seno"><g transform="translate(330 1010) scale(0.86)">
+            <g class="s01-pelo-atras" fill="#ef4b3c" stroke="#141a3c" stroke-width="5">
+              <circle cx="-92" cy="-112" r="46" /><circle cx="-104" cy="-44" r="44" /><circle cx="-84" cy="16" r="36" />
+              <circle cx="92" cy="-112" r="46" /><circle cx="104" cy="-44" r="44" /><circle cx="84" cy="16" r="36" />
+              <circle cx="-52" cy="-170" r="46" /><circle cx="0" cy="-186" r="48" /><circle cx="52" cy="-170" r="46" />
+            </g>
+            <!-- brazo de la mesa -->
+            <path d="M-118 80 Q-170 190 -150 300" fill="none" stroke="#141a3c" stroke-width="56" stroke-linecap="round" />
+            <path d="M-118 80 Q-170 190 -150 300" fill="none" stroke="#fbf8f0" stroke-width="46" stroke-linecap="round" />
+            <path d="M-150 360 Q-160 90 -60 40 L60 40 Q160 90 150 360 Z" fill="#fbf8f0" class="t" />
+            <path d="M-95 360 L-85 120 Q0 100 85 120 L95 360 Z" fill="#7ccf3a" class="t" />
+            <path d="M-85 120 L-55 44 M85 120 L55 44" fill="none" class="t" stroke-width="8" stroke="#7ccf3a" />
+            <rect x="-36" y="168" width="14" height="50" fill="#ffd23f" class="t" stroke-width="3" />
+            <rect x="-12" y="160" width="14" height="58" fill="#ef4b3c" class="t" stroke-width="3" />
+            <rect x="12" y="172" width="14" height="46" fill="#2347c9" class="t" stroke-width="3" />
+            <rect x="-52" y="198" width="104" height="70" rx="10" fill="#7ccf3a" class="t" />
+            <rect x="-24" y="-16" width="48" height="62" fill="#f6c49a" />
+            <ellipse cx="0" cy="-80" rx="74" ry="84" fill="#f6c49a" class="t" />
+            <g fill="#ef4b3c" stroke="#141a3c" stroke-width="5"><circle cx="-46" cy="-150" r="28" /><circle cx="0" cy="-160" r="30" /><circle cx="46" cy="-150" r="28" /></g>
+            <path d="M-80 -128 Q0 -176 80 -128" fill="none" stroke="#ffd23f" stroke-width="16" stroke-linecap="round" />
+            <g class="s01-ojos">
+              <ellipse cx="-28" cy="-92" rx="11" ry="15" fill="#141a3c" /><ellipse cx="28" cy="-92" rx="11" ry="15" fill="#141a3c" />
+              <circle cx="-24" cy="-97" r="4" fill="#fbf8f0" /><circle cx="32" cy="-97" r="4" fill="#fbf8f0" />
+            </g>
+            <path d="M-40 -104 L-48 -112 M-34 -108 L-38 -118 M40 -104 L48 -112 M34 -108 L38 -118" fill="none" class="t" stroke-width="4" />
+            <circle cx="-50" cy="-58" r="14" fill="#ef4b3c" opacity="0.45" /><circle cx="50" cy="-58" r="14" fill="#ef4b3c" opacity="0.45" />
+            <path d="M-6 -72 Q0 -64 6 -72" fill="none" class="t" stroke-width="4" />
+            <g class="s01-boca">
+              <path d="M-40 -48 Q0 -42 40 -48 Q32 0 0 2 Q-32 0 -40 -48 Z" fill="#141a3c" />
+              <path d="M-34 -46 Q0 -41 34 -46 L31 -36 Q0 -32 -31 -36 Z" fill="#fbf8f0" />
+              <path d="M-18 -12 Q0 -24 18 -12 Q10 0 0 1 Q-10 0 -18 -12 Z" fill="#ef4b3c" />
+            </g>
+            <!-- brazo que saluda -->
+            <g class="s01-brazo">
+              <path d="M118 80 Q190 40 214 -50" fill="none" stroke="#141a3c" stroke-width="56" stroke-linecap="round" />
+              <path d="M118 80 Q190 40 214 -50" fill="none" stroke="#fbf8f0" stroke-width="46" stroke-linecap="round" />
+              <g transform="translate(220 -88)">
+                <ellipse cx="0" cy="10" rx="30" ry="32" fill="#f6c49a" class="t" />
+                <rect x="-30" y="-44" width="14" height="40" rx="7" fill="#f6c49a" class="t" stroke-width="4" />
+                <rect x="-13" y="-54" width="14" height="48" rx="7" fill="#f6c49a" class="t" stroke-width="4" />
+                <rect x="4" y="-50" width="14" height="44" rx="7" fill="#f6c49a" class="t" stroke-width="4" />
+                <rect x="20" y="-36" width="13" height="34" rx="6.5" fill="#f6c49a" class="t" stroke-width="4" />
+                <ellipse cx="0" cy="14" rx="26" ry="24" fill="#f6c49a" />
+              </g>
+            </g>
+          </g></g>
+
+          <!-- la mesa de manualidades -->
+          <g class="s01-mesa">
+            <rect x="-10" y="1190" width="1100" height="34" fill="#fbf8f0" class="t" />
+            <rect x="-10" y="1224" width="1100" height="120" fill="#ef4b3c" class="t" />
+            <path d="M-10 1224 L20 1250 L50 1224 L80 1250 L110 1224 L140 1250 L170 1224 L200 1250 L230 1224 L260 1250 L290 1224 L320 1250 L350 1224 L380 1250 L410 1224 L440 1250 L470 1224 L500 1250 L530 1224 L560 1250 L590 1224 L620 1250 L650 1224 L680 1250 L710 1224 L740 1250 L770 1224 L800 1250 L830 1224 L860 1250 L890 1224 L920 1250 L950 1224 L980 1250 L1010 1224 L1040 1250 L1070 1224 L1100 1250 L1100 1224 Z" fill="#fbf8f0" class="t" stroke-width="4" />
+          </g>
+          <!-- tijera y brillantina sobre la mesa -->
+          <g class="s01-tijera"><g transform="translate(560 1176) rotate(-12)">
+            <ellipse cx="-62" cy="-12" rx="26" ry="16" fill="none" stroke="#2347c9" stroke-width="12" />
+            <ellipse cx="-62" cy="18" rx="26" ry="16" fill="none" stroke="#2347c9" stroke-width="12" />
+            <path d="M-38 -4 L70 10 L-30 12 Z" fill="#fbf8f0" class="t" stroke-width="4" />
+            <circle cx="-30" cy="4" r="6" fill="#141a3c" />
+          </g></g>
+          <g class="s01-brilla"><g transform="translate(150 1150)">
+            <rect x="-18" y="-50" width="36" height="76" rx="8" fill="#ffd23f" class="t" stroke-width="4" />
+            <rect x="-12" y="-66" width="24" height="18" rx="4" fill="#ef4b3c" class="t" stroke-width="4" />
+            <circle cx="-6" cy="-14" r="4" fill="#fbf8f0" /><circle cx="6" cy="2" r="3" fill="#fbf8f0" /><circle cx="-4" cy="14" r="3" fill="#fbf8f0" />
+          </g></g>
+          <!-- la plasticola gigante -->
+          <g class="s01-cola" data-layout-allow-overlap><g transform="translate(985 1110) rotate(8) scale(0.92)">
+            <path d="M-26 -160 L0 -214 L26 -160 Z" fill="#ef4b3c" class="t" />
+            <rect x="-48" y="-162" width="96" height="30" rx="8" fill="#ef4b3c" class="t" />
+            <rect x="-72" y="-134" width="144" height="230" rx="30" fill="#fbf8f0" class="t" />
+            <rect x="-72" y="-70" width="144" height="96" fill="#ffd23f" class="t" />
+            <text class="fr" x="0" y="-32" font-size="30" fill="#141a3c" text-anchor="middle">COLA</text>
+            <text class="fr" x="0" y="4" font-size="22" fill="#141a3c" text-anchor="middle" letter-spacing="1">VINÍLICA</text>
+          </g></g>
+          <g class="s01-gota">
+            <path d="M960 900 Q940 930 960 946 Q980 930 960 900 Z" fill="#fbf8f0" class="t" stroke-width="4" />
+          </g>
+          <g class="s01-charco">
+            <path d="M800 1202 Q840 1180 900 1194 Q960 1178 1010 1200 Q980 1214 900 1212 Q840 1216 800 1202 Z" fill="#fbf8f0" class="t" stroke-width="4" />
+          </g>
+
+          <!-- etiqueta: tira de papel con borde dentado -->
+          <g class="s01-etiqueta">
+            <path d="M250 1342 L830 1342 L842 1356 L830 1370 L842 1384 L830 1398 L250 1398 L238 1384 L250 1370 L238 1356 Z" fill="#fbf8f0" class="t" stroke-width="4" />
+            <text class="fr s01-e1" x="540" y="1382" font-size="34" fill="#141a3c" text-anchor="middle" letter-spacing="4">HOY: TU NEGOCIO</text>
+            <text class="fr s01-e2" x="540" y="1382" font-size="34" fill="#ef4b3c" text-anchor="middle" letter-spacing="4" opacity="0">TODO A MANO</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 6.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, at, padre) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); padre.appendChild(e); return e; };
+      // letras recortadas: cada letra en su papelito de color, torcida
+      const COL = ["#ffd23f", "#ef4b3c", "#7ccf3a", "#fbf8f0"];
+      const ROT = [-7, 5, -3, 8, -5, 4, -8, 3, 6, -4, 7, -6];
+      const recorte = (padre, txt, cx, cy, s, k0) => {
+        const out = [], paso = s * 0.92, letras = [...txt];
+        const ancho = letras.reduce((a, c, i) => a + (i ? (c === " " || letras[i - 1] === " " ? paso * 0.85 : paso) : 0), 0);
+        let x = cx - ancho / 2;
+        letras.forEach((c, i) => {
+          if (c !== " ") {
+            const k = (k0 + i) % COL.length;
+            const g = mk("g", { transform: `translate(${x.toFixed(1)} ${cy}) rotate(${ROT[(k0 + i) % ROT.length]})` }, padre);
+            const h = mk("g", {}, g);
+            mk("rect", { x: -s * 0.42, y: -s * 0.5, width: s * 0.84, height: s, fill: COL[k], class: "t", "stroke-width": 4 }, h);
+            mk("text", { x: 0, y: s * 0.02, "font-size": s * 0.72, fill: COL[k] === "#ef4b3c" ? "#fbf8f0" : "#141a3c", "text-anchor": "middle", "dominant-baseline": "central", class: "fr" }, h).textContent = c;
+            out.push(h);
+          }
+          x += c === " " || letras[i + 1] === " " ? paso * 0.85 : paso;
+        });
+        return out;
+      };
+      const t1 = recorte(q(".s01-titulo"), "MANOS A LA", 540, 650, 82, 0);
+      const t2 = recorte(q(".s01-titulo"), "OBRA", 540, 748, 98, 2);
+
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (el, t, d) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d ?? 0.5, ease: "power2.inOut" }, t); };
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const HOLA = 0, NEGOCIO = 2.5, JARDIN = 3.42, MANO = 4.58, PLASTICOLA = 5.42;
+
+      // cuadro 0: el título ya a medio pegar, la Seño y la mesa entrando
+      [...t1, ...t2].forEach((h, i) => tl.fromTo(h, { opacity: i < 4 ? 1 : 0, scale: i < 4 ? 1 : 1.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.22, ease: "back.out(2)" }, i < 4 ? 0 : 0.05 + (i - 4) * 0.07));
+      tl.fromTo(q(".s01-mesa"), { y: 50 }, { y: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-seno"), { y: 90, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.4)" }, 0);
+      pop(q(".s01-tijera"), 0.3);
+      pop(q(".s01-brilla"), 0.4);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, 0.2);
+      pop(q(".s01-etiqueta path"), 0.1, 0.9);
+      // "¡Hola, amiguitos!": saluda
+      const BR = "330 1010";
+      gsap.set(q(".s01-brazo"), { svgOrigin: "120 80" });
+      for (let i = 0; i < 6; i++) tl.to(q(".s01-brazo"), { rotation: i % 2 ? -10 : 12, duration: 0.18, ease: "sine.inOut" }, 0.05 + i * 0.18);
+      tl.to(q(".s01-brazo"), { rotation: 0, duration: 0.2 }, 1.15);
+      tl.to(q(".s01-seno"), { rotation: -3, svgOrigin: "330 1300", duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 9 }, 0.4);
+      tl.to([...t1, ...t2], { y: -6, duration: 0.4, ease: "sine.inOut", stagger: 0.05, yoyo: true, repeat: 1 }, 1.4);
+
+      // "negocio": el dibujito del jardín
+      pop(q(".s01-dibujo"), NEGOCIO - 0.1, 0.5);
+      qa(".s01-cray").forEach((p, i) => dibujar(p, JARDIN - 0.7 + i * 0.12, 0.4));
+      pop(q(".s01-sol"), JARDIN - 0.1, 0.3);
+      pop(q(".s01-cabecita"), JARDIN + 0.1, 0.3);
+      tl.fromTo(q(".s01-cartel"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, NEGOCIO + 0.1);
+
+      // "mano": la manito se estampa
+      tl.fromTo(q(".s01-manito"), { opacity: 0, scale: 1.8, svgOrigin: "690 1040" }, { opacity: 0.95, scale: 1, svgOrigin: "690 1040", duration: 0.18, ease: "power3.in" }, MANO - 0.1);
+      temblor(q(".s01-dibujo"), MANO + 0.08, 0.6);
+      tl.to(q(".s01-e1"), { opacity: 0, y: -10, duration: 0.2 }, MANO - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, MANO);
+
+      // "plasticola": aparece la gigante y chorrea
+      tl.fromTo(q(".s01-cola"), { y: 260, opacity: 0, rotation: -20, svgOrigin: "985 1200" }, { y: 0, opacity: 1, rotation: 0, svgOrigin: "985 1200", duration: 0.4, ease: "back.out(1.7)" }, PLASTICOLA - 0.25);
+      tl.fromTo(q(".s01-gota"), { opacity: 0, y: 0 }, { opacity: 1, y: 0, duration: 0.1 }, PLASTICOLA + 0.25);
+      tl.to(q(".s01-gota"), { y: 250, duration: 0.45, ease: "power2.in" }, PLASTICOLA + 0.3);
+      tl.to(q(".s01-gota"), { opacity: 0, duration: 0.05 }, PLASTICOLA + 0.75);
+      tl.fromTo(q(".s01-charco"), { opacity: 0, scale: 0.2, svgOrigin: "905 1200" }, { opacity: 1, scale: 1, svgOrigin: "905 1200", duration: 0.3, ease: "back.out(2)" }, PLASTICOLA + 0.75);
+      tl.to(q(".s01-boca"), { scaleY: 1.25, svgOrigin: "0 -24", duration: 0.15, yoyo: true, repeat: 1 }, PLASTICOLA);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

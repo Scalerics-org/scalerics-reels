@@ -1,0 +1,77 @@
+<!-- DUR 6.43 -->
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+{{estilo}}
+    [data-composition-id="__ID__"] .s06-marco { position: absolute; inset: 0; clip-path: inset(560px 0 586px 0); }
+    [data-composition-id="__ID__"] .s06-zoom { position: absolute; inset: 0; }
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="1080" data-height="1920" data-duration="__DUR__">
+    <div id="s06-escena" class="escena clip" data-start="0" data-duration="__DUR__" data-track-index="0">
+      <div class="s06-marco"><div class="s06-zoom">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s06-cadena"></g>
+        </svg>
+      </div></div>
+      <div class="escenario">
+        <svg class="principal" viewBox="0 0 1080 1920" aria-hidden="true">
+          {{nena 170 1170 0.8}}
+          <text class="fr s06-preg" x="330" y="700" font-size="92" fill="#ffd23f" text-anchor="middle" stroke="#141a3c" stroke-width="5" paint-order="stroke">¿40?</text>
+        </svg>
+      </div>
+      <div class="s06-paso">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          {{paso 3 190 690}}
+          <g class="paso-titulo"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+{{helpers}}
+      const TRES = 0.25, AVISAMOS = 0.92, CLIENTE = 1.75, UNO1 = 2.49, UNO2 = 2.92, PEDIDO = 3.59, LISTO = 4.17, CUARENTA = 5.03;
+      // la cadena de muñequitos recortados: 40 clientes, 4 filas de 10
+      const FILAS = ["#ffd23f", "#fbf8f0", "#7ccf3a", "#ef4b3c"];
+      const ticks = [];
+      for (let f = 0; f < 4; f++) {
+        const fila = mk("g", { class: "s06-fila" }, q(".s06-cadena"));
+        for (let i = 0; i < 10; i++) {
+          const x = 144 + i * 88, y = 830 + f * 132;
+          const g = mk("g", { transform: `translate(${x} ${y})` }, fila);
+          mk("path", { d: "M-44 -24 H44 V-6 H16 L24 42 H8 L0 16 L-8 42 H-24 L-16 -6 H-44 Z", fill: FILAS[f], class: "t", "stroke-width": 4 }, g);
+          mk("circle", { cx: 0, cy: -46, r: 20, fill: FILAS[f], class: "t", "stroke-width": 4 }, g);
+          mk("circle", { cx: -7, cy: -48, r: 3, fill: "#141a3c" }, g); mk("circle", { cx: 7, cy: -48, r: 3, fill: "#141a3c" }, g);
+          if (f === 0 && i < 5) {
+            const k = mk("g", { transform: `translate(${x + 26} ${y - 80})` }, q(".s06-cadena"));
+            mk("circle", { cx: 0, cy: 0, r: 18, fill: "#7ccf3a", class: "t", "stroke-width": 3 }, k);
+            mk("path", { d: "M-8 0 L-2 7 L9 -7", fill: "none", stroke: "#141a3c", "stroke-width": 4, "stroke-linecap": "round", "stroke-linejoin": "round" }, k);
+            ticks.push(k);
+          }
+        }
+      }
+      etiquetas([["PASO TRES: AVISAR", 0.15], ["UNO POR UNO", UNO1 - 0.1, "#2347c9"], ["AVISADOS: 5 DE 40", CUARENTA - 0.1, "#ef4b3c"]]);
+      entraPaso(190, 690, 0, TRES);
+
+      // arranca con zoom en los primeros clientes de la cadena
+      const Z = q(".s06-zoom");
+      tl.fromTo(Z, { scale: 2.1, x: 0, y: 150, transformOrigin: "120px 790px" }, { scale: 2.0, x: -60, y: 150, duration: CUARENTA - 0.1, ease: "none" }, 0);
+      tl.fromTo(q(".s06-cadena"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0);
+      // cada aviso: tilde verde arriba del muñequito, uno por uno
+      [CLIENTE - 0.1, UNO1, UNO2 + 0.05, PEDIDO, LISTO].forEach((t, i) => tl.fromTo(ticks[i], { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.5)" }, t));
+      tl.to(qa(".s06-fila")[0], { y: -6, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 7 }, AVISAMOS);
+
+      // "¿A los cuarenta?": se abre el plano, la nena levanta la mano
+      tl.to(Z, { scale: 1, x: 0, y: 0, duration: 0.55, ease: "power3.inOut" }, CUARENTA - 0.15);
+      tl.fromTo(q(".nena"), { y: 600, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.5)" }, CUARENTA - 0.25);
+      gsap.set(q(".nena-brazo"), { svgOrigin: "70 80" });
+      tl.fromTo(q(".nena-brazo"), { rotation: 30 }, { rotation: -8, duration: 0.3, ease: "back.out(2)" }, CUARENTA);
+      tl.to(q(".nena-brazo"), { rotation: 4, duration: 0.15, yoyo: true, repeat: 3 }, CUARENTA + 0.3);
+      pop(q(".s06-preg"), CUARENTA + 0.25, 0.4);
+      gsap.set(q(".s06-preg"), { opacity: 0 });
+      tl.to(q(".s06-paso"), { opacity: 0, duration: 0.3 }, CUARENTA - 0.1);
+
+      {{salida}}
+    })();
+  </script>
+</template>

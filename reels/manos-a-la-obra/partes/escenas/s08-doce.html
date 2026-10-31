@@ -1,0 +1,56 @@
+<!-- DUR 1.88 -->
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+{{estilo}}
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="1080" data-height="1920" data-duration="__DUR__">
+    <div id="s08-escena" class="escena clip" data-start="0" data-duration="__DUR__" data-track-index="0">
+      <div class="escenario">
+        <svg class="principal" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- ventana con luna -->
+          <g class="s08-ventana">
+            <rect x="96" y="640" width="250" height="250" fill="#141a3c" class="t" />
+            <path d="M221 640 V890 M96 765 H346" stroke="#fbf8f0" stroke-width="10" />
+            <rect x="96" y="640" width="250" height="250" fill="none" class="t" />
+            <path d="M150 680 A44 44 0 1 0 200 744 A34 34 0 1 1 150 680 Z" fill="#ffd23f" />
+          </g>
+          <!-- el reloj de cartón -->
+          <g class="s08-reloj"><g transform="translate(700 800)">
+            <circle cx="0" cy="0" r="170" fill="#ef4b3c" class="t" />
+            <circle cx="0" cy="0" r="140" fill="#fbf8f0" class="t" />
+            <text class="fr" x="0" y="-92" font-size="46" fill="#141a3c" text-anchor="middle">12</text>
+            <text class="fr" x="110" y="16" font-size="40" fill="#141a3c" text-anchor="middle">3</text>
+            <text class="fr" x="0" y="124" font-size="40" fill="#141a3c" text-anchor="middle">6</text>
+            <text class="fr" x="-110" y="16" font-size="40" fill="#141a3c" text-anchor="middle">9</text>
+            <path class="s08-h" d="M0 0 V-70" stroke="#141a3c" stroke-width="14" stroke-linecap="round" />
+            <path class="s08-m" d="M0 0 V-104" stroke="#2347c9" stroke-width="9" stroke-linecap="round" />
+            <circle cx="0" cy="0" r="12" fill="#141a3c" />
+          </g></g>
+          {{raul 400 1010 0.86}}
+          {{mesa}}
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+{{helpers}}
+      const DOCE = 0.3, NOCHE = 0.9;
+      etiquetas([["00:00 · Y SIGUE", 0.1, "#ef4b3c"]]);
+      tl.fromTo(q(".s08-reloj"), { opacity: 0.4, scale: 0.6, rotation: -30, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s08-ventana"), { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, 0.05);
+      tl.fromTo(q(".raul"), { y: 60 }, { y: 0, duration: 0.3, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s08-m"), { rotation: -300, svgOrigin: "0 0" }, { rotation: 0, svgOrigin: "0 0", duration: DOCE + 0.05, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s08-h"), { rotation: -40, svgOrigin: "0 0" }, { rotation: 0, svgOrigin: "0 0", duration: DOCE + 0.05, ease: "power2.out" }, 0);
+      temblor(q(".s08-reloj"), DOCE + 0.05, 0.8);
+      tl.to(q(".s08-reloj"), { rotation: 4, transformOrigin: "50% 50%", duration: 0.08, yoyo: true, repeat: 5 }, DOCE + 0.25);
+      // Raúl cabecea
+      tl.to(q(".raul-parpado"), { scaleY: 1.8, svgOrigin: "0 -96", duration: 0.5, ease: "sine.inOut" }, 0.2);
+      tl.to(q(".raul-cabeza"), { rotation: 14, y: 16, svgOrigin: "0 0", duration: 0.6, ease: "sine.in" }, NOCHE - 0.3);
+      tl.to(q(".raul-cabeza"), { rotation: 2, y: 0, svgOrigin: "0 0", duration: 0.15, ease: "back.out(3)" }, NOCHE + 0.35);
+      tl.to(q(".raul-parpado"), { scaleY: 1.2, svgOrigin: "0 -96", duration: 0.12 }, NOCHE + 0.35);
+      {{salida}}
+    })();
+  </script>
+</template>

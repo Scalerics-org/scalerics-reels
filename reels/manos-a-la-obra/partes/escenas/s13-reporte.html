@@ -1,0 +1,76 @@
+<!-- DUR 5.88 -->
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+{{estilo}}
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="1080" data-height="1920" data-duration="__DUR__">
+    <div id="s13-escena" class="escena clip" data-start="0" data-duration="__DUR__" data-track-index="0">
+      <div class="escenario">
+        <svg class="principal" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s13-fase1">
+            <g class="s13-cadena"></g>
+            <!-- la tarjeta de stock que se actualiza sola -->
+            <g class="s13-stock"><g transform="translate(540 1080)">
+              <rect x="-260" y="-110" width="520" height="220" rx="16" fill="#fbf8f0" class="t" />
+              <rect x="-260" y="-110" width="520" height="50" rx="0" fill="#7ccf3a" class="t" />
+              <text class="fr" x="-236" y="-74" font-size="26" fill="#141a3c" letter-spacing="2">TIENDA ONLINE</text>
+              <path d="M-210 10 H-110 V54 H-210 Z M-210 10 Q-160 -24 -110 10" fill="#7a4a2a" class="t" stroke-width="4" />
+              <text class="lx" x="-80" y="30" font-size="34" fill="#141a3c">Torta · stock:</text>
+              <text class="fr s13-n3" x="200" y="44" font-size="72" fill="#141a3c" text-anchor="middle">3</text>
+              <text class="fr s13-n2" x="200" y="44" font-size="72" fill="#7ccf3a" text-anchor="middle" opacity="0">2</text>
+            </g></g>
+          </g>
+          <!-- el reporte del día en el celular -->
+          <g class="s13-cel"><g transform="translate(540 1000)">
+            <rect x="-200" y="-300" width="400" height="600" rx="50" fill="#141a3c" class="t" />
+            <rect x="-178" y="-262" width="356" height="540" rx="10" fill="#2347c9" />
+            <text class="fr" x="0" y="-190" font-size="64" fill="#fbf8f0" text-anchor="middle">22:00</text>
+            <g class="s13-noti">
+              <rect x="-160" y="-140" width="320" height="300" rx="20" fill="#fbf8f0" class="t" stroke-width="4" />
+              <text class="fr" x="-136" y="-96" font-size="30" fill="#141a3c">Reporte del día</text>
+              <path d="M-136 -76 H136" stroke="#7ccf3a" stroke-width="5" />
+              <g class="s13-l"><path d="M-136 -30 L-124 -18 L-102 -44" fill="none" stroke="#7ccf3a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><text class="lx" x="-90" y="-20" font-size="26" fill="#141a3c">Pedidos cargados</text></g>
+              <g class="s13-l"><path d="M-136 30 L-124 42 L-102 16" fill="none" stroke="#7ccf3a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><text class="lx" x="-90" y="40" font-size="26" fill="#141a3c">Clientes avisados</text></g>
+              <g class="s13-l"><path d="M-136 90 L-124 102 L-102 76" fill="none" stroke="#7ccf3a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /><text class="lx" x="-90" y="100" font-size="26" fill="#141a3c">Stock al día</text></g>
+            </g>
+          </g></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+{{helpers}}
+      const CLIENTE = 0.15, AVISO = 0.91, STOCK = 1.77, SOLO = 2.62, REPORTE = 3.48, CELULAR = 4.93;
+      etiquetas([["TODOS A LA VEZ", 0.1, "#2347c9"], ["SIN TOCAR NADA", STOCK, "#2347c9"], ["Y VOS, A DORMIR", REPORTE, "#2347c9"]]);
+      // los cuarenta... avisados todos juntos
+      const FIL = ["#ffd23f", "#fbf8f0", "#ef4b3c", "#7ccf3a"];
+      const ticks = [];
+      for (let f = 0; f < 2; f++) for (let i = 0; i < 10; i++) {
+        const x = 144 + i * 88, y = 720 + f * 130;
+        const g = mk("g", { transform: `translate(${x} ${y})` }, q(".s13-cadena"));
+        mk("path", { d: "M-44 -24 H44 V-6 H16 L24 42 H8 L0 16 L-8 42 H-24 L-16 -6 H-44 Z", fill: FIL[f], class: "t", "stroke-width": 4 }, g);
+        mk("circle", { cx: 0, cy: -46, r: 20, fill: FIL[f], class: "t", "stroke-width": 4 }, g);
+        const k = mk("g", { transform: `translate(${x + 26} ${y - 76})` }, q(".s13-cadena"));
+        mk("circle", { cx: 0, cy: 0, r: 17, fill: "#7ccf3a", class: "t", "stroke-width": 3 }, k);
+        mk("path", { d: "M-8 0 L-2 7 L9 -7", fill: "none", stroke: "#141a3c", "stroke-width": 4, "stroke-linecap": "round", "stroke-linejoin": "round" }, k);
+        ticks.push(k);
+      }
+      tl.fromTo(q(".s13-cadena"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      ticks.forEach((k, i) => tl.fromTo(k, { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.5)" }, AVISO - 0.1 + (i % 10) * 0.012));
+      tl.to(q(".s13-cadena"), { y: -10, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut" }, AVISO + 0.15);
+      // el stock se actualiza solo
+      tl.fromTo(q(".s13-stock"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.5)" }, STOCK - 0.35);
+      tl.to(q(".s13-n3"), { opacity: 0, y: -30, duration: 0.2 }, SOLO - 0.1);
+      tl.fromTo(q(".s13-n2"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)" }, SOLO);
+      // el reporte del día al celular
+      tl.to(q(".s13-fase1"), { opacity: 0, y: -80, duration: 0.3, ease: "power2.in" }, REPORTE - 0.4);
+      tl.fromTo(q(".s13-cel"), { opacity: 0, y: 260 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, REPORTE - 0.25);
+      tl.fromTo(q(".s13-noti"), { opacity: 0, scale: 0.7, transformOrigin: "50% 0%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, REPORTE + 0.35);
+      qa(".s13-l").forEach((l, i) => tl.fromTo(l, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.2 }, REPORTE + 0.7 + i * 0.25));
+      [[-8, 0], [8, 0], [-6, 0], [6, 0], [0, 0]].forEach(([r], i) => tl.to(q(".s13-cel"), { rotation: r * 0.5, transformOrigin: "50% 50%", duration: 0.05 }, CELULAR - 0.05 + i * 0.05));
+      {{salida}}
+    })();
+  </script>
+</template>

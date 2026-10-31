@@ -1,0 +1,159 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-paso-tres"] .escena { position: absolute; inset: 0; }
+    [data-composition-id="s06-paso-tres"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-paso-tres"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; filter: drop-shadow(8px 10px 0 rgba(20, 26, 60, 0.28)); }
+    [data-composition-id="s06-paso-tres"] .t { stroke: #141a3c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-paso-tres"] .fr { font-family: "Fredoka", sans-serif; font-weight: 700; }
+    [data-composition-id="s06-paso-tres"] .cv { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s06-paso-tres"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; }
+
+    [data-composition-id="s06-paso-tres"] .s06-marco { position: absolute; inset: 0; clip-path: inset(560px 0 586px 0); }
+    [data-composition-id="s06-paso-tres"] .s06-zoom { position: absolute; inset: 0; }
+  </style>
+  <div id="root" data-composition-id="s06-paso-tres" data-width="1080" data-height="1920" data-duration="6.43">
+    <div id="s06-escena" class="escena clip" data-start="0" data-duration="6.43" data-track-index="0">
+      <div class="s06-marco"><div class="s06-zoom">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s06-cadena"></g>
+        </svg>
+      </div></div>
+      <div class="escenario">
+        <svg class="principal" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="nena"><g transform="translate(170 1170) scale(0.8)"><path d="M-110 260 Q-104 60 0 46 Q104 60 110 260 Z" fill="#ffd23f" class="t" />
+            <g class="nena-brazo">
+              <path d="M70 80 Q120 0 118 -110" fill="none" stroke="#141a3c" stroke-width="40" stroke-linecap="round" />
+              <path d="M70 80 Q120 0 118 -110" fill="none" stroke="#ffd23f" stroke-width="31" stroke-linecap="round" />
+              <ellipse cx="118" cy="-134" rx="20" ry="24" fill="#f6c49a" class="t" stroke-width="4" />
+            </g>
+            <ellipse cx="-80" cy="-70" rx="22" ry="40" fill="#7a4a2a" class="t" transform="rotate(20 -80 -70)" />
+            <ellipse cx="80" cy="-70" rx="22" ry="40" fill="#7a4a2a" class="t" transform="rotate(-20 80 -70)" />
+            <path d="M-76 -112 L-96 -126 L-94 -98 Z M-76 -112 L-56 -126 L-58 -98 Z" fill="#ef4b3c" class="t" stroke-width="3" />
+            <path d="M76 -112 L96 -126 L94 -98 Z M76 -112 L56 -126 L58 -98 Z" fill="#ef4b3c" class="t" stroke-width="3" />
+            <rect x="-18" y="0" width="36" height="50" fill="#f6c49a" />
+            <circle cx="0" cy="-60" r="64" fill="#f6c49a" class="t" />
+            <path d="M-64 -66 Q-60 -130 0 -128 Q60 -130 64 -66 Q40 -96 0 -92 Q-40 -96 -64 -66 Z" fill="#7a4a2a" class="t" stroke-width="4" />
+            <ellipse cx="-22" cy="-56" rx="7" ry="10" fill="#141a3c" /><ellipse cx="22" cy="-56" rx="7" ry="10" fill="#141a3c" />
+            <circle cx="-19" cy="-60" r="3" fill="#fbf8f0" /><circle cx="25" cy="-60" r="3" fill="#fbf8f0" />
+            <circle cx="-38" cy="-34" r="10" fill="#ef4b3c" opacity="0.4" /><circle cx="38" cy="-34" r="10" fill="#ef4b3c" opacity="0.4" />
+            <ellipse class="nena-boca" cx="0" cy="-22" rx="9" ry="11" fill="#141a3c" />
+</g></g>
+          <text class="fr s06-preg" x="330" y="700" font-size="92" fill="#ffd23f" text-anchor="middle" stroke="#141a3c" stroke-width="5" paint-order="stroke">¿40?</text>
+        </svg>
+      </div>
+      <div class="s06-paso">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="paso"><g transform="translate(190 690)"><path class="paso-estrella t" d="M0 -100 L27 -38 L95 -31 L44 15 L59 81 L0 47 L-59 81 L-44 15 L-95 -31 L-27 -38 Z" fill="#ffd23f" stroke-width="6" />
+            <text class="fr paso-num" x="0" y="34" font-size="104" fill="#141a3c" text-anchor="middle">3</text>
+</g></g>
+          <g class="paso-titulo"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-paso-tres";
+      const DUR = 6.43;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, at, padre) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); if (padre) padre.appendChild(e); return e; };
+      // letras recortadas: cada letra en su papelito de color, torcida
+      const COL = ["#ffd23f", "#ef4b3c", "#7ccf3a", "#fbf8f0"];
+      const ROT = [-7, 5, -3, 8, -5, 4, -8, 3, 6, -4, 7, -6];
+      const recorte = (padre, txt, cx, cy, s, k0, cols, giro) => {
+        const C = cols || COL, out = [], paso = s * 0.92, letras = [...txt];
+        const ancho = letras.reduce((a, c, i) => a + (i ? (c === " " || letras[i - 1] === " " ? paso * 0.85 : paso) : 0), 0);
+        let x = cx - ancho / 2;
+        letras.forEach((c, i) => {
+          if (c !== " ") {
+            const k = (k0 + i) % C.length;
+            const g = mk("g", { transform: `translate(${x.toFixed(1)} ${cy}) rotate(${ROT[(k0 + i) % ROT.length] * (giro ?? 1)})` }, padre);
+            const h = mk("g", {}, g);
+            mk("rect", { x: -s * 0.42, y: -s * 0.5, width: s * 0.84, height: s, fill: C[k], class: "t", "stroke-width": 4 }, h);
+            mk("text", { x: 0, y: s * 0.02, "font-size": s * 0.72, fill: C[k] === "#ef4b3c" || C[k] === "#2347c9" ? "#fbf8f0" : "#141a3c", "text-anchor": "middle", "dominant-baseline": "central", class: "fr" }, h).textContent = c;
+            out.push(h);
+          }
+          x += c === " " || letras[i + 1] === " " ? paso * 0.85 : paso;
+        });
+        return out;
+      };
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (el, t, d) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d ?? 0.5, ease: "power2.inOut" }, t); };
+      const temblor = (el, t, f) => { let px = 0, py = 0; [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => { tl.to(el, { x: "+=" + (x - px) * (f ?? 1), y: "+=" + (y - py) * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045); px = x; py = y; }); };
+      // etiqueta debajo del dibujo: tira de papel con borde dentado; textos [[texto, t, color], ...]
+      const etiquetas = (lista) => {
+        const g = mk("g", { class: "etq" }, q("svg.principal"));
+        const tira = mk("path", { d: "M250 1342 L830 1342 L842 1356 L830 1370 L842 1384 L830 1398 L250 1398 L238 1384 L250 1370 L238 1356 Z", fill: "#fbf8f0", class: "t", "stroke-width": 4 }, g);
+        tl.fromTo(tira, { opacity: 0, scaleX: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, duration: 0.3, ease: "back.out(1.6)" }, 0.05);
+        lista.forEach(([txt, t, col], i) => {
+          const e = mk("text", { x: 540, y: 1382, "font-size": 34, fill: col || "#141a3c", "text-anchor": "middle", "letter-spacing": 4, class: "fr", opacity: 0 }, g);
+          e.textContent = txt;
+          tl.fromTo(e, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+          if (i + 1 < lista.length) tl.to(e, { opacity: 0, y: -10, duration: 0.2 }, lista[i + 1][1] - 0.2);
+        });
+      };
+      // el número de PASO: la estrella entra girando y "PASO" se pega en letras recortadas
+      const entraPaso = (x, y, t, tnum) => {
+        const letras = recorte(q(".paso-titulo"), "PASO", x + 290, y - 40, 66, 0);
+        letras.forEach((h, i) => tl.fromTo(h, { opacity: 0, scale: 1.7, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, t + i * 0.05));
+        tl.fromTo(q(".paso"), { opacity: 0.3, scale: 0.4, rotation: -160, svgOrigin: `${x} ${y}` }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: `${x} ${y}`, duration: 0.45, ease: "back.out(1.5)" }, t);
+        tl.to(q(".paso"), { scale: 1.18, svgOrigin: `${x} ${y}`, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, tnum);
+        tl.to(q(".paso"), { rotation: 8, svgOrigin: `${x} ${y}`, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 7 }, tnum + 0.3);
+      };
+
+      const TRES = 0.25, AVISAMOS = 0.92, CLIENTE = 1.75, UNO1 = 2.49, UNO2 = 2.92, PEDIDO = 3.59, LISTO = 4.17, CUARENTA = 5.03;
+      // la cadena de muñequitos recortados: 40 clientes, 4 filas de 10
+      const FILAS = ["#ffd23f", "#fbf8f0", "#7ccf3a", "#ef4b3c"];
+      const ticks = [];
+      for (let f = 0; f < 4; f++) {
+        const fila = mk("g", { class: "s06-fila" }, q(".s06-cadena"));
+        for (let i = 0; i < 10; i++) {
+          const x = 144 + i * 88, y = 830 + f * 132;
+          const g = mk("g", { transform: `translate(${x} ${y})` }, fila);
+          mk("path", { d: "M-44 -24 H44 V-6 H16 L24 42 H8 L0 16 L-8 42 H-24 L-16 -6 H-44 Z", fill: FILAS[f], class: "t", "stroke-width": 4 }, g);
+          mk("circle", { cx: 0, cy: -46, r: 20, fill: FILAS[f], class: "t", "stroke-width": 4 }, g);
+          mk("circle", { cx: -7, cy: -48, r: 3, fill: "#141a3c" }, g); mk("circle", { cx: 7, cy: -48, r: 3, fill: "#141a3c" }, g);
+          if (f === 0 && i < 5) {
+            const k = mk("g", { transform: `translate(${x + 26} ${y - 80})` }, q(".s06-cadena"));
+            mk("circle", { cx: 0, cy: 0, r: 18, fill: "#7ccf3a", class: "t", "stroke-width": 3 }, k);
+            mk("path", { d: "M-8 0 L-2 7 L9 -7", fill: "none", stroke: "#141a3c", "stroke-width": 4, "stroke-linecap": "round", "stroke-linejoin": "round" }, k);
+            ticks.push(k);
+          }
+        }
+      }
+      etiquetas([["PASO TRES: AVISAR", 0.15], ["UNO POR UNO", UNO1 - 0.1, "#2347c9"], ["AVISADOS: 5 DE 40", CUARENTA - 0.1, "#ef4b3c"]]);
+      entraPaso(190, 690, 0, TRES);
+
+      // arranca con zoom en los primeros clientes de la cadena
+      const Z = q(".s06-zoom");
+      tl.fromTo(Z, { scale: 2.1, x: 0, y: 150, transformOrigin: "120px 790px" }, { scale: 2.0, x: -60, y: 150, duration: CUARENTA - 0.1, ease: "none" }, 0);
+      tl.fromTo(q(".s06-cadena"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0);
+      // cada aviso: tilde verde arriba del muñequito, uno por uno
+      [CLIENTE - 0.1, UNO1, UNO2 + 0.05, PEDIDO, LISTO].forEach((t, i) => tl.fromTo(ticks[i], { opacity: 0, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.5)" }, t));
+      tl.to(qa(".s06-fila")[0], { y: -6, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 7 }, AVISAMOS);
+
+      // "¿A los cuarenta?": se abre el plano, la nena levanta la mano
+      tl.to(Z, { scale: 1, x: 0, y: 0, duration: 0.55, ease: "power3.inOut" }, CUARENTA - 0.15);
+      tl.fromTo(q(".nena"), { y: 600, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.5)" }, CUARENTA - 0.25);
+      gsap.set(q(".nena-brazo"), { svgOrigin: "70 80" });
+      tl.fromTo(q(".nena-brazo"), { rotation: 30 }, { rotation: -8, duration: 0.3, ease: "back.out(2)" }, CUARENTA);
+      tl.to(q(".nena-brazo"), { rotation: 4, duration: 0.15, yoyo: true, repeat: 3 }, CUARENTA + 0.3);
+      pop(q(".s06-preg"), CUARENTA + 0.25, 0.4);
+      gsap.set(q(".s06-preg"), { opacity: 0 });
+      tl.to(q(".s06-paso"), { opacity: 0, duration: 0.3 }, CUARENTA - 0.1);
+
+      tl.to(q(".escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

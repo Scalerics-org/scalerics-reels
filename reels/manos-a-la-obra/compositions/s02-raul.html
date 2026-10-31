@@ -1,0 +1,236 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-raul"] .escena { position: absolute; inset: 0; }
+    [data-composition-id="s02-raul"] .escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-raul"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; filter: drop-shadow(8px 10px 0 rgba(20, 26, 60, 0.28)); }
+    [data-composition-id="s02-raul"] .t { stroke: #141a3c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-raul"] .fr { font-family: "Fredoka", sans-serif; font-weight: 700; }
+    [data-composition-id="s02-raul"] .cv { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s02-raul"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; }
+
+  </style>
+  <div id="root" data-composition-id="s02-raul" data-width="1080" data-height="1920" data-duration="5.02">
+    <div id="s02-escena" class="escena clip" data-start="0" data-duration="5.02" data-track-index="0">
+      <div class="escenario">
+        <svg class="principal" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- cartel de aplausos con lamparitas -->
+          <g class="s02-cartel">
+            <rect x="290" y="604" width="500" height="112" rx="24" fill="#ef4b3c" class="t" />
+            <text class="fr s02-aplausos" x="540" y="680" font-size="58" fill="#fbf8f0" text-anchor="middle" letter-spacing="6" opacity="0.45">APLAUSOS</text>
+            <g class="s02-focos"></g>
+          </g>
+          <!-- flecha de papel: dueño de un comercio -->
+          <g class="s02-flecha"><g transform="translate(560 800) rotate(14)">
+            <path d="M-150 -34 L60 -34 L60 -62 L130 0 L60 62 L60 34 L-150 34 L-130 0 Z" fill="#ffd23f" class="t" />
+            <text class="cv" x="-30" y="12" font-size="38" fill="#141a3c" text-anchor="middle">dueño de un</text>
+          </g></g>
+          <g class="s02-local"><g transform="translate(560 900) rotate(-6)">
+            <rect x="-90" y="-20" width="180" height="110" fill="#fbf8f0" class="t" />
+            <path d="M-104 -20 L104 -20 L92 -64 L-92 -64 Z" fill="#7ccf3a" class="t" />
+            <path d="M-56 -64 L-62 -20 M-18 -64 L-20 -20 M18 -64 L20 -20 M56 -64 L62 -20" stroke="#fbf8f0" stroke-width="10" />
+            <path d="M-104 -20 L104 -20 L92 -64 L-92 -64 Z" fill="none" class="t" />
+            <rect x="-24" y="20" width="48" height="70" fill="#2347c9" class="t" stroke-width="4" />
+            <text class="cv" x="0" y="8" font-size="30" fill="#141a3c" text-anchor="middle">comercio</text>
+          </g></g>
+          <g class="seno"><g transform="translate(250 1010) scale(0.8)"><g class="seno-pelo" fill="#ef4b3c" stroke="#141a3c" stroke-width="5">
+              <circle cx="-92" cy="-112" r="46" /><circle cx="-104" cy="-44" r="44" /><circle cx="-84" cy="16" r="36" />
+              <circle cx="92" cy="-112" r="46" /><circle cx="104" cy="-44" r="44" /><circle cx="84" cy="16" r="36" />
+              <circle cx="-52" cy="-170" r="46" /><circle cx="0" cy="-186" r="48" /><circle cx="52" cy="-170" r="46" />
+            </g>
+            <!-- brazo de la mesa -->
+            <path d="M-118 80 Q-170 190 -150 300" fill="none" stroke="#141a3c" stroke-width="56" stroke-linecap="round" />
+            <path d="M-118 80 Q-170 190 -150 300" fill="none" stroke="#fbf8f0" stroke-width="46" stroke-linecap="round" />
+            <path d="M-150 360 Q-160 90 -60 40 L60 40 Q160 90 150 360 Z" fill="#fbf8f0" class="t" />
+            <path d="M-95 360 L-85 120 Q0 100 85 120 L95 360 Z" fill="#7ccf3a" class="t" />
+            <path d="M-85 120 L-55 44 M85 120 L55 44" fill="none" class="t" stroke-width="8" stroke="#7ccf3a" />
+            <rect x="-36" y="168" width="14" height="50" fill="#ffd23f" class="t" stroke-width="3" />
+            <rect x="-12" y="160" width="14" height="58" fill="#ef4b3c" class="t" stroke-width="3" />
+            <rect x="12" y="172" width="14" height="46" fill="#2347c9" class="t" stroke-width="3" />
+            <rect x="-52" y="198" width="104" height="70" rx="10" fill="#7ccf3a" class="t" />
+            <rect x="-24" y="-16" width="48" height="62" fill="#f6c49a" />
+            <ellipse cx="0" cy="-80" rx="74" ry="84" fill="#f6c49a" class="t" />
+            <g fill="#ef4b3c" stroke="#141a3c" stroke-width="5"><circle cx="-46" cy="-150" r="28" /><circle cx="0" cy="-160" r="30" /><circle cx="46" cy="-150" r="28" /></g>
+            <path d="M-80 -128 Q0 -176 80 -128" fill="none" stroke="#ffd23f" stroke-width="16" stroke-linecap="round" />
+            <g class="seno-ojos">
+              <ellipse cx="-28" cy="-92" rx="11" ry="15" fill="#141a3c" /><ellipse cx="28" cy="-92" rx="11" ry="15" fill="#141a3c" />
+              <circle cx="-24" cy="-97" r="4" fill="#fbf8f0" /><circle cx="32" cy="-97" r="4" fill="#fbf8f0" />
+            </g>
+            <path d="M-40 -104 L-48 -112 M-34 -108 L-38 -118 M40 -104 L48 -112 M34 -108 L38 -118" fill="none" class="t" stroke-width="4" />
+            <circle cx="-50" cy="-58" r="14" fill="#ef4b3c" opacity="0.45" /><circle cx="50" cy="-58" r="14" fill="#ef4b3c" opacity="0.45" />
+            <path d="M-6 -72 Q0 -64 6 -72" fill="none" class="t" stroke-width="4" />
+            <g class="seno-boca">
+              <path d="M-40 -48 Q0 -42 40 -48 Q32 0 0 2 Q-32 0 -40 -48 Z" fill="#141a3c" />
+              <path d="M-34 -46 Q0 -41 34 -46 L31 -36 Q0 -32 -31 -36 Z" fill="#fbf8f0" />
+              <path d="M-18 -12 Q0 -24 18 -12 Q10 0 0 1 Q-10 0 -18 -12 Z" fill="#ef4b3c" />
+            </g>
+            <!-- brazo que saluda -->
+            <g class="seno-brazo">
+              <path d="M118 80 Q190 40 214 -50" fill="none" stroke="#141a3c" stroke-width="56" stroke-linecap="round" />
+              <path d="M118 80 Q190 40 214 -50" fill="none" stroke="#fbf8f0" stroke-width="46" stroke-linecap="round" />
+              <g transform="translate(220 -88)">
+                <ellipse cx="0" cy="10" rx="30" ry="32" fill="#f6c49a" class="t" />
+                <rect x="-30" y="-44" width="14" height="40" rx="7" fill="#f6c49a" class="t" stroke-width="4" />
+                <rect x="-13" y="-54" width="14" height="48" rx="7" fill="#f6c49a" class="t" stroke-width="4" />
+                <rect x="4" y="-50" width="14" height="44" rx="7" fill="#f6c49a" class="t" stroke-width="4" />
+                <rect x="20" y="-36" width="13" height="34" rx="6.5" fill="#f6c49a" class="t" stroke-width="4" />
+                <ellipse cx="0" cy="14" rx="26" ry="24" fill="#f6c49a" />
+              </g>
+            </g>
+</g></g>
+          <g class="raul"><g transform="translate(820 1016) scale(0.86)"><!-- brazo izquierdo, colgando -->
+            <path d="M-118 80 Q-160 200 -146 300" fill="none" stroke="#141a3c" stroke-width="56" stroke-linecap="round" />
+            <path d="M-118 80 Q-160 200 -146 300" fill="none" stroke="#fbf8f0" stroke-width="46" stroke-linecap="round" />
+            <path d="M-150 360 Q-160 90 -60 40 L60 40 Q160 90 150 360 Z" fill="#fbf8f0" class="t" />
+            <path d="M-100 360 L-90 150 Q0 132 90 150 L100 360 Z" fill="#ffd23f" class="t" />
+            <path d="M-90 150 L-58 46 M90 150 L58 46" fill="none" stroke="#ffd23f" stroke-width="12" />
+            <path d="M-90 150 L-58 46 M90 150 L58 46" fill="none" stroke="#141a3c" stroke-width="3" opacity="0.5" />
+            <g transform="rotate(12 0 60)">
+              <path d="M-10 74 L-24 210 L0 236 L22 210 L10 74 Z" fill="#ef4b3c" class="t" stroke-width="4" />
+              <path d="M-15 52 L15 52 L11 76 L-11 76 Z" fill="#ef4b3c" class="t" stroke-width="4" />
+            </g>
+            <path d="M-92 168 Q0 152 92 168 L96 360 L-96 360 Z" fill="#ffd23f" />
+            <path d="M-92 168 Q0 152 92 168" fill="none" class="t" stroke-width="4" />
+            <text class="fr" x="0" y="232" font-size="33" fill="#141a3c" text-anchor="middle" letter-spacing="0">AYUDANTE</text>
+            <path d="M-46 44 L-18 82 L0 54 L18 82 L46 44" fill="#fbf8f0" class="t" stroke-width="4" />
+            <rect x="-24" y="-14" width="48" height="60" fill="#f6c49a" />
+            <path d="M-24 46 L0 56 L24 46" fill="none" class="t" stroke-width="4" />
+            <g class="raul-cabeza">
+              <circle cx="-72" cy="-76" r="15" fill="#f6c49a" class="t" stroke-width="4" />
+              <circle cx="72" cy="-76" r="15" fill="#f6c49a" class="t" stroke-width="4" />
+              <ellipse cx="0" cy="-82" rx="72" ry="86" fill="#f6c49a" class="t" />
+              <path d="M-74 -112 Q-92 -70 -74 -34 L-62 -46 Q-74 -80 -58 -114 Z" fill="#b9bccb" class="t" stroke-width="4" />
+              <path d="M74 -112 Q92 -70 74 -34 L62 -46 Q74 -80 58 -114 Z" fill="#b9bccb" class="t" stroke-width="4" />
+              <path d="M-14 -166 Q-4 -186 8 -168 M6 -168 Q18 -184 26 -164" fill="none" stroke="#b9bccb" stroke-width="5" stroke-linecap="round" />
+              <path d="M-48 -110 L-14 -118 M48 -110 L14 -118" fill="none" class="t" stroke-width="7" stroke="#8e92a8" />
+              <ellipse cx="-30" cy="-88" rx="16" ry="12" fill="#fbf8f0" class="t" stroke-width="3" />
+              <ellipse cx="30" cy="-88" rx="16" ry="12" fill="#fbf8f0" class="t" stroke-width="3" />
+              <circle cx="-30" cy="-83" r="5.5" fill="#141a3c" /><circle cx="30" cy="-83" r="5.5" fill="#141a3c" />
+              <g class="raul-parpado">
+                <path d="M-48 -88 Q-30 -104 -12 -88 Z" fill="#f6c49a" class="t" stroke-width="3" />
+                <path d="M48 -88 Q30 -104 12 -88 Z" fill="#f6c49a" class="t" stroke-width="3" />
+              </g>
+              <path d="M-44 -70 Q-30 -62 -16 -70 M44 -70 Q30 -62 16 -70" fill="none" stroke="#7d86b8" stroke-width="5" stroke-linecap="round" />
+              <path d="M2 -82 Q-12 -56 6 -52" fill="none" class="t" stroke-width="4" />
+              <path d="M-42 -36 Q-22 -52 0 -42 Q22 -52 42 -36 Q22 -26 0 -34 Q-22 -26 -42 -36 Z" fill="#b9bccb" class="t" stroke-width="4" />
+              <path class="raul-boca t" d="M-14 -18 Q0 -22 14 -18" fill="none" stroke-width="4" />
+            </g>
+            <!-- brazo derecho (el que saluda sin ganas) -->
+            <g class="raul-brazo">
+              <path d="M118 80 Q160 200 146 300" fill="none" stroke="#141a3c" stroke-width="56" stroke-linecap="round" />
+              <path d="M118 80 Q160 200 146 300" fill="none" stroke="#fbf8f0" stroke-width="46" stroke-linecap="round" />
+              <ellipse cx="146" cy="324" rx="26" ry="28" fill="#f6c49a" class="t" stroke-width="4" />
+            </g>
+</g></g>
+          <g class="mesa">
+            <rect x="-10" y="1190" width="1100" height="34" fill="#fbf8f0" class="t" />
+            <rect x="-10" y="1224" width="1100" height="120" fill="#ef4b3c" class="t" />
+            <path d="M-10 1224 L20 1250 L50 1224 L80 1250 L110 1224 L140 1250 L170 1224 L200 1250 L230 1224 L260 1250 L290 1224 L320 1250 L350 1224 L380 1250 L410 1224 L440 1250 L470 1224 L500 1250 L530 1224 L560 1250 L590 1224 L620 1250 L650 1224 L680 1250 L710 1224 L740 1250 L770 1224 L800 1250 L830 1224 L860 1250 L890 1224 L920 1250 L950 1224 L980 1250 L1010 1224 L1040 1250 L1070 1224 L1100 1250 L1100 1224 Z" fill="#fbf8f0" class="t" stroke-width="4" />
+          </g>
+          <!-- grillito de silencio -->
+          <g class="s02-cri"><text class="cv" x="930" y="806" font-size="44" fill="#fbf8f0" text-anchor="middle">cri, cri</text></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-raul";
+      const DUR = 5.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, at, padre) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); if (padre) padre.appendChild(e); return e; };
+      // letras recortadas: cada letra en su papelito de color, torcida
+      const COL = ["#ffd23f", "#ef4b3c", "#7ccf3a", "#fbf8f0"];
+      const ROT = [-7, 5, -3, 8, -5, 4, -8, 3, 6, -4, 7, -6];
+      const recorte = (padre, txt, cx, cy, s, k0, cols, giro) => {
+        const C = cols || COL, out = [], paso = s * 0.92, letras = [...txt];
+        const ancho = letras.reduce((a, c, i) => a + (i ? (c === " " || letras[i - 1] === " " ? paso * 0.85 : paso) : 0), 0);
+        let x = cx - ancho / 2;
+        letras.forEach((c, i) => {
+          if (c !== " ") {
+            const k = (k0 + i) % C.length;
+            const g = mk("g", { transform: `translate(${x.toFixed(1)} ${cy}) rotate(${ROT[(k0 + i) % ROT.length] * (giro ?? 1)})` }, padre);
+            const h = mk("g", {}, g);
+            mk("rect", { x: -s * 0.42, y: -s * 0.5, width: s * 0.84, height: s, fill: C[k], class: "t", "stroke-width": 4 }, h);
+            mk("text", { x: 0, y: s * 0.02, "font-size": s * 0.72, fill: C[k] === "#ef4b3c" || C[k] === "#2347c9" ? "#fbf8f0" : "#141a3c", "text-anchor": "middle", "dominant-baseline": "central", class: "fr" }, h).textContent = c;
+            out.push(h);
+          }
+          x += c === " " || letras[i + 1] === " " ? paso * 0.85 : paso;
+        });
+        return out;
+      };
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (el, t, d) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d ?? 0.5, ease: "power2.inOut" }, t); };
+      const temblor = (el, t, f) => { let px = 0, py = 0; [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => { tl.to(el, { x: "+=" + (x - px) * (f ?? 1), y: "+=" + (y - py) * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045); px = x; py = y; }); };
+      // etiqueta debajo del dibujo: tira de papel con borde dentado; textos [[texto, t, color], ...]
+      const etiquetas = (lista) => {
+        const g = mk("g", { class: "etq" }, q("svg.principal"));
+        const tira = mk("path", { d: "M250 1342 L830 1342 L842 1356 L830 1370 L842 1384 L830 1398 L250 1398 L238 1384 L250 1370 L238 1356 Z", fill: "#fbf8f0", class: "t", "stroke-width": 4 }, g);
+        tl.fromTo(tira, { opacity: 0, scaleX: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, duration: 0.3, ease: "back.out(1.6)" }, 0.05);
+        lista.forEach(([txt, t, col], i) => {
+          const e = mk("text", { x: 540, y: 1382, "font-size": 34, fill: col || "#141a3c", "text-anchor": "middle", "letter-spacing": 4, class: "fr", opacity: 0 }, g);
+          e.textContent = txt;
+          tl.fromTo(e, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+          if (i + 1 < lista.length) tl.to(e, { opacity: 0, y: -10, duration: 0.2 }, lista[i + 1][1] - 0.2);
+        });
+      };
+      // el número de PASO: la estrella entra girando y "PASO" se pega en letras recortadas
+      const entraPaso = (x, y, t, tnum) => {
+        const letras = recorte(q(".paso-titulo"), "PASO", x + 290, y - 40, 66, 0);
+        letras.forEach((h, i) => tl.fromTo(h, { opacity: 0, scale: 1.7, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, t + i * 0.05));
+        tl.fromTo(q(".paso"), { opacity: 0.3, scale: 0.4, rotation: -160, svgOrigin: `${x} ${y}` }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: `${x} ${y}`, duration: 0.45, ease: "back.out(1.5)" }, t);
+        tl.to(q(".paso"), { scale: 1.18, svgOrigin: `${x} ${y}`, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, tnum);
+        tl.to(q(".paso"), { rotation: 8, svgOrigin: `${x} ${y}`, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 7 }, tnum + 0.3);
+      };
+
+      const DUENO = 0.66, COMERCIO = 1.33, SALUDA = 2.15, RAUL = 2.58, HOLA = 3.8;
+      // lamparitas alrededor del cartel
+      const focos = [];
+      for (let i = 0; i < 9; i++) { focos.push(mk("circle", { cx: 310 + i * 57.5, cy: 604, r: 9, fill: "#ffd23f", class: "t", "stroke-width": 3 }, q(".s02-focos"))); focos.push(mk("circle", { cx: 310 + i * 57.5, cy: 716, r: 9, fill: "#ffd23f", class: "t", "stroke-width": 3 }, q(".s02-focos"))); }
+      etiquetas([["EL AYUDANTE DE HOY", 0.15], ["MODO: AGOTADO", HOLA - 0.05, "#ef4b3c"]]);
+
+      // entrada: la Seño ya está, Raúl entra arrastrando los pies desde la derecha
+      tl.fromTo(q(".seno"), { x: -40, opacity: 0.7 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".mesa"), { y: 30 }, { y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".raul"), { x: 320 }, { x: 0, duration: 0.9, ease: "power1.out" }, 0);
+      tl.to(q(".raul"), { y: -8, duration: 0.15, ease: "sine.inOut", yoyo: true, repeat: 5 }, 0);
+      tl.fromTo(q(".s02-cartel"), { opacity: 0.4, y: -20 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0);
+      // la Seño lo señala
+      gsap.set(q(".seno-brazo"), { svgOrigin: "120 80" });
+      tl.to(q(".seno-brazo"), { rotation: 62, duration: 0.3, ease: "back.out(1.6)" }, DUENO - 0.3);
+      tl.fromTo(q(".s02-flecha"), { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.6)" }, DUENO - 0.05);
+      pop(q(".s02-local"), COMERCIO - 0.1, 0.5);
+      tl.to(q(".s02-flecha"), { x: 10, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 3 }, DUENO + 0.3);
+
+      // "¡Saludá, Raúl!": el cartel se prende
+      tl.to(q(".s02-aplausos"), { opacity: 1, duration: 0.1 }, SALUDA);
+      focos.forEach((f, i) => tl.fromTo(f, { fill: "#ffd23f" }, { fill: "#fbf8f0", duration: 0.12, ease: "steps(1)", yoyo: true, repeat: 7 }, SALUDA + (i % 2) * 0.12));
+      temblor(q(".s02-cartel"), SALUDA, 0.5);
+      tl.to(q(".seno-brazo"), { rotation: 20, duration: 0.25, ease: "back.out(1.6)" }, RAUL - 0.1);
+      tl.to(q(".seno-brazo"), { rotation: 0, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 2 }, RAUL + 0.2);
+      tl.to(q(".seno"), { y: -14, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, SALUDA);
+
+      // "Hola.": se apaga todo; Raúl levanta la mano apenitas
+      tl.to(q(".s02-aplausos"), { opacity: 0.35, duration: 0.15 }, HOLA - 0.25);
+      gsap.set(q(".raul-brazo"), { svgOrigin: "118 80" });
+      tl.to(q(".raul-brazo"), { rotation: -38, duration: 0.6, ease: "power1.inOut" }, HOLA - 0.2);
+      tl.to(q(".raul-brazo"), { rotation: -30, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, HOLA + 0.4);
+      tl.to(q(".raul-parpado"), { scaleY: 1.7, svgOrigin: "0 -96", duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 1 }, HOLA + 0.2);
+      tl.to(q(".raul-cabeza"), { rotation: 6, svgOrigin: "0 0", duration: 0.8, ease: "sine.inOut" }, HOLA);
+      tl.fromTo(q(".s02-cri"), { opacity: 0, y: 10 }, { opacity: 0.85, y: 0, duration: 0.3 }, HOLA + 0.4);
+      tl.to(q(".s02-cri"), { x: 6, duration: 0.1, yoyo: true, repeat: 5 }, HOLA + 0.5);
+
+      tl.to(q(".escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
