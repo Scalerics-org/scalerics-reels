@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/oficina.js"></script>
+  <style>
+    @font-face { font-family: "Special Elite"; font-display: block; src: url("assets/fonts/SpecialElite.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-enfrente"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-enfrente"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-enfrente"] .s11-tel { position: absolute; left: 200px; top: 570px; width: 680px; height: 880px; box-sizing: border-box; background: #2a2b30; border-radius: 64px; box-shadow: 0 14px 0 rgba(42, 43, 48, 0.35); }
+    [data-composition-id="s11-enfrente"] .s11-pant { position: absolute; left: 20px; top: 20px; right: 20px; bottom: 20px; border-radius: 46px; background: #fbf8ef; overflow: hidden; font-family: "Lexend", sans-serif; color: #2a2b30; }
+    [data-composition-id="s11-enfrente"] .s11-carga { position: absolute; left: 0; top: 0; height: 10px; width: 100%; background: #5ce611; transform-origin: 0 50%; }
+    [data-composition-id="s11-enfrente"] .s11-head { position: absolute; left: 0; right: 0; top: 10px; height: 150px; background: #2a2b30; color: #fbf8ef; padding: 30px 40px 0; box-sizing: border-box; }
+    [data-composition-id="s11-enfrente"] .s11-head b { display: block; font-size: 44px; font-weight: 800; letter-spacing: 0.02em; white-space: nowrap; }
+    [data-composition-id="s11-enfrente"] .s11-head span { font-family: "IBM Plex Mono", monospace; font-size: 26px; color: #b9e0d3; }
+    [data-composition-id="s11-enfrente"] .s11-blq { position: absolute; left: 30px; right: 30px; }
+    [data-composition-id="s11-enfrente"] .s11-hor { top: 180px; height: 70px; display: flex; align-items: center; gap: 16px; font-size: 28px; font-weight: 600; }
+    [data-composition-id="s11-enfrente"] .s11-chip { background: #5ce611; color: #2a2b30; border: 3px solid #2a2b30; border-radius: 30px; padding: 6px 18px; font-weight: 800; font-size: 26px; white-space: nowrap; }
+    [data-composition-id="s11-enfrente"] .s11-menu { top: 270px; }
+    [data-composition-id="s11-enfrente"] .s11-tit { font-size: 26px; font-weight: 700; letter-spacing: 0.16em; color: #5f9e8e; margin-bottom: 8px; }
+    [data-composition-id="s11-enfrente"] .s11-plato { display: flex; align-items: center; justify-content: space-between; height: 62px; border-bottom: 3px solid #e8dcc0; font-size: 32px; font-weight: 600; }
+    [data-composition-id="s11-enfrente"] .s11-plato i { font-style: normal; font-size: 24px; font-weight: 700; color: #3f9e0b; }
+    [data-composition-id="s11-enfrente"] .s11-mapa { top: 520px; height: 140px; border: 3px solid #2a2b30; border-radius: 20px; background: #b9e0d3; overflow: hidden; }
+    [data-composition-id="s11-enfrente"] .s11-mapa svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    [data-composition-id="s11-enfrente"] .s11-mapa span { position: absolute; right: 18px; bottom: 12px; background: #fbf8ef; border: 3px solid #2a2b30; border-radius: 10px; padding: 2px 12px; font-size: 24px; font-weight: 700; }
+    [data-composition-id="s11-enfrente"] .s11-wa { top: 690px; height: 100px; border: 4px solid #2a2b30; border-radius: 50px; background: #5ce611; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 800; letter-spacing: 0.04em; }
+    [data-composition-id="s11-enfrente"] .s11-ok { position: absolute; left: 140px; top: 500px; padding: 18px 30px 18px 80px; background: #2a2b30; color: #fbf8ef; border-radius: 20px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 36px; white-space: nowrap; }
+    [data-composition-id="s11-enfrente"] .s11-ok::before { content: ""; position: absolute; left: 30px; top: 22px; width: 16px; height: 30px; border-right: 7px solid #5ce611; border-bottom: 7px solid #5ce611; transform: rotate(45deg); }
+    [data-composition-id="s11-enfrente"] svg.s11-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-enfrente"] .s11-sello { left: 175px; top: 880px; font-size: 82px; background: rgba(251, 248, 239, 0.75); mix-blend-mode: normal; }
+    [data-composition-id="s11-enfrente"] .s11-vereda { position: absolute; left: 330px; top: 584px; z-index: 2; }
+  </style>
+  <div id="root" data-composition-id="s11-enfrente" data-width="1080" data-height="1920" data-duration="8.47">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="8.47" data-track-index="0">
+      <div class="s11-escenario">
+        <div class="s11-tel"><div class="s11-pant">
+          <div class="s11-carga"></div>
+          <div class="s11-head"><b>BODEGÓN DE ENFRENTE</b><span>cocina casera · cruzando la calle</span></div>
+          <div class="s11-blq s11-hor">Hoy de 12 a 24 <span class="s11-chip">ABIERTO AHORA</span></div>
+          <div class="s11-blq s11-menu"><div class="s11-tit">MENÚ</div>
+            <div class="s11-plato">Milanesa al plato <i>PEDIR</i></div>
+            <div class="s11-plato">Tarta del día <i>PEDIR</i></div>
+            <div class="s11-plato">Flan casero <i>PEDIR</i></div></div>
+          <div class="s11-blq s11-mapa"><svg viewBox="0 0 604 140" aria-hidden="true">
+            <path d="M0 70 H604 M200 0 V140 M430 0 V140" stroke="#fbf8ef" stroke-width="22" />
+            <path class="s11-ruta" d="M60 110 Q140 70 200 70 H330" fill="none" stroke="#5b3d8f" stroke-width="7" stroke-dasharray="14 10" />
+            <g class="s11-pin"><path d="M330 74 Q300 40 312 22 Q330 4 348 22 Q360 40 330 74 Z" fill="#d63a2f" stroke="#2a2b30" stroke-width="4" /><circle cx="330" cy="30" r="8" fill="#fbf8ef" /></g>
+          </svg><span>CÓMO LLEGAR</span></div>
+          <div class="s11-blq s11-wa">PEDIR POR WHATSAPP</div>
+        </div></div>
+        <svg class="s11-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s11-ok">PEDIDO ENVIADO</div>
+        <div class="of-sello verde s11-sello" data-layout-allow-overlap>CERO TRÁMITES</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-enfrente";
+      const DUR = 8.47;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s11-svg").innerHTML =
+        `<ellipse class="s11-dedo" cx="560" cy="1340" rx="40" ry="50" fill="#e8b48c" stroke="#2a2b30" stroke-width="5"/>` +
+        `<g class="s11-gaby">${OF.gabriela(150, 1500, 0.75, "feliz")}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = OF.kit(tl, root);
+      const { q, qa } = K;
+
+      const ENFRENTE = 0.0;
+      const MENU = 1.82;
+      const HORARIO = 2.73;
+      const LLEGAR = 3.73;
+      const BOTON = 4.55;
+      const PEDI = 5.73;
+      const CERO = 6.43;
+
+      // "Enfrente": barrido desde la derecha, la web carga al toque
+      tl.fromTo(q(".s11-escenario"), { x: 700, rotation: 6 }, { x: 0, rotation: 0, duration: 0.4, ease: "power3.out", transformOrigin: "50% 80%" }, ENFRENTE);
+      tl.fromTo(q(".s11-carga"), { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 0.3);
+      tl.to(q(".s11-carga"), { opacity: 0, duration: 0.2 }, 0.7);
+      K.pop(q(".s11-head"), 0.55);
+      gsap.set(qa(".s11-hor, .s11-menu .s11-tit, .s11-plato, .s11-mapa, .s11-wa"), { opacity: 0 });
+      // "El menú"
+      tl.fromTo(q(".s11-menu .s11-tit"), { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: false }, MENU - 0.1);
+      qa(".s11-plato").forEach((p, i) => tl.fromTo(p, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, MENU + i * 0.1));
+      // "el horario": abierto ahora
+      tl.fromTo(q(".s11-hor"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, HORARIO - 0.05);
+      tl.fromTo(q(".s11-chip"), { scale: 1 }, { scale: 1.15, duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, HORARIO + 0.25);
+      // "cómo llegar": mapa con ruta y pin
+      K.pop(q(".s11-mapa"), LLEGAR - 0.1);
+      K.dibujar(q(".s11-ruta"), LLEGAR + 0.1, 0.5);
+      tl.fromTo(q(".s11-pin"), { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "bounce.out" }, LLEGAR + 0.4);
+      // "botón de WhatsApp"
+      K.golpe(q(".s11-wa"), BOTON);
+      // "Ya pedí": el dedo aprieta el botón
+      gsap.set(q(".s11-dedo"), { opacity: 0 });
+      tl.fromTo(q(".s11-dedo"), { opacity: 1, y: 160 }, { y: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, PEDI - 0.35);
+      tl.to(q(".s11-wa"), { scale: 0.94, duration: 0.07, yoyo: true, repeat: 1 }, PEDI - 0.08);
+      tl.to(q(".s11-dedo"), { y: 200, opacity: 0, duration: 0.25 }, PEDI + 0.15);
+      K.pop(q(".s11-ok"), PEDI);
+      // "Cero trámites": Gabriela feliz y el sello verde
+      gsap.set(q(".s11-gaby"), { opacity: 0 });
+      tl.fromTo(q(".s11-gaby"), { y: 300, opacity: 1 }, { y: 0, immediateRender: false, duration: 0.35, ease: "back.out(1.6)" }, CERO - 0.5);
+      tl.to(q(".s11-ok"), { opacity: 0, duration: 0.2 }, CERO - 0.2);
+      K.sello(q(".s11-sello"), CERO + 0.1, -8);
+      K.sacudon(q(".s11-escenario"), CERO + 0.14, 0.9);
+      tl.to(q(".s11-gaby"), { y: -16, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, CERO + 0.4);
+
+      K.salida(q("#s11-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

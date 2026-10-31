@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/oficina.js"></script>
+  <style>
+    @font-face { font-family: "Special Elite"; font-display: block; src: url("assets/fonts/SpecialElite.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-horario"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-horario"] .s06-uno, [data-composition-id="s06-horario"] .s06-dos { position: absolute; inset: 0; }
+    [data-composition-id="s06-horario"] svg.s06-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-horario"] .s06-globo { left: 90px; top: 600px; font-size: 46px; }
+    [data-composition-id="s06-horario"] .s06-cartel { position: absolute; left: 130px; top: 640px; width: 820px; height: 660px; box-sizing: border-box; padding: 40px 50px; background: #e8dcc0; border: 5px solid #2a2b30; border-radius: 6px;
+      box-shadow: inset 0 0 0 14px rgba(203, 189, 156, 0.6), inset 0 0 80px rgba(160, 130, 70, 0.35), 0 10px 0 rgba(42, 43, 48, 0.35); font-family: "Special Elite", monospace; color: #2a2b30; text-align: center; transform: rotate(-1.5deg); }
+    [data-composition-id="s06-horario"] .s06-cartel .s06-t { font-size: 54px; letter-spacing: 0.06em; border-bottom: 4px solid #2a2b30; padding-bottom: 14px; }
+    [data-composition-id="s06-horario"] .s06-cartel .s06-l { font-size: 44px; margin-top: 30px; }
+    [data-composition-id="s06-horario"] .s06-cartel .s06-h { font-family: "Black Ops One", sans-serif; font-size: 120px; margin-top: 18px; color: #5b3d8f; line-height: 1; }
+    [data-composition-id="s06-horario"] .s06-cartel .s06-act { font-size: 38px; margin-top: 40px; color: #5b3d8f; }
+    [data-composition-id="s06-horario"] .s06-mancha { position: absolute; border-radius: 50%; background: rgba(160, 130, 70, 0.28); }
+    [data-composition-id="s06-horario"] .s06-alma { position: absolute; left: 770px; top: 1130px; width: 200px; height: 220px; box-sizing: border-box; background: #f4ecd8; border: 5px solid #2a2b30; text-align: center; font-family: "Lexend", sans-serif; transform: rotate(8deg); }
+    [data-composition-id="s06-horario"] .s06-alma .s06-am { background: #d63a2f; color: #f4ecd8; font-weight: 700; font-size: 30px; padding: 8px 0; border-bottom: 5px solid #2a2b30; }
+    [data-composition-id="s06-horario"] .s06-alma .s06-aa { font-family: "Black Ops One", sans-serif; font-size: 66px; color: #2a2b30; margin-top: 30px; }
+    [data-composition-id="s06-horario"] .s06-sello { left: 190px; top: 900px; font-size: 150px; }
+  </style>
+  <div id="root" data-composition-id="s06-horario" data-width="1080" data-height="1920" data-duration="8.01">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="8.01" data-track-index="0">
+      <div class="s06-uno">
+        <svg class="s06-svg s06-svg1" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="of-globo s06-globo">¿A QUÉ HORA<br />ABREN?</div>
+      </div>
+      <div class="s06-dos">
+        <div class="s06-cartel">
+          <div class="s06-mancha" style="left:560px;top:420px;width:150px;height:110px"></div>
+          <div class="s06-mancha" style="left:30px;top:80px;width:90px;height:70px"></div>
+          <div class="s06-t">HORARIO DE ATENCIÓN</div>
+          <div class="s06-l">lunes a viernes</div>
+          <div class="s06-h">9 A 18 HS</div>
+          <div class="s06-act">Actualizado: marzo de 2019</div>
+        </div>
+        <svg class="s06-svg s06-svg2" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- telaraña en la esquina del cartel -->
+          <g fill="none" stroke="#2a2b30" stroke-width="3" opacity="0.7">
+            <path class="s06-tela" d="M135 650 L300 690" /><path class="s06-tela" d="M135 650 L260 780" /><path class="s06-tela" d="M135 650 L170 830" />
+            <path class="s06-tela" d="M190 664 Q200 700 166 708 Q160 730 145 722" /><path class="s06-tela" d="M240 676 Q246 740 210 760 Q190 790 158 790" />
+          </g>
+          <!-- chinches -->
+          <circle cx="180" cy="690" r="14" fill="#d63a2f" stroke="#2a2b30" stroke-width="4" />
+          <circle cx="905" cy="680" r="14" fill="#d63a2f" stroke="#2a2b30" stroke-width="4" />
+        </svg>
+        <div class="s06-alma"><div class="s06-am">MARZO</div><div class="s06-aa">2019</div></div>
+        <div class="of-sello s06-sello" data-layout-allow-overlap>VENCIDO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-horario";
+      const DUR = 8.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s06-svg1").innerHTML =
+        // reloj de pared
+        `<g stroke="#2a2b30" stroke-width="6" stroke-linecap="round">
+          <circle cx="800" cy="880" r="130" fill="#f4ecd8"/><circle cx="800" cy="880" r="112" fill="none" stroke-width="3"/>
+          <path d="M800 778 V796 M800 964 V982 M698 880 H716 M884 880 H902" stroke-width="6"/>
+          <path class="s06-hora" d="M800 880 L800 820" stroke-width="10"/>
+          <path class="s06-min" d="M800 880 L800 790" stroke-width="6" stroke="#d63a2f"/>
+          <circle cx="800" cy="880" r="10" fill="#2a2b30"/></g>` +
+        OF.gabriela(340, 1420, 1.1, "enojada") + OF.butacas(1340);
+      const tl = gsap.timeline({ paused: true });
+      const K = OF.kit(tl, root);
+      const { q, qa } = K;
+
+      const HORA = 1.1;
+      const HORARIO = 2.47;
+      const NUEVE = 3.86;
+      const SEIS = 4.53;
+      const ACTUALIZADO = 4.86;
+      const DOS = 5.62;
+      const VENCIDO = 6.87;
+
+      // tiempo 1: "Bueno…": ella suspira, el reloj corre
+      tl.fromTo(q(".s06-uno"), { x: 0 }, { x: 0, duration: 0.01 }, 0);
+      tl.fromTo(q(".of-g"), { y: 30 }, { y: 0, duration: 0.4, ease: "power2.out" }, 0);
+      tl.fromTo(q(".of-g-cabeza"), { rotation: 0 }, { rotation: -7, svgOrigin: "0 -200", duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.1);
+      tl.fromTo(q(".s06-min"), { rotation: 0 }, { rotation: 720, svgOrigin: "800 880", duration: 2.3, ease: "none" }, 0);
+      tl.fromTo(q(".s06-hora"), { rotation: 0 }, { rotation: 60, svgOrigin: "800 880", duration: 2.3, ease: "none" }, 0);
+      K.pop(q(".s06-globo"), HORA - 0.4);
+      tl.to(q(".s06-uno"), { x: -1100, duration: 0.35, ease: "power3.in" }, HORARIO - 0.35);
+
+      // tiempo 2: el cartel amarillento
+      gsap.set(q(".s06-dos"), { opacity: 0 });
+      tl.fromTo(q(".s06-dos"), { opacity: 1, x: 1100 }, { x: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, HORARIO - 0.1);
+      gsap.set(qa(".s06-l, .s06-h, .s06-act"), { opacity: 0 });
+      tl.fromTo(q(".s06-l"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, HORARIO + 0.5);
+      K.golpe(q(".s06-h"), NUEVE);
+      tl.fromTo(q(".s06-h"), { scale: 1 }, { scale: 1.08, duration: 0.1, yoyo: true, repeat: 1, immediateRender: false }, SEIS);
+      tl.fromTo(q(".s06-act"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, immediateRender: false }, ACTUALIZADO);
+      qa(".s06-tela").forEach((p, i) => K.dibujar(p, ACTUALIZADO + 0.2 + i * 0.12, 0.4));
+      // "dos mil diecinueve": el almanaque viejo se cuelga
+      gsap.set(q(".s06-alma"), { opacity: 0, transformOrigin: "50% 0%" });
+      tl.fromTo(q(".s06-alma"), { opacity: 1, rotation: -30, y: -40 }, { rotation: 8, y: 0, duration: 0.6, ease: "elastic.out(1, 0.5)", immediateRender: false }, DOS);
+      tl.fromTo(q(".s06-cartel"), { y: 0 }, { y: 6, duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut" }, DOS);
+      // "Vencido"
+      K.sello(q(".s06-sello"), VENCIDO, -12);
+      K.sacudon(q(".s06-dos"), VENCIDO + 0.04, 1.1);
+
+      K.salida(q("#s06-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

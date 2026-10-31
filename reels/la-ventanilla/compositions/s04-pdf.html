@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/oficina.js"></script>
+  <style>
+    @font-face { font-family: "Special Elite"; font-display: block; src: url("assets/fonts/SpecialElite.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-pdf"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-pdf"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-pdf"] svg.s04-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-pdf"] .s04-pdf { position: absolute; left: 60px; top: 1110px; width: 230px; height: 290px; }
+    [data-composition-id="s04-pdf"] .s04-pdf .s04-hoja { position: absolute; inset: 0; background: #f4ecd8; border: 5px solid #2a2b30; border-radius: 6px; clip-path: polygon(0 0, 72% 0, 100% 22%, 100% 100%, 0 100%); }
+    [data-composition-id="s04-pdf"] .s04-pdf .s04-pdft { position: absolute; left: 0; right: 0; top: 70px; text-align: center; font-family: "Black Ops One", sans-serif; font-size: 64px; color: #d63a2f; }
+    [data-composition-id="s04-pdf"] .s04-pdf .s04-pdfn { position: absolute; left: 0; right: 0; top: 160px; text-align: center; font-family: "IBM Plex Mono", monospace; font-size: 26px; color: #2a2b30; line-height: 1.3; }
+    [data-composition-id="s04-pdf"] .s04-hojas { position: absolute; left: 340px; top: 1100px; width: 560px; height: 320px; }
+    [data-composition-id="s04-pdf"] .s04-hojas .of-form { left: 0; top: 0; width: 560px; height: 320px; }
+    [data-composition-id="s04-pdf"] .s04-h2 { background: #b9e0d3 !important; }
+    [data-composition-id="s04-pdf"] .s04-h3 { background: #e8dcc0 !important; }
+    [data-composition-id="s04-pdf"] .s04-sello { left: 560px; top: 1290px; font-size: 44px; }
+    [data-composition-id="s04-pdf"] .s04-x3 { position: absolute; left: 880px; top: 1060px; font-family: "Black Ops One", sans-serif; font-size: 96px; color: #5b3d8f; -webkit-text-stroke: 4px #2a2b30; }
+  </style>
+  <div id="root" data-composition-id="s04-pdf" data-width="1080" data-height="1920" data-duration="5.86">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="5.86" data-track-index="0">
+      <div class="s04-escenario">
+        <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s04-pdf"><div class="s04-hoja"></div><div class="s04-pdft">PDF</div><div class="s04-pdfn">menu_final<br />_v3_BIEN.pdf<br />48 páginas</div></div>
+        <div class="s04-hojas">
+          <div class="of-form s04-h3"></div>
+          <div class="of-form s04-h2"></div>
+          <div class="of-form s04-h1"><div class="of-ft">Formulario 3B</div><div class="of-fs">Solicitud de visualización de menú</div>
+            <div class="of-renglon">Nombre:</div><div class="of-renglon">Motivo del hambre:</div><div class="of-renglon"><span class="of-caja"></span>Original <span class="of-caja"></span>Copia</div></div>
+        </div>
+        <div class="of-sello violeta s04-sello" data-layout-allow-overlap>POR TRIPLICADO</div>
+        <div class="s04-x3">x3</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-pdf";
+      const DUR = 5.86;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s04-svg").innerHTML = OF.funcionario(540, 990, 0.82) + OF.ventanilla(250, 600, 580, 390);
+      const tl = gsap.timeline({ paused: true });
+      const K = OF.kit(tl, root);
+      const { q, qa } = K;
+
+      const MENU = 0.18;
+      const PDF = 1.73;
+      const FORMULARIO = 2.87;
+      const TRIPLICADO = 4.55;
+
+      // cuadro 0: ya está la ventanilla; él lee sin levantar la vista
+      tl.fromTo(q(".s04-escenario"), { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 40%" }, 0);
+      tl.fromTo(q(".of-f-cabeza"), { rotation: 0 }, { rotation: -4, svgOrigin: "0 -200", duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      K.bostezo(q(".of-f-cabeza"), 0.5);
+      // "PDF": el archivo cae pesado en el mostrador
+      gsap.set(q(".s04-pdf"), { opacity: 0 });
+      tl.fromTo(q(".s04-pdf"), { opacity: 1, y: -500, rotation: -20 }, { y: 0, rotation: -6, duration: 0.35, ease: "power3.in", immediateRender: false }, PDF - 0.35);
+      K.sacudon(q(".s04-escenario"), PDF, 0.8);
+      // "Formulario tres B": sale por la ranura
+      gsap.set(q(".s04-hojas"), { opacity: 0 });
+      tl.fromTo(q(".s04-hojas"), { opacity: 1, y: -130, scale: 0.6 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(1.4)", immediateRender: false }, FORMULARIO - 0.2);
+      tl.fromTo(q(".s04-h1"), { rotation: 0 }, { rotation: -2, duration: 0.3, ease: "sine.inOut" }, FORMULARIO + 0.3);
+      // "triplicado": abanico de tres hojas, x3 y sello violeta
+      tl.to(q(".s04-h2"), { x: 40, y: -36, rotation: 5, duration: 0.3, ease: "back.out(2)" }, TRIPLICADO - 0.1);
+      tl.to(q(".s04-h3"), { x: 80, y: -70, rotation: 10, duration: 0.3, ease: "back.out(2)" }, TRIPLICADO);
+      K.golpe(q(".s04-x3"), TRIPLICADO + 0.25, 10);
+      K.sellar(q(".of-f-brazo"), TRIPLICADO + 0.75);
+      K.sello(q(".s04-sello"), TRIPLICADO + 0.75, -7);
+
+      K.salida(q("#s04-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

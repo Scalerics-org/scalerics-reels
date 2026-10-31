@@ -1,0 +1,79 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/oficina.js"></script>
+  <style>
+    @font-face { font-family: "Special Elite"; font-display: block; src: url("assets/fonts/SpecialElite.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-cta"] .s15-capa { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-form { left: 100px; top: 590px; width: 880px; height: 800px; padding: 36px 44px; transform: rotate(-1deg); }
+    [data-composition-id="s15-cta"] .s15-form .of-ft { font-size: 46px; border-bottom: 4px solid #2a2b30; padding-bottom: 12px; }
+    [data-composition-id="s15-cta"] .s15-form .of-fs { font-size: 32px; margin-top: 16px; }
+    [data-composition-id="s15-cta"] .s15-form .of-renglon { height: 64px; font-family: "Caveat", cursive; font-weight: 700; font-size: 44px; color: #5b3d8f; padding-top: 6px; white-space: nowrap; overflow: hidden; }
+    [data-composition-id="s15-cta"] .s15-form .of-renglon span { display: inline-block; }
+    [data-composition-id="s15-cta"] .s15-campo { position: absolute; left: 44px; right: 44px; bottom: 40px; height: 96px; border: 4px solid #2a2b30; border-radius: 48px; background: #fbf8ef; display: flex; align-items: center; padding-left: 34px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; color: #6f7378; }
+    [data-composition-id="s15-cta"] .s15-campo .s15-cursor { display: inline-block; width: 4px; height: 44px; background: #2a2b30; margin-left: 6px; }
+    [data-composition-id="s15-cta"] .s15-campo .s15-env { position: absolute; right: 12px; top: 10px; width: 68px; height: 68px; border-radius: 50%; background: #5ce611; border: 4px solid #2a2b30; box-sizing: border-box; }
+    [data-composition-id="s15-cta"] .s15-campo .s15-env::after { content: ""; position: absolute; left: 18px; top: 18px; border-left: 24px solid #2a2b30; border-top: 13px solid transparent; border-bottom: 13px solid transparent; }
+    [data-composition-id="s15-cta"] .s15-abs { left: 560px; top: 820px; font-size: 66px; }
+    [data-composition-id="s15-cta"] .s15-rec { left: 560px; top: 1110px; font-size: 54px; }
+  </style>
+  <div id="root" data-composition-id="s15-cta" data-width="1080" data-height="1920" data-duration="7.82">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="7.82" data-track-index="0">
+      <div class="s15-escenario">
+        <div class="of-form s15-form">
+          <div class="of-ft">Formulario único</div>
+          <div class="of-fs">El trámite más absurdo que te hizo hacer un local para comprarle:</div>
+          <div class="of-renglon"><span class="s15-r1">«Mandá un mail para ver el menú»</span></div>
+          <div class="of-renglon"><span class="s15-r2">«El precio, por privado»</span></div>
+          <div class="of-renglon"><span class="s15-r3">«Pasá el lunes»</span></div>
+          <div class="of-renglon"><span class="s15-r4">El tuyo:</span></div>
+          <div class="s15-campo">Escribilo en los comentarios<span class="s15-cursor"></span><span class="s15-env"></span></div>
+        </div>
+        <div class="of-sello violeta s15-abs" data-layout-allow-overlap>ABSURDO</div>
+        <div class="of-sello verde s15-rec" data-layout-allow-overlap>TE LEEMOS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-cta";
+      const DUR = 7.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = OF.kit(tl, root);
+      const { q, qa } = K;
+
+      const COMENTARIOS = 0.53;
+      const TRAMITE = 1.42;
+      const ABSURDO = 2.14;
+      const LOCAL = 3.48;
+      const FIN = 3.92;
+
+      // cuadro 0: el formulario ya entra deslizando
+      tl.fromTo(q(".s15-form"), { y: 80, rotation: -4 }, { y: 0, rotation: -1, duration: 0.45, ease: "back.out(1.4)" }, 0);
+      // "comentarios": el campo de comentario con el cursor que titila
+      K.pop(q(".s15-campo"), COMENTARIOS);
+      tl.fromTo(q(".s15-cursor"), { opacity: 1 }, { opacity: 0, duration: 0.4, ease: "steps(1)", yoyo: true, repeat: 15 }, COMENTARIOS + 0.3);
+      // los renglones se escriben solos (de izquierda a derecha)
+      [[".s15-r1", TRAMITE], [".s15-r2", TRAMITE + 0.9], [".s15-r3", LOCAL - 0.3], [".s15-r4", FIN + 0.4]].forEach(([s, t]) => {
+        gsap.set(q(s), { clipPath: "inset(0 100% 0 0)" });
+        tl.to(q(s), { clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "none" }, t);
+      });
+      // "absurdo": sello violeta
+      K.sello(q(".s15-abs"), ABSURDO, -10);
+      K.sacudon(q(".s15-escenario"), ABSURDO + 0.04, 0.7);
+      // el campo late y el sello verde "te leemos"
+      tl.fromTo(q(".s15-campo"), { scale: 1 }, { scale: 1.04, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, FIN + 0.9);
+      K.sello(q(".s15-rec"), FIN + 1.4, 8);
+      tl.fromTo(q(".s15-env"), { scale: 1 }, { scale: 1.2, duration: 0.2, yoyo: true, repeat: 3, ease: "power2.out", immediateRender: false }, FIN + 2.0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

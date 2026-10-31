@@ -1,0 +1,71 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/oficina.js"></script>
+  <style>
+    @font-face { font-family: "Special Elite"; font-display: block; src: url("assets/fonts/SpecialElite.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-tramite"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-tramite"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-tramite"] svg.s01-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-tramite"] .s01-cartel { left: 240px; top: 578px; width: 600px; font-size: 40px; }
+    [data-composition-id="s01-tramite"] .s01-papel { position: absolute; left: 650px; top: 690px; width: 200px; padding: 10px 12px; background: #f4ecd8; border: 3px solid #2a2b30; transform: rotate(4deg);
+      font-family: "Special Elite", monospace; font-size: 26px; line-height: 1.1; color: #2a2b30; text-align: center; }
+    [data-composition-id="s01-tramite"] .s01-sello { left: 150px; top: 860px; font-size: 128px; }
+    [data-composition-id="s01-tramite"] .s01-menu { position: absolute; left: 236px; top: 1000px; width: 170px; height: 140px; }
+  </style>
+  <div id="root" data-composition-id="s01-tramite" data-width="1080" data-height="1920" data-duration="3.48">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="3.48" data-track-index="0">
+      <div class="s01-escenario">
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="of-cartel s01-cartel">VENTANILLA 1 · MENÚ</div>
+        <div class="s01-papel">SAQUE<br />NÚMERO</div>
+        <div class="of-sello s01-sello" data-layout-allow-overlap>TRÁMITE</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-tramite";
+      const DUR = 3.48;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s01-svg").innerHTML =
+        OF.funcionario(540, 1180, 1.05) +
+        // la cartita del menú, del lado de adentro, fuera de alcance
+        `<g class="s01-carta" stroke="#2a2b30" stroke-width="5" stroke-linejoin="round">
+          <rect x="250" y="1010" width="150" height="150" rx="6" fill="#f4ecd8" transform="rotate(-6 325 1085)"/>
+          <path d="M280 1050 H370 M280 1080 H350 M280 1110 H365" stroke-width="5" transform="rotate(-6 325 1085)"/>
+        </g>` +
+        OF.ventanilla(200, 650, 680, 510);
+      const tl = gsap.timeline({ paused: true });
+      const K = OF.kit(tl, root);
+      const { q, qa } = K;
+
+      const MENU = 0.36;
+      const CLIENTE = 1.8;
+      const TRAMITE = 2.68;
+
+      // cuadro 0: la ventanilla ya está, el funcionario sube desde atrás del mostrador
+            tl.fromTo(q(".of-f"), { y: 40 }, { y: 0, duration: 0.5, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s01-escenario"), { scale: 1.0 }, { scale: 1.07, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      K.golpe(q(".s01-cartel"), 0.12);
+      // "menú": la cartita aparece del lado de adentro del vidrio, se balancea
+      K.pop(q(".s01-carta"), MENU);
+      tl.to(q(".s01-carta"), { rotation: 6, svgOrigin: "325 1160", duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, MENU + 0.3);
+      K.bostezo(q(".of-f-cabeza"), 1.0);
+      // "tu cliente": el papelito pegado al vidrio
+      K.pop(q(".s01-papel"), CLIENTE - 0.1);
+      // "trámite": el funcionario sella y cae el sello rojo
+      K.sellar(q(".of-f-brazo"), TRAMITE);
+      K.sello(q(".s01-sello"), TRAMITE, -9);
+      K.sacudon(q(".s01-escenario"), TRAMITE + 0.04, 1);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

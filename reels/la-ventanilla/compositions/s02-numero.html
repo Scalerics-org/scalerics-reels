@@ -1,0 +1,78 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/oficina.js"></script>
+  <style>
+    @font-face { font-family: "Special Elite"; font-display: block; src: url("assets/fonts/SpecialElite.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-numero"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-numero"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-numero"] svg.s02-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-numero"] .s02-rotulo { position: absolute; left: 240px; top: 1068px; width: 600px; text-align: center; font-family: "Special Elite", monospace; font-size: 34px; letter-spacing: 0.2em; color: #2a2b30; }
+    [data-composition-id="s02-numero"] .s02-ticket { position: absolute; left: 445px; top: 1222px; width: 190px; height: 190px; box-sizing: border-box; background: #f4ecd8; border: 4px solid #2a2b30; border-top: none;
+      font-family: "Special Elite", monospace; text-align: center; color: #2a2b30; }
+    [data-composition-id="s02-numero"] .s02-ticket b { display: block; font-family: "Black Ops One", sans-serif; font-weight: 400; font-size: 92px; line-height: 1; margin-top: 18px; color: #d63a2f; }
+    [data-composition-id="s02-numero"] .s02-ticket span { font-size: 24px; letter-spacing: 0.12em; }
+  </style>
+  <div id="root" data-composition-id="s02-numero" data-width="1080" data-height="1920" data-duration="1.88">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="1.88" data-track-index="0">
+      <div class="s02-escenario">
+        <svg class="s02-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s02-rotulo">SU TURNO</div>
+        <div class="s02-ticket"><b>47</b><span>ESPERE SU TURNO</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-numero";
+      const DUR = 1.88;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const svg = root.querySelector(".s02-svg");
+      svg.innerHTML =
+        `<path d="M400 600 L540 560 L680 600" fill="none" stroke="#2a2b30" stroke-width="5"/>` +
+        OF.numerador(240, 640, 600, 400) +
+        // parlante del altavoz con sus ondas
+        `<g class="s02-parlante" stroke="#2a2b30" stroke-width="5" stroke-linejoin="round">
+          <path d="M880 760 H920 L970 720 V880 L920 840 H880 Z" fill="#6f7378"/>
+          <path class="s02-onda" d="M990 750 Q1010 800 990 850" fill="none" stroke-width="6"/>
+          <path class="s02-onda" d="M1015 725 Q1045 800 1015 875" fill="none" stroke-width="6"/>
+        </g>` +
+        // el expendedor de tickets
+        `<g stroke="#2a2b30" stroke-width="5" stroke-linejoin="round">
+          <rect x="400" y="1120" width="280" height="110" rx="14" fill="#d63a2f"/>
+          <rect x="430" y="1208" width="220" height="16" rx="4" fill="#2a2b30"/>
+          <circle cx="640" cy="1160" r="14" fill="#f4ecd8"/>
+        </g>`;
+      const num = svg.querySelector(".of-num");
+      const tl = gsap.timeline({ paused: true });
+      const K = OF.kit(tl, root);
+      const { q, qa } = K;
+
+      const NUMERO = 0.0;
+      const SIETE = 0.81;
+
+      OF.numero(null, num, 46);
+      tl.fromTo(q(".s02-escenario"), { scale: 1.08 }, { scale: 1, duration: 0.4, ease: "power3.out", transformOrigin: "50% 45%" }, 0);
+      qa(".s02-onda").forEach((o, i) => tl.fromTo(o, { opacity: 0 }, { opacity: 1, duration: 0.15, yoyo: true, repeat: 5, ease: "none" }, 0.05 + i * 0.1));
+      tl.fromTo(q(".s02-rotulo"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.1);
+      // "siete": salta a 47, destello y sacudón
+      tl.to(q(".of-num-d"), { opacity: 0.2, duration: 0.06, ease: "none" }, SIETE - 0.1);
+      OF.numero(tl, num, 47, SIETE - 0.04);
+      tl.to(q(".of-num-d"), { opacity: 1, duration: 0.06, ease: "none" }, SIETE - 0.04);
+      tl.fromTo(num, { scale: 1 }, { scale: 1.06, svgOrigin: "540 840", duration: 0.1, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, SIETE);
+      K.sacudon(q(".s02-escenario"), SIETE, 0.6);
+      // el ticket sale del expendedor
+      gsap.set(q(".s02-ticket"), { transformOrigin: "50% 0%" });
+      tl.fromTo(q(".s02-ticket"), { scaleY: 0, opacity: 1 }, { scaleY: 1, duration: 0.5, ease: "power2.out" }, SIETE + 0.1);
+      tl.to(q(".s02-ticket"), { rotation: 3, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, SIETE + 0.6);
+
+      K.salida(q("#s02-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

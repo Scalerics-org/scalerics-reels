@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-vin { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1150px at 540px 920px, rgba(42, 43, 48, 0) 60%, rgba(42, 43, 48, 0.42) 100%); }
+    [data-composition-id="ambiente"] .amb-luz { position: absolute; inset: 0; background: radial-gradient(ellipse 620px 520px at 540px 260px, rgba(255, 252, 235, 0.16) 0%, rgba(255, 252, 235, 0) 100%); }
+    [data-composition-id="ambiente"] .amb-papel { position: absolute; inset: 0; opacity: 0.07; background-image: repeating-linear-gradient(0deg, rgba(42, 43, 48, 0.5) 0px, rgba(42, 43, 48, 0.5) 1px, transparent 1px, transparent 4px); }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="70.84">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="70.84" data-track-index="0">
+      <div class="amb-luz"></div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- tubo fluorescente a la izquierda y a la derecha del cielorraso -->
+        <g stroke="#2a2b30" stroke-width="4">
+          <rect x="90" y="150" width="240" height="26" rx="8" fill="#6f7378" />
+          <rect class="amb-tubo amb-t1" x="100" y="174" width="220" height="14" rx="7" fill="#fbf7e6" />
+          <rect x="750" y="150" width="240" height="26" rx="8" fill="#6f7378" />
+          <rect class="amb-tubo amb-t2" x="760" y="174" width="220" height="14" rx="7" fill="#fbf7e6" />
+        </g>
+        <!-- ventilador de techo -->
+        <g stroke="#2a2b30" stroke-width="4" stroke-linejoin="round">
+          <rect x="532" y="0" width="16" height="100" fill="#6f7378" />
+          <g transform="translate(540 128) scale(1 0.22)">
+            <g class="amb-aspas">
+              <path d="M0 -14 L250 -40 Q280 0 250 40 L0 14 Z" fill="#e8dcc0" stroke-width="12" />
+              <path d="M0 -14 L250 -40 Q280 0 250 40 L0 14 Z" fill="#e8dcc0" stroke-width="12" transform="rotate(90)" />
+              <path d="M0 -14 L250 -40 Q280 0 250 40 L0 14 Z" fill="#e8dcc0" stroke-width="12" transform="rotate(180)" />
+              <path d="M0 -14 L250 -40 Q280 0 250 40 L0 14 Z" fill="#e8dcc0" stroke-width="12" transform="rotate(270)" />
+            </g>
+          </g>
+          <ellipse cx="540" cy="124" rx="44" ry="22" fill="#6f7378" />
+          <ellipse cx="540" cy="142" rx="22" ry="10" fill="#2a2b30" />
+        </g>
+      </svg>
+      <div class="amb-papel"></div>
+      <div class="amb-vin"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 70.84;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // el ventilador gira lento todo el reel (una vuelta cada 1.7 s)
+      tl.fromTo(q(".amb-aspas"), { rotation: 0, svgOrigin: "0 0" }, { rotation: 360 * Math.floor(DUR / 1.7), svgOrigin: "0 0", duration: DUR, ease: "none" }, 0);
+
+      // el tubo de la derecha titila de vez en cuando (determinista)
+      [2.1, 13.3, 24.7, 33.2, 44.9, 50.2, 51.0].forEach((t) => {
+        tl.to(q(".amb-t2"), { opacity: 0.25, duration: 0.05, ease: "none" }, t);
+        tl.to(q(".amb-t2"), { opacity: 1, duration: 0.05, ease: "none" }, t + 0.08);
+        tl.to(q(".amb-t2"), { opacity: 0.4, duration: 0.04, ease: "none" }, t + 0.18);
+        tl.to(q(".amb-t2"), { opacity: 1, duration: 0.06, ease: "none" }, t + 0.24);
+      });
+      tl.fromTo(q(".amb-luz"), { opacity: 0.85 }, { opacity: 1, duration: 2.2, ease: "sine.inOut", yoyo: true, repeat: 30 }, 0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
