@@ -106,6 +106,11 @@
 
 ## En curso
 
+- 31-10 · `curso-de-uruguayo` · Agente de IA · curso de idiomas en casete (corrida nocturna 2, reservado)
+- 31-10 · `el-late-night` · Agente de IA · late night show con el agente de invitado (corrida nocturna 2, reservado)
+- 31-10 · `chimentos` · Automatizaciones · programa de chimentos (corrida nocturna 2, reservado)
+- 31-10 · `el-testamento` · Sistema a medida · herencia ante el escribano (corrida nocturna 2, reservado)
+- 31-10 · `la-ventanilla` · Sitio web · sketch de oficina pública (corrida nocturna 2, reservado)
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
