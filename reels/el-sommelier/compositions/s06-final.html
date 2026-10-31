@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-final"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-final"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-final"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-final"] .tinta { stroke: #1a0a0c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-final"] .serif { font-family: "Cormorant Garamond", serif; font-weight: 600; }
+    [data-composition-id="s06-final"] .cursiva { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; }
+    [data-composition-id="s06-final"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s06-final"] .ui { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s06-final"] .s06-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 44px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; letter-spacing: 0.22em; color: #d9ad52; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-final"] .s06-etiqueta span { position: absolute; left: 0; right: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s06-final" data-width="1080" data-height="1920" data-duration="6.07">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="6.07" data-track-index="0">
+      <div class="s06-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <text class="serif s06-final" x="70" y="700" font-size="54" fill="#efe4cc">FINAL:</text>
+          <path class="s06-largo" d="M270 684 H560" fill="none" stroke="#d9ad52" stroke-width="10" stroke-linecap="round" />
+          <path class="s06-larguisimo" d="M560 684 H1130" fill="none" stroke="#d9ad52" stroke-width="10" stroke-linecap="round" />
+          <g class="s06-cal"><g transform="translate(180 910)">
+      <rect x="-78" y="-90" width="156" height="180" rx="10" fill="#efe4cc" stroke="#d9c9a6" stroke-width="4" />
+      <rect x="-78" y="-90" width="156" height="48" rx="10" fill="#7a1a2c" />
+      <circle cx="-40" cy="-90" r="8" fill="#1a0a0c" /><circle cx="40" cy="-90" r="8" fill="#1a0a0c" />
+      <text class="serif" x="0" y="-56" font-size="26" fill="#efe4cc" text-anchor="middle" letter-spacing="3">DÍA</text>
+      <text class="serif" x="0" y="50" font-size="84" fill="#1a0a0c" text-anchor="middle">1</text>
+    </g></g><g class="s06-cal"><g transform="translate(370 910)">
+      <rect x="-78" y="-90" width="156" height="180" rx="10" fill="#efe4cc" stroke="#d9c9a6" stroke-width="4" />
+      <rect x="-78" y="-90" width="156" height="48" rx="10" fill="#7a1a2c" />
+      <circle cx="-40" cy="-90" r="8" fill="#1a0a0c" /><circle cx="40" cy="-90" r="8" fill="#1a0a0c" />
+      <text class="serif" x="0" y="-56" font-size="26" fill="#efe4cc" text-anchor="middle" letter-spacing="3">DÍA</text>
+      <text class="serif" x="0" y="50" font-size="84" fill="#1a0a0c" text-anchor="middle">2</text>
+    </g></g><g class="s06-cal"><g transform="translate(560 910)">
+      <rect x="-78" y="-90" width="156" height="180" rx="10" fill="#efe4cc" stroke="#d9c9a6" stroke-width="4" />
+      <rect x="-78" y="-90" width="156" height="48" rx="10" fill="#7a1a2c" />
+      <circle cx="-40" cy="-90" r="8" fill="#1a0a0c" /><circle cx="40" cy="-90" r="8" fill="#1a0a0c" />
+      <text class="serif" x="0" y="-56" font-size="26" fill="#efe4cc" text-anchor="middle" letter-spacing="3">DÍA</text>
+      <text class="serif" x="0" y="50" font-size="84" fill="#1a0a0c" text-anchor="middle">3</text>
+    </g></g>
+          <g class="s06-caja"><g transform="translate(870 930)">
+            <path d="M-120 -80 L120 -80 L120 90 L-120 90 Z" fill="#b58a55" class="tinta" />
+            <path d="M-120 -80 L-90 -120 L150 -120 L120 -80 Z" fill="#c99d65" class="tinta" />
+            <path d="M120 -80 L150 -120 L150 50 L120 90 Z" fill="#8a6438" class="tinta" />
+            <rect x="-90" y="-36" width="180" height="84" rx="4" fill="#efe4cc" stroke="#d9c9a6" stroke-width="3" />
+            <text class="serif" x="0" y="-4" font-size="26" fill="#7a1a2c" text-anchor="middle" letter-spacing="2">ENVÍO</text>
+            <text class="serif" x="0" y="32" font-size="25" fill="#1a0a0c" text-anchor="middle">a confirmar</text>
+            <g fill="none" stroke="#efe4cc" stroke-width="3" opacity="0.8">
+              <path class="s06-tela" d="M150 -120 L80 -120 M150 -120 L150 -50 M150 -120 L96 -66 M108 -120 Q130 -100 150 -92 M128 -120 Q140 -108 150 -106 M90 -120 Q122 -82 150 -72" />
+            </g>
+          </g></g>
+          <text class="serif s06-preg" x="980" y="790" font-size="90" fill="#d9ad52">?</text>
+          <g class="s06-globo"><g transform="translate(420 1150)">
+            <rect x="-290" y="-56" width="580" height="112" rx="40" fill="#3a1418" stroke="#a3263d" stroke-width="4" />
+            <text class="ui" x="-250" y="-6" font-size="24" fill="#d9c9a6">tu_local</text>
+            <text class="ui" x="-250" y="32" font-size="34" fill="#efe4cc">Ahí te confirmo el envío</text>
+          </g></g>
+    
+        </svg>
+      </div>
+      <div class="s06-etiqueta"><span class="s06-e1">Final</span><span class="s06-e2">Persistente (mal)</span><span class="s06-e3">Envío: a confirmar</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-final";
+      const DUR = 6.07;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (sel, t, d) => (typeof sel === "string" ? qa(sel) : [sel]).forEach((el) => {
+        const L = el.getTotalLength();
+        tl.fromTo(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.inOut" }, t);
+      });
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiq = (de, a, t) => {
+        if (de) tl.to(q(".s06-e" + de), { opacity: 0, y: -12, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s06-e" + a), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      };
+      qa(".s06-etiqueta span").forEach((e) => gsap.set(e, { opacity: 0 }));
+
+      const FINAL = 0.25, LARGO = 0.5, LARGUI = 1.2, TRES = 2.8, ESPERANDO = 3.39, CONFIRMEN = 4.23, ENVIO = 5.08;
+      tl.fromTo(q(".s06-final"), { opacity: 0.2, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 0);
+      etiq(0, 1, 0.1);
+      dibujar(q(".s06-largo"), LARGO - 0.1, 0.55);
+      dibujar(q(".s06-larguisimo"), LARGUI - 0.05, 1.1);
+      etiq(1, 2, LARGUI);
+      // "tres días": las hojas del calendario
+      qa(".s06-cal").forEach((el, i) => tl.fromTo(el, { opacity: 0, y: -40, rotation: -8, transformOrigin: "50% 0%" }, { opacity: 1, y: 0, rotation: 0, duration: 0.3, ease: "back.out(1.8)" }, TRES - 0.15 + i * 0.22));
+      // "esperando": la caja con telaraña
+      tl.fromTo(q(".s06-caja"), { opacity: 0, scale: 0.8, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, ESPERANDO - 0.2);
+      dibujar(".s06-tela", ESPERANDO + 0.2, 0.7);
+      etiq(2, 3, ESPERANDO + 0.1);
+      // "confirmen": el mensaje de siempre
+      tl.fromTo(q(".s06-globo"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, CONFIRMEN - 0.25);
+      // "envío": la caja se hunde, un signo de pregunta
+      tl.to(q(".s06-caja"), { scaleY: 0.92, transformOrigin: "50% 100%", duration: 0.2, yoyo: true, repeat: 1 }, ENVIO);
+      pop(q(".s06-preg"), ENVIO);
+      tl.to(q(".s06-cal"), { rotation: 3, duration: 0.3, yoyo: true, repeat: 1 }, ENVIO + 0.2);
+    
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

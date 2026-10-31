@@ -1,0 +1,153 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-nariz"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-nariz"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-nariz"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-nariz"] .tinta { stroke: #1a0a0c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-nariz"] .serif { font-family: "Cormorant Garamond", serif; font-weight: 600; }
+    [data-composition-id="s03-nariz"] .cursiva { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; }
+    [data-composition-id="s03-nariz"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s03-nariz"] .ui { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s03-nariz"] .s03-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 44px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; letter-spacing: 0.22em; color: #d9ad52; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s03-nariz"] .s03-etiqueta span { position: absolute; left: 0; right: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s03-nariz" data-width="1080" data-height="1920" data-duration="5.04">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="5.04" data-track-index="0">
+      <div class="s03-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <g class="s03-rueda-w"><g transform="translate(790 800)"><g class="s03-rueda">
+            <circle r="214" fill="none" stroke="#d9ad52" stroke-width="4" opacity="0.7" />
+            <g class="s03-cuña "><path d="M0 0 L0.0 -200.0 A200 200 0 0 1 173.2 -100.0 Z" fill="#a3263d" stroke="#1a0a0c" stroke-width="5" />
+      <text class="serif" x="62.0" y="-107.4" font-size="25" fill="#efe4cc" text-anchor="middle" dominant-baseline="middle" transform="rotate(30.0 62.0 -107.4)" letter-spacing="1">FRUTOS</text></g><g class="s03-cuña "><path d="M0 0 L173.2 -100.0 A200 200 0 0 1 173.2 100.0 Z" fill="#5a3a22" stroke="#1a0a0c" stroke-width="5" />
+      <text class="serif" x="124.0" y="0.0" font-size="25" fill="#efe4cc" text-anchor="middle" dominant-baseline="middle" transform="rotate(90.0 124.0 0.0)" letter-spacing="1">ROBLE</text></g><g class="s03-cuña "><path d="M0 0 L173.2 100.0 A200 200 0 0 1 0.0 200.0 Z" fill="#a8822f" stroke="#1a0a0c" stroke-width="5" />
+      <text class="serif" x="62.0" y="107.4" font-size="25" fill="#efe4cc" text-anchor="middle" dominant-baseline="middle" transform="rotate(330.0 62.0 107.4)" letter-spacing="1">VAINILLA</text></g><g class="s03-cuña "><path d="M0 0 L0.0 200.0 A200 200 0 0 1 -173.2 100.0 Z" fill="#7a1a2c" stroke="#1a0a0c" stroke-width="5" />
+      <text class="serif" x="-62.0" y="107.4" font-size="25" fill="#efe4cc" text-anchor="middle" dominant-baseline="middle" transform="rotate(390.0 -62.0 107.4)" letter-spacing="1">CUERO</text></g><g class="s03-cuña "><path d="M0 0 L-173.2 100.0 A200 200 0 0 1 -173.2 -100.0 Z" fill="#7a5232" stroke="#1a0a0c" stroke-width="5" />
+      <text class="serif" x="-124.0" y="0.0" font-size="25" fill="#efe4cc" text-anchor="middle" dominant-baseline="middle" transform="rotate(270.0 -124.0 0.0)" letter-spacing="1">ESPECIAS</text></g><g class="s03-cuña s03-cuña-p"><path d="M0 0 L-173.2 -100.0 A200 200 0 0 1 -0.0 -200.0 Z" fill="#5e1222" stroke="#1a0a0c" stroke-width="5" />
+      <text class="serif" x="-62.0" y="-107.4" font-size="25" fill="#efe4cc" text-anchor="middle" dominant-baseline="middle" transform="rotate(330.0 -62.0 -107.4)" letter-spacing="1">PRIVADO</text></g>
+            <circle r="44" fill="#efe4cc" stroke="#1a0a0c" stroke-width="5" />
+            <text class="serif" y="9" font-size="24" fill="#7a1a2c" text-anchor="middle">NARIZ</text>
+          </g></g></g>
+          <g transform="translate(300 940) scale(1)"><g class="s03-som">
+    <!-- saco bordó, camisa crema, moño negro, catavinos dorado -->
+    <path d="M-170 290 Q-160 140 -50 112 L50 112 Q160 140 170 290 Z" fill="#7a1a2c" class="tinta" />
+    <path d="M-40 112 L0 220 L40 112 Z" fill="#efe4cc" class="tinta" stroke-width="4" />
+    <path d="M-50 112 L-6 230 L-70 290 M50 112 L6 230 L70 290" fill="none" stroke="#4f0f1c" stroke-width="8" stroke-linecap="round" />
+    <path d="M-28 118 L0 130 L-28 142 Z M28 118 L0 130 L28 142 Z" fill="#1a0a0c" />
+    <circle cx="0" cy="130" r="7" fill="#1a0a0c" />
+    <path d="M-40 140 Q0 230 40 140" fill="none" stroke="#d9ad52" stroke-width="3" />
+    <ellipse cx="0" cy="206" rx="22" ry="10" fill="#d9ad52" stroke="#a8822f" stroke-width="3" />
+    <rect x="-22" y="80" width="44" height="40" fill="#c48a5e" />
+    <g class="s03-som-cabeza">
+      <circle cx="-72" cy="4" r="14" fill="#d9a77c" class="tinta" stroke-width="4" />
+      <circle cx="72" cy="4" r="14" fill="#d9a77c" class="tinta" stroke-width="4" />
+      <ellipse cx="0" cy="0" rx="70" ry="90" fill="#d9a77c" class="tinta" />
+      <!-- pelo engominado para atrás, canas en las sienes -->
+      <path d="M-72 -6 Q-82 -104 0 -108 Q82 -104 72 -6 Q66 -60 20 -70 Q-30 -72 -60 -50 Z" fill="#2b1418" class="tinta" stroke-width="4" />
+      <path d="M-66 -36 Q-60 -54 -46 -62 M66 -36 Q60 -54 46 -62" fill="none" stroke="#b9ae9c" stroke-width="7" stroke-linecap="round" />
+      <path d="M-40 -84 Q0 -98 44 -82" fill="none" stroke="#5a2a30" stroke-width="5" stroke-linecap="round" />
+      <path class="s03-som-ceja-i" d="M-48 -30 Q-30 -36 -12 -30" fill="none" stroke="#1a0a0c" stroke-width="8" stroke-linecap="round" />
+      <path class="s03-som-ceja-d" d="M12 -40 Q30 -60 50 -44" fill="none" stroke="#1a0a0c" stroke-width="8" stroke-linecap="round" />
+      <g class="s03-som-ojos-snob"><path d="M-42 -12 Q-29 -4 -16 -12 M16 -14 Q29 -6 42 -14" fill="none" stroke="#1a0a0c" stroke-width="6" stroke-linecap="round" /></g>
+      <g class="s03-som-ojos-ab" opacity="0"><circle cx="-29" cy="-12" r="9" fill="#1a0a0c" /><circle cx="29" cy="-14" r="9" fill="#1a0a0c" /><circle cx="-26" cy="-15" r="3" fill="#efe4cc" /><circle cx="32" cy="-17" r="3" fill="#efe4cc" /></g>
+      <path d="M2 -16 Q-2 22 -16 30 Q-4 38 8 32" fill="none" stroke="#1a0a0c" stroke-width="5" stroke-linecap="round" />
+      <!-- bigotito con rulos -->
+      <path d="M0 46 Q-22 34 -44 46 Q-56 40 -52 28 M0 46 Q22 34 44 46 Q56 40 52 28" fill="none" stroke="#1a0a0c" stroke-width="7" stroke-linecap="round" />
+      <path class="s03-som-boca" d="M-14 64 Q0 58 14 64" fill="none" stroke="#1a0a0c" stroke-width="5" stroke-linecap="round" />
+      <path class="s03-som-asco" opacity="0" d="M-24 70 Q-10 58 0 66 Q10 58 24 70" fill="none" stroke="#1a0a0c" stroke-width="6" stroke-linecap="round" />
+      <path class="s03-som-sonrisa" opacity="0" d="M-24 60 Q0 82 24 60 Z" fill="#4f0f1c" class="tinta" stroke-width="4" />
+      <ellipse class="s03-som-cachete" opacity="0" cx="0" cy="66" rx="40" ry="22" fill="#d9a77c" class="tinta" stroke-width="4" />
+      
+    </g>
+    
+  </g></g>
+          <g class="s03-copa-w"><g transform="translate(420 1030) scale(0.95)"><g class="s03-copa">
+    <clipPath id="s03-cc1"><path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120 Z" /></clipPath>
+    <path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120 Z" fill="#efe4cc" fill-opacity="0.12" />
+    <g clip-path="url(#s03-cc1)"><g class="s03-copa-vino"><rect x="-80" y="-42" width="160" height="172" fill="#a3263d" /><ellipse cx="0" cy="-42" rx="60" ry="6" fill="#c2384f" /></g></g>
+    <path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120" fill="none" stroke="#efe4cc" stroke-width="5" stroke-linecap="round" />
+    <path d="M-36 -96 Q-44 -50 -26 -26" fill="none" stroke="#efe4cc" stroke-width="4" stroke-linecap="round" opacity="0.55" />
+    <path d="M0 0 V92" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" />
+    <ellipse cx="0" cy="94" rx="44" ry="9" fill="#efe4cc" fill-opacity="0.15" stroke="#efe4cc" stroke-width="5" />
+  </g></g><circle cx="420" cy="1080" r="24" fill="#d9a77c" class="tinta" stroke-width="4" /></g>
+          <g class="s03-aromas" fill="none" stroke="#d9c9a6" stroke-width="6" stroke-linecap="round" opacity="0.8">
+            <path d="M420 860 Q400 820 425 790 Q450 760 430 720" />
+            <path d="M460 850 Q445 815 468 785 Q492 755 475 715" />
+            <path d="M380 875 Q355 845 375 815 Q395 785 380 750" />
+          </g>
+          <g class="s03-cartel"><g transform="translate(790 1140)">
+            <rect x="-240" y="-62" width="480" height="124" rx="10" fill="#efe4cc" stroke="#d9ad52" stroke-width="5" />
+            <text class="serif" x="0" y="-18" font-size="26" fill="#7a1a2c" text-anchor="middle" letter-spacing="3">NOTAS DE</text>
+            <text class="cursiva" x="0" y="34" font-size="46" fill="#1a0a0c" text-anchor="middle">«precio por privado»</text>
+          </g></g>
+    
+        </svg>
+      </div>
+      <div class="s03-etiqueta"><span class="s03-e1">Fase olfativa</span><span class="s03-e2">Invasivas</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-nariz";
+      const DUR = 5.04;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (sel, t, d) => (typeof sel === "string" ? qa(sel) : [sel]).forEach((el) => {
+        const L = el.getTotalLength();
+        tl.fromTo(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.inOut" }, t);
+      });
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiq = (de, a, t) => {
+        if (de) tl.to(q(".s03-e" + de), { opacity: 0, y: -12, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s03-e" + a), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      };
+      qa(".s03-etiqueta span").forEach((e) => gsap.set(e, { opacity: 0 }));
+
+      const NOTAS = 1.13, PRECIO = 2.07, PRIVADO = 2.58, INVASIVAS = 3.74;
+      // la copa ya está en la nariz
+      gsap.set(q(".s03-copa"), { rotation: -38, transformOrigin: "50% 100%" });
+      tl.fromTo(q(".s03-som"), { opacity: 0.5, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.to(q(".s03-som-cabeza"), { y: -4, duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.2);
+      tl.fromTo(q(".s03-copa-w"), { opacity: 0.4, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.to(q(".s03-copa-w"), { y: -14, rotation: -4, transformOrigin: "50% 100%", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.4);
+      tl.to(q(".s03-copa-w"), { x: 50, y: 30, duration: 0.2, ease: "power3.out" }, INVASIVAS - 0.05);
+      dibujar(".s03-aromas path", 0.2, 0.7);
+      etiq(0, 1, 0.1);
+      // "notas": la rueda de aromas
+      tl.fromTo(q(".s03-rueda"), { opacity: 0, rotation: -120, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, rotation: 0, scale: 1, duration: 0.6, ease: "back.out(1.3)" }, NOTAS - 0.25);
+      tl.to(q(".s03-rueda"), { rotation: 8, duration: 0.8, ease: "sine.inOut" }, NOTAS + 0.4);
+      // "precio por privado": la cuña sale
+      tl.to(q(".s03-cuña-p"), { x: -40, y: -26, duration: 0.3, ease: "back.out(2)" }, PRECIO);
+      tl.to(q(".s03-cuña-p path"), { attr: { fill: "#d9ad52" }, duration: 0.2 }, PRECIO);
+      tl.to(q(".s03-cuña-p text"), { attr: { fill: "#1a0a0c" }, duration: 0.2 }, PRECIO);
+      pop(q(".s03-cartel"), PRECIO + 0.05);
+      tl.to(q(".s03-cartel"), { rotation: -2, duration: 0.2, yoyo: true, repeat: 1 }, PRIVADO + 0.2);
+      // "invasivas": el sommelier se echa para atrás
+      tl.to(q(".s03-som"), { rotation: -7, x: -24, transformOrigin: "50% 100%", duration: 0.18, ease: "power3.out" }, INVASIVAS - 0.05);
+      tl.set(q(".s03-som-ojos-snob"), { opacity: 0 }, INVASIVAS);
+      tl.set(q(".s03-som-ojos-ab"), { opacity: 1 }, INVASIVAS);
+      tl.set(q(".s03-som-boca"), { opacity: 0 }, INVASIVAS);
+      tl.set(q(".s03-som-asco"), { opacity: 1 }, INVASIVAS);
+      tl.to(q(".s03-som-ceja-i"), { y: -12, duration: 0.15 }, INVASIVAS);
+      tl.to(q(".s03-aromas"), { scale: 1.5, transformOrigin: "50% 100%", attr: { stroke: "#a3263d" }, duration: 0.3, ease: "back.out(2)" }, INVASIVAS);
+      temblor(q(".s03-rueda-w"), INVASIVAS + 0.05, 0.8);
+      etiq(1, 2, INVASIVAS);
+    
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

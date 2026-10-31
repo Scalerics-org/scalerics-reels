@@ -1,0 +1,197 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .tinta { stroke: #1a0a0c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .serif { font-family: "Cormorant Garamond", serif; font-weight: 600; }
+    [data-composition-id="s01-gancho"] .cursiva { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; }
+    [data-composition-id="s01-gancho"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s01-gancho"] .ui { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s01-gancho"] .s01-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 44px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; letter-spacing: 0.22em; color: #d9ad52; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .s01-etiqueta span { position: absolute; left: 0; right: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="7.28">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="7.28" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <g transform="translate(150 860) scale(0.85)"><g class="s01-barr1">
+    <path d="M-120 -150 Q-150 0 -120 150 L120 150 Q150 0 120 -150 Z" fill="#5a3a22" class="tinta" />
+    <path d="M-60 -150 Q-74 0 -60 150 M0 -150 V150 M60 -150 Q74 0 60 150" fill="none" stroke="#3e2615" stroke-width="5" />
+    <path d="M-128 -96 Q0 -86 128 -96 M-138 -40 Q0 -30 138 -40 M-138 40 Q0 50 138 40 M-128 96 Q0 106 128 96" fill="none" stroke="#2a160c" stroke-width="14" />
+    
+  </g></g>
+          <g transform="translate(930 860) scale(0.85)"><g class="s01-barr2">
+    <path d="M-120 -150 Q-150 0 -120 150 L120 150 Q150 0 120 -150 Z" fill="#5a3a22" class="tinta" />
+    <path d="M-60 -150 Q-74 0 -60 150 M0 -150 V150 M60 -150 Q74 0 60 150" fill="none" stroke="#3e2615" stroke-width="5" />
+    <path d="M-128 -96 Q0 -86 128 -96 M-138 -40 Q0 -30 138 -40 M-138 40 Q0 50 138 40 M-128 96 Q0 106 128 96" fill="none" stroke="#2a160c" stroke-width="14" />
+    
+  </g></g>
+          <g transform="translate(540 790) scale(1.1)"><g class="s01-som">
+    <!-- saco bordó, camisa crema, moño negro, catavinos dorado -->
+    <path d="M-170 290 Q-160 140 -50 112 L50 112 Q160 140 170 290 Z" fill="#7a1a2c" class="tinta" />
+    <path d="M-40 112 L0 220 L40 112 Z" fill="#efe4cc" class="tinta" stroke-width="4" />
+    <path d="M-50 112 L-6 230 L-70 290 M50 112 L6 230 L70 290" fill="none" stroke="#4f0f1c" stroke-width="8" stroke-linecap="round" />
+    <path d="M-28 118 L0 130 L-28 142 Z M28 118 L0 130 L28 142 Z" fill="#1a0a0c" />
+    <circle cx="0" cy="130" r="7" fill="#1a0a0c" />
+    <path d="M-40 140 Q0 230 40 140" fill="none" stroke="#d9ad52" stroke-width="3" />
+    <ellipse cx="0" cy="206" rx="22" ry="10" fill="#d9ad52" stroke="#a8822f" stroke-width="3" />
+    <rect x="-22" y="80" width="44" height="40" fill="#c48a5e" />
+    <g class="s01-som-cabeza">
+      <circle cx="-72" cy="4" r="14" fill="#d9a77c" class="tinta" stroke-width="4" />
+      <circle cx="72" cy="4" r="14" fill="#d9a77c" class="tinta" stroke-width="4" />
+      <ellipse cx="0" cy="0" rx="70" ry="90" fill="#d9a77c" class="tinta" />
+      <!-- pelo engominado para atrás, canas en las sienes -->
+      <path d="M-72 -6 Q-82 -104 0 -108 Q82 -104 72 -6 Q66 -60 20 -70 Q-30 -72 -60 -50 Z" fill="#2b1418" class="tinta" stroke-width="4" />
+      <path d="M-66 -36 Q-60 -54 -46 -62 M66 -36 Q60 -54 46 -62" fill="none" stroke="#b9ae9c" stroke-width="7" stroke-linecap="round" />
+      <path d="M-40 -84 Q0 -98 44 -82" fill="none" stroke="#5a2a30" stroke-width="5" stroke-linecap="round" />
+      <path class="s01-som-ceja-i" d="M-48 -30 Q-30 -36 -12 -30" fill="none" stroke="#1a0a0c" stroke-width="8" stroke-linecap="round" />
+      <path class="s01-som-ceja-d" d="M12 -40 Q30 -60 50 -44" fill="none" stroke="#1a0a0c" stroke-width="8" stroke-linecap="round" />
+      <g class="s01-som-ojos-snob"><path d="M-42 -12 Q-29 -4 -16 -12 M16 -14 Q29 -6 42 -14" fill="none" stroke="#1a0a0c" stroke-width="6" stroke-linecap="round" /></g>
+      <g class="s01-som-ojos-ab" opacity="0"><circle cx="-29" cy="-12" r="9" fill="#1a0a0c" /><circle cx="29" cy="-14" r="9" fill="#1a0a0c" /><circle cx="-26" cy="-15" r="3" fill="#efe4cc" /><circle cx="32" cy="-17" r="3" fill="#efe4cc" /></g>
+      <path d="M2 -16 Q-2 22 -16 30 Q-4 38 8 32" fill="none" stroke="#1a0a0c" stroke-width="5" stroke-linecap="round" />
+      <!-- bigotito con rulos -->
+      <path d="M0 46 Q-22 34 -44 46 Q-56 40 -52 28 M0 46 Q22 34 44 46 Q56 40 52 28" fill="none" stroke="#1a0a0c" stroke-width="7" stroke-linecap="round" />
+      <path class="s01-som-boca" d="M-14 64 Q0 58 14 64" fill="none" stroke="#1a0a0c" stroke-width="5" stroke-linecap="round" />
+      <path class="s01-som-asco" opacity="0" d="M-24 70 Q-10 58 0 66 Q10 58 24 70" fill="none" stroke="#1a0a0c" stroke-width="6" stroke-linecap="round" />
+      <path class="s01-som-sonrisa" opacity="0" d="M-24 60 Q0 82 24 60 Z" fill="#4f0f1c" class="tinta" stroke-width="4" />
+      <ellipse class="s01-som-cachete" opacity="0" cx="0" cy="66" rx="40" ry="22" fill="#d9a77c" class="tinta" stroke-width="4" />
+      
+    </g>
+    <g class="s01-som-brazo">
+        <path d="M118 150 Q190 120 205 40" fill="none" stroke="#1a0a0c" stroke-width="58" stroke-linecap="round" />
+        <path d="M118 150 Q190 120 205 40" fill="none" stroke="#7a1a2c" stroke-width="48" stroke-linecap="round" />
+        <g transform="translate(205 -40) scale(0.95)"><g class="s01-som-copa">
+    <clipPath id="s01-cc0"><path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120 Z" /></clipPath>
+    <path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120 Z" fill="#efe4cc" fill-opacity="0.12" />
+    <g clip-path="url(#s01-cc0)"><g class="s01-som-copa-vino"><rect x="-80" y="-50" width="160" height="180" fill="#a3263d" /><ellipse cx="0" cy="-50" rx="60" ry="6" fill="#c2384f" /></g></g>
+    <path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120" fill="none" stroke="#efe4cc" stroke-width="5" stroke-linecap="round" />
+    <path d="M-36 -96 Q-44 -50 -26 -26" fill="none" stroke="#efe4cc" stroke-width="4" stroke-linecap="round" opacity="0.55" />
+    <path d="M0 0 V92" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" />
+    <ellipse cx="0" cy="94" rx="44" ry="9" fill="#efe4cc" fill-opacity="0.15" stroke="#efe4cc" stroke-width="5" />
+  </g></g>
+        <circle cx="205" cy="18" r="24" fill="#d9a77c" class="tinta" stroke-width="4" />
+      </g>
+  </g></g>
+          <!-- la mesa de cata -->
+          <g class="s01-mesa">
+            <rect x="20" y="1150" width="1040" height="30" fill="#3e2615" />
+            <rect x="40" y="1180" width="1000" height="150" fill="#5a3a22" />
+            <path d="M80 1220 Q300 1210 520 1226 T 1000 1218 M60 1280 Q260 1272 480 1288 T 1020 1282" fill="none" stroke="#3e2615" stroke-width="4" opacity="0.7" />
+          </g>
+          <g transform="translate(360 1170) scale(0.78)"><g class="s01-botella">
+    <path d="M-68 -250 Q-68 -310 -24 -330 L-24 -410 L24 -410 L24 -330 Q68 -310 68 -250 L68 -14 Q68 0 54 0 L-54 0 Q-68 0 -68 -14 Z" fill="#3a0f18" stroke="#efe4cc" stroke-width="5" stroke-linejoin="round" />
+    <path d="M-48 -240 Q-50 -120 -46 -30" fill="none" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" opacity="0.35" />
+    <rect x="-27" y="-440" width="54" height="72" rx="6" fill="#d9ad52" stroke="#a8822f" stroke-width="4" />
+    <rect x="-66" y="-220" width="132" height="162" rx="6" fill="#efe4cc" stroke="#d9c9a6" stroke-width="4" />
+    <path d="M-48 -206 H48" stroke="#7a1a2c" stroke-width="4" />
+    <text class="serif" x="0" y="-166" font-size="21" fill="#1a0a0c" text-anchor="middle">TU LOCAL</text><text class="serif" x="0" y="-128" font-size="24" fill="#1a0a0c" text-anchor="middle">por</text><text class="serif" x="0" y="-90" font-size="21" fill="#1a0a0c" text-anchor="middle">Instagram</text>
+    
+  </g></g>
+          <g transform="translate(850 1182) scale(0.95)"><g class="s01-escup">
+    <path d="M-96 -150 L-66 0 L66 0 L96 -150 Z" fill="#a8822f" class="tinta" />
+    <path d="M-80 -120 L-58 -20" stroke="#d9ad52" stroke-width="10" stroke-linecap="round" opacity="0.8" />
+    <ellipse cx="0" cy="-150" rx="96" ry="22" fill="#d9ad52" class="tinta" />
+    <ellipse cx="0" cy="-150" rx="74" ry="13" fill="#2a0d12" />
+    <path d="M-60 -76 H60" stroke="#1a0a0c" stroke-width="4" opacity="0.5" />
+  </g></g>
+          <path class="s01-chorro" d="M600 878 Q740 800 846 1030" fill="none" stroke="#a3263d" stroke-width="16" stroke-linecap="round" />
+          <g class="s01-gotas" fill="#a3263d">
+            <circle cx="800" cy="1010" r="9" /><circle cx="900" cy="1000" r="7" /><circle cx="830" cy="985" r="6" /><circle cx="880" cy="1020" r="8" />
+          </g>
+          <g transform="translate(170 1105) scale(0.66)"><g class="s01-cli">
+    <path d="M-160 280 Q-150 130 -40 108 L40 108 Q150 130 160 280 Z" fill="#d9ad52" class="tinta" />
+    <path d="M-40 108 Q0 150 40 108" fill="none" stroke="#a8822f" stroke-width="8" />
+    <rect x="-20" y="76" width="40" height="40" fill="#c48a5e" />
+    <g class="s01-cli-cabeza">
+      <circle cx="0" cy="-118" r="44" fill="#3a1a12" class="tinta" stroke-width="4" />
+      <path d="M-74 10 Q-84 -98 0 -100 Q84 -98 74 10 Q76 50 60 70 L-60 70 Q-76 50 -74 10 Z" fill="#3a1a12" class="tinta" stroke-width="4" />
+      <ellipse cx="0" cy="0" rx="62" ry="80" fill="#d9a77c" class="tinta" />
+      <path d="M-62 -20 Q-56 -80 0 -82 Q56 -80 62 -20 Q40 -60 0 -62 Q-30 -60 -62 -20 Z" fill="#3a1a12" />
+      <circle cx="-66" cy="34" r="14" fill="none" stroke="#d9ad52" stroke-width="5" />
+      <circle cx="66" cy="34" r="14" fill="none" stroke="#d9ad52" stroke-width="5" />
+      <path class="s01-cli-cejas" d="M-44 -34 Q-28 -30 -12 -22 M44 -34 Q28 -30 12 -22" fill="none" stroke="#3a1a12" stroke-width="8" stroke-linecap="round" />
+      <ellipse class="s01-cli-ojo" cx="-26" cy="-6" rx="8" ry="10" fill="#1a0a0c" />
+      <ellipse class="s01-cli-ojo" cx="26" cy="-6" rx="8" ry="10" fill="#1a0a0c" />
+      <path d="M0 0 Q-6 16 4 20" fill="none" stroke="#1a0a0c" stroke-width="4" stroke-linecap="round" />
+      <ellipse class="s01-cli-boca" cx="0" cy="46" rx="18" ry="14" fill="#4f0f1c" class="tinta" stroke-width="4" />
+    </g>
+  </g></g>
+  
+        </svg>
+      </div>
+      <div class="s01-etiqueta"><span class="s01-e1">Cata · tu local</span><span class="s01-e2">Directo a la escupidera</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 7.28;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (sel, t, d) => (typeof sel === "string" ? qa(sel) : [sel]).forEach((el) => {
+        const L = el.getTotalLength();
+        tl.fromTo(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.inOut" }, t);
+      });
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiq = (de, a, t) => {
+        if (de) tl.to(q(".s01-e" + de), { opacity: 0, y: -12, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s01-e" + a), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      };
+      qa(".s01-etiqueta span").forEach((e) => gsap.set(e, { opacity: 0 }));
+
+      const ESCUPIR = 4.9, TAN = 5.69, LOCAL = 2.12;
+      // cuadro 0 ya armado; la cámara se acerca
+      tl.fromTo(q(".s01-escenario"), { scale: 1.06 }, { scale: 1, duration: 4.4, ease: "none", transformOrigin: "540px 900px" }, 0);
+      tl.fromTo(q(".s01-som"), { opacity: 0.6, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(qa(".s01-barr1, .s01-barr2"), { opacity: 0.3 }, { opacity: 0.55, duration: 0.5 }, 0);
+      tl.fromTo(q(".s01-mesa"), { y: 40 }, { y: 0, duration: 0.4, ease: "power3.out" }, 0);
+      etiq(0, 1, 0.15);
+      // la copa gira (se "airea")
+      tl.fromTo(q(".s01-som-copa"), { rotation: -7, transformOrigin: "50% 100%" }, { rotation: 7, duration: 0.32, ease: "sine.inOut", yoyo: true, repeat: 7 }, 0.1);
+      tl.to(q(".s01-som-ceja-d"), { y: -6, duration: 0.2, yoyo: true, repeat: 1 }, 0.5);
+      // "local": la botella del local en la mesa
+      pop(q(".s01-botella"), LOCAL - 0.1);
+      tl.to(q(".s01-botella"), { rotation: -4, transformOrigin: "50% 100%", duration: 0.2, yoyo: true, repeat: 1 }, 2.65);
+      // trago
+      tl.to(q(".s01-som-brazo"), { x: -150, y: 20, rotation: -22, transformOrigin: "60% 90%", duration: 0.35, ease: "power2.inOut" }, 3.0);
+      tl.set(q(".s01-som-boca"), { opacity: 0 }, 3.35);
+      tl.set(q(".s01-som-cachete"), { opacity: 1 }, 3.35);
+      tl.to(q(".s01-som-brazo"), { x: 0, y: 0, rotation: 0, duration: 0.35, ease: "power2.inOut" }, 3.6);
+      tl.to(q(".s01-som-cabeza"), { x: -6, duration: 0.08, yoyo: true, repeat: 5 }, 3.75);
+      // se da vuelta hacia la escupidera
+      tl.to(q(".s01-som-cabeza"), { rotation: 14, x: 18, transformOrigin: "50% 80%", duration: 0.3, ease: "power2.out" }, 4.35);
+      // "escupir"
+      tl.set(q(".s01-som-cachete"), { opacity: 0 }, ESCUPIR - 0.1);
+      tl.set(q(".s01-som-asco"), { opacity: 1 }, ESCUPIR - 0.1);
+      dibujar(q(".s01-chorro"), ESCUPIR - 0.1, 0.22);
+      tl.to(q(".s01-chorro"), { opacity: 0, duration: 0.25 }, ESCUPIR + 0.3);
+      tl.fromTo(qa(".s01-gotas circle"), { opacity: 0, y: 30 }, { opacity: 1, y: -30, duration: 0.25, ease: "power2.out", stagger: 0.03 }, ESCUPIR + 0.1);
+      tl.to(qa(".s01-gotas circle"), { opacity: 0, y: 20, duration: 0.3, ease: "power2.in" }, ESCUPIR + 0.45);
+      temblor(q(".s01-escup"), ESCUPIR + 0.12, 0.6);
+      etiq(1, 2, ESCUPIR);
+      tl.to(q(".s01-som-cabeza"), { rotation: 0, x: 0, duration: 0.35, ease: "power2.inOut" }, 5.5);
+      // "¿Tan mala era?": asoma la clienta
+      tl.fromTo(q(".s01-cli"), { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, TAN - 0.2);
+      tl.fromTo(q(".s01-cli-boca"), { scaleY: 0.4, transformOrigin: "50% 50%" }, { scaleY: 1.2, duration: 0.2, yoyo: true, repeat: 3 }, TAN);
+      tl.to(q(".s01-cli-cabeza"), { rotation: -10, transformOrigin: "50% 90%", duration: 0.3 }, 6.1);
+  
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

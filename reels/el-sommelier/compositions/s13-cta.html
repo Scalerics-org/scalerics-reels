@@ -1,0 +1,119 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-cta"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-cta"] .tinta { stroke: #1a0a0c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-cta"] .serif { font-family: "Cormorant Garamond", serif; font-weight: 600; }
+    [data-composition-id="s13-cta"] .cursiva { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; }
+    [data-composition-id="s13-cta"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s13-cta"] .ui { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s13-cta"] .s13-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 44px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; letter-spacing: 0.22em; color: #d9ad52; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-cta"] .s13-etiqueta span { position: absolute; left: 0; right: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s13-cta" data-width="1080" data-height="1920" data-duration="7.31">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="7.31" data-track-index="0">
+      <div class="s13-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <g class="s13-ficha"><g transform="translate(200 630)">
+            <rect x="0" y="0" width="680" height="440" rx="12" fill="#efe4cc" stroke="#d9ad52" stroke-width="5" />
+            <text class="serif" x="340" y="64" font-size="38" fill="#7a1a2c" text-anchor="middle" letter-spacing="5">FICHA DE CATA</text>
+            <path d="M40 88 H640" stroke="#7a1a2c" stroke-width="3" />
+            <text class="cursiva" x="340" y="160" font-size="46" fill="#1a0a0c" text-anchor="middle">Cómo se compra</text>
+            <text class="cursiva" x="340" y="214" font-size="46" fill="#1a0a0c" text-anchor="middle">en tu local</text>
+            <text class="serif" x="60" y="352" font-size="40" fill="#7a1a2c" letter-spacing="3">NOTA:</text>
+            <path d="M220 362 H420" stroke="#1a0a0c" stroke-width="4" />
+            <text class="serif" x="440" y="356" font-size="56" fill="#1a0a0c">/ 100</text>
+            <text class="mano s13-preg" x="320" y="350" font-size="120" fill="#a3263d" text-anchor="middle">?</text>
+          </g></g>
+          <g class="s13-pluma"><g transform="translate(590 900) rotate(35)">
+            <path d="M0 0 Q-30 -120 10 -230 Q50 -120 0 0 Z" fill="#d9c9a6" class="tinta" stroke-width="4" />
+            <path d="M0 -10 Q8 -110 10 -220" fill="none" stroke="#1a0a0c" stroke-width="3" />
+            <path d="M0 0 L-4 30" stroke="#1a0a0c" stroke-width="6" stroke-linecap="round" />
+          </g></g>
+          <g class="s13-coment"><g transform="translate(540 1200)">
+            <path d="M-120 -64 H120 Q150 -64 150 -34 V34 Q150 64 120 64 H-30 L-80 104 L-70 64 H-120 Q-150 64 -150 34 V-34 Q-150 -64 -120 -64 Z" fill="none" stroke="#d9ad52" stroke-width="8" stroke-linejoin="round" />
+            <path class="s13-lin" d="M-100 -22 H100" stroke="#efe4cc" stroke-width="10" stroke-linecap="round" />
+            <path class="s13-lin" d="M-100 18 H40" stroke="#efe4cc" stroke-width="10" stroke-linecap="round" />
+          </g></g>
+          <g transform="translate(230 1230) scale(0.75)"><g class="s13-copa1">
+    <clipPath id="s13-cc1"><path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120 Z" /></clipPath>
+    <path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120 Z" fill="#efe4cc" fill-opacity="0.12" />
+    <g clip-path="url(#s13-cc1)"><g class="s13-copa1-vino"><rect x="-80" y="-60" width="160" height="190" fill="#a3263d" /><ellipse cx="0" cy="-60" rx="60" ry="6" fill="#c2384f" /></g></g>
+    <path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120" fill="none" stroke="#efe4cc" stroke-width="5" stroke-linecap="round" />
+    <path d="M-36 -96 Q-44 -50 -26 -26" fill="none" stroke="#efe4cc" stroke-width="4" stroke-linecap="round" opacity="0.55" />
+    <path d="M0 0 V92" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" />
+    <ellipse cx="0" cy="94" rx="44" ry="9" fill="#efe4cc" fill-opacity="0.15" stroke="#efe4cc" stroke-width="5" />
+  </g></g>
+          <g transform="translate(850 1230) scale(0.75)"><g class="s13-copa2">
+    <clipPath id="s13-cc2"><path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120 Z" /></clipPath>
+    <path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120 Z" fill="#efe4cc" fill-opacity="0.12" />
+    <g clip-path="url(#s13-cc2)"><g class="s13-copa2-vino"><rect x="-80" y="-60" width="160" height="190" fill="#a3263d" /><ellipse cx="0" cy="-60" rx="60" ry="6" fill="#c2384f" /></g></g>
+    <path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120" fill="none" stroke="#efe4cc" stroke-width="5" stroke-linecap="round" />
+    <path d="M-36 -96 Q-44 -50 -26 -26" fill="none" stroke="#efe4cc" stroke-width="4" stroke-linecap="round" opacity="0.55" />
+    <path d="M0 0 V92" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" />
+    <ellipse cx="0" cy="94" rx="44" ry="9" fill="#efe4cc" fill-opacity="0.15" stroke="#efe4cc" stroke-width="5" />
+  </g></g>
+    
+        </svg>
+      </div>
+      <div class="s13-etiqueta"><span class="s13-e1">¿Qué nota le ponés?</span><span class="s13-e2">Dejá tu nota abajo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-cta";
+      const DUR = 7.31;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (sel, t, d) => (typeof sel === "string" ? qa(sel) : [sel]).forEach((el) => {
+        const L = el.getTotalLength();
+        tl.fromTo(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.inOut" }, t);
+      });
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiq = (de, a, t) => {
+        if (de) tl.to(q(".s13-e" + de), { opacity: 0, y: -12, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s13-e" + a), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      };
+      qa(".s13-etiqueta span").forEach((e) => gsap.set(e, { opacity: 0 }));
+
+      const NOTA = 0.09, PONES = 0.45, COMPRA = 1.34, LOCAL = 1.79, LEEMOS = 2.59, COMENT = 3.22;
+      tl.fromTo(q(".s13-ficha"), { opacity: 0.3, y: 60, rotation: -3, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, rotation: 0, duration: 0.45, ease: "back.out(1.4)" }, 0);
+      etiq(0, 1, 0.1);
+      // "ponés": la pluma escribe el signo
+      tl.fromTo(q(".s13-pluma"), { opacity: 0, x: 120, y: -60 }, { opacity: 1, x: 0, y: 0, duration: 0.35, ease: "power3.out" }, PONES - 0.3);
+      tl.to(q(".s13-pluma"), { x: -30, y: -24, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, PONES + 0.1);
+      tl.fromTo(q(".s13-preg"), { opacity: 0, scale: 0.4, transformOrigin: "50% 80%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, PONES + 0.15);
+      tl.to(q(".s13-pluma"), { opacity: 0, x: 140, y: -100, duration: 0.35, ease: "power2.in" }, LOCAL);
+      tl.to(q(".s13-preg"), { rotation: 10, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, LOCAL);
+      // las copas brindan
+      tl.fromTo(q(".s13-copa1"), { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.4 }, COMPRA);
+      tl.fromTo(q(".s13-copa2"), { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.4 }, COMPRA);
+      tl.to(q(".s13-copa1"), { rotation: 14, transformOrigin: "50% 100%", duration: 0.25, yoyo: true, repeat: 1 }, COMENT + 0.5);
+      tl.to(q(".s13-copa2"), { rotation: -14, transformOrigin: "50% 100%", duration: 0.25, yoyo: true, repeat: 1 }, COMENT + 0.5);
+      // "te leemos en los comentarios"
+      tl.fromTo(q(".s13-coment"), { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, LEEMOS - 0.15);
+      dibujar(".s13-lin", LEEMOS + 0.2, 0.4);
+      etiq(1, 2, LEEMOS);
+      tl.to(q(".s13-coment"), { y: -12, duration: 0.6, yoyo: true, repeat: 4, ease: "sine.inOut" }, COMENT + 0.3);
+      tl.to(q(".s13-ficha"), { scale: 1.02, transformOrigin: "50% 50%", duration: 1.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, COMENT + 0.6);
+    
+      // salida
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

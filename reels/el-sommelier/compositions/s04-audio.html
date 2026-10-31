@@ -1,0 +1,128 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-audio"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-audio"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-audio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-audio"] .tinta { stroke: #1a0a0c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-audio"] .serif { font-family: "Cormorant Garamond", serif; font-weight: 600; }
+    [data-composition-id="s04-audio"] .cursiva { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; }
+    [data-composition-id="s04-audio"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s04-audio"] .ui { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s04-audio"] .s04-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 44px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; letter-spacing: 0.22em; color: #d9ad52; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-audio"] .s04-etiqueta span { position: absolute; left: 0; right: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s04-audio" data-width="1080" data-height="1920" data-duration="5.12">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="5.12" data-track-index="0">
+      <div class="s04-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <g transform="translate(290 930) scale(1.22)"><g class="s04-cli">
+    <path d="M-160 280 Q-150 130 -40 108 L40 108 Q150 130 160 280 Z" fill="#d9ad52" class="tinta" />
+    <path d="M-40 108 Q0 150 40 108" fill="none" stroke="#a8822f" stroke-width="8" />
+    <rect x="-20" y="76" width="40" height="40" fill="#c48a5e" />
+    <g class="s04-cli-cabeza">
+      <circle cx="0" cy="-118" r="44" fill="#3a1a12" class="tinta" stroke-width="4" />
+      <path d="M-74 10 Q-84 -98 0 -100 Q84 -98 74 10 Q76 50 60 70 L-60 70 Q-76 50 -74 10 Z" fill="#3a1a12" class="tinta" stroke-width="4" />
+      <ellipse cx="0" cy="0" rx="62" ry="80" fill="#d9a77c" class="tinta" />
+      <path d="M-62 -20 Q-56 -80 0 -82 Q56 -80 62 -20 Q40 -60 0 -62 Q-30 -60 -62 -20 Z" fill="#3a1a12" />
+      <circle cx="-66" cy="34" r="14" fill="none" stroke="#d9ad52" stroke-width="5" />
+      <circle cx="66" cy="34" r="14" fill="none" stroke="#d9ad52" stroke-width="5" />
+      <path class="s04-cli-cejas" d="M-44 -34 Q-28 -30 -12 -22 M44 -34 Q28 -30 12 -22" fill="none" stroke="#3a1a12" stroke-width="8" stroke-linecap="round" />
+      <ellipse class="s04-cli-ojo" cx="-26" cy="-6" rx="8" ry="10" fill="#1a0a0c" />
+      <ellipse class="s04-cli-ojo" cx="26" cy="-6" rx="8" ry="10" fill="#1a0a0c" />
+      <path d="M0 0 Q-6 16 4 20" fill="none" stroke="#1a0a0c" stroke-width="4" stroke-linecap="round" />
+      <ellipse class="s04-cli-boca" cx="0" cy="46" rx="18" ry="14" fill="#4f0f1c" class="tinta" stroke-width="4" />
+    </g>
+  </g></g>
+          <g class="s04-mano"><g transform="translate(560 1130)"><path d="M-130 120 Q-60 60 -10 0" fill="none" stroke="#a8822f" stroke-width="58" stroke-linecap="round" /><circle cx="0" cy="-6" r="30" fill="#d9a77c" class="tinta" stroke-width="4" /></g></g>
+          <g class="s04-celu"><g transform="translate(790 950)">
+            <rect x="-175" y="-320" width="350" height="640" rx="44" fill="#120607" stroke="#efe4cc" stroke-width="6" />
+            <rect x="-40" y="-302" width="80" height="12" rx="6" fill="#efe4cc" opacity="0.5" />
+            <circle cx="-120" cy="-240" r="26" fill="#7a1a2c" stroke="#d9ad52" stroke-width="4" />
+            <text class="ui" x="-82" y="-231" font-size="26" fill="#efe4cc">tu_local</text>
+            <path d="M-160 -196 H160" stroke="#efe4cc" stroke-width="2" opacity="0.25" />
+            <g class="s04-preg">
+              <rect x="-56" y="-160" width="214" height="60" rx="26" fill="#d9ad52" />
+              <text class="ui" x="51" y="-121" font-size="24" fill="#1a0a0c" text-anchor="middle">¿Cuánto sale?</text>
+            </g>
+            <g class="s04-escribe">
+              <rect x="-160" y="-70" width="110" height="52" rx="24" fill="#3a1418" />
+              <circle class="s04-pt" cx="-130" cy="-44" r="7" fill="#efe4cc" /><circle class="s04-pt" cx="-106" cy="-44" r="7" fill="#efe4cc" /><circle class="s04-pt" cx="-82" cy="-44" r="7" fill="#efe4cc" />
+            </g>
+            <g class="s04-audio">
+              <rect x="-160" y="-76" width="300" height="88" rx="30" fill="#7a1a2c" stroke="#a3263d" stroke-width="3" />
+              <circle cx="-118" cy="-32" r="26" fill="#efe4cc" />
+              <path d="M-126 -46 L-104 -32 L-126 -18 Z" fill="#7a1a2c" />
+              <g transform="translate(-80 -32)"><rect class="s04-barra" x="0" y="-5" width="6" height="10" rx="3" fill="#efe4cc" /><rect class="s04-barra" x="11" y="-11" width="6" height="22" rx="3" fill="#efe4cc" /><rect class="s04-barra" x="22" y="-17" width="6" height="34" rx="3" fill="#efe4cc" /><rect class="s04-barra" x="33" y="-23" width="6" height="46" rx="3" fill="#efe4cc" /><rect class="s04-barra" x="44" y="-8" width="6" height="16" rx="3" fill="#efe4cc" /><rect class="s04-barra" x="55" y="-14" width="6" height="28" rx="3" fill="#efe4cc" /><rect class="s04-barra" x="66" y="-20" width="6" height="40" rx="3" fill="#efe4cc" /><rect class="s04-barra" x="77" y="-5" width="6" height="10" rx="3" fill="#efe4cc" /><rect class="s04-barra" x="88" y="-11" width="6" height="22" rx="3" fill="#efe4cc" /><rect class="s04-barra" x="99" y="-17" width="6" height="34" rx="3" fill="#efe4cc" /><rect class="s04-barra" x="110" y="-23" width="6" height="46" rx="3" fill="#efe4cc" /><rect class="s04-barra" x="121" y="-8" width="6" height="16" rx="3" fill="#efe4cc" /></g>
+              <text class="ui s04-dur" x="130" y="-22" font-size="26" fill="#efe4cc" text-anchor="end">4:00</text>
+            </g>
+            <g class="s04-grande">
+              <circle cx="0" cy="150" r="96" fill="none" stroke="#d9ad52" stroke-width="6" />
+              <text class="ui" x="0" y="168" font-size="56" fill="#d9ad52" text-anchor="middle">4:00</text>
+              <text class="serif" x="0" y="290" font-size="30" fill="#efe4cc" text-anchor="middle" letter-spacing="3">MINUTOS</text>
+            </g>
+          </g></g>
+    
+        </svg>
+      </div>
+      <div class="s04-etiqueta"><span class="s04-e1">Testigo · la clienta</span><span class="s04-e2">Audio de cuatro minutos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-audio";
+      const DUR = 5.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (sel, t, d) => (typeof sel === "string" ? qa(sel) : [sel]).forEach((el) => {
+        const L = el.getTotalLength();
+        tl.fromTo(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.inOut" }, t);
+      });
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiq = (de, a, t) => {
+        if (de) tl.to(q(".s04-e" + de), { opacity: 0, y: -12, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s04-e" + a), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      };
+      qa(".s04-etiqueta span").forEach((e) => gsap.set(e, { opacity: 0 }));
+
+      const CUANTO = 0.92, MANDARON = 2.13, AUDIO = 2.87, CUATRO = 3.34, MINUTOS = 3.8;
+      tl.fromTo(q(".s04-cli"), { opacity: 0.5, x: -60 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s04-celu"), { opacity: 0.4, y: 80, rotation: 6, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, rotation: 0, duration: 0.45, ease: "back.out(1.3)" }, 0);
+      tl.fromTo(q(".s04-mano"), { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.4 }, 0.1);
+      tl.fromTo(q(".s04-cli-boca"), { scaleY: 0.5, transformOrigin: "50% 50%" }, { scaleY: 1.25, duration: 0.18, yoyo: true, repeat: 9 }, 0.1);
+      etiq(0, 1, 0.1);
+      // "cuánto": su pregunta
+      pop(q(".s04-preg"), CUANTO - 0.1);
+      // escribiendo...
+      tl.fromTo(q(".s04-escribe"), { opacity: 0 }, { opacity: 1, duration: 0.15 }, 1.6);
+      tl.fromTo(qa(".s04-pt"), { y: 0 }, { y: -8, duration: 0.15, yoyo: true, repeat: 3, stagger: 0.08 }, 1.65);
+      tl.to(q(".s04-escribe"), { opacity: 0, duration: 0.1 }, AUDIO - 0.15);
+      // "audio": la respuesta es un audio
+      pop(q(".s04-audio"), AUDIO - 0.1);
+      tl.fromTo(qa(".s04-barra"), { scaleY: 0.3, transformOrigin: "50% 50%" }, { scaleY: 1, duration: 0.15, stagger: 0.03 }, AUDIO);
+      // "cuatro minutos": la duración en grande
+      tl.to(q(".s04-dur"), { scale: 1.3, transformOrigin: "100% 50%", attr: { fill: "#d9ad52" }, duration: 0.2 }, CUATRO);
+      tl.fromTo(q(".s04-grande"), { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, CUATRO);
+      tl.to(q(".s04-grande circle"), { scale: 1.08, transformOrigin: "50% 50%", duration: 0.2, yoyo: true, repeat: 3 }, MINUTOS);
+      tl.to(q(".s04-cli-cabeza"), { rotation: -8, transformOrigin: "50% 90%", duration: 0.12, yoyo: true, repeat: 3 }, MINUTOS);
+      tl.to(q(".s04-cli-cejas"), { y: -10, duration: 0.15 }, CUATRO);
+      etiq(1, 2, CUATRO);
+    
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

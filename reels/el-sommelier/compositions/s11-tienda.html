@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-tienda"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-tienda"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-tienda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-tienda"] .tinta { stroke: #1a0a0c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tienda"] .serif { font-family: "Cormorant Garamond", serif; font-weight: 600; }
+    [data-composition-id="s11-tienda"] .cursiva { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; }
+    [data-composition-id="s11-tienda"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s11-tienda"] .ui { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s11-tienda"] .s11-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 44px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; letter-spacing: 0.22em; color: #d9ad52; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-tienda"] .s11-etiqueta span { position: absolute; left: 0; right: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s11-tienda" data-width="1080" data-height="1920" data-duration="8.39">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="8.39" data-track-index="0">
+      <div class="s11-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <g class="s11-celu"><g transform="translate(540 975)">
+            <rect x="-210" y="-350" width="420" height="700" rx="48" fill="#120607" stroke="#efe4cc" stroke-width="6" />
+            <rect x="-44" y="-334" width="88" height="12" rx="6" fill="#efe4cc" opacity="0.5" />
+            <g class="s11-head">
+              <rect x="-186" y="-306" width="372" height="64" rx="14" fill="#7a1a2c" />
+              <text class="ui" x="-164" y="-264" font-size="26" fill="#efe4cc">Tu local · tienda</text>
+              <path d="M128 -286 L138 -286 L148 -258 L172 -258 L178 -278 L142 -278" fill="none" stroke="#efe4cc" stroke-width="4" stroke-linejoin="round" />
+              <circle cx="152" cy="-250" r="4" fill="#efe4cc" /><circle cx="170" cy="-250" r="4" fill="#efe4cc" />
+            </g>
+            <g class="s11-prod">
+              <rect x="-186" y="-226" width="372" height="196" rx="14" fill="#efe4cc" />
+              <rect x="-170" y="-212" width="130" height="168" rx="10" fill="#e3d4b3" />
+              <g transform="translate(-105 -54) scale(0.34)"><g class="s11-mini">
+    <path d="M-68 -250 Q-68 -310 -24 -330 L-24 -410 L24 -410 L24 -330 Q68 -310 68 -250 L68 -14 Q68 0 54 0 L-54 0 Q-68 0 -68 -14 Z" fill="#3a0f18" stroke="#efe4cc" stroke-width="5" stroke-linejoin="round" />
+    <path d="M-48 -240 Q-50 -120 -46 -30" fill="none" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" opacity="0.35" />
+    <rect x="-27" y="-440" width="54" height="72" rx="6" fill="#d9ad52" stroke="#a8822f" stroke-width="4" />
+    <rect x="-66" y="-220" width="132" height="86" rx="6" fill="#efe4cc" stroke="#d9c9a6" stroke-width="4" />
+    <path d="M-48 -206 H48" stroke="#7a1a2c" stroke-width="4" />
+    <text class="serif" x="0" y="-166" font-size="26" fill="#1a0a0c" text-anchor="middle"></text>
+    
+  </g></g>
+              <text class="ui" x="-20" y="-160" font-size="27" fill="#1a0a0c">Tu producto</text>
+              <text class="ui s11-precio" x="-20" y="-96" font-size="46" fill="#7a1a2c">$ 890</text>
+              <text class="ui" x="-20" y="-58" font-size="22" fill="#6b5a4a" data-layout-ignore>Stock disponible</text>
+            </g>
+            <g class="s11-boton">
+              <rect x="-186" y="-12" width="372" height="72" rx="36" fill="#d9ad52" />
+              <text class="ui" x="0" y="34" font-size="25" fill="#1a0a0c" text-anchor="middle">Pagar con Mercado Pago</text>
+              <circle class="s11-tap" cx="110" cy="24" r="30" fill="none" stroke="#efe4cc" stroke-width="5" opacity="0" />
+            </g>
+            <text class="ui s11-envtit" x="-186" y="106" font-size="24" fill="#d9c9a6">Elegí el envío</text>
+            <g transform="translate(0 150)"><g class="s11-env"><g transform="translate(0 0)">
+      <rect x="-170" y="-26" width="340" height="52" rx="12" fill="#2a0d12" stroke="#efe4cc" stroke-opacity="0.25" stroke-width="2" />
+      <circle cx="-140" cy="0" r="13" fill="none" stroke="#efe4cc" stroke-width="3" />
+      <circle class="s11-radio" cx="-140" cy="0" r="7" fill="#d9ad52" opacity="0" />
+      <text class="ui" x="-112" y="9" font-size="26" fill="#efe4cc">DAC</text>
+    </g></g><g class="s11-env"><g transform="translate(0 62)">
+      <rect x="-170" y="-26" width="340" height="52" rx="12" fill="#2a0d12" stroke="#efe4cc" stroke-opacity="0.25" stroke-width="2" />
+      <circle cx="-140" cy="0" r="13" fill="none" stroke="#efe4cc" stroke-width="3" />
+      <circle class="s11-radio" cx="-140" cy="0" r="7" fill="#d9ad52" opacity="0" />
+      <text class="ui" x="-112" y="9" font-size="26" fill="#efe4cc">Correo</text>
+    </g></g><g class="s11-env"><g transform="translate(0 124)">
+      <rect x="-170" y="-26" width="340" height="52" rx="12" fill="#2a0d12" stroke="#efe4cc" stroke-opacity="0.25" stroke-width="2" />
+      <circle cx="-140" cy="0" r="13" fill="none" stroke="#efe4cc" stroke-width="3" />
+      <circle class="s11-radio" cx="-140" cy="0" r="7" fill="#d9ad52" opacity="0" />
+      <text class="ui" x="-112" y="9" font-size="26" fill="#efe4cc">PedidosYa</text>
+    </g></g></g>
+          </g></g>
+          <g class="s11-brillos"><path class="s11-br" d="M850 730 Q855.4 754.6 880 760 Q855.4 765.4 850 790 Q844.6 765.4 820 760 Q844.6 754.6 850 730 Z" fill="#d9ad52" /><path class="s11-br" d="M240 876 Q244.32 895.68 264 900 Q244.32 904.32 240 924 Q235.68 904.32 216 900 Q235.68 895.68 240 876 Z" fill="#d9ad52" /><path class="s11-br" d="M860 1158 Q863.96 1176.04 882 1180 Q863.96 1183.96 860 1202 Q856.04 1183.96 838 1180 Q856.04 1176.04 860 1158 Z" fill="#d9ad52" /></g>
+    
+        </svg>
+      </div>
+      <div class="s11-etiqueta"><span class="s11-e1">Tienda online</span><span class="s11-e2">Mercado Pago</span><span class="s11-e3">Te llega a tu casa</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-tienda";
+      const DUR = 8.39;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (sel, t, d) => (typeof sel === "string" ? qa(sel) : [sel]).forEach((el) => {
+        const L = el.getTotalLength();
+        tl.fromTo(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.inOut" }, t);
+      });
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiq = (de, a, t) => {
+        if (de) tl.to(q(".s11-e" + de), { opacity: 0, y: -12, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s11-e" + a), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      };
+      qa(".s11-etiqueta span").forEach((e) => gsap.set(e, { opacity: 0 }));
+
+      const SCAL = 0.29, TIENDA = 1.27, PRECIO = 3.3, PAGA = 4.04, PAGO = 4.41, ELIGE = 5.25, DAC = 6.23, CORREO = 6.72, PYA = 7.23;
+      tl.fromTo(q(".s11-celu"), { opacity: 0.3, y: 120, scale: 0.92, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.3)" }, 0);
+      // "tienda online": se arma la tienda
+      tl.fromTo(q(".s11-head"), { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.3 }, SCAL + 0.2);
+      tl.fromTo(q(".s11-prod"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.5)" }, TIENDA - 0.05);
+      etiq(0, 1, TIENDA);
+      qa(".s11-br").forEach((el, i) => tl.fromTo(el, { opacity: 0, scale: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, TIENDA + 0.3 + i * 0.12));
+      tl.to(qa(".s11-br"), { rotation: 45, transformOrigin: "50% 50%", duration: 1.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, TIENDA + 0.7);
+      // "ve el precio"
+      tl.fromTo(q(".s11-precio"), { scale: 1, transformOrigin: "0% 50%" }, { scale: 1.25, duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out" }, PRECIO - 0.05);
+      // "paga con Mercado Pago"
+      tl.fromTo(q(".s11-boton"), { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.8)" }, PAGA - 0.1);
+      tl.fromTo(q(".s11-tap"), { opacity: 0.9, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 0, scale: 1.6, duration: 0.45 }, PAGO + 0.1);
+      tl.to(q(".s11-boton"), { scale: 0.96, duration: 0.1, yoyo: true, repeat: 1 }, PAGO + 0.1);
+      etiq(1, 2, PAGA);
+      // "elige el envío"
+      tl.fromTo(q(".s11-envtit"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, ELIGE - 0.1);
+      const env = qa(".s11-env"), rad = qa(".s11-radio");
+      [DAC, CORREO, PYA].forEach((t, i) => tl.fromTo(env[i], { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(1.6)" }, t - 0.15));
+      tl.to(rad[0], { opacity: 1, duration: 0.1 }, DAC);
+      tl.to(rad[0], { opacity: 0, duration: 0.1 }, CORREO);
+      tl.to(rad[1], { opacity: 1, duration: 0.1 }, CORREO);
+      tl.to(rad[1], { opacity: 0, duration: 0.1 }, PYA);
+      tl.to(rad[2], { opacity: 1, duration: 0.1 }, PYA);
+      etiq(2, 3, ELIGE);
+    
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

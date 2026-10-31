@@ -1,0 +1,92 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-nota"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-nota"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-nota"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-nota"] .tinta { stroke: #1a0a0c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-nota"] .serif { font-family: "Cormorant Garamond", serif; font-weight: 600; }
+    [data-composition-id="s07-nota"] .cursiva { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; }
+    [data-composition-id="s07-nota"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s07-nota"] .ui { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s07-nota"] .s07-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 44px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; letter-spacing: 0.22em; color: #d9ad52; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-nota"] .s07-etiqueta span { position: absolute; left: 0; right: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s07-nota" data-width="1080" data-height="1920" data-duration="3.56">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="3.56" data-track-index="0">
+      <div class="s07-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <g transform="translate(860 1310) scale(0.85)"><g class="s07-escup">
+    <path d="M-96 -150 L-66 0 L66 0 L96 -150 Z" fill="#a8822f" class="tinta" />
+    <path d="M-80 -120 L-58 -20" stroke="#d9ad52" stroke-width="10" stroke-linecap="round" opacity="0.8" />
+    <ellipse cx="0" cy="-150" rx="96" ry="22" fill="#d9ad52" class="tinta" />
+    <ellipse cx="0" cy="-150" rx="74" ry="13" fill="#2a0d12" />
+    <path d="M-60 -76 H60" stroke="#1a0a0c" stroke-width="4" opacity="0.5" />
+  </g></g>
+          <g class="s07-ficha"><g transform="translate(250 620)">
+            <rect x="0" y="0" width="580" height="560" rx="12" fill="#efe4cc" stroke="#d9ad52" stroke-width="5" />
+            <text class="serif" x="290" y="66" font-size="38" fill="#7a1a2c" text-anchor="middle" letter-spacing="5">FICHA DE CATA</text>
+            <path d="M40 90 H540" stroke="#7a1a2c" stroke-width="3" />
+            <text class="serif" x="40" y="160" font-size="32" fill="#7a1a2c">Color:</text><text class="mano" x="190" y="162" font-size="48" fill="#1a0a0c">visto</text><path d="M40 180 H540" stroke="#d9c9a6" stroke-width="3" /><text class="serif" x="40" y="238" font-size="32" fill="#7a1a2c">Nariz:</text><text class="mano" x="190" y="240" font-size="48" fill="#1a0a0c">a privado</text><path d="M40 258 H540" stroke="#d9c9a6" stroke-width="3" /><text class="serif" x="40" y="316" font-size="32" fill="#7a1a2c">Boca:</text><text class="mano" x="190" y="318" font-size="48" fill="#1a0a0c">áspera</text><path d="M40 336 H540" stroke="#d9c9a6" stroke-width="3" /><text class="serif" x="40" y="394" font-size="32" fill="#7a1a2c">Final:</text><text class="mano" x="190" y="396" font-size="48" fill="#1a0a0c">eterno</text><path d="M40 414 H540" stroke="#d9c9a6" stroke-width="3" />
+            <text class="serif" x="40" y="500" font-size="32" fill="#7a1a2c" letter-spacing="3">PUNTAJE</text>
+            <text class="mano s07-dos" x="300" y="520" font-size="130" fill="#a3263d" text-anchor="end">2</text>
+            <text class="mano s07-cien" x="310" y="516" font-size="74" fill="#a3263d">/100</text>
+            <ellipse class="s07-circ" cx="390" cy="488" rx="125" ry="60" fill="none" stroke="#a3263d" stroke-width="5" />
+          </g></g>
+          <g class="s07-gotas" fill="#a3263d"><circle cx="830" cy="1150" r="10" /><circle cx="890" cy="1140" r="8" /><circle cx="860" cy="1120" r="7" /><circle cx="910" cy="1165" r="6" /></g>
+    
+        </svg>
+      </div>
+      <div class="s07-etiqueta"><span class="s07-e1">Veredicto</span><span class="s07-e2">A la escupidera</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-nota";
+      const DUR = 3.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (sel, t, d) => (typeof sel === "string" ? qa(sel) : [sel]).forEach((el) => {
+        const L = el.getTotalLength();
+        tl.fromTo(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.inOut" }, t);
+      });
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiq = (de, a, t) => {
+        if (de) tl.to(q(".s07-e" + de), { opacity: 0, y: -12, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s07-e" + a), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      };
+      qa(".s07-etiqueta span").forEach((e) => gsap.set(e, { opacity: 0 }));
+
+      const DOS = 0.69, CIEN = 1.91, CHAU = 2.45;
+      tl.fromTo(q(".s07-ficha"), { opacity: 0.4, y: 40, rotation: -3, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, rotation: 0, duration: 0.4, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s07-escup"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.3);
+      etiq(0, 1, 0.1);
+      tl.fromTo(q(".s07-dos"), { opacity: 0, scale: 2.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.in" }, DOS - 0.1);
+      tl.fromTo(q(".s07-cien"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.25 }, CIEN - 0.1);
+      dibujar(q(".s07-circ"), CIEN, 0.4);
+      // la ficha se arruga y va a la escupidera
+      tl.to(q(".s07-ficha"), { x: 330, y: 470, scale: 0.12, rotation: 200, transformOrigin: "50% 50%", duration: 0.45, ease: "power2.in" }, CHAU);
+      tl.to(q(".s07-ficha"), { opacity: 0, duration: 0.05 }, CHAU + 0.45);
+      tl.fromTo(qa(".s07-gotas circle"), { opacity: 0, y: 30 }, { opacity: 1, y: -40, duration: 0.25, ease: "power2.out", stagger: 0.03 }, CHAU + 0.45);
+      tl.to(qa(".s07-gotas circle"), { opacity: 0, y: 10, duration: 0.25 }, CHAU + 0.75);
+      temblor(q(".s07-escup"), CHAU + 0.47, 0.6);
+      etiq(1, 2, CHAU);
+    
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

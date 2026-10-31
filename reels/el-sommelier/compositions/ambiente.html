@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* la luz de las velas, que tiembla */
+    [data-composition-id="ambiente"] .amb-luz { position: absolute; inset: 0; opacity: 0.8;
+      background: radial-gradient(ellipse 640px 780px at 540px 880px, rgba(242, 178, 84, 0.11) 0%, rgba(242, 178, 84, 0.04) 50%, rgba(242, 178, 84, 0) 80%); }
+    /* golpe bordó en los momentos de asco del sommelier */
+    [data-composition-id="ambiente"] .amb-drama { position: absolute; inset: 0; opacity: 0;
+      background: radial-gradient(ellipse 760px 1000px at 540px 900px, rgba(122, 26, 44, 0) 40%, rgba(122, 26, 44, 0.45) 100%); }
+    /* cuando entra Scalerics: luz dorada pareja */
+    [data-composition-id="ambiente"] .amb-calma { position: absolute; inset: 0; opacity: 0;
+      background: radial-gradient(ellipse 820px 980px at 540px 900px, rgba(217, 173, 82, 0.14) 0%, rgba(217, 173, 82, 0.05) 50%, rgba(217, 173, 82, 0) 82%); }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="ambiente"] .amb-grano { position: absolute; left: -100px; top: -100px; width: 1280px; height: 2120px; opacity: 0.07; mix-blend-mode: screen; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 680px 1040px at 540px 930px, rgba(14, 5, 6, 0) 55%, rgba(14, 5, 6, 0.92) 100%); }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; left: 0; right: 0; top: 1640px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 30px; letter-spacing: 0.22em; color: #efe4cc; opacity: 0.55; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="ambiente"] .amb-r2 { opacity: 0; color: #d9ad52; }
+    [data-composition-id="ambiente"] .amb-linea { position: absolute; left: 340px; width: 400px; top: 1626px; height: 2px; background: #d9ad52; opacity: 0.35; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="74.36">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="74.36" data-track-index="0">
+      <div class="amb-luz"></div>
+      <div class="amb-drama"></div>
+      <div class="amb-calma"></div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- arcos de ladrillo de la bodega, apenas marcados en los costados -->
+        <g fill="none" stroke="#5a1f29" stroke-width="6" opacity="0.5" data-layout-allow-overflow>
+          <path d="M-40 1500 L-40 700 Q-40 520 100 470" />
+          <path d="M1120 1500 L1120 700 Q1120 520 980 470" />
+          <path d="M-10 760 H40 M-10 880 H40 M-10 1000 H40 M-10 1120 H40 M-10 1240 H40 M-10 1360 H40" />
+          <path d="M1040 760 H1090 M1040 880 H1090 M1040 1000 H1090 M1040 1120 H1090 M1040 1240 H1090 M1040 1360 H1090" />
+        </g>
+        <!-- dos velas abajo, en los costados -->
+        <g class="amb-vela" transform="translate(110 1560)">
+          <ellipse class="amb-halo" cx="0" cy="-118" rx="70" ry="90" fill="#f2b254" opacity="0.12" />
+          <rect x="-22" y="-80" width="44" height="130" rx="6" fill="#efe4cc" opacity="0.85" />
+          <path d="M-22 -72 Q-10 -60 -12 -40 Q-14 -30 -4 -24" fill="none" stroke="#d9c9a6" stroke-width="5" stroke-linecap="round" />
+          <path d="M0 -80 V-92" stroke="#2a0d12" stroke-width="4" stroke-linecap="round" />
+          <path class="amb-llama" d="M0 -150 Q22 -118 12 -100 Q6 -90 0 -90 Q-6 -90 -12 -100 Q-22 -118 0 -150 Z" fill="#f2b254" />
+          <path class="amb-llama2" d="M0 -128 Q9 -110 5 -100 Q0 -96 -5 -100 Q-9 -110 0 -128 Z" fill="#fff1c9" />
+        </g>
+        <g class="amb-vela" transform="translate(970 1590)">
+          <ellipse class="amb-halo" cx="0" cy="-98" rx="60" ry="80" fill="#f2b254" opacity="0.12" />
+          <rect x="-20" y="-60" width="40" height="110" rx="6" fill="#efe4cc" opacity="0.85" />
+          <path d="M20 -52 Q8 -40 12 -24" fill="none" stroke="#d9c9a6" stroke-width="5" stroke-linecap="round" />
+          <path d="M0 -60 V-72" stroke="#2a0d12" stroke-width="4" stroke-linecap="round" />
+          <path class="amb-llama" d="M0 -128 Q20 -98 11 -80 Q5 -70 0 -70 Q-5 -70 -11 -80 Q-20 -98 0 -128 Z" fill="#f2b254" />
+          <path class="amb-llama2" d="M0 -108 Q8 -90 4 -80 Q0 -76 -4 -80 Q-8 -90 0 -108 Z" fill="#fff1c9" />
+        </g>
+      </svg>
+      <svg class="amb-grano" viewBox="0 0 1280 2120" aria-hidden="true">
+        <filter id="amb-f-grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="7" /><feColorMatrix type="saturate" values="0" /></filter>
+        <rect width="1280" height="2120" filter="url(#amb-f-grano)" />
+      </svg>
+      <div class="amb-vineta"></div>
+      <div class="amb-linea"></div>
+      <div class="amb-rotulo amb-r1" data-layout-ignore>Bodega · Cata a ciegas</div>
+      <div class="amb-rotulo amb-r2" data-layout-ignore>Tienda online · se sirve sola</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 74.36;
+      const DRAMA = [4.9, 17.46, 27.9, 31.0, 36.65, 39.52]; // escupir, invasivas, áspero, larguísimo, dos, ¡pará!
+      const SCALERICS = 53.3; // "En Scalerics": luz dorada
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // la luz de las velas tiembla (determinista: duraciones distintas que no coinciden)
+      tl.fromTo(q(".amb-luz"), { opacity: 0.68 }, { opacity: 0.95, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: Math.max(0, Math.floor(DUR / 0.9) - 1) }, 0);
+      qa(".amb-llama").forEach((el, i) => {
+        const d = 0.31 + i * 0.07;
+        tl.fromTo(el, { scaleY: 0.9, scaleX: 1.06, skewX: -4, transformOrigin: "50% 100%" }, { scaleY: 1.1, scaleX: 0.94, skewX: 4, duration: d, ease: "sine.inOut", yoyo: true, repeat: Math.max(0, Math.floor(DUR / d) - 1) }, 0);
+      });
+      qa(".amb-llama2").forEach((el, i) => {
+        const d = 0.27 + i * 0.05;
+        tl.fromTo(el, { scaleY: 0.85, transformOrigin: "50% 100%" }, { scaleY: 1.12, duration: d, ease: "sine.inOut", yoyo: true, repeat: Math.max(0, Math.floor(DUR / d) - 1) }, 0);
+      });
+      qa(".amb-halo").forEach((el, i) => {
+        const d = 0.53 + i * 0.11;
+        tl.fromTo(el, { opacity: 0.08 }, { opacity: 0.18, duration: d, ease: "sine.inOut", yoyo: true, repeat: Math.max(0, Math.floor(DUR / d) - 1) }, 0);
+      });
+      tl.to(q(".amb-grano"), { x: 90, y: -70, duration: DUR, ease: "steps(" + Math.round(DUR * 12) + ")" }, 0);
+
+      DRAMA.forEach((t) => {
+        tl.to(q(".amb-drama"), { opacity: 1, duration: 0.12, ease: "power2.out" }, t);
+        tl.to(q(".amb-drama"), { opacity: 0, duration: 1.0, ease: "power2.in" }, t + 0.45);
+      });
+      tl.to(q(".amb-calma"), { opacity: 1, duration: 1.4, ease: "power2.out" }, SCALERICS);
+      tl.to(q(".amb-r1"), { opacity: 0, duration: 0.3 }, SCALERICS);
+      tl.to(q(".amb-r2"), { opacity: 0.7, duration: 0.3 }, SCALERICS + 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

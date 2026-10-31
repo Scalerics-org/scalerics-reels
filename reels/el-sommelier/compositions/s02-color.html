@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-color"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-color"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-color"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-color"] .tinta { stroke: #1a0a0c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-color"] .serif { font-family: "Cormorant Garamond", serif; font-weight: 600; }
+    [data-composition-id="s02-color"] .cursiva { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; }
+    [data-composition-id="s02-color"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s02-color"] .ui { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s02-color"] .s02-etiqueta { position: absolute; left: 0; right: 0; top: 1372px; height: 44px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 34px; letter-spacing: 0.22em; color: #d9ad52; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-color"] .s02-etiqueta span { position: absolute; left: 0; right: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s02-color" data-width="1080" data-height="1920" data-duration="6.44">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="6.44" data-track-index="0">
+      <div class="s02-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <!-- vela grande detrás de la copa -->
+          <g class="s02-vela"><g transform="translate(220 1250)">
+            <ellipse class="s02-halo" cx="0" cy="-330" rx="150" ry="190" fill="#f2b254" opacity="0.14" />
+            <rect x="-46" y="-250" width="92" height="250" rx="10" fill="#efe4cc" />
+            <path d="M-46 -236 Q-24 -210 -28 -170 Q-30 -150 -12 -140" fill="none" stroke="#d9c9a6" stroke-width="8" stroke-linecap="round" />
+            <path d="M0 -250 V-270" stroke="#1a0a0c" stroke-width="6" stroke-linecap="round" />
+            <path class="s02-llama" d="M0 -380 Q40 -320 22 -288 Q12 -270 0 -270 Q-12 -270 -22 -288 Q-40 -320 0 -380 Z" fill="#f2b254" />
+            <path d="M0 -336 Q16 -304 8 -288 Q0 -282 -8 -288 Q-16 -304 0 -336 Z" fill="#fff1c9" />
+          </g></g>
+          <g transform="translate(470 1070) scale(2.55)"><g class="s02-copa">
+    <clipPath id="s02-cc0"><path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120 Z" /></clipPath>
+    <path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120 Z" fill="#efe4cc" fill-opacity="0.12" />
+    <g clip-path="url(#s02-cc0)"><g class="s02-copa-vino"><rect x="-80" y="-66" width="160" height="196" fill="#a3263d" /><ellipse cx="0" cy="-66" rx="60" ry="6" fill="#c2384f" /></g></g>
+    <path d="M-50 -120 Q-66 -22 0 0 Q66 -22 50 -120" fill="none" stroke="#efe4cc" stroke-width="5" stroke-linecap="round" />
+    <path d="M-36 -96 Q-44 -50 -26 -26" fill="none" stroke="#efe4cc" stroke-width="4" stroke-linecap="round" opacity="0.55" />
+    <path d="M0 0 V92" stroke="#efe4cc" stroke-width="6" stroke-linecap="round" />
+    <ellipse cx="0" cy="94" rx="44" ry="9" fill="#efe4cc" fill-opacity="0.15" stroke="#efe4cc" stroke-width="5" />
+  </g></g>
+          <!-- lo que se ve en el vino: el mensaje en visto -->
+          <g class="s02-msj">
+            <rect x="380" y="900" width="190" height="62" rx="26" fill="#efe4cc" />
+            <text class="ui" x="475" y="941" font-size="28" fill="#1a0a0c" text-anchor="middle">¿Precio?</text>
+          </g>
+          <text class="ui s02-visto" x="566" y="1002" font-size="28" fill="#efe4cc" text-anchor="end" opacity="0.9">Visto</text>
+          <!-- carta de colores -->
+          <g class="s02-carta"><g transform="translate(700 620)">
+            <rect x="-14" y="0" width="330" height="430" rx="10" fill="#efe4cc" stroke="#d9c9a6" stroke-width="4" />
+            <text class="serif" x="151" y="46" font-size="30" fill="#7a1a2c" text-anchor="middle" letter-spacing="3">COLOR</text>
+            <g class="s02-sw"><rect x="0" y="70" width="56" height="48" rx="6" fill="#d9707f" stroke="#1a0a0c" stroke-width="3" /><text class="serif" x="76" y="104" font-size="28" fill="#1a0a0c">ROSADO</text></g><g class="s02-sw"><rect x="0" y="136" width="56" height="48" rx="6" fill="#b53048" stroke="#1a0a0c" stroke-width="3" /><text class="serif" x="76" y="170" font-size="28" fill="#1a0a0c">RUBÍ</text></g><g class="s02-sw"><rect x="0" y="202" width="56" height="48" rx="6" fill="#8a1f33" stroke="#1a0a0c" stroke-width="3" /><text class="serif" x="76" y="236" font-size="28" fill="#1a0a0c">GRANATE</text></g><g class="s02-sw"><rect x="0" y="268" width="56" height="48" rx="6" fill="#5e1222" stroke="#1a0a0c" stroke-width="3" /><text class="serif" x="76" y="302" font-size="28" fill="#1a0a0c">BORDÓ</text></g>
+            <g class="s02-sw-visto">
+              <rect x="-6" y="330" width="314" height="70" rx="8" fill="none" stroke="#d9ad52" stroke-width="5" />
+              <rect x="0" y="338" width="56" height="54" rx="6" fill="#2a060d" stroke="#1a0a0c" stroke-width="3" />
+              <text class="serif" x="76" y="377" font-size="30" fill="#7a1a2c">VISTO</text>
+            </g>
+          </g></g>
+          <g class="s02-barrica"><g transform="translate(880 1185) scale(0.8)"><g class="s02-barr">
+    <path d="M-120 -150 Q-150 0 -120 150 L120 150 Q150 0 120 -150 Z" fill="#5a3a22" class="tinta" />
+    <path d="M-60 -150 Q-74 0 -60 150 M0 -150 V150 M60 -150 Q74 0 60 150" fill="none" stroke="#3e2615" stroke-width="5" />
+    <path d="M-128 -96 Q0 -86 128 -96 M-138 -40 Q0 -30 138 -40 M-138 40 Q0 50 138 40 M-128 96 Q0 106 128 96" fill="none" stroke="#2a160c" stroke-width="14" />
+    <rect x="-110" y="-30" width="220" height="68" rx="4" fill="#211012" stroke="#3e2615" stroke-width="4" /><text class="mano" x="0" y="16" font-size="40" fill="#efe4cc" text-anchor="middle">3 horas</text>
+  </g></g></g>
+    
+        </svg>
+      </div>
+      <div class="s02-etiqueta"><span class="s02-e1">Fase visual</span><span class="s02-e2">Visto, sin respuesta</span><span class="s02-e3">Guarda: tres horas</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-color";
+      const DUR = 6.44;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, s) => tl.fromTo(el, { opacity: 0, scale: s ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      const dibujar = (sel, t, d) => (typeof sel === "string" ? qa(sel) : [sel]).forEach((el) => {
+        const L = el.getTotalLength();
+        tl.fromTo(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.inOut" }, t);
+      });
+      const temblor = (el, t, f) => [[-12, 7], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiq = (de, a, t) => {
+        if (de) tl.to(q(".s02-e" + de), { opacity: 0, y: -12, duration: 0.2 }, t - 0.1);
+        tl.fromTo(q(".s02-e" + a), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3 }, t);
+      };
+      qa(".s02-etiqueta span").forEach((e) => gsap.set(e, { opacity: 0 }));
+
+      const COLOR = 1.09, VISTO = 2.87, INTENSO = 3.12, TRES = 4.67;
+      tl.fromTo(q(".s02-copa"), { opacity: 0.4, y: 60, rotation: -6, transformOrigin: "50% 100%" }, { opacity: 1, y: 0, rotation: 0, duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s02-vela"), { opacity: 0.5 }, { opacity: 1, duration: 0.4 }, 0);
+      tl.fromTo(q(".s02-llama"), { scaleY: 0.9, skewX: -4, transformOrigin: "50% 100%" }, { scaleY: 1.1, skewX: 4, duration: 0.33, ease: "sine.inOut", yoyo: true, repeat: 18 }, 0);
+      tl.fromTo(q(".s02-halo"), { opacity: 0.1 }, { opacity: 0.2, duration: 0.45, yoyo: true, repeat: 13 }, 0);
+      // el vino gira en la copa
+      tl.fromTo(q(".s02-copa-vino"), { rotation: -6, transformOrigin: "50% 50%" }, { rotation: 6, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 15 }, 0);
+      etiq(0, 1, 0.1);
+      // "color": la carta de colores
+      tl.fromTo(q(".s02-carta"), { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.4)" }, COLOR - 0.1);
+      tl.fromTo(qa(".s02-sw"), { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.2, stagger: 0.12 }, COLOR + 0.15);
+      gsap.set(q(".s02-sw-visto"), { opacity: 0 });
+      // "visto": aparece el mensaje en el vino y el color "VISTO"
+      pop(q(".s02-msj"), VISTO - 0.35);
+      tl.fromTo(q(".s02-visto"), { opacity: 0, y: 10 }, { opacity: 0.9, y: 0, duration: 0.25 }, VISTO);
+      tl.fromTo(q(".s02-sw-visto"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, VISTO);
+      etiq(1, 2, VISTO);
+      // "intenso": el vino se oscurece
+      tl.to(q(".s02-copa-vino rect"), { attr: { fill: "#4a0b18" }, duration: 0.5 }, INTENSO);
+      tl.to(q(".s02-copa-vino ellipse"), { attr: { fill: "#6e1426" }, duration: 0.5 }, INTENSO);
+      tl.to(q(".s02-sw-visto"), { scale: 1.08, duration: 0.18, yoyo: true, repeat: 1 }, INTENSO);
+      // "tres horas de guarda": la barrica
+      tl.fromTo(q(".s02-barrica"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)" }, TRES - 0.15);
+      tl.to(q(".s02-msj"), { opacity: 0.45, duration: 0.6 }, TRES);
+      etiq(2, 3, TRES + 0.2);
+    
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
