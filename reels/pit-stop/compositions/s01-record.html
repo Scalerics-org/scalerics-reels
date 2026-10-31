@@ -1,0 +1,97 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-record"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-record"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-record"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-record"] .linea { fill: none; stroke: #f4f4f1; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-record"] .s01-luz { fill: #23262d; stroke: #0b0c0f; stroke-width: 6; }
+    [data-composition-id="s01-record"] .s01-panel { position: absolute; left: 150px; top: 820px; width: 780px; height: 130px; background: #e10600; transform: skewX(-10deg); display: flex; align-items: center; justify-content: center; border-left: 18px solid #f4f4f1; box-shadow: 0 8px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s01-record"] .s01-panel span { display: block; transform: skewX(10deg); font-family: "Lexend", sans-serif; font-weight: 900; font-size: 92px; letter-spacing: -0.01em; color: #f4f4f1; text-transform: uppercase; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s01-record"] .s01-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s01-record"] .s01-parada { top: 1000px; font-weight: 800; font-size: 64px; color: #f4f4f1; }
+    [data-composition-id="s01-record"] .s01-lenta { top: 1080px; font-weight: 900; font-size: 150px; letter-spacing: -0.03em; color: #e10600; transform: skewX(-10deg); }
+    [data-composition-id="s01-record"] .s01-historia { top: 1268px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.26em; color: #f4f4f1; }
+  </style>
+  <div id="root" data-composition-id="s01-record" data-width="1080" data-height="1920" data-duration="5.56">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.56" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- semáforo de largada -->
+          <g class="s01-semaforo">
+            <path class="linea s01-poste" d="M300 600 V630 M780 600 V630" />
+            <rect x="170" y="630" width="740" height="150" rx="24" fill="#16181d" stroke="#f4f4f1" stroke-width="5" />
+            <circle class="s01-luz s01-l1" cx="250" cy="705" r="50" />
+            <circle class="s01-luz s01-l2" cx="395" cy="705" r="50" />
+            <circle class="s01-luz s01-l3" cx="540" cy="705" r="50" />
+            <circle class="s01-luz s01-l4" cx="685" cy="705" r="50" />
+            <circle class="s01-luz s01-l5" cx="830" cy="705" r="50" />
+          </g>
+          <!-- un cronómetro que casi no se mueve -->
+          <g class="s01-crono">
+            <circle class="linea s01-crono-c" cx="540" cy="1420" r="70" />
+            <path class="linea s01-crono-b" d="M520 1340 H560 M540 1340 V1350" />
+            <path class="s01-aguja" d="M540 1420 V1368" stroke="#e10600" stroke-width="7" stroke-linecap="round" fill="none" />
+          </g>
+        </svg>
+        <div class="s01-panel"><span>Nuevo récord</span></div>
+        <div class="s01-txt s01-parada">La parada en boxes</div>
+        <div class="s01-txt s01-lenta">más lenta</div>
+        <div class="s01-txt s01-historia">DE LA HISTORIA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-record";
+      const DUR = 5.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, s = 2.4) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const dibujar = (sel, t, d) => { const p = q(sel); const L = p.getTotalLength(); gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.to(p, { opacity: 1, duration: 0.01 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); };
+
+      const RECORD = 1.88;
+      const PARADA = 2.59;
+      const LENTA = 3.84;
+      const HISTORIA = 4.55;
+
+      // cuadro 0: el semáforo ya está con dos luces rojas; en "Atención" se prenden las demás
+      const luces = [1, 2, 3, 4, 5].map((i) => q(".s01-l" + i));
+      gsap.set(luces.slice(0, 2), { fill: "#e10600" });
+      tl.fromTo(q(".s01-semaforo"), { scale: 1.06, opacity: 0.85 }, { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out", svgOrigin: "540 705" }, 0);
+      luces.slice(2).forEach((l, i) => tl.to(l, { fill: "#e10600", duration: 0.04 }, 0.35 + i * 0.35));
+      // "récord": se apagan todas (largada) y cae el panel
+      tl.to(luces, { fill: "#23262d", duration: 0.04 }, RECORD - 0.1);
+      golpe(".s01-panel", RECORD, 2.6);
+      sacudon(RECORD + 0.05, 1.2);
+      tl.to(q(".s01-semaforo"), { opacity: 0.35, duration: 0.3 }, RECORD + 0.2);
+
+      // "la parada en boxes"
+      gsap.set(q(".s01-parada"), { opacity: 0 });
+      tl.fromTo(q(".s01-parada"), { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, PARADA - 0.12);
+      // "más lenta": gigante roja
+      golpe(".s01-lenta", LENTA, 2.8);
+      sacudon(LENTA + 0.05, 1.4);
+      tl.to(q(".s01-panel"), { y: -6, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, LENTA + 0.2);
+      // "de la historia" y el cronómetro lentísimo
+      gsap.set(q(".s01-historia"), { opacity: 0 });
+      tl.fromTo(q(".s01-historia"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.22, ease: "power3.out", immediateRender: false }, HISTORIA - 0.1);
+      dibujar(".s01-crono-c", HISTORIA - 0.25, 0.4);
+      dibujar(".s01-crono-b", HISTORIA - 0.1, 0.25);
+      gsap.set(q(".s01-aguja"), { opacity: 0 });
+      tl.to(q(".s01-aguja"), { opacity: 1, duration: 0.05 }, HISTORIA);
+      tl.to(q(".s01-aguja"), { rotation: 25, svgOrigin: "540 1420", duration: DUR - HISTORIA, ease: "none" }, HISTORIA);
+
+      // salida: barrido como cambio de cámara
+      tl.to(q("#s01-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

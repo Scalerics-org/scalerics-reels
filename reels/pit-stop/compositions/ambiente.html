@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* líneas de velocidad que pasan muy tenues (la cámara sigue al auto) */
+    [data-composition-id="ambiente"] .amb-vel { position: absolute; left: -400px; top: 0; width: 1880px; height: 1920px; opacity: 0.5;
+      background-image: repeating-linear-gradient(90deg, rgba(244, 244, 241, 0) 0px, rgba(244, 244, 241, 0) 220px, rgba(244, 244, 241, 0.025) 220px, rgba(244, 244, 241, 0.025) 224px); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1120px at 540px 920px, rgba(11, 12, 15, 0) 50%, rgba(11, 12, 15, 0.92) 100%); }
+    [data-composition-id="ambiente"] .amb-alarma { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 620px 620px at 0% 0%, rgba(225, 6, 0, 0.4), rgba(225, 6, 0, 0) 70%), radial-gradient(ellipse 620px 620px at 100% 100%, rgba(225, 6, 0, 0.4), rgba(225, 6, 0, 0) 70%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #f4f4f1; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-flash-v { position: absolute; inset: 0; background: #5ce611; opacity: 0; }
+    /* barra de la transmisión */
+    [data-composition-id="ambiente"] .amb-barra { position: absolute; left: 70px; top: 112px; height: 84px; display: flex; align-items: stretch; transform: skewX(-10deg); white-space: nowrap; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4); }
+    [data-composition-id="ambiente"] .amb-barra > div { display: flex; align-items: center; padding: 0 18px; font-family: "Lexend", sans-serif; font-weight: 800; text-transform: uppercase; font-size: 27px; letter-spacing: 0.04em; }
+    [data-composition-id="ambiente"] .amb-barra > div > span { display: inline-block; transform: skewX(10deg); }
+    [data-composition-id="ambiente"] .amb-vivo { background: #e10600; color: #f4f4f1; gap: 10px; }
+    [data-composition-id="ambiente"] .amb-punto { width: 14px; height: 14px; border-radius: 50%; background: #f4f4f1; }
+    [data-composition-id="ambiente"] .amb-gp { background: #f4f4f1; color: #0b0c0f; }
+    [data-composition-id="ambiente"] .amb-lbl { background: #16181d; color: #ffd100; border-left: 6px solid #ffd100; font-size: 28px !important; }
+    [data-composition-id="ambiente"] .amb-reloj { background: #23262d; color: #f4f4f1; min-width: 210px; justify-content: center; font-family: "IBM Plex Mono", monospace !important; font-weight: 500 !important; font-size: 34px !important; letter-spacing: 0.02em !important; }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 60px; top: 1610px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.16em; color: #f4f4f1; opacity: 0.5; text-align: right; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="75.76">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="75.76" data-track-index="0">
+      <div class="amb-vel"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-alarma"></div>
+      <div class="amb-barra">
+        <div class="amb-vivo"><span class="amb-punto"></span><span>Vivo</span></div>
+        <div class="amb-gp"><span>GP del barrio</span></div>
+        <div class="amb-lbl"><span class="amb-lbl-t">Parada · tu box</span></div>
+        <div class="amb-reloj"><span class="amb-t">--:--.-</span></div>
+      </div>
+      <div class="amb-rotulo" data-layout-ignore>CÁMARA PIT LANE</div>
+      <div class="amb-flash"></div>
+      <div class="amb-flash-v"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 75.76;
+      const ENTRA = 9.29;      // "boxes!": arranca la parada
+      const HORA = 25.21;
+      const DIA = 26.32;
+      const ATENDER = 30.79;   // se va: ABANDONO
+      const ENFRENTE = 33.65;  // "Precio": parada del de enfrente
+      const DOS = 34.9;        // "Dos segundos"
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const reloj = q(".amb-reloj"), txt = q(".amb-t"), lbl = q(".amb-lbl-t");
+      const p2 = (n) => String(n).padStart(2, "0");
+      const mmss = (s) => p2(Math.floor(s / 60)) + ":" + p2(Math.floor(s % 60)) + "." + Math.floor((s * 10) % 10);
+      const pinta = (t) => {
+        let tx, bg = "#23262d", co = "#f4f4f1", lb = "Parada · tu box";
+        if (t < ENTRA) tx = "--:--.-";
+        else if (t < HORA) tx = mmss(t - ENTRA);
+        else if (t < DIA) { tx = "1:00:00"; bg = "#e10600"; }
+        else if (t < ATENDER) { tx = "24:00:" + p2(Math.floor(t - DIA)); bg = "#e10600"; }
+        else if (t < ENFRENTE) { tx = "ABANDONO"; bg = "#e10600"; }
+        else { tx = mmss(Math.min(2, (t - ENFRENTE) * (2 / (DOS - ENFRENTE)))); co = "#0b0c0f"; bg = "#5ce611"; lb = "Parada · enfrente"; }
+        if (txt.textContent !== tx) txt.textContent = tx;
+        if (lbl.textContent !== lb) lbl.textContent = lb;
+        reloj.style.backgroundColor = bg; reloj.style.color = co;
+      };
+      const reloj_t = { t: 0 };
+      pinta(0);
+      tl.to(reloj_t, { t: DUR, duration: DUR, ease: "none", onUpdate: () => pinta(reloj_t.t) }, 0);
+
+      // las líneas de velocidad corren
+      tl.fromTo(q(".amb-vel"), { x: 0 }, { x: 448, duration: DUR, ease: "none" }, 0);
+      // el punto de VIVO late
+      tl.to(q(".amb-punto"), { opacity: 0.2, duration: 0.5, yoyo: true, repeat: Math.floor(DUR / 0.5) - 1, ease: "steps(1)" }, 0);
+      // la barra entra ya puesta en el cuadro 0
+      tl.fromTo(q(".amb-barra"), { x: -30, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      // el reloj salta en los cambios
+      [ENTRA, HORA, DIA, ATENDER, ENFRENTE, DOS, 66.69].forEach((t) => {
+        tl.fromTo(reloj, { scale: 1.18 }, { scale: 1, duration: 0.3, ease: "back.out(3)", immediateRender: false }, t);
+      });
+
+      // alarma roja: la llave, ABANDONO, "ya no vuelve"
+      [[16.6, 0.6], [ATENDER, 0.8], [41.4, 0.6]].forEach(([t, d]) => {
+        tl.to(q(".amb-alarma"), { opacity: 1, duration: 0.1, yoyo: true, repeat: Math.max(1, Math.round(d / 0.2)) * 2 - 1, ease: "steps(1)" }, t);
+      });
+      // flashes blancos: récord, "Scalerics"
+      [1.88, 58.49].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.5, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+      // flashes verdes: dos segundos, vuelta rápida, la parada de dos segundos
+      [DOS, 35.7, 66.69].forEach((t) => {
+        tl.to(q(".amb-flash-v"), { opacity: 0.22, duration: 0.03 }, t);
+        tl.to(q(".amb-flash-v"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

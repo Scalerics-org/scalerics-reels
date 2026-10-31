@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-cta"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-cta"] .s14-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; text-transform: uppercase; white-space: nowrap; transform: skewX(-10deg); }
+    [data-composition-id="s14-cta"] .s14-etiq { top: 930px; font-size: 150px; color: #ffd100; letter-spacing: -0.02em; }
+    [data-composition-id="s14-cta"] .s14-al { top: 1100px; font-size: 66px; color: #f4f4f1; }
+    [data-composition-id="s14-cta"] .s14-tres { top: 1182px; font-size: 76px; color: #e10600; }
+    [data-composition-id="s14-cta"] .s14-arroba { position: absolute; left: 470px; top: 1300px; width: 140px; height: 140px; border-radius: 50%; border: 7px solid #5ce611; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 84px; line-height: 1; color: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s14-cta" data-width="1080" data-height="1920" data-duration="5.57">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="5.57" data-track-index="0">
+      <div class="s14-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path d="M300 600 V890" stroke="#f4f4f1" stroke-width="10" stroke-linecap="round" />
+          <g class="s14-bandera"></g>
+        </svg>
+        <div class="s14-txt s14-etiq">Etiquetá</div>
+        <div class="s14-txt s14-al">al que tarda</div>
+        <div class="s14-txt s14-tres">tres días en boxes</div>
+        <div class="s14-arroba">@</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-cta";
+      const DUR = 5.57;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s14-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, s = 2.4) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+
+      const TARDA = 0.74;
+      const TRES = 1.02;
+      const BOXES = 1.67;
+
+      // bandera a cuadros: 8 x 4 cuadros; la ondulación es una función del tiempo
+      const NS = "http://www.w3.org/2000/svg";
+      const g = q(".s14-bandera");
+      const C = [];
+      for (let f = 0; f < 4; f++) for (let c = 0; c < 8; c++) {
+        const r = document.createElementNS(NS, "rect");
+        r.setAttribute("width", 56); r.setAttribute("height", 56);
+        r.setAttribute("fill", (f + c) % 2 ? "#0b0c0f" : "#f4f4f1");
+        g.appendChild(r); C.push([r, f, c]);
+      }
+      const ondea = (t) => {
+        for (const [r, f, c] of C) {
+          const y = 606 + f * 56 + Math.sin(c * 0.8 - t * 7) * (6 + c * 2.2);
+          r.setAttribute("x", 305 + c * 56); r.setAttribute("y", y.toFixed(1));
+        }
+      };
+      const P = { t: 0 };
+      ondea(0);
+      tl.to(P, { t: DUR, duration: DUR, ease: "none", onUpdate: () => ondea(P.t) }, 0);
+      tl.fromTo(g, { opacity: 0.6, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 0);
+
+      golpe(".s14-etiq", 0.12, 2.4);
+      sacudon(0.15, 1.2);
+      gsap.set([q(".s14-al"), q(".s14-tres")], { opacity: 0 });
+      tl.fromTo(q(".s14-al"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, TARDA - 0.15);
+      golpe(".s14-tres", TRES, 1.8);
+      tl.fromTo(q(".s14-tres"), { scale: 1.12 }, { scale: 1, duration: 0.2, ease: "back.out(3)", immediateRender: false }, BOXES);
+      gsap.set(q(".s14-arroba"), { opacity: 0 });
+      tl.fromTo(q(".s14-arroba"), { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)", immediateRender: false }, BOXES + 0.2);
+      tl.to(q(".s14-arroba"), { scale: 1.12, duration: 0.35, yoyo: true, repeat: 7, ease: "sine.inOut" }, BOXES + 0.6);
+      tl.to(q(".s14-etiq"), { y: -8, duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut" }, BOXES + 0.4);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

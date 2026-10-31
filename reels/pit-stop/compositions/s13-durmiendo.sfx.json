@@ -1,0 +1,6 @@
+[
+  {"t": 0.4, "sfx": "impact-bass-2", "vol": 0.38, "max": 0.6},
+  {"t": 0.5, "sfx": "sparkle", "vol": 0.22, "max": 0.8},
+  {"t": 1.0, "sfx": "notification", "vol": 0.2},
+  {"t": 2.15, "sfx": "pop", "vol": 0.22}
+]

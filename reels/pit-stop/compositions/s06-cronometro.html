@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-cronometro"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-cronometro"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-cronometro"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-cronometro"] .linea { fill: none; stroke: #f4f4f1; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-cronometro"] .s06-lectura { position: absolute; left: 0; right: 0; top: 1096px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 104px; line-height: 1; color: #f4f4f1; white-space: nowrap; }
+    [data-composition-id="s06-cronometro"] .s06-unidad { position: absolute; left: 0; right: 0; top: 1214px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; color: #e10600; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-cronometro"] .s06-fila { position: absolute; left: 170px; top: 1300px; width: 740px; height: 110px; display: flex; transform: skewX(-10deg); box-shadow: 0 8px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s06-cronometro"] .s06-fila > div { display: flex; align-items: center; padding: 0 28px; }
+    [data-composition-id="s06-cronometro"] .s06-fila span { display: block; transform: skewX(10deg); white-space: nowrap; line-height: 1; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; }
+    [data-composition-id="s06-cronometro"] .s06-est { background: #f4f4f1; color: #0b0c0f; font-size: 40px; }
+    [data-composition-id="s06-cronometro"] .s06-val { position: relative; flex: 1; background: #16181d; color: #f4f4f1; font-size: 64px; }
+    [data-composition-id="s06-cronometro"] .s06-tacha { position: absolute; left: 20px; top: 52px; width: 300px; height: 10px; background: #e10600; transform-origin: 0 50%; }
+    [data-composition-id="s06-cronometro"] .s06-siesta { position: absolute; left: 470px; top: 1268px; padding: 12px 30px; border: 7px solid #ffd100; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 80px; line-height: 1; color: #ffd100; text-transform: uppercase; background: rgba(11, 12, 15, 0.88); white-space: nowrap; }
+    [data-composition-id="s06-cronometro"] .zz { font-family: "Lexend", sans-serif; font-weight: 900; fill: #ffd100; }
+  </style>
+  <div id="root" data-composition-id="s06-cronometro" data-width="1080" data-height="1920" data-duration="7.06">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="7.06" data-track-index="0">
+      <div class="s06-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s06-crono">
+            <path class="linea s06-boton" d="M500 626 H580 M540 626 V660 M690 680 L722 648" />
+            <circle class="s06-aro" cx="540" cy="860" r="200" fill="#16181d" stroke="#f4f4f1" stroke-width="8" />
+            <g class="s06-marcas"></g>
+            <path class="s06-aguja" d="M540 860 V705" stroke="#e10600" stroke-width="9" stroke-linecap="round" />
+            <circle cx="540" cy="860" r="14" fill="#e10600" />
+          </g>
+          <text class="zz s06-z1" x="760" y="690" font-size="54">Z</text>
+          <text class="zz s06-z2" x="815" y="630" font-size="70">Z</text>
+          <text class="zz s06-z3" x="880" y="600" font-size="90">Z</text>
+        </svg>
+        <div class="s06-lectura">00:13.8</div>
+        <div class="s06-unidad">Y sigue</div>
+        <div class="s06-fila"><div class="s06-est"><span>Estado</span></div><div class="s06-val"><span class="s06-pal">Parada</span><div class="s06-tacha"></div></div></div>
+        <div class="s06-siesta">Siesta</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-cronometro";
+      const DUR = 7.06;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s06-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, s = 2.4) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+
+      const CORRIENDO = 1.13;
+      const HORA = 2.26;
+      const DIA = 3.22;
+      const PARADA = 5.05;
+      const SIESTA = 6.09;
+      const BASE = 13.81; // segundos de parada cuando arranca la escena
+
+      // marcas del cronómetro
+      const NS = "http://www.w3.org/2000/svg";
+      for (let i = 0; i < 60; i++) {
+        const a = (i / 60) * Math.PI * 2, l = i % 5 === 0 ? 26 : 12;
+        const p = document.createElementNS(NS, "path");
+        const x1 = 540 + Math.sin(a) * 182, y1 = 860 - Math.cos(a) * 182, x2 = 540 + Math.sin(a) * (182 - l), y2 = 860 - Math.cos(a) * (182 - l);
+        p.setAttribute("d", `M${x1.toFixed(1)} ${y1.toFixed(1)} L${x2.toFixed(1)} ${y2.toFixed(1)}`);
+        p.setAttribute("stroke", "#f4f4f1"); p.setAttribute("stroke-width", i % 5 === 0 ? 5 : 3); p.setAttribute("opacity", i % 5 === 0 ? 0.9 : 0.45);
+        q(".s06-marcas").appendChild(p);
+      }
+
+      // la lectura digital, función del tiempo
+      const lec = q(".s06-lectura"), uni = q(".s06-unidad");
+      const p2 = (n) => String(n).padStart(2, "0");
+      const pinta = (t) => {
+        let tx, u, c = "#f4f4f1";
+        if (t < HORA) { const s = BASE + t; tx = p2(Math.floor(s / 60)) + ":" + p2(Math.floor(s % 60)) + "." + Math.floor((s * 10) % 10); u = "Y sigue"; }
+        else if (t < DIA) { tx = "1:00:" + p2(Math.floor(t - HORA)); u = "Una hora"; c = "#e10600"; }
+        else { tx = "24:00:" + p2(Math.floor(t - DIA)); u = "Un día"; c = "#e10600"; }
+        if (lec.textContent !== tx) lec.textContent = tx;
+        if (uni.textContent !== u) uni.textContent = u;
+        lec.style.color = c;
+      };
+      const P = { t: 0 };
+      pinta(0);
+      tl.to(P, { t: DUR, duration: DUR, ease: "none", onUpdate: () => pinta(P.t) }, 0);
+
+      // cuadro 0: el cronómetro ya está, entra con zoom
+      tl.fromTo(q(".s06-crono"), { scale: 1.12, opacity: 0.7 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power3.out", svgOrigin: "540 860" }, 0);
+      tl.fromTo([q(".s06-lectura"), q(".s06-unidad")], { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+      // la aguja: una vuelta por segundo, después enloquece
+      tl.fromTo(q(".s06-aguja"), { rotation: 0 }, { rotation: 360 * HORA, svgOrigin: "540 860", duration: HORA, ease: "none" }, 0);
+      tl.to(q(".s06-aguja"), { rotation: 360 * HORA + 360 * 14, svgOrigin: "540 860", duration: DIA + 0.6 - HORA, ease: "power1.in" }, HORA);
+      tl.to(q(".s06-aguja"), { rotation: 360 * HORA + 360 * 14 + 360 * 3, svgOrigin: "540 860", duration: DUR - DIA - 0.6, ease: "power2.out" }, DIA + 0.6);
+
+      // "hora" y "día": golpes, el aro se pone rojo
+      [HORA, DIA].forEach((t, i) => {
+        tl.fromTo(lec, { scale: 1.5 }, { scale: 1, duration: 0.18, ease: "power4.in", immediateRender: false }, t);
+        sacudon(t + 0.05, 1 + i * 0.3);
+      });
+      tl.to(q(".s06-aro"), { stroke: "#e10600", duration: 0.1 }, HORA);
+      tl.to(q(".s06-aro"), { fill: "#2a0b0a", duration: 0.2 }, DIA);
+
+      // la fila ESTADO: PARADA, que se tacha
+      gsap.set(q(".s06-fila"), { opacity: 0 });
+      tl.fromTo(q(".s06-fila"), { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, 4.0);
+      gsap.set(q(".s06-tacha"), { scaleX: 0 });
+      tl.to(q(".s06-tacha"), { scaleX: 1, duration: 0.25, ease: "power2.out" }, PARADA + 0.15);
+      // "siesta": sello amarillo y las Z suben
+      gsap.set(q(".s06-siesta"), { opacity: 0, rotation: -8 });
+      tl.fromTo(q(".s06-siesta"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.12, ease: "power4.in", immediateRender: false }, SIESTA - 0.05);
+      tl.to([q(".s06-pal"), q(".s06-tacha")], { opacity: 0, duration: 0.06 }, SIESTA - 0.08);
+      sacudon(SIESTA + 0.08, 1.2);
+      [".s06-z1", ".s06-z2", ".s06-z3"].forEach((s, i) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", immediateRender: false }, SIESTA + 0.1 + i * 0.2);
+        tl.to(q(s), { y: -16, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, SIESTA + 0.4 + i * 0.2);
+      });
+
+      tl.to(q("#s06-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

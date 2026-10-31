@@ -1,0 +1,83 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-dos-segundos"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-dos-segundos"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-dos-segundos"] .s08-cab { position: absolute; left: 170px; top: 596px; height: 76px; display: flex; transform: skewX(-10deg); box-shadow: 0 8px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s08-dos-segundos"] .s08-cab > div { display: flex; align-items: center; padding: 0 24px; }
+    [data-composition-id="s08-dos-segundos"] .s08-cab span { display: block; transform: skewX(10deg); white-space: nowrap; line-height: 1; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 38px; text-transform: uppercase; }
+    [data-composition-id="s08-dos-segundos"] .s08-cb { background: #5ce611; color: #0b0c0f; }
+    [data-composition-id="s08-dos-segundos"] .s08-cn { background: #16181d; color: #f4f4f1; }
+    [data-composition-id="s08-dos-segundos"] .s08-fila { position: absolute; left: 200px; width: 680px; height: 92px; display: flex; align-items: center; gap: 26px; padding-left: 22px; background: #16181d; border-left: 12px solid #5ce611; transform: skewX(-10deg); }
+    [data-composition-id="s08-dos-segundos"] .s08-fila > * { transform: skewX(10deg); }
+    [data-composition-id="s08-dos-segundos"] .s08-fila span { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 56px; line-height: 1; color: #f4f4f1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s08-dos-segundos"] .s08-f1 { top: 712px; }
+    [data-composition-id="s08-dos-segundos"] .s08-f2 { top: 820px; }
+    [data-composition-id="s08-dos-segundos"] .s08-f3 { top: 928px; }
+    [data-composition-id="s08-dos-segundos"] .s08-ok { width: 60px; height: 60px; flex: none; }
+    [data-composition-id="s08-dos-segundos"] .s08-dos { position: absolute; left: 0; right: 0; top: 1050px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 200px; line-height: 1; color: #5ce611; white-space: nowrap; }
+    [data-composition-id="s08-dos-segundos"] .s08-torre { position: absolute; left: 110px; top: 1300px; width: 860px; height: 104px; display: flex; transform: skewX(-10deg); box-shadow: 0 8px 0 rgba(0, 0, 0, 0.45); }
+    [data-composition-id="s08-dos-segundos"] .s08-torre > div { display: flex; align-items: center; justify-content: center; padding: 0 22px; }
+    [data-composition-id="s08-dos-segundos"] .s08-torre span { display: block; transform: skewX(10deg); white-space: nowrap; line-height: 1; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; }
+    [data-composition-id="s08-dos-segundos"] .s08-pos { background: #f4f4f1; color: #0b0c0f; font-size: 64px; width: 100px; }
+    [data-composition-id="s08-dos-segundos"] .s08-nom { background: #16181d; color: #f4f4f1; font-size: 42px; flex: 1; justify-content: flex-start !important; }
+    [data-composition-id="s08-dos-segundos"] .s08-vr { background: #5ce611; color: #0b0c0f; font-size: 36px; }
+  </style>
+  <div id="root" data-composition-id="s08-dos-segundos" data-width="1080" data-height="1920" data-duration="4.45">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.45" data-track-index="0">
+      <div class="s08-escenario">
+        <div class="s08-cab"><div class="s08-cb"><span>Box</span></div><div class="s08-cn"><span>El de enfrente</span></div></div>
+        <div class="s08-fila s08-f1"><svg class="s08-ok" viewBox="0 0 60 60" aria-hidden="true"><rect x="3" y="3" width="54" height="54" rx="10" fill="#5ce611" /><path class="s08-tilde" d="M16 31 L26 41 L45 19" fill="none" stroke="#0b0c0f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>Precio</span></div>
+        <div class="s08-fila s08-f2"><svg class="s08-ok" viewBox="0 0 60 60" aria-hidden="true"><rect x="3" y="3" width="54" height="54" rx="10" fill="#5ce611" /><path class="s08-tilde" d="M16 31 L26 41 L45 19" fill="none" stroke="#0b0c0f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>Turno</span></div>
+        <div class="s08-fila s08-f3"><svg class="s08-ok" viewBox="0 0 60 60" aria-hidden="true"><rect x="3" y="3" width="54" height="54" rx="10" fill="#5ce611" /><path class="s08-tilde" d="M16 31 L26 41 L45 19" fill="none" stroke="#0b0c0f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>Pedido</span></div>
+        <div class="s08-dos">2.0 S</div>
+        <div class="s08-torre"><div class="s08-pos"><span>1</span></div><div class="s08-nom"><span>El de enfrente</span></div><div class="s08-vr"><span>Vuelta rápida</span></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-dos-segundos";
+      const DUR = 4.45;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s08-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, s = 2.4) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+
+      const PALABRAS = [0.0, 0.36, 0.72];
+      const DOS = 1.25;
+      const VUELTA = 2.05;
+      const RAPIDA = 2.59;
+
+      // cuadro 0: la cabecera ya está, la primera fila entra al toque
+      tl.fromTo(q(".s08-cab"), { x: -160, opacity: 0.5 }, { x: 0, opacity: 1, duration: 0.2, ease: "power3.out" }, 0);
+      [".s08-f1", ".s08-f2", ".s08-f3"].forEach((s, i) => {
+        const t = PALABRAS[i];
+        if (i > 0) gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: i === 0 ? 0.5 : 0, x: 260 }, { opacity: 1, x: 0, duration: 0.16, ease: "power3.out", immediateRender: i === 0 }, Math.max(0, t - 0.08));
+        const ti = q(s + " .s08-tilde"); const L = 46;
+        gsap.set(ti, { strokeDasharray: L, strokeDashoffset: L });
+        tl.to(ti, { strokeDashoffset: 0, duration: 0.15, ease: "power2.out" }, t + 0.06);
+      });
+
+      // "dos segundos"
+      golpe(".s08-dos", DOS, 2.8);
+      sacudon(DOS + 0.05, 1.3);
+      tl.to(q(".s08-dos"), { scale: 1.06, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, DOS + 0.3);
+
+      // "vuelta rápida": la fila de la torre entra
+      gsap.set(q(".s08-torre"), { opacity: 0 });
+      tl.fromTo(q(".s08-torre"), { opacity: 0, x: 400 }, { opacity: 1, x: 0, duration: 0.22, ease: "power3.out", immediateRender: false }, VUELTA - 0.05);
+      tl.fromTo(q(".s08-vr"), { scale: 1.25 }, { scale: 1, duration: 0.2, ease: "back.out(3)", immediateRender: false }, RAPIDA);
+
+      tl.to(q("#s08-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

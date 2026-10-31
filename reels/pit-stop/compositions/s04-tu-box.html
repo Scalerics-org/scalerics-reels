@@ -1,0 +1,108 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-tu-box"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-tu-box"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-tu-box"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-tu-box"] .linea { fill: none; stroke: #f4f4f1; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-tu-box"] .rueda { fill: #0b0c0f; stroke: #f4f4f1; stroke-width: 5; }
+    [data-composition-id="s04-tu-box"] .preg { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 96px; fill: #e10600; }
+    [data-composition-id="s04-tu-box"] .s04-cartel { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 54px; fill: #f4f4f1; text-transform: uppercase; }
+    [data-composition-id="s04-tu-box"] .s04-llave { position: absolute; left: 0; right: 0; top: 790px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 104px; line-height: 1; color: #f4f4f1; text-transform: uppercase; white-space: nowrap; transform: skewX(-10deg); }
+    [data-composition-id="s04-tu-box"] .s04-etiqueta { position: absolute; left: 0; right: 0; top: 1400px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #e10600; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s04-tu-box" data-width="1080" data-height="1920" data-duration="3.32">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.32" data-track-index="0">
+      <div class="s04-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el box: marco y cartel -->
+          <path class="linea s04-marco" d="M110 1340 V700 H970 V1340" />
+          <path class="linea s04-piso" d="M80 1340 H1000" />
+          <g class="s04-cartelg">
+            <rect x="330" y="640" width="420" height="96" rx="8" fill="#e10600" />
+            <text class="s04-cartel" x="540" y="708" text-anchor="middle">Tu local</text>
+          </g>
+          <!-- el auto del cliente, de costado, esperando sobre el gato -->
+          <g class="s04-auto">
+            <path d="M170 1250 L230 1222 L330 1214 L395 1168 L470 1162 L520 1196 L600 1200 L625 1246 L625 1272 L170 1272 Z" fill="#ffd100" />
+            <rect x="140" y="1262" width="110" height="16" rx="4" fill="#ffd100" />
+            <rect x="600" y="1128" width="16" height="80" fill="#ffd100" />
+            <rect x="575" y="1118" width="70" height="18" rx="3" fill="#ffd100" />
+            <circle cx="440" cy="1166" r="24" fill="#0b0c0f" stroke="#f4f4f1" stroke-width="4" />
+            <circle class="rueda" cx="265" cy="1274" r="44" />
+            <circle class="rueda" cx="545" cy="1274" r="48" />
+            <circle cx="265" cy="1274" r="14" fill="#f4f4f1" />
+            <circle cx="545" cy="1274" r="15" fill="#f4f4f1" />
+          </g>
+          <path class="linea s04-gato" d="M220 1340 L265 1318 L310 1340 M265 1318 V1300" />
+          <!-- la caja de herramientas y el mecánico (el dueño) revolviendo -->
+          <path class="linea s04-caja" d="M650 1340 V1240 H810 V1340 M650 1240 L626 1176" />
+          <g class="s04-meca"><g transform="translate(915 1340) scale(1.15)">
+            <path d="M-20 -130 L-30 -8 M20 -130 L34 -8" stroke="#e10600" stroke-width="30" stroke-linecap="round" fill="none" />
+            <path d="M-48 -4 H-12 M18 -4 H56" stroke="#0b0c0f" stroke-width="16" stroke-linecap="round" />
+            <path d="M-40 -250 H40 L34 -122 H-34 Z" fill="#e10600" stroke="#e10600" stroke-width="16" stroke-linejoin="round" />
+            <path class="s04-brazos" d="M-36 -236 L-92 -176 L-128 -128 M30 -236 L-30 -170 L-86 -138" stroke="#e10600" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+            <circle cx="-2" cy="-298" r="36" fill="#f4f4f1" />
+            <path d="M-38 -306 C-38 -350 34 -350 34 -306 Z" fill="#e10600" />
+            <path d="M-36 -308 H-76" stroke="#e10600" stroke-width="10" stroke-linecap="round" />
+            <circle cx="12" cy="-296" r="11" fill="#0b0c0f" />
+          </g></g>
+          <text class="preg s04-p1" x="640" y="1110">?</text>
+          <text class="preg s04-p2" x="720" y="1050">?</text>
+          <text class="preg s04-p3" x="1000" y="1000">?</text>
+        </svg>
+        <div class="s04-llave">¿La llave?</div>
+        <div class="s04-etiqueta">MECÁNICO: EL DUEÑO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-tu-box";
+      const DUR = 3.32;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, s = 2.4) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const dibujar = (sel, t, d) => { const p = q(sel); const L = p.getTotalLength(); gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.to(p, { opacity: 1, duration: 0.01 }, t); tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); };
+
+      const BOX = 0.36;
+      const MECANICO = 0.99;
+      const LLAVE = 2.41;
+
+      // cuadro 0: el marco a medio dibujar, el auto ya está
+      const m = q(".s04-marco"); const Lm = m.getTotalLength();
+      tl.fromTo(m, { strokeDasharray: Lm, strokeDashoffset: Lm * 0.5 }, { strokeDashoffset: 0, duration: 0.45, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s04-auto"), { x: -60, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      golpe(".s04-cartelg", BOX, 1.6);
+      // el auto sube al gato
+      dibujar(".s04-gato", BOX, 0.3);
+      tl.to(q(".s04-auto"), { y: -18, rotation: -1.5, svgOrigin: "560 1272", duration: 0.25, ease: "power2.out" }, BOX + 0.25);
+
+      // "mecánico": aparece revolviendo la caja
+      dibujar(".s04-caja", MECANICO - 0.35, 0.35);
+      gsap.set(q(".s04-meca"), { opacity: 0 });
+      tl.fromTo(q(".s04-meca"), { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, MECANICO - 0.15);
+      tl.to(q(".s04-brazos"), { x: -8, y: 10, duration: 0.09, yoyo: true, repeat: 15, ease: "sine.inOut" }, MECANICO + 0.1);
+      gsap.set(q(".s04-etiqueta"), { opacity: 0 });
+      tl.fromTo(q(".s04-etiqueta"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.22, immediateRender: false }, MECANICO);
+
+      // "llave": signos de pregunta y el cartel
+      [".s04-p1", ".s04-p2", ".s04-p3"].forEach((s, i) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)", immediateRender: false }, LLAVE - 0.6 + i * 0.12);
+      });
+      golpe(".s04-llave", LLAVE, 2.4);
+      sacudon(LLAVE + 0.04, 1.1);
+
+      tl.to(q("#s04-escena"), { x: 300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
