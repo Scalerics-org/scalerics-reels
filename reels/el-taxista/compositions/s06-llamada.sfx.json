@@ -1,0 +1,6 @@
+[
+  {"t": 0.0, "sfx": "key-press", "vol": 0.3},
+  {"t": 0.92, "sfx": "notification", "vol": 0.3},
+  {"t": 1.48, "sfx": "notification", "vol": 0.3},
+  {"t": 2.0, "sfx": "glitch-1", "vol": 0.3, "max": 0.5}
+]

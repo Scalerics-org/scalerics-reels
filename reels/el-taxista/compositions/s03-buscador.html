@@ -1,0 +1,115 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-buscador"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-buscador"] .s03-esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-buscador"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-buscador"] .fig { position: absolute; width: 500px; height: 620px; }
+    [data-composition-id="s03-buscador"] .fig svg, [data-composition-id="s03-buscador"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s03-buscador"] .obj { position: absolute; }
+    [data-composition-id="s03-buscador"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #0b0f1a; paint-order: stroke fill; }
+    [data-composition-id="s03-buscador"] .big.c { color: #f4ecd8; text-shadow: 9px 9px 0 #ff3b30; }
+    [data-composition-id="s03-buscador"] .big.y { color: #ffc81a; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s03-buscador"] .big.r { color: #ff3b30; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s03-buscador"] .big.a { color: #ff9a3c; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s03-buscador"] .big.l { color: #7fd3ff; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s03-buscador"] .big.v { color: #5ce611; text-shadow: 8px 8px 0 #0b0f1a; }
+    [data-composition-id="s03-buscador"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s03-buscador"] .sello { position: absolute; padding: 16px 40px 8px; border: 12px solid currentColor; border-radius: 20px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #0b0f1a; }
+    [data-composition-id="s03-buscador"] .globo { position: absolute; padding: 20px 30px; border-radius: 30px; border: 6px solid #0b0f1a; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #0b0f1a; background: #f4ecd8; box-shadow: 8px 8px 0 #0b0f1a; }
+    [data-composition-id="s03-buscador"] .cel { position: absolute; border-radius: 54px; border: 8px solid #0b0f1a; background: #0b0f1a; box-shadow: 0 0 0 6px #f4ecd8, 12px 12px 0 6px #0b0f1a, 0 0 90px 10px rgba(127, 211, 255, 0.35); }
+    [data-composition-id="s03-buscador"] .cel-barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #0b0f1a; z-index: 2; }
+    [data-composition-id="s03-buscador"] .cel-pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 46px; background: #f4ecd8; overflow: hidden; }
+
+    [data-composition-id="s03-buscador"] .s03-busca { position: absolute; left: 30px; right: 30px; top: 100px; height: 96px; border-radius: 48px; border: 6px solid #0b0f1a; background: #fff; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 40px; line-height: 84px; padding-left: 84px; color: #0b0f1a; white-space: nowrap; }
+    [data-composition-id="s03-buscador"] .s03-lupa { position: absolute; left: 26px; top: 22px; width: 38px; height: 38px; border: 7px solid #0b0f1a; border-radius: 50%; }
+    [data-composition-id="s03-buscador"] .s03-ch { display: inline-block; opacity: 0; }
+    [data-composition-id="s03-buscador"] .s03-cursor { display: inline-block; width: 5px; height: 44px; background: #0b0f1a; vertical-align: -6px; margin-left: 2px; }
+    [data-composition-id="s03-buscador"] .s03-res { position: absolute; left: 30px; right: 30px; top: 240px; height: 300px; border-radius: 26px; border: 6px solid #0b0f1a; background: #fff; padding: 26px 28px; }
+    [data-composition-id="s03-buscador"] .s03-res b { display: block; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1.05; color: #0b0f1a; }
+    [data-composition-id="s03-buscador"] .s03-res small { display: block; margin-top: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.06em; color: #1d2f55; }
+    [data-composition-id="s03-buscador"] .s03-res .s03-salto { color: #ff3b30; font-size: 34px; }
+    [data-composition-id="s03-buscador"] .s03-tij { position: absolute; right: 24px; bottom: 20px; width: 120px; height: 120px; }
+    [data-composition-id="s03-buscador"] .s03-ghost { position: absolute; left: 30px; right: 30px; height: 120px; border-radius: 26px; background: rgba(29, 47, 85, 0.12); }
+    [data-composition-id="s03-buscador"] .s03-preg { position: absolute; left: 820px; top: 560px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 230px; line-height: 1; color: #ffc81a; -webkit-text-stroke: 12px #0b0f1a; paint-order: stroke fill; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s03-buscador"] .s03-sello { left: 120px; top: 1250px; color: #ff3b30; font-size: 92px; }
+    [data-composition-id="s03-buscador"] .s03-tijg { left: 40px; top: 600px; width: 240px; height: 240px; }
+
+  </style>
+  <div id="root" data-composition-id="s03-buscador" data-width="1080" data-height="1920" data-duration="5.29">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="5.29" data-track-index="0">
+      <div class="s03-esc esc">
+
+        <div class="cel s03-cel" style="left:240px;top:590px;width:600px;height:880px"><div class="cel-barra"></div><div class="cel-pant"><div class="s03-busca"><div class="s03-lupa"></div><span class="s03-ch">d</span><span class="s03-ch">o</span><span class="s03-ch">ñ</span><span class="s03-ch">a</span><span class="s03-ch">&nbsp;</span><span class="s03-ch">n</span><span class="s03-ch">é</span><span class="s03-ch">l</span><span class="s03-ch">i</span><span class="s03-ch">d</span><span class="s03-ch">a</span><span class="s03-ch">&nbsp;</span><span class="s03-ch">t</span><span class="s03-ch">o</span><span class="s03-ch">r</span><span class="s03-ch">t</span><span class="s03-ch">a</span><span class="s03-ch">s</span><span class="s03-cursor"></span></div>
+  <div class="s03-res"><b>Peluquería Nélida</b><small>Corte y brushing</small><small class="s03-salto">SALTO, URUGUAY</small><div class="s03-tij"><svg viewBox="0 0 120 120"><circle cx="30" cy="92" r="18" fill="none" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="90" cy="92" r="18" fill="none" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M42 80 L96 10 M78 80 L24 10" stroke="#0b0f1a" stroke-width="10" stroke-linecap="round"/><path d="M42 80 L96 10 M78 80 L24 10" stroke="#a9aebb" stroke-width="5" stroke-linecap="round"/></svg></div></div>
+  <div class="s03-ghost" style="top:570px"></div><div class="s03-ghost" style="top:710px"></div></div></div>
+        <div class="s03-preg">?</div>
+        <div class="obj s03-tijg"><svg viewBox="0 0 120 120"><circle cx="30" cy="92" r="18" fill="none" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="90" cy="92" r="18" fill="none" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M42 80 L96 10 M78 80 L24 10" stroke="#0b0f1a" stroke-width="10" stroke-linecap="round"/><path d="M42 80 L96 10 M78 80 L24 10" stroke="#a9aebb" stroke-width="5" stroke-linecap="round"/></svg></div>
+        <div class="sello s03-sello">¿SALTO?</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-buscador";
+      const DUR = 5.29;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.1, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // el auto que traquetea (todo lo de adentro del taxi se mueve un poquito)
+      const traqueteo = (el, t, d) => tl.to(el, { y: "+=5", duration: 0.13, yoyo: true, repeat: Math.max(1, Math.floor(d / 0.13)) | 1, ease: "sine.inOut" }, t);
+      // parpadeo de ojos
+      // destellos (path con data-c = centro) que aparecen y giran
+      const brilla = (els, t, paso = 0.08) => els.forEach((e, i) => { gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: 0, rotation: -40, svgOrigin: e.dataset.c }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: e.dataset.c, duration: 0.28, ease: "back.out(3)", immediateRender: false }, t + i * paso);
+        tl.to(e, { scale: 0.75, svgOrigin: e.dataset.c, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, t + i * paso + 0.3); });
+      const parpadea = (sel, t, origin) => { tl.to(q(sel), { scaleY: 0.1, svgOrigin: origin, duration: 0.06 }, t); tl.to(q(sel), { scaleY: 1, svgOrigin: origin, duration: 0.08 }, t + 0.08); };
+
+
+      const CEL = 0.64, BUSCO = 1.56, SALE = 3.23, PELU = 3.60, SALTO = 4.25;
+      const cel = q(".s03-cel");
+      // cuadro 0: el celular ya está subiendo
+      tl.fromTo(cel, { y: 300, rotation: -8, opacity: 0.6 }, { y: 0, rotation: -2, opacity: 1, duration: 0.5, ease: "back.out(1.4)" }, 0);
+      pop(q(".s03-preg"), 0.1, 0.3);
+      tl.to(q(".s03-preg"), { rotation: 12, duration: 0.18, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.4);
+      tl.to(q(".s03-preg"), { opacity: 0, x: 120, duration: 0.25 }, BUSCO - 0.2);
+      traqueteo(cel, 0.5, 4.6);
+      tl.fromTo(q(".s03-cursor"), { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "steps(1)", yoyo: true, repeat: 20 }, 0);
+      // escribe
+      const chs = qa(".s03-ch");
+      chs.forEach((c, i) => tl.set(c, { opacity: 1 }, BUSCO + i * 0.065));
+      // el resultado
+      gsap.set(q(".s03-res"), { opacity: 0 });
+      tl.fromTo(q(".s03-res"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, SALE - 0.05);
+      tl.fromTo(qa(".s03-ghost"), { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.08, immediateRender: false }, SALE + 0.1);
+      pop(q(".s03-tijg"), PELU, 0.3);
+      tl.to(q(".s03-tijg"), { rotation: 18, duration: 0.09, yoyo: true, repeat: 9, ease: "sine.inOut" }, PELU + 0.3);
+      tl.to(cel, { scale: 1.06, duration: 0.2, ease: "power2.out" }, PELU);
+      golpe(q(".s03-sello"), SALTO + 0.08, -7, 2.8);
+      sacudon(SALTO + 0.1, 1.3);
+      tl.fromTo(q(".s03-salto"), { scale: 1 }, { scale: 1.25, transformOrigin: "0% 50%", duration: 0.12, yoyo: true, repeat: 3, immediateRender: false }, SALTO);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

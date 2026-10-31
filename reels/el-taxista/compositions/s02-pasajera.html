@@ -1,0 +1,145 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-pasajera"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-pasajera"] .s02-esc { position: absolute; inset: 0; }
+    [data-composition-id="s02-pasajera"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-pasajera"] .fig { position: absolute; width: 500px; height: 620px; }
+    [data-composition-id="s02-pasajera"] .fig svg, [data-composition-id="s02-pasajera"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s02-pasajera"] .obj { position: absolute; }
+    [data-composition-id="s02-pasajera"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #0b0f1a; paint-order: stroke fill; }
+    [data-composition-id="s02-pasajera"] .big.c { color: #f4ecd8; text-shadow: 9px 9px 0 #ff3b30; }
+    [data-composition-id="s02-pasajera"] .big.y { color: #ffc81a; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s02-pasajera"] .big.r { color: #ff3b30; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s02-pasajera"] .big.a { color: #ff9a3c; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s02-pasajera"] .big.l { color: #7fd3ff; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s02-pasajera"] .big.v { color: #5ce611; text-shadow: 8px 8px 0 #0b0f1a; }
+    [data-composition-id="s02-pasajera"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s02-pasajera"] .sello { position: absolute; padding: 16px 40px 8px; border: 12px solid currentColor; border-radius: 20px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #0b0f1a; }
+    [data-composition-id="s02-pasajera"] .globo { position: absolute; padding: 20px 30px; border-radius: 30px; border: 6px solid #0b0f1a; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #0b0f1a; background: #f4ecd8; box-shadow: 8px 8px 0 #0b0f1a; }
+    [data-composition-id="s02-pasajera"] .cel { position: absolute; border-radius: 54px; border: 8px solid #0b0f1a; background: #0b0f1a; box-shadow: 0 0 0 6px #f4ecd8, 12px 12px 0 6px #0b0f1a, 0 0 90px 10px rgba(127, 211, 255, 0.35); }
+    [data-composition-id="s02-pasajera"] .cel-barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #0b0f1a; z-index: 2; }
+    [data-composition-id="s02-pasajera"] .cel-pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 46px; background: #f4ecd8; overflow: hidden; }
+
+    [data-composition-id="s02-pasajera"] .s02-pas { left: 40px; top: 860px; }
+    [data-composition-id="s02-pasajera"] .s02-cartel { position: absolute; left: 140px; top: 560px; width: 800px; padding: 18px 0 14px; text-align: center; background: #0b0f1a; border: 8px solid #ff9a3c; border-radius: 18px;
+      box-shadow: 0 0 40px rgba(255, 154, 60, 0.45); font-family: "Lexend", sans-serif; font-weight: 900; font-size: 72px; line-height: 1; color: #ff9a3c; white-space: nowrap; }
+    [data-composition-id="s02-pasajera"] .s02-cartel small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.3em; color: #f4ecd8; margin-bottom: 8px; }
+    [data-composition-id="s02-pasajera"] .s02-existe { top: 600px; font-size: 170px; }
+    [data-composition-id="s02-pasajera"] .s02-torta { left: 540px; top: 900px; width: 480px; height: 500px; }
+    [data-composition-id="s02-pasajera"] .s02-cumple { left: 560px; top: 1410px; font-size: 30px; color: #ffc81a; }
+    [data-composition-id="s02-pasajera"] .s02-corona { left: 690px; top: 800px; width: 180px; height: 130px; }
+    [data-composition-id="s02-pasajera"] .s02-mejor { left: 530px; top: 1080px; color: #ffc81a; font-size: 64px; }
+
+  </style>
+  <div id="root" data-composition-id="s02-pasajera" data-width="1080" data-height="1920" data-duration="5.94">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="5.94" data-track-index="0">
+      <div class="s02-esc esc">
+
+        <div class="fig s02-pas"><svg viewBox="0 0 500 620" aria-hidden="true"><g class="s02p-cuerpo">
+  <path d="M40 640 Q60 480 180 446 L320 446 Q440 480 460 640 Z" fill="#ff9a3c" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M150 470 L210 640 M350 470 L290 640" stroke="#0b0f1a" stroke-width="5" opacity="0.5"/>
+  <rect x="220" y="396" width="60" height="60" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M176 446 Q250 500 324 446 Q336 486 300 500 Q250 520 200 500 Q164 486 176 446 Z" fill="#7fd3ff" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s02p-cabeza">
+    <circle cx="250" cy="150" r="58" fill="#1d2f55" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M136 300 Q120 190 250 178 Q380 190 364 300 L372 410 Q330 420 340 330 L160 330 Q170 420 128 410 Z" fill="#1d2f55" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse cx="250" cy="300" rx="104" ry="118" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse class="s02p-brillo" cx="250" cy="330" rx="96" ry="84" fill="#7fd3ff" opacity="0.08"/>
+    <path d="M146 270 Q170 196 250 196 Q330 196 354 270 Q320 226 250 230 Q190 228 146 270 Z" fill="#1d2f55" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M196 230 Q186 270 166 290" stroke="#1d2f55" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <circle cx="146" cy="352" r="12" fill="#ffc81a" stroke="#0b0f1a" stroke-width="4"/><circle cx="354" cy="352" r="12" fill="#ffc81a" stroke="#0b0f1a" stroke-width="4"/>
+    <g class="s02p-ceja"><path d="M190 258 L232 270 M268 270 L310 258" stroke="#0b0f1a" stroke-width="9" stroke-linecap="round"/></g>
+    <g class="s02p-ojos"><ellipse cx="212" cy="292" rx="9" ry="12" fill="#0b0f1a"/><ellipse cx="288" cy="292" rx="9" ry="12" fill="#0b0f1a"/></g>
+    <path d="M198 286 L190 280 M302 286 L310 280" stroke="#0b0f1a" stroke-width="4" stroke-linecap="round"/>
+    <path d="M250 300 Q240 330 252 336" stroke="#0b0f1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="186" cy="340" r="13" fill="#ff3b30" opacity="0.25"/><circle cx="314" cy="340" r="13" fill="#ff3b30" opacity="0.25"/>
+    <path class="s02p-boca" d="M226 376 Q250 366 274 376 Q274 398 250 400 Q226 398 226 376 Z" fill="#0b0f1a" stroke="#0b0f1a" stroke-width="4" stroke-linejoin="round"/>
+  </g>
+  <g class="s02p-cel"><rect x="318" y="430" width="110" height="196" rx="18" fill="#0b0f1a" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="328" y="442" width="90" height="170" rx="10" fill="#7fd3ff"/><path d="M344 470 H402 M344 492 H390 M344 514 H398" stroke="#0b0f1a" stroke-width="6" opacity="0.5"/>
+    <ellipse cx="330" cy="560" rx="36" ry="30" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></g>
+</g></svg></div>
+        <div class="big l s02-existe">¡EXISTE!</div>
+        <div class="s02-cartel"><small>LO DE</small>DOÑA NÉLIDA</div>
+        <div class="obj s02-torta"><svg viewBox="0 0 500 520" aria-hidden="true">
+  <ellipse cx="250" cy="492" rx="230" ry="22" fill="#0b0f1a" opacity="0.5"/>
+  <rect x="40" y="476" width="420" height="20" rx="10" fill="#a9aebb" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="70" y="350" width="360" height="130" rx="14" fill="#ff9a3c" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M70.0 350 q30.0 34 60.0 0" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="4"/><path d="M130.0 350 q30.0 34 60.0 0" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="4"/><path d="M190.0 350 q30.0 34 60.0 0" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="4"/><path d="M250.0 350 q30.0 34 60.0 0" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="4"/><path d="M310.0 350 q30.0 34 60.0 0" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="4"/><path d="M370.0 350 q30.0 34 60.0 0" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="4"/>
+  <rect x="110" y="240" width="280" height="116" rx="14" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110 300 H390" stroke="#ff3b30" stroke-width="10"/>
+  <rect x="150" y="140" width="200" height="104" rx="14" fill="#ff9a3c" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M150.0 140 q25.0 34 50.0 0" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="4"/><path d="M200.0 140 q25.0 34 50.0 0" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="4"/><path d="M250.0 140 q25.0 34 50.0 0" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="4"/><path d="M300.0 140 q25.0 34 50.0 0" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="4"/>
+  <g class="s02t-velas"><rect x="181" y="70" width="18" height="70" rx="5" fill="#ffc81a" stroke="#0b0f1a" stroke-width="4"/><path d="M181 92 L199 84 M181 116 L199 108" stroke="#ff3b30" stroke-width="4"/><path class="s02t-llama" d="M190 22 Q206 46 190 64 Q174 46 190 22 Z" fill="#ff9a3c" stroke="#0b0f1a" stroke-width="4"/><rect x="241" y="70" width="18" height="70" rx="5" fill="#ffc81a" stroke="#0b0f1a" stroke-width="4"/><path d="M241 92 L259 84 M241 116 L259 108" stroke="#ff3b30" stroke-width="4"/><path class="s02t-llama" d="M250 22 Q266 46 250 64 Q234 46 250 22 Z" fill="#ff9a3c" stroke="#0b0f1a" stroke-width="4"/><rect x="301" y="70" width="18" height="70" rx="5" fill="#ffc81a" stroke="#0b0f1a" stroke-width="4"/><path d="M301 92 L319 84 M301 116 L319 108" stroke="#ff3b30" stroke-width="4"/><path class="s02t-llama" d="M310 22 Q326 46 310 64 Q294 46 310 22 Z" fill="#ff9a3c" stroke="#0b0f1a" stroke-width="4"/></g>
+  <circle cx="130" cy="420" r="10" fill="#ff3b30" stroke="#0b0f1a" stroke-width="3"/><circle cx="250" cy="430" r="10" fill="#ff3b30" stroke="#0b0f1a" stroke-width="3"/><circle cx="370" cy="420" r="10" fill="#ff3b30" stroke="#0b0f1a" stroke-width="3"/>
+</svg></div>
+        <div class="mono s02-cumple">¡HOY ES EL CUMPLE!</div>
+        <div class="obj s02-corona"><svg viewBox="0 0 180 130"><path d="M14 110 L24 30 L62 74 L90 14 L118 74 L156 30 L166 110 Z" fill="#ffc81a" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="90" cy="90" r="10" fill="#ff3b30" stroke="#0b0f1a" stroke-width="4"/></svg></div>
+        <div class="sello s02-mejor">LA MEJOR</div>
+        <svg class="full" viewBox="0 0 1080 1920"><path class="s02-est s02-e0" data-c="600 880" d="M600 854 Q606.76 873.24 626 880 Q606.76 886.76 600 906 Q593.24 886.76 574 880 Q593.24 873.24 600 854 Z" fill="#ffc81a" stroke="#0b0f1a" stroke-width="4"/><path class="s02-est s02-e1" data-c="980 960" d="M980 938 Q985.72 954.28 1002 960 Q985.72 965.72 980 982 Q974.28 965.72 958 960 Q974.28 954.28 980 938 Z" fill="#ffc81a" stroke="#0b0f1a" stroke-width="4"/><path class="s02-est s02-e2" data-c="960 1240" d="M960 1210 Q967.8 1232.2 990 1240 Q967.8 1247.8 960 1270 Q952.2 1247.8 930 1240 Q952.2 1232.2 960 1210 Z" fill="#ffc81a" stroke="#0b0f1a" stroke-width="4"/><path class="s02-est s02-e3" data-c="580 1200" d="M580 1180 Q585.2 1194.8 600 1200 Q585.2 1205.2 580 1220 Q574.8 1205.2 560 1200 Q574.8 1194.8 580 1180 Z" fill="#ffc81a" stroke="#0b0f1a" stroke-width="4"/></svg>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-pasajera";
+      const DUR = 5.94;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.1, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // el auto que traquetea (todo lo de adentro del taxi se mueve un poquito)
+      const traqueteo = (el, t, d) => tl.to(el, { y: "+=5", duration: 0.13, yoyo: true, repeat: Math.max(1, Math.floor(d / 0.13)) | 1, ease: "sine.inOut" }, t);
+      // parpadeo de ojos
+      // destellos (path con data-c = centro) que aparecen y giran
+      const brilla = (els, t, paso = 0.08) => els.forEach((e, i) => { gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: 0, rotation: -40, svgOrigin: e.dataset.c }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: e.dataset.c, duration: 0.28, ease: "back.out(3)", immediateRender: false }, t + i * paso);
+        tl.to(e, { scale: 0.75, svgOrigin: e.dataset.c, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, t + i * paso + 0.3); });
+      const parpadea = (sel, t, origin) => { tl.to(q(sel), { scaleY: 0.1, svgOrigin: origin, duration: 0.06 }, t); tl.to(q(sel), { scaleY: 1, svgOrigin: origin, duration: 0.08 }, t + 0.08); };
+
+
+      const EXISTE = 0.37, DONA = 1.30, CUMPLE = 2.59, HIJA = 3.33, MEJOR = 4.63, TORTA = 4.82;
+      const pas = q(".s02-pas");
+      entra(pas, 0, { x: -300 }, 0.3);
+      habla(".s02p-boca", 0.05, 5.4, "250 386");
+      traqueteo(pas, 0.4, 5.3);
+      // "¡claro que existe!": sacude la cabeza, cejas enojadas
+      tl.fromTo(q(".s02p-cabeza"), { rotation: -6, svgOrigin: "250 420" }, { rotation: 6, svgOrigin: "250 420", duration: 0.1, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, EXISTE - 0.1);
+      tl.to(q(".s02p-ceja"), { y: 8, duration: 0.1 }, EXISTE - 0.1);
+      sacudon(EXISTE, 0.8);
+      golpe(q(".s02-existe"), EXISTE + 0.05, -4, 2.6);
+      tl.to(q(".s02-existe"), { opacity: 0, scale: 0.8, duration: 0.15 }, DONA - 0.1);
+      // el cartel
+      golpe(q(".s02-cartel"), DONA + 0.05, -3, 2.2);
+      tl.to(q(".s02-cartel"), { y: -6, rotation: -1, duration: 0.5, yoyo: true, repeat: 7, ease: "sine.inOut" }, DONA + 0.3);
+      // la torta del cumple
+      pop(q(".s02-torta"), CUMPLE - 0.05, 0.4);
+      tl.fromTo(qa(".s02t-llama"), { scaleY: 0.8, transformOrigin: "50% 100%" }, { scaleY: 1.2, duration: 0.12, yoyo: true, repeat: 25, ease: "sine.inOut", immediateRender: false }, CUMPLE + 0.3);
+      pop(q(".s02-cumple"), HIJA, 0.3);
+      // la mejor
+      gsap.set(q(".s02-corona"), { opacity: 0 });
+      tl.fromTo(q(".s02-corona"), { opacity: 0, y: -220 }, { opacity: 1, y: 0, duration: 0.3, ease: "bounce.out", immediateRender: false }, MEJOR - 0.1);
+      golpe(q(".s02-mejor"), TORTA + 0.1, 8, 2.6);
+      sacudon(TORTA + 0.12, 1);
+      brilla(qa(".s02-est"), MEJOR);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

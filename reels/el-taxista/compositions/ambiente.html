@@ -1,0 +1,132 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg.am-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .am-vin { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1100px at 540px 960px, rgba(11, 15, 26, 0) 60%, rgba(11, 15, 26, 0.55) 100%); }
+    /* radio: quién habla */
+    [data-composition-id="ambiente"] .am-radio { position: absolute; left: 56px; top: 1572px; width: 500px; height: 116px; border-radius: 14px; background: #120a04; border: 5px solid #ff9a3c; box-shadow: 0 0 26px rgba(255, 154, 60, 0.35); overflow: hidden; }
+    [data-composition-id="ambiente"] .am-q { position: absolute; left: 22px; top: 14px; opacity: 0; }
+    [data-composition-id="ambiente"] .am-q b { display: block; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; line-height: 1.05; letter-spacing: 0.02em; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-q small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.12em; white-space: nowrap; color: #ff9a3c; opacity: 0.85; }
+    [data-composition-id="ambiente"] .am-barras { position: absolute; right: 18px; top: 26px; width: 90px; height: 64px; }
+    [data-composition-id="ambiente"] .am-barras i { position: absolute; bottom: 0; width: 12px; height: 64px; background: #ff9a3c; transform-origin: 50% 100%; }
+    /* taxímetro */
+    [data-composition-id="ambiente"] .am-taxi { position: absolute; left: 600px; top: 1560px; width: 424px; height: 140px; border-radius: 14px; background: #160406; border: 6px solid #0b0f1a; box-shadow: 0 0 0 4px #3a0d10, 0 0 40px rgba(255, 59, 48, 0.35); }
+    [data-composition-id="ambiente"] .am-tl { position: absolute; left: 20px; top: 14px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.2em; color: #ff3b30; opacity: 0.8; }
+    [data-composition-id="ambiente"] .am-libre { position: absolute; left: 20px; top: 62px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.14em; color: #ff3b30; opacity: 0.45; }
+    [data-composition-id="ambiente"] .am-nums { position: absolute; right: 24px; top: 10px; width: 240px; height: 116px; }
+    [data-composition-id="ambiente"] .am-f { position: absolute; right: 0; top: 0; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 104px; line-height: 116px; letter-spacing: 0.04em; color: #ff3b30;
+      text-shadow: 0 0 18px rgba(255, 59, 48, 0.85); opacity: 0; }
+    [data-composition-id="ambiente"] .am-mas { position: absolute; left: 860px; top: 1500px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; color: #ff3b30; -webkit-text-stroke: 8px #0b0f1a; paint-order: stroke fill; opacity: 0; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="64.39">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="64.39" data-track-index="0">
+      <div class="am-vin"></div>
+      <svg class="am-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="am-arriba">
+          <rect x="525" y="-10" width="30" height="74" fill="#0b0f1a" stroke="#a9aebb" stroke-width="3"/>
+          <g class="am-espejo">
+            <rect x="330" y="56" width="420" height="140" rx="40" fill="#0b0f1a" stroke="#a9aebb" stroke-width="5"/>
+            <clipPath id="am-clip"><rect x="350" y="72" width="380" height="108" rx="28"/></clipPath>
+            <g clip-path="url(#am-clip)">
+              <rect x="350" y="72" width="380" height="108" fill="#24365c"/>
+              <g class="am-cara">
+                <rect x="380" y="60" width="320" height="160" rx="70" fill="#f4ecd8" opacity="0.92"/>
+                <path d="M380 66 Q540 40 700 66 L700 92 Q540 76 380 92 Z" fill="#1d2f55"/>
+                <g class="am-cejas"><path d="M430 116 Q470 96 512 112 M568 112 Q610 96 650 116" stroke="#a9aebb" stroke-width="22" stroke-linecap="round" fill="none"/>
+                  <path d="M430 116 Q470 96 512 112 M568 112 Q610 96 650 116" stroke="#0b0f1a" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.5"/></g>
+                <g class="am-ojos"><g class="am-pup"><ellipse cx="472" cy="144" rx="13" ry="14" fill="#0b0f1a"/><ellipse cx="608" cy="144" rx="13" ry="14" fill="#0b0f1a"/>
+                  <circle cx="477" cy="139" r="4" fill="#f4ecd8"/><circle cx="613" cy="139" r="4" fill="#f4ecd8"/></g></g>
+                <path d="M520 176 Q540 160 560 176" stroke="#0b0f1a" stroke-width="5" fill="none" opacity="0.6"/>
+              </g>
+              <path d="M360 80 L420 80 L380 180 L350 180 Z" fill="#f4ecd8" opacity="0.10"/>
+            </g>
+          </g>
+          <g transform="translate(760 186)"><g class="am-colgante">
+  <path d="M0 0 L-8 16 M0 0 L10 22" stroke="#f4ecd8" stroke-width="3"/>
+  
+  <g transform="translate(-26 14) rotate(-10) scale(0.72)"><rect x="0" y="0" width="40" height="40" rx="8" fill="#ff3b30" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="#f4ecd8"/><circle cx="28" cy="28" r="4" fill="#f4ecd8"/><circle cx="20" cy="20" r="4" fill="#f4ecd8"/></g>
+  <g transform="translate(4 20) rotate(14) scale(0.72)"><rect x="0" y="0" width="40" height="40" rx="8" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="#0b0f1a"/><circle cx="28" cy="28" r="4" fill="#0b0f1a"/><circle cx="28" cy="12" r="4" fill="#0b0f1a"/><circle cx="12" cy="28" r="4" fill="#0b0f1a"/></g>
+</g></g>
+        </g>
+        <g class="am-tablero">
+          <path d="M-20 1600 Q540 1500 1100 1600 L1100 1730 L-20 1730 Z" fill="#0b0f1a" stroke="#1d2f55" stroke-width="5"/>
+        </g>
+      </svg>
+      <div class="am-radio">
+        <div class="am-q am-qt"><b style="color:#ffc81a">WASHINGTON</b><small>OPINA DE TODO</small></div>
+        <div class="am-q am-qp"><b style="color:#7fd3ff">CAROLINA</b><small>APURADÍSIMA</small></div>
+        <div class="am-q am-qo"><b style="color:#5ce611">SCALERICS</b><small style="color:#5ce611">SITIOS WEB</small></div>
+        <div class="am-barras"><i style="left:0"></i><i style="left:19px"></i><i style="left:38px"></i><i style="left:57px"></i><i style="left:76px"></i></div>
+      </div>
+      <div class="am-taxi">
+        <div class="am-tl">FICHAS</div>
+        <div class="am-libre">OCUPADO</div>
+        <div class="am-nums"><span class="am-f am-f0">012</span><span class="am-f am-f1">013</span><span class="am-f am-f2">014</span><span class="am-f am-f3">015</span><span class="am-f am-f4">016</span><span class="am-f am-f5">017</span><span class="am-f am-f6">018</span><span class="am-f am-f7">019</span><span class="am-f am-f8">020</span><span class="am-f am-f9">021</span><span class="am-f am-f10">022</span><span class="am-f am-f11">023</span><span class="am-f am-f12">024</span><span class="am-f am-f13">025</span><span class="am-f am-f14">026</span><span class="am-f am-f15">027</span><span class="am-f am-f16">028</span><span class="am-f am-f17">029</span><span class="am-f am-f18">030</span><span class="am-f am-f19">031</span><span class="am-f am-f20">032</span><span class="am-f am-f21">033</span><span class="am-f am-f22">034</span><span class="am-f am-f23">035</span><span class="am-f am-f24">036</span><span class="am-f am-f25">037</span><span class="am-f am-f26">038</span><span class="am-f am-f27">039</span><span class="am-f am-f28">040</span><span class="am-f am-f29">041</span><span class="am-f am-f30">042</span><span class="am-f am-f31">043</span><span class="am-f am-f32">044</span><span class="am-f am-f33">045</span><span class="am-f am-f34">046</span><span class="am-f am-f35">047</span><span class="am-f am-f36">048</span><span class="am-f am-f37">049</span><span class="am-f am-f38">050</span><span class="am-f am-f39">051</span><span class="am-f am-f40">052</span><span class="am-f am-f41">053</span><span class="am-f am-f42">054</span><span class="am-f am-f43">055</span><span class="am-f am-f44">056</span><span class="am-f am-f45">057</span><span class="am-f am-f46">058</span><span class="am-f am-f47">059</span><span class="am-f am-f48">060</span><span class="am-f am-f49">061</span><span class="am-f am-f50">062</span><span class="am-f am-f51">063</span><span class="am-f am-f52">064</span><span class="am-f am-f53">065</span><span class="am-f am-f54">066</span><span class="am-f am-f55">067</span><span class="am-f am-f56">068</span></div>
+      </div>
+      <div class="am-mas">+ FICHAS</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const FIN = 53.83;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const TURNOS = [["t", 0, 4.65], ["p", 4.65, 10.59], ["t", 10.59, 12.15], ["p", 12.15, 15.88], ["t", 15.88, 19.28], ["p", 19.28, 21.96], ["t", 21.96, 22.88], ["p", 22.88, 24.6], ["t", 24.6, 35.53], ["p", 35.53, 37.97], ["t", 37.97, 45.6], ["p", 45.6, 46.78], ["t", 46.78, 53.83], ["o", 53.83, 64.39]];
+      const FICHAS = [1.0, 3.3, 5.6, 7.9, 10.2, 12.5, 14.8, 17.1, 19.4, 21.7, 24.0, 26.3, 26.92, 27.54, 28.16, 28.78, 29.4, 30.02, 30.64, 31.26, 31.88, 32.5, 33.12, 33.74, 34.36, 34.98, 35.6, 35.71, 35.82, 35.93, 36.04, 36.15, 36.26, 36.37, 36.48, 36.59, 36.7, 36.81, 36.92, 37.03, 37.14, 37.25, 37.36, 37.47, 37.58, 37.69, 39.09, 40.49, 41.89, 43.29, 44.69, 46.09, 47.49, 48.89, 50.29, 51.69, 53.09];
+
+      // el dado se hamaca con el auto
+      tl.fromTo(q(".am-colgante"), { rotation: -9, svgOrigin: "0 0" }, { rotation: 9, svgOrigin: "0 0", duration: 0.9, yoyo: true, repeat: Math.floor(FIN / 0.9), ease: "sine.inOut" }, 0);
+      // el espejito vibra apenas
+      tl.to(q(".am-espejo"), { y: 3, duration: 0.14, yoyo: true, repeat: Math.floor(FIN / 0.14), ease: "sine.inOut" }, 0);
+      // ojos del taxista: parpadean y miran a la pasajera cuando ella habla
+      const blink = (t) => { tl.to(q(".am-ojos"), { scaleY: 0.1, svgOrigin: "540 144", duration: 0.06 }, t); tl.to(q(".am-ojos"), { scaleY: 1, svgOrigin: "540 144", duration: 0.08 }, t + 0.08); };
+      for (let t = 1.6; t < FIN; t += 2.9) blink(t);
+      TURNOS.forEach(([c, a, b]) => {
+        if (c === "p") { tl.to(q(".am-pup"), { x: 22, y: 4, duration: 0.2, ease: "power2.out" }, a + 0.1); tl.to(q(".am-pup"), { x: 0, y: 0, duration: 0.2 }, b - 0.1); }
+      });
+      // cejas: sentencia, duda y "normal"
+      [[0.5, -10], [1.2, 0], [26.0, -12], [27.6, 6], [28.4, 0], [35.6, -14], [36.6, 0], [46.7, 8], [47.6, 0], [50.5, -10], [52.0, 0]].forEach(([t, y]) =>
+        tl.to(q(".am-cejas"), { y, duration: 0.14, ease: "power2.out" }, t));
+
+      // radio: quién habla
+      const QS = { t: ".am-qt", p: ".am-qp", o: ".am-qo" };
+      TURNOS.forEach(([c, a, b], i) => {
+        const el = q(QS[c]);
+        if (i === 0) gsap.set(el, { opacity: 1 });
+        else tl.fromTo(el, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out", immediateRender: false }, a);
+        if (i + 1 < TURNOS.length) tl.to(el, { opacity: 0, y: -24, duration: 0.1 }, b - 0.1);
+      });
+      qa(".am-barras i").forEach((el, i) => tl.fromTo(el, { scaleY: 0.25 }, { scaleY: 1, duration: 0.12 + i * 0.03, yoyo: true, repeat: Math.floor(FIN / (0.12 + i * 0.03)), ease: "sine.inOut" }, 0));
+
+      // taxímetro: cada ficha prende su número
+      const fs = qa(".am-f");
+      gsap.set(fs[0], { opacity: 1 });
+      FICHAS.forEach((t, i) => {
+        if (i === 0) return;
+        tl.set(fs[i - 1], { opacity: 0 }, t);
+        tl.set(fs[i], { opacity: 1 }, t);
+        tl.fromTo(q(".am-taxi"), { boxShadow: "0 0 0 4px #3a0d10, 0 0 70px rgba(255, 59, 48, 0.75)" }, { boxShadow: "0 0 0 4px #3a0d10, 0 0 40px rgba(255, 59, 48, 0.35)", duration: 0.25, immediateRender: false }, t);
+      });
+      // "¡la ficha sigue subiendo!": el taxímetro salta y aparece "+ FICHAS"
+      const SUBE = 35.528;
+      tl.fromTo(q(".am-taxi"), { scale: 1 }, { scale: 1.08, duration: 0.08, yoyo: true, repeat: 15, ease: "sine.inOut", immediateRender: false }, SUBE);
+      tl.fromTo(q(".am-mas"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, SUBE + 0.4);
+      tl.to(q(".am-mas"), { y: -40, opacity: 0, duration: 0.3 }, SUBE + 2.1);
+
+      // entra Scalerics: el taxi se apaga un poco
+      tl.to([q(".am-arriba"), q(".am-taxi")], { opacity: 0.35, duration: 0.5 }, FIN);
+      tl.to(q(".am-vin"), { opacity: 0.4, duration: 0.5 }, FIN);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

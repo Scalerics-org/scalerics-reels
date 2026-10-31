@@ -1,0 +1,98 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-pagina"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-pagina"] .s05-esc { position: absolute; inset: 0; }
+    [data-composition-id="s05-pagina"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-pagina"] .fig { position: absolute; width: 500px; height: 620px; }
+    [data-composition-id="s05-pagina"] .fig svg, [data-composition-id="s05-pagina"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s05-pagina"] .obj { position: absolute; }
+    [data-composition-id="s05-pagina"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #0b0f1a; paint-order: stroke fill; }
+    [data-composition-id="s05-pagina"] .big.c { color: #f4ecd8; text-shadow: 9px 9px 0 #ff3b30; }
+    [data-composition-id="s05-pagina"] .big.y { color: #ffc81a; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s05-pagina"] .big.r { color: #ff3b30; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s05-pagina"] .big.a { color: #ff9a3c; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s05-pagina"] .big.l { color: #7fd3ff; text-shadow: 9px 9px 0 #0b0f1a; }
+    [data-composition-id="s05-pagina"] .big.v { color: #5ce611; text-shadow: 8px 8px 0 #0b0f1a; }
+    [data-composition-id="s05-pagina"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s05-pagina"] .sello { position: absolute; padding: 16px 40px 8px; border: 12px solid currentColor; border-radius: 20px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #0b0f1a; }
+    [data-composition-id="s05-pagina"] .globo { position: absolute; padding: 20px 30px; border-radius: 30px; border: 6px solid #0b0f1a; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #0b0f1a; background: #f4ecd8; box-shadow: 8px 8px 0 #0b0f1a; }
+    [data-composition-id="s05-pagina"] .cel { position: absolute; border-radius: 54px; border: 8px solid #0b0f1a; background: #0b0f1a; box-shadow: 0 0 0 6px #f4ecd8, 12px 12px 0 6px #0b0f1a, 0 0 90px 10px rgba(127, 211, 255, 0.35); }
+    [data-composition-id="s05-pagina"] .cel-barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #0b0f1a; z-index: 2; }
+    [data-composition-id="s05-pagina"] .cel-pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 46px; background: #f4ecd8; overflow: hidden; }
+
+    [data-composition-id="s05-pagina"] .s05-url { position: absolute; left: 24px; right: 24px; top: 70px; height: 70px; border-radius: 35px; background: #fff; border: 5px solid #0b0f1a; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; line-height: 60px; padding-left: 24px; color: #1d2f55; white-space: nowrap; overflow: hidden; }
+    [data-composition-id="s05-pagina"] .s05-rueda { position: absolute; left: 140px; top: 220px; width: 280px; height: 280px; }
+    [data-composition-id="s05-pagina"] .s05-cargando { position: absolute; left: 0; right: 0; top: 530px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.12em; color: #1d2f55; }
+    [data-composition-id="s05-pagina"] .s05-gira { top: 1290px; font-size: 130px; }
+    [data-composition-id="s05-pagina"] .s05-reloj { left: 650px; top: 560px; width: 330px; height: 330px; }
+    [data-composition-id="s05-pagina"] .s05-hor { left: 40px; top: 1290px; color: #ff3b30; font-size: 76px; }
+
+  </style>
+  <div id="root" data-composition-id="s05-pagina" data-width="1080" data-height="1920" data-duration="2.68">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="2.68" data-track-index="0">
+      <div class="s05-esc esc">
+
+        <div class="cel s05-cel" style="left:120px;top:580px;width:560px;height:700px"><div class="cel-barra"></div><div class="cel-pant"><div class="s05-url">lodedonanelida.com.uy</div><div class="s05-rueda"><svg viewBox="0 0 280 280"><g class="s05-r"><rect x="130" y="20" width="20" height="62" rx="10" fill="#7fd3ff" opacity="0.25" transform="rotate(0 140 140)"/><rect x="130" y="20" width="20" height="62" rx="10" fill="#7fd3ff" opacity="0.32" transform="rotate(30 140 140)"/><rect x="130" y="20" width="20" height="62" rx="10" fill="#7fd3ff" opacity="0.38" transform="rotate(60 140 140)"/><rect x="130" y="20" width="20" height="62" rx="10" fill="#7fd3ff" opacity="0.45" transform="rotate(90 140 140)"/><rect x="130" y="20" width="20" height="62" rx="10" fill="#7fd3ff" opacity="0.51" transform="rotate(120 140 140)"/><rect x="130" y="20" width="20" height="62" rx="10" fill="#7fd3ff" opacity="0.57" transform="rotate(150 140 140)"/><rect x="130" y="20" width="20" height="62" rx="10" fill="#7fd3ff" opacity="0.64" transform="rotate(180 140 140)"/><rect x="130" y="20" width="20" height="62" rx="10" fill="#7fd3ff" opacity="0.71" transform="rotate(210 140 140)"/><rect x="130" y="20" width="20" height="62" rx="10" fill="#0b0f1a" opacity="0.77" transform="rotate(240 140 140)"/><rect x="130" y="20" width="20" height="62" rx="10" fill="#0b0f1a" opacity="0.83" transform="rotate(270 140 140)"/><rect x="130" y="20" width="20" height="62" rx="10" fill="#0b0f1a" opacity="0.90" transform="rotate(300 140 140)"/><rect x="130" y="20" width="20" height="62" rx="10" fill="#0b0f1a" opacity="0.97" transform="rotate(330 140 140)"/></g></svg></div><div class="s05-cargando">CARGANDO...</div></div></div>
+        <div class="big l s05-gira">GIRA Y GIRA</div>
+        <div class="obj s05-reloj"><svg viewBox="0 0 330 330"><circle cx="165" cy="165" r="140" fill="#f4ecd8" stroke="#0b0f1a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" stroke-width="10"/>
+  <path d="M165 40 V60" stroke="#0b0f1a" stroke-width="8" transform="rotate(0 165 165)"/><path d="M165 40 V60" stroke="#0b0f1a" stroke-width="8" transform="rotate(30 165 165)"/><path d="M165 40 V60" stroke="#0b0f1a" stroke-width="8" transform="rotate(60 165 165)"/><path d="M165 40 V60" stroke="#0b0f1a" stroke-width="8" transform="rotate(90 165 165)"/><path d="M165 40 V60" stroke="#0b0f1a" stroke-width="8" transform="rotate(120 165 165)"/><path d="M165 40 V60" stroke="#0b0f1a" stroke-width="8" transform="rotate(150 165 165)"/><path d="M165 40 V60" stroke="#0b0f1a" stroke-width="8" transform="rotate(180 165 165)"/><path d="M165 40 V60" stroke="#0b0f1a" stroke-width="8" transform="rotate(210 165 165)"/><path d="M165 40 V60" stroke="#0b0f1a" stroke-width="8" transform="rotate(240 165 165)"/><path d="M165 40 V60" stroke="#0b0f1a" stroke-width="8" transform="rotate(270 165 165)"/><path d="M165 40 V60" stroke="#0b0f1a" stroke-width="8" transform="rotate(300 165 165)"/><path d="M165 40 V60" stroke="#0b0f1a" stroke-width="8" transform="rotate(330 165 165)"/>
+  <path class="s05-hh" d="M165 165 V95" stroke="#0b0f1a" stroke-width="14" stroke-linecap="round"/><path class="s05-mm" d="M165 165 V60" stroke="#ff3b30" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="165" cy="165" r="12" fill="#0b0f1a"/>
+  <text x="250" y="110" font-family="Lexend" font-weight="900" font-size="90" fill="#ffc81a" stroke="#0b0f1a" stroke-width="8" paint-order="stroke fill">?</text></svg></div>
+        <div class="sello s05-hor">HORARIO: ¿?</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-pagina";
+      const DUR = 2.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.1, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // el auto que traquetea (todo lo de adentro del taxi se mueve un poquito)
+      const traqueteo = (el, t, d) => tl.to(el, { y: "+=5", duration: 0.13, yoyo: true, repeat: Math.max(1, Math.floor(d / 0.13)) | 1, ease: "sine.inOut" }, t);
+      // parpadeo de ojos
+      // destellos (path con data-c = centro) que aparecen y giran
+      const brilla = (els, t, paso = 0.08) => els.forEach((e, i) => { gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: 0, rotation: -40, svgOrigin: e.dataset.c }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: e.dataset.c, duration: 0.28, ease: "back.out(3)", immediateRender: false }, t + i * paso);
+        tl.to(e, { scale: 0.75, svgOrigin: e.dataset.c, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, t + i * paso + 0.3); });
+      const parpadea = (sel, t, origin) => { tl.to(q(sel), { scaleY: 0.1, svgOrigin: origin, duration: 0.06 }, t); tl.to(q(sel), { scaleY: 1, svgOrigin: origin, duration: 0.08 }, t + 0.08); };
+
+
+      const GIRA2 = 0.37, NO = 1.11, HORA = 1.76;
+      tl.fromTo(q(".s05-cel"), { scale: 0.92, rotation: 3, opacity: 0.7 }, { scale: 1, rotation: -3, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s05-r"), { rotation: 0, svgOrigin: "140 140" }, { rotation: 360 * 5, svgOrigin: "140 140", duration: 2.7, ease: "none" }, 0);
+      tl.fromTo(q(".s05-cargando"), { opacity: 1 }, { opacity: 0.2, duration: 0.25, yoyo: true, repeat: 9, ease: "steps(1)", immediateRender: false }, 0);
+      golpe(q(".s05-gira"), 0.12, -3, 2.2);
+      tl.to(q(".s05-gira"), { rotation: 3, duration: 0.12, yoyo: true, repeat: 5 }, GIRA2);
+      tl.to(q(".s05-gira"), { opacity: 0, y: 60, duration: 0.2 }, NO - 0.15);
+      pop(q(".s05-reloj"), NO, 0.3);
+      tl.fromTo(q(".s05-mm"), { rotation: 0, svgOrigin: "165 165" }, { rotation: 1080, svgOrigin: "165 165", duration: 1.5, ease: "power1.in", immediateRender: false }, NO);
+      tl.fromTo(q(".s05-hh"), { rotation: 0, svgOrigin: "165 165" }, { rotation: -540, svgOrigin: "165 165", duration: 1.5, ease: "power1.in", immediateRender: false }, NO);
+      golpe(q(".s05-hor"), HORA + 0.1, -4, 2.6);
+      sacudon(HORA + 0.12, 1.2);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
