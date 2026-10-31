@@ -1,0 +1,129 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-miedo"] .s11-capa, [data-composition-id="s11-miedo"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-miedo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-miedo"] .b { fill: #0b1330; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .l { fill: none; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .k { fill: #1c2a5e; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .y { fill: #ffb547; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .yl { fill: none; stroke: #ffb547; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .r { fill: #ff3d6e; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .rl { fill: none; stroke: #ff3d6e; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .m { fill: #7a4524; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .ml { fill: none; stroke: #7a4524; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .w { fill: #fff1dc; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .g { fill: #5ce611; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .ag { fill: #0b1330; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-miedo"] .haz { fill: #fff1dc; opacity: 0.09; stroke: none; }
+    [data-composition-id="s11-miedo"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s11-miedo"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-miedo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s11-miedo"] .s11-ult { position: absolute; left: 0; right: 0; top: 610px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.34em; color: #ffb547; }
+    [data-composition-id="s11-miedo"] .s11-miedo { position: absolute; left: 0; right: 0; top: 680px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 190px; line-height: 1; color: #ff3d6e; text-shadow: 0 0 40px rgba(255, 61, 110, 0.6), 0 8px 0 #0b1330; }
+    [data-composition-id="s11-miedo"] .s11-sello { position: absolute; left: 210px; top: 1400px; padding: 14px 28px 10px; border: 9px solid #ff3d6e; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 78px; line-height: 1; color: #ff3d6e; background: #0b1330; white-space: nowrap; transform: rotate(-6deg); }
+
+  </style>
+  <div id="root" data-composition-id="s11-miedo" data-width="1080" data-height="1920" data-duration="3.76">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="3.76" data-track-index="0">
+      <div class="s11-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <rect class="s11-oscuro" x="-100" y="520" width="1280" height="1100" fill="#050a1f" opacity="0.7" />
+          <path class="s11-haz s11-h" fill="#ff3d6e" opacity="0.09" d="M510.0 520 L570.0 520 L920.0 1560 L160.0 1560 Z" />
+          <g class="s11-nico"><g transform="translate(270 900) scale(1.5)">
+              <path class="k" d="M20 560 C20 420 90 366 180 366 C270 366 340 420 340 560 Z" />
+              <path class="w" d="M146 370 L180 452 L214 370 Z" stroke-width="5" />
+              <path class="y" d="M170 386 L190 386 L198 470 L180 494 L162 470 Z" stroke-width="5" />
+              <path class="l" d="M132 378 L172 506 M228 378 L188 506" stroke-width="5" opacity="0.7" />
+              <path class="b" d="M154 300 V378 H206 V300" />
+              <ellipse class="b" cx="106" cy="246" rx="14" ry="22" stroke-width="6" /><ellipse class="b" cx="254" cy="246" rx="14" ry="22" stroke-width="6" />
+              <ellipse class="b" cx="180" cy="236" rx="72" ry="82" />
+              <path class="k" d="M104 226 C88 150 122 92 200 88 C262 86 290 132 262 214 C252 182 238 168 214 166 C220 140 200 128 174 136 C142 146 118 170 104 226 Z" />
+              <path class="l" d="M150 120 C176 104 218 102 246 120" stroke-width="5" opacity="0.6" />
+              <circle cx="154" cy="242" r="8" fill="#fff1dc" /><circle cx="206" cy="242" r="8" fill="#fff1dc" />
+              <path class="l s11-cejas" d="M132 214 C142 202 158 200 170 206 M192 212 C204 208 218 210 228 218" stroke-width="6" />
+              <path class="w s11-boca" d="M146 280 C160 314 200 314 214 280 Z" stroke-width="5" />
+
+            <rect x="140" y="270" width="80" height="50" fill="#0b1330" />
+            <path class="l" d="M156 294 H204" stroke-width="7" />
+          </g></g>
+          
+          <g class="s11-escritorio">
+            <rect class="m" x="-40" y="1500" width="1160" height="260" rx="14" />
+            <path d="M0 1540 V1740" stroke="#fff1dc" stroke-width="4" opacity="0.25" /><path d="M180 1540 V1740" stroke="#fff1dc" stroke-width="4" opacity="0.25" /><path d="M360 1540 V1740" stroke="#fff1dc" stroke-width="4" opacity="0.25" /><path d="M540 1540 V1740" stroke="#fff1dc" stroke-width="4" opacity="0.25" /><path d="M720 1540 V1740" stroke="#fff1dc" stroke-width="4" opacity="0.25" /><path d="M900 1540 V1740" stroke="#fff1dc" stroke-width="4" opacity="0.25" /><path d="M1080 1540 V1740" stroke="#fff1dc" stroke-width="4" opacity="0.25" />
+            <rect class="y" x="-58" y="1478" width="1196" height="30" rx="10" />
+            <g class="s11-mic">
+              <path class="l" d="M80 1478 V1430 L130 1370" stroke-width="6" />
+              <rect class="b" x="118" y="1330" width="36" height="58" rx="18" stroke-width="6" transform="rotate(40 136 1360)" />
+              <ellipse class="k" cx="80" cy="1478" rx="40" ry="10" stroke-width="5" />
+            </g>
+          </g>
+        </svg>
+        <div class="s11-ult">ÚLTIMA PREGUNTA</div>
+        <div class="s11-miedo">¿MIEDO?</div>
+        <div class="s11-sello">SIN TRABAJO</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-miedo";
+      const DUR = 3.76;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s11-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // X roja gigante que cae (dos trazos que se dibujan + golpe)
+      const equis = (sel, t) => { golpe(sel, t, 2.2); sacudon(t + 0.04, 1.1); };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // zoom de cámara sobre el escenario (punch-in)
+      const zoom = (t, s, d = 0.35, ox = "50%", oy = "50%") => tl.to(q(ESC), { scale: s, transformOrigin: ox + " " + oy, duration: d, ease: "power3.out" }, t);
+
+      const PREG = 0.27, MIEDO = 1.64, TRABAJO = 2.64;
+      tl.fromTo(q(".s11-oscuro"), { opacity: 0 }, { opacity: 0.7, duration: 0.4, immediateRender: false }, 0);
+      tl.fromTo(q(ESC), { scale: 1, transformOrigin: "50% 60%" }, { scale: 1.12, transformOrigin: "50% 60%", duration: 3.5, ease: "sine.inOut", immediateRender: false }, 0);
+      pop(".s11-ult", 0.05);
+      tl.fromTo(q(".s11-cejas"), { y: 0, rotation: 0, svgOrigin: "180 210" }, { y: 8, duration: 0.2, immediateRender: false }, 0.3);
+      tl.to(q(".s11-ult"), { opacity: 0, duration: 0.15 }, MIEDO - 0.2);
+      golpe(".s11-miedo", MIEDO, 2.4);
+      sacudon(MIEDO + 0.04, 1);
+      golpe(".s11-sello", TRABAJO, 2.4);
+      sacudon(TRABAJO + 0.04, 0.8);
+      tl.fromTo(q(".s11-miedo"), { x: 0 }, { x: 6, duration: 0.05, yoyo: true, repeat: 11, ease: "none", immediateRender: false }, MIEDO + 0.2);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

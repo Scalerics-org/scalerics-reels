@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-seguimiento"] .s09-capa, [data-composition-id="s09-seguimiento"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-seguimiento"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-seguimiento"] .b { fill: #0b1330; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .l { fill: none; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .k { fill: #1c2a5e; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .y { fill: #ffb547; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .yl { fill: none; stroke: #ffb547; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .r { fill: #ff3d6e; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .rl { fill: none; stroke: #ff3d6e; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .m { fill: #7a4524; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .ml { fill: none; stroke: #7a4524; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .w { fill: #fff1dc; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .g { fill: #5ce611; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .ag { fill: #0b1330; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-seguimiento"] .haz { fill: #fff1dc; opacity: 0.09; stroke: none; }
+    [data-composition-id="s09-seguimiento"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s09-seguimiento"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-seguimiento"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s09-seguimiento"] .s09-sep { position: absolute; left: 190px; width: 700px; top: 1020px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; color: #ffb547; }
+    [data-composition-id="s09-seguimiento"] .s09-head { position: absolute; left: 290px; top: 672px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; color: #fff1dc; line-height: 1.1; }
+    [data-composition-id="s09-seguimiento"] .s09-head small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #fff1dc; opacity: 0.7; letter-spacing: 0.08em; }
+
+  </style>
+  <div id="root" data-composition-id="s09-seguimiento" data-width="1080" data-height="1920" data-duration="3.21">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="3.21" data-track-index="0">
+      <div class="s09-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          
+          <g class="s09-celu">
+            <rect class="b" x="190" y="600" width="700" height="900" rx="52" stroke-width="8" />
+            <rect x="490.0" y="622" width="100" height="14" rx="7" fill="#fff1dc" opacity="0.6" />
+            <rect x="212" y="660" width="656" height="70" rx="14" fill="#1c2a5e" />
+          </g>
+          <circle class="y" cx="250" cy="695" r="30" stroke-width="5" />
+        </svg>
+        <div class="s09-head">Sofía<small>PREGUNTÓ Y NO COMPRÓ</small></div>
+        <div class="s09-globo s09-g1" style="position:absolute;left:230px;top:790px;width:480px;padding:18px 24px 16px;background:#fff1dc;color:#0b1330;border-radius:26px;border-bottom-left-radius:6px;font-family:'Lexend',sans-serif;font-weight:700;font-size:34px;line-height:1.14;">¿Cuánto sale la campera verde?</div>
+        <div class="s09-globo s09-g2" style="position:absolute;left:230px;top:920px;width:300px;padding:18px 24px 16px;background:#fff1dc;color:#0b1330;border-radius:26px;border-bottom-left-radius:6px;font-family:'Lexend',sans-serif;font-weight:700;font-size:34px;line-height:1.14;">Lo pienso.</div>
+        <div class="s09-sep">· AL OTRO DÍA ·</div>
+        <div class="s09-globo s09-g3" style="position:absolute;left:330px;top:1080px;width:520px;padding:18px 24px 16px;background:#5ce611;color:#0b1330;border-radius:26px;border-bottom-right-radius:6px;font-family:'Lexend',sans-serif;font-weight:700;font-size:34px;line-height:1.14;">Hola, Sofía: ¿la seguís pensando? Te la guardo hasta el viernes.</div>
+        <div class="s09-globo s09-g4" style="position:absolute;left:230px;top:1290px;width:430px;padding:18px 24px 16px;background:#fff1dc;color:#0b1330;border-radius:26px;border-bottom-left-radius:6px;font-family:'Lexend',sans-serif;font-weight:700;font-size:34px;line-height:1.14;">¡Sí! Paso mañana.</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-seguimiento";
+      const DUR = 3.21;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s09-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // X roja gigante que cae (dos trazos que se dibujan + golpe)
+      const equis = (sel, t) => { golpe(sel, t, 2.2); sacudon(t + 0.04, 1.1); };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // zoom de cámara sobre el escenario (punch-in)
+      const zoom = (t, s, d = 0.35, ox = "50%", oy = "50%") => tl.to(q(ESC), { scale: s, transformOrigin: ox + " " + oy, duration: d, ease: "power3.out" }, t);
+
+      const PREGUNTO = 0.34, COMPRO = 1.06, ESCRIBI = 1.68, OTRO = 2.13;
+      tl.fromTo(q(ESC), { y: 60, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, 0);
+      pop(".s09-g1", PREGUNTO - 0.1, { y: 20 });
+      pop(".s09-g2", COMPRO - 0.1, { y: 20 });
+      pop(".s09-sep", ESCRIBI - 0.25);
+      pop(".s09-g3", ESCRIBI, { y: 20 });
+      pop(".s09-g4", OTRO + 0.5, { y: 20 });
+
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

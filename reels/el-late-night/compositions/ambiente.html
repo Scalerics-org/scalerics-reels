@@ -1,0 +1,84 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    /* arriba a la izquierda: el cartel de neón del programa */
+    [data-composition-id="ambiente"] .am-neon { position: absolute; left: 56px; top: 82px; font-family: "Caveat", cursive; font-weight: 700; font-size: 84px; line-height: 1; color: #fff1dc; white-space: nowrap;
+      text-shadow: 0 0 6px #ff3d6e, 0 0 18px #ff3d6e, 0 0 40px #ff3d6e; transform: rotate(-4deg); }
+    [data-composition-id="ambiente"] .am-luna { position: absolute; left: 540px; top: 100px; width: 40px; height: 40px; border-radius: 50%; box-shadow: inset -12px -4px 0 0 #ffb547; filter: drop-shadow(0 0 10px #ffb547); }
+    /* arriba a la derecha: el cartel de luz del público (APLAUSOS / RISAS / OOOH) */
+    [data-composition-id="ambiente"] .am-cartel { position: absolute; right: 52px; top: 100px; width: 330px; height: 76px; border: 5px solid #fff1dc; border-radius: 12px; background: #1c2a5e; }
+    [data-composition-id="ambiente"] .am-cartel span { position: absolute; left: 0; right: 0; top: 16px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 38px; letter-spacing: 0.08em; line-height: 1; color: #fff1dc; opacity: 0.18; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-cartel .am-on { position: absolute; inset: -5px; border-radius: 12px; background: #ff3d6e; box-shadow: 0 0 34px rgba(255, 61, 110, 0.9); opacity: 0; }
+    [data-composition-id="ambiente"] .am-borde { position: absolute; inset: 0; border: 14px solid #ffb547; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="71.72">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="71.72" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="am-focos" data-layout-allow-overflow>
+          <path class="am-f1" d="M70 0 L130 0 L520 1520 L180 1520 Z" fill="#ffb547" opacity="0.05" />
+          <path class="am-f2" d="M950 0 L1010 0 L900 1520 L560 1520 Z" fill="#fff1dc" opacity="0.045" />
+        </g>
+      </svg>
+      <div class="am-neon">Nico de Noche</div>
+      <div class="am-luna"></div>
+      <div class="am-cartel">
+        <div class="am-on"></div>
+        <span class="am-t0" style="opacity: 0.18">APLAUSOS</span>
+        <span class="am-t1" style="opacity: 0">RISAS</span>
+        <span class="am-t2" style="opacity: 0">¡OOOH!</span>
+      </div>
+      <div class="am-borde"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const FIN = 58.96; // entra Scalerics: se apaga el estudio
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      // el neón: titila al prender y queda con un parpadeo suelto de vez en cuando
+      [[0.0, 0.35], [0.08, 1], [0.14, 0.4], [0.22, 1]].forEach(([t, o]) => tl.set(q(".am-neon"), { opacity: o }, t));
+      gsap.set(q(".am-neon"), { opacity: 0.35 });
+      [6.9, 21.5, 33.2, 45.0].forEach((t) => { tl.set(q(".am-neon"), { opacity: 0.45 }, t); tl.set(q(".am-neon"), { opacity: 1 }, t + 0.07); tl.set(q(".am-neon"), { opacity: 0.6 }, t + 0.15); tl.set(q(".am-neon"), { opacity: 1 }, t + 0.21); });
+      tl.fromTo(q(".am-luna"), { rotation: -6 }, { rotation: 6, duration: 2, yoyo: true, repeat: Math.floor(FIN / 2), ease: "sine.inOut" }, 0);
+
+      // focos que barren
+      tl.fromTo(q(".am-f1"), { rotation: -9, svgOrigin: "100 0" }, { rotation: 9, svgOrigin: "100 0", duration: 4.2, yoyo: true, repeat: Math.floor(FIN / 4.2), ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".am-f2"), { rotation: 8, svgOrigin: "980 0" }, { rotation: -8, svgOrigin: "980 0", duration: 3.6, yoyo: true, repeat: Math.floor(FIN / 3.6), ease: "sine.inOut" }, 0);
+      // la pregunta incómoda: el estudio se apaga un poco
+      tl.to(q(".am-focos"), { opacity: 0.2, duration: 0.4 }, 39.83);
+      tl.to(q(".am-focos"), { opacity: 1, duration: 0.4 }, 48.87);
+
+      // cartel del público: [texto, desde, hasta]
+      const CARTEL = [[0, 9.9, 11.5], [1, 17.75, 19.25], [1, 28.75, 29.8], [2, 47.45, 48.8], [1, 51.8, 52.5], [0, 55.95, 58.85]];
+      let actual = 0;
+      for (const [k, a, b] of CARTEL) {
+        if (k !== actual) { tl.set(q(".am-t" + actual), { opacity: 0 }, a - 0.01); actual = k; }
+        tl.set(q(".am-t" + k), { opacity: 1 }, a);
+        tl.fromTo(q(".am-cartel .am-on"), { opacity: 1 }, { opacity: 0.55, duration: 0.18, yoyo: true, repeat: Math.max(1, Math.round((b - a) / 0.18) | 1), ease: "steps(1)", immediateRender: false }, a);
+        tl.fromTo(q(".am-cartel"), { scale: 1.18 }, { scale: 1, duration: 0.3, ease: "back.out(3)", immediateRender: false }, a);
+        tl.set(q(".am-cartel .am-on"), { opacity: 0 }, b);
+        tl.set(q(".am-t" + k), { opacity: 0.18 }, b);
+      }
+      // borde ámbar del estudio en la entrada del invitado y en el aplauso final
+      const flash = (t, n) => { for (let i = 0; i < n; i++) { tl.to(q(".am-borde"), { opacity: 1, duration: 0.03 }, t + i * 0.18); tl.to(q(".am-borde"), { opacity: 0, duration: 0.1 }, t + i * 0.18 + 0.07); } };
+      flash(9.9, 4); flash(55.95, 5);
+
+      // Scalerics: se apaga el estudio
+      tl.to([q(".am-neon"), q(".am-luna"), q(".am-cartel")], { opacity: 0, y: -40, duration: 0.3 }, FIN);
+      tl.to(q(".am-focos"), { opacity: 0, duration: 0.5 }, FIN);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

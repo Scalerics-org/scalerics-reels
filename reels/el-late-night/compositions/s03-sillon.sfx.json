@@ -1,0 +1,12 @@
+[
+ {
+  "t": 0.2,
+  "sfx": "whoosh-short",
+  "vol": 0.25
+ },
+ {
+  "t": 1.45,
+  "sfx": "sparkle",
+  "vol": 0.3
+ }
+]

@@ -1,0 +1,232 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-odia"] .s13-capa, [data-composition-id="s13-odia"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-odia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-odia"] .b { fill: #0b1330; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .l { fill: none; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .k { fill: #1c2a5e; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .y { fill: #ffb547; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .yl { fill: none; stroke: #ffb547; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .r { fill: #ff3d6e; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .rl { fill: none; stroke: #ff3d6e; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .m { fill: #7a4524; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .ml { fill: none; stroke: #7a4524; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .w { fill: #fff1dc; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .g { fill: #5ce611; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .ag { fill: #0b1330; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-odia"] .haz { fill: #fff1dc; opacity: 0.09; stroke: none; }
+    [data-composition-id="s13-odia"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s13-odia"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-odia"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s13-odia"] .s13-odia { position: absolute; left: 0; right: 0; top: 640px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 140px; line-height: 1; color: #ff3d6e; text-shadow: 0 8px 0 #0b1330; }
+    [data-composition-id="s13-odia"] .s13-odiaba { position: absolute; left: 0; right: 0; top: 640px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 150px; line-height: 1; color: #fff1dc; }
+    [data-composition-id="s13-odia"] .s13-odiaba s { text-decoration-color: #5ce611; text-decoration-thickness: 10px; }
+    [data-composition-id="s13-odia"] .s13-l1 { position: absolute; left: 60px; top: 610px; padding: 12px 24px 8px; background: #ffb547; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; color: #0b1330; white-space: nowrap; transform: rotate(-3deg); }
+    [data-composition-id="s13-odia"] .s13-l2 { position: absolute; left: 520px; top: 720px; padding: 12px 24px 8px; background: #5ce611; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; color: #0b1330; white-space: nowrap; transform: rotate(3deg); }
+
+  </style>
+  <div id="root" data-composition-id="s13-odia" data-width="1080" data-height="1920" data-duration="7.09">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="7.09" data-track-index="0">
+      <div class="s13-escenario">
+
+        <div class="s13-uno">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s13-nico"><g transform="translate(-20 900) scale(1.3)">
+              <path class="k" d="M20 560 C20 420 90 366 180 366 C270 366 340 420 340 560 Z" />
+              <path class="w" d="M146 370 L180 452 L214 370 Z" stroke-width="5" />
+              <path class="y" d="M170 386 L190 386 L198 470 L180 494 L162 470 Z" stroke-width="5" />
+              <path class="l" d="M132 378 L172 506 M228 378 L188 506" stroke-width="5" opacity="0.7" />
+              <path class="b" d="M154 300 V378 H206 V300" />
+              <ellipse class="b" cx="106" cy="246" rx="14" ry="22" stroke-width="6" /><ellipse class="b" cx="254" cy="246" rx="14" ry="22" stroke-width="6" />
+              <ellipse class="b" cx="180" cy="236" rx="72" ry="82" />
+              <path class="k" d="M104 226 C88 150 122 92 200 88 C262 86 290 132 262 214 C252 182 238 168 214 166 C220 140 200 128 174 136 C142 146 118 170 104 226 Z" />
+              <path class="l" d="M150 120 C176 104 218 102 246 120" stroke-width="5" opacity="0.6" />
+              <circle cx="154" cy="242" r="8" fill="#fff1dc" /><circle cx="206" cy="242" r="8" fill="#fff1dc" />
+              <path class="l s13-cejas" d="M132 214 C142 202 158 200 170 206 M192 212 C204 208 218 210 228 218" stroke-width="6" />
+              <path class="w s13-boca" d="M146 280 C160 314 200 314 214 280 Z" stroke-width="5" />
+
+              <g class="s13-mano"><path class="k" d="M300 470 C340 430 330 360 290 330 L268 350 C296 376 300 420 270 446 Z" /><circle class="b" cx="262" cy="314" r="30" /></g>
+            </g></g>
+            
+          <g class="s13-escritorio">
+            <rect class="m" x="-40" y="1440" width="640" height="280" rx="14" />
+            <path d="M0 1480 V1700" stroke="#fff1dc" stroke-width="4" opacity="0.25" /><path d="M93 1480 V1700" stroke="#fff1dc" stroke-width="4" opacity="0.25" /><path d="M187 1480 V1700" stroke="#fff1dc" stroke-width="4" opacity="0.25" /><path d="M280 1480 V1700" stroke="#fff1dc" stroke-width="4" opacity="0.25" /><path d="M373 1480 V1700" stroke="#fff1dc" stroke-width="4" opacity="0.25" /><path d="M467 1480 V1700" stroke="#fff1dc" stroke-width="4" opacity="0.25" /><path d="M560 1480 V1700" stroke="#fff1dc" stroke-width="4" opacity="0.25" />
+            <rect class="y" x="-58" y="1418" width="676" height="30" rx="10" />
+            <g class="s13-mic">
+              <path class="l" d="M80 1418 V1370 L130 1310" stroke-width="6" />
+              <rect class="b" x="118" y="1270" width="36" height="58" rx="18" stroke-width="6" transform="rotate(40 136 1300)" />
+              <ellipse class="k" cx="80" cy="1418" rx="40" ry="10" stroke-width="5" />
+            </g>
+          </g>
+            <g class="s13-emp">
+              <circle cx="790" cy="1150" r="220" fill="#0b1330" stroke="#ff3d6e" stroke-width="10" />
+              <defs><clipPath id="s13-clip"><circle cx="790" cy="1150" r="214" /></clipPath></defs>
+              <g clip-path="url(#s13-clip)"><g transform="translate(574 806) scale(1.2)">
+              <path class="r" d="M30 560 C30 430 92 380 180 380 C268 380 330 430 330 560 Z" />
+              <path class="y" d="M110 410 C140 396 220 396 250 410 L262 560 H98 Z" stroke-width="6" />
+              <path class="l" d="M120 414 L150 382 M240 414 L210 382" stroke-width="5" />
+              <path class="b" d="M154 306 V384 H206 V306" />
+              <ellipse class="b" cx="180" cy="242" rx="68" ry="78" />
+              <path class="r" d="M108 216 C104 160 140 138 182 138 C226 138 258 162 254 214 C228 196 196 192 180 192 C152 192 128 198 108 216 Z" />
+              <path class="r" d="M112 196 C150 180 214 180 254 196 L290 200 C250 210 150 208 112 206 Z" stroke-width="5" />
+              <path class="l" d="M136 222 L168 232 M224 222 L192 232" stroke-width="7" />
+              <circle cx="154" cy="248" r="7" fill="#fff1dc" /><circle cx="206" cy="248" r="7" fill="#fff1dc" />
+              <path class="l s13e-boca" d="M154 300 C168 288 192 288 206 300" stroke-width="6" />
+              <g class="s13e-brazos">
+                <path class="y" d="M60 470 C120 430 240 430 300 470 L300 500 C240 466 120 466 60 500 Z" stroke-width="6" />
+              </g>
+</g></g>
+            </g>
+          </svg>
+          <div class="s13-odia">¿TE ODIA?</div>
+        </div>
+        <div class="s13-dos">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s13-ag"><g transform="translate(270 820) scale(1.5)">
+              <path class="gl s13-ag-pies" d="M140 476 V552 H112 M220 476 V552 H248" stroke-width="10" />
+              <path class="gl s13-ag-bi" d="M84 372 C40 384 28 430 38 470" stroke-width="10" />
+              <path class="gl s13-ag-bd" d="M276 372 C320 384 332 430 322 470" stroke-width="10" />
+              <path class="k" d="M72 484 C72 384 112 330 180 330 C248 330 288 384 288 484 Z" />
+              <path class="w" d="M150 334 L180 392 L210 334 Z" stroke-width="5" />
+              <path class="l" d="M140 336 L168 470 M220 336 L192 470" stroke-width="5" opacity="0.6" />
+              <path class="y" d="M146 350 L180 366 L214 350 L214 386 L180 370 L146 386 Z" stroke-width="5" />
+              <path class="gl" d="M180 72 V40" stroke-width="7" />
+              <circle class="g s13-ag-ant" cx="180" cy="32" r="13" stroke-width="5" />
+              <rect class="ag" x="74" y="70" width="212" height="236" rx="60" stroke-width="9" />
+              <rect x="94" y="92" width="172" height="192" rx="44" fill="none" stroke="#5ce611" stroke-width="3" opacity="0.35" />
+              <g class="s13-ag-ojos">
+                <rect x="118" y="160" width="36" height="58" rx="18" fill="#5ce611" />
+                <rect x="206" y="160" width="36" height="58" rx="18" fill="#5ce611" />
+              </g>
+              <ellipse cx="112" cy="240" rx="16" ry="9" fill="#ff3d6e" opacity="0.55" /><ellipse cx="248" cy="240" rx="16" ry="9" fill="#ff3d6e" opacity="0.55" />
+              <path class="gl s13-ag-boca" d="M140 248 C156 274 204 274 220 248" stroke-width="9" />
+</g></g>
+          </svg>
+          <div class="s13-odiaba">Me odiaba.</div>
+        </div>
+        <div class="s13-tres">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s13-emp2"><g transform="translate(60 820) scale(1.05)">
+              <path class="r" d="M30 560 C30 430 92 380 180 380 C268 380 330 430 330 560 Z" />
+              <path class="y" d="M110 410 C140 396 220 396 250 410 L262 560 H98 Z" stroke-width="6" />
+              <path class="l" d="M120 414 L150 382 M240 414 L210 382" stroke-width="5" />
+              <path class="b" d="M154 306 V384 H206 V306" />
+              <ellipse class="b" cx="180" cy="242" rx="68" ry="78" />
+              <path class="r" d="M108 216 C104 160 140 138 182 138 C226 138 258 162 254 214 C228 196 196 192 180 192 C152 192 128 198 108 216 Z" />
+              <path class="r" d="M112 196 C150 180 214 180 254 196 L290 200 C250 210 150 208 112 206 Z" stroke-width="5" />
+              <path class="l" d="M138 218 C148 210 162 210 170 218 M190 218 C198 210 212 210 222 218" stroke-width="6" />
+              <path class="l" d="M142 248 C150 240 160 240 166 248 M194 248 C200 240 210 240 218 248" stroke-width="6" />
+              <path class="w s13f-boca" d="M152 284 C164 304 196 304 208 284 Z" stroke-width="5" />
+</g></g>
+            <g class="s13-cli"><g transform="translate(1080 900) scale(-1.05 1.05)">
+              <path class="y" d="M30 560 C30 430 92 384 180 384 C268 384 330 430 330 560 Z" />
+              <path class="k" d="M84 300 C60 200 96 132 180 130 C264 132 300 200 276 300 C262 330 240 330 232 310 L232 220 C200 200 160 200 128 220 L128 310 C120 330 98 330 84 300 Z" />
+              <path class="b" d="M154 306 V388 H206 V306" />
+              <ellipse class="b" cx="180" cy="246" rx="62" ry="76" />
+              <path class="k" d="M118 226 C130 170 230 170 242 226 C214 204 146 204 118 226 Z" />
+              <circle cx="156" cy="252" r="7" fill="#fff1dc" /><circle cx="204" cy="252" r="7" fill="#fff1dc" />
+              <path class="w s13c-boca" d="M160 288 C170 300 190 300 200 288 Z" stroke-width="5" />
+              <circle class="r" cx="118" cy="290" r="8" stroke-width="4" /><circle class="r" cx="242" cy="290" r="8" stroke-width="4" />
+              <g class="s13c-cel">
+                <path class="b" d="M300 470 C340 440 340 380 310 340" fill="none" />
+                <rect class="b" x="276" y="250" width="70" height="120" rx="12" stroke-width="6" />
+                <rect x="286" y="264" width="50" height="86" rx="6" fill="#ffb547" opacity="0.85" />
+              </g>
+</g></g>
+            <rect class="m" x="-20" y="1300" width="1120" height="220" rx="10" />
+            <rect class="y" x="-30" y="1280" width="1140" height="30" rx="10" />
+            <path d="M80 1360 H1000 M80 1440 H1000" stroke="#fff1dc" stroke-width="4" opacity="0.2" />
+            <g class="s13-cel">
+              <rect class="ag" x="470" y="1110" width="140" height="170" rx="22" stroke-width="7" />
+              <rect x="500" y="1160" width="20" height="34" rx="10" fill="#5ce611" /><rect x="560" y="1160" width="20" height="34" rx="10" fill="#5ce611" />
+              <path class="gl" d="M508 1220 C525 1240 555 1240 572 1220" stroke-width="7" />
+            </g>
+            <g class="s13-burbujas">
+              <rect class="s13-bu" x="440" y="990" width="90" height="56" rx="18" fill="#5ce611" /><path class="s13-bu" d="M460 1018 l12 12 l24 -24" fill="none" stroke="#0b1330" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+              <rect class="s13-bu2" x="560" y="930" width="90" height="56" rx="18" fill="#5ce611" /><path class="s13-bu2" d="M580 958 l12 12 l24 -24" fill="none" stroke="#0b1330" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+              <rect class="s13-bu3" x="470" y="860" width="90" height="56" rx="18" fill="#5ce611" /><path class="s13-bu3" d="M490 888 l12 12 l24 -24" fill="none" stroke="#0b1330" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+          </svg>
+          <div class="s13-l1">ÉL: EL MOSTRADOR</div>
+          <div class="s13-l2">YO: EL CELULAR</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-odia";
+      const DUR = 7.09;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s13-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // X roja gigante que cae (dos trazos que se dibujan + golpe)
+      const equis = (sel, t) => { golpe(sel, t, 2.2); sacudon(t + 0.04, 1.1); };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // zoom de cámara sobre el escenario (punch-in)
+      const zoom = (t, s, d = 0.35, ox = "50%", oy = "50%") => tl.to(q(ESC), { scale: s, transformOrigin: ox + " " + oy, duration: d, ease: "power3.out" }, t);
+
+      const EMPLEADO = 0.80, ODIA = 1.52, ME = 2.50, AHORA = 3.64, TRANQUILO = 4.22, CELULAR = 5.59, YO = 6.31;
+      habla(".s13-boca", 0, 1.8, "180 284");
+      tl.fromTo(q(".s13-mano"), { rotation: 0, svgOrigin: "300 470" }, { rotation: -10, svgOrigin: "300 470", duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, 0.1);
+      pop(".s13-emp", EMPLEADO - 0.1, { transformOrigin: "50% 50%" });
+      golpe(".s13-odia", ODIA, 2.2);
+      sacudon(ODIA + 0.04, 0.9);
+      // el agente: "me odiaba"
+      tl.set(q(".s13-uno"), { opacity: 0 }, ME - 0.15);
+      gsap.set([q(".s13-dos"), q(".s13-tres")], { opacity: 0 });
+      tl.set(q(".s13-dos"), { opacity: 1 }, ME - 0.15);
+      habla(".s13-ag-boca", ME, 0.6, "180 260");
+      tl.fromTo(q(".s13-ag"), { y: 0 }, { y: -16, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, ME + 0.1);
+      tl.fromTo([q(".s13-ag-bi"), q(".s13-ag-bd")], { scaleY: 1, svgOrigin: "180 372" }, { scaleY: -0.4, svgOrigin: "180 372", duration: 0.2, ease: "back.out(2)", immediateRender: false }, ME + 0.1);
+      pop(".s13-odiaba", ME + 0.1, { rotation: -4 });
+      // el local: el empleado atiende tranquilo, el agente el celular
+      tl.set(q(".s13-dos"), { opacity: 0 }, AHORA - 0.15);
+      tl.set(q(".s13-tres"), { opacity: 1 }, AHORA - 0.15);
+      tl.fromTo(q(".s13-tres"), { scale: 1.1, transformOrigin: "50% 60%" }, { scale: 1, transformOrigin: "50% 60%", duration: 0.5, ease: "power3.out", immediateRender: false }, AHORA - 0.15);
+      habla(".s13f-boca", AHORA + 0.2, 1.6, "180 294");
+      habla(".s13c-boca", AHORA + 0.4, 1.2, "180 294");
+      golpe(".s13-l1", TRANQUILO, 1.8);
+      tl.fromTo(q(".s13-cel"), { scale: 1, transformOrigin: "50% 100%" }, { scale: 1.25, transformOrigin: "50% 100%", duration: 0.2, yoyo: true, repeat: 1, ease: "back.out(2)", immediateRender: false }, CELULAR - 0.1);
+      golpe(".s13-l2", CELULAR, 1.8);
+      pop(".s13-bu", CELULAR + 0.1, { y: 20 });
+      pop(".s13-bu2", CELULAR + 0.35, { y: 20 });
+      pop(".s13-bu3", YO, { y: 20 });
+
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

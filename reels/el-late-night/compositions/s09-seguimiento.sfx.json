@@ -1,0 +1,22 @@
+[
+ {
+  "t": 0.25,
+  "sfx": "notification",
+  "vol": 0.28
+ },
+ {
+  "t": 0.98,
+  "sfx": "pop",
+  "vol": 0.22
+ },
+ {
+  "t": 1.68,
+  "sfx": "ping",
+  "vol": 0.3
+ },
+ {
+  "t": 2.63,
+  "sfx": "notification",
+  "vol": 0.28
+ }
+]

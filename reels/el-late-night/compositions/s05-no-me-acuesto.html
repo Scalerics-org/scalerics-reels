@@ -1,0 +1,144 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-no-me-acuesto"] .s05-capa, [data-composition-id="s05-no-me-acuesto"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-no-me-acuesto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-no-me-acuesto"] .b { fill: #0b1330; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .l { fill: none; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .k { fill: #1c2a5e; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .y { fill: #ffb547; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .yl { fill: none; stroke: #ffb547; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .r { fill: #ff3d6e; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .rl { fill: none; stroke: #ff3d6e; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .m { fill: #7a4524; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .ml { fill: none; stroke: #7a4524; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .w { fill: #fff1dc; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .g { fill: #5ce611; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .ag { fill: #0b1330; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-no-me-acuesto"] .haz { fill: #fff1dc; opacity: 0.09; stroke: none; }
+    [data-composition-id="s05-no-me-acuesto"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s05-no-me-acuesto"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s05-no-me-acuesto"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s05-no-me-acuesto"] .s05-no { position: absolute; left: 0; right: 0; top: 1330px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 116px; line-height: 1; color: #5ce611; text-shadow: 0 6px 0 #0b1330; }
+    [data-composition-id="s05-no-me-acuesto"] .s05-tss { position: absolute; left: 0; right: 0; top: 600px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 128px; line-height: 1; color: #ffb547; transform: rotate(-6deg); text-shadow: 0 8px 0 #ff3d6e; }
+
+  </style>
+  <div id="root" data-composition-id="s05-no-me-acuesto" data-width="1080" data-height="1920" data-duration="2.17">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="2.17" data-track-index="0">
+      <div class="s05-escenario">
+
+        <div class="s05-uno">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <g class="s05-ag"><g transform="translate(270 640) scale(1.5)">
+              <path class="gl s05-ag-pies" d="M140 476 V552 H112 M220 476 V552 H248" stroke-width="10" />
+              <path class="gl s05-ag-bi" d="M84 372 C40 384 28 430 38 470" stroke-width="10" />
+              <path class="gl s05-ag-bd" d="M276 372 C320 384 332 430 322 470" stroke-width="10" />
+              <path class="k" d="M72 484 C72 384 112 330 180 330 C248 330 288 384 288 484 Z" />
+              <path class="w" d="M150 334 L180 392 L210 334 Z" stroke-width="5" />
+              <path class="l" d="M140 336 L168 470 M220 336 L192 470" stroke-width="5" opacity="0.6" />
+              <path class="y" d="M146 350 L180 366 L214 350 L214 386 L180 370 L146 386 Z" stroke-width="5" />
+              <path class="gl" d="M180 72 V40" stroke-width="7" />
+              <circle class="g s05-ag-ant" cx="180" cy="32" r="13" stroke-width="5" />
+              <rect class="ag" x="74" y="70" width="212" height="236" rx="60" stroke-width="9" />
+              <rect x="94" y="92" width="172" height="192" rx="44" fill="none" stroke="#5ce611" stroke-width="3" opacity="0.35" />
+              <g class="s05-ag-ojos">
+                <rect x="118" y="160" width="36" height="58" rx="18" fill="#5ce611" />
+                <rect x="206" y="160" width="36" height="58" rx="18" fill="#5ce611" />
+              </g>
+              <ellipse cx="112" cy="240" rx="16" ry="9" fill="#ff3d6e" opacity="0.55" /><ellipse cx="248" cy="240" rx="16" ry="9" fill="#ff3d6e" opacity="0.55" />
+              <path class="gl s05-ag-boca" d="M140 248 C156 274 204 274 220 248" stroke-width="9" />
+</g></g>
+          </svg>
+          <div class="s05-no">NO ME ACUESTO</div>
+        </div>
+        <div class="s05-dos">
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <path class="s05-haz s05-h" fill="#ff3d6e" opacity="0.09" d="M510.0 520 L570.0 520 L920.0 1520 L160.0 1520 Z" />
+            
+          <g class="s05-bateria">
+            <g class="s05-baterista">
+              <path class="k" d="M420 1140 C420 1030 480 990 540 990 C600 990 660 1030 660 1140 Z" />
+              <ellipse class="b" cx="540" cy="910" rx="56" ry="64" />
+              <path class="k" d="M480 890 C480 830 600 830 600 890 C570 870 510 870 480 890 Z" />
+              <path class="l" d="M510 910 H530 M550 910 H570" stroke-width="7" />
+              <path class="w" d="M518 944 C530 960 550 960 562 944 Z" stroke-width="4" />
+              <g class="s05-palo-i"><path class="l" d="M440 1060 L340 1140" stroke-width="7" /><path class="yl" d="M350 1130 L290 1180" stroke-width="7" /></g>
+              <g class="s05-palo-d"><path class="l" d="M640 1060 L730 1060" stroke-width="7" /><path class="yl" d="M720 1060 L790 1030" stroke-width="7" /></g>
+            </g>
+            <g class="s05-platillo"><path class="l" d="M820 1040 V1380" stroke-width="6" /><ellipse class="y" cx="820" cy="1030" rx="120" ry="22" stroke-width="5" /></g>
+            <g class="s05-redo"><ellipse class="k" cx="290" cy="1200" rx="100" ry="30" stroke-width="6" /><path class="k" d="M190 1200 V1270 C190 1310 390 1310 390 1270 V1200" stroke-width="6" /><path class="l" d="M290 1300 V1380" stroke-width="6" /></g>
+            <circle class="b" cx="540" cy="1260" r="150" />
+            <circle cx="540" cy="1260" r="112" fill="none" stroke="#ff3d6e" stroke-width="6" />
+            <text x="540" y="1284" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="74" fill="#ff3d6e">NdN</text>
+          </g>
+          </svg>
+          <div class="s05-tss"><span class="s05-ba">BA-</span><span class="s05-dum">DUM</span> <span class="s05-ts">TSS!</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-no-me-acuesto";
+      const DUR = 2.17;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s05-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // X roja gigante que cae (dos trazos que se dibujan + golpe)
+      const equis = (sel, t) => { golpe(sel, t, 2.2); sacudon(t + 0.04, 1.1); };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // zoom de cámara sobre el escenario (punch-in)
+      const zoom = (t, s, d = 0.35, ox = "50%", oy = "50%") => tl.to(q(ESC), { scale: s, transformOrigin: ox + " " + oy, duration: d, ease: "power3.out" }, t);
+
+      const BA = 0.8, DUM = 1.0, TSS = 1.25;
+      tl.fromTo(q(ESC), { scale: 1.15, transformOrigin: "50% 45%" }, { scale: 1, transformOrigin: "50% 45%", duration: 0.5, ease: "power3.out", immediateRender: false }, 0);
+      habla(".s05-ag-boca", 0, 0.6, "180 260");
+      golpe(".s05-no", 0.2, 2);
+      tl.to(q(".s05-ag-ojos"), { scaleY: 0.15, svgOrigin: "180 189", duration: 0.07, yoyo: true, repeat: 1 }, 0.55);
+      // corte a la batería
+      tl.set(q(".s05-uno"), { opacity: 0 }, BA - 0.12);
+      gsap.set(q(".s05-dos"), { opacity: 0 });
+      tl.set(q(".s05-dos"), { opacity: 1 }, BA - 0.12);
+      gsap.set([q(".s05-ba"), q(".s05-dum"), q(".s05-ts")], { opacity: 0 });
+      [[".s05-ba", BA], [".s05-dum", DUM], [".s05-ts", TSS]].forEach(([s, t]) => tl.fromTo(q(s), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.1, ease: "power4.in", immediateRender: false }, t - 0.05));
+      tl.fromTo(q(".s05-palo-i"), { rotation: 0, svgOrigin: "440 1060" }, { rotation: 22, svgOrigin: "440 1060", duration: 0.08, yoyo: true, repeat: 3, ease: "power2.in", immediateRender: false }, BA - 0.08);
+      tl.fromTo(q(".s05-palo-d"), { rotation: 0, svgOrigin: "640 1060" }, { rotation: -25, svgOrigin: "640 1060", duration: 0.08, yoyo: true, repeat: 1, ease: "power2.in", immediateRender: false }, TSS - 0.08);
+      tl.fromTo(q(".s05-platillo"), { rotation: 0, svgOrigin: "820 1030" }, { rotation: 6, svgOrigin: "820 1030", duration: 0.06, yoyo: true, repeat: 9, ease: "sine.inOut", immediateRender: false }, TSS);
+      sacudon(TSS + 0.02, 1);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,149 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-cta"] .s15-capa, [data-composition-id="s15-cta"] .s15-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s15-cta"] .b { fill: #0b1330; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .l { fill: none; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .k { fill: #1c2a5e; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .y { fill: #ffb547; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .yl { fill: none; stroke: #ffb547; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .r { fill: #ff3d6e; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .rl { fill: none; stroke: #ff3d6e; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .m { fill: #7a4524; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .ml { fill: none; stroke: #7a4524; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .w { fill: #fff1dc; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .g { fill: #5ce611; stroke: #fff1dc; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .ag { fill: #0b1330; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-cta"] .haz { fill: #fff1dc; opacity: 0.09; stroke: none; }
+    [data-composition-id="s15-cta"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s15-cta"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s15-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s15-cta"] .s15-card { position: absolute; left: 110px; top: 1210px; width: 860px; padding: 18px 0 14px; text-align: center; background: #0b1330; border: 8px solid #5ce611; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 84px; color: #5ce611; line-height: 1; }
+    [data-composition-id="s15-cta"] .s15-card small { display: block; margin-top: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; color: #fff1dc; }
+    [data-composition-id="s15-cta"] .s15-et { position: absolute; left: 0; right: 0; top: 1190px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 150px; line-height: 1; color: #ffb547; text-shadow: 0 8px 0 #0b1330; }
+    [data-composition-id="s15-cta"] .s15-al { position: absolute; left: 0; right: 0; top: 1350px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 78px; line-height: 1; color: #fff1dc; }
+    [data-composition-id="s15-cta"] .s15-ve { position: absolute; left: 0; right: 0; top: 1450px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.24em; color: #ff3d6e; }
+    [data-composition-id="s15-cta"] .s15-tag { position: absolute; left: 270px; top: 650px; padding: 6px 14px 4px; background: #ff3d6e; border-radius: 6px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 30px; color: #fff1dc; letter-spacing: 0.06em; }
+
+  </style>
+  <div id="root" data-composition-id="s15-cta" data-width="1080" data-height="1920" data-duration="12.76">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="12.76" data-track-index="0">
+      <div class="s15-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <rect class="s15-oscuro" x="-100" y="0" width="1280" height="1920" fill="#050a1f" opacity="0.75" />
+          <!-- tele vieja con la entrevista -->
+          <g class="s15-tv">
+            <path class="l" d="M440 600 L520 560 M640 600 L560 560" stroke-width="7" />
+            <rect class="m" x="220" y="600" width="640" height="520" rx="44" />
+            <rect class="b" x="256" y="634" width="460" height="452" rx="40" stroke-width="6" />
+            <circle class="y" cx="790" cy="700" r="26" stroke-width="5" /><circle class="y" cx="790" cy="780" r="26" stroke-width="5" />
+            <path class="l" d="M760 860 H820 M760 890 H820 M760 920 H820" stroke-width="5" opacity="0.6" />
+            <defs><clipPath id="s15-clip"><rect x="262" y="640" width="448" height="440" rx="36" /></clipPath></defs>
+            <g clip-path="url(#s15-clip)">
+              <rect x="262" y="640" width="448" height="440" fill="#13214f" />
+              <rect x="262" y="980" width="448" height="100" fill="#ff3d6e" opacity="0.8" />
+              <g class="s15-ag"><g transform="translate(366 700) scale(0.7)">
+              <path class="gl s15-ag-pies" d="M140 476 V552 H112 M220 476 V552 H248" stroke-width="10" />
+              <path class="gl s15-ag-bi" d="M84 372 C40 384 28 430 38 470" stroke-width="10" />
+              <path class="gl s15-ag-bd" d="M276 372 C320 384 332 430 322 470" stroke-width="10" />
+              <path class="k" d="M72 484 C72 384 112 330 180 330 C248 330 288 384 288 484 Z" />
+              <path class="w" d="M150 334 L180 392 L210 334 Z" stroke-width="5" />
+              <path class="l" d="M140 336 L168 470 M220 336 L192 470" stroke-width="5" opacity="0.6" />
+              <path class="y" d="M146 350 L180 366 L214 350 L214 386 L180 370 L146 386 Z" stroke-width="5" />
+              <path class="gl" d="M180 72 V40" stroke-width="7" />
+              <circle class="g s15-ag-ant" cx="180" cy="32" r="13" stroke-width="5" />
+              <rect class="ag" x="74" y="70" width="212" height="236" rx="60" stroke-width="9" />
+              <rect x="94" y="92" width="172" height="192" rx="44" fill="none" stroke="#5ce611" stroke-width="3" opacity="0.35" />
+              <g class="s15-ag-ojos">
+                <rect x="118" y="160" width="36" height="58" rx="18" fill="#5ce611" />
+                <rect x="206" y="160" width="36" height="58" rx="18" fill="#5ce611" />
+              </g>
+              <ellipse cx="112" cy="240" rx="16" ry="9" fill="#ff3d6e" opacity="0.55" /><ellipse cx="248" cy="240" rx="16" ry="9" fill="#ff3d6e" opacity="0.55" />
+              <path class="gl s15-ag-boca" d="M140 248 C156 274 204 274 220 248" stroke-width="9" />
+</g></g>
+              <rect class="s15-lineas" x="262" y="640" width="448" height="440" fill="url(#s15-scan)" opacity="0.25" />
+            </g>
+            <defs><pattern id="s15-scan" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="3" fill="#050a1f" /></pattern></defs>
+            <path class="l" d="M300 1120 L280 1160 M780 1120 L800 1160" stroke-width="8" />
+          </g>
+        </svg>
+        <div class="s15-tag">EN VIVO</div>
+        <div class="s15-card">TU AGENTE DE IA<small>ATIENDE POR WHATSAPP · A CUALQUIER HORA</small></div>
+        <div class="s15-et">ETIQUETÁ</div>
+        <div class="s15-al">al que contesta a los tres días</div>
+        <div class="s15-ve">QUE VEA LA ENTREVISTA</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-cta";
+      const DUR = 12.76;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s15-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // X roja gigante que cae (dos trazos que se dibujan + golpe)
+      const equis = (sel, t) => { golpe(sel, t, 2.2); sacudon(t + 0.04, 1.1); };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // zoom de cámara sobre el escenario (punch-in)
+      const zoom = (t, s, d = 0.35, ox = "50%", oy = "50%") => tl.to(q(ESC), { scale: s, transformOrigin: ox + " " + oy, duration: d, ease: "power3.out" }, t);
+
+      const SCALERICS = 1.63, AGENTE = 2.63, WHATSAPP = 4.27, ETIQUETA = 6.16, TRES = 7.54, VEA = 8.54;
+      tl.fromTo(q(".s15-oscuro"), { opacity: 0 }, { opacity: 0.75, duration: 0.5, immediateRender: false }, 0);
+      tl.fromTo(q(".s15-tv"), { scale: 0.8, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.6)", immediateRender: false, transformOrigin: "50% 50%" }, 0.05);
+      gsap.set(q(".s15-tv"), { opacity: 0 });
+      pop(".s15-tag", 0.4);
+      tl.fromTo(q(".s15-tag"), { opacity: 1 }, { opacity: 0.4, duration: 0.5, ease: "steps(1)", yoyo: true, repeat: 23, immediateRender: false }, 0.8);
+      tl.fromTo(q(".s15-ag-bd"), { rotation: 0, svgOrigin: "276 372" }, { rotation: -70, svgOrigin: "276 372", duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, SCALERICS - 0.2);
+      tl.fromTo(q(".s15-ag-ant"), { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.6, transformOrigin: "50% 50%", duration: 0.25, yoyo: true, repeat: 15, ease: "sine.inOut", immediateRender: false }, 0.5);
+      golpe(".s15-card", AGENTE, 2);
+      sacudon(AGENTE + 0.04, 0.6);
+      tl.fromTo(q(".s15-card small"), { opacity: 0 }, { opacity: 1, duration: 0.25, immediateRender: false }, WHATSAPP - 0.1);
+      gsap.set(q(".s15-card small"), { opacity: 0 });
+      tl.to(q(".s15-card"), { opacity: 0, y: -30, duration: 0.2 }, ETIQUETA - 0.25);
+      golpe(".s15-et", ETIQUETA, 2.4);
+      sacudon(ETIQUETA + 0.04, 0.9);
+      pop(".s15-al", TRES - 0.6, { y: 20 });
+      pop(".s15-ve", VEA, { y: 20 });
+      // guiño del agente al final
+      tl.to(q(".s15-ag-ojos"), { scaleY: 0.12, svgOrigin: "180 189", duration: 0.08, yoyo: true, repeat: 1 }, 9.8);
+      tl.fromTo(q(".s15-et"), { scale: 1 }, { scale: 1.06, duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, 9.6);
+
+      tl.to(q("#s15-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
