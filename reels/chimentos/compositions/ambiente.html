@@ -1,0 +1,56 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="ambiente"] .am-mosca { position: absolute; left: 50%; top: 92px; transform: translateX(-50%) rotate(-2deg); display: flex; align-items: center; gap: 14px; padding: 10px 30px 10px 26px; background: #140a12; border: 5px solid #ff4fa3; border-radius: 40px; box-shadow: 6px 6px 0 #ff4fa3; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-mosca b { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; letter-spacing: -0.02em; color: #ff4fa3; }
+    [data-composition-id="ambiente"] .am-mosca i { font-style: normal; font-family: "Caveat", cursive; font-weight: 700; font-size: 46px; color: #f5c242; }
+    [data-composition-id="ambiente"] .am-zocalo { position: absolute; left: 40px; top: 1580px; display: flex; align-items: stretch; height: 70px; }
+    [data-composition-id="ambiente"] .am-vivo { display: flex; align-items: center; gap: 12px; padding: 0 20px 0 16px; background: #ff2e4d; border: 5px solid #140a12; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 28px; color: #fff7fb; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-punto { width: 16px; height: 16px; border-radius: 50%; background: #fff7fb; }
+    [data-composition-id="ambiente"] .am-tira { position: relative; width: 790px; background: #f5c242; border: 5px solid #140a12; border-left: 0; overflow: hidden; }
+    [data-composition-id="ambiente"] .am-tira span { position: absolute; left: 20px; top: 15px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 31px; letter-spacing: 0.01em; color: #140a12; white-space: nowrap; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="72.53">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="72.53" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true" data-layout-ignore><circle class="am-l am-l0" cx="22" cy="520" r="11" fill="#f5c242" /><circle class="am-l am-l1" cx="1058" cy="520" r="11" fill="#f5c242" /><circle class="am-l am-l1" cx="22" cy="602" r="11" fill="#f5c242" /><circle class="am-l am-l2" cx="1058" cy="602" r="11" fill="#f5c242" /><circle class="am-l am-l2" cx="22" cy="684" r="11" fill="#f5c242" /><circle class="am-l am-l0" cx="1058" cy="684" r="11" fill="#f5c242" /><circle class="am-l am-l0" cx="22" cy="766" r="11" fill="#f5c242" /><circle class="am-l am-l1" cx="1058" cy="766" r="11" fill="#f5c242" /><circle class="am-l am-l1" cx="22" cy="848" r="11" fill="#f5c242" /><circle class="am-l am-l2" cx="1058" cy="848" r="11" fill="#f5c242" /><circle class="am-l am-l2" cx="22" cy="930" r="11" fill="#f5c242" /><circle class="am-l am-l0" cx="1058" cy="930" r="11" fill="#f5c242" /><circle class="am-l am-l0" cx="22" cy="1012" r="11" fill="#f5c242" /><circle class="am-l am-l1" cx="1058" cy="1012" r="11" fill="#f5c242" /><circle class="am-l am-l1" cx="22" cy="1094" r="11" fill="#f5c242" /><circle class="am-l am-l2" cx="1058" cy="1094" r="11" fill="#f5c242" /><circle class="am-l am-l2" cx="22" cy="1176" r="11" fill="#f5c242" /><circle class="am-l am-l0" cx="1058" cy="1176" r="11" fill="#f5c242" /><circle class="am-l am-l0" cx="22" cy="1258" r="11" fill="#f5c242" /><circle class="am-l am-l1" cx="1058" cy="1258" r="11" fill="#f5c242" /><circle class="am-l am-l1" cx="22" cy="1340" r="11" fill="#f5c242" /><circle class="am-l am-l2" cx="1058" cy="1340" r="11" fill="#f5c242" /><circle class="am-l am-l2" cx="22" cy="1422" r="11" fill="#f5c242" /><circle class="am-l am-l0" cx="1058" cy="1422" r="11" fill="#f5c242" /><circle class="am-l am-l0" cx="22" cy="1504" r="11" fill="#f5c242" /><circle class="am-l am-l1" cx="1058" cy="1504" r="11" fill="#f5c242" /></svg>
+      <div class="am-mosca"><b>PICANTE</b><i>a las cinco</i></div>
+      <div class="am-zocalo">
+        <div class="am-vivo"><span class="am-punto"></span>EN VIVO</div>
+        <div class="am-tira"><span class="am-t0">MIRTA, PESCADA A LAS 23 H</span><span class="am-t1">LAS FOTOS DEL CAMISÓN</span><span class="am-t2">ESCÁNDALO EN LOS RAVIOLES</span><span class="am-t3">EXCLUSIVO: HABLA EL MARIDO</span><span class="am-t4">LA DE ENFRENTE DUERME A LAS 21</span><span class="am-t5">¿QUIÉN LE MANDA LOS MENSAJES?</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 72.53;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // lamparitas de camarín que titilan en tres grupos
+      [0, 1, 2].forEach((g) => tl.fromTo(qa(".am-l" + g), { opacity: 1 }, { opacity: 0.3, duration: 0.3, yoyo: true, repeat: Math.round(DUR / 0.3), ease: "steps(1)", immediateRender: false }, g * 0.1));
+      // la mosca del programa respira
+      tl.fromTo(q(".am-mosca"), { scale: 1 }, { scale: 1.04, duration: 0.8, yoyo: true, repeat: Math.round(DUR / 0.8), ease: "sine.inOut", immediateRender: false }, 0);
+      // zócalo EN VIVO con titulares; se va cuando entra Scalerics y vuelve para el cierre
+      const Z = q(".am-zocalo");
+      gsap.set(Z, { opacity: 0 });
+      tl.fromTo(Z, { opacity: 1, x: -1100 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, 4.9);
+      tl.to(Z, { x: -1100, duration: 0.3, ease: "power3.in" }, 55.9);
+      tl.fromTo(q(".am-punto"), { opacity: 1 }, { opacity: 0.2, duration: 0.5, yoyo: true, repeat: 101, ease: "steps(1)", immediateRender: false }, 5.0);
+      const T = [[".am-t0",5,12],[".am-t1",12,22.6],[".am-t2",22.6,28.6],[".am-t3",28.6,42.4],[".am-t4",42.4,50.6],[".am-t5",50.6,56.3]];
+      for (const [sel, a, b] of T) {
+        tl.fromTo(q(sel), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, a + 0.1);
+        tl.to(q(sel), { opacity: 0, y: -30, duration: 0.2 }, b - 0.1);
+      }
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,140 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-solos"] .capa, [data-composition-id="s11-solos"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s11-solos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-solos"] .fl { position: absolute; inset: 0; background: #fff7fb; opacity: 0; }
+    [data-composition-id="s11-solos"] .mk { position: absolute; font-family: "Caveat", cursive; font-weight: 700; line-height: 0.95; white-space: nowrap; color: #fff7fb; text-shadow: 0 5px 0 rgba(20, 10, 18, 0.8); }
+    [data-composition-id="s11-solos"] .tit { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-style: normal; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.03em; white-space: nowrap; }
+    [data-composition-id="s11-solos"] .sello { position: absolute; padding: 10px 28px 6px; border: 9px solid #ff2e4d; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: 0.04em; color: #ff2e4d; white-space: nowrap; background: rgba(20, 10, 18, 0.55); }
+    [data-composition-id="s11-solos"] .barra { position: absolute; padding: 12px 30px 10px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; white-space: nowrap; border: 6px solid #140a12; box-shadow: 10px 10px 0 #140a12; }
+    [data-composition-id="s11-solos"] .globo { position: absolute; padding: 18px 26px 16px; border: 5px solid #140a12; font-family: "Lexend", sans-serif; font-weight: 600; line-height: 1.12; color: #140a12; box-shadow: 8px 8px 0 rgba(20, 10, 18, 0.6); }
+    [data-composition-id="s11-solos"] .globo.der { background: #ffb3d6; border-radius: 34px 34px 8px 34px; }
+    [data-composition-id="s11-solos"] .globo.izq { background: #fff7fb; border-radius: 34px 34px 34px 8px; }
+    [data-composition-id="s11-solos"] .globo .chk { font-style: normal; margin-left: 12px; font-size: 0.6em; color: #ff4fa3; letter-spacing: -0.2em; }
+
+  [data-composition-id="s11-solos"] .s11-solos { left: 560px; top: 1010px; font-size: 92px; color: #140a12; background: #f5c242; transform: rotate(-6deg); }
+  [data-composition-id="s11-solos"] .s11-z { left: 120px; top: 1080px; font-size: 90px; color: #fff7fb; }
+
+  </style>
+  <div id="root" data-composition-id="s11-solos" data-width="1080" data-height="1920" data-duration="3.26">
+    <div id="s11-solos-capa" class="capa clip" data-start="0" data-duration="3.26" data-track-index="0">
+      <div class="esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+  <rect x="560" y="1300" width="420" height="260" rx="16" fill="#5a2a48" stroke="#140a12" stroke-width="7" />
+  <path d="M600 1380 H940" stroke="#140a12" stroke-width="5" /><circle cx="770" cy="1430" r="12" fill="#f5c242" stroke="#140a12" stroke-width="4" />
+  <g transform="translate(770 1180) rotate(-6) scale(0.95)"><g class="s11-cel">
+  <circle class="s11-cel-brillo" r="150" fill="#fff7fb" opacity="0.12" />
+  <rect x="-70" y="-130" width="140" height="260" rx="22" fill="#140a12" stroke="#140a12" stroke-width="6" />
+  <rect x="-58" y="-112" width="116" height="220" rx="10" fill="#fff7fb" />
+  <rect x="-58" y="-112" width="116" height="40" fill="#ff4fa3" /><path d="M-30 -10 L-6 14 L34 -30" fill="none" stroke="#ff4fa3" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" class="s11-tick" />
+</g></g>
+  <g class="s11-ella">
+    <ellipse cx="250" cy="1295" rx="200" ry="70" fill="#fff7fb" stroke="#140a12" stroke-width="6" />
+    <g transform="translate(250 1495) rotate(0) scale(0.9)"><g class="s11-dor">
+    <path d="M-96 -240 C-104 -350 104 -350 96 -240 L104 -90 L64 -100 L62 -230 L-62 -230 L-64 -100 L-104 -90 Z" fill="#6a3a2a" stroke="#140a12" stroke-width="7" stroke-linejoin="round" />
+    <path d="M-190 160 C-190 -40 -150 -110 -60 -130 L60 -130 C150 -110 190 -40 190 160 Z" fill="#f5c242" stroke="#140a12" stroke-width="7" stroke-linejoin="round" />
+    <rect x="-28" y="-160" width="56" height="40" fill="#f6c9a8" stroke="#140a12" stroke-width="6" />
+    <path d="M-70 -126 Q0 -60 70 -126" fill="none" stroke="#140a12" stroke-width="6" /><path d="M-70 -126 Q0 -80 70 -126" fill="none" stroke="#fff7fb" stroke-width="4" stroke-dasharray="4 10" stroke-linecap="round" /><path d="M-120 -112 L-110 -40 M120 -112 L110 -40" stroke="#140a12" stroke-width="5" />
+    <ellipse cx="-82" cy="-226" rx="14" ry="22" fill="#f6c9a8" stroke="#140a12" stroke-width="6" /><ellipse cx="82" cy="-226" rx="14" ry="22" fill="#f6c9a8" stroke="#140a12" stroke-width="6" />
+    <ellipse cx="0" cy="-230" rx="80" ry="92" fill="#f6c9a8" stroke="#140a12" stroke-width="7" />
+    <path d="M-80 -244 C-70 -316 70 -330 82 -246 C40 -300 -10 -286 -80 -244 Z" fill="#6a3a2a" stroke="#140a12" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-56 -266 Q-38 -274 -20 -266 M56 -266 Q38 -274 20 -266" fill="none" stroke="#140a12" stroke-width="7" stroke-linecap="round" />
+    <path d="M-50 -236 Q-36 -226 -22 -236 M50 -236 Q36 -226 22 -236" fill="none" stroke="#140a12" stroke-width="6" stroke-linecap="round" />
+    <ellipse cx="-56" cy="-200" rx="16" ry="9" fill="#ff4fa3" opacity="0.35" /><ellipse cx="56" cy="-200" rx="16" ry="9" fill="#ff4fa3" opacity="0.35" />
+    <path d="M0 -226 Q-12 -206 4 -202" fill="none" stroke="#140a12" stroke-width="5" stroke-linecap="round" />
+    <path class="boca s11-dor-boca" data-o="0 -186" d="M-14 -186 Q0 -178 14 -186" fill="none" stroke="#140a12" stroke-width="6" stroke-linecap="round" />
+    <path d="M-74 -258 Q0 -272 74 -258 L70 -222 Q0 -210 -70 -222 Z" fill="#ff4fa3" stroke="#140a12" stroke-width="5" />
+  </g></g>
+    <path d="M20 1440 Q200 1400 360 1450 Q460 1480 540 1440 L540 1570 L20 1570 Z" fill="#fff7fb" stroke="#140a12" stroke-width="6" />
+  </g>
+
+        </svg>
+
+  <div class="globo der s11-g s11-g0" style="left:120px;top:600px;width:640px;font-size:36px">Recordatorio: tu turno es mañana a las 10<i class="chk">✓✓</i></div>
+  <div class="globo der s11-g s11-g1" style="left:380px;top:760px;font-size:38px">Tu pedido ya está listo<i class="chk">✓✓</i></div>
+  <div class="globo der s11-g s11-g2" style="left:150px;top:890px;font-size:38px">Te recordamos tu pago<i class="chk">✓✓</i></div>
+  <div class="barra s11-solos">¡SOLOS!</div>
+  <div class="mk s11-z">zzz</div>
+      </div>
+      <div class="fl"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-solos";
+      const DUR = 3.26;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".esc");
+      const org = (el, o) => (el instanceof SVGElement ? { svgOrigin: o ?? "0 0" } : { transformOrigin: o ?? "50% 50%" });
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // flash de cámara a pantalla completa
+      const flash = (t, a = 0.85) => { tl.fromTo(q(".fl"), { opacity: a }, { opacity: 0, duration: 0.28, ease: "power2.out", immediateRender: false }, t); };
+      // tiembla (zócalo de PRIMICIA) de t a t+d
+      const tiembla = (sel, t, d, a = 5, per = 0.05) => qa(sel).forEach((el) => tl.fromTo(el, { x: -a, rotation: -0.6 }, { x: a, rotation: 0.6, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per)) | 1, ease: "none", immediateRender: false }, t));
+      const pop = (sel, t, { d = 0.32, desde = 0.6, o } = {}) => qa(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde, ...org(el, o) }, { opacity: 1, scale: 1, ...org(el, o), duration: d, ease: "back.out(2)", immediateRender: false }, t);
+      });
+      const golpe = (sel, t, { desde = 2.2, o } = {}) => qa(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde, ...org(el, o) }, { opacity: 1, scale: 1, ...org(el, o), duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      // foto que cae sobre la mesa: llega grande y girada y se asienta
+      const cae = (sel, t, { rot = -12, o } = {}) => qa(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 1.5, rotation: rot, ...org(el, o) }, { opacity: 1, scale: 1, rotation: 0, ...org(el, o), duration: 0.24, ease: "power3.in", immediateRender: false }, t - 0.14);
+      });
+      const entra = (sel, t, desde = { x: -700 }, d = 0.32) => qa(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t);
+      });
+      const sale = (sel, t, d = 0.2) => qa(sel).forEach((el) => tl.to(el, { opacity: 0, duration: d }, t));
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, per = 0.1, min = 0.45) => qa(sel).forEach((el) => {
+        const o = el.dataset.o ?? "0 0";
+        const n = Math.max(1, Math.round(d / per)) | 1;
+        tl.fromTo(el, { scaleY: 1, svgOrigin: o }, { scaleY: min, svgOrigin: o, duration: per, yoyo: true, repeat: n, ease: "sine.inOut", immediateRender: false }, t);
+      });
+      const respira = (sel, t, d, dy = 8, per = 0.5) => qa(sel).forEach((el) => tl.fromTo(el, { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per)) | 1, ease: "sine.inOut", immediateRender: false }, t));
+      const balancea = (sel, t, d, deg = 4, per = 0.25, o) => qa(sel).forEach((el) => tl.fromTo(el, { rotation: -deg, ...org(el, o) }, { rotation: deg, ...org(el, o), duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per)) | 1, ease: "sine.inOut", immediateRender: false }, t));
+      const pestanea = (sel, t) => qa(sel).forEach((el) => tl.to(el, { scaleY: 0.1, ...org(el, el.dataset?.o), duration: 0.06, yoyo: true, repeat: 1 }, t));
+      // zoom lento (ken burns) sobre un elemento
+      const acerca = (sel, t, d, a = 1, b = 1.08, o) => qa(sel).forEach((el) => tl.fromTo(el, { scale: a, ...org(el, o) }, { scale: b, ...org(el, o), duration: d, ease: "none", immediateRender: false }, t));
+
+
+      const Y = 0, REC = 0.14, AVI = 1.10, LE = 1.90, SOLOS = 2.32;
+      tl.fromTo(q(".s11-cel"), { y: 30, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      const G = qa(".s11-g");
+      [REC + 0.1, AVI, LE].forEach((t, i) => {
+        gsap.set(G[i], { opacity: 0 });
+        tl.fromTo(G[i], { opacity: 0, scale: 0.3, x: 200, y: 300 }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+        tl.to(q(".s11-cel"), { rotation: 3, svgOrigin: "0 0", duration: 0.06, yoyo: true, repeat: 3 }, t);
+      });
+      dibujar(".s11-tick", REC + 0.1, 0.3);
+      golpe(".s11-solos", SOLOS, { desde: 2.4 });
+      respira(".s11-ella", 0, DUR, 6, 0.8);
+      gsap.set(q(".s11-z"), { opacity: 0 });
+      tl.fromTo(q(".s11-z"), { opacity: 0, y: 20 }, { opacity: 1, y: -30, duration: 1.2, ease: "sine.out", immediateRender: false }, 0.3);
+      tl.to(G, { y: -10, duration: 0.3, yoyo: true, repeat: 3, stagger: 0.1, ease: "sine.inOut" }, SOLOS + 0.1);
+
+      tl.to(q(".capa"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

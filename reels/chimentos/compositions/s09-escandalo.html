@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-escandalo"] .capa, [data-composition-id="s09-escandalo"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s09-escandalo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-escandalo"] .fl { position: absolute; inset: 0; background: #fff7fb; opacity: 0; }
+    [data-composition-id="s09-escandalo"] .mk { position: absolute; font-family: "Caveat", cursive; font-weight: 700; line-height: 0.95; white-space: nowrap; color: #fff7fb; text-shadow: 0 5px 0 rgba(20, 10, 18, 0.8); }
+    [data-composition-id="s09-escandalo"] .tit { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-style: normal; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.03em; white-space: nowrap; }
+    [data-composition-id="s09-escandalo"] .sello { position: absolute; padding: 10px 28px 6px; border: 9px solid #ff2e4d; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: 0.04em; color: #ff2e4d; white-space: nowrap; background: rgba(20, 10, 18, 0.55); }
+    [data-composition-id="s09-escandalo"] .barra { position: absolute; padding: 12px 30px 10px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; white-space: nowrap; border: 6px solid #140a12; box-shadow: 10px 10px 0 #140a12; }
+    [data-composition-id="s09-escandalo"] .globo { position: absolute; padding: 18px 26px 16px; border: 5px solid #140a12; font-family: "Lexend", sans-serif; font-weight: 600; line-height: 1.12; color: #140a12; box-shadow: 8px 8px 0 rgba(20, 10, 18, 0.6); }
+    [data-composition-id="s09-escandalo"] .globo.der { background: #ffb3d6; border-radius: 34px 34px 8px 34px; }
+    [data-composition-id="s09-escandalo"] .globo.izq { background: #fff7fb; border-radius: 34px 34px 34px 8px; }
+    [data-composition-id="s09-escandalo"] .globo .chk { font-style: normal; margin-left: 12px; font-size: 0.6em; color: #ff4fa3; letter-spacing: -0.2em; }
+
+  [data-composition-id="s09-escandalo"] .s09-esc { left: 70px; top: 580px; font-size: 118px; color: #fff7fb; background: #ff2e4d; transform: rotate(-4deg); }
+  [data-composition-id="s09-escandalo"] .s09-sep { left: 200px; top: 1000px; font-size: 84px; color: #140a12; background: #f5c242; transform: rotate(3deg); }
+
+  </style>
+  <div id="root" data-composition-id="s09-escandalo" data-width="1080" data-height="1920" data-duration="2.88">
+    <div id="s09-escandalo-capa" class="capa clip" data-start="0" data-duration="2.88" data-track-index="0">
+      <div class="esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+  <g transform="translate(540 900) scale(2)">
+    <path class="s09-ci" d="M0 40 L-70 -30 Q-100 -70 -60 -96 Q-26 -112 0 -70 L-14 -40 L10 -14 Z" fill="#ff4fa3" stroke="#140a12" stroke-width="5" stroke-linejoin="round" />
+    <path class="s09-cd" d="M0 40 L70 -30 Q100 -70 60 -96 Q26 -112 0 -70 L-14 -40 L10 -14 Z" fill="#ff4fa3" stroke="#140a12" stroke-width="5" stroke-linejoin="round" />
+  </g>
+  <g transform="translate(280 1450) rotate(0) scale(0.92)"><g class="s09-aoe">
+    <path d="M-96 -240 C-104 -350 104 -350 96 -240 L104 -90 L64 -100 L62 -230 L-62 -230 L-64 -100 L-104 -90 Z" fill="#140a12" stroke="#140a12" stroke-width="7" stroke-linejoin="round" />
+    <path d="M-190 160 C-190 -40 -150 -110 -60 -130 L60 -130 C150 -110 190 -40 190 160 Z" fill="#f5c242" stroke="#140a12" stroke-width="7" stroke-linejoin="round" />
+    <rect x="-28" y="-160" width="56" height="40" fill="#f6c9a8" stroke="#140a12" stroke-width="6" />
+    <path d="M-40 -128 L0 -70 L40 -128" fill="#f6c9a8" stroke="#140a12" stroke-width="6" stroke-linejoin="round" />
+    <ellipse cx="-82" cy="-226" rx="14" ry="22" fill="#f6c9a8" stroke="#140a12" stroke-width="6" /><ellipse cx="82" cy="-226" rx="14" ry="22" fill="#f6c9a8" stroke="#140a12" stroke-width="6" />
+    <ellipse cx="0" cy="-230" rx="80" ry="92" fill="#f6c9a8" stroke="#140a12" stroke-width="7" />
+    <circle cx="-84" cy="-196" r="13" fill="none" stroke="#f5c242" stroke-width="6" /><circle cx="84" cy="-196" r="13" fill="none" stroke="#f5c242" stroke-width="6" /><path d="M-80 -244 C-70 -316 70 -330 82 -246 C40 -300 -10 -286 -80 -244 Z" fill="#140a12" stroke="#140a12" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-58 -284 Q-38 -300 -18 -284 M58 -284 Q38 -300 18 -284" fill="none" stroke="#140a12" stroke-width="7" stroke-linecap="round" />
+    <g class="s09-aoe-ojos" data-o="0 -236"><ellipse cx="-36" cy="-236" rx="11" ry="17" fill="#140a12" /><ellipse cx="36" cy="-236" rx="11" ry="17" fill="#140a12" /><circle cx="-32" cy="-242" r="4" fill="#fff7fb" /><circle cx="40" cy="-242" r="4" fill="#fff7fb" /></g><path d="M-48 -248 L-56 -258 M-38 -251 L-42 -262 M48 -248 L56 -258 M38 -251 L42 -262" stroke="#140a12" stroke-width="4" stroke-linecap="round" />
+    <ellipse cx="-56" cy="-200" rx="16" ry="9" fill="#ff4fa3" opacity="0.35" /><ellipse cx="56" cy="-200" rx="16" ry="9" fill="#ff4fa3" opacity="0.35" />
+    <path d="M0 -226 Q-12 -206 4 -202" fill="none" stroke="#140a12" stroke-width="5" stroke-linecap="round" />
+    <g fill="none" stroke="#140a12" stroke-width="6"><rect x="-66" y="-260" width="56" height="44" rx="12" fill="#fff7fb" fill-opacity="0.25" /><rect x="10" y="-260" width="56" height="44" rx="12" fill="#fff7fb" fill-opacity="0.25" /><path d="M-10 -242 Q0 -250 10 -242" /></g><g class="boca s09-aoe-boca" data-o="0 -190"><path d="M-32 -202 Q0 -210 32 -202 Q28 -160 0 -158 Q-28 -160 -32 -202 Z" fill="#140a12" /><path d="M-14 -170 Q0 -182 14 -170 Q0 -162 -14 -170 Z" fill="#ff2e4d" /></g>
+    
+  </g></g>
+  <g transform="translate(800 1450) rotate(0) scale(0.92)"><g class="s09-puc">
+    
+    <path d="M-190 160 C-190 -40 -150 -110 -60 -130 L60 -130 C150 -110 190 -40 190 160 Z" fill="#140a12" stroke="#140a12" stroke-width="7" stroke-linejoin="round" />
+    <rect x="-28" y="-160" width="56" height="40" fill="#f6c9a8" stroke="#140a12" stroke-width="6" />
+    <path d="M-40 -128 L0 -60 L40 -128 Z" fill="#fff7fb" stroke="#140a12" stroke-width="6" stroke-linejoin="round" /><path d="M-8 -90 L0 -60 L8 -90 L0 -100 Z" fill="#ff4fa3" stroke="#140a12" stroke-width="4" /><path d="M-60 -128 L-10 -40 L-40 160 M60 -128 L10 -40 L40 160" fill="none" stroke="#140a12" stroke-width="6" />
+    <ellipse cx="-82" cy="-226" rx="14" ry="22" fill="#f6c9a8" stroke="#140a12" stroke-width="6" /><ellipse cx="82" cy="-226" rx="14" ry="22" fill="#f6c9a8" stroke="#140a12" stroke-width="6" />
+    <ellipse cx="0" cy="-230" rx="80" ry="92" fill="#f6c9a8" stroke="#140a12" stroke-width="7" />
+    <path d="M-80 -248 C-90 -300 -50 -350 20 -352 C80 -350 96 -300 80 -248 C60 -284 -50 -290 -80 -248 Z" fill="#3a2030" stroke="#140a12" stroke-width="6" stroke-linejoin="round" />
+    <path d="M-58 -284 Q-38 -300 -18 -284 M58 -284 Q38 -300 18 -284" fill="none" stroke="#140a12" stroke-width="7" stroke-linecap="round" />
+    <g class="s09-puc-ojos" data-o="0 -236"><ellipse cx="-36" cy="-236" rx="11" ry="17" fill="#140a12" /><ellipse cx="36" cy="-236" rx="11" ry="17" fill="#140a12" /><circle cx="-32" cy="-242" r="4" fill="#fff7fb" /><circle cx="40" cy="-242" r="4" fill="#fff7fb" /></g>
+    <ellipse cx="-56" cy="-200" rx="16" ry="9" fill="#ff4fa3" opacity="0.35" /><ellipse cx="56" cy="-200" rx="16" ry="9" fill="#ff4fa3" opacity="0.35" />
+    <path d="M0 -226 Q-12 -206 4 -202" fill="none" stroke="#140a12" stroke-width="5" stroke-linecap="round" />
+    <g class="boca s09-puc-boca" data-o="0 -190"><path d="M-32 -202 Q0 -210 32 -202 Q28 -160 0 -158 Q-28 -160 -32 -202 Z" fill="#140a12" /><path d="M-14 -170 Q0 -182 14 -170 Q0 -162 -14 -170 Z" fill="#ff2e4d" /></g>
+    
+  </g></g>
+
+        </svg>
+
+  <div class="barra s09-esc">¡ESCÁNDALO!</div>
+  <div class="barra s09-sep">¡SE SEPARAN!</div>
+      </div>
+      <div class="fl"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-escandalo";
+      const DUR = 2.88;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".esc");
+      const org = (el, o) => (el instanceof SVGElement ? { svgOrigin: o ?? "0 0" } : { transformOrigin: o ?? "50% 50%" });
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // flash de cámara a pantalla completa
+      const flash = (t, a = 0.85) => { tl.fromTo(q(".fl"), { opacity: a }, { opacity: 0, duration: 0.28, ease: "power2.out", immediateRender: false }, t); };
+      // tiembla (zócalo de PRIMICIA) de t a t+d
+      const tiembla = (sel, t, d, a = 5, per = 0.05) => qa(sel).forEach((el) => tl.fromTo(el, { x: -a, rotation: -0.6 }, { x: a, rotation: 0.6, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per)) | 1, ease: "none", immediateRender: false }, t));
+      const pop = (sel, t, { d = 0.32, desde = 0.6, o } = {}) => qa(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde, ...org(el, o) }, { opacity: 1, scale: 1, ...org(el, o), duration: d, ease: "back.out(2)", immediateRender: false }, t);
+      });
+      const golpe = (sel, t, { desde = 2.2, o } = {}) => qa(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde, ...org(el, o) }, { opacity: 1, scale: 1, ...org(el, o), duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      // foto que cae sobre la mesa: llega grande y girada y se asienta
+      const cae = (sel, t, { rot = -12, o } = {}) => qa(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 1.5, rotation: rot, ...org(el, o) }, { opacity: 1, scale: 1, rotation: 0, ...org(el, o), duration: 0.24, ease: "power3.in", immediateRender: false }, t - 0.14);
+      });
+      const entra = (sel, t, desde = { x: -700 }, d = 0.32) => qa(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t);
+      });
+      const sale = (sel, t, d = 0.2) => qa(sel).forEach((el) => tl.to(el, { opacity: 0, duration: d }, t));
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, per = 0.1, min = 0.45) => qa(sel).forEach((el) => {
+        const o = el.dataset.o ?? "0 0";
+        const n = Math.max(1, Math.round(d / per)) | 1;
+        tl.fromTo(el, { scaleY: 1, svgOrigin: o }, { scaleY: min, svgOrigin: o, duration: per, yoyo: true, repeat: n, ease: "sine.inOut", immediateRender: false }, t);
+      });
+      const respira = (sel, t, d, dy = 8, per = 0.5) => qa(sel).forEach((el) => tl.fromTo(el, { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per)) | 1, ease: "sine.inOut", immediateRender: false }, t));
+      const balancea = (sel, t, d, deg = 4, per = 0.25, o) => qa(sel).forEach((el) => tl.fromTo(el, { rotation: -deg, ...org(el, o) }, { rotation: deg, ...org(el, o), duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per)) | 1, ease: "sine.inOut", immediateRender: false }, t));
+      const pestanea = (sel, t) => qa(sel).forEach((el) => tl.to(el, { scaleY: 0.1, ...org(el, el.dataset?.o), duration: 0.06, yoyo: true, repeat: 1 }, t));
+      // zoom lento (ken burns) sobre un elemento
+      const acerca = (sel, t, d, a = 1, b = 1.08, o) => qa(sel).forEach((el) => tl.fromTo(el, { scale: a, ...org(el, o) }, { scale: b, ...org(el, o), duration: d, ease: "none", immediateRender: false }, t));
+
+
+      const ESCA = 0, SE = 1.14, SEP = 1.33;
+      golpe(".s09-esc", 0.1, { desde: 2.6 });
+      sacudon(0.12, 1.5);
+      habla(".s09-aoe-boca", 0, 0.8, 0.08, 0.5);
+      tl.fromTo(q(".s09-aoe"), { y: 0 }, { y: -50, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, 0.05);
+      habla(".s09-puc-boca", SE, 0.8, 0.08, 0.5);
+      tl.fromTo(q(".s09-puc"), { y: 0 }, { y: -50, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, SE);
+      golpe(".s09-sep", SEP, { desde: 2.4 });
+      tl.to(q(".s09-ci"), { x: -40, rotation: -20, svgOrigin: "0 40", duration: 0.3, ease: "power3.out" }, SEP);
+      tl.to(q(".s09-cd"), { x: 40, rotation: 20, svgOrigin: "0 40", duration: 0.3, ease: "power3.out" }, SEP);
+      sacudon(SEP + 0.03, 1.2);
+      tiembla(".s09-esc", 0.3, DUR - 0.6, 4, 0.05);
+      tl.fromTo(qa(".s09-ci, .s09-cd"), { scale: 0.9, svgOrigin: "0 40" }, { scale: 1.05, svgOrigin: "0 40", duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, 0);
+
+      tl.to(q(".capa"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
