@@ -1,0 +1,7 @@
+[
+  {"t":0.05,"sfx":"impact-bass-2","vol":0.28,"max":0.5},
+  {"t":1.55,"sfx":"whoosh-short","vol":0.3},
+  {"t":1.95,"sfx":"pop","vol":0.3},
+  {"t":2.95,"sfx":"notification","vol":0.3},
+  {"t":3.15,"sfx":"notification","vol":0.25}
+]

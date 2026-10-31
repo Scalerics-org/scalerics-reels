@@ -1,0 +1,152 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-prueba-dos"] .s07-capa, [data-composition-id="s07-prueba-dos"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-prueba-dos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; clip-path: inset(-200px -200px 560px -200px); }
+    [data-composition-id="s07-prueba-dos"] .b { fill: #26332d; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .k { fill: #111815; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .l { fill: none; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .w { fill: #efeadf; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .y { fill: #ffd23f; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .yl { fill: none; stroke: #ffd23f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .r { fill: #e5484d; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .rl { fill: none; stroke: #e5484d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .m { fill: #d9b779; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .s { fill: #5ce611; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .g { fill: #7f9a8c; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .piel { fill: #f0d6b0; stroke: #efeadf; stroke-width: 7; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .d { fill: none; stroke: #111815; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .dk { fill: #111815; stroke: #111815; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-prueba-dos"] .fino { stroke-width: 3.5; }
+    [data-composition-id="s07-prueba-dos"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #efeadf; }
+    [data-composition-id="s07-prueba-dos"] .sello { position: absolute; padding: 14px 28px 10px; border: 8px solid #e5484d; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; letter-spacing: 0.04em; line-height: 1; color: #e5484d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-prueba-dos"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffd23f; color: #111815; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s07-prueba-dos"] .etiqueta { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1452px; padding: 10px 22px 8px; background: #d9b779; color: #111815; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-prueba-dos"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s07-prueba-dos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s07-prueba-dos"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s07-prueba-dos"] .lex6 { font-family: "Lexend", sans-serif; font-weight: 600; }
+
+  </style>
+  <div id="root" data-composition-id="s07-prueba-dos" data-width="1080" data-height="1920" data-duration="4.95">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.95" data-track-index="0">
+      <div class="s07-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(40 760) scale(0.55)"><g class="s07-f1">
+      <g transform="rotate(-8 320 305)">
+        <rect class="w" x="0" y="0" width="640" height="610" rx="6" stroke-width="4" />
+        <rect x="22" y="22" width="596" height="518" fill="#111815" />
+        
+        <path class="s07a-clip" d="M300 40 V-30 C300 -56 344 -56 344 -30 V50 C344 66 316 66 316 50 V-20" fill="none" stroke="#9aa8a0" stroke-width="7" stroke-linecap="round" />
+      </g></g></g>
+          <g transform="translate(300 650)"><g class="s07-foto">
+      <g transform="rotate(3 300 300)">
+        <rect class="w" x="0" y="0" width="600" height="600" rx="6" stroke-width="4" />
+        <rect x="22" y="22" width="556" height="508" fill="#111815" />
+        
+      <rect x="22" y="22" width="556" height="96" fill="#e5484d" /><rect x="22" y="22" width="37" height="96" fill="#efeadf" /><rect x="96.5" y="22" width="37" height="96" fill="#efeadf" /><rect x="171" y="22" width="37" height="96" fill="#efeadf" /><rect x="245.5" y="22" width="37" height="96" fill="#efeadf" /><rect x="320" y="22" width="37" height="96" fill="#efeadf" /><rect x="394.5" y="22" width="37" height="96" fill="#efeadf" /><rect x="469" y="22" width="37" height="96" fill="#efeadf" /><rect x="543.5" y="22" width="37" height="96" fill="#efeadf" />
+      <rect x="160" y="128" width="280" height="50" rx="6" fill="#111815" stroke="#efeadf" stroke-width="4" class="s07-cartel" />
+      <text x="300" y="163" text-anchor="middle" class="mono s07-cartel" font-size="28" letter-spacing="2" fill="#ffd23f">EL DE ENFRENTE</text>
+      <g class="s07-cab s07-c1"><circle cx="150" cy="300" r="38" class="piel" stroke-width="5" /><path d="M136 308 C144 318 156 318 164 308" class="d" stroke-width="5" /><circle cx="138" cy="294" r="5" fill="#111815" /><circle cx="162" cy="294" r="5" fill="#111815" /></g><g class="s07-cab s07-c2"><circle cx="450" cy="300" r="38" class="piel" stroke-width="5" /><path d="M436 308 C444 318 456 318 464 308" class="d" stroke-width="5" /><circle cx="438" cy="294" r="5" fill="#111815" /><circle cx="462" cy="294" r="5" fill="#111815" /></g><g class="s07-cab s07-c3"><circle cx="110" cy="410" r="38" class="piel" stroke-width="5" /><path d="M96 418 C104 428 116 428 124 418" class="d" stroke-width="5" /><circle cx="98" cy="404" r="5" fill="#111815" /><circle cx="122" cy="404" r="5" fill="#111815" /></g><g class="s07-cab s07-c4"><circle cx="490" cy="410" r="38" class="piel" stroke-width="5" /><path d="M476 418 C484 428 496 428 504 418" class="d" stroke-width="5" /><circle cx="478" cy="404" r="5" fill="#111815" /><circle cx="502" cy="404" r="5" fill="#111815" /></g>
+      <ellipse cx="300" cy="420" rx="200" ry="56" class="m" stroke-width="5" />
+      <g class="s07-torta">
+        <rect x="236" y="340" width="128" height="70" rx="10" class="w" stroke-width="4" />
+        <path d="M236 366 H364" stroke="#e5484d" stroke-width="8" />
+        <path d="M270 340 V310 M300 340 V304 M330 340 V310" stroke="#efeadf" stroke-width="6" stroke-linecap="round" />
+        <circle cx="270" cy="300" r="7" fill="#ffd23f" /><circle cx="300" cy="294" r="7" fill="#ffd23f" /><circle cx="330" cy="300" r="7" fill="#ffd23f" />
+      </g>
+      <text x="300" y="562" text-anchor="middle" class="mano" font-size="44" fill="#111815">Prueba 2 · sáb 21:15</text>
+      <ellipse class="rl s07-circ" cx="300" cy="153" rx="186" ry="48" stroke-width="8" />
+      <path class="rl s07-flecha" d="M-170 20 C-80 60 0 110 96 146 M96 146 L46 154 M96 146 L76 100" stroke-width="9" />
+        <path class="s07-clip" d="M280 40 V-30 C280 -56 324 -56 324 -30 V50 C324 66 296 66 296 50 V-20" fill="none" stroke="#9aa8a0" stroke-width="7" stroke-linecap="round" />
+      </g></g></g>
+        </svg>
+        <div class="etiqueta s07-et">Prueba Nº 2</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-prueba-dos";
+      const DUR = 4.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s07-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // cronómetro de 7 segmentos: pinta("cls", "6000") prende los segmentos; reloj("cls", f) lo maneja
+      // con UNA sola interpolación sobre toda la escena (f(t) devuelve 4 caracteres: dígitos, "-" o " ")
+      const SEG = { 0: "abcdef", 1: "bc", 2: "abdeg", 3: "abcdg", 4: "bcfg", 5: "acdfg", 6: "acdefg", 7: "abc", 8: "abcdefg", 9: "abcdfg", "-": "g", " ": "" };
+      const pinta = (cls, str) => {
+        const ds = qa("." + cls + " .dig");
+        str.split("").forEach((ch, i) => { if (ds[i]) for (const r of ds[i].children) r.style.opacity = (SEG[ch] || "").includes(r.dataset.s) ? 1 : 0.07; });
+      };
+      const mmss = (s) => { s = Math.max(0, Math.ceil(s - 1e-6)); return String(Math.floor(s / 60)).padStart(2, "0") + String(s % 60).padStart(2, "0"); };
+      const reloj = (cls, f) => {
+        const o = { t: 0 };
+        pinta(cls, f(0));
+        tl.fromTo(o, { t: 0 }, { t: DUR, duration: DUR, ease: "none", immediateRender: false, onUpdate: () => pinta(cls, f(o.t)) }, 0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+tl.fromTo(q(".s07-f1"), { opacity: 1 }, { opacity: 0.35, duration: 0.3 }, 0);
+      tl.fromTo(q(".s07-foto"), { opacity: 0, x: 500, rotation: 14, transformOrigin: "50% 50%" }, { opacity: 1, x: 0, rotation: 0, transformOrigin: "50% 50%", duration: 0.4, ease: "power3.out" }, 0);
+      pop(".s07-et", 0.3);
+      tl.to(q(".s07-foto"), { y: -10, duration: 0.15, yoyo: true, repeat: 1 }, 1.0);
+      // "mesa": la torta; "cuatro": las cuatro caras felices
+      pop(".s07-torta", 2.05, 0.35);
+      qa(".s07-cab").forEach((c, i) => pop(c, 2.6 + i * 0.12, 0.3));
+      tl.to(qa(".s07-cab"), { y: -10, duration: 0.18, yoyo: true, repeat: 3, stagger: 0.08 }, 3.2);
+      // "enfrente": círculo rojo y flecha
+      dibujar(".s07-circ", 3.65, 0.4);
+      dibujar(".s07-flecha", 3.75, 0.35);
+
+      // salida: barrido con blur
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

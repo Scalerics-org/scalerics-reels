@@ -1,0 +1,156 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-tu-llamada"] .s10-capa, [data-composition-id="s10-tu-llamada"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-tu-llamada"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; clip-path: inset(-200px -200px 560px -200px); }
+    [data-composition-id="s10-tu-llamada"] .b { fill: #26332d; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .k { fill: #111815; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .l { fill: none; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .w { fill: #efeadf; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .y { fill: #ffd23f; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .yl { fill: none; stroke: #ffd23f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .r { fill: #e5484d; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .rl { fill: none; stroke: #e5484d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .m { fill: #d9b779; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .s { fill: #5ce611; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .g { fill: #7f9a8c; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .piel { fill: #f0d6b0; stroke: #efeadf; stroke-width: 7; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .d { fill: none; stroke: #111815; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .dk { fill: #111815; stroke: #111815; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-tu-llamada"] .fino { stroke-width: 3.5; }
+    [data-composition-id="s10-tu-llamada"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #efeadf; }
+    [data-composition-id="s10-tu-llamada"] .sello { position: absolute; padding: 14px 28px 10px; border: 8px solid #e5484d; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; letter-spacing: 0.04em; line-height: 1; color: #e5484d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-tu-llamada"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffd23f; color: #111815; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s10-tu-llamada"] .etiqueta { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1452px; padding: 10px 22px 8px; background: #d9b779; color: #111815; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-tu-llamada"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s10-tu-llamada"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s10-tu-llamada"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s10-tu-llamada"] .lex6 { font-family: "Lexend", sans-serif; font-weight: 600; }
+
+  [data-composition-id="s10-tu-llamada"] .s10-card { position: absolute; left: 560px; width: 420px; padding: 16px 22px; background: #111815; border: 4px solid #e5484d; border-radius: 16px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; color: #efeadf; white-space: nowrap; }
+  [data-composition-id="s10-tu-llamada"] .s10-card b { color: #e5484d; font-weight: 800; }
+
+  </style>
+  <div id="root" data-composition-id="s10-tu-llamada" data-width="1080" data-height="1920" data-duration="2.93">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="2.93" data-track-index="0">
+      <div class="s10-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(60 830) scale(1.0)"><g class="s10-pj">
+      <circle class="dk" cx="180" cy="128" r="44" />
+      <path class="g" d="M24 540 C24 404 92 362 180 362 C268 362 336 404 336 540 Z" />
+      <path class="w" d="M138 366 L180 450 L222 366 Z" stroke-width="5" />
+      <path class="d" d="M138 366 L160 470 M222 366 L200 470" stroke-width="5" opacity="0.6" />
+      <path class="y" d="M262 440 L272 460 L294 462 L278 476 L284 498 L262 486 L240 498 L246 476 L230 462 L252 460 Z" stroke-width="4" />
+      <ellipse class="piel" cx="100" cy="258" rx="16" ry="24" stroke-width="5" /><ellipse class="piel" cx="260" cy="258" rx="16" ry="24" stroke-width="5" />
+      <ellipse class="piel" cx="180" cy="252" rx="80" ry="96" stroke-width="5" />
+      <path class="dk" d="M98 250 C90 170 130 150 180 150 C232 150 272 170 262 250 C250 206 226 188 196 186 C170 198 130 206 98 250 Z" />
+      <path class="d s10-buena-cejas" d="M128 220 C140 210 158 210 168 216 M192 216 C202 210 220 210 232 220" stroke-width="6" />
+      <circle class="s10-buena-ojos" cx="150" cy="248" r="8" fill="#111815" />
+      <circle class="s10-buena-ojos" cx="210" cy="248" r="8" fill="#111815" />
+      <circle cx="122" cy="282" r="12" fill="#e5484d" opacity="0.35" />
+      <circle cx="238" cy="282" r="12" fill="#e5484d" opacity="0.35" />
+      <path class="d s10-buena-boca" data-o="180 304" d="M150 300 C162 318 200 318 212 298" stroke-width="7" /></g></g>
+          <g transform="translate(620 1080) scale(0.85)"><g class="s10-tel">
+      <path class="r" d="M30 220 L60 90 H240 L270 220 Z" />
+      <circle cx="150" cy="160" r="40" fill="#111815" stroke="#efeadf" stroke-width="5" />
+      <circle cx="150" cy="160" r="12" fill="#efeadf" />
+      <g class="s10-tubo">
+        <path class="r" d="M10 70 C10 30 40 20 70 20 H230 C260 20 290 30 290 70 L250 80 C240 60 230 56 210 56 H90 C70 56 60 60 50 80 Z" />
+      </g></g></g>
+          <g class="s10-ring"><path class="rl s10-r" d="M600 1100 C580 1080 580 1050 600 1030 M940 1100 C960 1080 960 1050 940 1030" stroke-width="7" /></g>
+        </svg>
+        <div class="s10-card s10-c1" style="top: 660px"><b>×</b> Llamada perdida</div>
+        <div class="s10-card s10-c2" style="top: 760px"><b>×</b> Llamada perdida</div>
+        <div class="s10-card s10-c3" style="top: 860px"><b>×</b> Llamada perdida</div>
+        <div class="etiqueta s10-et">Golpe bajo</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-tu-llamada";
+      const DUR = 2.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s10-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // cronómetro de 7 segmentos: pinta("cls", "6000") prende los segmentos; reloj("cls", f) lo maneja
+      // con UNA sola interpolación sobre toda la escena (f(t) devuelve 4 caracteres: dígitos, "-" o " ")
+      const SEG = { 0: "abcdef", 1: "bc", 2: "abdeg", 3: "abcdg", 4: "bcfg", 5: "acdfg", 6: "acdefg", 7: "abc", 8: "abcdefg", 9: "abcdfg", "-": "g", " ": "" };
+      const pinta = (cls, str) => {
+        const ds = qa("." + cls + " .dig");
+        str.split("").forEach((ch, i) => { if (ds[i]) for (const r of ds[i].children) r.style.opacity = (SEG[ch] || "").includes(r.dataset.s) ? 1 : 0.07; });
+      };
+      const mmss = (s) => { s = Math.max(0, Math.ceil(s - 1e-6)); return String(Math.floor(s / 60)).padStart(2, "0") + String(s % 60).padStart(2, "0"); };
+      const reloj = (cls, f) => {
+        const o = { t: 0 };
+        pinta(cls, f(0));
+        tl.fromTo(o, { t: 0 }, { t: DUR, duration: DUR, ease: "none", immediateRender: false, onUpdate: () => pinta(cls, f(o.t)) }, 0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+tl.fromTo(q(".s10-pj"), { x: -80, opacity: 0.5 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      hablar(".s10-buena-boca", 0, 0.7, 0.5);
+      tl.fromTo(q(".s10-tel"), { opacity: 0.5 }, { opacity: 1, duration: 0.2 }, 0);
+      // el teléfono suena y nadie atiende
+      tl.to(q(".s10-tubo"), { y: -20, duration: 0.07, yoyo: true, repeat: 7 }, 0.2);
+      tl.to(q(".s10-tubo"), { y: -20, duration: 0.07, yoyo: true, repeat: 7 }, 1.4);
+      dibujar(".s10-r", 0.2, 0.3);
+      // "atendés", "las que", "hacen": se apilan las perdidas
+      pop(".s10-c1", 1.05, 0.3);
+      pop(".s10-c2", 1.6, 0.3);
+      pop(".s10-c3", 2.0, 0.3);
+      hablar(".s10-buena-boca", 1.0, 2.4, 0.5);
+      tl.to(q(".s10-buena-cejas"), { y: -8, duration: 0.15 }, 1.0);
+      pop(".s10-et", 0.5);
+
+      // salida: barrido con blur
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

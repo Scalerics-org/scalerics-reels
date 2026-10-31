@@ -1,0 +1,172 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-clienta"] .s02-capa, [data-composition-id="s02-clienta"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-clienta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; clip-path: inset(-200px -200px 560px -200px); }
+    [data-composition-id="s02-clienta"] .b { fill: #26332d; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .k { fill: #111815; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .l { fill: none; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .w { fill: #efeadf; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .y { fill: #ffd23f; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .yl { fill: none; stroke: #ffd23f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .r { fill: #e5484d; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .rl { fill: none; stroke: #e5484d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .m { fill: #d9b779; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .s { fill: #5ce611; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .g { fill: #7f9a8c; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .piel { fill: #f0d6b0; stroke: #efeadf; stroke-width: 7; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .d { fill: none; stroke: #111815; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .dk { fill: #111815; stroke: #111815; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-clienta"] .fino { stroke-width: 3.5; }
+    [data-composition-id="s02-clienta"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #efeadf; }
+    [data-composition-id="s02-clienta"] .sello { position: absolute; padding: 14px 28px 10px; border: 8px solid #e5484d; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; letter-spacing: 0.04em; line-height: 1; color: #e5484d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-clienta"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffd23f; color: #111815; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s02-clienta"] .etiqueta { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1452px; padding: 10px 22px 8px; background: #d9b779; color: #111815; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-clienta"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s02-clienta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s02-clienta"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s02-clienta"] .lex6 { font-family: "Lexend", sans-serif; font-weight: 600; }
+
+  [data-composition-id="s02-clienta"] .s02-burbuja { position: absolute; left: 520px; top: 690px; padding: 22px 30px; background: #efeadf; color: #111815; border-radius: 28px 28px 28px 6px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; line-height: 1.2; white-space: nowrap; }
+  [data-composition-id="s02-clienta"] .s02-ausente { left: 590px; top: 1130px; font-size: 62px; }
+
+  </style>
+  <div id="root" data-composition-id="s02-clienta" data-width="1080" data-height="1920" data-duration="5.65">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="5.65" data-track-index="0">
+      <div class="s02-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s02-a">
+            <g transform="translate(90 800) scale(1.05)"><g class="s02-pj">
+      <path fill="#5a3d26" stroke="#5a3d26" stroke-width="5" d="M92 250 C80 160 126 140 180 140 C236 140 282 160 268 250 L286 420 H74 Z" />
+      <path class="r" d="M24 540 C24 404 92 362 180 362 C268 362 336 404 336 540 Z" />
+      <ellipse class="piel" cx="100" cy="258" rx="16" ry="24" stroke-width="5" /><ellipse class="piel" cx="260" cy="258" rx="16" ry="24" stroke-width="5" />
+      <ellipse class="piel" cx="180" cy="252" rx="78" ry="94" stroke-width="5" />
+      <path fill="#5a3d26" stroke="#5a3d26" stroke-width="5" d="M100 236 C104 176 140 156 182 156 C226 156 258 178 262 236 C236 200 200 190 170 196 C140 202 116 214 100 236 Z" />
+      <path class="d s02-clienta-cejas" d="M130 222 C142 214 158 214 166 220 M194 220 C204 214 220 214 232 222" stroke-width="5" />
+      <circle class="s02-clienta-ojos" cx="150" cy="250" r="8" fill="#111815" />
+      <circle class="s02-clienta-ojos" cx="210" cy="250" r="8" fill="#111815" />
+      <path class="d s02-clienta-boca" data-o="180 304" d="M150 300 C162 318 200 318 212 298" stroke-width="7" />
+      <g class="s02-clienta-cel">
+        <rect class="k" x="236" y="384" width="74" height="130" rx="14" stroke-width="5" />
+        <rect x="248" y="400" width="50" height="94" rx="4" fill="#ffd23f" opacity="0.85" />
+        <ellipse class="piel" cx="262" cy="500" rx="34" ry="24" stroke-width="5" />
+      </g></g></g>
+            <g class="s02-ondas"><path class="yl s02-onda" d="M440 1070 C470 1040 470 1000 440 970" /><path class="yl s02-onda" d="M480 1100 C530 1050 530 960 480 910" /></g>
+          </g>
+          <g class="s02-b">
+            <path class="s02-luz" d="M700 640 L560 1350 H990 L850 640 Z" fill="#ffd23f" opacity="0.12" />
+            <g transform="translate(640 930)"><g class="s02-silla">
+      <path class="b" d="M40 0 H220 V200 H40 Z" stroke-width="7" />
+      <path class="l" d="M0 210 H260 V250 H0 Z" />
+      <path class="l" d="M20 250 V420 M240 250 V420 M60 250 V380 M200 250 V380" /></g></g>
+            <g transform="translate(620 640)"><g class="s02-cel">
+              <rect class="k" x="0" y="0" width="150" height="250" rx="26" stroke-width="6" />
+              <rect x="16" y="34" width="118" height="196" rx="8" fill="#111815" stroke="#efeadf" stroke-width="3" />
+              <circle cx="75" cy="100" r="30" fill="#e5484d" /><text x="75" y="113" text-anchor="middle" class="slex" font-size="36" fill="#efeadf">1</text>
+              <path class="l fino s02-vib" d="M-24 60 V130 M-44 80 V110 M174 60 V130 M194 80 V110" />
+            </g></g>
+          </g>
+        </svg>
+        <div class="s02-burbuja">¿Tienen mesa?</div>
+        <div class="sello s02-ausente">Ausente</div>
+        <div class="etiqueta s02-et">La víctima</div>
+        <div class="etiqueta s02-et2">El sospechoso: ausente</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-clienta";
+      const DUR = 5.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s02-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // cronómetro de 7 segmentos: pinta("cls", "6000") prende los segmentos; reloj("cls", f) lo maneja
+      // con UNA sola interpolación sobre toda la escena (f(t) devuelve 4 caracteres: dígitos, "-" o " ")
+      const SEG = { 0: "abcdef", 1: "bc", 2: "abdeg", 3: "abcdg", 4: "bcfg", 5: "acdfg", 6: "acdefg", 7: "abc", 8: "abcdefg", 9: "abcdfg", "-": "g", " ": "" };
+      const pinta = (cls, str) => {
+        const ds = qa("." + cls + " .dig");
+        str.split("").forEach((ch, i) => { if (ds[i]) for (const r of ds[i].children) r.style.opacity = (SEG[ch] || "").includes(r.dataset.s) ? 1 : 0.07; });
+      };
+      const mmss = (s) => { s = Math.max(0, Math.ceil(s - 1e-6)); return String(Math.floor(s / 60)).padStart(2, "0") + String(s % 60).padStart(2, "0"); };
+      const reloj = (cls, f) => {
+        const o = { t: 0 };
+        pinta(cls, f(0));
+        tl.fromTo(o, { t: 0 }, { t: DUR, duration: DUR, ease: "none", immediateRender: false, onUpdate: () => pinta(cls, f(o.t)) }, 0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+// la clienta entra con el celular
+      tl.fromTo(q(".s02-pj"), { opacity: 0.4, x: -80 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 0);
+      pop(".s02-et", 0.3);
+      // "reservar": manda el mensaje
+      pop(".s02-burbuja", 1.15, 0.35, { transformOrigin: "0% 100%" });
+      dibujar(".s02-onda", 1.2, 0.35);
+      tl.to(q(".s02-burbuja"), { y: -12, duration: 0.25, yoyo: true, repeat: 1 }, 1.7);
+      parpadeo(".s02-clienta-ojos", 1.9);
+      // "Y vos": la mirada pasa a la silla vacía
+      tl.to(qa(".s02-a, .s02-burbuja"), { opacity: 0, x: -200, duration: 0.3, ease: "power2.in" }, 2.35);
+      sale(".s02-et", 2.35);
+      gsap.set(q(".s02-b"), { opacity: 0 });
+      tl.fromTo(q(".s02-b"), { opacity: 0, x: 0 }, { opacity: 1, x: -230, duration: 0.4, ease: "power3.out", immediateRender: false }, 2.45);
+      tl.fromTo(q(".s02-luz"), { opacity: 0 }, { opacity: 0.16, duration: 0.3, immediateRender: false }, 2.5);
+      // el celular sobre la silla vibra solo
+      tl.to(q(".s02-cel"), { rotation: 4, svgOrigin: "75 125", duration: 0.06, yoyo: true, repeat: 9 }, 2.8);
+      dibujar(".s02-vib", 2.8, 0.2);
+      // "no estabas": sello AUSENTE
+      golpe(".s02-ausente", 3.8, 2.4);
+      tl.set(q(".s02-ausente"), { rotation: -8 }, 0);
+      sacudon(3.82, 0.8);
+      pop(".s02-et2", 4.0);
+
+      // salida: barrido con blur
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
