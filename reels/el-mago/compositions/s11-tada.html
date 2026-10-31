@@ -1,0 +1,167 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-tada"] .s11-capa, [data-composition-id="s11-tada"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-tada"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-tada"] .b { fill: #0a0610; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tada"] .l { fill: none; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tada"] .k { fill: #2b1250; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tada"] .s { fill: #e6e8f0; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tada"] .p { fill: #ff4fa3; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tada"] .pl { fill: none; stroke: #ff4fa3; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tada"] .c { fill: #45dcf0; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tada"] .cl { fill: none; stroke: #45dcf0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tada"] .v { fill: #c3a2ff; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tada"] .vl { fill: none; stroke: #c3a2ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tada"] .g { fill: #5ce611; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tada"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tada"] .haz { fill: #e6e8f0; opacity: 0.09; stroke: none; }
+    [data-composition-id="s11-tada"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s11-tada"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-tada"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s11-tada"] .s11-tada { position: absolute; left: 0; right: 0; top: 760px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 210px; line-height: 1; color: #5ce611; text-shadow: 0 0 40px rgba(92, 230, 17, 0.55); }
+    [data-composition-id="s11-tada"] .s11-msg { position: absolute; left: 70px; top: 610px; width: 560px; padding: 14px 20px 12px; background: #e6e8f0; border-radius: 22px; border-bottom-left-radius: 6px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; line-height: 1.15; color: #0a0610; }
+    [data-composition-id="s11-tada"] .s11-msg small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; color: #2b1250; }
+    [data-composition-id="s11-tada"] .s11-plan { position: absolute; left: 70px; top: 860px; width: 940px; border: 6px solid #e6e8f0; border-radius: 12px; background: #e6e8f0; overflow: hidden; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; color: #0a0610; }
+    [data-composition-id="s11-tada"] .s11-plan .f { display: flex; border-top: 4px solid #0a0610; position: relative; }
+    [data-composition-id="s11-tada"] .s11-plan .f span { padding: 12px 14px 10px; border-left: 4px solid #0a0610; white-space: nowrap; }
+    [data-composition-id="s11-tada"] .s11-plan .f span:first-child { border-left: 0; width: 360px; } [data-composition-id="s11-tada"] .s11-plan .f span:nth-child(2) { width: 330px; } [data-composition-id="s11-tada"] .s11-plan .f span:nth-child(3) { flex: 1; }
+    [data-composition-id="s11-tada"] .s11-plan .h { background: #45dcf0; border-top: 0; }
+    [data-composition-id="s11-tada"] .s11-plan .tit { padding: 8px 14px; background: #2b1250; color: #e6e8f0; font-size: 24px; letter-spacing: 0.2em; }
+    [data-composition-id="s11-tada"] .s11-plan .nueva { background: #5ce611; }
+    [data-composition-id="s11-tada"] .s11-aviso { position: absolute; left: 470px; top: 1190px; width: 480px; padding: 14px 20px 12px; background: #5ce611; border-radius: 22px; border-bottom-right-radius: 6px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; color: #0a0610; }
+    [data-composition-id="s11-tada"] .s11-aviso small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; color: #0a0610; }
+    [data-composition-id="s11-tada"] .s11-sello { position: absolute; left: 520px; top: 1340px; padding: 10px 22px 8px; border: 6px solid #5ce611; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; color: #5ce611; text-transform: uppercase; transform: rotate(-5deg); background: #0a0610; }
+
+  </style>
+  <div id="root" data-composition-id="s11-tada" data-width="1080" data-height="1920" data-duration="3.91">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="3.91" data-track-index="0">
+      <div class="s11-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-asis"><g transform="translate(-30 1100) scale(0.78)">
+              <path class="k" d="M98 250 C84 150 136 124 180 124 C230 124 280 152 264 250 C262 290 256 318 246 340 L116 340 C104 318 100 290 98 250 Z" />
+              <path class="v" d="M56 560 C66 444 110 392 180 392 C250 392 294 444 304 560 Z" />
+              <g fill="#e6e8f0">
+                <circle cx="120" cy="470" r="5" /><circle cx="160" cy="440" r="5" /><circle cx="210" cy="460" r="5" /><circle cx="250" cy="430" r="5" />
+                <circle cx="100" cy="530" r="5" /><circle cx="150" cy="510" r="5" /><circle cx="200" cy="530" r="5" /><circle cx="250" cy="500" r="5" /><circle cx="280" cy="540" r="5" />
+              </g>
+              <path class="b" d="M158 310 V396 H202 V310" />
+              <path class="l" d="M140 396 C150 420 210 420 220 396" stroke-width="5" />
+              <ellipse class="b" cx="180" cy="242" rx="62" ry="74" />
+              <path class="k" d="M118 222 C126 164 234 164 242 222 C222 200 196 194 176 204 C156 194 132 202 118 222 Z" />
+              <path class="pl" d="M120 192 C150 170 210 170 240 192" stroke-width="6" />
+              <path class="p" d="M214 178 C226 128 262 104 296 76 C292 126 262 160 226 184 Z" stroke-width="5" />
+              <circle cx="156" cy="246" r="8" fill="#e6e8f0" /><circle cx="204" cy="246" r="8" fill="#e6e8f0" />
+              <path class="l" d="M142 234 L136 226 M150 230 L148 222 M218 234 L224 226 M210 230 L212 222" stroke-width="4" />
+              <path class="s s11-boca" d="M154 284 C164 306 196 306 206 284 Z" stroke-width="5" />
+              <circle class="p" cx="118" cy="276" r="8" stroke-width="4" /><circle class="p" cx="242" cy="276" r="8" stroke-width="4" />
+              <g class="s11-brazo">
+                <path class="b" d="M268 420 C318 410 350 380 370 338 L394 350 C374 398 332 432 280 448 Z" />
+                <circle class="b" cx="384" cy="338" r="20" />
+              </g>
+</g></g>
+          <path class="gl s11-ruta" d="M350 720 C380 800 300 840 300 990" stroke-dasharray="1 0" stroke-width="8" />
+          <path class="gl s11-check" d="M955 1080 L975 1100 L1005 1066" stroke-width="9" />
+          
+          <g class="s11-humo s11-puf"><g transform="translate(540 860) scale(1.6)">
+            <circle cx="-90" cy="20" r="70" fill="#e6e8f0" fill-opacity="0.22" stroke="#e6e8f0" stroke-width="6" />
+            <circle cx="0" cy="-30" r="96" fill="#e6e8f0" fill-opacity="0.26" stroke="#e6e8f0" stroke-width="6" />
+            <circle cx="96" cy="16" r="74" fill="#e6e8f0" fill-opacity="0.22" stroke="#e6e8f0" stroke-width="6" />
+            <circle cx="20" cy="60" r="70" fill="#c3a2ff" fill-opacity="0.22" stroke="#e6e8f0" stroke-width="6" />
+            <circle cx="-40" cy="-90" r="50" fill="#c3a2ff" fill-opacity="0.2" stroke="#e6e8f0" stroke-width="5" />
+          </g></g>
+          <g class="s11-est s11-d"><path transform="translate(150 760)" d="M0 -40 C7.199999999999999 -7.199999999999999 7.199999999999999 -7.199999999999999 40 0 C7.199999999999999 7.199999999999999 7.199999999999999 7.199999999999999 0 40 C-7.199999999999999 7.199999999999999 -7.199999999999999 7.199999999999999 -40 0 C-7.199999999999999 -7.199999999999999 -7.199999999999999 -7.199999999999999 0 -40 Z" fill="#5ce611" /></g><g class="s11-est s11-d"><path transform="translate(930 720)" d="M0 -46 C8.28 -8.28 8.28 -8.28 46 0 C8.28 8.28 8.28 8.28 0 46 C-8.28 8.28 -8.28 8.28 -46 0 C-8.28 -8.28 -8.28 -8.28 0 -46 Z" fill="#5ce611" /></g><g class="s11-est s11-d"><path transform="translate(880 1060)" d="M0 -30 C5.3999999999999995 -5.3999999999999995 5.3999999999999995 -5.3999999999999995 30 0 C5.3999999999999995 5.3999999999999995 5.3999999999999995 5.3999999999999995 0 30 C-5.3999999999999995 5.3999999999999995 -5.3999999999999995 5.3999999999999995 -30 0 C-5.3999999999999995 -5.3999999999999995 -5.3999999999999995 -5.3999999999999995 0 -30 Z" fill="#5ce611" /></g><g class="s11-est s11-d"><path transform="translate(220 1060)" d="M0 -26 C4.68 -4.68 4.68 -4.68 26 0 C4.68 4.68 4.68 4.68 0 26 C-4.68 4.68 -4.68 4.68 -26 0 C-4.68 -4.68 -4.68 -4.68 0 -26 Z" fill="#5ce611" /></g><g class="s11-est s11-d"><path transform="translate(540 700)" d="M0 -24 C4.32 -4.32 4.32 -4.32 24 0 C4.32 4.32 4.32 4.32 0 24 C-4.32 4.32 -4.32 4.32 -24 0 C-4.32 -4.32 -4.32 -4.32 0 -24 Z" fill="#5ce611" /></g>
+          <g class="s11-est s11-d2"><path transform="translate(330 780)" d="M0 -30 C5.3999999999999995 -5.3999999999999995 5.3999999999999995 -5.3999999999999995 30 0 C5.3999999999999995 5.3999999999999995 5.3999999999999995 5.3999999999999995 0 30 C-5.3999999999999995 5.3999999999999995 -5.3999999999999995 5.3999999999999995 -30 0 C-5.3999999999999995 -5.3999999999999995 -5.3999999999999995 -5.3999999999999995 0 -30 Z" fill="#ff4fa3" /></g><g class="s11-est s11-d2"><path transform="translate(760 1040)" d="M0 -34 C6.12 -6.12 6.12 -6.12 34 0 C6.12 6.12 6.12 6.12 0 34 C-6.12 6.12 -6.12 6.12 -34 0 C-6.12 -6.12 -6.12 -6.12 0 -34 Z" fill="#ff4fa3" /></g><g class="s11-est s11-d2"><path transform="translate(980 860)" d="M0 -22 C3.96 -3.96 3.96 -3.96 22 0 C3.96 3.96 3.96 3.96 0 22 C-3.96 3.96 -3.96 3.96 -22 0 C-3.96 -3.96 -3.96 -3.96 0 -22 Z" fill="#ff4fa3" /></g>
+        </svg>
+        <div class="s11-msg"><small>WHATSAPP · SRA. DE LAS EMPANADAS</small>Doce de carne, para las nueve</div>
+        <div class="s11-plan"><div class="tit">PEDIDOS.XLSX</div>
+          <div class="f h"><span>CLIENTE</span><span>PEDIDO</span><span>HORA</span></div>
+          <div class="f"><span>Rubén</span><span>2 pizzas</span><span>20:30</span></div>
+          <div class="f nueva s11-fila"><span>Sra. empanadas</span><span>12 carne</span><span>21:00</span></div>
+        </div>
+        <div class="s11-aviso"><small>A SRA. DE LAS EMPANADAS</small>Tu pedido está listo</div>
+        <div class="s11-sello">Salió solo</div>
+        <div class="s11-tada">¡TA-DÁ!</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-tada";
+      const DUR = 3.91;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s11-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // destellos: estrellitas que titilan (escala 0 -> 1 -> 0, con giro)
+      const destello = (sel, t, n = 2) => qa(sel).forEach((el, k) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, scale: 0, rotation: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 90, duration: 0.25, ease: "back.out(2)", yoyo: true, repeat: n * 2 - 1, repeatDelay: 0.12, immediateRender: false }, t + k * 0.09);
+      });
+      // humo: puf que se agranda y se desvanece
+      const puf = (sel, t) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1.1, duration: 0.3, ease: "power2.out", immediateRender: false }, t);
+        tl.to(q(sel), { opacity: 0, scale: 1.35, duration: 0.5, ease: "power1.in" }, t + 0.35);
+      };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const PEDIDO = 0.83, PASO = 1.0, SOLO = 1.41, PLANILLA = 1.83, AVISO = 2.58, LISTO = 3.0, SALIO = 3.33;
+      // ¡TA-DÁ!
+      puf(".s11-puf", 0);
+      golpe(".s11-tada", 0.08, 2.6);
+      sacudon(0.1, 1.4);
+      destello(".s11-d path", 0.05, 2);
+      destello(".s11-d2 path", 0.15, 2);
+      tl.fromTo(q(".s11-asis"), { y: 300 }, { y: 0, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      habla(".s11-boca", 0, 3.6, "180 292");
+      tl.fromTo(q(".s11-brazo"), { rotation: 0, svgOrigin: "268 420" }, { rotation: -40, svgOrigin: "268 420", duration: 0.2, ease: "back.out(2)", immediateRender: false }, 0.05);
+      tl.to(q(".s11-tada"), { opacity: 0, scale: 1.3, duration: 0.25, ease: "power2.in" }, PEDIDO - 0.3);
+      // el pedido pasa solo a la planilla
+      pop(".s11-msg", PEDIDO - 0.15);
+      pop(".s11-plan", PEDIDO - 0.05);
+      dibujar(".s11-ruta", PASO, 0.4);
+      tl.to(q(".s11-msg"), { y: 330, scale: 0.4, opacity: 0, duration: 0.45, ease: "power2.in" }, SOLO);
+      gsap.set(q(".s11-fila"), { opacity: 0 });
+      tl.fromTo(q(".s11-fila"), { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, PLANILLA - 0.05);
+      tl.to(q(".s11-ruta"), { opacity: 0, duration: 0.2 }, PLANILLA);
+      dibujar(".s11-check", PLANILLA + 0.1, 0.25);
+      // el aviso sale solo
+      pop(".s11-aviso", AVISO - 0.1, { x: 120 });
+      tl.to(q(".s11-aviso"), { x: 40, y: -20, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, LISTO);
+      pop(".s11-sello", SALIO - 0.05, { rotation: -5 });
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

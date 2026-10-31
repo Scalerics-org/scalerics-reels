@@ -1,0 +1,177 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-truco"] .s01-capa, [data-composition-id="s01-truco"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-truco"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-truco"] .b { fill: #0a0610; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-truco"] .l { fill: none; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-truco"] .k { fill: #2b1250; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-truco"] .s { fill: #e6e8f0; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-truco"] .p { fill: #ff4fa3; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-truco"] .pl { fill: none; stroke: #ff4fa3; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-truco"] .c { fill: #45dcf0; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-truco"] .cl { fill: none; stroke: #45dcf0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-truco"] .v { fill: #c3a2ff; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-truco"] .vl { fill: none; stroke: #c3a2ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-truco"] .g { fill: #5ce611; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-truco"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-truco"] .haz { fill: #e6e8f0; opacity: 0.09; stroke: none; }
+    [data-composition-id="s01-truco"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s01-truco"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-truco"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s01-truco"] .s01-tres { position: absolute; left: 0; right: 0; top: 590px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 0.9; text-transform: uppercase; letter-spacing: -0.02em; }
+    [data-composition-id="s01-truco"] .s01-tres b { display: block; font-size: 170px; color: #e6e8f0; }
+    [data-composition-id="s01-truco"] .s01-tres i { display: block; font-style: normal; font-size: 170px; color: #ff4fa3; text-shadow: 0 0 34px rgba(255, 79, 163, 0.55); }
+    [data-composition-id="s01-truco"] .s01-vida { position: absolute; left: 640px; top: 1380px; padding: 12px 22px 10px; background: #e6e8f0; color: #0a0610; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; text-transform: uppercase; transform: rotate(-4deg); }
+
+  </style>
+  <div id="root" data-composition-id="s01-truco" data-width="1080" data-height="1920" data-duration="6.21">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="6.21" data-track-index="0">
+      <div class="s01-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          
+          <g class="s01-refl ">
+            <path class="haz s01-haz" d="M360 0 L440 0 L730 1500 L70 1500 Z" />
+            <ellipse cx="400" cy="1500" rx="330" ry="64" fill="#e6e8f0" opacity="0.13" />
+            <ellipse cx="400" cy="1500" rx="330" ry="64" fill="none" stroke="#e6e8f0" stroke-width="5" opacity="0.55" />
+          </g>
+          <g class="s01-mago"><g transform="translate(100 860) scale(1.25)">
+              <path class="k" d="M6 560 C24 460 58 392 110 372 L250 372 C302 392 336 460 354 560 Z" />
+              <path class="pl" d="M30 556 C44 470 72 410 112 384 M330 556 C316 470 288 410 248 384" stroke-width="6" opacity="0.8" />
+              <path class="b" d="M60 560 C60 430 110 380 180 380 C250 380 300 430 300 560 Z" />
+              <path class="s" d="M144 384 L180 486 L216 384 Z" stroke-width="5" />
+              <path class="l" d="M134 388 L172 520 M226 388 L188 520" stroke-width="5" opacity="0.7" />
+              <path class="p" d="M148 394 L180 408 L212 394 L212 424 L180 410 L148 424 Z" stroke-width="5" />
+              <path class="b" d="M156 300 V386 H204 V300" />
+              <ellipse class="b" cx="180" cy="236" rx="66" ry="78" />
+              <circle cx="156" cy="234" r="8" fill="#e6e8f0" /><circle cx="204" cy="234" r="8" fill="#e6e8f0" />
+              <path class="l s01-ceja" d="M134 212 C144 198 162 198 170 208 M190 208 C198 198 216 198 226 212" stroke-width="6" />
+              <path class="l s01-boca" d="M166 298 C174 306 186 306 194 298" stroke-width="6" />
+              <path class="l" d="M180 274 C168 264 146 266 134 280 C126 290 114 286 118 274 M180 274 C192 264 214 266 226 280 C234 290 246 286 242 274" stroke-width="8" />
+              <path class="l" d="M180 246 L172 262 H184" stroke-width="5" opacity="0.6" />
+              <g class="s01-galera">
+                <path class="b" d="M122 172 L128 36 L232 36 L238 172 Z" />
+                <path class="p" d="M124 132 L236 132 L238 166 L122 166 Z" stroke-width="5" />
+                <path class="b" d="M84 172 C84 156 276 156 276 172 C276 190 84 190 84 172 Z" />
+                <path class="l" d="M140 50 L136 120" stroke-width="5" opacity="0.5" />
+              </g>
+              <g class="s01-brazo">
+                <path class="b" d="M276 418 C318 400 342 352 332 300 L304 296 C312 340 298 378 258 396 Z" />
+                <g class="s01-varita">
+                  <path d="M318 292 L404 162" stroke="#e6e8f0" stroke-width="20" stroke-linecap="round" />
+                  <path d="M318 292 L404 162" stroke="#0a0610" stroke-width="9" stroke-linecap="round" />
+                  <path d="M392 180 L404 162" stroke="#e6e8f0" stroke-width="12" stroke-linecap="round" />
+                </g>
+                <circle class="s" cx="318" cy="294" r="22" />
+              </g>
+</g></g>
+          
+          <g class="s01-reloj s01-rel">
+            <circle class="k" cx="830" cy="1170" r="110" />
+            <path class="l" d="M924.0 1170.0 L934.0 1170.0 M911.4 1217.0 L920.1 1222.0 M877.0 1251.4 L882.0 1260.1 M830.0 1264.0 L830.0 1274.0 M783.0 1251.4 L778.0 1260.1 M748.6 1217.0 L739.9 1222.0 M736.0 1170.0 L726.0 1170.0 M748.6 1123.0 L739.9 1118.0 M783.0 1088.6 L778.0 1079.9 M830.0 1076.0 L830.0 1066.0 M877.0 1088.6 L882.0 1079.9 M911.4 1123.0 L920.1 1118.0" stroke-width="5" />
+            <path class="s01-aguja-h" d="M830 1170 L802.5 1122.4" stroke="#e6e8f0" stroke-width="10" stroke-linecap="round" />
+            <path class="s01-aguja-m" d="M830 1170 L830.0 1087.5" stroke="#ff4fa3" stroke-width="7" stroke-linecap="round" />
+            <circle cx="830" cy="1170" r="9" fill="#ff4fa3" />
+          </g>
+          
+          <g class="s01-humo s01-puf"><g transform="translate(830 1170) scale(1.2)">
+            <circle cx="-90" cy="20" r="70" fill="#e6e8f0" fill-opacity="0.22" stroke="#e6e8f0" stroke-width="6" />
+            <circle cx="0" cy="-30" r="96" fill="#e6e8f0" fill-opacity="0.26" stroke="#e6e8f0" stroke-width="6" />
+            <circle cx="96" cy="16" r="74" fill="#e6e8f0" fill-opacity="0.22" stroke="#e6e8f0" stroke-width="6" />
+            <circle cx="20" cy="60" r="70" fill="#c3a2ff" fill-opacity="0.22" stroke="#e6e8f0" stroke-width="6" />
+            <circle cx="-40" cy="-90" r="50" fill="#c3a2ff" fill-opacity="0.2" stroke="#e6e8f0" stroke-width="5" />
+          </g></g>
+          <g class="s01-est s01-d1"><path transform="translate(605 1062)" d="M0 -26 C4.68 -4.68 4.68 -4.68 26 0 C4.68 4.68 4.68 4.68 0 26 C-4.68 4.68 -4.68 4.68 -26 0 C-4.68 -4.68 -4.68 -4.68 0 -26 Z" fill="#e6e8f0" /></g><g class="s01-est s01-d1"><path transform="translate(680 990)" d="M0 -18 C3.2399999999999998 -3.2399999999999998 3.2399999999999998 -3.2399999999999998 18 0 C3.2399999999999998 3.2399999999999998 3.2399999999999998 3.2399999999999998 0 18 C-3.2399999999999998 3.2399999999999998 -3.2399999999999998 3.2399999999999998 -18 0 C-3.2399999999999998 -3.2399999999999998 -3.2399999999999998 -3.2399999999999998 0 -18 Z" fill="#e6e8f0" /></g><g class="s01-est s01-d1"><path transform="translate(560 1000)" d="M0 -14 C2.52 -2.52 2.52 -2.52 14 0 C2.52 2.52 2.52 2.52 0 14 C-2.52 2.52 -2.52 2.52 -14 0 C-2.52 -2.52 -2.52 -2.52 0 -14 Z" fill="#e6e8f0" /></g>
+          <g class="s01-est s01-d2"><path transform="translate(720 1050)" d="M0 -30 C5.3999999999999995 -5.3999999999999995 5.3999999999999995 -5.3999999999999995 30 0 C5.3999999999999995 5.3999999999999995 5.3999999999999995 5.3999999999999995 0 30 C-5.3999999999999995 5.3999999999999995 -5.3999999999999995 5.3999999999999995 -30 0 C-5.3999999999999995 -5.3999999999999995 -5.3999999999999995 -5.3999999999999995 0 -30 Z" fill="#ff4fa3" /></g><g class="s01-est s01-d2"><path transform="translate(950 1060)" d="M0 -24 C4.32 -4.32 4.32 -4.32 24 0 C4.32 4.32 4.32 4.32 0 24 C-4.32 4.32 -4.32 4.32 -24 0 C-4.32 -4.32 -4.32 -4.32 0 -24 Z" fill="#ff4fa3" /></g><g class="s01-est s01-d2"><path transform="translate(960 1290)" d="M0 -28 C5.04 -5.04 5.04 -5.04 28 0 C5.04 5.04 5.04 5.04 0 28 C-5.04 5.04 -5.04 5.04 -28 0 C-5.04 -5.04 -5.04 -5.04 0 -28 Z" fill="#ff4fa3" /></g><g class="s01-est s01-d2"><path transform="translate(700 1290)" d="M0 -20 C3.5999999999999996 -3.5999999999999996 3.5999999999999996 -3.5999999999999996 20 0 C3.5999999999999996 3.5999999999999996 3.5999999999999996 3.5999999999999996 0 20 C-3.5999999999999996 3.5999999999999996 -3.5999999999999996 3.5999999999999996 -20 0 C-3.5999999999999996 -3.5999999999999996 -3.5999999999999996 -3.5999999999999996 0 -20 Z" fill="#ff4fa3" /></g><g class="s01-est s01-d2"><path transform="translate(840 990)" d="M0 -16 C2.88 -2.88 2.88 -2.88 16 0 C2.88 2.88 2.88 2.88 0 16 C-2.88 2.88 -2.88 2.88 -16 0 C-2.88 -2.88 -2.88 -2.88 0 -16 Z" fill="#ff4fa3" /></g>
+        </svg>
+        <div class="s01-tres"><b class="s01-t1">Tres</b><i class="s01-t2">horas</i></div>
+        <div class="s01-vida">de tu vida</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-truco";
+      const DUR = 6.21;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s01-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // destellos: estrellitas que titilan (escala 0 -> 1 -> 0, con giro)
+      const destello = (sel, t, n = 2) => qa(sel).forEach((el, k) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, scale: 0, rotation: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 90, duration: 0.25, ease: "back.out(2)", yoyo: true, repeat: n * 2 - 1, repeatDelay: 0.12, immediateRender: false }, t + k * 0.09);
+      });
+      // humo: puf que se agranda y se desvanece
+      const puf = (sel, t) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1.1, duration: 0.3, ease: "power2.out", immediateRender: false }, t);
+        tl.to(q(sel), { opacity: 0, scale: 1.35, duration: 0.5, ease: "power1.in" }, t + 0.35);
+      };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const TRUCO = 1.35, DESAP = 2.67, TRES = 3.08, HORAS = 4.46, VIDA = 5.17;
+      // cuadro 0: el mago ya está, a media luz, y se acerca
+      gsap.set(q(".s01-mago"), { opacity: 0.5 });
+      tl.fromTo(q(".s01-mago"), { scale: 0.94, svgOrigin: "400 1500" }, { scale: 1, svgOrigin: "350 1500", duration: 1.4, ease: "power2.out" }, 0);
+      tl.to(q(".s01-mago"), { opacity: 1, duration: 0.3 }, 0.15);
+      tl.fromTo(q(".s01-haz"), { opacity: 0.04 }, { opacity: 0.16, duration: 0.4, ease: "power2.out" }, 0);
+      habla(".s01-boca", 0, 1.2, "180 300");
+      tl.fromTo(q(".s01-ceja"), { y: 0 }, { y: -10, duration: 0.2, yoyo: true, repeat: 3, immediateRender: false }, 0.3);
+      // "truco": la varita tira chispas
+      tl.fromTo(q(".s01-brazo"), { rotation: 0, svgOrigin: "276 418" }, { rotation: -14, svgOrigin: "276 418", duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, TRUCO - 0.1);
+      destello(".s01-d1 path", TRUCO, 2);
+      // aparece el reloj (las tres horas)
+      pop(".s01-rel", DESAP - 0.3);
+      tl.fromTo(q(".s01-aguja-m"), { rotation: 0, svgOrigin: "830 1170" }, { rotation: 1080, svgOrigin: "830 1170", duration: 2.2, ease: "power1.in", immediateRender: false }, DESAP);
+      tl.fromTo(q(".s01-aguja-h"), { rotation: 0, svgOrigin: "830 1170" }, { rotation: 90, svgOrigin: "830 1170", duration: 2.2, ease: "power1.in", immediateRender: false }, DESAP);
+      habla(".s01-boca", DESAP, 2.2, "180 300");
+      // TRES HORAS
+      gsap.set(q(".s01-t2"), { opacity: 0 });
+      golpe(".s01-t1", TRES, 2.2);
+      sacudon(TRES + 0.04, 0.8);
+      golpe(".s01-t2", HORAS, 2.4);
+      sacudon(HORAS + 0.04, 1.2);
+      tl.to(q(".s01-rel"), { scale: 1.15, svgOrigin: "830 1170", duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut" }, TRES + 0.3);
+      // "de tu vida": ¡puf! el reloj desaparece
+      tl.to(q(".s01-brazo"), { rotation: -30, svgOrigin: "276 418", duration: 0.15, ease: "power3.out" }, VIDA - 0.3);
+      puf(".s01-puf", VIDA - 0.1);
+      tl.to(q(".s01-rel"), { opacity: 0, scale: 0.3, svgOrigin: "830 1170", duration: 0.2, ease: "power2.in" }, VIDA);
+      destello(".s01-d2 path", VIDA + 0.05, 2);
+      pop(".s01-vida", VIDA, { rotation: -4 });
+      tl.to(q(".s01-tres"), { scale: 1.05, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, VIDA + 0.2);
+
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

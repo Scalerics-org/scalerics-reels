@@ -1,0 +1,208 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-galera"] .s06-capa, [data-composition-id="s06-galera"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-galera"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-galera"] .b { fill: #0a0610; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-galera"] .l { fill: none; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-galera"] .k { fill: #2b1250; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-galera"] .s { fill: #e6e8f0; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-galera"] .p { fill: #ff4fa3; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-galera"] .pl { fill: none; stroke: #ff4fa3; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-galera"] .c { fill: #45dcf0; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-galera"] .cl { fill: none; stroke: #45dcf0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-galera"] .v { fill: #c3a2ff; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-galera"] .vl { fill: none; stroke: #c3a2ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-galera"] .g { fill: #5ce611; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-galera"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-galera"] .haz { fill: #e6e8f0; opacity: 0.09; stroke: none; }
+    [data-composition-id="s06-galera"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s06-galera"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-galera"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s06-galera"] .s06-rep { position: absolute; left: 150px; top: 600px; width: 430px; padding: 22px 26px 26px; background: #e6e8f0; border-radius: 10px; transform-origin: 50% 100%; }
+    [data-composition-id="s06-galera"] .s06-rep b { display: block; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; color: #0a0610; text-transform: uppercase; line-height: 1; }
+    [data-composition-id="s06-galera"] .s06-rep small { display: block; margin-top: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; color: #2b1250; }
+    [data-composition-id="s06-galera"] .s06-rep svg { position: static; width: 380px; height: 190px; margin-top: 10px; }
+    [data-composition-id="s06-galera"] .s06-hora { position: absolute; left: 640px; top: 820px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; color: #ff4fa3; text-shadow: 0 0 24px rgba(255, 79, 163, 0.5); }
+
+  </style>
+  <div id="root" data-composition-id="s06-galera" data-width="1080" data-height="1920" data-duration="6.54">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="6.54" data-track-index="0">
+      <div class="s06-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          
+          <g class="s06-refl ">
+            <path class="haz s06-haz" d="M340 0 L420 0 L680 1460 L80 1460 Z" />
+            <ellipse cx="380" cy="1460" rx="300" ry="56" fill="#e6e8f0" opacity="0.13" />
+            <ellipse cx="380" cy="1460" rx="300" ry="56" fill="none" stroke="#e6e8f0" stroke-width="5" opacity="0.55" />
+          </g>
+          
+          <g class="s06-conejo s06-con"><g transform="translate(380 1070) scale(0.9)">
+            <path class="s" d="M-44 -60 C-70 -170 -40 -220 -20 -210 C0 -200 -6 -120 -14 -70 Z" stroke="#0a0610" stroke-width="5" />
+            <path class="s" d="M44 -60 C70 -170 40 -220 20 -210 C0 -200 6 -120 14 -70 Z" stroke="#0a0610" stroke-width="5" />
+            <path d="M-36 -80 C-50 -150 -34 -190 -24 -186 M36 -80 C50 -150 34 -190 24 -186" fill="none" stroke="#ff4fa3" stroke-width="8" stroke-linecap="round" />
+            <ellipse class="s" cx="0" cy="0" rx="78" ry="70" stroke="#0a0610" stroke-width="5" />
+            <circle class="s06-conejo-ojo" cx="-28" cy="-8" r="9" fill="#0a0610" /><circle class="s06-conejo-ojo" cx="28" cy="-8" r="9" fill="#0a0610" />
+            <path d="M-8 18 L8 18 L0 28 Z" fill="#ff4fa3" />
+            <path d="M-50 30 L-90 22 M-50 40 L-92 44 M50 30 L90 22 M50 40 L92 44" stroke="#0a0610" stroke-width="4" stroke-linecap="round" />
+          </g></g>
+          
+          <g class="s06-gal s06-g"><g transform="translate(380 1130) scale(1.1)">
+            <path class="b" d="M-140 230 C-140 200 140 200 140 230 C140 262 -140 262 -140 230 Z" />
+            <path class="b" d="M-104 0 L-96 226 L96 226 L104 0 Z" />
+            <path class="p" d="M-98 170 L98 170 L96 220 L-96 220 Z" stroke-width="6" />
+            <ellipse class="k" cx="0" cy="0" rx="104" ry="30" />
+            <ellipse cx="0" cy="4" rx="84" ry="20" fill="#0a0610" />
+            <path class="l" d="M-70 30 L-66 150" stroke-width="5" opacity="0.5" />
+          </g></g>
+          <g class="s06-mago"><g transform="translate(1090 900) scale(-0.95 0.95)">
+              <path class="k" d="M6 560 C24 460 58 392 110 372 L250 372 C302 392 336 460 354 560 Z" />
+              <path class="pl" d="M30 556 C44 470 72 410 112 384 M330 556 C316 470 288 410 248 384" stroke-width="6" opacity="0.8" />
+              <path class="b" d="M60 560 C60 430 110 380 180 380 C250 380 300 430 300 560 Z" />
+              <path class="s" d="M144 384 L180 486 L216 384 Z" stroke-width="5" />
+              <path class="l" d="M134 388 L172 520 M226 388 L188 520" stroke-width="5" opacity="0.7" />
+              <path class="p" d="M148 394 L180 408 L212 394 L212 424 L180 410 L148 424 Z" stroke-width="5" />
+              <path class="b" d="M156 300 V386 H204 V300" />
+              <ellipse class="b" cx="180" cy="236" rx="66" ry="78" />
+              <circle cx="156" cy="234" r="8" fill="#e6e8f0" /><circle cx="204" cy="234" r="8" fill="#e6e8f0" />
+              <path class="l s06-ceja" d="M134 212 C144 198 162 198 170 208 M190 208 C198 198 216 198 226 212" stroke-width="6" />
+              <path class="l s06-boca" d="M166 298 C174 306 186 306 194 298" stroke-width="6" />
+              <path class="l" d="M180 274 C168 264 146 266 134 280 C126 290 114 286 118 274 M180 274 C192 264 214 266 226 280 C234 290 246 286 242 274" stroke-width="8" />
+              <path class="l" d="M180 246 L172 262 H184" stroke-width="5" opacity="0.6" />
+              <g class="s06-galera">
+                <path class="b" d="M122 172 L128 36 L232 36 L238 172 Z" />
+                <path class="p" d="M124 132 L236 132 L238 166 L122 166 Z" stroke-width="5" />
+                <path class="b" d="M84 172 C84 156 276 156 276 172 C276 190 84 190 84 172 Z" />
+                <path class="l" d="M140 50 L136 120" stroke-width="5" opacity="0.5" />
+              </g>
+              <g class="s06-brazo">
+                <path class="b" d="M276 418 C318 400 342 352 332 300 L304 296 C312 340 298 378 258 396 Z" />
+                <g class="s06-varita">
+                  <path d="M318 292 L404 162" stroke="#e6e8f0" stroke-width="20" stroke-linecap="round" />
+                  <path d="M318 292 L404 162" stroke="#0a0610" stroke-width="9" stroke-linecap="round" />
+                  <path d="M392 180 L404 162" stroke="#e6e8f0" stroke-width="12" stroke-linecap="round" />
+                </g>
+                <circle class="s" cx="318" cy="294" r="22" />
+              </g>
+</g></g>
+          <g class="s06-dueno"><g transform="translate(640 940) scale(1.0)">
+              <path class="c" d="M30 560 C30 420 92 368 180 368 C268 368 330 420 330 560 Z" />
+              <path class="k" d="M104 430 L256 430 L268 560 L92 560 Z" stroke-width="6" />
+              <path class="l" d="M104 430 L132 378 M256 430 L228 378" stroke-width="5" />
+              <path class="l" d="M140 476 H220" stroke-width="5" opacity="0.6" />
+              <path class="b" d="M152 300 V380 H208 V300" />
+              <ellipse class="b" cx="180" cy="236" rx="74" ry="82" />
+              <path class="l" d="M108 252 C100 224 104 198 116 182 M252 252 C260 224 256 198 244 182" stroke-width="9" />
+              <path class="l" d="M150 172 C164 164 184 162 200 166" stroke-width="5" opacity="0.5" />
+              <g class="s06d-lentes"><circle cx="152" cy="190" r="18" fill="none" stroke="#45dcf0" stroke-width="5" /><circle cx="208" cy="190" r="18" fill="none" stroke="#45dcf0" stroke-width="5" /><path d="M170 190 H190" stroke="#45dcf0" stroke-width="5" /></g>
+              <g class="s06d-ojos">
+                <path class="l" d="M140 244 H168 M194 244 H222" stroke-width="6" />
+                <path d="M146 246 a8 6 0 0 0 16 0 Z M200 246 a8 6 0 0 0 16 0 Z" fill="#e6e8f0" />
+                <path class="l" d="M142 262 C150 268 160 268 166 262 M196 262 C204 268 214 268 220 262" stroke-width="4" opacity="0.55" />
+              </g>
+              <path class="l" d="M134 226 L166 232 M228 226 L196 232" stroke-width="5" />
+              <path class="l s06d-boca" d="M160 296 C172 290 190 290 202 296" stroke-width="6" />
+
+            <g class="s06d-lapiz"><path d="M300 470 L360 330" stroke="#e6e8f0" stroke-width="22" stroke-linecap="round" /><path d="M300 470 L360 330" stroke="#ff4fa3" stroke-width="12" stroke-linecap="round" /><circle class="b" cx="300" cy="474" r="26" /></g>
+          </g></g>
+          
+          <g class="s06-reloj s06-rel">
+            <circle class="k" cx="900" cy="760" r="90" />
+            <path class="l" d="M974.0 760.0 L984.0 760.0 M964.1 797.0 L972.7 802.0 M937.0 824.1 L942.0 832.7 M900.0 834.0 L900.0 844.0 M863.0 824.1 L858.0 832.7 M835.9 797.0 L827.3 802.0 M826.0 760.0 L816.0 760.0 M835.9 723.0 L827.3 718.0 M863.0 695.9 L858.0 687.3 M900.0 686.0 L900.0 676.0 M937.0 695.9 L942.0 687.3 M964.1 723.0 L972.7 718.0" stroke-width="5" />
+            <path class="s06-aguja-h" d="M900 760 L922.5 721.0" stroke="#e6e8f0" stroke-width="10" stroke-linecap="round" />
+            <path class="s06-aguja-m" d="M900 760 L900.0 692.5" stroke="#ff4fa3" stroke-width="7" stroke-linecap="round" />
+            <circle cx="900" cy="760" r="9" fill="#ff4fa3" />
+          </g>
+          <g class="s06-est s06-d"><path transform="translate(250 1050)" d="M0 -26 C4.68 -4.68 4.68 -4.68 26 0 C4.68 4.68 4.68 4.68 0 26 C-4.68 4.68 -4.68 4.68 -26 0 C-4.68 -4.68 -4.68 -4.68 0 -26 Z" fill="#ff4fa3" /></g><g class="s06-est s06-d"><path transform="translate(520 1020)" d="M0 -22 C3.96 -3.96 3.96 -3.96 22 0 C3.96 3.96 3.96 3.96 0 22 C-3.96 3.96 -3.96 3.96 -22 0 C-3.96 -3.96 -3.96 -3.96 0 -22 Z" fill="#ff4fa3" /></g><g class="s06-est s06-d"><path transform="translate(380 960)" d="M0 -30 C5.3999999999999995 -5.3999999999999995 5.3999999999999995 -5.3999999999999995 30 0 C5.3999999999999995 5.3999999999999995 5.3999999999999995 5.3999999999999995 0 30 C-5.3999999999999995 5.3999999999999995 -5.3999999999999995 5.3999999999999995 -30 0 C-5.3999999999999995 -5.3999999999999995 -5.3999999999999995 -5.3999999999999995 0 -30 Z" fill="#ff4fa3" /></g><g class="s06-est s06-d"><path transform="translate(300 900)" d="M0 -16 C2.88 -2.88 2.88 -2.88 16 0 C2.88 2.88 2.88 2.88 0 16 C-2.88 2.88 -2.88 2.88 -16 0 C-2.88 -2.88 -2.88 -2.88 0 -16 Z" fill="#ff4fa3" /></g>
+          <g class="s06-preg"><text x="500" y="980" font-family="Lexend" font-weight="900" font-size="120" fill="#e6e8f0">?</text></g>
+        </svg>
+        <div class="s06-rep"><b>Reporte del día</b><small>HECHO A MANO · 1:00 AM</small>
+          <svg viewBox="0 0 380 190"><path class="s06-gar" d="M10 30 C40 10 70 50 100 30 C130 10 160 50 200 28 C240 10 270 44 300 30 M10 80 C50 60 80 100 120 78 C160 60 190 96 230 80 M10 130 C40 110 80 150 110 128 C150 110 180 146 220 130 C260 116 290 140 340 128 M10 175 C50 160 90 186 130 172" fill="none" stroke="#2b1250" stroke-width="7" stroke-linecap="round" /></svg>
+        </div>
+        <div class="s06-hora">1:00 AM</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-galera";
+      const DUR = 6.54;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s06-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // destellos: estrellitas que titilan (escala 0 -> 1 -> 0, con giro)
+      const destello = (sel, t, n = 2) => qa(sel).forEach((el, k) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, scale: 0, rotation: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 90, duration: 0.25, ease: "back.out(2)", yoyo: true, repeat: n * 2 - 1, repeatDelay: 0.12, immediateRender: false }, t + k * 0.09);
+      });
+      // humo: puf que se agranda y se desvanece
+      const puf = (sel, t) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1.1, duration: 0.3, ease: "power2.out", immediateRender: false }, t);
+        tl.to(q(sel), { opacity: 0, scale: 1.35, duration: 0.5, ease: "power1.in" }, t + 0.35);
+      };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const GALERA = 0.52, SACAR = 1.57, EL = 2.52, REPORTE = 2.69, PORQUE = 4.01, SACO = 4.27, MANO = 4.61, UNA = 5.52;
+      tl.fromTo(q(".s06-g"), { y: 120, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s06-mago"), { x: 300 }, { x: 0, duration: 0.3, ease: "power3.out" }, 0);
+      habla(".s06-boca", 0, 2.2, "180 302");
+      // golpecitos de varita y chispas
+      [GALERA, GALERA + 0.45, SACAR - 0.2].forEach((t) => tl.fromTo(q(".s06-brazo"), { rotation: 0, svgOrigin: "276 418" }, { rotation: 18, svgOrigin: "276 418", duration: 0.1, yoyo: true, repeat: 1, immediateRender: false }, t));
+      destello(".s06-d path", GALERA, 3);
+      tl.to(q(".s06-g"), { rotation: 3, svgOrigin: "380 1380", duration: 0.08, yoyo: true, repeat: 9, ease: "sine.inOut" }, GALERA + 0.2);
+      // asoma el conejo... y lo interrumpen
+      gsap.set(q(".s06-con"), { opacity: 0 });
+      tl.fromTo(q(".s06-con"), { opacity: 1, y: 160 }, { opacity: 1, y: -70, duration: 0.5, ease: "power2.out", immediateRender: false }, SACAR);
+      pop(".s06-preg", EL + 0.1);
+      tl.to(q(".s06-con"), { y: 200, duration: 0.25, ease: "power2.in" }, REPORTE + 0.2);
+      // el reporte sale de la galera, pero hecho a mano
+      gsap.set(q(".s06-rep"), { opacity: 0 });
+      tl.fromTo(q(".s06-rep"), { opacity: 1, y: 420, scaleY: 0.2 }, { opacity: 1, y: 0, scaleY: 1, duration: 0.4, ease: "back.out(1.4)", immediateRender: false }, REPORTE);
+      dibujar(".s06-gar", REPORTE + 0.4, 1.2);
+      tl.to(q(".s06-preg"), { opacity: 0, duration: 0.2 }, PORQUE);
+      // el dueño entra con el lápiz
+      gsap.set(q(".s06-dueno"), { opacity: 0 });
+      tl.to(q(".s06-mago"), { x: 600, duration: 0.3, ease: "power3.in" }, PORQUE - 0.3);
+      tl.fromTo(q(".s06-dueno"), { opacity: 1, x: 500 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, PORQUE - 0.05);
+      habla(".s06d-boca", PORQUE, 2.3, "180 294");
+      tl.fromTo(q(".s06d-lapiz"), { rotation: 0, svgOrigin: "300 474" }, { rotation: -10, svgOrigin: "300 474", duration: 0.09, yoyo: true, repeat: 15, ease: "sine.inOut", immediateRender: false }, SACO);
+      pop(".s06-rel", UNA - 0.3);
+      pop(".s06-hora", UNA);
+      tl.to(q(".s06-rel"), { rotation: 6, svgOrigin: "900 760", duration: 0.07, yoyo: true, repeat: 7 }, UNA + 0.2);
+
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

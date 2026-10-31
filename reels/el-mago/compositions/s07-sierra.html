@@ -1,0 +1,137 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-sierra"] .s07-capa, [data-composition-id="s07-sierra"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-sierra"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-sierra"] .b { fill: #0a0610; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sierra"] .l { fill: none; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sierra"] .k { fill: #2b1250; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sierra"] .s { fill: #e6e8f0; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sierra"] .p { fill: #ff4fa3; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sierra"] .pl { fill: none; stroke: #ff4fa3; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sierra"] .c { fill: #45dcf0; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sierra"] .cl { fill: none; stroke: #45dcf0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sierra"] .v { fill: #c3a2ff; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sierra"] .vl { fill: none; stroke: #c3a2ff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sierra"] .g { fill: #5ce611; stroke: #e6e8f0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sierra"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-sierra"] .haz { fill: #e6e8f0; opacity: 0.09; stroke: none; }
+    [data-composition-id="s07-sierra"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s07-sierra"] .cartela { position: absolute; padding: 12px 26px 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-sierra"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s07-sierra"] .s07-tit { position: absolute; left: 0; right: 0; top: 600px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 96px; line-height: 0.95; color: #e6e8f0; text-transform: uppercase; }
+    [data-composition-id="s07-sierra"] .s07-tit i { font-style: normal; color: #ff4fa3; text-shadow: 0 0 26px rgba(255, 79, 163, 0.55); }
+
+  </style>
+  <div id="root" data-composition-id="s07-sierra" data-width="1080" data-height="1920" data-duration="3.12">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="3.12" data-track-index="0">
+      <div class="s07-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          
+          <g class="s07-refl ">
+            <path class="haz s07-haz" d="M500 0 L580 0 L980 1440 L100 1440 Z" />
+            <ellipse cx="540" cy="1440" rx="440" ry="70" fill="#e6e8f0" opacity="0.13" />
+            <ellipse cx="540" cy="1440" rx="440" ry="70" fill="none" stroke="#e6e8f0" stroke-width="5" opacity="0.55" />
+          </g>
+          
+          <g class="s07-caja s07-c"><g transform="translate(560 1120) scale(1.0)">
+            <path class="l" d="M-250 105 L-270 230 M250 105 L270 230 M-120 105 L-130 230 M120 105 L130 230" stroke-width="10" />
+            <g class="s07-caja-izq">
+              <ellipse class="b" cx="-354" cy="-10" rx="46" ry="54" />
+              <path class="k" d="M-396 -20 C-396 -70 -320 -76 -310 -30 C-330 -46 -370 -44 -396 -20 Z" />
+              <path class="p" d="M-380 -60 C-400 -110 -380 -140 -360 -160 C-350 -120 -356 -90 -360 -62 Z" stroke-width="5" />
+              <circle cx="-370" cy="-10" r="6" fill="#e6e8f0" /><circle cx="-340" cy="-10" r="6" fill="#e6e8f0" />
+              <path class="s s07-caja-boca" d="M-368 14 C-360 30 -344 30 -336 14 Z" stroke-width="4" />
+              <rect class="k" x="-310" y="-105" width="310" height="210" rx="10" />
+              <path class="vl" d="M-280 -70 H-30 M-280 70 H-30" stroke-width="5" opacity="0.7" />
+            </g>
+            <g class="s07-caja-der">
+              <rect class="k" x="0" y="-105" width="310" height="210" rx="10" />
+              <path class="vl" d="M30 -70 H280 M30 70 H280" stroke-width="5" opacity="0.7" />
+              <path class="b" d="M310 -20 L370 -40 L384 -10 L326 6 Z" stroke-width="6" />
+              <path class="b" d="M310 30 L372 22 L380 52 L318 56 Z" stroke-width="6" />
+              <path class="p" d="M368 -46 L396 -52 L398 -26 L384 -12 Z M372 18 L402 18 L398 46 L380 52 Z" stroke-width="5" />
+            </g>
+            <g class="s07-est "><path transform="translate(-160 0)" d="M0 -36 C6.4799999999999995 -6.4799999999999995 6.4799999999999995 -6.4799999999999995 36 0 C6.4799999999999995 6.4799999999999995 6.4799999999999995 6.4799999999999995 0 36 C-6.4799999999999995 6.4799999999999995 -6.4799999999999995 6.4799999999999995 -36 0 C-6.4799999999999995 -6.4799999999999995 -6.4799999999999995 -6.4799999999999995 0 -36 Z" fill="#ff4fa3" /></g><g class="s07-est "><path transform="translate(160 0)" d="M0 -36 C6.4799999999999995 -6.4799999999999995 6.4799999999999995 -6.4799999999999995 36 0 C6.4799999999999995 6.4799999999999995 6.4799999999999995 6.4799999999999995 0 36 C-6.4799999999999995 6.4799999999999995 -6.4799999999999995 6.4799999999999995 -36 0 C-6.4799999999999995 -6.4799999999999995 -6.4799999999999995 -6.4799999999999995 0 -36 Z" fill="#ff4fa3" /></g>
+          </g></g>
+          
+          <g class="s07-sierra s07-s"><g transform="translate(560 860) rotate(90) scale(1.0)">
+            <path class="s" d="M-200 -30 L200 -30 L200 30 L-190 46 L-180 30 L-170 46 L-160 30 L-150 46 L-140 30 L-130 46 L-120 30 L-110 46 L-100 30 L-90 46 L-80 30 L-70 46 L-60 30 L-50 46 L-40 30 L-30 46 L-20 30 L-10 46 L0 30 L10 46 L20 30 L30 46 L40 30 L50 46 L60 30 L70 46 L80 30 L90 46 L100 30 L110 46 L120 30 L130 46 L140 30 L150 46 L160 30 L170 46 L180 30 L190 46 L200 30 L-200 30 Z" stroke="#0a0610" stroke-width="4" />
+            <path class="p" d="M200 -50 C260 -50 300 -30 300 10 C300 50 260 66 200 66 Z M228 -14 C258 -14 268 0 268 10 C268 26 254 34 228 34 Z" stroke-width="6" fill-rule="evenodd" />
+          </g></g>
+          <g class="s07-est s07-d"><path transform="translate(200 960)" d="M0 -26 C4.68 -4.68 4.68 -4.68 26 0 C4.68 4.68 4.68 4.68 0 26 C-4.68 4.68 -4.68 4.68 -26 0 C-4.68 -4.68 -4.68 -4.68 0 -26 Z" fill="#ff4fa3" /></g><g class="s07-est s07-d"><path transform="translate(900 960)" d="M0 -30 C5.3999999999999995 -5.3999999999999995 5.3999999999999995 -5.3999999999999995 30 0 C5.3999999999999995 5.3999999999999995 5.3999999999999995 5.3999999999999995 0 30 C-5.3999999999999995 5.3999999999999995 -5.3999999999999995 5.3999999999999995 -30 0 C-5.3999999999999995 -5.3999999999999995 -5.3999999999999995 -5.3999999999999995 0 -30 Z" fill="#ff4fa3" /></g><g class="s07-est s07-d"><path transform="translate(560 1300)" d="M0 -18 C3.2399999999999998 -3.2399999999999998 3.2399999999999998 -3.2399999999999998 18 0 C3.2399999999999998 3.2399999999999998 3.2399999999999998 3.2399999999999998 0 18 C-3.2399999999999998 3.2399999999999998 -3.2399999999999998 3.2399999999999998 -18 0 C-3.2399999999999998 -3.2399999999999998 -3.2399999999999998 -3.2399999999999998 0 -18 Z" fill="#ff4fa3" /></g>
+        </svg>
+        <div class="s07-tit">La mujer<br><i>cortada</i> al medio</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-sierra";
+      const DUR = 3.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s07-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // destellos: estrellitas que titilan (escala 0 -> 1 -> 0, con giro)
+      const destello = (sel, t, n = 2) => qa(sel).forEach((el, k) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, scale: 0, rotation: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 90, duration: 0.25, ease: "back.out(2)", yoyo: true, repeat: n * 2 - 1, repeatDelay: 0.12, immediateRender: false }, t + k * 0.09);
+      });
+      // humo: puf que se agranda y se desvanece
+      const puf = (sel, t) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1.1, duration: 0.3, ease: "power2.out", immediateRender: false }, t);
+        tl.to(q(sel), { opacity: 0, scale: 1.35, duration: 0.5, ease: "power1.in" }, t + 0.35);
+      };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+
+      const MUJER = 0.18, CORTADA = 0.99, MEDIO = 1.79;
+      tl.fromTo(q(".s07-c"), { scale: 0.85, svgOrigin: "560 1120", opacity: 0.5 }, { scale: 1, svgOrigin: "560 1120", opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      habla(".s07-caja-boca", MUJER, 0.6, "-352 20");
+      golpe(".s07-tit", MUJER + 0.1, 2.0);
+      tl.to(q(".s07-tit"), { opacity: 0, y: -60, duration: 0.2 }, CORTADA - 0.4);
+      // la sierra baja, serruchando
+      gsap.set(q(".s07-s"), { opacity: 0 });
+      tl.fromTo(q(".s07-s"), { opacity: 1, y: -500 }, { opacity: 1, y: -160, duration: 0.35, ease: "power3.out", immediateRender: false }, CORTADA - 0.3);
+      for (let k = 0; k < 6; k++) tl.to(q(".s07-s"), { y: -160 + (k + 1) * 30 + (k % 2 ? -40 : 40), duration: 0.12, ease: "sine.inOut" }, CORTADA + k * 0.13);
+      tl.to(q(".s07-s"), { y: 60, duration: 0.15, ease: "power2.in" }, MEDIO - 0.1);
+      sacudon(MEDIO + 0.05, 1.2);
+      tl.to(q(".s07-caja-izq"), { x: -50, duration: 0.3, ease: "back.out(2)" }, MEDIO + 0.15);
+      tl.to(q(".s07-caja-der"), { x: 50, duration: 0.3, ease: "back.out(2)" }, MEDIO + 0.15);
+      destello(".s07-d path", MEDIO + 0.15, 2);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
