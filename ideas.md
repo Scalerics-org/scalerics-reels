@@ -96,6 +96,11 @@
 
 ## En curso
 
+- 31-10 · `la-boda` · Agente de IA · casamiento: "¿alguien se opone?" y el dueño irrumpe; la clienta se casa con el de enfrente [P boda · iglesia con vitrales] · en curso (tanda 2 del 31-10)
+- 31-10 · `yo-del-futuro` · Agente de IA · el dueño de dentro de cinco años viaja al pasado a avisarse [A/D monólogo · synthwave neón retro] · en curso
+- 31-10 · `respira-hondo` · Automatizaciones · meditación guiada a las once de la noche que se interrumpe con pedidos a mano [G app de meditación · pastel con círculo que respira] · en curso
+- 31-10 · `talle-unico` · Sistema a medida · crítica de moda en la pasarela destroza el sistema enlatado "talle único" [P pasarela · revista de moda con flashes] · en curso
+- 31-10 · `el-taxista` · Sitio web · el taxista que opina de todo no te puede llevar a un local que no aparece [B diálogo · interior de taxi nocturno] · en curso
 
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
