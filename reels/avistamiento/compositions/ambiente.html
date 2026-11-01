@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* grano de la cámara nocturna: tres capas de ruido fijo que se alternan */
+    [data-composition-id="ambiente"] .amb-ruido { position: absolute; left: 0; top: 0; width: 540px; height: 960px; transform: scale(2); transform-origin: 0 0; opacity: 0; mix-blend-mode: screen; }
+    [data-composition-id="ambiente"] .amb-lineas { position: absolute; inset: 0; opacity: 0.5;
+      background: repeating-linear-gradient(0deg, rgba(2, 8, 6, 0.36) 0px, rgba(2, 8, 6, 0.36) 2px, rgba(2, 8, 6, 0) 2px, rgba(2, 8, 6, 0) 5px); }
+    [data-composition-id="ambiente"] .amb-banda { position: absolute; left: 0; top: -220px; width: 1080px; height: 160px; opacity: 0.55;
+      background: linear-gradient(180deg, rgba(125, 255, 138, 0) 0%, rgba(125, 255, 138, 0.08) 50%, rgba(125, 255, 138, 0) 100%); }
+    /* tubo de TV viejo: esquinas redondeadas y bordes oscuros */
+    [data-composition-id="ambiente"] .amb-tubo { position: absolute; left: 18px; top: 18px; width: 1044px; height: 1884px; border-radius: 72px;
+      box-shadow: 0 0 0 60px #020806, inset 0 0 140px 50px rgba(2, 8, 6, 0.9); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; opacity: 0; background: #eaffe8; }
+    [data-composition-id="ambiente"] .amb-franja { position: absolute; left: 0; width: 1080px; opacity: 0; background: rgba(234, 255, 232, 0.45); mix-blend-mode: screen; }
+    /* HUD */
+    [data-composition-id="ambiente"] svg.amb-hud { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-marco { fill: none; stroke: #7dff8a; stroke-width: 5; stroke-linecap: square; opacity: 0.75; }
+    [data-composition-id="ambiente"] .amb-cruz { fill: none; stroke: #7dff8a; stroke-width: 3; opacity: 0.3; }
+    [data-composition-id="ambiente"] .amb-txt { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.12em; color: #7dff8a; white-space: nowrap; text-shadow: 0 0 10px rgba(125, 255, 138, 0.55); }
+    [data-composition-id="ambiente"] .amb-punto { position: absolute; left: 84px; top: 133px; width: 26px; height: 26px; border-radius: 50%; background: #ff4b3a; box-shadow: 0 0 14px rgba(255, 75, 58, 0.8); }
+    [data-composition-id="ambiente"] .amb-rec { left: 124px; top: 126px; color: #eaffe8; }
+    [data-composition-id="ambiente"] .amb-modo { left: 84px; top: 170px; font-size: 24px; font-weight: 500; opacity: 0.85; }
+    [data-composition-id="ambiente"] .amb-modo span { position: absolute; left: 0; top: 0; }
+    [data-composition-id="ambiente"] .amb-cinta { left: 84px; top: 1640px; font-size: 28px; }
+    [data-composition-id="ambiente"] .amb-zoom { right: 84px; top: 1640px; text-align: right; font-size: 28px; }
+    /* logo del programa (ámbar), arriba a la derecha */
+    [data-composition-id="ambiente"] .amb-logo { position: absolute; right: 70px; top: 112px; padding: 8px 16px 10px; border: 4px solid #ffb23e; border-radius: 8px; text-align: right; }
+    [data-composition-id="ambiente"] .amb-logo b { display: block; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 34px; line-height: 1; letter-spacing: 0.02em; color: #ffb23e; }
+    [data-composition-id="ambiente"] .amb-logo i { display: block; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.22em; color: #ffb23e; margin-top: 4px; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="75.47">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="75.47" data-track-index="0">
+      <svg class="amb-ruido amb-r1" viewBox="0 0 540 960" aria-hidden="true"><filter id="amb-f1"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="5" /><feColorMatrix type="matrix" values="0 0 0 0 0.5  0 0 0 0 1  0 0 0 0 0.55  0 0 0 1.6 -0.55" /></filter><rect width="540" height="960" filter="url(#amb-f1)" /></svg>
+      <svg class="amb-ruido amb-r2" viewBox="0 0 540 960" aria-hidden="true"><filter id="amb-f2"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="17" /><feColorMatrix type="matrix" values="0 0 0 0 0.5  0 0 0 0 1  0 0 0 0 0.55  0 0 0 1.6 -0.55" /></filter><rect width="540" height="960" filter="url(#amb-f2)" /></svg>
+      <svg class="amb-ruido amb-r3" viewBox="0 0 540 960" aria-hidden="true"><filter id="amb-f3"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="31" /><feColorMatrix type="matrix" values="0 0 0 0 0.5  0 0 0 0 1  0 0 0 0 0.55  0 0 0 1.6 -0.55" /></filter><rect width="540" height="960" filter="url(#amb-f3)" /></svg>
+      <div class="amb-banda"></div>
+      <div class="amb-lineas"></div>
+      <div class="amb-franja amb-fr1" style="top: 720px; height: 24px;"></div>
+      <div class="amb-franja amb-fr2" style="top: 990px; height: 54px;"></div>
+      <div class="amb-franja amb-fr3" style="top: 1230px; height: 12px;"></div>
+      <svg class="amb-hud" viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="amb-marco" d="M56 100 V64 H92 M988 1700 H1024 V1664 M56 1664 V1700 H92 M988 64 H1024 V100" />
+        <path class="amb-cruz" d="M540 944 V976 M524 960 H556" />
+      </svg>
+      <div class="amb-punto"></div>
+      <div class="amb-txt amb-rec">REC</div>
+      <div class="amb-txt amb-modo"><span class="amb-m1">CAM NOCTURNA · IR</span><span class="amb-m2" style="opacity: 0">CASO RESUELTO</span></div>
+      <div class="amb-logo"><b>FENÓMENOS</b><i>DEL MÁS ACÁ</i></div>
+      <div class="amb-txt amb-cinta">CINTA 03:12:00</div>
+      <div class="amb-txt amb-zoom">ZOOM 4.0x</div>
+      <div class="amb-tubo"></div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 75.47;
+      const GIRO = 47.19;                                  // "No fue un fenómeno" (entra Orus)
+      const GOLPES = [1.65, 5.39, 22.57, 39.04, 66.75];   // interferencia: contestó, ciencia, imposible, sobrino, Scalerics
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // grano: alterna las tres capas cada 0.08 s (más suave después del giro)
+      const R = qa(".amb-ruido");
+      for (let t = 0, k = 0; t < DUR; t += 0.08, k++) tl.set(R, { opacity: (i) => (i === k % 3 ? (t < GIRO ? 0.12 : 0.07) : 0) }, t);
+
+      // banda de barrido que baja cada 4.5 s
+      tl.fromTo(q(".amb-banda"), { y: 0 }, { y: 2300, duration: 4.5, ease: "none", repeat: Math.floor(DUR / 4.5) }, 0);
+
+      // REC titila
+      for (let t = 0; t < DUR; t += 1) { tl.set(q(".amb-punto"), { opacity: 1 }, t); tl.set(q(".amb-punto"), { opacity: 0.15 }, t + 0.6); }
+
+      // contador de cinta (de a un segundo, determinista)
+      const cinta = q(".amb-cinta");
+      const dos = (n) => String(n).padStart(2, "0");
+      const o = { s: 0 };
+      tl.fromTo(o, { s: 0 }, { s: DUR, duration: DUR, ease: "none",
+        onUpdate: () => { const s = 3 * 3600 + 12 * 60 + Math.floor(o.s); cinta.textContent = "CINTA " + dos(Math.floor(s / 3600)) + ":" + dos(Math.floor(s / 60) % 60) + ":" + dos(s % 60); } }, 0);
+
+      // la retícula respira
+      tl.fromTo(q(".amb-cruz"), { opacity: 0.3 }, { opacity: 0.12, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: Math.floor(DUR / 1.2) }, 0);
+
+      // golpes: franjas de interferencia que saltan y un flash chico
+      const golpe = (t, fuerte) => {
+        qa(".amb-franja").forEach((f, i) => {
+          tl.set(f, { opacity: 1, x: (i % 2 ? -60 : 50), y: 0 }, t + i * 0.03);
+          tl.set(f, { y: (i - 1) * 90, x: (i % 2 ? 40 : -30) }, t + 0.09 + i * 0.02);
+          tl.set(f, { opacity: 0 }, t + 0.2 + i * 0.03);
+        });
+        tl.to(q(".amb-flash"), { opacity: fuerte ? 0.6 : 0.25, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: fuerte ? 0.6 : 0.35, ease: "power2.out" }, t + 0.04);
+      };
+      GOLPES.forEach((t) => golpe(t, false));
+
+      // el giro: la cámara enfoca. Flash fuerte, CASO RESUELTO, zoom 1.0x
+      golpe(GIRO - 0.02, true);
+      tl.set(q(".amb-m1"), { opacity: 0 }, GIRO);
+      tl.set(q(".amb-m2"), { opacity: 1, color: "#ffb23e" }, GIRO);
+      tl.set(q(".amb-zoom"), { textContent: "ENFOCADO" }, GIRO);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

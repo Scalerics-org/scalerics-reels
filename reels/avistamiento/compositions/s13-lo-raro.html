@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-lo-raro"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-lo-raro"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-lo-raro"] .l { fill: none; stroke: #7dff8a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px rgba(125, 255, 138, 0.45)); }
+    [data-composition-id="s13-lo-raro"] .lf { fill: none; stroke: #7dff8a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.55; }
+    [data-composition-id="s13-lo-raro"] .relleno { fill: #0c2416; }
+    [data-composition-id="s13-lo-raro"] .negro { fill: #020806; }
+    [data-composition-id="s13-lo-raro"] .brillo { fill: #eaffe8; filter: drop-shadow(0 0 10px rgba(234, 255, 232, 0.9)); }
+    [data-composition-id="s13-lo-raro"] .lb { fill: none; stroke: #eaffe8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px rgba(234, 255, 232, 0.7)); }
+    [data-composition-id="s13-lo-raro"] .la { fill: none; stroke: #ffb23e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-lo-raro"] .lr { fill: none; stroke: #ff4b3a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-lo-raro"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s13-lo-raro"] .lex { font-family: "Lexend", sans-serif; }
+    [data-composition-id="s13-lo-raro"] .sello { position: absolute; padding: 8px 22px; border: 6px solid #ffb23e; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 600; color: #ffb23e; letter-spacing: 0.1em; white-space: nowrap; text-shadow: 0 0 12px rgba(255, 178, 62, 0.5); background: rgba(2, 8, 6, 0.7); }
+    [data-composition-id="s13-lo-raro"] .sello.rojo { border-color: #ff4b3a; color: #ff4b3a; text-shadow: 0 0 12px rgba(255, 75, 58, 0.5); }
+    [data-composition-id="s13-lo-raro"] .centro { left: 0; right: 0; margin: 0 auto; width: max-content; }
+    [data-composition-id="s13-lo-raro"] .zocalo { position: absolute; left: 90px; background: #ffb23e; color: #020806; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 32px; letter-spacing: 0.08em; padding: 10px 22px; white-space: nowrap; }
+    [data-composition-id="s13-lo-raro"] .zocalo-sub { position: absolute; left: 90px; border: 3px solid #ffb23e; color: #ffb23e; background: rgba(2, 8, 6, 0.8); font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.16em; padding: 6px 16px; white-space: nowrap; }
+    [data-composition-id="s13-lo-raro"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #ffb23e; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-lo-raro"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+    [data-composition-id="s13-lo-raro"] .s13-raro { position: absolute; left: 0; right: 0; top: 585px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 88px; color: #eaffe8; text-shadow: 0 0 22px rgba(234, 255, 232, 0.45); white-space: nowrap; }
+    [data-composition-id="s13-lo-raro"] .s13-lbl { position: absolute; left: 775px; top: 826px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.1em; color: #eaffe8; white-space: nowrap; }
+    [data-composition-id="s13-lo-raro"] .s13-lbl span { display: block; font-size: 24px; }
+    [data-composition-id="s13-lo-raro"] .s13-sin { color: #ff4b3a; } [data-composition-id="s13-lo-raro"] .s13-on { color: #7dff8a; position: absolute; left: 0; top: 34px; }
+    [data-composition-id="s13-lo-raro"] .s13-tod { top: 1000px; left: 190px; font-size: 46px; }
+    [data-composition-id="s13-lo-raro"] .s13-sc { position: absolute; left: 0; right: 0; top: 1160px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 92px; letter-spacing: 0.02em; color: #eaffe8; text-shadow: 0 0 24px rgba(234, 255, 232, 0.5); white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="s13-lo-raro" data-width="1080" data-height="1920" data-duration="6.14">
+    <div id="s13-escena" class="capa clip" data-start="0" data-duration="6.14" data-track-index="0">
+
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s13-radar">
+          <circle class="relleno" cx="540" cy="930" r="220" />
+          <circle class="l s13-l" cx="540" cy="930" r="220" />
+          <circle class="lf s13-l" cx="540" cy="930" r="150" /><circle class="lf s13-l" cx="540" cy="930" r="80" />
+          <path class="lf s13-l" d="M320 930 H760 M540 710 V1150" />
+          <path class="s13-barr" d="M540 930 L540 710 A220 220 0 0 1 696 775 Z" fill="#7dff8a" opacity="0.18" />
+          <path class="l s13-aguja" d="M540 930 V710" style="stroke-width: 3" />
+        </g>
+        <circle class="lb s13-onda s13-o1" cx="650" cy="850" r="20" /><circle class="lb s13-onda s13-o2" cx="650" cy="850" r="20" />
+        <circle class="s13-punto" cx="650" cy="850" r="16" fill="#0c2416" stroke="#7dff8a" stroke-width="4" />
+        <circle class="brillo s13-pon" cx="650" cy="850" r="16" />
+      </svg>
+      <div class="s13-raro">LO RARO</div>
+      <div class="s13-lbl">TU LOCAL<span class="s13-sin">SIN SEÑAL</span><span class="s13-on">EN LÍNEA</span></div>
+      <div class="sello s13-tod">TODAVÍA NO</div>
+      <div class="s13-sc">SCALERICS</div>
+      <div class="etiqueta"><span class="s13-e1">Te lo armamos</span></div>
+
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-lo-raro";
+      const DUR = 6.14;
+
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut", immediateRender: false }, t + i * 0.04);
+        });
+      };
+      const pop = (els, t, o) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, y: (o && o.y) || 0 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(1.6)", transformOrigin: (o && o.origin) || "50% 50%", immediateRender: false }, t + i * ((o && o.stagger) || 0.08));
+        });
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => { f = f || 1; [[-12, 7], [9, -5], [-4, 2], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045)); };
+      const etiquetas = (lista) => {
+        lista.forEach(([sel, t], i) => {
+          tl.fromTo(q(sel), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(q(sel), { opacity: 0, y: -10, duration: 0.2 }, lista[i + 1][0 + 1] - 0.2);
+        });
+      };
+
+
+      const RARO = 0.19, RARO2 = 1.71, TU = 2.28, TODAVIA = 2.85, SCAL = 4.19, ARM = 4.76;
+      dibujar(qa(".s13-l"), 0, 0.6, 0.45);
+      // barrido del radar (vuelta cada 1.5 s)
+      tl.fromTo([q(".s13-barr"), q(".s13-aguja")], { rotation: 0, svgOrigin: "540 930" }, { rotation: 360 * 4, svgOrigin: "540 930", duration: 6, ease: "none" }, 0);
+      gsap.set(q(".s13-raro"), { opacity: 0 });
+      tl.fromTo(q(".s13-raro"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out", immediateRender: false }, RARO - 0.05);
+      tl.to(q(".s13-raro"), { scale: 1.1, duration: 0.12, yoyo: true, repeat: 1 }, RARO2);
+      // tu local: sin señal
+      gsap.set([q(".s13-punto"), q(".s13-lbl"), q(".s13-on"), q(".s13-pon"), ...qa(".s13-onda")], { opacity: 0 });
+      tl.set([q(".s13-punto"), q(".s13-lbl")], { opacity: 1 }, TU);
+      tl.fromTo(q(".s13-sin"), { opacity: 1 }, { opacity: 0.2, duration: 0.15, yoyo: true, repeat: 5, ease: "steps(1)" }, TU + 0.1);
+      sello(q(".s13-tod"), TODAVIA, -6);
+      tl.to(q(".s13-tod"), { opacity: 0, duration: 0.2 }, SCAL - 0.3);
+      // Scalerics: se prende y emite ondas
+      tl.set(q(".s13-sin"), { opacity: 0 }, SCAL);
+      tl.set([q(".s13-on"), q(".s13-pon")], { opacity: 1 }, SCAL);
+      qa(".s13-onda").forEach((o, i) => tl.fromTo(o, { opacity: 0.9, scale: 1, svgOrigin: "650 850" }, { opacity: 0, scale: 5, svgOrigin: "650 850", duration: 0.9, ease: "power1.out", repeat: 1, immediateRender: false }, SCAL + i * 0.45));
+      tl.to(q(".s13-raro"), { opacity: 0.3, duration: 0.3 }, SCAL);
+      gsap.set(q(".s13-sc"), { opacity: 0 });
+      tl.fromTo(q(".s13-sc"), { opacity: 0, y: 30, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.35, ease: "power3.out", immediateRender: false }, SCAL - 0.05);
+      etiquetas([[".s13-e1", ARM]]);
+
+      // salida
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-agente"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-agente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-agente"] .l { fill: none; stroke: #7dff8a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px rgba(125, 255, 138, 0.45)); }
+    [data-composition-id="s11-agente"] .lf { fill: none; stroke: #7dff8a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.55; }
+    [data-composition-id="s11-agente"] .relleno { fill: #0c2416; }
+    [data-composition-id="s11-agente"] .negro { fill: #020806; }
+    [data-composition-id="s11-agente"] .brillo { fill: #eaffe8; filter: drop-shadow(0 0 10px rgba(234, 255, 232, 0.9)); }
+    [data-composition-id="s11-agente"] .lb { fill: none; stroke: #eaffe8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px rgba(234, 255, 232, 0.7)); }
+    [data-composition-id="s11-agente"] .la { fill: none; stroke: #ffb23e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-agente"] .lr { fill: none; stroke: #ff4b3a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-agente"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s11-agente"] .lex { font-family: "Lexend", sans-serif; }
+    [data-composition-id="s11-agente"] .sello { position: absolute; padding: 8px 22px; border: 6px solid #ffb23e; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 600; color: #ffb23e; letter-spacing: 0.1em; white-space: nowrap; text-shadow: 0 0 12px rgba(255, 178, 62, 0.5); background: rgba(2, 8, 6, 0.7); }
+    [data-composition-id="s11-agente"] .sello.rojo { border-color: #ff4b3a; color: #ff4b3a; text-shadow: 0 0 12px rgba(255, 75, 58, 0.5); }
+    [data-composition-id="s11-agente"] .centro { left: 0; right: 0; margin: 0 auto; width: max-content; }
+    [data-composition-id="s11-agente"] .zocalo { position: absolute; left: 90px; background: #ffb23e; color: #020806; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 32px; letter-spacing: 0.08em; padding: 10px 22px; white-space: nowrap; }
+    [data-composition-id="s11-agente"] .zocalo-sub { position: absolute; left: 90px; border: 3px solid #ffb23e; color: #ffb23e; background: rgba(2, 8, 6, 0.8); font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.16em; padding: 6px 16px; white-space: nowrap; }
+    [data-composition-id="s11-agente"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #ffb23e; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-agente"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+    [data-composition-id="s11-agente"] .s11-chip { position: absolute; left: 620px; padding: 10px 20px; border: 4px solid #7dff8a; border-radius: 40px; background: #0c2416; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.08em; color: #eaffe8; white-space: nowrap; box-shadow: 0 0 14px rgba(125, 255, 138, 0.35); }
+    [data-composition-id="s11-agente"] .s11-c1 { top: 660px; } [data-composition-id="s11-agente"] .s11-c2 { top: 750px; } [data-composition-id="s11-agente"] .s11-c3 { top: 840px; border-color: #ffb23e; color: #ffb23e; }
+    [data-composition-id="s11-agente"] .s11-msg { position: absolute; left: 520px; top: 960px; padding: 10px 18px; border-radius: 18px; border-bottom-left-radius: 4px; background: #7dff8a; color: #020806; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; white-space: nowrap; }
+    [data-composition-id="s11-agente"] .s11-msg b { font-family: "IBM Plex Mono", monospace; font-size: 26px; display: block; letter-spacing: 0.08em; }
+
+  </style>
+  <div id="root" data-composition-id="s11-agente" data-width="1080" data-height="1920" data-duration="7.16">
+    <div id="s11-escena" class="capa clip" data-start="0" data-duration="7.16" data-track-index="0">
+
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s11-reloj">
+          <circle class="relleno" cx="360" cy="820" r="170" />
+          <circle class="l s11-l" cx="360" cy="820" r="170" />
+          <path class="lf s11-l" d="M360 665 V690 M360 950 V975 M205 820 H230 M490 820 H515 M250 710 L265 725 M470 710 L455 725 M250 930 L265 915 M470 930 L455 915" />
+          <path class="lb s11-h" d="M360 820 V730" />
+          <path class="l s11-m" d="M360 820 V680" />
+          <circle class="brillo" cx="360" cy="820" r="10" />
+        </g>
+        <!-- flecha hacia el dueño -->
+        <path class="la s11-fl" d="M380 1000 C400 1080 470 1130 560 1140 M535 1118 L560 1140 L532 1160" />
+        <!-- el dueño durmiendo en la cama -->
+        <g class="s11-duenio">
+          <path class="l s11-d" d="M580 1240 V1100 M960 1240 V1150 M580 1180 H960" />
+          <path class="relleno" d="M640 1180 C650 1130 700 1120 740 1125 L960 1150 V1180 Z" />
+          <path class="l s11-d" d="M640 1180 C650 1130 700 1120 740 1125 L960 1150" />
+          <path class="l s11-d" d="M590 1140 C600 1120 640 1120 650 1140 C640 1160 600 1165 590 1140 Z" />
+          <circle class="relleno" cx="645" cy="1120" r="34" /><circle class="l s11-d" cx="645" cy="1120" r="34" />
+          <path class="l s11-d" d="M630 1118 C635 1122 642 1122 646 1118 M652 1118 C656 1122 662 1122 666 1118" />
+        </g>
+      </svg>
+      <div class="s11-chip s11-c1">PRECIOS</div>
+      <div class="s11-chip s11-c2">STOCK</div>
+      <div class="s11-chip s11-c3">PEDIDO TOMADO</div>
+      <div class="s11-msg"><b>PARA VOS:</b>un pedido grande</div>
+      <div class="etiqueta"><span class="s11-e1">A cualquier hora</span><span class="s11-e2">Te pasa lo tuyo</span></div>
+
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-agente";
+      const DUR = 7.16;
+
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut", immediateRender: false }, t + i * 0.04);
+        });
+      };
+      const pop = (els, t, o) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, y: (o && o.y) || 0 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(1.6)", transformOrigin: (o && o.origin) || "50% 50%", immediateRender: false }, t + i * ((o && o.stagger) || 0.08));
+        });
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => { f = f || 1; [[-12, 7], [9, -5], [-4, 2], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045)); };
+      const etiquetas = (lista) => {
+        lista.forEach(([sel, t], i) => {
+          tl.fromTo(q(sel), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(q(sel), { opacity: 0, y: -10, duration: 0.2 }, lista[i + 1][0 + 1] - 0.2);
+        });
+      };
+
+
+      const CUAL = 1.02, PRECIOS = 2.31, STOCK = 3.15, PEDIDO = 4.26, DUENO = 5.46;
+      dibujar(qa(".s11-l"), 0, 0.6, 0.45);
+      dibujar(qa(".s11-d"), 0, 0.6, 0.4);
+      // las agujas: andan normal y en "cualquier hora" vuelan
+      tl.fromTo(q(".s11-m"), { rotation: 0, svgOrigin: "360 820" }, { rotation: 1440, svgOrigin: "360 820", duration: 2.2, ease: "power2.inOut" }, CUAL - 0.6);
+      tl.fromTo(q(".s11-h"), { rotation: 90, svgOrigin: "360 820" }, { rotation: 210, svgOrigin: "360 820", duration: 2.2, ease: "power2.inOut" }, CUAL - 0.6);
+      tl.to(q(".s11-m"), { rotation: 1500, svgOrigin: "360 820", duration: DUR - CUAL - 1.6, ease: "none" }, CUAL + 1.6);
+      pop(q(".s11-c1"), PRECIOS, { y: 20, origin: "0% 50%" });
+      pop(q(".s11-c2"), STOCK, { y: 20, origin: "0% 50%" });
+      pop(q(".s11-c3"), PEDIDO, { y: 20, origin: "0% 50%" });
+      // al dueño le llega lo que es para él
+      gsap.set(q(".s11-fl"), { opacity: 0 });
+      dibujar([q(".s11-fl")], DUENO - 0.35, 0.4);
+      pop(q(".s11-msg"), DUENO + 0.1, { y: 20, origin: "0% 100%" });
+      tl.to(q(".s11-duenio"), { y: -6, duration: 0.8, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0);
+      etiquetas([[".s11-e1", CUAL], [".s11-e2", DUENO]]);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

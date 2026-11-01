@@ -1,0 +1,129 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-yo-les-dije"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-yo-les-dije"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-yo-les-dije"] .l { fill: none; stroke: #7dff8a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px rgba(125, 255, 138, 0.45)); }
+    [data-composition-id="s12-yo-les-dije"] .lf { fill: none; stroke: #7dff8a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.55; }
+    [data-composition-id="s12-yo-les-dije"] .relleno { fill: #0c2416; }
+    [data-composition-id="s12-yo-les-dije"] .negro { fill: #020806; }
+    [data-composition-id="s12-yo-les-dije"] .brillo { fill: #eaffe8; filter: drop-shadow(0 0 10px rgba(234, 255, 232, 0.9)); }
+    [data-composition-id="s12-yo-les-dije"] .lb { fill: none; stroke: #eaffe8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px rgba(234, 255, 232, 0.7)); }
+    [data-composition-id="s12-yo-les-dije"] .la { fill: none; stroke: #ffb23e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-yo-les-dije"] .lr { fill: none; stroke: #ff4b3a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-yo-les-dije"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s12-yo-les-dije"] .lex { font-family: "Lexend", sans-serif; }
+    [data-composition-id="s12-yo-les-dije"] .sello { position: absolute; padding: 8px 22px; border: 6px solid #ffb23e; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 600; color: #ffb23e; letter-spacing: 0.1em; white-space: nowrap; text-shadow: 0 0 12px rgba(255, 178, 62, 0.5); background: rgba(2, 8, 6, 0.7); }
+    [data-composition-id="s12-yo-les-dije"] .sello.rojo { border-color: #ff4b3a; color: #ff4b3a; text-shadow: 0 0 12px rgba(255, 75, 58, 0.5); }
+    [data-composition-id="s12-yo-les-dije"] .centro { left: 0; right: 0; margin: 0 auto; width: max-content; }
+    [data-composition-id="s12-yo-les-dije"] .zocalo { position: absolute; left: 90px; background: #ffb23e; color: #020806; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 32px; letter-spacing: 0.08em; padding: 10px 22px; white-space: nowrap; }
+    [data-composition-id="s12-yo-les-dije"] .zocalo-sub { position: absolute; left: 90px; border: 3px solid #ffb23e; color: #ffb23e; background: rgba(2, 8, 6, 0.8); font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.16em; padding: 6px 16px; white-space: nowrap; }
+    [data-composition-id="s12-yo-les-dije"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #ffb23e; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s12-yo-les-dije"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+    [data-composition-id="s12-yo-les-dije"] .s12-yo { position: absolute; left: 400px; top: 660px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 92px; line-height: 0.95; color: #ffb23e; text-shadow: 0 0 22px rgba(255, 178, 62, 0.5); white-space: nowrap; }
+    [data-composition-id="s12-yo-les-dije"] .s12-z1 { left: 400px; top: 856px; font-size: 26px; letter-spacing: 0.08em; padding: 4px 12px; }
+    [data-composition-id="s12-yo-les-dije"] .s12-pre { position: absolute; left: 400px; top: 1040px; padding: 14px 22px; border-radius: 18px; border-bottom-left-radius: 4px; background: #0c2416; border: 3px solid #7dff8a; color: #eaffe8; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; white-space: nowrap; }
+    [data-composition-id="s12-yo-les-dije"] .s12-z2 { left: 400px; top: 1186px; font-size: 26px; letter-spacing: 0.06em; padding: 4px 12px; }
+
+  </style>
+  <div id="root" data-composition-id="s12-yo-les-dije" data-width="1080" data-height="1920" data-duration="4.51">
+    <div id="s12-escena" class="capa clip" data-start="0" data-duration="4.51" data-track-index="0">
+
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect class="l s12-l" x="90" y="590" width="900" height="330" rx="14" style="stroke-width: 4" />
+        <rect class="l s12-l" x="90" y="945" width="900" height="300" rx="14" style="stroke-width: 4" />
+        <g class="s12-nilda"><g transform="translate(240 735) scale(0.85)">
+            <path class="relleno" d="M-100 175 C-95 115 -60 95 0 95 C60 95 95 115 100 175 Z" />
+            <path class="l" d="M-100 175 C-95 115 -60 95 0 95 C60 95 95 115 100 175" />
+            <path class="l s12-brazos" d="M-85 130 L-150 20 M85 130 L150 20" />
+            <circle class="l" cx="-152" cy="10" r="16" /><circle class="l" cx="152" cy="10" r="16" />
+            <circle class="relleno" cx="0" cy="0" r="80" /><circle class="l" cx="0" cy="0" r="80" />
+            <circle class="l" cx="-60" cy="-55" r="20" /><circle class="l" cx="-25" cy="-85" r="22" /><circle class="l" cx="20" cy="-88" r="22" /><circle class="l" cx="58" cy="-60" r="20" />
+            <circle class="lb" cx="-28" cy="2" r="22" /><circle class="lb" cx="28" cy="2" r="22" />
+            <path class="lb" d="M-25 40 C-10 68 10 68 25 40 Z" />
+</g></g>
+        <g class="s12-exp"><g transform="translate(240 1085) scale(0.8)">
+            <path class="relleno" d="M-100 175 C-95 115 -60 95 0 95 C60 95 95 115 100 175 Z" />
+            <path class="l" d="M-100 175 C-95 115 -60 95 0 95 C60 95 95 115 100 175" />
+            <path class="la" d="M0 108 L-25 95 V121 Z M0 108 L25 95 V121 Z" />
+            <circle class="relleno" cx="0" cy="0" r="78" /><circle class="l" cx="0" cy="0" r="78" />
+            <g class="s12-lentes"><rect class="lb" x="-50" y="-12" width="40" height="28" rx="5" /><rect class="lb" x="10" y="-12" width="40" height="28" rx="5" /><path class="lb" d="M-10 2 H10" /></g>
+            <path class="l" d="M-16 44 C-6 38 6 38 16 44" />
+            <path class="lb s12-gota" d="M62 -30 C56 -18 56 -10 62 -6 C68 -10 68 -18 62 -30 Z" />
+</g></g>
+      </svg>
+      <div class="s12-yo">¡YO LES<br/>DIJE!</div>
+      <div class="zocalo-sub s12-z1">NILDA · TENÍA RAZÓN</div>
+      <div class="s12-pre">¿Y eso lo puede<br/>tener mi local?</div>
+      <div class="zocalo-sub s12-z2">DR. ESCÉPTICO · INTERESADO</div>
+
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-yo-les-dije";
+      const DUR = 4.51;
+
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut", immediateRender: false }, t + i * 0.04);
+        });
+      };
+      const pop = (els, t, o) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, y: (o && o.y) || 0 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(1.6)", transformOrigin: (o && o.origin) || "50% 50%", immediateRender: false }, t + i * ((o && o.stagger) || 0.08));
+        });
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => { f = f || 1; [[-12, 7], [9, -5], [-4, 2], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045)); };
+      const etiquetas = (lista) => {
+        lista.forEach(([sel, t], i) => {
+          tl.fromTo(q(sel), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(q(sel), { opacity: 0, y: -10, duration: 0.2 }, lista[i + 1][0 + 1] - 0.2);
+        });
+      };
+
+
+      const YO = 0.0, DIJE = 0.30, EYE = 1.89, LOCAL = 3.48;
+      dibujar(qa(".s12-l"), 0, 0.5, 0.5);
+      // Nilda salta
+      tl.fromTo(q(".s12-nilda"), { y: 0 }, { y: -26, duration: 0.18, yoyo: true, repeat: 5, ease: "power2.out" }, YO);
+      gsap.set(q(".s12-yo"), { opacity: 0 });
+      tl.fromTo(q(".s12-yo"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", transformOrigin: "0% 50%", immediateRender: false }, DIJE - 0.12);
+      temblor(q(".s12-yo"), DIJE + 0.05, 1);
+      pop(q(".s12-z1"), DIJE + 0.4, { y: 10, origin: "0% 50%" });
+      // el experto se achica y se saca los lentes
+      tl.fromTo(q(".s12-exp"), { opacity: 0.45 }, { opacity: 1, duration: 0.2 }, EYE - 0.3);
+      tl.to(q(".s12-exp"), { scale: 0.86, svgOrigin: "240 1230", duration: 0.4, ease: "power2.out" }, EYE);
+      tl.to(q(".s12-lentes"), { y: 60, rotation: 20, opacity: 0, duration: 0.4, ease: "power2.in" }, EYE + 0.3);
+      tl.fromTo(q(".s12-gota"), { y: 0, opacity: 0 }, { y: 30, opacity: 1, duration: 0.6, ease: "none", immediateRender: false }, EYE + 0.2);
+      pop(q(".s12-pre"), EYE + 0.05, { y: 20, origin: "0% 100%" });
+      pop(q(".s12-z2"), EYE + 0.5, { y: 10, origin: "0% 50%" });
+      tl.to(q(".s12-yo"), { opacity: 0.45, duration: 0.3 }, EYE);
+      tl.to(q(".s12-pre"), { scale: 1.06, transformOrigin: "0% 100%", duration: 0.15, yoyo: true, repeat: 1 }, LOCAL);
+
+      // salida
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

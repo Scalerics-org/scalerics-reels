@@ -1,0 +1,149 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-experto"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-experto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-experto"] .l { fill: none; stroke: #7dff8a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px rgba(125, 255, 138, 0.45)); }
+    [data-composition-id="s05-experto"] .lf { fill: none; stroke: #7dff8a; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.55; }
+    [data-composition-id="s05-experto"] .relleno { fill: #0c2416; }
+    [data-composition-id="s05-experto"] .negro { fill: #020806; }
+    [data-composition-id="s05-experto"] .brillo { fill: #eaffe8; filter: drop-shadow(0 0 10px rgba(234, 255, 232, 0.9)); }
+    [data-composition-id="s05-experto"] .lb { fill: none; stroke: #eaffe8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px rgba(234, 255, 232, 0.7)); }
+    [data-composition-id="s05-experto"] .la { fill: none; stroke: #ffb23e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-experto"] .lr { fill: none; stroke: #ff4b3a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-experto"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+    [data-composition-id="s05-experto"] .lex { font-family: "Lexend", sans-serif; }
+    [data-composition-id="s05-experto"] .sello { position: absolute; padding: 8px 22px; border: 6px solid #ffb23e; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 600; color: #ffb23e; letter-spacing: 0.1em; white-space: nowrap; text-shadow: 0 0 12px rgba(255, 178, 62, 0.5); background: rgba(2, 8, 6, 0.7); }
+    [data-composition-id="s05-experto"] .sello.rojo { border-color: #ff4b3a; color: #ff4b3a; text-shadow: 0 0 12px rgba(255, 75, 58, 0.5); }
+    [data-composition-id="s05-experto"] .centro { left: 0; right: 0; margin: 0 auto; width: max-content; }
+    [data-composition-id="s05-experto"] .zocalo { position: absolute; left: 90px; background: #ffb23e; color: #020806; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 32px; letter-spacing: 0.08em; padding: 10px 22px; white-space: nowrap; }
+    [data-composition-id="s05-experto"] .zocalo-sub { position: absolute; left: 90px; border: 3px solid #ffb23e; color: #ffb23e; background: rgba(2, 8, 6, 0.8); font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.16em; padding: 6px 16px; white-space: nowrap; }
+    [data-composition-id="s05-experto"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; color: #ffb23e; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s05-experto"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+    [data-composition-id="s05-experto"] .s05-z1 { top: 1150px; }
+    [data-composition-id="s05-experto"] .s05-imp { top: 640px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 104px; padding: 4px 30px; border-width: 10px; letter-spacing: 0.03em; }
+    [data-composition-id="s05-experto"] .s05-zz { position: absolute; font-family: "Lexend", sans-serif; font-weight: 800; color: #eaffe8; text-shadow: 0 0 12px rgba(234, 255, 232, 0.7); }
+    [data-composition-id="s05-experto"] .s05-no { position: absolute; left: 830px; top: 905px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; color: #ff4b3a; text-shadow: 0 0 12px rgba(255, 75, 58, 0.5); }
+
+  </style>
+  <div id="root" data-composition-id="s05-experto" data-width="1080" data-height="1920" data-duration="5.34">
+    <div id="s05-escena" class="capa clip" data-start="0" data-duration="5.34" data-track-index="0">
+
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s05-exp">
+          <path class="relleno" d="M240 1130 C250 1000 320 950 400 945 C480 950 550 1000 560 1130 Z" />
+          <path class="l s05-l" d="M240 1130 C250 1000 320 950 400 945 C480 950 550 1000 560 1130" />
+          <path class="l s05-l" d="M370 950 L400 1020 L430 950 M400 1020 V1130" />
+          <!-- moño -->
+          <path class="la s05-l" d="M400 965 L370 948 V982 Z M400 965 L430 948 V982 Z" />
+          <!-- cabeza pelada con pelo a los costados -->
+          <path class="relleno" d="M400 935 C335 935 315 880 315 820 C315 760 350 715 400 715 C450 715 485 760 485 820 C485 880 465 935 400 935 Z" />
+          <path class="l s05-l" d="M400 935 C335 935 315 880 315 820 C315 760 350 715 400 715 C450 715 485 760 485 820 C485 880 465 935 400 935 Z" />
+          <path class="l s05-l" d="M318 800 C305 780 310 760 325 755 M482 800 C495 780 490 760 475 755" />
+          <!-- lentes cuadrados -->
+          <rect class="lb s05-l" x="342" y="805" width="48" height="34" rx="6" /><rect class="lb s05-l" x="410" y="805" width="48" height="34" rx="6" />
+          <path class="lb s05-l" d="M390 820 H410" />
+          <path class="l s05-boca" d="M375 885 C390 878 410 878 425 885" />
+          <!-- dedo que niega -->
+          <g class="s05-dedo">
+            <path class="relleno" d="M560 1060 L610 900 L640 905 L600 1075 Z" />
+            <path class="l" d="M560 1060 L610 900 M600 1075 L640 905 M612 902 C610 860 618 830 628 828 C636 830 638 860 638 905" />
+          </g>
+        </g>
+        <!-- mapita de Uruguay (simplificado) -->
+        <g class="s05-mapa">
+          <path class="l s05-m" d="M720 860 C760 830 820 820 860 835 C900 850 950 880 960 920 C975 960 960 1010 930 1040 C890 1075 820 1085 770 1060 C735 1040 725 1000 715 960 C705 920 700 885 720 860 Z" />
+          <text class="mono" x="840" y="965" text-anchor="middle" font-size="26" fill="#7dff8a" letter-spacing="3">URUGUAY</text>
+          <path class="lr s05-m" d="M760 900 L920 1030 M920 900 L760 1030" />
+        </g>
+        <!-- el sereno dormido -->
+        <g class="s05-sereno">
+          <path class="l s05-s" d="M700 1130 V1010 M700 1060 H860 V1130 M860 1060 V1010" />
+          <path class="relleno" d="M720 1060 C720 990 750 960 785 960 C820 960 845 990 845 1060 Z" />
+          <path class="l s05-s" d="M720 1060 C720 990 750 960 785 960 C820 960 845 990 845 1060" />
+          <circle class="relleno" cx="785" cy="915" r="45" /><circle class="l s05-s" cx="785" cy="915" r="45" />
+          <path class="l s05-s" d="M735 895 H835 M745 895 C745 860 825 860 825 895 M760 925 C768 930 776 930 784 925 M792 925 C800 930 808 930 816 925" />
+          <path class="la s05-s" d="M845 1020 L900 1050 L885 1072 Z" />
+        </g>
+      </svg>
+      <div class="zocalo s05-z1">DR. ESCÉPTICO · EXPERTO</div>
+      <div class="sello rojo centro s05-imp">IMPOSIBLE</div>
+      <div class="s05-zz s05-z1x" style="left: 850px; top: 860px; font-size: 40px;">z</div>
+      <div class="s05-zz s05-z2x" style="left: 885px; top: 815px; font-size: 52px;">z</div>
+      <div class="s05-zz s05-z3x" style="left: 925px; top: 760px; font-size: 64px;">z</div>
+      <div class="etiqueta"><span class="s05-e1">La ciencia opina</span></div>
+
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-experto";
+      const DUR = 5.34;
+
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut", immediateRender: false }, t + i * 0.04);
+        });
+      };
+      const pop = (els, t, o) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, y: (o && o.y) || 0 }, { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "back.out(1.6)", transformOrigin: (o && o.origin) || "50% 50%", immediateRender: false }, t + i * ((o && o.stagger) || 0.08));
+        });
+      };
+      const sello = (el, t, rot) => {
+        gsap.set(el, { opacity: 0, rotation: rot || 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (el, t, f) => { f = f || 1; [[-12, 7], [9, -5], [-4, 2], [0, 0]].forEach(([x, y], i) => tl.to(el, { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045)); };
+      const etiquetas = (lista) => {
+        lista.forEach(([sel, t], i) => {
+          tl.fromTo(q(sel), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+          if (i + 1 < lista.length) tl.to(q(sel), { opacity: 0, y: -10, duration: 0.2 }, lista[i + 1][0 + 1] - 0.2);
+        });
+      };
+
+
+      const IMP = 0.0, URU = 1.43, PASA = 2.09, SERENO = 4.38;
+      dibujar(qa(".s05-l"), 0, 0.6, 0.45);
+      gsap.set(q(".s05-z1"), { opacity: 0 });
+      tl.fromTo(q(".s05-z1"), { opacity: 1, x: -900 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, 0.05);
+      sello(q(".s05-imp"), 0.2, -8);
+      temblor(q(".s05-exp"), 0.25, 0.8);
+      // dedo que niega todo el tiempo
+      tl.fromTo(q(".s05-dedo"), { rotation: -10, svgOrigin: "580 1070" }, { rotation: 10, svgOrigin: "580 1070", duration: 0.22, yoyo: true, repeat: 15, ease: "sine.inOut" }, 0.3);
+      // mapa de Uruguay con cruz
+      dibujar(qa(".s05-mapa .l"), URU - 0.1, 0.5);
+      dibujar(qa(".s05-mapa .lr"), PASA - 0.1, 0.25);
+      pop(q(".s05-mapa text"), URU + 0.2);
+      tl.to(q(".s05-imp"), { opacity: 0, y: -80, scale: 0.7, duration: 0.3, ease: "power2.in" }, URU);
+      tl.to(q(".s05-mapa"), { opacity: 0, y: -20, duration: 0.25 }, SERENO - 0.6);
+      // el sereno dormido
+      gsap.set(q(".s05-sereno"), { opacity: 0 });
+      tl.set(q(".s05-sereno"), { opacity: 1 }, SERENO - 0.35);
+      dibujar(qa(".s05-s"), SERENO - 0.35, 0.4);
+      qa(".s05-zz").forEach((z, i) => { gsap.set(z, { opacity: 0 }); tl.fromTo(z, { opacity: 0, y: 20 }, { opacity: 0.95, y: 0, duration: 0.3, immediateRender: false }, SERENO + i * 0.15); tl.to(z, { y: -12, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, SERENO + 0.3 + i * 0.15); });
+      tl.fromTo(q(".s05-boca"), { scaleY: 1, svgOrigin: "400 882" }, { scaleY: -1.2, svgOrigin: "400 882", duration: 0.2, immediateRender: false }, SERENO);
+      etiquetas([[".s05-e1", 0.6]]);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
