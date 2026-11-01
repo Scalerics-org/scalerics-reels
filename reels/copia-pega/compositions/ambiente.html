@@ -1,0 +1,90 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Shojumaru"; font-weight: 400; font-display: block; src: url("assets/fonts/Shojumaru.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    /* shoji: la pared de papel de arroz con su enrejado de madera */
+    [data-composition-id="ambiente"] .am-shoji { position: absolute; left: -40px; top: 0; width: 1160px; height: 1390px; opacity: 0.08;
+      background-image: linear-gradient(90deg, #3a2618 6px, transparent 6px), linear-gradient(#3a2618 6px, transparent 6px);
+      background-size: 145px 100%, 100% 196px; background-position: 30px 0, 0 120px; }
+    [data-composition-id="ambiente"] .am-fibra { position: absolute; inset: 0; opacity: 0.5;
+      background-image: repeating-linear-gradient(97deg, rgba(150, 120, 70, 0.05) 0px, rgba(150, 120, 70, 0.05) 2px, transparent 2px, transparent 23px),
+        repeating-linear-gradient(8deg, rgba(150, 120, 70, 0.04) 0px, rgba(150, 120, 70, 0.04) 1px, transparent 1px, transparent 31px); }
+    /* tatami: costuras y el borde negro (heri) */
+    [data-composition-id="ambiente"] .am-tatami { position: absolute; left: 0; top: 1400px; width: 1080px; height: 288px;
+      background-image: repeating-linear-gradient(0deg, rgba(90, 80, 30, 0.16) 0px, rgba(90, 80, 30, 0.16) 2px, transparent 2px, transparent 9px); }
+    [data-composition-id="ambiente"] .am-sombra { position: absolute; left: 0; right: 0; top: 1400px; height: 60px; background: linear-gradient(180deg, rgba(27, 23, 18, 0.22), rgba(27, 23, 18, 0)); }
+    /* manchas de tinta en las esquinas */
+    [data-composition-id="ambiente"] .am-mancha { position: absolute; }
+    /* cartel de quién habla: sello de laca sobre el tatami */
+    [data-composition-id="ambiente"] .am-quien { position: absolute; left: 56px; top: 1586px; height: 80px; }
+    [data-composition-id="ambiente"] .am-q { position: absolute; left: 0; top: 0; opacity: 0; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-q b { display: inline-block; padding: 12px 22px 8px; border-radius: 8px; border: 4px solid #1b1712; font-family: "Shojumaru", serif; font-weight: 400; font-size: 36px; line-height: 1; color: #fbf6ea; vertical-align: middle; }
+    [data-composition-id="ambiente"] .am-q small { display: inline-block; margin-left: 16px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; color: #1b1712; text-transform: uppercase; vertical-align: middle; }
+    [data-composition-id="ambiente"] .am-tinta { position: absolute; left: -200px; top: 0; width: 1480px; height: 1920px; }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #fbf6ea; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.37">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="73.37" data-track-index="0">
+      <div class="am-shoji"></div>
+      <div class="am-fibra"></div>
+      <div class="am-tatami"></div>
+      <div class="am-sombra"></div>
+      <svg class="am-mancha" style="left: 900px; top: 470px; width: 200px; height: 200px" viewBox="0 0 200 200" aria-hidden="true" data-layout-ignore>
+        <path d="M120 40 Q160 30 170 70 Q190 110 150 130 Q120 160 90 130 Q50 120 70 80 Q80 40 120 40 Z" fill="#1b1712" opacity="0.1" />
+        <circle cx="60" cy="40" r="10" fill="#1b1712" opacity="0.12" /><circle cx="40" cy="70" r="5" fill="#1b1712" opacity="0.12" /><circle cx="180" cy="160" r="7" fill="#1b1712" opacity="0.12" />
+      </svg>
+      <svg class="am-mancha" style="left: -40px; top: 1250px; width: 220px; height: 160px" viewBox="0 0 220 160" aria-hidden="true" data-layout-ignore>
+        <path d="M30 60 Q80 20 140 50 Q190 70 170 110 Q120 140 70 120 Q20 100 30 60 Z" fill="#c8102e" opacity="0.1" />
+        <circle cx="190" cy="40" r="8" fill="#c8102e" opacity="0.14" />
+      </svg>
+      <div class="am-quien">
+        <div class="am-q am-qm"><b style="background: #c8102e">MAESTRO</b><small>el que sabe</small></div>
+        <div class="am-q am-qa"><b style="background: #1b1712">ALUMNO</b><small>el dueño · cinturón blanco</small></div>
+        <div class="am-q am-qo"><b style="background: #2f8f06">SCALERICS</b><small>automatizaciones</small></div>
+      </div>
+      <svg class="am-tinta" viewBox="0 0 1480 1920" aria-hidden="true" data-layout-ignore>
+        <path d="M0 700 Q300 560 700 640 Q1100 720 1480 560 L1480 1360 Q1100 1500 700 1380 Q300 1280 0 1420 Z" fill="#1b1712" />
+      </svg>
+      <div class="am-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.37;
+      const QUIEN = [["qm",0,6.839],["qa",6.839,11.098],["qm",11.098,21.261],["qa",21.261,23.937],["qm",23.937,31.501],["qa",31.501,33.322],["qm",33.322,42.621],["qa",42.621,44.534],["qm",44.534,52.706],["qa",52.706,54.169],["qm",54.169,57.883],["qo",57.883,73.165]]; // [[clase, desde, hasta]]
+      const TINTA = [44.5,57.86]; // golpes de tinta que cruzan la pantalla (segundos globales)
+      const FLASH = [51.75,61.3];
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // la pared respira apenas (cámara en mano)
+      tl.fromTo(q(".am-shoji"), { x: 0 }, { x: -30, duration: DUR, ease: "none" }, 0);
+
+      // quién habla
+      for (const [c, a, b] of QUIEN) {
+        const el = q(".am-" + c);
+        tl.fromTo(el, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.18, ease: "power3.out", immediateRender: false }, a);
+        tl.to(el, { opacity: 0, x: 20, duration: 0.14, ease: "power2.in" }, b - 0.14);
+      }
+
+      // pincelada de tinta que barre de izquierda a derecha (corte con sumi)
+      gsap.set(q(".am-tinta"), { x: -1600 });
+      for (const t of TINTA) {
+        tl.fromTo(q(".am-tinta"), { x: -1600 }, { x: 0, duration: 0.16, ease: "power3.in", immediateRender: false }, t - 0.16);
+        tl.to(q(".am-tinta"), { x: 1600, duration: 0.2, ease: "power3.out" }, t + 0.04);
+      }
+      for (const t of FLASH) {
+        tl.to(q(".am-flash"), { opacity: 0.85, duration: 0.03 }, t);
+        tl.to(q(".am-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.04);
+      }
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,72 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    <!--@ESTILO-->
+    [data-composition-id="{{ID}}"] .s09-alu { left: 30px; top: 720px; }
+    [data-composition-id="{{ID}}"] .s09-card { position: absolute; left: 440px; width: 590px; height: 230px; border: 7px solid #1b1712; border-radius: 16px; background: #fbf6ea; box-shadow: 9px 9px 0 #1b1712; }
+    [data-composition-id="{{ID}}"] .s09-card svg { position: absolute; left: 20px; top: 24px; width: 170px; height: 170px; overflow: visible; }
+    [data-composition-id="{{ID}}"] .s09-card b { position: absolute; left: 210px; top: 40px; font-family: "Shojumaru", serif; font-weight: 400; font-size: 54px; color: #1b1712; white-space: nowrap; }
+    [data-composition-id="{{ID}}"] .s09-card span { position: absolute; left: 212px; top: 128px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; color: #1b1712; white-space: nowrap; }
+    [data-composition-id="{{ID}}"] .s09-c1 { top: 600px; }
+    [data-composition-id="{{ID}}"] .s09-c2 { top: 860px; }
+    [data-composition-id="{{ID}}"] .s09-c3 { top: 1120px; }
+    [data-composition-id="{{ID}}"] .s09-mano { left: 470px; width: 150px; height: 70px; font-size: 26px; border-width: 5px; border-radius: 10px; }
+  </style>
+  <div id="root" data-composition-id="{{ID}}" data-width="1080" data-height="1920" data-duration="6.25">
+    <div id="s09-escena" class="capa clip" data-start="0" data-duration="6.25" data-track-index="0">
+      <div class="capa esc">
+        <div class="fig s09-alu"><svg viewBox="0 0 400 720" aria-hidden="true"><!--@ALUMNO--></svg></div>
+        <div class="s09-card s09-c1"><svg viewBox="0 0 170 170" aria-hidden="true">
+            <rect x="10" y="24" width="150" height="136" rx="12" fill="#fbf6ea" stroke="#1b1712" stroke-width="7"/>
+            <rect x="10" y="24" width="150" height="40" rx="10" fill="#c8102e" stroke="#1b1712" stroke-width="7"/>
+            <path d="M48 10 v30 M122 10 v30" stroke="#1b1712" stroke-width="9" stroke-linecap="round"/>
+            <circle cx="85" cy="110" r="30" fill="none" stroke="#1b1712" stroke-width="6"/><path d="M85 92 V110 L98 118" fill="none" stroke="#1b1712" stroke-width="6" stroke-linecap="round"/>
+          </svg><b>TURNO</b><span>LA SEÑORA · 10:00</span></div>
+        <div class="s09-card s09-c2"><svg viewBox="0 0 170 170" aria-hidden="true">
+            <circle cx="85" cy="85" r="70" fill="#c99a2e" stroke="#1b1712" stroke-width="7"/><circle cx="85" cy="85" r="52" fill="none" stroke="#1b1712" stroke-width="4" opacity="0.5"/>
+            <text x="85" y="112" text-anchor="middle" font-family="Shojumaru" font-size="80" fill="#1b1712">$</text>
+          </svg><b>PAGO</b><span>EL QUE TE DEBE</span></div>
+        <div class="s09-card s09-c3"><svg viewBox="0 0 170 170" aria-hidden="true">
+            <rect x="24" y="14" width="124" height="148" rx="8" fill="#fbf6ea" stroke="#1b1712" stroke-width="7"/>
+            <path d="M24 14 V162" stroke="#1b1712" stroke-width="16"/>
+            <path class="s09-garabato" d="M50 50 Q70 40 90 52 T130 48 M50 82 Q74 72 96 84 T128 80 M50 114 Q66 106 86 118 T124 112" fill="none" stroke="#1b1712" stroke-width="5" stroke-linecap="round"/>
+          </svg><b>CUADERNO</b><span>ANOTÁ TODO</span></div>
+        <div data-layout-allow-overlap class="hanko s09-mano s09-h1" style="top: 700px">A MANO</div>
+        <div data-layout-allow-overlap class="hanko s09-mano s09-h2" style="top: 960px">A MANO</div>
+        <div data-layout-allow-overlap class="hanko s09-mano s09-h3" style="top: 1220px">A MANO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "{{ID}}";
+      const DUR = 6.25;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      /*@HELPERS*/
+      const TURNO = 1.25, PAGO = 2.75, ANOTALO = 4.55, CUADERNO = 5.15;
+      gsap.set(q(".s09-alu"), { scale: 0.98, transformOrigin: "50% 100%" });
+      cara(0, ".a-ojos-cerr", ".a-ojos");
+      // el alumno, agotado, se balancea
+      tl.fromTo(q(".a-cuerpo"), { rotation: -3, svgOrigin: "200 700" }, { rotation: 3, svgOrigin: "200 700", duration: 0.7, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0);
+      // las tarjetas caen en su palabra, cada una con su sello
+      const cae = (el, t, rot) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: -160, rotation: -10 }, { opacity: 1, y: 0, rotation: rot, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, t); };
+      cae(q(".s09-c1"), 0.2, -2);
+      tl.fromTo(q(".s09-c1 svg"), { rotation: -12 }, { rotation: 12, duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut" }, TURNO);
+      sello(q(".s09-h1"), TURNO + 0.6, -8, 2);
+      cae(q(".s09-c2"), PAGO - 0.3, 2);
+      tl.fromTo(q(".s09-c2 svg"), { scaleX: 1, transformOrigin: "50% 50%" }, { scaleX: -1, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, PAGO);
+      sello(q(".s09-h2"), PAGO + 0.9, 6, 2);
+      cae(q(".s09-c3"), ANOTALO - 0.3, -1);
+      dibujar(qa(".s09-garabato"), ANOTALO + 0.05, 0.6);
+      sello(q(".s09-h3"), CUADERNO + 0.1, -5, 2);
+      [TURNO + 0.6, PAGO + 0.9, CUADERNO + 0.1].forEach((t) => temblor(t + 0.03, 9));
+      // le pesa: cada tarea lo hunde un poco más
+      [[0.25, 8], [PAGO, 16], [ANOTALO, 26]].forEach(([t, y]) => tl.to(q(".a-cabeza"), { y, duration: 0.3, ease: "power2.out" }, t));
+      tl.to(q(".a-gota"), { opacity: 1, duration: 0.1 }, PAGO);
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

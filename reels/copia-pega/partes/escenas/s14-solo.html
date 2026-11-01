@@ -1,0 +1,89 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    <!--@ESTILO-->
+    [data-composition-id="{{ID}}"] .s14-por { left: 0; right: 0; top: 610px; font-size: 34px; letter-spacing: 0.3em; text-align: center; }
+    [data-composition-id="{{ID}}"] .s14-auto { left: 0; right: 0; top: 670px; font-size: 66px; color: #2f8f06; text-shadow: 4px 4px 0 #1b1712; }
+    [data-composition-id="{{ID}}"] .s14-cel { position: absolute; left: 60px; top: 800px; width: 360px; height: 540px; border: 8px solid #1b1712; border-radius: 44px; background: #fbf6ea; box-shadow: 10px 10px 0 #1b1712; overflow: hidden; }
+    [data-composition-id="{{ID}}"] .s14-cel-h { position: absolute; left: 0; right: 0; top: 0; height: 90px; background: #1b1712; }
+    [data-composition-id="{{ID}}"] .s14-cel-h span { position: absolute; left: 26px; top: 38px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; color: #fbf6ea; }
+    [data-composition-id="{{ID}}"] .s14-cel .msg { left: 18px; font-size: 25px; padding: 10px 14px; }
+    [data-composition-id="{{ID}}"] .s14-hoja { position: absolute; left: 560px; top: 800px; width: 470px; height: 540px; background: #fbf6ea; border: 6px solid #1b1712; box-shadow: 10px 10px 0 #1b1712; }
+    [data-composition-id="{{ID}}"] .s14-hoja-h { position: absolute; left: 0; right: 0; top: 0; height: 70px; border-bottom: 5px solid #1b1712; background: #c99a2e; }
+    [data-composition-id="{{ID}}"] .s14-hoja-h span { position: absolute; left: 20px; top: 20px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; color: #1b1712; }
+    [data-composition-id="{{ID}}"] .s14-fila { position: absolute; left: 0; right: 0; height: 84px; border-bottom: 3px solid rgba(27, 23, 18, 0.35); }
+    [data-composition-id="{{ID}}"] .s14-fila b { position: absolute; left: 22px; top: 24px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 27px; color: #1b1712; white-space: nowrap; }
+    [data-composition-id="{{ID}}"] .s14-fila svg { position: absolute; right: 18px; top: 18px; width: 46px; height: 46px; }
+    [data-composition-id="{{ID}}"] .s14-vuela { position: absolute; left: 0; top: 0; padding: 8px 14px; border: 4px solid #2f8f06; border-radius: 14px; background: #fbf6ea; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 25px; color: #1b1712; white-space: nowrap; }
+    [data-composition-id="{{ID}}"] .s14-solo { left: 380px; top: 1250px; width: 320px; height: 130px; font-size: 76px; border-color: #2f8f06; color: #2f8f06; }
+  </style>
+  <div id="root" data-composition-id="{{ID}}" data-width="1080" data-height="1920" data-duration="5.01">
+    <div id="s14-escena" class="capa clip" data-start="0" data-duration="5.01" data-track-index="0">
+      <div class="capa esc">
+        <div class="mono s14-por">POR ESO HACEMOS</div>
+        <div class="sho s14-auto">AUTOMATIZACIONES</div>
+        <div class="s14-cel">
+          <div class="s14-cel-h"><span>CHAT · PEDIDOS</span></div>
+          <div class="msg s14-m" style="top: 116px">Docena de empanadas</div>
+          <div class="msg s14-m" style="top: 206px">Torta para el sábado</div>
+          <div class="msg s14-m" style="top: 296px">Un pollo al spiedo</div>
+          <div class="msg s14-m" style="top: 386px">Lo de siempre, porfa</div>
+        </div>
+        <div class="s14-hoja">
+          <div class="s14-hoja-h"><span>PLANILLA · SOLA</span></div>
+          <div class="s14-fila" style="top: 74px"><b class="s14-f">Docena de empanadas</b><svg class="s14-ok" viewBox="0 0 46 46"><circle cx="23" cy="23" r="20" fill="#2f8f06" stroke="#1b1712" stroke-width="4"/><path d="M13 24 L20 31 L33 16" fill="none" stroke="#fbf6ea" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="s14-fila" style="top: 158px"><b class="s14-f">Torta para el sábado</b><svg class="s14-ok" viewBox="0 0 46 46"><circle cx="23" cy="23" r="20" fill="#2f8f06" stroke="#1b1712" stroke-width="4"/><path d="M13 24 L20 31 L33 16" fill="none" stroke="#fbf6ea" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="s14-fila" style="top: 242px"><b class="s14-f">Un pollo al spiedo</b><svg class="s14-ok" viewBox="0 0 46 46"><circle cx="23" cy="23" r="20" fill="#2f8f06" stroke="#1b1712" stroke-width="4"/><path d="M13 24 L20 31 L33 16" fill="none" stroke="#fbf6ea" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="s14-fila" style="top: 326px"><b class="s14-f">Lo de siempre</b><svg class="s14-ok" viewBox="0 0 46 46"><circle cx="23" cy="23" r="20" fill="#2f8f06" stroke="#1b1712" stroke-width="4"/><path d="M13 24 L20 31 L33 16" fill="none" stroke="#fbf6ea" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="s14-via" d="M420 1000 Q490 900 560 960" fill="none" stroke="#2f8f06" stroke-width="8" stroke-dasharray="4 16" stroke-linecap="round"/></svg>
+        <div class="s14-vuela">pedido</div><div class="s14-vuela">pedido</div><div class="s14-vuela">pedido</div><div class="s14-vuela">pedido</div>
+        <div class="hanko s14-solo">SOLO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "{{ID}}";
+      const DUR = 5.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      /*@HELPERS*/
+      const AUTO = 0.6, PEDIDO = 2.1, WHATSAPP = 2.7, CAE = 3.35, SOLO = 3.5, PLANILLA = 4.1;
+      // entra justo detrás de la pincelada de tinta
+      tl.fromTo(q(".s14-por"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2 }, 0.05);
+      gsap.set(q(".s14-auto"), { opacity: 0 });
+      tl.fromTo(q(".s14-auto"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, AUTO - 0.1);
+      temblor(AUTO + 0.06, 12);
+      tl.to(q(".s14-auto"), { scale: 1.04, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1 }, AUTO + 0.2);
+      // el chat y la planilla, ahora sin nadie que copie
+      tl.fromTo(q(".s14-cel"), { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 1.3);
+      tl.fromTo(q(".s14-hoja"), { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 1.4);
+      gsap.set(qa(".s14-m"), { opacity: 0 });
+      qa(".s14-m").forEach((m, i) => pop(m, 1.6 + i * 0.12, 0.2));
+      gsap.set(qa(".s14-f"), { opacity: 0 }); gsap.set(qa(".s14-ok"), { opacity: 0 });
+      dibujar(q(".s14-via"), PEDIDO - 0.2, 0.4);
+      // cada pedido viaja solo por la vía verde y cae en su fila, cada vez más rápido
+      const via = q(".s14-via"), L = via.getTotalLength();
+      const T = [PEDIDO + 0.2, WHATSAPP + 0.1, CAE, PLANILLA - 0.1];
+      const filas = qa(".s14-f"), oks = qa(".s14-ok"), msgs = qa(".s14-m");
+      qa(".s14-vuela").forEach((v, i) => {
+        gsap.set(v, { opacity: 0 });
+        const p = { v: 0 };
+        const pon = () => { const pt = via.getPointAtLength(p.v * L); gsap.set(v, { x: pt.x - 50, y: pt.y - 26 }); };
+        pon();
+        tl.to(v, { opacity: 1, duration: 0.05 }, T[i] - 0.4);
+        tl.to(msgs[i], { opacity: 0.35, duration: 0.1 }, T[i] - 0.4);
+        tl.fromTo(p, { v: 0 }, { v: 1, duration: 0.4, ease: "power1.inOut", immediateRender: false, onUpdate: pon }, T[i] - 0.4);
+        tl.to(v, { opacity: 0, duration: 0.05 }, T[i]);
+        tl.fromTo(filas[i], { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.15, immediateRender: false }, T[i]);
+        tl.fromTo(oks[i], { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(3)", immediateRender: false }, T[i] + 0.05);
+      });
+      sello(q(".s14-solo"), SOLO + 0.05, -5);
+      temblor(SOLO + 0.08, 12);
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

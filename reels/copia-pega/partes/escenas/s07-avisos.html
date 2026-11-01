@@ -1,0 +1,73 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    <!--@ESTILO-->
+    [data-composition-id="{{ID}}"] .s07-chat { position: absolute; width: 300px; height: 190px; border: 6px solid #1b1712; border-radius: 26px; background: #fbf6ea; box-shadow: 7px 7px 0 #1b1712; }
+    [data-composition-id="{{ID}}"] .s07-chat b { position: absolute; left: 20px; top: 16px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 28px; color: #1b1712; }
+    [data-composition-id="{{ID}}"] .s07-chat i { position: absolute; right: 18px; top: 22px; width: 22px; height: 22px; border-radius: 50%; background: #c8102e; }
+    [data-composition-id="{{ID}}"] .s07-chat .msg { right: 14px; left: auto; top: 74px; font-size: 25px; padding: 10px 14px; border-radius: 20px 20px 6px 20px; background: #c99a2e; border-width: 4px; }
+    [data-composition-id="{{ID}}"] .s07-dedo { left: 0; top: 0; width: 120px; height: 200px; }
+    [data-composition-id="{{ID}}"] .s07-amano { left: 160px; top: 1040px; width: 760px; height: 220px; font-size: 112px; }
+    [data-composition-id="{{ID}}"] .s07-cada { left: 0; right: 0; top: 1300px; font-size: 30px; text-align: center; }
+  </style>
+  <div id="root" data-composition-id="{{ID}}" data-width="1080" data-height="1920" data-duration="5.07">
+    <div id="s07-escena" class="capa clip" data-start="0" data-duration="5.07" data-track-index="0">
+      <div class="capa esc">
+        <div class="s07-chat" style="left: 70px; top: 600px"><b>Marta</b><i></i><div class="msg">Tu pedido está listo</div></div>
+        <div class="s07-chat" style="left: 400px; top: 600px"><b>Don Julio</b><i></i><div class="msg">Tu pedido está listo</div></div>
+        <div class="s07-chat" style="left: 730px; top: 600px; width: 290px"><b>Caro</b><i></i><div class="msg">Tu pedido está listo</div></div>
+        <div class="s07-chat" style="left: 70px; top: 830px"><b>El del 4B</b><i></i><div class="msg">Tu pedido está listo</div></div>
+        <div class="s07-chat" style="left: 400px; top: 830px"><b>Sofi</b><i></i><div class="msg">Tu pedido está listo</div></div>
+        <div class="s07-chat" style="left: 730px; top: 830px; width: 290px"><b>Gustavo</b><i></i><div class="msg">Tu pedido está listo</div></div>
+        <div class="s07-chat" style="left: 70px; top: 1060px"><b>Ana</b><i></i><div class="msg">Tu pedido está listo</div></div>
+        <div class="s07-chat" style="left: 400px; top: 1060px"><b>Mirta</b><i></i><div class="msg">Tu pedido está listo</div></div>
+        <div class="s07-chat" style="left: 730px; top: 1060px; width: 290px"><b>Pablo</b><i></i><div class="msg">Tu pedido está listo</div></div>
+        <div class="mono s07-cada">A CADA CLIENTE · UNO POR UNO</div>
+        <svg class="obj s07-dedo" viewBox="0 0 120 200" aria-hidden="true">
+          <path d="M60 20 L60 150" stroke="#1b1712" stroke-width="58" stroke-linecap="round"/>
+          <path d="M60 20 L60 150" stroke="#f6eedb" stroke-width="44" stroke-linecap="round"/>
+          <path d="M44 22 Q60 6 76 22 L76 48 L44 48 Z" fill="#fbf6ea" stroke="#1b1712" stroke-width="4"/>
+          <path d="M40 90 Q60 98 80 90" fill="none" stroke="#1b1712" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <div data-layout-allow-overlap class="hanko s07-amano">A MANO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "{{ID}}";
+      const DUR = 5.07;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      /*@HELPERS*/
+      const AVISALE = 0.61, CADA = 1.21, LISTO = 3.11, AMANO = 4.03;
+      const chats = qa(".s07-chat");
+      // cuadro 0: el primer chat ya está; los demás aparecen en "a cada cliente"
+      chats.forEach((c, i) => { if (i === 0) tl.fromTo(c, { scale: 0.9 }, { scale: 1, duration: 0.25, ease: "back.out(2)" }, 0); else pop(c, CADA - 0.2 + i * 0.06, 0.22); });
+      gsap.set(qa(".s07-chat .msg"), { opacity: 0 });
+      sube(q(".s07-cada"), CADA + 0.4);
+      // el dedo escribe el aviso en cada chat, uno por uno y cada vez más rápido
+      const dedo = q(".s07-dedo");
+      const T = [AVISALE, 1.9, 2.35, 2.7, 3.0, 3.25, 3.47, 3.66, 3.82];
+      gsap.set(dedo, { opacity: 0 });
+      tl.to(dedo, { opacity: 1, duration: 0.1 }, AVISALE - 0.2);
+      chats.forEach((c, i) => {
+        const x = parseInt(c.style.left) + 200, y = parseInt(c.style.top) + 70;
+        tl.to(dedo, { x, y, duration: i === 0 ? 0.2 : Math.max(0.1, (T[i] - T[i - 1]) * 0.6), ease: "power2.inOut" }, i === 0 ? AVISALE - 0.2 : T[i - 1] + 0.05);
+        tl.to(dedo, { scale: 0.88, duration: 0.05, yoyo: true, repeat: 1 }, T[i]);
+        const m = c.querySelector(".msg");
+        tl.fromTo(m, { opacity: 0, scale: 0.6, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)", immediateRender: false }, T[i] + 0.05);
+        tl.fromTo(c.querySelector("i"), { scale: 1 }, { scale: 0, duration: 0.1, immediateRender: false }, T[i] + 0.05);
+      });
+      tl.to(qa(".s07-chat"), { rotation: (i) => [-2, 1, -1, 2, -2, 1, 2, -1, 1][i], duration: 0.2 }, LISTO);
+      // "a mano": cae el sello
+      tl.to([...chats, q(".s07-cada")], { opacity: 0.35, duration: 0.2 }, AMANO - 0.1);
+      tl.to(dedo, { x: 480, y: 820, scale: 1.6, duration: 0.25, ease: "power3.out" }, AMANO - 0.2);
+      sello(q(".s07-amano"), AMANO + 0.05, -5);
+      temblor(AMANO + 0.08, 16);
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

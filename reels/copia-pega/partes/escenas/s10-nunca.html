@@ -1,0 +1,56 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    <!--@ESTILO-->
+    [data-composition-id="{{ID}}"] .s10-alu { left: 340px; top: 676px; }
+    [data-composition-id="{{ID}}"] .s10-preg { left: 0; right: 0; top: 600px; font-size: 64px; color: #1b1712; }
+    [data-composition-id="{{ID}}"] .s10-nunca { left: 90px; top: 760px; width: 900px; height: 380px; font-size: 184px; border-width: 16px; border-radius: 30px; background: rgba(239, 228, 204, 0.96); }
+    [data-composition-id="{{ID}}"] .s10-gotas { left: 0; top: 0; }
+  </style>
+  <div id="root" data-composition-id="{{ID}}" data-width="1080" data-height="1920" data-duration="2.73">
+    <div id="s10-escena" class="capa clip" data-start="0" data-duration="2.73" data-track-index="0">
+      <div class="capa esc">
+        <div class="kau s10-preg">¿y cuándo termina?</div>
+        <div class="fig s10-alu"><svg viewBox="0 0 400 720" aria-hidden="true"><!--@ALUMNO--></svg></div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s10-salpic" fill="#1b1712">
+            <circle cx="120" cy="720" r="26"/><circle cx="70" cy="790" r="12"/><circle cx="980" cy="1210" r="30"/><circle cx="1020" cy="1150" r="12"/><circle cx="930" cy="700" r="16"/><circle cx="160" cy="1220" r="18"/>
+          </g>
+        </svg>
+        <div class="hanko s10-nunca">NUNCA.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "{{ID}}";
+      const DUR = 2.73;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      /*@HELPERS*/
+      const TERMINA = 0.4, NUNCA = 1.91;
+      gsap.set(q(".s10-alu"), { scale: 1.1, transformOrigin: "50% 100%" });
+      // suplicando: manos juntas, de rodillas (se hunde)
+      tl.fromTo(q(".a-brazo-i"), { rotation: 0, svgOrigin: "136 292" }, { rotation: 55, svgOrigin: "136 292", duration: 0.3, ease: "power2.out" }, 0);
+      tl.fromTo(q(".a-brazo-d"), { rotation: 0, svgOrigin: "264 292" }, { rotation: -55, svgOrigin: "264 292", duration: 0.3, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s10-alu"), { y: 0 }, { y: 70, duration: 0.4, ease: "power2.in" }, 0.2);
+      cara(0, ".a-boca-o", ".a-boca");
+      tl.to(q(".a-gota"), { opacity: 1, duration: 0.1 }, 0.2);
+      tl.fromTo(q(".s10-alu"), { x: -4 }, { x: 4, duration: 0.05, yoyo: true, repeat: 15, ease: "none", immediateRender: false }, 0.6);
+      sube(q(".s10-preg"), 0.05);
+      tl.fromTo(q(".s10-preg"), { scale: 1 }, { scale: 1.1, duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, TERMINA);
+      // la pincelada de tinta (ambiente) barre justo antes; después cae NUNCA
+      gsap.set(q(".s10-salpic"), { opacity: 0 });
+      tl.set(q(".s10-preg"), { opacity: 0 }, NUNCA - 0.1);
+      tl.set(q(".s10-salpic"), { opacity: 1 }, NUNCA - 0.05);
+      tl.fromTo(q(".s10-salpic"), { scale: 0.3, svgOrigin: "540 960" }, { scale: 1, svgOrigin: "540 960", duration: 0.2, ease: "power4.out", immediateRender: false }, NUNCA - 0.05);
+      tl.to(q(".s10-alu"), { opacity: 0.25, duration: 0.05 }, NUNCA - 0.1);
+      sello(q(".s10-nunca"), NUNCA, -4, 2.8);
+      temblor(NUNCA + 0.03, 20);
+      tl.to(q(".s10-nunca"), { scale: 1.04, duration: 0.6, ease: "sine.out" }, NUNCA + 0.1);
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,89 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Shojumaru"; font-weight: 400; font-display: block; src: url("assets/fonts/Shojumaru.woff2") format("woff2"); }
+    @font-face { font-family: "Kaushan Script"; font-weight: 400; font-display: block; src: url("assets/fonts/KaushanScript.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-enso"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-enso"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-enso"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s12-enso"] .fig svg, [data-composition-id="s12-enso"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s12-enso"] .obj { position: absolute; }
+    [data-composition-id="s12-enso"] .sho { position: absolute; font-family: "Shojumaru", serif; line-height: 1.02; white-space: nowrap; text-align: center; }
+    [data-composition-id="s12-enso"] .kau { position: absolute; font-family: "Kaushan Script", cursive; line-height: 1.05; white-space: nowrap; text-align: center; color: #1b1712; }
+    [data-composition-id="s12-enso"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; white-space: nowrap; text-transform: uppercase; color: #1b1712; }
+    [data-composition-id="s12-enso"] .hanko { position: absolute; display: flex; align-items: center; justify-content: center; text-align: center; border: 9px solid #c8102e; border-radius: 18px; color: #c8102e; font-family: "Shojumaru", serif; line-height: 1.02; white-space: nowrap; background: rgba(239, 228, 204, 0.92); }
+    [data-composition-id="s12-enso"] .msg { position: absolute; padding: 14px 22px; border-radius: 24px 24px 24px 6px; background: #fbf6ea; border: 5px solid #1b1712; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; line-height: 1.15; color: #1b1712; white-space: nowrap; }
+    [data-composition-id="s12-enso"] .s12-enso { left: 190px; top: 640px; width: 700px; height: 700px; }
+    [data-composition-id="s12-enso"] .s12-cp { left: 0; right: 0; top: 910px; font-size: 46px; color: #1b1712; }
+    [data-composition-id="s12-enso"] .s12-tacha { left: 340px; top: 912px; width: 400px; height: 70px; }
+    [data-composition-id="s12-enso"] .s12-maestro { left: 0; right: 0; top: 590px; font-size: 40px; letter-spacing: 0.3em; text-align: center; }
+    [data-composition-id="s12-enso"] .s12-solo { left: 0; right: 0; top: 850px; font-size: 70px; color: #c99a2e; text-shadow: 4px 4px 0 #1b1712; }
+    [data-composition-id="s12-enso"] .s12-solo span { display: block; font-size: 124px; color: #c8102e; text-shadow: 5px 5px 0 #1b1712; }
+    [data-composition-id="s12-enso"] .s12-ciclo { left: 470px; top: 1090px; width: 140px; height: 82px; }
+  </style>
+  <div id="root" data-composition-id="s12-enso" data-width="1080" data-height="1920" data-duration="4.06">
+    <div id="s12-escena" class="capa clip" data-start="0" data-duration="4.06" data-track-index="0">
+      <div class="capa esc">
+        <svg class="obj s12-enso" viewBox="0 0 400 400" aria-hidden="true"><path class="enso" d="M250 54 C356 78 380 220 320 296 C252 380 108 368 60 268 C18 180 70 72 180 56" fill="none" stroke="#1b1712" stroke-width="34" stroke-linecap="round"/></svg>
+        <div class="mono s12-maestro">EL VERDADERO MAESTRO</div>
+        <div class="sho s12-cp">COPIÁ · PEGÁ</div>
+        <svg class="obj s12-tacha" viewBox="0 0 600 80" preserveAspectRatio="none" aria-hidden="true"><path d="M8 46 Q60 18 150 30 Q300 44 440 22 Q540 10 592 30 Q560 50 470 52 Q320 58 180 62 Q70 70 8 46 Z" fill="#c8102e"/></svg>
+        <div class="sho s12-solo">SE REPITE<span>SOLO</span></div>
+        <svg class="obj s12-ciclo" viewBox="0 0 240 140" aria-hidden="true">
+          <g class="s12-gira"><path d="M120 20 A50 50 0 1 1 72 82" fill="none" stroke="#1b1712" stroke-width="12" stroke-linecap="round"/><path d="M60 60 L72 90 L98 72" fill="none" stroke="#1b1712" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-enso";
+      const DUR = 4.06;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const ESC = q(".esc");
+      const temblor = (t, f = 12) => [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // sello: cae grande y golpea en t
+      const sello = (el, t, rot = 0, desde = 2.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: desde, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      // pop: aparece entero
+      const pop = (el, t, d = 0.3) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // entra desde abajo
+      const sube = (el, t, d = 0.25) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t); };
+      // trazos que se dibujan
+      const dibujar = (els, t, d = 0.5, st = 0.05) => [].concat(els).forEach((el, i) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t + i * st); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st); });
+      // ojos/boca del personaje: cambia de cara
+      const cara = (t, on, off) => { if (on) tl.to(qa(on), { opacity: 1, duration: 0.05 }, t); if (off) tl.to(qa(off), { opacity: 0, duration: 0.05 }, t); };
+      const salida = () => tl.to(q("#" + ID.slice(0, 3) + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      const MAESTRO = 0.48, REPITE = 1.28, HACE = 2.19, REPITA = 2.68, SOLO = 3.08;
+      // el ensō se pinta de un trazo
+      const enso = q(".enso");
+      const L = enso.getTotalLength();
+      gsap.set(enso, { strokeDasharray: L, strokeDashoffset: L * 0.55 });
+      tl.to(enso, { strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut" }, 0);
+      tl.fromTo(q(".s12-enso"), { rotation: -20, scale: 0.94 }, { rotation: 0, scale: 1, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s12-maestro"), { opacity: 0.4, y: 20 }, { opacity: 1, y: 0, duration: 0.25 }, 0);
+      // "no repite": COPIÁ · PEGÁ tachado
+      pop(q(".s12-cp"), MAESTRO + 0.2, 0.25);
+      tl.fromTo(q(".s12-tacha"), { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.25, ease: "power3.out" }, REPITE);
+      temblor(REPITE + 0.2, 8);
+      tl.to([q(".s12-cp"), q(".s12-tacha"), q(".s12-maestro")], { opacity: 0, y: -40, duration: 0.2, ease: "power2.in" }, HACE - 0.15);
+      // "hace que se repita solo"
+      gsap.set(q(".s12-solo"), { opacity: 0 });
+      tl.fromTo(q(".s12-solo"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, HACE);
+      gsap.set(q(".s12-solo span"), { opacity: 0 });
+      tl.fromTo(q(".s12-solo span"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, SOLO - 0.12);
+      temblor(SOLO + 0.02, 16);
+      pop(q(".s12-ciclo"), REPITA, 0.25);
+      tl.fromTo(q(".s12-gira"), { rotation: 0, svgOrigin: "120 70" }, { rotation: 720, svgOrigin: "120 70", duration: DUR - REPITA, ease: "power1.inOut", immediateRender: false }, REPITA);
+      tl.to(q(".enso"), { stroke: "#c99a2e", duration: 0.2 }, SOLO);
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

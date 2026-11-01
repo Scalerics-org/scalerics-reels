@@ -1,0 +1,67 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    <!--@ESTILO-->
+    [data-composition-id="{{ID}}"] .s16-mae { left: -40px; top: 676px; }
+    [data-composition-id="{{ID}}"] .s16-alu { left: 720px; top: 676px; }
+    [data-composition-id="{{ID}}"] .s16-cont { left: 0; right: 0; top: 600px; font-size: 34px; letter-spacing: 0.24em; text-align: center; }
+    [data-composition-id="{{ID}}"] .s16-cual { left: 0; right: 0; top: 670px; font-size: 64px; color: #1b1712; }
+    [data-composition-id="{{ID}}"] .s16-cp { left: 130px; top: 760px; width: 820px; height: 170px; font-size: 84px; border-width: 12px; border-radius: 24px; }
+    [data-composition-id="{{ID}}"] .s16-box { position: absolute; left: 290px; top: 1010px; width: 500px; height: 210px; border: 6px solid #1b1712; border-radius: 26px; background: #fbf6ea; box-shadow: 9px 9px 0 #1b1712; }
+    [data-composition-id="{{ID}}"] .s16-box small { position: absolute; left: 24px; top: 20px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.14em; color: #1b1712; opacity: 0.6; }
+    [data-composition-id="{{ID}}"] .s16-box p { position: absolute; left: 24px; right: 24px; top: 64px; margin: 0; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 31px; line-height: 1.3; color: #1b1712; white-space: normal; }
+    [data-composition-id="{{ID}}"] .s16-box p span { opacity: 0; }
+    [data-composition-id="{{ID}}"] .s16-cur { display: inline-block; width: 4px; height: 34px; margin-left: 2px; background: #c8102e; vertical-align: -5px; }
+  </style>
+  <div id="root" data-composition-id="{{ID}}" data-width="1080" data-height="1920" data-duration="6.01">
+    <div id="s16-escena" class="capa clip" data-start="0" data-duration="6.01" data-track-index="0">
+      <div class="capa esc">
+        <div class="fig s16-mae"><svg viewBox="0 0 400 720" aria-hidden="true"><!--@MAESTRO--></svg></div>
+        <div class="fig s16-alu"><svg viewBox="0 0 400 720" aria-hidden="true"><!--@ALUMNO--></svg></div>
+        <div class="mono s16-cont">CONTANOS EN LOS COMENTARIOS</div>
+        <div class="sho s16-cual">¿CUÁL ES TU</div>
+        <div class="hanko s16-cp">COPIÁ Y PEGÁ?</div>
+        <div class="s16-box"><small>COMENTARIOS</small><p class="s16-txt"></p></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "{{ID}}";
+      const DUR = 6.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      /*@HELPERS*/
+      const COMENT = 0.62, CUAL = 1.46, COPIA = 1.82, PEGA = 2.32;
+      // escritura determinista: cada letra es un span que se prende
+      const TXT = "El mío: pasar los pedidos a la planilla todas las noches";
+      const p = q(".s16-txt");
+      p.innerHTML = [...TXT].map((c) => "<span>" + (c === " " ? " " : c) + "</span>").join("") + '<i class="s16-cur"></i>';
+      const letras = qa(".s16-txt span");
+      letras.forEach((l, i) => tl.set(l, { opacity: 1 }, 2.7 + i * 0.045));
+      tl.fromTo(q(".s16-cur"), { opacity: 1 }, { opacity: 0, duration: 0.25, ease: "steps(1)", yoyo: true, repeat: 23 }, 0);
+
+      // los dos hacen la reverencia
+      gsap.set([q(".s16-mae"), q(".s16-alu")], { scale: 0.72, transformOrigin: "50% 100%" });
+      tl.fromTo([q(".s16-mae"), q(".s16-alu")], { y: 40 }, { y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.to(q(".m-cabeza"), { y: 44, scale: 0.94, svgOrigin: "200 240", duration: 0.4, ease: "power2.inOut", yoyo: true, repeat: 1, repeatDelay: 0.5 }, 0.3);
+      tl.to(q(".a-cabeza"), { y: 44, scale: 0.94, svgOrigin: "200 240", duration: 0.4, ease: "power2.inOut", yoyo: true, repeat: 1, repeatDelay: 0.5 }, 0.4);
+      tl.to([q(".m-cuerpo"), q(".a-cuerpo")], { scaleY: 0.95, svgOrigin: "200 700", duration: 0.4, ease: "power2.inOut", yoyo: true, repeat: 1, repeatDelay: 0.5 }, 0.3);
+      cara(0, ".m-sonrisa", ".m-boca");
+      // "contanos en los comentarios"
+      tl.fromTo(q(".s16-cont"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25 }, 0);
+      pop(q(".s16-box"), COMENT, 0.3);
+      // "¿cuál es tu copiá y pegá?"
+      sube(q(".s16-cual"), CUAL - 0.05, 0.2);
+      sello(q(".s16-cp"), COPIA + 0.05, -3);
+      temblor(COPIA + 0.08, 14);
+      tl.fromTo(q(".s16-cp"), { scale: 1 }, { scale: 1.06, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, PEGA);
+      // late suave hasta el final (sin salida)
+      tl.to(q(".s16-cp"), { scale: 1.03, duration: 0.6, yoyo: true, repeat: 4, ease: "sine.inOut" }, 2.9);
+      tl.to(q(".a-cabeza"), { rotation: 6, svgOrigin: "200 240", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 2.4);
+      tl.to(q(".m-brazo-d"), { rotation: -10, svgOrigin: "266 290", duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 2.6);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

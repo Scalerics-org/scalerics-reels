@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Shojumaru"; font-weight: 400; font-display: block; src: url("assets/fonts/Shojumaru.woff2") format("woff2"); }
+    @font-face { font-family: "Kaushan Script"; font-weight: 400; font-display: block; src: url("assets/fonts/KaushanScript.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-solo"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-solo"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-solo"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s14-solo"] .fig svg, [data-composition-id="s14-solo"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s14-solo"] .obj { position: absolute; }
+    [data-composition-id="s14-solo"] .sho { position: absolute; font-family: "Shojumaru", serif; line-height: 1.02; white-space: nowrap; text-align: center; }
+    [data-composition-id="s14-solo"] .kau { position: absolute; font-family: "Kaushan Script", cursive; line-height: 1.05; white-space: nowrap; text-align: center; color: #1b1712; }
+    [data-composition-id="s14-solo"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; white-space: nowrap; text-transform: uppercase; color: #1b1712; }
+    [data-composition-id="s14-solo"] .hanko { position: absolute; display: flex; align-items: center; justify-content: center; text-align: center; border: 9px solid #c8102e; border-radius: 18px; color: #c8102e; font-family: "Shojumaru", serif; line-height: 1.02; white-space: nowrap; background: rgba(239, 228, 204, 0.92); }
+    [data-composition-id="s14-solo"] .msg { position: absolute; padding: 14px 22px; border-radius: 24px 24px 24px 6px; background: #fbf6ea; border: 5px solid #1b1712; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; line-height: 1.15; color: #1b1712; white-space: nowrap; }
+    [data-composition-id="s14-solo"] .s14-por { left: 0; right: 0; top: 610px; font-size: 34px; letter-spacing: 0.3em; text-align: center; }
+    [data-composition-id="s14-solo"] .s14-auto { left: 0; right: 0; top: 670px; font-size: 66px; color: #2f8f06; text-shadow: 4px 4px 0 #1b1712; }
+    [data-composition-id="s14-solo"] .s14-cel { position: absolute; left: 60px; top: 800px; width: 360px; height: 540px; border: 8px solid #1b1712; border-radius: 44px; background: #fbf6ea; box-shadow: 10px 10px 0 #1b1712; overflow: hidden; }
+    [data-composition-id="s14-solo"] .s14-cel-h { position: absolute; left: 0; right: 0; top: 0; height: 90px; background: #1b1712; }
+    [data-composition-id="s14-solo"] .s14-cel-h span { position: absolute; left: 26px; top: 38px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; color: #fbf6ea; }
+    [data-composition-id="s14-solo"] .s14-cel .msg { left: 18px; font-size: 25px; padding: 10px 14px; }
+    [data-composition-id="s14-solo"] .s14-hoja { position: absolute; left: 560px; top: 800px; width: 470px; height: 540px; background: #fbf6ea; border: 6px solid #1b1712; box-shadow: 10px 10px 0 #1b1712; }
+    [data-composition-id="s14-solo"] .s14-hoja-h { position: absolute; left: 0; right: 0; top: 0; height: 70px; border-bottom: 5px solid #1b1712; background: #c99a2e; }
+    [data-composition-id="s14-solo"] .s14-hoja-h span { position: absolute; left: 20px; top: 20px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; color: #1b1712; }
+    [data-composition-id="s14-solo"] .s14-fila { position: absolute; left: 0; right: 0; height: 84px; border-bottom: 3px solid rgba(27, 23, 18, 0.35); }
+    [data-composition-id="s14-solo"] .s14-fila b { position: absolute; left: 22px; top: 24px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 27px; color: #1b1712; white-space: nowrap; }
+    [data-composition-id="s14-solo"] .s14-fila svg { position: absolute; right: 18px; top: 18px; width: 46px; height: 46px; }
+    [data-composition-id="s14-solo"] .s14-vuela { position: absolute; left: 0; top: 0; padding: 8px 14px; border: 4px solid #2f8f06; border-radius: 14px; background: #fbf6ea; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 25px; color: #1b1712; white-space: nowrap; }
+    [data-composition-id="s14-solo"] .s14-solo { left: 380px; top: 1250px; width: 320px; height: 130px; font-size: 76px; border-color: #2f8f06; color: #2f8f06; }
+  </style>
+  <div id="root" data-composition-id="s14-solo" data-width="1080" data-height="1920" data-duration="5.01">
+    <div id="s14-escena" class="capa clip" data-start="0" data-duration="5.01" data-track-index="0">
+      <div class="capa esc">
+        <div class="mono s14-por">POR ESO HACEMOS</div>
+        <div class="sho s14-auto">AUTOMATIZACIONES</div>
+        <div class="s14-cel">
+          <div class="s14-cel-h"><span>CHAT · PEDIDOS</span></div>
+          <div class="msg s14-m" style="top: 116px">Docena de empanadas</div>
+          <div class="msg s14-m" style="top: 206px">Torta para el sábado</div>
+          <div class="msg s14-m" style="top: 296px">Un pollo al spiedo</div>
+          <div class="msg s14-m" style="top: 386px">Lo de siempre, porfa</div>
+        </div>
+        <div class="s14-hoja">
+          <div class="s14-hoja-h"><span>PLANILLA · SOLA</span></div>
+          <div class="s14-fila" style="top: 74px"><b class="s14-f">Docena de empanadas</b><svg class="s14-ok" viewBox="0 0 46 46"><circle cx="23" cy="23" r="20" fill="#2f8f06" stroke="#1b1712" stroke-width="4"/><path d="M13 24 L20 31 L33 16" fill="none" stroke="#fbf6ea" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="s14-fila" style="top: 158px"><b class="s14-f">Torta para el sábado</b><svg class="s14-ok" viewBox="0 0 46 46"><circle cx="23" cy="23" r="20" fill="#2f8f06" stroke="#1b1712" stroke-width="4"/><path d="M13 24 L20 31 L33 16" fill="none" stroke="#fbf6ea" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="s14-fila" style="top: 242px"><b class="s14-f">Un pollo al spiedo</b><svg class="s14-ok" viewBox="0 0 46 46"><circle cx="23" cy="23" r="20" fill="#2f8f06" stroke="#1b1712" stroke-width="4"/><path d="M13 24 L20 31 L33 16" fill="none" stroke="#fbf6ea" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="s14-fila" style="top: 326px"><b class="s14-f">Lo de siempre</b><svg class="s14-ok" viewBox="0 0 46 46"><circle cx="23" cy="23" r="20" fill="#2f8f06" stroke="#1b1712" stroke-width="4"/><path d="M13 24 L20 31 L33 16" fill="none" stroke="#fbf6ea" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="s14-via" d="M420 1000 Q490 900 560 960" fill="none" stroke="#2f8f06" stroke-width="8" stroke-dasharray="4 16" stroke-linecap="round"/></svg>
+        <div class="s14-vuela">pedido</div><div class="s14-vuela">pedido</div><div class="s14-vuela">pedido</div><div class="s14-vuela">pedido</div>
+        <div class="hanko s14-solo">SOLO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-solo";
+      const DUR = 5.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const ESC = q(".esc");
+      const temblor = (t, f = 12) => [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // sello: cae grande y golpea en t
+      const sello = (el, t, rot = 0, desde = 2.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: desde, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      // pop: aparece entero
+      const pop = (el, t, d = 0.3) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // entra desde abajo
+      const sube = (el, t, d = 0.25) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t); };
+      // trazos que se dibujan
+      const dibujar = (els, t, d = 0.5, st = 0.05) => [].concat(els).forEach((el, i) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t + i * st); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st); });
+      // ojos/boca del personaje: cambia de cara
+      const cara = (t, on, off) => { if (on) tl.to(qa(on), { opacity: 1, duration: 0.05 }, t); if (off) tl.to(qa(off), { opacity: 0, duration: 0.05 }, t); };
+      const salida = () => tl.to(q("#" + ID.slice(0, 3) + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      const AUTO = 0.6, PEDIDO = 2.1, WHATSAPP = 2.7, CAE = 3.35, SOLO = 3.5, PLANILLA = 4.1;
+      // entra justo detrás de la pincelada de tinta
+      tl.fromTo(q(".s14-por"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2 }, 0.05);
+      gsap.set(q(".s14-auto"), { opacity: 0 });
+      tl.fromTo(q(".s14-auto"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, AUTO - 0.1);
+      temblor(AUTO + 0.06, 12);
+      tl.to(q(".s14-auto"), { scale: 1.04, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1 }, AUTO + 0.2);
+      // el chat y la planilla, ahora sin nadie que copie
+      tl.fromTo(q(".s14-cel"), { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 1.3);
+      tl.fromTo(q(".s14-hoja"), { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 1.4);
+      gsap.set(qa(".s14-m"), { opacity: 0 });
+      qa(".s14-m").forEach((m, i) => pop(m, 1.6 + i * 0.12, 0.2));
+      gsap.set(qa(".s14-f"), { opacity: 0 }); gsap.set(qa(".s14-ok"), { opacity: 0 });
+      dibujar(q(".s14-via"), PEDIDO - 0.2, 0.4);
+      // cada pedido viaja solo por la vía verde y cae en su fila, cada vez más rápido
+      const via = q(".s14-via"), L = via.getTotalLength();
+      const T = [PEDIDO + 0.2, WHATSAPP + 0.1, CAE, PLANILLA - 0.1];
+      const filas = qa(".s14-f"), oks = qa(".s14-ok"), msgs = qa(".s14-m");
+      qa(".s14-vuela").forEach((v, i) => {
+        gsap.set(v, { opacity: 0 });
+        const p = { v: 0 };
+        const pon = () => { const pt = via.getPointAtLength(p.v * L); gsap.set(v, { x: pt.x - 50, y: pt.y - 26 }); };
+        pon();
+        tl.to(v, { opacity: 1, duration: 0.05 }, T[i] - 0.4);
+        tl.to(msgs[i], { opacity: 0.35, duration: 0.1 }, T[i] - 0.4);
+        tl.fromTo(p, { v: 0 }, { v: 1, duration: 0.4, ease: "power1.inOut", immediateRender: false, onUpdate: pon }, T[i] - 0.4);
+        tl.to(v, { opacity: 0, duration: 0.05 }, T[i]);
+        tl.fromTo(filas[i], { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.15, immediateRender: false }, T[i]);
+        tl.fromTo(oks[i], { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(3)", immediateRender: false }, T[i] + 0.05);
+      });
+      sello(q(".s14-solo"), SOLO + 0.05, -5);
+      temblor(SOLO + 0.08, 12);
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Shojumaru"; font-weight: 400; font-display: block; src: url("assets/fonts/Shojumaru.woff2") format("woff2"); }
+    @font-face { font-family: "Kaushan Script"; font-weight: 400; font-display: block; src: url("assets/fonts/KaushanScript.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-dolor"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-dolor"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-dolor"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s06-dolor"] .fig svg, [data-composition-id="s06-dolor"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s06-dolor"] .obj { position: absolute; }
+    [data-composition-id="s06-dolor"] .sho { position: absolute; font-family: "Shojumaru", serif; line-height: 1.02; white-space: nowrap; text-align: center; }
+    [data-composition-id="s06-dolor"] .kau { position: absolute; font-family: "Kaushan Script", cursive; line-height: 1.05; white-space: nowrap; text-align: center; color: #1b1712; }
+    [data-composition-id="s06-dolor"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; white-space: nowrap; text-transform: uppercase; color: #1b1712; }
+    [data-composition-id="s06-dolor"] .hanko { position: absolute; display: flex; align-items: center; justify-content: center; text-align: center; border: 9px solid #c8102e; border-radius: 18px; color: #c8102e; font-family: "Shojumaru", serif; line-height: 1.02; white-space: nowrap; background: rgba(239, 228, 204, 0.92); }
+    [data-composition-id="s06-dolor"] .msg { position: absolute; padding: 14px 22px; border-radius: 24px 24px 24px 6px; background: #fbf6ea; border: 5px solid #1b1712; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; line-height: 1.15; color: #1b1712; white-space: nowrap; }
+    [data-composition-id="s06-dolor"] .s06-mae { left: 620px; top: 676px; }
+    [data-composition-id="s06-dolor"] .s06-rollo { position: absolute; left: 90px; top: 590px; width: 470px; height: 760px; }
+    [data-composition-id="s06-dolor"] .s06-papel { position: absolute; left: 30px; top: 30px; width: 410px; height: 700px; background: #fbf6ea; border-left: 6px solid #1b1712; border-right: 6px solid #1b1712; box-shadow: 8px 8px 0 rgba(27, 23, 18, 0.25); }
+    [data-composition-id="s06-dolor"] .s06-palo { position: absolute; left: 0; width: 470px; height: 30px; border-radius: 15px; background: #1b1712; }
+    [data-composition-id="s06-dolor"] .s06-palo i { position: absolute; top: 3px; width: 24px; height: 24px; border-radius: 50%; background: #c99a2e; }
+    [data-composition-id="s06-dolor"] .s06-t { left: 30px; width: 410px; font-size: 76px; }
+    [data-composition-id="s06-dolor"] .s06-dolor { color: #c8102e; font-size: 104px; }
+    [data-composition-id="s06-dolor"] .s06-hanko { left: 330px; top: 1220px; width: 110px; height: 110px; font-size: 26px; line-height: 1.1; border-width: 6px; transform: rotate(-6deg); }
+  </style>
+  <div id="root" data-composition-id="s06-dolor" data-width="1080" data-height="1920" data-duration="2.49">
+    <div id="s06-escena" class="capa clip" data-start="0" data-duration="2.49" data-track-index="0">
+      <div class="capa esc">
+        <div class="s06-rollo">
+          <div class="s06-papel"></div>
+          <div class="s06-palo" style="top: 0"><i style="left: 3px"></i><i style="right: 3px"></i></div>
+          <div class="s06-palo s06-palo-b" style="top: 730px"><i style="left: 3px"></i><i style="right: 3px"></i></div>
+          <div class="kau s06-t s06-t1" style="top: 90px">El</div>
+          <div class="kau s06-t s06-dolor" style="top: 180px">dolor</div>
+          <div class="kau s06-t s06-t2" style="top: 340px">es parte</div>
+          <div class="kau s06-t s06-t3" style="top: 440px">del camino</div>
+          <svg class="obj" style="left: 80px; top: 560px; width: 310px; height: 90px" viewBox="0 0 310 90" aria-hidden="true"><path class="s06-cam" d="M10 70 Q80 10 150 50 Q220 90 300 20" fill="none" stroke="#1b1712" stroke-width="12" stroke-linecap="round"/></svg>
+        </div>
+        <div class="hanko s06-hanko">EL<br/>MAESTRO</div>
+        <div class="fig s06-mae"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="m-cuerpo">
+  <path d="M120 470 L96 690 Q200 708 304 690 L280 470 Z" fill="#1b1712" stroke="#1b1712" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M200 520 V694" stroke="#3a3128" stroke-width="5"/>
+  <ellipse cx="150" cy="700" rx="40" ry="14" fill="#fbf6ea" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="250" cy="700" rx="40" ry="14" fill="#fbf6ea" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M128 268 Q200 246 272 268 Q296 380 286 480 Q200 496 114 480 Q104 380 128 268 Z" fill="#1b1712" stroke="#1b1712" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M160 262 L200 360 L240 262" fill="none" stroke="#efe4cc" stroke-width="12" stroke-linejoin="round"/>
+  <rect x="112" y="440" width="176" height="34" rx="6" fill="#c99a2e" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M182 470 L170 540 M214 470 L230 538" stroke="#c99a2e" stroke-width="14" stroke-linecap="round"/>
+  <g class="m-brazo-i">
+    <path d="M136 290 Q96 380 132 450" fill="none" stroke="#1b1712" stroke-width="44" stroke-linecap="round"/>
+    <circle cx="140" cy="452" r="20" fill="#f6eedb" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="m-brazo-d">
+    <path d="M266 290 Q318 330 316 250" fill="none" stroke="#1b1712" stroke-width="44" stroke-linecap="round"/>
+    <circle cx="316" cy="236" r="21" fill="#f6eedb" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M318 218 L320 176" stroke="#1b1712" stroke-width="20" stroke-linecap="round"/>
+    <path d="M318 218 L320 176" stroke="#f6eedb" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g class="m-cabeza">
+    <ellipse cx="200" cy="168" rx="70" ry="80" fill="#f6eedb" stroke="#1b1712" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M150 108 Q170 96 186 104" fill="none" stroke="#1b1712" stroke-width="4" opacity="0.5"/>
+    <ellipse cx="128" cy="176" rx="14" ry="22" fill="#f6eedb" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="272" cy="176" rx="14" ry="22" fill="#f6eedb" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="m-cejas">
+      <path d="M150 144 Q172 130 192 146 Q170 150 140 176 Q138 156 150 144 Z" fill="#fbf6ea" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M250 144 Q228 130 208 146 Q230 150 260 176 Q262 156 250 144 Z" fill="#fbf6ea" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+    </g>
+    <g class="m-ojos"><path d="M162 168 Q174 160 186 168" fill="none" stroke="#1b1712" stroke-width="6" stroke-linecap="round"/><path d="M214 168 Q226 160 238 168" fill="none" stroke="#1b1712" stroke-width="6" stroke-linecap="round"/></g>
+    <path d="M196 176 Q188 200 204 204" fill="none" stroke="#1b1712" stroke-width="5" stroke-linecap="round"/>
+    <path d="M150 214 Q200 196 250 214 Q262 300 230 380 Q216 360 210 400 Q200 372 190 400 Q184 360 170 380 Q138 300 150 214 Z" fill="#fbf6ea" stroke="#1b1712" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M176 226 Q200 236 224 226" fill="none" stroke="#1b1712" stroke-width="5" stroke-linecap="round" class="m-boca"/>
+    <path d="M172 222 Q200 250 228 222" fill="none" stroke="#1b1712" stroke-width="6" stroke-linecap="round" class="m-sonrisa" opacity="0"/>
+    <path d="M186 270 Q200 300 196 340 M214 268 Q206 300 212 330" fill="none" stroke="#1b1712" stroke-width="3" opacity="0.45"/>
+  </g>
+</g></svg></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-dolor";
+      const DUR = 2.49;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const ESC = q(".esc");
+      const temblor = (t, f = 12) => [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // sello: cae grande y golpea en t
+      const sello = (el, t, rot = 0, desde = 2.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: desde, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      // pop: aparece entero
+      const pop = (el, t, d = 0.3) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // entra desde abajo
+      const sube = (el, t, d = 0.25) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t); };
+      // trazos que se dibujan
+      const dibujar = (els, t, d = 0.5, st = 0.05) => [].concat(els).forEach((el, i) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t + i * st); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st); });
+      // ojos/boca del personaje: cambia de cara
+      const cara = (t, on, off) => { if (on) tl.to(qa(on), { opacity: 1, duration: 0.05 }, t); if (off) tl.to(qa(off), { opacity: 0, duration: 0.05 }, t); };
+      const salida = () => tl.to(q("#" + ID.slice(0, 3) + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      const DOLOR = 0.2, PARTE = 1.14, CAMINO = 1.7;
+      gsap.set(q(".s06-mae"), { scale: 1.08, transformOrigin: "50% 100%" });
+      tl.fromTo(q(".s06-mae"), { x: 40 }, { x: 0, duration: 0.3, ease: "power3.out" }, 0);
+      // el rollo se desenrolla hacia abajo
+      tl.fromTo(q(".s06-papel"), { clipPath: "inset(0 0 92% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 0.45, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s06-palo-b"), { y: -650 }, { y: 0, duration: 0.45, ease: "power2.out" }, 0);
+      // la caligrafía se escribe en su palabra
+      const escribe = (el, t, d = 0.3) => { gsap.set(el, { clipPath: "inset(0 100% 0 0)" }); tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: d, ease: "power1.inOut" }, t); };
+      escribe(q(".s06-t1"), 0.1, 0.15);
+      escribe(q(".s06-dolor"), DOLOR, 0.35);
+      tl.fromTo(q(".s06-dolor"), { scale: 1.2 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, DOLOR + 0.2);
+      escribe(q(".s06-t2"), PARTE - 0.3, 0.35);
+      escribe(q(".s06-t3"), CAMINO - 0.3, 0.35);
+      dibujar(q(".s06-cam"), CAMINO, 0.4);
+      sello(q(".s06-hanko"), CAMINO + 0.4, -6, 2);
+      // el maestro se acaricia la barba, sabio
+      tl.to(q(".m-brazo-d"), { rotation: -40, svgOrigin: "266 290", duration: 0.4, ease: "sine.inOut" }, 0.2);
+      tl.to(q(".m-cabeza"), { rotation: 4, svgOrigin: "200 240", duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0.3);
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

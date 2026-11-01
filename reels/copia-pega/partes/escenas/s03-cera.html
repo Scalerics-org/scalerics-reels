@@ -1,0 +1,82 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    <!--@ESTILO-->
+    [data-composition-id="{{ID}}"] .s03-sil { left: 0; right: 0; top: 760px; font-size: 118px; color: #1b1712; }
+    [data-composition-id="{{ID}}"] .s03-pin { left: 190px; top: 900px; width: 700px; height: 90px; }
+    [data-composition-id="{{ID}}"] .s03-ref { left: 50%; top: 610px; transform: translateX(-50%); }
+    [data-composition-id="{{ID}}"] .s03-ref-in { padding: 18px 30px 14px; border: 5px solid #1b1712; background: #fbf6ea; text-align: center; box-shadow: 8px 8px 0 #1b1712; }
+    [data-composition-id="{{ID}}"] .s03-ref small { display: block; font-family: "IBM Plex Mono", monospace; font-size: 26px; letter-spacing: 0.3em; color: #c8102e; }
+    [data-composition-id="{{ID}}"] .s03-ref b { display: block; margin-top: 6px; font-family: "Shojumaru", serif; font-weight: 400; font-size: 64px; color: #1b1712; letter-spacing: 0.02em; white-space: nowrap; }
+    [data-composition-id="{{ID}}"] .s03-lab { top: 1250px; width: 440px; font-size: 54px; }
+    [data-composition-id="{{ID}}"] .s03-l1 { left: 80px; color: #1b1712; }
+    [data-composition-id="{{ID}}"] .s03-l2 { left: 560px; color: #c8102e; }
+    [data-composition-id="{{ID}}"] .s03-circ { fill: none; stroke-width: 12; stroke-linecap: round; }
+  </style>
+  <div id="root" data-composition-id="{{ID}}" data-width="1080" data-height="1920" data-duration="4.56">
+    <div id="s03-escena" class="capa clip" data-start="0" data-duration="4.56" data-track-index="0">
+      <div class="capa esc">
+        <div class="sho s03-sil">SILENCIO.</div>
+        <svg class="obj s03-pin" viewBox="0 0 600 80" preserveAspectRatio="none" aria-hidden="true"><!--@PINCELADA--></svg>
+        <div class="obj s03-ref"><div class="s03-ref-in"><small>COMO EN</small><b>KARATE KID</b></div></div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s03-circ s03-c1" d="M300 860 A160 160 0 1 1 299.9 860" stroke="#1b1712" />
+          <path class="s03-circ s03-c2" d="M780 860 A160 160 0 1 0 780.1 860" stroke="#c8102e" />
+          <path class="s03-fl1" d="M300 860 l-26 -18 M300 860 l-24 22" fill="none" stroke="#1b1712" stroke-width="10" stroke-linecap="round" />
+          <path class="s03-fl2" d="M780 860 l26 -18 M780 860 l24 22" fill="none" stroke="#c8102e" stroke-width="10" stroke-linecap="round" />
+          <g class="s03-m1"><g transform="scale(1,1)"><path d="M-27 -26 L-32 -78 M-9 -34 L-10 -94 M9 -34 L11 -92 M26 -26 L31 -74 M-34 6 L-66 -24" fill="none" stroke="#1b1712" stroke-width="28" stroke-linecap="round"/><path d="M-27 -26 L-32 -78 M-9 -34 L-10 -94 M9 -34 L11 -92 M26 -26 L31 -74 M-34 6 L-66 -24" fill="none" stroke="#f6eedb" stroke-width="14" stroke-linecap="round"/><ellipse cx="0" cy="4" rx="42" ry="48" fill="#f6eedb" stroke="#1b1712" stroke-width="7"/></g></g>
+          <g class="s03-m2"><g transform="scale(-1,1)"><path d="M-27 -26 L-32 -78 M-9 -34 L-10 -94 M9 -34 L11 -92 M26 -26 L31 -74 M-34 6 L-66 -24" fill="none" stroke="#1b1712" stroke-width="28" stroke-linecap="round"/><path d="M-27 -26 L-32 -78 M-9 -34 L-10 -94 M9 -34 L11 -92 M26 -26 L31 -74 M-34 6 L-66 -24" fill="none" stroke="#f6eedb" stroke-width="14" stroke-linecap="round"/><ellipse cx="0" cy="4" rx="42" ry="48" fill="#f6eedb" stroke="#1b1712" stroke-width="7"/></g></g>
+        </svg>
+        <div class="sho s03-lab s03-l1">DAR CERA</div>
+        <div class="sho s03-lab s03-l2">PULIR CERA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "{{ID}}";
+      const DUR = 4.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      /*@HELPERS*/
+      const COMO = 1.2, KID = 1.9, DAR = 2.74, PULIR = 3.3;
+
+      // "Silencio.": golpe seco, la pincelada abajo
+      tl.fromTo(q(".s03-sil"), { opacity: 0.6, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in" }, 0);
+      temblor(0.12, 14);
+      tl.fromTo(q(".s03-pin"), { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.35, ease: "power2.out" }, 0.1);
+      tl.to(q(".s03-sil"), { scale: 1.04, duration: 1.0, ease: "sine.inOut" }, 0.2);
+      tl.to([q(".s03-sil"), q(".s03-pin")], { opacity: 0, y: -60, duration: 0.2, ease: "power2.in" }, COMO - 0.15);
+
+      // "como en Karate Kid": cartel de referencia
+      gsap.set(q(".s03-ref"), { opacity: 0 });
+      tl.fromTo(q(".s03-ref"), { opacity: 0, y: 80, rotation: -6 }, { opacity: 1, y: 0, rotation: -2, duration: 0.3, ease: "back.out(2)", immediateRender: false }, COMO);
+      tl.to(q(".s03-ref"), { rotation: 2, duration: 0.12, yoyo: true, repeat: 1 }, KID);
+
+      // "dar cera, pulir cera": dos manos que giran
+      const c1 = q(".s03-c1"), c2 = q(".s03-c2");
+      dibujar([c1], DAR - 0.1, 0.6);
+      dibujar([c2], PULIR - 0.1, 0.6);
+      gsap.set([q(".s03-fl1"), q(".s03-fl2"), q(".s03-m1"), q(".s03-m2")], { opacity: 0 });
+      tl.to(q(".s03-fl1"), { opacity: 1, duration: 0.1 }, DAR + 0.45);
+      tl.to(q(".s03-fl2"), { opacity: 1, duration: 0.1 }, PULIR + 0.45);
+      const gira = (mano, path, t) => {
+        const L = path.getTotalLength(), p = { v: 0 };
+        const pon = () => { const pt = path.getPointAtLength((p.v % 1) * L); gsap.set(mano, { x: pt.x, y: pt.y }); };
+        pon();
+        tl.to(mano, { opacity: 1, duration: 0.1 }, t);
+        tl.fromTo(p, { v: 0 }, { v: (DUR - t) * 1.1, duration: DUR - t, ease: "none", immediateRender: false, onUpdate: pon }, t);
+      };
+      gira(q(".s03-m1"), c1, DAR);
+      gira(q(".s03-m2"), c2, PULIR);
+      sello(q(".s03-l1"), DAR + 0.1, -3, 1.8);
+      sello(q(".s03-l2"), PULIR + 0.1, 3, 1.8);
+      temblor(PULIR + 0.12, 8);
+      tl.to(q(".s03-ref"), { opacity: 0.5, scale: 0.8, y: -20, duration: 0.25 }, DAR);
+
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

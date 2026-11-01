@@ -1,0 +1,159 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Shojumaru"; font-weight: 400; font-display: block; src: url("assets/fonts/Shojumaru.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-patada"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-patada"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-patada"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s02-patada"] .fig svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s02-patada"] .s02-alu { left: 70px; top: 676px; }
+    [data-composition-id="s02-patada"] .s02-palo { fill: none; stroke: #1b1712; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s02-patada"] .s02-dia { position: absolute; left: 500px; top: 1290px; width: 560px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.14em; white-space: nowrap; color: #1b1712; }
+    [data-composition-id="s02-patada"] .s02-dia b { color: #c8102e; font-weight: 500; }
+    [data-composition-id="s02-patada"] .s02-globo { position: absolute; left: 430px; top: 580px; width: 620px; height: 560px; }
+    [data-composition-id="s02-patada"] .s02-globo svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s02-patada"] .s02-pf { position: absolute; left: 450px; top: 1060px; width: 580px; text-align: center; font-family: "Shojumaru", serif; font-size: 70px; line-height: 1.05; color: #c8102e; white-space: nowrap; }
+    [data-composition-id="s02-patada"] .s02-pf span { display: block; color: #1b1712; font-size: 50px; }
+  </style>
+  <div id="root" data-composition-id="s02-patada" data-width="1080" data-height="1920" data-duration="4.26">
+    <div id="s02-escena" class="capa clip" data-start="0" data-duration="4.26" data-track-index="0">
+      <div class="capa s02-esc">
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s02-palo" d="M540 1060 L543 1140"/>
+          <path class="s02-palo" d="M554 1060 L557 1140"/>
+          <path class="s02-palo" d="M568 1060 L571 1140"/>
+          <path class="s02-palo" d="M582 1060 L585 1140"/>
+          <path class="s02-palo" d="M532 1120 L594 1078"/>
+          <path class="s02-palo" d="M620 1060 L623 1140"/>
+          <path class="s02-palo" d="M634 1060 L637 1140"/>
+          <path class="s02-palo" d="M648 1060 L651 1140"/>
+          <path class="s02-palo" d="M662 1060 L665 1140"/>
+          <path class="s02-palo" d="M612 1120 L674 1078"/>
+          <path class="s02-palo" d="M700 1060 L703 1140"/>
+          <path class="s02-palo" d="M714 1060 L717 1140"/>
+          <path class="s02-palo" d="M728 1060 L731 1140"/>
+          <path class="s02-palo" d="M742 1060 L745 1140"/>
+          <path class="s02-palo" d="M692 1120 L754 1078"/>
+          <path class="s02-palo" d="M780 1060 L783 1140"/>
+          <path class="s02-palo" d="M794 1060 L797 1140"/>
+          <path class="s02-palo" d="M808 1060 L811 1140"/>
+          <path class="s02-palo" d="M822 1060 L825 1140"/>
+          <path class="s02-palo" d="M772 1120 L834 1078"/>
+          <path class="s02-palo" d="M860 1060 L863 1140"/>
+          <path class="s02-palo" d="M874 1060 L877 1140"/>
+          <path class="s02-palo" d="M888 1060 L891 1140"/>
+          <path class="s02-palo" d="M902 1060 L905 1140"/>
+          <path class="s02-palo" d="M852 1120 L914 1078"/>
+          <path class="s02-palo" d="M940 1060 L943 1140"/>
+          <path class="s02-palo" d="M954 1060 L957 1140"/>
+          <path class="s02-palo" d="M968 1060 L971 1140"/>
+          <path class="s02-palo" d="M982 1060 L985 1140"/>
+          <path class="s02-palo" d="M932 1120 L994 1078"/>
+          <path class="s02-palo" d="M540 1170 L543 1250"/>
+          <path class="s02-palo" d="M554 1170 L557 1250"/>
+          <path class="s02-palo" d="M568 1170 L571 1250"/>
+          <path class="s02-palo" d="M582 1170 L585 1250"/>
+          <path class="s02-palo" d="M532 1230 L594 1188"/>
+          <path class="s02-palo" d="M620 1170 L623 1250"/>
+          <path class="s02-palo" d="M634 1170 L637 1250"/>
+          <path class="s02-palo" d="M648 1170 L651 1250"/>
+          <path class="s02-palo" d="M662 1170 L665 1250"/>
+          <path class="s02-palo" d="M612 1230 L674 1188"/>
+          <path class="s02-palo" d="M700 1170 L703 1250"/>
+          <path class="s02-palo" d="M714 1170 L717 1250"/>
+          <path class="s02-palo" d="M728 1170 L731 1250"/>
+          <path class="s02-palo" d="M742 1170 L745 1250"/>
+          <path class="s02-palo" d="M692 1230 L754 1188"/>
+          <path class="s02-palo" d="M780 1170 L783 1250"/>
+          <path class="s02-palo" d="M794 1170 L797 1250"/>
+          <path class="s02-palo" d="M808 1170 L811 1250"/>
+          <path class="s02-palo" d="M822 1170 L825 1250"/>
+          <path class="s02-palo" d="M772 1230 L834 1188"/>
+          <path class="s02-palo" d="M860 1170 L863 1250"/>
+          <path class="s02-palo" d="M874 1170 L877 1250"/>
+          <path class="s02-palo" d="M888 1170 L891 1250"/>
+          <path class="s02-palo" d="M902 1170 L905 1250"/>
+          <path class="s02-palo" d="M852 1230 L914 1188"/>
+          <path class="s02-palo" d="M940 1170 L943 1250"/>
+          <path class="s02-palo" d="M954 1170 L957 1250"/>
+          <path class="s02-palo" d="M968 1170 L971 1250"/>
+          <path class="s02-palo" d="M982 1170 L985 1250"/>
+          <path class="s02-palo" d="M932 1230 L994 1188"/>
+        </svg>
+        <div class="s02-dia">ENTRENAMIENTO · DÍA <b class="s02-n">365</b></div>
+        <div class="fig s02-alu"><svg viewBox="0 0 400 720" aria-hidden="true"><!--@ALUMNO--></svg></div>
+        <div class="s02-globo"><svg viewBox="0 0 620 560" aria-hidden="true">
+          <circle class="s02-bur" cx="40" cy="520" r="14" fill="#fbf6ea" stroke="#1b1712" stroke-width="6"/>
+          <circle class="s02-bur" cx="90" cy="470" r="22" fill="#fbf6ea" stroke="#1b1712" stroke-width="6"/>
+          <path class="s02-nube" d="M140 330 Q90 300 110 240 Q90 170 160 150 Q170 80 250 90 Q300 30 370 70 Q440 40 480 100 Q560 100 560 170 Q610 220 570 280 Q590 350 520 370 Q490 420 420 400 Q360 440 300 400 Q230 430 190 390 Q130 390 140 330 Z" fill="#fbf6ea" stroke="#1b1712" stroke-width="7" stroke-linejoin="round"/>
+          <g class="s02-kick">
+            <path d="M300 300 L360 220" stroke="#1b1712" stroke-width="30" stroke-linecap="round"/>
+            <path d="M360 220 L480 196" stroke="#1b1712" stroke-width="26" stroke-linecap="round"/>
+            <path d="M300 300 L260 350 L290 380" fill="none" stroke="#1b1712" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M350 236 L290 180 M340 250 L270 280" stroke="#1b1712" stroke-width="18" stroke-linecap="round"/>
+            <circle cx="384" cy="168" r="26" fill="#1b1712"/>
+            <path d="M362 160 L330 150 L334 166" fill="#c8102e"/>
+            <path d="M500 170 L540 150 M506 200 L552 200 M500 228 L538 248" stroke="#c99a2e" stroke-width="8" stroke-linecap="round"/>
+          </g>
+        </svg></div>
+        <div class="s02-pf"><span>LA PATADA</span>FINAL</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-patada";
+      const DUR = 4.26;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const temblor = (t, f = 12) => [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s02-esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const HACE = 0.84, ACA = 1.9, CUANDO = 2.56, PATADA = 3.1, FINAL = 3.5;
+
+      gsap.set(q(".s02-alu"), { scale: 1.12, transformOrigin: "50% 100%" });
+      // entrada: el alumno entra arrastrando los pies
+      tl.fromTo(q(".s02-alu"), { x: -60, rotation: -3 }, { x: 0, rotation: 0, duration: 0.35, ease: "power3.out", transformOrigin: "50% 100%" }, 0);
+      tl.to(q(".a-cuerpo"), { y: 8, duration: 0.5, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.3);
+      tl.fromTo(q(".a-gota"), { opacity: 0, y: -10 }, { opacity: 1, y: 30, duration: 0.8, ease: "power1.in", immediateRender: false }, 0.2);
+
+      // "hace un año": los palitos de conteo en la pared se dibujan a toda velocidad
+      const palos = qa(".s02-palo");
+      palos.forEach((el) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); });
+      palos.forEach((el, i) => {
+        const t = HACE - 0.1 + i * 0.022;
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: 0.08, ease: "power1.out" }, t);
+      });
+      gsap.set(q(".s02-dia"), { opacity: 0 });
+      tl.fromTo(q(".s02-dia"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, HACE + 0.2);
+      const n = q(".s02-n"), cnt = { v: 1 };
+      tl.fromTo(cnt, { v: 1 }, { v: 365, duration: 1.0, ease: "power2.out", immediateRender: false, onUpdate: () => (n.textContent = String(Math.round(cnt.v))) }, HACE + 0.2);
+      tl.to(q(".a-ojos-cerr"), { opacity: 1, duration: 0.05 }, ACA);
+      tl.to(q(".a-ojos"), { opacity: 0, duration: 0.05 }, ACA);
+
+      // "¿cuándo aprendo...": se le ilumina la cara y aparece el sueño
+      tl.to(q(".a-ojos-cerr"), { opacity: 0, duration: 0.05 }, CUANDO);
+      tl.to(q(".a-ojos"), { opacity: 1, scale: 1.3, svgOrigin: "200 170", duration: 0.12 }, CUANDO);
+      tl.to(q(".a-boca"), { opacity: 0, duration: 0.05 }, CUANDO);
+      tl.to(q(".a-boca-o"), { opacity: 1, duration: 0.05 }, CUANDO);
+      tl.to([...palos, q(".s02-dia")], { opacity: 0, duration: 0.25 }, CUANDO);
+      gsap.set(qa(".s02-bur"), { opacity: 0 });
+      qa(".s02-bur").forEach((b, i) => tl.fromTo(b, { opacity: 0, scale: 0, svgOrigin: "60 500" }, { opacity: 1, scale: 1, svgOrigin: "60 500", duration: 0.15, ease: "back.out(3)", immediateRender: false }, CUANDO + i * 0.08));
+      gsap.set(q(".s02-nube"), { opacity: 0 });
+      tl.fromTo(q(".s02-nube"), { opacity: 0, scale: 0.4, svgOrigin: "330 260" }, { opacity: 1, scale: 1, svgOrigin: "330 260", duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, CUANDO + 0.16);
+      gsap.set(q(".s02-kick"), { opacity: 0 });
+      tl.fromTo(q(".s02-kick"), { opacity: 0, x: -120, rotation: -20, svgOrigin: "360 260" }, { opacity: 1, x: 0, rotation: 0, svgOrigin: "360 260", duration: 0.22, ease: "power4.out", immediateRender: false }, PATADA - 0.1);
+      gsap.set(q(".s02-pf"), { opacity: 0 });
+      tl.fromTo(q(".s02-pf"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, FINAL - 0.12);
+      temblor(FINAL + 0.02, 14);
+      tl.to(q(".s02-kick"), { x: 14, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, FINAL + 0.1);
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

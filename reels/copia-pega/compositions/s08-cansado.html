@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Shojumaru"; font-weight: 400; font-display: block; src: url("assets/fonts/Shojumaru.woff2") format("woff2"); }
+    @font-face { font-family: "Kaushan Script"; font-weight: 400; font-display: block; src: url("assets/fonts/KaushanScript.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-cansado"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-cansado"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-cansado"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s08-cansado"] .fig svg, [data-composition-id="s08-cansado"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s08-cansado"] .obj { position: absolute; }
+    [data-composition-id="s08-cansado"] .sho { position: absolute; font-family: "Shojumaru", serif; line-height: 1.02; white-space: nowrap; text-align: center; }
+    [data-composition-id="s08-cansado"] .kau { position: absolute; font-family: "Kaushan Script", cursive; line-height: 1.05; white-space: nowrap; text-align: center; color: #1b1712; }
+    [data-composition-id="s08-cansado"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; white-space: nowrap; text-transform: uppercase; color: #1b1712; }
+    [data-composition-id="s08-cansado"] .hanko { position: absolute; display: flex; align-items: center; justify-content: center; text-align: center; border: 9px solid #c8102e; border-radius: 18px; color: #c8102e; font-family: "Shojumaru", serif; line-height: 1.02; white-space: nowrap; background: rgba(239, 228, 204, 0.92); }
+    [data-composition-id="s08-cansado"] .msg { position: absolute; padding: 14px 22px; border-radius: 24px 24px 24px 6px; background: #fbf6ea; border: 5px solid #1b1712; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; line-height: 1.15; color: #1b1712; white-space: nowrap; }
+    [data-composition-id="s08-cansado"] .s08-alu { left: 60px; top: 676px; }
+    [data-composition-id="s08-cansado"] .s08-barra { position: absolute; left: 520px; width: 500px; }
+    [data-composition-id="s08-cansado"] .s08-barra small { display: block; font-family: "Shojumaru", serif; font-size: 50px; color: #1b1712; margin-bottom: 14px; white-space: nowrap; }
+    [data-composition-id="s08-cansado"] .s08-tubo { position: relative; height: 70px; border: 7px solid #1b1712; border-radius: 12px; background: #fbf6ea; overflow: visible; }
+    [data-composition-id="s08-cansado"] .s08-rell { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; border-radius: 4px; transform-origin: 0% 50%; }
+    [data-composition-id="s08-cansado"] .s08-b1 { top: 700px; }
+    [data-composition-id="s08-cansado"] .s08-b2 { top: 980px; }
+    [data-composition-id="s08-cansado"] .s08-no { left: 840px; top: 690px; width: 170px; height: 110px; font-size: 64px; transform: rotate(8deg); }
+    [data-composition-id="s08-cansado"] .s08-max { left: 600px; top: 1180px; width: 400px; height: 120px; font-size: 54px; }
+  </style>
+  <div id="root" data-composition-id="s08-cansado" data-width="1080" data-height="1920" data-duration="4.87">
+    <div id="s08-escena" class="capa clip" data-start="0" data-duration="4.87" data-track-index="0">
+      <div class="capa esc">
+        <div class="fig s08-alu"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="a-cuerpo">
+  <path d="M132 470 L114 690 Q200 706 286 690 L268 470 Z" fill="#fbf6ea" stroke="#1b1712" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M200 500 V694" stroke="#1b1712" stroke-width="5"/>
+  <ellipse cx="156" cy="700" rx="40" ry="14" fill="#f6eedb" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="244" cy="700" rx="40" ry="14" fill="#f6eedb" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M130 270 Q200 248 270 270 Q312 380 290 486 Q200 506 110 486 Q88 380 130 270 Z" fill="#fbf6ea" stroke="#1b1712" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M160 264 L214 420 M240 264 L186 380" fill="none" stroke="#1b1712" stroke-width="6" stroke-linecap="round"/>
+  <rect x="104" y="448" width="192" height="30" rx="6" fill="#fbf6ea" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M188 476 L176 540 M212 476 L226 536" stroke="#1b1712" stroke-width="18" stroke-linecap="round"/>
+  <path d="M188 476 L176 540 M212 476 L226 536" stroke="#fbf6ea" stroke-width="8" stroke-linecap="round"/>
+  <g class="a-brazo-i">
+    <path d="M136 292 Q92 380 120 460" fill="none" stroke="#1b1712" stroke-width="50" stroke-linecap="round"/>
+    <path d="M136 292 Q92 380 120 460" fill="none" stroke="#fbf6ea" stroke-width="36" stroke-linecap="round"/>
+    <circle cx="122" cy="470" r="21" fill="#f6eedb" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="a-brazo-d">
+    <path d="M264 292 Q308 380 280 460" fill="none" stroke="#1b1712" stroke-width="50" stroke-linecap="round"/>
+    <path d="M264 292 Q308 380 280 460" fill="none" stroke="#fbf6ea" stroke-width="36" stroke-linecap="round"/>
+    <circle cx="278" cy="470" r="21" fill="#f6eedb" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="a-cabeza">
+    <g class="a-colas"><path d="M262 122 Q312 118 336 150 Q300 146 270 140 Z M262 132 Q300 160 304 200 Q280 170 262 146 Z" fill="#c8102e" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/></g>
+    <ellipse cx="200" cy="166" rx="70" ry="80" fill="#f6eedb" stroke="#1b1712" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M137 140 Q132 160 139 178 M263 140 Q268 160 261 178" fill="none" stroke="#1b1712" stroke-width="14" stroke-linecap="round"/>
+    <path d="M132 112 Q200 92 268 112 L270 140 Q200 122 130 140 Z" fill="#c8102e" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="a-ojos"><circle cx="174" cy="170" r="7" fill="#1b1712"/><circle cx="226" cy="170" r="7" fill="#1b1712"/></g>
+    <g class="a-ojos-cerr" opacity="0"><path d="M162 172 Q174 180 186 172 M214 172 Q226 180 238 172" fill="none" stroke="#1b1712" stroke-width="6" stroke-linecap="round"/></g>
+    <path d="M160 186 Q174 196 188 186 M212 186 Q226 196 240 186" fill="none" stroke="#1b1712" stroke-width="4" opacity="0.6" stroke-linecap="round"/>
+    <path d="M160 152 Q174 144 188 154 M212 154 Q226 144 240 152" fill="none" stroke="#1b1712" stroke-width="6" stroke-linecap="round"/>
+    <path d="M198 176 Q190 198 206 202" fill="none" stroke="#1b1712" stroke-width="5" stroke-linecap="round"/>
+    <path d="M168 214 Q184 204 200 212 Q216 204 232 214 Q220 222 200 218 Q180 222 168 214 Z" fill="#1b1712"/>
+    <path class="a-boca" d="M180 232 Q200 224 220 232" fill="none" stroke="#1b1712" stroke-width="5" stroke-linecap="round"/>
+    <ellipse class="a-boca-o" cx="200" cy="236" rx="12" ry="14" fill="#c8102e" stroke="#1b1712" stroke-width="5" opacity="0"/>
+    <path class="a-gota" d="M270 186 Q260 204 270 212 Q280 204 270 186 Z" fill="#fbf6ea" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity="0"/>
+  </g>
+</g></svg></div>
+        <div class="s08-barra s08-b1"><small>FUERZA</small><div class="s08-tubo"><div class="s08-rell s08-r1" style="background: #c99a2e"></div></div></div>
+        <div class="s08-barra s08-b2"><small>CANSANCIO</small><div class="s08-tubo"><div class="s08-rell s08-r2" style="background: #c8102e"></div></div></div>
+        <div class="hanko s08-no">NO</div>
+        <div class="hanko s08-max">AL MÁXIMO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-cansado";
+      const DUR = 4.87;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const ESC = q(".esc");
+      const temblor = (t, f = 12) => [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // sello: cae grande y golpea en t
+      const sello = (el, t, rot = 0, desde = 2.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: desde, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      // pop: aparece entero
+      const pop = (el, t, d = 0.3) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // entra desde abajo
+      const sube = (el, t, d = 0.25) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t); };
+      // trazos que se dibujan
+      const dibujar = (els, t, d = 0.5, st = 0.05) => [].concat(els).forEach((el, i) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t + i * st); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st); });
+      // ojos/boca del personaje: cambia de cara
+      const cara = (t, on, off) => { if (on) tl.to(qa(on), { opacity: 1, duration: 0.05 }, t); if (off) tl.to(qa(off), { opacity: 0, duration: 0.05 }, t); };
+      const salida = () => tl.to(q("#" + ID.slice(0, 3) + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      const FUERTE = 0.8, MAS = 1.82, NO = 2.52, MAS2 = 3.38, CANSADO = 3.7;
+      gsap.set(q(".s08-alu"), { scale: 1.12, transformOrigin: "50% 100%" });
+      // "¿más fuerte?": saca músculo, ilusionado
+      tl.fromTo(q(".a-brazo-d"), { rotation: 0, svgOrigin: "264 292" }, { rotation: -130, svgOrigin: "264 292", duration: 0.35, ease: "back.out(2)" }, 0.1);
+      tl.to(q(".a-brazo-d"), { rotation: -120, svgOrigin: "264 292", duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.5);
+      cara(0.2, ".a-boca-o", ".a-boca");
+      gsap.set([q(".s08-r1"), q(".s08-r2")], { scaleX: 0.04 });
+      sube(q(".s08-b1"), 0, 0.25);
+      sube(q(".s08-b2"), 0.12, 0.25);
+      // la barra de fuerza sube... y se queda en nada
+      tl.to(q(".s08-r1"), { scaleX: 0.75, duration: 0.6, ease: "power2.out" }, FUERTE - 0.3);
+      tl.to(q(".s08-r1"), { scaleX: 0.08, duration: 0.25, ease: "power3.in" }, MAS);
+      sello(q(".s08-no"), NO, 8, 2);
+      temblor(NO + 0.03, 10);
+      tl.to(q(".a-brazo-d"), { rotation: 0, svgOrigin: "264 292", duration: 0.3, ease: "power2.in" }, MAS);
+      cara(MAS, ".a-boca", ".a-boca-o");
+      // "más cansado": la de cansancio revienta
+      tl.to(q(".s08-r2"), { scaleX: 1.0, duration: 0.5, ease: "power2.in" }, MAS2 - 0.2);
+      tl.to(q(".s08-r2"), { scaleX: 1.07, duration: 0.15, ease: "power4.out" }, CANSADO);
+      sello(q(".s08-max"), CANSADO + 0.05, -5);
+      temblor(CANSADO + 0.08, 14);
+      cara(CANSADO, ".a-ojos-cerr", ".a-ojos");
+      tl.to(q(".a-gota"), { opacity: 1, duration: 0.1 }, CANSADO);
+      tl.fromTo(q(".a-gota"), { y: 0 }, { y: 40, duration: 0.6, ease: "power1.in", immediateRender: false }, CANSADO);
+      tl.to(q(".a-cuerpo"), { rotation: 4, svgOrigin: "200 700", y: 16, duration: 0.5, ease: "power2.out" }, CANSADO);
+      tl.to(q(".a-cabeza"), { y: 18, rotation: -8, svgOrigin: "200 240", duration: 0.4, ease: "power2.out" }, CANSADO);
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

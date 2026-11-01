@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Shojumaru"; font-weight: 400; font-display: block; src: url("assets/fonts/Shojumaru.woff2") format("woff2"); }
+    @font-face { font-family: "Kaushan Script"; font-weight: 400; font-display: block; src: url("assets/fonts/KaushanScript.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-mentira"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-mentira"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-mentira"] .fig { position: absolute; width: 400px; height: 720px; }
+    [data-composition-id="s11-mentira"] .fig svg, [data-composition-id="s11-mentira"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s11-mentira"] .obj { position: absolute; }
+    [data-composition-id="s11-mentira"] .sho { position: absolute; font-family: "Shojumaru", serif; line-height: 1.02; white-space: nowrap; text-align: center; }
+    [data-composition-id="s11-mentira"] .kau { position: absolute; font-family: "Kaushan Script", cursive; line-height: 1.05; white-space: nowrap; text-align: center; color: #1b1712; }
+    [data-composition-id="s11-mentira"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; white-space: nowrap; text-transform: uppercase; color: #1b1712; }
+    [data-composition-id="s11-mentira"] .hanko { position: absolute; display: flex; align-items: center; justify-content: center; text-align: center; border: 9px solid #c8102e; border-radius: 18px; color: #c8102e; font-family: "Shojumaru", serif; line-height: 1.02; white-space: nowrap; background: rgba(239, 228, 204, 0.92); }
+    [data-composition-id="s11-mentira"] .msg { position: absolute; padding: 14px 22px; border-radius: 24px 24px 24px 6px; background: #fbf6ea; border: 5px solid #1b1712; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; line-height: 1.15; color: #1b1712; white-space: nowrap; }
+    [data-composition-id="s11-mentira"] .s11-mae { left: 60px; top: 676px; }
+    [data-composition-id="s11-mentira"] .s11-sm { left: 300px; top: 900px; width: 140px; height: 84px; }
+    [data-composition-id="s11-mentira"] .s11-rollo { position: absolute; left: 520px; top: 600px; width: 500px; height: 740px; }
+    [data-composition-id="s11-mentira"] .s11-papel { position: absolute; left: 25px; top: 26px; width: 450px; height: 690px; background: #fbf6ea; border-left: 6px solid #1b1712; border-right: 6px solid #1b1712; }
+    [data-composition-id="s11-mentira"] .s11-palo { position: absolute; left: 0; width: 500px; height: 30px; border-radius: 15px; background: #1b1712; }
+    [data-composition-id="s11-mentira"] .s11-tit { left: 25px; width: 450px; top: 70px; text-align: center; font-size: 30px; letter-spacing: 0.3em; }
+    [data-composition-id="s11-mentira"] .s11-lin { position: absolute; left: 80px; width: 340px; height: 0; border-top: 4px dashed rgba(27, 23, 18, 0.3); }
+    [data-composition-id="s11-mentira"] .s11-nada { left: 50px; top: 300px; width: 400px; height: 170px; font-size: 70px; }
+    [data-composition-id="s11-mentira"] .s11-menti { left: 40px; top: 600px; width: 460px; font-size: 76px; color: #c8102e; }
+  </style>
+  <div id="root" data-composition-id="s11-mentira" data-width="1080" data-height="1920" data-duration="3.3">
+    <div id="s11-escena" class="capa clip" data-start="0" data-duration="3.3" data-track-index="0">
+      <div class="capa esc">
+        <div class="fig s11-mae"><svg viewBox="0 0 400 720" aria-hidden="true"><g class="m-cuerpo">
+  <path d="M120 470 L96 690 Q200 708 304 690 L280 470 Z" fill="#1b1712" stroke="#1b1712" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M200 520 V694" stroke="#3a3128" stroke-width="5"/>
+  <ellipse cx="150" cy="700" rx="40" ry="14" fill="#fbf6ea" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="250" cy="700" rx="40" ry="14" fill="#fbf6ea" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M128 268 Q200 246 272 268 Q296 380 286 480 Q200 496 114 480 Q104 380 128 268 Z" fill="#1b1712" stroke="#1b1712" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M160 262 L200 360 L240 262" fill="none" stroke="#efe4cc" stroke-width="12" stroke-linejoin="round"/>
+  <rect x="112" y="440" width="176" height="34" rx="6" fill="#c99a2e" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M182 470 L170 540 M214 470 L230 538" stroke="#c99a2e" stroke-width="14" stroke-linecap="round"/>
+  <g class="m-brazo-i">
+    <path d="M136 290 Q96 380 132 450" fill="none" stroke="#1b1712" stroke-width="44" stroke-linecap="round"/>
+    <circle cx="140" cy="452" r="20" fill="#f6eedb" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="m-brazo-d">
+    <path d="M266 290 Q318 330 316 250" fill="none" stroke="#1b1712" stroke-width="44" stroke-linecap="round"/>
+    <circle cx="316" cy="236" r="21" fill="#f6eedb" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M318 218 L320 176" stroke="#1b1712" stroke-width="20" stroke-linecap="round"/>
+    <path d="M318 218 L320 176" stroke="#f6eedb" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g class="m-cabeza">
+    <ellipse cx="200" cy="168" rx="70" ry="80" fill="#f6eedb" stroke="#1b1712" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M150 108 Q170 96 186 104" fill="none" stroke="#1b1712" stroke-width="4" opacity="0.5"/>
+    <ellipse cx="128" cy="176" rx="14" ry="22" fill="#f6eedb" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="272" cy="176" rx="14" ry="22" fill="#f6eedb" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="m-cejas">
+      <path d="M150 144 Q172 130 192 146 Q170 150 140 176 Q138 156 150 144 Z" fill="#fbf6ea" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M250 144 Q228 130 208 146 Q230 150 260 176 Q262 156 250 144 Z" fill="#fbf6ea" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+    </g>
+    <g class="m-ojos"><path d="M162 168 Q174 160 186 168" fill="none" stroke="#1b1712" stroke-width="6" stroke-linecap="round"/><path d="M214 168 Q226 160 238 168" fill="none" stroke="#1b1712" stroke-width="6" stroke-linecap="round"/></g>
+    <path d="M196 176 Q188 200 204 204" fill="none" stroke="#1b1712" stroke-width="5" stroke-linecap="round"/>
+    <path d="M150 214 Q200 196 250 214 Q262 300 230 380 Q216 360 210 400 Q200 372 190 400 Q184 360 170 380 Q138 300 150 214 Z" fill="#fbf6ea" stroke="#1b1712" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M176 226 Q200 236 224 226" fill="none" stroke="#1b1712" stroke-width="5" stroke-linecap="round" class="m-boca"/>
+    <path d="M172 222 Q200 250 228 222" fill="none" stroke="#1b1712" stroke-width="6" stroke-linecap="round" class="m-sonrisa" opacity="0"/>
+    <path d="M186 270 Q200 300 196 340 M214 268 Q206 300 212 330" fill="none" stroke="#1b1712" stroke-width="3" opacity="0.45"/>
+  </g>
+</g></svg></div>
+        <div class="obj s11-sm"><svg viewBox="0 0 200 120" aria-hidden="true"><g class="sm">
+  <path d="M40 74 Q90 46 150 60 Q168 66 160 80 Q100 96 40 74 Z" fill="#b7ad74" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="160" cy="64" r="16" fill="#b7ad74" stroke="#1b1712" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="164" cy="60" r="4" fill="#1b1712"/>
+  <path d="M166 50 Q180 20 196 14 M158 48 Q160 18 172 6" fill="none" stroke="#1b1712" stroke-width="4" stroke-linecap="round"/>
+  <path d="M70 70 L40 20 L20 100" fill="none" stroke="#1b1712" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120 80 L110 108 M140 78 L146 108" fill="none" stroke="#1b1712" stroke-width="5" stroke-linecap="round"/>
+</g></svg></div>
+        <div class="kau s11-menti">te mentí</div>
+        <div class="s11-rollo">
+          <div class="s11-papel"></div>
+          <div class="s11-palo" style="top: 0"></div>
+          <div class="s11-palo s11-palo-b" style="top: 712px"></div>
+          <div class="mono s11-tit">LA LECCIÓN</div>
+          <div class="s11-lin" style="top: 180px"></div><div class="s11-lin" style="top: 260px"></div><div class="s11-lin" style="top: 340px"></div><div class="s11-lin" style="top: 420px"></div><div class="s11-lin" style="top: 500px"></div><div class="s11-lin" style="top: 580px"></div>
+          <div class="hanko s11-nada">NINGUNA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-mentira";
+      const DUR = 3.3;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const ESC = q(".esc");
+      const temblor = (t, f = 12) => [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // sello: cae grande y golpea en t
+      const sello = (el, t, rot = 0, desde = 2.4) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: desde, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      // pop: aparece entero
+      const pop = (el, t, d = 0.3) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t); };
+      // entra desde abajo
+      const sube = (el, t, d = 0.25) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t); };
+      // trazos que se dibujan
+      const dibujar = (els, t, d = 0.5, st = 0.05) => [].concat(els).forEach((el, i) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t + i * st); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st); });
+      // ojos/boca del personaje: cambia de cara
+      const cara = (t, on, off) => { if (on) tl.to(qa(on), { opacity: 1, duration: 0.05 }, t); if (off) tl.to(qa(off), { opacity: 0, duration: 0.05 }, t); };
+      const salida = () => tl.to(q("#" + ID.slice(0, 3) + "-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      const MENTI = 0.08, SALTA = 0.38, NO = 1.52, NINGUNA = 1.88, LECCION = 2.38;
+      gsap.set(q(".s11-mae"), { scale: 1.1, transformOrigin: "50% 100%" });
+      // sonrisa de pillo, cejas que suben
+      cara(0, ".m-sonrisa", ".m-boca");
+      tl.fromTo(q(".m-cejas"), { y: 0 }, { y: -12, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.05);
+      tl.fromTo(q(".m-cabeza"), { rotation: 0 }, { rotation: -6, svgOrigin: "200 240", duration: 0.3, ease: "back.out(2)" }, 0);
+      gsap.set(q(".s11-menti"), { opacity: 0 });
+      tl.fromTo(q(".s11-menti"), { opacity: 0, scale: 1.6, rotation: -6 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.18, ease: "power4.in", immediateRender: false }, MENTI);
+      // el saltamontes salta al hombro del maestro
+      gsap.set(q(".s11-sm"), { opacity: 0 });
+      tl.fromTo(q(".s11-sm"), { opacity: 1, x: 600, y: 300, rotation: 30 }, { x: 0, y: 0, rotation: 0, duration: 0.35, ease: "power2.out", immediateRender: false }, SALTA - 0.1);
+      tl.to(q(".s11-sm"), { y: -20, duration: 0.12, yoyo: true, repeat: 5 }, SALTA + 0.3);
+      // el rollo de la lección se desenrolla... vacío
+      gsap.set(q(".s11-rollo"), { opacity: 0 });
+      tl.to(q(".s11-rollo"), { opacity: 1, duration: 0.1 }, NO - 0.5);
+      tl.fromTo(q(".s11-papel"), { clipPath: "inset(0 0 94% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 0.5, ease: "power2.out" }, NO - 0.5);
+      tl.fromTo(q(".s11-palo-b"), { y: -680 }, { y: 0, duration: 0.5, ease: "power2.out" }, NO - 0.5);
+      gsap.set(qa(".s11-lin"), { opacity: 0 });
+      tl.to(qa(".s11-lin"), { opacity: 1, duration: 0.05, stagger: 0.04 }, NO - 0.1);
+      sube(q(".s11-tit"), NO - 0.2);
+      sello(q(".s11-nada"), NINGUNA + 0.05, -7);
+      temblor(NINGUNA + 0.08, 14);
+      tl.to(q(".s11-nada"), { scale: 1.06, duration: 0.15, yoyo: true, repeat: 1 }, LECCION);
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

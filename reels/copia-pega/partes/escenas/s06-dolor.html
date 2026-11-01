@@ -1,0 +1,62 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    <!--@ESTILO-->
+    [data-composition-id="{{ID}}"] .s06-mae { left: 620px; top: 676px; }
+    [data-composition-id="{{ID}}"] .s06-rollo { position: absolute; left: 90px; top: 590px; width: 470px; height: 760px; }
+    [data-composition-id="{{ID}}"] .s06-papel { position: absolute; left: 30px; top: 30px; width: 410px; height: 700px; background: #fbf6ea; border-left: 6px solid #1b1712; border-right: 6px solid #1b1712; box-shadow: 8px 8px 0 rgba(27, 23, 18, 0.25); }
+    [data-composition-id="{{ID}}"] .s06-palo { position: absolute; left: 0; width: 470px; height: 30px; border-radius: 15px; background: #1b1712; }
+    [data-composition-id="{{ID}}"] .s06-palo i { position: absolute; top: 3px; width: 24px; height: 24px; border-radius: 50%; background: #c99a2e; }
+    [data-composition-id="{{ID}}"] .s06-t { left: 30px; width: 410px; font-size: 76px; }
+    [data-composition-id="{{ID}}"] .s06-dolor { color: #c8102e; font-size: 104px; }
+    [data-composition-id="{{ID}}"] .s06-hanko { left: 330px; top: 1220px; width: 110px; height: 110px; font-size: 26px; line-height: 1.1; border-width: 6px; transform: rotate(-6deg); }
+  </style>
+  <div id="root" data-composition-id="{{ID}}" data-width="1080" data-height="1920" data-duration="2.49">
+    <div id="s06-escena" class="capa clip" data-start="0" data-duration="2.49" data-track-index="0">
+      <div class="capa esc">
+        <div class="s06-rollo">
+          <div class="s06-papel"></div>
+          <div class="s06-palo" style="top: 0"><i style="left: 3px"></i><i style="right: 3px"></i></div>
+          <div class="s06-palo s06-palo-b" style="top: 730px"><i style="left: 3px"></i><i style="right: 3px"></i></div>
+          <div class="kau s06-t s06-t1" style="top: 90px">El</div>
+          <div class="kau s06-t s06-dolor" style="top: 180px">dolor</div>
+          <div class="kau s06-t s06-t2" style="top: 340px">es parte</div>
+          <div class="kau s06-t s06-t3" style="top: 440px">del camino</div>
+          <svg class="obj" style="left: 80px; top: 560px; width: 310px; height: 90px" viewBox="0 0 310 90" aria-hidden="true"><path class="s06-cam" d="M10 70 Q80 10 150 50 Q220 90 300 20" fill="none" stroke="#1b1712" stroke-width="12" stroke-linecap="round"/></svg>
+        </div>
+        <div class="hanko s06-hanko">EL<br/>MAESTRO</div>
+        <div class="fig s06-mae"><svg viewBox="0 0 400 720" aria-hidden="true"><!--@MAESTRO--></svg></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "{{ID}}";
+      const DUR = 2.49;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      /*@HELPERS*/
+      const DOLOR = 0.2, PARTE = 1.14, CAMINO = 1.7;
+      gsap.set(q(".s06-mae"), { scale: 1.08, transformOrigin: "50% 100%" });
+      tl.fromTo(q(".s06-mae"), { x: 40 }, { x: 0, duration: 0.3, ease: "power3.out" }, 0);
+      // el rollo se desenrolla hacia abajo
+      tl.fromTo(q(".s06-papel"), { clipPath: "inset(0 0 92% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 0.45, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s06-palo-b"), { y: -650 }, { y: 0, duration: 0.45, ease: "power2.out" }, 0);
+      // la caligrafía se escribe en su palabra
+      const escribe = (el, t, d = 0.3) => { gsap.set(el, { clipPath: "inset(0 100% 0 0)" }); tl.to(el, { clipPath: "inset(0 0% 0 0)", duration: d, ease: "power1.inOut" }, t); };
+      escribe(q(".s06-t1"), 0.1, 0.15);
+      escribe(q(".s06-dolor"), DOLOR, 0.35);
+      tl.fromTo(q(".s06-dolor"), { scale: 1.2 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, DOLOR + 0.2);
+      escribe(q(".s06-t2"), PARTE - 0.3, 0.35);
+      escribe(q(".s06-t3"), CAMINO - 0.3, 0.35);
+      dibujar(q(".s06-cam"), CAMINO, 0.4);
+      sello(q(".s06-hanko"), CAMINO + 0.4, -6, 2);
+      // el maestro se acaricia la barba, sabio
+      tl.to(q(".m-brazo-d"), { rotation: -40, svgOrigin: "266 290", duration: 0.4, ease: "sine.inOut" }, 0.2);
+      tl.to(q(".m-cabeza"), { rotation: 4, svgOrigin: "200 240", duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0.3);
+      salida();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
