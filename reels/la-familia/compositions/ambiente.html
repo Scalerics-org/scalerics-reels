@@ -1,0 +1,74 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* rayas de luz de persiana, en diagonal desde arriba a la izquierda */
+    [data-composition-id="ambiente"] .amb-persiana { position: absolute; left: -400px; top: -300px; width: 1900px; height: 2600px; opacity: 0.55; transform: rotate(-24deg);
+      background: repeating-linear-gradient(180deg, rgba(239, 230, 208, 0.075) 0px, rgba(239, 230, 208, 0.075) 46px, rgba(239, 230, 208, 0) 46px, rgba(239, 230, 208, 0) 92px);
+      -webkit-mask-image: radial-gradient(ellipse 900px 1100px at 30% 30%, #000 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 80%);
+      mask-image: radial-gradient(ellipse 900px 1100px at 30% 30%, #000 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 80%); }
+    /* humo de habano: manchas difusas que suben */
+    [data-composition-id="ambiente"] .amb-humo { position: absolute; width: 520px; height: 380px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(239, 230, 208, 0.07) 0%, rgba(239, 230, 208, 0) 70%); filter: blur(30px); }
+    [data-composition-id="ambiente"] .amb-h1 { left: 520px; top: 1200px; }
+    [data-composition-id="ambiente"] .amb-h2 { left: 120px; top: 1400px; }
+    [data-composition-id="ambiente"] .amb-h3 { left: 380px; top: 1600px; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 720px 1080px at 540px 960px, rgba(10, 6, 5, 0) 50%, rgba(10, 6, 5, 0.9) 100%); }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 60px; top: 1596px; font-family: "Cinzel", serif; font-weight: 700; font-size: 28px; letter-spacing: 0.2em; color: #c9a24a; opacity: 0.7; text-align: right; line-height: 1.5; }
+    [data-composition-id="ambiente"] .amb-golpe { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 760px 960px at 540px 960px, rgba(140, 28, 44, 0) 40%, rgba(140, 28, 44, 0.55) 100%); }
+    [data-composition-id="ambiente"] .amb-luz { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 900px 1200px at 540px 800px, rgba(239, 230, 208, 0.16) 0%, rgba(92, 230, 17, 0.05) 55%, rgba(92, 230, 17, 0) 85%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #efe6d0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="74.73">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="74.73" data-track-index="0">
+      <div class="amb-persiana" data-layout-allow-overflow></div>
+      <div class="amb-humo amb-h1"></div>
+      <div class="amb-humo amb-h2"></div>
+      <div class="amb-humo amb-h3"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-luz"></div>
+      <div class="amb-golpe"></div>
+      <div class="amb-rotulo">La familia<br />Barrio sur</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 74.73;
+      const LUZ = 58.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // la persiana se desliza muy despacio y respira
+      tl.fromTo(q(".amb-persiana"), { y: 0 }, { y: 92 * 3, duration: LUZ, ease: "none" }, 0);
+      for (let t = 0; t < LUZ - 4; t += 4) tl.to(q(".amb-persiana"), { opacity: 0.38, duration: 2, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+
+      // humo que sube en tres manchas, desfasadas
+      [[".amb-h1", 0, 9], [".amb-h2", 3, 11], [".amb-h3", 6, 10]].forEach(([s, t0, d]) => {
+        for (let t = t0; t < DUR; t += d) {
+          tl.fromTo(q(s), { y: 0, x: 0, opacity: 0, scale: 0.8 }, { y: -900, x: 120, opacity: 1, scale: 1.4, duration: d, ease: "none", immediateRender: t === t0 }, t);
+        }
+      });
+
+      // golpes bordó: "Nuestros" x3, "son negocios", "contesta"
+      [12.75, 15.99, 21.22, 31.2, 46.0].forEach((t) => {
+        tl.to(q(".amb-golpe"), { opacity: 1, duration: 0.06 }, t);
+        tl.to(q(".amb-golpe"), { opacity: 0, duration: 0.6, ease: "power2.out" }, t + 0.08);
+      });
+
+      // se prende la luz: entra Scalerics
+      tl.to(q(".amb-flash"), { opacity: 0.55, duration: 0.05 }, LUZ - 0.05);
+      tl.to(q(".amb-flash"), { opacity: 0, duration: 0.6, ease: "power2.out" }, LUZ + 0.02);
+      tl.to(q(".amb-persiana"), { opacity: 0, y: "-=400", duration: 0.5, ease: "power3.in" }, LUZ - 0.1);
+      tl.to(q(".amb-vineta"), { opacity: 0.45, duration: 0.6 }, LUZ);
+      tl.to(q(".amb-luz"), { opacity: 1, duration: 0.6 }, LUZ);
+      tl.to(q(".amb-rotulo"), { opacity: 0, duration: 0.3 }, LUZ);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

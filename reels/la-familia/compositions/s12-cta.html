@@ -1,0 +1,85 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cta"] .borde { fill: none; stroke: #c9a24a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .linea { fill: none; stroke: #efe6d0; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .fina { fill: none; stroke: #efe6d0; stroke-width: 3; opacity: 0.45; stroke-linecap: round; }
+    [data-composition-id="s12-cta"] .sil { fill: #0a0605; stroke: #c9a24a; stroke-width: 4; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.16em; fill: #efe6d0; }
+    [data-composition-id="s12-cta"] .txt { position: absolute; left: 0; right: 0; text-align: center; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s12-cta"] .cin { font-family: "Cinzel", serif; font-weight: 900; text-transform: uppercase; }
+    [data-composition-id="s12-cta"] .cor { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; color: #efe6d0; }
+    [data-composition-id="s12-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+    [data-composition-id="s12-cta"] .burbuja { position: absolute; padding: 18px 26px; border-radius: 26px 26px 26px 6px; background: #efe6d0; color: #1a0f0a; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; line-height: 1.2; white-space: nowrap; }
+    [data-composition-id="s12-cta"] .hora { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; color: #c9a24a; letter-spacing: 0.08em; }
+
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="8.14">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="8.14" data-track-index="0">
+      <div class="s12-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s12-icono">
+            <path d="M400 1100 H680 Q720 1100 720 1140 V1250 Q720 1290 680 1290 H520 L450 1340 L465 1290 H400 Q360 1290 360 1250 V1140 Q360 1100 400 1100 Z" fill="#0a0605" stroke="#c9a24a" stroke-width="6" stroke-linejoin="round" />
+            <circle class="s12-p" cx="480" cy="1195" r="16" fill="#c9a24a" /><circle class="s12-p" cx="540" cy="1195" r="16" fill="#c9a24a" /><circle class="s12-p" cx="600" cy="1195" r="16" fill="#c9a24a" />
+          </g>
+        </svg>
+        <div class="s12-btn1" style="position:absolute;left:140px;top:640px;width:800px;height:150px;border:6px solid #5ce611;border-radius:28px;background:rgba(92,230,17,0.12);display:flex;align-items:center;justify-content:center;font-family:Lexend,sans-serif;font-weight:800;font-size:64px;color:#efe6d0;letter-spacing:0.02em">La acepto</div>
+        <div class="cor s12-o" style="position:absolute;left:0;right:0;top:796px;text-align:center;font-size:56px;line-height:1">o</div>
+        <div class="s12-btn2" style="position:absolute;left:140px;top:870px;width:800px;height:170px;border:6px solid #b8323f;border-radius:28px;background:rgba(140,28,44,0.3);display:flex;align-items:center;justify-content:center;text-align:center;font-family:Lexend,sans-serif;font-weight:800;font-size:50px;line-height:1.15;color:#efe6d0">La acepta<br/>el de enfrente</div>
+        <div class="txt cor s12-com" style="top:1380px;font-size:66px">Contestá en los comentarios</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 8.14;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (el, t, d = 0.6, desde = 1) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * desde, opacity: desde >= 1 ? 0 : 1 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const pop = (el, t, o = "50% 50%") => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: o }, { opacity: 1, scale: 1, transformOrigin: o, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const golpe = (el, t, s = 2.4) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const sacudon = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s12-escenario"), { x, y, duration: 0.04, ease: "none" }, t + 0.06 + i * 0.045));
+      const fuera = (els, t, d = 0.2) => tl.to(els, { opacity: 0, duration: d }, t);
+      const ACEPTAS = 0.2, ENFRENTE = 2.3, CONT = 3.55;
+      tl.fromTo(q(".s12-escenario"), { scale: 1.05 }, { scale: 1, duration: 2.5, ease: "power1.out", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s12-btn1"), { opacity: 0.4, scale: 1.15 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power4.out" }, 0);
+      tl.to(q(".s12-btn1"), { scale: 1.06, duration: 0.15, yoyo: true, repeat: 1 }, ACEPTAS + 0.4);
+      pop(q(".s12-o"), 1.2);
+      golpe(q(".s12-btn2"), ENFRENTE, 1.6);
+      sacudon(ENFRENTE, 0.8);
+      pop(q(".s12-icono"), CONT - 0.1);
+      pop(q(".s12-com"), CONT + 0.1);
+      qa(".s12-p").forEach((p, i) => tl.to(p, { y: -14, duration: 0.2, yoyo: true, repeat: 7, ease: "sine.inOut" }, CONT + 0.3 + i * 0.1));
+      tl.to(q(".s12-icono"), { scale: 1.08, transformOrigin: "50% 50%", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, CONT + 0.4);
+      tl.to([q(".s12-btn1"), q(".s12-btn2")], { scale: 1.03, duration: 0.6, yoyo: true, repeat: 3, stagger: 0.3, ease: "sine.inOut" }, CONT + 0.2);
+
+      // salida
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
