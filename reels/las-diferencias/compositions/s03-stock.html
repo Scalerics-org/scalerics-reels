@@ -1,0 +1,62 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pasatiempos.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-stock"] .s03-capa, [data-composition-id="s03-stock"] .s03-cam { position: absolute; inset: 0; }
+    [data-composition-id="s03-stock"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-stock"] .s03-ven { position: absolute; inset: 0; clip-path: inset(505px 0px 362px 0px); }
+    [data-composition-id="s03-stock"] .s03-tag { left: 620px; top: 1000px; }
+    [data-composition-id="s03-stock"] .s03-nota { left: 560px; top: 700px; font-size: 92px; color: #d62828; }
+    [data-composition-id="s03-stock"] .s03-nota2 { left: 600px; top: 1420px; font-size: 92px; color: #d62828; }
+  </style>
+  <div id="root" data-composition-id="s03-stock" data-width="1080" data-height="1920" data-duration="5.64">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="5.64" data-track-index="0">
+      <div class="s03-ven">
+        <div class="s03-cam">
+          <svg class="s03-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        </div>
+      </div>
+      <div class="pa-tag s03-tag">DIFERENCIA Nº 1</div>
+      <div class="pa-mano s03-nota">12 camperas</div>
+      <div class="pa-mano s03-nota2">3 camperas</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-stock";
+      const DUR = 5.64;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = PA.kit(tl, root);
+      const { q, qa } = K;
+      const A = { stock: 12, precio: "2.490", caja: "ok", pagos: 1, vip: true };
+      const B = { stock: 3, precio: "2.990", caja: "mal", pagos: 2, vip: false };
+      q(".s03-svg").innerHTML =
+        `<g class="s03-a">${PA.lamina(70, 570, A, { id: "a" })}${PA.rotulo(56, 540, "A", "CENTRO")}</g>` +
+        `<g class="s03-b">${PA.lamina(70, 1070, B, { id: "b" })}${PA.rotulo(56, 1040, "B", "POCITOS", PA.AZUL)}</g>` +
+        PA.circulo(210, 828, 84, 60, { cls: "s03-c1" }) + PA.circulo(210, 1328, 84, 60, { cls: "s03-c2", giro: 6 }) +
+        `<path class="s03-une" d="M214 890 C250 1000 250 1160 214 1266" fill="none" stroke="${PA.ROJO}" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 14"/>`;
+      const STOCK = 1.60, DOCE = 3.20, TRES = 4.80;
+      tl.fromTo(q(".s03-cam"), { scale: 1.03, transformOrigin: "50% 55%" }, { scale: 1, duration: 0.4, ease: "power2.out" }, 0);
+      K.pop(q(".s03-tag"), 0.1);
+      tl.fromTo(q(".s03-tag"), { rotation: 0 }, { rotation: -3, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.5);
+      // "stock": zoom a los carteles de stock
+      K.camara(q(".s03-cam"), STOCK - 0.2, 230, 1082, 1.5, 0.6);
+      // "doce": círculo en el 12
+      K.dibujar(q(".s03-c1"), DOCE - 0.05, 0.45);
+      K.escribir(q(".s03-nota"), DOCE + 0.25, 0.5);
+      // "tres": círculo en el 3 y la línea que los une
+      K.dibujar(q(".s03-c2"), TRES - 0.1, 0.4);
+      K.escribir(q(".s03-nota2"), TRES + 0.15, 0.45);
+      gsap.set(q(".s03-une"), { opacity: 0 });
+      tl.to(q(".s03-une"), { opacity: 1, duration: 0.2 }, TRES + 0.3);
+
+      K.salida(q("#s03-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

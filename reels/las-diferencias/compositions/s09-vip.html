@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pasatiempos.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-vip"] .s09-capa, [data-composition-id="s09-vip"] .s09-cam { position: absolute; inset: 0; }
+    [data-composition-id="s09-vip"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-vip"] .s09-ven { position: absolute; inset: 0; clip-path: inset(505px 0px 362px 0px); }
+    [data-composition-id="s09-vip"] .s09-tag { left: 60px; top: 985px; }
+    [data-composition-id="s09-vip"] .s09-nota { left: 120px; top: 820px; font-size: 96px; color: #d62828; }
+  </style>
+  <div id="root" data-composition-id="s09-vip" data-width="1080" data-height="1920" data-duration="4.80">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.80" data-track-index="0">
+      <div class="s09-ven">
+        <div class="s09-cam">
+          <svg class="s09-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        </div>
+      </div>
+      <svg class="s09-svg2" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="pa-tag s09-tag">DIFERENCIA Nº 5</div>
+      <div class="pa-mano s09-nota">Lucía</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-vip";
+      const DUR = 4.80;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = PA.kit(tl, root);
+      const { q, qa } = K;
+      const A = { stock: 12, precio: "2.490", caja: "ok", pagos: 1, vip: true };
+      const B = { stock: 3, precio: "2.990", caja: "mal", pagos: 2, vip: false };
+      let rayos = "";
+      for (let k = 0; k < 8; k++) { const a = (k / 8) * Math.PI * 2; rayos += `<path d="M${928 + Math.cos(a) * 62} ${676 + Math.sin(a) * 50} L${928 + Math.cos(a) * 92} ${676 + Math.sin(a) * 74}" stroke="${PA.INK}" stroke-width="5" stroke-linecap="round"/>`; }
+      q(".s09-svg").innerHTML =
+        `<g class="s09-a">${PA.lamina(70, 570, A, { id: "a" })}</g>` +
+        `<g class="s09-b">${PA.lamina(70, 1070, B, { id: "b" })}</g>` +
+        `<g class="s09-rayos">${rayos}</g>` +
+        PA.circulo(928, 676, 70, 52, { cls: "s09-c1" }) + PA.circulo(929, 1155, 76, 50, { cls: "s09-c2", giro: 6 });
+      q(".s09-svg2").innerHTML = `<path class="s09-flecha" d="M330 900 C430 935 540 930 630 890 M600 870 L632 890 L602 912" fill="none" stroke="${PA.ROJO}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>`;
+      const CENTRO = 1.28, LUCIA = 2.17, VIP = 3.52;
+      gsap.set(q(".s09-cam"), { x: 540 - 780 * 1.15, y: 1040 - 940 * 1.15, scale: 1.15, transformOrigin: "0px 0px" });
+      K.camara(q(".s09-cam"), 0, 780, 940, 1.3, 0.7);
+      K.pop(q(".s09-tag"), 0.05);
+      // "Centro": la corona brilla
+      K.origen(q(".s09-rayos"), "928 676");
+      gsap.set(q(".s09-rayos"), { opacity: 0 });
+      tl.fromTo(q(".s09-rayos"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, CENTRO);
+      tl.to(q(".s09-rayos"), { rotation: 22, duration: DUR - CENTRO, ease: "none" }, CENTRO);
+      // "Lucía": nombre a birome con flecha
+      K.escribir(q(".s09-nota"), LUCIA, 0.4);
+      K.dibujar(q(".s09-flecha"), LUCIA + 0.2, 0.35);
+      // "VIP": círculos en la corona y en el globo "¿NOMBRE?"
+      K.dibujar(q(".s09-c1"), VIP - 0.1, 0.3);
+      K.dibujar(q(".s09-c2"), VIP + 0.15, 0.3);
+
+      K.salida(q("#s09-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

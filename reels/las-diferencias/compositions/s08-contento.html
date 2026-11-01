@@ -1,0 +1,75 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pasatiempos.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-contento"] .s08-capa, [data-composition-id="s08-contento"] .s08-cam { position: absolute; inset: 0; }
+    [data-composition-id="s08-contento"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    
+  </style>
+  <div id="root" data-composition-id="s08-contento" data-width="1080" data-height="1920" data-duration="2.41">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="2.41" data-track-index="0">
+      <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-contento";
+      const DUR = 2.41;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = PA.kit(tl, root);
+      const { q, qa } = K;
+      const I = PA.INK;
+      const corazon = (x, y, s, cls) => `<path class="${cls}" d="M${x} ${y + 26 * s} C${x - 50 * s} ${y - 6 * s} ${x - 30 * s} ${y - 44 * s} ${x} ${y - 20 * s} C${x + 30 * s} ${y - 44 * s} ${x + 50 * s} ${y - 6 * s} ${x} ${y + 26 * s} Z" fill="${PA.ROJO}" stroke="${I}" stroke-width="5" stroke-linejoin="round"/>`;
+      const billete = (x, y, r, cls) => `<g class="${cls}" transform="rotate(${r} ${x} ${y})"><rect x="${x - 60}" y="${y - 30}" width="120" height="60" fill="${PA.PAP3}" stroke="${I}" stroke-width="5"/><circle cx="${x}" cy="${y}" r="18" fill="none" stroke="${I}" stroke-width="4"/>${PA.txt(x, y + 10, "$", { fs: 28, w: 900 })}</g>`;
+      q(".s08-svg").innerHTML =
+        `<g class="s08-camion">
+          <path d="M40 1318 L1040 1318" stroke="${I}" stroke-width="6"/>
+          <rect x="110" y="880" width="540" height="370" fill="${PA.PAP2}" stroke="${I}" stroke-width="8"/>
+          <rect x="130" y="900" width="500" height="70" fill="${PA.AZUL}" stroke="${I}" stroke-width="5"/>
+          ${PA.txt(380, 948, "DISTRIBUIDORA", { f: "IBM Plex Mono", w: 600, fs: 40, c: PA.PAP2, ls: 4 })}
+          ${PA.txt(380, 1060, "MAYORISTA", { f: "Special Elite", w: 400, fs: 44 })}
+          ${PA.txt(380, 1120, "DE ROPA", { f: "Special Elite", w: 400, fs: 44 })}
+          <path d="M650 1250 L650 1000 L840 1000 L940 1110 L940 1250 Z" fill="${PA.ROJO}" stroke="${I}" stroke-width="8" stroke-linejoin="round"/>
+          <path d="M690 1030 L830 1030 L900 1110 L690 1110 Z" fill="${PA.PAP2}" stroke="${I}" stroke-width="6" stroke-linejoin="round"/>
+          ${[250, 520, 820].map((x) => `<circle cx="${x}" cy="1262" r="56" fill="${I}"/><circle cx="${x}" cy="1262" r="22" fill="${PA.PAP3}"/>`).join("")}
+        </g>
+        <g class="s08-chofer">
+          <path d="M740 1110 C740 1080 840 1080 840 1110 Z" fill="${PA.AMA}" stroke="${I}" stroke-width="5"/>
+          <circle cx="790" cy="1056" r="40" fill="${PA.PIEL}" stroke="${I}" stroke-width="6"/>
+          <path d="M748 1040 Q790 1000 832 1040 L850 1042 L748 1046 Z" fill="${PA.AZUL}" stroke="${I}" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M772 1056 Q778 1048 784 1056 M796 1056 Q802 1048 808 1056" fill="none" stroke="${I}" stroke-width="5" stroke-linecap="round"/>
+          <path class="s08-boca" d="M768 1072 Q790 1100 812 1072 Z" fill="#7a1420" stroke="${I}" stroke-width="5" stroke-linejoin="round"/>
+          <g class="s08-brazo"><path d="M870 1100 L960 960" stroke="${I}" stroke-width="34" stroke-linecap="round"/><path d="M870 1100 L960 960" stroke="${PA.AMA}" stroke-width="22" stroke-linecap="round"/><circle cx="964" cy="948" r="26" fill="${PA.PIEL}" stroke="${I}" stroke-width="5"/></g>
+        </g>` +
+        corazon(700, 880, 1, "s08-h1") + corazon(800, 820, 0.8, "s08-h2") + corazon(880, 860, 0.6, "s08-h3") +
+        billete(300, 760, -12, "s08-b1") + billete(520, 700, 14, "s08-b2") +
+        `<g class="s08-d">${PA.dueno(150, 1545, 0.5, { cara: "rendido" })}</g>`;
+      const SALUDA = 0.77, CONTENTO = 1.29;
+      tl.fromTo(q(".s08-camion"), { x: 260 }, { x: 0, duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s08-chofer"), { x: 260 }, { x: 0, duration: 0.5, ease: "power3.out" }, 0);
+      tl.to([q(".s08-camion"), q(".s08-chofer")], { y: -6, duration: 0.12, yoyo: true, repeat: 15, ease: "sine.inOut" }, 0.5);
+      K.origen(q(".s08-brazo"), "870 1100");
+      tl.fromTo(q(".s08-brazo"), { rotation: -18 }, { rotation: 18, duration: 0.18, yoyo: true, repeat: 11, ease: "sine.inOut" }, 0.2);
+      K.origen(q(".s08-boca"), "790 1080");
+      tl.to(q(".s08-boca"), { scale: 1.4, duration: 0.2, ease: "back.out(3)" }, SALUDA);
+      [".s08-h1", ".s08-h2", ".s08-h3"].forEach((c, i) => {
+        gsap.set(q(c), { opacity: 0 });
+        tl.fromTo(q(c), { opacity: 0, y: 40 }, { opacity: 1, y: -60, duration: 1.0, ease: "power1.out", immediateRender: false }, SALUDA + i * 0.15);
+      });
+      [".s08-b1", ".s08-b2"].forEach((c, i) => {
+        gsap.set(q(c), { opacity: 0 });
+        tl.fromTo(q(c), { opacity: 0, y: 200, x: 200 }, { opacity: 1, y: 0, x: 0, duration: 0.5, ease: "back.out(1.4)", immediateRender: false }, CONTENTO + i * 0.15);
+      });
+      K.origen(q(".s08-d .pa-d-cabeza"), "0 -230");
+      tl.to(q(".s08-d .pa-d-cabeza"), { rotation: -10, duration: 0.3, ease: "power2.out" }, CONTENTO);
+
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

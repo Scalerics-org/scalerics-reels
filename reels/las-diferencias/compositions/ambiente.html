@@ -1,0 +1,136 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-weight: 600; font-display: block; src: url("assets/fonts/CormorantGaramond-600.woff2") format("woff2"); }
+    @font-face { font-family: "Special Elite"; font-weight: 400; font-display: block; src: url("assets/fonts/SpecialElite.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="ambiente"] .am-cab { position: absolute; left: 40px; top: 34px; width: 1000px; height: 178px; border-top: 8px solid #1c1a17; border-bottom: 3px solid #1c1a17; }
+    [data-composition-id="ambiente"] .am-cab::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; border-bottom: 2px solid #1c1a17; }
+    [data-composition-id="ambiente"] .am-cab b { position: absolute; left: 0; right: 0; top: 4px; text-align: center; font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 94px; line-height: 1; color: #1c1a17; letter-spacing: 0.03em; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-cab small { position: absolute; top: 118px; font-family: "Special Elite", monospace; font-size: 25px; color: #1c1a17; white-space: nowrap; letter-spacing: 0.06em; }
+    [data-composition-id="ambiente"] .am-cab .am-izq { left: 6px; }
+    [data-composition-id="ambiente"] .am-cab .am-der { right: 6px; }
+    [data-composition-id="ambiente"] .am-cab .am-mid { left: 0; right: 0; text-align: center; }
+    [data-composition-id="ambiente"] .am-cab .am-mid i { font-style: normal; background: #ffe14a; padding: 0 8px; }
+    [data-composition-id="ambiente"] .am-cab .am-mid2 { left: 0; right: 0; text-align: center; opacity: 0; }
+    [data-composition-id="ambiente"] .am-cab .am-mid2 i { font-style: normal; background: #5ce611; padding: 0 8px; }
+    [data-composition-id="ambiente"] .am-chapas { position: absolute; left: 40px; top: 1572px; width: 620px; height: 100px; }
+    [data-composition-id="ambiente"] .am-ch { position: absolute; left: 0; top: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .am-ch .am-pl { display: inline-block; padding: 12px 26px 10px; background: #1c1a17; border-left: 16px solid currentColor; box-shadow: 6px 6px 0 rgba(28, 26, 23, 0.25); }
+    [data-composition-id="ambiente"] .am-ch b { display: block; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 36px; line-height: 1; white-space: nowrap; color: #f6f0de; }
+    [data-composition-id="ambiente"] .am-ch small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.16em; color: currentColor; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-marcador { position: absolute; right: 40px; top: 1572px; width: 360px; height: 100px; background: #f6f0de; border: 4px solid #1c1a17; box-shadow: 6px 6px 0 #1c1a17; }
+    [data-composition-id="ambiente"] .am-marcador small { position: absolute; left: 0; right: 0; top: 8px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 18px; letter-spacing: 0.3em; color: #1c1a17; }
+    [data-composition-id="ambiente"] .am-marcador small.am-cero { opacity: 0; color: #3f9e0b; }
+    [data-composition-id="ambiente"] .am-num { position: absolute; top: 40px; width: 48px; height: 48px; border-radius: 50%; border: 3px dashed #1c1a17; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 24px; line-height: 42px; text-align: center; color: rgba(28, 26, 23, 0.8); }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #fffbe9; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.69">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="73.69" data-track-index="0">
+      <svg class="am-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="am-cab">
+        <b>PASATIEMPOS</b>
+        <small class="am-izq">Nº 1102</small>
+        <small class="am-mid">ENCONTRÁ LAS <i>5 DIFERENCIAS</i></small>
+        <small class="am-mid2">EDICIÓN <i>UN SOLO SISTEMA</i></small>
+        <small class="am-der">$ 45</small>
+      </div>
+      <div class="am-chapas">
+        <div class="am-ch am-chp" style="color:#d62828"><div class="am-pl"><b>LA PROFE</b><small>CONDUCE EL JUEGO</small></div></div>
+        <div class="am-ch am-chd" style="color:#1f4fbf"><div class="am-pl"><b>EL DUEÑO</b><small>JUEGA CON BIROME</small></div></div>
+        <div class="am-ch am-chl" style="color:#ffe14a"><div class="am-pl"><b>LUCÍA</b><small>CLIENTA DE SIEMPRE</small></div></div>
+        <div class="am-ch am-cho" style="color:#5ce611"><div class="am-pl"><b>SCALERICS</b><small>SISTEMAS A MEDIDA</small></div></div>
+      </div>
+      <div class="am-marcador"><small class="am-enc">ENCONTRADAS</small><small class="am-cero" style="position:absolute">DIFERENCIAS: 0</small>
+        <div class="am-num" style="left:22px">1</div><div class="am-num" style="left:90px">2</div><div class="am-num" style="left:158px">3</div><div class="am-num" style="left:226px">4</div><div class="am-num" style="left:294px">5</div>
+      </div>
+      <svg class="am-svg2" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="am-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.69;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // segundos globales (los escribe armar.mjs desde assets/voice/palabras.json)
+      const TURNOS = [[0,"p"],[5.86,"d"],[8.7,"p"],[14.34,"d"],[16.61,"p"],[20,"l"],[23.58,"p"],[29.2,"d"],[31.61,"p"],[36.41,"l"],[40.38,"d"],[43.46,"p"],[51.56,"o"],[61.07,"p"],[63.8,"d"],[66.78,"o"]];
+      const MARCAS = [13.5, 18.77, 25.18, 28.22, 35.13];
+      const SCALERICS = 51.56;
+      const IGUALES = 64.74;
+      const INK = "#1c1a17", ROJO = "#d62828", VERDE2 = "#3f9e0b";
+
+      // decorado de página: columnas finas, un crucigrama asomando abajo a la izquierda, mancha de café abajo a la derecha,
+      // y los círculos de birome del marcador (uno por diferencia)
+      let cruci = "";
+      const negras = [1, 5, 8, 12, 14, 19, 23, 26];
+      for (let k = 0; k < 28; k++) {
+        const cx = 40 + (k % 7) * 40, cy = 1700 + Math.floor(k / 7) * 40;
+        cruci += `<rect x="${cx}" y="${cy}" width="40" height="40" fill="${negras.includes(k) ? INK : "none"}" stroke="${INK}" stroke-width="2"/>`;
+        if (!negras.includes(k) && k % 3 === 0) cruci += `<text x="${cx + 4}" y="${cy + 13}" font-family="IBM Plex Mono" font-weight="600" font-size="11" fill="${INK}">${k + 1}</text>`;
+      }
+      let marcas = "";
+      [0, 1, 2, 3, 4].forEach((i) => {
+        const cx = 725 + i * 68, cy = 1643;
+        const p = [];
+        for (let k = 0; k <= 44; k++) { const t = -0.5 + (k / 40) * Math.PI * 2; const w = 1 + (k > 38 ? 0.12 : 0); p.push(`${(cx + Math.cos(t) * 30 * w).toFixed(1)} ${(cy + Math.sin(t) * 28 * w).toFixed(1)}`); }
+        marcas += `<path class="am-mc am-mc${i}" d="M${p.join(" L")}" fill="none" stroke="${ROJO}" stroke-width="6" stroke-linecap="round"/>`;
+        marcas += `<path class="am-tk am-tk${i}" d="M${cx - 14} ${cy} L${cx - 4} ${cy + 11} L${cx + 16} ${cy - 13}" fill="none" stroke="${VERDE2}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`;
+      });
+      q(".am-svg").innerHTML =
+        `<path d="M28 240 L28 1540 M1052 240 L1052 1540" stroke="${INK}" stroke-width="2" opacity="0.18"/>` +
+        `<g opacity="0.32">${cruci}</g>` +
+        `<g opacity="0.3"><circle cx="960" cy="1820" r="78" fill="none" stroke="#a0773f" stroke-width="12"/><circle cx="956" cy="1824" r="66" fill="none" stroke="#a0773f" stroke-width="3" opacity="0.6"/></g>` +
+        `<g opacity="0.35">${[1716, 1740, 1764, 1788, 1812, 1836].map((y, i) => `<path d="M340 ${y} L${i % 3 === 2 ? 520 : 600} ${y}" stroke="${INK}" stroke-width="5"/>`).join("")}</g>`;
+      q(".am-svg2").innerHTML = marcas;
+
+      tl.fromTo(q(".am-cab"), { y: -24, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 0);
+      // el papel "respira" apenas
+      tl.fromTo(q(".am-cab b"), { scale: 1 }, { scale: 1.015, duration: DUR / 6, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+
+      const CH = { p: ".am-chp", d: ".am-chd", l: ".am-chl", o: ".am-cho" };
+      let ant = null;
+      TURNOS.forEach(([t, quien]) => {
+        const el = q(CH[quien]);
+        if (ant && ant !== el) tl.to(ant, { opacity: 0, x: -30, duration: 0.12, ease: "power2.in" }, t - 0.12);
+        if (ant !== el) tl.fromTo(el, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(2.2)", immediateRender: false }, Math.max(0, t));
+        ant = el;
+      });
+
+      // cada diferencia que se revela queda marcada en el marcador con un círculo de birome
+      qa(".am-mc, .am-tk").forEach((el) => {
+        const L = el.getTotalLength() + 2;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+      });
+      MARCAS.forEach((t, i) => {
+        tl.set(q(".am-mc" + i), { opacity: 1 }, t);
+        tl.to(q(".am-mc" + i), { strokeDashoffset: 0, duration: 0.35, ease: "power2.inOut" }, t);
+      });
+      // con el sistema: los círculos rojos se van, los números se tildan en verde y "DIFERENCIAS: 0"
+      [0, 1, 2, 3, 4].forEach((i) => {
+        tl.to(q(".am-mc" + i), { opacity: 0, duration: 0.15 }, IGUALES + i * 0.08);
+        tl.set(q(".am-tk" + i), { opacity: 1 }, IGUALES + i * 0.08);
+        tl.to(q(".am-tk" + i), { strokeDashoffset: 0, duration: 0.2, ease: "power2.out" }, IGUALES + i * 0.08);
+      });
+      tl.to(qa(".am-num"), { opacity: 0, duration: 0.2 }, IGUALES);
+      tl.to(q(".am-enc"), { opacity: 0, duration: 0.15 }, IGUALES);
+      tl.to(q(".am-cero"), { opacity: 1, duration: 0.2 }, IGUALES + 0.1);
+
+      tl.to(q(".am-flash"), { opacity: 0.6, duration: 0.03 }, SCALERICS);
+      tl.to(q(".am-flash"), { opacity: 0, duration: 0.45, ease: "power2.out" }, SCALERICS + 0.04);
+      tl.to(q(".am-mid"), { opacity: 0, duration: 0.15 }, SCALERICS);
+      tl.to(q(".am-mid2"), { opacity: 1, duration: 0.2 }, SCALERICS + 0.1);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

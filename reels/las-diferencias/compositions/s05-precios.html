@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pasatiempos.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-precios"] .s05-capa, [data-composition-id="s05-precios"] .s05-cam { position: absolute; inset: 0; }
+    [data-composition-id="s05-precios"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-precios"] .s05-ven { position: absolute; inset: 0; clip-path: inset(505px 0px 362px 0px); }
+    [data-composition-id="s05-precios"] .s05-tag { left: 640px; top: 985px; }
+    [data-composition-id="s05-precios"] .s05-dist { left: 420px; top: 930px; font-size: 170px; color: #d62828; }
+    [data-composition-id="s05-precios"] .s05-misma { left: 90px; top: 1180px; font-size: 64px; color: #d62828; }
+  </style>
+  <div id="root" data-composition-id="s05-precios" data-width="1080" data-height="1920" data-duration="3.39">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.39" data-track-index="0">
+      <div class="s05-ven">
+        <div class="s05-cam">
+          <svg class="s05-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        </div>
+      </div>
+      <div class="pa-tag s05-tag">DIFERENCIA Nº 2</div>
+      <div class="pa-mano s05-dist">≠</div>
+      <div class="pa-mano s05-misma">la misma</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-precios";
+      const DUR = 3.39;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = PA.kit(tl, root);
+      const { q, qa } = K;
+      const A = { stock: 12, precio: "2.490", caja: "ok", pagos: 1, vip: true };
+      const B = { stock: 3, precio: "2.990", caja: "mal", pagos: 2, vip: false };
+      q(".s05-svg").innerHTML =
+        `<g class="s05-a">${PA.lamina(70, 570, A, { id: "a" })}${PA.rotulo(56, 540, "A", "CENTRO")}</g>` +
+        `<g class="s05-b">${PA.lamina(70, 1070, B, { id: "b" })}${PA.rotulo(56, 1040, "B", "POCITOS", PA.AZUL)}</g>` +
+        // las dos camperas rojas se marcan con un tilde de birome
+        PA.circulo(340, 720, 60, 76, { cls: "s05-r1", sw: 6, giro: 4 }) + PA.circulo(340, 1220, 60, 76, { cls: "s05-r2", sw: 6, giro: -4 }) +
+        PA.circulo(370, 801, 72, 40, { cls: "s05-c1" }) + PA.circulo(370, 1301, 72, 40, { cls: "s05-c2", giro: 5 });
+      const MISMA = 1.12, DOS = 2.16, PRECIOS = 2.40;
+      // arranca ya con zoom a los precios
+      gsap.set(q(".s05-cam"), { x: 540 - 370 * 1.25, y: 1040 - 1048 * 1.25, scale: 1.25, transformOrigin: "0px 0px" });
+      K.camara(q(".s05-cam"), 0, 370, 1048, 1.5, 0.7);
+      K.pop(q(".s05-tag"), 0.05);
+      // "misma campera": las dos camperas rojas
+      K.dibujar(q(".s05-r1"), MISMA, 0.35);
+      K.dibujar(q(".s05-r2"), MISMA + 0.15, 0.35);
+      K.escribir(q(".s05-misma"), MISMA + 0.2, 0.4);
+      tl.to(q(".s05-misma"), { opacity: 0, duration: 0.2 }, DOS - 0.2);
+      tl.to([q(".s05-r1"), q(".s05-r2")], { opacity: 0.25, duration: 0.2 }, DOS - 0.2);
+      // "dos precios"
+      K.dibujar(q(".s05-c1"), DOS - 0.05, 0.35);
+      K.dibujar(q(".s05-c2"), PRECIOS, 0.35);
+      K.sello(q(".s05-dist"), PRECIOS + 0.3, 0);
+      tl.to(q(".s05-cam"), { scale: "+=0.03", duration: DUR - 2.6, ease: "none" }, 2.6);
+
+      K.salida(q("#s05-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

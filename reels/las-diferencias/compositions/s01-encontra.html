@@ -1,0 +1,74 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pasatiempos.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-encontra"] .s01-capa, [data-composition-id="s01-encontra"] .s01-cam { position: absolute; inset: 0; }
+    [data-composition-id="s01-encontra"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-encontra"] .s01-seg { left: 700px; top: 990px; }
+  </style>
+  <div id="root" data-composition-id="s01-encontra" data-width="1080" data-height="1920" data-duration="5.86">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.86" data-track-index="0">
+      <div class="s01-cam">
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+      <svg class="s01-svg2" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="pa-tag s01-seg">5 SEGUNDOS</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-encontra";
+      const DUR = 5.86;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const A = { nombre: "CENTRO", stock: 12, precio: "2.490", caja: "ok", pagos: 1, vip: true };
+      const B = { nombre: "POCITOS", stock: 3, precio: "2.990", caja: "mal", pagos: 2, vip: false };
+      root.querySelector(".s01-svg").innerHTML =
+        `<g class="s01-a">${PA.lamina(70, 570, A, { id: "a" })}${PA.rotulo(56, 540, "A", "CENTRO")}</g>` +
+        `<g class="s01-b">${PA.lamina(70, 1070, B, { id: "b" })}${PA.rotulo(56, 1040, "B", "POCITOS", PA.AZUL)}</g>`;
+      root.querySelector(".s01-svg2").innerHTML =
+        // círculo de birome alrededor de "5 DIFERENCIAS" de la cabecera
+        PA.circulo(640, 166, 132, 30, { cls: "s01-c5", giro: -2, sw: 8 }) +
+        `<g class="s01-crono">${PA.crono(540, 1050, 92)}</g>` +
+        `<g class="s01-profe">${PA.profe(900, 1545, 0.5, { birome: true, cara: "picara", espejo: true })}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = PA.kit(tl, root);
+      const { q } = K;
+
+      const CINCO = 0.56;
+      const CENTRO = 2.40;
+      const POCITOS = 3.30;
+      const TENES = 3.80;
+      const SEG = 4.32;
+
+      // cuadro 0: la lámina ya está, a medio entrar
+      tl.fromTo(q(".s01-a"), { opacity: 0.85, y: -30 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".s01-b"), { opacity: 0.85, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.5)" }, 0.05);
+      tl.fromTo(q(".s01-cam"), { scale: 1 }, { scale: 1.035, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      // "cinco": círculo rojo en la cabecera
+      K.dibujar(q(".s01-c5"), CINCO, 0.45);
+      // "Centro" / "Pocitos": cada recuadro se marca
+      K.origen(q(".s01-a .pa-rotulo"), "150 565");
+      tl.fromTo(q(".s01-a .pa-rotulo"), { scale: 1 }, { scale: 1.18, duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out" }, CENTRO);
+      K.sacudon(q(".s01-a .pa-lam"), CENTRO, 0.5);
+      K.origen(q(".s01-b .pa-rotulo"), "160 1065");
+      tl.fromTo(q(".s01-b .pa-rotulo"), { scale: 1 }, { scale: 1.18, duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out" }, POCITOS);
+      K.sacudon(q(".s01-b .pa-lam"), POCITOS, 0.5);
+      // "Tenés cinco segundos": cronómetro y la profe
+      K.popSvg(q(".s01-crono"), TENES - 0.05, "540 1050", 0.35, 0.3);
+      const ag = q(".pa-crono-aguja");
+      K.origen(ag, "540 1050");
+      tl.to(ag, { rotation: 300, duration: DUR - SEG, ease: "steps(5)" }, SEG);
+      K.pop(q(".s01-seg"), SEG);
+      gsap.set(q(".s01-profe"), { opacity: 0 });
+      tl.fromTo(q(".s01-profe"), { opacity: 0, y: 160 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)", immediateRender: false }, CENTRO - 0.3);
+      K.hablar(".pa-p-boca", CENTRO, 6, 0.12);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

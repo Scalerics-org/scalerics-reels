@@ -1,0 +1,72 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pasatiempos.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-caja"] .s07-capa, [data-composition-id="s07-caja"] .s07-cam { position: absolute; inset: 0; }
+    [data-composition-id="s07-caja"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-caja"] .s07-ven { position: absolute; inset: 0; clip-path: inset(505px 0px 362px 0px); }
+    [data-composition-id="s07-caja"] .s07-tag { left: 640px; top: 985px; }
+    [data-composition-id="s07-caja"] .s07-tag2 { left: 640px; top: 985px; }
+    [data-composition-id="s07-caja"] .s07-nota { left: 700px; top: 1300px; font-size: 76px; color: #d62828; }
+    [data-composition-id="s07-caja"] .s07-nota2 { left: 650px; top: 1130px; font-size: 76px; color: #d62828; }
+  </style>
+  <div id="root" data-composition-id="s07-caja" data-width="1080" data-height="1920" data-duration="5.62">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.62" data-track-index="0">
+      <div class="s07-ven">
+        <div class="s07-cam">
+          <svg class="s07-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        </div>
+      </div>
+      <div class="pa-tag s07-tag">DIFERENCIA Nº 3</div>
+      <div class="pa-tag s07-tag2">DIFERENCIA Nº 4</div>
+      <div class="pa-mano s07-nota">no cierra</div>
+      <div class="pa-mano s07-nota2">¡dos veces!</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-caja";
+      const DUR = 5.62;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = PA.kit(tl, root);
+      const { q, qa } = K;
+      const A = { stock: 12, precio: "2.490", caja: "ok", pagos: 1, vip: true };
+      const B = { stock: 3, precio: "2.990", caja: "mal", pagos: 2, vip: false };
+      q(".s07-svg").innerHTML =
+        `<g class="s07-a">${PA.lamina(70, 570, A, { id: "a" })}${PA.rotulo(56, 540, "A", "CENTRO")}</g>` +
+        `<g class="s07-b">${PA.lamina(70, 1070, B, { id: "b" })}${PA.rotulo(56, 1040, "B", "POCITOS", PA.AZUL)}</g>` +
+        PA.circulo(582, 719, 84, 36, { cls: "s07-c1", sw: 7 }) + PA.circulo(582, 1219, 84, 36, { cls: "s07-c2", sw: 7, giro: 5 }) +
+        PA.circulo(792, 692, 74, 92, { cls: "s07-c3", sw: 7 }) + PA.circulo(792, 1192, 74, 92, { cls: "s07-c4", sw: 7, giro: 6 });
+      const CAJA = 1.04, CIERRA = 1.60, CUATRO = 2.52, PROV = 3.52, DOSV = 4.64;
+      gsap.set(q(".s07-cam"), { x: 540 - 582 * 1.2, y: 1040 - 969 * 1.2, scale: 1.2, transformOrigin: "0px 0px" });
+      K.camara(q(".s07-cam"), 0, 582, 969, 1.5, 0.6);
+      K.pop(q(".s07-tag"), 0.05);
+      // "caja": el visor de Pocitos titila
+      tl.fromTo(q(".pa-lam-b .pa-caja"), { opacity: 1 }, { opacity: 0.4, duration: 0.08, yoyo: true, repeat: 3, ease: "steps(1)" }, CAJA);
+      K.dibujar(q(".s07-c1"), CIERRA - 0.15, 0.3);
+      K.dibujar(q(".s07-c2"), CIERRA + 0.05, 0.3);
+      K.escribir(q(".s07-nota"), CIERRA + 0.3, 0.4);
+      // "número cuatro": paneo a la factura del proveedor
+      tl.to([q(".s07-nota"), q(".s07-tag")], { opacity: 0, duration: 0.15 }, CUATRO - 0.2);
+      tl.to([q(".s07-c1"), q(".s07-c2")], { opacity: 0.3, duration: 0.15 }, CUATRO - 0.2);
+      K.camara(q(".s07-cam"), CUATRO - 0.15, 792, 942, 1.5, 0.5);
+      K.pop(q(".s07-tag2"), CUATRO);
+      K.dibujar(q(".s07-c3"), PROV, 0.35);
+      // "dos veces": el segundo PAGADO cae de golpe
+      const p2 = q(".pa-lam-b .pa-pago2");
+      gsap.set(p2, { opacity: 0 });
+      tl.fromTo(p2, { opacity: 0, scale: 2.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, DOSV - 0.12);
+      K.sacudon(q(".s07-ven"), DOSV + 0.03, 0.6);
+      K.dibujar(q(".s07-c4"), DOSV + 0.1, 0.3);
+      K.escribir(q(".s07-nota2"), DOSV + 0.3, 0.4);
+
+      K.salida(q("#s07-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

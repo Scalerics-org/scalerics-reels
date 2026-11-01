@@ -1,0 +1,91 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pasatiempos.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cuaderno"] .s12-capa, [data-composition-id="s12-cuaderno"] .s12-cam { position: absolute; inset: 0; }
+    [data-composition-id="s12-cuaderno"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cuaderno"] .s12-tag { left: 60px; top: 548px; }
+    [data-composition-id="s12-cuaderno"] .s12-tag2 { left: 400px; top: 1300px; }
+  </style>
+  <div id="root" data-composition-id="s12-cuaderno" data-width="1080" data-height="1920" data-duration="8.10">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="8.10" data-track-index="0">
+      <svg class="s12-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="pa-tag s12-tag">LA DIFERENCIA DE VERDAD</div>
+      <div class="pa-tag ama s12-tag2">3 VERDADES</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cuaderno";
+      const DUR = 8.10;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = PA.kit(tl, root);
+      const { q, qa } = K;
+      const I = PA.INK;
+      let espiral = "";
+      for (let k = 0; k < 9; k++) espiral += `<circle cx="${110 + k * 42}" cy="652" r="12" fill="none" stroke="${I}" stroke-width="5"/>`;
+      let celdas = "";
+      const filas = [["STOCK", "3"], ["PRECIO", "2.990"], ["CAJA", "− 800"], ["LUCÍA", "¿?"]];
+      filas.forEach(([a, b], i) => {
+        const y = 760 + i * 58;
+        celdas += `<rect x="580" y="${y}" width="190" height="58" fill="${PA.PAP2}" stroke="${I}" stroke-width="3"/><rect x="770" y="${y}" width="200" height="58" fill="${PA.PAP2}" stroke="${I}" stroke-width="3"/>` +
+          PA.txt(594, y + 40, a, { f: "IBM Plex Mono", w: 600, fs: 26, a: "start" }) + PA.txt(956, y + 40, b, { f: "IBM Plex Mono", w: 600, fs: 28, a: "end" });
+      });
+      const nube = `<path d="M640 1190 C590 1190 590 1120 640 1116 C630 1060 710 1040 740 1076 C770 1030 860 1036 870 1080 C930 1060 990 1110 960 1150 C1000 1190 950 1230 910 1210 C880 1250 800 1250 780 1212 C740 1240 660 1236 640 1190 Z" fill="${PA.PAP2}" stroke="${I}" stroke-width="6"/>
+        <circle cx="810" cy="1262" r="14" fill="${PA.PAP2}" stroke="${I}" stroke-width="5"/>`;
+      q(".s12-svg").innerHTML =
+        `<g class="s12-cuad" transform="rotate(-4 280 820)">
+          <rect x="80" y="640" width="400" height="360" fill="${PA.PAP2}" stroke="${I}" stroke-width="7"/>
+          ${[700, 750, 800, 850, 900, 950].map((y) => `<path d="M90 ${y} L470 ${y}" stroke="${PA.AZUL}" stroke-width="2" opacity="0.35"/>`).join("")}
+          <path d="M140 650 L140 990" stroke="${PA.ROJO}" stroke-width="3" opacity="0.6"/>
+          ${espiral}
+          ${PA.txt(156, 742, "camperas: 12", { f: "Caveat", w: 700, fs: 46, c: PA.AZUL, a: "start" })}
+          ${PA.txt(156, 842, "roja $ 2.490", { f: "Caveat", w: 700, fs: 46, c: PA.AZUL, a: "start" })}
+          ${PA.txt(156, 942, "Lucía: VIP!!", { f: "Caveat", w: 700, fs: 46, c: PA.AZUL, a: "start" })}
+          ${PA.rotulo(70, 980, "A", "CENTRO")}
+        </g>` +
+        `<g class="s12-plan" transform="rotate(3 775 860)">
+          <rect x="560" y="660" width="430" height="360" fill="${PA.PAP3}" stroke="${I}" stroke-width="7"/>
+          <rect x="580" y="700" width="390" height="60" fill="${I}"/>${PA.txt(775, 740, "PLANILLA", { f: "IBM Plex Mono", w: 600, fs: 28, c: PA.PAP2, ls: 6 })}
+          ${celdas}
+          ${PA.rotulo(546, 1000, "B", "POCITOS", PA.AZUL)}
+        </g>` +
+        `<g class="s12-nube">${nube}
+          <g class="s12-n1">${PA.txt(700, 1150, "− 800", { f: "Caveat", w: 700, fs: 48, c: PA.ROJO })}</g>
+          <g class="s12-n2">${PA.txt(860, 1130, "¿?", { f: "Caveat", w: 700, fs: 64, c: PA.ROJO })}</g>
+          <g class="s12-n3">${PA.txt(840, 1205, "2.490?", { f: "Caveat", w: 700, fs: 40, c: PA.AZUL })}</g>
+        </g>` +
+        `<g class="s12-p">${PA.profe(230, 1545, 0.7, { cara: "picara" })}</g>` +
+        `<g class="s12-d">${PA.dueno(850, 1545, 0.58, { cara: "confundido", gota: true })}</g>`;
+      const VERDAD = 0.48, CENTRO = 1.84, POCITOS = 4.09, CAJA = 6.00, CABEZA = 6.96;
+      tl.fromTo(q(".s12-p"), { y: 80 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, 0);
+      K.hablar(".pa-p-boca", 0.05, 30, 0.12);
+      K.pop(q(".s12-tag"), VERDAD);
+      K.origen(q(".pa-p-cabeza"), "0 -236");
+      tl.to(q(".pa-p-cabeza"), { rotation: -8, duration: 0.3, ease: "back.out(2)" }, VERDAD);
+      tl.to(q(".pa-p-cabeza"), { rotation: 0, duration: 0.3 }, CENTRO);
+      // "Centro": el cuaderno
+      gsap.set(q(".s12-cuad"), { opacity: 0 });
+      tl.fromTo(q(".s12-cuad"), { opacity: 0, y: -60, rotation: -6 }, { opacity: 1, y: 0, rotation: 0, duration: 0.4, ease: "back.out(1.6)", immediateRender: false }, CENTRO - 0.1);
+      // "Pocitos": la planilla
+      gsap.set(q(".s12-plan"), { opacity: 0 });
+      tl.fromTo(q(".s12-plan"), { opacity: 0, y: -60, rotation: 5 }, { opacity: 1, y: 0, rotation: 0, duration: 0.4, ease: "back.out(1.6)", immediateRender: false }, POCITOS - 0.1);
+      tl.to(q(".s12-tag"), { opacity: 0, duration: 0.2 }, POCITOS - 0.2);
+      // "caja, en tu cabeza": el dueño con la nube de números que giran
+      gsap.set([q(".s12-d"), q(".s12-nube")], { opacity: 0 });
+      tl.fromTo(q(".s12-d"), { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, CAJA - 0.5);
+      K.popSvg(q(".s12-nube"), CAJA - 0.1, "800 1150", 0.4, 0.2);
+      [".s12-n1", ".s12-n2", ".s12-n3"].forEach((c, i) => { K.origen(q(c), "800 1150"); tl.to(q(c), { rotation: i % 2 ? -40 : 40, duration: DUR - CAJA, ease: "none" }, CAJA); });
+      tl.to([q(".s12-cuad"), q(".s12-plan")], { y: "+=8", duration: 0.15, yoyo: true, repeat: 3 }, CABEZA);
+      K.pop(q(".s12-tag2"), CABEZA);
+
+      K.salida(q("#s12-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

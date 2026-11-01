@@ -1,0 +1,67 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pasatiempos.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-ultima"] .s15-capa, [data-composition-id="s15-ultima"] .s15-cam { position: absolute; inset: 0; }
+    [data-composition-id="s15-ultima"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s15-ultima"] .s15-tag { left: 620px; top: 990px; }
+    [data-composition-id="s15-ultima"] .s15-igual { left: 400px; top: 985px; font-size: 56px; }
+  </style>
+  <div id="root" data-composition-id="s15-ultima" data-width="1080" data-height="1920" data-duration="5.71">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="5.71" data-track-index="0">
+      <div class="s15-cam">
+        <svg class="s15-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+      <svg class="s15-svg2" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="pa-tag s15-tag">ÚLTIMA RONDA</div>
+      <div class="pa-sello verde s15-igual">0 DIFERENCIAS</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-ultima";
+      const DUR = 5.71;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = PA.kit(tl, root);
+      const { q, qa } = K;
+      const A = { stock: 12, precio: "2.490", caja: "ok", pagos: 1, vip: true };
+      q(".s15-svg").innerHTML =
+        `<g class="s15-a">${PA.lamina(70, 570, A, { id: "a" })}${PA.rotulo(56, 540, "A", "CENTRO")}</g>` +
+        `<g class="s15-b">${PA.lamina(70, 1070, A, { id: "b" })}${PA.rotulo(56, 1040, "B", "POCITOS", PA.AZUL)}</g>`;
+      q(".s15-svg2").innerHTML =
+        `<g class="s15-crono">${PA.crono(540, 1050, 80)}</g>` +
+        `<g class="s15-lupa"><circle cx="0" cy="0" r="90" fill="${PA.PAP2}" fill-opacity="0.25" stroke="${PA.INK}" stroke-width="14"/><circle cx="0" cy="0" r="90" fill="none" stroke="${PA.PAP2}" stroke-width="4" opacity="0.6"/><path d="M64 64 L150 150" stroke="${PA.INK}" stroke-width="30" stroke-linecap="round"/></g>` +
+        `<g class="s15-d">${PA.dueno(880, 1545, 0.62, { cara: "feliz" })}</g>` +
+        PA.papelitos(80, 600, 920, 300, 34, 11, true);
+      const ENCONTRA = 0.87, AVER = 2.73, NINGUNA = 3.66, GANE = 4.56;
+      tl.fromTo(q(".s15-a"), { opacity: 0.5, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".s15-b"), { opacity: 0.5, x: 40 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.5)" }, 0);
+      K.sello(q(".s15-tag"), 0.15, -3);
+      K.popSvg(q(".s15-crono"), ENCONTRA, "540 1050", 0.35);
+      const ag = q(".pa-crono-aguja");
+      K.origen(ag, "540 1050");
+      tl.to(ag, { rotation: 240, duration: AVER - ENCONTRA, ease: "steps(4)" }, ENCONTRA + 0.2);
+      tl.to([q(".s15-crono"), q(".s15-tag")], { opacity: 0, duration: 0.2 }, AVER - 0.15);
+      // "a ver": la lupa recorre las dos láminas
+      gsap.set(q(".s15-lupa"), { x: 200, y: 760, opacity: 0 });
+      tl.to(q(".s15-lupa"), { opacity: 1, duration: 0.15 }, AVER - 0.1);
+      tl.to(q(".s15-lupa"), { keyframes: [{ x: 520, y: 720, duration: 0.3 }, { x: 860, y: 780, duration: 0.3 }, { x: 260, y: 1260, duration: 0.35 }, { x: 760, y: 1240, duration: 0.3 }], ease: "power1.inOut" }, AVER);
+      tl.to(q(".s15-lupa"), { opacity: 0, duration: 0.2 }, NINGUNA + 0.2);
+      // "ninguna": sello verde
+      K.sello(q(".s15-igual"), NINGUNA + 0.1, -5);
+      // "gané": el dueño festeja y caen papelitos
+      gsap.set(q(".s15-d"), { opacity: 0 });
+      tl.fromTo(q(".s15-d"), { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(2)", immediateRender: false }, GANE - 0.25);
+      tl.to(q(".s15-d"), { y: -30, duration: 0.15, yoyo: true, repeat: 3, ease: "power1.out" }, GANE + 0.1);
+      K.lluvia(".pa-papelitos", GANE - 0.1, 1.2, 700);
+
+      K.salida(q("#s15-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
