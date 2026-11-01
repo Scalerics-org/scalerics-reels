@@ -1,0 +1,71 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pesca.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-se-va"] .s08-capa, [data-composition-id="s08-se-va"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-se-va"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-se-va"] .s08-globo { left: 150px; top: 640px; font-size: 50px; }
+    [data-composition-id="s08-se-va"] .s08-globo:after { content: ""; position: absolute; left: 300px; bottom: -40px; border: 20px solid transparent; border-top: 22px solid #0d1b24; }
+  </style>
+  <div id="root" data-composition-id="s08-se-va" data-width="1080" data-height="1920" data-duration="6.58">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="6.58" data-track-index="0">
+      <div class="s08-escenario">
+        <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="pe-globo s08-globo">Ah... bueno.<br>Lo voy a pensar.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-se-va";
+      const DUR = 6.58;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = PE.INK;
+      const tl = gsap.timeline({ paused: true });
+      const K = PE.kit(tl, root);
+      const { q, qa } = K;
+      const svg = (h) => { root.querySelector(".s08-svg").innerHTML = h; };
+      const X = 90, Y = 560, W = 900, H = 940;
+      svg(PE.agua(X, Y, W, H, "s08-agua") +
+        `<g clip-path="url(#s08-agua)">
+          <path d="M300 ${Y} L300 1000" stroke="${I}" stroke-width="4"/>
+          <path d="M300 1000 L300 1040 Q300 1070 276 1070 Q254 1070 254 1048" fill="none" stroke="${PE.CRE2}" stroke-width="7" stroke-linecap="round"/>
+          <path class="s08-rastro" d="M520 1160 Q650 1200 760 1260 T900 1330" fill="none" stroke="${PE.CRE}" stroke-width="6" stroke-dasharray="4 22" stroke-linecap="round" opacity="0.7"/>
+          <g class="s08-pez"><g class="s08-p1">${PE.pez(470, 1150, 1.15, { cara: "duda" })}</g><g class="s08-p2">${PE.pez(470, 1150, 1.15, { cara: "chau" })}</g></g>
+          <g class="s08-cartel"><path d="M850 1460 L850 1250" stroke="${I}" stroke-width="16" stroke-linecap="round"/>
+            <path d="M690 1150 L940 1150 L975 1200 L940 1250 L690 1250 Z" fill="${PE.NAR}" stroke="${I}" stroke-width="7" stroke-linejoin="round"/>
+            <text data-layout-ignore x="815" y="1192" text-anchor="middle" font-family="Black Ops One" font-size="30" fill="${I}">MUEBLERÍA</text>
+            <text data-layout-ignore x="815" y="1232" text-anchor="middle" font-family="Black Ops One" font-size="30" fill="${PE.CRE}">DE ENFRENTE</text></g>
+          ${PE.burbujas(640, 1100, 6, 8, { cls: "s08-bu", w: 60, h: 40, r: 10 })}
+        </g>` + PE.aguaMarco(X, Y, W, H, "CÁMARA SUBMARINA"));
+      const PENSAR = 1.31, SEVA = 2.05, NADANDO = 3.02, MUEBLERIA = 4.75, ENFRENTE = 5.41;
+      tl.fromTo(q(".s08-escenario"), { scale: 1.05 }, { scale: 1, duration: 0.4, ease: "power3.out", transformOrigin: "50% 55%" }, 0);
+      tl.fromTo(q(".pe-rec"), { opacity: 1 }, { opacity: 0.2, duration: 0.4, yoyo: true, repeat: 7, ease: "steps(1)" }, 0);
+      K.nadar(".s08-pez", 0, DUR, 0.22);
+      K.pop(q(".s08-globo"), 0.05);
+      gsap.set(q(".s08-p2"), { opacity: 0 });
+      // "y ahí se va": cierra los ojos, se da vuelta y nada derechito al cartel
+      tl.to(q(".s08-globo"), { opacity: 0, y: -20, duration: 0.2 }, SEVA - 0.15);
+      tl.set(q(".s08-p1"), { opacity: 0 }, SEVA);
+      tl.set(q(".s08-p2"), { opacity: 1 }, SEVA);
+      K.burbujear(".s08-bu", SEVA, 1.0, 200);
+      K.origen(q(".s08-pez"), "470 1150");
+      tl.to(q(".s08-pez"), { x: 330, y: 230, scale: 0.5, duration: ENFRENTE - SEVA + 0.3, ease: "power1.in", svgOrigin: "470 1150" }, SEVA + 0.2);
+      gsap.set(q(".s08-rastro"), { opacity: 0 });
+      tl.to(q(".s08-rastro"), { opacity: 0.7, duration: 0.3 }, NADANDO);
+      tl.fromTo(q(".s08-rastro"), { strokeDashoffset: 0 }, { strokeDashoffset: -130, duration: DUR - NADANDO, ease: "none", immediateRender: false }, NADANDO);
+      K.popSvg(q(".s08-cartel"), MUEBLERIA - 0.2, "830 1300", 0.4, 0.3);
+      K.sacudon(q(".s08-cartel"), ENFRENTE, 0.8);
+      tl.to(q(".s08-pez"), { opacity: 0, duration: 0.3 }, ENFRENTE + 0.4);
+
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

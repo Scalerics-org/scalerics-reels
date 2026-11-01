@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pesca.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-captura"] .s15-capa, [data-composition-id="s15-captura"] .s15-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s15-captura"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s15-captura"] .s15-globo { left: 150px; top: 620px; font-size: 52px; }
+    [data-composition-id="s15-captura"] .s15-globo:after { content: ""; position: absolute; left: 420px; bottom: -40px; border: 20px solid transparent; border-top: 22px solid #0d1b24; }
+    [data-composition-id="s15-captura"] .s15-sello { left: 120px; top: 600px; font-size: 80px; }
+  </style>
+  <div id="root" data-composition-id="s15-captura" data-width="1080" data-height="1920" data-duration="5.39">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="5.39" data-track-index="0">
+      <div class="s15-escenario">
+        <svg class="s15-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="pe-globo s15-globo">¡Ay, sí! ¿Me lo<br>traen el sábado?</div>
+        <div class="pe-sello verde s15-sello">¡QUÉ EJEMPLAR!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-captura";
+      const DUR = 5.39;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = PE.INK;
+      const tl = gsap.timeline({ paused: true });
+      const K = PE.kit(tl, root);
+      const { q, qa } = K;
+      const svg = (h) => { root.querySelector(".s15-svg").innerHTML = h; };
+      svg(`<path d="M0 1240 Q90 1224 180 1240 T360 1240 T540 1240 T720 1240 T900 1240 T1080 1240 L1080 1540 L0 1540 Z" fill="${PE.TUR3}" opacity="0.55"/>
+        <path class="s15-linea" d="M1100 560 L720 1330" stroke="${I}" stroke-width="5"/>
+        <g class="s15-pez">${PE.pez(620, 1360, 1.0, { cara: "feliz" })}</g>
+        <g class="s15-gotas"><path d="M520 1230 l-50 -70 M600 1220 l-10 -90 M700 1220 l30 -80 M780 1236 l70 -50" stroke="${PE.CRE}" stroke-width="10" stroke-linecap="round"/></g>
+        <ellipse class="s15-splash" cx="640" cy="1246" rx="200" ry="34" fill="none" stroke="${PE.CRE}" stroke-width="7"/>
+        <g class="s15-con">${PE.conductor(250, 1560, 0.78, { cara: "feliz", brazo: "arriba" })}</g>`);
+      const SI = 0.26, SABADO = 1.65, ARRIBA = 2.61, QUE = 4.0;
+      K.nadar(".s15-pez", 0, ARRIBA, 0.15);
+      tl.fromTo(q(".s15-pez"), { y: 0 }, { y: -20, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+      K.pop(q(".s15-globo"), 0.05);
+      // "¡arriba, arriba!": el pez sale del agua enganchado
+      tl.to(q(".s15-globo"), { opacity: 0, y: -20, duration: 0.2 }, ARRIBA - 0.2);
+      K.origen(q(".s15-pez"), "620 1360");
+      tl.to(q(".s15-pez"), { x: 60, y: -420, rotation: -24, duration: 0.45, ease: "back.out(1.6)", svgOrigin: "620 1360" }, ARRIBA);
+      tl.to(q(".s15-linea"), { attr: { d: "M1100 560 L695 828" }, duration: 0.45, ease: "back.out(1.6)" }, ARRIBA);
+      tl.fromTo(q(".s15-pez"), { rotation: -24 }, { rotation: -14, duration: 0.25, yoyo: true, repeat: 5, svgOrigin: "620 1360", ease: "sine.inOut", immediateRender: false }, ARRIBA + 0.5);
+      K.origen(q(".s15-splash"), "640 1246");
+      gsap.set([q(".s15-splash"), q(".s15-gotas"), q(".s15-con")], { opacity: 0 });
+      tl.fromTo(q(".s15-splash"), { scale: 0.4, opacity: 1 }, { scale: 1.4, opacity: 0, duration: 0.7, svgOrigin: "640 1246", immediateRender: false }, ARRIBA + 0.05);
+      tl.fromTo(q(".s15-gotas"), { opacity: 1, y: 30 }, { opacity: 0, y: -60, duration: 0.6, ease: "power2.out", immediateRender: false }, ARRIBA + 0.05);
+      tl.fromTo(q(".s15-con"), { opacity: 0, x: -160 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, ARRIBA + 0.1);
+      K.hablar(".s15-con .pe-f-boca", ARRIBA + 0.2, 6, 0.12);
+      K.sello(q(".s15-sello"), QUE, -4);
+      K.sacudon(q(".s15-escenario"), QUE + 0.05, 0.8);
+
+      K.salida(q("#s15-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

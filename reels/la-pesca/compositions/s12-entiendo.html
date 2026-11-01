@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pesca.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-entiendo"] .s12-capa, [data-composition-id="s12-entiendo"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-entiendo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-entiendo"] .s12-t { font-size: 28px; }
+    [data-composition-id="s12-entiendo"] .s12-t1 { left: 70px; top: 600px; } .s12-t2 { left: 470px; top: 640px; } .s12-t3 { left: 90px; top: 1340px; } .s12-t4 { left: 430px; top: 1400px; }
+    [data-composition-id="s12-entiendo"] .s12-manos { left: 0; width: 1080px; top: 1496px; position: absolute; text-align: center; }
+    [data-composition-id="s12-entiendo"] .s12-manos .pe-tag { position: relative; display: inline-block; }
+  </style>
+  <div id="root" data-composition-id="s12-entiendo" data-width="1080" data-height="1920" data-duration="5.53">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="5.53" data-track-index="0">
+      <div class="s12-escenario">
+        <svg class="s12-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="pe-tag s12-t s12-t1">CAJA</div>
+        <div class="pe-tag s12-t s12-t2">PROVEEDORES</div>
+        <div class="pe-tag s12-t s12-t3">ENTREGAS</div>
+        <div class="pe-tag s12-t s12-t4">EL LOCAL LLENO</div>
+        <div class="s12-manos"><span class="pe-tag tur">UN SOLO PAR DE MANOS</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-entiendo";
+      const DUR = 5.53;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = PE.INK;
+      const tl = gsap.timeline({ paused: true });
+      const K = PE.kit(tl, root);
+      const { q, qa } = K;
+      const svg = (h) => { root.querySelector(".s12-svg").innerHTML = h; };
+      let toldo = "";
+      for (let k = 0; k < 8; k++) toldo += `<path d="M${120 + k * 75} 760 L${195 + k * 75} 760 L${195 + k * 75} 830 Q${157 + k * 75} 860 ${120 + k * 75} 830 Z" fill="${k % 2 ? PE.CRE : PE.NAR}" stroke="${I}" stroke-width="6" stroke-linejoin="round"/>`;
+      svg(`<g class="s12-local">
+          <rect x="130" y="700" width="580" height="620" rx="10" fill="${PE.CRE2}" stroke="${I}" stroke-width="9"/>
+          <rect x="160" y="712" width="520" height="52" rx="8" fill="${I}"/>
+          <text data-layout-ignore x="420" y="752" text-anchor="middle" font-family="Black Ops One" font-size="38" fill="${PE.NAR2}" letter-spacing="4">MUEBLERÍA</text>
+          ${toldo}
+          <rect x="170" y="880" width="500" height="300" rx="8" fill="${PE.TUR2}" stroke="${I}" stroke-width="7"/>
+          <g class="s12-due">${PE.dueno(420, 1240, 0.62, { cara: "apurado", gota: true })}</g>
+          <rect x="150" y="1180" width="540" height="120" rx="8" fill="${PE.NAR3}" stroke="${I}" stroke-width="8"/>
+          <rect x="530" y="1130" width="110" height="60" rx="6" fill="${PE.CRE}" stroke="${I}" stroke-width="6"/>
+          <text data-layout-ignore x="585" y="1170" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="24" fill="${I}">CAJA</text>
+        </g>
+        <g class="s12-cana">
+          <path d="M900 1500 L900 1340" stroke="${I}" stroke-width="22" stroke-linecap="round"/>
+          <path d="M860 1500 L940 1500" stroke="${I}" stroke-width="16" stroke-linecap="round"/>
+          ${PE.cana(900, 1400, 990, 760, { comba: -30, grosor: 16, carrete: 22 })}
+          <path class="s12-linea" d="M990 760 L930 980" stroke="${I}" stroke-width="4"/>
+          <g class="s12-cel"><rect x="880" y="980" width="100" height="176" rx="18" fill="${I}"/><rect x="890" y="994" width="80" height="148" rx="10" fill="${PE.TUR2}"/>
+            <circle cx="958" cy="996" r="26" fill="${PE.ROJO}" stroke="${I}" stroke-width="5"/><text data-layout-ignore x="958" y="1006" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="28" fill="${PE.CRE}">9</text></g>
+        </g>`);
+      const ENTIENDO = 0.16, LOCAL = 1.64, ATENDER = 2.13, NO = 2.88, TODO = 3.36, MANO = 4.67;
+      tl.fromTo(q(".s12-local"), { opacity: 0.5, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)" }, 0);
+      // el dueño va y viene apurado
+      tl.fromTo(q(".s12-due"), { x: -90 }, { x: 90, duration: 0.55, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, 0.1);
+      [".s12-t1", ".s12-t2", ".s12-t3", ".s12-t4"].forEach((s, i) => K.pop(q(s), [ENTIENDO + 0.6, 1.07, LOCAL - 0.05, ATENDER][i]));
+      // "no puede estar todo el día con la caña en la mano": el local se corre y aparece la caña sola, con el celular que suena
+      K.origen(q(".s12-local"), "130 1320");
+      tl.to(q(".s12-local"), { scale: 0.86, x: -40, duration: 0.4, ease: "power2.inOut", svgOrigin: "130 1320" }, NO - 0.1);
+      tl.to([q(".s12-t2"), q(".s12-t4")], { x: -70, duration: 0.4, ease: "power2.inOut" }, NO - 0.1);
+      gsap.set(q(".s12-cana"), { opacity: 0 });
+      tl.fromTo(q(".s12-cana"), { opacity: 0, x: 160 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, NO);
+      K.origen(q(".s12-cel"), "930 980");
+      tl.fromTo(q(".s12-cel"), { rotation: -8 }, { rotation: 8, duration: 0.08, yoyo: true, repeat: 15, svgOrigin: "930 980", ease: "none", immediateRender: false }, TODO);
+      K.pop(q(".s12-manos"), TODO);
+
+      K.salida(q("#s12-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

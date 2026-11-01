@@ -1,0 +1,73 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pesca.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-solto"] .s07-capa, [data-composition-id="s07-solto"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-solto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-solto"] .s07-avisame { left: 90px; top: 590px; font-size: 74px; }
+    [data-composition-id="s07-solto"] .s07-solto { left: 290px; top: 760px; font-size: 64px; }
+    [data-composition-id="s07-solto"] .s07-mira { position: absolute; left: 700px; top: 1300px; font-family: "Caveat", cursive; font-weight: 700; font-size: 66px; color: #fff1d6; white-space: nowrap; text-shadow: 0 4px 0 #0d1b24, 3px 3px 0 #0d1b24, -3px -3px 0 #0d1b24, 3px -3px 0 #0d1b24, -3px 3px 0 #0d1b24; }
+  </style>
+  <div id="root" data-composition-id="s07-solto" data-width="1080" data-height="1920" data-duration="3.57">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="3.57" data-track-index="0">
+      <div class="s07-escenario">
+        <svg class="s07-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="pe-sello nar s07-avisame">¿AVISAME?</div>
+        <div class="pe-sello s07-solto">¡SOLTÓ LA CAÑA!</div>
+        <div class="s07-mira">(mira el agua)</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-solto";
+      const DUR = 3.57;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = PE.INK;
+      const tl = gsap.timeline({ paused: true });
+      const K = PE.kit(tl, root);
+      const { q, qa } = K;
+      const svg = (h) => { root.querySelector(".s07-svg").innerHTML = h; };
+      svg(`<g class="s07-lejos">
+          <g class="s07-due">${PE.dueno(760, 1150, 0.5, { cara: "desganado" })}</g>
+          <g class="s07-cana">${PE.cana(700, 1100, 980, 900, { comba: 30, grosor: 12, carrete: 16 })}</g>
+          ${PE.lancha(760, 1190, 0.55, { nombre: "M" })}
+          <ellipse class="s07-splash" cx="960" cy="1250" rx="90" ry="18" fill="none" stroke="${PE.CRE}" stroke-width="6"/>
+          <g class="s07-gotas"><path d="M940 1240 l-30 -60 M960 1236 l0 -70 M980 1240 l30 -60" stroke="${PE.CRE}" stroke-width="8" stroke-linecap="round"/></g>
+        </g>
+        <g class="s07-con-a">${PE.conductor(270, 1560, 0.88, { cara: "sorpresa" })}</g>
+        <g class="s07-con-b">${PE.conductor(270, 1560, 0.88, { cara: "enojado" })}</g>`);
+      const SOLTO = 0.91, SE = 2.03;
+      tl.fromTo(q(".s07-escenario"), { scale: 1.05 }, { scale: 1, duration: 0.5, ease: "power2.out", transformOrigin: "30% 80%" }, 0);
+      K.mecer(q(".s07-lejos"), 0, DUR, "760 1190", 1.4);
+      K.sello(q(".s07-avisame"), 0.05, -5);
+      gsap.set(q(".s07-con-b"), { opacity: 0 });
+      K.hablar(".s07-con-a .pe-f-boca", 0.05, 3, 0.12);
+      // "soltó la caña": la caña cae al agua y salpica
+      K.origen(q(".s07-cana"), "700 1100");
+      tl.to(q(".s07-cana"), { rotation: 70, x: 120, y: 80, opacity: 0, duration: 0.5, ease: "power2.in", svgOrigin: "700 1100" }, SOLTO);
+      K.origen(q(".s07-splash"), "960 1250");
+      gsap.set([q(".s07-splash"), q(".s07-gotas")], { opacity: 0 });
+      tl.fromTo(q(".s07-splash"), { scale: 0.3, opacity: 1 }, { scale: 1.5, opacity: 0, duration: 0.6, ease: "power2.out", svgOrigin: "960 1250", immediateRender: false }, SOLTO + 0.45);
+      tl.fromTo(q(".s07-gotas"), { opacity: 1, y: 20 }, { opacity: 0, y: -30, duration: 0.5, ease: "power2.out", immediateRender: false }, SOLTO + 0.45);
+      tl.to(q(".s07-avisame"), { opacity: 0, duration: 0.15 }, SOLTO - 0.1);
+      K.sello(q(".s07-solto"), SOLTO + 0.4, 4);
+      // "se puso a mirar el agua": el dueño baja la cabeza; el conductor se enoja
+      K.origen(q(".s07-due .pe-d-cabeza"), "0 -250");
+      tl.to(q(".s07-due .pe-d-cabeza"), { rotation: 14, y: 8, duration: 0.4, ease: "sine.inOut", svgOrigin: "0 -250" }, SE);
+      tl.set(q(".s07-con-a"), { opacity: 0 }, SE);
+      tl.set(q(".s07-con-b"), { opacity: 1 }, SE);
+      K.sacudon(q(".s07-con-b"), SE + 0.05, 1);
+      K.pop(q(".s07-mira"), SE + 0.3);
+
+      K.salida(q("#s07-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

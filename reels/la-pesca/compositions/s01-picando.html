@@ -1,0 +1,86 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pesca.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-picando"] .s01-capa, [data-composition-id="s01-picando"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-picando"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-picando"] .s01-picando { left: 660px; top: 960px; }
+    [data-composition-id="s01-picando"] .s01-soltaste { left: 150px; top: 600px; font-size: 92px; }
+  </style>
+  <div id="root" data-composition-id="s01-picando" data-width="1080" data-height="1920" data-duration="2.95">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="2.95" data-track-index="0">
+      <div class="s01-escenario">
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="pe-tag s01-picando">¡PICANDO!</div>
+        <div class="pe-sello s01-soltaste">¡LO SOLTASTE!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-picando";
+      const DUR = 2.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = PE.INK;
+      const BX = 600, BY = 1110, HY = 1300;
+      root.querySelector(".s01-svg").innerHTML =
+        // agua de cerca: superficie ondulada y debajo, el agua más oscura donde está el pez
+        `<path d="M0 1110 Q90 1094 180 1110 T360 1110 T540 1110 T720 1110 T900 1110 T1080 1110 L1080 1540 L0 1540 Z" fill="${PE.TUR3}" opacity="0.55"/>
+         <path d="M0 1110 Q90 1094 180 1110 T360 1110 T540 1110 T720 1110 T900 1110 T1080 1110" fill="none" stroke="${PE.CRE}" stroke-width="6" opacity="0.6"/>
+         <path d="M0 1540 L1080 1540" stroke="${PE.TUR4}" stroke-width="2"/>` +
+        `<g class="s01-ondas">
+          <ellipse class="s01-o1" cx="${BX}" cy="${BY + 8}" rx="90" ry="18" fill="none" stroke="${PE.CRE}" stroke-width="6"/>
+          <ellipse class="s01-o2" cx="${BX}" cy="${BY + 8}" rx="150" ry="28" fill="none" stroke="${PE.CRE}" stroke-width="5"/>
+        </g>` +
+        // caña desde arriba a la izquierda y la línea
+        `<g class="s01-cana">${PE.cana(-60, 760, 560, 620, { comba: 40, grosor: 20 })}</g>
+         <path class="s01-linea" d="M560 620 L${BX} ${BY - 80}" stroke="${I}" stroke-width="4"/>
+         <path class="s01-linea-floja" d="M560 620 Q700 900 ${BX + 160} ${BY - 4}" fill="none" stroke="${I}" stroke-width="4" opacity="0"/>
+         <path class="s01-anzuelo" d="M${BX} ${BY} L${BX} ${HY}" stroke="${I}" stroke-width="3" opacity="0.8"/>` +
+        `<g class="s01-pez">${PE.pez(BX - 200, HY + 30, 0.9, { cara: "feliz" })}</g>` +
+        `<g class="s01-boya">${PE.boya(BX, BY, 46)}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = PE.kit(tl, root);
+      const { q } = K;
+
+      const PICANDO = 0.68;
+      const SOLTASTE = 1.80;
+
+      // cuadro 0: todo ya está; la boya se mece y el pez mordisquea
+      tl.fromTo(q(".s01-escenario"), { scale: 1.06 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "55% 60%" }, 0);
+      tl.fromTo(q(".s01-boya"), { y: 0 }, { y: 8, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0);
+      K.nadar(".s01-pez", 0, SOLTASTE + 0.6, 0.16);
+      tl.fromTo(q(".s01-pez"), { x: -40 }, { x: 0, duration: PICANDO, ease: "power2.out" }, 0);
+      // "picando": la boya se hunde a tirones, ondas en el agua
+      [0, 0.32, 0.64].forEach((d) => {
+        tl.to(q(".s01-boya"), { y: 34, duration: 0.08, ease: "power3.in" }, PICANDO + d);
+        tl.to(q(".s01-boya"), { y: 4, duration: 0.18, ease: "power2.out" }, PICANDO + d + 0.1);
+      });
+      [".s01-o1", ".s01-o2"].forEach((s, i) => {
+        K.origen(q(s), `${BX} ${BY + 8}`);
+        tl.fromTo(q(s), { scale: 0.4, opacity: 0.9 }, { scale: 1.3, opacity: 0, duration: 0.6, ease: "power2.out", svgOrigin: `${BX} ${BY + 8}`, immediateRender: false }, PICANDO + i * 0.3);
+      });
+      gsap.set([q(".s01-o1"), q(".s01-o2")], { opacity: 0 });
+      tl.fromTo(q(".s01-cana"), { y: 0 }, { y: 18, duration: 0.08, yoyo: true, repeat: 5, ease: "power2.inOut", immediateRender: false }, PICANDO);
+      K.pop(q(".s01-picando"), PICANDO);
+      // "soltaste": la línea queda floja, el pez se escapa, sello rojo
+      tl.to(q(".s01-picando"), { opacity: 0, duration: 0.15 }, SOLTASTE - 0.15);
+      tl.set(q(".s01-linea"), { opacity: 0 }, SOLTASTE - 0.05);
+      tl.set(q(".s01-anzuelo"), { opacity: 0 }, SOLTASTE - 0.05);
+      tl.set(q(".s01-linea-floja"), { opacity: 1 }, SOLTASTE - 0.05);
+      tl.to(q(".s01-boya"), { x: 160, y: -4, rotation: 20, duration: 0.5, ease: "power2.out" }, SOLTASTE - 0.05);
+      tl.to(q(".s01-pez"), { x: -900, duration: 0.6, ease: "power2.in" }, SOLTASTE);
+      tl.to(q(".s01-cana"), { rotation: -4, y: -20, duration: 0.3, ease: "back.out(2)", svgOrigin: "-60 760" }, SOLTASTE - 0.05);
+      K.sello(q(".s01-soltaste"), SOLTASTE, -4);
+      K.sacudon(q(".s01-escenario"), SOLTASTE + 0.02, 1);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

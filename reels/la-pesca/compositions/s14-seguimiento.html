@@ -1,0 +1,64 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pesca.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-seguimiento"] .s14-capa, [data-composition-id="s14-seguimiento"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-seguimiento"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s14-seguimiento" data-width="1080" data-height="1920" data-duration="7.79">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="7.79" data-track-index="0">
+      <div class="s14-escenario">
+        <svg class="s14-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-seguimiento";
+      const DUR = 7.79;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = PE.INK;
+      const tl = gsap.timeline({ paused: true });
+      const K = PE.kit(tl, root);
+      const { q, qa } = K;
+      const svg = (h) => { root.querySelector(".s14-svg").innerHTML = h; };
+      const X0 = 140, Y0 = 570, W = 800, H = 960;
+      let y = Y0 + 140;
+      const msgs = [];
+      const add = (txt, lado, o) => { const xx = lado === "d" ? X0 + W - 24 : X0 + 24; const [g, h] = PE.globo(xx, y, txt, lado, Object.assign({ fs: 34 }, o)); msgs.push(g); y += h + 18; };
+      const sep = (txt, cls, fill) => { msgs.push(`<g class="${cls}"><rect x="${X0 + W / 2 - 190}" y="${y}" width="380" height="42" rx="21" fill="${fill || PE.CRE2}" stroke="${I}" stroke-width="3"/><text x="${X0 + W / 2}" y="${y + 29}" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="21" fill="${I}">${txt}</text></g>`); y += 60; };
+      sep("AYER", "s14-s0");
+      add(["Hola, ¿cuánto sale", "el sillón gris?"], "i", { cls: "s14-m1", hora: "18:02" });
+      sep("HOY · SEGUIMIENTO", "s14-s1", PE.VERDE);
+      add(["¡Hola, Sofi! ¿Te quedó alguna", "duda con el sillón?"], "d", { cls: "s14-m2", hora: "10:00", fill: "#c8f5a8" });
+      add("Medidas: 2,10 x 0,90 m", "d", { cls: "s14-m3", hora: "10:00", fill: "#c8f5a8" });
+      add(["¿Te agendo la entrega", "para el sábado?"], "d", { cls: "s14-m4", hora: "10:01", fill: "#c8f5a8" });
+      const yB = y + 6;
+      msgs.push(`<g class="s14-pasa"><rect x="${X0 + 40}" y="${yB}" width="${W - 80}" height="70" rx="35" fill="${PE.INK}" stroke="${PE.VERDE}" stroke-width="5"/>
+        <circle cx="${X0 + 82}" cy="${yB + 35}" r="22" fill="${PE.VERDE}"/><path d="M${X0 + 72} ${yB + 35} l8 8 l14 -16" fill="none" stroke="${I}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="${X0 + 120}" y="${yB + 46}" font-family="Lexend" font-weight="700" font-size="30" fill="${PE.CRE}">Te paso la conversación</text></g>`);
+      svg(`<g class="s14-cel">${PE.celular(X0, Y0, W, H, "s14-clip", "#e9e1cb")}
+          <g clip-path="url(#s14-clip)">${PE.chatCabecera(X0, Y0, W, "Mueblería", "agente de IA · en línea", PE.VERDE2)}${msgs.join("")}</g>
+          ${PE.celularBorde(X0, Y0, W, H)}</g>`);
+      const OTRO = 0.08, TE = 1.28, MANDO = 3.25, AGENDO = 4.25, PASO = 6.51;
+      tl.fromTo(q(".s14-cel"), { y: 80, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo([q(".s14-s0"), q(".s14-m1")], { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+      K.popSvg(q(".s14-s1"), OTRO + 0.2, K.centro(q(".s14-s1")), 0.3, 0.5);
+      K.popSvg(q(".s14-m2"), TE - 0.05, K.centro(q(".s14-m2")), 0.3, 0.6);
+      K.popSvg(q(".s14-m3"), MANDO, K.centro(q(".s14-m3")), 0.3, 0.6);
+      K.popSvg(q(".s14-m4"), AGENDO, K.centro(q(".s14-m4")), 0.3, 0.6);
+      K.popSvg(q(".s14-pasa"), PASO - 0.1, K.centro(q(".s14-pasa")), 0.35, 0.6);
+      tl.fromTo(q(".s14-cel"), { scale: 1 }, { scale: 1.02, duration: 0.12, yoyo: true, repeat: 1, svgOrigin: "540 1050", immediateRender: false }, PASO + 0.1);
+
+      K.salida(q("#s14-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

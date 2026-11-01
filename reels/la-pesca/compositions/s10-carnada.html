@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pesca.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-carnada"] .s10-capa, [data-composition-id="s10-carnada"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-carnada"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-carnada"] .s10-sello { left: 120px; top: 600px; font-size: 66px; }
+  </style>
+  <div id="root" data-composition-id="s10-carnada" data-width="1080" data-height="1920" data-duration="2.75">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="2.75" data-track-index="0">
+      <div class="s10-escenario">
+        <svg class="s10-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="pe-sello nar s10-sello">MÁS PUBLICIDAD</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-carnada";
+      const DUR = 2.75;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = PE.INK;
+      const tl = gsap.timeline({ paused: true });
+      const K = PE.kit(tl, root);
+      const { q, qa } = K;
+      const svg = (h) => { root.querySelector(".s10-svg").innerHTML = h; };
+      const volante = (x, y, txt, r, cls) => `<g class="${cls}"><g transform="translate(${x} ${y}) rotate(${r})"><rect x="-80" y="-56" width="160" height="112" rx="8" fill="${PE.CRE}" stroke="${I}" stroke-width="6"/>
+        <rect x="-80" y="-56" width="160" height="34" rx="8" fill="${PE.ROJO}" stroke="${I}" stroke-width="6"/>
+        <text data-layout-ignore x="0" y="22" text-anchor="middle" font-family="Black Ops One" font-size="30" fill="${I}">${txt}</text></g></g>`;
+      svg(`<g class="s10-bote"><g class="s10-due">${PE.dueno(330, 1420, 0.85, { cara: "orgulloso" })}</g>${PE.lancha(380, 1500, 0.85, { nombre: "M" })}</g>
+        <g class="s10-balde"><g transform="translate(560 1120) rotate(-20)">
+          <path d="M-80 -90 L80 -90 L60 90 L-60 90 Z" fill="${PE.TUR2}" stroke="${I}" stroke-width="8" stroke-linejoin="round"/>
+          <path d="M-80 -90 Q0 -180 80 -90" fill="none" stroke="${I}" stroke-width="7"/>
+          <text data-layout-ignore x="0" y="16" text-anchor="middle" font-family="Black Ops One" font-size="28" fill="${I}">CARNADA</text></g></g>
+        ${volante(760, 960, "OFERTA", -12, "s10-v1")}${volante(940, 860, "2x1", 10, "s10-v2")}${volante(820, 1130, "PROMO", -6, "s10-v3")}${volante(980, 1050, "¡VENÍ!", 14, "s10-v4")}
+        <ellipse class="s10-plaf" cx="850" cy="1270" rx="150" ry="26" fill="none" stroke="${PE.CRE}" stroke-width="6"/>`);
+      const CARNADA = 0.27, PAGO = 1.21, PUB = 1.52;
+      K.mecer(q(".s10-bote"), 0, DUR, "380 1500", 1.4);
+      K.hablar(".s10-due .pe-d-boca", 0.0, 6, 0.12);
+      // "tiro más carnada": el balde se vuelca
+      K.origen(q(".s10-balde"), "560 1120");
+      tl.fromTo(q(".s10-balde"), { rotation: 20, opacity: 0.6 }, { rotation: -40, opacity: 1, duration: 0.4, ease: "back.out(2)", svgOrigin: "560 1120" }, CARNADA - 0.2);
+      // "pago más publicidad": vuelan volantes al agua
+      ["s10-v1", "s10-v2", "s10-v3", "s10-v4"].forEach((c, i) => {
+        const el = q("." + c);
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: -180, y: 100 }, { opacity: 1, x: 0, y: 0, duration: 0.35, ease: "power2.out", immediateRender: false }, PAGO - 0.1 + i * 0.12);
+        tl.to(el, { y: 160, opacity: 0.4, duration: 0.6, ease: "power1.in" }, PAGO + 0.6 + i * 0.1);
+      });
+      K.sello(q(".s10-sello"), PUB, -5);
+      K.origen(q(".s10-plaf"), "850 1270");
+      gsap.set(q(".s10-plaf"), { opacity: 0 });
+      tl.fromTo(q(".s10-plaf"), { scale: 0.3, opacity: 1 }, { scale: 1.3, opacity: 0, duration: 0.6, svgOrigin: "850 1270", immediateRender: false }, PAGO + 1.0);
+
+      K.salida(q("#s10-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

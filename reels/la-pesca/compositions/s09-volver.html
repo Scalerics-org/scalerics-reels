@@ -1,0 +1,59 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/pesca.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-volver"] .s09-capa, [data-composition-id="s09-volver"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-volver"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-volver"] .s09-volver { position: absolute; left: 520px; top: 760px; font-family: "Caveat", cursive; font-weight: 700; font-size: 92px; color: #fff1d6; white-space: nowrap; transform: rotate(-6deg); text-shadow: 0 5px 0 #0d1b24, 3px 3px 0 #0d1b24, -3px -3px 0 #0d1b24, 3px -3px 0 #0d1b24, -3px 3px 0 #0d1b24; }
+    [data-composition-id="s09-volver"] .s09-no { left: 160px; top: 600px; font-size: 100px; }
+  </style>
+  <div id="root" data-composition-id="s09-volver" data-width="1080" data-height="1920" data-duration="4.97">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.97" data-track-index="0">
+      <div class="s09-escenario">
+        <svg class="s09-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s09-volver">"ya va a volver"</div>
+        <div class="pe-sello s09-no">NO VUELVEN</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-volver";
+      const DUR = 4.97;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = PE.INK;
+      const tl = gsap.timeline({ paused: true });
+      const K = PE.kit(tl, root);
+      const { q, qa } = K;
+      const svg = (h) => { root.querySelector(".s09-svg").innerHTML = h; };
+      svg(`<g class="s09-bote"><g class="s09-due">${PE.dueno(470, 1420, 0.95, { cara: "tranquilo" })}</g>${PE.lancha(520, 1500, 0.95, { nombre: "M" })}</g>
+        <g class="s09-con-a">${PE.conductor(540, 1540, 1.08, { cara: "serio" })}</g>
+        <g class="s09-con-b">${PE.conductor(540, 1540, 1.08, { cara: "enojado" })}</g>`);
+      const YA = 1.0, NO = 2.15, USTED = 3.62;
+      K.mecer(q(".s09-bote"), 0, NO, "520 1500", 1.6);
+      K.hablar(".s09-due .pe-d-boca", YA, 3, 0.12);
+      K.pop(q(".s09-volver"), YA - 0.4);
+      tl.fromTo(q(".s09-volver"), { y: 0 }, { y: -14, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, YA + 0.35);
+      // "no vuelven, señor": entra el conductor de frente
+      tl.to([q(".s09-bote"), q(".s09-volver")], { opacity: 0, x: -200, duration: 0.25, ease: "power2.in" }, NO - 0.2);
+      gsap.set([q(".s09-con-a"), q(".s09-con-b")], { opacity: 0 });
+      tl.fromTo(q(".s09-con-a"), { opacity: 0, x: 300 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, NO - 0.1);
+      K.sello(q(".s09-no"), NO + 0.1, -4);
+      K.hablar(".s09-con-a .pe-f-boca", NO, 3, 0.12);
+      // "¿y usted qué hace?": frunce el ceño
+      tl.set(q(".s09-con-a"), { opacity: 0 }, USTED);
+      tl.set(q(".s09-con-b"), { opacity: 1 }, USTED);
+      tl.to(q(".s09-no"), { opacity: 0, y: -20, duration: 0.2 }, USTED - 0.1);
+      tl.fromTo(q(".s09-con-b"), { scale: 1 }, { scale: 1.08, duration: 0.6, ease: "power2.out", svgOrigin: "540 1300", immediateRender: false }, USTED);
+
+      K.salida(q("#s09-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
