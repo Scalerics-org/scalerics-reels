@@ -1,0 +1,79 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/sesion.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-instagram"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-instagram"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-instagram"] .s07-hace { left: 600px; top: 840px; font-size: 40px; }
+    [data-composition-id="s07-instagram"] .s07-alf { left: 0; right: 0; margin: 0 auto; width: 780px; top: 1300px; font-size: 40px; }
+  </style>
+  <div id="root" data-composition-id="s07-instagram" data-width="1080" data-height="1920" data-duration="4.96">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.96" data-track-index="0">
+      <svg class="s07-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="ss-tag bor s07-hace">HACE 2 AÑOS</div>
+      <div class="ss-tag s07-alf">ÚLTIMA FOTO: UN ALFAJOR</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-instagram";
+      const DUR = 4.96;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = SS.kit(tl, root);
+      const { q, qa } = K;
+      const I = SS.INK;
+      const svg = (h) => { root.querySelector(".s07-svg").innerHTML = h; };
+      const X = 290, Y = 470, W = 500, Hh = 980;
+      const alfajor = (cx, cy, s) => `<g transform="translate(${cx} ${cy}) scale(${s})">
+          <ellipse cx="0" cy="34" rx="100" ry="34" fill="#3a2418" stroke="${I}" stroke-width="7"/>
+          <rect x="-100" y="0" width="200" height="34" fill="#3a2418"/>
+          <path d="M-100 0 L-100 34 M100 0 L100 34" stroke="${I}" stroke-width="7"/>
+          <path d="M-98 16 Q0 34 98 16" fill="none" stroke="${SS.AMB}" stroke-width="10"/>
+          <ellipse cx="0" cy="0" rx="100" ry="34" fill="#4a2e1e" stroke="${I}" stroke-width="7"/>
+          <path d="M-50 -10 Q-10 -24 40 -12" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity="0.35"/>
+        </g>`;
+      let celdas = "";
+      for (let k = 0; k < 9; k++) {
+        const cx = X + 16 + (k % 3) * 158, cy = Y + 330 + Math.floor(k / 3) * 158;
+        celdas += k === 0
+          ? `<g class="s07-foto"><rect x="${cx}" y="${cy}" width="150" height="150" fill="${SS.VB3}" stroke="${I}" stroke-width="4"/>${alfajor(cx + 75, cy + 70, 0.55)}</g>`
+          : `<rect x="${cx}" y="${cy}" width="150" height="150" fill="${SS.HUE2}" stroke="${SS.HUE2}" stroke-width="4" stroke-dasharray="10 8" opacity="0.6"/>`;
+      }
+      svg(`<g class="s07-cel">${SS.celular(X, Y, W, Hh, "s07-clip", SS.HUE)}
+          <g clip-path="url(#s07-clip)">
+            <rect x="${X}" y="${Y}" width="${W}" height="120" fill="${SS.VB}"/>
+            <text x="${X + 40}" y="${Y + 86}" font-family="Lexend" font-weight="800" font-size="38" fill="${SS.HUE}">@tulocal</text>
+            <circle cx="${X + 90}" cy="${Y + 210}" r="62" fill="${SS.HUE2}" stroke="${I}" stroke-width="6"/>
+            <text x="${X + 90}" y="${Y + 230}" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="52" fill="${SS.VB}">TL</text>
+            <text x="${X + 186}" y="${Y + 196}" font-family="Lexend" font-weight="800" font-size="34" fill="${I}">1 publicación</text>
+            <text x="${X + 186}" y="${Y + 240}" font-family="IBM Plex Mono" font-weight="600" font-size="24" fill="${SS.BOR}">Horario: ???</text>
+            ${celdas}
+            ${SS.telarana(X + W, Y + 600, 170, 2, { cls: "s07-t", color: SS.INK, sw: 3 })}
+            ${SS.telarana(X, Y + 760, 160, 1, { cls: "s07-t", color: SS.INK, sw: 3 })}
+          </g>
+          ${SS.celularBorde(X, Y, W, Hh)}
+        </g>
+        <g class="s07-zoom"><rect x="290" y="760" width="500" height="430" rx="24" fill="${SS.VB3}" stroke="${I}" stroke-width="8"/>${alfajor(540, 960, 1.9)}</g>`);
+      const ULTIMA = 1.41, DOS = 2.85, ALFAJOR = 4.08;
+      tl.fromTo(q(".s07-cel"), { opacity: 0.4, y: 60, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power2.out" }, 0);
+      qa(".s07-t").forEach((t, i) => K.dibujar(t, 0.4 + i * 0.25, 0.8));
+      // "última foto": se marca la única foto
+      tl.fromTo(q(".s07-foto"), { scale: 1, svgOrigin: `${X + 91} ${Y + 405}` }, { scale: 1.15, svgOrigin: `${X + 91} ${Y + 405}`, duration: 0.25, yoyo: true, repeat: 1, ease: "power2.out" }, ULTIMA);
+      K.sello(q(".s07-hace"), DOS, 6);
+      // "alfajor": zoom a la foto
+      K.popSvg(q(".s07-zoom"), ALFAJOR - 0.25, "540 975", 0.35, 0.3);
+      K.pop(q(".s07-alf"), ALFAJOR);
+
+      K.salida(q("#s07-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

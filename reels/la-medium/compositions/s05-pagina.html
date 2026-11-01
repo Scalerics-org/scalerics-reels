@@ -1,0 +1,78 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/sesion.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-pagina"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-pagina"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-pagina"] .s05-web { position: absolute; left: 100px; top: 470px; width: 880px; height: 720px; box-sizing: border-box; background: #ece0c4; border: 8px solid #150f0b; border-radius: 18px; overflow: hidden; box-shadow: 0 0 60px rgba(191, 227, 207, 0.35), 12px 12px 0 rgba(0, 0, 0, 0.4); }
+    [data-composition-id="s05-pagina"] .s05-barra { height: 70px; background: #cdbf9e; border-bottom: 6px solid #150f0b; position: relative; }
+    [data-composition-id="s05-pagina"] .s05-barra i { position: absolute; top: 22px; width: 24px; height: 24px; border-radius: 50%; border: 4px solid #150f0b; }
+    [data-composition-id="s05-pagina"] .s05-url { position: absolute; left: 150px; top: 12px; width: 680px; height: 40px; background: #fffaf0; border: 4px solid #150f0b; border-radius: 20px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; line-height: 40px; padding-left: 20px; box-sizing: border-box; color: #150f0b; white-space: nowrap; }
+    [data-composition-id="s05-pagina"] .s05-cinta { background: #6e1f2a; color: #ffd27a; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; line-height: 92px; white-space: nowrap; text-align: center; border-bottom: 6px solid #150f0b; }
+    [data-composition-id="s05-pagina"] .s05-obra { margin: 26px auto 0; width: 660px; height: 64px; border: 5px solid #150f0b; background: repeating-linear-gradient(45deg, #f2a93b 0 30px, #150f0b 30px 60px); position: relative; }
+    [data-composition-id="s05-pagina"] .s05-obra b { position: absolute; left: 50%; top: 8px; transform: translateX(-50%); background: #ece0c4; padding: 2px 20px; border: 4px solid #150f0b; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 30px; color: #150f0b; white-space: nowrap; }
+    [data-composition-id="s05-pagina"] .s05-dato { position: relative; margin: 26px 0 0 60px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 40px; color: #150f0b; white-space: nowrap; display: inline-block; }
+    [data-composition-id="s05-pagina"] .s05-cont { margin: 30px auto 0; width: 520px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 26px; color: #150f0b; white-space: nowrap; }
+    [data-composition-id="s05-pagina"] .s05-cont span { display: inline-block; background: #150f0b; color: #bfe3cf; padding: 2px 10px; margin-left: 8px; letter-spacing: 0.2em; }
+    [data-composition-id="s05-pagina"] .s05-copy { position: absolute; left: 0; right: 0; bottom: 22px; text-align: center; font-family: "Cinzel", serif; font-weight: 700; font-size: 30px; color: #6e1f2a; }
+    [data-composition-id="s05-pagina"] .s05-tacha { position: absolute; left: -10px; top: 22px; width: calc(100% + 20px); height: 10px; background: #a3343f; border-radius: 5px; transform-origin: left center; }
+    [data-composition-id="s05-pagina"] .s05-sello { left: 470px; top: 1020px; font-size: 54px; }
+    [data-composition-id="s05-pagina"] .s05-ano { position: absolute; left: 640px; top: 400px; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 120px; color: #ffd27a; text-shadow: 0 4px 0 #150f0b; }
+  </style>
+  <div id="root" data-composition-id="s05-pagina" data-width="1080" data-height="1920" data-duration="6.35">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="6.35" data-track-index="0">
+      <div class="s05-web">
+        <div class="s05-barra"><i style="left:26px;background:#a3343f"></i><i style="left:62px;background:#f2a93b"></i><i style="left:98px;background:#3f7a5e"></i><div class="s05-url">www.tulocal-online.com.uy</div></div>
+        <div class="s05-cinta">¡¡BIENVENIDOS A NUESTRA WEB!!</div>
+        <div class="s05-obra"><b>PÁGINA EN CONSTRUCCIÓN</b></div>
+        <div class="s05-dato s05-dir">Dirección: Av. de Antes 1234<div class="s05-tacha"></div></div>
+        <div class="s05-cont">Sos el visitante n°<span>000127</span></div>
+        <div class="s05-copy">© 2011 · Todos los derechos reservados</div>
+      </div>
+      <svg class="s05-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="ss-sello s05-sello">¡SE MUDARON!</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-pagina";
+      const DUR = 6.35;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = SS.kit(tl, root);
+      const { q, qa } = K;
+      const I = SS.INK;
+      const svg = (h) => { root.querySelector(".s05-svg").innerHTML = h; };
+      svg(`<g class="s05-humos">${SS.humo(200, 1500, 360, { cls: "s05-h", sw: 14 })}${SS.humo(540, 1520, 400, { cls: "s05-h", sw: 16 })}${SS.humo(880, 1500, 360, { cls: "s05-h", sw: 14 })}</g>
+        ${SS.telarana(108, 478, 150, 1, { cls: "s05-t" })}${SS.telarana(972, 478, 130, 2, { cls: "s05-t" })}
+        <g class="s05-cli">${SS.clienta(250, 1560, 0.62, { cara: "asustada" })}</g>`);
+      const PAGINA = 1.17, DIRECCION = 3.08, PERO = 4.44, MUDARON = 4.86;
+      K.humear(".s05-h", 0, 2.4);
+      // se manifiesta desde el humo: ondulando, borrosa, y se aclara en "página"
+      tl.fromTo(q(".s05-web"), { opacity: 0.35, y: 80, scale: 0.9, filter: "blur(16px)" }, { opacity: 0.8, y: 20, scale: 0.96, filter: "blur(6px)", duration: PAGINA, ease: "sine.out" }, 0);
+      tl.to(q(".s05-web"), { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "back.out(1.6)" }, PAGINA);
+      tl.to(q(".s05-web"), { y: -12, duration: 0.8, yoyo: true, repeat: 3, ease: "sine.inOut" }, PAGINA + 0.4);
+      qa(".s05-t").forEach((t, i) => K.dibujar(t, PAGINA + 0.3 + i * 0.2, 0.7));
+      // "dirección": se resalta
+      tl.fromTo(q(".s05-dir"), { scale: 1, color: "#150f0b" }, { scale: 1.12, color: "#6e1f2a", duration: 0.25, ease: "back.out(2)" }, DIRECCION);
+      // "¡pero si se mudaron!": la clienta y la tachadura
+      tl.fromTo(q(".s05-cli"), { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, PERO - 0.1);
+      gsap.set(q(".s05-cli"), { opacity: 0 });
+      K.hablar(".s05-cli .ss-c-boca", PERO, 4, 0.1);
+      gsap.set(q(".s05-tacha"), { scaleX: 0 });
+      tl.to(q(".s05-tacha"), { scaleX: 1, duration: 0.3, ease: "power2.inOut" }, MUDARON - 0.1);
+      K.sello(q(".s05-sello"), MUDARON + 0.2, 8);
+      K.sacudon(q(".s05-cli"), MUDARON + 0.2, 1);
+
+      K.salida(q("#s05-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

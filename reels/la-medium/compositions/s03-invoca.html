@@ -1,0 +1,79 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/sesion.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-invoca"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-invoca"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-invoca"] .s03-toc { position: absolute; left: 0; right: 0; top: 520px; text-align: center; font-size: 150px; }
+    [data-composition-id="s03-invoca"] .s03-tag { left: 0; right: 0; margin: 0 auto; width: 560px; top: 1470px; }
+  </style>
+  <div id="root" data-composition-id="s03-invoca" data-width="1080" data-height="1920" data-duration="5.87">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="5.87" data-track-index="0">
+      <svg class="s03-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="ss-titulo s03-toc">¡TOC!</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-invoca";
+      const DUR = 5.87;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = SS.kit(tl, root);
+      const { q, qa } = K;
+      const I = SS.INK;
+      const svg = (h) => { root.querySelector(".s03-svg").innerHTML = h; };
+      const brazo = (d, manga, hx, hy, an) => `<path d="${d}" fill="none" stroke="${I}" stroke-width="58" stroke-linecap="round"/><path d="${d}" fill="none" stroke="${manga}" stroke-width="44" stroke-linecap="round"/>
+        <circle cx="${hx}" cy="${hy}" r="30" fill="${SS.PIEL}" stroke="${I}" stroke-width="6"/>${an ? `<circle cx="${hx - 8}" cy="${hy - 22}" r="7" fill="${SS.AMB2}" stroke="${I}" stroke-width="3"/>` : ""}`;
+      svg(`<g class="s03-todo">
+        <g class="s03-humos">${SS.humo(300, 1000, 300, { cls: "s03-h" })}${SS.humo(780, 1000, 320, { cls: "s03-h" })}</g>
+        <g class="s03-m1">${SS.medium(540, 1080, 0.72, { ojos: "cerrados" })}</g>
+        <g class="s03-m2" opacity="0">${SS.medium(540, 1080, 0.72, { ojos: "trance" })}</g>
+        <g class="s03-mesa">${SS.mesa(540, 1100, 900, { tablero: true })}
+          ${SS.tablilla(540, 1090, 0.6, { cls: "s03-tab" })}
+          ${SS.vela(150, 1110, 170, { cls: "s03-v1" })}${SS.vela(930, 1110, 210, { cls: "s03-v2" })}
+        </g>
+        <g class="s03-manosM">
+          ${brazo("M430 1010 C380 1040 320 1060 280 1100", SS.BOR, 270, 1104, true)}
+          ${brazo("M650 1010 C700 1040 760 1060 800 1100", SS.BOR, 810, 1104, true)}
+        </g>
+        <g class="s03-manosC">
+          ${brazo("M-40 1380 C80 1300 200 1180 250 1125", SS.AMB, 258, 1118, false)}
+          ${brazo("M1120 1380 C1000 1300 880 1180 830 1125", SS.AMB, 822, 1118, false)}
+        </g>
+      </g>`);
+      const MANOS = 0.61, ESPIRITU = 1.63, GOLPEA = 3.75, UNAVEZ = 4.27, GOLPE = 5.27;
+      tl.fromTo(q(".s03-todo"), { scale: 1.06, svgOrigin: "540 1100", opacity: 0.5 }, { scale: 1, svgOrigin: "540 1100", opacity: 1, duration: 0.5, ease: "power2.out" }, 0);
+      K.titilar(".ss-llama", 0, DUR);
+      K.hablar(".s03-m1 .ss-m-boca", 0.05, 3, 0.13);
+      // "manos": las cuatro manos se toman sobre la mesa
+      tl.fromTo(q(".s03-manosM"), { y: -90, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.8)" }, MANOS - 0.2);
+      tl.fromTo(q(".s03-manosC"), { y: 160, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.8)" }, MANOS - 0.1);
+      // "espíritu": entra en trance
+      tl.set(q(".s03-m1"), { opacity: 0 }, ESPIRITU);
+      tl.set(q(".s03-m2"), { opacity: 1 }, ESPIRITU);
+      K.hablar(".s03-m2 .ss-m-boca", ESPIRITU + 0.05, 9, 0.13);
+      K.humear(".s03-h", ESPIRITU, 2.4);
+      tl.to(q(".s03-m2"), { y: -12, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, ESPIRITU);
+      // "golpeá una vez": suspenso, acercamiento lento
+      tl.to(q(".s03-todo"), { scale: 1.07, svgOrigin: "540 1100", duration: GOLPE - GOLPEA, ease: "power1.in" }, GOLPEA);
+      K.temblar(q(".s03-tab"), UNAVEZ, 0.8, 0.5);
+      // GOLPE: la mesa salta
+      tl.to(q(".s03-mesa"), { y: -50, duration: 0.07, ease: "power3.out" }, GOLPE);
+      tl.to(q(".s03-mesa"), { y: 0, duration: 0.3, ease: "bounce.out" }, GOLPE + 0.07);
+      K.sacudon(q(".s03-todo"), GOLPE, 1.6);
+      K.sello(q(".s03-toc"), GOLPE + 0.04, -4);
+      tl.to(q(".s03-toc"), { scale: 1.15, duration: 0.4, ease: "power1.out" }, GOLPE + 0.2);
+
+      K.salida(q("#s03-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

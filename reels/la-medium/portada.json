@@ -1,0 +1,17 @@
+{
+ "t": 2.6,
+ "chica": "Para saber tu horario",
+ "grande": "contrató a una médium",
+ "sello": "¿Espíritu, estás ahí?",
+ "acento": "#ffd27a",
+ "sello_color": "#a3343f",
+ "velo": "18,56,42",
+ "fondo": "#12382a",
+ "zoom": 1.35,
+ "foco": "75%",
+ "circulo": {
+  "x": 540,
+  "y": 760,
+  "r": 170
+ }
+}

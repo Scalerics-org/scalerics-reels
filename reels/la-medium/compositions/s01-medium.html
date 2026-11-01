@@ -1,0 +1,83 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/sesion.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-medium"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-medium"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-medium"] .s01-tag { left: 0; right: 0; margin: 0 auto; width: 640px; top: 452px; }
+    [data-composition-id="s01-medium"] .s01-ami { position: absolute; left: 740px; top: 640px; font-family: "Caveat", cursive; font-weight: 700; font-size: 84px; color: #ffd27a; transform: rotate(-8deg); white-space: nowrap; text-shadow: 0 4px 0 #150f0b; }
+  </style>
+  <div id="root" data-composition-id="s01-medium" data-width="1080" data-height="1920" data-duration="6.32">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="6.32" data-track-index="0">
+      <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="ss-tag s01-tag">MADAME ESTHER · MÉDIUM</div>
+      <div class="s01-ami">¡a mí!</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-medium";
+      const DUR = 6.32;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = SS.kit(tl, root);
+      const { q, qa } = K;
+      const I = SS.INK;
+      root.querySelector(".s01-svg").innerHTML = `
+        <g class="s01-humos">${SS.humo(250, 1160, 260, { cls: "s01-h" })}${SS.humo(840, 1150, 300, { cls: "s01-h" })}${SS.humo(560, 1180, 220, { cls: "s01-h", sw: 8 })}</g>
+        <g class="s01-m1">${SS.medium(540, 1210, 0.95, { manos: "arriba", ojos: "abiertos" })}</g>
+        <g class="s01-m2" opacity="0">${SS.medium(540, 1210, 0.95, { manos: "pecho", ojos: "abiertos", cara: "sonrisa" })}</g>
+        ${SS.mesa(540, 1160, 780, { tablero: true })}
+        ${SS.vela(205, 1180, 150, { cls: "s01-v" })}
+        ${SS.vela(875, 1180, 190, { cls: "s01-v" })}
+        ${SS.tablilla(600, 1165, 0.55, { cls: "s01-tab" })}
+        <g class="s01-reloj">
+          <circle cx="180" cy="760" r="92" fill="${SS.HUE}" stroke="${I}" stroke-width="9"/>
+          <circle cx="180" cy="760" r="76" fill="none" stroke="${SS.AMB3}" stroke-width="4"/>
+          <path d="M180 640 L180 668" stroke="${I}" stroke-width="10" stroke-linecap="round"/>
+          <circle cx="180" cy="628" r="16" fill="none" stroke="${SS.AMB}" stroke-width="7"/>
+          <text x="180" y="796" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="104" fill="${SS.BOR}">?</text>
+          <path d="M150 1000 Q170 880 180 852" fill="none" stroke="${SS.AMB}" stroke-width="5" stroke-dasharray="4 10" stroke-linecap="round"/>
+        </g>
+        <g class="s01-brillo"><path d="M540 735 l10 -34 l10 34 l34 10 l-34 10 l-10 34 l-10 -34 l-34 -10 Z" fill="${SS.AMB2}" stroke="${I}" stroke-width="3" transform="translate(-10 -12)"/></g>`;
+
+      const ABRIS = 1.92, MEDIUM = 3.69, OSEA = 4.15, AMI = 5.0;
+      // entrada: ya visible en el cuadro 0, terminando de aparecer
+      tl.fromTo(q(".s01-m1"), { opacity: 0.55, y: 30, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "power2.out" }, 0);
+      tl.fromTo(q(".ss-mesa"), { y: 40 }, { y: 0, duration: 0.5, ease: "power3.out" }, 0);
+      K.titilar(".ss-llama", 0, DUR);
+      K.humear(".s01-h", 0.1, 2.6);
+      K.humear(".s01-h", 3.0, 2.6);
+      K.hablar(".s01-m1 .ss-m-boca", 0.05, 6, 0.14);
+      // la tablilla da vueltas sola sobre el tablero
+      const tab = q(".s01-tab");
+      tl.fromTo(tab, { x: 0, y: 0 }, { x: -150, y: -14, duration: 1.1, ease: "sine.inOut" }, 0);
+      tl.to(tab, { x: 60, y: 12, duration: 1.2, ease: "sine.inOut" }, 1.1);
+      tl.to(tab, { x: -40, y: -6, duration: 1.4, ease: "sine.inOut" }, 2.3);
+      // "abrís": el reloj de bolsillo con la pregunta
+      K.aparecer(q(".s01-reloj"), ABRIS - 0.2, 0.45, 40);
+      tl.to(q(".s01-reloj"), { rotation: 8, svgOrigin: "180 628", duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, ABRIS + 0.3);
+      tl.to(q(".s01-reloj"), { opacity: 0, filter: "blur(10px)", y: -40, duration: 0.35 }, MEDIUM - 0.2);
+      // "médium": su chapa
+      K.sello(q(".s01-tag"), MEDIUM, -2);
+      // "o sea, a mí": se señala, canchera
+      tl.set(q(".s01-m1"), { opacity: 0 }, OSEA);
+      tl.set(q(".s01-m2"), { opacity: 1 }, OSEA);
+      tl.fromTo(q(".s01-m2"), { scale: 1.04, svgOrigin: "540 1210" }, { scale: 1, svgOrigin: "540 1210", duration: 0.3, ease: "back.out(2)", immediateRender: false }, OSEA);
+      K.hablar(".s01-m2 .ss-m-boca", OSEA + 0.1, 4, 0.13);
+      K.popSvg(q(".s01-brillo"), AMI - 0.1, "540 735", 0.35, 0.2);
+      tl.to(q(".s01-brillo"), { rotation: 90, svgOrigin: "540 735", duration: 1.2, ease: "none" }, AMI);
+      gsap.set(q(".s01-ami"), { opacity: 0 });
+      tl.fromTo(q(".s01-ami"), { opacity: 0, scale: 0.6, rotation: -20 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.3, ease: "back.out(2.4)", immediateRender: false }, AMI);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

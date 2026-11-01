@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/sesion.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-sitio"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-sitio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-sitio"] .s11-tag { left: 0; right: 0; margin: 0 auto; width: 480px; top: 520px; }
+  </style>
+  <div id="root" data-composition-id="s11-sitio" data-width="1080" data-height="1920" data-duration="5.40">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="5.40" data-track-index="0">
+      <svg class="s11-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="ss-tag verde s11-tag">CARGA AL INSTANTE</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-sitio";
+      const DUR = 5.40;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = SS.kit(tl, root);
+      const { q, qa } = K;
+      const I = SS.INK;
+      const svg = (h) => { root.querySelector(".s11-svg").innerHTML = h; };
+      const X = 290, Y = 720, W = 500, H = 800, V = SS.VERDE, V2 = SS.VERDE2;
+      let calles = "";
+      for (let k = 0; k < 5; k++) calles += `<path d="M${X + 40 + k * 105} 1110 L${X + 40 + k * 105} 1290" stroke="${SS.HUE}" stroke-width="12"/>`;
+      for (let k = 0; k < 3; k++) calles += `<path d="M${X + 30} ${1140 + k * 65} L${X + W - 30} ${1140 + k * 65}" stroke="${SS.HUE}" stroke-width="12"/>`;
+      svg(`<g class="s11-cel">${SS.celular(X, Y, W, H, "s11-clip", SS.HUE)}
+          <g clip-path="url(#s11-clip)">
+            <rect x="${X}" y="${Y}" width="${W}" height="110" fill="${SS.VB}"/>
+            <text x="${X + 40}" y="${Y + 74}" font-family="Lexend" font-weight="800" font-size="36" fill="${SS.HUE}">tulocal.uy</text>
+            <circle cx="${X + W - 60}" cy="${Y + 62}" r="16" fill="${V}"/>
+            <g class="s11-hero"><text x="${X + W / 2}" y="${Y + 190}" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="54" fill="${SS.VB}" letter-spacing="4">TU LOCAL</text>
+              <text x="${X + W / 2}" y="${Y + 228}" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="22" fill="${SS.BOR}">ABIERTO AHORA</text></g>
+            <g class="s11-hor"><rect x="${X + 30}" y="${Y + 250}" width="${W - 60}" height="120" rx="18" fill="#ffffff" stroke="${I}" stroke-width="5"/>
+              <text x="${X + 56}" y="${Y + 296}" font-family="IBM Plex Mono" font-weight="600" font-size="22" fill="${V2}">HORARIO</text>
+              <text x="${X + 56}" y="${Y + 346}" font-family="Lexend" font-weight="800" font-size="38" fill="${I}">Lun a sáb · 9 a 20 h</text></g>
+            <g class="s11-mapa"><rect x="${X + 30}" y="1100" width="${W - 60}" height="200" rx="18" fill="${SS.HUE2}" stroke="${I}" stroke-width="5"/>
+              ${calles}
+              <rect x="${X + 30}" y="1100" width="${W - 60}" height="200" rx="18" fill="none" stroke="${I}" stroke-width="5"/>
+              <g class="s11-pin"><path d="M${X + 250} 1250 C${X + 210} 1200 ${X + 210} 1150 ${X + 250} 1140 C${X + 290} 1150 ${X + 290} 1200 ${X + 250} 1250 Z" fill="${V}" stroke="${I}" stroke-width="6"/><circle cx="${X + 250}" cy="1176" r="12" fill="${I}"/></g></g>
+            <g class="s11-boton"><rect x="${X + 30}" y="1330" width="${W - 60}" height="100" rx="50" fill="${V}" stroke="${I}" stroke-width="6"/>
+              <text x="${X + W / 2}" y="1393" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="32" fill="${I}">Escribinos por WhatsApp</text></g>
+            <circle class="s11-onda" cx="${X + W / 2 + 60}" cy="1380" r="40" fill="none" stroke="${SS.HUE}" stroke-width="8"/>
+          </g>
+          <rect x="${X}" y="${Y}" width="${W}" height="${H}" rx="${W * 0.1}" fill="none" stroke="${V}" stroke-width="30"/>
+          ${SS.celularBorde(X, Y, W, H)}
+        </g>
+        <g class="s11-dedo"><path d="M930 1560 C890 1520 840 1480 820 1420" fill="none" stroke="${I}" stroke-width="64" stroke-linecap="round"/>
+          <path d="M930 1560 C890 1520 840 1480 820 1420" fill="none" stroke="${SS.PIEL}" stroke-width="50" stroke-linecap="round"/>
+          <path d="M820 1420 L800 1380" stroke="${I}" stroke-width="40" stroke-linecap="round"/><path d="M820 1420 L800 1380" stroke="${SS.PIEL}" stroke-width="28" stroke-linecap="round"/></g>`);
+      const RAP = 0, HORARIO = 1.47, UBIC = 2.22, BOTON = 3.31, WA = 4.56;
+      // "rápidos": todo aparece al instante
+      K.sello(q(".s11-tag"), RAP + 0.15, -2);
+      tl.fromTo(q(".s11-hero"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 0.1);
+      tl.fromTo(q(".s11-cel"), { scale: 1, svgOrigin: "540 1120" }, { scale: 1.03, svgOrigin: "540 1120", duration: 0.15, yoyo: true, repeat: 1 }, 0.1);
+      K.popSvg(q(".s11-hor"), HORARIO - 0.1, `540 ${Y + 310}`, 0.35, 0.5);
+      K.popSvg(q(".s11-mapa"), UBIC - 0.1, "540 1200", 0.35, 0.5);
+      tl.fromTo(q(".s11-pin"), { y: -90 }, { y: 0, duration: 0.45, ease: "bounce.out", immediateRender: false }, UBIC + 0.1);
+      K.popSvg(q(".s11-boton"), BOTON - 0.1, "540 1380", 0.4, 0.4);
+      tl.fromTo(q(".s11-boton"), { scale: 1, svgOrigin: "540 1380" }, { scale: 1.06, svgOrigin: "540 1380", duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, BOTON + 0.4);
+      // "WhatsApp": el dedo lo toca
+      tl.fromTo(q(".s11-dedo"), { x: 160, y: 300, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, WA - 0.55);
+      tl.to(q(".s11-dedo"), { x: -6, y: 8, duration: 0.08, yoyo: true, repeat: 1 }, WA - 0.1);
+      gsap.set(q(".s11-onda"), { opacity: 0 });
+      tl.fromTo(q(".s11-onda"), { opacity: 1, scale: 0.4, svgOrigin: `${X + W / 2 + 60} 1380` }, { opacity: 0, scale: 2.5, svgOrigin: `${X + W / 2 + 60} 1380`, duration: 0.5, ease: "power2.out", immediateRender: false }, WA);
+
+      K.salida(q("#s11-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

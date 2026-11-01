@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/sesion.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-tablilla"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-tablilla"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-tablilla"] .s04-dig { position: absolute; top: 1350px; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 150px; line-height: 1; color: #ffd27a; text-shadow: 0 4px 0 #150f0b, 0 0 30px rgba(255, 210, 122, 0.45); }
+  </style>
+  <div id="root" data-composition-id="s04-tablilla" data-width="1080" data-height="1920" data-duration="4.57">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.57" data-track-index="0">
+      <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="s04-dig" style="left:330px">2</div><div class="s04-dig" style="left:440px">0</div><div class="s04-dig" style="left:560px">1</div><div class="s04-dig" style="left:660px">1</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-tablilla";
+      const DUR = 4.57;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = SS.kit(tl, root);
+      const { q, qa } = K;
+      const I = SS.INK;
+      const svg = (h) => { root.querySelector(".s04-svg").innerHTML = h; };
+      const TX = 90, TY = 770, TW = 900;
+      svg(`<g class="s04-esp">${SS.espiritu(540, 960, 0.8, { alfa: 0.75 })}</g>
+        <g class="s04-tbg">${SS.tablero(TX, TY, TW)}</g>
+        ${SS.tablilla(0, 0, 1.15, { cls: "s04-tab" })}
+        ${SS.vela(70, 1330, 120, { w: 36, halo: 80 })}${SS.vela(1010, 1330, 150, { w: 36, halo: 80 })}`);
+      const HORA = 0.38, DOS = 1.61, MIL = 1.94, ONCE = 2.26;
+      const tab = q(".s04-tab");
+      const ir = (c, t, d) => { const [x, y] = SS.signo(TX, TY, TW, c); tl.to(tab, { x, y, duration: d || 0.25, ease: "power3.inOut" }, t); };
+      const [x0, y0] = SS.signo(TX, TY, TW, "ADIOS");
+      gsap.set(tab, { x: x0, y: y0 - 60 });
+      tl.fromTo(q(".s04-tbg"), { scale: 1.08, svgOrigin: "540 1050", opacity: 0.6 }, { scale: 1, svgOrigin: "540 1050", opacity: 1, duration: 0.45, ease: "power2.out" }, 0);
+      tl.fromTo(tab, { opacity: 0.5 }, { opacity: 1, duration: 0.3 }, 0);
+      K.titilar(".ss-llama", 0, DUR);
+      // "¿a qué hora abrís?": la tablilla tiembla sola
+      K.temblar(tab, HORA, 1.0, 0.8);
+      // el espíritu se asoma detrás del tablero
+      tl.fromTo(q(".s04-esp"), { opacity: 0, y: 160, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" }, DOS - 0.5);
+      K.flotar(q(".s04-esp .ss-e"), DOS + 0.2, 2.4, 14);
+      K.hablar(".s04-esp .ss-e-boca", DOS, 4, 0.16);
+      // "dos mil once": la tablilla va a 2, 0, 1, 1
+      const marca = (c, t) => tl.to(q(".ss-tb-" + c), { fill: SS.BOR2, duration: 0.1 }, t);
+      ir("2", DOS - 0.15); marca("2", DOS + 0.05);
+      ir("0", MIL - 0.12); marca("0", MIL + 0.08);
+      ir("1", ONCE - 0.12); marca("1", ONCE + 0.08);
+      tl.to(tab, { y: "-=50", duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out" }, ONCE + 0.45);
+      const digs = qa(".s04-dig");
+      [DOS, MIL, ONCE, ONCE + 0.6].forEach((t, i) => { gsap.set(digs[i], { opacity: 0 }); tl.fromTo(digs[i], { opacity: 0, y: 30, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "power2.out", immediateRender: false }, t + 0.05); });
+      tl.to(digs, { scale: 1.08, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, ONCE + 1.0);
+
+      K.salida(q("#s04-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
