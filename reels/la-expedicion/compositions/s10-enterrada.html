@@ -1,0 +1,156 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-enterrada"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-enterrada"] .s10-esc { position: absolute; inset: 0; }
+    [data-composition-id="s10-enterrada"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-enterrada"] .lin { fill: none; stroke: #f1e3c2; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-enterrada"] .fino { fill: none; stroke: #f1e3c2; stroke-width: 3; stroke-linecap: round; opacity: 0.5; }
+    [data-composition-id="s10-enterrada"] .ocre { stroke: #e8ad3c; }
+    [data-composition-id="s10-enterrada"] .terra { stroke: #c4532d; }
+    [data-composition-id="s10-enterrada"] .mapa { fill: none; stroke: #c4532d; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 2 18; }
+    [data-composition-id="s10-enterrada"] .t1 { fill: #8a5a36; fill-opacity: 0.30; }
+    [data-composition-id="s10-enterrada"] .t2 { fill: #8a5a36; fill-opacity: 0.45; }
+    [data-composition-id="s10-enterrada"] .t3 { fill: #8a5a36; fill-opacity: 0.60; }
+    [data-composition-id="s10-enterrada"] .t4 { fill: #8a5a36; fill-opacity: 0.78; }
+    [data-composition-id="s10-enterrada"] .borde { fill: none; stroke: #170f09; stroke-width: 3; opacity: 0.5; }
+    [data-composition-id="s10-enterrada"] .rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #f1e3c2; } 
+    [data-composition-id="s10-enterrada"] .txt { position: absolute; left: 0; right: 0; text-align: center; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s10-enterrada"] .lex { font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; color: #f1e3c2; }
+    [data-composition-id="s10-enterrada"] .cin { font-family: "Cinzel", serif; font-weight: 800; color: #f1e3c2; }
+    [data-composition-id="s10-enterrada"] .mano { font-family: "Caveat", cursive; font-weight: 700; text-transform: none; }
+    [data-composition-id="s10-enterrada"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s10-enterrada"] .sello { position: absolute; padding: 10px 24px; border: 6px solid #c4532d; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; color: #c4532d; text-transform: uppercase; white-space: nowrap; line-height: 1.1; }
+    [data-composition-id="s10-enterrada"] .centro { left: 0 !important; right: 0; margin: 0 auto; width: fit-content; }
+    [data-composition-id="s10-enterrada"] .ficha { position: absolute; padding: 8px 20px; background: #f1e3c2; color: #170f09; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.12em; white-space: nowrap; border-radius: 4px; }
+    [data-composition-id="s10-enterrada"] .cartel { position: absolute; left: 0; right: 0; top: 600px; height: 880px; }
+    [data-composition-id="s10-enterrada"] .cartel .c-capa { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: "Cinzel", serif; font-weight: 800; font-size: 120px; letter-spacing: 0.18em; color: #f1e3c2; line-height: 1; }
+    [data-composition-id="s10-enterrada"] .cartel .c-num { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-family: "Cinzel", serif; font-weight: 900; font-size: 440px; color: #e8ad3c; line-height: 1; text-shadow: 0 0 50px rgba(232, 173, 60, 0.35); }
+    [data-composition-id="s10-enterrada"] .cartel .c-cota { position: absolute; left: 0; right: 0; margin: 0 auto; width: fit-content; top: 660px; }
+    [data-composition-id="s10-enterrada"] .s10-vend { left: 640px; top: 1100px; font-size: 48px; }
+    [data-composition-id="s10-enterrada"] .s10-otro { position: absolute; left: 610px; top: 690px; width: 380px; text-align: center; font-family: "Cinzel", serif; font-weight: 800; font-size: 46px; color: #170f09; }
+    [data-composition-id="s10-enterrada"] .s10-mala { top: 765px; font-size: 64px; text-shadow: 0 6px 0 #170f09; }
+    [data-composition-id="s10-enterrada"] .s10-ent { top: 990px; font-size: 150px; color: #e8ad3c; text-shadow: 0 8px 0 #170f09, 0 0 40px rgba(232,173,60,0.35); }
+  </style>
+  <div id="root" data-composition-id="s10-enterrada" data-width="1080" data-height="1920" data-duration="6.53">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="6.53" data-track-index="0">
+      <div class="s10-esc">
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s10-calle">
+            <path class="lin" d="M60 1260 H1020" />
+            <g class="s10-local">
+              <path d="M620 760 H980 V1260 H620 Z" fill="#2a1b10" stroke="#f1e3c2" stroke-width="5" />
+              <path d="M600 680 H1000 V750 H600 Z" fill="#f1e3c2" stroke="#170f09" stroke-width="4" />
+              <path d="M600 750 L640 820 L680 750 L720 820 L760 750 L800 820 L840 750 L880 820 L920 750 L960 820 L1000 750 Z" fill="#c4532d" stroke="#170f09" stroke-width="3" />
+              <path class="lin" d="M700 900 H900 V1260 M700 900 V1260" />
+            </g>
+            <g transform="translate(0 0)"><g class="s10-andrea">
+              <circle cx="0" cy="-330" r="44" fill="#2a1b10" stroke="#f1e3c2" stroke-width="5" />
+              <path d="M-30 -350 Q0 -400 40 -345 Q60 -300 40 -270" fill="none" stroke="#f1e3c2" stroke-width="5" />
+              <path d="M0 -284 L-70 -60 H70 Z" fill="#c4532d" stroke="#f1e3c2" stroke-width="5" stroke-linejoin="round" />
+              <path class="lin s10-pie1" d="M-25 -60 V0" /><path class="lin s10-pie2" d="M25 -60 V0" />
+              <path d="M45 -200 H105 V-130 H45 Z" fill="#e8ad3c" stroke="#170f09" stroke-width="4" /><path class="lin" d="M55 -200 Q75 -240 95 -200" style="stroke-width:4" />
+            </g></g>
+          </g>
+          <g class="s10-corte">
+            <path class="t1" d="M60 700 H1020 V880 Q760 900 540 880 T60 890 Z" />
+            <path class="t2" d="M60 885 Q300 900 540 880 T1020 880 V1060 Q760 1080 540 1060 T60 1070 Z" />
+            <path class="t3" d="M60 1065 Q300 1080 540 1060 T1020 1060 V1250 Q760 1270 540 1250 T60 1260 Z" />
+            <path class="t4" d="M60 1255 Q300 1270 540 1250 T1020 1250 V1480 H60 Z" />
+            <g class="s10-venta" style="filter: drop-shadow(0 0 24px rgba(232,173,60,0.8))">
+              <rect x="420" y="1300" width="240" height="120" rx="10" fill="#e8ad3c" stroke="#170f09" stroke-width="5" />
+              <circle cx="540" cy="1360" r="38" fill="none" stroke="#170f09" stroke-width="5" />
+              <text x="540" y="1378" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="52" fill="#170f09">$</text>
+            </g>
+            <g class="s10-terrones" fill="#8a5a36" stroke="#170f09" stroke-width="3">
+              <path d="M380 1140 l60 -20 l40 30 l-20 50 l-70 0 Z" /><path d="M560 1120 l70 -10 l30 40 l-40 40 l-60 -20 Z" /><path d="M470 1180 l50 -30 l50 30 l-10 50 l-80 0 Z" /><path d="M640 1190 l50 0 l20 40 l-40 30 l-40 -30 Z" /><path d="M340 1220 l50 -10 l30 40 l-50 30 Z" />
+            </g>
+          </g>
+        </svg>
+        <div class="s10-otro">Otro local</div>
+        <div class="sello s10-vend">Vendido</div>
+        <div class="txt lex s10-mala">No se perdió por mala</div>
+        <div class="txt lex s10-ent">Enterrada.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-enterrada";
+      const DUR = 6.53;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s10-esc");
+      const lista = (e) => (typeof e === "string" ? qa(e) : Array.isArray(e) ? e : [e]);
+      // trazo que se dibuja (invisible hasta que arranca: sin puntitos de caps)
+      const dibujar = (e, t, d = 0.6, st = 0) => lista(e).forEach((el, i) => {
+        const L = el.getTotalLength ? el.getTotalLength() + 2 : 2000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t + i * st);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st);
+      });
+      // aparece entero
+      const pop = (e, t, st = 0, origen = "50% 50%") => lista(e).forEach((el, i) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.8, transformOrigin: origen }, { opacity: 1, scale: 1, transformOrigin: origen, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t + i * st);
+      });
+      // cae como sello / palabra gigante
+      const cae = (e, t, desde = 2.6) => lista(e).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const sacudon = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + 0.04 + i * 0.045));
+      const fuera = (e, t, d = 0.2) => tl.to(lista(e), { opacity: 0, duration: d, ease: "power2.in" }, t);
+      // cartel de CAPA: golpe de pico al entrar, se va en "fin"
+      const cartel = (fin) => {
+        const c = q(".cartel");
+        tl.fromTo(c.querySelector(".c-num"), { scale: 1.7, opacity: 0.3 }, { scale: 1, opacity: 1, duration: 0.18, ease: "power4.in" }, 0);
+        tl.fromTo(c.querySelector(".c-capa"), { y: -80, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, 0);
+        gsap.set(c.querySelector(".c-cota"), { opacity: 0 });
+        tl.fromTo(c.querySelector(".c-cota"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, 0.3);
+        sacudon(0.12, 1.2);
+        tl.to(c, { y: -60, opacity: 0, scale: 0.9, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, fin - 0.25);
+      };
+      const LADO = 1.16, ESTA = 1.97, MALA = 3.46, ENT = 5.16;
+      // Andrea camina al otro local
+      const and = q(".s10-andrea");
+      gsap.set(and, { x: 130, y: 1260 });
+      tl.to(and, { x: 560, duration: 1.1, ease: "none" }, 0);
+      tl.to(q(".s10-pie1"), { rotation: 18, svgOrigin: "-25 -60", duration: 0.14, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0);
+      tl.to(q(".s10-pie2"), { rotation: -18, svgOrigin: "25 -60", duration: 0.14, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0);
+      tl.to(and, { x: 800, opacity: 0, scale: 0.85, duration: 0.35, ease: "power1.in" }, 1.1);
+      gsap.set(q(".s10-vend"), { rotation: -10 });
+      cae(".s10-vend", LADO + 0.1, 2.4);
+      sacudon(LADO + 0.1, 0.9);
+      // GIRO: la venta estaba enterrada, intacta
+      fuera([q(".s10-calle"), q(".s10-otro"), q(".s10-vend")], ESTA - 0.25, 0.25);
+      gsap.set(q(".s10-corte"), { opacity: 0 });
+      tl.fromTo(q(".s10-corte"), { opacity: 0, y: 240 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, ESTA - 0.15);
+      gsap.set(q(".s10-terrones"), { opacity: 0 });
+      tl.fromTo(q(".s10-venta"), { scale: 0.6, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.4, ease: "back.out(2)", immediateRender: false }, 2.16);
+      tl.to(q(".s10-venta"), { y: -12, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 2.6);
+      cae(".s10-mala", MALA, 2);
+      sacudon(MALA, 0.8);
+      // "enterrada": la tierra le cae encima
+      qa(".s10-terrones path").forEach((t, i) => {
+        tl.fromTo(t, { y: -700, opacity: 1 }, { y: 120 + (i % 3) * 20, duration: 0.3, ease: "power3.in" }, ENT - 0.35 + i * 0.05);
+      });
+      tl.set(q(".s10-terrones"), { opacity: 1 }, ENT - 0.36);
+      tl.to(q(".s10-venta"), { opacity: 0.3, duration: 0.2 }, ENT);
+      cae(".s10-ent", ENT, 2.4);
+      sacudon(ENT, 1.4);
+
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

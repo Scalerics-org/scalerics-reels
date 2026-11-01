@@ -1,0 +1,8 @@
+[
+  {"t": 0.05, "sfx": "tiza", "vol": 0.35},
+  {"t": 0.6, "sfx": "tiza", "vol": 0.3},
+  {"t": 0.9, "sfx": "click", "vol": 0.3},
+  {"t": 1.7, "sfx": "key-press", "vol": 0.3},
+  {"t": 2.55, "sfx": "impact-bass-1", "vol": 0.35, "max": 0.5},
+  {"t": 3.9, "sfx": "martillo", "vol": 0.35, "max": 0.5}
+]

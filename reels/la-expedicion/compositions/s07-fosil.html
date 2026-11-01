@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-fosil"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-fosil"] .s07-esc { position: absolute; inset: 0; }
+    [data-composition-id="s07-fosil"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-fosil"] .lin { fill: none; stroke: #f1e3c2; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-fosil"] .fino { fill: none; stroke: #f1e3c2; stroke-width: 3; stroke-linecap: round; opacity: 0.5; }
+    [data-composition-id="s07-fosil"] .ocre { stroke: #e8ad3c; }
+    [data-composition-id="s07-fosil"] .terra { stroke: #c4532d; }
+    [data-composition-id="s07-fosil"] .mapa { fill: none; stroke: #c4532d; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 2 18; }
+    [data-composition-id="s07-fosil"] .t1 { fill: #8a5a36; fill-opacity: 0.30; }
+    [data-composition-id="s07-fosil"] .t2 { fill: #8a5a36; fill-opacity: 0.45; }
+    [data-composition-id="s07-fosil"] .t3 { fill: #8a5a36; fill-opacity: 0.60; }
+    [data-composition-id="s07-fosil"] .t4 { fill: #8a5a36; fill-opacity: 0.78; }
+    [data-composition-id="s07-fosil"] .borde { fill: none; stroke: #170f09; stroke-width: 3; opacity: 0.5; }
+    [data-composition-id="s07-fosil"] .rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #f1e3c2; } 
+    [data-composition-id="s07-fosil"] .txt { position: absolute; left: 0; right: 0; text-align: center; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s07-fosil"] .lex { font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; color: #f1e3c2; }
+    [data-composition-id="s07-fosil"] .cin { font-family: "Cinzel", serif; font-weight: 800; color: #f1e3c2; }
+    [data-composition-id="s07-fosil"] .mano { font-family: "Caveat", cursive; font-weight: 700; text-transform: none; }
+    [data-composition-id="s07-fosil"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s07-fosil"] .sello { position: absolute; padding: 10px 24px; border: 6px solid #c4532d; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; color: #c4532d; text-transform: uppercase; white-space: nowrap; line-height: 1.1; }
+    [data-composition-id="s07-fosil"] .centro { left: 0 !important; right: 0; margin: 0 auto; width: fit-content; }
+    [data-composition-id="s07-fosil"] .ficha { position: absolute; padding: 8px 20px; background: #f1e3c2; color: #170f09; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.12em; white-space: nowrap; border-radius: 4px; }
+    [data-composition-id="s07-fosil"] .cartel { position: absolute; left: 0; right: 0; top: 600px; height: 880px; }
+    [data-composition-id="s07-fosil"] .cartel .c-capa { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: "Cinzel", serif; font-weight: 800; font-size: 120px; letter-spacing: 0.18em; color: #f1e3c2; line-height: 1; }
+    [data-composition-id="s07-fosil"] .cartel .c-num { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-family: "Cinzel", serif; font-weight: 900; font-size: 440px; color: #e8ad3c; line-height: 1; text-shadow: 0 0 50px rgba(232, 173, 60, 0.35); }
+    [data-composition-id="s07-fosil"] .cartel .c-cota { position: absolute; left: 0; right: 0; margin: 0 auto; width: fit-content; top: 660px; }
+    [data-composition-id="s07-fosil"] .s07-papel { position: absolute; left: 250px; top: 700px; width: 580px; height: 660px; background: #f1e3c2; border: 5px solid #170f09; box-shadow: 0 0 60px rgba(232,173,60,0.55); }
+    [data-composition-id="s07-fosil"] .s07-head { position: absolute; left: 40px; top: 36px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 56px; color: #170f09; letter-spacing: 0.02em; }
+    [data-composition-id="s07-fosil"] .s07-lin { position: absolute; left: 40px; right: 40px; height: 3px; background: #8a5a36; opacity: 0.45; }
+    [data-composition-id="s07-fosil"] .s07-m { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #170f09; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s07-fosil"] .s07-fecha { left: 40px; top: 120px; font-size: 64px; }
+    [data-composition-id="s07-fosil"] .s07-lav { left: 40px; top: 240px; font-size: 96px; }
+    [data-composition-id="s07-fosil"] .s07-and { left: 40px; top: 360px; font-size: 96px; color: #c4532d; }
+    [data-composition-id="s07-fosil"] .s07-lun { left: 40px; top: 490px; font-size: 80px; }
+    [data-composition-id="s07-fosil"] .s07-polvo { position: absolute; background: #8a5a36; }
+    [data-composition-id="s07-fosil"] .s07-hall { top: 1430px; }
+  </style>
+  <div id="root" data-composition-id="s07-fosil" data-width="1080" data-height="1920" data-duration="4.73">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.73" data-track-index="0">
+      <div class="s07-esc">
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s07-roca" d="M150 760 L330 640 L760 650 L950 780 L980 1150 L880 1420 L540 1490 L200 1430 L110 1130 Z" fill="#8a5a36" fill-opacity="0.8" stroke="#f1e3c2" stroke-width="6" stroke-linejoin="round" />
+        </svg>
+        <div class="s07-papel">
+          <div class="s07-head">PRESUPUESTO</div>
+          <div class="s07-lin" style="top:112px"></div><div class="s07-lin" style="top:220px"></div><div class="s07-lin" style="top:345px"></div><div class="s07-lin" style="top:465px"></div><div class="s07-lin" style="top:590px"></div>
+          <div class="s07-m s07-fecha">fecha: <span class="s07-marzo">marzo</span></div>
+          <div class="s07-m s07-lav">Lavarropas</div>
+          <div class="s07-m s07-and">Andrea</div>
+          <div class="s07-m s07-lun">La llamo el lunes</div>
+          <svg style="position:absolute;left:0;top:0;width:580px;height:660px;overflow:visible" viewBox="0 0 580 660" aria-hidden="true">
+            <ellipse class="s07-circ" cx="268" cy="160" rx="100" ry="46" fill="none" stroke="#c4532d" stroke-width="6" />
+            <path class="s07-sub" d="M40 580 C200 570 380 590 545 572" fill="none" stroke="#c4532d" stroke-width="8" stroke-linecap="round" />
+          </svg>
+          <div class="s07-polvo" style="left:0;top:0;width:290px;height:330px"></div>
+          <div class="s07-polvo" style="left:290px;top:0;width:290px;height:330px"></div>
+          <div class="s07-polvo" style="left:0;top:330px;width:290px;height:330px"></div>
+          <div class="s07-polvo" style="left:290px;top:330px;width:290px;height:330px"></div>
+        </div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s07-pin"><path class="lin ocre" d="M0 -170 V0" style="stroke-width:14" /><rect x="-18" y="0" width="36" height="30" fill="#f1e3c2" /><path d="M-20 30 L-30 110 H30 L20 30 Z" fill="#8a5a36" stroke="#f1e3c2" stroke-width="3" /></g>
+        </svg>
+        <div class="ficha centro s07-hall">HALLAZGO N.º 4 · INTACTO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-fosil";
+      const DUR = 4.73;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s07-esc");
+      const lista = (e) => (typeof e === "string" ? qa(e) : Array.isArray(e) ? e : [e]);
+      // trazo que se dibuja (invisible hasta que arranca: sin puntitos de caps)
+      const dibujar = (e, t, d = 0.6, st = 0) => lista(e).forEach((el, i) => {
+        const L = el.getTotalLength ? el.getTotalLength() + 2 : 2000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t + i * st);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st);
+      });
+      // aparece entero
+      const pop = (e, t, st = 0, origen = "50% 50%") => lista(e).forEach((el, i) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.8, transformOrigin: origen }, { opacity: 1, scale: 1, transformOrigin: origen, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t + i * st);
+      });
+      // cae como sello / palabra gigante
+      const cae = (e, t, desde = 2.6) => lista(e).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const sacudon = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + 0.04 + i * 0.045));
+      const fuera = (e, t, d = 0.2) => tl.to(lista(e), { opacity: 0, duration: d, ease: "power2.in" }, t);
+      // cartel de CAPA: golpe de pico al entrar, se va en "fin"
+      const cartel = (fin) => {
+        const c = q(".cartel");
+        tl.fromTo(c.querySelector(".c-num"), { scale: 1.7, opacity: 0.3 }, { scale: 1, opacity: 1, duration: 0.18, ease: "power4.in" }, 0);
+        tl.fromTo(c.querySelector(".c-capa"), { y: -80, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, 0);
+        gsap.set(c.querySelector(".c-cota"), { opacity: 0 });
+        tl.fromTo(c.querySelector(".c-cota"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, 0.3);
+        sacudon(0.12, 1.2);
+        tl.to(c, { y: -60, opacity: 0, scale: 0.9, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, fin - 0.25);
+      };
+      const PRES = 0.12, MARZO = 0.92, LAV = 1.71, AND = 2.59, LUN = 3.52;
+      tl.fromTo(ESC, { scale: 1.12 }, { scale: 1, duration: 0.5, ease: "power3.out", transformOrigin: "50% 55%" }, 0);
+      tl.to(ESC, { scale: 1.06, duration: DUR - 0.5, ease: "none", transformOrigin: "50% 55%" }, 0.5);
+      // el pincel barre el polvo de cada cuadrante
+      const pin = q(".s07-pin");
+      gsap.set(pin, { x: 380, y: 860, rotation: -30 });
+      const ruta = [[380, 860], [700, 860], [380, 1190], [700, 1190]];
+      qa(".s07-polvo").forEach((p, i) => {
+        const t = i * 0.28;
+        tl.to(pin, { x: ruta[i][0], y: ruta[i][1], duration: 0.12, ease: "power2.out" }, t);
+        tl.to(pin, { rotation: 30, duration: 0.07, yoyo: true, repeat: 3, ease: "sine.inOut" }, t + 0.1);
+        tl.to(p, { opacity: 0, duration: 0.25, ease: "power1.in" }, t + 0.06);
+      });
+      tl.to(pin, { x: 1250, y: 1300, duration: 0.3, ease: "power2.in" }, 1.25);
+      pop(".s07-head", PRES, 0, "0% 50%");
+      dibujar(".s07-circ", MARZO, 0.35);
+      tl.fromTo(q(".s07-marzo"), { scale: 1 }, { scale: 1.2, duration: 0.15, yoyo: true, repeat: 1, transformOrigin: "50% 50%" }, MARZO);
+      gsap.set([q(".s07-lav"), q(".s07-and"), q(".s07-lun")], { opacity: 0 });
+      [[".s07-lav", LAV], [".s07-and", AND], [".s07-lun", LUN - 0.1]].forEach(([s, t]) => {
+        tl.fromTo(q(s), { opacity: 0, x: -30, clipPath: "inset(0 100% 0 0)" }, { opacity: 1, x: 0, clipPath: "inset(0 0% 0 0)", duration: 0.4, ease: "power2.out", immediateRender: false }, t);
+      });
+      // nunca se escribió el "llamado"
+      sacudon(AND + 0.05, 0.6);
+      dibujar(".s07-sub", LUN + 0.35, 0.35);
+      cae(".s07-hall", 3.0, 2);
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

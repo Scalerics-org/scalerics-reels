@@ -1,0 +1,188 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-capa2"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-capa2"] .s04-esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-capa2"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-capa2"] .lin { fill: none; stroke: #f1e3c2; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-capa2"] .fino { fill: none; stroke: #f1e3c2; stroke-width: 3; stroke-linecap: round; opacity: 0.5; }
+    [data-composition-id="s04-capa2"] .ocre { stroke: #e8ad3c; }
+    [data-composition-id="s04-capa2"] .terra { stroke: #c4532d; }
+    [data-composition-id="s04-capa2"] .mapa { fill: none; stroke: #c4532d; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 2 18; }
+    [data-composition-id="s04-capa2"] .t1 { fill: #8a5a36; fill-opacity: 0.30; }
+    [data-composition-id="s04-capa2"] .t2 { fill: #8a5a36; fill-opacity: 0.45; }
+    [data-composition-id="s04-capa2"] .t3 { fill: #8a5a36; fill-opacity: 0.60; }
+    [data-composition-id="s04-capa2"] .t4 { fill: #8a5a36; fill-opacity: 0.78; }
+    [data-composition-id="s04-capa2"] .borde { fill: none; stroke: #170f09; stroke-width: 3; opacity: 0.5; }
+    [data-composition-id="s04-capa2"] .rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #f1e3c2; } 
+    [data-composition-id="s04-capa2"] .txt { position: absolute; left: 0; right: 0; text-align: center; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s04-capa2"] .lex { font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; color: #f1e3c2; }
+    [data-composition-id="s04-capa2"] .cin { font-family: "Cinzel", serif; font-weight: 800; color: #f1e3c2; }
+    [data-composition-id="s04-capa2"] .mano { font-family: "Caveat", cursive; font-weight: 700; text-transform: none; }
+    [data-composition-id="s04-capa2"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s04-capa2"] .sello { position: absolute; padding: 10px 24px; border: 6px solid #c4532d; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; color: #c4532d; text-transform: uppercase; white-space: nowrap; line-height: 1.1; }
+    [data-composition-id="s04-capa2"] .centro { left: 0 !important; right: 0; margin: 0 auto; width: fit-content; }
+    [data-composition-id="s04-capa2"] .ficha { position: absolute; padding: 8px 20px; background: #f1e3c2; color: #170f09; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.12em; white-space: nowrap; border-radius: 4px; }
+    [data-composition-id="s04-capa2"] .cartel { position: absolute; left: 0; right: 0; top: 600px; height: 880px; }
+    [data-composition-id="s04-capa2"] .cartel .c-capa { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: "Cinzel", serif; font-weight: 800; font-size: 120px; letter-spacing: 0.18em; color: #f1e3c2; line-height: 1; }
+    [data-composition-id="s04-capa2"] .cartel .c-num { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-family: "Cinzel", serif; font-weight: 900; font-size: 440px; color: #e8ad3c; line-height: 1; text-shadow: 0 0 50px rgba(232, 173, 60, 0.35); }
+    [data-composition-id="s04-capa2"] .cartel .c-cota { position: absolute; left: 0; right: 0; margin: 0 auto; width: fit-content; top: 660px; }
+    [data-composition-id="s04-capa2"] .s04-cuad { position: absolute; left: 170px; top: 770px; width: 740px; height: 500px; }
+    [data-composition-id="s04-capa2"] .s04-c1 { left: 90px; top: 1350px; font-size: 76px; color: #f1e3c2; }
+    [data-composition-id="s04-capa2"] .s04-c2 { left: 590px; top: 1350px; font-size: 76px; color: #e8ad3c; }
+    [data-composition-id="s04-capa2"] .s04-o { left: 0; right: 0; top: 1368px; font-size: 44px; color: #f1e3c2; opacity: 0.7; }
+    [data-composition-id="s04-capa2"] .s04-ind { left: 470px; top: 1180px; font-size: 46px; }
+    [data-composition-id="s04-capa2"] .s04-escr { top: 1290px; }
+  </style>
+  <div id="root" data-composition-id="s04-capa2" data-width="1080" data-height="1920" data-duration="7.55">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="7.55" data-track-index="0">
+      <div class="s04-esc">
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s04-pozo">
+<g class="POZO">
+            <path class="t2" d="M60 700 Q300 680 540 702 T1020 692 V1470 Q760 1490 540 1470 T60 1482 Z" />
+            <path class="t1" d="M60 700 Q300 680 540 702 T1020 692 V760 Q760 780 540 762 T60 770 Z" />
+            <g fill="#170f09" opacity="0.3"><circle cx="130" cy="820" r="10" /><circle cx="960" cy="900" r="8" /><circle cx="300" cy="1400" r="11" /><circle cx="880" cy="1420" r="9" /><circle cx="560" cy="1350" r="7" /></g>
+            <path d="M240 690 V1480 M420 696 V1476 M600 700 V1472 M780 696 V1478 M60 960 H1020 M60 1220 H1020" stroke="#c4532d" stroke-width="3" opacity="0.55" fill="none" />
+            <path d="M240 690 v-26 M420 696 v-26 M600 700 v-26 M780 696 v-26" stroke="#e8ad3c" stroke-width="10" stroke-linecap="round" />
+          </g>
+
+          </g>
+        </svg>
+        <svg class="s04-cuad" viewBox="0 0 740 500" aria-hidden="true">
+          <g class="s04-libro">
+            <path d="M20 30 H360 V480 H20 Z" fill="#f1e3c2" stroke="#170f09" stroke-width="5" />
+            <path d="M380 30 H720 V480 H380 Z" fill="#f1e3c2" stroke="#170f09" stroke-width="5" />
+            <g fill="none" stroke="#8a5a36" stroke-width="5" stroke-linecap="round">
+              <circle cx="370" cy="70" r="16" /><circle cx="370" cy="130" r="16" /><circle cx="370" cy="190" r="16" /><circle cx="370" cy="250" r="16" /><circle cx="370" cy="310" r="16" /><circle cx="370" cy="370" r="16" /><circle cx="370" cy="430" r="16" />
+            </g>
+            <path d="M40 120 H340 M40 190 H340 M40 260 H340 M40 330 H340 M40 400 H340 M400 120 H700 M400 190 H700 M400 260 H700 M400 330 H700 M400 400 H700" stroke="#8a5a36" stroke-width="2" opacity="0.5" />
+            <g class="s04-garab" fill="none" stroke="#170f09" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M50 105 c10 -30 20 20 30 -5 s15 -25 25 0 s10 15 20 -10 c8 -20 18 25 30 0 s20 -15 30 5 s10 -20 40 -5" />
+              <path d="M50 175 c15 -25 15 25 30 0 s25 -20 30 5 l10 -20 c10 25 20 -10 30 5 s25 10 45 -15" />
+              <path d="M50 245 c10 15 20 -30 35 -5 s10 20 20 -10 s25 -5 30 10 c10 -25 30 0 40 -15 s15 20 45 0" />
+              <path d="M50 315 c20 -20 10 25 30 0 s15 -25 25 0 c10 15 30 -20 40 0" />
+              <path d="M410 105 c10 -25 25 25 35 0 s20 -20 30 5 s15 10 25 -10 s20 15 40 -5 s20 -10 40 5" />
+              <path class="s04-clave" d="M410 175 c15 -35 25 30 40 -5 s20 -30 35 0 s15 25 30 -10 c10 -15 25 20 40 -5" stroke="#c4532d" />
+              <path d="M410 245 c10 20 25 -25 35 0 s20 15 30 -10 s25 -10 40 5 s10 -20 50 0" />
+              <path d="M410 315 c20 -15 20 20 35 0 s15 -20 30 5 s20 10 40 -10" />
+              <path d="M410 385 c10 -20 20 20 30 0 s20 -15 35 5" />
+            </g>
+            <ellipse class="s04-circ" cx="510" cy="168" rx="120" ry="42" fill="none" stroke="#c4532d" stroke-width="6" />
+          </g>
+        </svg>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="mapa s04-f1" d="M640 1000 C560 1150 380 1200 300 1330" style="stroke-dasharray:none;stroke-width:6" />
+          <path class="mapa s04-f2" d="M720 1000 C760 1150 790 1220 790 1330" style="stroke-dasharray:none;stroke-width:6" />
+          <g class="s04-lupa"><circle cx="0" cy="0" r="90" fill="rgba(241,227,194,0.18)" stroke="#e8ad3c" stroke-width="12" /><path d="M64 64 L150 150" stroke="#e8ad3c" stroke-width="24" stroke-linecap="round" /></g>
+        </svg>
+        <div class="ficha centro s04-escr">ESCRITURA ANTIGUA</div>
+        <div class="sello s04-ind">Indescifrable</div>
+        <div class="txt lex s04-c1" style="left:60px;right:auto;width:470px">¿Cobrar?</div>
+        <div class="txt lex s04-c2" style="left:550px;right:auto;width:470px">¿Llorar?</div>
+        <div class="cartel s04-cartel"><div class="c-capa">Capa</div><div class="c-num">2</div><div class="ficha c-cota">COTA -25 CM</div></div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(910 1390) scale(-1.1 1.1)"><g class="s04-ayu">
+<g class="AYU">
+            <path class="lin" d="M-75 165 C-70 105 -42 82 0 82 C42 82 70 105 75 165" />
+            <path class="lin ocre" d="M55 170 L112 -70" style="stroke-width:9" />
+            <path d="M92 -66 L134 -58 L134 -122 Q118 -146 100 -126 Z" fill="#f1e3c2" stroke="#170f09" stroke-width="3" />
+            <circle cy="20" r="58" fill="#2a1b10" stroke="#f1e3c2" stroke-width="5" />
+            <path d="M-62 -6 A62 62 0 0 1 62 -6 Z" fill="#e8ad3c" stroke="#170f09" stroke-width="4" />
+            <path class="lin" d="M-76 -6 H76" />
+            <circle cx="0" cy="-36" r="13" fill="#f1e3c2" />
+            <circle cx="-21" cy="18" r="14" fill="#f1e3c2" /><circle cx="21" cy="18" r="14" fill="#f1e3c2" />
+            <circle cx="-19" cy="20" r="6" fill="#170f09" /><circle cx="23" cy="20" r="6" fill="#170f09" />
+            <ellipse class="AYU-boca" cx="0" cy="54" rx="15" ry="13" fill="#170f09" stroke="#f1e3c2" stroke-width="4" />
+          </g>
+
+          </g></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-capa2";
+      const DUR = 7.55;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s04-esc");
+      const lista = (e) => (typeof e === "string" ? qa(e) : Array.isArray(e) ? e : [e]);
+      // trazo que se dibuja (invisible hasta que arranca: sin puntitos de caps)
+      const dibujar = (e, t, d = 0.6, st = 0) => lista(e).forEach((el, i) => {
+        const L = el.getTotalLength ? el.getTotalLength() + 2 : 2000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t + i * st);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st);
+      });
+      // aparece entero
+      const pop = (e, t, st = 0, origen = "50% 50%") => lista(e).forEach((el, i) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.8, transformOrigin: origen }, { opacity: 1, scale: 1, transformOrigin: origen, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t + i * st);
+      });
+      // cae como sello / palabra gigante
+      const cae = (e, t, desde = 2.6) => lista(e).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const sacudon = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + 0.04 + i * 0.045));
+      const fuera = (e, t, d = 0.2) => tl.to(lista(e), { opacity: 0, duration: d, ease: "power2.in" }, t);
+      // cartel de CAPA: golpe de pico al entrar, se va en "fin"
+      const cartel = (fin) => {
+        const c = q(".cartel");
+        tl.fromTo(c.querySelector(".c-num"), { scale: 1.7, opacity: 0.3 }, { scale: 1, opacity: 1, duration: 0.18, ease: "power4.in" }, 0);
+        tl.fromTo(c.querySelector(".c-capa"), { y: -80, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, 0);
+        gsap.set(c.querySelector(".c-cota"), { opacity: 0 });
+        tl.fromTo(c.querySelector(".c-cota"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, 0.3);
+        sacudon(0.12, 1.2);
+        tl.to(c, { y: -60, opacity: 0, scale: 0.9, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, fin - 0.25);
+      };
+      const CUAD = 1.28, ESCR = 2.45, IND = 3.58, ESTO = 5.24, COB = 5.98, LLO = 6.68;
+      cartel(1.2);
+      gsap.set(q(".s04-ayu"), { opacity: 0 });
+      tl.fromTo(q(".s04-ayu"), { opacity: 1, y: 320 }, { y: 0, duration: 0.25, ease: "back.out(1.6)", immediateRender: false }, 0.05);
+      tl.to(q(".s04-ayu .AYU-boca"), { scaleY: 1.6, transformOrigin: "50% 50%", duration: 0.1, yoyo: true, repeat: 3 }, 0.2);
+      tl.to(q(".s04-ayu"), { y: 700, opacity: 0, duration: 0.3, ease: "power2.in" }, 1.0);
+      gsap.set(q(".s04-pozo"), { opacity: 0 });
+      tl.fromTo(q(".s04-pozo"), { opacity: 0, scale: 1.1, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, immediateRender: false }, 1.0);
+      // el cuaderno sube de la tierra
+      gsap.set(q(".s04-cuad"), { opacity: 0 });
+      tl.fromTo(q(".s04-cuad"), { opacity: 0, y: 380, rotation: 8 }, { opacity: 1, y: 0, rotation: -2, duration: 0.45, ease: "back.out(1.4)", immediateRender: false }, CUAD - 0.1);
+      sacudon(CUAD + 0.3, 0.6);
+      dibujar(".s04-garab path", CUAD + 0.2, 0.4, 0.06);
+      // la lupa recorre
+      const lupa = q(".s04-lupa");
+      gsap.set(lupa, { x: -200, y: 900 });
+      tl.to(lupa, { x: 330, y: 900, duration: 0.4, ease: "power3.out" }, ESCR);
+      tl.to(lupa, { x: 640, y: 960, duration: 0.7, ease: "sine.inOut" }, ESCR + 0.45);
+      tl.to(lupa, { x: 420, y: 1060, duration: 0.6, ease: "sine.inOut" }, ESCR + 1.2);
+      tl.to(lupa, { x: -260, y: 1100, duration: 0.35, ease: "power2.in" }, 4.4);
+      pop(".s04-escr", ESCR);
+      gsap.set(q(".s04-ind"), { rotation: -7 });
+      cae(".s04-ind", IND + 0.2, 2.4);
+      sacudon(IND + 0.2, 0.9);
+      // ¿esto dice...?
+      fuera([".s04-escr", ".s04-ind"].map((s) => q(s)), ESTO - 0.2);
+      dibujar(".s04-circ", ESTO, 0.4);
+      dibujar(".s04-f1", COB - 0.3, 0.3);
+      cae(".s04-c1", COB, 2);
+      dibujar(".s04-f2", LLO - 0.3, 0.3);
+      cae(".s04-c2", LLO, 2);
+      sacudon(LLO, 1);
+      tl.to(q(".s04-cuad"), { rotation: 2, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, COB + 0.1);
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

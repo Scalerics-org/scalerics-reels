@@ -1,0 +1,61 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* cuadrícula de cuerdas de excavación (terracota fina) */
+    [data-composition-id="ambiente"] .amb-grilla { position: absolute; left: -90px; top: -90px; width: 1260px; height: 2100px; opacity: 0.13;
+      background-image: linear-gradient(rgba(196, 83, 45, 0.9) 2px, transparent 2px), linear-gradient(90deg, rgba(196, 83, 45, 0.9) 2px, transparent 2px);
+      background-size: 180px 180px, 180px 180px; }
+    /* textura de papel/tierra: rayitas de estrato */
+    [data-composition-id="ambiente"] .amb-estratos { position: absolute; inset: 0; opacity: 0.06;
+      background-image: repeating-linear-gradient(0deg, rgba(241, 227, 194, 0.7) 0px, rgba(241, 227, 194, 0.7) 2px, transparent 2px, transparent 46px); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1100px at 540px 930px, rgba(23, 15, 9, 0) 52%, rgba(23, 15, 9, 0.9) 100%); }
+    [data-composition-id="ambiente"] .amb-polvo { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #f1e3c2; opacity: 0.25; }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 60px; top: 1600px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; color: #e8ad3c; opacity: 0.6; text-align: right; line-height: 1.5; }
+    [data-composition-id="ambiente"] .amb-nube { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 700px 500px at 540px 1300px, rgba(241, 227, 194, 0.55), rgba(232, 173, 60, 0.15) 50%, rgba(232, 173, 60, 0) 80%); }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.44">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="73.44" data-track-index="0">
+      <div class="amb-estratos"></div>
+      <div class="amb-grilla"></div>
+      <div class="amb-polvos"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-rotulo" data-layout-ignore>EXPEDICIÓN · SECTOR CAJA<br />CUADRÍCULA B-4</div>
+      <div class="amb-nube"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.44;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(q(".amb-grilla"), { x: 0, y: 0 }, { x: 90, y: 90, duration: DUR, ease: "none" }, 0);
+
+      // polvo flotando (posiciones fijas, deterministas)
+      const cont = q(".amb-polvos");
+      const P = [[120, 700, 1], [300, 1500, 1.4], [520, 900, 0.8], [760, 1200, 1.2], [930, 640, 1], [210, 1100, 0.7], [660, 1580, 1.1], [860, 1450, 0.9], [420, 620, 1.3], [990, 1000, 0.8], [80, 1350, 1.2], [580, 1300, 0.7]];
+      P.forEach(([x, y, s], i) => {
+        const d = document.createElement("div");
+        d.className = "amb-polvo";
+        cont.appendChild(d);
+        gsap.set(d, { x, y, scale: s });
+        tl.to(d, { y: y - 260 - i * 15, x: x + (i % 2 ? 40 : -40), duration: DUR, ease: "none" }, 0);
+        tl.to(d, { opacity: 0.08, duration: 2.5 + (i % 3), yoyo: true, repeat: Math.floor(DUR / (2.5 + (i % 3))) - 1, ease: "sine.inOut" }, 0);
+      });
+
+      // nube de polvo: cada "¡Capa!" y "museo"
+      [9.72, 17.12, 24.67, 31.22, 40.6].forEach((t) => {
+        tl.to(q(".amb-nube"), { opacity: 1, duration: 0.06 }, t);
+        tl.to(q(".amb-nube"), { opacity: 0, duration: 0.7, ease: "power2.out" }, t + 0.08);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

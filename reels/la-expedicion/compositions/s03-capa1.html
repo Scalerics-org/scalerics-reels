@@ -1,0 +1,171 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-capa1"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-capa1"] .s03-esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-capa1"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-capa1"] .lin { fill: none; stroke: #f1e3c2; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-capa1"] .fino { fill: none; stroke: #f1e3c2; stroke-width: 3; stroke-linecap: round; opacity: 0.5; }
+    [data-composition-id="s03-capa1"] .ocre { stroke: #e8ad3c; }
+    [data-composition-id="s03-capa1"] .terra { stroke: #c4532d; }
+    [data-composition-id="s03-capa1"] .mapa { fill: none; stroke: #c4532d; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 2 18; }
+    [data-composition-id="s03-capa1"] .t1 { fill: #8a5a36; fill-opacity: 0.30; }
+    [data-composition-id="s03-capa1"] .t2 { fill: #8a5a36; fill-opacity: 0.45; }
+    [data-composition-id="s03-capa1"] .t3 { fill: #8a5a36; fill-opacity: 0.60; }
+    [data-composition-id="s03-capa1"] .t4 { fill: #8a5a36; fill-opacity: 0.78; }
+    [data-composition-id="s03-capa1"] .borde { fill: none; stroke: #170f09; stroke-width: 3; opacity: 0.5; }
+    [data-composition-id="s03-capa1"] .rot { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #f1e3c2; } 
+    [data-composition-id="s03-capa1"] .txt { position: absolute; left: 0; right: 0; text-align: center; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s03-capa1"] .lex { font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.02em; color: #f1e3c2; }
+    [data-composition-id="s03-capa1"] .cin { font-family: "Cinzel", serif; font-weight: 800; color: #f1e3c2; }
+    [data-composition-id="s03-capa1"] .mano { font-family: "Caveat", cursive; font-weight: 700; text-transform: none; }
+    [data-composition-id="s03-capa1"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s03-capa1"] .sello { position: absolute; padding: 10px 24px; border: 6px solid #c4532d; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; color: #c4532d; text-transform: uppercase; white-space: nowrap; line-height: 1.1; }
+    [data-composition-id="s03-capa1"] .centro { left: 0 !important; right: 0; margin: 0 auto; width: fit-content; }
+    [data-composition-id="s03-capa1"] .ficha { position: absolute; padding: 8px 20px; background: #f1e3c2; color: #170f09; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.12em; white-space: nowrap; border-radius: 4px; }
+    [data-composition-id="s03-capa1"] .cartel { position: absolute; left: 0; right: 0; top: 600px; height: 880px; }
+    [data-composition-id="s03-capa1"] .cartel .c-capa { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: "Cinzel", serif; font-weight: 800; font-size: 120px; letter-spacing: 0.18em; color: #f1e3c2; line-height: 1; }
+    [data-composition-id="s03-capa1"] .cartel .c-num { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-family: "Cinzel", serif; font-weight: 900; font-size: 440px; color: #e8ad3c; line-height: 1; text-shadow: 0 0 50px rgba(232, 173, 60, 0.35); }
+    [data-composition-id="s03-capa1"] .cartel .c-cota { position: absolute; left: 0; right: 0; margin: 0 auto; width: fit-content; top: 660px; }
+    [data-composition-id="s03-capa1"] .s03-gpost { position: absolute; left: 270px; top: 790px; width: 540px; height: 470px; background: #e8ad3c; box-shadow: 0 18px 0 rgba(23,15,9,0.45); }
+    [data-composition-id="s03-capa1"] .s03-gpost p { position: absolute; left: 40px; top: 60px; margin: 0; font-family: "Caveat", cursive; font-weight: 700; font-size: 118px; line-height: 0.95; color: #170f09; }
+    [data-composition-id="s03-capa1"] .s03-cinta { position: absolute; left: 190px; top: -26px; width: 170px; height: 52px; background: rgba(241, 227, 194, 0.75); transform: rotate(-4deg); }
+    [data-composition-id="s03-capa1"] .s03-s1 { left: 110px; top: 1240px; font-size: 54px; }
+    [data-composition-id="s03-capa1"] .s03-s2 { left: 560px; top: 1310px; font-size: 54px; }
+    [data-composition-id="s03-capa1"] .s03-mes { top: 1400px; }
+  </style>
+  <div id="root" data-composition-id="s03-capa1" data-width="1080" data-height="1920" data-duration="7.40">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="7.40" data-track-index="0">
+      <div class="s03-esc">
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s03-pozo">
+<g class="POZO">
+            <path class="t2" d="M60 700 Q300 680 540 702 T1020 692 V1470 Q760 1490 540 1470 T60 1482 Z" />
+            <path class="t1" d="M60 700 Q300 680 540 702 T1020 692 V760 Q760 780 540 762 T60 770 Z" />
+            <g fill="#170f09" opacity="0.3"><circle cx="130" cy="820" r="10" /><circle cx="960" cy="900" r="8" /><circle cx="300" cy="1400" r="11" /><circle cx="880" cy="1420" r="9" /><circle cx="560" cy="1350" r="7" /></g>
+            <path d="M240 690 V1480 M420 696 V1476 M600 700 V1472 M780 696 V1478 M60 960 H1020 M60 1220 H1020" stroke="#c4532d" stroke-width="3" opacity="0.55" fill="none" />
+            <path d="M240 690 v-26 M420 696 v-26 M600 700 v-26 M780 696 v-26" stroke="#e8ad3c" stroke-width="10" stroke-linecap="round" />
+          </g>
+
+          </g>
+          <g transform="translate(170 860) rotate(-12)"><g class="s03-p"><rect x="-55" y="-55" width="110" height="110" fill="#e8ad3c" /><path d="M-35 -20 H30 M-35 5 H20 M-35 30 H35" stroke="#170f09" stroke-width="5" stroke-linecap="round" opacity=".7" /></g></g>
+          <g transform="translate(400 1030) rotate(8)"><g class="s03-p"><rect x="-55" y="-55" width="110" height="110" fill="#f1e3c2" /><path d="M-35 -20 H30 M-35 5 H20" stroke="#170f09" stroke-width="5" stroke-linecap="round" opacity=".7" /></g></g>
+          <g transform="translate(700 860) rotate(15)"><g class="s03-p"><rect x="-55" y="-55" width="110" height="110" fill="#e8ad3c" /><path d="M-35 -20 H30 M-35 5 H35 M-35 30 H10" stroke="#170f09" stroke-width="5" stroke-linecap="round" opacity=".7" /></g></g>
+          <g transform="translate(900 1110) rotate(-6)"><g class="s03-p"><rect x="-55" y="-55" width="110" height="110" fill="#c4532d" /><path d="M-35 -20 H30 M-35 5 H20" stroke="#170f09" stroke-width="5" stroke-linecap="round" opacity=".7" /></g></g>
+          <g transform="translate(180 1180) rotate(20)"><g class="s03-p"><rect x="-55" y="-55" width="110" height="110" fill="#f1e3c2" /><path d="M-35 -20 H30 M-35 5 H35 M-35 30 H20" stroke="#170f09" stroke-width="5" stroke-linecap="round" opacity=".7" /></g></g>
+          <g transform="translate(620 1250) rotate(-18)"><g class="s03-p"><rect x="-55" y="-55" width="110" height="110" fill="#e8ad3c" /><path d="M-35 -20 H30 M-35 5 H20" stroke="#170f09" stroke-width="5" stroke-linecap="round" opacity=".7" /></g></g>
+          <g transform="translate(860 1370) rotate(10)"><g class="s03-p"><rect x="-55" y="-55" width="110" height="110" fill="#e8ad3c" /><path d="M-35 -20 H30 M-35 5 H35" stroke="#170f09" stroke-width="5" stroke-linecap="round" opacity=".7" /></g></g>
+        </svg>
+        <div class="ficha centro s03-mes">CAPA 1 · ESTE MES</div>
+        <div class="s03-gpost"><div class="s03-cinta"></div><p>Llamar<br />sin falta!!</p></div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s03-lupa"><circle cx="0" cy="0" r="80" fill="rgba(241,227,194,0.12)" stroke="#f1e3c2" stroke-width="10" /><path d="M56 56 L140 140" stroke="#e8ad3c" stroke-width="22" stroke-linecap="round" /></g>
+        </svg>
+        <div class="sello s03-s1">¿A quién?</div>
+        <div class="sello s03-s2">¿Cuándo?</div>
+        <div class="cartel s03-cartel"><div class="c-capa">Capa</div><div class="c-num">1</div><div class="ficha c-cota">COTA -10 CM</div></div>
+        <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(170 1390) scale(1.1)"><g class="s03-ayu">
+<g class="AYU">
+            <path class="lin" d="M-75 165 C-70 105 -42 82 0 82 C42 82 70 105 75 165" />
+            <path class="lin ocre" d="M55 170 L112 -70" style="stroke-width:9" />
+            <path d="M92 -66 L134 -58 L134 -122 Q118 -146 100 -126 Z" fill="#f1e3c2" stroke="#170f09" stroke-width="3" />
+            <circle cy="20" r="58" fill="#2a1b10" stroke="#f1e3c2" stroke-width="5" />
+            <path d="M-62 -6 A62 62 0 0 1 62 -6 Z" fill="#e8ad3c" stroke="#170f09" stroke-width="4" />
+            <path class="lin" d="M-76 -6 H76" />
+            <circle cx="0" cy="-36" r="13" fill="#f1e3c2" />
+            <circle cx="-21" cy="18" r="14" fill="#f1e3c2" /><circle cx="21" cy="18" r="14" fill="#f1e3c2" />
+            <circle cx="-19" cy="20" r="6" fill="#170f09" /><circle cx="23" cy="20" r="6" fill="#170f09" />
+            <ellipse class="AYU-boca" cx="0" cy="54" rx="15" ry="13" fill="#170f09" stroke="#f1e3c2" stroke-width="4" />
+          </g>
+
+          </g></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-capa1";
+      const DUR = 7.40;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s03-esc");
+      const lista = (e) => (typeof e === "string" ? qa(e) : Array.isArray(e) ? e : [e]);
+      // trazo que se dibuja (invisible hasta que arranca: sin puntitos de caps)
+      const dibujar = (e, t, d = 0.6, st = 0) => lista(e).forEach((el, i) => {
+        const L = el.getTotalLength ? el.getTotalLength() + 2 : 2000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t + i * st);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st);
+      });
+      // aparece entero
+      const pop = (e, t, st = 0, origen = "50% 50%") => lista(e).forEach((el, i) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.8, transformOrigin: origen }, { opacity: 1, scale: 1, transformOrigin: origen, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, t + i * st);
+      });
+      // cae como sello / palabra gigante
+      const cae = (e, t, desde = 2.6) => lista(e).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const sacudon = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x, y, duration: 0.04, ease: "none" }, t + 0.04 + i * 0.045));
+      const fuera = (e, t, d = 0.2) => tl.to(lista(e), { opacity: 0, duration: d, ease: "power2.in" }, t);
+      // cartel de CAPA: golpe de pico al entrar, se va en "fin"
+      const cartel = (fin) => {
+        const c = q(".cartel");
+        tl.fromTo(c.querySelector(".c-num"), { scale: 1.7, opacity: 0.3 }, { scale: 1, opacity: 1, duration: 0.18, ease: "power4.in" }, 0);
+        tl.fromTo(c.querySelector(".c-capa"), { y: -80, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, 0);
+        gsap.set(c.querySelector(".c-cota"), { opacity: 0 });
+        tl.fromTo(c.querySelector(".c-cota"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, 0.3);
+        sacudon(0.12, 1.2);
+        tl.to(c, { y: -60, opacity: 0, scale: 0.9, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, fin - 0.25);
+      };
+      const POST = 1.73, MES = 2.88, LLAMAR = 3.67, QUIEN = 5.38, CUANDO = 6.58;
+      cartel(1.5);
+      // ayudante asoma y grita
+      gsap.set(q(".s03-ayu"), { opacity: 0 });
+      tl.fromTo(q(".s03-ayu"), { opacity: 1, y: 320 }, { y: 0, duration: 0.25, ease: "back.out(1.6)", immediateRender: false }, 0.05);
+      tl.to(q(".s03-ayu .AYU-boca"), { scaleY: 1.6, transformOrigin: "50% 50%", duration: 0.1, yoyo: true, repeat: 5 }, 0.2);
+      tl.to(q(".s03-ayu"), { y: 700, opacity: 0, duration: 0.3, ease: "power2.in" }, 1.3);
+      // el pozo con post-its
+      gsap.set(q(".s03-pozo"), { opacity: 0 });
+      tl.fromTo(q(".s03-pozo"), { opacity: 0, scale: 1.1, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "power2.out", immediateRender: false }, 1.35);
+      pop(".s03-p", POST - 0.1, 0.07);
+      tl.to(qa(".s03-p"), { rotation: 6, transformOrigin: "50% 0%", duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut", stagger: 0.05 }, POST + 0.5);
+      pop(".s03-mes", MES - 0.1);
+      // post-it gigante
+      tl.to(qa(".s03-p"), { opacity: 0.35, duration: 0.2 }, LLAMAR - 0.15);
+      fuera(".s03-mes", LLAMAR - 0.15);
+      gsap.set(q(".s03-gpost"), { opacity: 0 });
+      tl.fromTo(q(".s03-gpost"), { opacity: 0, scale: 2.2, rotation: -14 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.18, ease: "power4.in", immediateRender: false }, LLAMAR - 0.18);
+      sacudon(LLAMAR, 1);
+      // la lupa lo revisa
+      const lupa = q(".s03-lupa");
+      gsap.set(lupa, { x: 1200, y: 1000, opacity: 1 });
+      tl.to(lupa, { x: 420, y: 920, duration: 0.4, ease: "power3.out" }, 4.4);
+      tl.to(lupa, { x: 680, y: 1060, duration: 0.6, ease: "sine.inOut" }, 4.85);
+      tl.to(lupa, { x: 470, y: 1100, duration: 0.6, ease: "sine.inOut" }, 5.5);
+      tl.to(lupa, { x: 1250, y: 1200, duration: 0.3, ease: "power2.in" }, 6.3);
+      // sellos
+      gsap.set(q(".s03-s1"), { rotation: -9 });
+      gsap.set(q(".s03-s2"), { rotation: 7 });
+      cae(".s03-s1", QUIEN, 2.4);
+      sacudon(QUIEN, 0.8);
+      cae(".s03-s2", CUANDO, 2.4);
+      sacudon(CUANDO, 0.9);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
