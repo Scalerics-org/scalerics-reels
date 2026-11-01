@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-dia300"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-dia300"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-dia300"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-dia300"] .tz { stroke: #111317; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-dia300"] .s05-cap { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-family: "Black Ops One", sans-serif; font-size: 190px; line-height: 1; color: #f2f0e6; -webkit-text-stroke: 5px #111317; paint-order: stroke fill; text-shadow: 10px 10px 0 #111317; white-space: nowrap; }
+    [data-composition-id="s05-dia300"] .s05-cap b { color: #ff8a1f; font-weight: 400; }
+    [data-composition-id="s05-dia300"] .s05-tel { position: absolute; left: 110px; top: 800px; width: 560px; height: 700px; background: #f2f0e6; border: 9px solid #111317; border-radius: 40px; box-shadow: 10px 10px 0 #111317; overflow: hidden; }
+    [data-composition-id="s05-dia300"] .s05-top { height: 70px; background: #1d2b4a; color: #f2f0e6; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; padding: 16px 26px; white-space: nowrap; }
+    [data-composition-id="s05-dia300"] .s05-lista { position: absolute; left: 0; right: 0; top: 70px; bottom: 0; }
+    [data-composition-id="s05-dia300"] .s05-m { position: absolute; right: 22px; padding: 12px 18px; background: #ffd25a; border: 4px solid #111317; border-radius: 18px 18px 4px 18px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; line-height: 1.1; color: #111317; white-space: nowrap; }
+    [data-composition-id="s05-dia300"] .s05-m small { font-size: 18px; color: #6b6e73; margin-left: 10px; }
+    [data-composition-id="s05-dia300"] .s05-deb { background: #ff8a1f; }
+    [data-composition-id="s05-dia300"] .s05-reloj { position: absolute; left: 730px; top: 1010px; width: 280px; padding: 10px 0 6px; background: #111317; border: 6px solid #33363b; border-radius: 12px; text-align: center; font-family: "Black Ops One", sans-serif; font-size: 86px; line-height: 1; color: #ff8a1f; white-space: nowrap; }
+    [data-composition-id="s05-dia300"] .s05-uxu { position: absolute; left: 730px; top: 1150px; width: 280px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.16em; color: #ffd25a; background: #111317; padding: 6px 0; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s05-dia300" data-width="1080" data-height="1920" data-duration="5.15">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="5.15" data-track-index="0">
+      <div class="s05-escenario">
+        <div class="s05-cap">DÍA <b>300</b></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- ventana alta con barrotes y la luna -->
+          <g class="s05-ventana">
+            <rect class="tz" x="740" y="800" width="260" height="180" rx="6" fill="#1d2b4a" />
+            <circle cx="910" cy="860" r="34" fill="#ffd25a" />
+            <circle cx="926" cy="850" r="30" fill="#1d2b4a" />
+            <circle cx="790" cy="840" r="4" fill="#f2f0e6" /><circle cx="840" cy="930" r="3" fill="#f2f0e6" /><circle cx="960" cy="940" r="3" fill="#f2f0e6" />
+            <g fill="#2a2d32" stroke="#111317" stroke-width="5"><rect x="796" y="800" width="16" height="180" /><rect x="862" y="800" width="16" height="180" /><rect x="928" y="800" width="16" height="180" /></g>
+          </g>
+        </svg>
+        <div class="s05-tel">
+          <div class="s05-top">Enviando... (1 de 20)</div>
+          <div class="s05-lista">
+            <div class="s05-m" style="top:20px">Tu pedido está listo<small>23:01</small></div>
+            <div class="s05-m" style="top:90px">Tu pedido está listo<small>23:02</small></div>
+            <div class="s05-m" style="top:160px">Tu pedido está listo<small>23:04</small></div>
+            <div class="s05-m" style="top:230px">Tu pedido está listo<small>23:05</small></div>
+            <div class="s05-m" style="top:300px">Tu pedido está listo<small>23:07</small></div>
+            <div class="s05-m s05-deb" style="top:400px">Me debés el de marzo<small>23:09</small></div>
+            <div class="s05-m s05-deb" style="top:470px">Me debés el de marzo<small>23:10</small></div>
+          </div>
+        </div>
+        <div class="s05-reloj">23:00</div>
+        <div class="s05-uxu">UNO POR UNO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-dia300";
+      const DUR = 5.15;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena)
+      const DIA = 0.0;
+      const ONCE = 1.42;
+      const UNO = 1.75;
+      const TU = 2.33;
+      const DEBES = 3.83;
+
+      const golpe = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s05-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      tl.fromTo(q(".s05-cap"), { opacity: 0.5, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in" }, DIA);
+      golpe(DIA + 0.18, 1.2);
+      tl.fromTo(q(".s05-tel"), { y: 500, rotation: 6 }, { y: 0, rotation: -2, duration: 0.45, ease: "back.out(1.4)" }, 0.15);
+      tl.fromTo(q(".s05-ventana"), { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.3);
+
+      // "a las once": el reloj
+      gsap.set([q(".s05-reloj"), q(".s05-uxu")], { opacity: 0 });
+      tl.fromTo(q(".s05-reloj"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, ONCE - 0.1);
+      golpe(ONCE + 0.06, 0.6);
+      tl.fromTo(q(".s05-uxu"), { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.2, immediateRender: false }, UNO);
+      // el reloj parpadea
+      tl.to(q(".s05-reloj"), { opacity: 0.4, duration: 0.25, yoyo: true, repeat: 5, ease: "steps(1)" }, ONCE + 0.5);
+
+      // "tu pedido está listo" una y otra vez, y "me debés el de marzo"
+      const ms = qa(".s05-m");
+      gsap.set(ms, { opacity: 0 });
+      [0, 1, 2, 3, 4].forEach((i) => tl.fromTo(ms[i], { opacity: 0, scale: 0.6, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2.4)", immediateRender: false }, TU + i * 0.24));
+      tl.fromTo(ms[5], { opacity: 0, scale: 0.6, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2.4)", immediateRender: false }, DEBES - 0.1);
+      tl.fromTo(ms[6], { opacity: 0, scale: 0.6, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2.4)", immediateRender: false }, DEBES + 0.35);
+      golpe(DEBES, 0.5);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

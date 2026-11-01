@@ -1,0 +1,86 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-cta"] .s15-capa { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s15-cta"] .s15-preg { position: absolute; left: 70px; top: 590px; width: 940px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 120px; line-height: 0.92; color: #f2f0e6; transform: rotate(-3deg); }
+    [data-composition-id="s15-cta"] .s15-preg b { color: #ff8a1f; font-weight: 700; }
+    [data-composition-id="s15-cta"] .s15-preg span { display: inline-block; }
+    [data-composition-id="s15-cta"] .s15-com { position: absolute; left: 140px; top: 1300px; width: 800px; padding: 22px 30px 18px; background: #5ce611; border: 7px solid #111317; border-radius: 26px; box-shadow: 9px 9px 0 #111317; text-align: center; font-family: "Black Ops One", sans-serif; font-size: 58px; line-height: 1.05; color: #111317; white-space: nowrap; }
+    [data-composition-id="s15-cta"] .s15-com::after { content: ""; position: absolute; left: 90px; bottom: -44px; width: 0; height: 0; border-left: 22px solid transparent; border-right: 22px solid transparent; border-top: 44px solid #111317; }
+    [data-composition-id="s15-cta"] .s15-com small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.2em; margin-bottom: 6px; }
+  </style>
+  <div id="root" data-composition-id="s15-cta" data-width="1080" data-height="1920" data-duration="6.89">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="6.89" data-track-index="0">
+      <div class="s15-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s15-tiza" fill="none" stroke="#f2f0e6" stroke-width="9" stroke-linecap="round" opacity="0.75"></g>
+          <!-- la tiza que escribe -->
+          <g class="s15-mano"><rect x="0" y="0" width="22" height="70" rx="6" fill="#f2f0e6" stroke="#111317" stroke-width="5" transform="rotate(30)" /></g>
+        </svg>
+        <div class="s15-preg"><span>¿Cuántas</span> <b><span>rayitas</span></b><br /><span>de</span> <span>tiza</span> <span>llevás</span> <b><span>vos?</span></b></div>
+        <div class="s15-com"><small>TE LEEMOS</small>CONTANOS EN LOS<br />COMENTARIOS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-cta";
+      const DUR = 6.89;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena): una palabra por palabra dicha
+      const T = [0.0, 0.35, 0.52, 0.78, 1.13, 1.48];
+      const CONTANOS = 2.24;
+
+      const golpe = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s15-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      // marcas de tiza en grupos de cinco, en la franja de abajo, que no paran de dibujarse
+      const g = q(".s15-tiza");
+      const NS = "http://www.w3.org/2000/svg";
+      const GRUPOS = [];
+      for (let f = 0; f < 2; f++) for (let c = 0; c < 6; c++) GRUPOS.push([110 + c * 150, 1010 + f * 140]);
+      const trazos = [];
+      GRUPOS.forEach(([x, y]) => {
+        [0, 1, 2, 3].forEach((i) => trazos.push(`M${x + i * 24} ${y} L${x + i * 24 + 3} ${y + 96}`));
+        trazos.push(`M${x - 12} ${y + 80} L${x + 86} ${y + 16}`);
+      });
+      trazos.forEach((d, i) => {
+        const p = document.createElementNS(NS, "path");
+        p.setAttribute("d", d);
+        g.appendChild(p);
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        const t = 0.05 + i * 0.075;
+        tl.set(p, { opacity: 1 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: 0.07, ease: "none" }, t);
+      });
+      // la tiza sigue el último trazo
+      const pos = GRUPOS.map(([x, y]) => [x + 40, y + 10]);
+      pos.forEach(([x, y], k) => tl.to(q(".s15-mano"), { x, y, duration: 0.3, ease: "power1.inOut" }, 0.05 + k * 5 * 0.075));
+      gsap.set(q(".s15-mano"), { x: pos[0][0], y: pos[0][1] });
+
+      // la pregunta en tiza, palabra por palabra
+      const ws = qa(".s15-preg span");
+      gsap.set(ws, { opacity: 0 });
+      ws.forEach((w, i) => tl.fromTo(w, { opacity: 0, clipPath: "inset(0 100% 0 0)" }, { opacity: 1, clipPath: "inset(0 0% 0 0)", duration: 0.2, ease: "none", immediateRender: false }, Math.max(0.02, T[i] - 0.05)));
+      golpe(T[5] + 0.1, 0.8);
+
+      // "contanos en los comentarios": globo verde
+      gsap.set(q(".s15-com"), { opacity: 0 });
+      tl.fromTo(q(".s15-com"), { opacity: 0, scale: 0.5, rotation: -6 }, { opacity: 1, scale: 1, rotation: -2, duration: 0.3, ease: "back.out(2.2)", immediateRender: false }, CONTANOS - 0.1);
+      tl.to(q(".s15-com"), { scale: 1.05, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, CONTANOS + 0.5);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

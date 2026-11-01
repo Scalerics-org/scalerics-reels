@@ -1,0 +1,137 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-dia30"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-dia30"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-dia30"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-dia30"] .tz { stroke: #111317; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-dia30"] .s03-cap { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-family: "Black Ops One", sans-serif; font-size: 190px; line-height: 1; color: #f2f0e6; -webkit-text-stroke: 5px #111317; paint-order: stroke fill; text-shadow: 10px 10px 0 #111317; white-space: nowrap; }
+    [data-composition-id="s03-dia30"] .s03-cap b { color: #ff8a1f; font-weight: 400; }
+    [data-composition-id="s03-dia30"] .s03-pila { position: absolute; left: 90px; top: 800px; width: 520px; height: 420px; }
+    [data-composition-id="s03-dia30"] .s03-b { position: absolute; left: 0; width: 440px; padding: 12px 18px; background: #ffffff; border: 4px solid #111317; border-radius: 18px 18px 18px 4px; box-shadow: 5px 5px 0 #111317; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 27px; line-height: 1.15; color: #111317; white-space: nowrap; }
+    [data-composition-id="s03-dia30"] .s03-x20 { position: absolute; left: 640px; top: 860px; padding: 14px 24px 8px; border: 8px solid #ff8a1f; border-radius: 10px; background: rgba(17, 19, 23, 0.88); font-family: "Black Ops One", sans-serif; font-size: 70px; line-height: 1; color: #ff8a1f; white-space: nowrap; }
+    [data-composition-id="s03-dia30"] .s03-x20 small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.18em; color: #f2f0e6; margin-top: 6px; }
+    [data-composition-id="s03-dia30"] .s03-tecla { position: absolute; top: 840px; width: 300px; height: 230px; background: #f2f0e6; border: 8px solid #111317; border-radius: 26px; box-shadow: 0 16px 0 #6b6e73, 0 16px 0 8px #111317; text-align: center; font-family: "Black Ops One", sans-serif; color: #111317; }
+    [data-composition-id="s03-dia30"] .s03-tecla small { display: block; margin-top: 30px; font-size: 44px; color: #6b6e73; }
+    [data-composition-id="s03-dia30"] .s03-tecla b { display: block; font-weight: 400; font-size: 120px; line-height: 1; }
+    [data-composition-id="s03-dia30"] .s03-tc { left: 170px; }
+    [data-composition-id="s03-dia30"] .s03-tv { left: 610px; }
+    [data-composition-id="s03-dia30"] .s03-pal { position: absolute; top: 1110px; width: 300px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; letter-spacing: 0.2em; color: #ffd25a; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s03-dia30" data-width="1080" data-height="1920" data-duration="7.2">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="7.2" data-track-index="0">
+      <div class="s03-escenario">
+        <div class="s03-cap">DÍA <b>30</b></div>
+        <div class="s03-pila">
+          <div class="s03-b" style="top:0px">2 milanesas, una sin sal</div>
+          <div class="s03-b" style="top:70px">¿Tenés pan de ayer?</div>
+          <div class="s03-b" style="top:140px">Lo de siempre, porfa</div>
+          <div class="s03-b" style="top:210px">1 kg de asado y carbón</div>
+          <div class="s03-b" style="top:280px">¿Me guardás 3 alfajores?</div>
+          <div class="s03-b" style="top:350px">Fideos, tuco y queso</div>
+        </div>
+        <div class="s03-x20">20<small>POR NOCHE</small></div>
+        <div class="s03-tecla s03-tc"><small>CTRL</small><b>C</b></div>
+        <div class="s03-tecla s03-tv"><small>CTRL</small><b>V</b></div>
+        <div class="s03-pal s03-tc">COPIAR</div>
+        <div class="s03-pal s03-tv">PEGAR</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- marcas de tiza: grupos de cinco (se dibujan en "rayita") -->
+          <g class="s03-tiza" fill="none" stroke="#f2f0e6" stroke-width="10" stroke-linecap="round"></g>
+          <!-- EL DUEÑO, día 30: ojeras -->
+          <g transform="translate(830 1330) scale(0.6)"><g class="s03-due">
+            <path class="tz" d="M-290 360 C-270 240 -170 200 -90 190 L0 250 L90 190 C170 200 270 240 290 360 Z" fill="#ff8a1f" />
+            <path class="tz" d="M-90 190 L-30 280 L0 250 L30 280 L90 190" fill="#d9731a" />
+            <path class="tz" d="M-60 140 L-70 210 L0 250 L70 210 L60 140 Z" fill="#e6d5b8" />
+            <path class="tz" d="M-145 -100 C-150 -200 150 -200 145 -100 L143 50 C135 150 80 190 0 190 C-80 190 -135 150 -143 50 Z" fill="#efe4cf" />
+            <path class="tz" d="M-145 -30 C-190 -40 -193 45 -143 45" fill="#efe4cf" />
+            <path class="tz" d="M145 -30 C190 -40 193 45 143 45" fill="#efe4cf" />
+            <path d="M-140 -90 C-140 -150 -110 -170 -80 -175 M140 -90 C140 -150 110 -170 80 -175 M-30 -190 C-10 -198 10 -198 30 -190" fill="none" stroke="#3d4046" stroke-width="16" stroke-linecap="round" />
+            <path d="M-112 -62 L-40 -84 M112 -62 L40 -84" fill="none" stroke="#3d4046" stroke-width="14" stroke-linecap="round" />
+            <circle cx="-72" cy="-28" r="12" fill="#111317" /><circle cx="72" cy="-28" r="12" fill="#111317" />
+            <path d="M-100 -36 Q-72 -50 -44 -36 L-44 -30 L-100 -30 Z M100 -36 Q72 -50 44 -36 L44 -30 L100 -30 Z" fill="#efe4cf" stroke="#111317" stroke-width="6" />
+            <path d="M-100 -4 Q-72 12 -44 -4 M100 -4 Q72 12 44 -4" fill="none" stroke="#9a8a70" stroke-width="7" stroke-linecap="round" />
+            <path d="M0 -20 L-14 30 L12 32" fill="none" stroke="#111317" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+            <path class="tz" d="M-80 52 C-45 28 -12 36 0 46 C12 36 45 28 80 52 C55 64 22 66 0 58 C-22 66 -55 64 -80 52 Z" fill="#3d4046" />
+            <path d="M-45 110 Q0 92 45 110" fill="none" stroke="#111317" stroke-width="9" stroke-linecap="round" />
+          </g></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-dia30";
+      const DUR = 7.2;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena)
+      const DIA = 0.0;
+      const VEINTE = 0.88;
+      const COPIAR1 = 2.4, PEGAR1 = 3.1, COPIAR2 = 3.9, PEGAR2 = 4.73;
+      const RAYITA = 5.5;
+
+      const golpe = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s03-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      tl.fromTo(q(".s03-cap"), { opacity: 0.5, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in" }, DIA);
+      golpe(DIA + 0.18, 1.2);
+      tl.fromTo(q(".s03-due"), { y: 200 }, { y: 0, duration: 0.45, ease: "back.out(1.6)" }, 0.15);
+
+      // "veinte por noche": los mensajes se apilan
+      const bs = qa(".s03-b");
+      gsap.set(bs, { opacity: 0 });
+      gsap.set([q(".s03-x20")], { opacity: 0 });
+      tl.fromTo(bs, { opacity: 0, x: -60, scale: 0.7 }, { opacity: 1, x: 0, scale: 1, duration: 0.18, ease: "back.out(2)", stagger: 0.12, immediateRender: false }, 0.3);
+      tl.fromTo(q(".s03-x20"), { opacity: 0, scale: 2.2, rotation: 10 }, { opacity: 1, scale: 1, rotation: 4, duration: 0.15, ease: "power4.in", immediateRender: false }, VEINTE - 0.1);
+      golpe(VEINTE + 0.05, 0.7);
+      tl.to([q(".s03-pila"), q(".s03-x20")], { opacity: 0, y: -40, duration: 0.25, ease: "power2.in" }, COPIAR1 - 0.35);
+
+      // copiar / pegar: las teclas se hunden
+      const tc = qa(".s03-tc"), tv = qa(".s03-tv");
+      gsap.set([...tc, ...tv], { opacity: 0 });
+      tl.fromTo([...tc, ...tv], { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, COPIAR1 - 0.2);
+      const apretar = (tecla, t) => {
+        tl.to(tecla, { y: 16, duration: 0.07, ease: "power2.in" }, t);
+        tl.to(tecla, { y: 0, duration: 0.15, ease: "power2.out" }, t + 0.12);
+        tl.to(tecla, { backgroundColor: "#ffd25a", duration: 0.05 }, t);
+        tl.to(tecla, { backgroundColor: "#f2f0e6", duration: 0.2 }, t + 0.2);
+      };
+      apretar(q(".s03-tecla.s03-tc"), COPIAR1);
+      apretar(q(".s03-tecla.s03-tv"), PEGAR1);
+      apretar(q(".s03-tecla.s03-tc"), COPIAR2);
+      apretar(q(".s03-tecla.s03-tv"), PEGAR2);
+      // el dueño se va hundiendo con cada tecla
+      tl.to(q(".s03-due"), { rotation: -6, svgOrigin: "0 250", y: 20, duration: 2.6, ease: "none" }, COPIAR1);
+      tl.to([...tc, ...tv], { opacity: 0, scale: 0.8, duration: 0.25, ease: "power2.in" }, RAYITA - 0.3);
+
+      // "una rayita de tiza por noche": grupos de cinco que se dibujan solos y llenan la pared
+      const g = q(".s03-tiza");
+      const NS = "http://www.w3.org/2000/svg";
+      const GRUPOS = [[120, 820], [300, 820], [480, 820], [660, 820], [120, 980], [300, 980], [480, 980], [660, 980], [120, 1140], [300, 1140], [480, 1140]];
+      const trazos = [];
+      GRUPOS.forEach(([x, y], k) => {
+        const d = [0, 1, 2, 3].map((i) => `M${x + i * 30} ${y} L${x + i * 30 + 3} ${y + 110}`).concat([`M${x - 14} ${y + 92} L${x + 106} ${y + 18}`]);
+        d.forEach((dd) => { const p = document.createElementNS(NS, "path"); p.setAttribute("d", dd); g.appendChild(p); trazos.push([p, k]); });
+      });
+      trazos.forEach(([p, k], i) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        const t = RAYITA + i * 0.028;
+        tl.set(p, { opacity: 1 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: 0.08, ease: "none" }, t);
+      });
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

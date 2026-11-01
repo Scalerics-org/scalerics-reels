@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-vacia"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-vacia"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-vacia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-vacia"] .tz { stroke: #111317; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-vacia"] .s13-nota { position: absolute; left: 110px; top: 640px; width: 520px; font-family: "Caveat", cursive; font-weight: 700; font-size: 70px; line-height: 0.95; color: #f2f0e6; transform: rotate(-4deg); }
+    [data-composition-id="s13-vacia"] .s13-nota b { color: #5ce611; font-weight: 700; }
+    [data-composition-id="s13-vacia"] .s13-q { position: absolute; font-family: "Black Ops One", sans-serif; font-size: 130px; line-height: 1; color: #8fb4ff; -webkit-text-stroke: 4px #111317; paint-order: stroke fill; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s13-vacia" data-width="1080" data-height="1920" data-duration="2.95">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="2.95" data-track-index="0">
+      <div class="s13-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el catre vacío -->
+          <rect class="tz" x="100" y="1180" width="460" height="60" rx="10" fill="#6b6e73" />
+          <rect class="tz" x="120" y="1140" width="140" height="50" rx="20" fill="#f2f0e6" />
+          <path class="tz" d="M120 1240 V1320 M540 1240 V1320" fill="none" />
+          <!-- la puerta de rejas, abierta -->
+          <g class="s13-puerta">
+            <g transform="translate(580 0) skewY(-14)">
+              <rect x="0" y="760" width="150" height="20" fill="#3d4046" stroke="#111317" stroke-width="6" />
+              <rect x="0" y="1290" width="150" height="20" fill="#3d4046" stroke="#111317" stroke-width="6" />
+              <g fill="#2a2d32" stroke="#111317" stroke-width="5"><rect x="0" y="750" width="22" height="560" rx="8" /><rect x="64" y="750" width="22" height="560" rx="8" /><rect x="128" y="750" width="22" height="560" rx="8" /></g>
+            </g>
+          </g>
+          <!-- EL GUARDIA, a la derecha, desconcertado -->
+          <g transform="translate(870 1330) scale(0.56)"><g class="s13-gua">
+
+            <path class="tz" d="M-300 380 C-280 250 -180 210 -95 200 L0 260 L95 200 C180 210 280 250 300 380 Z" fill="#1d2b4a" />
+            <path class="tz" d="M-95 200 L-35 300 L0 260 L35 300 L95 200" fill="#2c3d63" />
+            <path class="tz" d="M-20 270 L20 270 L28 380 L-28 380 Z" fill="#111317" />
+            <path class="tz" d="M150 270 l22 -14 l22 14 l-6 26 h-32 Z" fill="#ffd25a" />
+            <path class="tz" d="M-60 150 L-70 220 L0 260 L70 220 L60 150 Z" fill="#e6d5b8" />
+            <path class="tz" d="M-150 -90 C-155 -170 155 -170 150 -90 L148 60 C140 160 80 200 0 200 C-80 200 -140 160 -148 60 Z" fill="#efe4cf" />
+            <path class="tz" d="M-150 -20 C-195 -30 -198 55 -148 55" fill="#efe4cf" />
+            <path class="tz" d="M150 -20 C195 -30 198 55 148 55" fill="#efe4cf" />
+            <!-- cejas enojadas y ojos chiquitos -->
+            <path class="s13-ceja" d="M-115 -40 L-35 -20 M115 -40 L35 -20" fill="none" stroke="#111317" stroke-width="18" stroke-linecap="round" />
+            <circle cx="-72" cy="4" r="11" fill="#111317" /><circle cx="72" cy="4" r="11" fill="#111317" />
+            <path d="M0 10 L-16 60 L12 64" fill="none" stroke="#111317" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- bigote espeso -->
+            <path class="tz" d="M-100 82 C-60 56 -14 64 0 76 C14 64 60 56 100 82 C90 104 50 106 0 92 C-50 106 -90 104 -100 82 Z" fill="#111317" />
+            <!-- boca gritando -->
+            <g class="s13-boca"><path class="tz" d="M-50 116 Q0 104 50 116 L38 170 Q0 182 -38 170 Z" fill="#111317" /><path d="M-26 162 Q0 146 26 162" fill="none" stroke="#ff8a1f" stroke-width="8" stroke-linecap="round" /></g>
+            <!-- gorra -->
+            <path class="tz" d="M-165 -100 C-170 -230 170 -230 165 -100 Z" fill="#1d2b4a" />
+            <path class="tz" d="M-175 -100 L175 -100 C150 -60 -150 -60 -175 -100 Z" fill="#111317" />
+            <path class="tz" d="M-20 -200 l20 -16 l20 16 l-4 30 h-32 Z" fill="#ffd25a" />
+            <!-- líneas del grito -->
+            <g class="s13-grito" fill="none" stroke="#8fb4ff" stroke-width="12" stroke-linecap="round">
+              <path d="M-200 130 L-290 150" /><path d="M-190 190 L-270 245" /><path d="M200 130 L290 150" /><path d="M190 190 L270 245" />
+            </g>
+          
+          </g></g>
+        </svg>
+        <div class="s13-nota">Fui al cumple<br />de mi vieja.<br /><b>Los pedidos<br />se pasan solos.</b></div>
+        <div class="s13-q" style="left:700px; top:620px">?</div>
+        <div class="s13-q" style="left:900px; top:600px">?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-vacia";
+      const DUR = 2.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena)
+      const RECLUSO2 = 1.34;
+
+      const hablar = (desde, hasta, paso = 0.14) => { for (let t = desde; t < hasta; t += paso * 2) tl.to(q(".s13-boca"), { scaleY: 0.5, svgOrigin: "0 116", duration: paso, yoyo: true, repeat: 1, ease: "sine.inOut" }, t); };
+
+      // cuadro 0: el guardia entra golpeando, como siempre
+      tl.fromTo(q(".s13-gua"), { x: 200 }, { x: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s13-grito"), { opacity: 1 }, { opacity: 0, duration: 0.3 }, 0.9);
+      hablar(0.05, 1.1);
+      // la nota de tiza en la pared
+      tl.fromTo(q(".s13-nota"), { opacity: 0.3, clipPath: "inset(0 0 60% 0)" }, { opacity: 1, clipPath: "inset(0 0 0% 0)", duration: 0.8, ease: "none" }, 0.1);
+      // "¿recluso?": se le caen las cejas, signos de pregunta
+      tl.to(q(".s13-ceja"), { rotation: 12, y: -20, svgOrigin: "0 -30", duration: 0.2, ease: "back.out(3)" }, RECLUSO2);
+      tl.to(q(".s13-gua"), { rotation: -6, svgOrigin: "0 260", duration: 0.3, ease: "power2.out" }, RECLUSO2);
+      const qs = qa(".s13-q");
+      gsap.set(qs, { opacity: 0 });
+      tl.fromTo(qs, { opacity: 0, scale: 0.3, rotation: -20 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.25, ease: "back.out(3)", stagger: 0.15, immediateRender: false }, RECLUSO2);
+
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

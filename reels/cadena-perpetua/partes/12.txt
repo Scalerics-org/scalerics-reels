@@ -1,0 +1,1 @@
+Esa llave la hacemos en Scalerics: automatizaciones. Los pedidos de WhatsApp pasan solos a la planilla, el aviso de listo sale solo y el recordatorio de pago, también.

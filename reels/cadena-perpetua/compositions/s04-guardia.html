@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-guardia"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-guardia"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-guardia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-guardia"] .tz { stroke: #111317; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-guardia"] .s04-hoja { position: absolute; left: 600px; top: 1050px; width: 400px; height: 400px; padding: 20px 26px; background: #f2f0e6; border: 7px solid #111317; box-shadow: 8px 8px 0 #111317; font-family: "Caveat", cursive; font-weight: 700; font-size: 36px; line-height: 1.12; color: #33363b; }
+    [data-composition-id="s04-guardia"] .s04-hoja b { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.14em; color: #111317; margin-bottom: 6px; }
+    [data-composition-id="s04-guardia"] .s04-sello { position: absolute; left: 610px; top: 1250px; padding: 12px 20px 6px; border: 8px solid #ff8a1f; border-radius: 10px; font-family: "Black Ops One", sans-serif; font-size: 64px; line-height: 1; color: #ff8a1f; background: rgba(17, 19, 23, 0.85); white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s04-guardia" data-width="1080" data-height="1920" data-duration="3.68">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.68" data-track-index="0">
+      <div class="s04-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- EL GUARDIA, pegado a la reja -->
+          <g transform="translate(470 1000)"><g class="s04-gua">
+            <path class="tz" d="M-300 380 C-280 250 -180 210 -95 200 L0 260 L95 200 C180 210 280 250 300 380 Z" fill="#1d2b4a" />
+            <path class="tz" d="M-95 200 L-35 300 L0 260 L35 300 L95 200" fill="#2c3d63" />
+            <path class="tz" d="M-20 270 L20 270 L28 380 L-28 380 Z" fill="#111317" />
+            <path class="tz" d="M150 270 l22 -14 l22 14 l-6 26 h-32 Z" fill="#ffd25a" />
+            <path class="tz" d="M-60 150 L-70 220 L0 260 L70 220 L60 150 Z" fill="#e6d5b8" />
+            <path class="tz" d="M-150 -90 C-155 -170 155 -170 150 -90 L148 60 C140 160 80 200 0 200 C-80 200 -140 160 -148 60 Z" fill="#efe4cf" />
+            <path class="tz" d="M-150 -20 C-195 -30 -198 55 -148 55" fill="#efe4cf" />
+            <path class="tz" d="M150 -20 C195 -30 198 55 148 55" fill="#efe4cf" />
+            <!-- cejas enojadas y ojos chiquitos -->
+            <path class="s04-ceja" d="M-115 -40 L-35 -20 M115 -40 L35 -20" fill="none" stroke="#111317" stroke-width="18" stroke-linecap="round" />
+            <circle cx="-72" cy="4" r="11" fill="#111317" /><circle cx="72" cy="4" r="11" fill="#111317" />
+            <path d="M0 10 L-16 60 L12 64" fill="none" stroke="#111317" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- bigote espeso -->
+            <path class="tz" d="M-100 82 C-60 56 -14 64 0 76 C14 64 60 56 100 82 C90 104 50 106 0 92 C-50 106 -90 104 -100 82 Z" fill="#111317" />
+            <!-- boca gritando -->
+            <g class="s04-boca"><path class="tz" d="M-50 116 Q0 104 50 116 L38 170 Q0 182 -38 170 Z" fill="#111317" /><path d="M-26 162 Q0 146 26 162" fill="none" stroke="#ff8a1f" stroke-width="8" stroke-linecap="round" /></g>
+            <!-- gorra -->
+            <path class="tz" d="M-165 -100 C-170 -230 170 -230 165 -100 Z" fill="#1d2b4a" />
+            <path class="tz" d="M-175 -100 L175 -100 C150 -60 -150 -60 -175 -100 Z" fill="#111317" />
+            <path class="tz" d="M-20 -200 l20 -16 l20 16 l-4 30 h-32 Z" fill="#ffd25a" />
+            <!-- líneas del grito -->
+            <g class="s04-grito" fill="none" stroke="#8fb4ff" stroke-width="12" stroke-linecap="round">
+              <path d="M-200 130 L-290 150" /><path d="M-190 190 L-270 245" /><path d="M200 130 L290 150" /><path d="M190 190 L270 245" />
+            </g>
+          </g></g>
+          <!-- la reja -->
+          <g>
+            <rect class="tz" x="80" y="720" width="920" height="26" rx="6" fill="#3d4046" />
+            <g fill="#2a2d32" stroke="#111317" stroke-width="6">
+              <rect x="120" y="700" width="30" height="760" rx="10" /><rect x="290" y="700" width="30" height="760" rx="10" />
+              <rect x="630" y="700" width="30" height="760" rx="10" /><rect x="800" y="700" width="30" height="760" rx="10" />
+            </g>
+            <g fill="#7b7f86" opacity="0.6"><rect x="127" y="710" width="7" height="740" /><rect x="297" y="710" width="7" height="740" /><rect x="637" y="710" width="7" height="740" /><rect x="807" y="710" width="7" height="740" /></g>
+          </g>
+          <!-- el bastón que golpea la reja -->
+          <g class="s04-baston"><g transform="translate(860 1130) rotate(-28)">
+            <rect class="tz" x="-18" y="-230" width="36" height="300" rx="14" fill="#111317" />
+            <rect x="-10" y="-40" width="20" height="90" rx="6" fill="#3d4046" />
+            <path class="tz" d="M-40 30 C-50 90 40 100 44 40 L40 -10 L-36 -10 Z" fill="#efe4cf" />
+          </g></g>
+          <g class="s04-clang" fill="none" stroke="#ffd25a" stroke-width="9" stroke-linecap="round">
+            <path d="M840 950 L800 900" /><path d="M870 940 L880 880" /><path d="M900 960 L950 925" />
+          </g>
+        </svg>
+        <div class="s04-hoja"><b>REPORTE DEL DÍA</b>ventas... 23 (¿o 32?)<br>debe Gómez<br>yerba: pocas<br>caja: ver mañana</div>
+        <div class="s04-sello">A MANO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-guardia";
+      const DUR = 3.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena)
+      const RECLUSO = 0.0;
+      const ALMACEN = 0.62;
+      const OTRA = 1.59;
+      const REPORTE = 2.23;
+      const MANO = 2.76;
+
+      const golpe = (t, f = 1) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const hablar = (desde, hasta, paso = 0.14) => { for (let t = desde; t < hasta; t += paso * 2) tl.to(q(".s04-boca"), { scaleY: 0.5, svgOrigin: "0 116", duration: paso, yoyo: true, repeat: 1, ease: "sine.inOut" }, t); };
+
+      tl.fromTo(q(".s04-gua"), { x: -140, y: 30, scale: 0.94, svgOrigin: "0 260" }, { x: 0, y: 0, scale: 1, svgOrigin: "0 260", duration: 0.3, ease: "back.out(1.8)" }, 0);
+      // el bastón golpea los barrotes
+      const clang = (t) => {
+        tl.fromTo(q(".s04-baston"), { rotation: 0, svgOrigin: "860 1160" }, { rotation: -22, svgOrigin: "860 1160", duration: 0.08, yoyo: true, repeat: 1, ease: "power2.in" }, t);
+        tl.fromTo(q(".s04-clang"), { opacity: 1, scale: 0.6, svgOrigin: "870 960" }, { opacity: 0, scale: 1.3, svgOrigin: "870 960", duration: 0.3, ease: "power2.out" }, t + 0.08);
+        golpe(t + 0.08, 0.8);
+      };
+      gsap.set(q(".s04-clang"), { opacity: 0 });
+      clang(RECLUSO);
+      clang(ALMACEN);
+      hablar(0.05, 1.2);
+      hablar(OTRA, 3.1);
+      tl.fromTo(q(".s04-grito"), { opacity: 0, scale: 0.6, svgOrigin: "0 160" }, { opacity: 1, scale: 1.1, svgOrigin: "0 160", duration: 0.2, immediateRender: false }, 0.05);
+      tl.to(q(".s04-grito"), { opacity: 0, duration: 0.2 }, 1.0);
+      tl.to(q(".s04-ceja"), { y: 10, duration: 0.12 }, OTRA);
+
+      // "el reporte": la hoja escrita a mano; "a mano": sello
+      gsap.set([q(".s04-hoja"), q(".s04-sello")], { opacity: 0 });
+      tl.fromTo(q(".s04-hoja"), { opacity: 0, y: 260, rotation: 14 }, { opacity: 1, y: 0, rotation: 5, duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, REPORTE - 0.25);
+      tl.fromTo(q(".s04-sello"), { opacity: 0, scale: 2.4, rotation: -14 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.14, ease: "power4.in", immediateRender: false }, MANO - 0.1);
+      golpe(MANO + 0.04, 1);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
