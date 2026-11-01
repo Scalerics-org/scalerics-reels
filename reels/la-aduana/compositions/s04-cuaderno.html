@@ -1,0 +1,125 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/aduana.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-cuaderno"] .s04-capa, [data-composition-id="s04-cuaderno"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-cuaderno"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-cuaderno"] .s04-birome { left: 120px; top: 1000px; font-size: 32px; }
+    [data-composition-id="s04-cuaderno"] .s04-sosp { left: 500px; top: 975px; font-size: 54px; }
+  </style>
+  <div id="root" data-composition-id="s04-cuaderno" data-width="1080" data-height="1920" data-duration="6.70">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.70" data-track-index="0">
+      <div class="s04-escenario">
+        <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ad-tag azul s04-birome">CON BIROME</div>
+        <div class="ad-sello s04-sosp">SOSPECHOSO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-cuaderno";
+      const DUR = 6.7;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const A = AD;
+      const caveat = (x, y, t, sz, col, cls, extra) => `<text class="${cls || ""}" x="${x}" y="${y}" font-family="Caveat" font-weight="700" font-size="${sz}" fill="${col || A.INK}" ${extra || ""}>${t}</text>`;
+      let espiral = "";
+      for (let y = 640; y < 960; y += 34) espiral += `<ellipse cx="110" cy="${y}" rx="18" ry="9" fill="none" stroke="${A.INK}" stroke-width="5"/>`;
+      let renglones = "";
+      for (let y = 700; y < 960; y += 46) renglones += `<path d="M130 ${y} H460" stroke="#9cc3e6" stroke-width="3"/>`;
+      root.querySelector(".s04-svg").innerHTML =
+        // Óscar espía desde atrás del mostrador (a la derecha)
+        `<defs><clipPath id="s04-oc"><rect x="560" y="0" width="520" height="1250"/></clipPath></defs><g clip-path="url(#s04-oc)"><g class="s04-oscar">${A.oscar(890, 1330, 0.72, { gotas: true })}</g></g>` +
+        A.mostrador(40, 1040, 1220, 1380, {}) +
+        `<g class="s04-val">${A.valija(330, 1080, 420, 140, { abierta: true })}</g>` +
+        // el cuaderno de pedidos
+        `<g class="s04-cuad"><g transform="rotate(-5 280 800)">
+          <rect x="96" y="610" width="384" height="380" rx="12" fill="${A.BLA}" stroke="${A.INK}" stroke-width="8"/>
+          <rect x="96" y="610" width="384" height="66" rx="12" fill="${A.ROJO}" stroke="${A.INK}" stroke-width="8"/>
+          ${renglones}${espiral}
+          ${caveat(150, 662, "PEDIDOS", 50, A.BLA)}
+          <g class="s04-lineas">
+            ${caveat(140, 735, "Marta · 2 tazas", 40, "#1f4fbf")}
+            ${caveat(140, 781, "el de la obra ¿¿??", 40, "#1f4fbf")}
+            ${caveat(140, 827, "Sra. del 3º · pava", 40, "#1f4fbf")}
+            ${caveat(140, 873, "llamar a... ¿quién?", 40, "#1f4fbf")}
+            <path d="M140 820 C220 805 320 830 420 812" stroke="#1f4fbf" stroke-width="5" fill="none"/>
+          </g>
+        </g></g>` +
+        // la birome
+        `<g class="s04-pen"><g transform="rotate(35 380 860)">
+          <rect x="360" y="700" width="34" height="260" rx="8" fill="#1f4fbf" stroke="${A.INK}" stroke-width="6"/>
+          <path d="M360 960 L377 1000 L394 960 Z" fill="${A.BLA}" stroke="${A.INK}" stroke-width="5" stroke-linejoin="round"/>
+          <rect x="356" y="690" width="42" height="30" rx="6" fill="${A.INK}"/>
+        </g></g>` +
+        // el cartel "precio por privado", agarrado con la mano enguantada de la oficial
+        `<g class="s04-cartel"><g transform="translate(-100 20) rotate(5 780 790)">
+          <rect x="570" y="630" width="420" height="300" rx="6" fill="#d9b27c" stroke="${A.INK}" stroke-width="8"/>
+          <path d="M600 660 L960 660" stroke="#b98d55" stroke-width="4"/>
+          ${caveat(780, 730, "PRECIO", 84, A.INK, "s04-w1", 'text-anchor="middle"')}
+          ${caveat(780, 810, "POR", 64, A.INK, "s04-w2", 'text-anchor="middle"')}
+          ${caveat(780, 900, "PRIVADO", 92, A.ROJO, "s04-w3", 'text-anchor="middle"')}
+          <g class="s04-mano">
+            <path d="M1000 600 C1060 590 1100 580 1140 560" stroke="${A.INK}" stroke-width="70" stroke-linecap="round" fill="none"/>
+            <path d="M1000 600 C1060 590 1100 580 1140 560" stroke="${A.UNI}" stroke-width="56" stroke-linecap="round" fill="none"/>
+            <rect x="950" y="590" width="80" height="60" rx="24" fill="${A.BLA}" stroke="${A.INK}" stroke-width="7"/>
+            <path d="M958 640 C950 660 970 672 985 655" fill="${A.BLA}" stroke="${A.INK}" stroke-width="6"/>
+          </g>
+        </g></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = A.kit(tl, root);
+      const { q, qa } = K;
+
+      const CUADERNO = 0.11;
+      const PEDIDOS = 0.7;
+      const BIROME = 1.8;
+      const ESTO = 2.52;
+      const PRECIO = 3.23;
+      const POR = 3.58;
+      const PRIVADO = 3.75;
+      const ES = 4.86;
+      const ESCRIBAN = 5.56;
+
+      tl.fromTo(q(".s04-val"), { y: 30, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      // el cuaderno sale de la valija
+      gsap.set(q(".s04-cuad"), { opacity: 0, svgOrigin: "540 1100", smoothOrigin: false });
+      tl.fromTo(q(".s04-cuad"), { opacity: 0, scale: 0.25, x: 120, y: 200, svgOrigin: "540 1100" }, { opacity: 1, scale: 1, x: 0, y: 0, svgOrigin: "540 1100", duration: 0.45, ease: "back.out(1.4)", immediateRender: false }, CUADERNO - 0.05);
+      qa(".s04-lineas text").forEach((t, i) => K.pop(t, PEDIDOS + i * 0.22, 0.25));
+      // la birome
+      gsap.set(q(".s04-pen"), { opacity: 0 });
+      tl.fromTo(q(".s04-pen"), { opacity: 0, y: 260, rotation: -30, svgOrigin: "377 850" }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "377 850", duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, BIROME - 0.2);
+      K.pop(q(".s04-birome"), BIROME + 0.05);
+      // "¿y esto?": el cartel colgando de la mano de la oficial, con asco
+      gsap.set(q(".s04-cartel"), { opacity: 0 });
+      tl.fromTo(q(".s04-cartel"), { opacity: 0, x: 120, y: 360, rotation: 20, svgOrigin: "890 640" }, { opacity: 1, x: 0, y: 0, rotation: 0, svgOrigin: "890 640", duration: 0.45, ease: "back.out(1.3)", immediateRender: false }, ESTO - 0.3);
+      gsap.set(q(".s04-cartel"), { smoothOrigin: false });
+      tl.to(q(".s04-cartel"), { rotation: -3, svgOrigin: "890 640", duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut" }, ESTO + 0.2);
+      K.pop(q(".s04-w1"), PRECIO, 0.25);
+      K.pop(q(".s04-w2"), POR, 0.25);
+      K.pop(q(".s04-w3"), PRIVADO, 0.3);
+      K.sello(q(".s04-sosp"), PRIVADO + 0.55, -8);
+      // el cuaderno se corre para darle lugar
+      tl.to(q(".s04-cuad"), { opacity: 0.55, duration: 0.3 }, ESTO);
+      tl.to(q(".s04-pen"), { opacity: 0.55, duration: 0.3 }, ESTO);
+      tl.to(q(".s04-birome"), { opacity: 0, duration: 0.2 }, ESTO);
+      // "es para que me escriban": Óscar asoma detrás del mostrador
+      gsap.set(q(".s04-oscar"), { y: 330, opacity: 0 });
+      tl.set(q(".s04-oscar"), { opacity: 1 }, ES - 0.15);
+      tl.to(q(".s04-sosp"), { opacity: 0, y: -20, duration: 0.2 }, ES - 0.25);
+      tl.to(q(".s04-oscar"), { y: 0, duration: 0.35, ease: "back.out(1.4)" }, ES - 0.15);
+      K.transpira(ES, 4);
+      tl.to(q(".s04-oscar .ad-d-cejas"), { y: -10, duration: 0.15, ease: "back.out(3)" }, ESCRIBAN);
+      K.origen(q(".s04-oscar .ad-d-cabeza"), "0 -230");
+      tl.fromTo(q(".s04-oscar .ad-d-cabeza"), { rotation: -6 }, { rotation: 6, duration: 0.18, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, ESCRIBAN - 0.1);
+
+      K.salida(q("#s04-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

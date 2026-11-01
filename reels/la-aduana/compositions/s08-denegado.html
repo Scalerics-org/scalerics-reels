@@ -1,0 +1,84 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/aduana.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-denegado"] .s08-capa, [data-composition-id="s08-denegado"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-denegado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-denegado"] .s08-msg { position: absolute; left: 520px; padding: 14px 24px 12px; background: #f4f5f2; border: 5px solid #1b1f24; border-radius: 26px 26px 26px 6px;
+      font-family: "Lexend", sans-serif; font-weight: 700; font-size: 36px; color: #1b1f24; white-space: nowrap; }
+    [data-composition-id="s08-denegado"] .s08-msg small { margin-left: 14px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; color: #e0242f; }
+    [data-composition-id="s08-denegado"] .s08-m1 { top: 610px; }
+    [data-composition-id="s08-denegado"] .s08-m2 { top: 710px; left: 560px; }
+    [data-composition-id="s08-denegado"] .s08-m3 { top: 810px; left: 600px; }
+    [data-composition-id="s08-denegado"] .s08-resp { position: absolute; left: 540px; top: 905px; padding: 14px 24px 12px; background: #ffcc00; border: 5px solid #1b1f24; border-radius: 26px 26px 6px 26px;
+      font-family: "Lexend", sans-serif; font-weight: 700; font-size: 36px; color: #1b1f24; white-space: nowrap; }
+    [data-composition-id="s08-denegado"] .s08-resp small { margin-left: 14px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; color: #1b1f24; }
+    [data-composition-id="s08-denegado"] .s08-velo { position: absolute; inset: 0; background: rgba(27, 31, 36, 0.55); opacity: 0; }
+    [data-composition-id="s08-denegado"] .s08-sello { left: 170px; top: 860px; font-size: 118px; padding: 16px 40px 6px; border-width: 14px; }
+    [data-composition-id="s08-denegado"] .s08-pas { position: absolute; inset: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-denegado" data-width="1080" data-height="1920" data-duration="4.63">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.63" data-track-index="0">
+      <div class="s08-escenario">
+        <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s08-msg s08-m1">¿Tenés en azul?<small>03:12</small></div>
+        <div class="s08-msg s08-m2">¿Hacen envíos?<small>03:14</small></div>
+        <div class="s08-msg s08-m3">¿Precio?<small>03:15</small></div>
+        <div class="s08-resp">¡Buen día! Ya abrimos<small>09:00</small></div>
+        <div class="s08-velo"></div>
+        <svg class="s08-pas" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ad-sello s08-sello" data-layout-allow-overlap>DENEGADO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-denegado";
+      const DUR = 4.63;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const A = AD;
+      root.querySelector(".s08-svg").innerHTML = A.oscar(280, 1400, 1.05, { cel: true, gotas: true });
+      root.querySelector(".s08-pas").innerHTML = `<g class="s08-pasaporte">${A.pasaporte(290, 640, 500, 640, { titulo: "PASAPORTE", sub: "BAZAR ÓSCAR" })}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = A.kit(tl, root);
+      const { q } = K;
+
+      const ESCRIBEN = 0.26;
+      const CONTESTO = 1.74;
+      const ABRO = 2.43;
+      const DENEGADO = 3.34;
+
+      tl.fromTo(q(".ad-d"), { y: 40 }, { y: 0, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      K.transpira(0, 6);
+      tl.to(q(".ad-d-mancha"), { opacity: 0.85, duration: 1 }, 0.3);
+      // "me escriben": entran los mensajes de la madrugada
+      K.pop(q(".s08-m1"), ESCRIBEN);
+      K.pop(q(".s08-m2"), ESCRIBEN + 0.2);
+      K.pop(q(".s08-m3"), ESCRIBEN + 0.4);
+      gsap.set(q(".ad-d-cel"), { svgOrigin: "236 -182", smoothOrigin: false });
+      tl.fromTo(q(".ad-d-cel"), { rotation: 0 }, { rotation: -5, svgOrigin: "236 -182", duration: 0.08, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, ESCRIBEN);
+      // "les contesto cuando abro": la respuesta de las 9
+      K.pop(q(".s08-resp"), ABRO);
+      tl.to([q(".s08-m1"), q(".s08-m2"), q(".s08-m3")], { y: -20, duration: 0.3, ease: "power2.out" }, ABRO);
+      tl.fromTo(q(".s08-resp small"), { scale: 1 }, { scale: 1.4, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, ABRO + 0.35);
+      tl.to(q(".ad-d-cejas"), { y: -10, duration: 0.15, ease: "back.out(3)" }, CONTESTO);
+      // "denegado": pasaporte y sellazo
+      tl.to(q(".s08-velo"), { opacity: 1, duration: 0.2 }, DENEGADO - 0.25);
+      tl.to([q(".s08-m1"), q(".s08-m2"), q(".s08-m3"), q(".s08-resp")], { opacity: 0, duration: 0.12 }, DENEGADO - 0.12);
+      gsap.set(q(".s08-pasaporte"), { opacity: 0, svgOrigin: "540 960", smoothOrigin: false });
+      tl.fromTo(q(".s08-pasaporte"), { opacity: 0, y: 500, rotation: 8, svgOrigin: "540 960" }, { opacity: 1, y: 0, rotation: -3, svgOrigin: "540 960", duration: 0.25, ease: "power3.out", immediateRender: false }, DENEGADO - 0.3);
+      K.sello(q(".s08-sello"), DENEGADO + 0.08, -12);
+      K.sacudon(q(".s08-escenario"), DENEGADO + 0.1, 1.4);
+      K.boca(DENEGADO + 0.05, "grito");
+
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

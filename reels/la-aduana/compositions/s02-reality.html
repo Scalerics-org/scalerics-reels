@@ -1,0 +1,110 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/aduana.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-reality"] .s02-capa, [data-composition-id="s02-reality"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-reality"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-reality"] .s02-titulo { position: absolute; left: 0; right: 0; top: 520px; text-align: center; }
+    [data-composition-id="s02-reality"] .s02-t1 { display: inline-block; font-family: "Black Ops One", sans-serif; font-size: 150px; line-height: 1; color: #ffcc00; letter-spacing: 0.03em;
+      text-shadow: 0 9px 0 #1b1f24, 5px 5px 0 #1b1f24, -5px -5px 0 #1b1f24, 5px -5px 0 #1b1f24, -5px 5px 0 #1b1f24; }
+    [data-composition-id="s02-reality"] .s02-t2 { display: inline-block; margin-top: 14px; padding: 10px 40px 4px; background: #1b1f24; font-family: "Black Ops One", sans-serif; font-size: 112px; line-height: 1; color: #f4f5f2; letter-spacing: 0.06em; }
+    [data-composition-id="s02-reality"] .s02-fila { position: absolute; left: 545px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 30px; letter-spacing: 0.06em; color: #1b1f24; white-space: nowrap; }
+    [data-composition-id="s02-reality"] .s02-fila b { display: block; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 44px; letter-spacing: 0; margin-top: 4px; }
+    [data-composition-id="s02-reality"] .s02-f1 { top: 790px; }
+    [data-composition-id="s02-reality"] .s02-f2 { top: 920px; }
+    [data-composition-id="s02-reality"] .s02-f3 { top: 1050px; }
+    [data-composition-id="s02-reality"] .s02-f3 b { color: #e0242f; }
+    [data-composition-id="s02-reality"] .s02-tablero { position: absolute; left: 90px; top: 1236px; width: 900px; height: 100px; background: #1b1f24; border-radius: 12px; display: flex; align-items: center; gap: 18px; padding: 0 26px;
+      font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 40px; letter-spacing: 0.1em; color: #ffcc00; white-space: nowrap; box-shadow: 7px 7px 0 rgba(27, 31, 36, 0.3); }
+    [data-composition-id="s02-reality"] .s02-tablero span { display: inline-block; }
+    [data-composition-id="s02-reality"] .s02-tablero .s02-estado { margin-left: auto; padding: 6px 16px 4px; background: #e0242f; color: #f4f5f2; border-radius: 6px; }
+  </style>
+  <div id="root" data-composition-id="s02-reality" data-width="1080" data-height="1920" data-duration="6.23">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="6.23" data-track-index="0">
+      <div class="s02-escenario">
+        <svg class="s02-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s02-titulo"><div class="s02-t1">ADUANAS</div><br /><div class="s02-t2">EXTREMAS</div></div>
+        <div class="s02-fila s02-f1">PASAJERO<b>ÓSCAR</b></div>
+        <div class="s02-fila s02-f2">OFICIO<b>BAZAR DE BARRIO</b></div>
+        <div class="s02-fila s02-f3">DESTINO<b>INTERNET</b></div>
+        <div class="s02-tablero"><span>VUELO W3</span><span class="s02-dest">· INTERNET</span><span class="s02-estado">DEMORADO</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-reality";
+      const DUR = 6.23;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const A = AD;
+      let rayas = "";
+      for (let x = -60; x < 1140; x += 70) rayas += `<path d="M${x} 0 L${x + 35} 0 L${x + 5} 40 L${x - 30} 40 Z" fill="${A.INK}"/>`;
+      root.querySelector(".s02-svg").innerHTML =
+        // cintas de peligro arriba y abajo del título
+        `<g class="s02-cinta1" transform="translate(0 470) rotate(-3 540 20)"><rect x="-40" y="0" width="1160" height="40" fill="${A.AMA}" stroke="${A.INK}" stroke-width="5"/>${rayas}</g>` +
+        `<g class="s02-cinta2" transform="translate(0 800) rotate(2.5 540 20)"><rect x="-40" y="0" width="1160" height="40" fill="${A.AMA}" stroke="${A.INK}" stroke-width="5"/>${rayas}</g>` +
+        // ficha del pasajero: foto de Óscar con marco
+        `<defs><clipPath id="s02-foto"><rect x="110" y="770" width="390" height="420" rx="10"/></clipPath></defs>
+        <g class="s02-ficha">
+          <rect x="80" y="740" width="930" height="480" rx="20" fill="${A.BLA}" stroke="${A.INK}" stroke-width="8"/>
+          <rect x="110" y="770" width="390" height="420" rx="10" fill="#c9d3d8" stroke="${A.INK}" stroke-width="6"/>
+          <g clip-path="url(#s02-foto)">
+            <path d="M110 1000 H500" stroke="${A.GRIS2}" stroke-width="4"/>
+            ${A.oscar(305, 1250, 0.95, { gotas: true })}
+          </g>
+          <rect x="110" y="770" width="390" height="420" rx="10" fill="none" stroke="${A.INK}" stroke-width="6"/>
+          <path d="M530 905 H980 M530 1035 H980" stroke="${A.GRIS2}" stroke-width="4"/>
+        </g>` +
+        // el bazar: toldito
+        `<g class="s02-bazar"><g transform="translate(0 -150)">
+          <path d="M870 920 L990 920 L1000 960 L860 960 Z" fill="${A.ROJO}" stroke="${A.INK}" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M895 920 L890 960 M925 920 L925 960 M955 920 L960 960" stroke="${A.BLA}" stroke-width="8"/>
+          <rect x="872" y="960" width="116" height="60" fill="${A.GRIS}" stroke="${A.INK}" stroke-width="5"/>
+          <rect x="910" y="975" width="36" height="45" fill="${A.INK}"/>
+        </g></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = A.kit(tl, root);
+      const { q } = K;
+
+      const EXTREMAS = 0.53;
+      const HOY = 1.49;
+      const OSCAR = 1.9;
+      const BAZAR = 3.2;
+      const INTERNET = 5.18;
+
+      // título que golpea
+      K.sello(q(".s02-t1"), 0.08, 0);
+      K.sello(q(".s02-t2"), EXTREMAS, -2);
+      tl.fromTo(q(".s02-cinta1"), { x: -1200 }, { x: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s02-cinta2"), { x: 1200 }, { x: 0, duration: 0.3, ease: "power3.out" }, EXTREMAS);
+      K.sacudon(q(".s02-titulo"), EXTREMAS + 0.05, 1);
+      // "hoy": el título sube y se achica, las cintas se van
+      tl.to(q(".s02-titulo"), { y: -60, scale: 0.62, duration: 0.4, ease: "power3.inOut", transformOrigin: "50% 0%" }, HOY - 0.1);
+      tl.to(q(".s02-cinta1"), { y: -60, opacity: 0, duration: 0.3 }, HOY - 0.1);
+      tl.to(q(".s02-cinta2"), { y: 100, opacity: 0, duration: 0.3 }, HOY - 0.1);
+      // "Óscar": la ficha
+      K.popS(q(".s02-ficha"), OSCAR - 0.25, "545 980");
+      K.pop(q(".s02-f1"), OSCAR + 0.05);
+      tl.fromTo(q(".s02-ficha .ad-d-gotas"), { y: -10 }, { y: 16, duration: 0.5, repeat: 6, ease: "power1.in", immediateRender: false }, OSCAR);
+      // "bazar"
+      K.pop(q(".s02-f2"), BAZAR - 0.1);
+      K.popS(q(".s02-bazar"), BAZAR + 0.15, "930 840");
+      // "intenta entrar a internet": destino y tablero
+      K.pop(q(".s02-f3"), INTERNET - 0.5);
+      tl.fromTo(q(".s02-tablero"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, 4.21);
+      gsap.set(q(".s02-estado"), { rotationX: 90 });
+      tl.fromTo(q(".s02-estado"), { rotationX: 90 }, { rotationX: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, INTERNET);
+      tl.fromTo(q(".s02-estado"), { opacity: 1 }, { opacity: 0.35, duration: 0.15, yoyo: true, repeat: 3, ease: "steps(1)", immediateRender: false }, INTERNET + 0.3);
+      tl.fromTo(q(".s02-ficha"), { scale: 1, svgOrigin: "545 980" }, { scale: 1.03, svgOrigin: "545 980", duration: 2, ease: "none", immediateRender: false }, OSCAR + 0.3);
+
+      K.salida(q("#s02-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

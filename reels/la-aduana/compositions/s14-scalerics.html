@@ -1,0 +1,133 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/aduana.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-scalerics"] .s14-capa, [data-composition-id="s14-scalerics"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-scalerics"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-scalerics"] .s14-env { position: absolute; left: 620px; width: 380px; height: 84px; background: #f4f5f2; border: 5px solid #1b1f24; border-radius: 10px; box-shadow: 6px 6px 0 rgba(27, 31, 36, 0.25);
+      display: flex; align-items: center; gap: 18px; padding: 0 18px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; color: #1b1f24; white-space: nowrap; }
+    [data-composition-id="s14-scalerics"] .s14-env i { width: 54px; height: 46px; background: #c9a26b; border: 4px solid #1b1f24; border-radius: 4px; flex: none; position: relative; }
+    [data-composition-id="s14-scalerics"] .s14-env i::after { content: ""; position: absolute; left: 20px; top: -4px; width: 6px; height: 46px; background: #1b1f24; }
+    [data-composition-id="s14-scalerics"] .s14-env small { margin-left: auto; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; color: #5d6870; letter-spacing: 0.1em; }
+    [data-composition-id="s14-scalerics"] .s14-e1 { top: 880px; }
+    [data-composition-id="s14-scalerics"] .s14-e2 { top: 984px; }
+    [data-composition-id="s14-scalerics"] .s14-e3 { top: 1088px; }
+    [data-composition-id="s14-scalerics"] .s14-sello { left: 150px; top: 940px; font-size: 104px; padding: 14px 36px 6px; border-width: 13px; }
+    [data-composition-id="s14-scalerics"] .s14-noti { position: absolute; left: 160px; top: 540px; width: 380px; padding: 10px 16px; background: #1b1f24; border-radius: 16px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 28px; color: #f4f5f2; white-space: nowrap; box-shadow: 0 8px 0 rgba(27, 31, 36, 0.25); }
+    [data-composition-id="s14-scalerics"] .s14-noti small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; color: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s14-scalerics" data-width="1080" data-height="1920" data-duration="8.91">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="8.91" data-track-index="0">
+      <div class="s14-escenario">
+        <svg class="s14-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s14-noti">Nueva venta · pagada<small>03:12 · MIENTRAS DORMÍAS</small></div>
+        <div class="s14-env s14-e1"><i></i>DAC</div>
+        <div class="s14-env s14-e2"><i></i>CORREO</div>
+        <div class="s14-env s14-e3"><i></i>PEDIDOSYA</div>
+        <div class="ad-sello verde s14-sello" data-layout-allow-overlap>APROBADO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-scalerics";
+      const DUR = 8.91;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const A = AD;
+      const S = A.SCA;
+      const OBJ = [
+        (x, y) => `<rect x="${x - 30}" y="${y - 22}" width="50" height="50" rx="8" fill="${A.BLA}" stroke="${A.INK}" stroke-width="5"/><path d="M${x + 20} ${y - 10} C${x + 42} ${y - 10} ${x + 42} ${y + 18} ${x + 20} ${y + 18}" fill="none" stroke="${A.INK}" stroke-width="5"/>`,
+        (x, y) => `<path d="M${x - 40} ${y - 8} H${x + 40} L${x + 32} ${y + 30} H${x - 32} Z" fill="#9aa3aa" stroke="${A.INK}" stroke-width="5" stroke-linejoin="round"/><path d="M${x - 50} ${y - 8} H${x + 50}" stroke="${A.INK}" stroke-width="6" stroke-linecap="round"/>`,
+        (x, y) => `<path d="M${x - 28} ${y + 4} L${x - 14} ${y - 34} H${x + 14} L${x + 28} ${y + 4} Z" fill="${A.AMA}" stroke="${A.INK}" stroke-width="5" stroke-linejoin="round"/><path d="M${x} ${y + 4} V${y + 30} M${x - 18} ${y + 32} H${x + 18}" stroke="${A.INK}" stroke-width="5" stroke-linecap="round"/>`,
+        (x, y) => `<path d="M${x - 26} ${y + 30} L${x - 20} ${y - 20} H${x + 20} L${x + 26} ${y + 30} Z" fill="${A.ROJO}" stroke="${A.INK}" stroke-width="5" stroke-linejoin="round"/><path d="M${x + 22} ${y - 8} L${x + 42} ${y - 24}" stroke="${A.INK}" stroke-width="6" stroke-linecap="round"/>`,
+      ];
+      const PRECIOS = ["$ 390", "$ 1.290", "$ 890", "$ 1.450"];
+      let cards = "";
+      for (let i = 0; i < 4; i++) {
+        const x = 175 + (i % 2) * 180, y = 800 + Math.floor(i / 2) * 210;
+        cards += `<g class="s14-card">
+          <rect x="${x}" y="${y}" width="165" height="195" rx="14" fill="${A.BLA}" stroke="${A.INK}" stroke-width="5"/>
+          <rect x="${x + 10}" y="${y + 10}" width="145" height="110" rx="8" fill="#e8ece4"/>
+          ${OBJ[i](x + 82, y + 66)}
+          <text x="${x + 82}" y="${y + 162}" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="34" fill="${A.INK}">${PRECIOS[i]}</text>
+        </g>`;
+      }
+      root.querySelector(".s14-svg").innerHTML =
+        `<g class="s14-cel">
+          <defs><clipPath id="s14-clip"><rect x="150" y="620" width="400" height="700" rx="30"/></clipPath></defs>
+          <rect x="130" y="600" width="440" height="740" rx="50" fill="${A.INK}"/>
+          <rect x="150" y="620" width="400" height="700" rx="30" fill="#f7f8f4"/>
+          <g clip-path="url(#s14-clip)">
+            <rect x="150" y="620" width="400" height="150" fill="${S}"/>
+            <text x="350" y="726" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="40" fill="${A.INK}">BAZAR ÓSCAR</text>
+            <text x="350" y="756" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="20" letter-spacing="3" fill="${A.INK}">TIENDA ONLINE</text>
+            ${cards}
+            <g class="s14-btn1"><rect x="175" y="1232" width="350" height="68" rx="16" fill="${A.INK}"/>
+              <text x="350" y="1276" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="28" fill="${S}">AGREGAR AL CARRITO</text></g>
+            <g class="s14-btn2"><rect x="175" y="1232" width="350" height="68" rx="16" fill="#28a7e1"/>
+              <text x="350" y="1265" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="24" fill="${A.BLA}">PAGAR CON</text>
+              <text x="350" y="1292" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="24" fill="${A.BLA}">MERCADO PAGO</text></g>
+          </g>
+          <rect x="290" y="630" width="120" height="24" rx="12" fill="${A.INK}"/>
+        </g>` +
+        // insignia 24 h
+        `<g class="s14-24">
+          <circle cx="810" cy="720" r="120" fill="${A.AMA}" stroke="${A.INK}" stroke-width="9"/>
+          <circle cx="810" cy="720" r="96" fill="none" stroke="${A.INK}" stroke-width="4" stroke-dasharray="10 10"/>
+          <text x="810" y="745" text-anchor="middle" font-family="Black Ops One" font-size="88" fill="${A.INK}">24</text>
+          <text x="810" y="792" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="26" letter-spacing="4" fill="${A.INK}">HORAS</text>
+          <path class="s14-aguja" d="M810 720 L810 640" stroke="${A.ROJO}" stroke-width="6" stroke-linecap="round" opacity="0"/>
+        </g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = A.kit(tl, root);
+      const { q, qa } = K;
+
+      const SCALERICS = 0.14;
+      const TIENDA = 1.27;
+      const VENDE = 2.03;
+      const VEINTICUATRO = 2.66;
+      const DAC = 4.05;
+      const CORREO = 4.61;
+      const PEDIDOSYA = 5.01;
+      const COBRA = 5.88;
+      const MP = 6.4;
+      const PASAPORTE = 7.79;
+
+      // el celular sale del pasaporte (escena anterior)
+      gsap.set(q(".s14-cel"), { svgOrigin: "350 970", smoothOrigin: false });
+      tl.fromTo(q(".s14-cel"), { scale: 0.5, rotation: 10, y: 60, opacity: 0, svgOrigin: "350 970" }, { scale: 1, rotation: 0, y: 0, opacity: 1, svgOrigin: "350 970", duration: 0.5, ease: "back.out(1.5)" }, SCALERICS - 0.1);
+      qa(".s14-card").forEach((c, i) => K.pop(c, TIENDA - 0.2 + i * 0.1, 0.25));
+      gsap.set(q(".s14-btn2"), { opacity: 0 });
+      K.pop(q(".s14-btn1"), TIENDA + 0.3, 0.25);
+      // "vende sola": notificación de venta
+      gsap.set(q(".s14-noti"), { opacity: 0 });
+      tl.fromTo(q(".s14-noti"), { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, VENDE);
+      // "veinticuatro horas"
+      K.popS(q(".s14-24"), VEINTICUATRO - 0.05, "810 720");
+      gsap.set(q(".s14-aguja"), { svgOrigin: "810 720", smoothOrigin: false });
+      gsap.set(q(".s14-btn2"), { svgOrigin: "350 1266", smoothOrigin: false });
+      tl.set(q(".s14-aguja"), { opacity: 1 }, VEINTICUATRO + 0.3);
+      tl.fromTo(q(".s14-aguja"), { rotation: 0, svgOrigin: "810 720" }, { rotation: 720, svgOrigin: "810 720", duration: 1.2, ease: "power2.inOut", immediateRender: false }, VEINTICUATRO + 0.3);
+      // envíos
+      K.pop(q(".s14-e1"), DAC - 0.05);
+      K.pop(q(".s14-e2"), CORREO - 0.05);
+      K.pop(q(".s14-e3"), PEDIDOSYA - 0.05);
+      // "cobra con Mercado Pago": el botón cambia
+      tl.to(q(".s14-btn1"), { opacity: 0, duration: 0.12 }, COBRA + 0.2);
+      tl.fromTo(q(".s14-btn2"), { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: false }, COBRA + 0.25);
+      tl.fromTo(q(".s14-btn2"), { scale: 1, svgOrigin: "350 1266" }, { scale: 1.08, svgOrigin: "350 1266", duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, MP);
+      // "con pasaporte": sello verde
+      K.sello(q(".s14-sello"), PASAPORTE, -8);
+      tl.fromTo(q(".s14-escenario"), { scale: 1 }, { scale: 1.03, duration: 1.1, ease: "power1.out", transformOrigin: "50% 50%", immediateRender: false }, PASAPORTE);
+
+      K.salida(q("#s14-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/aduana.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-horario"] .s05-capa, [data-composition-id="s05-horario"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-horario"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s05-horario" data-width="1080" data-height="1920" data-duration="6.02">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="6.02" data-track-index="0">
+      <div class="s05-escenario">
+        <svg class="s05-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-horario";
+      const DUR = 6.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const A = AD;
+      const txt = (x, y, t, sz, col, cls, fam, w) => `<text class="${cls || ""}" x="${x}" y="${y}" text-anchor="middle" font-family="${fam || "Lexend"}" font-weight="${w || 800}" font-size="${sz}" fill="${col}">${t}</text>`;
+      // reloj de pared (centro 830 1070)
+      const reloj = `<g class="s05-reloj">
+          <circle cx="830" cy="1070" r="120" fill="${A.BLA}" stroke="${A.INK}" stroke-width="10"/>
+          ${[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((a) => { const r = a * Math.PI / 180; return `<path d="M${830 + Math.sin(r) * 96} ${1070 - Math.cos(r) * 96} L${830 + Math.sin(r) * 108} ${1070 - Math.cos(r) * 108}" stroke="${A.INK}" stroke-width="6" stroke-linecap="round"/>`; }).join("")}
+          <path class="s05-hora" d="M830 1070 V1000" stroke="${A.INK}" stroke-width="12" stroke-linecap="round"/>
+          <path class="s05-min" d="M830 1070 V975" stroke="${A.ROJO}" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="830" cy="1070" r="12" fill="${A.INK}"/>
+        </g>`;
+      root.querySelector(".s05-svg").innerHTML =
+        A.oficial(280, 1400, 1.0, { izq: true, espejo: true }) +
+        // cartel de la puerta del local, en la mano de la oficial
+        `<g class="s05-cartel">
+          <path d="M530 1070 L560 960" stroke="${A.INK}" stroke-width="6"/>
+          <rect x="440" y="590" width="580" height="350" rx="16" fill="${A.BLA}" stroke="${A.INK}" stroke-width="9"/>
+          <rect x="440" y="590" width="580" height="80" rx="16" fill="${A.ROJO}" stroke="${A.INK}" stroke-width="9"/>
+          ${txt(730, 645, "HORARIO DEL LOCAL", 40, A.BLA)}
+          ${txt(730, 730, "PASÁ A RETIRAR", 50, A.INK, "s05-l1")}
+          ${txt(730, 790, "POR EL LOCAL", 50, A.INK, "s05-l2")}
+          <g class="s05-hs">${txt(600, 895, "9", 90, A.ROJO, "s05-n9")}${txt(730, 880, "A", 50, A.INK, "s05-a")}${txt(865, 895, "18", 90, A.ROJO, "s05-n18")}</g>
+          <path class="s05-x1" d="M470 620 L990 910" stroke="${A.ROJO}" stroke-width="22" stroke-linecap="round"/>
+          <path class="s05-x2" d="M990 620 L470 910" stroke="${A.ROJO}" stroke-width="22" stroke-linecap="round"/>
+        </g>` +
+        reloj +
+        // cartel de aeropuerto: internet abierto 24 h
+        `<g class="s05-int">
+          <rect x="560" y="1150" width="460" height="190" rx="14" fill="${A.INK}" stroke="${A.INK}" stroke-width="6"/>
+          <rect x="580" y="1170" width="130" height="150" rx="10" fill="${A.AMA}"/>
+          ${txt(645, 1275, "24", 78, A.INK)}
+          ${txt(862, 1230, "INTERNET", 50, A.AMA)}
+          ${txt(862, 1295, "NO CIERRA", 42, A.BLA, "", "IBM Plex Mono", 600)}
+        </g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = A.kit(tl, root);
+      const { q } = K;
+
+      const RETIRAR = 0.43;
+      const LOCAL = 1.1;
+      const NUEVE = 1.78;
+      const DIECIOCHO = 2.2;
+      const SENOR = 3.14;
+      const INTERNET = 3.81;
+      const CIERRA = 4.66;
+
+      tl.fromTo(q(".ad-o"), { y: 40 }, { y: 0, duration: 0.4, ease: "back.out(1.4)" }, 0);
+      // la mano levanta el cartel
+      K.origen(q(".ad-o-izq"), "-150 -200");
+      gsap.set(q(".s05-cartel"), { svgOrigin: "540 1070", smoothOrigin: false });
+      tl.fromTo(q(".s05-cartel"), { y: 360, rotation: -14, opacity: 0, svgOrigin: "540 1070" }, { y: 0, rotation: 0, opacity: 1, svgOrigin: "540 1070", duration: 0.45, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".ad-o-izq"), { y: 120 }, { y: 0, duration: 0.45, ease: "back.out(1.4)" }, 0);
+      tl.to(q(".s05-cartel"), { rotation: 2, svgOrigin: "540 1070", duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.5);
+      K.pop(q(".s05-l1"), RETIRAR - 0.1, 0.25);
+      K.pop(q(".s05-l2"), LOCAL - 0.1, 0.25);
+      K.pop(q(".s05-n9"), NUEVE, 0.25);
+      K.pop(q(".s05-a"), NUEVE + 0.25, 0.2);
+      K.pop(q(".s05-n18"), DIECIOCHO, 0.25);
+      // el reloj: de 9 a 18 y se para
+      K.popS(q(".s05-reloj"), NUEVE - 0.1, "830 1070");
+      gsap.set(q(".s05-hora"), { svgOrigin: "830 1070", rotation: 270, smoothOrigin: false });
+      gsap.set(q(".s05-min"), { svgOrigin: "830 1070", rotation: 0, smoothOrigin: false });
+      tl.to(q(".s05-hora"), { rotation: 540, svgOrigin: "830 1070", duration: 0.9, ease: "power2.inOut" }, DIECIOCHO);
+      tl.to(q(".s05-min"), { rotation: 3240, svgOrigin: "830 1070", duration: 0.9, ease: "power2.inOut" }, DIECIOCHO);
+      // la oficial levanta la vista: "señor"
+      K.origen(q(".ad-o-cabeza"), "0 -300");
+      tl.to(q(".ad-o-cabeza"), { rotation: 5, duration: 0.2, ease: "power2.out" }, SENOR);
+      tl.to(q(".ad-o-cejas"), { y: 7, duration: 0.15 }, SENOR);
+      // "internet": cartel de aeropuerto 24
+      tl.to(q(".s05-reloj"), { opacity: 0, smoothOrigin: false, scale: 0.6, svgOrigin: "830 1070", duration: 0.25, ease: "power2.in" }, INTERNET - 0.3);
+      K.popS(q(".s05-int"), INTERNET, "790 1245");
+      // "cierra": tacha el cartel de 9 a 18
+      K.dibujar(q(".s05-x1"), CIERRA - 0.05, 0.2);
+      K.dibujar(q(".s05-x2"), CIERRA + 0.12, 0.2);
+      K.sacudon(q(".s05-cartel"), CIERRA + 0.2, 0.8);
+      tl.fromTo(q(".s05-int"), { scale: 1, svgOrigin: "790 1245" }, { scale: 1.06, svgOrigin: "790 1245", duration: 0.3, yoyo: true, repeat: 2, ease: "sine.inOut", immediateRender: false }, CIERRA + 0.3);
+
+      K.salida(q("#s05-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

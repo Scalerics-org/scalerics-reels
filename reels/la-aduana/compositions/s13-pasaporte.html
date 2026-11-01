@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/aduana.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-pasaporte"] .s13-capa, [data-composition-id="s13-pasaporte"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-pasaporte"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-pasaporte"] .s13-sola { left: 610px; top: 1170px; font-size: 36px; }
+  </style>
+  <div id="root" data-composition-id="s13-pasaporte" data-width="1080" data-height="1920" data-duration="6.22">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="6.22" data-track-index="0">
+      <div class="s13-escenario">
+        <svg class="s13-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ad-tag ama s13-sola">QUE VENDA SOLA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-pasaporte";
+      const DUR = 6.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const A = AD;
+      const fila = (y, txt, cls) => `<g class="${cls}">
+          <rect x="600" y="${y}" width="380" height="80" rx="10" fill="${A.BLA}" stroke="${A.INK}" stroke-width="5"/>
+          <text x="625" y="${y + 53}" font-family="Lexend" font-weight="800" font-size="38" fill="${A.INK}">${txt}</text>
+          <rect x="900" y="${y + 12}" width="56" height="56" rx="8" fill="${A.BLA}" stroke="${A.INK}" stroke-width="5"/>
+        </g>`;
+      const check = (y, cls) => `<path class="${cls}" d="M908 ${y + 42} L922 ${y + 58} L950 ${y + 22}" fill="none" stroke="${A.VERDE}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>`;
+      const cruz = (y, cls) => `<path class="${cls}" d="M910 ${y + 22} L946 ${y + 58} M946 ${y + 22} L910 ${y + 58}" fill="none" stroke="${A.ROJO}" stroke-width="12" stroke-linecap="round"/>`;
+      root.querySelector(".s13-svg").innerHTML =
+        A.oficial(280, 1420, 1.02, {}) +
+        // la planilla de inspección
+        `<g class="s13-plan">
+          <rect x="570" y="600" width="440" height="430" rx="18" fill="#c9a26b" stroke="${A.INK}" stroke-width="8"/>
+          <rect x="720" y="580" width="140" height="44" rx="10" fill="${A.GRIS3}" stroke="${A.INK}" stroke-width="6"/>
+          <text x="790" y="680" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="32" letter-spacing="4" fill="${A.INK}">INSPECCIÓN</text>
+          ${fila(705, "MERCADERÍA", "s13-f1")}${fila(805, "CLIENTES", "s13-f2")}${fila(905, "PASAPORTE", "s13-f3")}
+          ${check(705, "s13-c1")}${check(805, "s13-c2")}${cruz(905, "s13-c3a")}
+        </g>` +
+        `<g class="s13-pas">${A.pasaporte(600, 680, 380, 470, { color: A.INK, titulo: "PASAPORTE", sub: "TIENDA ONLINE" })}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = A.kit(tl, root);
+      const { q, qa } = K;
+
+      const MERCADERIA = 0.65;
+      const CLIENTES = 1.83;
+      const PASAPORTE = 3.48;
+      const TIENDA = 4.22;
+      const SOLA = 4.92;
+
+      tl.fromTo(q(".ad-o"), { y: 40 }, { y: 0, duration: 0.35, ease: "back.out(1.4)" }, 0);
+      // "exacto": se saca los lentes
+      tl.to(q(".ad-o-lentes"), { y: 70, opacity: 0, duration: 0.35, ease: "power2.in" }, 0.05);
+      tl.to(q(".ad-o-cejas"), { y: -6, duration: 0.2 }, 0.3);
+      K.hablar(".ad-o-boca", 0.0, 10, 0.13);
+      // la planilla y los tildes
+      K.popS(q(".s13-plan"), 0.1, "790 815");
+      K.dibujar(q(".s13-c1"), MERCADERIA + 0.1, 0.25);
+      K.dibujar(q(".s13-c2"), CLIENTES + 0.1, 0.25);
+      K.dibujar(q(".s13-c3a"), PASAPORTE, 0.25);
+      tl.fromTo(q(".s13-f3 rect"), { fill: A.BLA }, { fill: "#ffd6d8", duration: 0.15, immediateRender: false }, PASAPORTE);
+      K.sacudon(q(".s13-f3"), PASAPORTE + 0.1, 0.8);
+      // "una tienda": la planilla se va y aparece el pasaporte que le falta
+      tl.to(q(".s13-plan"), { y: -60, opacity: 0, duration: 0.3, ease: "power2.in" }, TIENDA - 0.3);
+      gsap.set(q(".s13-pas"), { opacity: 0, svgOrigin: "790 915", smoothOrigin: false });
+      tl.fromTo(q(".s13-pas"), { opacity: 0, scale: 0.4, rotation: -20, svgOrigin: "790 915" }, { opacity: 1, scale: 1, rotation: 4, svgOrigin: "790 915", duration: 0.45, ease: "back.out(1.6)", immediateRender: false }, TIENDA);
+      tl.to(q(".s13-pas"), { smoothOrigin: false, rotation: -2, svgOrigin: "790 915", duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, TIENDA + 0.5);
+      K.pop(q(".s13-sola"), SOLA);
+
+      K.salida(q("#s13-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
