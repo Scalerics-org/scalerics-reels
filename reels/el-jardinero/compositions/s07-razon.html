@@ -1,0 +1,61 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/jardin.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-razon"] .s07-capa, [data-composition-id="s07-razon"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-razon"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-razon"] .s07-tag { left: 300px; top: 620px; }
+    [data-composition-id="s07-razon"] .s07-adelante { left: 330px; top: 600px; }
+  </style>
+  <div id="root" data-composition-id="s07-razon" data-width="1080" data-height="1920" data-duration="4.99">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.99" data-track-index="0">
+      <div class="s07-escenario">
+        <svg class="s07-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+      <div class="ja-tag s07-adelante">LO QUE TIENE ADELANTE</div>
+      <div class="ja-tag terra s07-tag">EL FONDO DEL VIVERO</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-razon";
+      const DUR = 4.99;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const atras = [[1330, "hojas", ["AGOSTO"]], [1600, "cactus", null], [1870, "hojas", null]];
+      root.querySelector(".s07-svg").innerHTML =
+        JA.estante(-40, 1460, 2100, { patas: 100 }) +
+        `<g class="s07-fondo">${atras.map(([x, tipo, c], i) => JA.planta(x, 1460, 0.95, { tipo, telarana: i === 0, cartel: c, cartelAncho: 190, cls: "s07-a" + i })).join("")}
+          <rect x="1000" y="0" width="1200" height="1920" fill="${JA.INK}" opacity="0.4"/></g>` +
+        JA.hojasCaen(1250, 1000, 700, 200, 6, 21) +
+        `<g class="s07-dueno">${JA.dueno(610, 1460, 0.72, { cara: "cansado" })}</g>` +
+        `<g class="s07-rg">${JA.regadera(700, 1250, 0.62)}${JA.gotas(845, 1150, 4, { sep: 16 })}</g>` +
+        `<g class="s07-front">${JA.planta(920, 1460, 0.8, { estado: "viva", cls: "s07-pf" })}</g>` +
+        `<g class="s07-tito">${JA.tito(220, 1660, 0.98, { cara: "triste", brazo: "presenta" })}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = JA.kit(tl, root);
+      const { q } = K;
+
+      const RIEGA = 1.16, FONDO = 3.58;
+
+      tl.fromTo(q(".s07-tito"), { x: -80 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo([q(".s07-dueno"), q(".s07-rg"), q(".s07-front")], { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+      K.hablar(".ja-t-boca", 0.05, 15, 0.12);
+      // "riega lo que tiene adelante": riega solo la de adelante
+      gsap.set(q(".s07-rg .ja-rg"), { svgOrigin: "700 1250" });
+      tl.to(q(".s07-rg .ja-rg"), { rotation: 14, svgOrigin: "700 1250", duration: 0.3, ease: "power2.out" }, RIEGA - 0.2);
+      K.regar(".s07-rg", RIEGA, 150, 4);
+      K.menear(q(".s07-front"), 920, 1460, RIEGA + 0.2, 0.5, 2.5, 2);
+      K.pop(q(".s07-adelante"), RIEGA + 0.2);
+      tl.to(q(".s07-adelante"), { opacity: 0, duration: 0.2 }, FONDO - 0.6);
+      // "fondo del vivero": la cámara se va al fondo, en penumbra, donde están las secas
+      tl.to(q(".s07-escenario"), { x: -980, duration: 0.7, ease: "power3.inOut" }, FONDO - 0.5);
+      K.pop(q(".s07-tag"), FONDO + 0.1);
+      K.caen(".s07-escenario .ja-caen", FONDO, 1.2, 300);
+
+      K.salida(q("#s07-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,79 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/jardin.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-agente"] .s08-capa, [data-composition-id="s08-agente"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-agente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-agente"] .s08-tag { left: 330px; top: 590px; font-size: 40px; }
+    [data-composition-id="s08-agente"] .s08-noche { position: absolute; inset: 0; background: #0a1610; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-agente" data-width="1080" data-height="1920" data-duration="5.85">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="5.85" data-track-index="0">
+      <div class="s08-noche"></div>
+      <div class="s08-escenario">
+        <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ja-tag verde s08-tag">AGENTE DE IA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-agente";
+      const DUR = 5.85;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = JA.INK;
+      const RX = 470, RY = 1230, RS = 1.45;
+      const FX = RX + 218 * RS, FY = RY - 206 * RS;
+      // rayos verdes detrás de la regadera
+      let rayos = "";
+      for (let k = 0; k < 12; k++) {
+        const a = (k / 12) * Math.PI * 2;
+        rayos += `<path d="M${RX} ${RY - 150} L${RX + Math.cos(a) * 560} ${RY - 150 + Math.sin(a) * 560} L${RX + Math.cos(a + 0.18) * 560} ${RY - 150 + Math.sin(a + 0.18) * 560} Z" fill="${JA.VERDE}" opacity="0.10"/>`;
+      }
+      root.querySelector(".s08-svg").innerHTML =
+        `<g class="s08-rayos">${rayos}</g>` +
+        `<g class="s08-luna"><path d="M190 760 A80 80 0 1 0 270 860 A64 64 0 1 1 190 760 Z" fill="${JA.CRE}" stroke="${I}" stroke-width="6"/>
+          <circle cx="110" cy="700" r="5" fill="${JA.CRE}"/><circle cx="300" cy="720" r="4" fill="${JA.CRE}"/><circle cx="80" cy="900" r="4" fill="${JA.CRE}"/></g>` +
+        `<g class="s08-reloj"><circle cx="860" cy="680" r="110" fill="${JA.CRE}" stroke="${I}" stroke-width="10"/>
+          <circle cx="860" cy="680" r="96" fill="none" stroke="${JA.VERDE2}" stroke-width="5"/>
+          <line class="s08-h" x1="860" y1="680" x2="860" y2="620" stroke="${I}" stroke-width="12" stroke-linecap="round"/>
+          <line class="s08-m" x1="860" y1="680" x2="860" y2="595" stroke="${JA.TERRA}" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="860" cy="680" r="10" fill="${I}"/>
+          <text data-layout-ignore x="860" y="835" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="34" fill="${JA.CRE}" letter-spacing="3">3:00 AM</text></g>` +
+        `<g class="s08-rg">${JA.regadera(RX, RY, RS, { ia: true })}</g>` +
+        `<g class="s08-gt">${JA.gotas(FX, FY + 50, 3, { chat: true, sep: 56 })}</g>` +
+        `<g class="s08-badge"><rect x="${RX - 150}" y="${RY + 30}" width="300" height="70" rx="12" fill="${JA.CRE}" stroke="${I}" stroke-width="6"/>
+          <text data-layout-ignore x="${RX}" y="${RY + 78}" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="34" fill="${JA.VERDE2}" letter-spacing="4">EMPLEADO</text></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = JA.kit(tl, root);
+      const { q } = K;
+
+      const SCALERICS = 0.61, EMPLEADO = 3.04, HORA = 4.71;
+
+      // "Scalerics": entra la regadera del agente
+      gsap.set(q(".s08-rg"), { opacity: 0 });
+      tl.fromTo(q(".s08-rg"), { opacity: 0, scale: 0.4, svgOrigin: `${RX} ${RY}` }, { opacity: 1, scale: 1, svgOrigin: `${RX} ${RY}`, duration: 0.5, ease: "back.out(2)", immediateRender: false }, SCALERICS - 0.1);
+      tl.fromTo(q(".s08-rayos"), { opacity: 0, rotation: 0 }, { opacity: 1, rotation: 40, svgOrigin: `${RX} ${RY - 150}`, duration: DUR, ease: "none" }, SCALERICS);
+      tl.to(q(".s08-rg"), { y: -24, duration: 0.7, yoyo: true, repeat: 5, ease: "sine.inOut" }, SCALERICS + 0.5);
+      K.pop(q(".s08-tag"), 1.5);
+      tl.fromTo(q(".s08-rg .ja-rg-ojos"), { scaleY: 1 }, { scaleY: 0.1, svgOrigin: `${RX} ${RY - 114 * RS}`, duration: 0.08, yoyo: true, repeat: 1 }, 2.3);
+      // gotas-mensaje que caen todo el tiempo
+      K.regar(".s08-gt", 1.2, 380, 9);
+      // "empleado": gafete
+      K.pop(q(".s08-badge"), EMPLEADO);
+      tl.fromTo(q(".s08-badge"), { rotation: -6 }, { rotation: 4, svgOrigin: `${RX} ${RY + 30}`, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, EMPLEADO + 0.3);
+      // "a cualquier hora": se hace de noche, reloj en las 3, la regadera sigue
+      gsap.set([q(".s08-luna"), q(".s08-reloj")], { opacity: 0 });
+      tl.to(q(".s08-noche"), { opacity: 0.55, duration: 0.4 }, HORA - 0.2);
+      K.pop(q(".s08-luna"), HORA);
+      K.pop(q(".s08-reloj"), HORA + 0.1);
+      tl.fromTo(q(".s08-m"), { rotation: -180 }, { rotation: 0, svgOrigin: "860 680", duration: 0.7, ease: "power2.out", immediateRender: false }, HORA + 0.1);
+      tl.fromTo(q(".s08-h"), { rotation: 60 }, { rotation: 90, svgOrigin: "860 680", duration: 0.7, ease: "power2.out", immediateRender: false }, HORA + 0.1);
+
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,72 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/jardin.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-bienvenidos"] .s02-capa, [data-composition-id="s02-bienvenidos"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-bienvenidos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-bienvenidos"] .s02-titulo { left: 0; width: 1080px; top: 600px; }
+    [data-composition-id="s02-bienvenidos"] .s02-titulo .s02-a { display: block; font-size: 190px; }
+    [data-composition-id="s02-bienvenidos"] .s02-titulo .s02-b { display: block; font-size: 100px; color: #f3e9d2; margin-top: 14px; }
+    [data-composition-id="s02-bienvenidos"] .s02-tag { left: 90px; top: 560px; }
+  </style>
+  <div id="root" data-composition-id="s02-bienvenidos" data-width="1080" data-height="1920" data-duration="6.56">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="6.56" data-track-index="0">
+      <div class="s02-escenario">
+        <svg class="s02-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ja-titulo s02-titulo"><span class="s02-a">JARDÍN</span><span class="s02-b">DE LA TARDE</span></div>
+        <div class="ja-tag terra s02-tag">VIVERO DE UN COMERCIO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-bienvenidos";
+      const DUR = 6.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      // flores alrededor del título
+      const flores = [[120, 640, 44, "#f08a5c"], [960, 650, 40, "#f3e9d2"], [90, 900, 34, "#f3e9d2"], [990, 920, 44, "#f08a5c"], [250, 1010, 30, "#f08a5c"], [840, 1020, 30, "#f3e9d2"]];
+      // plantas del vivero: [x, y, s, tipo]
+      const viv = [[160, 1020, 0.8, "hojas"], [420, 1020, 0.8, "cactus"], [680, 1020, 0.8, "hojas"], [170, 1450, 0.82, "hojas"], [440, 1450, 0.82, "hojas"], [700, 1450, 0.82, "cactus"]];
+      root.querySelector(".s02-svg").innerHTML =
+        `<g class="s02-flores">${flores.map(([x, y, r, c], i) => JA.flor(x, y, r, "s02-f s02-f" + i, c)).join("")}</g>` +
+        `<g class="s02-vivero">` + JA.estante(20, 1020, 820, { patas: 520 }) + JA.estante(20, 1450, 820, { patas: 90 }) +
+        viv.map(([x, y, s, tipo], i) => `<g class="s02-pl s02-pl${i}">${JA.planta(x, y, s, { tipo, telarana: i === 2 })}</g>`).join("") +
+        JA.hojasCaen(100, 800, 680, 400, 10, 11) + `</g>` +
+        `<g class="s02-tito">${JA.tito(0, 0, 1, { brazo: "senala", cara: "feliz", espejo: true })}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = JA.kit(tl, root);
+      const { q, qa } = K;
+
+      const HOY = 2.67, MIREN = 4.75, ENCONTRAMOS = 5.42;
+
+      // presentación: título y flores; Tito saluda abajo
+      gsap.set(q(".s02-tito"), { svgOrigin: "0 0", x: 640, y: 1600, scale: 1 });
+      tl.fromTo(q(".s02-tito"), { y: 1760 }, { y: 1600, duration: 0.45, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s02-tito .ja-t-brazo"), { rotation: 0 }, { rotation: 8, svgOrigin: "175 -188", duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.3);
+      K.hablar(".ja-t-boca", 0.05, 10, 0.12);
+      K.sello(q(".s02-titulo"), 0.15, -2);
+      tl.to(q(".s02-titulo"), { y: -10, duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0.5);
+      flores.forEach(([x, y], i) => K.popSvg(q(".s02-f" + i), 0.2 + i * 0.12, `${x} ${y}`, 0.4, 0));
+      tl.to(q(".s02-flores"), { rotation: 0, duration: 0.1 }, 0);
+      qa(".s02-f").forEach((f, i) => tl.to(f, { rotation: i % 2 ? 40 : -40, svgOrigin: `${flores[i][0]} ${flores[i][1]}`, duration: 1.6, ease: "sine.inOut" }, 0.6));
+      // "Hoy, el vivero": se va el título y aparece el vivero
+      tl.to([q(".s02-titulo"), q(".s02-flores")], { opacity: 0, y: -120, duration: 0.3, ease: "power2.in" }, HOY - 0.2);
+      tl.to(q(".s02-tito"), { x: 930, y: 1660, scale: 0.9, duration: 0.5, ease: "power3.inOut" }, HOY - 0.1);
+      gsap.set(q(".s02-vivero"), { opacity: 0 });
+      tl.fromTo(q(".s02-vivero"), { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, HOY);
+      viv.forEach(([x, y], i) => K.popSvg(q(".s02-pl" + i), HOY + 0.15 + i * 0.07, `${x} ${y}`, 0.35, 0.5));
+      K.pop(q(".s02-tag"), HOY + 0.4);
+      // "miren": zoom lento a las plantas
+      tl.to(q(".s02-escenario"), { scale: 1.12, duration: DUR - MIREN, ease: "power1.inOut", transformOrigin: "35% 65%" }, MIREN - 0.2);
+      tl.to(q(".s02-tag"), { opacity: 0, duration: 0.2 }, MIREN);
+      // "encontramos": se caen hojas secas
+      K.caen(".s02-vivero .ja-caen", ENCONTRAMOS - 0.2, 1.1, 260);
+      viv.forEach(([x, y], i) => K.menear(q(".s02-pl" + i), x, y, ENCONTRAMOS - 0.3 + i * 0.05, 0.5, 2, 1));
+
+      K.salida(q("#s02-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,82 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/jardin.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-preguntona"] .s03-capa, [data-composition-id="s03-preguntona"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-preguntona"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-preguntona"] .s03-nunca { left: 120px; top: 1300px; font-size: 64px; }
+    [data-composition-id="s03-preguntona"] .s03-dice { left: 330px; top: 600px; }
+    [data-composition-id="s03-preguntona"] .s03-dice::after { content: ""; position: absolute; left: 110px; bottom: -40px; border: 20px solid transparent; border-top: 26px solid #1c1712; }
+  </style>
+  <div id="root" data-composition-id="s03-preguntona" data-width="1080" data-height="1920" data-duration="8.66">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="8.66" data-track-index="0">
+      <div class="s03-escenario">
+        <svg class="s03-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ja-sello s03-nunca">NUNCA LE PASARON</div>
+        <div class="ja-globo s03-dice">Sigo esperando, eh.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-preguntona";
+      const DUR = 8.66;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const PX = 380, PY = 1460, PS = 1.55;
+      const CX = 640, CY = 600, CW = 390, CH = 680;
+      const [g1, h1] = JA.globo(CX + 26, CY + 160, "¿Cuánto sale?", "i", { fs: 34, hora: "12/08 · 10:14", cls: "s03-g1" });
+      const [g2] = JA.globo(CX + CW - 26, CY + 190 + h1, ["Después", "te paso"], "d", { fs: 38, hora: "12/08 · 10:31", cls: "s03-g2" });
+      root.querySelector(".s03-svg").innerHTML =
+        JA.estante(0, PY, 1080, { patas: 120 }) +
+        `<g class="s03-planta">${JA.planta(PX, PY, PS, { cls: "s03-p", cartel: ["EJEMPLAR 1", "la Preguntona"], cartelAncho: 250 })}</g>` +
+        `<g class="s03-tela" fill="none" stroke="${JA.CRE}" stroke-width="4" opacity="0.85">
+           <path class="s03-t1" d="M250 960 L520 960"/><path class="s03-t2" d="M385 840 L385 1080"/><path class="s03-t3" d="M290 880 L480 1040"/><path class="s03-t4" d="M480 880 L290 1040"/>
+           <path class="s03-t5" d="M330 960 Q345 915 385 905 Q425 915 440 960 Q425 1005 385 1015 Q345 1005 330 960 Z"/>
+           <path class="s03-t6" d="M290 960 Q310 870 385 860 Q460 870 480 960 Q460 1050 385 1060 Q310 1050 290 960 Z"/></g>` +
+        `<g class="s03-cel">${JA.celular(CX, CY, CW, CH, "s03-clip")}<g clip-path="url(#s03-clip)">${JA.chatCabecera(CX, CY, CW, "La Preguntona", "en línea")}
+           <text class="s03-fecha" x="${CX + CW / 2}" y="${CY + 150}" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="20" fill="#6b6259">12 DE AGOSTO</text>
+           ${g1}${g2}
+           <g class="s03-hoy"><rect x="${CX + 40}" y="${CY + CH - 110}" width="${CW - 80}" height="44" rx="22" fill="${JA.CRE2}"/>
+           <text x="${CX + CW / 2}" y="${CY + CH - 80}" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="20" fill="${JA.TERRA3}">HOY · 1 DE NOVIEMBRE</text></g>
+         </g>${JA.celularBorde(CX, CY, CW, CH)}</g>` +
+        JA.hojasCaen(260, 1000, 260, 120, 4, 8);
+      const tl = gsap.timeline({ paused: true });
+      const K = JA.kit(tl, root);
+      const { q, qa } = K;
+
+      const PREGUNTO = 2.42, DIJERON = 3.83, NUNCA = 5.67, SIGO = 6.9;
+
+      // ejemplar 1: la planta entra con el cartel
+      tl.fromTo(q(".s03-planta"), { y: 40, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      K.popSvg(q(".s03-p .ja-p-cartel"), 0.5, "620 1000", 0.4, 0.4);
+      K.menear(q(".s03-planta"), PX, PY, 0.3, 0.9, 1.2, 2);
+      // "Preguntó": la planta se corre y entra el celular
+      tl.to(q(".s03-planta"), { x: -150, duration: 0.45, ease: "power3.inOut" }, PREGUNTO - 0.3);
+      tl.to(q(".s03-p .ja-p-cartel"), { opacity: 0, duration: 0.2 }, PREGUNTO - 0.35);
+      tl.to(q(".s03-p .ja-p-cartel"), { opacity: 1, duration: 0.25 }, SIGO - 0.1);
+      tl.fromTo(q(".s03-cel"), { x: 520 }, { x: 0, duration: 0.45, ease: "power3.out" }, PREGUNTO - 0.25);
+      K.pop(q(".s03-g1"), PREGUNTO + 0.1);
+      // "dijeron «después te paso»"
+      K.pop(q(".s03-g2"), DIJERON + 0.2);
+      gsap.set(q(".s03-g2"), { transformOrigin: "100% 50%" });
+      tl.to(q(".s03-g2"), { rotation: -3, duration: 0.2 }, DIJERON + 0.5);
+      // "nunca": el chat salta a hoy, sello y caen hojas
+      K.pop(q(".s03-hoy"), NUNCA - 0.1);
+      tl.to(q(".s03-cel .ja-chat-sub"), { opacity: 0.3, duration: 0.2 }, NUNCA);
+      K.sello(q(".s03-nunca"), NUNCA + 0.05, -4);
+      K.caen(".s03-escenario .ja-caen", NUNCA - 0.2, 1.4, 360);
+      // "Sigo esperando, eh.": se va el celular, la planta habla y se teje la telaraña
+      tl.to([q(".s03-cel"), q(".s03-nunca")], { opacity: 0, x: 200, duration: 0.3, ease: "power2.in" }, SIGO - 0.35);
+      tl.to(q(".s03-planta"), { x: 0, duration: 0.4, ease: "power3.inOut" }, SIGO - 0.3);
+      tl.to(q(".s03-escenario"), { scale: 1.12, duration: DUR - SIGO + 0.3, ease: "power1.out", transformOrigin: "36% 62%" }, SIGO - 0.3);
+      K.pop(q(".s03-dice"), SIGO);
+      K.hablar(".s03-p .ja-p-boca", SIGO + 0.05, 5, 0.13);
+      ["t1", "t2", "t3", "t4", "t5", "t6"].forEach((c, i) => K.dibujar(q(".s03-" + c), SIGO + 0.2 + i * 0.12, 0.35));
+
+      K.salida(q("#s03-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,72 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/jardin.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-mostrador"] .s06-capa, [data-composition-id="s06-mostrador"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-mostrador"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-mostrador"] .s06-mal { left: 130px; top: 1330px; font-size: 54px; }
+    [data-composition-id="s06-mostrador"] .s06-g { font-size: 44px; padding: 14px 26px; }
+    [data-composition-id="s06-mostrador"] .s06-g1 { left: 40px; top: 600px; }
+    [data-composition-id="s06-mostrador"] .s06-g2 { left: 600px; top: 570px; }
+    [data-composition-id="s06-mostrador"] .s06-g3 { left: 560px; top: 740px; }
+  </style>
+  <div id="root" data-composition-id="s06-mostrador" data-width="1080" data-height="1920" data-duration="3.71">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="3.71" data-track-index="0">
+      <div class="s06-escenario">
+        <svg class="s06-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ja-sello s06-mal">¡NO SOY MAL JARDINERO!</div>
+        <div class="ja-globo s06-g s06-g1">¿Me cobrás?</div>
+        <div class="ja-globo s06-g s06-g2">¿Tenés cambio?</div>
+        <div class="ja-globo s06-g s06-g3">¿Me lo envolvés?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-mostrador";
+      const DUR = 3.71;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = JA.INK;
+      // siluetas de la cola de clientes
+      const sil = (x, y, s) => `<g transform="translate(${x} ${y}) scale(${s})" opacity="0.85"><circle cx="0" cy="-250" r="62" fill="${JA.INV2}" stroke="${I}" stroke-width="6"/>
+        <path d="M-110 0 C-110 -120 -70 -175 0 -180 C70 -175 110 -120 110 0 Z" fill="${JA.INV2}" stroke="${I}" stroke-width="6"/></g>`;
+      root.querySelector(".s06-svg").innerHTML =
+        `<g class="s06-cola">${sil(110, 1250, 1.1)}${sil(250, 1200, 0.9)}${sil(900, 1230, 1.05)}${sil(1030, 1180, 0.85)}</g>` +
+        `<g class="s06-dueno">${JA.dueno(540, 1330, 1.2, { cara: "grita", gota: true })}</g>` +
+        JA.mostrador(90, 1300, 900, 240) +
+        // caja registradora y celular que vibra
+        `<g class="s06-caja"><rect x="700" y="1170" width="230" height="130" rx="14" fill="${JA.SECO}" stroke="${I}" stroke-width="7"/>
+          <rect x="730" y="1130" width="170" height="60" rx="8" fill="${JA.INV}" stroke="${I}" stroke-width="6"/>
+          <text data-layout-ignore x="815" y="1172" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="30" fill="${JA.HOJA2}">$ 480</text></g>` +
+        `<g class="s06-cel"><rect x="170" y="1150" width="100" height="100" rx="14" fill="${I}" transform="rotate(-8 220 1200)"/>
+          <rect x="182" y="1162" width="76" height="70" rx="8" fill="${JA.TERRA2}" transform="rotate(-8 220 1200)"/>
+          <text data-layout-ignore x="220" y="1214" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="34" fill="${I}" transform="rotate(-8 220 1200)">27</text>
+          <path d="M150 1150 l-20 -14 M150 1190 l-26 0 M290 1150 l20 -14 M290 1190 l26 0" stroke="${JA.CRE}" stroke-width="6" stroke-linecap="round"/></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = JA.kit(tl, root);
+      const { q } = K;
+
+      const JARDINERO = 1.36, MOSTRADOR = 2.63;
+
+      // "¡Pará, Tito!": el dueño irrumpe desde abajo con sacudón
+      tl.fromTo(q(".s06-dueno"), { y: 160 }, { y: 0, duration: 0.28, ease: "back.out(2.4)" }, 0);
+      K.sacudon(q(".s06-escenario"), 0.25, 1.2);
+      K.hablar(".ja-d-boca", 0.05, 11, 0.12);
+      tl.fromTo(q(".s06-cola"), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+      tl.fromTo(q(".s06-cel"), { rotation: -3 }, { rotation: 3, svgOrigin: "220 1200", duration: 0.05, yoyo: true, repeat: 47, ease: "none" }, 0.2);
+      tl.fromTo(q(".ja-d-gota"), { y: 0 }, { y: 40, duration: 0.8, repeat: 3, ease: "power1.in" }, 0.3);
+      // "jardinero": sello
+      K.sello(q(".s06-mal"), JARDINERO, -3);
+      // "mostrador": la cola reclama
+      K.pop(q(".s06-g1"), MOSTRADOR - 0.25);
+      K.pop(q(".s06-g2"), MOSTRADOR - 0.05);
+      K.pop(q(".s06-g3"), MOSTRADOR + 0.15);
+      tl.to(q(".s06-escenario"), { scale: 1.06, duration: 1.2, ease: "power2.out", transformOrigin: "50% 60%" }, MOSTRADOR - 0.3);
+
+      K.salida(q("#s06-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

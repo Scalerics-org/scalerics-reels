@@ -1,0 +1,18 @@
+{
+ "t": 0.8,
+ "chica": "Te preguntó un precio",
+ "grande": "y lo dejaste secar",
+ "sello": "Jardín de la tarde",
+ "acento": "#f2c14e",
+ "sello_color": "#c8643b",
+ "velo": "20,50,25",
+ "fondo": "#14321a",
+ "zoom": 1.3,
+ "foco": "100%",
+ "foco_x": "50%",
+ "circulo": {
+  "x": 760,
+  "y": 560,
+  "r": 170
+ }
+}

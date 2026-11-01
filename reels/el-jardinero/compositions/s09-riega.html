@@ -1,0 +1,84 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/jardin.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-riega"] .s09-capa, [data-composition-id="s09-riega"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-riega"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-riega"] .s09-g { font-size: 40px; padding: 14px 24px; border-color: #3f9e0b; }
+    [data-composition-id="s09-riega"] .s09-g1 { left: 40px; top: 620px; }
+    [data-composition-id="s09-riega"] .s09-g2 { left: 300px; top: 760px; }
+    [data-composition-id="s09-riega"] .s09-g3 { left: 690px; top: 730px; background: #f08a5c; border-color: #1c1712; }
+    [data-composition-id="s09-riega"] .s09-venta { left: 150px; top: 590px; width: 780px; padding: 22px 26px; font-size: 38px; }
+    [data-composition-id="s09-riega"] .s09-venta small { display: block; font-size: 28px; margin-top: 6px; color: #f3e9d2; letter-spacing: 0.1em; }
+  </style>
+  <div id="root" data-composition-id="s09-riega" data-width="1080" data-height="1920" data-duration="5.72">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="5.72" data-track-index="0">
+      <div class="s09-escenario">
+        <svg class="s09-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ja-globo s09-g s09-g1">¿Lo seguís queriendo?</div>
+        <div class="ja-globo s09-g s09-g2">¡Te extrañamos!</div>
+        <div class="ja-globo mano s09-g3">¡Lo quiero!</div>
+        <div class="ja-tag verde s09-venta">QUIERE COMPRAR: TE LO PASA<small>PARA VOS · AL DUEÑO</small></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-riega";
+      const DUR = 5.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const PY = 1470, PS = 0.82, RS = 0.72;
+      const P = [[190, "hojas", null], [540, "cactus", null], [890, "hojas", [-6, -345, -14]]];
+      // posición de la regadera para regar cada planta (la flor del pico sobre la planta)
+      const RG = P.map(([x]) => [x - 218 * RS - 20, 1150]);
+      root.querySelector(".s09-svg").innerHTML =
+        JA.estante(0, PY, 1080, { patas: 100 }) +
+        P.map(([x, tipo, gorro], i) => `<g class="s09-pl${i}">${JA.planta(x, PY, PS, { tipo, gorro, cls: "s09-p" + i })}</g>`).join("") +
+        P.map(([x], i) => `<g class="s09-gt${i}">${JA.gotas(x - 10, 1010, 3, { chat: true, sep: 50 })}</g>`).join("") +
+        `<g class="s09-rgw"><g class="s09-rg">${JA.regadera(0, 0, RS, { ia: true })}</g></g>` +
+        // celular que vuela al dueño
+        `<g class="s09-cel"><rect x="440" y="900" width="200" height="330" rx="26" fill="${JA.CRE}" stroke="${JA.INK}" stroke-width="10"/>
+          <rect x="462" y="960" width="156" height="60" rx="12" fill="${JA.VERDE}" stroke="${JA.INK}" stroke-width="4"/>
+          <text data-layout-ignore x="540" y="1000" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="26" fill="${JA.INK}">VENTA</text>
+          <path d="M470 1060 L610 1060 M470 1100 L580 1100 M470 1140 L600 1140" stroke="${JA.CRE2}" stroke-width="12" stroke-linecap="round"/></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = JA.kit(tl, root);
+      const { q } = K;
+
+      const PREGUNTO = 0.67, DEJO = 2.41, COMPRAR = 3.89, PASA = 4.32;
+
+      const rg = q(".s09-rgw");
+      gsap.set(rg, { x: RG[0][0] - 260, y: RG[0][1] - 120 });
+      tl.to(rg, { x: RG[0][0], y: RG[0][1], duration: 0.45, ease: "power3.out" }, 0);
+      tl.to(q(".s09-rg"), { rotation: 18, svgOrigin: "0 0", duration: 0.25 }, 0.4);
+      K.regar(".s09-gt0", PREGUNTO, 150, 3);
+      K.menear(q(".s09-pl0"), 190, PY, PREGUNTO + 0.3, 0.45, 2.5, 2);
+      K.pop(q(".s09-g1"), PREGUNTO + 0.15);
+      // "dejó de venir": al Habitué
+      tl.to(q(".s09-rg"), { rotation: 0, svgOrigin: "0 0", duration: 0.15 }, DEJO - 0.6);
+      tl.to(rg, { x: RG[1][0], y: RG[1][1], duration: 0.45, ease: "power3.inOut" }, DEJO - 0.55);
+      tl.to(q(".s09-rg"), { rotation: 18, svgOrigin: "0 0", duration: 0.2 }, DEJO - 0.15);
+      K.regar(".s09-gt1", DEJO, 150, 2);
+      K.menear(q(".s09-pl1"), 540, PY, DEJO + 0.3, 0.45, 2.5, 2);
+      K.pop(q(".s09-g2"), DEJO + 0.1);
+      // "cuando quiere comprar": la tercera contesta
+      tl.to(q(".s09-rg"), { rotation: 0, svgOrigin: "0 0", duration: 0.15 }, 3.15);
+      tl.to(rg, { x: RG[2][0], y: RG[2][1], duration: 0.4, ease: "power3.inOut" }, 3.2);
+      tl.to(q(".s09-rg"), { rotation: 18, svgOrigin: "0 0", duration: 0.2 }, 3.55);
+      K.regar(".s09-gt2", 3.6, 150, 2);
+      K.pop(q(".s09-g3"), COMPRAR);
+      K.hablar(".s09-p2 .ja-p-boca", COMPRAR, 3, 0.1);
+      // "te lo pasa": globos fuera, aviso de venta para el dueño
+      tl.to([q(".s09-g1"), q(".s09-g2")], { opacity: 0, y: -30, duration: 0.2 }, PASA - 0.25);
+      K.pop(q(".s09-venta"), PASA);
+      gsap.set(q(".s09-cel"), { opacity: 0 });
+      tl.fromTo(q(".s09-cel"), { opacity: 0, x: 350, y: 60, rotation: 20, svgOrigin: "540 1065" }, { opacity: 1, x: 0, y: 0, rotation: -6, svgOrigin: "540 1065", duration: 0.45, ease: "back.out(1.6)", immediateRender: false }, PASA + 0.1);
+
+
+      K.salida(q("#s09-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,70 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/jardin.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .s12-capa, [data-composition-id="s12-cta"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cta"] .s12-titulo { left: 0; width: 1080px; top: 560px; font-size: 150px; }
+    [data-composition-id="s12-cta"] .s12-amigo { left: 610px; top: 1240px; font-size: 54px; }
+    [data-composition-id="s12-cta"] .ja-p-seca { display: none; }
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="6.38">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="6.38" data-track-index="0">
+      <div class="s12-escenario">
+        <svg class="s12-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ja-titulo s12-titulo">ETIQUETÁ</div>
+        <div class="ja-sello verde s12-amigo">@ TU AMIGO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 6.38;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = JA.INK;
+      const CX = 350, CY = 760, CW = 380, CH = 640;
+      const chats = [["Lucía", "¿cuánto sale?", "3"], ["Martín", "¿tenés en azul?", "1"], ["Sofi", "¿abren el domingo?", "2"], ["Rubén", "¿y?", "5"]];
+      let filas = "";
+      chats.forEach(([n, m, k], i) => {
+        const y = CY + 140 + i * 104;
+        filas += `<g class="s12-f s12-f${i}"><circle cx="${CX + 52}" cy="${y + 40}" r="30" fill="${JA.CRE2}" stroke="${I}" stroke-width="4"/>
+          <text x="${CX + 96}" y="${y + 32}" font-family="Lexend" font-weight="700" font-size="28" fill="${I}">${n}</text>
+          <text x="${CX + 96}" y="${y + 66}" font-family="Lexend" font-weight="500" font-size="22" fill="#6b6259">${m}</text>
+          <circle cx="${CX + CW - 44}" cy="${y + 40}" r="20" fill="${JA.TERRA}" stroke="${I}" stroke-width="3"/>
+          <text x="${CX + CW - 44}" y="${y + 49}" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="24" fill="${JA.CRE}">${k}</text></g>`;
+      });
+      const hojaSeca = (x, y, r) => `<path d="M${x} ${y} C${x + 30} ${y + 20} ${x + 26} ${y + 70} ${x} ${y + 90} C${x - 26} ${y + 70} ${x - 30} ${y + 20} ${x} ${y} Z" transform="rotate(${r} ${x} ${y})" fill="${JA.SECO}" stroke="${I}" stroke-width="5"/>`;
+      root.querySelector(".s12-svg").innerHTML =
+        `<g class="s12-arroba"><circle cx="880" cy="980" r="90" fill="${JA.AMA}" stroke="${I}" stroke-width="8"/>
+          <text x="880" y="1018" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="110" fill="${I}">@</text></g>` +
+        `<g class="s12-cel"><g class="s12-hojas">${hojaSeca(CX + 30, CY - 10, 140)}${hojaSeca(CX + CW - 20, CY - 10, -140)}${hojaSeca(CX + CW / 2, CY - 20, 180)}</g>
+          ${JA.celular(CX, CY, CW, CH, "s12-clip")}<g clip-path="url(#s12-clip)">${JA.chatCabecera(CX, CY, CW, "WhatsApp", "sin responder", JA.INV2)}${filas}</g>${JA.celularBorde(CX, CY, CW, CH)}</g>` +
+        `<g class="s12-maceta">${JA.planta(CX + CW / 2, 1500, 1.25, { cls: "s12-p" })}</g>` +
+        `<g class="s12-cae">${JA.hojasCaen(400, 760, 200, 40, 2, 51)}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = JA.kit(tl, root);
+      const { q } = K;
+
+      const WHATSAPP = 0.96, SECOS = 2.26;
+
+      K.sello(q(".s12-titulo"), 0.12, -2);
+      tl.fromTo(q(".s12-titulo"), { y: 0 }, { y: -10, duration: 0.6, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, 0.5);
+      K.popSvg(q(".s12-arroba"), 0.35, "880 980", 0.45, 0.2);
+      tl.fromTo(q(".s12-arroba"), { rotation: -10 }, { rotation: 10, svgOrigin: "880 980", duration: 0.7, yoyo: true, repeat: 6, ease: "sine.inOut", immediateRender: false }, 0.8);
+      tl.fromTo([q(".s12-cel"), q(".s12-maceta")], { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.5)" }, 0);
+      // "WhatsApp lleno": las filas sin responder
+      chats.forEach((c, i) => K.pop(q(".s12-f" + i), WHATSAPP + i * 0.18, 0.3));
+      // "secos": se cae una hoja y sello
+      K.caen(".s12-cae", SECOS - 0.2, 1.4, 650);
+      K.marchitar(".s12-p", SECOS);
+      tl.fromTo(q(".s12-hojas"), { rotation: 0 }, { rotation: 4, svgOrigin: `${CX + CW / 2} ${CY}`, duration: 0.5, ease: "power2.in" }, SECOS);
+      K.sello(q(".s12-amigo"), SECOS + 0.4, -6);
+      K.hablar(".s12-p .ja-p-boca", SECOS + 1.0, 3, 0.15);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

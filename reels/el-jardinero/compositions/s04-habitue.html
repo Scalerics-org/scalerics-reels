@@ -1,0 +1,81 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/jardin.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-habitue"] .s04-capa, [data-composition-id="s04-habitue"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-habitue"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-habitue"] .s04-fin { left: 560px; top: 1330px; font-size: 64px; }
+  </style>
+  <div id="root" data-composition-id="s04-habitue" data-width="1080" data-height="1920" data-duration="7.47">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="7.47" data-track-index="0">
+      <div class="s04-escenario">
+        <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ja-sello s04-fin">FIN DE MES</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-habitue";
+      const DUR = 7.47;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const PX = 300, PY = 1460, PS = 1.5;
+      const I = JA.INK;
+      // tira de sábados: 2 filas x 4
+      const dias = ["4", "11", "18", "25", "1", "8", "15", "22"];
+      let sab = `<rect x="600" y="590" width="440" height="330" rx="16" fill="${JA.CRE}" stroke="${I}" stroke-width="7"/>
+        <rect x="600" y="590" width="440" height="70" rx="16" fill="${JA.HOJA}" stroke="${I}" stroke-width="7"/>
+        <text data-layout-ignore x="820" y="638" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="30" fill="${JA.CRE}" letter-spacing="4">SÁBADOS</text>`;
+      dias.forEach((d, i) => {
+        const x = 622 + (i % 4) * 102, y = 678 + Math.floor(i / 4) * 116;
+        sab += `<rect x="${x}" y="${y}" width="90" height="104" rx="10" fill="${JA.CRE2}" stroke="${I}" stroke-width="4"/>
+          <text data-layout-ignore x="${x + 12}" y="${y + 30}" font-family="IBM Plex Mono" font-weight="600" font-size="22" fill="${I}">${d}</text>
+          ${i < 4 ? `<path class="s04-ok s04-ok${i}" d="M${x + 22} ${y + 66} l16 16 l32 -36" fill="none" stroke="${JA.HOJA3}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>`
+                 : `<path class="s04-no s04-no${i}" d="M${x + 28} ${y + 72} l36 0" stroke="${JA.TERRA}" stroke-width="10" stroke-linecap="round"/>`}`;
+      });
+      root.querySelector(".s04-svg").innerHTML =
+        JA.estante(0, PY, 1080, { patas: 120 }) +
+        `<g class="s04-sab">${sab}</g>` +
+        `<g class="s04-msj"><rect x="740" y="950" width="300" height="190" rx="18" fill="${JA.INV2}" stroke="${I}" stroke-width="7"/>
+          <text data-layout-ignore x="890" y="992" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="22" fill="${JA.CRE2}" letter-spacing="2">LE ESCRIBIERON</text>
+          <text x="890" y="1110" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="110" fill="${JA.TERRA2}">0</text></g>` +
+        `<g class="s04-cactus">${JA.planta(PX, PY, PS, { tipo: "cactus", cls: "s04-p", cartel: ["EJEMPLAR 2", "el Habitué"], cartelAncho: 230 })}</g>` +
+        // billetera vacía con polilla
+        `<g class="s04-bill"><rect x="640" y="1130" width="300" height="190" rx="22" fill="${JA.SECO2}" stroke="${I}" stroke-width="8"/>
+          <path d="M640 1180 L940 1180" stroke="${I}" stroke-width="6"/><rect x="860" y="1200" width="80" height="60" rx="12" fill="${JA.SECO}" stroke="${I}" stroke-width="6"/>
+          <circle cx="900" cy="1230" r="10" fill="${I}"/></g>` +
+        `<g class="s04-polilla"><ellipse cx="790" cy="1130" rx="10" ry="22" fill="${JA.CRE2}" stroke="${I}" stroke-width="4"/>
+          <path d="M786 1122 C750 1090 730 1120 760 1140 Z M794 1122 C830 1090 850 1120 820 1140 Z" fill="${JA.CRE}" stroke="${I}" stroke-width="4"/></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = JA.kit(tl, root);
+      const { q } = K;
+
+      const SABADOS = 2.75, DEJO = 3.4, NADIE = 4.25, SECO = 5.48;
+
+      tl.fromTo(q(".s04-cactus"), { x: -160, opacity: 0.5 }, { x: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, 0);
+      K.popSvg(q(".s04-p .ja-p-cartel"), 0.45, "560 1000", 0.4, 0.4);
+      K.menear(q(".s04-cactus"), PX, PY, 0.4, 0.8, 1.2, 3);
+      // "Venía todos los sábados": aparece la tira y se tildan
+      K.pop(q(".s04-sab"), 1.9);
+      [0, 1, 2, 3].forEach((i) => K.dibujar(q(".s04-ok" + i), SABADOS - 0.3 + i * 0.12, 0.2));
+      // "Dejó de venir": los sábados siguientes vacíos
+      [4, 5, 6, 7].forEach((i) => K.dibujar(q(".s04-no" + i), DEJO + (i - 4) * 0.12, 0.18));
+      // "nadie le escribió": cero mensajes
+      K.pop(q(".s04-msj"), NADIE);
+      K.sacudon(q(".s04-msj"), NADIE + 0.4, 0.6);
+      // "Más seco que vos a fin de mes": billetera vacía con polilla
+      tl.to([q(".s04-sab"), q(".s04-msj")], { opacity: 0, y: -40, duration: 0.25 }, SECO - 0.25);
+      K.pop(q(".s04-bill"), SECO);
+      gsap.set(q(".s04-polilla"), { opacity: 0 });
+      tl.fromTo(q(".s04-polilla"), { opacity: 0, x: 0, y: 0 }, { opacity: 1, x: 60, y: -260, duration: 1.2, ease: "power1.out", immediateRender: false }, SECO + 0.3);
+      tl.fromTo(q(".s04-polilla"), { scaleX: 1 }, { scaleX: 0.4, svgOrigin: "790 1130", duration: 0.08, yoyo: true, repeat: 13, ease: "none", immediateRender: false }, SECO + 0.3);
+      K.sello(q(".s04-fin"), 6.42, -5);
+      tl.to(q(".s04-escenario"), { scale: 1.07, duration: DUR - SECO, ease: "power1.out", transformOrigin: "50% 65%" }, SECO);
+
+      K.salida(q("#s04-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,51 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/jardin.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-vende"] .s11-capa, [data-composition-id="s11-vende"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-vende"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-vende"] .s11-sello { left: 150px; top: 600px; font-size: 76px; }
+  </style>
+  <div id="root" data-composition-id="s11-vende" data-width="1080" data-height="1920" data-duration="2.75">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="2.75" data-track-index="0">
+      <div class="s11-escenario">
+        <svg class="s11-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ja-sello verde s11-sello">VIVERO QUE VENDE</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-vende";
+      const DUR = 2.75;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const atras = [[110, 1180, 0.62, "hojas"], [320, 1180, 0.62, "flor"], [960, 1180, 0.62, "cactus"]];
+      root.querySelector(".s11-svg").innerHTML =
+        JA.estante(-20, 1180, 1120, { patas: 300 }) +
+        atras.map(([x, y, s, tipo], i) => `<g class="s11-a s11-a${i}">${JA.planta(x, y, s, { tipo, estado: "viva" })}</g>`).join("") +
+        `<g class="s11-tito">${JA.tito(360, 1680, 1.02, { cara: "feliz", brazo: "presenta" })}</g>` +
+        JA.estante(560, 1480, 560, { patas: 80 }) +
+        `<g class="s11-big">${JA.planta(850, 1480, 1.02, { tipo: "flor", estado: "viva" })}</g>` +
+        `<g class="s11-pet">${JA.hojasCaen(40, 640, 1000, 300, 14, 41, JA.TERRA2)}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = JA.kit(tl, root);
+      const { q } = K;
+
+      const VIVERO = 1.25;
+
+      tl.fromTo(q(".s11-tito"), { y: 60 }, { y: 0, duration: 0.4, ease: "back.out(1.8)" }, 0);
+      K.hablar(".ja-t-boca", 0.05, 7, 0.12);
+      K.popSvg(q(".s11-big"), 0.05, "850 1480", 0.45, 0.6);
+      atras.forEach(([x, y], i) => K.popSvg(q(".s11-a" + i), 0.15 + i * 0.1, `${x} ${y}`, 0.4, 0.4));
+      K.menear(q(".s11-big"), 850, 1480, 0.5, 0.5, 2, 2);
+      K.sello(q(".s11-sello"), VIVERO, -4);
+      K.caen(".s11-pet", 0.2, 2.2, 800);
+      tl.to(q(".s11-escenario"), { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "50% 70%" }, 0);
+
+      K.salida(q("#s11-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

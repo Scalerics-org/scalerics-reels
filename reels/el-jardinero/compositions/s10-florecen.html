@@ -1,0 +1,59 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/jardin.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-florecen"] .s10-capa, [data-composition-id="s10-florecen"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-florecen"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-florecen"] .s10-g1 { left: 50px; top: 600px; }
+    [data-composition-id="s10-florecen"] .s10-g2 { left: 90px; top: 720px; background: #d9efc4; }
+    [data-composition-id="s10-florecen"] .s10-g1::after, [data-composition-id="s10-florecen"] .s10-g2::after { content: ""; position: absolute; left: 120px; bottom: -40px; border: 20px solid transparent; border-top: 26px solid #1c1712; }
+    [data-composition-id="s10-florecen"] .s10-res { left: 560px; top: 640px; font-size: 64px; }
+  </style>
+  <div id="root" data-composition-id="s10-florecen" data-width="1080" data-height="1920" data-duration="5.21">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="5.21" data-track-index="0">
+      <div class="s10-escenario">
+        <svg class="s10-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ja-globo s10-g1">¡Me escribieron!</div>
+        <div class="ja-globo s10-g2">¿Me lo reservás?</div>
+        <div class="ja-sello verde s10-res">¡RESERVADO!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-florecen";
+      const DUR = 5.21;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const PY = 1470, PS = 0.86;
+      const P = [[200, "hojas", null], [540, "cactus", null], [880, "flor", [-6, -560, -10]]];
+      root.querySelector(".s10-svg").innerHTML =
+        JA.estante(0, PY, 1080, { patas: 100 }) +
+        P.map(([x, tipo, gorro], i) => `<g class="s10-pl${i}">${JA.planta(x, PY, PS, { tipo, gorro: null, cls: "s10-p" + i })}</g>`).join("") +
+        `<g class="s10-petalos">${JA.hojasCaen(60, 700, 960, 300, 12, 31, JA.TERRA2)}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = JA.kit(tl, root);
+      const { q } = K;
+
+      const POQUITO = 0.91, AY = 2.27, ME = 3.46, RESERVAS = 4.18;
+
+      tl.fromTo(q(".s10-escenario"), { scale: 1.06 }, { scale: 1, duration: 1.0, ease: "power2.out", transformOrigin: "50% 75%" }, 0);
+      P.forEach(([x], i) => K.menear(q(".s10-pl" + i), x, PY, 0, 0.4, 1.5, 1));
+      // "poquito de agua": florecen una tras otra
+      P.forEach(([x], i) => K.florecer(".s10-p" + i, POQUITO - 0.1 + i * 0.25, x, PY));
+      K.caen(".s10-petalos", POQUITO + 0.5, 2.2, 700);
+      P.forEach(([x], i) => K.menear(q(".s10-pl" + i), x, PY, POQUITO + 0.9, 0.6, 2, 2));
+      // "¡Ay, me escribieron!": la Preguntona en flor
+      K.pop(q(".s10-g1"), AY);
+      K.hablar(".s10-p0 .ja-p-boca", AY, 4, 0.12);
+      tl.to(q(".s10-g1"), { opacity: 0, y: -20, duration: 0.2 }, ME - 0.25);
+      K.pop(q(".s10-g2"), ME);
+      K.hablar(".s10-p0 .ja-p-boca", ME, 4, 0.12);
+      K.sello(q(".s10-res"), RESERVAS + 0.15, -6);
+
+      K.salida(q("#s10-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

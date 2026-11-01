@@ -1,0 +1,67 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/jardin.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-agosto"] .s01-capa, [data-composition-id="s01-agosto"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-agosto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-agosto"] .s01-seco { left: 560px; top: 1150px; font-size: 76px; }
+  </style>
+  <div id="root" data-composition-id="s01-agosto" data-width="1080" data-height="1920" data-duration="4.58">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.58" data-track-index="0">
+      <div class="s01-escenario">
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ja-sello seco s01-seco">SE SECÓ</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-agosto";
+      const DUR = 4.58;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const PX = 810, PY = 1400, PS = 1.35;
+      const [gl] = JA.globo(410, 650, "¿Cuánto sale?", "i", { fs: 40, hora: "12/08 · 10:14", cls: "s01-globo" });
+      root.querySelector(".s01-svg").innerHTML =
+        // rayo de sol que entra por el vidrio
+        `<path class="s01-sol" d="M120 540 L420 540 L900 1540 L420 1540 Z" fill="${JA.AMA}" opacity="0.07"/>` +
+        JA.calendario(890, 560, 230, "AGOSTO", { cls: "s01-cal", marca: 7 }) +
+        `<path class="s01-cruz" d="M820 750 L862 790 M862 750 L820 790" stroke="${JA.TERRA3}" stroke-width="9" stroke-linecap="round"/>` +
+        `<g class="s01-tito">${JA.tito(250, 1640, 1.2, { brazo: "senala", cara: "susurro" })}</g>` +
+        JA.estante(30, PY, 1020, { patas: 200, cls: "s01-mesa" }) +
+        `<g class="s01-planta">${JA.planta(PX, PY, PS, { telarana: true, cls: "s01-p" })}</g>` +
+        `<path class="s01-hilo" d="M620 770 C660 820 740 860 780 930" fill="none" stroke="${JA.CRE}" stroke-width="4" stroke-dasharray="10 8" opacity="0.8"/>` +
+        gl +
+        JA.hojasCaen(820, 1000, 120, 60, 3, 4);
+      const tl = gsap.timeline({ paused: true });
+      const K = JA.kit(tl, root);
+      const { q } = K;
+
+      const PRECIO = 1.33, AGOSTO = 1.92, SECAR = 3.42;
+
+      // cuadro 0: Tito y la planta ya están; acercamiento lento tipo documental
+      tl.fromTo(q(".s01-escenario"), { scale: 1.02 }, { scale: 1.1, duration: DUR, ease: "none", transformOrigin: "62% 60%" }, 0);
+      tl.fromTo(q(".s01-tito"), { y: 30 }, { y: 0, duration: 0.5, ease: "back.out(1.4)" }, 0);
+      K.hablar(".ja-t-boca", 0.05, 8, 0.12);
+      K.menear(q(".s01-planta"), PX, PY, 0, 1.1, 1.5, 2);
+      K.hablar(".s01-p .ja-p-boca", 99, 1);
+      // "precio": el globito del cliente cuelga de la planta
+      K.dibujar(q(".s01-hilo"), PRECIO - 0.2, 0.3);
+      K.pop(q(".s01-globo"), PRECIO);
+      // "agosto": calendario en agosto con el día marcado y tachado
+      K.pop(q(".s01-cal"), AGOSTO - 0.1);
+      gsap.set(q(".s01-cal"), { transformOrigin: "50% 0%" });
+      K.dibujar(q(".s01-cruz"), AGOSTO + 0.25, 0.3);
+      tl.to(q(".s01-cal"), { rotation: 4, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut", svgOrigin: "890 560" }, AGOSTO + 0.3);
+      // "secar": la planta se marchita, cae una hoja, sello
+      K.marchitar(".s01-p", SECAR - 0.15);
+      K.caen(".ja-caen", SECAR - 0.3, 1.2, 320);
+      tl.to(q(".s01-globo"), { opacity: 0.35, y: 30, duration: 0.4 }, SECAR);
+      K.sello(q(".s01-seco"), SECAR + 0.1, -5);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
