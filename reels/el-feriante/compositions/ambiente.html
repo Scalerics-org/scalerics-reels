@@ -1,0 +1,64 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; width: 1080px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-toldo { top: 0; height: 240px; }
+    [data-composition-id="ambiente"] .amb-tablon { top: 1320px; height: 300px; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1150px at 540px 900px, rgba(16, 20, 18, 0) 58%, rgba(16, 20, 18, 0.75) 100%); }
+    [data-composition-id="ambiente"] .amb-cartel { position: absolute; left: 0; right: 0; top: 1478px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 50px; color: #f3ead6; opacity: 0.9; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #fff6e0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="74.23">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="74.23" data-track-index="0">
+      <div class="amb-vineta"></div>
+      <div class="amb-mesa">
+        <svg class="amb-tablon" viewBox="0 1320 1080 300" aria-hidden="true">
+          <rect x="-20" y="1388" width="1120" height="210" fill="#8a5a32" stroke="#141816" stroke-width="5" />
+          <path d="M-20 1458 H1100 M-20 1528 H1100" stroke="#5e3c20" stroke-width="5" />
+          <path d="M60 1430 q60 -6 120 0 t120 0" fill="none" stroke="#6a4426" stroke-width="3" stroke-linecap="round" opacity="0.7" /><path d="M420 1470 q60 -6 120 0 t120 0" fill="none" stroke="#6a4426" stroke-width="3" stroke-linecap="round" opacity="0.7" /><path d="M760 1440 q60 -6 120 0 t120 0" fill="none" stroke="#6a4426" stroke-width="3" stroke-linecap="round" opacity="0.7" /><path d="M200 1530 q60 -6 120 0 t120 0" fill="none" stroke="#6a4426" stroke-width="3" stroke-linecap="round" opacity="0.7" /><path d="M620 1545 q60 -6 120 0 t120 0" fill="none" stroke="#6a4426" stroke-width="3" stroke-linecap="round" opacity="0.7" /><path d="M880 1515 q60 -6 120 0 t120 0" fill="none" stroke="#6a4426" stroke-width="3" stroke-linecap="round" opacity="0.7" />
+          <rect x="-20" y="1338" width="1120" height="52" rx="6" fill="#b07a45" stroke="#141816" stroke-width="6" />
+          <path d="M-20 1350 H1100" stroke="#d29a5f" stroke-width="5" opacity="0.8" />
+        </svg>
+        <div class="amb-cartel">Puesto del Don · frutas y verduras</div>
+      </div>
+      <svg class="amb-toldo" viewBox="0 0 1080 240" aria-hidden="true">
+        <g class="amb-lona"><rect x="0" y="0" width="90" height="176" fill="#d8342c" /><rect x="90" y="0" width="90" height="176" fill="#f3ead6" /><rect x="180" y="0" width="90" height="176" fill="#d8342c" /><rect x="270" y="0" width="90" height="176" fill="#f3ead6" /><rect x="360" y="0" width="90" height="176" fill="#d8342c" /><rect x="450" y="0" width="90" height="176" fill="#f3ead6" /><rect x="540" y="0" width="90" height="176" fill="#d8342c" /><rect x="630" y="0" width="90" height="176" fill="#f3ead6" /><rect x="720" y="0" width="90" height="176" fill="#d8342c" /><rect x="810" y="0" width="90" height="176" fill="#f3ead6" /><rect x="900" y="0" width="90" height="176" fill="#d8342c" /><rect x="990" y="0" width="90" height="176" fill="#f3ead6" /><rect x="0" y="0" width="1080" height="40" fill="#141816" opacity="0.25" /></g>
+        <g class="amb-fleco"><path d="M0 172 a45 40 0 0 0 90 0 Z" fill="#d8342c" stroke="#141816" stroke-width="5" stroke-linejoin="round" /><path d="M90 172 a45 40 0 0 0 90 0 Z" fill="#f3ead6" stroke="#141816" stroke-width="5" stroke-linejoin="round" /><path d="M180 172 a45 40 0 0 0 90 0 Z" fill="#d8342c" stroke="#141816" stroke-width="5" stroke-linejoin="round" /><path d="M270 172 a45 40 0 0 0 90 0 Z" fill="#f3ead6" stroke="#141816" stroke-width="5" stroke-linejoin="round" /><path d="M360 172 a45 40 0 0 0 90 0 Z" fill="#d8342c" stroke="#141816" stroke-width="5" stroke-linejoin="round" /><path d="M450 172 a45 40 0 0 0 90 0 Z" fill="#f3ead6" stroke="#141816" stroke-width="5" stroke-linejoin="round" /><path d="M540 172 a45 40 0 0 0 90 0 Z" fill="#d8342c" stroke="#141816" stroke-width="5" stroke-linejoin="round" /><path d="M630 172 a45 40 0 0 0 90 0 Z" fill="#f3ead6" stroke="#141816" stroke-width="5" stroke-linejoin="round" /><path d="M720 172 a45 40 0 0 0 90 0 Z" fill="#d8342c" stroke="#141816" stroke-width="5" stroke-linejoin="round" /><path d="M810 172 a45 40 0 0 0 90 0 Z" fill="#f3ead6" stroke="#141816" stroke-width="5" stroke-linejoin="round" /><path d="M900 172 a45 40 0 0 0 90 0 Z" fill="#d8342c" stroke="#141816" stroke-width="5" stroke-linejoin="round" /><path d="M990 172 a45 40 0 0 0 90 0 Z" fill="#f3ead6" stroke="#141816" stroke-width="5" stroke-linejoin="round" /></g>
+      </svg>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 74.23;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // el fleco del toldo se mece con el viento (determinista)
+      for (let t = 0, k = 0; t < DUR - 1.6; t += 1.6, k++) {
+        tl.to(q(".amb-fleco"), { y: k % 2 ? 0 : 6, skewX: k % 2 ? 0 : 1.5, duration: 1.6, ease: "sine.inOut", svgOrigin: "540 172" }, t);
+      }
+
+      // el tablón se va en las escenas fuera de la feria y vuelve (segundos globales)
+      const mesa = q(".amb-mesa");
+      [[9.5, 16.0], [34.6, 40.45], [44.3, null]].forEach(([fuera, vuelve]) => {
+        tl.to(mesa, { y: 700, duration: 0.3, ease: "power3.in" }, fuera);
+        if (vuelve) tl.to(mesa, { y: 0, duration: 0.35, ease: "back.out(1.4)" }, vuelve);
+      });
+
+      // flashes cálidos: "internet" (gancho), "holograma", "Scalerics"
+      [3.2, 42.1, 56.1].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.45, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,1178 @@
+[
+{
+"id": 0,
+"text": "Yo",
+"start": 0,
+"end": 0.2
+},
+{
+"id": 1,
+"text": "vendo",
+"start": 0.2,
+"end": 0.6
+},
+{
+"id": 2,
+"text": "tomates",
+"start": 0.6,
+"end": 1.2
+},
+{
+"id": 3,
+"text": "arriba",
+"start": 1.2,
+"end": 1.3
+},
+{
+"id": 4,
+"text": "de",
+"start": 1.3,
+"end": 1.6
+},
+{
+"id": 5,
+"text": "un",
+"start": 1.6,
+"end": 1.7
+},
+{
+"id": 6,
+"text": "tablón.",
+"start": 1.7,
+"end": 2.1
+},
+{
+"id": 7,
+"text": "Y",
+"start": 2.47,
+"end": 2.6
+},
+{
+"id": 8,
+"text": "vendo",
+"start": 2.6,
+"end": 2.9
+},
+{
+"id": 9,
+"text": "más",
+"start": 2.9,
+"end": 3
+},
+{
+"id": 10,
+"text": "por",
+"start": 3,
+"end": 3.2
+},
+{
+"id": 11,
+"text": "internet",
+"start": 3.2,
+"end": 3.3
+},
+{
+"id": 12,
+"text": "que",
+"start": 3.3,
+"end": 3.8
+},
+{
+"id": 13,
+"text": "vos.",
+"start": 3.8,
+"end": 4.1
+},
+{
+"id": 14,
+"text": "¡Lleve,",
+"start": 4.73,
+"end": 5.23
+},
+{
+"id": 15,
+"text": "lleve,",
+"start": 5.23,
+"end": 5.63
+},
+{
+"id": 16,
+"text": "que",
+"start": 5.63,
+"end": 5.83
+},
+{
+"id": 17,
+"text": "se",
+"start": 5.83,
+"end": 5.83
+},
+{
+"id": 18,
+"text": "termina!",
+"start": 6.0,
+"end": 6.53
+},
+{
+"id": 19,
+"text": "Cuatro",
+"start": 6.53,
+"end": 6.86
+},
+{
+"id": 20,
+"text": "por",
+"start": 6.86,
+"end": 7.2
+},
+{
+"id": 21,
+"text": "cien,",
+"start": 7.2,
+"end": 7.53
+},
+{
+"id": 22,
+"text": "y",
+"start": 7.53,
+"end": 7.83
+},
+{
+"id": 23,
+"text": "la",
+"start": 7.83,
+"end": 7.93
+},
+{
+"id": 24,
+"text": "yapa",
+"start": 7.93,
+"end": 8.33
+},
+{
+"id": 25,
+"text": "de",
+"start": 8.33,
+"end": 8.43
+},
+{
+"id": 26,
+"text": "regalo.",
+"start": 8.43,
+"end": 8.93
+},
+{
+"id": 27,
+"text": "Vos",
+"start": 9.693,
+"end": 9.9
+},
+{
+"id": 28,
+"text": "tenés",
+"start": 9.9,
+"end": 10.2
+},
+{
+"id": 29,
+"text": "local,",
+"start": 10.2,
+"end": 10.4
+},
+{
+"id": 30,
+"text": "vidriera",
+"start": 11.058,
+"end": 11.6
+},
+{
+"id": 31,
+"text": "y",
+"start": 11.6,
+"end": 11.7
+},
+{
+"id": 32,
+"text": "alarma.",
+"start": 11.7,
+"end": 12.3
+},
+{
+"id": 33,
+"text": "Y",
+"start": 12.731,
+"end": 12.8
+},
+{
+"id": 34,
+"text": "vendés",
+"start": 12.8,
+"end": 13.2
+},
+{
+"id": 35,
+"text": "de",
+"start": 13.2,
+"end": 13.3
+},
+{
+"id": 36,
+"text": "lunes",
+"start": 13.3,
+"end": 13.7
+},
+{
+"id": 37,
+"text": "a",
+"start": 13.7,
+"end": 13.8
+},
+{
+"id": 38,
+"text": "sábado,",
+"start": 13.8,
+"end": 14.3
+},
+{
+"id": 39,
+"text": "de",
+"start": 14.609,
+"end": 14.7
+},
+{
+"id": 40,
+"text": "nueve",
+"start": 14.7,
+"end": 15
+},
+{
+"id": 41,
+"text": "a",
+"start": 15,
+"end": 15.1
+},
+{
+"id": 42,
+"text": "siete.",
+"start": 15.1,
+"end": 16.064
+},
+{
+"id": 43,
+"text": "Yo",
+"start": 16.064,
+"end": 16.2
+},
+{
+"id": 44,
+"text": "tengo",
+"start": 16.2,
+"end": 16.5
+},
+{
+"id": 45,
+"text": "un",
+"start": 16.5,
+"end": 16.7
+},
+{
+"id": 46,
+"text": "toldo",
+"start": 16.7,
+"end": 17.1
+},
+{
+"id": 47,
+"text": "a",
+"start": 17.1,
+"end": 17.2
+},
+{
+"id": 48,
+"text": "rayas.",
+"start": 17.2,
+"end": 17.2
+},
+{
+"id": 49,
+"text": "Y",
+"start": 18.448,
+"end": 18.5
+},
+{
+"id": 50,
+"text": "vendo",
+"start": 18.5,
+"end": 18.8
+},
+{
+"id": 51,
+"text": "hasta",
+"start": 18.8,
+"end": 19.1
+},
+{
+"id": 52,
+"text": "cuando",
+"start": 19.1,
+"end": 19.4
+},
+{
+"id": 53,
+"text": "duermo.",
+"start": 19.4,
+"end": 20
+},
+{
+"id": 54,
+"text": "¡Don!",
+"start": 20.706,
+"end": 20.9
+},
+{
+"id": 55,
+"text": "¿Me",
+"start": 21.341,
+"end": 21.4
+},
+{
+"id": 56,
+"text": "mandás",
+"start": 21.4,
+"end": 21.7
+},
+{
+"id": 57,
+"text": "un",
+"start": 21.7,
+"end": 21.9
+},
+{
+"id": 58,
+"text": "cajón",
+"start": 21.9,
+"end": 22.1
+},
+{
+"id": 59,
+"text": "de",
+"start": 22.1,
+"end": 22.2
+},
+{
+"id": 60,
+"text": "naranjas?",
+"start": 22.2,
+"end": 22.4
+},
+{
+"id": 61,
+"text": "Ya",
+"start": 23.462,
+"end": 23.6
+},
+{
+"id": 62,
+"text": "te",
+"start": 23.6,
+"end": 23.7
+},
+{
+"id": 63,
+"text": "llegó,",
+"start": 23.7,
+"end": 24.1
+},
+{
+"id": 64,
+"text": "mi",
+"start": 24.1,
+"end": 24.4
+},
+{
+"id": 65,
+"text": "amor.",
+"start": 24.4,
+"end": 24.7
+},
+{
+"id": 66,
+"text": "Lo",
+"start": 24.7,
+"end": 25
+},
+{
+"id": 67,
+"text": "pagaste",
+"start": 25,
+"end": 25.4
+},
+{
+"id": 68,
+"text": "anoche.",
+"start": 25.4,
+"end": 25.5
+},
+{
+"id": 69,
+"text": "¿Anoche?",
+"start": 26.389,
+"end": 27
+},
+{
+"id": 70,
+"text": "¡Si",
+"start": 27.388,
+"end": 27.5
+},
+{
+"id": 71,
+"text": "estaba",
+"start": 27.5,
+"end": 27.5
+},
+{
+"id": 72,
+"text": "en",
+"start": 27.5,
+"end": 27.8
+},
+{
+"id": 73,
+"text": "pijama!",
+"start": 27.8,
+"end": 28.3
+},
+{
+"id": 74,
+"text": "Por",
+"start": 28.954,
+"end": 29.1
+},
+{
+"id": 75,
+"text": "eso.",
+"start": 29.1,
+"end": 29.5
+},
+{
+"id": 76,
+"text": "La",
+"start": 30.111,
+"end": 30.2
+},
+{
+"id": 77,
+"text": "feria",
+"start": 30.2,
+"end": 30.5
+},
+{
+"id": 78,
+"text": "abre",
+"start": 30.5,
+"end": 30.6
+},
+{
+"id": 79,
+"text": "los",
+"start": 30.6,
+"end": 30.8
+},
+{
+"id": 80,
+"text": "domingos.",
+"start": 30.8,
+"end": 31.4
+},
+{
+"id": 81,
+"text": "Mi",
+"start": 31.4,
+"end": 31.822
+},
+{
+"id": 82,
+"text": "puesto",
+"start": 31.822,
+"end": 32.3
+},
+{
+"id": 83,
+"text": "en",
+"start": 32.3,
+"end": 32.4
+},
+{
+"id": 84,
+"text": "el",
+"start": 32.4,
+"end": 32.5
+},
+{
+"id": 85,
+"text": "celular",
+"start": 32.5,
+"end": 32.7
+},
+{
+"id": 86,
+"text": "no",
+"start": 32.7,
+"end": 33.2
+},
+{
+"id": 87,
+"text": "cierra",
+"start": 33.2,
+"end": 33.6
+},
+{
+"id": 88,
+"text": "nunca.",
+"start": 33.6,
+"end": 34.1
+},
+{
+"id": 89,
+"text": "Pará,",
+"start": 34.785,
+"end": 35
+},
+{
+"id": 90,
+"text": "pará.",
+"start": 35,
+"end": 35.2
+},
+{
+"id": 91,
+"text": "Lo",
+"start": 35.733,
+"end": 35.8
+},
+{
+"id": 92,
+"text": "mío",
+"start": 35.8,
+"end": 36
+},
+{
+"id": 93,
+"text": "no",
+"start": 36,
+"end": 36.1
+},
+{
+"id": 94,
+"text": "se",
+"start": 36.1,
+"end": 36.2
+},
+{
+"id": 95,
+"text": "vende",
+"start": 36.2,
+"end": 36.7
+},
+{
+"id": 96,
+"text": "por",
+"start": 36.7,
+"end": 36.8
+},
+{
+"id": 97,
+"text": "internet.",
+"start": 36.8,
+"end": 36.9
+},
+{
+"id": 98,
+"text": "Lo",
+"start": 37.55,
+"end": 37.8
+},
+{
+"id": 99,
+"text": "mío",
+"start": 37.8,
+"end": 38
+},
+{
+"id": 100,
+"text": "hay",
+"start": 38,
+"end": 38.1
+},
+{
+"id": 101,
+"text": "que",
+"start": 38.1,
+"end": 38.1
+},
+{
+"id": 102,
+"text": "verlo,",
+"start": 38.1,
+"end": 38.7
+},
+{
+"id": 103,
+"text": "hay",
+"start": 39.149,
+"end": 39.2
+},
+{
+"id": 104,
+"text": "que",
+"start": 39.2,
+"end": 39.3
+},
+{
+"id": 105,
+"text": "tocarlo.",
+"start": 39.3,
+"end": 39.9
+},
+{
+"id": 106,
+"text": "¿Y",
+"start": 40.5,
+"end": 40.88
+},
+{
+"id": 107,
+"text": "el",
+"start": 40.888,
+"end": 41
+},
+{
+"id": 108,
+"text": "tomate",
+"start": 41,
+"end": 41.3
+},
+{
+"id": 109,
+"text": "qué",
+"start": 41.3,
+"end": 41.6
+},
+{
+"id": 110,
+"text": "es,",
+"start": 41.6,
+"end": 41.6
+},
+{
+"id": 111,
+"text": "un",
+"start": 41.6,
+"end": 42.1
+},
+{
+"id": 112,
+"text": "holograma?",
+"start": 42.1,
+"end": 42.6
+},
+{
+"id": 113,
+"text": "Te",
+"start": 43.131,
+"end": 43.2
+},
+{
+"id": 114,
+"text": "digo",
+"start": 43.2,
+"end": 43.4
+},
+{
+"id": 115,
+"text": "un",
+"start": 43.4,
+"end": 43.4
+},
+{
+"id": 116,
+"text": "secreto.",
+"start": 43.4,
+"end": 43.5
+},
+{
+"id": 117,
+"text": "Vos",
+"start": 44.487,
+"end": 44.7
+},
+{
+"id": 118,
+"text": "vendés",
+"start": 44.7,
+"end": 44.9
+},
+{
+"id": 119,
+"text": "mejor",
+"start": 44.9,
+"end": 45.2
+},
+{
+"id": 120,
+"text": "que",
+"start": 45.2,
+"end": 45.4
+},
+{
+"id": 121,
+"text": "yo.",
+"start": 45.4,
+"end": 45.5
+},
+{
+"id": 122,
+"text": "Con",
+"start": 45.93,
+"end": 46
+},
+{
+"id": 123,
+"text": "el",
+"start": 46,
+"end": 46.2
+},
+{
+"id": 124,
+"text": "cliente",
+"start": 46.2,
+"end": 46.3
+},
+{
+"id": 125,
+"text": "enfrente",
+"start": 46.3,
+"end": 46.8
+},
+{
+"id": 126,
+"text": "no",
+"start": 46.8,
+"end": 47.3
+},
+{
+"id": 127,
+"text": "se",
+"start": 47.3,
+"end": 47.5
+},
+{
+"id": 128,
+"text": "te",
+"start": 47.5,
+"end": 47.6
+},
+{
+"id": 129,
+"text": "escapa",
+"start": 47.6,
+"end": 47.9
+},
+{
+"id": 130,
+"text": "ni",
+"start": 47.9,
+"end": 48.1
+},
+{
+"id": 131,
+"text": "uno.",
+"start": 48.1,
+"end": 48.4
+},
+{
+"id": 132,
+"text": "Pero",
+"start": 48.884,
+"end": 49
+},
+{
+"id": 133,
+"text": "tu",
+"start": 49,
+"end": 49.2
+},
+{
+"id": 134,
+"text": "cliente",
+"start": 49.2,
+"end": 49.5
+},
+{
+"id": 135,
+"text": "ya",
+"start": 49.5,
+"end": 49.6
+},
+{
+"id": 136,
+"text": "no",
+"start": 49.6,
+"end": 49.8
+},
+{
+"id": 137,
+"text": "pasa",
+"start": 49.8,
+"end": 50.2
+},
+{
+"id": 138,
+"text": "por",
+"start": 50.2,
+"end": 50.3
+},
+{
+"id": 139,
+"text": "la",
+"start": 50.3,
+"end": 50.4
+},
+{
+"id": 140,
+"text": "vidriera:",
+"start": 50.4,
+"end": 50.8
+},
+{
+"id": 141,
+"text": "está",
+"start": 51.147,
+"end": 51.3
+},
+{
+"id": 142,
+"text": "en",
+"start": 51.3,
+"end": 51.4
+},
+{
+"id": 143,
+"text": "el",
+"start": 51.4,
+"end": 51.5
+},
+{
+"id": 144,
+"text": "celular.",
+"start": 51.5,
+"end": 51.8
+},
+{
+"id": 145,
+"text": "Yo",
+"start": 52.467,
+"end": 52.6
+},
+{
+"id": 146,
+"text": "puse",
+"start": 52.6,
+"end": 52.9
+},
+{
+"id": 147,
+"text": "el",
+"start": 52.9,
+"end": 52.9
+},
+{
+"id": 148,
+"text": "puesto",
+"start": 52.9,
+"end": 53.2
+},
+{
+"id": 149,
+"text": "ahí,",
+"start": 53.2,
+"end": 53.3
+},
+{
+"id": 150,
+"text": "donde",
+"start": 53.3,
+"end": 53.8
+},
+{
+"id": 151,
+"text": "está",
+"start": 53.8,
+"end": 54
+},
+{
+"id": 152,
+"text": "la",
+"start": 54,
+"end": 54.2
+},
+{
+"id": 153,
+"text": "gente.",
+"start": 54.2,
+"end": 54.6
+},
+{
+"id": 154,
+"text": "Eso",
+"start": 55.313,
+"end": 55.6
+},
+{
+"id": 155,
+"text": "hacemos",
+"start": 55.6,
+"end": 55.9
+},
+{
+"id": 156,
+"text": "en",
+"start": 55.9,
+"end": 56.1
+},
+{
+"id": 157,
+"text": "Scalerics:",
+"start": 56.1,
+"end": 56.7
+},
+{
+"id": 158,
+"text": "tu",
+"start": 56.7,
+"end": 57.1
+},
+{
+"id": 159,
+"text": "tienda",
+"start": 57.1,
+"end": 57.5
+},
+{
+"id": 160,
+"text": "online.",
+"start": 57.5,
+"end": 57.6
+},
+{
+"id": 161,
+"text": "Vende",
+"start": 58.219,
+"end": 58.5
+},
+{
+"id": 162,
+"text": "sola,",
+"start": 58.5,
+"end": 58.9
+},
+{
+"id": 163,
+"text": "cobra",
+"start": 59.265,
+"end": 59.5
+},
+{
+"id": 164,
+"text": "con",
+"start": 59.5,
+"end": 59.6
+},
+{
+"id": 165,
+"text": "Mercado",
+"start": 59.6,
+"end": 59.7
+},
+{
+"id": 166,
+"text": "Pago",
+"start": 59.7,
+"end": 60.1
+},
+{
+"id": 167,
+"text": "y",
+"start": 60.1,
+"end": 60.6
+},
+{
+"id": 168,
+"text": "manda",
+"start": 60.6,
+"end": 60.9
+},
+{
+"id": 169,
+"text": "por",
+"start": 60.9,
+"end": 61
+},
+{
+"id": 170,
+"text": "DAC,",
+"start": 61,
+"end": 61.3
+},
+{
+"id": 171,
+"text": "Correo",
+"start": 61.737,
+"end": 62
+},
+{
+"id": 172,
+"text": "o",
+"start": 62,
+"end": 62.3
+},
+{
+"id": 173,
+"text": "PedidosYa.",
+"start": 62.3,
+"end": 63.315
+},
+{
+"id": 174,
+"text": "Vos",
+"start": 63.315,
+"end": 63.5
+},
+{
+"id": 175,
+"text": "seguí",
+"start": 63.829,
+"end": 64
+},
+{
+"id": 176,
+"text": "atendiendo",
+"start": 64,
+"end": 64.6
+},
+{
+"id": 177,
+"text": "como",
+"start": 64.6,
+"end": 64.8
+},
+{
+"id": 178,
+"text": "nadie.",
+"start": 64.8,
+"end": 65.1
+},
+{
+"id": 179,
+"text": "Mandáselo",
+"start": 65.528,
+"end": 66.1
+},
+{
+"id": 180,
+"text": "al",
+"start": 66.1,
+"end": 66.2
+},
+{
+"id": 181,
+"text": "que",
+"start": 66.2,
+"end": 66.3
+},
+{
+"id": 182,
+"text": "dice",
+"start": 66.3,
+"end": 66.6
+},
+{
+"id": 183,
+"text": "que",
+"start": 66.6,
+"end": 66.7
+},
+{
+"id": 184,
+"text": "lo",
+"start": 66.7,
+"end": 66.8
+},
+{
+"id": 185,
+"text": "suyo",
+"start": 66.8,
+"end": 67.1
+},
+{
+"id": 186,
+"text": "no",
+"start": 67.1,
+"end": 67.5
+},
+{
+"id": 187,
+"text": "se",
+"start": 67.5,
+"end": 67.6
+},
+{
+"id": 188,
+"text": "vende",
+"start": 67.6,
+"end": 67.9
+},
+{
+"id": 189,
+"text": "por",
+"start": 67.9,
+"end": 68.1
+},
+{
+"id": 190,
+"text": "internet.",
+"start": 68.1,
+"end": 68.5
+},
+{
+"id": 191,
+"text": "¡Lleve,",
+"start": 69.1,
+"end": 69.5
+},
+{
+"id": 192,
+"text": "lleve,",
+"start": 69.5,
+"end": 69.95
+},
+{
+"id": 193,
+"text": "que",
+"start": 70.0,
+"end": 70.1
+},
+{
+"id": 194,
+"text": "se",
+"start": 70.1,
+"end": 70.3
+},
+{
+"id": 195,
+"text": "termina!",
+"start": 70.3,
+"end": 70.9
+}
+]
