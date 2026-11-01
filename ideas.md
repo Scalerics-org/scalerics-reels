@@ -126,6 +126,11 @@
 
 ## En curso
 
+- 01-11 · `la-quiniela` · Agente de IA · sorteo de TV con bolillero: cada bolilla es una hora en que tu cliente escribe y nadie contesta (corrida de la noche, en curso)
+- 01-11 · `karaoke` · Agente de IA · karaoke de despecho: la clienta le canta a tu local que la dejó en visto (corrida de la noche, en curso)
+- 01-11 · `el-hipnotista` · Automatizaciones · show de hipnosis: el dueño ya vive en trance de copiar y pegar (corrida de la noche, en curso)
+- 01-11 · `la-orquesta` · Sistema a medida · concierto: cada músico toca otra partitura (Excel, cuaderno, caja enlatada) (corrida de la noche, en curso)
+- 01-11 · `la-aduana` · Tienda online · reality de aduana: tu local quiere entrar a internet y no pasa el control (corrida de la noche, en curso)
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
