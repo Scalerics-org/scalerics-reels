@@ -131,6 +131,11 @@
 
 ## En curso
 
+- 01-11 · `la-murga` · Agente de IA · murga de carnaval le canta el cuplé al comerciante que deja en visto; retirada con el agente de IA [formato P murga de carnaval · estilo tablado de carnaval] (corrida 01-11 noche)
+- 01-11 · `la-pesca` · Agente de IA · programa de pesca deportiva: el cliente preguntó el precio, picó, y el dueño no recogió la línea; el agente hace el seguimiento [formato P programa de pesca · estilo lancha al amanecer con sonda] (corrida 01-11 noche)
+- 01-11 · `copia-pega` · Automatizaciones · dojo: el maestro entrena al dueño en "copiá, pegá" de pedidos a la planilla; giro: el maestro no repite, automatiza [formato B diálogo maestro-alumno · estilo dojo tinta sumi y laca roja] (corrida 01-11 noche)
+- 01-11 · `cuenta-cartas` · CRM · mesa de blackjack: vos jugás de memoria, el de enfrente cuenta cartas; ¿quién gana la mano? [formato E pregunta al que mira · estilo casino neón] (corrida 01-11 noche)
+- 01-11 · `la-duquesa` · Tienda online · drama de época: la señorita Clara quiere comprar y tu local le contesta por carta lacrada "venga en carruaje" [formato D historia de clienta · estilo drama de época pastel con marcos dorados] (corrida 01-11 noche)
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
