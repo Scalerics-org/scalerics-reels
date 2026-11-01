@@ -1,0 +1,97 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/karaoke.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-once"] .s03-capa, [data-composition-id="s03-once"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-once"] svg.s03-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-once"] .s03-letra { top: 418px; }
+    [data-composition-id="s03-once"] .s03-reloj { position: absolute; right: 26px; top: 22px; padding: 6px 18px 4px; background: #12081f; border: 4px solid #ff2fa0; border-radius: 10px;
+      font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 54px; line-height: 1; color: #ff2fa0; text-shadow: 0 0 12px rgba(255, 47, 160, 0.9); }
+  </style>
+  <div id="root" data-composition-id="s03-once" data-width="1080" data-height="1920" data-duration="6.35">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="6.35" data-track-index="0">
+      <div class="s03-escenario">
+        <div class="s03-tv"></div>
+        <svg class="s03-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-once";
+      const DUR = 6.35;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = KR.INK;
+      root.querySelector(".s03-tv").outerHTML = KR.pantalla("s03", "s03-pan", 40, 560, 1000, 720, 300, "TEMA 47 · «ME DEJASTE EN VISTO»");
+      const pan = root.querySelector(".s03-pan");
+      pan.insertAdjacentHTML("beforeend",
+        `<div class="s03-reloj">23:00</div>
+         <div class="kr-letra s03-letra s03-a">${KR.linea("Te pregunté el precio...")}${KR.linea("a las once de la noche.")}</div>
+         <div class="kr-letra s03-letra s03-b">${KR.linea("Y vos... dormías.")}${KR.linea("&nbsp;")}</div>`);
+      root.querySelector(".s03-svg").innerHTML =
+        KR.vale(220, 1545, 0.5, { cerrados: true }) +
+        // el local cerrado, con la persiana baja
+        `<g class="s03-local">
+          <rect x="600" y="1330" width="380" height="210" fill="#2b1550" stroke="${I}" stroke-width="7"/>
+          <path d="M590 1330 L990 1330 L970 1290 L610 1290 Z" fill="#fff6e8" stroke="${I}" stroke-width="6" stroke-linejoin="round"/>
+          <path d="M650 1292 L640 1330 M710 1292 L705 1330 M770 1292 L770 1330 M830 1292 L835 1330 M890 1292 L900 1330 M950 1292 L960 1330" stroke="${KR.MAG}" stroke-width="22"/>
+          <rect x="630" y="1360" width="320" height="180" fill="#5a5470" stroke="${I}" stroke-width="6"/>
+          <g class="s03-persiana" stroke="${I}" stroke-width="5">
+            <path d="M630 1385 H950 M630 1410 H950 M630 1435 H950 M630 1460 H950 M630 1485 H950 M630 1510 H950"/></g>
+          <rect x="700" y="1236" width="180" height="50" rx="8" fill="${KR.AMA}" stroke="${I}" stroke-width="5"/>
+          <text x="790" y="1272" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="30" fill="${I}">TU LOCAL</text>
+        </g>
+        <g class="s03-zzz" font-family="Lexend" font-weight="800" fill="#4fd8ff" stroke="${I}" stroke-width="3">
+          <text class="s03-z1" x="930" y="1200" font-size="50">Z</text><text class="s03-z2" x="970" y="1150" font-size="64">Z</text><text class="s03-z3" x="1010" y="1090" font-size="80">Z</text>
+        </g>
+        <path class="s03-luna" d="M560 1200 a40 40 0 1 0 50 52 a32 32 0 1 1 -50 -52 Z" fill="${KR.AMA}" stroke="${I}" stroke-width="5"/>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = KR.kit(tl, root);
+      const { q, qa } = K;
+
+      const ONCE = 2.17;
+      const Y = 3.85;
+      const DORMIAS = 4.76;
+
+      gsap.set(pan, { transformOrigin: "50% 50%" });
+      tl.fromTo(pan, { scale: 0.92, opacity: 0.4 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s03-escenario"), { scale: 1 }, { scale: 1.03, duration: DUR, ease: "none", transformOrigin: "50% 45%" }, 0);
+      // el sol del videoclip sube despacio y las olas se mueven
+      tl.fromTo(pan.querySelector(".kr-sol"), { y: 30 }, { y: -10, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(pan.querySelector(".kr-olas"), { x: -20 }, { x: 20, duration: 1.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+      // la letra se pinta en su palabra
+      const wa = Array.from(pan.querySelectorAll(".s03-a .kr-w"));
+      K.pintar(wa, [0.0, 0.08, 0.69, 0.78, 1.92, 2.0, 2.17, 2.6, 2.69, 2.86], 3.5);
+      const wb = Array.from(pan.querySelectorAll(".s03-b .kr-w")).slice(0, 3);
+      gsap.set(pan.querySelector(".s03-b"), { opacity: 0 });
+      tl.to(pan.querySelector(".s03-a"), { opacity: 0, y: -20, duration: 0.2 }, Y - 0.25);
+      tl.fromTo(pan.querySelector(".s03-b"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, Y - 0.2);
+      K.pintar(wb, [Y, 3.91, DORMIAS], DORMIAS + 0.9);
+      // "once": el relojito
+      K.pop(pan.querySelector(".s03-reloj"), ONCE - 0.1);
+      tl.to(pan.querySelector(".s03-reloj"), { opacity: 0.4, duration: 0.15, yoyo: true, repeat: 5, ease: "steps(1)" }, ONCE + 0.3);
+      // Vale canta
+      K.hablar(".kr-v-boca", 0.05, 14, 0.18);
+      K.origen(q(".kr-v-cabeza"), "0 -240");
+      tl.fromTo(q(".kr-v-cabeza"), { rotation: -5 }, { rotation: 5, duration: 0.8, yoyo: true, repeat: 6, ease: "sine.inOut" }, 0);
+      // "Y vos... dormías": el local con persiana, la luna, Zzz
+      K.pop(q(".s03-local"), 1.9);
+      tl.fromTo(q(".s03-persiana"), { y: -120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "bounce.out", immediateRender: false }, Y);
+      K.pop(q(".s03-luna"), Y + 0.2);
+      ["s03-z1", "s03-z2", "s03-z3"].forEach((c, i) => {
+        gsap.set(q("." + c), { opacity: 0 });
+        tl.fromTo(q("." + c), { opacity: 0, y: 20 }, { opacity: 1, y: -10, duration: 0.4, ease: "sine.out", immediateRender: false }, DORMIAS + i * 0.25);
+      });
+
+      K.salida(q("#s03-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

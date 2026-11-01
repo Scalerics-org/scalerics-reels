@@ -1,0 +1,75 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/karaoke.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-solo"] .s09-capa, [data-composition-id="s09-solo"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-solo"] svg.s09-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-solo"] .s09-oscuro { position: absolute; left: 0; top: 0; width: 1080px; height: 1700px; background: #0a0414; }
+    [data-composition-id="s09-solo"] .s09-t1 { left: 80px; top: 700px; }
+    [data-composition-id="s09-solo"] .s09-t2 { left: 700px; top: 760px; }
+    [data-composition-id="s09-solo"] .s09-t3 { left: 120px; top: 1180px; }
+    [data-composition-id="s09-solo"] .s09-solo { left: 130px; top: 660px; font-size: 66px; width: 820px; }
+  </style>
+  <div id="root" data-composition-id="s09-solo" data-width="1080" data-height="1920" data-duration="2.83">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="2.83" data-track-index="0">
+      <div class="s09-escenario">
+        <div class="s09-oscuro"></div>
+        <svg class="s09-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="kr-tag nar s09-t s09-t1">ATIENDO</div>
+        <div class="kr-tag nar s09-t s09-t2">REPONGO</div>
+        <div class="kr-tag nar s09-t s09-t3">LLAMO AL PROVEEDOR</div>
+        <div class="kr-sello nar s09-solo">SOLO CONTRA TODO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-solo";
+      const DUR = 2.83;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = KR.INK;
+      root.querySelector(".s09-svg").innerHTML =
+        `<path class="s09-cono" d="M540 0 L250 1540 L830 1540 Z" fill="#fff6e8" opacity="0.13"/>
+         <ellipse class="s09-piso" cx="540" cy="1540" rx="300" ry="44" fill="#fff6e8" opacity="0.16"/>` +
+        `<g class="s09-due">${KR.dueno(540, 1545, 1.05)}</g>` +
+        `<g class="s09-corazon"><path d="M540 1430 C500 1400 486 1376 500 1358 C512 1344 532 1350 540 1366 C548 1350 568 1344 580 1358 C594 1376 580 1400 540 1430 Z" fill="${KR.MAG}" stroke="${I}" stroke-width="6"/></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = KR.kit(tl, root);
+      const { q, qa } = K;
+
+      const QUIERA = 0.43;
+      const SOLO = 1.6;
+
+      // se apagan las luces
+      tl.fromTo(q(".s09-oscuro"), { opacity: 0 }, { opacity: 0.82, duration: 0.25, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s09-cono"), { opacity: 0 }, { opacity: 0.14, duration: 0.2 }, 0.1);
+      tl.fromTo(q(".s09-escenario"), { scale: 1 }, { scale: 1.06, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+      // las tareas de antes caen
+      qa(".s09-t").forEach((t, i) => {
+        tl.fromTo(t, { y: 0, rotation: 0, opacity: 1 }, { y: 700, rotation: i % 2 ? 40 : -35, opacity: 0, duration: 1.1, ease: "power2.in" }, 0.05 + i * 0.12);
+      });
+      // el dueño, triste, baja la cabeza
+      K.hablar(".kr-d-boca", 0.0, 4, 0.12);
+      K.hablar(".kr-d-boca", 1.3, 3, 0.12);
+      K.origen(q(".kr-d-cabeza"), "0 -240");
+      tl.to(q(".kr-d-cabeza"), { rotation: -6, y: 10, duration: 0.5, ease: "sine.inOut" }, 0.1);
+      tl.to(q(".kr-d-cejas"), { rotation: 0, y: 6, duration: 0.3 }, 0.1);
+      // "quiera": un corazoncito en el pecho que late
+      K.origen(q(".s09-corazon"), "540 1390");
+      K.pop(q(".s09-corazon"), QUIERA);
+      tl.to(q(".s09-corazon"), { scale: 1.2, duration: 0.18, yoyo: true, repeat: 5, ease: "power2.out" }, QUIERA + 0.35);
+      // "solo": el sello
+      K.sello(q(".s09-solo"), SOLO, -4);
+
+      K.salida(q("#s09-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

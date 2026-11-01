@@ -1,0 +1,98 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/karaoke.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-dedico"] .s01-capa, [data-composition-id="s01-dedico"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-dedico"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-dedico"] .s01-card { position: absolute; left: 500px; top: 626px; width: 460px; padding: 12px 0 14px; text-align: center; background: rgba(11, 26, 110, 0.78); border: 3px solid #3d63ff; border-radius: 14px; }
+    [data-composition-id="s01-dedico"] .s01-card small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.2em; color: #fff6e8; }
+    [data-composition-id="s01-dedico"] .s01-card b { display: block; margin-top: 10px; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 50px; line-height: 1.05; color: #ffd81a;
+      text-shadow: 0 4px 0 #8a1257, 3px 3px 0 #8a1257, -3px -3px 0 #8a1257, 3px -3px 0 #8a1257, -3px 3px 0 #8a1257; }
+    [data-composition-id="s01-dedico"] .s01-ded { position: absolute; left: 480px; top: 846px; width: 500px; padding: 10px 0 8px; background: #ff2fa0; border: 4px solid #12081f; border-radius: 10px; text-align: center;
+      font-family: "Lexend", sans-serif; font-weight: 800; font-size: 36px; color: #fff6e8; letter-spacing: 0.04em; white-space: nowrap; }
+    [data-composition-id="s01-dedico"] .s01-visto { left: 540px; top: 1060px; font-size: 86px; }
+  </style>
+  <div id="root" data-composition-id="s01-dedico" data-width="1080" data-height="1920" data-duration="4.42">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.42" data-track-index="0">
+      <div class="s01-escenario">
+        <svg class="s01-luz" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s01-tv"></div>
+        <div class="s01-card"><small>TEMA 47 · BOLERO</small><b>«Me dejaste<br>en visto»</b></div>
+        <div class="s01-ded">DEDICADO A: TU LOCAL</div>
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="kr-sello s01-visto">EN VISTO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-dedico";
+      const DUR = 4.42;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = KR.INK;
+      root.querySelector(".s01-tv").outerHTML = KR.pantalla("s01", "s01-pan", 440, 580, 580, 380, 0, "");
+      root.querySelector(".s01-luz").innerHTML =
+        `<path class="s01-cono" d="M300 0 L90 1500 L560 1500 Z" fill="#fff6e8" opacity="0.1"/>
+         <ellipse class="s01-piso" cx="320" cy="1500" rx="250" ry="40" fill="#fff6e8" opacity="0.14"/>`;
+      root.querySelector(".s01-svg").innerHTML =
+        KR.vale(270, 1530, 1.2, { cerrados: true }) +
+        // doble tilde de "visto"
+        `<g class="s01-tildes" fill="none" stroke="#4fd8ff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+          <path class="s01-t1" d="M600 1260 L650 1310 L740 1210"/>
+          <path class="s01-t2" d="M680 1290 L700 1310 L790 1210"/>
+        </g>
+        <g class="s01-notas" fill="${KR.AMA}" stroke="${I}" stroke-width="5">
+          <path d="M120 760 v-80 l50 -14 v76" fill="none" stroke-width="9" stroke="${KR.AMA}"/><circle cx="110" cy="762" r="16"/><circle cx="160" cy="744" r="16"/>
+        </g>`;
+      // la pantalla arranca en el título
+      const pan = root.querySelector(".s01-pan");
+      const tl = gsap.timeline({ paused: true });
+      const K = KR.kit(tl, root);
+      const { q, qa } = K;
+
+      const CANCION = 0.26;
+      const DEDICO = 1.22;
+      const LOCAL = 2.0;
+      const QUE = 2.95;
+      const VISTO = 3.48;
+
+      // cuadro 0: Vale ya está en el escenario con el micrófono, ojos cerrados
+      tl.fromTo(q(".kr-v"), { y: 40 }, { y: 0, duration: 0.5, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s01-escenario"), { scale: 1 }, { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "35% 70%" }, 0);
+      tl.fromTo(q(".s01-cono"), { opacity: 0.04 }, { opacity: 0.12, duration: 0.3, ease: "power2.out" }, 0);
+      gsap.set(pan, { transformOrigin: "50% 50%" });
+      tl.fromTo(pan, { opacity: 0.4, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      // "canción": el título del tema
+      K.pop(q(".s01-card"), CANCION);
+      tl.fromTo(q(".s01-notas"), { y: 20, opacity: 0 }, { y: -30, opacity: 1, duration: 1.2, ease: "sine.out" }, CANCION);
+      // la cabeza se balancea como bolero
+      K.origen(q(".kr-v-cabeza"), "0 -240");
+      tl.fromTo(q(".kr-v-cabeza"), { rotation: -4 }, { rotation: 4, duration: 0.7, yoyo: true, repeat: 4, ease: "sine.inOut", immediateRender: false }, 0.1);
+      K.hablar(".kr-v-boca", 0.05, 8, 0.13);
+      // "dedico ... tu local": la franja de dedicatoria
+      gsap.set(q(".s01-ded"), { opacity: 0 });
+      tl.fromTo(q(".s01-ded"), { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, DEDICO);
+      tl.fromTo(q(".s01-ded"), { scale: 1 }, { scale: 1.1, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, LOCAL);
+      // "que me dejó": abre los ojos, dolida
+      tl.to(q(".kr-v-cerrados"), { opacity: 0, duration: 0.06 }, QUE);
+      tl.to(q(".kr-v-abiertos"), { opacity: 1, duration: 0.06 }, QUE);
+      tl.to(q(".kr-v-cejas"), { y: -8, duration: 0.15, ease: "back.out(3)" }, QUE);
+      // "visto": doble tilde azul, sello y lágrima
+      K.dibujar(q(".s01-t1"), VISTO - 0.15, 0.22);
+      K.dibujar(q(".s01-t2"), VISTO, 0.22);
+      K.sello(q(".s01-visto"), VISTO + 0.05, -6);
+      tl.fromTo(q(".kr-v-lagrima"), { opacity: 0, y: -10 }, { opacity: 1, y: 30, duration: 0.6, ease: "power1.in", immediateRender: false }, VISTO);
+      K.sacudon(q(".s01-escenario"), VISTO + 0.02, 0.8);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

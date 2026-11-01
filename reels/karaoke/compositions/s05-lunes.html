@@ -1,0 +1,78 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/karaoke.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-lunes"] .s05-capa, [data-composition-id="s05-lunes"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-lunes"] svg.s05-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-lunes"] .s05-letra { top: 342px; font-size: 74px; }
+  </style>
+  <div id="root" data-composition-id="s05-lunes" data-width="1080" data-height="1920" data-duration="4.27">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.27" data-track-index="0">
+      <div class="s05-escenario">
+        <div class="s05-tv"></div>
+        <svg class="s05-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-lunes";
+      const DUR = 4.27;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = KR.INK;
+      root.querySelector(".s05-tv").outerHTML = KR.pantalla("s05", "s05-pan", 30, 580, 1020, 640, 310, "TEMA 47 · ESTROFA 2");
+      const pan = root.querySelector(".s05-pan");
+      pan.insertAdjacentHTML("beforeend", `<div class="kr-letra s05-letra">${KR.linea("Y me dijiste...")}${KR.linea("pasá el lunes.", "mag")}</div>`);
+      root.querySelector(".s05-svg").innerHTML =
+        KR.vale(220, 1550, 0.6, { lagrima: true }) +
+        // cartel de cartón colgado: PASÁ EL LUNES
+        `<g class="s05-cartel">
+          <path d="M660 1220 L700 1300 M940 1220 L900 1300" stroke="#c9c3d8" stroke-width="5"/>
+          <path d="M600 1300 L1000 1296 L992 1470 L612 1476 Z" fill="#d9a066" stroke="${I}" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M630 1320 L640 1450 M970 1320 L960 1450" stroke="#b07a44" stroke-width="5"/>
+          <text x="800" y="1372" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="66" fill="${I}">Pasá el</text>
+          <text x="800" y="1446" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="84" fill="#c4126e">LUNES</text>
+          <path d="M700 1458 Q800 1470 900 1454" fill="none" stroke="#c4126e" stroke-width="6" stroke-linecap="round"/>
+        </g>
+        <g class="s05-corazon"><path d="M420 1340 C360 1295 338 1258 360 1232 C379 1212 409 1220 420 1244 C431 1220 461 1212 480 1232 C502 1258 480 1295 420 1340 Z" fill="${KR.MAG}" stroke="${I}" stroke-width="6" stroke-linejoin="round"/>
+          <path class="s05-grieta" d="M420 1244 L408 1268 L428 1288 L414 1318" fill="none" stroke="${I}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = KR.kit(tl, root);
+      const { q, qa } = K;
+
+      const PASA = 1.53;
+      const LUNES = 2.6;
+
+      gsap.set(pan, { transformOrigin: "50% 50%" });
+      tl.fromTo(pan, { scale: 1.06 }, { scale: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(pan.querySelector(".kr-sol"), { y: 0 }, { y: 40, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(pan.querySelector(".kr-olas"), { x: -20 }, { x: 20, duration: 1.0, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      K.pintar(Array.from(pan.querySelectorAll(".kr-w")), [0.0, 0.08, 0.34, PASA, 2.48, LUNES], 3.7);
+      // Vale, dolida
+      K.hablar(".kr-v-boca", 0.05, 9, 0.2);
+      tl.fromTo(q(".kr-v-lagrima"), { y: -10 }, { y: 40, duration: 1.2, ease: "power1.in" }, 0.2);
+      tl.to(q(".kr-v-cejas"), { y: -10, duration: 0.2, ease: "back.out(3)" }, PASA);
+      // "pasá": el cartel cae y se balancea
+      K.origen(q(".s05-cartel"), "800 1220");
+      gsap.set(q(".s05-cartel"), { opacity: 0 });
+      tl.fromTo(q(".s05-cartel"), { opacity: 0, y: -260 }, { opacity: 1, y: 0, duration: 0.35, ease: "bounce.out", immediateRender: false }, PASA - 0.15);
+      tl.fromTo(q(".s05-cartel"), { rotation: -7 }, { rotation: 7, duration: 0.45, yoyo: true, repeat: 4, ease: "sine.inOut", immediateRender: false }, PASA + 0.2);
+      // "lunes": el corazón se parte
+      K.pop(q(".s05-corazon"), 0.4);
+      K.dibujar(q(".s05-grieta"), LUNES, 0.25);
+      K.origen(q(".s05-corazon"), "420 1280");
+      tl.to(q(".s05-corazon"), { scale: 1.15, duration: 0.15, yoyo: true, repeat: 3, ease: "power2.out" }, 0.8);
+      K.sacudon(q(".s05-corazon"), LUNES + 0.05, 0.8);
+
+      K.salida(q("#s05-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

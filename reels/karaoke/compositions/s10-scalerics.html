@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/karaoke.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-scalerics"] .s10-capa, [data-composition-id="s10-scalerics"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-scalerics"] svg.s10-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-scalerics"] .s10-sello { left: 170px; top: 580px; width: 740px; font-size: 76px; }
+    [data-composition-id="s10-scalerics"] .s10-gafete { left: 100px; top: 740px; width: 880px; font-size: 30px; }
+    [data-composition-id="s10-scalerics"] .s10-b { position: absolute; top: 730px; padding: 14px 26px; border: 5px solid #12081f; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; color: #12081f; white-space: nowrap; box-shadow: 6px 6px 0 rgba(18, 8, 31, 0.6); }
+    [data-composition-id="s10-scalerics"] .s10-wa { left: 90px; background: #5ce611; border-radius: 30px 30px 30px 6px; }
+    [data-composition-id="s10-scalerics"] .s10-ig { left: 600px; background: #ff2fa0; color: #fff6e8; border-radius: 30px 30px 6px 30px; }
+    [data-composition-id="s10-scalerics"] .s10-inst { left: 330px; top: 850px; width: 420px; font-size: 32px; }
+  </style>
+  <div id="root" data-composition-id="s10-scalerics" data-width="1080" data-height="1920" data-duration="8.55">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="8.55" data-track-index="0">
+      <div class="s10-escenario">
+        <svg class="s10-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="kr-sello verde s10-sello">AGENTE DE IA</div>
+        <div class="kr-tag verde s10-gafete">TU EMPLEADO DE IA · TURNO: SIEMPRE</div>
+        <div class="s10-b s10-wa">WhatsApp</div>
+        <div class="s10-b s10-ig">Instagram</div>
+        <div class="kr-tag verde s10-inst">✓ AL INSTANTE</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-scalerics";
+      const DUR = 8.55;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = KR.INK;
+      root.querySelector(".s10-svg").innerHTML =
+        `<path class="s10-cono1" d="M330 0 L80 1545 L580 1545 Z" fill="#fff6e8" opacity="0.1"/>
+         <path class="s10-cono2" d="M780 0 L530 1545 L1030 1545 Z" fill="${KR.VERDE}" opacity="0.12"/>` +
+        `<g class="s10-due">${KR.dueno(310, 1550, 0.82)}</g>` +
+        `<g class="s10-ag">${KR.agente(790, 1550, 0.86)}</g>` +
+        `<g class="s10-mic">${KR.mic(980, 1190, 0.8, 20)}</g>` +
+        // reloj que gira hasta las 3
+        `<g class="s10-reloj">
+          <circle cx="540" cy="1010" r="78" fill="#fff6e8" stroke="${I}" stroke-width="8"/>
+          <path d="M540 944 V956 M540 1064 V1076 M474 1010 H486 M594 1010 H606" stroke="${I}" stroke-width="6" stroke-linecap="round"/>
+          <path class="s10-hora" d="M540 1010 V966" stroke="${I}" stroke-width="10" stroke-linecap="round"/>
+          <path class="s10-min" d="M540 1010 V950" stroke="${KR.MAG}" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="540" cy="1010" r="8" fill="${I}"/>
+          <rect x="470" y="1100" width="140" height="44" rx="8" fill="#12081f" stroke="${KR.VERDE}" stroke-width="4"/>
+          <text x="540" y="1133" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="30" fill="${KR.VERDE}">03:00</text>
+        </g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = KR.kit(tl, root);
+      const { q, qa } = K;
+
+      const SCALERICS = 1.09;
+      const EMPLEADO = 3.92;
+      const WHATSAPP = 5.59;
+      const INSTAGRAM = 6.25;
+      const INSTANTE = 6.92;
+      const CUALQUIER = 7.75;
+
+      tl.fromTo(q(".s10-escenario"), { scale: 1 }, { scale: 1.04, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+      // "Solo, no.": el agente entra de un salto al lado del dueño
+      tl.fromTo(q(".s10-ag .kr-ag"), { y: 500, rotation: 0 }, { y: 0, duration: 0.45, ease: "back.out(1.5)" }, 0.02);
+      gsap.set(q(".s10-mic"), { opacity: 0 });
+      tl.fromTo(q(".s10-mic"), { opacity: 0, y: 500 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.5)", immediateRender: false }, 0.08);
+      tl.fromTo(q(".s10-cono2"), { opacity: 0 }, { opacity: 0.14, duration: 0.3, immediateRender: false }, 0.1);
+      K.origen(q(".kr-d-cabeza"), "0 -240");
+      tl.fromTo(q(".kr-d-cabeza"), { rotation: -6 }, { rotation: 10, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.3);
+      tl.to(q(".kr-d-cejas"), { y: -12, duration: 0.15, ease: "back.out(3)" }, 0.35);
+      // el agente "habla" y saluda
+      K.origen(q(".kr-ag-brazo-i"), "-110 -260");
+      tl.fromTo(q(".kr-ag-brazo-i"), { rotation: 0 }, { rotation: 30, duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, 0.6);
+      K.hablar(".kr-ag-boca", 0.6, 20, 0.15);
+      K.origen(q(".kr-ag"), "0 0");
+      tl.to(q(".kr-ag"), { rotation: 3, duration: 0.5, yoyo: true, repeat: 15, ease: "sine.inOut" }, 0.6);
+      // "Scalerics": el sello verde
+      K.sello(q(".s10-sello"), SCALERICS, -3);
+      // "empleado": el gafete
+      gsap.set(q(".s10-gafete"), { opacity: 0 });
+      tl.fromTo(q(".s10-gafete"), { opacity: 0, y: -40, rotation: -8 }, { opacity: 1, y: 0, rotation: 0, duration: 0.35, ease: "back.out(2)", immediateRender: false }, EMPLEADO - 0.1);
+      tl.to(q(".s10-gafete"), { opacity: 0, y: -20, duration: 0.2 }, WHATSAPP - 0.25);
+      // "WhatsApp" e "Instagram": las burbujas que llegan
+      gsap.set([q(".s10-wa"), q(".s10-ig")], { opacity: 0 });
+      tl.fromTo(q(".s10-wa"), { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, WHATSAPP - 0.05);
+      tl.fromTo(q(".s10-ig"), { opacity: 0, x: 200 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, INSTAGRAM - 0.05);
+      // "instante"
+      K.golpe(q(".s10-inst"), INSTANTE, -2);
+      // "a cualquier hora": el reloj gira hasta las 3
+      K.origen(q(".s10-reloj"), "540 1010");
+      gsap.set(q(".s10-reloj"), { opacity: 0 });
+      tl.fromTo(q(".s10-reloj"), { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, CUALQUIER - 0.15);
+      K.origen(q(".s10-min"), "540 1010");
+      K.origen(q(".s10-hora"), "540 1010");
+      tl.fromTo(q(".s10-min"), { rotation: 0 }, { rotation: 1440, duration: 0.7, ease: "power2.inOut", immediateRender: false }, CUALQUIER);
+      tl.fromTo(q(".s10-hora"), { rotation: 0 }, { rotation: 90, duration: 0.7, ease: "power2.inOut", immediateRender: false }, CUALQUIER);
+
+      K.salida(q("#s10-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

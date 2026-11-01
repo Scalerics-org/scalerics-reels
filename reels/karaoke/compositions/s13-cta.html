@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/karaoke.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-cta"] .s13-capa, [data-composition-id="s13-cta"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] svg.s13-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-cta"] .s13-menu { position: absolute; inset: 0; background: linear-gradient(180deg, #1638d6, #0b1a6e); }
+    [data-composition-id="s13-cta"] .s13-tit { position: absolute; left: 0; right: 0; top: 30px; text-align: center; font-family: "Outfit", sans-serif; font-weight: 800; font-size: 60px; color: #ffd81a;
+      text-shadow: 0 5px 0 #8a1257, 3px 3px 0 #8a1257, -3px -3px 0 #8a1257, 3px -3px 0 #8a1257, -3px 3px 0 #8a1257; }
+    [data-composition-id="s13-cta"] .s13-it { position: absolute; left: 50px; right: 50px; height: 100px; padding-left: 30px; box-sizing: border-box; border-radius: 14px;
+      font-family: "Outfit", sans-serif; font-weight: 800; font-size: 50px; line-height: 100px; color: #fff6e8; white-space: nowrap; }
+    [data-composition-id="s13-cta"] .s13-it em { font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; color: #4fd8ff; margin-right: 20px; }
+    [data-composition-id="s13-cta"] .s13-i3 em { color: #ffd81a; }
+    [data-composition-id="s13-cta"] .s13-i1 { top: 140px; } [data-composition-id="s13-cta"] .s13-i2 { top: 250px; } [data-composition-id="s13-cta"] .s13-i3 { top: 360px; }
+    [data-composition-id="s13-cta"] .s13-sel { position: absolute; left: 50px; right: 50px; top: 140px; height: 100px; border-radius: 14px; background: #ff2fa0; border: 5px solid #ffd81a; box-sizing: border-box; box-shadow: 0 0 30px rgba(255, 47, 160, 0.8); }
+    [data-composition-id="s13-cta"] .s13-raya { display: inline-block; width: 260px; height: 6px; margin-left: 10px; background: #ffd81a; vertical-align: middle; }
+    [data-composition-id="s13-cta"] .s13-cursor { display: inline-block; width: 8px; height: 56px; margin-left: 8px; background: #fff6e8; vertical-align: middle; }
+    [data-composition-id="s13-cta"] .s13-btn { position: absolute; left: 260px; top: 1250px; width: 760px; padding: 26px 0 22px; text-align: center; background: #ff2fa0; border: 7px solid #12081f; border-radius: 26px;
+      box-shadow: 0 0 40px rgba(255, 47, 160, 0.7), 10px 12px 0 rgba(0, 0, 0, 0.5); font-family: "Lexend", sans-serif; font-weight: 800; font-size: 48px; line-height: 1.1; color: #fff6e8; }
+    [data-composition-id="s13-cta"] .s13-btn small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.2em; color: #ffd81a; margin-top: 6px; }
+  </style>
+  <div id="root" data-composition-id="s13-cta" data-width="1080" data-height="1920" data-duration="7.65">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="7.65" data-track-index="0">
+      <div class="s13-escenario">
+        <div class="s13-tv"></div>
+        <svg class="s13-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s13-btn">DEJALA EN LOS COMENTARIOS<small>TE LEEMOS</small></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-cta";
+      const DUR = 7.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = KR.INK;
+      root.querySelector(".s13-tv").outerHTML = KR.pantalla("s13", "s13-pan", 40, 560, 1000, 520, 0, "");
+      const pan = root.querySelector(".s13-pan");
+      pan.insertAdjacentHTML("beforeend",
+        `<div class="s13-menu"><div class="s13-sel"></div>
+          <div class="s13-tit">ELEGÍ TU CANCIÓN</div>
+          <div class="s13-it s13-i1"><em>01</em>Pasá el lunes</div>
+          <div class="s13-it s13-i2"><em>02</em>Dos tildes y un adiós</div>
+          <div class="s13-it s13-i3"><em>03</em>Tu canción:<i class="s13-raya"></i><i class="s13-cursor"></i></div></div>`);
+      root.querySelector(".s13-svg").innerHTML =
+        // pie de micrófono a la izquierda del botón
+        `<g class="s13-pie"><path d="M140 1540 L140 1330" stroke="#5a5470" stroke-width="14" stroke-linecap="round"/>
+          <path d="M80 1540 H200" stroke="#5a5470" stroke-width="16" stroke-linecap="round"/></g>` +
+        `<g class="s13-mic">${KR.mic(140, 1180, 1.1, 0)}</g>` +
+        `<g class="s13-notas" fill="${KR.AMA}" stroke="${I}" stroke-width="4">
+          <path d="M250 1230 v-70 l44 -12 v66" fill="none" stroke-width="8" stroke="${KR.AMA}"/><circle cx="242" cy="1232" r="14"/><circle cx="286" cy="1216" r="14"/></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = KR.kit(tl, root);
+      const { q, qa } = K;
+
+      const CANCION = 0.67;
+      const LOCAL = 1.75;
+      const VISTO = 2.5;
+      const DEJALA = 3.26;
+
+      gsap.set(pan, { transformOrigin: "50% 50%" });
+      tl.fromTo(pan, { scale: 0.92, opacity: 0.5 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      const its = Array.from(pan.querySelectorAll(".s13-it")), sel = pan.querySelector(".s13-sel");
+      its.forEach((it, i) => {
+        gsap.set(it, { opacity: 0 });
+        tl.fromTo(it, { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, CANCION + i * 0.25);
+      });
+      gsap.set(sel, { opacity: 0 });
+      tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: false }, CANCION);
+      tl.to(sel, { y: 110, duration: 0.2, ease: "power2.inOut" }, LOCAL - 0.3);
+      tl.to(sel, { y: 220, duration: 0.2, ease: "power2.inOut" }, VISTO - 0.1);
+      // la línea vacía titila: tu canción
+      const cur = pan.querySelector(".s13-cursor");
+      tl.fromTo(cur, { opacity: 1 }, { opacity: 0, duration: 0.3, yoyo: true, repeat: 15, ease: "steps(1)" }, VISTO);
+      // el micrófono y las notas
+      K.origen(q(".s13-mic"), "140 1170");
+      tl.fromTo(q(".s13-mic"), { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "bounce.out" }, 0.2);
+      tl.fromTo(q(".s13-notas"), { y: 20, opacity: 0 }, { y: -40, opacity: 1, duration: 1.5, ease: "sine.out", immediateRender: false }, 1.0);
+      tl.fromTo(q(".s13-notas"), { rotation: -6 }, { rotation: 6, duration: 0.5, yoyo: true, repeat: 9, ease: "sine.inOut", svgOrigin: "270 1200", immediateRender: false }, 1.0);
+      // "Dejala": el botón, que late hasta el final
+      gsap.set(q(".s13-btn"), { opacity: 0 });
+      tl.fromTo(q(".s13-btn"), { opacity: 0, scale: 0.5, y: 60 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "back.out(2)", immediateRender: false }, DEJALA - 0.15);
+      tl.to(q(".s13-btn"), { scale: 1.05, duration: 0.35, yoyo: true, repeat: 11, ease: "sine.inOut" }, DEJALA + 0.35);
+      // sin salida: el CTA queda hasta el final
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

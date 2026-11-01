@@ -1,0 +1,102 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/karaoke.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-caja"] .s08-capa, [data-composition-id="s08-caja"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-caja"] svg.s08-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-caja"] .s08-t1 { left: 650px; top: 770px; }
+    [data-composition-id="s08-caja"] .s08-t2 { left: 690px; top: 862px; }
+    [data-composition-id="s08-caja"] .s08-t3 { left: 590px; top: 954px; }
+    [data-composition-id="s08-caja"] .s08-clin { left: 760px; top: 1000px; font-size: 64px; transform: rotate(8deg); background: #ffd81a; }
+  </style>
+  <div id="root" data-composition-id="s08-caja" data-width="1080" data-height="1920" data-duration="5.46">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="5.46" data-track-index="0">
+      <div class="s08-escenario">
+        <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="kr-globo s08-clin">¡CLIN!</div>
+        <div class="kr-tag nar s08-t s08-t1">ATIENDO</div>
+        <div class="kr-tag nar s08-t s08-t2">REPONGO</div>
+        <div class="kr-tag nar s08-t s08-t3">LLAMO AL PROVEEDOR</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-caja";
+      const DUR = 5.46;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = KR.INK;
+      // estantes con botellas detrás de la barra
+      let bot = "";
+      [[640, 0], [800, 1]].forEach(([y, f]) => {
+        for (let k = 0; k < 9; k++) {
+          const x = 70 + k * 108 + f * 40, h = 90 + ((k * 31 + f * 17) % 40), c = ["#3f9e0b", "#ff8a3d", "#4fd8ff", "#ff2fa0", "#ffd81a"][(k + f * 2) % 5];
+          bot += `<g opacity="0.75"><rect x="${x}" y="${y - h}" width="46" height="${h}" rx="10" fill="${c}" stroke="${I}" stroke-width="5"/><rect x="${x + 14}" y="${y - h - 34}" width="18" height="38" rx="4" fill="${c}" stroke="${I}" stroke-width="5"/></g>`;
+        }
+      });
+      root.querySelector(".s08-svg").innerHTML =
+        `<g class="s08-estantes">${bot}<rect x="30" y="640" width="1020" height="18" fill="#5a3a48" stroke="${I}" stroke-width="5"/><rect x="30" y="800" width="1020" height="18" fill="#5a3a48" stroke="${I}" stroke-width="5"/></g>` +
+        `<g class="s08-due">${KR.dueno(440, 1330, 0.95, { mano: true })}</g>` +
+        // la barra
+        `<g class="s08-barra">
+          <rect x="-20" y="1250" width="1120" height="44" rx="10" fill="#8a4a2a" stroke="${I}" stroke-width="7"/>
+          <rect x="0" y="1294" width="1080" height="250" fill="#5a2e1c" stroke="${I}" stroke-width="7"/>
+          <path d="M0 1360 H1080 M0 1440 H1080" stroke="#3e1f12" stroke-width="6"/>
+          <path d="M40 1270 H500" stroke="#c07a4a" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+        </g>
+        <g class="s08-caja">
+          <rect x="740" y="1150" width="270" height="100" rx="12" fill="#5a5470" stroke="${I}" stroke-width="7"/>
+          <path d="M770 1150 L800 1060 L960 1060 L990 1150 Z" fill="#8a84a0" stroke="${I}" stroke-width="7" stroke-linejoin="round"/>
+          <rect x="820" y="1074" width="120" height="40" rx="6" fill="#12081f"/>
+          <text x="880" y="1104" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="26" fill="#5ce611">CIERRE</text>
+          <g fill="#c9c3d8" stroke="${I}" stroke-width="3"><rect x="790" y="1124" width="26" height="16" rx="3"/><rect x="826" y="1124" width="26" height="16" rx="3"/><rect x="862" y="1124" width="26" height="16" rx="3"/><rect x="898" y="1124" width="26" height="16" rx="3"/><rect x="934" y="1124" width="26" height="16" rx="3"/></g>
+          <rect class="s08-cajon" x="760" y="1210" width="230" height="40" rx="6" fill="#3a2a50" stroke="${I}" stroke-width="6"/>
+        </g>
+        <g class="s08-cel"><rect x="250" y="1180" width="60" height="100" rx="12" fill="#1c1030" stroke="${I}" stroke-width="5"/><rect x="258" y="1190" width="44" height="76" rx="6" fill="#4fd8ff"/>
+          <circle cx="300" cy="1186" r="16" fill="${KR.MAG}" stroke="${I}" stroke-width="4"/><text x="300" y="1194" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="20" fill="#fff6e8">9</text></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = KR.kit(tl, root);
+      const { q, qa } = K;
+
+      const ESTABA = 0.72;
+      const CAJA = 1.7;
+      const ATIENDO = 2.69;
+      const REPONGO = 3.29;
+      const PROVEEDOR = 4.47;
+
+      tl.fromTo(q(".s08-escenario"), { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "45% 60%" }, 0);
+      // "¡Pará, Vale!": el dueño salta detrás de la barra con la mano arriba
+      tl.fromTo(q(".s08-due .kr-d"), { y: 120 }, { y: 0, duration: 0.3, ease: "back.out(2)" }, 0);
+      K.origen(q(".kr-d-brazo"), "-150 -190");
+      tl.fromTo(q(".kr-d-brazo"), { rotation: 0 }, { rotation: 12, duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, 0.05);
+      K.hablar(".kr-d-boca", 0.0, 10, 0.12);
+      K.hablar(".kr-d-boca", ATIENDO, 10, 0.12);
+      tl.to(q(".kr-d-cejas"), { y: -12, duration: 0.15, ease: "back.out(3)" }, 0);
+      tl.fromTo(q(".kr-d-sudor"), { opacity: 0, y: 0 }, { opacity: 1, y: 40, duration: 0.8, ease: "power1.in", immediateRender: false }, ESTABA);
+      // "caja": se abre el cajón con ¡CLIN!
+      tl.fromTo(q(".s08-cajon"), { y: 0 }, { y: 50, duration: 0.15, ease: "back.out(3)", immediateRender: false }, CAJA);
+      K.golpe(q(".s08-clin"), CAJA + 0.05, 8);
+      tl.to(q(".s08-clin"), { opacity: 0, duration: 0.2 }, ATIENDO - 0.2);
+      // el celular con mensajes vibra sin parar
+      tl.fromTo(q(".s08-cel"), { x: 0 }, { x: 4, duration: 0.05, yoyo: true, repeat: 11, ease: "none", immediateRender: false }, 1.0);
+      tl.fromTo(q(".s08-cel"), { x: 0 }, { x: 4, duration: 0.05, yoyo: true, repeat: 11, ease: "none", immediateRender: false }, 3.6);
+      // "atiendo, repongo, proveedor": las tareas se apilan y la cabeza va de una a otra
+      [[".s08-t1", ATIENDO], [".s08-t2", REPONGO], [".s08-t3", PROVEEDOR]].forEach(([s, t]) => K.golpe(q(s), t, s === ".s08-t3" ? 4 : -4));
+      K.origen(q(".kr-d-cabeza"), "0 -240");
+      tl.to(q(".kr-d-cabeza"), { rotation: -12, duration: 0.15 }, ATIENDO);
+      tl.to(q(".kr-d-cabeza"), { rotation: 8, duration: 0.15 }, REPONGO);
+      tl.to(q(".kr-d-cabeza"), { rotation: 14, duration: 0.15 }, PROVEEDOR);
+      tl.fromTo(qa(".s08-t"), { y: 0 }, { y: -6, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut", stagger: 0.07, immediateRender: false }, PROVEEDOR + 0.2);
+
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

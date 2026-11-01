@@ -1,0 +1,86 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/karaoke.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Outfit-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-mesa"] .s04-capa, [data-composition-id="s04-mesa"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-mesa"] svg.s04-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-mesa"] .s04-letra { top: 318px; }
+    [data-composition-id="s04-mesa"] .s04-reservado { position: absolute; left: 812px; top: 1124px; padding: 10px 20px 8px; background: #fff6e8; border: 5px solid #12081f; border-radius: 10px;
+      font-family: "Caveat", cursive; font-weight: 700; font-size: 48px; line-height: 1; color: #12081f; white-space: nowrap; transform: rotate(-4deg); }
+    [data-composition-id="s04-mesa"] .s04-reservado em { font-style: normal; color: #ff2fa0; }
+  </style>
+  <div id="root" data-composition-id="s04-mesa" data-width="1080" data-height="1920" data-duration="4.01">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.01" data-track-index="0">
+      <div class="s04-escenario">
+        <div class="s04-tv"></div>
+        <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s04-reservado">RESERVADO: <em>¿?</em></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-mesa";
+      const DUR = 4.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = KR.INK;
+      root.querySelector(".s04-tv").outerHTML = KR.pantalla("s04", "s04-pan", 40, 560, 1000, 580, 260, "TEMA 47 · ESTROFA 2");
+      const pan = root.querySelector(".s04-pan");
+      pan.insertAdjacentHTML("beforeend", `<div class="kr-letra s04-letra">${KR.linea("Te pedí una mesa")}${KR.linea("para el sábado.")}</div>`);
+      root.querySelector(".s04-svg").innerHTML =
+        KR.vale(230, 1545, 0.62, { cerrados: true, lagrima: true }) +
+        // la mesita con mantel, dos sillas vacías y una vela
+        `<g class="s04-mesa">
+          <path d="M600 1290 L560 1530 M960 1290 L1000 1530" stroke="${I}" stroke-width="14" stroke-linecap="round"/>
+          <path d="M540 1240 L1020 1240 L1040 1350 L520 1350 Z" fill="#fff6e8" stroke="${I}" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M560 1350 L580 1300 L600 1350 M640 1350 L660 1300 L680 1350 M720 1350 L740 1300 L760 1350 M800 1350 L820 1300 L840 1350 M880 1350 L900 1300 L920 1350 M960 1350 L980 1300 L1000 1350" fill="none" stroke="${KR.MAG}" stroke-width="5" stroke-linejoin="round"/>
+          <rect x="770" y="1180" width="22" height="60" fill="#fff6e8" stroke="${I}" stroke-width="5"/>
+          <path class="s04-llama" d="M781 1176 C768 1160 774 1140 781 1128 C790 1142 794 1160 781 1176 Z" fill="${KR.AMA}" stroke="${I}" stroke-width="4"/>
+        </g>
+        <g class="s04-cal">
+          <rect x="420" y="1170" width="150" height="160" rx="12" fill="#fff6e8" stroke="${I}" stroke-width="6"/>
+          <rect x="420" y="1170" width="150" height="46" rx="12" fill="${KR.MAG}" stroke="${I}" stroke-width="6"/>
+          <text x="495" y="1204" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="24" fill="#fff6e8">SÁBADO</text>
+          <text x="495" y="1300" text-anchor="middle" font-family="Outfit" font-weight="800" font-size="72" fill="${I}">21h</text>
+        </g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = KR.kit(tl, root);
+      const { q, qa } = K;
+
+      const MESA = 1.48;
+      const SABADO = 2.61;
+
+      gsap.set(pan, { transformOrigin: "50% 50%" });
+      tl.fromTo(pan, { y: -30, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s04-escenario"), { scale: 1.03 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(pan.querySelector(".kr-sol"), { y: 10 }, { y: -20, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(pan.querySelector(".kr-olas"), { x: 20 }, { x: -20, duration: 1.0, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      K.pintar(Array.from(pan.querySelectorAll(".kr-w")), [0.0, 0.33, 1.21, MESA, 2.38, 2.52, SABADO], 3.6);
+      // Vale canta, con la mano en el pecho
+      K.hablar(".kr-v-boca", 0.05, 9, 0.2);
+      K.origen(q(".kr-v-cabeza"), "0 -240");
+      tl.fromTo(q(".kr-v-cabeza"), { rotation: 4 }, { rotation: -4, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      // "mesa": la mesita con la vela y el cartel "RESERVADO: ¿?"
+      gsap.set(q(".s04-mesa"), { opacity: 0 });
+      tl.fromTo(q(".s04-mesa"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, MESA - 0.1);
+      K.origen(q(".s04-llama"), "781 1176");
+      tl.fromTo(q(".s04-llama"), { scaleY: 1, rotation: -6 }, { scaleY: 1.25, rotation: 6, duration: 0.2, yoyo: true, repeat: 9, ease: "sine.inOut" }, MESA);
+      K.pop(q(".s04-reservado"), MESA + 0.35);
+      tl.fromTo(q(".s04-reservado em"), { opacity: 1 }, { opacity: 0.2, duration: 0.15, yoyo: true, repeat: 5, ease: "steps(1)" }, MESA + 0.8);
+      // "sábado": el calendario
+      K.origen(q(".s04-cal"), "495 1250");
+      gsap.set(q(".s04-cal"), { opacity: 0 });
+      tl.fromTo(q(".s04-cal"), { opacity: 0, scale: 0.4, rotation: -20 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.35, ease: "back.out(2)", immediateRender: false }, SABADO - 0.1);
+
+      K.salida(q("#s04-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
