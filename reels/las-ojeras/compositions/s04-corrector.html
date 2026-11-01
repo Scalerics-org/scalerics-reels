@@ -1,0 +1,83 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tocador.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-corrector"] .s04-capa, [data-composition-id="s04-corrector"] .s04-escenario { position: absolute; inset: 0; }
+    /* todo vive adentro del vidrio del espejo */
+    [data-composition-id="s04-corrector"] #s04-escena { clip-path: inset(500px 100px 420px 100px round 40px); }
+    [data-composition-id="s04-corrector"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-corrector"] .s04-notapa { left: 300px; top: 850px; font-size: 80px; }
+  </style>
+  <div id="root" data-composition-id="s04-corrector" data-width="1080" data-height="1920" data-duration="6.96">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.96" data-track-index="0">
+      <div class="s04-escenario">
+        <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="to-paso s04-paso"><small>PASO</small><b>2</b><i>corrector</i></div>
+        <div class="to-sello s04-notapa">NO TAPA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-corrector";
+      const DUR = 6.96;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = TO.kit(tl, root);
+      const { q, qa } = K;
+      const I = TO.INK;
+      const NX = 540, NY = 1540, NS = 1.42, Z = 1.9;
+      // ojeras después del zoom (coordenadas globales)
+      const OI = [400, 1092], OD = [680, 1092];
+      const [g1] = TO.globo(130, 1250, "¿precio?", "i", { fs: 42, hora: "01:00", cls: "s04-g1" });
+      const [g2] = TO.globo(950, 1250, "¿turno?", "d", { fs: 42, hora: "03:00", cls: "s04-g2", fill: TO.BLANCO });
+      const parche = ([x, y], c) => `<ellipse class="${c}" cx="${x}" cy="${y}" rx="78" ry="38" fill="#fbe7df" stroke="${TO.NUDE3}" stroke-width="5" opacity="0"/>`;
+      q(".s04-svg").innerHTML =
+        `<g class="s04-zoom">${TO.nestor(NX, NY, NS, { cara: "dormido" })}</g>` +
+        parche(OI, "s04-p1") + parche(OD, "s04-p2") +
+        `<path class="s04-hilo1" d="M${OI[0]} ${OI[1] + 30} L260 1255" stroke="${I}" stroke-width="5" stroke-dasharray="10 8" fill="none"/>` +
+        `<path class="s04-hilo2" d="M${OD[0]} ${OD[1] + 30} L820 1255" stroke="${I}" stroke-width="5" stroke-dasharray="10 8" fill="none"/>` +
+        g1 + g2 +
+        `<g class="s04-varita">${TO.corrector(0, 0, 0.8, 30)}</g>`;
+
+      const CORRECTOR = 0.43, OJO = 1.41, PREGUNTO = 2.48, UNA = 3.51, DERECHO = 4.36, PIDIO = 5.30, TRES = 6.24;
+      const zoom = q(".s04-zoom"), var_ = q(".s04-varita");
+      tl.fromTo(zoom, { y: 30 }, { y: 0, duration: 0.4, ease: "power2.out" }, 0);
+      tl.set(q(".s04-zoom .to-n-base"), { opacity: 0.85 }, 0);
+      tl.set(q(".s04-zoom .to-n-ojeras"), { opacity: 0.6 }, 0);
+      K.paso(q(".s04-paso"), 0.02, 1.15);
+      // "corrector": la varita
+      gsap.set(var_, { x: 860, y: 1250, opacity: 0 });
+      tl.fromTo(var_, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: false }, CORRECTOR);
+      // "Ojo izquierdo": zoom a la cara
+      tl.to(zoom, { scale: Z, svgOrigin: "540 1060", duration: 0.5, ease: "power3.inOut" }, OJO - 0.15);
+      tl.to(q(".s04-zoom .to-n-ojeras"), { opacity: 1, duration: 0.4 }, OJO);
+      // ojo izquierdo: el que preguntó precio a la una
+      K.dibujar(q(".s04-hilo1"), PREGUNTO - 0.1, 0.3);
+      K.popSvg(q(".s04-g1"), PREGUNTO + 0.1, "260 1290");
+      tl.to(var_, { x: OI[0] + 40, y: OI[1] - 40, duration: 0.35, ease: "power2.inOut" }, PREGUNTO + 0.3);
+      [0, 1, 2].forEach((i) => tl.to(var_, { x: OI[0] - 30 + i * 35, y: OI[1] - 30, duration: 0.14, ease: "sine.inOut" }, PREGUNTO + 0.7 + i * 0.15));
+      tl.to(q(".s04-p1"), { opacity: 1, duration: 0.4 }, PREGUNTO + 0.7);
+      // la ojera vuelve a asomar en "una"
+      tl.to(q(".s04-p1"), { opacity: 0.25, duration: 0.5 }, UNA);
+      K.sacudon(q(".s04-g1"), UNA, 0.6);
+      // ojo derecho: el que pidió turno a las tres
+      K.dibujar(q(".s04-hilo2"), DERECHO, 0.3);
+      K.popSvg(q(".s04-g2"), DERECHO + 0.2, "820 1290");
+      tl.to(var_, { x: OD[0] + 60, y: OD[1] - 40, duration: 0.35, ease: "power2.inOut" }, PIDIO - 0.4);
+      [0, 1, 2].forEach((i) => tl.to(var_, { x: OD[0] - 20 + i * 35, y: OD[1] - 30, duration: 0.14, ease: "sine.inOut" }, PIDIO + i * 0.15));
+      tl.to(q(".s04-p2"), { opacity: 1, duration: 0.4 }, PIDIO);
+      tl.to(q(".s04-p2"), { opacity: 0.25, duration: 0.4 }, TRES - 0.3);
+      tl.to(var_, { x: 900, y: 1400, rotation: 70, opacity: 0, duration: 0.3, ease: "power2.in" }, TRES - 0.2);
+      K.sello(q(".s04-notapa"), TRES, -5);
+      K.salida(q("#s04-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

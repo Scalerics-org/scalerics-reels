@@ -1,0 +1,77 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tocador.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-cta"] .s14-capa, [data-composition-id="s14-cta"] .s14-escenario { position: absolute; inset: 0; }
+    /* todo vive adentro del vidrio del espejo */
+    [data-composition-id="s14-cta"] #s14-escena { clip-path: inset(500px 100px 420px 100px round 40px); }
+    [data-composition-id="s14-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-cta"] .s14-etq { left: 540px; top: 560px; font-size: 100px; padding: 18px 46px 22px; transform: translateX(-50%); }
+    [data-composition-id="s14-cta"] .s14-etqw { position: absolute; left: 0; top: 0; }
+    [data-composition-id="s14-cta"] .s14-com { position: absolute; left: 130px; top: 760px; width: 820px; height: 130px; box-sizing: border-box; background: #fff8f4; border: 6px solid #2b1720; border-radius: 30px; box-shadow: 0 8px 0 #2b1720; }
+    [data-composition-id="s14-cta"] .s14-av { position: absolute; left: 22px; top: 25px; width: 70px; height: 70px; border-radius: 50%; background: #ff8fb0; border: 5px solid #2b1720; box-sizing: border-box; }
+    [data-composition-id="s14-cta"] .s14-tx { position: absolute; left: 112px; top: 34px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 42px; line-height: 1.2; color: #2b1720; white-space: nowrap; }
+    [data-composition-id="s14-cta"] .s14-tx .s14-ch { display: none; }
+    [data-composition-id="s14-cta"] .s14-tx .s14-arroba { color: #e8577e; }
+    [data-composition-id="s14-cta"] .s14-cur { display: inline-block; width: 4px; height: 44px; background: #e8577e; vertical-align: -6px; margin-left: 2px; }
+    [data-composition-id="s14-cta"] .s14-label { position: absolute; left: 160px; top: 712px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.2em; color: #2b1720; }
+    [data-composition-id="s14-cta"] .s14-avise { left: 170px; top: 940px; font-size: 52px; }
+  </style>
+  <div id="root" data-composition-id="s14-cta" data-width="1080" data-height="1920" data-duration="6.45">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="6.45" data-track-index="0">
+      <div class="s14-escenario">
+        <svg class="s14-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s14-etqw"><div class="to-sticker s14-etq">ETIQUETÁ</div></div>
+        <div class="s14-com"><div class="s14-av"></div><div class="s14-tx"></div></div>
+        <div class="to-sello s14-avise">QUE ALGUIEN LE AVISE</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-cta";
+      const DUR = 6.45;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = TO.kit(tl, root);
+      const { q, qa } = K;
+      const I = TO.INK;
+      const texto = "@el_que_contesta_a_las_2";
+      q(".s14-tx").innerHTML = texto.split("").map((c, i) => `<span class="s14-ch${i === 0 ? " s14-arroba" : ""}">${c}</span>`).join("") + `<span class="s14-cur"></span>`;
+      q(".s14-svg").innerHTML =
+        `<g class="s14-n">${TO.nestor(790, 1600, 0.85, { cara: "feliz", antifaz: true, ojeras: 0 })}</g>` +
+        `<g class="s14-z">${TO.zzz(890, 1210, 0.6)}</g>` +
+        `<g class="s14-i">${TO.influencer(320, 1600, 0.95, { cara: "beso", brazo: "saludo" })}</g>` +
+        `<path class="s14-cor" d="M0 18 C-30 -10 -30 -36 -10 -36 C-2 -36 0 -28 0 -24 C0 -28 2 -36 10 -36 C30 -36 30 -10 0 18 Z" fill="${TO.ROSA}" stroke="${I}" stroke-width="5" stroke-linejoin="round" transform="translate(330 1340)"/>` +
+        `<g class="s14-ds">${TO.destellos([[140, 640, 22], [930, 600, 26], [950, 900, 18], [560, 1140, 16]], TO.ORO2)}</g>`;
+
+      const CONTESTO = 0.79, ALGUIEN = 2.53, AVISE = 2.87;
+      // cuadro 0: el sticker ya golpea
+      tl.fromTo(q(".s14-etqw"), { scale: 1.5, opacity: 0.5, transformOrigin: "540px 620px" }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.to(q(".s14-etqw"), { scale: 1.05, transformOrigin: "540px 620px", duration: 0.5, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0.5);
+      tl.fromTo(q(".s14-i"), { y: 80 }, { y: 0, duration: 0.45, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".s14-n"), { y: 80 }, { y: 0, duration: 0.45, ease: "back.out(1.5)" }, 0.1);
+      K.roncar(".s14-z", 0.5, 5.5);
+      K.titilar(".s14-ds .to-ds", 0.3, 5.8);
+      K.origen(q(".s14-i .to-i-brazo"), "150 -190");
+      tl.to(q(".s14-i .to-i-brazo"), { rotation: 10, duration: 0.3, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0.5);
+      // el comentario se escribe
+      K.pop(q(".s14-com"), CONTESTO - 0.3);
+      qa(".s14-ch").forEach((c, i) => tl.set(c, { display: "inline" }, CONTESTO + i * 0.055));
+      tl.fromTo(q(".s14-cur"), { opacity: 1 }, { opacity: 0, duration: 0.3, yoyo: true, repeat: 15, ease: "steps(1)", immediateRender: false }, CONTESTO);
+      K.sello(q(".s14-avise"), ALGUIEN, -4);
+      // beso que vuela
+      gsap.set(q(".s14-cor"), { opacity: 0 });
+      tl.fromTo(q(".s14-cor"), { opacity: 0, x: 0, y: 0, scale: 0.5 }, { opacity: 1, x: 200, y: -40, scale: 1.4, duration: 0.9, ease: "power1.out", immediateRender: false }, AVISE + 0.6);
+      tl.to(q(".s14-cor"), { opacity: 0, duration: 0.3 }, AVISE + 1.6);
+      K.salida(q("#s14-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

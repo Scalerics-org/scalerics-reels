@@ -1,0 +1,68 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tocador.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-dormir"] .s09-capa, [data-composition-id="s09-dormir"] .s09-escenario { position: absolute; inset: 0; }
+    /* todo vive adentro del vidrio del espejo */
+    [data-composition-id="s09-dormir"] #s09-escena { clip-path: inset(500px 100px 420px 100px round 40px); }
+    [data-composition-id="s09-dormir"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-dormir"] .s09-dormir { left: 290px; top: 560px; font-size: 190px; }
+  </style>
+  <div id="root" data-composition-id="s09-dormir" data-width="1080" data-height="1920" data-duration="5.55">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="5.55" data-track-index="0">
+      <div class="s09-escenario">
+        <svg class="s09-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="to-mano s09-dormir">dormir.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-dormir";
+      const DUR = 5.55;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = TO.kit(tl, root);
+      const { q, qa } = K;
+      const I = TO.INK;
+      q(".s09-svg").innerHTML =
+        `<g class="s09-n">${TO.nestor(770, 1580, 1.12, { cara: "dormido" })}</g>` +
+        `<g class="s09-i">${TO.influencer(320, 1580, 1.12, { cara: "tierna", brazo: "abajo" })}</g>` +
+        `<g class="s09-ojera">
+          <path d="M290 620 C280 820 800 820 790 620 C680 730 400 730 290 620 Z" fill="${TO.LILA}" stroke="${I}" stroke-width="10" stroke-linejoin="round"/>
+          <path d="M350 690 C440 750 640 750 730 690" fill="none" stroke="${TO.LILA2}" stroke-width="12" stroke-linecap="round"/>
+        </g>` +
+        `<g class="s09-corr">${TO.corrector(860, 700, 0.32, 0)}</g>` +
+        `<g class="s09-alm">${TO.almohada(560, 1420, 0.85)}</g>`;
+
+      const NESTOR = 0.96, CORRECTOR = 1.71, TAPE = 2.57, FALTA = 4.09, DORMIR = 4.47;
+      // cuadro 0: luz cálida, la influencer deja de actuar; Néstor desplomado
+      tl.fromTo(q(".s09-i"), { x: -60, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s09-n"), { x: 60, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 0);
+      K.origen(q(".s09-n .to-n-cabeza"), "0 -260");
+      tl.to(q(".s09-n .to-n-cabeza"), { rotation: -14, duration: 1.2, ease: "power2.inOut" }, 0.3);
+      K.hablar(".s09-i .to-i-boca", 0.1, 3, 0.2);
+      // la influencer lo mira y se le acerca
+      tl.to(q(".s09-i"), { x: 30, duration: 0.8, ease: "sine.inOut" }, NESTOR);
+      // "corrector": uno chiquito al lado de una ojera gigante
+      K.popSvg(q(".s09-ojera"), CORRECTOR - 0.2, "540 700", 0.45, 0.3);
+      K.popSvg(q(".s09-corr"), CORRECTOR + 0.1, "860 700", 0.3, 0.2);
+      tl.to(q(".s09-corr"), { x: -40, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, CORRECTOR + 0.4);
+      // "tape": el corrector se cae
+      tl.to(q(".s09-corr"), { y: 650, rotation: 200, svgOrigin: "860 700", duration: 0.7, ease: "power2.in" }, TAPE);
+      tl.to(q(".s09-corr"), { opacity: 0, duration: 0.15 }, TAPE + 0.55);
+      // "dormir"
+      tl.to(q(".s09-ojera"), { opacity: 0, scale: 0.6, svgOrigin: "540 700", duration: 0.3, ease: "power2.in" }, FALTA);
+      K.pop(q(".s09-dormir"), DORMIR - 0.05, 0.45);
+      K.popSvg(q(".s09-alm"), DORMIR + 0.1, "560 1420", 0.4, 0.5);
+      K.salida(q("#s09-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

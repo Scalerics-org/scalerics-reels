@@ -1,0 +1,17 @@
+{
+ "t": 25.5,
+ "chica": "Ojeras de comerciante",
+ "grande": "no hay corrector",
+ "sello": "Tutorial: ojeras",
+ "acento": "#ff8fb0",
+ "sello_color": "#e8577e",
+ "velo": "43,23,32",
+ "fondo": "#2b1720",
+ "zoom": 1.7,
+ "foco": "100%",
+ "circulo": {
+  "x": 540,
+  "y": 560,
+  "r": 300
+ }
+}

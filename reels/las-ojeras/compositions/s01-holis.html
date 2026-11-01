@@ -1,0 +1,82 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tocador.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-holis"] .s01-capa, [data-composition-id="s01-holis"] .s01-escenario { position: absolute; inset: 0; }
+    /* todo vive adentro del vidrio del espejo */
+    [data-composition-id="s01-holis"] #s01-escena { clip-path: inset(500px 100px 420px 100px round 40px); }
+    [data-composition-id="s01-holis"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-holis"] .s01-holis { left: 130px; top: 560px; font-size: 54px; line-height: 1.05; white-space: normal; width: 470px; }
+    [data-composition-id="s01-holis"] .s01-tuto { left: 140px; top: 1040px; font-size: 34px; }
+    [data-composition-id="s01-holis"] .s01-comer { left: 140px; top: 1120px; font-size: 30px; }
+  </style>
+  <div id="root" data-composition-id="s01-holis" data-width="1080" data-height="1920" data-duration="6.50">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="6.50" data-track-index="0">
+      <div class="s01-escenario">
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="to-sticker s01-holis">¡HOLIS,<br>MIS AMORES!</div>
+        <div class="to-tag rosa s01-tuto">TUTORIAL: OJERAS</div>
+        <div class="to-tag lila s01-comer">DE COMERCIANTE</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-holis";
+      const DUR = 6.50;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = TO.kit(tl, root);
+      const { q, qa } = K;
+      const I = TO.INK;
+      const [gl] = TO.globo(150, 930, "¿Precio?", "i", { fs: 44, hora: "01:58", cls: "s01-globo" });
+      q(".s01-svg").innerHTML =
+        `<g class="s01-inf">${TO.influencer(700, 1500, 1.45, { cara: "feliz" })}</g>` +
+        `<g class="s01-guino" opacity="0">${TO.influencer(700, 1500, 1.45, { cara: "guino" })}</g>` +
+        `<g class="s01-ds">${TO.destellos([[170, 560, 26], [600, 590, 20], [560, 760, 30], [420, 1300, 22]], TO.ORO2)}</g>` +
+        // las ojeras como muestras de color
+        `<g class="s01-swatch">
+          <path d="M150 840 C140 990 420 990 410 840 C350 920 210 920 150 840 Z" fill="${TO.LILA}" stroke="${I}" stroke-width="8" stroke-linejoin="round"/>
+          <path d="M185 890 C230 930 330 930 375 890" fill="none" stroke="${TO.LILA2}" stroke-width="9" stroke-linecap="round"/>
+        </g>` +
+        `<g class="s01-wa">${gl}</g>` +
+        `<g class="s01-reloj">${TO.reloj(300, 1300, "02:00")}${TO.luna(240, 1120, 54)}</g>`;
+
+      const HOLIS = 0.0, OJERAS = 2.48, COMERCIANTE = 2.99, WHATSAPP = 4.44, DOS = 5.30;
+
+      // cuadro 0: la influencer ya está, entrando desde abajo
+      tl.fromTo(q(".s01-inf"), { y: 60, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".s01-escenario"), { scale: 1 }, { scale: 1.035, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+      K.hablar(".s01-inf .to-i-boca", 0.05, 8, 0.14);
+      K.sello(q(".s01-holis"), HOLIS + 0.15, -6);
+      K.titilar(".s01-ds .to-ds", 0.2, 2.2);
+      // guiño
+      tl.set(q(".s01-guino"), { opacity: 1 }, 0.9); tl.set(q(".s01-inf"), { opacity: 0 }, 0.9);
+      tl.set(q(".s01-guino"), { opacity: 0 }, 1.25); tl.set(q(".s01-inf"), { opacity: 1 }, 1.25);
+      // la brocha saluda
+      K.origen(q(".s01-inf .to-i-brazo"), "150 -190");
+      tl.to(q(".s01-inf .to-i-brazo"), { rotation: -12, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.3);
+      tl.to(q(".s01-holis"), { opacity: 0, y: -20, duration: 0.25 }, OJERAS - 0.4);
+      // "ojeras": la muestra lila gigante
+      K.popSvg(q(".s01-swatch"), OJERAS, "280 900", 0.4, 0.2);
+      tl.to(q(".s01-swatch"), { y: -10, duration: 0.4, yoyo: true, repeat: 2, ease: "sine.inOut" }, OJERAS + 0.4);
+      K.pop(q(".s01-tuto"), OJERAS + 0.1);
+      K.pop(q(".s01-comer"), COMERCIANTE);
+      // "WhatsApp": globo que vibra
+      tl.to([q(".s01-swatch"), q(".s01-tuto"), q(".s01-comer")], { opacity: 0, duration: 0.2 }, WHATSAPP - 0.25);
+      K.popSvg(q(".s01-globo"), WHATSAPP, "260 980");
+      K.vibrar(q(".s01-wa"), WHATSAPP + 0.3, 0.6);
+      // "dos de la mañana": reloj y luna
+      K.popSvg(q(".s01-reloj"), DOS, "300 1250", 0.4, 0.3);
+      tl.to(q(".s01-reloj .to-reloj"), { opacity: 0.4, duration: 0.15, yoyo: true, repeat: 3, ease: "steps(1)" }, DOS + 0.5);
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,132 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="ambiente"] .am-tinte { position: absolute; left: 100px; top: 500px; width: 880px; height: 1000px; border-radius: 40px; opacity: 0; }
+    [data-composition-id="ambiente"] .am-calido { background: rgba(217, 164, 65, 0.16); }
+    [data-composition-id="ambiente"] .am-nocturno { background: rgba(74, 37, 51, 0.30); }
+    [data-composition-id="ambiente"] .am-cartel { position: absolute; left: 130px; top: 44px; width: 820px; height: 150px; background: #2b1720; border: 7px solid #d9a441; border-radius: 26px; box-shadow: 0 0 0 5px #2b1720, 0 10px 30px rgba(0, 0, 0, 0.45); text-align: center; }
+    [data-composition-id="ambiente"] .am-cartel b { position: absolute; left: 0; right: 0; top: 26px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 52px; line-height: 1; color: #f9e1d8; letter-spacing: 0.01em; white-space: nowrap; text-shadow: 0 4px 0 #e8577e; }
+    [data-composition-id="ambiente"] .am-cartel small { position: absolute; left: 0; right: 0; top: 96px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.24em; color: #f3cf7a; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-cartel small.am-ia { color: #5ce611; opacity: 0; }
+    [data-composition-id="ambiente"] .am-cartel small i { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: #e8577e; margin-left: 10px; vertical-align: 0; }
+    [data-composition-id="ambiente"] .am-chapas { position: absolute; left: 44px; top: 1572px; width: 640px; height: 100px; }
+    [data-composition-id="ambiente"] .am-ch { position: absolute; left: 0; top: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .am-ch .am-pl { display: inline-block; padding: 12px 26px 10px; background: #2b1720; border-left: 14px solid currentColor; border-radius: 8px; box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.4); }
+    [data-composition-id="ambiente"] .am-ch b { display: block; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 36px; line-height: 1; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-ch small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.16em; color: #f9e1d8; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-paso { position: absolute; right: 44px; top: 1572px; width: 290px; height: 100px; background: #2b1720; border: 4px solid #d9a441; border-radius: 14px; opacity: 0; }
+    [data-composition-id="ambiente"] .am-paso small { position: absolute; left: 22px; top: 18px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.3em; color: #f3cf7a; }
+    [data-composition-id="ambiente"] .am-paso .am-n { position: absolute; left: 150px; top: 14px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; line-height: 1; color: #ff8fb0; opacity: 0; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-paso .am-pt { position: absolute; top: 66px; width: 22px; height: 22px; border-radius: 50%; border: 3px solid #d9a441; box-sizing: border-box; }
+    [data-composition-id="ambiente"] .am-paso .am-pt b { position: absolute; inset: -3px; border-radius: 50%; background: #ff8fb0; border: 3px solid #2b1720; opacity: 0; }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #fff8f4; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.99">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="73.99" data-track-index="0">
+      <div class="am-tinte am-calido"></div>
+      <div class="am-tinte am-nocturno"></div>
+      <svg class="am-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="am-cartel"><b>TUTORIAL DE MAQUILLAJE</b><small class="am-sub">OJERAS DE COMERCIANTE · EN VIVO<i></i></small><small class="am-ia" style="position:absolute">CON AGENTE DE IA · EN VIVO</small></div>
+      <div class="am-chapas">
+        <div class="am-ch am-chi" style="color:#ff8fb0"><div class="am-pl"><b>LA INFLUENCER</b><small>TUTORIAL EN VIVO</small></div></div>
+        <div class="am-ch am-chd" style="color:#c3b2f0"><div class="am-pl"><b>NÉSTOR</b><small>EL MODELO · DUEÑO</small></div></div>
+        <div class="am-ch am-cho" style="color:#5ce611"><div class="am-pl"><b>SCALERICS</b><small>AGENTES DE IA</small></div></div>
+      </div>
+      <div class="am-paso"><small>PASO</small>
+        <span class="am-n am-n1">1/5</span><span class="am-n am-n2">2/5</span><span class="am-n am-n3">3/5</span><span class="am-n am-n4">4/5</span><span class="am-n am-n5">5/5</span>
+        <span class="am-pt" style="left:24px"><b class="am-p1"></b></span><span class="am-pt" style="left:74px"><b class="am-p2"></b></span><span class="am-pt" style="left:124px"><b class="am-p3"></b></span><span class="am-pt" style="left:174px"><b class="am-p4"></b></span><span class="am-pt" style="left:224px"><b class="am-p5"></b></span>
+      </div>
+      <div class="am-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.99;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // segundos globales (de assets/voice/palabras.json; los escribe armar.mjs)
+      const TURNOS = [[0,"i"],[9.63,"d"],[13.3,"i"],[25.29,"d"],[28.23,"i"],[37.48,"d"],[40.44,"i"],[45.99,"o"],[59.94,"i"],[64.69,"d"],[67.54,"o"]];
+      const PASOS = [13.3, 18.33, 28.23, 32.27, 59.94];
+      const ESTAS = 36.29;
+      const GIRO = 40.44;
+      const SCALERICS = 46.69;
+      const DORMIR = 60.85;
+      const CTA = 67.54;
+
+      // marco dorado del espejo con bombitas
+      let bombitas = "";
+      const pos = [];
+      for (let k = 0; k < 9; k++) pos.push([150 + k * 97.5, 487]);
+      for (let k = 0; k < 9; k++) { pos.push([87, 590 + k * 104]); pos.push([993, 590 + k * 104]); }
+      pos.forEach(([x, y], i) => {
+        bombitas += `<g class="am-bomba am-b${i % 2}"><circle class="am-halo" cx="${x}" cy="${y}" r="38" fill="#f3cf7a" opacity="0.28"/>
+          <circle cx="${x}" cy="${y}" r="22" fill="#a8782a" stroke="#2b1720" stroke-width="6"/>
+          <circle class="am-luz" cx="${x}" cy="${y}" r="17" fill="#fff8f4"/>
+          <circle cx="${x - 6}" cy="${y - 6}" r="5" fill="#ffffff" opacity="0.9"/></g>`;
+      });
+      q(".am-svg").innerHTML =
+        `<rect x="87" y="487" width="906" height="1026" rx="56" fill="none" stroke="#2b1720" stroke-width="44"/>
+         <rect x="87" y="487" width="906" height="1026" rx="56" fill="none" stroke="#d9a441" stroke-width="28"/>
+         <rect x="101" y="501" width="878" height="998" rx="42" fill="none" stroke="#a8782a" stroke-width="5"/>
+         <rect x="73" y="473" width="934" height="1054" rx="70" fill="none" stroke="#f3cf7a" stroke-width="4" opacity="0.7"/>` + bombitas;
+
+      tl.fromTo(q(".am-cartel"), { y: -30 }, { y: 0, duration: 0.35, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".am-cartel small i"), { opacity: 1 }, { opacity: 0.2, duration: 0.5, yoyo: true, repeat: Math.floor(DUR) * 2 - 1, ease: "steps(1)" }, 0);
+      // los halos de las bombitas respiran, alternados
+      const veces = Math.floor(DUR / 1.2);
+      tl.fromTo(qa(".am-b0 .am-halo"), { opacity: 0.32 }, { opacity: 0.12, duration: 0.6, yoyo: true, repeat: veces * 2 - 1, ease: "sine.inOut" }, 0);
+      tl.fromTo(qa(".am-b1 .am-halo"), { opacity: 0.12 }, { opacity: 0.32, duration: 0.6, yoyo: true, repeat: veces * 2 - 1, ease: "sine.inOut" }, 0);
+
+      const luces = qa(".am-luz"), halos = qa(".am-halo");
+      // "¿estás?": cortocircuito
+      [0, 0.08, 0.16, 0.3, 0.38].forEach((d, i) => tl.to(luces, { opacity: i % 2 ? 1 : 0.25, duration: 0.03 }, ESTAS + d));
+      tl.to(luces, { opacity: 1, duration: 0.05 }, ESTAS + 0.5);
+      // giro: luz cálida y tenue
+      tl.to(luces, { opacity: 0.5, duration: 0.5 }, GIRO);
+      tl.to(q(".am-calido"), { opacity: 1, duration: 0.6 }, GIRO);
+      // Scalerics: flash y luz plena
+      tl.to(q(".am-flash"), { opacity: 0.55, duration: 0.03 }, SCALERICS);
+      tl.to(q(".am-flash"), { opacity: 0, duration: 0.45, ease: "power2.out" }, SCALERICS + 0.04);
+      tl.to(luces, { opacity: 1, duration: 0.1 }, SCALERICS);
+      tl.to(q(".am-calido"), { opacity: 0, duration: 0.1 }, SCALERICS);
+      tl.to(q(".am-sub"), { opacity: 0, duration: 0.15 }, SCALERICS);
+      tl.to(q(".am-ia"), { opacity: 1, duration: 0.2 }, SCALERICS + 0.1);
+      tl.to(q(".am-cartel"), { borderColor: "#5ce611", duration: 0.2 }, SCALERICS);
+      // paso cinco, dormir: luz de noche
+      tl.to(luces, { opacity: 0.4, duration: 0.6 }, DORMIR);
+      tl.to(q(".am-nocturno"), { opacity: 1, duration: 0.6 }, DORMIR);
+      // CTA: vuelve la luz
+      tl.to(luces, { opacity: 1, duration: 0.3 }, CTA);
+      tl.to(q(".am-nocturno"), { opacity: 0, duration: 0.3 }, CTA);
+
+      // chapa de quién habla
+      const CH = { i: ".am-chi", d: ".am-chd", o: ".am-cho" };
+      let ant = null;
+      TURNOS.forEach(([t, quien]) => {
+        const el = q(CH[quien]);
+        if (ant && ant !== el) tl.to(ant, { opacity: 0, x: -30, duration: 0.12, ease: "power2.in" }, t - 0.12);
+        if (ant !== el) tl.fromTo(el, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(2.2)", immediateRender: false }, Math.max(0, t));
+        ant = el;
+      });
+
+      // contador de pasos
+      tl.fromTo(q(".am-paso"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, PASOS[0] - 0.1);
+      PASOS.forEach((t, i) => {
+        if (i > 0) tl.to(q(".am-n" + i), { opacity: 0, duration: 0.08 }, t);
+        tl.fromTo(q(".am-n" + (i + 1)), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, t);
+        tl.fromTo(q(".am-p" + (i + 1)), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, t + 0.05);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

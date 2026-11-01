@@ -1,0 +1,60 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tocador.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-estoy"] .s08-capa, [data-composition-id="s08-estoy"] .s08-escenario { position: absolute; inset: 0; }
+    /* todo vive adentro del vidrio del espejo */
+    [data-composition-id="s08-estoy"] #s08-escena { clip-path: inset(500px 100px 420px 100px round 40px); }
+    [data-composition-id="s08-estoy"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-estoy"] .s08-titulo { left: 140px; top: 545px; font-size: 128px; }
+    [data-composition-id="s08-estoy"] .s08-siempre { left: 640px; top: 1110px; font-size: 56px; }
+  </style>
+  <div id="root" data-composition-id="s08-estoy" data-width="1080" data-height="1920" data-duration="2.96">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="2.96" data-track-index="0">
+      <div class="s08-escenario">
+        <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="to-titulo s08-titulo">¡ESTOY!</div>
+        <div class="to-sello s08-siempre">SIEMPRE</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-estoy";
+      const DUR = 2.96;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = TO.kit(tl, root);
+      const { q, qa } = K;
+      const I = TO.INK;
+      const NX = 540, NY = 1560, NS = 1.3;
+      const gl = [["01:00", 760], ["03:00", 875], ["04:00", 990]].map(([h, y], i) => TO.globo(960, y, "¡Estoy!", "d", { fs: 40, hora: h, ticks: "gris", cls: "s08-g s08-g" + i })[0]).join("");
+      q(".s08-svg").innerHTML =
+        `<g class="s08-n">${TO.nestor(NX, NY, NS, { cara: "sobresalto", saludo: true })}</g>` +
+        `<g class="s08-lineas"><path d="M${NX - 230} 820 l-40 -30 M${NX + 230} 820 l40 -30 M${NX - 250} 900 l-50 0 M${NX + 250} 900 l50 0" stroke="${I}" stroke-width="8" stroke-linecap="round"/></g>` + gl;
+
+      const ESTOY = 0.0, SIEMPRE = 0.96, ESTOY2 = 1.25;
+      // cuadro 0: se para de golpe
+      tl.fromTo(q(".s08-n"), { y: 160 }, { y: 0, duration: 0.3, ease: "back.out(2.4)" }, 0);
+      K.sello(q(".s08-titulo"), ESTOY + 0.12, -4);
+      K.popSvg(q(".s08-lineas"), 0.15, `${NX} 860`, 0.25, 0.6);
+      tl.to(q(".s08-lineas"), { opacity: 0, duration: 0.2 }, 0.8);
+      K.hablar(".s08-n .to-n-boca", 0.0, 4, 0.12);
+      // "siempre": los globos se apilan
+      qa(".s08-g").forEach((g, i) => K.popSvg(g, SIEMPRE + i * 0.15, `840 ${800 + i * 115}`));
+      K.sello(q(".s08-siempre"), ESTOY2 + 0.15, -7);
+      K.origen(q(".s08-n .to-n-oj-i"), "-50 -338");
+      K.origen(q(".s08-n .to-n-oj-d"), "50 -338");
+      tl.to([q(".s08-n .to-n-oj-i"), q(".s08-n .to-n-oj-d")], { scaleY: 1.5, scaleX: 1.15, duration: 0.8, ease: "power2.out" }, ESTOY2);
+      tl.to(q(".s08-n"), { y: 12, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.6);
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

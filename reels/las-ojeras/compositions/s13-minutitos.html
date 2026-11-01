@@ -1,0 +1,55 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/tocador.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-minutitos"] .s13-capa, [data-composition-id="s13-minutitos"] .s13-escenario { position: absolute; inset: 0; }
+    /* todo vive adentro del vidrio del espejo */
+    [data-composition-id="s13-minutitos"] #s13-escena { clip-path: inset(500px 100px 420px 100px round 40px); }
+    [data-composition-id="s13-minutitos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-minutitos"] .s13-tag { left: 120px; top: 1335px; font-size: 28px; }
+  </style>
+  <div id="root" data-composition-id="s13-minutitos" data-width="1080" data-height="1920" data-duration="2.85">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="2.85" data-track-index="0">
+      <div class="s13-escenario">
+        <svg class="s13-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="to-tag verde s13-tag">LO ATIENDO YO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-minutitos";
+      const DUR = 2.85;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = TO.kit(tl, root);
+      const { q, qa } = K;
+      const I = TO.INK;
+      const NX = 640, NY = 1720, NS = 1.6;
+      q(".s13-svg").innerHTML =
+        `<g class="s13-alm">${TO.almohada(NX, NY - 470, 1.3)}</g>` +
+        `<g class="s13-n">${TO.nestor(NX, NY, NS, { cara: "feliz", antifaz: true, ojeras: 0 })}</g>` +
+        `<g class="s13-z">${TO.zzz(250, 760, 1.3)}</g>` +
+        `<g class="s13-a">${TO.agente(240, 1180, 0.48)}</g>`;
+
+      const MINUTITOS = 0.50, MAS = 1.50;
+      tl.fromTo(q(".s13-escenario"), { scale: 1.06 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "60% 60%" }, 0);
+      K.hablar(".s13-n .to-n-boca", 0.0, 4, 0.2);
+      tl.to(q(".s13-n"), { y: 10, rotation: 0, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.2);
+      K.roncar(".s13-z", 0.0, 2.6);
+      gsap.set(q(".s13-a"), { opacity: 0 });
+      tl.fromTo(q(".s13-a"), { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.6)", immediateRender: false }, MINUTITOS - 0.2);
+      K.pop(q(".s13-tag"), MINUTITOS + 0.15);
+      K.origen(q(".s13-a .to-a-ojos"), "0 -70");
+      tl.to(q(".s13-a .to-a-ojos"), { scaleY: 0.1, duration: 0.08, yoyo: true, repeat: 1 }, MAS + 0.2);
+      K.salida(q("#s13-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
