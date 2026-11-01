@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-martes"] .s05-capa { position: absolute; inset: 0; }
+    /* la hoja del diario: renglones celestes, margen rosa, espiral */
+    [data-composition-id="s05-martes"] .s05-hoja { position: absolute; left: 120px; top: 600px; width: 840px; height: 720px; border-radius: 8px; background-color: #fbf7ee;
+      background-image: repeating-linear-gradient(180deg, transparent 0 58px, rgba(78, 140, 214, 0.35) 58px 60px); background-position: 0 30px;
+      box-shadow: 0 16px 36px rgba(10, 4, 20, 0.5); }
+    [data-composition-id="s05-martes"] .s05-margen { position: absolute; left: 100px; top: 0; bottom: 0; width: 3px; background: rgba(240, 122, 160, 0.75); }
+    [data-composition-id="s05-martes"] .s05-anillo { position: absolute; left: -22px; width: 46px; height: 26px; border: 6px solid #3a2350; border-radius: 50%; }
+    [data-composition-id="s05-martes"] .s05-cinta { position: absolute; width: 200px; height: 54px; opacity: 0.9;
+      background: repeating-linear-gradient(45deg, #ffe14d 0 16px, #fff1a8 16px 32px); }
+    [data-composition-id="s05-martes"] .s05-cintar { background: repeating-linear-gradient(45deg, #ff6fa5 0 16px, #ffb3cf 16px 32px); }
+    [data-composition-id="s05-martes"] .s05-mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #2b4fc7; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s05-martes"] .s05-dia { left: 130px; top: 22px; font-size: 112px; }
+    [data-composition-id="s05-martes"] .s05-rosa { color: #ff6fa5; }
+    [data-composition-id="s05-martes"] .s05-st { position: absolute; overflow: visible; filter: drop-shadow(0 6px 8px rgba(10, 4, 20, 0.35)); }
+    [data-composition-id="s05-martes"] .s05-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-martes"] .s05-b { fill: none; stroke: #2b4fc7; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-martes"] .s05-r { fill: none; stroke: #ff6fa5; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-martes"] .s05-planilla { position: absolute; background: #1f8f4e; border-radius: 10px; box-shadow: 0 14px 30px rgba(10, 4, 20, 0.45); }
+    [data-composition-id="s05-martes"] .s05-plbarra { position: absolute; left: 0; right: 0; top: 0; height: 44px; border-radius: 10px 10px 0 0; background: #17703c; }
+    [data-composition-id="s05-martes"] .s05-celda { position: absolute; background: #d9f2e2; border-radius: 3px; font-family: "IBM Plex Mono", monospace; font-weight: 500; color: #1d1128; display: flex; align-items: center; padding-left: 10px; white-space: nowrap; overflow: hidden; }
+    [data-composition-id="s05-martes"] .s05-etiq { position: absolute; left: 0; right: 0; top: 1410px; text-align: center; }
+    [data-composition-id="s05-martes"] .s05-etiq span { display: inline-block; padding: 4px 40px 10px; font-family: "Caveat", cursive; font-weight: 700; font-size: 60px; line-height: 1; color: #2b4fc7;
+      background: repeating-linear-gradient(45deg, #ffe14d 0 16px, #fff1a8 16px 32px); transform: rotate(-2deg); }
+    [data-composition-id="s05-martes"] .s05-globo { position: absolute; background: #fbf7ee; border: 5px solid #2b4fc7; border-radius: 28px; font-family: "Lexend", sans-serif; font-weight: 600; color: #1d1128; white-space: nowrap; box-shadow: 0 10px 20px rgba(10, 4, 20, 0.3); }
+  
+    [data-composition-id="s05-martes"] .s05-globo { font-size: 30px; padding: 10px 22px; }
+    [data-composition-id="s05-martes"] .s05-x40 { left: 560px; top: 440px; font-size: 150px; color: #ff6fa5; }
+    [data-composition-id="s05-martes"] .s05-cel { position: absolute; left: 150px; top: 160px; width: 340px; height: 520px; border-radius: 46px; background: #3a2350; box-shadow: 0 14px 28px rgba(10, 4, 20, 0.45); }
+    [data-composition-id="s05-martes"] .s05-pant { position: absolute; left: 18px; top: 40px; right: 18px; bottom: 30px; border-radius: 26px; background: #fbf7ee; }
+    [data-composition-id="s05-martes"] .s05-quien { position: absolute; left: 0; right: 0; top: 18px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 30px; color: #3a2350; }
+    [data-composition-id="s05-martes"] .s05-mio { position: absolute; right: 14px; top: 110px; padding: 12px 18px; border-radius: 22px 22px 4px 22px; background: #ff6fa5; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; color: #ffffff; white-space: nowrap; }
+    [data-composition-id="s05-martes"] .s05-visto { position: absolute; right: 22px; top: 196px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; color: #2b4fc7; }
+    [data-composition-id="s05-martes"] .s05-metros { left: 520px; top: 200px; font-size: 70px; }
+    [data-composition-id="s05-martes"] .s05-sillon { position: absolute; left: 540px; top: 430px; width: 260px; height: 190px; }
+  
+  </style>
+  <div id="root" data-composition-id="s05-martes" data-width="1080" data-height="1920" data-duration="7.65">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="7.65" data-track-index="0">
+
+      <div class="s05-hoja">
+        <div class="s05-margen"></div><div class="s05-anillo" style="top:30px"></div><div class="s05-anillo" style="top:98px"></div><div class="s05-anillo" style="top:166px"></div><div class="s05-anillo" style="top:234px"></div><div class="s05-anillo" style="top:302px"></div><div class="s05-anillo" style="top:370px"></div><div class="s05-anillo" style="top:438px"></div><div class="s05-anillo" style="top:506px"></div><div class="s05-anillo" style="top:574px"></div><div class="s05-anillo" style="top:642px"></div>
+        <div class="s05-cinta s05-cintar" style="right:-40px;top:-14px;transform:rotate(10deg)"></div>
+        <div class="s05-mano s05-dia">Martes</div>
+        <svg class="s05-svg" viewBox="0 0 1080 1920"><path class="s05-r s05-subd" d="M130 140 C 210 132 300 136 400 128"/></svg>
+        <div class="s05-pila">
+        <div class="s05-globo s05-g0" style="left:140px;top:170px">Tu pedido está listo</div><div class="s05-globo s05-g1" style="left:200px;top:252px">Tu pedido está listo</div><div class="s05-globo s05-g2" style="left:140px;top:334px">Tu pedido está listo</div><div class="s05-globo s05-g3" style="left:200px;top:416px">Tu pedido está listo</div><div class="s05-globo s05-g4" style="left:140px;top:498px">Tu pedido está listo</div><div class="s05-globo s05-g5" style="left:200px;top:580px">Tu pedido está listo</div>
+        <div class="s05-mano s05-x40">x40</div>
+        </div>
+        <div class="s05-cel"><div class="s05-pant">
+          <div class="s05-quien">Papá</div>
+          <div class="s05-mio">Pa, ¿me ayudás?</div>
+          <div class="s05-visto">Visto</div>
+          <svg style="position:absolute;left:0;top:0;overflow:visible" width="304" height="450"><path class="s05-r s05-circ" d="M300 204 C 290 180 200 182 196 210 C 194 238 284 246 302 224 C 312 210 300 198 282 194"/></svg>
+        </div></div>
+        <svg class="s05-svg" viewBox="0 0 1080 1920">
+          <g class="s05-sil">
+            <path class="s05-b" d="M560 600 L 560 500 C 560 470 580 460 600 470 L 600 520 L 760 520 L 760 470 C 780 460 800 470 800 500 L 800 600 Z"/>
+            <path class="s05-b" d="M600 520 L 600 440 C 600 420 760 420 760 440 L 760 520"/>
+            <path class="s05-b" d="M580 600 L 580 630 M780 600 L 780 630"/>
+          </g>
+          <path class="s05-b s05-fl" d="M500 330 C 560 300 640 320 680 410 M650 392 L 682 414 L 692 376"/>
+        </svg>
+        <div class="s05-mano s05-metros">a 3 metros</div>
+      </div>
+      <div class="s05-etiq"><span>Visto</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-martes";
+      const DUR = 7.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // escribir con birome = destapar de izquierda a derecha
+      const escribir = (el, t, dur, desde = 100) => {
+        gsap.set(el, { clipPath: "inset(-20% " + desde + "% -20% -4%)" });
+        tl.to(el, { clipPath: "inset(-20% -8% -20% -4%)", duration: dur, ease: "none" }, t);
+      };
+      // dibujar trazos de birome (queda en opacity 0 hasta que arranca: sin puntitos)
+      const dibujar = (els, t, dur = 0.6, stagger = 0) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t + i * stagger);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * stagger);
+        });
+      };
+      // sticker o papel que aparece entero
+      const pop = (el, t, rot = 0, dur = 0.35) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, rotation: rot - 12 }, { opacity: 1, scale: 1, rotation: rot, duration: dur, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      // hoja que cae sobre el acolchado
+      const caer = (el, t, rot = -2) => tl.fromTo(el, { rotation: rot - 7, scale: 1.08, y: -50 }, { rotation: rot, scale: 1, y: 0, duration: 0.45, ease: "back.out(1.5)" }, t);
+      const sacudir = (el, t) => [[-12, 6], [10, -5], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiqueta = (t) => tl.fromTo(q(".s05-etiq span"), { opacity: 0, y: 16, rotation: -6 }, { opacity: 1, y: 0, rotation: -2, duration: 0.32, ease: "back.out(1.8)" }, t);
+  
+      const TU = 1.34, CUARENTA = 2.84, AMI = 3.95, VISTO = 5.47, LIVING = 6.59;
+      const hoja = q(".s05-hoja");
+      caer(hoja, 0, 2);
+      escribir(q(".s05-dia"), 0.0, 0.55);
+      dibujar(q(".s05-subd"), 0.55, 0.3);
+      for (let i = 0; i < 6; i++) pop(q(".s05-g" + i), TU + i * 0.22, i % 2 ? 3 : -3, 0.25);
+      gsap.set(q(".s05-x40"), { opacity: 0 });
+      tl.fromTo(q(".s05-x40"), { opacity: 0, scale: 1.8, rotation: -14 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.25, ease: "back.out(2)", immediateRender: false }, CUARENTA);
+      sacudir(hoja, CUARENTA + 0.1);
+      tl.to(q(".s05-pila"), { x: 700, rotation: 8, opacity: 0, duration: 0.35, ease: "power3.in" }, AMI - 0.2);
+      // el celular de Sofi: visto
+      gsap.set(q(".s05-cel"), { opacity: 0 });
+      tl.fromTo(q(".s05-cel"), { opacity: 0, y: 300, rotation: 8 }, { opacity: 1, y: 0, rotation: -3, duration: 0.4, ease: "back.out(1.5)", immediateRender: false }, AMI);
+      pop(q(".s05-mio"), AMI + 0.5, 0, 0.3);
+      gsap.set(q(".s05-visto"), { opacity: 0 });
+      tl.to(q(".s05-visto"), { opacity: 1, duration: 0.1 }, VISTO - 0.05);
+      dibujar(q(".s05-circ"), VISTO + 0.1, 0.4);
+      dibujar(qa(".s05-sil path"), LIVING - 0.3, 0.4, 0.08);
+      dibujar(q(".s05-fl"), LIVING - 0.1, 0.35);
+      escribir(q(".s05-metros"), LIVING, 0.5);
+      etiqueta(VISTO);
+      tl.to(q("#s05-escena"), { x: -160, rotation: -6, opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power3.in" }, DUR - 0.25);
+  
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

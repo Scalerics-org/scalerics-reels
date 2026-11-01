@@ -1,0 +1,38 @@
+[
+ {
+  "t": 0.05,
+  "sfx": "notification",
+  "vol": 0.2
+ },
+ {
+  "t": 0.6,
+  "sfx": "whoosh-short",
+  "vol": 0.2
+ },
+ {
+  "t": 1.2,
+  "sfx": "ping",
+  "vol": 0.2
+ },
+ {
+  "t": 2.75,
+  "sfx": "whoosh",
+  "vol": 0.22,
+  "max": 0.6
+ },
+ {
+  "t": 3.4,
+  "sfx": "ping",
+  "vol": 0.2
+ },
+ {
+  "t": 4.92,
+  "sfx": "notification",
+  "vol": 0.28
+ },
+ {
+  "t": 5.1,
+  "sfx": "ping",
+  "vol": 0.2
+ }
+]

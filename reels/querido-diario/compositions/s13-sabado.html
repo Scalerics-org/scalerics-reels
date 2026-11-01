@@ -1,0 +1,162 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-sabado"] .s13-capa { position: absolute; inset: 0; }
+    /* la hoja del diario: renglones celestes, margen rosa, espiral */
+    [data-composition-id="s13-sabado"] .s13-hoja { position: absolute; left: 120px; top: 600px; width: 840px; height: 720px; border-radius: 8px; background-color: #fbf7ee;
+      background-image: repeating-linear-gradient(180deg, transparent 0 58px, rgba(78, 140, 214, 0.35) 58px 60px); background-position: 0 30px;
+      box-shadow: 0 16px 36px rgba(10, 4, 20, 0.5); }
+    [data-composition-id="s13-sabado"] .s13-margen { position: absolute; left: 100px; top: 0; bottom: 0; width: 3px; background: rgba(240, 122, 160, 0.75); }
+    [data-composition-id="s13-sabado"] .s13-anillo { position: absolute; left: -22px; width: 46px; height: 26px; border: 6px solid #3a2350; border-radius: 50%; }
+    [data-composition-id="s13-sabado"] .s13-cinta { position: absolute; width: 200px; height: 54px; opacity: 0.9;
+      background: repeating-linear-gradient(45deg, #ffe14d 0 16px, #fff1a8 16px 32px); }
+    [data-composition-id="s13-sabado"] .s13-cintar { background: repeating-linear-gradient(45deg, #ff6fa5 0 16px, #ffb3cf 16px 32px); }
+    [data-composition-id="s13-sabado"] .s13-mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #2b4fc7; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s13-sabado"] .s13-dia { left: 130px; top: 22px; font-size: 112px; }
+    [data-composition-id="s13-sabado"] .s13-rosa { color: #ff6fa5; }
+    [data-composition-id="s13-sabado"] .s13-st { position: absolute; overflow: visible; filter: drop-shadow(0 6px 8px rgba(10, 4, 20, 0.35)); }
+    [data-composition-id="s13-sabado"] .s13-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-sabado"] .s13-b { fill: none; stroke: #2b4fc7; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-sabado"] .s13-r { fill: none; stroke: #ff6fa5; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-sabado"] .s13-planilla { position: absolute; background: #1f8f4e; border-radius: 10px; box-shadow: 0 14px 30px rgba(10, 4, 20, 0.45); }
+    [data-composition-id="s13-sabado"] .s13-plbarra { position: absolute; left: 0; right: 0; top: 0; height: 44px; border-radius: 10px 10px 0 0; background: #17703c; }
+    [data-composition-id="s13-sabado"] .s13-celda { position: absolute; background: #d9f2e2; border-radius: 3px; font-family: "IBM Plex Mono", monospace; font-weight: 500; color: #1d1128; display: flex; align-items: center; padding-left: 10px; white-space: nowrap; overflow: hidden; }
+    [data-composition-id="s13-sabado"] .s13-etiq { position: absolute; left: 0; right: 0; top: 1410px; text-align: center; }
+    [data-composition-id="s13-sabado"] .s13-etiq span { display: inline-block; padding: 4px 40px 10px; font-family: "Caveat", cursive; font-weight: 700; font-size: 60px; line-height: 1; color: #2b4fc7;
+      background: repeating-linear-gradient(45deg, #ffe14d 0 16px, #fff1a8 16px 32px); transform: rotate(-2deg); }
+    [data-composition-id="s13-sabado"] .s13-globo { position: absolute; background: #fbf7ee; border: 5px solid #2b4fc7; border-radius: 28px; font-family: "Lexend", sans-serif; font-weight: 600; color: #1d1128; white-space: nowrap; box-shadow: 0 10px 20px rgba(10, 4, 20, 0.3); }
+  
+    [data-composition-id="s13-sabado"] .s13-pola { position: absolute; width: 300px; height: 350px; background: #ffffff; box-shadow: 0 16px 34px rgba(10, 4, 20, 0.5); }
+    [data-composition-id="s13-sabado"] .s13-cara { position: absolute; left: 0; top: 0; overflow: visible; }
+    [data-composition-id="s13-sabado"] .s13-plmini .s13-celda { font-size: 1px; }
+    [data-composition-id="s13-sabado"] .s13-polatxt { position: absolute; left: 0; right: 0; top: 278px; text-align: center; font-family: "Caveat", cursive; font-weight: 700; font-size: 58px; line-height: 1; color: #ff6fa5; }
+    [data-composition-id="s13-sabado"] .s13-zz { left: 640px; top: 140px; font-size: 80px; }
+    [data-composition-id="s13-sabado"] .s13-chau { left: 450px; top: 150px; font-size: 80px; color: #ff6fa5; }
+    [data-composition-id="s13-sabado"] .s13-tapa { position: absolute; left: 220px; top: 120px; width: 440px; height: 280px; transform-origin: 50% 100%; }
+    [data-composition-id="s13-sabado"] .s13-base { position: absolute; left: 190px; top: 400px; width: 500px; height: 30px; border-radius: 0 0 16px 16px; background: #3a2350; }
+    [data-composition-id="s13-sabado"] .s13-mini { position: absolute; left: 0; top: 0; }
+  
+  </style>
+  <div id="root" data-composition-id="s13-sabado" data-width="1080" data-height="1920" data-duration="8.18">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="8.18" data-track-index="0">
+
+      <div class="s13-hoja s13-hA">
+        <div class="s13-margen"></div><div class="s13-anillo" style="top:30px"></div><div class="s13-anillo" style="top:98px"></div><div class="s13-anillo" style="top:166px"></div><div class="s13-anillo" style="top:234px"></div><div class="s13-anillo" style="top:302px"></div><div class="s13-anillo" style="top:370px"></div><div class="s13-anillo" style="top:438px"></div><div class="s13-anillo" style="top:506px"></div><div class="s13-anillo" style="top:574px"></div><div class="s13-anillo" style="top:642px"></div>
+        <div class="s13-cinta s13-cintar" style="left:-30px;top:-16px;transform:rotate(-12deg)"></div>
+        <div class="s13-tapa"><div class="s13-planilla s13-lap" style="left:0px;top:0px;width:440px;height:280px"><div class="s13-plbarra"></div><div class="s13-celda s13-col0 s13-fila0" style="left:4px;top:48px;width:212px;height:51px;font-size:29px"></div><div class="s13-celda s13-col1 s13-fila0" style="left:224px;top:48px;width:212px;height:51px;font-size:29px"></div><div class="s13-celda s13-col0 s13-fila1" style="left:4px;top:107px;width:212px;height:51px;font-size:29px"></div><div class="s13-celda s13-col1 s13-fila1" style="left:224px;top:107px;width:212px;height:51px;font-size:29px"></div><div class="s13-celda s13-col0 s13-fila2" style="left:4px;top:166px;width:212px;height:51px;font-size:29px"></div><div class="s13-celda s13-col1 s13-fila2" style="left:224px;top:166px;width:212px;height:51px;font-size:29px"></div><div class="s13-celda s13-col0 s13-fila3" style="left:4px;top:225px;width:212px;height:51px;font-size:29px"></div><div class="s13-celda s13-col1 s13-fila3" style="left:224px;top:225px;width:212px;height:51px;font-size:29px"></div></div></div>
+        <div class="s13-base"></div>
+        <div class="s13-mano s13-zz">click.</div>
+      </div>
+      <div class="s13-hoja s13-hB">
+        <div class="s13-margen"></div><div class="s13-anillo" style="top:30px"></div><div class="s13-anillo" style="top:98px"></div><div class="s13-anillo" style="top:166px"></div><div class="s13-anillo" style="top:234px"></div><div class="s13-anillo" style="top:302px"></div><div class="s13-anillo" style="top:370px"></div><div class="s13-anillo" style="top:438px"></div><div class="s13-anillo" style="top:506px"></div><div class="s13-anillo" style="top:574px"></div><div class="s13-anillo" style="top:642px"></div>
+        <div class="s13-cinta" style="right:-40px;top:-14px;transform:rotate(12deg)"></div>
+        <div class="s13-mano s13-dia">Sábado</div>
+        <svg class="s13-svg" viewBox="0 0 1080 1920"><path class="s13-r s13-subd" d="M130 140 C 210 132 300 136 400 128"/>
+        <g class="s13-escena2" transform="translate(30 60)">
+  <g class="s13-papa"><g class="s13-pin" transform="translate(250 330) scale(0.6)">
+  <path class="s13-b" d="M0 -80 C 50 -80 80 -45 80 0 C 80 50 48 82 0 82 C -48 82 -80 50 -80 0 C -80 -45 -50 -80 0 -80 Z"/>
+  <path class="s13-b" d="M-60 -52 C -70 -86 -40 -98 -30 -78 C -26 -104 6 -104 6 -80 C 14 -104 46 -100 40 -74 C 60 -90 80 -70 64 -50"/>
+  <path class="s13-b" d="M-56 -6 C -56 -26 -16 -26 -16 -6 C -16 14 -56 14 -56 -6 Z"/>
+  <path class="s13-b" d="M16 -6 C 16 -26 56 -26 56 -6 C 56 14 16 14 16 -6 Z"/>
+  <path class="s13-b" d="M-16 -8 Q 0 -16 16 -8"/>
+  <path class="s13-b" d="M-50 20 Q -36 28 -22 20"/><path class="s13-b" d="M22 20 Q 36 28 50 20"/>
+  <path class="s13-b" d="M-30 40 Q -14 30 0 38 Q 14 30 30 40"/>
+  <path class="s13-b" d="M-30 46 Q 0 74 30 46"/>
+  <path class="s13-b" d="M-120 190 C -110 120 -60 96 0 96 C 60 96 110 120 120 190"/>
+</g></g>
+  <g class="s13-mama">
+    <path class="s13-b" d="M430 282 A 50 50 0 1 1 429.9 282 Z"/>
+    <path class="s13-b" d="M380 330 C 370 270 400 270 430 280 C 470 270 500 290 482 360 C 496 390 490 420 470 430 M380 330 C 370 380 376 410 392 430"/>
+    <path class="s13-b" d="M414 322 L 414 330 M446 322 L 446 330 M410 350 Q 430 368 450 350"/>
+    <path class="s13-b" d="M350 470 C 356 420 390 400 430 400 C 470 400 504 420 510 470"/>
+  </g>
+  <g class="s13-sofi">
+    <path class="s13-b" d="M610 314 A 44 44 0 1 1 609.9 314 Z"/>
+    <path class="s13-b" d="M566 340 C 540 330 530 366 548 380 M654 340 C 680 330 690 366 672 380"/>
+    <path class="s13-b" d="M596 350 L 596 358 M624 350 L 624 358 M592 376 Q 610 392 628 376"/>
+    <path class="s13-b" d="M540 470 C 546 430 576 418 610 418 C 644 418 674 430 680 470"/>
+  </g>
+  <path class="s13-b s13-mesa" d="M130 470 L 790 470 M170 470 L 170 640 M750 470 L 750 640"/>
+  <path class="s13-b s13-platos" d="M200 462 C 200 446 300 446 300 462 M380 462 C 380 446 480 446 480 462 M560 462 C 560 446 660 446 660 462"/></g></svg>
+        <svg class="s13-st s13-h1" style="left:106px;top:296px;transform:rotate(-14deg)" width="68" height="68" viewBox="0 0 68 68"><path d="M34 59.3 C19.2 47 4.4 34.7 4.4 22.4 C4.4 10 19.2 4.1 34 15.9 C48.8 4.1 63.6 10 63.6 22.4 C63.6 34.7 48.8 47 34 59.3 Z" fill="#ff6fa5" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/></svg><svg class="s13-st s13-h2" style="left:760px;top:330px;transform:rotate(12deg)" width="60" height="60" viewBox="0 0 60 60"><path d="M30 52.4 C17 41.5 3.9 30.6 3.9 19.7 C3.9 8.9 17 3.6 30 14.1 C43.1 3.6 56.1 8.9 56.1 19.7 C56.1 30.6 43.1 41.5 30 52.4 Z" fill="#ff6fa5" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/></svg><svg class="s13-st s13-h3" style="left:94px;top:534px;transform:rotate(6deg)" width="52" height="52" viewBox="0 0 52 52"><path d="M26 45.4 C14.7 35.9 3.4 26.5 3.4 17.1 C3.4 7.7 14.7 3.1 26 12.2 C37.3 3.1 48.6 7.7 48.6 17.1 C48.6 26.5 37.3 35.9 26 45.4 Z" fill="#ff6fa5" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/></svg><svg class="s13-st s13-h4" style="left:536px;top:246px;transform:rotate(-8deg)" width="48" height="48" viewBox="0 0 48 48"><path d="M24 41.9 C13.6 33.2 3.1 24.5 3.1 15.8 C3.1 7.1 13.6 2.9 24 11.3 C34.4 2.9 44.9 7.1 44.9 15.8 C44.9 24.5 34.4 33.2 24 41.9 Z" fill="#ff6fa5" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/></svg>
+        <div class="s13-mini"><div class="s13-pola s13-p1" style="left:600px;top:20px;transform:rotate(8deg)">
+  <div class="s13-planilla s13-plmini" style="left:20px;top:20px;width:260px;height:240px"><div class="s13-plbarra"></div><div class="s13-celda s13-col0 s13-fila0" style="left:4px;top:48px;width:78.7px;height:41px;font-size:24px"></div><div class="s13-celda s13-col1 s13-fila0" style="left:90.7px;top:48px;width:78.7px;height:41px;font-size:24px"></div><div class="s13-celda s13-col2 s13-fila0" style="left:177.3px;top:48px;width:78.7px;height:41px;font-size:24px"></div><div class="s13-celda s13-col0 s13-fila1" style="left:4px;top:97px;width:78.7px;height:41px;font-size:24px"></div><div class="s13-celda s13-col1 s13-fila1" style="left:90.7px;top:97px;width:78.7px;height:41px;font-size:24px"></div><div class="s13-celda s13-col2 s13-fila1" style="left:177.3px;top:97px;width:78.7px;height:41px;font-size:24px"></div><div class="s13-celda s13-col0 s13-fila2" style="left:4px;top:146px;width:78.7px;height:41px;font-size:24px"></div><div class="s13-celda s13-col1 s13-fila2" style="left:90.7px;top:146px;width:78.7px;height:41px;font-size:24px"></div><div class="s13-celda s13-col2 s13-fila2" style="left:177.3px;top:146px;width:78.7px;height:41px;font-size:24px"></div><div class="s13-celda s13-col0 s13-fila3" style="left:4px;top:195px;width:78.7px;height:41px;font-size:24px"></div><div class="s13-celda s13-col1 s13-fila3" style="left:90.7px;top:195px;width:78.7px;height:41px;font-size:24px"></div><div class="s13-celda s13-col2 s13-fila3" style="left:177.3px;top:195px;width:78.7px;height:41px;font-size:24px"></div></div>
+  <svg class="s13-cara" width="300" height="350" viewBox="0 0 300 350">
+    <ellipse cx="100" cy="130" rx="30" ry="24" fill="#ffffff" stroke="#2b4fc7" stroke-width="5"/><circle cx="106" cy="134" r="11" fill="#2b4fc7"/>
+    <ellipse cx="200" cy="130" rx="30" ry="24" fill="#ffffff" stroke="#2b4fc7" stroke-width="5"/><circle cx="194" cy="134" r="11" fill="#2b4fc7"/>
+    <path class="s13-b" d="M76 112 L 64 96 M92 106 L 86 88 M110 106 L 112 88 M190 106 L 188 88 M208 106 L 214 88 M224 112 L 236 96"/>
+    <path d="M118 196 C 132 184 146 190 150 196 C 154 190 168 184 182 196 C 168 214 132 214 118 196 Z" fill="#ff6fa5" stroke="#2b4fc7" stroke-width="4"/>
+  </svg>
+  <div class="s13-polatxt">la otra</div>
+</div></div>
+        <svg class="s13-svg" viewBox="0 0 1080 1920"><path class="s13-r s13-x" d="M680 110 L 820 280 M820 110 L 680 280"/></svg>
+        <div class="s13-mano s13-chau">chau</div>
+      </div>
+      <div class="s13-etiq"><span>Sin la otra</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-sabado";
+      const DUR = 8.18;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // escribir con birome = destapar de izquierda a derecha
+      const escribir = (el, t, dur, desde = 100) => {
+        gsap.set(el, { clipPath: "inset(-20% " + desde + "% -20% -4%)" });
+        tl.to(el, { clipPath: "inset(-20% -8% -20% -4%)", duration: dur, ease: "none" }, t);
+      };
+      // dibujar trazos de birome (queda en opacity 0 hasta que arranca: sin puntitos)
+      const dibujar = (els, t, dur = 0.6, stagger = 0) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t + i * stagger);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * stagger);
+        });
+      };
+      // sticker o papel que aparece entero
+      const pop = (el, t, rot = 0, dur = 0.35) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, rotation: rot - 12 }, { opacity: 1, scale: 1, rotation: rot, duration: dur, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      // hoja que cae sobre el acolchado
+      const caer = (el, t, rot = -2) => tl.fromTo(el, { rotation: rot - 7, scale: 1.08, y: -50 }, { rotation: rot, scale: 1, y: 0, duration: 0.45, ease: "back.out(1.5)" }, t);
+      const sacudir = (el, t) => [[-12, 6], [10, -5], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiqueta = (t) => tl.fromTo(q(".s13-etiq span"), { opacity: 0, y: 16, rotation: -6 }, { opacity: 1, y: 0, rotation: -2, duration: 0.32, ease: "back.out(1.8)" }, t);
+  
+      const SOLO = 1.06, CENA = 2.28, SABADO = 3.89, CENO = 5.09, SIN = 6.69;
+      const hA = q(".s13-hA"), hB = q(".s13-hB");
+      caer(hA, 0, -1.5);
+      // la compu se cierra sola
+      tl.to(q(".s13-tapa"), { scaleY: 0.06, duration: 0.45, ease: "power3.in" }, SOLO - 0.3);
+      sacudir(hA, SOLO + 0.15);
+      escribir(q(".s13-zz"), SOLO + 0.2, 0.35);
+      tl.to(hA, { x: -900, rotation: -14, opacity: 0, duration: 0.4, ease: "power3.in" }, CENA - 0.45);
+      // la mesa del sábado
+      gsap.set(hB, { opacity: 0 });
+      tl.fromTo(hB, { opacity: 0, x: 600, rotation: 12 }, { opacity: 1, x: 0, rotation: 1.5, duration: 0.4, ease: "back.out(1.3)", immediateRender: false }, CENA - 0.15);
+      dibujar(qa(".s13-escena2 path"), CENA, 0.5, 0.04);
+      escribir(q(".s13-dia"), SABADO - 0.05, 0.55);
+      dibujar(q(".s13-subd"), SABADO + 0.5, 0.3);
+      [["s13-h1", -14], ["s13-h2", 12], ["s13-h3", 6], ["s13-h4", -8]].forEach(([c, r], i) => pop(q("." + c), CENO + i * 0.1, r));
+      tl.to([q(".s13-papa"), q(".s13-mama"), q(".s13-sofi")], { y: -10, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 5, stagger: 0.08 }, CENO);
+      // la planilla, chiquita, tachada
+      gsap.set(q(".s13-mini"), { opacity: 0, scale: 0.55, transformOrigin: "750px 195px" });
+      tl.to(q(".s13-mini"), { opacity: 1, scale: 0.55, duration: 0.2 }, SIN - 0.2);
+      dibujar(q(".s13-x"), SIN + 0.3, 0.35);
+      escribir(q(".s13-chau"), SIN + 0.6, 0.4);
+      etiqueta(SIN);
+      tl.to(q("#s13-escena"), { y: -140, opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power3.in" }, DUR - 0.25);
+  
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

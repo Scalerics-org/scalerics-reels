@@ -1,0 +1,119 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-querido"] .s01-capa { position: absolute; inset: 0; }
+    /* la hoja del diario: renglones celestes, margen rosa, espiral */
+    [data-composition-id="s01-querido"] .s01-hoja { position: absolute; left: 120px; top: 600px; width: 840px; height: 720px; border-radius: 8px; background-color: #fbf7ee;
+      background-image: repeating-linear-gradient(180deg, transparent 0 58px, rgba(78, 140, 214, 0.35) 58px 60px); background-position: 0 30px;
+      box-shadow: 0 16px 36px rgba(10, 4, 20, 0.5); }
+    [data-composition-id="s01-querido"] .s01-margen { position: absolute; left: 100px; top: 0; bottom: 0; width: 3px; background: rgba(240, 122, 160, 0.75); }
+    [data-composition-id="s01-querido"] .s01-anillo { position: absolute; left: -22px; width: 46px; height: 26px; border: 6px solid #3a2350; border-radius: 50%; }
+    [data-composition-id="s01-querido"] .s01-cinta { position: absolute; width: 200px; height: 54px; opacity: 0.9;
+      background: repeating-linear-gradient(45deg, #ffe14d 0 16px, #fff1a8 16px 32px); }
+    [data-composition-id="s01-querido"] .s01-cintar { background: repeating-linear-gradient(45deg, #ff6fa5 0 16px, #ffb3cf 16px 32px); }
+    [data-composition-id="s01-querido"] .s01-mano { position: absolute; font-family: "Caveat", cursive; font-weight: 700; color: #2b4fc7; white-space: nowrap; line-height: 1; }
+    [data-composition-id="s01-querido"] .s01-dia { left: 130px; top: 22px; font-size: 112px; }
+    [data-composition-id="s01-querido"] .s01-rosa { color: #ff6fa5; }
+    [data-composition-id="s01-querido"] .s01-st { position: absolute; overflow: visible; filter: drop-shadow(0 6px 8px rgba(10, 4, 20, 0.35)); }
+    [data-composition-id="s01-querido"] .s01-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-querido"] .s01-b { fill: none; stroke: #2b4fc7; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-querido"] .s01-r { fill: none; stroke: #ff6fa5; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-querido"] .s01-planilla { position: absolute; background: #1f8f4e; border-radius: 10px; box-shadow: 0 14px 30px rgba(10, 4, 20, 0.45); }
+    [data-composition-id="s01-querido"] .s01-plbarra { position: absolute; left: 0; right: 0; top: 0; height: 44px; border-radius: 10px 10px 0 0; background: #17703c; }
+    [data-composition-id="s01-querido"] .s01-celda { position: absolute; background: #d9f2e2; border-radius: 3px; font-family: "IBM Plex Mono", monospace; font-weight: 500; color: #1d1128; display: flex; align-items: center; padding-left: 10px; white-space: nowrap; overflow: hidden; }
+    [data-composition-id="s01-querido"] .s01-etiq { position: absolute; left: 0; right: 0; top: 1410px; text-align: center; }
+    [data-composition-id="s01-querido"] .s01-etiq span { display: inline-block; padding: 4px 40px 10px; font-family: "Caveat", cursive; font-weight: 700; font-size: 60px; line-height: 1; color: #2b4fc7;
+      background: repeating-linear-gradient(45deg, #ffe14d 0 16px, #fff1a8 16px 32px); transform: rotate(-2deg); }
+    [data-composition-id="s01-querido"] .s01-globo { position: absolute; background: #fbf7ee; border: 5px solid #2b4fc7; border-radius: 28px; font-family: "Lexend", sans-serif; font-weight: 600; color: #1d1128; white-space: nowrap; box-shadow: 0 10px 20px rgba(10, 4, 20, 0.3); }
+  
+    [data-composition-id="s01-querido"] .s01-t1 { left: 130px; top: 40px; font-size: 120px; }
+    [data-composition-id="s01-querido"] .s01-t2 { left: 130px; top: 205px; font-size: 92px; }
+    [data-composition-id="s01-querido"] .s01-otra { left: 140px; top: 330px; font-size: 250px; color: #ff6fa5; }
+    [data-composition-id="s01-querido"] .s01-medio { position: absolute; left: 630px; top: 500px; width: 200px; height: 200px; }
+  
+  </style>
+  <div id="root" data-composition-id="s01-querido" data-width="1080" data-height="1920" data-duration="4.12">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.12" data-track-index="0">
+
+      <div class="s01-hoja">
+        <div class="s01-margen"></div><div class="s01-anillo" style="top:30px"></div><div class="s01-anillo" style="top:98px"></div><div class="s01-anillo" style="top:166px"></div><div class="s01-anillo" style="top:234px"></div><div class="s01-anillo" style="top:302px"></div><div class="s01-anillo" style="top:370px"></div><div class="s01-anillo" style="top:438px"></div><div class="s01-anillo" style="top:506px"></div><div class="s01-anillo" style="top:574px"></div><div class="s01-anillo" style="top:642px"></div>
+        <div class="s01-cinta" style="right:-50px;top:-16px;transform:rotate(16deg)"></div>
+        <div class="s01-mano s01-t1">Querido diario:</div>
+        <div class="s01-mano s01-t2">creo que papá tiene...</div>
+        <div class="s01-mano s01-otra">OTRA</div>
+        <svg class="s01-svg" style="left:0;top:0" viewBox="0 0 1080 1920">
+          <path class="s01-r s01-sub1" d="M140 600 C 260 588 420 596 560 586"/>
+          <path class="s01-r s01-sub2" d="M160 628 C 280 618 430 624 540 616"/>
+          <path class="s01-b s01-mini" d="M50 677 C39.8 668.5 29.6 660 29.6 651.5 C29.6 643 39.8 638.9 50 647.1 C60.2 638.9 70.4 643 70.4 651.5 C70.4 660 60.2 668.5 50 677 Z"/>
+          <path class="s01-b s01-mini2" d="M46 173 C38.2 166.5 30.4 160 30.4 153.5 C30.4 147 38.2 143.9 46 150.1 C53.8 143.9 61.6 147 61.6 153.5 C61.6 160 53.8 166.5 46 173 Z"/>
+        </svg>
+        <div class="s01-medio s01-izq"><svg class="s01-st s01-h1" style="left:10px;top:10px;transform:rotate(-8deg)" width="180" height="180" viewBox="0 0 180 180"><path d="M90 157.1 C50.9 124.4 11.7 91.8 11.7 59.2 C11.7 26.6 50.9 10.9 90 42.2 C129.2 10.9 168.3 26.6 168.3 59.2 C168.3 91.8 129.2 124.4 90 157.1 Z" fill="#ff6fa5" stroke="#ffffff" stroke-width="8.1" stroke-linejoin="round"/></svg></div>
+        <div class="s01-medio s01-der"><svg class="s01-st s01-h2" style="left:10px;top:10px;transform:rotate(-8deg)" width="180" height="180" viewBox="0 0 180 180"><path d="M90 157.1 C50.9 124.4 11.7 91.8 11.7 59.2 C11.7 26.6 50.9 10.9 90 42.2 C129.2 10.9 168.3 26.6 168.3 59.2 C168.3 91.8 129.2 124.4 90 157.1 Z" fill="#ff6fa5" stroke="#ffffff" stroke-width="8.1" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="s01-etiq"><span>Top secret</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-querido";
+      const DUR = 4.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // escribir con birome = destapar de izquierda a derecha
+      const escribir = (el, t, dur, desde = 100) => {
+        gsap.set(el, { clipPath: "inset(-20% " + desde + "% -20% -4%)" });
+        tl.to(el, { clipPath: "inset(-20% -8% -20% -4%)", duration: dur, ease: "none" }, t);
+      };
+      // dibujar trazos de birome (queda en opacity 0 hasta que arranca: sin puntitos)
+      const dibujar = (els, t, dur = 0.6, stagger = 0) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t + i * stagger);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * stagger);
+        });
+      };
+      // sticker o papel que aparece entero
+      const pop = (el, t, rot = 0, dur = 0.35) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6, rotation: rot - 12 }, { opacity: 1, scale: 1, rotation: rot, duration: dur, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      // hoja que cae sobre el acolchado
+      const caer = (el, t, rot = -2) => tl.fromTo(el, { rotation: rot - 7, scale: 1.08, y: -50 }, { rotation: rot, scale: 1, y: 0, duration: 0.45, ease: "back.out(1.5)" }, t);
+      const sacudir = (el, t) => [[-12, 6], [10, -5], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(el, { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiqueta = (t) => tl.fromTo(q(".s01-etiq span"), { opacity: 0, y: 16, rotation: -6 }, { opacity: 1, y: 0, rotation: -2, duration: 0.32, ease: "back.out(1.8)" }, t);
+  
+      const CREO = 1.30, OTRA = 3.45;
+      const hoja = q(".s01-hoja");
+      caer(hoja, 0, -2);
+      escribir(q(".s01-t1"), 0, 1.0, 55);
+      dibujar([q(".s01-mini2")], 0.6, 0.5);
+      escribir(q(".s01-t2"), CREO - 0.05, 1.5);
+      // el corazón entero en el margen, que se parte en "otra"
+      gsap.set(q(".s01-izq"), { clipPath: "inset(0 50% 0 0)" });
+      gsap.set(q(".s01-der"), { clipPath: "inset(0 0 0 50%)" });
+      pop(q(".s01-izq"), 0.9, 0); pop(q(".s01-der"), 0.9, 0);
+      tl.to(q(".s01-izq"), { scale: 1.08, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 3 }, 1.4);
+      tl.to(q(".s01-der"), { scale: 1.08, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: 3 }, 1.4);
+      tl.to(q(".s01-izq"), { x: -40, y: 30, rotation: -22, duration: 0.35, ease: "back.out(2)" }, OTRA + 0.05);
+      tl.to(q(".s01-der"), { x: 44, y: 46, rotation: 24, duration: 0.35, ease: "back.out(2)" }, OTRA + 0.05);
+      // OTRA golpea
+      gsap.set(q(".s01-otra"), { opacity: 0 });
+      tl.fromTo(q(".s01-otra"), { opacity: 0, scale: 1.7, rotation: -10 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.28, ease: "back.out(2.2)", immediateRender: false }, OTRA - 0.05);
+      dibujar([q(".s01-sub1"), q(".s01-sub2")], OTRA + 0.2, 0.25, 0.12);
+      dibujar([q(".s01-mini")], OTRA + 0.35, 0.3);
+      sacudir(hoja, OTRA + 0.1);
+      etiqueta(0.4);
+      tl.to(q("#s01-escena"), { x: -160, rotation: -6, opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power3.in" }, DUR - 0.25);
+  
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
