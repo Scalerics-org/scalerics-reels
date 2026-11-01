@@ -1,0 +1,30 @@
+export default {
+  css: `.s15-sello { left: 560px; top: 610px; font-size: 54px; }
+.s15-ui { left: 230px; top: 790px; width: 620px; height: 380px; }
+.s15-ui .s15-h { position: absolute; left: 0; top: 0; width: 620px; height: 64px; background: #2f6e0a; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 26px; letter-spacing: 0.16em; line-height: 64px; color: #f3ead6; text-align: center; }
+.s15-ui .s15-r { position: absolute; left: 30px; width: 560px; height: 58px; border-bottom: 3px solid #2a4470; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 58px; color: #f3ead6; white-space: nowrap; }
+.s15-ui .s15-r b { position: absolute; right: 0; top: 0; color: #5ce611; font-weight: 800; }`,
+  html: `<div class="or-sello verde s15-sello">A MEDIDA</div>
+<div class="s15-ui" style="position:absolute"><div class="s15-h">TU NEGOCIO · GESTIÓN</div>
+<div class="s15-r s15-r1" style="top:84px">Yerba suelta · por kilo<b>OK</b></div>
+<div class="s15-r s15-r2" style="top:150px">Pedido por mayor<b>OK</b></div>
+<div class="s15-r s15-r3" style="top:216px">Precio especial de Don Carlos<b>OK</b></div>
+<div class="s15-r s15-r4" style="top:282px">Local Centro + Local Pocitos<b>OK</b></div></div>`,
+  pre: `let marcas = "";
+for (let k = 0; k < 24; k++) marcas += \`<path d="M\${190 + k * 30} 1222 l0 \${k % 2 ? 14 : 24}" stroke="\${OR.INK}" stroke-width="4"/>\`;`,
+  svg: "`<g class=\"s15-pantalla\"><rect x=\"190\" y=\"740\" width=\"700\" height=\"470\" rx=\"26\" fill=\"${OR.ESM}\" stroke=\"${OR.INK}\" stroke-width=\"8\"/><rect x=\"220\" y=\"770\" width=\"640\" height=\"410\" rx=\"10\" fill=\"${OR.AZUL}\" stroke=\"${OR.VERDE}\" stroke-width=\"5\"/></g>` + `<path d=\"M540 1210 L540 1500 M540 1500 L440 1540 M540 1500 L640 1540\" stroke=\"${OR.INK}\" stroke-width=\"18\" stroke-linecap=\"round\"/><path d=\"M540 1210 L540 1500 M540 1500 L440 1540 M540 1500 L640 1540\" stroke=\"${OR.ESM2}\" stroke-width=\"8\" stroke-linecap=\"round\"/>` + `<g class=\"s15-cinta\"><rect x=\"170\" y=\"1214\" width=\"740\" height=\"44\" rx=\"6\" fill=\"#f6e27a\" stroke=\"${OR.INK}\" stroke-width=\"5\"/>${marcas}</g>`",
+  anim: `const SCALERICS = 0.42, MEDIDA = 1.67, PROGRAMA = 2.33, GESTION = 2.75, TRABAJA = 3.92, NEGOCIO = 4.5;
+// cuadro 0: un atril nuevo con una pantalla, todo se ilumina
+tl.fromTo(q(".s15-pantalla"), { scale: 0.85, opacity: 0.4, svgOrigin: "540 975" }, { scale: 1, opacity: 1, svgOrigin: "540 975", duration: 0.45, ease: "back.out(1.6)" }, 0);
+gsap.set(q(".s15-ui"), { opacity: 0 });
+tl.to(q(".s15-ui"), { opacity: 1, duration: 0.3 }, SCALERICS);
+gsap.set(qa(".s15-r"), { opacity: 0 });
+// "a medida": la cinta métrica se estira debajo y sello verde
+tl.fromTo(q(".s15-cinta"), { scaleX: 0, svgOrigin: "170 1236" }, { scaleX: 1, svgOrigin: "170 1236", duration: 0.6, ease: "power3.out" }, MEDIDA - 0.45);
+K.sello(q(".s15-sello"), MEDIDA, 4);
+// "programa de gestión", "hecho para cómo trabaja tu negocio": filas que son de ESTE negocio
+[[".s15-r1", PROGRAMA], [".s15-r2", GESTION], [".s15-r3", TRABAJA - 0.2], [".s15-r4", NEGOCIO - 0.1]].forEach(([s, t]) => {
+  tl.fromTo(q(s), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+});`,
+  sfx: [{ t: 0.0, sfx: "acorde", vol: 0.3, max: 1.6 }, { t: 1.6, sfx: "golpe", vol: 0.3 }, { t: 2.3, sfx: "click", vol: 0.25 }, { t: 2.75, sfx: "click", vol: 0.25 }, { t: 3.7, sfx: "click", vol: 0.25 }, { t: 4.4, sfx: "sparkle", vol: 0.25 }],
+};

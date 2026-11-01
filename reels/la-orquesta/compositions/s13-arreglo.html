@@ -1,0 +1,57 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/orquesta.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-arreglo"] .s13-capa, [data-composition-id="s13-arreglo"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-arreglo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-arreglo"] .s13-papel { left: 440px; top: 1010px; font-size: 26px; }
+  </style>
+  <div id="root" data-composition-id="s13-arreglo" data-width="1080" data-height="1920" data-duration="4.23">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="4.23" data-track-index="0">
+      <div class="s13-escenario">
+        <svg class="s13-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="or-tag rojo s13-papel">PEDIDO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-arreglo";
+      const DUR = 4.23;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s13-svg").innerHTML =
+        OR.director(540, 1090, 0.58) + OR.atril(220, 1540, 0.78, { tipo: 'planilla', titulo: 'EXCEL', cls: 's13-a1' }) + OR.atril(540, 1540, 0.78, { tipo: 'cuaderno', titulo: 'CUADERNO', cls: 's13-a2' }) + OR.atril(860, 1540, 0.78, { tipo: 'ticket', titulo: 'CAJA', tituloSize: 22, cls: 's13-a3' }) + OR.pentagrama(100, 980, 610, { cls: 's13-enredo', col: OR.ROJO, sw: 4, enredo: 0.7, sep: 14 });
+      const tl = gsap.timeline({ paused: true });
+      const K = OR.kit(tl, root);
+      const { q, qa } = K;
+
+      const ARREGLO = 0.26, PASO = 0.88, EXCEL = 1.42, CUADERNO = 2.05, CAJA = 3.12;
+      // cuadro 0: el director agitado arriba, tres atriles abajo
+      K.vaiven(q(".or-d-brazo"), "-125 -330", 0, 30, 10, 0.1);
+      K.vaiven(q(".or-d-brazo2"), "125 -330", 0.05, -30, 10, 0.1);
+      K.sudar(ARREGLO);
+      tl.to(q(".or-d-boca"), { scaleY: 2.4, transformOrigin: "50% 50%", duration: 0.1 }, ARREGLO);
+      qa(".s13-enredo path").forEach((p, i) => K.dibujar(p, 0.1 + i * 0.1, 1.6, "none"));
+      // el papel salta de atril en atril, cada vez más rápido
+      K.pop(q(".s13-papel"), PASO - 0.2);
+      const salto = (x, y, t, d) => {
+      tl.to(q(".s13-papel"), { x: x, duration: d, ease: "none" }, t - d);
+      tl.to(q(".s13-papel"), { y: y - 160, duration: d / 2, ease: "power2.out" }, t - d);
+      tl.to(q(".s13-papel"), { y: y, duration: d / 2, ease: "power2.in" }, t - d / 2);
+      };
+      salto(-300, 220, EXCEL, 0.45);
+      salto(20, 220, CUADERNO, 0.45);
+      salto(340, 220, CAJA, 0.5);
+      [[".s13-a1", EXCEL, "220 1540"], [".s13-a2", CUADERNO, "540 1540"], [".s13-a3", CAJA, "860 1540"]].forEach(([s, t, o]) => {
+      tl.fromTo(q(s), { rotation: 0 }, { rotation: 5, svgOrigin: o, duration: 0.07, yoyo: true, repeat: 3, immediateRender: false }, t);
+      });
+
+      K.salida(q("#s13-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,56 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/orquesta.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-graciela"] .s11-capa, [data-composition-id="s11-graciela"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-graciela"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-graciela"] .s11-nombre { left: 610px; top: 1090px; font-size: 30px; }
+    [data-composition-id="s11-graciela"] .s11-post { left: 630px; top: 1300px; font-size: 64px; transform: rotate(-6deg); }
+    [data-composition-id="s11-graciela"] .s11-vacio { left: 120px; top: 640px; font-size: 40px; }
+  </style>
+  <div id="root" data-composition-id="s11-graciela" data-width="1080" data-height="1920" data-duration="4.58">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.58" data-track-index="0">
+      <div class="s11-escenario">
+        <svg class="s11-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="or-tag s11-vacio">ATRIL DEL STOCK</div>
+        <div class="or-tag s11-nombre">GRACIELA</div>
+        <div class="or-nota-papel s11-post">HOY LIBRE</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-graciela";
+      const DUR = 4.58;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s11-svg").innerHTML =
+        `<ellipse class="s11-luz" cx="720" cy="1520" rx="260" ry="50" fill="#fff3d6" opacity="0.35"/>` + OR.atril(330, 1530, 1.15, { titulo: 'STOCK', tituloSize: 30, cls: 's11-atril' }) + OR.silla(720, 1525, 1.15) + `<g class="s11-preg" font-family="Lexend" font-weight="800" font-size="70" fill="${OR.ROJO}"><text x="230" y="1000">?</text><text x="330" y="970">?</text><text x="420" y="1010">?</text></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = OR.kit(tl, root);
+      const { q, qa } = K;
+
+      const STOCK = 0.48, VACIO = 0.98, GRACIELA = 1.68, SABE = 2.8, LIBRE = 3.68;
+      // cuadro 0: la silla vacía bajo el reflector, el atril al lado
+      tl.fromTo(q(".s11-escenario"), { scale: 1.06 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "55% 65%" }, 0);
+      tl.fromTo(q(".s11-luz"), { opacity: 0.15 }, { opacity: 0.4, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      K.pop(q(".s11-vacio"), STOCK - 0.2);
+      qa(".s11-atril .or-atril-lineas path").forEach((p, i) => K.dibujar(p, 0.0 + i * 0.03, 0.4));
+      // "vacío": la silla se balancea sola
+      tl.fromTo(q(".or-silla"), { rotation: 0 }, { rotation: 3, svgOrigin: "720 1525", duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, VACIO);
+      K.pop(q(".s11-nombre"), GRACIELA);
+      // "la única que se lo sabe": la partitura del stock se borra
+      tl.to(q(".s11-atril .or-atril-lineas"), { opacity: 0, duration: 0.5 }, SABE - 0.3);
+      gsap.set(qa(".s11-preg text"), { opacity: 0 });
+      qa(".s11-preg text").forEach((t, i) => tl.fromTo(t, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, SABE + i * 0.12));
+      // "hoy tiene libre": post-it en la silla
+      K.sello(q(".s11-post"), LIBRE, -6);
+
+      K.salida(q("#s11-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

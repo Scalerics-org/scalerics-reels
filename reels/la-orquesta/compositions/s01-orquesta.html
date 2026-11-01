@@ -1,0 +1,68 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/orquesta.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-orquesta"] .s01-capa, [data-composition-id="s01-orquesta"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-orquesta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-orquesta"] .s01-sello { left: 250px; top: 600px; font-size: 76px; }
+  </style>
+  <div id="root" data-composition-id="s01-orquesta" data-width="1080" data-height="1920" data-duration="3.82">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="3.82" data-track-index="0">
+      <div class="s01-escenario">
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="or-sello s01-sello">DESAFINA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-orquesta";
+      const DUR = 3.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      let notas = "";
+      [[300, 1000], [460, 930], [640, 960], [780, 900], [880, 1010], [200, 900]].forEach(([x, y], i) => { notas += OR.nota(x, y, 0.8, i % 2 ? OR.ROJO : OR.BRON2, "s01-n"); });
+      root.querySelector(".s01-svg").innerHTML =
+        OR.director(540, 1350, 0.72) +
+        OR.atril(680, 1520, 0.5, { tipo: "vacia" }) +
+        OR.silla(760, 1520, 0.48) +
+        OR.planilla(200, 1505, 0.62, { celda: "15?" }) +
+        OR.cuaderno(430, 1535, 0.55) +
+        OR.caja(830, 1515, 0.55) +
+        `<g class="s01-rayos" stroke="${OR.ROJO}" stroke-width="9" stroke-linecap="round" fill="none">
+          <path d="M140 860 l40 30 l-20 20 l40 30"/><path d="M940 860 l-40 30 l20 20 l-40 30"/><path d="M540 700 l-20 40 l30 10 l-20 40"/>
+        </g>` + notas;
+      const tl = gsap.timeline({ paused: true });
+      const K = OR.kit(tl, root);
+      const { q, qa } = K;
+
+      const ORQ = 1.12;
+      const HORRIBLE = 2.64;
+
+      // cuadro 0: la orquesta ya está en el escenario, el director con la batuta arriba
+      tl.fromTo(q(".s01-escenario"), { scale: 1.08 }, { scale: 1, duration: DUR, ease: "power1.out", transformOrigin: "50% 60%" }, 0);
+      K.vaiven(q(".or-d-brazo"), "-125 -330", 0.05, -14, 3, 0.18);
+      // "orquesta": cada músico salta en su lugar
+      [".or-p", ".or-c", ".or-t", ".or-silla"].forEach((s, i) => {
+        tl.fromTo(q(s), { y: 0 }, { y: -28, duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, ORQ + i * 0.1);
+      });
+      K.vaiven(q(".or-p-arco"), "150 -210", ORQ, 10, 3, 0.12);
+      K.vaiven(q(".or-c-baq1"), "-130 -330", ORQ + 0.1, -16, 3, 0.1);
+      K.vaiven(q(".or-c-baq2"), "130 -330", ORQ + 0.15, 16, 3, 0.1);
+      // "horrible": rayos rojos, notas que vuelan, todos tiemblan
+      qa(".s01-rayos path").forEach((p, i) => K.dibujar(p, HORRIBLE - 0.05 + i * 0.05, 0.2));
+      K.notasVuelan(".s01-n", HORRIBLE - 0.1, 60, -120);
+      K.sello(q(".s01-sello"), HORRIBLE + 0.2, -5);
+      K.sacudon(q(".s01-svg"), HORRIBLE, 1.2);
+      tl.to(q(".or-d-cejas"), { y: -14, duration: 0.12, ease: "back.out(3)" }, HORRIBLE);
+      tl.to(q(".or-d-boca"), { scaleY: 3, scaleX: 1.2, transformOrigin: "50% 50%", duration: 0.12 }, HORRIBLE);
+      K.vaiven(q(".or-t-trompeta"), "130 -330", HORRIBLE, -8, 3, 0.08);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,27 @@
+export default {
+  css: `.s12-fila { left: 600px; top: 880px; font-size: 30px; }
+.s12-suda { left: 650px; top: 700px; font-size: 44px; }`,
+  html: `<div class="or-tag rojo s12-fila">FILA 3 · SE VA</div>
+<div class="or-sello bronce s12-suda">SUDA</div>`,
+  svg: "OR.director(540, 1290, 0.66) + OR.publico(1580, 6, { col: '#0a1426', borde: '#2a4470' }) + `<g class=\"s12-tos\" stroke=\"${OR.CREMA}\" stroke-width=\"7\" stroke-linecap=\"round\" fill=\"none\"><path d=\"M300 1240 q20 -20 0 -40\"/><path d=\"M330 1250 q30 -30 0 -60\"/><path d=\"M360 1260 q40 -40 0 -80\"/></g>`",
+  anim: `const TOSE = 0.0, SENORA = 0.64, SEVA = 1.45, FILA = 1.92, SUDA = 3.36;
+// cuadro 0: el teatro desde la platea, cabezas de espaldas
+tl.fromTo(q(".or-publico"), { y: 20 }, { y: 0, duration: 0.4, ease: "power2.out" }, 0);
+// "tose una señora": una cabeza se sacude
+qa(".s12-tos path").forEach((p, i) => K.dibujar(p, TOSE + 0.05 + i * 0.06, 0.2));
+qa(".s12-tos path").forEach((p, i) => K.dibujar(p, SENORA + 0.05 + i * 0.06, 0.2));
+tl.fromTo(q(".or-pub-1"), { y: 0 }, { y: -18, duration: 0.08, yoyo: true, repeat: 3, immediateRender: false }, TOSE);
+tl.fromTo(q(".or-pub-1"), { y: 0 }, { y: -18, duration: 0.08, yoyo: true, repeat: 3, immediateRender: false }, SENORA);
+tl.to(q(".s12-tos"), { opacity: 0, duration: 0.2 }, SEVA - 0.2);
+// "se va la fila tres": las cabezas de la derecha se van
+K.pop(q(".s12-fila"), SEVA);
+[3, 4, 5].forEach((k, i) => tl.to(q(".or-pub-" + k), { x: 500, opacity: 0, duration: 0.6, ease: "power2.in" }, FILA - 0.2 + i * 0.12));
+tl.to(q(".s12-fila"), { opacity: 0, duration: 0.2 }, 2.95);
+// "el director suda": zoom al director
+tl.to(q(".s12-escenario"), { scale: 1.45, duration: 0.6, ease: "power2.inOut", transformOrigin: "540px 1000px" }, 2.85);
+K.sudar(SUDA - 0.3);
+tl.to(q(".or-publico"), { opacity: 0, duration: 0.4 }, 2.85);
+K.sello(q(".s12-suda"), SUDA, 6);
+tl.to(qa(".or-d .or-pupila"), { x: 5, duration: 0.1, yoyo: true, repeat: 5 }, SUDA);`,
+  sfx: [{ t: 0.0, sfx: "tos", vol: 0.45 }, { t: 0.62, sfx: "tos", vol: 0.4 }, { t: 1.45, sfx: "murmullo", vol: 0.3, max: 1.2 }, { t: 2.85, sfx: "whoosh", vol: 0.2, max: 0.5 }, { t: 3.35, sfx: "golpe", vol: 0.3 }],
+};

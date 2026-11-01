@@ -1,0 +1,56 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/orquesta.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s17-cta"] .s17-capa, [data-composition-id="s17-cta"] .s17-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s17-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s17-cta"] .s17-cartel { left: 130px; top: 600px; width: 820px; font-size: 54px; white-space: normal; }
+    [data-composition-id="s17-cta"] .s17-tag { left: 210px; top: 880px; font-size: 32px; }
+  </style>
+  <div id="root" data-composition-id="s17-cta" data-width="1080" data-height="1920" data-duration="5.56">
+    <div id="s17-escena" class="s17-capa clip" data-start="0" data-duration="5.56" data-track-index="0">
+      <div class="s17-escenario">
+        <svg class="s17-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="or-cartel s17-cartel">¿QUÉ INSTRUMENTO DESAFINA EN TU LOCAL?</div>
+        <div class="or-tag verde s17-tag">TE LEEMOS EN LOS COMENTARIOS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s17-cta";
+      const DUR = 5.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      let notas = "";
+      [[220, 1120], [360, 1060], [700, 1080], [860, 1120], [540, 1010]].forEach(([x, y], i) => { notas += OR.nota(x, y, 0.6, i % 2 ? OR.VERDE : OR.BRON2, "s17-n"); });
+      root.querySelector(".s17-svg").innerHTML =
+        OR.director(540, 1355, 0.5) + OR.planilla(210, 1505, 0.5, { celda: 'OK' }) + OR.cuaderno(420, 1530, 0.44, { num: 'OK' }) + OR.silla(640, 1520, 0.4) + OR.caja(810, 1515, 0.44, { txt: 'A MEDIDA' }) + notas;
+      const tl = gsap.timeline({ paused: true });
+      const K = OR.kit(tl, root);
+      const { q, qa } = K;
+
+      const QUE = 0.0, DESAFINA = 0.58, LOCAL = 1.25, LEEMOS = 1.77;
+      // cuadro 0: la orquesta tocando junta
+      K.pop(q(".s17-cartel"), QUE);
+      tl.fromTo(q(".s17-cartel"), { rotation: -3 }, { rotation: 0, duration: 0.4, ease: "back.out(3)", immediateRender: false }, QUE);
+      K.vaiven(q(".or-d-brazo"), "-125 -330", 0.1, 20, 8, 0.25);
+      K.vaiven(q(".or-p-arco"), "150 -210", 0.1, 10, 10, 0.2);
+      K.vaiven(q(".or-c-baq1"), "-130 -330", 0.1, -14, 10, 0.2);
+      K.vaiven(q(".or-c-baq2"), "130 -330", 0.3, 14, 10, 0.2);
+      K.vaiven(q(".or-t-trompeta"), "130 -330", 0.2, -5, 8, 0.25);
+      K.notasVuelan(".s17-n", DESAFINA, 40, -100);
+      tl.fromTo(q(".s17-cartel"), { scale: 1 }, { scale: 1.05, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, DESAFINA);
+      K.pop(q(".s17-tag"), LEEMOS - 0.2);
+      // reverencia final
+      tl.to(q(".or-d-cuerpo"), { rotation: 12, svgOrigin: "0 -170", duration: 0.4, yoyo: true, repeat: 1, ease: "power2.inOut" }, 3.2);
+      tl.fromTo(q(".s17-tag"), { scale: 1 }, { scale: 1.06, duration: 0.3, yoyo: true, repeat: 3, immediateRender: false }, 2.4);
+
+      K.salida(q("#s17-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

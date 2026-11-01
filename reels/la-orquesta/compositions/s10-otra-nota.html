@@ -1,0 +1,66 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/orquesta.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-otra-nota"] .s10-capa, [data-composition-id="s10-otra-nota"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-otra-nota"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-otra-nota"] .s10-ruego { left: 90px; top: 620px; font-size: 44px; }
+    [data-composition-id="s10-otra-nota"] .s10-error { left: 470px; top: 760px; font-size: 38px; border-color: #ff3b47; color: #ff3b47; }
+    [data-composition-id="s10-otra-nota"] .s10-premium { left: 520px; top: 900px; font-size: 54px; border-color: #e0ab5c; }
+  </style>
+  <div id="root" data-composition-id="s10-otra-nota" data-width="1080" data-height="1920" data-duration="6.58">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="6.58" data-track-index="0">
+      <div class="s10-escenario">
+        <svg class="s10-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="or-globo s10-ruego">¡OTRA NOTA!</div>
+        <div class="or-globo robot s10-error">NOTA NO RECONOCIDA</div>
+        <div class="or-cartel s10-premium">PREMIUM<small>actualice y pague</small></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-otra-nota";
+      const DUR = 6.58;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s10-svg").innerHTML =
+        OR.director(280, 1560, 0.78, { podio: 'EL DUEÑO' }) + OR.caja(790, 1530, 0.78, { txt: 'V1.0' });
+      const tl = gsap.timeline({ paused: true });
+      const K = OR.kit(tl, root);
+      const { q, qa } = K;
+
+      const TROMPETA = 0.27, TOCA = 1.06, NOTA = 2.31, RECONOCIDA = 3.05, PREMIUM = 4.75;
+      K.origen(q(".or-d-brazo"), "-125 -330");
+      gsap.set(q(".or-d-brazo"), { rotation: 40 });
+      K.origen(q(".or-d-brazo2"), "125 -330");
+      // cuadro 0: el director le reclama a la caja
+      tl.fromTo(q(".or-d"), { x: -40 }, { x: 0, duration: 0.3, ease: "power2.out" }, 0);
+      tl.to(q(".or-d-brazo2"), { rotation: -50, duration: 0.25, ease: "back.out(2)" }, TROMPETA - 0.1);
+      K.hablar(q(".or-d-boca"), 0.05, 6, 0.1);
+      tl.to(q(".or-d-cejas"), { y: 8, rotation: 0, duration: 0.15 }, TROMPETA);
+      // "¡tocá otra nota!": ruega
+      K.pop(q(".s10-ruego"), TOCA);
+      tl.fromTo(q(".or-d-brazo"), { rotation: 40 }, { rotation: 60, duration: 0.1, yoyo: true, repeat: 5, immediateRender: false }, TOCA);
+      K.sudar(TOCA + 0.2);
+      // "nota no reconocida": pantalla roja
+      K.pop(q(".s10-error"), NOTA);
+      tl.to(q(".s10-ruego"), { opacity: 0.3, duration: 0.2 }, NOTA);
+      tl.to(qa(".or-t-ojos rect"), { fill: OR.ROJO, duration: 0.05 }, NOTA);
+      tl.fromTo(q(".or-t-ojos"), { opacity: 1 }, { opacity: 0.2, duration: 0.07, yoyo: true, repeat: 5, immediateRender: false }, RECONOCIDA);
+      K.sacudon(q(".or-t"), RECONOCIDA, 0.6);
+      // "actualice a premium": cartel dorado, el director se agarra la cabeza
+      K.pop(q(".s10-premium"), PREMIUM - 0.35);
+      tl.fromTo(q(".s10-premium"), { rotation: -6 }, { rotation: 3, duration: 0.4, ease: "back.out(3)", immediateRender: false }, PREMIUM - 0.35);
+      tl.to(q(".or-d-brazo2"), { rotation: -150, duration: 0.3, ease: "power2.out" }, PREMIUM);
+      tl.to(q(".or-d-cabeza"), { y: 16, rotation: -6, svgOrigin: "0 -380", duration: 0.3 }, PREMIUM);
+      tl.to(q(".s10-error"), { opacity: 0.3, duration: 0.2 }, PREMIUM - 0.35);
+
+      K.salida(q("#s10-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

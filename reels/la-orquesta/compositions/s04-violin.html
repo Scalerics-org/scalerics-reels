@@ -1,0 +1,47 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/orquesta.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-violin"] .s04-capa, [data-composition-id="s04-violin"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-violin"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-violin"] .s04-tag { left: 600px; top: 760px; font-size: 34px; }
+  </style>
+  <div id="root" data-composition-id="s04-violin" data-width="1080" data-height="1920" data-duration="2.4">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="2.4" data-track-index="0">
+      <div class="s04-escenario">
+        <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="or-tag s04-tag">PRIMER VIOLÍN</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-violin";
+      const DUR = 2.4;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s04-svg").innerHTML =
+        OR.planilla(560, 1530, 1.25, { celda: '' }) + OR.nota(860, 950, 0.7, OR.BRON2, 's04-n') + OR.nota(930, 1060, 0.6, OR.BRON2, 's04-n');
+      const tl = gsap.timeline({ paused: true });
+      const K = OR.kit(tl, root);
+      const { q, qa } = K;
+
+      const VIOLIN = 0.31, PLANILLA = 0.96, EXCEL = 1.6;
+      // cuadro 0: la planilla entra con su violín
+      tl.fromTo(q(".or-p"), { x: -120, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      K.pop(q(".s04-tag"), VIOLIN);
+      K.vaiven(q(".or-p-arco"), "150 -210", VIOLIN, 12, 4, 0.14);
+      K.notasVuelan(".s04-n", VIOLIN + 0.2, 40, -100);
+      // "planilla": reverencia snob
+      tl.to(q(".or-p"), { rotation: -8, svgOrigin: "560 1530", duration: 0.25, yoyo: true, repeat: 1, ease: "power2.inOut" }, PLANILLA);
+      tl.to(q(".or-p-cejas"), { y: -10, duration: 0.15, yoyo: true, repeat: 1 }, EXCEL);
+      tl.fromTo(q(".s04-tag"), { scale: 1 }, { scale: 1.08, duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, EXCEL);
+
+      K.salida(q("#s04-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

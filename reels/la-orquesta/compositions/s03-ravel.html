@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/orquesta.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-ravel"] .s03-capa, [data-composition-id="s03-ravel"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-ravel"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-ravel"] .s03-pedido { left: 110px; top: 610px; font-size: 40px; }
+    [data-composition-id="s03-ravel"] .s03-ravel { left: 600px; top: 590px; font-size: 52px; }
+  </style>
+  <div id="root" data-composition-id="s03-ravel" data-width="1080" data-height="1920" data-duration="5.33">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="5.33" data-track-index="0">
+      <div class="s03-escenario">
+        <svg class="s03-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="or-tag rojo s03-pedido">PEDIDO GRANDE</div>
+        <div class="or-cartel s03-ravel">BOLERO<small>de Ravel · por mayor</small></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-ravel";
+      const DUR = 5.33;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      let notas = "";
+      [[200, 960], [380, 900], [700, 940], [860, 900], [960, 1040], [130, 1100]].forEach(([x, y], i) => { notas += OR.nota(x, y, 0.85, OR.ROJO, "s03-n"); });
+      root.querySelector(".s03-svg").innerHTML =
+        OR.director(440, 1560, 1.0) + OR.pentagrama(90, 990, 790, { cls: 's03-recto', col: OR.CREMA, sw: 4 }) + OR.pentagrama(90, 990, 790, { cls: 's03-enredo', col: OR.ROJO, sw: 5, enredo: 1 }) + notas;
+      const tl = gsap.timeline({ paused: true });
+      const K = OR.kit(tl, root);
+      const { q, qa } = K;
+
+      const PEDIDO = 0.36, BOLERO = 1.43, UNO = 2.33, DOS = 3.66, CRASH = 4.02;
+      K.origen(q(".or-d-brazo"), "-125 -330");
+      // cuadro 0: el director con la batuta arriba
+      tl.fromTo(q(".or-d"), { x: 20 }, { x: 0, duration: 0.5, ease: "power2.out" }, 0);
+      K.golpe = null;
+      K.sello(q(".s03-pedido"), PEDIDO + 0.1, 4);
+      K.pop(q(".s03-ravel"), BOLERO);
+      qa(".s03-recto path").forEach((p, i) => K.dibujar(p, 0.0 + i * 0.06, 1.0));
+      gsap.set(q(".s03-enredo"), { opacity: 0 });
+      // "y uno", "y dos": la batuta marca
+      tl.to(q(".or-d-brazo"), { rotation: 34, duration: 0.14, ease: "power3.in" }, UNO - 0.08);
+      tl.to(q(".or-d-brazo"), { rotation: 0, duration: 0.3, ease: "power2.out" }, UNO + 0.08);
+      tl.to(q(".or-d-brazo"), { rotation: 34, duration: 0.14, ease: "power3.in" }, DOS - 0.08);
+      tl.to(q(".or-d-brazo"), { rotation: 10, duration: 0.3, ease: "power2.out" }, DOS + 0.08);
+      tl.fromTo(q(".s03-recto"), { y: 0 }, { y: -12, duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, UNO);
+      tl.fromTo(q(".s03-recto"), { y: 0 }, { y: -12, duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, DOS);
+      // la orquesta arranca: desafina todo
+      tl.to(q(".s03-recto"), { opacity: 0, duration: 0.1 }, CRASH);
+      tl.fromTo(q(".s03-enredo"), { opacity: 0, scaleY: 0.3, svgOrigin: "540 826" }, { opacity: 1, scaleY: 1, svgOrigin: "540 826", duration: 0.3, ease: "back.out(2)", immediateRender: false }, CRASH);
+      K.notasVuelan(".s03-n", CRASH, 50, -120);
+      K.sacudon(q(".s03-svg"), CRASH, 1.4);
+      tl.to(q(".or-d-cejas"), { y: -16, duration: 0.1 }, CRASH);
+      tl.to(q(".or-d-boca"), { scaleY: 3, scaleX: 1.3, transformOrigin: "50% 50%", duration: 0.12 }, CRASH);
+      tl.to(q(".s03-ravel"), { rotation: -12, y: 30, duration: 0.3, ease: "back.out(3)" }, CRASH);
+
+      K.salida(q("#s03-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

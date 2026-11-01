@@ -1,0 +1,51 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/orquesta.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-trompeta"] .s08-capa, [data-composition-id="s08-trompeta"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-trompeta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-trompeta"] .s08-tag { left: 120px; top: 640px; font-size: 34px; }
+    [data-composition-id="s08-trompeta"] .s08-fab { left: 120px; top: 730px; font-size: 30px; }
+  </style>
+  <div id="root" data-composition-id="s08-trompeta" data-width="1080" data-height="1920" data-duration="2.71">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="2.71" data-track-index="0">
+      <div class="s08-escenario">
+        <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="or-tag s08-tag">TROMPETA</div>
+        <div class="or-tag rojo s08-fab">DE FÁBRICA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-trompeta";
+      const DUR = 2.71;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s08-svg").innerHTML =
+        OR.caja(400, 1530, 1.1, { txt: 'SISTEMA V1.0' }) + OR.nota(840, 880, 0.7, OR.BRON2, 's08-n') + OR.nota(900, 980, 0.6, OR.BRON2, 's08-n');
+      const tl = gsap.timeline({ paused: true });
+      const K = OR.kit(tl, root);
+      const { q, qa } = K;
+
+      const TROMPETA = 0.16, SISTEMA = 0.96, VINO = 1.52, CAJA = 1.92;
+      // cuadro 0: la caja registradora entra con su trompeta
+      tl.fromTo(q(".or-t"), { x: 140, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      K.pop(q(".s08-tag"), TROMPETA);
+      K.vaiven(q(".or-t-trompeta"), "130 -330", TROMPETA + 0.1, -6, 2, 0.12);
+      K.notasVuelan(".s08-n", TROMPETA + 0.2, 40, -90);
+      // "sistema": la pantalla parpadea
+      tl.fromTo(q(".or-t-ojos"), { opacity: 1 }, { opacity: 0.2, duration: 0.08, yoyo: true, repeat: 3, immediateRender: false }, SISTEMA);
+      tl.fromTo(q(".or-t-txt"), { scale: 1 }, { scale: 1.3, svgOrigin: "0 -456", duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, SISTEMA);
+      // "vino con la caja": etiqueta de fábrica
+      K.sello(q(".s08-fab"), VINO + 0.1, -4);
+      tl.fromTo(q(".or-t-cajon"), { x: 0 }, { x: 40, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, CAJA);
+
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
