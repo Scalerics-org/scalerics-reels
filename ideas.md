@@ -116,6 +116,11 @@
 
 ## En curso
 
+- 01-11 · `la-familia` · Agente de IA · película de mafia: el capo de "la familia" (la competencia) reparte los clientes del barrio [formato P mafia · estilo despacho del capo en penumbra]
+- 01-11 · `el-diablito` · Agente de IA · el diablito y el angelito en el hombro del dueño (seguimiento al que preguntó y no compró) [formato B diálogo · estilo dibujo animado de los años 30]
+- 01-11 · `cadena-perpetua` · Automatizaciones · el dueño preso de la planilla cuenta sus días copiando pedidos [formato C días en pasos · estilo celda de cárcel]
+- 01-11 · `match-point` · Sistema a medida · transmisión de tenis: el peloteo eterno entre local y depósito para saber si hay stock [formato P tenis · estilo cancha de césped]
+- 01-11 · `el-feriante` · Tienda online · "el feriante vende más por internet que vos" [formato A polémica con giro · estilo feria con lona a rayas]
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
