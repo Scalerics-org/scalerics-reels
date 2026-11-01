@@ -1,0 +1,131 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-enfrente"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-enfrente"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-enfrente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-enfrente"] .s04-canto { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s04-enfrente"] .s04-c1 { top: 640px; font-size: 96px; color: #f7f1e3; }
+    [data-composition-id="s04-enfrente"] .s04-c2 { top: 760px; font-size: 96px; color: #ff5a5f; }
+    [data-composition-id="s04-enfrente"] .s04-c3 { top: 880px; font-size: 96px; color: #f2b632; }
+    [data-composition-id="s04-enfrente"] .s04-cart { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; letter-spacing: 0.04em; }
+    [data-composition-id="s04-enfrente"] .s04-sello { position: absolute; left: 330px; top: 1356px; padding: 10px 26px; border: 6px solid #ff5a5f; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 50px; color: #ff5a5f; text-transform: uppercase; white-space: nowrap; background: #070d26; }
+  </style>
+  <div id="root" data-composition-id="s04-enfrente" data-width="1080" data-height="1920" data-duration="5.75">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="5.75" data-track-index="0">
+      <div class="s04-escenario">
+        <div class="s04-cantos">
+          <div class="s04-canto s04-c1">Después</div>
+          <div class="s04-canto s04-c2">te contesto</div>
+          <div class="s04-canto s04-c3">te contesto</div>
+          <svg viewBox="0 0 1080 1920" aria-hidden="true">
+            <!-- el bombo de la murga, con su maza -->
+            <g class="s04-bombo">
+              <circle cx="540" cy="1210" r="190" fill="#b8202e" stroke="#f2b632" stroke-width="8" />
+              <circle cx="540" cy="1210" r="150" fill="#f7f1e3" />
+              <path d="M370 1130 L710 1290 M370 1290 L710 1130" stroke="#f2b632" stroke-width="5" opacity="0.6" />
+              <circle cx="540" cy="1210" r="150" fill="none" stroke="#070d26" stroke-width="4" opacity="0.3" />
+            </g>
+            <g class="s04-maza">
+              <path d="M820 960 L640 1150" stroke="#d9b77c" stroke-width="16" stroke-linecap="round" />
+              <circle cx="630" cy="1162" r="34" fill="#f2b632" />
+            </g>
+          </svg>
+        </div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s04-calle">
+            <!-- TU LOCAL (apagado) -->
+            <g class="s04-tuyo">
+              <rect x="110" y="900" width="340" height="420" fill="#0d1a47" stroke="#f7f1e3" stroke-width="5" />
+              <path d="M96 900 L130 840 H430 L464 900 Z" fill="#b8202e" stroke="#f7f1e3" stroke-width="5" stroke-linejoin="round" />
+              <text class="s04-cart" x="280" y="884" text-anchor="middle" fill="#f7f1e3">TU LOCAL</text>
+              <rect class="s04-vid-a" x="150" y="960" width="160" height="180" fill="#070d26" stroke="#f7f1e3" stroke-width="4" />
+              <rect x="330" y="1040" width="90" height="280" fill="#070d26" stroke="#f7f1e3" stroke-width="4" />
+              <text x="230" y="1062" text-anchor="middle" font-family="IBM Plex Mono" font-size="28" fill="#f7f1e3" opacity="0.55">visto</text>
+            </g>
+            <!-- EL DE ENFRENTE (prendido) -->
+            <g class="s04-otro">
+              <rect x="630" y="900" width="340" height="420" fill="#0d1a47" stroke="#f2b632" stroke-width="5" />
+              <path d="M616 900 L650 840 H950 L984 900 Z" fill="#f2b632" stroke="#f2b632" stroke-width="5" stroke-linejoin="round" />
+              <text class="s04-cart" x="800" y="884" text-anchor="middle" fill="#070d26">ENFRENTE</text>
+              <rect class="s04-vid-b" x="670" y="960" width="160" height="180" fill="#f2b632" opacity="0.85" />
+              <rect x="850" y="1040" width="90" height="280" fill="#f2b632" opacity="0.5" stroke="#f2b632" stroke-width="4" />
+              <text x="750" y="1062" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="30" fill="#070d26">ABIERTO</text>
+            </g>
+            <path d="M60 1324 H1020" stroke="#f7f1e3" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+            <!-- la clienta que cruza -->
+            <g class="s04-cli">
+              <circle cx="0" cy="-150" r="30" fill="#f7f1e3" />
+              <path d="M-28 -160 Q0 -200 30 -158 L34 -130 Q0 -150 -32 -128 Z" fill="#e63946" />
+              <path d="M-34 -110 Q0 -124 34 -110 L46 -20 H-46 Z" fill="#8fd3ff" />
+              <path class="s04-pie-a" d="M-16 -20 L-24 0" stroke="#f7f1e3" stroke-width="10" stroke-linecap="round" />
+              <path class="s04-pie-b" d="M16 -20 L24 0" stroke="#f7f1e3" stroke-width="10" stroke-linecap="round" />
+              <g class="s04-bolsa" opacity="0">
+                <rect x="40" y="-90" width="46" height="54" rx="6" fill="#f2b632" />
+                <path d="M50 -90 Q63 -112 76 -90" fill="none" stroke="#f2b632" stroke-width="5" />
+              </g>
+            </g>
+          </g>
+        </svg>
+        <div class="s04-sello">Por supuesto</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-enfrente";
+      const DUR = 5.75;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const D1 = 0.0, C1 = 0.27, D2 = 0.63, C2 = 1.79, Y = 2.14, COMPRO = 2.86, ENFRENTE = 3.57, SUPUESTO = 4.34;
+
+      // el canto: cada palabra cae al ritmo del bombo
+      gsap.set([q(".s04-c2"), q(".s04-c3")], { opacity: 0 });
+      tl.fromTo(q(".s04-c1"), { opacity: 0.4, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in" }, D1);
+      tl.fromTo(q(".s04-c2"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, C1);
+      tl.to(q(".s04-c1"), { scale: 1.12, duration: 0.1, yoyo: true, repeat: 1 }, D2);
+      tl.fromTo(q(".s04-c3"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, C2 - 0.1);
+      // todo el bloque salta con la marcha
+      [0, 0.45, 0.9, 1.35, 1.8].forEach((t, i) => tl.to(q(".s04-cantos"), { y: i % 2 ? 0 : -16, rotation: i % 2 ? 2 : -2, duration: 0.2, ease: "power2.out" }, t));
+      [[-10, 6], [8, -4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x, y, duration: 0.04 }, C2 + i * 0.045));
+      // la maza le pega al bombo en cada golpe del canto
+      [D1, C1, D2, 1.2, C2].forEach((t) => {
+        tl.to(q(".s04-maza"), { rotation: 16, svgOrigin: "820 960", duration: 0.07, ease: "power2.in" }, t - 0.07);
+        tl.to(q(".s04-maza"), { rotation: -10, svgOrigin: "820 960", duration: 0.18, ease: "power2.out" }, t);
+        tl.fromTo(q(".s04-bombo"), { scale: 1.06, svgOrigin: "540 1210" }, { scale: 1, svgOrigin: "540 1210", duration: 0.2, ease: "power2.out", immediateRender: false }, t);
+      });
+
+      // "¡Y compró en el de enfrente!": el canto se va arriba, aparece la calle
+      tl.to(q(".s04-cantos"), { y: -120, scale: 0.6, opacity: 0, duration: 0.3, ease: "power3.in" }, Y - 0.2);
+      gsap.set(q(".s04-calle"), { opacity: 0 });
+      tl.fromTo(q(".s04-calle"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, Y);
+      // la clienta sale de tu vereda y cruza caminando
+      gsap.set(q(".s04-cli"), { x: 280, y: 1324 });
+      tl.to(q(".s04-cli"), { x: 800, duration: ENFRENTE - COMPRO + 0.2, ease: "none" }, COMPRO - 0.3);
+      for (let t = COMPRO - 0.3, k = 0; t < ENFRENTE; t += 0.16, k++) {
+        tl.to(q(".s04-pie-a"), { rotation: k % 2 ? 18 : -18, svgOrigin: "-16 -20", duration: 0.14 }, t);
+        tl.to(q(".s04-pie-b"), { rotation: k % 2 ? -18 : 18, svgOrigin: "16 -20", duration: 0.14 }, t);
+      }
+      tl.to(q(".s04-bolsa"), { opacity: 1, duration: 0.1 }, ENFRENTE + 0.05);
+      tl.fromTo(q(".s04-otro"), { scale: 1 }, { scale: 1.05, svgOrigin: "800 1320", duration: 0.15, yoyo: true, repeat: 1 }, ENFRENTE);
+      tl.to(q(".s04-cli"), { y: 1300, duration: 0.12, yoyo: true, repeat: 3, ease: "power2.out" }, ENFRENTE + 0.1);
+      // tu local se apaga
+      tl.to(q(".s04-tuyo"), { opacity: 0.4, duration: 0.1, yoyo: true, repeat: 3, ease: "steps(1)" }, ENFRENTE + 0.2);
+      tl.to(q(".s04-tuyo"), { opacity: 0.4, duration: 0.1 }, ENFRENTE + 0.7);
+
+      // "por supuesto": sello
+      gsap.set(q(".s04-sello"), { opacity: 0, rotation: 6 });
+      tl.fromTo(q(".s04-sello"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, SUPUESTO);
+      [[-12, 7], [9, -5], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x, y, duration: 0.04 }, SUPUESTO + 0.12 + i * 0.045));
+
+      tl.to(q("#s04-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

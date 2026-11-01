@@ -1,0 +1,41 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1120px at 540px 940px, rgba(7, 13, 38, 0) 58%, rgba(7, 13, 38, 0.8) 100%); }
+    /* cuando el dueño grita desde el público se corta la fiesta: se oscurece alrededor */
+    [data-composition-id="ambiente"] .amb-corte { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 520px 760px at 540px 1060px, rgba(7, 13, 38, 0) 40%, rgba(7, 13, 38, 0.7) 100%); }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 110px; top: 1610px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; color: #f2b632; opacity: 0.6; text-align: right; line-height: 1.5; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #f2b632; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.44">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="73.44" data-track-index="0">
+      <div class="amb-vineta"></div>
+      <div class="amb-corte"></div>
+      <div class="amb-rotulo" data-layout-ignore>TABLADO DE BARRIO<br />CARNAVAL</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // fogonazos dorados de reflector (segundos globales): "cuplé", "dólar", "¡yo solo!", "¡retirada!", "tablado", "etiquetá"
+      [2.41, 31.17, 34.45, 45.47, 62.99, 68.45].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.32, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.04);
+      });
+      // el dueño interrumpe: baja la luz hasta que la murga le da la razón
+      tl.to(q(".amb-corte"), { opacity: 0.75, duration: 0.15 }, 32.3);
+      tl.to(q(".amb-corte"), { opacity: 0, duration: 0.6 }, 44.5);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

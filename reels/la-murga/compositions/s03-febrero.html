@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-febrero"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-febrero"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-febrero"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-febrero"] .s03-b { position: absolute; padding: 22px 34px; border-radius: 34px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 46px; line-height: 1.1; white-space: nowrap; }
+    [data-composition-id="s03-febrero"] .s03-cli { left: 110px; top: 610px; background: #f7f1e3; color: #070d26; border-bottom-left-radius: 8px; }
+    [data-composition-id="s03-febrero"] .s03-yo { right: 110px; top: 760px; background: #f2b632; color: #070d26; border-bottom-right-radius: 8px; }
+    [data-composition-id="s03-febrero"] .s03-hora { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.1em; color: #f7f1e3; opacity: 0.6; }
+    [data-composition-id="s03-febrero"] .s03-mes { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 92px; fill: #070d26; letter-spacing: -0.01em; }
+    [data-composition-id="s03-febrero"] .s03-cab { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; fill: #f7f1e3; }
+    [data-composition-id="s03-febrero"] .s03-dia { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 150px; fill: #e63946; }
+  </style>
+  <div id="root" data-composition-id="s03-febrero" data-width="1080" data-height="1920" data-duration="5.59">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="5.59" data-track-index="0">
+      <div class="s03-escenario">
+        <div class="s03-b s03-cli">¿Precio?</div>
+        <div class="s03-hora s03-h1" style="left: 124px; top: 724px;">14 FEB · 10:02</div>
+        <div class="s03-b s03-yo">Después te contesto</div>
+        <div class="s03-hora s03-h2" style="right: 124px; top: 874px; text-align: right;">14 FEB · 19:40</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- telaraña sobre la respuesta que nunca llegó -->
+          <g class="s03-tela" fill="none" stroke="#f7f1e3" stroke-width="3" stroke-linecap="round">
+            <path class="s03-t" d="M970 740 L880 830 M970 740 L960 860 M970 740 L850 760" />
+            <path class="s03-t" d="M935 775 Q925 800 945 812 Q960 790 966 778 Q950 770 935 775" />
+            <path class="s03-t" d="M905 805 Q890 840 925 852 Q955 820 962 812 Q930 790 905 805" />
+          </g>
+          <!-- el almanaque de pared -->
+          <g class="s03-alma">
+            <path d="M540 952 V990" stroke="#f7f1e3" stroke-width="5" stroke-linecap="round" />
+            <circle cx="540" cy="946" r="10" fill="#f2b632" />
+            <rect x="360" y="990" width="360" height="380" rx="18" fill="#f7f1e3" />
+            <rect x="360" y="990" width="360" height="86" rx="18" fill="#b8202e" />
+            <path d="M360 1050 H720 V1076 H360 Z" fill="#b8202e" />
+            <g class="s03-hojas" data-layout-allow-overlap></g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-febrero";
+      const DUR = 5.59;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+
+      const PRECIO = 0.73, DESPUES = 2.24, ESO = 3.76, FEBRERO = 4.27;
+
+      // las hojas del almanaque: FEB arriba de todo, abajo los meses que siguen (se arrancan)
+      const MESES = ["NOV", "OCT", "SEP", "AGO", "JUL", "JUN", "MAY", "ABR", "MAR", "FEB"];
+      const hojas = q(".s03-hojas");
+      MESES.forEach((m, i) => {
+        const g = document.createElementNS(NS, "g");
+        g.setAttribute("class", "s03-hoja");
+        g.innerHTML = `<rect x="360" y="1076" width="360" height="294" fill="#f7f1e3" stroke="#0d1a47" stroke-width="2" />` +
+          `<text class="s03-mes" x="540" y="1196" text-anchor="middle">${m}</text>` +
+          `<text class="s03-dia" x="540" y="1340" text-anchor="middle">${m === "FEB" ? "14" : "1"}</text>`;
+        hojas.appendChild(g);
+      });
+      const H = qa(".s03-hoja").reverse(); // H[0] = FEB (arriba)
+
+      // cuadro 0: la burbuja del cliente ya está asomando
+      tl.fromTo(q(".s03-cli"), { opacity: 0.4, scale: 0.7, x: -40, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, x: 0, transformOrigin: "0% 100%", duration: 0.35, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s03-h1"), { opacity: 0 }, { opacity: 0.6, duration: 0.2 }, 0.3);
+      tl.to(q(".s03-cli"), { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, transformOrigin: "0% 100%" }, PRECIO);
+      // el almanaque cuelga y se balancea
+      tl.fromTo(q(".s03-alma"), { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, 0.2);
+      tl.fromTo(q(".s03-alma"), { rotation: -4, svgOrigin: "540 946" }, { rotation: 3, svgOrigin: "540 946", duration: 1.2, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0.3);
+
+      // "dijiste: después te contesto": la respuesta del dueño
+      gsap.set([q(".s03-yo"), q(".s03-h2")], { opacity: 0 });
+      tl.fromTo(q(".s03-yo"), { opacity: 0, scale: 0.6, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, transformOrigin: "100% 100%", duration: 0.3, ease: "back.out(2)", immediateRender: false }, DESPUES - 0.1);
+      tl.to(q(".s03-h2"), { opacity: 0.6, duration: 0.2 }, DESPUES + 0.3);
+
+      // telaraña que se va tejiendo sobre la conversación
+      qa(".s03-t").forEach((el, i) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(el, { opacity: 0.7, duration: 0.04 }, 2.95 + i * 0.22);
+        tl.to(el, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 2.95 + i * 0.22);
+      });
+
+      // "eso fue en febrero": se arrancan las hojas, de FEB a NOV, cada vez más rápido
+      tl.to(H[0], { scale: 1.08, svgOrigin: "540 1220", duration: 0.12, yoyo: true, repeat: 1 }, ESO);
+      H.slice(0, -1).forEach((h, i) => {
+        const t = FEBRERO + 0.1 + i * 0.1;
+        tl.to(h, { y: 420 + i * 10, x: (i % 2 ? 180 : -180), rotation: (i % 2 ? 40 : -40), svgOrigin: "540 1076", opacity: 0, duration: 0.45, ease: "power2.in" }, t);
+      });
+      tl.to(q(".s03-escenario"), { x: -10, duration: 0.05, yoyo: true, repeat: 3 }, FEBRERO + 1.0);
+
+      tl.to(q("#s03-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

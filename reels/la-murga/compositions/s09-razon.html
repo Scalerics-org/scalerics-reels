@@ -1,0 +1,110 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-razon"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-razon"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-razon"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-razon"] .s09-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s09-razon"] .s09-razon { top: 1230px; font-size: 104px; color: #f2b632; }
+    [data-composition-id="s09-razon"] .s09-mal { top: 1236px; font-size: 80px; color: #f7f1e3; }
+    [data-composition-id="s09-razon"] .s09-solo { top: 1230px; font-size: 96px; color: #f2b632; text-shadow: 0 0 30px rgba(242, 182, 50, 0.4); }
+    [data-composition-id="s09-razon"] .s09-rot { position: absolute; left: 0; right: 0; top: 1360px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #f7f1e3; opacity: 0.8; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s09-razon" data-width="1080" data-height="1920" data-duration="5.58">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="5.58" data-track-index="0">
+      <div class="s09-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la mano del director que frena todo -->
+          <g class="s09-mano">
+            <path d="M830 760 h70 v-120 q0 -20 18 -20 q18 0 18 20 v100 v-130 q0 -20 18 -20 q18 0 18 20 v130 v-110 q0 -20 18 -20 q18 0 18 20 v120 v-80 q0 -20 18 -20 q18 0 18 20 v170 q0 90 -90 100 h-60 q-60 0 -90 -60 Z" fill="#f7f1e3" stroke="#070d26" stroke-width="4" stroke-linejoin="round" />
+          </g>
+          <g class="s09-cara">
+            <!-- gola (cuello de volados) -->
+            <path class="s09-gola" d="M330 1100 L380 1170 L420 1110 L470 1180 L510 1115 L540 1185 L570 1115 L610 1180 L660 1110 L700 1170 L750 1100" fill="#b8202e" stroke="#f2b632" stroke-width="5" stroke-linejoin="round" />
+            <!-- cabeza blanca -->
+            <ellipse cx="540" cy="910" rx="172" ry="206" fill="#f7f1e3" />
+            <!-- pintura: rombos rojos sobre los ojos, estrellas doradas en los cachetes -->
+            <path d="M462 780 L506 860 L462 950 L418 860 Z" fill="#e63946" />
+            <path d="M618 780 L662 860 L618 950 L574 860 Z" fill="#e63946" />
+            <path d="M440 978 l8 16 18 2 -13 12 4 18 -17 -9 -17 9 4 -18 -13 -12 18 -2 Z" fill="#f2b632" />
+            <path d="M640 978 l8 16 18 2 -13 12 4 18 -17 -9 -17 9 4 -18 -13 -12 18 -2 Z" fill="#f2b632" />
+            <!-- cejas pícaras -->
+            <path class="s09-ceja-i" d="M422 770 Q462 738 500 764" fill="none" stroke="#070d26" stroke-width="9" stroke-linecap="round" />
+            <path class="s09-ceja-d" d="M580 760 Q618 730 660 770" fill="none" stroke="#070d26" stroke-width="9" stroke-linecap="round" />
+            <!-- ojos -->
+            <ellipse class="s09-ojo-i" cx="462" cy="862" rx="20" ry="24" fill="#f7f1e3" />
+            <circle class="s09-pupi-i" cx="466" cy="866" r="12" fill="#070d26" />
+            <ellipse class="s09-ojo-d" cx="618" cy="862" rx="20" ry="24" fill="#f7f1e3" />
+            <circle class="s09-pupi-d" cx="622" cy="866" r="12" fill="#070d26" />
+            <path class="s09-guino" d="M596 866 Q618 884 640 866" fill="none" stroke="#070d26" stroke-width="8" stroke-linecap="round" opacity="0" />
+            <!-- nariz -->
+            <path d="M540 900 Q528 940 540 952 Q552 958 560 948" fill="none" stroke="#070d26" stroke-width="6" stroke-linecap="round" opacity="0.6" />
+            <!-- boca: labios rojos y el adentro que se abre al hablar -->
+            <g class="s09-boca">
+              <path d="M450 1010 Q540 1060 630 1010 Q600 1090 540 1092 Q480 1090 450 1010 Z" fill="#070d26" />
+              <path d="M440 1006 Q490 990 540 1002 Q590 990 640 1006 Q590 1030 540 1026 Q490 1030 440 1006 Z" fill="#e63946" />
+            </g>
+            <!-- galera -->
+            <g class="s09-galera">
+              <path d="M318 724 Q540 676 762 724 Q760 748 540 742 Q320 748 318 724 Z" fill="#0d1a47" stroke="#f2b632" stroke-width="5" stroke-linejoin="round" />
+              <path d="M408 726 L420 572 Q540 556 660 572 L672 726 Z" fill="#0d1a47" stroke="#f2b632" stroke-width="5" stroke-linejoin="round" />
+              <path d="M414 680 Q540 664 666 680 L668 708 Q540 692 412 708 Z" fill="#e63946" />
+            </g>
+          </g>
+          <path class="s09-tache" d="M150 1290 L930 1270" stroke="#ff5a5f" stroke-width="14" stroke-linecap="round" />
+        </svg>
+        <div class="s09-txt s09-razon">Tiene razón</div>
+        <div class="s09-txt s09-mal">Mal comerciante</div>
+        <div class="s09-txt s09-solo">Solo con todo</div>
+        <div class="s09-rot">Pará la murga</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-razon";
+      const DUR = 5.58;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const PARA = 0.0, VECINO = 1.25, RAZON = 1.69, NO = 2.64, COMERCIANTE = 3.03, ESTA = 4.16, TODO = 4.82;
+
+      // el director, serio: la mano en alto frena la murga
+      tl.fromTo(q(".s09-cara"), { scale: 0.9, opacity: 0.6, svgOrigin: "540 1180" }, { scale: 1, opacity: 1, svgOrigin: "540 1180", duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s09-mano"), { y: 300, rotation: -20, svgOrigin: "880 800", opacity: 0 }, { y: 0, rotation: 0, svgOrigin: "880 800", opacity: 1, duration: 0.3, ease: "back.out(2)" }, PARA + 0.05);
+      tl.fromTo(q(".s09-rot"), { opacity: 0 }, { opacity: 0.8, duration: 0.2 }, 0.2);
+      // cejas serias, boca cerrada
+      gsap.set(q(".s09-boca"), { scaleY: 0.5, svgOrigin: "540 1006" });
+      tl.to(q(".s09-ceja-i"), { rotation: 12, svgOrigin: "462 760", y: 10, duration: 0.2 }, 0.1);
+      tl.to(q(".s09-ceja-d"), { rotation: -12, svgOrigin: "618 760", y: 10, duration: 0.2 }, 0.1);
+      [0, 0.26, 1.25, 1.69, 2.64, 3.03, 4.16, 4.82].forEach((t) => tl.to(q(".s09-boca"), { scaleY: 1, svgOrigin: "540 1006", duration: 0.08, yoyo: true, repeat: 1 }, t));
+      tl.to(q(".s09-mano"), { opacity: 0, y: 120, duration: 0.25 }, VECINO - 0.1);
+      tl.to(q(".s09-rot"), { opacity: 0, duration: 0.2 }, VECINO);
+      // "tiene razón": se saca la galera, con respeto
+      tl.to(q(".s09-galera"), { y: -120, x: 150, rotation: 22, svgOrigin: "540 724", duration: 0.45, ease: "back.out(1.6)" }, VECINO);
+      gsap.set([q(".s09-razon"), q(".s09-mal"), q(".s09-solo")], { opacity: 0 });
+      tl.fromTo(q(".s09-razon"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, RAZON - 0.06);
+      tl.to(q(".s09-razon"), { opacity: 0, duration: 0.15 }, NO - 0.15);
+      // "no es mal comerciante": se tacha
+      tl.fromTo(q(".s09-mal"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.2, immediateRender: false }, NO);
+      const tache = q(".s09-tache"); const L = tache.getTotalLength();
+      gsap.set(tache, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+      tl.to(tache, { opacity: 1, duration: 0.04 }, COMERCIANTE + 0.3);
+      tl.to(tache, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, COMERCIANTE + 0.3);
+      tl.to([q(".s09-mal"), tache], { opacity: 0, duration: 0.15 }, ESTA - 0.15);
+      // "está solo con todo": cara de empatía, la luz baja
+      tl.to(q(".s09-ceja-i"), { rotation: -14, svgOrigin: "462 760", y: 0, duration: 0.3 }, ESTA);
+      tl.to(q(".s09-ceja-d"), { rotation: 14, svgOrigin: "618 760", y: 0, duration: 0.3 }, ESTA);
+      tl.fromTo(q(".s09-solo"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in", immediateRender: false }, ESTA + 0.1);
+      tl.to(q(".s09-solo"), { scale: 1.05, duration: 0.25, yoyo: true, repeat: 1 }, TODO);
+      tl.to(q(".s09-cara"), { scale: 0.96, svgOrigin: "540 1180", duration: 1.2, ease: "sine.inOut" }, ESTA);
+
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

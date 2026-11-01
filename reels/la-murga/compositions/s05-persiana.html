@@ -1,0 +1,77 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-persiana"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-persiana"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-persiana"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-persiana"] .s05-hora { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 120px; fill: #f2b632; }
+    [data-composition-id="s05-persiana"] .s05-ui { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; fill: #f7f1e3; }
+    [data-composition-id="s05-persiana"] .s05-cerrado { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; fill: #ff5a5f; letter-spacing: 0.04em; }
+  </style>
+  <div id="root" data-composition-id="s05-persiana" data-width="1080" data-height="1920" data-duration="2.86">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="2.86" data-track-index="0">
+      <div class="s05-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs><clipPath id="s05-recorte"><rect x="330" y="760" width="420" height="640" rx="50" /></clipPath></defs>
+          <text class="s05-hora" x="540" y="700" text-anchor="middle">20:00</text>
+          <g class="s05-cel">
+            <rect x="330" y="760" width="420" height="640" rx="50" fill="#0d1a47" stroke="#f7f1e3" stroke-width="5" />
+            <path d="M500 788 H580" stroke="#f7f1e3" stroke-width="5" stroke-linecap="round" />
+            <!-- burbujas de clientes que siguen llegando -->
+            <g class="s05-msj">
+              <rect x="370" y="840" width="280" height="64" rx="22" fill="#f7f1e3" opacity="0.9" />
+              <rect x="370" y="930" width="220" height="64" rx="22" fill="#f7f1e3" opacity="0.9" />
+              <rect x="370" y="1020" width="300" height="64" rx="22" fill="#f7f1e3" opacity="0.9" />
+              <rect x="370" y="1110" width="190" height="64" rx="22" fill="#f7f1e3" opacity="0.9" />
+            </g>
+            <!-- la persiana metálica: tablillas que bajan -->
+            <g clip-path="url(#s05-recorte)">
+              <g class="s05-persiana">
+                <rect x="330" y="760" width="420" height="640" fill="#14245e" />
+                <path d="M330 810 H750 M330 860 H750 M330 910 H750 M330 960 H750 M330 1010 H750 M330 1060 H750 M330 1110 H750 M330 1160 H750 M330 1210 H750 M330 1260 H750 M330 1310 H750 M330 1360 H750" stroke="#f7f1e3" stroke-width="4" opacity="0.5" />
+                <rect x="330" y="1370" width="420" height="30" fill="#f2b632" />
+                <text class="s05-cerrado" x="540" y="1110" text-anchor="middle">CERRADO</text>
+              </g>
+            </g>
+          </g>
+          <!-- el candado -->
+          <g class="s05-candado">
+            <path d="M510 1400 V1370 Q540 1330 570 1370 V1400" fill="none" stroke="#f2b632" stroke-width="8" />
+            <rect x="494" y="1398" width="92" height="74" rx="10" fill="#f2b632" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-persiana";
+      const DUR = 2.86;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const OCHO = 0.18, WHATSAPP = 1.07, BAJA = 2.15, PERSIANA = 2.68;
+
+      tl.fromTo(q(".s05-cel"), { opacity: 0.5, y: 120, scale: 0.9, svgOrigin: "540 1400" }, { opacity: 1, y: 0, scale: 1, svgOrigin: "540 1400", duration: 0.35, ease: "back.out(1.6)" }, 0);
+      gsap.set(q(".s05-hora"), { opacity: 0 });
+      tl.fromTo(q(".s05-hora"), { opacity: 0, scale: 2, svgOrigin: "540 660" }, { opacity: 1, scale: 1, svgOrigin: "540 660", duration: 0.15, ease: "power4.in", immediateRender: false }, OCHO);
+      // los mensajes siguen llegando
+      [...q(".s05-msj").children].forEach((m, i) => tl.fromTo(m, { opacity: 0, x: -30 }, { opacity: 0.9, x: 0, duration: 0.2, ease: "back.out(2)" }, 0.5 + i * 0.32));
+      // "baja la persiana": cae de golpe la persiana sobre el WhatsApp
+      gsap.set(q(".s05-persiana"), { y: -640 });
+      tl.to(q(".s05-persiana"), { y: -200, duration: 0.5, ease: "power1.in" }, WHATSAPP + 0.3);
+      tl.to(q(".s05-persiana"), { y: 0, duration: 0.35, ease: "bounce.out" }, BAJA);
+      tl.to(q(".s05-escenario"), { y: 10, duration: 0.05, yoyo: true, repeat: 3 }, BAJA + 0.3);
+      gsap.set(q(".s05-candado"), { opacity: 0 });
+      tl.fromTo(q(".s05-candado"), { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.2, ease: "back.out(3)", immediateRender: false }, PERSIANA - 0.1);
+      tl.to(q(".s05-hora"), { fill: "#ff5a5f", duration: 0.1 }, PERSIANA);
+
+      tl.to(q("#s05-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

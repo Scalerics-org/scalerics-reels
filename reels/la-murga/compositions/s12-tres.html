@@ -1,0 +1,97 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-tres"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-tres"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-tres"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-tres"] .s12-hora { position: absolute; left: 120px; top: 586px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 92px; color: #f2b632; line-height: 1; }
+    [data-composition-id="s12-tres"] .s12-chat { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s12-tres"] .s12-b { position: absolute; padding: 12px 20px; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; line-height: 1.15; white-space: nowrap; }
+    [data-composition-id="s12-tres"] .s12-c { left: 150px; background: #f7f1e3; color: #070d26; border-bottom-left-radius: 6px; }
+    [data-composition-id="s12-tres"] .s12-a { right: 330px; background: #5ce611; color: #070d26; border-bottom-right-radius: 6px; }
+    [data-composition-id="s12-tres"] .s12-cab { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s12-tres"] .s12-sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #f7f1e3; opacity: 0.7; }
+    [data-composition-id="s12-tres"] .s12-vos { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; fill: #f2b632; }
+  </style>
+  <div id="root" data-composition-id="s12-tres" data-width="1080" data-height="1920" data-duration="7.89">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="7.89" data-track-index="0">
+      <div class="s12-escenario">
+        <div class="s12-hora">03:00</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- luna -->
+          <g class="s12-luna"><path d="M650 560 A70 70 0 1 0 720 660 A56 56 0 1 1 650 560 Z" fill="#f7f1e3" /></g>
+          <g class="s12-cel">
+            <rect x="120" y="710" width="640" height="720" rx="52" fill="#0d1a47" stroke="#5ce611" stroke-width="6" />
+            <path d="M400 738 H480" stroke="#5ce611" stroke-width="5" stroke-linecap="round" />
+            <circle cx="190" cy="800" r="30" fill="#5ce611" />
+            <path d="M176 796 L186 806 L206 786" fill="none" stroke="#070d26" stroke-width="5" stroke-linecap="round" />
+            <text class="s12-cab" x="236" y="796">Agente de IA</text>
+            <text class="s12-sub" x="236" y="826">en línea</text>
+            <path d="M150 850 H730" stroke="#f7f1e3" stroke-width="2" opacity="0.3" />
+          </g>
+          <!-- el dueño, dormido, al que le pasan la charla -->
+          <g class="s12-duenio">
+            <circle cx="900" cy="1250" r="92" fill="#14245e" stroke="#f2b632" stroke-width="5" />
+            <circle cx="900" cy="1250" r="58" fill="#f7f1e3" />
+            <path d="M842 1236 Q850 1186 900 1186 Q950 1186 958 1236 Q930 1212 900 1216 Q870 1212 842 1236 Z" fill="#0d1a47" />
+            <path class="s12-ojos-z" d="M872 1250 Q882 1258 892 1250 M908 1250 Q918 1258 928 1250" fill="none" stroke="#070d26" stroke-width="5" stroke-linecap="round" />
+            <g class="s12-ojos-a" opacity="0"><circle cx="882" cy="1250" r="7" fill="#070d26" /><circle cx="918" cy="1250" r="7" fill="#070d26" /></g>
+            <path d="M878 1276 Q900 1266 922 1276" fill="none" stroke="#070d26" stroke-width="7" stroke-linecap="round" />
+            <text class="s12-vos" x="900" y="1386" text-anchor="middle">VOS</text>
+            <text class="s12-zz" x="960" y="1150" font-family="Lexend" font-weight="800" font-size="40" fill="#8fd3ff">z z</text>
+          </g>
+          <path class="s12-flecha" d="M700 1300 Q770 1330 800 1290" fill="none" stroke="#f2b632" stroke-width="8" stroke-linecap="round" />
+          <path class="s12-punta" d="M780 1270 L806 1286 L790 1312" fill="none" stroke="#f2b632" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="s12-chat">
+          <div class="s12-b s12-c" style="top: 880px;">¿Cuánto sale la docena?</div>
+          <div class="s12-b s12-a" style="top: 952px;">$ 290. Abrimos de 8 a 20.</div>
+          <div class="s12-b s12-c" style="top: 1028px;">Dame dos para el sábado</div>
+          <div class="s12-b s12-a" style="top: 1100px;">Listo: pedido anotado.</div>
+          <div class="s12-b s12-c" style="top: 1176px;">¿Hacen tortas de boda?</div>
+          <div class="s12-b s12-a" style="top: 1248px;">Te paso con el dueño.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-tres";
+      const DUR = 7.89;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const TRES = 0.63, PRECIOS = 2.23, HORARIOS = 2.86, TOMA = 4.16, PEDIDOS = 4.29, SI = 5.3, PASA = 6.52, CHARLA = 6.88;
+
+      tl.fromTo(q(".s12-cel"), { opacity: 0.5, y: 140 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s12-luna"), { opacity: 0, rotation: -30, svgOrigin: "660 630" }, { opacity: 1, rotation: 0, svgOrigin: "660 630", duration: 0.5, ease: "back.out(2)" }, 0.1);
+      tl.fromTo(q(".s12-hora"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in" }, TRES - 0.06);
+      // los mensajes entran en su palabra
+      const B = qa(".s12-b");
+      const T = [0.9, PRECIOS, 3.6, PEDIDOS, SI, PASA];
+      B.forEach((b, i) => {
+        gsap.set(b, { opacity: 0 });
+        const izq = b.classList.contains("s12-c");
+        tl.fromTo(b, { opacity: 0, scale: 0.6, transformOrigin: izq ? "0% 100%" : "100% 100%" }, { opacity: 1, scale: 1, transformOrigin: izq ? "0% 100%" : "100% 100%", duration: 0.25, ease: "back.out(2)", immediateRender: false }, T[i] - 0.05);
+      });
+      tl.to(B[1], { scale: 1.08, transformOrigin: "100% 100%", duration: 0.1, yoyo: true, repeat: 1 }, HORARIOS);
+      // el dueño duerme tranquilo
+      tl.fromTo(q(".s12-duenio"), { opacity: 0, scale: 0.6, svgOrigin: "900 1250" }, { opacity: 1, scale: 1, svgOrigin: "900 1250", duration: 0.3, ease: "back.out(2)" }, 1.4);
+      tl.fromTo(q(".s12-zz"), { y: 10, opacity: 0.4 }, { y: -16, opacity: 1, duration: 0.8, yoyo: true, repeat: 5, ease: "sine.inOut" }, 1.6);
+      // "te pasa la charla": flecha al dueño, que se despierta
+      [q(".s12-flecha"), q(".s12-punta")].forEach((el, i) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, PASA + i * 0.2); tl.to(el, { strokeDashoffset: 0, duration: 0.25, ease: "power2.out" }, PASA + i * 0.2); });
+      tl.to(q(".s12-zz"), { opacity: 0, duration: 0.1 }, CHARLA);
+      tl.to(q(".s12-ojos-z"), { opacity: 0, duration: 0.05 }, CHARLA);
+      tl.to(q(".s12-ojos-a"), { opacity: 1, duration: 0.05 }, CHARLA);
+      tl.to(q(".s12-duenio"), { scale: 1.15, svgOrigin: "900 1250", duration: 0.12, yoyo: true, repeat: 1 }, CHARLA);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

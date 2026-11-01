@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-tablado"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-tablado"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-tablado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-tablado"] .s13-txt { position: absolute; left: 0; right: 0; top: 1320px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 120px; color: #f2b632; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; text-shadow: 0 0 34px rgba(242, 182, 50, 0.45); }
+    [data-composition-id="s13-tablado"] .s13-fin { position: absolute; left: 0; right: 0; top: 1200px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 60px; color: #f7f1e3; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s13-tablado"] .s13-papel { position: absolute; width: 18px; height: 30px; }
+  </style>
+  <div id="root" data-composition-id="s13-tablado" data-width="1080" data-height="1920" data-duration="3.64">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="3.64" data-track-index="0">
+      <div class="s13-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s13-coro"></g>
+          <g transform="translate(540 1300) scale(0.78)"><g class="s13-duenio">
+            <path d="M-40 -130 L-50 0 M40 -130 L50 0" stroke="#0d1a47" stroke-width="34" stroke-linecap="round" />
+            <path d="M-95 -360 Q0 -400 95 -360 L85 -120 H-85 Z" fill="#f7f1e3" />
+            <path d="M-70 -320 H70 L80 -110 H-80 Z" fill="#8fd3ff" />
+            <path d="M-70 -320 L-90 -370 M70 -320 L90 -370" stroke="#8fd3ff" stroke-width="8" />
+            <rect x="-34" y="-250" width="68" height="44" rx="6" fill="none" stroke="#0d1a47" stroke-width="5" />
+            <path class="s13-brazo-d" d="M90 -350 L170 -440 L190 -540" fill="none" stroke="#f7f1e3" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" />
+            <path class="s13-brazo-i" d="M-90 -350 L-170 -440 L-190 -540" fill="none" stroke="#f7f1e3" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="0" cy="-460" r="78" fill="#f7f1e3" />
+            <path d="M-78 -478 Q-70 -548 0 -548 Q70 -548 78 -478 Q40 -512 0 -506 Q-40 -512 -78 -478 Z" fill="#0d1a47" />
+            <path class="s13-ceja" d="M-50 -480 Q-32 -496 -14 -482 M50 -480 Q32 -496 14 -482" stroke="#070d26" stroke-width="8" stroke-linecap="round" />
+            <circle cx="-30" cy="-452" r="8" fill="#070d26" /><circle cx="30" cy="-452" r="8" fill="#070d26" />
+            <path d="M-36 -418 Q0 -436 36 -418 Q20 -406 0 -410 Q-20 -406 -36 -418 Z" fill="#0d1a47" />
+            <path class="s13-boca" d="M-30 -404 Q0 -370 30 -404 Z" fill="#070d26" />
+</g></g>
+        </svg>
+        <div class="s13-txt">Al tablado</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-tablado";
+      const DUR = 3.64;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const POR = 0.71, VAS = 1.42, TABLADO = 1.75;
+
+      // la murga canta arriba, el dueño festeja abajo, en el público
+      const murguista = (cx, cy, k, pint) => `
+        <g class="s13-m" transform="translate(${cx} ${cy}) scale(${k})">
+          <path d="M-210 190 L-160 260 L-120 200 L-70 270 L-30 205 L0 275 L30 205 L70 270 L120 200 L160 260 L210 190" fill="${pint}" stroke="#f2b632" stroke-width="6" stroke-linejoin="round" />
+          <ellipse cx="0" cy="0" rx="172" ry="206" fill="#f7f1e3" />
+          <path d="M-78 -130 L-34 -50 L-78 40 L-122 -50 Z" fill="${pint}" />
+          <path d="M78 -130 L122 -50 L78 40 L34 -50 Z" fill="${pint}" />
+          <path d="M-118 -140 Q-78 -172 -40 -146 M40 -150 Q78 -180 120 -140" fill="none" stroke="#070d26" stroke-width="10" stroke-linecap="round" />
+          <ellipse cx="-78" cy="-48" rx="20" ry="24" fill="#f7f1e3" /><circle cx="-76" cy="-44" r="12" fill="#070d26" />
+          <ellipse cx="78" cy="-48" rx="20" ry="24" fill="#f7f1e3" /><circle cx="80" cy="-44" r="12" fill="#070d26" />
+          <g class="s13-boca">
+            <path d="M-80 90 Q0 100 80 90 Q60 190 0 192 Q-60 190 -80 90 Z" fill="#070d26" />
+            <path d="M-90 88 Q-40 72 0 84 Q40 72 90 88 Q40 106 0 102 Q-40 106 -90 88 Z" fill="#e63946" />
+          </g>
+          <g transform="translate(0 -186)">
+            <path d="M-222 0 Q0 -48 222 0 Q220 24 0 18 Q-220 24 -222 0 Z" fill="#0d1a47" stroke="#f2b632" stroke-width="6" stroke-linejoin="round" />
+            <path d="M-132 2 L-120 -150 Q0 -166 120 -150 L132 2 Z" fill="#0d1a47" stroke="#f2b632" stroke-width="6" stroke-linejoin="round" />
+            <path d="M-126 -44 Q0 -60 126 -44 L128 -16 Q0 -32 -128 -16 Z" fill="${pint}" />
+          </g>
+        </g>`;
+      q(".s13-coro").innerHTML = murguista(230, 750, 0.5, "#e63946") + murguista(540, 730, 0.55, "#5ce611") + murguista(850, 750, 0.5, "#f2b632");
+      const bocas = qa(".s13-boca");
+      tl.fromTo(q(".s13-coro"), { opacity: 0.4, y: 60 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      for (let t = 0.3, k = 0; t < DUR - 0.3; t += 0.36, k++) {
+        tl.to(q(".s13-coro"), { rotation: k % 2 ? 3 : -3, svgOrigin: "540 1000", duration: 0.18, ease: "sine.inOut" }, t);
+        tl.to(q(".s13-duenio"), { y: k % 2 ? 0 : -26, duration: 0.18, ease: "power2.out" }, t);
+      }
+      [0, 0.71, 1.42, 1.75, 2.1].forEach((t) => tl.to(bocas, { scaleY: 1.5, svgOrigin: "0 88", duration: 0.1, yoyo: true, repeat: 1 }, t));
+      tl.fromTo(q(".s13-duenio"), { opacity: 0.4, scale: 0.85, svgOrigin: "0 0" }, { opacity: 1, scale: 1, svgOrigin: "0 0", duration: 0.35, ease: "back.out(1.6)" }, 0);
+      tl.to(q(".s13-duenio"), { scale: 1.08, svgOrigin: "0 0", duration: 0.12, yoyo: true, repeat: 1 }, POR);
+      gsap.set(q(".s13-txt"), { opacity: 0 });
+      tl.fromTo(q(".s13-txt"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, TABLADO - 0.08);
+      [[-12, 7], [9, -5], [0, 0]].forEach(([x, y], i) => tl.to(q(".s13-escenario"), { x, y, duration: 0.04 }, TABLADO + 0.08 + i * 0.045));
+      // lluvia de papelitos
+      const COL = ["#f2b632", "#ff5a5f", "#f7f1e3", "#5ce611"];
+      const esc = q(".s13-escenario");
+      for (let i = 0; i < 40; i++) {
+        const d = document.createElement("div");
+        d.className = "s13-papel"; d.style.background = COL[i % 4];
+        d.style.left = (60 + (i * 211) % 960) + "px"; d.style.top = "500px";
+        esc.appendChild(d);
+        gsap.set(d, { opacity: 0 });
+        const t0 = TABLADO - 0.1 + (i % 8) * 0.06;
+        tl.fromTo(d, { opacity: 1, y: -60 - (i * 37) % 200, rotation: i * 30 }, { y: 900 + (i * 53) % 300, x: ((i * 71) % 120) - 60, rotation: i * 30 + 400, duration: 1.8, ease: "power1.in", immediateRender: false }, t0);
+      }
+
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

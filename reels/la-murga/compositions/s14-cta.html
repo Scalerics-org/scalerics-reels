@@ -1,0 +1,86 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-cta"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-cta"] .s14-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s14-cta"] .s14-tu { top: 600px; font-weight: 900; font-size: 92px; color: #5ce611; letter-spacing: -0.02em; text-shadow: 0 0 30px rgba(92, 230, 17, 0.4); }
+    [data-composition-id="s14-cta"] .s14-rot { top: 1270px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #f7f1e3; opacity: 0.85; }
+    [data-composition-id="s14-cta"] .s14-etiq { top: 1180px; font-weight: 900; font-size: 128px; color: #f2b632; letter-spacing: -0.02em; text-shadow: 0 0 34px rgba(242, 182, 50, 0.45); }
+    [data-composition-id="s14-cta"] .s14-merece { top: 1326px; font-weight: 800; font-size: 50px; color: #f7f1e3; }
+    [data-composition-id="s14-cta"] .s14-arroba { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 420px; fill: #f2b632; }
+  </style>
+  <div id="root" data-composition-id="s14-cta" data-width="1080" data-height="1920" data-duration="8.6">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="8.6" data-track-index="0">
+      <div class="s14-escenario">
+        <div class="s14-txt s14-tu">Tu agente de IA</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s14-uno"><g transform="translate(540 1240) scale(0.92)"><g class="s14-agente">
+            <!-- EL AGENTE DE IA: un celular murguista, con galera y cara pintada -->
+            <path d="M-110 -330 L-170 -250 L-190 -160 M110 -330 L180 -420 L200 -500" fill="none" stroke="#5ce611" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M-50 -60 L-56 0 M50 -60 L56 0" stroke="#5ce611" stroke-width="16" stroke-linecap="round" />
+            <rect x="-120" y="-470" width="240" height="420" rx="40" fill="#0d1a47" stroke="#5ce611" stroke-width="7" style="filter: drop-shadow(0 0 22px rgba(92,230,17,0.45))" />
+            <path d="M-26 -448 H26" stroke="#5ce611" stroke-width="6" stroke-linecap="round" />
+            <path d="M-50 -380 L-24 -334 L-50 -288 L-76 -334 Z" fill="#5ce611" />
+            <path d="M50 -380 L76 -334 L50 -288 L24 -334 Z" fill="#5ce611" />
+            <circle class="s14-ojo" cx="-50" cy="-334" r="11" fill="#f7f1e3" /><circle class="s14-ojo" cx="50" cy="-334" r="11" fill="#f7f1e3" />
+            <path class="s14-boca" d="M-56 -240 Q0 -190 56 -240 Q30 -210 0 -208 Q-30 -210 -56 -240 Z" fill="#f2b632" stroke="#f2b632" stroke-width="6" stroke-linejoin="round" />
+            <g transform="translate(0 -470)">
+              <path d="M-150 0 Q0 -30 150 0 Q148 16 0 12 Q-148 16 -150 0 Z" fill="#0d1a47" stroke="#f2b632" stroke-width="5" stroke-linejoin="round" />
+              <path d="M-88 2 L-80 -110 Q0 -122 80 -110 L88 2 Z" fill="#0d1a47" stroke="#f2b632" stroke-width="5" stroke-linejoin="round" />
+              <path d="M-84 -34 Q0 -46 84 -34 L86 -12 Q0 -24 -86 -12 Z" fill="#5ce611" />
+            </g>
+</g></g></g>
+          <g class="s14-dos">
+            <text class="s14-arroba" x="540" y="1090" text-anchor="middle">@</text>
+            <g transform="translate(540 760)"><g class="s14-galera">
+              <path d="M-170 0 Q0 -36 170 0 Q168 18 0 14 Q-168 18 -170 0 Z" fill="#0d1a47" stroke="#f2b632" stroke-width="6" stroke-linejoin="round" />
+              <path d="M-100 2 L-90 -130 Q0 -142 90 -130 L100 2 Z" fill="#0d1a47" stroke="#f2b632" stroke-width="6" stroke-linejoin="round" />
+              <path d="M-96 -40 Q0 -54 96 -40 L98 -14 Q0 -28 -98 -14 Z" fill="#e63946" />
+            </g></g>
+          </g>
+        </svg>
+        <div class="s14-txt s14-rot">Lo hacemos nosotros</div>
+        <div class="s14-txt s14-etiq">Etiquetá</div>
+        <div class="s14-txt s14-merece">al que se merece un cuplé</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-cta";
+      const DUR = 8.6;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const SCALERICS = 0.09, HACEMOS = 0.98, AGENTE = 1.57, ETIQUETA = 3.55, MERECE = 4.35, CUPLE = 4.81;
+
+      tl.fromTo(q(".s14-agente"), { opacity: 0.4, scale: 0.7, svgOrigin: "0 0" }, { opacity: 1, scale: 1, svgOrigin: "0 0", duration: 0.4, ease: "back.out(1.7)" }, 0);
+      for (let t = 0.4, k = 0; t < ETIQUETA - 0.2; t += 0.32, k++) tl.to(q(".s14-agente"), { rotation: k % 2 ? -4 : 4, y: k % 2 ? 0 : -12, svgOrigin: "0 0", duration: 0.16 }, t);
+      gsap.set([q(".s14-tu"), q(".s14-rot")], { opacity: 0 });
+      tl.fromTo(q(".s14-rot"), { opacity: 0, y: 14 }, { opacity: 0.85, y: 0, duration: 0.25, immediateRender: false }, HACEMOS);
+      tl.fromTo(q(".s14-tu"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, AGENTE - 0.06);
+      // "etiquetá": el agente se va, cae la arroba con galera
+      tl.to([q(".s14-uno"), q(".s14-tu"), q(".s14-rot")], { opacity: 0, y: -60, duration: 0.25, ease: "power2.in" }, ETIQUETA - 0.25);
+      gsap.set(q(".s14-dos"), { opacity: 0 });
+      tl.fromTo(q(".s14-dos"), { opacity: 0, scale: 0.4, svgOrigin: "540 960" }, { opacity: 1, scale: 1, svgOrigin: "540 960", duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, ETIQUETA - 0.05);
+      gsap.set([q(".s14-etiq"), q(".s14-merece")], { opacity: 0 });
+      tl.fromTo(q(".s14-etiq"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, ETIQUETA);
+      tl.fromTo(q(".s14-merece"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, MERECE - 0.1);
+      // la galera salta en "cuplé" y después sigue el ritmo hasta el final
+      tl.to(q(".s14-galera"), { y: -60, rotation: -12, duration: 0.2, ease: "power2.out" }, CUPLE);
+      tl.to(q(".s14-galera"), { y: 0, rotation: 0, duration: 0.3, ease: "bounce.out" }, CUPLE + 0.2);
+      for (let t = CUPLE + 0.6, k = 0; t < DUR - 0.4; t += 0.5, k++) {
+        tl.to(q(".s14-galera"), { rotation: k % 2 ? 6 : -6, y: k % 2 ? 0 : -14, duration: 0.25, ease: "sine.inOut" }, t);
+        tl.to(q(".s14-arroba"), { scale: k % 2 ? 1 : 1.04, svgOrigin: "540 960", duration: 0.25, ease: "sine.inOut" }, t);
+      }
+      tl.to(q(".s14-etiq"), { scale: 1.06, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, CUPLE + 0.5);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

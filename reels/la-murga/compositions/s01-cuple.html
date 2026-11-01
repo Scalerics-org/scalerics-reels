@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-cuple"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-cuple"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-cuple"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-cuple"] .linea { fill: none; stroke: #f7f1e3; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-cuple"] .s01-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s01-cuple"] .s01-papel { position: absolute; width: 18px; height: 30px; }
+    [data-composition-id="s01-cuple"] .s01-cuple { top: 1196px; font-weight: 900; font-size: 168px; letter-spacing: -0.02em; color: #f2b632; text-shadow: 0 0 34px rgba(242, 182, 50, 0.45); }
+    [data-composition-id="s01-cuple"] .s01-dedica { top: 1236px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.3em; color: #f7f1e3; }
+    [data-composition-id="s01-cuple"] .s01-sello { position: absolute; left: 250px; top: 1384px; padding: 12px 26px; border: 6px solid #ff5a5f; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; letter-spacing: 0.02em; color: #ff5a5f; text-transform: uppercase; white-space: nowrap; background: #070d26; }
+  </style>
+  <div id="root" data-composition-id="s01-cuple" data-width="1080" data-height="1920" data-duration="5.35">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.35" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- EL DIRECTOR DE LA MURGA: cara pintada, galera, gola -->
+          <g class="s01-cara">
+            <!-- gola (cuello de volados) -->
+            <path class="s01-gola" d="M330 1100 L380 1170 L420 1110 L470 1180 L510 1115 L540 1185 L570 1115 L610 1180 L660 1110 L700 1170 L750 1100" fill="#b8202e" stroke="#f2b632" stroke-width="5" stroke-linejoin="round" />
+            <!-- cabeza blanca -->
+            <ellipse cx="540" cy="910" rx="172" ry="206" fill="#f7f1e3" />
+            <!-- pintura: rombos rojos sobre los ojos, estrellas doradas en los cachetes -->
+            <path d="M462 780 L506 860 L462 950 L418 860 Z" fill="#e63946" />
+            <path d="M618 780 L662 860 L618 950 L574 860 Z" fill="#e63946" />
+            <path d="M440 978 l8 16 18 2 -13 12 4 18 -17 -9 -17 9 4 -18 -13 -12 18 -2 Z" fill="#f2b632" />
+            <path d="M640 978 l8 16 18 2 -13 12 4 18 -17 -9 -17 9 4 -18 -13 -12 18 -2 Z" fill="#f2b632" />
+            <!-- cejas pícaras -->
+            <path class="s01-ceja-i" d="M422 770 Q462 738 500 764" fill="none" stroke="#070d26" stroke-width="9" stroke-linecap="round" />
+            <path class="s01-ceja-d" d="M580 760 Q618 730 660 770" fill="none" stroke="#070d26" stroke-width="9" stroke-linecap="round" />
+            <!-- ojos -->
+            <ellipse class="s01-ojo-i" cx="462" cy="862" rx="20" ry="24" fill="#f7f1e3" />
+            <circle class="s01-pupi-i" cx="466" cy="866" r="12" fill="#070d26" />
+            <ellipse class="s01-ojo-d" cx="618" cy="862" rx="20" ry="24" fill="#f7f1e3" />
+            <circle class="s01-pupi-d" cx="622" cy="866" r="12" fill="#070d26" />
+            <path class="s01-guino" d="M596 866 Q618 884 640 866" fill="none" stroke="#070d26" stroke-width="8" stroke-linecap="round" opacity="0" />
+            <!-- nariz -->
+            <path d="M540 900 Q528 940 540 952 Q552 958 560 948" fill="none" stroke="#070d26" stroke-width="6" stroke-linecap="round" opacity="0.6" />
+            <!-- boca: labios rojos y el adentro que se abre al hablar -->
+            <g class="s01-boca">
+              <path d="M450 1010 Q540 1060 630 1010 Q600 1090 540 1092 Q480 1090 450 1010 Z" fill="#070d26" />
+              <path d="M440 1006 Q490 990 540 1002 Q590 990 640 1006 Q590 1030 540 1026 Q490 1030 440 1006 Z" fill="#e63946" />
+            </g>
+            <!-- galera -->
+            <g class="s01-galera">
+              <path d="M318 724 Q540 676 762 724 Q760 748 540 742 Q320 748 318 724 Z" fill="#0d1a47" stroke="#f2b632" stroke-width="5" stroke-linejoin="round" />
+              <path d="M408 726 L420 572 Q540 556 660 572 L672 726 Z" fill="#0d1a47" stroke="#f2b632" stroke-width="5" stroke-linejoin="round" />
+              <path d="M414 680 Q540 664 666 680 L668 708 Q540 692 412 708 Z" fill="#e63946" />
+            </g>
+          </g>
+          <!-- rayitas de "hablar" al costado de la boca -->
+          <path class="linea s01-ray" d="M700 1010 L760 990 M706 1040 L770 1044 M700 1070 L752 1092" stroke="#f2b632" />
+        </svg>
+        <div class="s01-txt s01-dedica">Te dedica</div>
+        <div class="s01-txt s01-cuple">El cuplé</div>
+        <div class="s01-sello">No te va a gustar</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-cuple";
+      const DUR = 5.35;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const CARNAVAL = 0.28;
+      const DEDICA = 1.94;
+      const CUPLE = 2.41;
+      const NO = 3.61;
+      const GUSTAR = 4.25;
+      // la boca se abre en cada palabra dicha
+      const HABLA = [0.0, 0.28, 0.6, 1.24, 1.39, 1.76, 1.94, 2.41, 2.7, 3.61, 3.7, 3.98, 4.25, 4.5];
+
+      // cuadro 0: el director ya está entrando (pop desde abajo), no negro
+      tl.fromTo(q(".s01-cara"), { y: 120, scale: 0.86, opacity: 0.6, svgOrigin: "540 1180" }, { y: 0, scale: 1, opacity: 1, svgOrigin: "540 1180", duration: 0.45, ease: "back.out(1.7)" }, 0);
+      tl.fromTo(q(".s01-galera"), { rotation: -14, svgOrigin: "540 724" }, { rotation: 0, svgOrigin: "540 724", duration: 0.6, ease: "back.out(3)" }, 0.1);
+      // el director se balancea con la marcha (lado a lado)
+      for (let t = 0.5; t < DUR - 0.4; t += 0.6) {
+        tl.to(q(".s01-cara"), { rotation: (Math.round(t / 0.6) % 2 ? 4 : -4), svgOrigin: "540 1180", duration: 0.3, ease: "sine.inOut" }, t);
+      }
+      HABLA.forEach((t) => {
+        tl.to(q(".s01-boca"), { scaleY: 1.35, svgOrigin: "540 1006", duration: 0.08, ease: "power2.out" }, t);
+        tl.to(q(".s01-boca"), { scaleY: 0.85, svgOrigin: "540 1006", duration: 0.12, ease: "power2.in" }, t + 0.1);
+      });
+      gsap.set(q(".s01-ray"), { opacity: 0 });
+      tl.to(q(".s01-ray"), { opacity: 1, duration: 0.1, yoyo: true, repeat: 5, ease: "steps(1)" }, 0.2);
+
+      // "carnaval": estallan papelitos desde la galera
+      const COL = ["#f2b632", "#ff5a5f", "#f7f1e3", "#5ce611"];
+      const esc = q(".s01-escenario");
+      for (let i = 0; i < 26; i++) {
+        const d = document.createElement("div");
+        d.className = "s01-papel";
+        d.style.background = COL[i % 4];
+        d.style.left = "531px"; d.style.top = "600px";
+        esc.appendChild(d);
+        const ang = (-170 + (i * 137) % 160) * Math.PI / 180;
+        const v = 260 + ((i * 53) % 220);
+        gsap.set(d, { opacity: 0 });
+        tl.fromTo(d, { opacity: 1, x: 0, y: 0, rotation: 0 }, { x: Math.cos(ang) * v * 1.4, y: Math.sin(ang) * v * 0.6, rotation: 180 + i * 40, duration: 0.6, ease: "power3.out", immediateRender: false }, CARNAVAL + (i % 5) * 0.02);
+        tl.to(d, { y: "+=" + (520 + (i * 31) % 300), rotation: "+=" + (220 + i * 15), duration: 2.6, ease: "power1.in" }, CARNAVAL + 0.6);
+        tl.to(d, { opacity: 0, duration: 0.4 }, CARNAVAL + 2.8);
+      }
+
+      // "te dedica": rótulo chico; "el cuplé": cae gigante con platillazo
+      gsap.set(q(".s01-dedica"), { opacity: 0 });
+      tl.fromTo(q(".s01-dedica"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, DEDICA);
+      tl.to(q(".s01-dedica"), { opacity: 0, duration: 0.15 }, CUPLE - 0.1);
+      gsap.set(q(".s01-cuple"), { opacity: 0 });
+      tl.fromTo(q(".s01-cuple"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, CUPLE - 0.08);
+      [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x, y, duration: 0.04, ease: "none" }, CUPLE + 0.08 + i * 0.045));
+      tl.to(q(".s01-cuple"), { scale: 1.06, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, CUPLE + 0.4);
+
+      // "y no te va a gustar": guiño, ceja arriba, sello rojo
+      tl.to(q(".s01-ojo-d"), { opacity: 0, duration: 0.05 }, NO);
+      tl.to(q(".s01-pupi-d"), { opacity: 0, duration: 0.05 }, NO);
+      tl.to(q(".s01-guino"), { opacity: 1, duration: 0.05 }, NO);
+      tl.to(q(".s01-ceja-i"), { y: -18, duration: 0.2, ease: "back.out(3)" }, NO);
+      tl.to([q(".s01-pupi-i")], { x: -6, duration: 0.2 }, NO);
+      gsap.set(q(".s01-sello"), { opacity: 0, rotation: -7 });
+      tl.fromTo(q(".s01-sello"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, GUSTAR - 0.1);
+      [[-12, 7], [9, -5], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x, y, duration: 0.04, ease: "none" }, GUSTAR + 0.06 + i * 0.045));
+
+      // salida: el telón se cierra (barrido a la izquierda con blur)
+      tl.to(q("#s01-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
