@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/sorteo.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-agente"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-agente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-agente"] .s10-titulo { left: 0; right: 0; margin: 0 auto; width: 520px; top: 1175px; font-size: 36px; }
+    [data-composition-id="s10-agente"] .s10-24 { left: 800px; top: 850px; }
+    [data-composition-id="s10-agente"] .s10-chip { position: absolute; top: 1290px; width: 300px; height: 96px; border: 6px solid #14100c; border-radius: 18px; background: #a87d12; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; line-height: 84px; text-align: center; color: #14100c; box-shadow: 6px 6px 0 rgba(0,0,0,0.35); }
+    [data-composition-id="s10-agente"] .s10-chip b { position: absolute; inset: -6px; border: 6px solid #14100c; border-radius: 18px; background: #5ce611; font-weight: 900; opacity: 0; }
+    [data-composition-id="s10-agente"] .s10-c1 { left: 40px; } [data-composition-id="s10-agente"] .s10-c2 { left: 390px; } [data-composition-id="s10-agente"] .s10-c3 { left: 740px; }
+  </style>
+  <div id="root" data-composition-id="s10-agente" data-width="1080" data-height="1920" data-duration="8.74">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="8.74" data-track-index="0">
+      <svg class="s10-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="so-tag verde s10-titulo">TU AGENTE DE IA</div>
+      <div class="so-tag verde s10-24">24 H</div>
+      <div class="s10-chip s10-c1">PRECIOS<b>PRECIOS</b></div>
+      <div class="s10-chip s10-c2">STOCK<b>STOCK</b></div>
+      <div class="s10-chip s10-c3">HORARIOS<b>HORARIOS</b></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-agente";
+      const DUR = 8.74;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = SO.INK;
+      const tl = gsap.timeline({ paused: true });
+      const K = SO.kit(tl, root);
+      const { q, qa } = K;
+      const svg = (h) => { root.querySelector(".s10-svg").innerHTML = h; };
+      const V = SO.VERDE, V2 = SO.VERDE2;
+      svg(`<g class="s10-bo">${SO.bolillero(540, 860, 210)}</g>
+        <g class="s10-rayos">${[...Array(16)].map((_, i) => `<path d="M540 880 L${540 + Math.cos(i / 16 * 6.283) * 800} ${880 + Math.sin(i / 16 * 6.283) * 800} L${540 + Math.cos((i + 0.5) / 16 * 6.283) * 800} ${880 + Math.sin((i + 0.5) / 16 * 6.283) * 800} Z" fill="${V}" opacity="0.08"/>`).join("")}</g>
+        <g class="s10-agente">
+          <!-- auriculares -->
+          <path d="M400 700 C400 500 680 500 680 700" fill="none" stroke="${I}" stroke-width="30" stroke-linecap="round"/>
+          <rect x="370" y="610" width="340" height="540" rx="44" fill="${I}"/>
+          <rect x="392" y="640" width="296" height="480" rx="28" fill="${V}"/>
+          <rect x="400" y="650" width="280" height="120" rx="22" fill="#8ff05a" opacity="0.5"/>
+          <g class="s10-ojos"><ellipse cx="485" cy="820" rx="26" ry="34" fill="${I}"/><ellipse cx="595" cy="820" rx="26" ry="34" fill="${I}"/><circle cx="494" cy="808" r="8" fill="#ffffff"/><circle cx="604" cy="808" r="8" fill="#ffffff"/></g>
+          <path class="s10-boca" d="M470 900 Q540 960 610 900" fill="none" stroke="${I}" stroke-width="12" stroke-linecap="round"/>
+          <circle cx="455" cy="880" r="16" fill="#ffffff" opacity="0.35"/><circle cx="625" cy="880" r="16" fill="#ffffff" opacity="0.35"/>
+          <rect x="352" y="720" width="56" height="110" rx="20" fill="${SO.ORO}" stroke="${I}" stroke-width="7"/>
+          <rect x="672" y="720" width="56" height="110" rx="20" fill="${SO.ORO}" stroke="${I}" stroke-width="7"/>
+          <path d="M380 820 C360 900 400 950 470 960" fill="none" stroke="${I}" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="475" cy="960" r="13" fill="${I}"/>
+        </g>
+        <g class="s10-cred">
+          <path d="M490 960 L540 1030 L590 960" fill="none" stroke="${SO.ROJO}" stroke-width="10"/>
+          <rect x="455" y="1020" width="170" height="110" rx="12" fill="${SO.CRE}" stroke="${I}" stroke-width="7"/>
+          <rect x="455" y="1020" width="170" height="30" rx="10" fill="${V2}" stroke="${I}" stroke-width="7"/>
+          <text x="540" y="1100" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="26" fill="${I}">EMPLEADO</text>
+        </g>
+        <g class="s10-chat">${SO.globo(40, 600, ["¡Hola! ¿Qué", "precisás?"], "i", { fs: 34, hora: "03:12" })[0]}</g>
+        <g class="s10-rel">${SO.reloj(900, 700, 100, 3, 12)}</g>`);
+      const SCAL = 0.52, AGENTES = 1.47, EMPLEADO = 2.95, WHATSAPP = 4.08, CUALQUIER = 4.60, PRECIOS = 5.99, STOCK = 6.92, HORARIOS = 7.73;
+      // el bolillero gira y se vuelve el agente
+      K.girar(".s10-bo", 540, 860, 210, 0, 0.6, 1);
+      K.origen(q(".s10-bo"), "540 900");
+      tl.to(q(".s10-bo"), { scale: 0.2, opacity: 0, rotation: 90, duration: 0.3, ease: "power3.in" }, SCAL - 0.25);
+      K.popSvg(q(".s10-agente"), SCAL, "540 880", 0.5, 0.2);
+      K.origen(q(".s10-rayos"), "540 880");
+      gsap.set(q(".s10-rayos"), { opacity: 0 });
+      tl.to(q(".s10-rayos"), { opacity: 1, duration: 0.3 }, SCAL);
+      tl.fromTo(q(".s10-rayos"), { rotation: 0 }, { rotation: 60, duration: DUR - SCAL, ease: "none", immediateRender: false }, SCAL);
+      tl.to(q(".s10-agente"), { y: -14, duration: 0.6, yoyo: true, repeat: 9, ease: "sine.inOut" }, SCAL + 0.5);
+      K.hablar(".s10-boca", SCAL + 0.6, 4, 0.12);
+      K.pop(q(".s10-titulo"), AGENTES);
+      // "empleado": credencial
+      K.popSvg(q(".s10-cred"), EMPLEADO - 0.1, "540 1070", 0.4);
+      tl.fromTo(q(".s10-cred"), { rotation: -6 }, { rotation: 6, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut", svgOrigin: "540 960", immediateRender: false }, EMPLEADO + 0.3);
+      // "WhatsApp": responde
+      K.popSvg(q(".s10-chat"), WHATSAPP - 0.1, "200 680", 0.35, 0.5);
+      // "cualquier hora": reloj que gira
+      K.popSvg(q(".s10-rel"), CUALQUIER - 0.1, "900 700", 0.35);
+      K.origen(q(".s10-rel .so-rj-m"), "900 700"); K.origen(q(".s10-rel .so-rj-h"), "900 700");
+      tl.to(q(".s10-rel .so-rj-m"), { rotation: "+=1080", duration: 1.6, ease: "power1.inOut" }, CUALQUIER);
+      tl.to(q(".s10-rel .so-rj-h"), { rotation: "+=90", duration: 1.6, ease: "power1.inOut" }, CUALQUIER);
+      K.pop(q(".s10-24"), CUALQUIER + 0.5);
+      // precios, stock, horarios: fichas que se prenden en verde
+      [[".s10-c1", PRECIOS], [".s10-c2", STOCK], [".s10-c3", HORARIOS]].forEach(([c, t]) => {
+        K.pop(q(c), t - 0.3);
+        tl.to(q(c + " b"), { opacity: 1, duration: 0.12 }, t);
+        tl.fromTo(q(c), { scale: 1 }, { scale: 1.1, duration: 0.1, yoyo: true, repeat: 1, immediateRender: false }, t);
+      });
+
+      K.salida(q("#s10-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

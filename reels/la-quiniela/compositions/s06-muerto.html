@@ -1,0 +1,83 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/sorteo.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-muerto"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-muerto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-muerto"] .s06-carta { left: 80px; top: 1080px; }
+  </style>
+  <div id="root" data-composition-id="s06-muerto" data-width="1080" data-height="1920" data-duration="5.99">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.99" data-track-index="0">
+      <svg class="s06-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="so-tag s06-carta">48 · EL MUERTO QUE HABLA</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-muerto";
+      const DUR = 5.99;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = SO.INK;
+      const tl = gsap.timeline({ paused: true });
+      const K = SO.kit(tl, root);
+      const { q, qa } = K;
+      const svg = (h) => { root.querySelector(".s06-svg").innerHTML = h; };
+      svg(`<g class="s06-b">${SO.bolilla(48, 540, 900, 190)}</g>
+        <g class="s06-fantasma">
+          <path d="M200 1020 C200 820 420 820 420 1020 L420 1070 L385 1045 L350 1070 L310 1045 L275 1070 L240 1045 L200 1070 Z" fill="${SO.CRE}" stroke="${I}" stroke-width="8" stroke-linejoin="round"/>
+          <ellipse cx="275" cy="950" rx="14" ry="20" fill="${I}"/><ellipse cx="345" cy="950" rx="14" ry="20" fill="${I}"/>
+          <ellipse class="s06-fboca" cx="310" cy="1000" rx="18" ry="22" fill="${I}"/>
+        </g>
+        <g class="s06-cel">
+          ${SO.celular(600, 600, 400, 700, "s06-clip", "#e9e1cb")}
+          <g clip-path="url(#s06-clip)">
+            ${SO.chatCabecera(600, 600, 400, "Tu local", "en línea: nunca", SO.PANO)}
+            ${SO.globo(990, 740, "¿Hacen envíos?", "d", { fs: 30, hora: "10:12", ticks: "gris" })[0]}
+            ${SO.globo(990, 870, "¿Hola?", "d", { fs: 30, hora: "10:40", ticks: "gris" })[0]}
+          </g>
+          ${SO.celularBorde(600, 600, 400, 700)}
+        </g>
+        <g class="s06-lapida">
+          <path d="M600 1320 L600 820 C600 600 1000 600 1000 820 L1000 1320 Z" fill="#8c8478" stroke="${I}" stroke-width="10" stroke-linejoin="round"/>
+          <path d="M630 1300 L630 830 C630 650 970 650 970 830" fill="none" stroke="#a69e90" stroke-width="8"/>
+          <text x="800" y="860" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="90" fill="${I}">Q.E.P.D.</text>
+          <text x="800" y="960" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="46" fill="${I}">TU WHATSAPP</text>
+          <text x="800" y="1040" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="30" fill="${I}">EN LÍNEA: NUNCA</text>
+          <path class="s06-tela" d="M940 690 L1000 760 M940 690 L940 780 M940 690 L1010 700 M955 720 Q975 715 985 730 M945 745 Q965 740 975 755" stroke="${SO.CRE}" stroke-width="3" fill="none" opacity="0.9"/>
+        </g>
+        <g class="s06-flores">
+          <path d="M620 1330 L640 1230 M680 1330 L690 1210 M740 1330 L730 1240" stroke="${SO.PANO3}" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="640" cy="1225" r="22" fill="${SO.ROJO2}" stroke="${I}" stroke-width="5"/><circle cx="690" cy="1205" r="24" fill="${SO.ORO2}" stroke="${I}" stroke-width="5"/><circle cx="730" cy="1235" r="20" fill="${SO.CRE}" stroke="${I}" stroke-width="5"/>
+        </g>`);
+      const CUARENTA = 0.16, MUERTO = 2.22, WHATSAPP = 3.52, MUERTO2 = 4.27, NOHABLA = 4.92;
+      K.origen(q(".s06-b"), "540 900");
+      tl.fromTo(q(".s06-b"), { y: -520, rotation: -200 }, { y: 0, rotation: 0, duration: 0.7, ease: "bounce.out" }, 0);
+      tl.to(q(".s06-b"), { x: -230, y: -40, scale: 0.75, duration: 0.45, ease: "power3.inOut" }, MUERTO - 0.55);
+      // "el muerto que habla": el fantasmita de la quiniela de los sueños
+      K.popSvg(q(".s06-fantasma"), MUERTO - 0.1, "310 960", 0.4);
+      tl.to(q(".s06-fantasma"), { y: -20, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, MUERTO + 0.3);
+      K.hablar(".s06-fboca", MUERTO + 0.1, 3, 0.12);
+      K.pop(q(".s06-carta"), MUERTO);
+      tl.to(q(".s06-b"), { opacity: 0, duration: 0.25 }, MUERTO + 0.2);
+      // "WhatsApp": el celular del local, en visto
+      K.popSvg(q(".s06-cel"), WHATSAPP - 0.2, "800 950", 0.4, 0.4);
+      // "muerto": el celular se vuelve lápida
+      gsap.set(q(".s06-lapida"), { opacity: 0 });
+      tl.to(q(".s06-cel"), { opacity: 0, duration: 0.15 }, MUERTO2 - 0.1);
+      tl.fromTo(q(".s06-lapida"), { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.3, ease: "bounce.out", immediateRender: false }, MUERTO2 - 0.1);
+      // "no habla": flores y telaraña
+      K.popSvg(q(".s06-flores"), NOHABLA - 0.1, "690 1300", 0.35);
+      K.dibujar(q(".s06-tela"), NOHABLA, 0.5);
+      tl.to(q(".s06-fantasma"), { x: 30, duration: 0.5, ease: "sine.inOut" }, NOHABLA);
+
+      K.salida(q("#s06-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

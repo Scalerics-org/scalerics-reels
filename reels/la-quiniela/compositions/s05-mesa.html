@@ -1,0 +1,78 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/sorteo.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-mesa"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-mesa"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-mesa"] .s05-perdio { left: 600px; top: 760px; font-size: 80px; }
+    [data-composition-id="s05-mesa"] .s05-mesa8 { left: 300px; top: 1460px; }
+  </style>
+  <div id="root" data-composition-id="s05-mesa" data-width="1080" data-height="1920" data-duration="4.98">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.98" data-track-index="0">
+      <svg class="s05-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="so-sello s05-perdio">PERDIÓ</div>
+      <div class="so-tag rojo s05-mesa8">MESA PARA 8 · VACÍA</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-mesa";
+      const DUR = 4.98;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = SO.INK;
+      const tl = gsap.timeline({ paused: true });
+      const K = SO.kit(tl, root);
+      const { q, qa } = K;
+      const svg = (h) => { root.querySelector(".s05-svg").innerHTML = h; };
+      let sillas = "";
+      for (let k = 0; k < 8; k++) {
+        const x = 150 + k * 108;
+        sillas += `<g class="s05-silla s05-s${k}"><rect x="${x}" y="1230" width="80" height="120" rx="14" fill="${SO.ROJO}" stroke="${I}" stroke-width="7"/><rect x="${x + 14}" y="1246" width="52" height="40" rx="8" fill="${SO.ROJO2}" opacity="0.6"/></g>`;
+      }
+      svg(`<g class="s05-loc">${SO.locutora(300, 1170, 0.92)}</g>
+        <rect x="40" y="1110" width="540" height="70" rx="14" fill="${SO.ORO}" stroke="${I}" stroke-width="8"/>
+        <g class="s05-boleta">
+          <rect x="640" y="580" width="360" height="300" rx="10" fill="${SO.CRE}" stroke="${I}" stroke-width="9"/>
+          <rect x="640" y="580" width="360" height="66" rx="10" fill="${SO.ROJO}" stroke="${I}" stroke-width="9"/>
+          <text x="820" y="626" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="28" fill="${SO.CRE}" letter-spacing="4">BOLETA</text>
+          <text data-layout-ignore x="820" y="790" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="150" fill="${I}">07</text>
+          <path d="M670 840 L970 840" stroke="${I}" stroke-width="5" stroke-dasharray="12 8" opacity="0.5"/>
+        </g>
+        <g class="s05-gane"><g class="s05-g1"><text x="820" y="1000" text-anchor="end" font-family="Lexend" font-weight="900" font-size="96" fill="${SO.ORO2}" stroke="${I}" stroke-width="4">¡GA</text></g><g class="s05-g2"><text x="820" y="1000" text-anchor="start" font-family="Lexend" font-weight="900" font-size="96" fill="${SO.ORO2}" stroke="${I}" stroke-width="4">NÉ!</text></g></g>
+        <g class="s05-mesa">${sillas}
+          <rect x="110" y="1320" width="880" height="60" rx="12" fill="${SO.ORO3}" stroke="${I}" stroke-width="9"/>
+          <rect x="110" y="1300" width="880" height="34" rx="10" fill="${SO.CRE}" stroke="${I}" stroke-width="7"/>
+          <path d="M150 1380 L150 1500 M950 1380 L950 1500" stroke="${I}" stroke-width="16" stroke-linecap="round"/>
+        </g>`);
+      const USTED = 0.80, NO = 1.32, PERDIO = 2.84, MESA = 3.51, OCHO = 3.98;
+      // cuadro 0: la locutora fría; la boleta con el "¡GANÉ!" que quedó
+      tl.fromTo(q(".s05-loc"), { y: 30 }, { y: 0, duration: 0.4, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s05-boleta"), { x: 60, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.35, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s05-gane"), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+      K.hablar(".so-l-boca", 0.05, 4, 0.14);
+      K.hablar(".so-l-boca", 2.1, 4, 0.14);
+      tl.to(q(".so-l-cejas"), { y: 8, duration: 0.2 }, USTED);
+      // "no ganó": el "¡GANÉ!" se parte y se cae
+      K.origen(q(".s05-g1"), "720 970"); K.origen(q(".s05-g2"), "900 970");
+      tl.to(q(".s05-g1"), { rotation: -25, y: 520, opacity: 0, duration: 0.7, ease: "power2.in" }, NO);
+      tl.to(q(".s05-g2"), { rotation: 30, y: 560, opacity: 0, duration: 0.75, ease: "power2.in" }, NO + 0.05);
+      // "perdió": sello sobre la boleta
+      K.sello(q(".s05-perdio"), PERDIO, -12);
+      K.sacudon(q(".s05-boleta"), PERDIO + 0.02, 0.7);
+      // "mesa para ocho": la mesa larga con las sillas que se apagan una por una
+      gsap.set(q(".s05-mesa"), { opacity: 0 });
+      tl.fromTo(q(".s05-mesa"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, MESA - 0.2);
+      qa(".s05-silla").forEach((s, i) => tl.to(s, { opacity: 0.25, y: 10, duration: 0.15 }, OCHO + i * 0.08));
+      K.pop(q(".s05-mesa8"), MESA);
+
+      K.salida(q("#s05-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

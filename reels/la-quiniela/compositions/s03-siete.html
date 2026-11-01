@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/sorteo.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-siete"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-siete"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-siete"] .s03-dom { left: 60px; top: 770px; }
+    [data-composition-id="s03-siete"] .s03-ventana { position: absolute; left: 560px; top: 560px; width: 460px; height: 440px; border: 8px solid #e8b923; border-radius: 22px; background: #17553c; overflow: hidden; box-shadow: 0 0 0 5px #14100c, 8px 10px 0 rgba(0,0,0,0.35); }
+    [data-composition-id="s03-siete"] .s03-ventana svg { position: absolute; left: -560px; top: -560px; }
+    [data-composition-id="s03-siete"] .s03-vivo { position: absolute; left: 16px; top: 14px; padding: 4px 12px; background: #d7263d; border: 3px solid #14100c; border-radius: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.14em; color: #f4ead2; }
+    [data-composition-id="s03-siete"] .s03-grito { left: 50px; top: 640px; font-size: 40px; border-color: #d7263d; color: #14100c; }
+  </style>
+  <div id="root" data-composition-id="s03-siete" data-width="1080" data-height="1920" data-duration="8.28">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="8.28" data-track-index="0">
+      <svg class="s03-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="s03-ventana"><svg class="s03-svgv" viewBox="0 0 1080 1920" aria-hidden="true"></svg><div class="s03-vivo">EN VIVO · LUCÍA</div></div>
+      <div class="so-tag s03-dom">DOMINGO · 12 H</div>
+      <div class="so-globo s03-grito">¿ME VAN A<br>CONTESTAR<br>O NO?</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-siete";
+      const DUR = 8.28;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = SO.INK;
+      const tl = gsap.timeline({ paused: true });
+      const K = SO.kit(tl, root);
+      const { q, qa } = K;
+      const svg = (h) => { root.querySelector(".s03-svg").innerHTML = h; };
+      const [gm] = SO.globo(660, 940, "¿Tenés mesa para ocho?", "d", { fs: 36, cls: "s03-gm", hora: "12:05", fill: "#d6f0c4" });
+      let humo = "";
+      [[150, 1340], [290, 1320], [430, 1345]].forEach(([x, y], i) => { humo += `<path class="s03-humo s03-h${i}" d="M${x} ${y} c-30 -40 30 -70 0 -110 c-30 -40 30 -70 0 -110" fill="none" stroke="${SO.CRE}" stroke-width="16" stroke-linecap="round" opacity="0.55"/>`; });
+      svg(
+        `<g class="s03-asado">
+          <g class="s03-dueno">${SO.dueno(700, 1560, 0.8, { cara: "feliz" })}</g>
+          ${humo}
+          <path d="M80 1460 L110 1545 M500 1460 L470 1545" stroke="${I}" stroke-width="14" stroke-linecap="round"/>
+          <rect x="60" y="1400" width="470" height="60" rx="10" fill="#3a2e24" stroke="${I}" stroke-width="8"/>
+          <path d="M100 1400 L100 1460 M160 1400 L160 1460 M220 1400 L220 1460 M280 1400 L280 1460 M340 1400 L340 1460 M400 1400 L400 1460 M460 1400 L460 1460" stroke="${SO.ORO3}" stroke-width="5"/>
+          <g class="s03-chorizos">
+            <rect x="90" y="1368" width="120" height="44" rx="22" fill="#9e3b22" stroke="${I}" stroke-width="6"/>
+            <rect x="225" y="1368" width="120" height="44" rx="22" fill="#9e3b22" stroke="${I}" stroke-width="6"/>
+            <rect x="360" y="1368" width="140" height="44" rx="22" fill="#b5502b" stroke="${I}" stroke-width="6"/>
+          </g>
+          <path class="s03-pinza" d="M560 1300 L450 1372 M572 1316 L460 1378" stroke="#c9c2b0" stroke-width="10" stroke-linecap="round"/>
+          <rect x="895" y="1450" width="160" height="22" rx="6" fill="${SO.ORO3}" stroke="${I}" stroke-width="6"/>
+          <path d="M915 1472 L915 1545 M1035 1472 L1035 1545" stroke="${I}" stroke-width="10"/>
+          <g class="s03-cel"><rect x="920" y="1420" width="110" height="30" rx="8" fill="${I}"/><rect x="932" y="1426" width="86" height="18" rx="4" fill="${SO.CRE}" class="s03-luz" opacity="0"/></g>
+        </g>
+        <g class="s03-top">
+          <g class="s03-hoja">
+            <rect x="700" y="600" width="300" height="300" rx="16" fill="${SO.CRE}" stroke="${I}" stroke-width="9"/>
+            <rect x="700" y="600" width="300" height="80" rx="16" fill="${SO.ROJO}" stroke="${I}" stroke-width="9"/>
+            <text x="850" y="656" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="44" fill="${SO.CRE}">DOMINGO</text>
+            <text x="850" y="830" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="120" fill="${I}">12</text>
+            <circle cx="760" cy="600" r="10" fill="${I}"/><circle cx="940" cy="600" r="10" fill="${I}"/>
+          </g>
+          ${gm}
+        </g>
+        <g class="s03-bolilla">${SO.bolilla(7, 540, 900, 190, { color: "rojo" })}</g>`);
+      root.querySelector(".s03-svgv").innerHTML = SO.clienta(790, 1060, 0.85, { cara: "enojada", celular: true });
+      
+      const SIETE = 0.15, DOMINGO = 1.02, RESERVAR = 3.04, ASADO = 4.92, Y = 5.83, CONTESTAR = 6.70;
+      K.origen(q(".s03-bolilla"), "540 900");
+      tl.fromTo(q(".s03-bolilla"), { y: -520, rotation: 220 }, { y: 0, rotation: 0, duration: 0.7, ease: "bounce.out" }, 0);
+      tl.to(q(".s03-bolilla"), { scale: 1.06, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0.75);
+      // "Domingo": la bolilla se va arriba a la izquierda; hoja de almanaque
+      tl.to(q(".s03-bolilla"), { x: -370, y: -250, scale: 0.4, duration: 0.45, ease: "power3.inOut" }, DOMINGO - 0.25);
+      K.popSvg(q(".s03-hoja"), DOMINGO, "850 750", 0.4);
+      tl.fromTo(q(".s03-hoja"), { rotation: 0 }, { rotation: 3, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, DOMINGO + 0.4);
+      // "reservar": el mensaje
+      K.popSvg(q(".s03-gm"), RESERVAR - 0.1, "560 990", 0.35, 0.5);
+      // "asado": el dueño feliz en la parrilla, el celular vibra solo
+      gsap.set(q(".s03-asado"), { opacity: 0 });
+      tl.fromTo(q(".s03-asado"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, ASADO - 0.45);
+      qa(".s03-humo").forEach((h, i) => tl.fromTo(h, { y: 0, opacity: 0.55 }, { y: -40, opacity: 0.2, duration: 1.2, yoyo: true, repeat: 2, ease: "sine.inOut", immediateRender: false }, ASADO - 0.3 + i * 0.2));
+      K.origen(q(".s03-pinza"), "565 1305");
+      tl.fromTo(q(".s03-pinza"), { rotation: 0 }, { rotation: -10, duration: 0.25, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, ASADO);
+      tl.fromTo(q(".s03-luz"), { opacity: 0 }, { opacity: 1, duration: 0.1, yoyo: true, repeat: 9, ease: "steps(1)", immediateRender: false }, ASADO + 0.3);
+      K.sacudon(q(".s03-cel"), ASADO + 0.4, 0.5);
+      K.sacudon(q(".s03-cel"), ASADO + 1.0, 0.5);
+      K.sacudon(q(".s03-cel"), Y + 0.9, 0.5);
+      // "¿Y?": se van la hoja y el mensaje; ventana en vivo con la clienta enojada
+      tl.to(q(".s03-top"), { opacity: 0, y: -40, duration: 0.25 }, Y - 0.3);
+      tl.to(q(".s03-bolilla"), { opacity: 0, duration: 0.2 }, Y - 0.3);
+      K.pop(q(".s03-ventana"), Y - 0.15);
+      K.pop(q(".s03-dom"), DOMINGO + 0.35);
+      tl.to(q(".s03-dom"), { opacity: 0, duration: 0.2 }, Y - 0.3);
+      K.sello(q(".s03-grito"), CONTESTAR - 0.05, -4);
+      K.sacudon(q(".s03-ventana"), CONTESTAR, 0.8);
+
+      K.salida(q("#s03-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

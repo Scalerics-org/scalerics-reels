@@ -1,0 +1,94 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/sorteo.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-atencion"] .s01-capa, [data-composition-id="s01-atencion"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-atencion"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-atencion"] .s01-atencion { left: 60px; top: 560px; font-size: 54px; }
+    [data-composition-id="s01-atencion"] .s01-perdidos { left: 300px; top: 760px; font-size: 76px; }
+    [data-composition-id="s01-atencion"] .s01-primera { left: 560px; top: 1370px; }
+  </style>
+  <div id="root" data-composition-id="s01-atencion" data-width="1080" data-height="1920" data-duration="7.80">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="7.80" data-track-index="0">
+      <div class="s01-escenario">
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="so-sello oro s01-atencion">¡ATENCIÓN, COMERCIANTE!</div>
+        <div class="so-sello s01-perdidos">CLIENTES<br>PERDIDOS</div>
+        <div class="so-tag s01-primera">PRIMERA BOLILLA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-atencion";
+      const DUR = 7.80;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = SO.INK;
+      const BX = 790, BY = 900, BR = 180;
+      root.querySelector(".s01-svg").innerHTML =
+        // rayos de luz del estudio
+        `<g class="s01-rayos" opacity="0.5">
+          <path d="M540 520 L250 1540 L420 1540 Z M540 520 L660 1540 L830 1540 Z" fill="${SO.CRE}" opacity="0.08"/>
+        </g>` +
+        `<g class="s01-bolillero">${SO.bolillero(BX, BY, BR)}</g>` +
+        `<g class="s01-bolilla-sale">${SO.bolilla(23, BX - BR * 0.7, BY + BR * 1.32, 34, { color: "oro" })}</g>` +
+        `<g class="s01-loc">${SO.locutora(330, 1560, 1.2)}</g>` +
+        // atril dorado
+        `<g class="s01-atril">
+          <path d="M120 1350 L540 1350 L510 1545 L150 1545 Z" fill="${SO.ORO}" stroke="${I}" stroke-width="9" stroke-linejoin="round"/>
+          <path d="M120 1350 L540 1350 L536 1378 L124 1378 Z" fill="${SO.ORO2}" stroke="${I}" stroke-width="6"/>
+          <rect x="200" y="1405" width="260" height="96" rx="12" fill="${SO.PANO}" stroke="${I}" stroke-width="6"/>
+          <text data-layout-ignore x="330" y="1446" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="26" fill="${SO.ORO2}" letter-spacing="3">EL GRAN</text>
+          <text data-layout-ignore x="330" y="1484" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="34" fill="${SO.CRE}">SORTEO</text>
+        </g>` +
+        `<g class="s01-numeros">
+          ${SO.bolilla(23, 760, 610, 58, { cls: "s01-n1" })}${SO.bolilla(7, 900, 640, 58, { cls: "s01-n2", color: "rojo" })}${SO.bolilla(48, 1000, 760, 50, { cls: "s01-n3" })}
+        </g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = SO.kit(tl, root);
+      const { q, qa } = K;
+
+      const ATENCION = 0.0;
+      const NUMEROS = 2.11;
+      const PERDISTE = 3.54;
+      const GIRA = 4.88;
+      const PRIMERA = 6.41;
+
+      // cuadro 0: la locutora y el bolillero ya están
+      tl.fromTo(q(".s01-loc"), { y: 40 }, { y: 0, duration: 0.5, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s01-bolillero"), { opacity: 0.5, x: 60 }, { opacity: 1, x: 0, duration: 0.45, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s01-escenario"), { scale: 1 }, { scale: 1.04, duration: GIRA, ease: "none", transformOrigin: "50% 60%" }, 0);
+      K.hablar(".so-l-boca", 0.05, 6, 0.13);
+      K.sello(q(".s01-atencion"), ATENCION + 0.15, -3);
+      tl.to(q(".s01-atencion"), { opacity: 0, y: -20, duration: 0.25 }, NUMEROS - 0.15);
+      // "números": tres bolillas aparecen arriba del bolillero
+      ["s01-n1", "s01-n2", "s01-n3"].forEach((c, i) => {
+        const el = q("." + c);
+        const tr = el.getAttribute("transform").match(/translate\(([\d.-]+) ([\d.-]+)\)/);
+        K.popSvg(el, NUMEROS + i * 0.15, `${tr[1]} ${tr[2]}`, 0.35, 0.2);
+      });
+      tl.to(q(".s01-numeros"), { y: -14, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, NUMEROS + 0.4);
+      // "perdiste clientes": sello rojo y la locutora levanta las cejas
+      K.sello(q(".s01-perdidos"), PERDISTE, -6);
+      tl.to(q(".so-l-cejas"), { y: -10, duration: 0.15, ease: "back.out(3)" }, PERDISTE);
+      // "gira el bolillero": se va todo, foco en el bolillero que gira
+      tl.to([q(".s01-perdidos"), q(".s01-numeros")], { opacity: 0, duration: 0.2 }, GIRA - 0.1);
+      tl.to([q(".s01-loc"), q(".s01-atril")], { opacity: 0, x: -120, duration: 0.35, ease: "power2.in" }, GIRA - 0.05);
+      tl.to(q(".s01-escenario"), { scale: 1.22, x: -170, y: 20, duration: 0.6, ease: "power3.inOut", transformOrigin: "50% 50%" }, GIRA);
+      K.girar(".s01-bolillero", BX, BY, BR, GIRA - 0.1, 1.6, 2);
+      // "primera bolilla": sale por la canaleta
+      gsap.set(q(".s01-bolilla-sale"), { opacity: 0 });
+      tl.fromTo(q(".s01-bolilla-sale"), { opacity: 0, x: BR * 0.7, y: -BR * 0.35 }, { opacity: 1, x: 0, y: 0, duration: 0.45, ease: "bounce.out", immediateRender: false }, PRIMERA - 0.2);
+      K.pop(q(".s01-primera"), PRIMERA);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

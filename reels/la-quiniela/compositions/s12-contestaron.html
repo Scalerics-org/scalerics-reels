@@ -1,0 +1,60 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/sorteo.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-contestaron"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-contestaron"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-contestaron"] .s12-ok { left: 560px; top: 1090px; font-size: 54px; }
+  </style>
+  <div id="root" data-composition-id="s12-contestaron" data-width="1080" data-height="1920" data-duration="4.28">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="4.28" data-track-index="0">
+      <svg class="s12-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      <div class="so-sello verde s12-ok">CONTESTADO</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-contestaron";
+      const DUR = 4.28;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = SO.INK;
+      const tl = gsap.timeline({ paused: true });
+      const K = SO.kit(tl, root);
+      const { q, qa } = K;
+      const svg = (h) => { root.querySelector(".s12-svg").innerHTML = h; };
+      const [gr, hr] = SO.globo(80, 600, ["¡Hola, Lucía! Sí, tenemos", "talle M. ¿Te lo guardo?"], "i", { fs: 34, hora: "23:01", cls: "s12-resp" });
+      svg(`<g class="s12-bo">${SO.bolillero(300, 820, 170)}</g>
+        <g class="s12-rel">${SO.reloj(820, 760, 120, 11, 0)}</g>
+        <g class="s12-cli">${SO.clienta(400, 1560, 0.95, { cara: "feliz", celular: true })}</g>
+        ${gr}
+        <g class="s12-b">${SO.bolilla(23, 540, 900, 190, { color: "verde" })}</g>
+        ${SO.confeti(80, 560, 920, 400, 26, 9)}`);
+      const VEINTITRES = 0.15, ONCE = 0.89, NOCHE = 1.87, ME = 2.74, CONTESTARON = 3.32;
+      K.girar(".s12-bo", 300, 820, 170, 0, 0.8, 1);
+      K.origen(q(".s12-b"), "540 900");
+      tl.fromTo(q(".s12-b"), { y: -520, rotation: 180 }, { y: 0, rotation: 0, duration: 0.65, ease: "bounce.out" }, 0.0);
+      // "once": reloj de las 23
+      K.popSvg(q(".s12-rel"), ONCE - 0.1, "820 760", 0.35);
+      tl.to(q(".s12-b"), { x: 0, y: 330, scale: 0.55, duration: 0.4, ease: "power3.inOut" }, ONCE + 0.2);
+      K.origen(q(".s12-rel .so-rj-m"), "820 760");
+      tl.fromTo(q(".s12-rel .so-rj-m"), { rotation: -200 }, { rotation: 6, duration: 0.8, ease: "power2.out", immediateRender: false }, ONCE);
+      // "noche...": suspenso; "¡Me contestaron!": la clienta feliz
+      gsap.set(q(".s12-cli"), { opacity: 0 });
+      tl.to([q(".s12-bo"), q(".s12-rel"), q(".s12-b")], { opacity: 0, duration: 0.25 }, ME - 0.4);
+      tl.fromTo(q(".s12-cli"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, ME - 0.3);
+      K.popSvg(q(".s12-resp"), ME, "350 660", 0.35, 0.5);
+      K.sello(q(".s12-ok"), CONTESTARON + 0.1, -5);
+      K.lluvia(".so-confeti", CONTESTARON, 1.0, 500);
+      tl.to(q(".s12-cli"), { y: -24, duration: 0.15, yoyo: true, repeat: 3, ease: "power2.out" }, CONTESTARON);
+
+      K.salida(q("#s12-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
