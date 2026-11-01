@@ -1,0 +1,51 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/lab.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-no-tienen"] .s10-capa, [data-composition-id="s10-no-tienen"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-no-tienen"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-no-tienen"] .s10-clon { left: 0; right: 0; top: 540px; font-size: 104px; }
+    [data-composition-id="s10-no-tienen"] .s10-sin { left: 200px; top: 1330px; font-size: 66px; }
+  </style>
+  <div id="root" data-composition-id="s10-no-tienen" data-width="1080" data-height="1920" data-duration="3.03">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="3.03" data-track-index="0">
+      <div class="s10-escenario">
+        <svg class="s10-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="lab-titulo rojo s10-clon">¡SOS UN CLON!</div>
+        <div class="lab-sello s10-sin">SIN VACACIONES</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-no-tienen";
+      const DUR = 3.03;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const L = LAB, I = L.INK;
+      let rayos = "";
+      for (let k = 0; k < 18; k++) { const a = (k / 18) * Math.PI * 2; rayos += `<path d="M${540 + Math.cos(a) * 260} ${1150 + Math.sin(a) * 260} L${540 + Math.cos(a) * 900} ${1150 + Math.sin(a) * 900}" stroke="${k % 2 ? L.GRA2 : L.PLA}" stroke-width="${k % 2 ? 26 : 12}" opacity="0.5"/>`; }
+      root.querySelector(".s10-svg").innerHTML = `<g class="s10-rayos">${rayos}</g>` +
+`<g class="s10-cie">${L.cientifico(540, 1620, 1.35, { cara: "grito" })}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = L.kit(tl, root);
+      const { q, qa } = K;
+      const CLON = 0.31, LOS = 1.1, VAC = 1.85;
+      tl.fromTo(q(".s10-cie"), { scale: 0.9, svgOrigin: "540 1400" }, { scale: 1, svgOrigin: "540 1400", duration: 0.3, ease: "back.out(2)" }, 0);
+      K.hablar(".s10-cie .lab-c-boca", 0.05, 9, 0.1);
+      tl.fromTo(q(".s10-rayos"), { rotation: 0, svgOrigin: "540 1150" }, { rotation: 20, svgOrigin: "540 1150", duration: DUR, ease: "none" }, 0);
+      K.sello(q(".s10-clon"), CLON, -2);
+      K.sacudon(q(".s10-cie"), CLON, 1);
+      K.sello(q(".s10-sin"), VAC, -8);
+      K.sacudon(q(".s10-escenario"), VAC + 0.05, 1.5);
+
+      K.salida(q("#s10-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

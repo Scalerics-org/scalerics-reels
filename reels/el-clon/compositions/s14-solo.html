@@ -1,0 +1,91 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/lab.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-solo"] .s14-capa, [data-composition-id="s14-solo"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-solo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-solo"] .s14-b1 { left: 820px; top: 560px; }
+    [data-composition-id="s14-solo"] .s14-b2 { left: 820px; top: 860px; }
+    [data-composition-id="s14-solo"] .s14-b3 { left: 820px; top: 1160px; }
+  </style>
+  <div id="root" data-composition-id="s14-solo" data-width="1080" data-height="1920" data-duration="6.08">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="6.08" data-track-index="0">
+      <div class="s14-escenario">
+        <svg class="s14-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="lab-tag s14-b1">SOLO</div>
+        <div class="lab-tag s14-b2">SOLO</div>
+        <div class="lab-tag s14-b3">SOLO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-solo";
+      const DUR = 6.08;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const L = LAB, I = L.INK;
+      const gl = L.globo(90, 680, "12 empanadas", "i", { fs: 30, cls: "s14-gl" })[0];
+      root.querySelector(".s14-svg").innerHTML = // 1: el pedido de WhatsApp pasa solo a la planilla
+`<g class="s14-r1">${gl}
+  <path class="s14-fl1" d="M380 715 L500 715" stroke="${L.VER}" stroke-width="10" stroke-linecap="round" stroke-dasharray="4 20"/>
+  <path d="M500 698 L530 715 L500 732 Z" fill="${L.VER}"/>
+  ${L.planilla(550, 620, 480, [["Raúl", "2 milan."], ["", ""]], { fh: 56, cls: "s14-pl" })}
+  <text class="s14-nv" x="634" y="770" font-family="Lexend" font-weight="600" font-size="24" fill="${I}">Graciela</text><text class="s14-nv" x="830" y="770" font-family="Lexend" font-weight="600" font-size="24" fill="${I}">12 emp.</text>
+</g>` +
+// 2: el aviso sale solo
+`<g class="s14-r2">
+  <g class="s14-aviso"><rect x="90" y="930" width="560" height="130" rx="20" fill="${L.HUE}" stroke="${I}" stroke-width="7"/>
+  <circle cx="155" cy="995" r="34" fill="${L.VER}" stroke="${I}" stroke-width="6"/><path d="M138 996 L150 1009 L174 982" fill="none" stroke="${I}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="210" y="985" font-family="Lexend" font-weight="800" font-size="32" fill="${I}">Tu pedido está listo</text>
+  <text x="210" y="1028" font-family="IBM Plex Mono" font-weight="600" font-size="22" fill="${L.GRA2}">PARA: GRACIELA</text></g>
+  <path class="s14-avion" d="M700 960 L800 995 L700 1030 L718 995 Z" fill="${L.VER2}" stroke="${I}" stroke-width="6" stroke-linejoin="round"/>
+</g>` +
+// 3: el reporte del día llega al celular
+`<g class="s14-r3">
+  ${L.celular(90, 1220, 300, 330, "s14-clip", L.GRA)}
+  <g clip-path="url(#s14-clip)"><g class="s14-rep">
+    <rect x="110" y="1270" width="260" height="230" rx="16" fill="${L.HUE}" stroke="${I}" stroke-width="5"/>
+    <text x="130" y="1310" font-family="IBM Plex Mono" font-weight="600" font-size="20" fill="${I}">REPORTE DEL DÍA</text>
+    <rect class="s14-bar" x="140" y="1400" width="36" height="80" fill="${L.VER}" stroke="${I}" stroke-width="4"/>
+    <rect class="s14-bar" x="196" y="1360" width="36" height="120" fill="${L.VER}" stroke="${I}" stroke-width="4"/>
+    <rect class="s14-bar" x="252" y="1380" width="36" height="100" fill="${L.VER}" stroke="${I}" stroke-width="4"/>
+    <rect class="s14-bar" x="308" y="1330" width="36" height="150" fill="${L.VER2}" stroke="${I}" stroke-width="4"/>
+  </g></g>
+  ${L.celularBorde(90, 1220, 300, 330)}
+  <text x="440" y="1360" font-family="Lexend" font-weight="800" font-size="44" fill="${L.HUE}">Tu día, resumido</text>
+  <text x="440" y="1412" font-family="Lexend" font-weight="600" font-size="34" fill="${L.PLA2}">y vos sin copiar nada</text>
+</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = L.kit(tl, root);
+      const { q, qa } = K;
+      const WHATS = 0.57, SOLO1 = 1.27, PLANILLA = 1.70, AVISO = 2.49, SALE = 2.83, REP = 3.79, LLEGA = 4.92;
+      gsap.set([q(".s14-r2"), q(".s14-r3"), q(".s14-gl")], { opacity: 0 });
+      tl.fromTo(q(".s14-r1"), { x: -40 }, { x: 0, duration: 0.35, ease: "power2.out" }, 0);
+      K.pop(q(".s14-gl"), WHATS - 0.25);
+      tl.fromTo(q(".s14-fl1"), { strokeDashoffset: 0 }, { strokeDashoffset: -96, duration: DUR, ease: "none" }, 0);
+      gsap.set(qa(".s14-nv"), { opacity: 0 });
+      tl.to(q(".s14-gl"), { x: 520, y: 60, scale: 0.4, opacity: 0, duration: 0.35, ease: "power2.in" }, SOLO1);
+      tl.to(qa(".s14-nv"), { opacity: 1, duration: 0.08 }, PLANILLA);
+      tl.to(q(".s14-pl .lab-pl-f1 .lab-pl-bg"), { fill: L.VER2, duration: 0.1 }, PLANILLA);
+      K.sello(q(".s14-b1"), SOLO1 + 0.1, -4);
+      tl.fromTo(q(".s14-r2"), { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, AVISO - 0.25);
+      tl.to(q(".s14-avion"), { x: 120, y: -40, opacity: 0, duration: 0.4, ease: "power2.in" }, SALE);
+      tl.to(q(".s14-aviso"), { x: 14, duration: 0.08, yoyo: true, repeat: 1 }, SALE);
+      K.sello(q(".s14-b2"), SALE + 0.2, 4);
+      tl.fromTo(q(".s14-r3"), { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, REP - 0.25);
+      gsap.set(q(".s14-rep"), { y: -320 });
+      tl.to(q(".s14-rep"), { y: 0, duration: 0.4, ease: "bounce.out" }, LLEGA - 0.2);
+      qa(".s14-bar").forEach((b, i) => { K.origen(b, `0 1480`); tl.fromTo(b, { scaleY: 0 }, { scaleY: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, LLEGA + 0.2 + i * 0.08); });
+      K.sello(q(".s14-b3"), LLEGA + 0.1, -3);
+
+      K.salida(q("#s14-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

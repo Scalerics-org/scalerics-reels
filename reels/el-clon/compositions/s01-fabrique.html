@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/lab.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-fabrique"] .s01-capa, [data-composition-id="s01-fabrique"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-fabrique"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-fabrique"] .s01-exp { left: 600px; top: 1330px; }
+    [data-composition-id="s01-fabrique"] .s01-yo { left: 430px; top: 1450px; font-size: 54px; }
+  </style>
+  <div id="root" data-composition-id="s01-fabrique" data-width="1080" data-height="1920" data-duration="4.07">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.07" data-track-index="0">
+      <div class="s01-escenario">
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="lab-tag s01-exp">EXPERIMENTO Nº 1</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-fabrique";
+      const DUR = 4.07;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const L = LAB, I = L.INK;
+      // globos de pedidos que van a la planilla
+      const pedidos = [["12 empanadas", 610, 975], ["2 milanesas", 760, 1060], ["pizza grande", 640, 1140]];
+      const globos = pedidos.map(([t, x, y], i) => L.globo(x, y, t, "i", { cls: "s01-gl s01-gl" + i, fs: 30 })[0]).join("");
+      root.querySelector(".s01-svg").innerHTML =
+        L.ventana(250, 1010, 250, 380, { rayo: true, seed: 3 }) +
+        L.planilla(560, 590, 470, [["", ""], ["", ""], ["", ""]], { fh: 62, cls: "s01-pl" }) +
+        `<g class="s01-filas">
+          <text class="s01-f0" x="646" y="694" font-family="Lexend" font-weight="600" font-size="25" fill="${I}">Graciela</text><text class="s01-f0" x="826" y="694" font-family="Lexend" font-weight="600" font-size="25" fill="${I}">12 emp.</text>
+          <text class="s01-f1" x="646" y="756" font-family="Lexend" font-weight="600" font-size="25" fill="${I}">Raúl</text><text class="s01-f1" x="826" y="756" font-family="Lexend" font-weight="600" font-size="25" fill="${I}">2 milan.</text>
+          <text class="s01-f2" x="646" y="818" font-family="Lexend" font-weight="600" font-size="25" fill="${I}">Marta</text><text class="s01-f2" x="826" y="818" font-family="Lexend" font-weight="600" font-size="25" fill="${I}">pizza</text>
+        </g>` +
+        `<g class="s01-mesa">${L.mesa(800, 1290, 460)}
+          <!-- el cuerpo tapado con la sábana -->
+          <path class="s01-sabana" d="M585 1292 C590 1240 640 1215 690 1222 C720 1190 780 1190 800 1222 C840 1210 900 1212 940 1232 C980 1240 1010 1262 1012 1292 Z" fill="${L.HUE}" stroke="${I}" stroke-width="8" stroke-linejoin="round"/>
+          <path d="M700 1240 C740 1236 760 1250 790 1246 M850 1236 C880 1240 920 1250 960 1262" fill="none" stroke="${L.PLA}" stroke-width="5" stroke-linecap="round"/>
+          <!-- la mano que asoma -->
+          <g class="s01-mano">
+            <path d="M985 1290 L992 1352 M985 1290 C1000 1300 1004 1330 1000 1352" fill="none" stroke="${I}" stroke-width="40" stroke-linecap="round"/>
+            <path d="M986 1290 L994 1350" fill="none" stroke="${L.MON}" stroke-width="28" stroke-linecap="round"/>
+            <path d="M980 1350 L976 1392 M992 1356 L992 1400 M1004 1352 L1010 1394 M1012 1344 L1024 1376" stroke="${I}" stroke-width="16" stroke-linecap="round"/>
+            <path d="M980 1350 L976 1392 M992 1356 L992 1400 M1004 1352 L1010 1394 M1012 1344 L1024 1376" stroke="${L.MON}" stroke-width="8" stroke-linecap="round"/>
+            <path d="M976 1318 L1004 1314" stroke="${I}" stroke-width="4"/>
+          </g>
+        </g>` +
+        L.rayo(840, 560, 800, 1210, { seed: 8, n: 8, amp: 60, cls: "s01-rayo" }) +
+        globos +
+        `<g class="s01-cie">${L.cientifico(300, 1545, 1.2, { cara: "loco" })}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = L.kit(tl, root);
+      const { q, qa } = K;
+
+      const PEDIDOS = 1.31;
+      const PLANILLA = 1.85;
+      const FABRIQUE = 2.92;
+      const UNO = 3.23;
+
+      // cuadro 0: el científico y la mesa ya están; la cámara se acerca despacio
+      tl.fromTo(q(".s01-escenario"), { scale: 1.0 }, { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+      tl.fromTo(q(".s01-cie"), { y: 30 }, { y: 0, duration: 0.45, ease: "back.out(1.6)" }, 0);
+      K.hablar(".lab-c-boca", 0.05, 10, 0.1);
+      tl.fromTo(q(".s01-pl"), { opacity: 0.35 }, { opacity: 1, duration: 0.3 }, 0.1);
+      gsap.set(qa(".s01-filas text"), { opacity: 0 });
+      // "pedidos": aparecen los mensajes
+      qa(".s01-gl").forEach((g, i) => {
+        const bb = g.getBBox();
+        K.popSvg(g, PEDIDOS - 0.35 + i * 0.12, `${bb.x + bb.width / 2} ${bb.y + bb.height / 2}`, 0.3, 0.4);
+      });
+      // "planilla": cada mensaje vuela a su fila y la fila se llena
+      qa(".s01-gl").forEach((g, i) => {
+        const bb = g.getBBox();
+        tl.to(g, { x: 790 - (bb.x + bb.width / 2), y: 683 + i * 62 - (bb.y + bb.height / 2), scale: 0.3, opacity: 0, duration: 0.32, ease: "power2.in" }, PLANILLA - 0.1 + i * 0.12);
+        tl.to(qa(".s01-f" + i), { opacity: 1, duration: 0.08 }, PLANILLA + 0.2 + i * 0.12);
+      });
+      // "fabriqué": rayo sobre la mesa y la sábana se ilumina
+      K.chispazo(q(".s01-rayo"), FABRIQUE - 0.15, 0.55);
+      tl.fromTo(q(".s01-sabana"), { fill: L.HUE }, { fill: L.VER2, duration: 0.06, yoyo: true, repeat: 3, ease: "steps(1)", immediateRender: false }, FABRIQUE - 0.1);
+      K.sacudon(q(".s01-mesa"), FABRIQUE, 1);
+      K.pop(q(".s01-exp"), PLANILLA + 0.6);
+      // "uno": la mano se mueve
+      K.origen(q(".s01-mano"), "986 1290");
+      gsap.set(q(".s01-mano"), { opacity: 0 });
+      tl.to(q(".s01-mano"), { opacity: 1, duration: 0.05 }, UNO - 0.08);
+      tl.fromTo(q(".s01-mano"), { rotation: 0 }, { rotation: -14, duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, UNO);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

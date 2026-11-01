@@ -1,0 +1,1 @@
+[{"t":0,"sfx":"drone","vol":0.25,"max":3},{"t":3.3,"sfx":"chirrido","vol":0.3,"max":0.5},{"t":3.45,"sfx":"trueno","vol":0.4,"max":1.5},{"t":3.65,"sfx":"pop","vol":0.25},{"t":4.1,"sfx":"pop","vol":0.25},{"t":4.55,"sfx":"pop","vol":0.25},{"t":5.4,"sfx":"alarma","vol":0.25,"max":1.2},{"t":6.1,"sfx":"golpe","vol":0.4}]

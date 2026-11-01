@@ -1,0 +1,58 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/lab.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-graciela"] .s06-capa, [data-composition-id="s06-graciela"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-graciela"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-graciela"] .s06-fila { left: 560px; top: 1250px; }
+  </style>
+  <div id="root" data-composition-id="s06-graciela" data-width="1080" data-height="1920" data-duration="4.15">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="4.15" data-track-index="0">
+      <div class="s06-escenario">
+        <svg class="s06-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="lab-tag s06-fila">FILA 34 · LISTO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-graciela";
+      const DUR = 4.15;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const L = LAB, I = L.INK;
+      const g1 = L.globo(120, 800, ["Hola! 12", "empanadas"], "i", { fs: 30, cls: "s06-g1" })[0];
+      root.querySelector(".s06-svg").innerHTML = L.celular(90, 600, 360, 640, "s06-clip") +
+`<g clip-path="url(#s06-clip)">${L.chatCabecera(90, 600, 360, "Sra. Graciela", "en línea")}${g1}</g>` +
+L.celularBorde(90, 600, 360, 640) +
+`<path class="s06-flecha" d="M470 900 C520 860 560 860 600 900" fill="none" stroke="${L.VER}" stroke-width="10" stroke-linecap="round" stroke-dasharray="4 22"/>` +
+L.planilla(500, 640, 540, [["Raúl", "2 milanesas"], ["Marta", "1 pizza"], ["", ""], ["Rosa", "6 tartas"]], { fh: 70, nums: 32, cls: "s06-pl" }) +
+`<g class="s06-nueva"><text x="${500 + 70 + 14}" y="${640 + 70 * 3 + 46}" font-family="Lexend" font-weight="600" font-size="28" fill="${I}">Graciela</text><text x="${570 + 216 + 14}" y="${640 + 70 * 3 + 46}" font-family="Lexend" font-weight="600" font-size="28" fill="${I}">12 empanadas</text></g>` +
+`<rect class="s06-marco" x="504" y="${640 + 70 * 3}" width="532" height="70" fill="none" stroke="${L.VER}" stroke-width="8"/>` +
+`<g class="s06-k">${L.criatura(880, 1560, 0.5, { cara: "neutra" })}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = L.kit(tl, root);
+      const { q, qa } = K;
+      const GRACIELA = 0.23, EMP = 1.46, FILA = 2.07, CUATRO = 2.88;
+      tl.fromTo(q(".s06-escenario"), { x: 30 }, { x: 0, duration: 0.5, ease: "power2.out" }, 0);
+      K.hablar(".s06-k .lab-k-boca", 0.05, 10, 0.1);
+      K.pop(q(".s06-g1"), GRACIELA);
+      tl.fromTo(q(".s06-flecha"), { strokeDashoffset: 0 }, { strokeDashoffset: -130, duration: DUR, ease: "none" }, 0);
+      gsap.set(q(".s06-nueva"), { opacity: 0 });
+      tl.fromTo(q(".s06-g1"), { x: 0, y: 0, scale: 1 }, { x: 420, y: 160, scale: 0.5, opacity: 0, duration: 0.45, ease: "power2.in", immediateRender: false }, FILA - 0.2);
+      K.dibujar(q(".s06-marco"), FILA + 0.1, 0.4);
+      tl.to(q(".s06-nueva"), { opacity: 1, duration: 0.1 }, CUATRO);
+      tl.to(q(".s06-pl .lab-pl-f2 .lab-pl-bg"), { fill: L.VER2, duration: 0.1 }, CUATRO);
+      K.pop(q(".s06-fila"), CUATRO + 0.1);
+      tl.to(q(".s06-k"), { y: -10, duration: 0.1, yoyo: true, repeat: 5 }, CUATRO);
+
+      K.salida(q("#s06-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

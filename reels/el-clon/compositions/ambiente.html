@@ -1,0 +1,131 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .am-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 720px 1080px at 540px 900px, rgba(5, 5, 6, 0) 52%, rgba(5, 5, 6, 0.62) 100%); }
+    [data-composition-id="ambiente"] .am-grano { position: absolute; left: -60px; top: -60px; width: 1200px; height: 2040px; opacity: 0.14; }
+    [data-composition-id="ambiente"] .am-raya { position: absolute; top: 0; width: 3px; height: 1920px; background: rgba(236, 235, 228, 0.35); opacity: 0; }
+    [data-composition-id="ambiente"] .am-parpadeo { position: absolute; inset: 0; background: #ecebe4; opacity: 0; }
+    [data-composition-id="ambiente"] .am-cartel { position: absolute; left: 160px; top: 48px; width: 760px; height: 146px; background: #0a0a0c; border: 5px solid #ecebe4;
+      box-shadow: inset 0 0 0 7px #0a0a0c, inset 0 0 0 10px #8d8d94, 0 10px 30px rgba(0, 0, 0, 0.6); text-align: center; }
+    [data-composition-id="ambiente"] .am-cartel b { position: absolute; left: 0; right: 0; top: 22px; font-family: "Cinzel", serif; font-weight: 900; font-size: 64px; line-height: 1; color: #ecebe4; letter-spacing: 0.22em; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-cartel small { position: absolute; left: 0; right: 0; top: 98px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.3em; color: #b9b9be; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-cartel small.am-ia { color: #5ce611; opacity: 0; }
+    [data-composition-id="ambiente"] .am-orn { position: absolute; top: 58px; width: 34px; height: 34px; border: 4px solid #8d8d94; transform: rotate(45deg); }
+    [data-composition-id="ambiente"] .am-chapas { position: absolute; left: 44px; top: 1572px; width: 640px; height: 100px; }
+    [data-composition-id="ambiente"] .am-ch { position: absolute; left: 0; top: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .am-ch .am-pl { display: inline-block; padding: 12px 26px 10px; background: #0a0a0c; border-left: 14px solid currentColor; border-radius: 4px; box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5); }
+    [data-composition-id="ambiente"] .am-ch b { display: block; font-family: "Cinzel", serif; font-weight: 900; font-size: 36px; line-height: 1; white-space: nowrap; letter-spacing: 0.04em; }
+    [data-composition-id="ambiente"] .am-ch small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.16em; color: #ecebe4; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-dia { position: absolute; right: 44px; top: 1572px; width: 230px; height: 100px; background: #0a0a0c; border: 4px solid #8d8d94; border-radius: 4px; text-align: center; }
+    [data-composition-id="ambiente"] .am-dia small { position: absolute; left: 0; right: 0; top: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 18px; letter-spacing: 0.3em; color: #8d8d94; }
+    [data-composition-id="ambiente"] .am-dia b { position: absolute; left: 0; right: 0; top: 36px; font-family: "Cinzel", serif; font-weight: 900; font-size: 46px; line-height: 1; color: #ecebe4; letter-spacing: 0.08em; }
+    [data-composition-id="ambiente"] .am-dia b.am-d3 { color: #ff6b70; opacity: 0; }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #f4fbe9; opacity: 0; }
+    [data-composition-id="ambiente"] .am-flashv { position: absolute; inset: 0; background: #5ce611; opacity: 0; mix-blend-mode: screen; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="76.87">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="76.87" data-track-index="0">
+      <svg class="am-grano" viewBox="0 0 1200 2040" aria-hidden="true">
+        <filter id="am-ruido"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+        <rect width="1200" height="2040" filter="url(#am-ruido)"/>
+      </svg>
+      <div class="am-raya am-r1" style="left:212px"></div>
+      <div class="am-raya am-r2" style="left:771px"></div>
+      <div class="am-raya am-r3" style="left:498px"></div>
+      <div class="am-vineta"></div>
+      <div class="am-parpadeo"></div>
+      <div class="am-cartel"><b>EL CLON</b><small class="am-sub">UNA PELÍCULA DEL ALMACÉN</small><small class="am-ia" style="position:absolute">AUTOMATIZACIONES · SCALERICS</small></div>
+      <div class="am-orn" style="left:186px"></div><div class="am-orn" style="left:852px"></div>
+      <div class="am-chapas">
+        <div class="am-ch am-chc" style="color:#ff6b70"><div class="am-pl"><b>EL CIENTÍFICO</b><small>DUEÑO DEL ALMACÉN</small></div></div>
+        <div class="am-ch am-chk" style="color:#b8ff7a"><div class="am-pl"><b>LA CRIATURA</b><small>SU CLON</small></div></div>
+        <div class="am-ch am-cho" style="color:#5ce611"><div class="am-pl"><b>SCALERICS</b><small>AUTOMATIZACIONES</small></div></div>
+      </div>
+      <div class="am-dia"><small>EXPERIMENTO</small><b class="am-d1">DÍA 1</b><b class="am-d3" style="position:absolute">DÍA 3</b></div>
+      <div class="am-flashv"></div>
+      <div class="am-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 76.87;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // segundos globales (los reemplaza armar.mjs desde reel.json "ambiente" y "voces")
+      const TURNOS = [[0,"c"],[11.26,"k"],[13.3,"c"],[17.62,"k"],[18.29,"c"],[19.17,"k"],[24.01,"c"],[28.3,"k"],[39.93,"c"],[42.96,"k"],[47.56,"c"],[49.36,"k"],[54.81,"c"],[57.26,"o"],[67.98,"c"],[69.98,"o"]];
+      const RAYOS = [5.84,52.82];
+      const VIVO = 6.56;
+      const DIA3 = 34.38;
+      const SCALERICS = 57.26;
+
+      // película vieja: el grano salta, la imagen parpadea, rayas que aparecen y se van
+      const pasos = Math.floor(DUR / 0.08);
+      const XY = [[0, 0], [-31, 17], [22, -40], [-12, -23], [37, 29], [-44, 8], [9, 41], [28, -11]];
+      const grano = q(".am-grano");
+      for (let k = 0; k < pasos; k++) {
+        const [x, y] = XY[k % XY.length];
+        tl.set(grano, { x, y }, r(k * 0.08));
+      }
+      function r(n) { return Math.round(n * 100) / 100; }
+      const rnd = (function () { let a = 11; return () => { a = (a * 1664525 + 1013904223) >>> 0; return a / 4294967296; }; })();
+      for (let t = 0.3; t < DUR; t += 0.9 + rnd() * 1.4) {
+        if (t > SCALERICS - 0.2 && t < DUR - 6) continue;
+        tl.to(q(".am-parpadeo"), { opacity: 0.05 + rnd() * 0.05, duration: 0.04, yoyo: true, repeat: 1, ease: "steps(1)" }, r(t));
+      }
+      ["am-r1", "am-r2", "am-r3"].forEach((c, i) => {
+        for (let t = 0.6 + i * 1.7; t < SCALERICS - 0.3; t += 4.1 + i * 0.9) {
+          tl.fromTo(q("." + c), { opacity: 0, x: 0 }, { opacity: 1, x: 6 - i * 5, duration: 0.33, ease: "steps(3)", immediateRender: false }, r(t));
+          tl.to(q("." + c), { opacity: 0, duration: 0.05 }, r(t + 0.36));
+        }
+      });
+      tl.fromTo(q(".am-cartel"), { opacity: 0.4, y: -10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0);
+
+      const CH = { c: ".am-chc", k: ".am-chk", o: ".am-cho" };
+      let ant = null;
+      TURNOS.forEach(([t, quien]) => {
+        const el = q(CH[quien]);
+        if (ant && ant !== el) tl.to(ant, { opacity: 0, x: -30, duration: 0.12, ease: "power2.in" }, Math.max(0, t - 0.12));
+        if (ant !== el) tl.fromTo(el, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(2.2)", immediateRender: false }, Math.max(0, t));
+        ant = el;
+      });
+
+      // rayos: flash blanco con un golpe verde
+      function flash(t, f) {
+        tl.to(q(".am-flash"), { opacity: 0.75 * (f || 1), duration: 0.03 }, t);
+        tl.to(q(".am-flash"), { opacity: 0.1, duration: 0.06 }, t + 0.05);
+        tl.to(q(".am-flash"), { opacity: 0.5 * (f || 1), duration: 0.03 }, t + 0.13);
+        tl.to(q(".am-flash"), { opacity: 0, duration: 0.45, ease: "power2.out" }, t + 0.17);
+        tl.to(q(".am-flashv"), { opacity: 0.22 * (f || 1), duration: 0.04 }, t + 0.05);
+        tl.to(q(".am-flashv"), { opacity: 0, duration: 0.5 }, t + 0.12);
+      }
+      RAYOS.forEach((t) => flash(t, 1));
+      flash(VIVO, 0.6);
+
+      // el contador de días
+      tl.to(q(".am-d1"), { opacity: 0, duration: 0.1 }, DIA3);
+      tl.fromTo(q(".am-d3"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, DIA3);
+      tl.to(q(".am-dia"), { opacity: 0, y: 30, duration: 0.25 }, SCALERICS);
+
+      // entra Scalerics: se prende la luz (flash largo), el cartel cambia y la película deja de rayarse
+      tl.to(q(".am-flash"), { opacity: 0.9, duration: 0.05 }, SCALERICS);
+      tl.to(q(".am-flash"), { opacity: 0, duration: 0.8, ease: "power2.out" }, SCALERICS + 0.08);
+      tl.to(q(".am-sub"), { opacity: 0, duration: 0.15 }, SCALERICS);
+      tl.to(q(".am-ia"), { opacity: 1, duration: 0.2 }, SCALERICS + 0.1);
+      tl.to(q(".am-cartel"), { borderColor: "#5ce611", duration: 0.2 }, SCALERICS);
+      tl.to(qa(".am-orn"), { borderColor: "#5ce611", duration: 0.2 }, SCALERICS);
+      tl.to(q(".am-vineta"), { opacity: 0.45, duration: 0.6 }, SCALERICS);
+      tl.to(grano, { opacity: 0.06, duration: 0.6 }, SCALERICS);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

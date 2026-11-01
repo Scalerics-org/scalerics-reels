@@ -1,0 +1,1 @@
+No hacía falta un clon. Hacía falta automatizar. Eso hacemos en Scalerics: el pedido de WhatsApp pasa solo a la planilla, el aviso sale solo, y el reporte del día te llega al celular.

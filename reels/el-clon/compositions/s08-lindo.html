@@ -1,0 +1,64 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/lab.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-lindo"] .s08-capa, [data-composition-id="s08-lindo"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-lindo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-lindo"] .s08-tag { left: 270px; top: 900px; }
+  </style>
+  <div id="root" data-composition-id="s08-lindo" data-width="1080" data-height="1920" data-duration="6.08">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="6.08" data-track-index="0">
+      <div class="s08-escenario">
+        <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="lab-tag s08-tag">DÍA 1 · CERO QUEJAS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-lindo";
+      const DUR = 6.08;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const L = LAB, I = L.INK;
+      const corazon = (x, y, s, c) => `<path class="s08-cor" d="M${x} ${y + 30 * s} C${x - 60 * s} ${y - 10 * s} ${x - 40 * s} ${y - 60 * s} ${x} ${y - 30 * s} C${x + 40 * s} ${y - 60 * s} ${x + 60 * s} ${y - 10 * s} ${x} ${y + 30 * s} Z" fill="${c}" stroke="${I}" stroke-width="6"/>`;
+      root.querySelector(".s08-svg").innerHTML = `<g class="s08-lista">
+  <rect x="110" y="580" width="860" height="250" rx="16" fill="${L.HUE}" stroke="${I}" stroke-width="8"/>
+  <rect x="150" y="620" width="56" height="56" rx="8" fill="none" stroke="${I}" stroke-width="6"/>
+  <path class="s08-t1" d="M160 648 L176 666 L200 630" fill="none" stroke="${L.VER3}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="235" y="665" font-family="Lexend" font-weight="800" font-size="44" fill="${I}">Pedido listo</text>
+  <rect x="150" y="730" width="56" height="56" rx="8" fill="none" stroke="${I}" stroke-width="6"/>
+  <path class="s08-t2" d="M160 758 L176 776 L200 740" fill="none" stroke="${L.VER3}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="235" y="775" font-family="Lexend" font-weight="800" font-size="44" fill="${I}">Stock actualizado</text>
+</g>` +
+`<g class="s08-k1">${L.criatura(540, 1560, 1.0, { cara: "neutra" })}</g>` +
+`<g class="s08-k2">${L.criatura(540, 1560, 1.0, { cara: "feliz" })}</g>` +
+`<g class="s08-cors">${corazon(250, 960, 1, L.VER)}${corazon(840, 920, 0.8, L.VER2)}${corazon(800, 1080, 0.6, L.VER)}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = L.kit(tl, root);
+      const { q, qa } = K;
+      const LISTO = 0.66, STOCK = 1.42, ACT = 1.97, AMO = 3.12, LINDO = 3.93, TRAB = 4.67;
+      tl.fromTo(q(".s08-lista"), { opacity: 0.3, y: -20 }, { opacity: 1, y: 0, duration: 0.3 }, 0);
+      K.hablar(".s08-k1 .lab-k-boca", 0.05, 8, 0.1);
+      K.dibujar(q(".s08-t1"), LISTO - 0.1, 0.3);
+      K.dibujar(q(".s08-t2"), ACT, 0.3);
+      tl.fromTo(q(".s08-k1"), { y: 40 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, 0);
+      gsap.set(q(".s08-k2"), { opacity: 0 });
+      tl.to(q(".s08-k1"), { opacity: 0, duration: 0.05 }, LINDO - 0.2);
+      tl.to(q(".s08-k2"), { opacity: 1, duration: 0.05 }, LINDO - 0.2);
+      K.origen(q(".s08-k2 .lab-k-cabeza"), "0 -230");
+      tl.to(q(".s08-k2 .lab-k-cabeza"), { rotation: 8, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, LINDO);
+      qa(".s08-cor").forEach((c, i) => { const b = c.getBBox(); K.popSvg(c, TRAB - 0.3 + i * 0.15, `${b.x + b.width / 2} ${b.y + b.height / 2}`, 0.4, 0.2); tl.to(c, { y: -40, duration: 1.2, ease: "sine.out" }, TRAB + i * 0.15); });
+      K.pop(q(".s08-tag"), TRAB);
+      tl.fromTo(q(".s08-escenario"), { scale: 1 }, { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "50% 70%" }, 0);
+
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
