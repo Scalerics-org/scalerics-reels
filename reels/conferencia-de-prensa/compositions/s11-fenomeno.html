@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-fenomeno"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-fenomeno"] .s11-esc { position: absolute; inset: 0; }
+    [data-composition-id="s11-fenomeno"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-fenomeno"] .fig { position: absolute; width: 460px; height: 640px; }
+    [data-composition-id="s11-fenomeno"] .fig svg, [data-composition-id="s11-fenomeno"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s11-fenomeno"] .obj { position: absolute; }
+    [data-composition-id="s11-fenomeno"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #0d1424; paint-order: stroke fill; }
+    [data-composition-id="s11-fenomeno"] .big.b { color: #f4f1e8; text-shadow: 9px 9px 0 #e63946; }
+    [data-composition-id="s11-fenomeno"] .big.y { color: #ffd447; text-shadow: 9px 9px 0 #0d1424; }
+    [data-composition-id="s11-fenomeno"] .big.c { color: #6cc4ff; text-shadow: 9px 9px 0 #0d1424; }
+    [data-composition-id="s11-fenomeno"] .big.r { color: #e63946; text-shadow: 9px 9px 0 #f4f1e8; }
+    [data-composition-id="s11-fenomeno"] .big.g { color: #5ce611; text-shadow: 8px 8px 0 #0d1424; }
+    [data-composition-id="s11-fenomeno"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s11-fenomeno"] .sello { position: absolute; padding: 18px 46px 10px; border: 12px solid currentColor; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #0d1424; }
+    [data-composition-id="s11-fenomeno"] .centro { left: 0; right: 0; margin-left: auto; margin-right: auto; width: max-content; }
+    [data-composition-id="s11-fenomeno"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #0d1424; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #0d1424; background: #f4f1e8; box-shadow: 8px 8px 0 #0d1424; }
+    [data-composition-id="s11-fenomeno"] .cel { position: absolute; border-radius: 52px; border: 8px solid #0d1424; background: #0d1424; box-shadow: 0 0 0 6px #6cc4ff, 12px 12px 0 6px #0d1424; }
+    [data-composition-id="s11-fenomeno"] .cel .barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #0d1424; z-index: 2; }
+    [data-composition-id="s11-fenomeno"] .cel .pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 44px; background: #f4f1e8; overflow: hidden; }
+    [data-composition-id="s11-fenomeno"] .cel .head { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: #1b3a6b; border-bottom: 5px solid #0d1424; }
+    [data-composition-id="s11-fenomeno"] .cel .head b { position: absolute; left: 110px; top: 46px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 32px; color: #f4f1e8; white-space: nowrap; }
+    [data-composition-id="s11-fenomeno"] .cel .head small { position: absolute; left: 110px; top: 86px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; color: #6cc4ff; white-space: nowrap; }
+    [data-composition-id="s11-fenomeno"] .cel .head i { position: absolute; left: 30px; top: 46px; width: 64px; height: 64px; border-radius: 50%; background: #6cc4ff; border: 4px solid #0d1424; }
+    [data-composition-id="s11-fenomeno"] .msg { position: absolute; max-width: 82%; padding: 14px 20px 12px; border-radius: 22px; border: 4px solid #0d1424; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.18; color: #0d1424; white-space: nowrap; }
+    [data-composition-id="s11-fenomeno"] .msg.yo { right: 18px; background: #6cc4ff; border-bottom-right-radius: 6px; }
+    [data-composition-id="s11-fenomeno"] .msg.el { left: 18px; background: #ffffff; border-bottom-left-radius: 6px; }
+    [data-composition-id="s11-fenomeno"] .msg small { display: block; margin-top: 4px; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 600; opacity: 0.65; }
+
+    [data-composition-id="s11-fenomeno"] .s11-dt { left: 310px; top: 780px; transform-origin: 50% 100%; }
+    [data-composition-id="s11-fenomeno"] .s11-t { top: 600px; font-size: 118px; }
+
+  </style>
+  <div id="root" data-composition-id="s11-fenomeno" data-width="1080" data-height="1920" data-duration="1.83">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="1.83" data-track-index="0">
+      <div class="s11-esc esc">
+
+        <div class="fig s11-dt"><svg viewBox="0 0 460 640" aria-hidden="true"><g class="s11p-cuerpo">
+  <g class="s11p-bi">
+    <path d="M140 330 L100 470 L170 548" stroke="#0d1424" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M140 330 L100 470 L170 548" stroke="#1b3a6b" stroke-width="37" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="170" cy="548" r="22" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <path d="M120 318 Q230 290 340 318 Q372 460 360 640 L100 640 Q88 460 120 318 Z" fill="#1b3a6b" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M128 330 Q118 470 116 640 M332 330 Q342 470 344 640" stroke="#6cc4ff" stroke-width="12" fill="none"/>
+  <path d="M230 318 V640" stroke="#0d1424" stroke-width="5"/>
+  <path d="M188 300 L230 344 L272 300 L262 290 L230 322 L198 290 Z" fill="#1b3a6b" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s11p-silbato"><path d="M206 300 Q214 380 226 420 M254 300 Q246 380 236 420" stroke="#0d1424" stroke-width="4" fill="none"/>
+    <path d="M214 418 H262 Q272 418 272 432 Q272 446 258 446 H226 Q210 446 210 432 Z" fill="#ffd447" stroke="#0d1424" stroke-width="5"/><circle cx="244" cy="432" r="6" fill="#0d1424"/></g>
+  <rect x="210" y="262" width="40" height="40" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s11p-bd">
+    <path d="M320 330 L360 470 L290 548" stroke="#0d1424" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M320 330 L360 470 L290 548" stroke="#1b3a6b" stroke-width="37" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="290" cy="548" r="22" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="s11p-cabeza">
+    <circle cx="156" cy="210" r="18" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="304" cy="210" r="18" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse cx="230" cy="196" rx="76" ry="84" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M156 196 Q150 150 168 132 M304 196 Q310 150 292 132" stroke="#0d1424" stroke-width="14" fill="none" stroke-linecap="round"/>
+    <path d="M196 132 Q230 124 262 132" stroke="#0d1424" stroke-width="4" fill="none" opacity="0.4"/>
+    <g class="s11p-cachetes"><circle cx="182" cy="232" r="15" fill="#e63946" opacity="0.55"/><circle cx="278" cy="232" r="15" fill="#e63946" opacity="0.55"/></g>
+    <g class="s11p-ojos"><circle cx="204" cy="196" r="12" fill="#f4f1e8" stroke="#0d1424" stroke-width="4"/><circle cx="256" cy="196" r="12" fill="#f4f1e8" stroke="#0d1424" stroke-width="4"/>
+      <circle cx="205" cy="198" r="5" fill="#0d1424"/><circle cx="255" cy="198" r="5" fill="#0d1424"/></g>
+    <path class="s11p-cejas" d="M182 172 L220 180 M240 180 L278 172" stroke="#0d1424" stroke-width="11" stroke-linecap="round"/>
+    <path d="M230 204 Q220 222 232 226" stroke="#0d1424" stroke-width="4" fill="none"/>
+    <ellipse class="s11p-boca" cx="230" cy="262" rx="18" ry="9" fill="#0d1424"/>
+    <path d="M188 246 Q208 230 230 240 Q252 230 272 246 Q260 256 230 248 Q200 256 188 246 Z" fill="#0d1424" stroke="#0d1424" stroke-width="4" stroke-linejoin="round"/>
+    <g class="s11p-gotas" opacity="0">
+      <path d="M302 150 C296 166 292 178 300 182 C308 186 312 176 308 164 Z" fill="#6cc4ff" stroke="#0d1424" stroke-width="3"/>
+      <path d="M158 150 C152 166 148 178 156 182 C164 186 168 176 164 164 Z" fill="#6cc4ff" stroke="#0d1424" stroke-width="3"/>
+    </g>
+  </g>
+</g></svg></div>
+        <div class="big y s11-t">¿Fenómeno?</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-fenomeno";
+      const DUR = 1.83;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // brazo: rota un brazo del personaje (prefijo pp) alrededor del hombro
+      const brazo = (pp, lado, rot, t, d = 0.25) => tl.to(q("." + pp + "-b" + lado), { rotation: rot, svgOrigin: lado === "i" ? "140 330" : "320 330", duration: d, ease: "back.out(2)" }, t);
+      const brazoSet = (pp, lado, rot) => gsap.set(q("." + pp + "-b" + lado), { rotation: rot, svgOrigin: lado === "i" ? "140 330" : "320 330" });
+
+
+      const QUIEN = 0.0, FENOMENO = 0.70;
+      brazoSet("s11p", "i", 8); brazoSet("s11p", "d", -8);
+      // cuadro 0: primer plano del Profe, desconcertado
+      tl.fromTo(q(".s11-dt"), { scale: 1.15 }, { scale: 1.45, duration: 1.6, ease: "power1.inOut" }, 0);
+      habla(".s11p-boca", 0.0, 1.3, "230 262");
+      tl.to(q(".s11p-cejas"), { y: -14, duration: 0.2 }, 0.1);
+      tl.to(q(".s11p-gotas"), { opacity: 1, duration: 0.2 }, 0.3);
+      tl.fromTo(q(".s11p-gotas"), { y: 0 }, { y: 26, duration: 0.6, repeat: 2, ease: "power1.in", immediateRender: false }, 0.3);
+      tl.fromTo(q(".s11p-ojos"), { scale: 1, svgOrigin: "230 198" }, { scale: 1.25, svgOrigin: "230 198", duration: 0.15, ease: "back.out(3)", immediateRender: false }, FENOMENO);
+      golpe(q(".s11-t"), FENOMENO + 0.1, -3, 2.4);
+      sacudon(FENOMENO + 0.15, 1.2);
+
+      // salida
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

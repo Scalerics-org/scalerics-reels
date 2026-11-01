@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-cta"] .s15-capa { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-esc { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s15-cta"] .fig { position: absolute; width: 460px; height: 640px; }
+    [data-composition-id="s15-cta"] .fig svg, [data-composition-id="s15-cta"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s15-cta"] .obj { position: absolute; }
+    [data-composition-id="s15-cta"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #0d1424; paint-order: stroke fill; }
+    [data-composition-id="s15-cta"] .big.b { color: #f4f1e8; text-shadow: 9px 9px 0 #e63946; }
+    [data-composition-id="s15-cta"] .big.y { color: #ffd447; text-shadow: 9px 9px 0 #0d1424; }
+    [data-composition-id="s15-cta"] .big.c { color: #6cc4ff; text-shadow: 9px 9px 0 #0d1424; }
+    [data-composition-id="s15-cta"] .big.r { color: #e63946; text-shadow: 9px 9px 0 #f4f1e8; }
+    [data-composition-id="s15-cta"] .big.g { color: #5ce611; text-shadow: 8px 8px 0 #0d1424; }
+    [data-composition-id="s15-cta"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s15-cta"] .sello { position: absolute; padding: 18px 46px 10px; border: 12px solid currentColor; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #0d1424; }
+    [data-composition-id="s15-cta"] .centro { left: 0; right: 0; margin-left: auto; margin-right: auto; width: max-content; }
+    [data-composition-id="s15-cta"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #0d1424; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #0d1424; background: #f4f1e8; box-shadow: 8px 8px 0 #0d1424; }
+    [data-composition-id="s15-cta"] .cel { position: absolute; border-radius: 52px; border: 8px solid #0d1424; background: #0d1424; box-shadow: 0 0 0 6px #6cc4ff, 12px 12px 0 6px #0d1424; }
+    [data-composition-id="s15-cta"] .cel .barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #0d1424; z-index: 2; }
+    [data-composition-id="s15-cta"] .cel .pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 44px; background: #f4f1e8; overflow: hidden; }
+    [data-composition-id="s15-cta"] .cel .head { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: #1b3a6b; border-bottom: 5px solid #0d1424; }
+    [data-composition-id="s15-cta"] .cel .head b { position: absolute; left: 110px; top: 46px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 32px; color: #f4f1e8; white-space: nowrap; }
+    [data-composition-id="s15-cta"] .cel .head small { position: absolute; left: 110px; top: 86px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; color: #6cc4ff; white-space: nowrap; }
+    [data-composition-id="s15-cta"] .cel .head i { position: absolute; left: 30px; top: 46px; width: 64px; height: 64px; border-radius: 50%; background: #6cc4ff; border: 4px solid #0d1424; }
+    [data-composition-id="s15-cta"] .msg { position: absolute; max-width: 82%; padding: 14px 20px 12px; border-radius: 22px; border: 4px solid #0d1424; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.18; color: #0d1424; white-space: nowrap; }
+    [data-composition-id="s15-cta"] .msg.yo { right: 18px; background: #6cc4ff; border-bottom-right-radius: 6px; }
+    [data-composition-id="s15-cta"] .msg.el { left: 18px; background: #ffffff; border-bottom-left-radius: 6px; }
+    [data-composition-id="s15-cta"] .msg small { display: block; margin-top: 4px; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 600; opacity: 0.65; }
+
+    [data-composition-id="s15-cta"] .s15-t1 { top: 590px; font-size: 118px; }
+    [data-composition-id="s15-cta"] .s15-t2 { top: 716px; font-size: 92px; }
+    [data-composition-id="s15-cta"] .s15-t3 { top: 820px; font-size: 92px; }
+    [data-composition-id="s15-cta"] .s15-t4 { top: 924px; font-size: 124px; }
+    [data-composition-id="s15-cta"] .s15-env { position: absolute; left: 90px; top: 1150px; width: 900px; height: 170px; background: #f4f1e8; border: 8px solid #0d1424; border-radius: 30px; box-shadow: 10px 10px 0 #5ce611; }
+    [data-composition-id="s15-cta"] .s15-env small { position: absolute; left: 40px; top: 26px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 26px; letter-spacing: 0.12em; color: #1b3a6b; }
+    [data-composition-id="s15-cta"] .s15-user { position: absolute; left: 40px; top: 70px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 50px; color: #0d1424; white-space: nowrap; }
+    [data-composition-id="s15-cta"] .s15-cursor { display: inline-block; width: 6px; height: 50px; margin-left: 4px; background: #0d1424; vertical-align: -6px; }
+    [data-composition-id="s15-cta"] .s15-btn { position: absolute; right: 26px; top: 30px; width: 108px; height: 108px; border-radius: 50%; background: #5ce611; border: 7px solid #0d1424; }
+    [data-composition-id="s15-cta"] .s15-btn svg { width: 100%; height: 100%; }
+    [data-composition-id="s15-cta"] .s15-deco { left: 0; top: 0; width: 1080px; height: 1920px; }
+
+  </style>
+  <div id="root" data-composition-id="s15-cta" data-width="1080" data-height="1920" data-duration="5.19">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="5.19" data-track-index="0">
+      <div class="s15-esc esc">
+
+        <div class="obj s15-deco"><svg viewBox="0 0 1080 1920" aria-hidden="true"><rect class="s15-roja" x="860" y="1380" width="110" height="156" rx="12" fill="#e63946" stroke="#0d1424" stroke-width="6" transform="rotate(14 915.0 1458.0)"/><rect class="s15-amarilla" x="110" y="1390" width="110" height="156" rx="12" fill="#ffd447" stroke="#0d1424" stroke-width="6" transform="rotate(-12 165.0 1468.0)"/>
+  <g class="s15-silbato"><path d="M470 1440 H590 Q614 1440 614 1470 Q614 1500 584 1500 H500 Q462 1500 462 1470 Z" fill="#ffd447" stroke="#0d1424" stroke-width="7"/><rect x="430" y="1444" width="44" height="30" rx="6" fill="#ffd447" stroke="#0d1424" stroke-width="6"/><circle cx="540" cy="1470" r="12" fill="#0d1424"/></g></svg></div>
+        <div class="big g s15-t1" data-layout-allow-overlap>Mandáselo</div>
+        <div class="big b s15-t2" data-layout-allow-overlap>al que siempre</div>
+        <div class="big b s15-t3" data-layout-allow-overlap>le echa la culpa</div>
+        <div class="big r s15-t4" data-layout-allow-overlap>al árbitro</div>
+        <div class="s15-env"><small>ENVIAR A:</small><div class="s15-user"><span class="s15-l">e</span><span class="s15-l">l</span><span class="s15-l"> </span><span class="s15-l">q</span><span class="s15-l">u</span><span class="s15-l">e</span><span class="s15-l"> </span><span class="s15-l">c</span><span class="s15-l">u</span><span class="s15-l">l</span><span class="s15-l">p</span><span class="s15-l">a</span><span class="s15-l"> </span><span class="s15-l">a</span><span class="s15-l">l</span><span class="s15-l"> </span><span class="s15-l">á</span><span class="s15-l">r</span><span class="s15-l">b</span><span class="s15-l">i</span><span class="s15-l">t</span><span class="s15-l">r</span><span class="s15-l">o</span><span class="s15-cursor"></span></div><div class="s15-btn"><svg viewBox="0 0 108 108" aria-hidden="true"><path d="M26 54 L82 30 L66 82 L54 60 Z" fill="#f4f1e8" stroke="#0d1424" stroke-width="5" stroke-linejoin="round"/><path d="M54 60 L82 30" stroke="#0d1424" stroke-width="4"/></svg></div></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-cta";
+      const DUR = 5.19;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // brazo: rota un brazo del personaje (prefijo pp) alrededor del hombro
+      const brazo = (pp, lado, rot, t, d = 0.25) => tl.to(q("." + pp + "-b" + lado), { rotation: rot, svgOrigin: lado === "i" ? "140 330" : "320 330", duration: d, ease: "back.out(2)" }, t);
+      const brazoSet = (pp, lado, rot) => gsap.set(q("." + pp + "-b" + lado), { rotation: rot, svgOrigin: lado === "i" ? "140 330" : "320 330" });
+
+
+      const MANDASELO = 0.0, SIEMPRE = 0.57, CULPA = 1.21, ARBITRO = 1.48;
+      // cuadro 0: MANDÁSELO ya cae
+      gsap.set(q(".s15-t1"), { opacity: 1, rotation: -3 });
+      tl.fromTo(q(".s15-t1"), { scale: 1.8 }, { scale: 1, duration: 0.18, ease: "power4.in" }, 0);
+      sacudon(0.15, 1);
+      golpe(q(".s15-t2"), SIEMPRE, 2, 2.2);
+      golpe(q(".s15-t3"), CULPA - 0.2, -2, 2.2);
+      golpe(q(".s15-t4"), ARBITRO + 0.1, -4, 2.8);
+      sacudon(ARBITRO + 0.15, 1.6);
+      vaiven(q(".s15-t1"), 0.6, 4.4, { rotation: -1 }, 0.5);
+      vaiven(q(".s15-t4"), 2.0, 3, { scale: 1.05 }, 0.4);
+      // las tarjetas y el silbato
+      tl.fromTo(q(".s15-roja"), { y: 500 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, ARBITRO);
+      tl.fromTo(q(".s15-amarilla"), { y: 500 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, ARBITRO + 0.1);
+      tl.fromTo(q(".s15-silbato"), { y: 400 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, ARBITRO + 0.2);
+      tl.to(q(".s15-silbato"), { x: 10, duration: 0.06, yoyo: true, repeat: 7, ease: "none" }, ARBITRO + 0.7);
+      // ENVIAR A: el que culpa al árbitro
+      pop(q(".s15-env"), 1.9, 0.3);
+      gsap.set(qa(".s15-l"), { display: "none" });
+      qa(".s15-l").forEach((l, i) => tl.set(l, { display: "inline" }, 2.2 + i * 0.05));
+      tl.fromTo(q(".s15-cursor"), { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "steps(1)", yoyo: true, repeat: 9, immediateRender: false }, 2.0);
+      tl.fromTo(q(".s15-btn"), { scale: 1 }, { scale: 0.85, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.inOut", immediateRender: false }, 3.6);
+      tl.to(q(".s15-btn svg"), { x: 60, y: -40, opacity: 0, duration: 0.4, ease: "power2.in" }, 3.75);
+
+      // salida
+      tl.to(q("#s15-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-al-toque"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-al-toque"] .s05-esc { position: absolute; inset: 0; }
+    [data-composition-id="s05-al-toque"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-al-toque"] .fig { position: absolute; width: 460px; height: 640px; }
+    [data-composition-id="s05-al-toque"] .fig svg, [data-composition-id="s05-al-toque"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s05-al-toque"] .obj { position: absolute; }
+    [data-composition-id="s05-al-toque"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #0d1424; paint-order: stroke fill; }
+    [data-composition-id="s05-al-toque"] .big.b { color: #f4f1e8; text-shadow: 9px 9px 0 #e63946; }
+    [data-composition-id="s05-al-toque"] .big.y { color: #ffd447; text-shadow: 9px 9px 0 #0d1424; }
+    [data-composition-id="s05-al-toque"] .big.c { color: #6cc4ff; text-shadow: 9px 9px 0 #0d1424; }
+    [data-composition-id="s05-al-toque"] .big.r { color: #e63946; text-shadow: 9px 9px 0 #f4f1e8; }
+    [data-composition-id="s05-al-toque"] .big.g { color: #5ce611; text-shadow: 8px 8px 0 #0d1424; }
+    [data-composition-id="s05-al-toque"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s05-al-toque"] .sello { position: absolute; padding: 18px 46px 10px; border: 12px solid currentColor; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #0d1424; }
+    [data-composition-id="s05-al-toque"] .centro { left: 0; right: 0; margin-left: auto; margin-right: auto; width: max-content; }
+    [data-composition-id="s05-al-toque"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #0d1424; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #0d1424; background: #f4f1e8; box-shadow: 8px 8px 0 #0d1424; }
+    [data-composition-id="s05-al-toque"] .cel { position: absolute; border-radius: 52px; border: 8px solid #0d1424; background: #0d1424; box-shadow: 0 0 0 6px #6cc4ff, 12px 12px 0 6px #0d1424; }
+    [data-composition-id="s05-al-toque"] .cel .barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #0d1424; z-index: 2; }
+    [data-composition-id="s05-al-toque"] .cel .pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 44px; background: #f4f1e8; overflow: hidden; }
+    [data-composition-id="s05-al-toque"] .cel .head { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: #1b3a6b; border-bottom: 5px solid #0d1424; }
+    [data-composition-id="s05-al-toque"] .cel .head b { position: absolute; left: 110px; top: 46px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 32px; color: #f4f1e8; white-space: nowrap; }
+    [data-composition-id="s05-al-toque"] .cel .head small { position: absolute; left: 110px; top: 86px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; color: #6cc4ff; white-space: nowrap; }
+    [data-composition-id="s05-al-toque"] .cel .head i { position: absolute; left: 30px; top: 46px; width: 64px; height: 64px; border-radius: 50%; background: #6cc4ff; border: 4px solid #0d1424; }
+    [data-composition-id="s05-al-toque"] .msg { position: absolute; max-width: 82%; padding: 14px 20px 12px; border-radius: 22px; border: 4px solid #0d1424; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.18; color: #0d1424; white-space: nowrap; }
+    [data-composition-id="s05-al-toque"] .msg.yo { right: 18px; background: #6cc4ff; border-bottom-right-radius: 6px; }
+    [data-composition-id="s05-al-toque"] .msg.el { left: 18px; background: #ffffff; border-bottom-left-radius: 6px; }
+    [data-composition-id="s05-al-toque"] .msg small { display: block; margin-top: 4px; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 600; opacity: 0.65; }
+
+    [data-composition-id="s05-al-toque"] .s05-vale { left: -70px; top: 780px; transform-origin: 50% 100%; }
+    [data-composition-id="s05-al-toque"] .s05-cel { left: 520px; top: 610px; }
+    [data-composition-id="s05-al-toque"] .s05-cel { box-shadow: 0 0 0 6px #e63946, 12px 12px 0 6px #0d1424; }
+    [data-composition-id="s05-al-toque"] .s05-cel .head { background: #e63946; }
+    [data-composition-id="s05-al-toque"] .s05-cel .head small { color: #f4f1e8; }
+    [data-composition-id="s05-al-toque"] .s05-foto { position: absolute; right: 18px; top: 370px; width: 180px; height: 150px; background: #6cc4ff; border: 4px solid #0d1424; border-radius: 18px; }
+    [data-composition-id="s05-al-toque"] .s05-foto svg { width: 100%; height: 100%; }
+    [data-composition-id="s05-al-toque"] .s05-tag { position: absolute; left: 520px; top: 560px; padding: 8px 18px 4px; background: #e63946; border: 5px solid #0d1424; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 32px; color: #f4f1e8; white-space: nowrap; }
+    [data-composition-id="s05-al-toque"] .s05-gol { top: 860px; font-size: 250px; }
+
+  </style>
+  <div id="root" data-composition-id="s05-al-toque" data-width="1080" data-height="1920" data-duration="4.49">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.49" data-track-index="0">
+      <div class="s05-esc esc">
+
+        <div class="fig s05-vale"><svg viewBox="0 0 460 640" aria-hidden="true"><g class="s05v-cuerpo">
+  <path d="M150 170 Q120 330 150 400 L310 400 Q340 330 310 170 Z" fill="#0d1424"/>
+  <g class="s05v-bi">
+    <path d="M140 330 L104 470 L150 560" stroke="#0d1424" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M140 330 L104 470 L150 560" stroke="#ffd447" stroke-width="37" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="150" cy="560" r="22" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <path d="M124 318 Q230 292 336 318 Q366 460 356 640 L104 640 Q94 460 124 318 Z" fill="#ffd447" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M196 306 L230 360 L264 306" fill="none" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M200 312 Q220 420 214 450 M260 312 Q240 420 246 450" stroke="#e63946" stroke-width="5" fill="none"/>
+  <rect x="196" y="446" width="68" height="84" rx="8" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><rect x="206" y="458" width="48" height="16" fill="#e63946"/>
+  <text x="230" y="510" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="14" fill="#0d1424">PRENSA</text>
+  <rect x="212" y="262" width="36" height="40" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s05v-cabeza">
+    <ellipse cx="230" cy="192" rx="70" ry="80" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M160 200 Q150 110 230 104 Q312 108 302 200 Q290 150 250 140 Q220 170 170 176 Z" fill="#0d1424" stroke="#0d1424" stroke-width="4"/>
+    <path d="M290 130 Q350 120 360 170 Q340 150 312 160 Z" fill="#0d1424"/><circle cx="300" cy="140" r="12" fill="#e63946" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="s05v-ojos"><ellipse cx="204" cy="200" rx="8" ry="10" fill="#0d1424"/><ellipse cx="256" cy="200" rx="8" ry="10" fill="#0d1424"/>
+      <path d="M192 192 L186 186 M268 192 L274 186" stroke="#0d1424" stroke-width="4" stroke-linecap="round"/></g>
+    <path class="s05v-cejas" d="M188 176 Q204 168 218 176 M242 172 Q256 164 272 170" stroke="#0d1424" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M230 208 Q222 224 234 226" stroke="#0d1424" stroke-width="4" fill="none"/>
+    <circle cx="184" cy="232" r="11" fill="#e63946" opacity="0.45"/><circle cx="276" cy="232" r="11" fill="#e63946" opacity="0.45"/>
+    <ellipse class="s05v-boca" cx="230" cy="250" rx="16" ry="8" fill="#e63946" stroke="#0d1424" stroke-width="4"/>
+  </g>
+  <g class="s05v-bd">
+    <path d="M320 330 L380 440 L334 396" stroke="#0d1424" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M320 330 L380 440 L334 396" stroke="#ffd447" stroke-width="37" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <g><rect x="322" y="300" width="22" height="90" rx="6" fill="#0d1424"/><circle cx="333" cy="290" r="26" fill="#0d1424"/><rect x="314" y="330" width="40" height="34" rx="4" fill="#ffd447" stroke="#0d1424" stroke-width="4"/><text x="334" y="354" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="18" fill="#0d1424">TV</text></g><circle cx="334" cy="396" r="22" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+</g></svg></div>
+        <div class="s05-tag">EL DE ENFRENTE</div>
+        <div class="cel s05-cel" style="width:460px;height:630px"><div class="barra"></div><div class="pant"><div class="head"><i></i><b>Clienta nueva</b><small>en línea</small></div>
+          <div class="msg el s05-m1" style="top:150px">¿tenés el buzo<br>en talle M?<small>dom 23:00</small></div>
+          <div class="msg yo s05-m2" style="top:285px">¡Sí! Te mando foto<small>23:00</small></div>
+          <div class="s05-foto"><svg viewBox="0 0 200 170" aria-hidden="true"><path d="M70 30 Q100 46 130 30 L170 50 L156 86 L140 78 L140 150 L60 150 L60 78 L44 86 L30 50 Z" fill="#ffd447" stroke="#0d1424" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M84 34 Q100 60 116 34" stroke="#0d1424" stroke-width="4" fill="none"/><text x="100" y="128" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="30" fill="#0d1424">M</text></svg></div>
+          <div class="msg el s05-m3" style="top:528px">¡Me lo llevo!<small>23:01</small></div>
+        </div></div>
+        <div class="big y s05-gol">¡Gol!</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-al-toque";
+      const DUR = 4.49;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // brazo: rota un brazo del personaje (prefijo pp) alrededor del hombro
+      const brazo = (pp, lado, rot, t, d = 0.25) => tl.to(q("." + pp + "-b" + lado), { rotation: rot, svgOrigin: lado === "i" ? "140 330" : "320 330", duration: d, ease: "back.out(2)" }, t);
+      const brazoSet = (pp, lado, rot) => gsap.set(q("." + pp + "-b" + lado), { rotation: rot, svgOrigin: lado === "i" ? "140 330" : "320 330" });
+
+
+      const ENFRENTE = 0.19, CONTESTO = 0.85, TOQUE = 1.33, MANDO = 2.0, FOTO = 2.47, BUZO = 2.95, CERRO = 3.62;
+      brazoSet("s05v", "i", 8); brazoSet("s05v", "d", -10);
+      habla(".s05v-boca", 0.0, 4.0, "230 250");
+      tl.fromTo(q(".s05-vale"), { x: -80 }, { x: 0, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      vaiven(q(".s05-vale"), 0.4, 3.8, { rotation: 1.5 }, 0.45);
+      entra(q(".s05-cel"), 0.0, { x: 500 }, 0.35);
+      pop(q(".s05-tag"), ENFRENTE, 0.3);
+      pop(q(".s05-m2"), TOQUE - 0.1, 0.3, { transformOrigin: "100% 100%" });
+      pop(q(".s05-foto"), FOTO, 0.35, { transformOrigin: "100% 0%" });
+      tl.fromTo(q(".s05-foto"), { rotation: 0 }, { rotation: 3, duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, BUZO);
+      pop(q(".s05-m3"), CERRO - 0.35, 0.3, { transformOrigin: "0% 100%" });
+      golpe(q(".s05-gol"), CERRO + 0.05, -6, 3);
+      sacudon(CERRO + 0.1, 2);
+      brazo("s05v", "i", 60, CERRO);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

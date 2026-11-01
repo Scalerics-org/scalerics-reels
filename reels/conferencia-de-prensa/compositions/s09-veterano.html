@@ -1,0 +1,139 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-veterano"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-veterano"] .s09-esc { position: absolute; inset: 0; }
+    [data-composition-id="s09-veterano"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-veterano"] .fig { position: absolute; width: 460px; height: 640px; }
+    [data-composition-id="s09-veterano"] .fig svg, [data-composition-id="s09-veterano"] .obj svg { width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s09-veterano"] .obj { position: absolute; }
+    [data-composition-id="s09-veterano"] .big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap;
+      letter-spacing: -0.02em; -webkit-text-stroke: 12px #0d1424; paint-order: stroke fill; }
+    [data-composition-id="s09-veterano"] .big.b { color: #f4f1e8; text-shadow: 9px 9px 0 #e63946; }
+    [data-composition-id="s09-veterano"] .big.y { color: #ffd447; text-shadow: 9px 9px 0 #0d1424; }
+    [data-composition-id="s09-veterano"] .big.c { color: #6cc4ff; text-shadow: 9px 9px 0 #0d1424; }
+    [data-composition-id="s09-veterano"] .big.r { color: #e63946; text-shadow: 9px 9px 0 #f4f1e8; }
+    [data-composition-id="s09-veterano"] .big.g { color: #5ce611; text-shadow: 8px 8px 0 #0d1424; }
+    [data-composition-id="s09-veterano"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="s09-veterano"] .sello { position: absolute; padding: 18px 46px 10px; border: 12px solid currentColor; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; background: #0d1424; }
+    [data-composition-id="s09-veterano"] .centro { left: 0; right: 0; margin-left: auto; margin-right: auto; width: max-content; }
+    [data-composition-id="s09-veterano"] .globo { position: absolute; padding: 22px 32px; border-radius: 30px; border: 6px solid #0d1424; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.12; white-space: nowrap; color: #0d1424; background: #f4f1e8; box-shadow: 8px 8px 0 #0d1424; }
+    [data-composition-id="s09-veterano"] .cel { position: absolute; border-radius: 52px; border: 8px solid #0d1424; background: #0d1424; box-shadow: 0 0 0 6px #6cc4ff, 12px 12px 0 6px #0d1424; }
+    [data-composition-id="s09-veterano"] .cel .barra { position: absolute; left: 50%; top: 14px; width: 110px; height: 22px; margin-left: -55px; border-radius: 12px; background: #0d1424; z-index: 2; }
+    [data-composition-id="s09-veterano"] .cel .pant { position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border-radius: 44px; background: #f4f1e8; overflow: hidden; }
+    [data-composition-id="s09-veterano"] .cel .head { position: absolute; left: 0; right: 0; top: 0; height: 130px; background: #1b3a6b; border-bottom: 5px solid #0d1424; }
+    [data-composition-id="s09-veterano"] .cel .head b { position: absolute; left: 110px; top: 46px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 32px; color: #f4f1e8; white-space: nowrap; }
+    [data-composition-id="s09-veterano"] .cel .head small { position: absolute; left: 110px; top: 86px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; color: #6cc4ff; white-space: nowrap; }
+    [data-composition-id="s09-veterano"] .cel .head i { position: absolute; left: 30px; top: 46px; width: 64px; height: 64px; border-radius: 50%; background: #6cc4ff; border: 4px solid #0d1424; }
+    [data-composition-id="s09-veterano"] .msg { position: absolute; max-width: 82%; padding: 14px 20px 12px; border-radius: 22px; border: 4px solid #0d1424; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.18; color: #0d1424; white-space: nowrap; }
+    [data-composition-id="s09-veterano"] .msg.yo { right: 18px; background: #6cc4ff; border-bottom-right-radius: 6px; }
+    [data-composition-id="s09-veterano"] .msg.el { left: 18px; background: #ffffff; border-bottom-left-radius: 6px; }
+    [data-composition-id="s09-veterano"] .msg small { display: block; margin-top: 4px; text-align: right; font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 600; opacity: 0.65; }
+
+    [data-composition-id="s09-veterano"] .s09-vet { left: 310px; top: 780px; transform-origin: 50% 100%; }
+    [data-composition-id="s09-veterano"] .s09-ult { top: 820px; font-size: 80px; color: #ffd447; }
+    [data-composition-id="s09-veterano"] .s09-garra { top: 600px; font-size: 90px; }
+    [data-composition-id="s09-veterano"] .s09-t1 { top: 590px; font-size: 96px; }
+    [data-composition-id="s09-veterano"] .s09-t2 { top: 690px; font-size: 140px; }
+
+  </style>
+  <div id="root" data-composition-id="s09-veterano" data-width="1080" data-height="1920" data-duration="6.03">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="6.03" data-track-index="0">
+      <div class="s09-esc esc">
+
+        <div class="fig s09-vet"><svg viewBox="0 0 460 640" aria-hidden="true"><g class="s09v-cuerpo">
+  <g class="s09v-bi">
+    <path d="M140 330 L96 470 L160 520" stroke="#0d1424" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M140 330 L96 470 L160 520" stroke="#1b3a6b" stroke-width="37" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <g><rect x="120" y="470" width="80" height="100" rx="6" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M132 496 H186 M132 516 H186 M132 536 H170" stroke="#1b3a6b" stroke-width="4"/></g><circle cx="160" cy="520" r="22" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <path d="M118 318 Q230 292 342 318 Q372 460 362 640 L98 640 Q88 460 118 318 Z" fill="#1b3a6b" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M196 304 L230 420 L264 304 Z" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M220 330 L230 316 L240 330 L236 420 L224 420 Z" fill="#e63946" stroke="#0d1424" stroke-width="4"/>
+  <path d="M196 304 L180 440 L150 330 M264 304 L280 440 L310 330" fill="none" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="210" y="262" width="40" height="40" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="s09v-cabeza">
+    <circle cx="156" cy="208" r="18" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="304" cy="208" r="18" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse cx="230" cy="196" rx="74" ry="82" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M158 200 Q150 160 166 146 M302 200 Q310 160 294 146" stroke="#f4f1e8" stroke-width="22" fill="none" stroke-linecap="round"/>
+    <path d="M158 200 Q150 160 166 146 M302 200 Q310 160 294 146" stroke="#0d1424" stroke-width="4" fill="none" stroke-dasharray="6 8"/>
+    <path d="M140 150 Q150 92 230 92 Q320 92 326 150 Q340 156 320 162 L140 162 Q124 156 140 150 Z" fill="#1b3a6b" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="232" cy="88" r="9" fill="#1b3a6b" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="s09v-ojos"><circle cx="204" cy="200" r="20" fill="none" stroke="#0d1424" stroke-width="6"/><circle cx="258" cy="200" r="20" fill="none" stroke="#0d1424" stroke-width="6"/>
+      <path d="M224 200 H238" stroke="#0d1424" stroke-width="5"/><path d="M196 202 Q204 196 212 202 M250 202 Q258 196 266 202" stroke="#0d1424" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+    <path class="s09v-cejas" d="M186 172 Q204 164 220 172 M240 172 Q258 164 276 172" stroke="#f4f1e8" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path class="s09v-cejas2" d="M186 172 Q204 164 220 172 M240 172 Q258 164 276 172" stroke="#0d1424" stroke-width="3" fill="none"/>
+    <path d="M230 210 Q220 228 234 230" stroke="#0d1424" stroke-width="4" fill="none"/>
+    <ellipse class="s09v-boca" cx="230" cy="262" rx="14" ry="7" fill="#0d1424"/>
+    <path d="M180 252 Q204 234 230 244 Q256 234 280 252 Q262 264 230 252 Q198 264 180 252 Z" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <g class="s09v-bd">
+    <path d="M320 330 L380 450 L352 380" stroke="#0d1424" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M320 330 L380 450 L352 380" stroke="#1b3a6b" stroke-width="37" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path class="s09v-dedo" d="M352 360 V306" stroke="#0d1424" stroke-width="22" stroke-linecap="round" opacity="0"/><circle cx="352" cy="380" r="22" fill="#f4f1e8" stroke="#0d1424" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+</g></svg></div>
+        <div class="sello centro s09-ult">Última pregunta</div>
+        <div class="big c s09-garra">Garra: de sobra</div>
+        <div class="big b s09-t1">Te faltó</div>
+        <div class="big r s09-t2">banco</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-veterano";
+      const DUR = 6.03;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // golpe: algo que cae de grande en su palabra
+      const golpe = (el, t, rot = -4, sc = 2.6) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: sc, rotation: rot * 3 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const fuera = (el, t, d = 0.18) => tl.to(el, { opacity: 0, scale: 0.85, duration: d, ease: "power2.in" }, t);
+      const entra = (el, t, desde = { x: -700 }, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, Object.assign({ opacity: 1 }, desde), { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t); };
+      const sacudon = (t, f = 1) => [[-14 * f, 8 * f], [10 * f, -6 * f], [-5 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla de t a t+d
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 1.9, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // respira / rebota suave
+      const vaiven = (el, t, d, vars, per = 0.4) => tl.to(el, Object.assign({ duration: per, yoyo: true, repeat: Math.max(1, Math.floor(d / per)) | 1, ease: "sine.inOut" }, vars), t);
+      // brazo: rota un brazo del personaje (prefijo pp) alrededor del hombro
+      const brazo = (pp, lado, rot, t, d = 0.25) => tl.to(q("." + pp + "-b" + lado), { rotation: rot, svgOrigin: lado === "i" ? "140 330" : "320 330", duration: d, ease: "back.out(2)" }, t);
+      const brazoSet = (pp, lado, rot) => gsap.set(q("." + pp + "-b" + lado), { rotation: rot, svgOrigin: lado === "i" ? "140 330" : "320 330" });
+
+
+      const PREGUNTA = 0.40, PROFE = 1.34, GARRA = 2.10, CHARRUA = 2.40, FALTO = 3.27, TE = 4.07, BANCO = 4.50;
+      // cuadro 0: el cartel de la jefa de prensa
+      gsap.set(q(".s09-ult"), { opacity: 1, rotation: -3 });
+      tl.fromTo(q(".s09-ult"), { scale: 1.5 }, { scale: 1, duration: 0.18, ease: "power4.in" }, 0);
+      sacudon(0.15, 1);
+      tl.to(q(".s09-ult"), { y: -40, opacity: 0, duration: 0.2 }, PROFE - 0.4);
+      // se para don Aníbal: todos se callan
+      brazoSet("s09v", "i", 10); brazoSet("s09v", "d", -10);
+      gsap.set(q(".s09-vet"), { opacity: 0 });
+      tl.fromTo(q(".s09-vet"), { opacity: 1, y: 420 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", immediateRender: false }, PROFE - 0.5);
+      habla(".s09v-boca", PROFE, 4.5, "230 262");
+      vaiven(q(".s09-vet"), PROFE + 0.5, 4, { rotation: 1 }, 0.7);
+      golpe(q(".s09-garra"), GARRA + 0.15, -2, 2.2);
+      tl.to(q(".s09-garra"), { scale: 1.06, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, CHARRUA + 0.2);
+      tl.to(q(".s09-garra"), { opacity: 0, y: -40, duration: 0.2 }, TE - 0.15);
+      // te faltó banco: el dedo arriba
+      brazo("s09v", "d", -60, TE);
+      tl.to(q(".s09v-dedo"), { opacity: 1, duration: 0.1 }, TE + 0.1);
+      golpe(q(".s09-t1"), TE + 0.2, -3, 2.2);
+      golpe(q(".s09-t2"), BANCO + 0.12, 3, 2.8);
+      sacudon(BANCO + 0.15, 1.8);
+      tl.to(q(".s09-t2"), { scale: 1.07, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, BANCO + 0.4);
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
