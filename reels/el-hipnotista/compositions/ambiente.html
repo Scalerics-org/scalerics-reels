@@ -1,0 +1,104 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Luckiest Guy"; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .am-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 700px 1050px at 540px 960px, rgba(18, 10, 14, 0) 58%, rgba(18, 10, 14, 0.45) 100%); }
+    [data-composition-id="ambiente"] .am-haz { position: absolute; left: 290px; top: 120px; width: 500px; height: 1330px; background: linear-gradient(180deg, rgba(255, 211, 107, 0.10), rgba(255, 211, 107, 0.02)); clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%); }
+    [data-composition-id="ambiente"] .am-polvo i { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #ffd36b; opacity: 0.35; }
+    [data-composition-id="ambiente"] .am-cartel { position: absolute; left: 190px; top: 128px; width: 700px; height: 92px; background: #6e0a1b; border: 6px solid #e6b143; border-radius: 16px; box-shadow: 0 8px 0 #120a0e; }
+    [data-composition-id="ambiente"] .am-cartel b { position: absolute; left: 0; right: 0; top: 24px; font-family: "Luckiest Guy", sans-serif; font-weight: 400; font-size: 52px; line-height: 1; letter-spacing: 0.06em; color: #ffd36b; text-align: center; white-space: nowrap; text-shadow: 0 4px 0 #120a0e; }
+    [data-composition-id="ambiente"] .am-cartel b.am-verde { color: #5ce611; opacity: 0; }
+    [data-composition-id="ambiente"] .am-bomb { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #ffd36b; box-shadow: 0 0 0 3px #120a0e; }
+    [data-composition-id="ambiente"] .am-chapas { position: absolute; left: 50px; top: 1566px; width: 700px; height: 100px; }
+    [data-composition-id="ambiente"] .am-ch { position: absolute; left: 0; top: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .am-ch .am-pl { display: inline-block; padding: 12px 26px 10px; background: #120a0e; border: 3px solid #e6b143; border-left: 14px solid currentColor; border-radius: 8px; box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5); }
+    [data-composition-id="ambiente"] .am-ch b { display: block; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; line-height: 1; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-ch small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.16em; color: #f6ecd6; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-risas { position: absolute; right: 50px; top: 1580px; width: 220px; height: 78px; background: #2a0a12; border: 5px solid #6e0a1b; border-radius: 12px; text-align: center; }
+    [data-composition-id="ambiente"] .am-risas b { position: absolute; left: 0; right: 0; top: 18px; font-family: "Luckiest Guy", sans-serif; font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: 0.1em; color: #8a5560; }
+    [data-composition-id="ambiente"] .am-risas b.am-on { color: #ff4d5a; text-shadow: 0 0 0 #000; opacity: 0; }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #fff6dc; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="75.56">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="75.56" data-track-index="0">
+      <div class="am-haz"></div>
+      <div class="am-polvo"></div>
+      <div class="am-vineta"></div>
+      <div class="am-cartel"><div class="am-bombs"></div><b class="am-oro">EL GRAN MESMERINO</b><b class="am-verde">SCALERICS PRESENTA</b></div>
+      <div class="am-chapas">
+        <div class="am-ch am-chh" style="color:#ffd36b"><div class="am-pl"><b>EL GRAN MESMERINO</b><small>HIPNOTIZADOR</small></div></div>
+        <div class="am-ch am-chd" style="color:#c7a4ff"><div class="am-pl"><b>OSVALDO</b><small>VOLUNTARIO · VETERINARIA</small></div></div>
+        <div class="am-ch am-chp" style="color:#ff7a8a"><div class="am-pl"><b>LA VECINA</b><small>PLATEA · FILA 3</small></div></div>
+        <div class="am-ch am-cho" style="color:#5ce611"><div class="am-pl"><b>SCALERICS</b><small>AUTOMATIZACIONES</small></div></div>
+      </div>
+      <div class="am-risas" data-layout-allow-overlap><b>RISAS</b><b class="am-on">RISAS</b></div>
+      <div class="am-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 75.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      // segundos globales (de assets/voice/palabras.json / partes/inicios.json)
+      const TURNOS = [[0, "h"], [5.71, "p"], [8.14, "h"], [15.55, "d"], [22.84, "p"], [25.65, "d"], [33.13, "h"], [41.98, "d"], [48.92, "p"], [50.92, "h"], [59.14, "o"]];
+      const RISAS = [[7.0, 1.3], [24.2, 1.3], [30.4, 1.4], [49.9, 1.0]];
+      const FLASHES = [40.73, 59.55];
+      const SCALERICS = 59.55;
+
+      // bombitas alrededor del cartel (700 x 92)
+      const bombs = q(".am-bombs");
+      let html = "";
+      const pos = [];
+      for (let x = 14; x <= 680; x += 37) { pos.push([x, -4]); }
+      for (let x = 680; x >= 14; x -= 37) { pos.push([x, 74]); }
+      pos.forEach(([x, y], i) => { html += `<i class="am-bomb am-b${i % 3}" style="left:${x}px;top:${y}px"></i>`; });
+      bombs.innerHTML = html;
+      // polvo en el haz (posiciones fijas, deterministas)
+      let polvo = "";
+      for (let k = 0; k < 18; k++) polvo += `<i style="left:${400 + ((k * 137) % 290)}px;top:${300 + ((k * 263) % 1100)}px"></i>`;
+      q(".am-polvo").innerHTML = polvo;
+
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(q(".am-cartel"), { y: -40, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 0);
+      // bombitas en cadena: tres grupos que se apagan por turnos (pasos de 0.25 s)
+      const pasos = Math.floor(DUR / 0.25);
+      for (let g = 0; g < 3; g++) {
+        tl.fromTo(qa(".am-b" + g), { opacity: 1 }, { opacity: 0.25, duration: 0.25, ease: "steps(1)", yoyo: true, repeat: Math.max(0, Math.floor(pasos / 3) * 2 - 1), repeatDelay: 0.25, immediateRender: false }, g * 0.25);
+      }
+      // polvo que sube lento
+      qa(".am-polvo i").forEach((p, k) => tl.fromTo(p, { y: 0, opacity: 0.15 }, { y: -140 - (k % 5) * 30, opacity: 0.45, duration: DUR, ease: "none" }, 0));
+      tl.fromTo(q(".am-haz"), { opacity: 0.7 }, { opacity: 1, duration: 2.2, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 2.2) - 1), ease: "sine.inOut" }, 0);
+
+      const CH = { h: ".am-chh", d: ".am-chd", p: ".am-chp", o: ".am-cho" };
+      let ant = null;
+      TURNOS.forEach(([t, quien]) => {
+        const el = q(CH[quien]);
+        if (ant && ant !== el) tl.to(ant, { opacity: 0, x: -30, duration: 0.12, ease: "power2.in" }, t - 0.12);
+        if (ant !== el) tl.fromTo(el, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(2.2)", immediateRender: false }, Math.max(0, t));
+        ant = el;
+      });
+      RISAS.forEach(([t, d]) => {
+        tl.to(q(".am-risas .am-on"), { opacity: 1, duration: 0.15, ease: "steps(1)", yoyo: true, repeat: Math.round(d / 0.15) - 1 + (Math.round(d / 0.15) % 2 ? 1 : 0) }, t);
+        tl.set(q(".am-risas .am-on"), { opacity: 0 }, t + d + 0.2);
+      });
+      FLASHES.forEach((t) => {
+        tl.to(q(".am-flash"), { opacity: 0.6, duration: 0.03 }, t);
+        tl.to(q(".am-flash"), { opacity: 0, duration: 0.45, ease: "power2.out" }, t + 0.04);
+      });
+      tl.to(q(".am-oro"), { opacity: 0, duration: 0.15 }, SCALERICS);
+      tl.to(q(".am-verde"), { opacity: 1, duration: 0.2 }, SCALERICS + 0.1);
+      tl.to(qa(".am-bomb"), { backgroundColor: "#5ce611", duration: 0.2 }, SCALERICS);
+      tl.to(q(".am-cartel"), { borderColor: "#5ce611", duration: 0.2 }, SCALERICS);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

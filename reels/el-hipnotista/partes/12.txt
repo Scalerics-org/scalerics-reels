@@ -1,0 +1,1 @@
+En Scalerics hacemos automatizaciones: el pedido de WhatsApp pasa solo a la planilla, el turno se recuerda solo y el stock se actualiza solo. Mientras vos te despertás de verdad.

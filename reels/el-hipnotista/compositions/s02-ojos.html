@@ -1,0 +1,58 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/hipnosis.js"></script>
+  <style>
+    @font-face { font-family: "Luckiest Guy"; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-ojos"] .s02-capa, [data-composition-id="s02-ojos"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-ojos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-ojos"] .s02-globo { left: 470px; top: 1150px; }
+  </style>
+  <div id="root" data-composition-id="s02-ojos" data-width="1080" data-height="1920" data-duration="2.42">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="2.42" data-track-index="0">
+      <div class="s02-escenario">
+        <svg class="s02-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="hp-globo s02-globo">¡MIRÁ LOS OJOS!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-ojos";
+      const DUR = 2.42;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      root.querySelector(".s02-svg").innerHTML =
+        `<g class="s02-esp">${HP.espiral(540, 900, 430, "s02-espg")}</g>` +
+        `<g class="s02-osv">${HP.osvaldo(540, 1640, 2.0, { trance: true })}</g>` +
+        HP.platea(80, 1000, 1420, "s02-platea") +
+        HP.vecina(250, 1600, 0.85, { mano: true });
+      const tl = gsap.timeline({ paused: true });
+      const K = HP.kit(tl, root);
+      const { q } = K;
+      const OJOS = 0.53;
+
+      K.girar(q(".s02-espg"), 540, 900, 0, DUR, -100);
+      K.ojosTrance(0, DUR, 260);
+      tl.fromTo(q(".s02-osv"), { y: 60, scale: 0.94, transformOrigin: "50% 60%" }, { y: 0, scale: 1, duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo(q(".hp-s"), { y: 260 }, { y: 0, duration: 0.35, ease: "back.out(1.5)" }, 0);
+      // la vecina se ríe: la cabeza rebota
+      K.origen(q(".hp-s-cabeza"), "0 -220");
+      tl.fromTo(q(".hp-s-cabeza"), { rotation: -4 }, { rotation: 5, duration: 0.14, yoyo: true, repeat: 13, ease: "sine.inOut", immediateRender: false }, 0.3);
+      K.origen(q(".hp-s-mano"), "110 -150");
+      tl.fromTo(q(".hp-s-mano"), { rotation: -6 }, { rotation: 6, duration: 0.2, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, 0.3);
+      // "ojos": las espirales crecen
+      K.origen(q(".hp-o-espirales"), "0 -372");
+      tl.fromTo(q(".hp-o-espirales"), { scale: 1 }, { scale: 1.35, duration: 0.3, ease: "back.out(3)", immediateRender: false }, OJOS - 0.05);
+      K.pop(q(".s02-globo"), OJOS - 0.1);
+      tl.to(q(".s02-globo"), { rotation: 3, duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, OJOS + 0.3);
+      tl.fromTo(q(".s02-platea"), { y: 0 }, { y: -10, duration: 0.15, yoyo: true, repeat: 11, ease: "sine.inOut" }, 0.6);
+
+      K.salida(q("#s02-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

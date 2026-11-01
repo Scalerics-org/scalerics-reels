@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/hipnosis.js"></script>
+  <style>
+    @font-face { font-family: "Luckiest Guy"; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-scalerics"] .s12-capa, [data-composition-id="s12-scalerics"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-scalerics"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-scalerics"] .s12-tag { left: 220px; width: 640px; top: 1462px; }
+    [data-composition-id="s12-scalerics"] .s12-titulo { left: 0; width: 1080px; top: 560px; font-size: 96px; }
+    [data-composition-id="s12-scalerics"] .s12-chip { position: absolute; box-sizing: border-box; padding: 14px 22px 10px 76px; background: #f6ecd6; border: 6px solid #120a0e; border-radius: 22px; box-shadow: 6px 6px 0 rgba(0,0,0,0.55);
+      font-family: "Luckiest Guy", sans-serif; font-size: 40px; line-height: 1; color: #120a0e; white-space: nowrap; }
+    [data-composition-id="s12-scalerics"] .s12-chip i { position: absolute; left: 14px; top: 8px; width: 48px; height: 48px; border-radius: 50%; background: #5ce611; border: 5px solid #120a0e; box-sizing: border-box; }
+    [data-composition-id="s12-scalerics"] .s12-chip i::after { content: ""; position: absolute; left: 13px; top: 5px; width: 10px; height: 20px; border: solid #120a0e; border-width: 0 6px 6px 0; transform: rotate(45deg); }
+    [data-composition-id="s12-scalerics"] .s12-turno { left: 90px; top: 1270px; }
+    [data-composition-id="s12-scalerics"] .s12-stock { left: 590px; top: 1270px; }
+    [data-composition-id="s12-scalerics"] .s12-desp { left: 150px; width: 780px; top: 600px; font-size: 64px; }
+  </style>
+  <div id="root" data-composition-id="s12-scalerics" data-width="1080" data-height="1920" data-duration="10.32">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="10.32" data-track-index="0">
+      <div class="s12-escenario">
+        <svg class="s12-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s12-f1">
+          <div class="hp-cartel verde s12-titulo">SCALERICS</div>
+          <div class="s12-chip s12-turno"><i></i>TURNO: AVISADO</div>
+          <div class="s12-chip s12-stock"><i></i>STOCK: AL DÍA</div>
+        </div>
+        <div class="hp-sello verde s12-desp">¡DESPIERTO DE VERDAD!</div>
+        <div class="hp-tag verde s12-tag">AUTOMATIZACIONES</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-scalerics";
+      const DUR = 10.32;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = HP.INK, G = HP.VERDE, GD = HP.VERDED, C = HP.CREMA;
+      // engranaje
+      const gear = (cx, cy, R, r, n) => {
+        let d = "";
+        for (let k = 0; k < n; k++) {
+          const a0 = (k / n) * Math.PI * 2, a1 = a0 + (Math.PI * 2) / n * 0.22, a2 = a0 + (Math.PI * 2) / n * 0.5, a3 = a0 + (Math.PI * 2) / n * 0.72;
+          const p = (a, rr) => `${(cx + Math.cos(a) * rr).toFixed(1)} ${(cy + Math.sin(a) * rr).toFixed(1)}`;
+          d += `${k ? "L" : "M"}${p(a0, r)} L${p(a1, R)} L${p(a2, R)} L${p(a3, r)} `;
+        }
+        return d + "Z";
+      };
+      let rayos = "";
+      for (let k = 0; k < 12; k++) {
+        const a = (k / 12) * Math.PI * 2;
+        rayos += `<path d="M${540 + Math.cos(a) * 190} ${900 + Math.sin(a) * 190} L${540 + Math.cos(a) * 280} ${900 + Math.sin(a) * 280}" stroke="${HP.OROC}" stroke-width="18" stroke-linecap="round"/>`;
+      }
+      root.querySelector(".s12-svg").innerHTML =
+        `<g class="s12-f1g">` +
+          `<g class="s12-esp">${HP.espiral(540, 1000, 250, "s12-espg")}</g>` +
+          `<g class="s12-gear"><path d="${gear(540, 1000, 250, 205, 14)}" fill="${G}" stroke="${I}" stroke-width="9" stroke-linejoin="round"/>
+            <circle cx="540" cy="1000" r="140" fill="${GD}" stroke="${I}" stroke-width="8"/><circle cx="540" cy="1000" r="54" fill="${C}" stroke="${I}" stroke-width="8"/></g>` +
+          `<path class="s12-ruta" d="M300 900 C380 700 700 700 780 880" fill="none" stroke="${G}" stroke-width="8" stroke-dasharray="4 22" stroke-linecap="round"/>` +
+          `<g class="s12-cel">${HP.celular(70, 760, 230, 420, "s12-clip")}
+            <g clip-path="url(#s12-clip)"><rect x="70" y="760" width="230" height="70" fill="${GD}"/>
+              <text x="185" y="806" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="24" fill="${C}">WHATSAPP</text>
+              <rect x="90" y="860" width="170" height="56" rx="18" fill="${C}" stroke="${I}" stroke-width="5"/><text x="175" y="897" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="25" fill="${I}">PEDIDO</text>
+            </g>${HP.celularBorde(70, 760, 230, 420)}</g>` +
+          `<g class="s12-plan">` + HP.planilla(780, 780, 230, 330, 4, "s12-plang").replace(/#7a4fd8/g, GD) +
+          `<text x="895" y="826" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="24" fill="${C}">PLANILLA</text></g>` +
+          `<g class="s12-vuela"><rect x="90" y="860" width="170" height="56" rx="18" fill="${C}" stroke="${I}" stroke-width="5"/><text x="175" y="897" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="25" fill="${I}">PEDIDO</text></g>` +
+        `</g>` +
+        `<g class="s12-f2">` +
+          `<g class="s12-sol"><circle cx="540" cy="900" r="160" fill="${HP.OROC}" stroke="${I}" stroke-width="8"/>${rayos}</g>` +
+          `<g class="s12-ot">${HP.osvaldo(540, 1480, 1.0, { trance: true, brazos: "sonambulo" })}</g>` +
+          `<g class="s12-od">${HP.osvaldo(540, 1480, 1.0, { trance: false, brazos: "estira" })}</g>` +
+        `</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = HP.kit(tl, root);
+      const { q, qa } = K;
+      const SCA = 0.41, AUTO = 1.10, WA = 2.80, PLAN = 3.98, TURNO = 4.83, STOCK = 6.70, MIENTRAS = 8.32, DESP = 8.98;
+
+      // la espiral gira y en "Scalerics" se vuelve engranaje verde
+      K.girar(q(".s12-espg"), 540, 1000, 0, 1.2, 140);
+      gsap.set(q(".s12-gear"), { opacity: 0 });
+      tl.to(q(".s12-esp"), { opacity: 0, scale: 0.6, svgOrigin: "540 1000", duration: 0.25, ease: "power2.in" }, SCA - 0.05);
+      tl.fromTo(q(".s12-gear"), { opacity: 0, scale: 0.5, rotation: -40, svgOrigin: "540 1000" }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: "540 1000", duration: 0.4, ease: "back.out(2)", immediateRender: false }, SCA);
+      tl.to(q(".s12-gear"), { rotation: 300, svgOrigin: "540 1000", duration: MIENTRAS - SCA - 0.4, ease: "none" }, SCA + 0.4);
+      K.golpe(q(".s12-titulo"), SCA + 0.05);
+      K.pop(q(".s12-tag"), AUTO);
+      tl.to(q(".s12-titulo"), { opacity: 0, y: -20, duration: 0.25 }, WA - 0.5);
+      // el pedido de WhatsApp pasa solo a la planilla
+      tl.fromTo(q(".s12-cel"), { x: -80, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, AUTO + 0.4);
+      tl.fromTo(q(".s12-plan"), { x: 80, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, AUTO + 0.5);
+      gsap.set(qa(".s12-plan .hp-celda"), { opacity: 0 });
+      K.dibujar(q(".s12-ruta"), WA - 0.3, 0.5);
+      gsap.set(q(".s12-vuela"), { opacity: 0 });
+      tl.set(q(".s12-vuela"), { opacity: 1 }, WA);
+      tl.to(q(".s12-vuela"), { keyframes: [{ x: 230, y: -190, duration: 0.5, ease: "power1.out" }, { x: 640, y: 30, scale: 0.85, duration: 0.6, ease: "power1.in" }] }, WA);
+      tl.to(q(".s12-vuela"), { opacity: 0, duration: 0.1 }, PLAN - 0.1);
+      qa(".s12-plan .hp-celda").forEach((c, i) => tl.to(c, { opacity: 1, duration: 0.08 }, PLAN - 0.1 + i * 0.12));
+      // turno y stock, solos
+      K.pop(q(".s12-turno"), TURNO);
+      K.pop(q(".s12-stock"), STOCK);
+      tl.fromTo(q(".s12-turno i"), { rotation: 0 }, { rotation: 360, duration: 0.5, ease: "back.out(1.5)", immediateRender: false }, TURNO + 0.1);
+      tl.fromTo(q(".s12-stock i"), { rotation: 0 }, { rotation: 360, duration: 0.5, ease: "back.out(1.5)", immediateRender: false }, STOCK + 0.1);
+      // "Mientras vos te despertás de verdad": Osvaldo y el sol
+      tl.to(q(".s12-f1"), { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, MIENTRAS - 0.15);
+      tl.to(q(".s12-f1g"), { opacity: 0, scale: 0.8, svgOrigin: "540 1000", duration: 0.3, ease: "power2.in" }, MIENTRAS - 0.15);
+      gsap.set(q(".s12-f2"), { opacity: 0 });
+      gsap.set(q(".s12-od"), { opacity: 0 });
+      tl.fromTo(q(".s12-f2"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, MIENTRAS + 0.1);
+      K.ojosTrance(MIENTRAS, DESP - MIENTRAS, 220);
+      gsap.set(q(".s12-sol"), { opacity: 0, y: 260 });
+      tl.to(q(".s12-ot"), { opacity: 0, duration: 0.08 }, DESP);
+      tl.to(q(".s12-od"), { opacity: 1, duration: 0.08 }, DESP);
+      tl.fromTo(q(".s12-od .hp-o-manos"), { y: 80 }, { y: 0, duration: 0.4, ease: "back.out(2)", immediateRender: false }, DESP);
+      tl.to(q(".s12-sol"), { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, DESP - 0.1);
+      tl.to(q(".s12-sol"), { rotation: 30, svgOrigin: "540 900", duration: DUR - DESP, ease: "none" }, DESP);
+      K.sello(q(".s12-desp"), DESP + 0.15, -3);
+
+      K.salida(q("#s12-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

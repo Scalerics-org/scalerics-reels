@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/hipnosis.js"></script>
+  <style>
+    @font-face { font-family: "Luckiest Guy"; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-copiar"] .s05-capa, [data-composition-id="s05-copiar"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-copiar"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-copiar"] .s05-n { left: 340px; width: 400px; top: 1462px; }
+    [data-composition-id="s05-copiar"] .s05-n span { position: absolute; left: 0; right: 0; top: 11px; }
+  </style>
+  <div id="root" data-composition-id="s05-copiar" data-width="1080" data-height="1920" data-duration="7.01">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="7.01" data-track-index="0">
+      <div class="s05-escenario">
+        <svg class="s05-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="hp-tag vio s05-n">&nbsp;<span class="s05-n1">PEDIDO N° 1</span><span class="s05-n2">PEDIDO N° 2</span><span class="s05-n3">PEDIDO N° 3</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-copiar";
+      const DUR = 7.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = HP.INK;
+      const chip = (x, y, txt, cls, fill, color, w) => `<g class="${cls}"><rect x="${x}" y="${y}" width="${w || 190}" height="58" rx="18" fill="${fill}" stroke="${I}" stroke-width="5"/>
+        <text x="${x + (w || 190) / 2}" y="${y + 39}" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="27" fill="${color}">${txt}</text></g>`;
+      root.querySelector(".s05-svg").innerHTML =
+        `<g class="s05-esp" opacity="0.35">${HP.espiral(540, 1080, 330, "s05-espg", { tinta: HP.VIO })}</g>` +
+        HP.tecla(110, 580, 390, 150, "CTRL + C", "s05-tc", 64) +
+        HP.tecla(580, 580, 390, 150, "CTRL + V", "s05-tv", 64) +
+        `<g class="s05-cel">${HP.celular(80, 800, 250, 440, "s05-clip")}
+          <g clip-path="url(#s05-clip)"><rect x="80" y="800" width="250" height="70" fill="${HP.VIO}"/>
+            <text x="205" y="846" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="26" fill="${HP.CREMA}">CLIENTES</text>
+            ${chip(100, 900, "PEDIDO", "s05-b1", HP.CREMA, I)}
+            ${chip(130, 1000, "¡LISTO!", "s05-b2", HP.VIO, HP.CREMA, 180)}
+            ${chip(100, 1100, "PEDIDO", "s05-b3", HP.CREMA, I)}
+          </g>${HP.celularBorde(80, 800, 250, 440)}</g>` +
+        HP.planilla(750, 820, 250, 360, 4, "s05-plan") +
+        `<text x="875" y="868" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="26" fill="${HP.CREMA}">PLANILLA</text>` +
+        `<g class="s05-osv">${HP.osvaldo(540, 1430, 0.95, { trance: true, brazos: "tipea" })}</g>` +
+        `<g class="s05-teclado"><rect x="380" y="1395" width="320" height="56" rx="14" fill="#2b1d3a" stroke="${I}" stroke-width="7"/>
+          <path d="M400 1414 h280 M400 1432 h280" stroke="#4a3560" stroke-width="6" stroke-dasharray="22 8"/></g>` +
+        chip(100, 900, "PEDIDO", "s05-g1", HP.CREMA, I) + chip(100, 1100, "PEDIDO", "s05-g3", HP.CREMA, I);
+      const tl = gsap.timeline({ paused: true });
+      const K = HP.kit(tl, root);
+      const { q, qa } = K;
+      const C1 = 0.0, P1 = 1.51, AV = 3.2, C2 = 5.07, P2 = 6.08;
+
+      K.girar(q(".s05-espg"), 540, 1080, 0, DUR, 80);
+      K.ojosTrance(0, DUR, 220);
+      K.balanceo(q(".s05-osv"), 540, 1430, 0, DUR, 2);
+      tl.fromTo(q(".s05-osv"), { y: 40 }, { y: 0, duration: 0.4, ease: "power3.out" }, 0);
+      // tipea todo el tiempo
+      tl.fromTo(q(".hp-o-mi"), { y: 0 }, { y: -12, duration: 0.14, yoyo: true, repeat: 47, ease: "sine.inOut", immediateRender: false }, 0);
+      tl.fromTo(q(".hp-o-md"), { y: -12 }, { y: 0, duration: 0.14, yoyo: true, repeat: 47, ease: "sine.inOut", immediateRender: false }, 0);
+      tl.fromTo([q(".s05-tc"), q(".s05-tv")], { y: -40, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(2)", stagger: 0.08 }, 0);
+      tl.fromTo(q(".s05-cel"), { x: -60 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s05-plan"), { x: 60 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      const apretar = (cls, t) => {
+        tl.to(q(cls + "-top"), { y: 14, duration: 0.07, ease: "power2.in" }, t);
+        tl.to(q(cls + "-top"), { y: 0, duration: 0.15, ease: "back.out(3)" }, t + 0.12);
+      };
+      gsap.set(qa(".hp-celda"), { opacity: 0 });
+      gsap.set([q(".s05-b2"), q(".s05-b3"), q(".s05-g1"), q(".s05-g3")], { opacity: 0 });
+      gsap.set([q(".s05-n2"), q(".s05-n3")], { opacity: 0 });
+      // copiar 1 / pegar 1
+      K.popSvg(q(".s05-b1"), 0.15, 195, 929);
+      apretar(".s05-tc", C1 + 0.2);
+      tl.set(q(".s05-g1"), { opacity: 1 }, C1 + 0.3);
+      tl.to(q(".s05-g1"), { x: 300, y: 380, scale: 0.8, svgOrigin: "195 929", duration: 0.7, ease: "power2.inOut" }, C1 + 0.35);
+      apretar(".s05-tv", P1);
+      tl.to(q(".s05-g1"), { x: 655, y: -15, scale: 0.9, duration: 0.45, ease: "power2.inOut" }, P1 - 0.1);
+      tl.to(q(".s05-g1"), { opacity: 0, duration: 0.1 }, P1 + 0.35);
+      tl.to(q(".hp-celda-0"), { opacity: 1, duration: 0.1 }, P1 + 0.35);
+      K.pop(q(".s05-n"), 0.3);
+      // avisar que está listo
+      K.popSvg(q(".s05-b2"), AV, 220, 1029);
+      // copiar 2 / pegar 2 (más rápido) y pegar 3
+      K.popSvg(q(".s05-b3"), C2 - 0.15, 195, 1129);
+      tl.to(q(".s05-n1"), { opacity: 0, duration: 0.1 }, C2);
+      tl.to(q(".s05-n2"), { opacity: 1, duration: 0.1 }, C2);
+      apretar(".s05-tc", C2);
+      tl.set(q(".s05-g3"), { opacity: 1 }, C2 + 0.1);
+      tl.to(q(".s05-g3"), { x: 655, y: -141, scale: 0.9, svgOrigin: "195 1129", duration: 0.75, ease: "power2.inOut" }, C2 + 0.15);
+      tl.to(q(".s05-g3"), { opacity: 0, duration: 0.1 }, C2 + 0.9);
+      apretar(".s05-tv", P2);
+      tl.to(q(".hp-celda-1"), { opacity: 1, duration: 0.1 }, P2);
+      apretar(".s05-tc", P2 + 0.3);
+      apretar(".s05-tv", P2 + 0.5);
+      tl.to(q(".hp-celda-2"), { opacity: 1, duration: 0.1 }, P2 + 0.55);
+      tl.to(q(".s05-n2"), { opacity: 0, duration: 0.1 }, P2 + 0.55);
+      tl.to(q(".s05-n3"), { opacity: 1, duration: 0.1 }, P2 + 0.55);
+
+      K.salida(q("#s05-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

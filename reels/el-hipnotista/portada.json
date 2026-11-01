@@ -1,0 +1,4 @@
+{ "t": 3.6, "chica": "Este comerciante", "grande": "ya viene hipnotizado", "sello": "Show de hipnosis",
+  "acento": "#ffd36b", "sello_color": "#d6243a", "velo": "18,10,14", "fondo": "#120a0e",
+  "zoom": 1.35, "foco": "40%", "foco_x": "55%",
+  "circulo": { "x": 545, "y": 985, "r": 250 }, "flecha": { "x": 90, "y": 560, "rot": 50 } }

@@ -1,0 +1,63 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/hipnosis.js"></script>
+  <style>
+    @font-face { font-family: "Luckiest Guy"; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-chasquido"] .s03-capa, [data-composition-id="s03-chasquido"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-chasquido"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-chasquido"] .s03-tag { left: 240px; width: 600px; top: 1462px; }
+  </style>
+  <div id="root" data-composition-id="s03-chasquido" data-width="1080" data-height="1920" data-duration="3.20">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.20" data-track-index="0">
+      <div class="s03-escenario">
+        <svg class="s03-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="hp-tag s03-tag">ATENCIÓN AL CHASQUIDO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-chasquido";
+      const DUR = 3.2;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const O = HP.OROC;
+      root.querySelector(".s03-svg").innerHTML =
+        `<g class="s03-esp">${HP.espiral(540, 960, 380, "s03-espg", { tinta: "#2b1d3a" })}</g>` +
+        `<g class="s03-hombre">${HP.mesmerino(440, 1700, 1.35, { sinReloj: true, espejo: true })}</g>` +
+        `<g class="s03-tension" stroke="${O}" stroke-width="10" stroke-linecap="round" fill="none">
+          <path d="M760 880 l-40 -40"/><path d="M845 850 v-60"/><path d="M930 880 l40 -40"/><path d="M960 960 h56"/><path d="M730 960 h-56"/>
+        </g>
+        <g class="s03-brillo"><path d="M845 800 L862 870 L930 885 L862 902 L845 970 L828 902 L760 885 L828 870 Z" fill="${O}" stroke="${HP.INK}" stroke-width="6" stroke-linejoin="round"/></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = HP.kit(tl, root);
+      const { q, qa } = K;
+      const OSV = 0.0, CHAS = 1.36, DEDOS = 2.24;
+
+      K.girar(q(".s03-espg"), 540, 960, 0, DUR, 90);
+      tl.fromTo(q(".s03-hombre"), { y: 80 }, { y: 0, duration: 0.45, ease: "back.out(1.4)" }, 0);
+      K.hablar(".hp-h-boca", 0.05, 10, 0.12);
+      // "Osvaldo": cejas arriba, mirada intensa
+      tl.fromTo(q(".hp-h-cejas"), { y: 0 }, { y: -12, duration: 0.18, ease: "back.out(3)" }, OSV + 0.1);
+      tl.to(q(".hp-h-cejas"), { y: 4, duration: 0.2 }, CHAS);
+      K.pop(q(".s03-tag"), 0.3);
+      // la mano sube despacio, temblando de tensión
+      K.origen(q(".hp-h-mano"), "-140 -200");
+      tl.fromTo(q(".hp-h-mano"), { rotation: 20 }, { rotation: 0, duration: 0.7, ease: "power2.out", immediateRender: false }, 0.2);
+      tl.to(q(".hp-h-dedos"), { x: 3, duration: 0.05, yoyo: true, repeat: 19, ease: "none" }, CHAS);
+      qa(".s03-tension path").forEach((p, i) => K.dibujar(p, CHAS + i * 0.06, 0.25));
+      tl.to(q(".s03-tension"), { opacity: 0.4, duration: 0.12, yoyo: true, repeat: 5 }, CHAS + 0.4);
+      // "dedos": brillo dorado
+      K.popSvg(q(".s03-brillo"), DEDOS - 0.05, 845, 885);
+      tl.to(q(".s03-brillo"), { rotation: 90, svgOrigin: "845 885", duration: 0.9, ease: "none" }, DEDOS + 0.25);
+      tl.to(q(".s03-escenario"), { scale: 1.06, transformOrigin: "70% 50%", duration: DUR, ease: "none" }, 0);
+
+      K.salida(q("#s03-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
