@@ -1,0 +1,61 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/epoca.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-primera"] .s13-capa, [data-composition-id="s13-primera"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-primera"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-primera"] .s13-cinta { left: 300px; top: 1196px; width: 480px; font-size: 44px; }
+  </style>
+  <div id="root" data-composition-id="s13-primera" data-width="1080" data-height="1920" data-duration="3.06">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="3.06" data-track-index="0">
+      <div class="s13-escenario">
+        <svg class="s13-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ep-rotulo s13-cinta">DE PRIMERA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-primera";
+      const DUR = 3.06;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const E = EP;
+      const brillo = (x, y, r) => `<path d="M${x} ${y - r} L${x + r * 0.25} ${y - r * 0.25} L${x + r} ${y} L${x + r * 0.25} ${y + r * 0.25} L${x} ${y + r} L${x - r * 0.25} ${y + r * 0.25} L${x - r} ${y} L${x - r * 0.25} ${y - r * 0.25} Z" fill="${E.ORO3}" stroke="${E.ORO2}" stroke-width="3"/>`;
+      root.querySelector(".s13-svg").innerHTML =
+        `<g class="s13-cuadro">${E.marco(300, 680, 480, 480, { cresta: true, fondo: E.CELESTE })}
+          <g class="s13-bota">${E.bota(410, 1090, 1.25)}</g>
+          <g class="s13-br">${brillo(380, 760, 26)}${brillo(720, 820, 20)}${brillo(700, 1040, 16)}</g></g>` +
+        `<g class="s13-ern">${E.ernesto(930, 1420, 0.5, { izq: "pecho" })}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = E.kit(tl, root);
+      const { q, qa } = K;
+
+      const ERNESTO = 0.74;
+      const MERCANCIA = 1.49;
+      const PRIMERA = 2.38;
+
+      tl.fromTo(q(".s13-cuadro"), { scale: 0.9, opacity: 0.6, svgOrigin: "540 920", smoothOrigin: false }, { scale: 1, opacity: 1, svgOrigin: "540 920", duration: 0.4, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s13-escenario"), { scale: 1 }, { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      // "Ernesto": Ernesto chiquito asoma, consolado
+      gsap.set(q(".s13-ern"), { opacity: 0 });
+      tl.fromTo(q(".s13-ern"), { opacity: 0, x: 160 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, ERNESTO - 0.1);
+      K.caraE(ERNESTO, "seria");
+      K.caraE(PRIMERA, "sonrisa");
+      // "mercancía": la bota brilla
+      qa(".s13-br path").forEach((el, i) => {
+        const bb = [[380, 760], [720, 820], [700, 1040]][i];
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.2, svgOrigin: bb.join(" "), smoothOrigin: false }, { opacity: 1, scale: 1, svgOrigin: bb.join(" "), duration: 0.25, ease: "back.out(3)", immediateRender: false }, MERCANCIA + i * 0.12);
+      });
+      tl.fromTo(q(".s13-bota"), { y: 0 }, { y: -14, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, MERCANCIA);
+      // "primera": cinta dorada
+      K.pop(q(".s13-cinta"), PRIMERA - 0.1);
+
+      K.salida(q("#s13-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

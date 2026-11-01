@@ -1,0 +1,64 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/epoca.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-privado"] .s07-capa, [data-composition-id="s07-privado"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-privado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-privado"] .s07-papel { position: absolute; left: 150px; top: 600px; width: 780px; height: 760px; background: #fffaf0; border: 7px solid #3b2f3a; border-radius: 8px; box-shadow: 12px 12px 0 rgba(59, 47, 58, 0.15); transform: rotate(-2deg); }
+    [data-composition-id="s07-privado"] .s07-papel::before { content: ""; position: absolute; inset: 18px; border: 3px solid #c9a046; border-radius: 4px; }
+    [data-composition-id="s07-privado"] .s07-l { left: 60px; font-size: 70px; }
+    [data-composition-id="s07-privado"] .s07-l1 { top: 60px; }
+    [data-composition-id="s07-privado"] .s07-l2 { top: 160px; }
+    [data-composition-id="s07-privado"] .s07-l3 { top: 300px; font-size: 92px; color: #b3262e; }
+    [data-composition-id="s07-privado"] .s07-firma { left: 330px; top: 560px; font-size: 64px; }
+    [data-composition-id="s07-privado"] .s07-sub { position: absolute; left: 50px; top: 420px; width: 640px; height: 30px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s07-privado" data-width="1080" data-height="1920" data-duration="4.28">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.28" data-track-index="0">
+      <div class="s07-escenario">
+        <div class="s07-papel">
+          <div class="ep-cursiva s07-l s07-l1">en horario de atención,</div>
+          <div class="ep-cursiva s07-l s07-l2">de lunes a viernes.</div>
+          <div class="ep-cursiva s07-l s07-l3">Precio por privado.</div>
+          <svg class="s07-sub" viewBox="0 0 640 30" aria-hidden="true"><path class="s07-raya" d="M10 18 C160 4 360 28 630 10" fill="none" stroke="#b3262e" stroke-width="8" stroke-linecap="round"/></svg>
+          <div class="ep-cursiva s07-firma">Don Ernesto</div>
+        </div>
+        <svg class="s07-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-privado";
+      const DUR = 4.28;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const E = EP;
+      root.querySelector(".s07-svg").innerHTML = `<g class="s07-lac">${E.lacre(270, 1210, 82, { letra: "E" })}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = E.kit(tl, root);
+      const { q } = K;
+
+      const LINEAS = [[".s07-l1", 0.0, 0.7], [".s07-l2", 1.41, 0.65], [".s07-l3", 2.72, 0.75], [".s07-firma", 3.5, 0.5]];
+
+      tl.fromTo(q(".s07-papel"), { scale: 0.92, opacity: 0.7 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s07-escenario"), { scale: 1 }, { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      LINEAS.forEach(([s, t, d]) => {
+        gsap.set(q(s), { clipPath: "inset(0 100% 0 0)" });
+        tl.to(q(s), { clipPath: "inset(0 0% 0 0)", duration: d, ease: "none" }, t);
+      });
+      // subrayado de "Precio por privado"
+      K.dibujar(q(".s07-raya"), 3.31, 0.35);
+      // "privado": el lacre se estampa al pie
+      gsap.set(q(".s07-lac"), { opacity: 0 });
+      tl.fromTo(q(".s07-lac"), { opacity: 0, scale: 2, svgOrigin: "270 1210", smoothOrigin: false }, { opacity: 1, scale: 1, svgOrigin: "270 1210", duration: 0.14, ease: "power4.in", immediateRender: false }, 3.31);
+      K.sacudon(q(".s07-escenario"), 3.47, 0.7);
+
+      K.salida(q("#s07-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

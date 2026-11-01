@@ -1,0 +1,78 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/epoca.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-instagram"] .s03-capa, [data-composition-id="s03-instagram"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-instagram"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s03-instagram" data-width="1080" data-height="1920" data-duration="4.2">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="4.2" data-track-index="0">
+      <div class="s03-escenario">
+        <svg class="s03-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-instagram";
+      const DUR = 4.2;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const E = EP;
+      // el post genérico: avatar, nombre, foto de las botas, corazones, grilla
+      const W = 400, H = 740;
+      const corazon = (cx, cy, r, c) => `<path d="M${cx} ${cy + r} C${cx - r * 1.6} ${cy - r * 0.2} ${cx - r} ${cy - r * 1.4} ${cx} ${cy - r * 0.5} C${cx + r} ${cy - r * 1.4} ${cx + r * 1.6} ${cy - r * 0.2} ${cx} ${cy + r} Z" fill="${c || E.LACRE}" stroke="${E.TINTA}" stroke-width="4"/>`;
+      const post = `
+        <g class="s03-cab"><circle cx="64" cy="92" r="30" fill="${E.SALVIA2}" stroke="${E.TINTA}" stroke-width="4"/>
+          <text x="64" y="102" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="28" fill="${E.CREMA}">E</text>
+          <text class="s03-nom" x="108" y="102" font-family="Lexend" font-weight="700" font-size="28" fill="${E.TINTA}">calzados.ernesto</text>
+          <path class="s03-sub" d="M108 114 L346 114" stroke="${E.LACRE}" stroke-width="6" stroke-linecap="round"/></g>
+        <rect x="24" y="140" width="352" height="352" fill="${E.ROSA}" opacity="0.45"/>
+        <g class="s03-botas">${E.bota(70, 440, 0.95)}${E.bota(140, 470, 0.6, { color: E.ROSA2 })}</g>
+        <g class="s03-likes">${corazon(52, 528, 16)}<text x="84" y="542" font-family="Lexend" font-weight="700" font-size="28" fill="${E.TINTA}">a Clara le gusta</text></g>
+        <g class="s03-grilla">${[0, 1, 2].map((i) => `<rect x="${24 + i * 120}" y="580" width="112" height="112" fill="${[E.CELESTE, E.SALVIA, E.ROSA][i]}" stroke="${E.TINTA}" stroke-width="3"/>`).join("")}
+          ${E.bota(44, 676, 0.3, { color: E.CELESTE2 })}${E.bota(164, 676, 0.3, { color: E.SALVIA2 })}${E.bota(284, 676, 0.3)}</g>`;
+      root.querySelector(".s03-svg").innerHTML =
+        `<g class="s03-clara">${E.clara(290, 1360, 0.95, { brazo: "cel" })}</g>` +
+        `<g class="s03-cel">${E.celular(590, 590, W, H, post)}</g>` +
+        `<g class="s03-cors">${corazon(540, 760, 22)}${corazon(500, 860, 16, E.ROSA2)}${corazon(560, 940, 18)}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = E.kit(tl, root);
+      const { q, qa } = K;
+
+      const BOTAS = 0.49;
+      const DIVINAS = 0.74;
+      const INSTAGRAM = 1.8;
+      const ERNESTO = 3.2;
+
+      tl.fromTo(q(".s03-clara"), { x: -60, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s03-cel"), { x: 80, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s03-escenario"), { scale: 1 }, { scale: 1.05, duration: DUR, ease: "none", transformOrigin: "60% 50%" }, 0);
+      // "botas": las botas en la pantalla
+      K.popS(q(".s03-botas"), BOTAS - 0.1, "790 900", 0.35);
+      // "divinas": ojos de corazón y corazones que suben
+      tl.set(q(".ep-c-ojos"), { opacity: 0 }, DIVINAS);
+      tl.set(q(".ep-c-corazones"), { opacity: 1 }, DIVINAS);
+      K.caraC(DIVINAS, "o");
+      K.caraC(DIVINAS + 0.6, "sonrisa");
+      qa(".s03-cors path").forEach((el, i) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: -120, duration: 1.4, ease: "power1.out", immediateRender: false }, DIVINAS + i * 0.18);
+        tl.to(el, { opacity: 0, duration: 0.3 }, DIVINAS + i * 0.18 + 1.1);
+      });
+      K.pop(q(".s03-likes"), DIVINAS + 0.2, 0.3);
+      // "Instagram": el perfil y la grilla
+      K.pop(q(".s03-grilla"), INSTAGRAM - 0.05, 0.35);
+      tl.fromTo(q(".s03-cab"), { opacity: 0.5 }, { opacity: 1, duration: 0.2 }, INSTAGRAM);
+      gsap.set(q(".s03-cab"), { opacity: 0.5 });
+      // "Ernesto": se subraya el nombre del perfil
+      K.dibujar(q(".s03-sub"), ERNESTO - 0.1, 0.4);
+      tl.fromTo(q(".s03-cel"), { rotation: 0, svgOrigin: "790 960", smoothOrigin: false }, { rotation: -3, svgOrigin: "790 960", duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, ERNESTO);
+
+      K.salida(q("#s03-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

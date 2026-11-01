@@ -1,0 +1,74 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/epoca.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s16-cta"] .s16-capa, [data-composition-id="s16-cta"] .s16-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s16-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s16-cta"] .s16-manda { top: 700px; font-size: 104px; }
+    [data-composition-id="s16-cta"] .s16-al { left: 0; right: 0; text-align: center; top: 830px; font-size: 66px; }
+    [data-composition-id="s16-cta"] .s16-priv { top: 920px; font-size: 96px; }
+    [data-composition-id="s16-cta"] .s16-carta { left: 0; right: 0; text-align: center; top: 1060px; font-size: 56px; color: #9a7a2e; }
+    [data-composition-id="s16-cta"] .s16-firma { left: 560px; top: 1290px; font-size: 54px; }
+  </style>
+  <div id="root" data-composition-id="s16-cta" data-width="1080" data-height="1920" data-duration="6.7">
+    <div id="s16-escena" class="s16-capa clip" data-start="0" data-duration="6.7" data-track-index="0">
+      <div class="s16-escenario">
+        <svg class="s16-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ep-titulo s16-manda">MANDÁSELO</div>
+        <div class="ep-cursiva s16-al">al que todavía vende</div>
+        <div class="ep-titulo lacre s16-priv">POR PRIVADO</div>
+        <div class="ep-cursiva s16-carta">Que se entere por carta.</div>
+        <div class="ep-cursiva s16-firma">La cronista</div>
+        <svg class="s16-svg2" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s16-cta";
+      const DUR = 6.7;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const E = EP;
+      root.querySelector(".s16-svg").innerHTML = E.marco(130, 660, 820, 500, { cresta: true, fondo: E.BLA });
+      root.querySelector(".s16-svg2").innerHTML = `<g class="s16-sobre">${E.sobre(200, 1240, 300, 200, { letra: "C" })}</g>` +
+        `<g class="s16-pl">${E.pluma(0, 0, 0.55, { rot: 28 })}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = E.kit(tl, root);
+      const { q } = K;
+
+      const AL = 0.65;
+      const PRIVADO = 1.72;
+      const QUE = 2.13;
+      const CARTA = 2.95;
+
+      tl.fromTo(q(".ep-marco"), { scale: 0.9, opacity: 0.6, svgOrigin: "540 910", smoothOrigin: false }, { scale: 1, opacity: 1, svgOrigin: "540 910", duration: 0.4, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s16-manda"), { opacity: 0.3, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power4.out" }, 0);
+      K.pop(q(".s16-al"), AL - 0.05);
+      gsap.set(q(".s16-priv"), { opacity: 0 });
+      tl.fromTo(q(".s16-priv"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, PRIVADO - 0.1);
+      K.sacudon(q(".s16-escenario"), PRIVADO + 0.05, 0.7);
+      gsap.set(q(".s16-carta"), { clipPath: "inset(0 100% 0 0)" });
+      tl.to(q(".s16-carta"), { clipPath: "inset(0 0% 0 0)", duration: 0.8, ease: "none" }, QUE);
+      // "carta": el sobre lacrado aparece abajo, la pluma firma
+      gsap.set(q(".s16-sobre"), { opacity: 0 });
+      tl.fromTo(q(".s16-sobre"), { opacity: 0, y: 80, rotation: -14, svgOrigin: "350 1340", smoothOrigin: false }, { opacity: 1, y: 0, rotation: -6, svgOrigin: "350 1340", duration: 0.4, ease: "back.out(1.8)", immediateRender: false }, CARTA - 0.15);
+      K.popS(q(".ep-sobre-lacre"), CARTA + 0.15, "350 1352", 0.3);
+      gsap.set(q(".s16-firma"), { clipPath: "inset(0 100% 0 0)" });
+      tl.to(q(".s16-firma"), { clipPath: "inset(0 0% 0 0)", duration: 0.8, ease: "none" }, CARTA + 0.3);
+      const pl = q(".s16-pl");
+      gsap.set(pl, { x: 570, y: 1360, opacity: 0 });
+      tl.to(pl, { opacity: 1, duration: 0.1 }, CARTA + 0.3);
+      tl.to(pl, { x: 860, duration: 0.8, ease: "none" }, CARTA + 0.3);
+      tl.to(pl, { y: 1346, duration: 0.08, yoyo: true, repeat: 9, ease: "sine.inOut" }, CARTA + 0.3);
+      // queda quieto con vida: el sobre flota y la pluma se mece
+      tl.to(q(".s16-sobre"), { y: -14, duration: 0.8, yoyo: true, repeat: 3, ease: "sine.inOut" }, CARTA + 0.6);
+      tl.to(pl, { rotation: 8, duration: 0.7, yoyo: true, repeat: 3, ease: "sine.inOut" }, CARTA + 1.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

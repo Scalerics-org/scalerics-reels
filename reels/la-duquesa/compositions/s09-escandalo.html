@@ -1,0 +1,77 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/epoca.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-escandalo"] .s09-capa, [data-composition-id="s09-escandalo"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-escandalo"] .s09-gaceta { position: absolute; left: 130px; top: 590px; width: 820px; height: 780px; background: #efe4cf; border: 7px solid #3b2f3a; box-shadow: 14px 14px 0 rgba(59, 47, 58, 0.18); }
+    [data-composition-id="s09-escandalo"] .s09-cab { position: absolute; left: 30px; right: 30px; top: 22px; padding-bottom: 12px; border-bottom: 5px double #3b2f3a; text-align: center; font-family: "Cinzel", serif; font-weight: 800; font-size: 40px; letter-spacing: 0.12em; color: #3b2f3a; white-space: nowrap; }
+    [data-composition-id="s09-escandalo"] .s09-fecha { position: absolute; left: 30px; right: 30px; top: 90px; text-align: center; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 30px; color: #3b2f3a; white-space: nowrap; }
+    [data-composition-id="s09-escandalo"] .s09-esc { top: 150px; font-size: 118px; color: #b3262e; }
+    [data-composition-id="s09-escandalo"] .s09-soc { top: 280px; font-size: 52px; letter-spacing: 0.2em; }
+    [data-composition-id="s09-escandalo"] svg { position: absolute; left: 0; top: 0; width: 820px; height: 780px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s09-escandalo" data-width="1080" data-height="1920" data-duration="3.63">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="3.63" data-track-index="0">
+      <div class="s09-escenario">
+        <div class="s09-gaceta">
+          <div class="s09-cab">LA GACETA DE SOCIEDAD</div>
+          <div class="s09-fecha" data-layout-ignore>Edición de la noche · Montevideo</div>
+          <div class="ep-titulo s09-esc">¡ESCÁNDALO!</div>
+          <div class="ep-titulo s09-soc">EN SOCIEDAD</div>
+          <svg class="s09-svg" viewBox="0 0 820 780" aria-hidden="true"></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-escandalo";
+      const DUR = 3.63;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const E = EP;
+      // grabado: el local de Ernesto a la izquierda, Clara (camafeo) y el celular a la derecha, con luna
+      root.querySelector(".s09-svg").innerHTML = `
+        <rect x="40" y="370" width="740" height="370" fill="${E.CREMA}" stroke="${E.TINTA}" stroke-width="5"/>
+        ${[0, 1, 2, 3, 4, 5, 6].map((i) => `<path d="M52 ${400 + i * 46} L768 ${400 + i * 46}" stroke="${E.TINTA}" stroke-width="2" opacity="0.12"/>`).join("")}
+        <g class="s09-luna"><circle cx="410" cy="440" r="40" fill="${E.ORO3}" stroke="${E.TINTA}" stroke-width="4"/><circle cx="428" cy="428" r="34" fill="${E.CREMA}"/></g>
+        <g class="s09-loc"><rect x="80" y="520" width="200" height="190" fill="${E.CREMA2}" stroke="${E.TINTA}" stroke-width="5"/>
+          ${[0, 1, 2, 3].map((i) => `<path d="M${80 + i * 50} 520 L${130 + i * 50} 520 L${130 + i * 50} 556 C${118 + i * 50} 568 ${92 + i * 50} 568 ${80 + i * 50} 556 Z" fill="${i % 2 ? E.CREMA : E.ROSA}" stroke="${E.TINTA}" stroke-width="4"/>`).join("")}
+          <rect x="110" y="600" width="140" height="110" fill="${E.SALVIA2}" stroke="${E.TINTA}" stroke-width="4"/>
+          <text x="180" y="664" text-anchor="middle" font-family="Cinzel" font-weight="800" font-size="20" fill="${E.CREMA}">CERRADO</text></g>
+        <g class="s09-cla"><g transform="translate(400 700) scale(0.36)">${E.clara(0, 0, 1, {})}</g></g>
+        <path class="s09-fle" d="M300 600 C380 560 520 560 600 600" fill="none" stroke="${E.LACRE}" stroke-width="9" stroke-linecap="round"/>
+        <path class="s09-punta" d="M580 572 L612 604 L570 620" fill="none" stroke="${E.LACRE}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        <g class="s09-cel">${E.celular(630, 500, 120, 220, `<rect x="16" y="40" width="88" height="70" rx="6" fill="${E.ROSA}"/><rect x="16" y="130" width="88" height="34" rx="17" fill="${E.SCA}" stroke="${E.TINTA}" stroke-width="3"/>`)}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = E.kit(tl, root);
+      const { q } = K;
+
+      const SOCIEDAD = 0.45;
+      const NOCHE = 1.59;
+      const CLARA = 2.14;
+      const OTRO = 2.91;
+
+      // la gaceta entra girando, como en las películas
+      tl.fromTo(q(".s09-gaceta"), { rotation: -340, scale: 0.35, opacity: 0.4 }, { rotation: -3, scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      gsap.set(q(".s09-esc"), { opacity: 0 });
+      tl.fromTo(q(".s09-esc"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, 0.3);
+      K.sacudon(q(".s09-gaceta"), 0.46);
+      K.pop(q(".s09-soc"), SOCIEDAD);
+      K.popS(q(".s09-luna"), NOCHE - 0.1, "410 440");
+      // Clara se va del local hacia el celular
+      tl.fromTo(q(".s09-cla"), { x: -140 }, { x: -140, duration: 0.01 }, 0);
+      tl.to(q(".s09-cla"), { x: 0, duration: 0.6, ease: "power2.inOut" }, CLARA);
+      K.dibujar(q(".s09-fle"), OTRO - 0.25, 0.35);
+      K.dibujar(q(".s09-punta"), OTRO + 0.08, 0.15);
+      K.popS(q(".s09-cel"), OTRO, "690 610");
+      tl.to(q(".s09-loc"), { opacity: 0.35, duration: 0.3 }, OTRO);
+
+      K.salida(q("#s09-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

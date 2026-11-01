@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .am-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1100px at 540px 900px, rgba(201, 160, 70, 0) 60%, rgba(201, 160, 70, 0.16) 100%); }
+    [data-composition-id="ambiente"] .am-cartela { position: absolute; left: 48px; top: 60px; height: 128px; padding: 0 34px; display: flex; flex-direction: column; justify-content: center;
+      background: #3b2f3a; border: 4px solid #c9a046; border-radius: 10px; box-shadow: 0 0 0 6px #f6efe1, 0 0 0 10px #c9a046; }
+    [data-composition-id="ambiente"] .am-cartela b { display: block; font-family: "Cinzel", serif; font-weight: 800; font-size: 44px; line-height: 1; color: #ecd38a; letter-spacing: 0.08em; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-cartela small { display: block; margin-top: 12px; font-family: "Cinzel", serif; font-weight: 700; font-size: 23px; letter-spacing: 0.2em; color: #f6efe1; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-sub2 { position: absolute; left: 34px; bottom: 26px; color: #5ce611 !important; opacity: 0; }
+    [data-composition-id="ambiente"] .am-cap { position: absolute; right: 60px; top: 60px; width: 128px; height: 128px; }
+    [data-composition-id="ambiente"] .am-cap svg { position: absolute; inset: 0; width: 128px; height: 128px; overflow: visible; }
+    [data-composition-id="ambiente"] .am-chapas { position: absolute; left: 48px; top: 1550px; width: 800px; height: 116px; }
+    [data-composition-id="ambiente"] .am-ch { position: absolute; left: 0; top: 0; opacity: 0; display: flex; align-items: center; gap: 0; }
+    [data-composition-id="ambiente"] .am-ch i { display: block; width: 92px; height: 108px; border-radius: 50%; background: currentColor; border: 8px solid #c9a046; box-shadow: 0 0 0 3px #9a7a2e; position: relative; z-index: 2; }
+    [data-composition-id="ambiente"] .am-ch .am-pl { margin-left: -24px; padding: 14px 30px 12px 46px; background: #3b2f3a; border: 3px solid #c9a046; border-radius: 0 10px 10px 0; }
+    [data-composition-id="ambiente"] .am-ch b { display: block; font-family: "Cinzel", serif; font-weight: 800; font-size: 36px; line-height: 1; color: #f6efe1; white-space: nowrap; letter-spacing: 0.04em; }
+    [data-composition-id="ambiente"] .am-ch small { display: block; margin-top: 8px; font-family: "Cinzel", serif; font-weight: 700; font-size: 20px; letter-spacing: 0.18em; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-petalo { position: absolute; top: 0; width: 26px; height: 16px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; opacity: 0.55; }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #fffaf0; opacity: 0; }
+    [data-composition-id="ambiente"] .am-flash-r { position: absolute; inset: 0; background: #e7b7b4; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="76.23">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="76.23" data-track-index="0">
+      <div class="am-vineta"></div>
+      <div class="am-petalos"></div>
+      <div class="am-cartela"><b>CRÓNICAS DE SOCIEDAD</b><small class="am-sub1">TEMPORADA DE BAILES</small><small class="am-sub2">ESTA TEMPORADA: ONLINE</small></div>
+      <div class="am-cap"><svg viewBox="0 0 128 128" aria-hidden="true">
+        <path d="M64 4 L76 12 L90 8 L96 22 L110 26 L110 40 L122 50 L114 64 L122 78 L110 88 L110 102 L96 106 L90 120 L76 116 L64 124 L52 116 L38 120 L32 106 L18 102 L18 88 L6 78 L14 64 L6 50 L18 40 L18 26 L32 22 L38 8 L52 12 Z" fill="#b3262e" stroke="#7f1a20" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="64" cy="64" r="40" fill="none" stroke="#7f1a20" stroke-width="4"/>
+        <text x="64" y="58" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="22" fill="#fffaf0" letter-spacing="2">CAP.</text>
+        <text x="64" y="90" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="34" fill="#fffaf0">I</text>
+      </svg></div>
+      <div class="am-chapas">
+        <div class="am-ch am-chk" style="color:#c9a046"><i style="background:#a9cfe0"></i><div class="am-pl"><b>LA CRONISTA</b><small style="color:#ecd38a">VOZ ANÓNIMA</small></div></div>
+        <div class="am-ch am-chc" style="color:#e7b7b4"><i style="background:#e7b7b4"></i><div class="am-pl"><b>SEÑORITA CLARA</b><small style="color:#e7b7b4">CLIENTA</small></div></div>
+        <div class="am-ch am-che" style="color:#b3262e"><i style="background:#a7b99a"></i><div class="am-pl"><b>DON ERNESTO</b><small style="color:#e0646a">CALZADOS ERNESTO</small></div></div>
+        <div class="am-ch am-cho" style="color:#5ce611"><i style="background:#5ce611"></i><div class="am-pl"><b>SCALERICS</b><small style="color:#5ce611">TIENDAS ONLINE</small></div></div>
+      </div>
+      <div class="am-flash-r"></div>
+      <div class="am-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 76.23;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      // segundos globales (de assets/voice/palabras.json)
+      const TURNOS = [[0, "k"], [13.61, "c"], [18.11, "k"], [24.33, "e"], [34.16, "c"], [38.14, "k"], [45.45, "c"], [47.8, "e"], [51.18, "k"], [60.03, "o"], [69.53, "k"]];
+      const ESCANDALO = 38.14;
+      const SCALERICS = 60.55;
+
+      tl.fromTo(q(".am-cartela"), { y: -24 }, { y: 0, duration: 0.4, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".am-cap"), { scale: 1.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 0.1);
+      // el lacre se mece apenas, todo el reel (repeticiones contadas)
+      tl.fromTo(q(".am-cap"), { rotation: -4 }, { rotation: 4, duration: 2, yoyo: true, repeat: 37, ease: "sine.inOut", immediateRender: false }, 0.5);
+
+      // pétalos pastel que caen lento (posiciones fijas, deterministas)
+      const P = [[90, 0, "#e7b7b4"], [300, 3.1, "#a9cfe0"], [520, 6.4, "#e7b7b4"], [760, 1.7, "#a7b99a"], [960, 4.6, "#e7b7b4"], [180, 8.2, "#ecd38a"], [640, 9.6, "#a9cfe0"], [880, 11.3, "#e7b7b4"], [420, 12.7, "#a7b99a"]];
+      const cont = q(".am-petalos");
+      P.forEach(([x, d, c], i) => {
+        const el = document.createElement("div");
+        el.className = "am-petalo";
+        el.style.left = x + "px";
+        el.style.background = c;
+        cont.appendChild(el);
+        const vuelta = 14;
+        gsap.set(el, { y: -60 });
+        tl.fromTo(el, { y: -60, rotation: 0 }, { y: 1980, rotation: 300 + i * 40, duration: vuelta, ease: "none", repeat: Math.ceil(DUR / vuelta), immediateRender: false }, d - 14 > 0 ? d : d);
+        tl.fromTo(el, { x: -30 }, { x: 30, duration: 2.2 + (i % 3) * 0.4, yoyo: true, repeat: 34, ease: "sine.inOut", immediateRender: false }, d);
+      });
+
+      const CH = { k: ".am-chk", c: ".am-chc", e: ".am-che", o: ".am-cho" };
+      let ant = null;
+      TURNOS.forEach(([t, quien]) => {
+        const el = q(CH[quien]);
+        if (ant && ant !== el) tl.to(ant, { opacity: 0, x: -30, duration: 0.12, ease: "power2.in" }, t - 0.12);
+        if (ant !== el) tl.fromTo(el, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(2.2)", immediateRender: false }, Math.max(0, t));
+        ant = el;
+      });
+
+      tl.to(q(".am-flash-r"), { opacity: 0.55, duration: 0.03 }, ESCANDALO);
+      tl.to(q(".am-flash-r"), { opacity: 0, duration: 0.5, ease: "power2.out" }, ESCANDALO + 0.04);
+      tl.to(q(".am-flash"), { opacity: 0.85, duration: 0.03 }, SCALERICS - 0.05);
+      tl.to(q(".am-flash"), { opacity: 0, duration: 0.6, ease: "power2.out" }, SCALERICS);
+      tl.to(q(".am-sub1"), { opacity: 0, duration: 0.15 }, SCALERICS);
+      tl.to(q(".am-sub2"), { opacity: 1, duration: 0.25 }, SCALERICS + 0.05);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

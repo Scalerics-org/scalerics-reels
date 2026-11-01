@@ -1,0 +1,74 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/epoca.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-tienda"] .s10-capa, [data-composition-id="s10-tienda"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-tienda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-tienda"] .s10-env { left: 600px; top: 1010px; font-size: 28px; }
+    [data-composition-id="s10-tienda"] .s10-man { left: 640px; top: 1110px; font-size: 34px; }
+  </style>
+  <div id="root" data-composition-id="s10-tienda" data-width="1080" data-height="1920" data-duration="3.68">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="3.68" data-track-index="0">
+      <div class="s10-escenario">
+        <svg class="s10-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ep-rotulo salvia s10-env">ENVÍO A DOMICILIO</div>
+        <div class="ep-rotulo verde s10-man">LLEGA MAÑANA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-tienda";
+      const DUR = 3.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const E = EP;
+      const W = 420, H = 740;
+      const tilde = (x, y, s) => `<path d="M${x - 14 * s} ${y} L${x - 4 * s} ${y + 11 * s} L${x + 16 * s} ${y - 12 * s}" fill="none" stroke="${E.TINTA}" stroke-width="${6 * s}" stroke-linecap="round" stroke-linejoin="round"/>`;
+      const tienda = `
+        <rect x="25" y="42" width="370" height="70" fill="${E.CELESTE}"/>
+        <text x="210" y="88" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="28" fill="${E.TINTA}">zapatería · tienda online</text>
+        <g class="s10-prod"><rect x="45" y="130" width="330" height="270" rx="14" fill="${E.ROSA}" opacity="0.5"/>
+          ${E.bota(110, 380, 0.92)}
+          <text x="45" y="446" font-family="Lexend" font-weight="700" font-size="28" fill="${E.TINTA}">Botas de cordones</text>
+          <text x="45" y="494" font-family="Lexend" font-weight="900" font-size="40" fill="${E.TINTA}">$ 3.490</text>
+          <text x="232" y="494" font-family="Lexend" font-weight="600" font-size="24" fill="${E.SALVIA2}">hay en 38</text></g>
+        <g class="s10-btn1"><rect x="45" y="520" width="330" height="76" rx="38" fill="${E.ROSA2}" stroke="${E.TINTA}" stroke-width="4"/>
+          <text x="210" y="570" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="32" fill="${E.BLA}">COMPRAR</text></g>
+        <g class="s10-btn2"><rect x="45" y="520" width="330" height="76" rx="38" fill="${E.CELESTE}" stroke="${E.TINTA}" stroke-width="4"/>
+          <text x="210" y="568" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="28" fill="${E.TINTA}">Pagar: Mercado Pago</text></g>
+        <g class="s10-ok"><rect x="45" y="616" width="330" height="76" rx="38" fill="${E.SCA}" stroke="${E.TINTA}" stroke-width="4"/>
+          ${tilde(100, 654, 1.4)}<text x="226" y="666" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="30" fill="${E.TINTA}">PAGADO</text></g>`;
+      root.querySelector(".s10-svg").innerHTML = `<g class="s10-cel">${E.celular(150, 590, W, H, tienda)}</g>` +
+        `<g class="s10-paq">${E.paquete(750, 1270, 200, 140)}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = E.kit(tl, root);
+      const { q } = K;
+
+      const ONLINE = 0.18;
+      const MERCADO = 0.78;
+      const ENVIO = 1.73;
+      const DIA = 2.8;
+
+      tl.fromTo(q(".s10-cel"), { y: 120, opacity: 0.5, rotation: -6, svgOrigin: "360 960", smoothOrigin: false }, { y: 0, opacity: 1, rotation: 0, svgOrigin: "360 960", duration: 0.4, ease: "back.out(1.5)" }, 0);
+      K.popS(q(".s10-prod"), ONLINE, "360 900", 0.35);
+      K.pop(q(".s10-btn1"), ONLINE + 0.2, 0.3);
+      // "Mercado Pago": el botón cambia y se paga
+      tl.set(q(".s10-btn1"), { opacity: 0 }, MERCADO - 0.05);
+      K.popS(q(".s10-btn2"), MERCADO - 0.05, "360 1150", 0.25);
+      K.popS(q(".s10-ok"), MERCADO + 0.45, "360 1244", 0.3);
+      // "envío": etiqueta; "otro día": llega mañana y el paquete salta
+      K.pop(q(".s10-env"), ENVIO - 0.05);
+      K.pop(q(".s10-man"), DIA - 0.1);
+      gsap.set(q(".s10-paq"), { opacity: 0 });
+      tl.fromTo(q(".s10-paq"), { opacity: 0, y: -260, rotation: -20, svgOrigin: "850 1410", smoothOrigin: false }, { opacity: 1, y: 0, rotation: 0, svgOrigin: "850 1410", duration: 0.4, ease: "bounce.out", immediateRender: false }, DIA - 0.2);
+      tl.fromTo(q(".s10-escenario"), { scale: 1 }, { scale: 1.04, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+
+      K.salida(q("#s10-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

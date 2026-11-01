@@ -1,0 +1,101 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/epoca.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-siglo"] .s01-capa, [data-composition-id="s01-siglo"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-siglo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-siglo"] .s01-querido { left: 150px; top: 548px; font-size: 76px; }
+    [data-composition-id="s01-siglo"] .s01-1800 { top: 1212px; font-size: 186px; }
+    [data-composition-id="s01-siglo"] .s01-hoy { left: 640px; top: 760px; font-size: 32px; }
+  </style>
+  <div id="root" data-composition-id="s01-siglo" data-width="1080" data-height="1920" data-duration="6.79">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="6.79" data-track-index="0">
+      <div class="s01-escenario">
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ep-cursiva s01-querido">Querido lector,</div>
+        <div class="ep-titulo oro s01-1800" data-layout-ignore>1800</div>
+        <svg class="s01-svg2" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ep-rotulo verde s01-hoy">ESTE SIGLO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-siglo";
+      const DUR = 6.79;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const E = EP;
+      // la fachada del local de época dentro del marco
+      const toldo = Array.from({ length: 8 }, (_, i) => `<path d="M${300 + i * 60} 800 L${360 + i * 60} 800 L${360 + i * 60} 870 C${345 + i * 60} 890 ${315 + i * 60} 890 ${300 + i * 60} 870 Z" fill="${i % 2 ? E.CREMA : E.ROSA}" stroke="${E.TINTA}" stroke-width="5" stroke-linejoin="round"/>`).join("");
+      const local = `<g class="s01-local">
+        <rect x="290" y="740" width="500" height="400" fill="${E.CREMA2}" stroke="${E.TINTA}" stroke-width="7"/>
+        <rect x="330" y="752" width="420" height="44" rx="4" fill="${E.SALVIA2}" stroke="${E.TINTA}" stroke-width="5"/>
+        <text x="540" y="786" text-anchor="middle" font-family="Cinzel" font-weight="800" font-size="30" letter-spacing="5" fill="${E.CREMA}">CALZADOS ERNESTO</text>
+        ${toldo}
+        <rect x="320" y="900" width="250" height="220" fill="${E.CELESTE}" stroke="${E.TINTA}" stroke-width="6"/>
+        <path d="M445 900 L445 1120 M320 1010 L570 1010" stroke="${E.TINTA}" stroke-width="5"/>
+        <g class="s01-botas-vid">${E.bota(350, 1000, 0.32)}${E.bota(450, 1110, 0.32, { color: E.CELESTE2 })}</g>
+        <rect x="610" y="900" width="150" height="240" fill="${E.SALVIA2}" stroke="${E.TINTA}" stroke-width="6"/>
+        <circle cx="735" cy="1030" r="9" fill="${E.ORO}" stroke="${E.TINTA}" stroke-width="3"/>
+        <rect x="628" y="960" width="114" height="50" rx="4" fill="${E.CREMA}" stroke="${E.TINTA}" stroke-width="4"/>
+        <text x="685" y="993" text-anchor="middle" font-family="Cinzel" font-weight="800" font-size="22" fill="${E.TINTA}">CERRADO</text>
+      </g>`;
+      root.querySelector(".s01-svg").innerHTML = E.marco(230, 700, 620, 470, { cresta: true, fondo: E.CREMA }) + local +
+        `<g class="s01-pl">${E.pluma(0, 0, 0.55, { rot: 28 })}</g>`;
+      // el celular de este siglo, con Clara chiquita adentro
+      const clarita = `<g transform="translate(130 400) scale(0.36)">${E.clara(0, 0, 1, {})}</g>`;
+      root.querySelector(".s01-svg2").innerHTML = `<g class="s01-celg">${E.celular(640, 820, 260, 470, `<rect x="16" y="26" width="228" height="418" rx="14" fill="${E.CELESTE}"/>${clarita}<rect x="30" y="360" width="200" height="56" rx="28" fill="${E.SCA}" stroke="${E.TINTA}" stroke-width="4"/><text x="130" y="397" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="${E.TINTA}">en línea</text>`)}</g>`;
+
+      const tl = gsap.timeline({ paused: true });
+      const K = E.kit(tl, root);
+      const { q } = K;
+
+      const LECTOR = 0.41;
+      const LOCAL = 1.23;
+      const MIL = 2.62;
+      const CLIENTAS = 4.26;
+      const ESTE = 5.49;
+
+      // cuadro 0: el marco ya está, la cámara se acerca despacio
+      tl.fromTo(q(".s01-escenario"), { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".ep-marco"), { opacity: 0.75, scale: 0.94, svgOrigin: "540 935", smoothOrigin: false }, { opacity: 1, scale: 1, svgOrigin: "540 935", duration: 0.45, ease: "back.out(1.6)" }, 0);
+      // la fachada ya asoma tenue desde el cuadro 0
+      tl.fromTo(q(".s01-local"), { opacity: 0.18 }, { opacity: 0.18, duration: 0.01 }, 0);
+      // "Querido lector,": la pluma escribe (revelado de izquierda a derecha)
+      gsap.set(q(".s01-querido"), { clipPath: "inset(0 100% 0 0)" });
+      tl.to(q(".s01-querido"), { clipPath: "inset(0 0% 0 0)", duration: 0.9, ease: "none" }, 0.05);
+      const pl = q(".s01-pl");
+      gsap.set(pl, { x: 170, y: 650 });
+      tl.to(pl, { x: 640, duration: 0.9, ease: "none" }, 0.05);
+      tl.to(pl, { y: 635, duration: 0.1, yoyo: true, repeat: 8, ease: "sine.inOut" }, 0.05);
+      tl.to(pl, { opacity: 0, y: 560, duration: 0.3 }, 1.05);
+
+      // "local": la fachada hace pop dentro del marco
+      tl.fromTo(q(".s01-local"), { opacity: 0.18, scale: 0.8, svgOrigin: "540 940", smoothOrigin: false }, { opacity: 1, scale: 1, svgOrigin: "540 940", duration: 0.4, ease: "back.out(1.8)", immediateRender: false }, LOCAL - 0.1);
+      tl.fromTo(q(".s01-botas-vid"), { y: 6 }, { y: -6, duration: 0.35, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, LOCAL + 0.3);
+
+      // "mil ochocientos": golpea el 1800
+      gsap.set(q(".s01-1800"), { opacity: 0 });
+      tl.fromTo(q(".s01-1800"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, MIL - 0.08);
+      K.sacudon(q(".s01-escenario"), MIL + 0.1);
+
+      // "clientas": entra el celular de este siglo
+      gsap.set(q(".s01-celg"), { x: 560, rotation: 14, svgOrigin: "770 1055", smoothOrigin: false });
+      tl.to(q(".s01-celg"), { x: 0, rotation: 6, svgOrigin: "770 1055", duration: 0.45, ease: "back.out(1.4)" }, CLIENTAS - 0.2);
+      tl.to(q(".s01-local"), { x: -70, duration: 0.45, ease: "power2.out" }, CLIENTAS - 0.2);
+      tl.to(q(".ep-marco"), { x: -70, duration: 0.45, ease: "power2.out" }, CLIENTAS - 0.2);
+      // "este siglo": rótulo verde, el 1800 se apaga
+      K.pop(q(".s01-hoy"), ESTE - 0.05);
+      tl.to(q(".s01-1800"), { opacity: 0.3, filter: "grayscale(1)", x: -70, duration: 0.3 }, ESTE);
+      tl.to(q(".s01-celg"), { rotation: 0, svgOrigin: "770 1055", duration: 0.3, ease: "back.out(2)" }, ESTE);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

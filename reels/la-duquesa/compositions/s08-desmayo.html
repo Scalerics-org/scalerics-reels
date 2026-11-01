@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/epoca.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-desmayo"] .s08-capa, [data-composition-id="s08-desmayo"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-desmayo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-desmayo"] .s08-q { left: 560px; top: 640px; font-size: 48px; }
+    [data-composition-id="s08-desmayo"] .s08-grito { left: 250px; top: 590px; font-size: 60px; font-weight: 900; color: #b3262e; border-color: #b3262e; }
+  </style>
+  <div id="root" data-composition-id="s08-desmayo" data-width="1080" data-height="1920" data-duration="3.98">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="3.98" data-track-index="0">
+      <div class="s08-escenario">
+        <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ep-globo s08-q">¿Por privado?</div>
+        <div class="ep-globo s08-grito">¡¡LE ESCRIBÍ<br>POR PRIVADO!!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-desmayo";
+      const DUR = 3.98;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const E = EP;
+      const carta = `<g class="s08-carta" transform="translate(760 1090) rotate(12)">
+          <rect x="0" y="0" width="170" height="220" rx="4" fill="${E.BLA}" stroke="${E.TINTA}" stroke-width="5"/>
+          ${[40, 70, 100, 130].map((y) => `<path d="M22 ${y} L${y === 130 ? 100 : 148} ${y}" stroke="${E.TINTA}" stroke-width="4" opacity="0.5" stroke-linecap="round"/>`).join("")}
+          ${E.lacre(120, 180, 24)}</g>`;
+      root.querySelector(".s08-svg").innerHTML = `<g class="s08-cl">${E.clara(500, 1380, 1.05, { brazo: "frente", izq: "frente-alta" })}${carta}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = E.kit(tl, root);
+      const { q } = K;
+
+      const PRIVADO = 0.39;
+      const PERO = 1.22;
+      const PRIVADO2 = 2.26;
+
+      tl.fromTo(q(".s08-cl"), { y: 30, opacity: 0.7 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      K.caraC(0, "sonrisa");
+      // "privado?": cara de O y el globo
+      K.caraC(PRIVADO - 0.05, "o");
+      K.pop(q(".s08-q"), PRIVADO - 0.1, 0.3);
+      tl.fromTo(q(".s08-carta"), { rotation: 0 }, { rotation: -6, duration: 0.08, yoyo: true, repeat: 7, ease: "none", immediateRender: false }, PRIVADO);
+      // "Pero": se enoja, sacude la carta
+      K.caraC(PERO, "enojo");
+      tl.to(q(".ep-c-cejas"), { y: 10, duration: 0.12 }, PERO);
+      tl.to(q(".s08-q"), { opacity: 0, duration: 0.15 }, PERO + 0.3);
+      K.sacudon(q(".s08-cl"), PERO + 0.05, 0.8);
+      // "privado!": grito y desmayo hacia atrás
+      K.pop(q(".s08-grito"), PRIVADO2 - 0.3, 0.25);
+      K.caraC(PRIVADO2 + 0.25, "o");
+      tl.to(q(".ep-c-ojos"), { scaleY: 0.15, svgOrigin: "0 -366", smoothOrigin: false, duration: 0.15 }, PRIVADO2 + 0.4);
+      tl.to(q(".s08-cl"), { rotation: -22, svgOrigin: "500 1420", smoothOrigin: false, duration: 0.7, ease: "back.in(1.4)" }, PRIVADO2 + 0.3);
+      tl.to(q(".s08-carta"), { y: 200, rotation: 60, opacity: 0, duration: 0.6, ease: "power2.in" }, PRIVADO2 + 0.4);
+      K.sacudon(q(".s08-escenario"), PRIVADO2 + 1.0, 0.8);
+
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

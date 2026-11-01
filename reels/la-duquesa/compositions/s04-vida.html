@@ -1,0 +1,70 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/epoca.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-vida"] .s04-capa, [data-composition-id="s04-vida"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-vida"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-vida"] .s04-vida { left: 230px; top: 600px; width: 620px; font-size: 38px; }
+    [data-composition-id="s04-vida"] .s04-m1 { left: 560px; top: 800px; background: #e7b7b4; border-radius: 34px 34px 6px 34px; }
+    [data-composition-id="s04-vida"] .s04-m2 { left: 650px; top: 930px; background: #e7b7b4; border-radius: 34px 34px 6px 34px; }
+    [data-composition-id="s04-vida"] .s04-hora { position: absolute; left: 690px; top: 1046px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #3b2f3a; letter-spacing: 0.08em; }
+  </style>
+  <div id="root" data-composition-id="s04-vida" data-width="1080" data-height="1920" data-duration="4.5">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.5" data-track-index="0">
+      <div class="s04-escenario">
+        <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ep-rotulo rosa s04-vida">LAS BOTAS DE MI VIDA</div>
+        <div class="ep-globo s04-m1">¿Cuánto cuestan?</div>
+        <div class="ep-globo s04-m2">¿Hay en 38?</div>
+        <div class="s04-hora">MARTES 23:00</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-vida";
+      const DUR = 4.5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const E = EP;
+      const corazon = (cx, cy, r, c) => `<path d="M${cx} ${cy + r} C${cx - r * 1.6} ${cy - r * 0.2} ${cx - r} ${cy - r * 1.4} ${cx} ${cy - r * 0.5} C${cx + r} ${cy - r * 1.4} ${cx + r * 1.6} ${cy - r * 0.2} ${cx} ${cy + r} Z" fill="${c || E.LACRE}" stroke="${E.TINTA}" stroke-width="4"/>`;
+      root.querySelector(".s04-svg").innerHTML =
+        `<g class="s04-cors">${[[150, 1000, 22], [330, 940, 16], [110, 1180, 18], [420, 1120, 14], [250, 860, 14]].map(([x, y, r], i) => corazon(x, y, r, i % 2 ? E.ROSA2 : E.LACRE)).join("")}</g>` +
+        `<g class="s04-clara">${E.clara(330, 1370, 1.08, { brazo: "cel", izq: "arriba" })}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = E.kit(tl, root);
+      const { q, qa } = K;
+
+      const VIDA = 1.13;
+      const CUESTAN = 2.44;
+      const OCHO = 3.87;
+
+      // cuadro 0: Clara exaltada, ojos de corazón, se mece
+      gsap.set(q(".ep-c-ojos"), { opacity: 0 });
+      gsap.set(q(".ep-c-corazones"), { opacity: 1 });
+      K.caraC(0, "o");
+      tl.fromTo(q(".s04-clara"), { rotation: -4, svgOrigin: "330 1370", smoothOrigin: false }, { rotation: 4, svgOrigin: "330 1370", duration: 0.55, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".ep-c-izq"), { rotation: -10, svgOrigin: "-140 -190", smoothOrigin: false }, { rotation: 8, svgOrigin: "-140 -190", duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+      qa(".s04-cors path").forEach((el, i) => {
+        tl.fromTo(el, { opacity: 0, y: 60 }, { opacity: 1, y: -180, duration: 1.6, ease: "power1.out" }, 0.1 + i * 0.3);
+        tl.to(el, { opacity: 0, duration: 0.4 }, 1.3 + i * 0.3);
+      });
+      // "vida": rótulo
+      K.pop(q(".s04-vida"), VIDA - 0.1);
+      K.caraC(VIDA + 0.2, "sonrisa");
+      // "cuestan": su mensaje
+      K.pop(q(".s04-m1"), CUESTAN - 0.15);
+      tl.set(q(".ep-c-ojos"), { opacity: 1 }, CUESTAN - 0.15);
+      tl.set(q(".ep-c-corazones"), { opacity: 0 }, CUESTAN - 0.15);
+      // "ocho": segundo mensaje y la hora
+      K.pop(q(".s04-m2"), OCHO - 0.25);
+      K.pop(q(".s04-hora"), CUESTAN + 0.25);
+
+      K.salida(q("#s04-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

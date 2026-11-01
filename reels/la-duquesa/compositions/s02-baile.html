@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/epoca.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-baile"] .s02-capa, [data-composition-id="s02-baile"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-baile"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-baile"] .s02-temp { top: 800px; font-size: 112px; }
+    [data-composition-id="s02-baile"] .s02-de { left: 0; right: 0; text-align: center; top: 920px; font-size: 92px; }
+    [data-composition-id="s02-baile"] .s02-placa { left: 340px; top: 1300px; width: 400px; font-size: 32px; }
+  </style>
+  <div id="root" data-composition-id="s02-baile" data-width="1080" data-height="1920" data-duration="2.62">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="2.62" data-track-index="0">
+      <div class="s02-escenario">
+        <svg class="s02-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s02-titulos">
+          <div class="ep-titulo oro s02-temp">TEMPORADA</div>
+          <div class="ep-cursiva s02-de">de bailes</div>
+        </div>
+        <svg class="s02-svg2" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="ep-rotulo rosa s02-placa">SEÑORITA CLARA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-baile";
+      const DUR = 2.62;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const E = EP;
+      root.querySelector(".s02-svg").innerHTML = `<g class="s02-ara">${E.arana(540, 560, 1.1, 120)}</g>` +
+        `<g class="s02-p1">${E.pareja(200, 1380, 1.25, { falda: E.ROSA2 })}</g>` +
+        `<g class="s02-p2">${E.pareja(880, 1380, 1.25, { espejo: true, falda: E.CELESTE2 })}</g>`;
+      root.querySelector(".s02-svg2").innerHTML = `<defs><clipPath id="s02-clip"><ellipse cx="540" cy="1010" rx="190" ry="230"/></clipPath></defs>
+        <g class="s02-ret">${E.oval(540, 1010, 190, 230, { fondo: E.CELESTE })}
+        <g clip-path="url(#s02-clip)"><g transform="translate(540 1260) scale(0.78)">${E.clara(0, 0, 1, {})}</g></g></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = E.kit(tl, root);
+      const { q } = K;
+
+      const BAILES = 0.98;
+      const SENORITA = 1.88;
+
+      // cuadro 0: la araña baja y las parejas giran
+      tl.fromTo(q(".s02-ara"), { y: -120 }, { y: 0, duration: 0.6, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s02-ara"), { rotation: -2, svgOrigin: "540 160", smoothOrigin: false }, { rotation: 2, svgOrigin: "540 160", duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, 0.4);
+      tl.fromTo(q(".s02-p1"), { x: -40, rotation: -5, svgOrigin: "200 1380", smoothOrigin: false }, { x: 40, rotation: 5, svgOrigin: "200 1380", duration: 0.65, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".s02-p2"), { x: 40, rotation: 5, svgOrigin: "880 1380", smoothOrigin: false }, { x: -40, rotation: -5, svgOrigin: "880 1380", duration: 0.65, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".s02-temp"), { opacity: 0.4, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power4.out" }, 0);
+      K.pop(q(".s02-de"), BAILES - 0.05);
+
+      // "señorita": los títulos se van y entra el retrato oval de Clara
+      tl.to(q(".s02-titulos"), { opacity: 0, y: -60, duration: 0.2, ease: "power2.in" }, SENORITA - 0.25);
+      tl.to(q(".s02-ara"), { y: -260, opacity: 0.35, duration: 0.3, ease: "power2.inOut" }, SENORITA - 0.25);
+      K.popS(q(".s02-ret"), SENORITA - 0.1, "540 1010", 0.35);
+      K.pop(q(".s02-placa"), SENORITA + 0.1, 0.3);
+
+      K.salida(q("#s02-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

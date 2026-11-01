@@ -1,0 +1,70 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/epoca.js"></script>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-carta"] .s06-capa, [data-composition-id="s06-carta"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-carta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-carta"] .s06-papel { position: absolute; left: 540px; top: 610px; width: 470px; height: 640px; background: #fffaf0; border: 6px solid #3b2f3a; border-radius: 6px; box-shadow: 10px 10px 0 rgba(59, 47, 58, 0.15); transform: rotate(3deg); }
+    [data-composition-id="s06-carta"] .s06-papel::before { content: ""; position: absolute; inset: 14px; border: 3px solid #c9a046; border-radius: 3px; }
+    [data-composition-id="s06-carta"] .s06-l { left: 40px; font-size: 46px; }
+    [data-composition-id="s06-carta"] .s06-l1 { top: 50px; font-size: 52px; }
+    [data-composition-id="s06-carta"] .s06-l2 { top: 150px; }
+    [data-composition-id="s06-carta"] .s06-l3 { top: 210px; }
+    [data-composition-id="s06-carta"] .s06-l4 { top: 290px; }
+    [data-composition-id="s06-carta"] .s06-l5 { top: 350px; }
+    [data-composition-id="s06-carta"] .s06-l6 { top: 430px; color: #b3262e; }
+  </style>
+  <div id="root" data-composition-id="s06-carta" data-width="1080" data-height="1920" data-duration="5.55">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.55" data-track-index="0">
+      <div class="s06-escenario">
+        <div class="s06-papel">
+          <div class="ep-cursiva s06-l s06-l1">Distinguida señorita:</div>
+          <div class="ep-cursiva s06-l s06-l2">para adquirir</div>
+          <div class="ep-cursiva s06-l s06-l3">mi mercancía,</div>
+          <div class="ep-cursiva s06-l s06-l4">deberá usted</div>
+          <div class="ep-cursiva s06-l s06-l5">presentarse</div>
+          <div class="ep-cursiva s06-l s06-l6">en el local,</div>
+        </div>
+        <svg class="s06-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-carta";
+      const DUR = 5.55;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const E = EP;
+      root.querySelector(".s06-svg").innerHTML =
+        `<g class="s06-ern">${E.ernesto(290, 1370, 0.92, { brazo: "pluma", izq: "pecho" })}</g>` +
+        `<g class="s06-tin">${E.tintero(470, 1390, 0.8)}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = E.kit(tl, root);
+      const { q } = K;
+
+      const LINEAS = [[".s06-l1", 0.0, 0.55], [".s06-l2", 1.68, 0.4], [".s06-l3", 2.22, 0.45], [".s06-l4", 3.33, 0.35], [".s06-l5", 3.77, 0.5], [".s06-l6", 4.68, 0.5]];
+
+      tl.fromTo(q(".s06-ern"), { x: -70, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s06-papel"), { y: 50, opacity: 0.6, rotation: 8 }, { y: 0, opacity: 1, rotation: 3, duration: 0.4, ease: "back.out(1.6)" }, 0);
+      // el texto se escribe con pluma, línea por línea, en las palabras
+      LINEAS.forEach(([s, t, d]) => {
+        gsap.set(q(s), { clipPath: "inset(0 100% 0 0)" });
+        tl.to(q(s), { clipPath: "inset(0 0% 0 0)", duration: d, ease: "none" }, t);
+      });
+      // Ernesto ceremonioso: la pluma escribe en el aire, mentón arriba
+      tl.fromTo(q(".ep-e-pluma"), { rotation: -6, svgOrigin: "244 -124", smoothOrigin: false }, { rotation: 8, svgOrigin: "244 -124", duration: 0.22, yoyo: true, repeat: 21, ease: "sine.inOut" }, 0.1);
+      tl.fromTo(q(".ep-e-cabeza"), { rotation: 0, svgOrigin: "0 -240", smoothOrigin: false }, { rotation: -6, svgOrigin: "0 -240", duration: 0.5, ease: "sine.inOut", immediateRender: false }, 0.6);
+      tl.to(q(".ep-e-cabeza"), { rotation: 3, svgOrigin: "0 -240", duration: 0.8, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.2);
+      K.hablar(".ep-e-seria", 0.05, 10, 0.13);
+      // el monóculo brilla en "presentarse"
+      tl.fromTo(q(".ep-e-monoculo"), { scale: 1, svgOrigin: "38 -364", smoothOrigin: false }, { scale: 1.25, svgOrigin: "38 -364", duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, 3.77);
+      tl.fromTo(q(".s06-escenario"), { scale: 1 }, { scale: 1.04, duration: DUR, ease: "none", transformOrigin: "60% 50%" }, 0);
+
+      K.salida(q("#s06-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
