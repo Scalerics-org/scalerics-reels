@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-ayer"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-ayer"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-ayer"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-ayer"] .cont { stroke: #0f3d24; stroke-width: 6; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s07-ayer"] .s07-grito { position: absolute; top: 590px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 116px; line-height: 1; text-transform: uppercase; white-space: nowrap; color: #e3f53a; text-shadow: 0 8px 0 #0f3d24; }
+    [data-composition-id="s07-ayer"] .s07-ayer { left: 70px; }
+    [data-composition-id="s07-ayer"] .s07-nada { right: 70px; color: #f7f7f2; }
+    [data-composition-id="s07-ayer"] .s07-rot { position: absolute; top: 1170px; padding: 6px 14px; background: #5b2d8c; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; color: #f7f7f2; text-transform: uppercase; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s07-ayer" data-width="1080" data-height="1920" data-duration="3.73">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="3.73" data-track-index="0">
+      <div class="s07-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- pantalla partida -->
+          <rect x="50" y="730" width="480" height="480" fill="#12361a" stroke="#f7f7f2" stroke-width="6" />
+          <rect x="550" y="730" width="480" height="480" fill="#12361a" stroke="#f7f7f2" stroke-width="6" />
+          <!-- la empleada (izquierda) -->
+          <g class="s07-emp">
+            <path class="cont" d="M110 1206 Q120 1040 290 1030 Q460 1040 470 1206 Z" fill="#5b2d8c" />
+            <rect class="cont" x="260" y="980" width="60" height="60" fill="#f3ecd2" />
+            <ellipse class="cont" cx="290" cy="920" rx="92" ry="102" fill="#f3ecd2" />
+            <path class="cont" d="M198 910 Q200 812 290 812 Q382 812 382 910 Q350 856 290 864 Q230 856 198 910 Z" fill="#0f3d24" />
+            <circle class="cont" cx="290" cy="800" r="34" fill="#0f3d24" />
+            <path d="M240 892 l32 10 M340 892 l-32 10" stroke="#0f3d24" stroke-width="6" stroke-linecap="round" />
+            <circle cx="258" cy="925" r="8" fill="#0f3d24" />
+            <circle cx="322" cy="925" r="8" fill="#0f3d24" />
+            <ellipse class="s07-boca1" cx="290" cy="975" rx="22" ry="14" fill="#0f3d24" />
+            <rect class="cont" x="380" y="880" width="44" height="80" rx="10" fill="#0f3d24" />
+          </g>
+          <!-- el del depósito (derecha) -->
+          <g class="s07-dep">
+            <path class="cont" d="M610 1206 Q620 1040 790 1030 Q960 1040 970 1206 Z" fill="#f7f7f2" />
+            <path class="cont" d="M720 1080 H860 V1206 H720 Z" fill="#0f3d24" />
+            <rect class="cont" x="760" y="980" width="60" height="60" fill="#f3ecd2" />
+            <ellipse class="cont" cx="790" cy="920" rx="92" ry="102" fill="#f3ecd2" />
+            <path class="cont" d="M700 900 Q790 790 880 900 Z M872 892 h56" fill="#f7f7f2" />
+            <path d="M740 890 l32 12 M840 890 l-32 12" stroke="#0f3d24" stroke-width="6" stroke-linecap="round" />
+            <circle cx="758" cy="928" r="8" fill="#0f3d24" />
+            <circle cx="822" cy="928" r="8" fill="#0f3d24" />
+            <ellipse class="s07-boca2" cx="790" cy="978" rx="22" ry="14" fill="#0f3d24" />
+            <rect class="cont" x="660" y="880" width="44" height="80" rx="10" fill="#0f3d24" />
+          </g>
+          <!-- la pelota entre los dos -->
+          <g class="s07-estela"></g>
+          <g class="s07-pelota">
+            <circle r="26" fill="#e3f53a" stroke="#0f3d24" stroke-width="3" />
+            <path d="M-18 -16 Q0 0 -18 16 M18 -16 Q0 0 18 16" fill="none" stroke="#f7f7f2" stroke-width="3" />
+          </g>
+          <!-- el camioncito que nadie sabe dónde está -->
+          <g class="s07-camion">
+            <rect class="cont" x="380" y="1310" width="230" height="140" rx="10" fill="#f3ecd2" />
+            <path class="cont" d="M610 1350 H690 L730 1400 V1450 H610 Z" fill="#f7f7f2" />
+            <path d="M630 1366 H684 L712 1400 H630 Z" fill="#4f9a3c" stroke="#0f3d24" stroke-width="4" />
+            <circle class="cont s07-r1" cx="440" cy="1460" r="30" fill="#0f3d24" stroke="#f7f7f2" />
+            <circle class="cont s07-r2" cx="660" cy="1460" r="30" fill="#0f3d24" stroke="#f7f7f2" />
+            <text x="495" y="1410" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="80" fill="#5b2d8c">?</text>
+          </g>
+          <path class="s07-humo" d="M360 1430 q-30 -10 -50 10 M340 1400 q-30 -10 -50 10" fill="none" stroke="#f7f7f2" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+        </svg>
+        <div class="s07-grito s07-ayer">¡Ayer!</div>
+        <div class="s07-grito s07-nada">¡Nada!</div>
+        <div class="s07-rot" style="left: 70px">Local</div>
+        <div class="s07-rot" style="right: 70px">Depósito</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-ayer";
+      const DUR = 3.73;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const NS = "http://www.w3.org/2000/svg";
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, s = 2.4) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+
+      const AYER = 1.23, NADA = 2.67;
+
+      // la pelota va y viene cada vez más rápido: la "fase" crece con t^1.6
+      const fase = (t) => 0.5 + 3.2 * Math.pow(t / DUR, 1.6) * DUR / 2;
+      const pos = (t) => { const v = fase(t), k = Math.floor(v), f = v - k; const fx = k % 2 === 0 ? f : 1 - f; return { x: 420 + fx * 240, y: 860 - Math.sin(f * Math.PI) * 180 }; };
+      const est = [];
+      for (let i = 1; i <= 5; i++) { const c = document.createElementNS(NS, "circle"); c.setAttribute("fill", "#e3f53a"); c.setAttribute("opacity", String(0.6 - i * 0.1)); q(".s07-estela").appendChild(c); est.push(c); }
+      const pinta = (t) => {
+        const p = pos(t);
+        q(".s07-pelota").setAttribute("transform", `translate(${p.x} ${p.y})`);
+        est.forEach((c, i) => { const g = pos(Math.max(0, t - (i + 1) * 0.025)); c.setAttribute("cx", g.x); c.setAttribute("cy", g.y); c.setAttribute("r", 24 - i * 3); });
+      };
+      const r = { t: 0 };
+      pinta(0);
+      tl.to(r, { t: DUR, duration: DUR, ease: "none", onUpdate: () => pinta(r.t) }, 0);
+
+      tl.fromTo(q(".s07-escenario"), { scale: 1.04 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      // los dos hablan
+      tl.to(q(".s07-boca1"), { scaleY: 0.3, svgOrigin: "290 975", duration: 0.1, yoyo: true, repeat: 9 }, 0);
+      tl.to(q(".s07-boca2"), { scaleY: 0.3, svgOrigin: "790 978", duration: 0.1, yoyo: true, repeat: 5 }, 2.17);
+      gsap.set(q(".s07-boca2"), { scaleY: 0.3, svgOrigin: "790 978" });
+
+      golpe(".s07-ayer", AYER, 2.4);
+      sacudon(AYER + 0.05, 0.7);
+      tl.to(q(".s07-ayer"), { opacity: 0.3, duration: 0.2 }, NADA - 0.2);
+      golpe(".s07-nada", NADA, 2.4);
+      sacudon(NADA + 0.05, 0.9);
+
+      // el camión cruza perdido
+      tl.fromTo(q(".s07-camion"), { x: -560 }, { x: 560, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s07-humo"), { x: -560 }, { x: 560, duration: DUR, ease: "none" }, 0);
+      tl.to(q(".s07-camion"), { y: -6, duration: 0.12, yoyo: true, repeat: Math.max(1, Math.floor(DUR / 0.12) - 1), ease: "sine.inOut" }, 0);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

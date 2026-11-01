@@ -1,0 +1,5 @@
+[
+  {"t": 0.05, "sfx": "typing", "vol": 0.3, "max": 0.75},
+  {"t": 1.3, "sfx": "ping", "vol": 0.35},
+  {"t": 2.4, "sfx": "sparkle", "vol": 0.3}
+]

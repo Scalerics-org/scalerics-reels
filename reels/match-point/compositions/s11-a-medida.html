@@ -1,0 +1,122 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-a-medida"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-a-medida"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-a-medida"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-a-medida"] .cont { stroke: #0f3d24; stroke-width: 6; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s11-a-medida"] .cel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; fill: #f7f7f2; }
+    [data-composition-id="s11-a-medida"] .nodo { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 32px; fill: #f7f7f2; letter-spacing: 1px; }
+    [data-composition-id="s11-a-medida"] .s11-placa { position: absolute; display: flex; align-items: stretch; box-shadow: 0 8px 0 rgba(0, 0, 0, 0.35); white-space: nowrap; }
+    [data-composition-id="s11-a-medida"] .s11-placa .f { width: 16px; background: #5b2d8c; }
+    [data-composition-id="s11-a-medida"] .s11-placa .t { padding: 12px 26px; background: #0f3d24; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 60px; text-transform: uppercase; color: #e3f53a; }
+    [data-composition-id="s11-a-medida"] .s11-medida { left: 600px; top: 1290px; }
+    [data-composition-id="s11-a-medida"] .s11-instante { position: absolute; left: 0; right: 0; top: 1450px; margin: 0 auto; width: max-content; padding: 10px 30px; background: #e3f53a; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 58px; color: #0f3d24; text-transform: uppercase; white-space: nowrap; box-shadow: 0 8px 0 rgba(0, 0, 0, 0.35); }
+  </style>
+  <div id="root" data-composition-id="s11-a-medida" data-width="1080" data-height="1920" data-duration="7.31">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="7.31" data-track-index="0">
+      <div class="s11-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la raqueta a medida -->
+          <g class="s11-raq">
+            <path class="s11-mango" d="M380 1380 L460 1220" fill="none" stroke="#0f3d24" stroke-width="40" stroke-linecap="round" />
+            <path d="M372 1396 L404 1332" fill="none" stroke="#e3f53a" stroke-width="30" stroke-linecap="round" />
+            <path class="s11-cuello" d="M460 1220 L500 1120 M460 1220 L540 1150" fill="none" stroke="#5b2d8c" stroke-width="20" stroke-linecap="round" />
+            <g clip-path="url(#s11-aro)"><g class="s11-cuerdas">
+              <path d="M420 700 L760 1180 M460 680 L800 1160 M500 660 L840 1140 M380 720 L720 1200 M340 760 L680 1220 M540 650 L860 1100 M420 1160 L800 700 M380 1120 L760 660 M460 1190 L840 740 M340 1080 L700 640" stroke="#e3f53a" stroke-width="5" />
+            </g></g>
+            <defs><clipPath id="s11-aro"><ellipse cx="620" cy="900" rx="180" ry="240" transform="rotate(35 620 900)" /></clipPath></defs>
+            <ellipse class="s11-aro" cx="620" cy="900" rx="180" ry="240" transform="rotate(35 620 900)" fill="none" stroke="#5b2d8c" stroke-width="30" />
+            <ellipse cx="620" cy="900" rx="180" ry="240" transform="rotate(35 620 900)" fill="none" stroke="#7a4bb8" stroke-width="8" class="s11-aro2" />
+          </g>
+          <!-- la cinta métrica que la rodea -->
+          <path class="s11-cinta" d="M380 640 C620 560 860 700 860 900 C860 1120 640 1240 430 1160" fill="none" stroke="#f3ecd2" stroke-width="34" stroke-linecap="round" />
+          <path class="s11-marcas" d="M380 640 C620 560 860 700 860 900 C860 1120 640 1240 430 1160" fill="none" stroke="#0f3d24" stroke-width="16" stroke-dasharray="3 22" />
+          <!-- la pantalla central y los tres lugares -->
+          <g class="s11-red">
+            <path class="s11-l1" d="M190 1250 C190 1150 300 1100 360 1060" fill="none" stroke="#e3f53a" stroke-width="7" stroke-dasharray="4 16" stroke-linecap="round" />
+            <path class="s11-l2" d="M540 1240 V1080" fill="none" stroke="#e3f53a" stroke-width="7" stroke-dasharray="4 16" stroke-linecap="round" />
+            <path class="s11-l3" d="M890 1250 C890 1150 780 1100 720 1060" fill="none" stroke="#e3f53a" stroke-width="7" stroke-dasharray="4 16" stroke-linecap="round" />
+            <g class="s11-pantalla">
+              <rect class="cont" x="270" y="700" width="540" height="370" rx="20" fill="#0f3d24" stroke="#f7f7f2" />
+              <rect x="290" y="720" width="500" height="60" fill="#5b2d8c" />
+              <text x="310" y="762" font-family="Lexend" font-weight="800" font-size="32" fill="#f7f7f2">STOCK · T40 NEGRO</text>
+              <g class="s11-filas">
+                <g class="s11-f1"><text class="cel" x="310" y="840">LOCAL</text><text class="cel" x="740" y="840" text-anchor="end">0</text></g>
+                <g class="s11-f2"><text class="cel" x="310" y="905">CENTRO</text><text class="cel" x="740" y="905" text-anchor="end">0</text></g>
+                <g class="s11-f3"><rect x="290" y="930" width="500" height="64" fill="#e3f53a" opacity="0.18" /><text class="cel" x="310" y="972" style="fill:#e3f53a">DEPÓSITO</text><text class="cel" x="740" y="972" text-anchor="end" style="fill:#e3f53a">2</text></g>
+              </g>
+              <path d="M290 1010 H790" stroke="#4f9a3c" stroke-width="3" />
+              <text x="310" y="1046" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#f7f7f2" opacity="0.8">ACTUALIZADO: AHORA</text>
+            </g>
+            <g class="s11-n1"><rect class="cont" x="80" y="1250" width="220" height="110" rx="14" fill="#5b2d8c" stroke="#f7f7f2" /><text class="nodo" x="190" y="1318" text-anchor="middle">LOCAL</text></g>
+            <g class="s11-n2"><rect class="cont" x="430" y="1250" width="220" height="110" rx="14" fill="#5b2d8c" stroke="#f7f7f2" /><text class="nodo" x="540" y="1318" text-anchor="middle">CENTRO</text></g>
+            <g class="s11-n3"><rect class="cont" x="760" y="1250" width="250" height="110" rx="14" fill="#5b2d8c" stroke="#f7f7f2" /><text class="nodo" x="885" y="1318" text-anchor="middle">DEPÓSITO</text></g>
+          </g>
+        </svg>
+        <div class="s11-placa s11-medida"><div class="f"></div><div class="t">A medida</div></div>
+        <div class="s11-instante">Al instante</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-a-medida";
+      const DUR = 7.31;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, s = 2.4) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const dibujar = (el, t, d) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); };
+      const pop = (sel, t, o) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: 0.6, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.3, ease: "back.out(2)", immediateRender: false }, t); };
+      const destapar = (sel, t, d) => { gsap.set(q(sel), { opacity: 0, clipPath: "inset(0 0 100% 0)" }); tl.set(q(sel), { opacity: 1 }, t); tl.to(q(sel), { clipPath: "inset(0 0 0% 0)", duration: d, ease: "power2.inOut" }, t); };
+
+      const SCAL = 0.18, SISTEMA = 1.43, MEDIDA = 1.97, STOCK = 3.31, CADA = 3.75, LOCAL = 4.02, DEPOSITO = 4.74, SOLO = 5.81, INSTANTE = 6.61;
+
+      // la raqueta se arma: el aro se dibuja (ya a medias en el cuadro 0), mango y cuerdas
+      tl.fromTo(q(".s11-escenario"), { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 50%" }, 0);
+      const aro = q(".s11-aro"), La = aro.getTotalLength();
+      gsap.set(aro, { strokeDasharray: La, strokeDashoffset: La * 0.5 });
+      tl.to(aro, { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 0);
+      gsap.set(q(".s11-aro2"), { opacity: 0 });
+      tl.to(q(".s11-aro2"), { opacity: 1, duration: 0.2 }, 0.5);
+      gsap.set([q(".s11-mango"), q(".s11-cuello")], { opacity: 0 });
+      tl.fromTo([q(".s11-mango"), q(".s11-cuello")], { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, SCAL + 0.2);
+      destapar(".s11-cuerdas", SISTEMA - 0.1, 0.5);
+      tl.to(q(".s11-raq"), { rotation: -4, svgOrigin: "540 1000", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.3);
+
+      // "a medida": la cinta métrica la rodea
+      dibujar(q(".s11-cinta"), MEDIDA - 0.35, 0.5);
+      gsap.set(q(".s11-marcas"), { opacity: 0 });
+      tl.to(q(".s11-marcas"), { opacity: 1, duration: 0.15 }, MEDIDA + 0.1);
+      golpe(".s11-medida", MEDIDA, 2);
+      sacudon(MEDIDA + 0.05, 0.5);
+
+      // "el stock": la raqueta y la cinta se van, aparece la pantalla
+      tl.to([q(".s11-raq"), q(".s11-cinta"), q(".s11-marcas")], { opacity: 0, scale: 0.4, svgOrigin: "620 900", duration: 0.3, ease: "power3.in" }, STOCK - 0.3);
+      tl.to(q(".s11-medida"), { opacity: 0, duration: 0.2 }, STOCK - 0.3);
+      gsap.set(q(".s11-filas"), { opacity: 0 });
+      pop(".s11-pantalla", STOCK - 0.05, "540 885");
+      // los tres lugares se conectan
+      pop(".s11-n1", CADA - 0.1, "190 1305"); dibujar(q(".s11-l1"), CADA, 0.4);
+      pop(".s11-n2", LOCAL, "540 1305"); dibujar(q(".s11-l2"), LOCAL + 0.1, 0.3);
+      pop(".s11-n3", DEPOSITO - 0.1, "885 1305"); dibujar(q(".s11-l3"), DEPOSITO, 0.4);
+      // "en un solo lugar": las filas aparecen en la pantalla
+      tl.set(q(".s11-filas"), { opacity: 1 }, SOLO - 0.4);
+      [".s11-f1", ".s11-f2", ".s11-f3"].forEach((f, i) => { gsap.set(q(f), { opacity: 0 }); tl.fromTo(q(f), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.2, immediateRender: false }, SOLO - 0.4 + i * 0.15); });
+      tl.to(q(".s11-pantalla"), { scale: 1.04, svgOrigin: "540 885", duration: 0.15, yoyo: true, repeat: 1 }, SOLO);
+      // "al instante"
+      golpe(".s11-instante", INSTANTE, 2);
+      sacudon(INSTANTE + 0.05, 0.6);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

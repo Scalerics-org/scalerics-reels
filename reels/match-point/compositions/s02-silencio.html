@@ -1,0 +1,156 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-silencio"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-silencio"] .s02-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s02-silencio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-silencio"] .cont { stroke: #0f3d24; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+    [data-composition-id="s02-silencio"] .s02-placa { position: absolute; display: flex; align-items: stretch; box-shadow: 0 8px 0 rgba(0, 0, 0, 0.35); white-space: nowrap; }
+    [data-composition-id="s02-silencio"] .s02-placa .f { width: 16px; background: #5b2d8c; }
+    [data-composition-id="s02-silencio"] .s02-placa .t { padding: 12px 26px; background: #0f3d24; font-family: "Lexend", sans-serif; font-weight: 800; text-transform: uppercase; color: #f7f7f2; }
+    [data-composition-id="s02-silencio"] .s02-placa .k { padding: 12px 18px; background: #f7f7f2; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.1em; color: #5b2d8c; display: flex; align-items: center; text-transform: uppercase; }
+    [data-composition-id="s02-silencio"] .s02-wimb { left: 60px; top: 572px; }
+    [data-composition-id="s02-silencio"] .s02-wimb .t { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.12em; }
+    [data-composition-id="s02-silencio"] .s02-golpes { right: 60px; top: 1000px; }
+    [data-composition-id="s02-silencio"] .s02-golpes .t { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 56px; color: #e3f53a; min-width: 150px; text-align: center; }
+    [data-composition-id="s02-silencio"] .s02-silencio { position: absolute; left: 90px; right: 90px; top: 1000px; padding: 26px 0 30px; background: #5b2d8c; border: 6px solid #f7f7f2; text-align: center; box-shadow: 0 10px 0 rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s02-silencio"] .s02-silencio .a { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 104px; line-height: 1; color: #f7f7f2; text-transform: uppercase; letter-spacing: 0.02em; }
+    [data-composition-id="s02-silencio"] .s02-silencio .b { margin-top: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 38px; letter-spacing: 0.3em; color: #e3f53a; text-transform: uppercase; }
+    [data-composition-id="s02-silencio"] .s02-saca { left: 520px; top: 1330px; }
+    [data-composition-id="s02-silencio"] .s02-saca .t { font-size: 54px; color: #e3f53a; }
+  </style>
+  <div id="root" data-composition-id="s02-silencio" data-width="1080" data-height="1920" data-duration="4.97">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.97" data-track-index="0">
+      <div class="s02-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- tribuna: gradas -->
+          <g class="s02-tribuna">
+            <rect x="40" y="650" width="1000" height="80" fill="#5b2d8c" />
+            <rect x="40" y="730" width="1000" height="80" fill="#0f3d24" />
+            <rect x="40" y="810" width="1000" height="80" fill="#5b2d8c" />
+            <rect x="40" y="890" width="1000" height="80" fill="#0f3d24" />
+            <g class="s02-caras"></g>
+          </g>
+          <!-- la pelota que cruza delante de la tribuna -->
+          <g class="s02-estela"></g>
+          <g class="s02-pelota">
+            <circle r="22" fill="#e3f53a" stroke="#0f3d24" stroke-width="3" />
+            <path d="M-15 -13 Q0 0 -15 13 M15 -13 Q0 0 15 13" fill="none" stroke="#f7f7f2" stroke-width="3" />
+          </g>
+          <!-- abajo: la cancha del local y la empleada que va a sacar -->
+          <g class="s02-abajo">
+            <rect x="0" y="1180" width="1080" height="360" fill="#4f9a3c" />
+            <rect x="0" y="1260" width="1080" height="90" fill="#5aa646" />
+            <rect x="0" y="1440" width="1080" height="100" fill="#5aa646" />
+            <path d="M60 1240 H1020" stroke="#f7f7f2" stroke-width="8" />
+            <path d="M540 1240 v40" stroke="#f7f7f2" stroke-width="8" />
+            <g class="s02-empleada">
+              <path class="cont" d="M262 1460 h36 v80 h-36 Z M314 1460 h36 v80 h-36 Z" fill="#0f3d24" />
+              <path class="cont" d="M236 1330 Q306 1304 376 1330 L364 1470 H248 Z" fill="#5b2d8c" />
+              <g class="s02-brazo">
+                <path class="cont" d="M362 1346 L420 1240" fill="none" stroke-width="24" />
+                <path d="M362 1346 L420 1240" fill="none" stroke="#f3ecd2" stroke-width="14" stroke-linecap="round" />
+                <rect class="cont" x="398" y="1150" width="50" height="90" rx="10" fill="#0f3d24" />
+                <rect x="406" y="1162" width="34" height="62" rx="4" fill="#e3f53a" />
+              </g>
+              <path class="cont" d="M248 1346 L224 1440" fill="none" stroke-width="24" />
+              <path d="M248 1346 L224 1440" fill="none" stroke="#f3ecd2" stroke-width="14" stroke-linecap="round" />
+              <circle class="cont" cx="306" cy="1276" r="46" fill="#f3ecd2" />
+              <path class="cont" d="M262 1266 Q306 1210 350 1266 Q330 1240 306 1244 Q282 1240 262 1266 Z" fill="#0f3d24" />
+              <circle class="cont" cx="306" cy="1218" r="20" fill="#0f3d24" />
+              <circle cx="292" cy="1282" r="5" fill="#0f3d24" />
+              <circle cx="322" cy="1282" r="5" fill="#0f3d24" />
+              <path d="M296 1302 Q306 1310 316 1302" fill="none" stroke="#0f3d24" stroke-width="4" stroke-linecap="round" />
+            </g>
+          </g>
+        </svg>
+        <div class="s02-placa s02-wimb"><div class="f"></div><div class="t">Ni en Wimbledon</div></div>
+        <div class="s02-placa s02-golpes"><div class="k">Golpes</div><div class="t s02-n">37</div></div>
+        <div class="s02-silencio"><div class="a">Silencio</div><div class="b">por favor</div></div>
+        <div class="s02-placa s02-saca"><div class="f"></div><div class="t">Saca: local</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-silencio";
+      const DUR = 4.97;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const NS = "http://www.w3.org/2000/svg";
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f) => [[-16 * f, 9 * f], [12 * f, -7 * f], [-6 * f, 3 * f], [0, 0]].forEach(([x, y], i) => tl.to(q(".s02-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, s = 2.4) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+
+      const WIMB = 0.27, PELOTEO = 1.18, SILENCIO = 2.2, SACA = 3.53;
+
+      // las caras de la tribuna (4 filas), cada una con dos ojitos que siguen la pelota
+      const caras = q(".s02-caras");
+      const ojos = [];
+      for (let f = 0; f < 4; f++) {
+        for (let c = 0; c < 9; c++) {
+          const x = 100 + c * 110 + (f % 2) * 55, y = 690 + f * 80;
+          if (x > 1000) continue;
+          const g = document.createElementNS(NS, "g");
+          g.innerHTML = `<circle cx="${x}" cy="${y}" r="27" fill="#f3ecd2" stroke="#0f3d24" stroke-width="4"/>` +
+            `<g class="s02-ojos"><circle cx="${x - 9}" cy="${y - 2}" r="4.5" fill="#0f3d24"/><circle cx="${x + 9}" cy="${y - 2}" r="4.5" fill="#0f3d24"/></g>`;
+          caras.appendChild(g);
+          ojos.push(g.querySelector(".s02-ojos"));
+        }
+      }
+      // estela
+      const est = [];
+      for (let i = 1; i <= 4; i++) { const c = document.createElementNS(NS, "circle"); c.setAttribute("fill", "#e3f53a"); c.setAttribute("opacity", String(0.55 - i * 0.11)); q(".s02-estela").appendChild(c); est.push(c); }
+
+      // la pelota va y viene delante de la tribuna hasta "silencio"
+      const T = 0.5;
+      const pos = (v) => { const k = Math.floor(v / T), f = (v % T) / T; const fx = k % 2 === 0 ? f : 1 - f; return { x: 90 + fx * 900, y: 1040 - Math.sin(f * Math.PI) * 70 }; };
+      const pinta = (v) => {
+        const p = pos(v);
+        q(".s02-pelota").setAttribute("transform", `translate(${p.x} ${p.y})`);
+        est.forEach((c, i) => { const g = pos(Math.max(0, v - (i + 1) * 0.03)); c.setAttribute("cx", g.x); c.setAttribute("cy", g.y); c.setAttribute("r", 20 - i * 2); });
+        const dx = ((p.x - 540) / 450) * 7;
+        ojos.forEach((o) => o.setAttribute("transform", `translate(${dx} 0)`));
+      };
+      const bola = { v: 0.2 };
+      pinta(bola.v);
+      tl.to(bola, { v: 0.2 + SILENCIO, duration: SILENCIO, ease: "none", onUpdate: () => pinta(bola.v) }, 0);
+      tl.to([q(".s02-pelota"), q(".s02-estela")], { opacity: 0, duration: 0.15 }, SILENCIO);
+
+      tl.fromTo(q(".s02-escenario"), { scale: 1.04 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 45%" }, 0);
+      tl.fromTo(q(".s02-tribuna"), { opacity: 0.4, y: -30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+
+      // "ni en Wimbledon"
+      gsap.set(q(".s02-wimb"), { opacity: 0 });
+      tl.fromTo(q(".s02-wimb"), { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, WIMB - 0.1);
+
+      // "peloteo": contador de golpes que sube
+      golpe(".s02-golpes", PELOTEO, 1.8);
+      const n = { v: 37 };
+      tl.to(n, { v: 112, duration: SILENCIO - PELOTEO, ease: "none", onUpdate: () => { q(".s02-n").textContent = String(Math.round(n.v)); } }, PELOTEO);
+      tl.to(q(".s02-golpes"), { opacity: 0, duration: 0.12 }, SILENCIO - 0.1);
+
+      // "silencio": el cartel del juez cae, la tribuna se congela
+      golpe(".s02-silencio", SILENCIO, 1.8);
+      sacudon(SILENCIO + 0.05, 0.7);
+      tl.to(q(".s02-silencio"), { scale: 0.97, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, SILENCIO + 0.3);
+
+      // abajo la cancha: entra antes, la empleada levanta el celular en "saca el local"
+      gsap.set(q(".s02-abajo"), { opacity: 0 });
+      tl.fromTo(q(".s02-abajo"), { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, SACA - 0.6);
+      tl.to(q(".s02-silencio"), { y: -60, scale: 0.8, opacity: 0.85, duration: 0.35, ease: "power3.out" }, SACA - 0.6);
+      tl.to(q(".s02-tribuna"), { opacity: 0.4, duration: 0.3 }, SACA - 0.6);
+      tl.fromTo(q(".s02-brazo"), { rotation: 40 }, { rotation: 0, svgOrigin: "362 1346", duration: 0.3, ease: "back.out(2)", immediateRender: false }, SACA);
+      gsap.set(q(".s02-brazo"), { rotation: 40, svgOrigin: "362 1346" });
+      golpe(".s02-saca", SACA + 0.4, 2);
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

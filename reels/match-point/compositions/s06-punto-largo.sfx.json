@@ -1,0 +1,10 @@
+[
+  {"t": 0.12, "sfx": "pelota", "vol": 0.35},
+  {"t": 0.84, "sfx": "pelota", "vol": 0.3},
+  {"t": 1.56, "sfx": "pelota", "vol": 0.35},
+  {"t": 2.28, "sfx": "pelota", "vol": 0.3},
+  {"t": 3.0, "sfx": "pelota", "vol": 0.35},
+  {"t": 3.72, "sfx": "pelota", "vol": 0.3},
+  {"t": 4.2, "sfx": "pop", "vol": 0.3},
+  {"t": 5.16, "sfx": "pelota", "vol": 0.2}
+]
