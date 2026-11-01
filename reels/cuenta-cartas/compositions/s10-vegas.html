@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/casino.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-vegas"] .s10-capa, [data-composition-id="s10-vegas"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-vegas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-vegas"] .s10-pelis { left: 540px; top: 560px; transform: translateX(-50%); }
+    [data-composition-id="s10-vegas"] .s10-vegas { left: 540px; top: 650px; transform: translateX(-50%); font-size: 118px; }
+    [data-composition-id="s10-vegas"] .s10-afuera { left: 90px; top: 1080px; font-size: 76px; }
+    [data-composition-id="s10-vegas"] .s10-dejan { left: 90px; top: 1330px; font-size: 70px; }
+  </style>
+  <div id="root" data-composition-id="s10-vegas" data-width="1080" data-height="1920" data-duration="6.96">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="6.96" data-track-index="0">
+      <div class="s10-escenario">
+        <svg class="s10-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="cc-tag s10-pelis">EN LAS PELÍCULAS</div>
+        <div class="cc-neon oro s10-vegas">LAS VEGAS</div>
+        <div class="cc-sello rojo s10-afuera">¡AFUERA!</div>
+        <div class="cc-sello s10-dejan">TE DEJAN</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-vegas";
+      const DUR = 6.96;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const C = CC;
+      const svg = (h) => { root.querySelector(".s10-svg").innerHTML = h; };
+      const tl = gsap.timeline({ paused: true });
+      const K = C.kit(tl, root);
+      const { q, qa } = K;
+      const I = C.INK, SIL = "#1b2430";
+      // perforaciones de película a los costados
+      let perf = "";
+      for (let k = 0; k < 16; k++) perf += `<rect x="18" y="${520 + k * 66}" width="34" height="40" rx="6" fill="${C.CRE}" opacity="0.18"/><rect x="1028" y="${520 + k * 66}" width="34" height="40" rx="6" fill="${C.CRE}" opacity="0.18"/>`;
+      const silueta = (x, y, s, cls, extra) => `<g class="${cls}"><g transform="translate(${x} ${y}) scale(${s})">
+          <path d="M-150 0 C-150 -150 -110 -230 -60 -250 L60 -250 C110 -230 150 -150 150 0 Z" fill="${SIL}" stroke="${C.MAG}" stroke-width="5"/>
+          <path d="M-38 -250 L-30 -300 L30 -300 L38 -250 Z" fill="${SIL}" stroke="${C.MAG}" stroke-width="4"/>
+          <ellipse cx="0" cy="-360" rx="68" ry="80" fill="${SIL}" stroke="${C.MAG}" stroke-width="5"/>
+          <path d="M-52 -372 L-8 -372 L-10 -350 L-50 -350 Z M8 -372 L52 -372 L50 -350 L10 -350 Z" fill="${I}"/>${extra || ""}</g></g>`;
+      const patovica = silueta(700, 1420, 1.25, "s10-pato", `<path class="s10-brazo" d="M120 -200 C220 -220 300 -250 360 -260" fill="none" stroke="${SIL}" stroke-width="56" stroke-linecap="round"/><path d="M120 -200 C220 -220 300 -250 360 -260" fill="none" stroke="${C.MAG}" stroke-width="4" opacity="0.6"/>`);
+      const contador = silueta(320, 1400, 0.85, "s10-cont", [0, 1, 2].map((k) => `<g transform="translate(${150 + k * 26} ${-200 - k * 6}) rotate(${-14 + k * 14})"><rect x="-34" y="-48" width="68" height="96" rx="8" fill="${C.CRE}" stroke="${I}" stroke-width="5"/>${C.palo(["c", "p", "d"][k], 0, 0, 18)}</g>`).join(""));
+      const puerta = `<g class="s10-puerta"><rect x="880" y="900" width="170" height="440" fill="${I}" stroke="${C.ORO2}" stroke-width="8"/>
+          <rect x="890" y="840" width="150" height="50" rx="6" fill="${C.ROJO}" stroke="${I}" stroke-width="5"/>
+          <text x="965" y="876" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="30" fill="${C.CRE}">SALIDA</text></g>`;
+      // B: la vidriera de tu local
+      let toldo = "";
+      for (let k = 0; k < 9; k++) toldo += `<path d="M${180 + k * 80} 860 L${260 + k * 80} 860 L${260 + k * 80} 930 Q${220 + k * 80} 960 ${180 + k * 80} 930 Z" fill="${k % 2 ? C.CRE : C.PANO3}" stroke="${I}" stroke-width="5" stroke-linejoin="round"/>`;
+      const local = `<g class="s10-local">
+          <rect x="190" y="760" width="700" height="600" fill="#1f2a36" stroke="${I}" stroke-width="9"/>
+          <rect x="170" y="740" width="740" height="120" rx="12" fill="${C.ORO}" stroke="${I}" stroke-width="8"/>
+          <text x="540" y="822" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="64" fill="${I}">TU LOCAL</text>
+          ${toldo}
+          <rect x="230" y="990" width="210" height="250" rx="6" fill="#fff6dc" opacity="0.85" stroke="${I}" stroke-width="7"/>
+          <rect x="640" y="990" width="210" height="250" rx="6" fill="#fff6dc" opacity="0.85" stroke="${I}" stroke-width="7"/>
+          <rect x="470" y="1010" width="140" height="350" fill="${I}" stroke="${I}" stroke-width="7"/>
+          <rect x="478" y="1018" width="124" height="334" fill="#fff6dc" opacity="0.5"/>
+        </g>`;
+      const caminan = ["senora", "muchacho", "nadie", "gonzalo"].map((c, k) => `<g class="s10-cli s10-cli${k}">
+          <path class="s10-pata" d="M${525 - 14} 1330 L${525 - 22} 1372 M${525 + 14} 1330 L${525 + 22} 1372" stroke="${I}" stroke-width="10" stroke-linecap="round"/>
+          ${C.naipe(525, 1250, 112, { cara: c, palo: ["c", "p", "t", "d"][k], valor: ["Q", "J", "?", "K"][k], id: "s10c" + k })}</g>`).join("");
+      svg(`<g class="s10-perf">${perf}</g>` + `<g class="s10-A">${puerta}${patovica}${contador}</g>` + `<g class="s10-B">${local}${caminan}</g>`);
+      const PELIS = 0.23, VEGAS = 1.0, CUENTA = 1.69, ECHAN = 2.62, NEGOCIO = 3.0, DEJAN = 5.31, CLIENTES = 5.69;
+      // cuadro 0: película corriendo
+      tl.fromTo(q(".s10-perf"), { y: 0 }, { y: -132, duration: DUR, ease: "none" }, 0);
+      K.pop(q(".s10-pelis"), PELIS - 0.2);
+      K.neon(q(".s10-vegas"), VEGAS - 0.25);
+      tl.fromTo(q(".s10-A"), { opacity: 0.4, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 0);
+      K.origen(q(".s10-cont"), "320 1150");
+      tl.to(q(".s10-cont"), { rotation: -4, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, CUENTA);
+      K.origen(q(".s10-brazo"), "120 -200");
+      tl.fromTo(q(".s10-brazo"), { rotation: 30 }, { rotation: 0, duration: 0.25, ease: "back.out(3)" }, ECHAN - 0.5);
+      // "lo echan": sale volando por la salida
+      tl.to(q(".s10-cont"), { x: 620, y: -120, rotation: 35, opacity: 0, duration: 0.5, ease: "power3.in" }, ECHAN - 0.05);
+      K.sello(q(".s10-afuera"), ECHAN + 0.05, -8);
+      // "en tu negocio": la vidriera
+      tl.to([q(".s10-A"), q(".s10-afuera"), q(".s10-vegas"), q(".s10-pelis")], { opacity: 0, duration: 0.2 }, NEGOCIO + 0.05);
+      gsap.set(q(".s10-B"), { opacity: 0 });
+      tl.fromTo(q(".s10-B"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, NEGOCIO + 0.15);
+      gsap.set(qa(".s10-cli"), { opacity: 0 });
+      // "lo dejan los clientes": las cartas salen caminando
+      qa(".s10-cli").forEach((c, k) => {
+        const t = DEJAN - 0.5 + k * 0.22;
+        tl.fromTo(c, { opacity: 0, x: 0 }, { opacity: 1, x: 120, duration: 0.25, ease: "power1.out", immediateRender: false }, t);
+        tl.to(c, { x: 700, duration: 1.0, ease: "power1.inOut" }, t + 0.25);
+        tl.fromTo(c, { y: 0 }, { y: -14, duration: 0.14, yoyo: true, repeat: 11, ease: "sine.inOut", immediateRender: false }, t);
+      });
+      K.sello(q(".s10-dejan"), CLIENTES, -5);
+      tl.to(q(".s10-local"), { opacity: 0.6, duration: 0.6 }, CLIENTES);
+
+      K.salida(q("#s10-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

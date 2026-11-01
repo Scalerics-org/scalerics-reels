@@ -1,0 +1,68 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/casino.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-casa"] .s13-capa, [data-composition-id="s13-casa"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-casa"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-casa"] .s13-casa { left: 540px; top: 600px; transform: translateX(-50%); font-size: 92px; line-height: 1.05; }
+    [data-composition-id="s13-casa"] .s13-vos { left: 540px; top: 860px; transform: translateX(-50%); font-size: 64px; }
+  </style>
+  <div id="root" data-composition-id="s13-casa" data-width="1080" data-height="1920" data-duration="6.19">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="6.19" data-track-index="0">
+      <div class="s13-escenario">
+        <svg class="s13-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="cc-neon oro s13-casa">LA CASA<br>SIEMPRE GANA</div>
+        <div class="cc-sello verde s13-vos">LA CASA SOS VOS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-casa";
+      const DUR = 6.19;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const C = CC;
+      const svg = (h) => { root.querySelector(".s13-svg").innerHTML = h; };
+      const tl = gsap.timeline({ paused: true });
+      const K = C.kit(tl, root);
+      const { q, qa } = K;
+      const I = C.INK, V = C.VERDE;
+      const PX = 560, PY = 560, PW = 400, PH = 640;
+      svg(`<g class="s13-d">${C.dueno(300, 1520, 1.0, { cara: "confiado" })}</g>` +
+        C.mesa(1360, { texto: false }) +
+        `<g class="s13-fichas">${C.pila(560, 1560, 1, 120, C.ORO, { cls: "s13-p1" })}</g>` +
+        [0, 1, 2].map((k) => `<g class="s13-pila s13-pila${k}">${C.pila(600 + k * 140, 1560 - (k % 2) * 30, 5 + k * 2, 120, [C.ORO, C.MAG, C.PANO4][k])}</g>`).join("") +
+        `<g class="s13-cel">${C.celular(PX, PY, PW, PH, "#101820")}
+          <text x="${PX + PW / 2}" y="${PY + 150}" text-anchor="middle" font-family="Lexend" font-weight="300" font-size="96" fill="${C.CRE}">09:58</text>
+          <g class="s13-noti"><rect x="${PX + 24}" y="${PY + 220}" width="${PW - 48}" height="190" rx="24" fill="#16301a" stroke="${V}" stroke-width="5"/>
+            <circle cx="${PX + 70}" cy="${PY + 268}" r="24" fill="${V}"/><path d="M${PX + 60} ${PY + 268} l8 9 l14 -18" fill="none" stroke="${I}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="${PX + 108}" y="${PY + 276}" font-family="IBM Plex Mono" font-weight="600" font-size="20" fill="${V}" letter-spacing="2">CRM · AHORA</text>
+            <text x="${PX + 48}" y="${PY + 336}" font-family="Lexend" font-weight="800" font-size="36" fill="${C.CRE}">Llamá a Marisa</text>
+            <text x="${PX + 48}" y="${PY + 382}" font-family="Lexend" font-weight="600" font-size="26" fill="${C.CRE2}">Cortinas · hoy 10 hs</text></g>
+        </g>`);
+      const LLAMAR = 0.75, AVISA = 1.75, CASA = 2.65, GANA = 3.49, Y = 4.3, SOS = 5.14;
+      // cuadro 0: el dueño con el celular al lado
+      tl.fromTo(q(".s13-d"), { y: 20 }, { y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s13-cel"), { x: 80, opacity: 0.5 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      K.popSvg(q(".s13-noti"), LLAMAR - 0.05, `${PX + PW / 2} ${PY + 315}`, 0.35, 0.6);
+      tl.to(q(".s13-cel"), { rotation: 2, svgOrigin: `${PX + PW / 2} ${PY + PH / 2}`, duration: 0.07, yoyo: true, repeat: 5, ease: "sine.inOut" }, LLAMAR + 0.1);
+      tl.to(q(".s13-d .cc-d-cabeza"), { rotation: 6, svgOrigin: "0 -260", duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, AVISA);
+      // "la casa siempre gana"
+      tl.to(q(".s13-cel"), { x: 500, opacity: 0, duration: 0.35, ease: "power2.in" }, CASA - 0.3);
+      K.neon(q(".s13-casa"), CASA);
+      gsap.set(qa(".s13-pila"), { opacity: 0 });
+      // "y la casa sos vos": las fichas se apilan de tu lado
+      qa(".s13-pila").forEach((p, k) => tl.fromTo(p, { opacity: 0, y: -300 }, { opacity: 1, y: 0, duration: 0.35, ease: "bounce.out", immediateRender: false }, Y + k * 0.15));
+      K.sello(q(".s13-vos"), SOS, -3);
+      tl.to(q(".s13-casa"), { opacity: 0.55, duration: 0.3 }, SOS);
+      tl.to(q(".s13-escenario"), { scale: 1.04, duration: DUR - Y, ease: "none", transformOrigin: "40% 70%" }, Y);
+
+      K.salida(q("#s13-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,1 @@
+[{"t":0.1,"sfx":"pop","vol":0.25},{"t":0.66,"sfx":"tic","vol":0.3},{"t":1.66,"sfx":"pop","vol":0.25},{"t":2.25,"sfx":"buzzer","vol":0.2,"max":0.4},{"t":2.7,"sfx":"pop","vol":0.25},{"t":3.15,"sfx":"buzzer","vol":0.2,"max":0.4},{"t":3.3,"sfx":"whoosh","vol":0.25,"max":0.5},{"t":4.16,"sfx":"tiza","vol":0.2,"max":0.5},{"t":5.6,"sfx":"ficha","vol":0.35}]

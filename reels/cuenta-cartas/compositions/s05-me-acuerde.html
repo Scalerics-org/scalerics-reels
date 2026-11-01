@@ -1,0 +1,88 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/casino.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-me-acuerde"] .s05-capa, [data-composition-id="s05-me-acuerde"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-me-acuerde"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-me-acuerde"] .s05-llego { left: 640px; top: 640px; font-size: 56px; }
+  </style>
+  <div id="root" data-composition-id="s05-me-acuerde" data-width="1080" data-height="1920" data-duration="4.25">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.25" data-track-index="0">
+      <div class="s05-escenario">
+        <svg class="s05-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="cc-sello oro s05-llego">¡LLEGÓ!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-me-acuerde";
+      const DUR = 4.25;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const C = CC;
+      const svg = (h) => { root.querySelector(".s05-svg").innerHTML = h; };
+      const tl = gsap.timeline({ paused: true });
+      const K = C.kit(tl, root);
+      const { q, qa } = K;
+      const I = C.INK;
+      const [g1, h1, w1] = C.globo(985, 740, ["¡Llegó tu talle!", "Te lo guardo"], "d", { fs: 30, cls: "s05-msg" });
+      svg(`<g class="s05-d1">${C.dueno(330, 1450, 1.05, { cara: "sorpresa" })}</g>` +
+        `<g class="s05-d2">${C.dueno(330, 1450, 1.05, { cara: "culpa" })}</g>` +
+        `<g class="s05-f">${C.enfrente(850, 1450, 0.9, { cara: "sobrador" })}</g>` +
+        C.mesa(1300, { texto: false }) +
+        // caja de talles
+        `<g class="s05-caja"><g transform="translate(-70 0)">
+          <path d="M650 900 L1000 900 L1000 1200 L650 1200 Z" fill="#c58b4a" stroke="${I}" stroke-width="8" stroke-linejoin="round"/>
+          <path d="M650 900 L610 830 L960 830 L1000 900 Z M1000 900 L1040 830" fill="#d9a066" stroke="${I}" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M800 900 L800 1200" stroke="${I}" stroke-width="5" opacity="0.4"/>
+          <rect x="690" y="980" width="270" height="120" rx="10" fill="${C.CRE}" stroke="${I}" stroke-width="6"/>
+          <text x="825" y="1035" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="30" fill="${I}">TALLE M</text>
+          <text x="825" y="1078" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="24" fill="${C.ROJO}">SEMANA PASADA</text>
+        </g></g>` +
+        // post-it en la frente
+        `<g class="s05-postit"><g transform="rotate(-7 330 960)">
+          <rect x="220" y="890" width="220" height="150" fill="${C.ORO}" stroke="${I}" stroke-width="5"/>
+          <text x="330" y="950" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="40" fill="${I}">avisar al</text>
+          <text x="330" y="1000" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="40" fill="${I}">de marzo</text>
+        </g></g>` +
+        // el celular del de enfrente
+        `<g class="s05-cel">${C.celular(640, 540, 380, 420)}
+          <rect x="652" y="580" width="356" height="90" fill="${C.PANO}"/>
+          <circle cx="702" cy="625" r="26" fill="${C.CRE}" stroke="${I}" stroke-width="4"/>
+          <text x="742" y="636" font-family="Lexend" font-weight="700" font-size="30" fill="${C.CRE}">Matías</text>
+          ${g1}
+          <path class="s05-tick" d="M905 ${740 + h1 + 20} l8 8 l14 -16 M921 ${740 + h1 + 20} l8 8 l14 -16" fill="none" stroke="#3aa0ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>`);
+      const PASADA = 0.57, AVISO = 1.39, ACUERDE = 2.45, YA = 3.23, ESCRIBI = 3.48;
+      gsap.set([q(".s05-d2"), q(".s05-f"), q(".s05-cel"), q(".s05-postit")], { opacity: 0 });
+      // cuadro 0: el dueño se acuerda de golpe
+      tl.fromTo(q(".s05-d1"), { y: 20, scale: 0.97 }, { y: 0, scale: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      K.origen(q(".s05-caja"), "755 1050"); K.origen(q(".s05-d1"), "330 1450"); K.origen(q(".s05-postit"), "330 960");
+      tl.fromTo(q(".s05-caja"), { y: -500, rotation: -12 }, { y: 0, rotation: 0, duration: 0.45, ease: "bounce.out" }, 0);
+      K.sello(q(".s05-llego"), PASADA, -5);
+      // "le aviso...": culpa, aparece el post-it
+      tl.set(q(".s05-d1"), { opacity: 0 }, AVISO - 0.05);
+      tl.set(q(".s05-d2"), { opacity: 1 }, AVISO - 0.05);
+      K.popSvg(q(".s05-postit"), AVISO, "330 960", 0.3, 0.6);
+      tl.to(q(".s05-d2 .cc-d-cabeza"), { rotation: -4, svgOrigin: "0 -260", duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, AVISO + 0.2);
+      // "acuerde": el post-it se despega y cae
+      tl.to(q(".s05-postit"), { y: 520, rotation: 50, duration: 0.7, ease: "power2.in" }, ACUERDE);
+      tl.to(q(".s05-postit"), { opacity: 0, duration: 0.15 }, ACUERDE + 0.6);
+      // "ya le escribí": el de enfrente con el celular
+      tl.to([q(".s05-caja"), q(".s05-llego")], { opacity: 0, x: 120, duration: 0.25, ease: "power2.in" }, YA - 0.3);
+      tl.to(q(".s05-d2"), { x: -110, opacity: 0.6, duration: 0.3, ease: "power2.inOut" }, YA - 0.2);
+      tl.fromTo(q(".s05-f"), { opacity: 0, x: 260 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, YA - 0.2);
+      K.popSvg(q(".s05-cel"), YA, "830 750", 0.35, 0.5);
+      gsap.set(q(".s05-msg"), { opacity: 0 });
+      tl.fromTo(q(".s05-msg"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, ESCRIBI);
+      K.dibujar(q(".s05-tick"), ESCRIBI + 0.25, 0.25);
+
+      K.salida(q("#s05-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
