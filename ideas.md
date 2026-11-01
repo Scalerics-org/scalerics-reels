@@ -118,6 +118,11 @@
 
 ## En curso
 
+- 01-11 · `conferencia-de-prensa` · Agente de IA · conferencia de prensa del DT (el dueño) después de perder el clásico contra el de enfrente: culpa al árbitro, la cancha y el dólar; giro: le faltó un jugador que juega de noche [formato P conferencia post-partido · estilo sala de prensa con panel de sponsors genéricos]
+- 01-11 · `avistamiento` · Agente de IA · programa de misterios: una vecina jura que un comercio le contestó un domingo a las once de la noche; nadie le cree [formato P programa de misterios OVNI · estilo cámara nocturna verde fósforo]
+- 01-11 · `querido-diario` · Automatizaciones · el diario íntimo de la hija adolescente: papá cena todas las noches con la planilla [formato D confesión · estilo diario íntimo con birome y stickers]
+- 01-11 · `la-expedicion` · CRM · expedición arqueológica capa por capa debajo de la caja del local hasta el fósil: un presupuesto que nunca se llamó [formato C pasos/capas · estilo corte de excavación sepia]
+- 01-11 · `el-oculista` · Sitio web · consulta de oculista: el cliente no está ciego, es tu página que no se lee en el celular [formato B diálogo · estilo consultorio con carta de agudeza visual]
 - 01-11 · `la-familia` · Agente de IA · película de mafia: el capo de "la familia" (la competencia) reparte los clientes del barrio [formato P mafia · estilo despacho del capo en penumbra]
 - 01-11 · `el-diablito` · Agente de IA · el diablito y el angelito en el hombro del dueño (seguimiento al que preguntó y no compró) [formato B diálogo · estilo dibujo animado de los años 30]
 - 01-11 · `match-point` · Sistema a medida · transmisión de tenis: el peloteo eterno entre local y depósito para saber si hay stock [formato P tenis · estilo cancha de césped]
