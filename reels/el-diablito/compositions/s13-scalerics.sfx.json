@@ -1,0 +1,10 @@
+[
+  {"t":0,"sfx":"chime","vol":0.3},
+  {"t":0.4,"sfx":"ronquido","vol":0.2,"max":1.5},
+  {"t":1.9,"sfx":"typing","vol":0.2,"max":1.5},
+  {"t":3.2,"sfx":"whoosh-short","vol":0.25},
+  {"t":3.55,"sfx":"whoosh-short","vol":0.25},
+  {"t":4,"sfx":"tic","vol":0.25},
+  {"t":4.4,"sfx":"tic","vol":0.25},
+  {"t":5.3,"sfx":"sparkle","vol":0.25}
+]

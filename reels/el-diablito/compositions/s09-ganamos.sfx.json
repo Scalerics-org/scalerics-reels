@@ -1,0 +1,7 @@
+[
+  {"t":0,"sfx":"salto","vol":0.35},
+  {"t":0.05,"sfx":"sparkle","vol":0.3},
+  {"t":0.62,"sfx":"tic","vol":0.3},
+  {"t":1,"sfx":"riser","vol":0.25,"max":1.4},
+  {"t":1.35,"sfx":"impact-bass-1","vol":0.25,"max":0.5}
+]

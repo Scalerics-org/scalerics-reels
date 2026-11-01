@@ -1,0 +1,10 @@
+[
+  {"t":3.95,"sfx":"pop","vol":0.3},
+  {"t":4.13,"sfx":"pop","vol":0.3},
+  {"t":4.31,"sfx":"pop","vol":0.3},
+  {"t":5.4,"sfx":"click","vol":0.3},
+  {"t":5.7,"sfx":"click","vol":0.3},
+  {"t":6,"sfx":"click","vol":0.3},
+  {"t":7.5,"sfx":"campanita","vol":0.35,"max":0.9},
+  {"t":7.26,"sfx":"golpe","vol":0.3}
+]

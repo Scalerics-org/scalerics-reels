@@ -1,0 +1,10 @@
+[
+  {"t":1.1,"sfx":"whoosh-short","vol":0.25},
+  {"t":1.2,"sfx":"pop","vol":0.3},
+  {"t":2.6,"sfx":"salto","vol":0.3},
+  {"t":3.34,"sfx":"whoosh-short","vol":0.3},
+  {"t":4.32,"sfx":"whoosh-short","vol":0.3},
+  {"t":4.84,"sfx":"whoosh-short","vol":0.3},
+  {"t":5.25,"sfx":"whoosh-short","vol":0.3},
+  {"t":6.07,"sfx":"risas","vol":0.25,"max":1.1}
+]

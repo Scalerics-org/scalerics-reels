@@ -1,0 +1,7 @@
+[
+  {"t":0,"sfx":"pop","vol":0.3},
+  {"t":1.7,"sfx":"notification","vol":0.35},
+  {"t":2.6,"sfx":"sparkle","vol":0.3},
+  {"t":3.2,"sfx":"salto","vol":0.3},
+  {"t":3.45,"sfx":"chime","vol":0.35}
+]

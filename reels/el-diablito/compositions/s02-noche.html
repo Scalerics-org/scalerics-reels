@@ -1,0 +1,145 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    @font-face { font-family: "Luckiest Guy"; font-weight: 400; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-noche"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-noche"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-noche"] .s02-txt { font-family: "Fredoka", sans-serif; font-weight: 600; fill: #1d1610; }
+    [data-composition-id="s02-noche"] .s02-tit { font-family: "Luckiest Guy", sans-serif; fill: #1d1610; }
+    [data-composition-id="s02-noche"] .etiqueta { position: absolute; left: 0; right: 0; top: 1262px; text-align: center; font-family: "Luckiest Guy", sans-serif; font-size: 46px; letter-spacing: 0.06em; color: #1d1610; }
+    [data-composition-id="s02-noche"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; width: fit-content; margin: 0 auto; padding: 8px 28px 2px; background: #fbf3dc; border: 5px solid #1d1610; border-radius: 16px; white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="s02-noche" data-width="1080" data-height="1920" data-duration="4.47">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.47" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true"><g stroke-linecap="round" stroke-linejoin="round">
+
+      <g class="s02-ventana"><rect x="110" y="610" width="250" height="250" rx="14" fill="#2c3550" stroke="#1d1610" stroke-width="8" /><path d="M235 610 V860 M110 735 H360" stroke="#1d1610" stroke-width="7" fill="none" />
+        <path d="M196 642 A60 60 0 1 0 290 718 A48 48 0 1 1 196 642 Z" fill="#f2c230" stroke="#1d1610" stroke-width="5" /><path d="M236 690 q6 6 12 0 M232 720 q10 8 18 -2" fill="none" stroke="#1d1610" stroke-width="4" />
+        <path class="s02-est1" d="M150 638 Q152.16 647.84 162 650 Q152.16 652.16 150 662 Q147.84 652.16 138 650 Q147.84 647.84 150 638 Z" fill="#fbf3dc" stroke="#1d1610" stroke-width="4" /><path class="s02-est2" d="M320 800 Q321.8 808.2 330 810 Q321.8 811.8 320 820 Q318.2 811.8 310 810 Q318.2 808.2 320 800 Z" fill="#fbf3dc" stroke="#1d1610" stroke-width="4" /></g>
+      <g class="s02-reloj"><circle cx="830" cy="710" r="96" fill="#fbf3dc" stroke="#1d1610" stroke-width="8" />
+        <text class="s02-tit" x="830" y="648" font-size="34" text-anchor="middle">12</text><text class="s02-tit" x="830" y="800" font-size="34" text-anchor="middle">6</text>
+        <text class="s02-tit" x="752" y="722" font-size="34" text-anchor="middle">9</text><text class="s02-tit" x="908" y="722" font-size="34" text-anchor="middle">3</text>
+        <path class="s02-aguja-h" d="M830 710 L790 670" stroke="#1d1610" stroke-width="10" /><path class="s02-aguja-m" d="M830 710 V636" stroke="#1d1610" stroke-width="7" /><circle cx="830" cy="710" r="9" fill="#1d1610" /></g>
+      <g class="s02-trio">
+    <g transform="translate(540 1110) scale(0.9)"><g class="s02-due">
+    <path d="M-300 170 C-300 50 -240 6 -150 -6 L150 -6 C240 6 300 50 300 170 Z" fill="#d9c79c" stroke="#1d1610" stroke-width="8" />
+    <path d="M-200 30 V170 M-120 8 V170 M120 8 V170 M200 30 V170" fill="none" stroke="#8ec5e0" stroke-width="16" />
+    <path d="M-300 170 C-300 50 -240 6 -150 -6 L150 -6 C240 6 300 50 300 170" fill="none" stroke="#1d1610" stroke-width="8" />
+    <path d="M-60 -10 L0 60 L60 -10" fill="#fbf3dc" stroke="#1d1610" stroke-width="7" />
+    <path d="M-48 -40 V-6 M48 -40 V-6" fill="none" stroke="#1d1610" stroke-width="7" />
+    <g class="s02-due-cab">
+      <ellipse cx="-138" cy="-180" rx="26" ry="34" fill="#f6e0b8" stroke="#1d1610" stroke-width="7" /><ellipse cx="138" cy="-180" rx="26" ry="34" fill="#f6e0b8" stroke="#1d1610" stroke-width="7" />
+      <ellipse cx="0" cy="-190" rx="135" ry="152" fill="#f6e0b8" stroke="#1d1610" stroke-width="8" />
+      <path d="M-134 -210 q-8 -60 22 -84 q-6 30 10 40 M134 -210 q8 -60 -22 -84 q6 30 -10 40" fill="#1d1610" stroke="#1d1610" stroke-width="5" />
+      <path d="M-30 -330 q10 -16 24 -4 M10 -334 q12 -14 22 0" fill="none" stroke="#1d1610" stroke-width="5" />
+      <g class="s02-ojo s02-due-oi">
+    <ellipse cx="-48" cy="-218" rx="30" ry="34" fill="#fbf3dc" stroke="#1d1610" stroke-width="5" />
+    <g class="s02-pupila"><ellipse cx="-41.4" cy="-211.2" rx="15" ry="19.72" fill="#1d1610" />
+    <path d="M-41.4 -211.2 l10.799999999999999 -17 l-15 -4.08 Z" fill="#fbf3dc" /></g>
+  </g><g class="s02-ojo s02-due-od">
+    <ellipse cx="48" cy="-218" rx="30" ry="34" fill="#fbf3dc" stroke="#1d1610" stroke-width="5" />
+    <g class="s02-pupila"><ellipse cx="54.6" cy="-211.2" rx="15" ry="19.72" fill="#1d1610" />
+    <path d="M54.6 -211.2 l10.799999999999999 -17 l-15 -4.08 Z" fill="#fbf3dc" /></g>
+  </g>
+      <ellipse class="s02-due-pi" cx="-48" cy="-218" rx="31" ry="35" fill="#f6e0b8" stroke="#1d1610" stroke-width="5" /><ellipse class="s02-due-pd" cx="48" cy="-218" rx="31" ry="35" fill="#f6e0b8" stroke="#1d1610" stroke-width="5" />
+      <path d="M-84 -176 q32 14 62 0 M84 -176 q-32 14 -62 0" fill="none" stroke="#1d1610" stroke-width="5" />
+      <path class="s02-due-cejas" d="M-86 -270 q36 -12 70 6 M86 -270 q-36 -12 -70 6" fill="none" stroke="#1d1610" stroke-width="9" />
+      <ellipse cx="0" cy="-150" rx="34" ry="30" fill="#f6e0b8" stroke="#1d1610" stroke-width="7" />
+      <path d="M-4 -118 C-40 -126 -80 -112 -96 -86 C-60 -94 -30 -96 0 -100 C30 -96 60 -94 96 -86 C80 -112 40 -126 4 -118 Z" fill="#1d1610" stroke="#1d1610" stroke-width="4" />
+      <path class="s02-due-boca" d="M-26 -66 q26 -12 52 0" fill="none" stroke="#1d1610" stroke-width="7" />
+      <g class="s02-due-bostezo" opacity="0"><ellipse cx="0" cy="-62" rx="30" ry="34" fill="#1d1610" /><ellipse cx="0" cy="-42" rx="16" ry="10" fill="#c8312b" /></g>
+    </g>
+    <g class="s02-due-cel"><rect x="-66" y="14" width="132" height="196" rx="22" fill="#1d1610" stroke="#1d1610" stroke-width="6" /><rect class="s02-due-pantalla" x="-53" y="32" width="106" height="150" rx="10" fill="#dff0f7" /><g transform="translate(-66 170)"><g transform="translate(-6 0) rotate(-30)"><path d="M-21 15 L-27 34.5 H27 L21 15" fill="#fbf3dc" stroke="#1d1610" stroke-width="5" />
+    <circle cx="0" cy="0" r="30" fill="#fbf3dc" stroke="#1d1610" stroke-width="5" /><path d="M-10.5 -22.5 V-3 M4.5 -25.5 V-3" stroke="#1d1610" stroke-width="3" fill="none" /></g></g><g transform="translate(66 170)"><g transform="translate(6 0) rotate(30)"><path d="M-21 15 L-27 34.5 H27 L21 15" fill="#fbf3dc" stroke="#1d1610" stroke-width="5" />
+    <circle cx="0" cy="0" r="30" fill="#fbf3dc" stroke="#1d1610" stroke-width="5" /><path d="M-10.5 -22.5 V-3 M4.5 -25.5 V-3" stroke="#1d1610" stroke-width="3" fill="none" /></g></g></g>
+  </g></g>
+    
+    
+  </g>
+      <g class="s02-chat"><path class="s02-g1" d="M590 600 H980 Q1010 600 1010 630 V720 Q1010 750 980 750 L670 750 L590 790 L620 750 H590 Q560 750 560 720 V630 Q560 600 590 600 Z" fill="#fbf3dc" stroke="#1d1610" stroke-width="6" />
+        <text class="s02-txt" x="592" y="664" font-size="38">¿Qué precio tiene?</text>
+        <text class="s02-txt" x="592" y="718" font-size="28" opacity="0.55">Clienta · ayer 18:40</text></g>
+      <g class="s02-sello" transform="rotate(-10 800 860)"><rect x="610" y="810" width="380" height="100" rx="12" fill="none" stroke="#c8312b" stroke-width="9" /><text class="s02-tit" x="800" y="880" font-size="60" text-anchor="middle" fill="#c8312b" style="fill:#c8312b">NO COMPRÓ</text></g>
+      </g></svg>
+<div class="etiqueta"><span class="s02-e1">11 de la noche</span><span class="s02-e2">Ayer preguntó</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-noche";
+      const DUR = 4.47;
+      const FASE = 0.421;
+      const BEAT = 0.4545;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // aparece con estirón de goma (squash and stretch)
+      const pop = (el, t, o, d = 0.45) => {
+        gsap.set(el, { opacity: 0 });
+        tl.to(el, { opacity: 1, duration: 0.05 }, t);
+        tl.fromTo(el, { scaleX: 0.3, scaleY: 1.5, svgOrigin: o }, { scaleX: 1, scaleY: 1, svgOrigin: o, duration: d, ease: "elastic.out(1, 0.45)" }, t);
+      };
+      const popTxt = (el, t, d = 0.35) => tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2.2)" }, t);
+      const fuera = (el, t, d = 0.2) => tl.to(el, { opacity: 0, duration: d }, t);
+      // rebote al compás (dibujo animado: todo baila con la música)
+      const rebote = (el, o, desde = 0, hasta = DUR, amp = 0.05) => {
+        let t = desde + ((FASE - desde) % BEAT + BEAT) % BEAT;
+        for (; t + BEAT <= hasta; t += BEAT) {
+          tl.to(el, { scaleY: 1 - amp, scaleX: 1 + amp * 0.6, svgOrigin: o, duration: 0.09, ease: "power2.out" }, t);
+          tl.to(el, { scaleY: 1, scaleX: 1, svgOrigin: o, duration: BEAT - 0.12, ease: "power1.inOut" }, t + 0.09);
+        }
+      };
+      // parpadeo de párpados (pares de elementos) en los tiempos dados
+      const parpadeo = (els, o, ts, base = 0) => ts.forEach((t) => {
+        tl.to(els, { scaleY: 1, svgOrigin: o, duration: 0.06 }, t);
+        tl.to(els, { scaleY: base, svgOrigin: o, duration: 0.08 }, t + 0.1);
+      });
+      // etiqueta
+      const etq = (sel, t, sale) => { tl.fromTo(q(sel), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, t); if (sale) tl.to(q(sel), { opacity: 0, duration: 0.12 }, sale); };
+
+      gsap.set(q(".s02-due-pi"), { scaleY: 0.45, svgOrigin: "-48 -252" });
+      gsap.set(q(".s02-due-pd"), { scaleY: 0.45, svgOrigin: "48 -252" });
+      
+      [1,3.9].forEach((t) => { parpadeo([q(".s02-due-pi")], "-48 -252", [t], 0.45); parpadeo([q(".s02-due-pd")], "48 -252", [t], 0.45); });
+      rebote(q(".s02-due"), "0 170", 0, DUR, 0.015);
+      
+      
+
+      // el reloj marca las once
+      tl.fromTo(q(".s02-aguja-h"), { rotation: -200, svgOrigin: "830 710" }, { rotation: 0, svgOrigin: "830 710", duration: 0.6, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s02-aguja-m"), { rotation: -720, svgOrigin: "830 710" }, { rotation: 0, svgOrigin: "830 710", duration: 0.6, ease: "back.out(1.6)" }, 0);
+      tl.to(q(".s02-reloj"), { rotation: 8, svgOrigin: "830 614", duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.6);
+      tl.fromTo(q(".s02-ventana"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(2)" }, 0.05);
+      tl.fromTo(q(".s02-trio"), { y: 60, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      [".s02-est1", ".s02-est2"].forEach((c, i) => tl.fromTo(q(c), { scale: 0.4, svgOrigin: i ? "320 810" : "150 650" }, { scale: 1.2, svgOrigin: i ? "320 810" : "150 650", duration: 0.4, yoyo: true, repeat: 9, ease: "sine.inOut" }, i * 0.2));
+      etq(".s02-e1", 0.2, 1.4);
+      // "clienta": el reloj sale, entra el mensaje de ayer; el dueño lo mira
+      tl.to(q(".s02-reloj"), { scale: 0, svgOrigin: "830 710", duration: 0.2, ease: "back.in(2)" }, 1.4);
+      pop(q(".s02-chat"), 1.55, "600 780");
+      tl.to(qa(".s02-due-oi .s02-pupila, .s02-due-od .s02-pupila"), { x: 10, y: -10, duration: 0.2 }, 1.6);
+      tl.to(q(".s02-due-pantalla"), { fill: "#f2c230", duration: 0.1 }, 1.55);
+      etq(".s02-e2", 1.7);
+      // "no compró": sello rojo
+      tl.fromTo(q(".s02-sello"), { opacity: 0, scale: 2.2, svgOrigin: "800 860" }, { opacity: 1, scale: 1, svgOrigin: "800 860", duration: 0.22, ease: "power3.in" }, 3.25);
+      tl.to(q(".s02-chat"), { y: 6, duration: 0.05, yoyo: true, repeat: 3 }, 3.47);
+      tl.to(q(".s02-due-cejas"), { y: 8, duration: 0.2 }, 3.4);
+    
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,7 @@
+[
+  {"t":0,"sfx":"tic","vol":0.35},
+  {"t":0.3,"sfx":"tic","vol":0.35},
+  {"t":0.6,"sfx":"campanita","vol":0.25,"max":0.8},
+  {"t":1.55,"sfx":"notification","vol":0.3},
+  {"t":3.42,"sfx":"golpe","vol":0.35}
+]

@@ -1,0 +1,7 @@
+[
+  {"t":0,"sfx":"pop","vol":0.3},
+  {"t":0.9,"sfx":"click","vol":0.3},
+  {"t":1.84,"sfx":"click-soft","vol":0.35},
+  {"t":2.2,"sfx":"click-soft","vol":0.35},
+  {"t":4.9,"sfx":"ronquido","vol":0.25,"max":1.1}
+]
