@@ -1,0 +1,91 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/consultorio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-cta"] .s14-capa, [data-composition-id="s14-cta"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-cta"] .s14-btn { position: absolute; left: 190px; top: 1370px; width: 700px; height: 140px; box-sizing: border-box; background: #5ce611; border: 8px solid #16324a; border-radius: 70px; box-shadow: 10px 10px 0 rgba(22, 50, 74, 0.35); text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 66px; line-height: 124px; letter-spacing: 0.06em; color: #16324a; }
+  </style>
+  <div id="root" data-composition-id="s14-cta" data-width="1080" data-height="1920" data-duration="8.82">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="8.82" data-track-index="0">
+      <div class="s14-escenario">
+        <svg class="s14-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s14-btn">ESCRIBINOS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-cta";
+      const DUR = 8.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = OC.INK;
+      root.querySelector(".s14-svg").innerHTML =
+        `<g class="s14-carta">
+          <rect x="126" y="576" width="828" height="748" rx="16" fill="${I}"/>
+          <rect x="140" y="590" width="800" height="720" rx="8" fill="${OC.BLA}"/>
+          <text class="s14-f s14-f0" x="540" y="730" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="120" letter-spacing="10" fill="${I}">HACELE</text>
+          <text class="s14-f s14-f1" x="540" y="840" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="84" letter-spacing="7" fill="${I}">EL EXAMEN</text>
+          <text class="s14-f s14-f2" x="540" y="930" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="62" letter-spacing="5" fill="${OC.ROJO}">A TU PÁGINA</text>
+          <path class="s14-roja" d="M200 966 H880" stroke="${OC.ROJO}" stroke-width="8" stroke-linecap="round"/>
+          <g class="s14-cel">
+            <rect x="290" y="1000" width="130" height="230" rx="20" fill="${I}"/>
+            <rect x="300" y="1012" width="110" height="206" rx="12" fill="#e9f3f7"/>
+            <rect x="312" y="1030" width="86" height="8" rx="4" fill="${I}" opacity="0.5"/><rect x="312" y="1046" width="70" height="6" rx="3" fill="${I}" opacity="0.4"/><rect x="312" y="1060" width="80" height="6" rx="3" fill="${I}" opacity="0.4"/><rect x="312" y="1074" width="60" height="6" rx="3" fill="${I}" opacity="0.4"/>
+            <text x="355" y="1270" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="26" letter-spacing="3" fill="${I}">ABRILA</text>
+          </g>
+          <path class="s14-flecha" d="M460 1110 H600 M570 1080 L600 1110 L570 1140" fill="none" stroke="${OC.ROJO}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <g class="s14-ojo">${OC.ojo(740, 1110, 80, "s14-o")}
+            <text x="740" y="1270" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="26" letter-spacing="3" fill="${I}">¿ENTRECERRÁS?</text></g>
+        </g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = OC.kit(tl, root);
+      const { q, qa } = K;
+
+      const EXAMEN = 0.52;
+      const PAGINA = 1.04;
+      const ABRILA = 1.39;
+      const CELULAR = 2.35;
+      const ENTRECERRAR = 3.56;
+      const ESCRIBINOS = 4.91;
+
+      // cuadro 0: la carta aparece y las filas se encienden en su palabra
+      K.origen(q(".s14-carta"), "540 950");
+      tl.fromTo(q(".s14-carta"), { scale: 0.9, opacity: 0.5 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, 0);
+      const filas = qa(".s14-f");
+      [0, EXAMEN, PAGINA].forEach((t, i) => {
+        K.origen(filas[i], `540 ${[690, 810, 910][i]}`);
+        gsap.set(filas[i], { opacity: 0 });
+        tl.fromTo(filas[i], { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out", immediateRender: false }, Math.max(0.02, t - 0.05));
+      });
+      K.dibujar(q(".s14-roja"), PAGINA + 0.15, 0.4);
+      // "abrila en el celular"
+      K.origen(q(".s14-cel"), "355 1115");
+      K.pop(q(".s14-cel"), ABRILA);
+      tl.fromTo(q(".s14-cel"), { rotation: 0 }, { rotation: -8, duration: 0.15, yoyo: true, repeat: 3, immediateRender: false }, CELULAR);
+      K.dibujar(q(".s14-flecha"), CELULAR + 0.3, 0.35);
+      // "entrecerrar los ojos": el ojo se entrecierra
+      K.origen(q(".s14-ojo"), "740 1110");
+      K.pop(q(".s14-ojo"), ENTRECERRAR - 0.3);
+      const parp = q(".s14-o .oc-ojo-parpado");
+      K.origen(parp, "740 1060");
+      gsap.set(parp, { scaleY: 0.05 });
+      tl.to(parp, { scaleY: 1.22, duration: 0.3, ease: "power2.out" }, ENTRECERRAR + 0.1);
+      tl.to(parp, { scaleY: 1.05, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, ENTRECERRAR + 0.45);
+      // "escribinos": el botón verde, que late hasta el final
+      gsap.set(q(".s14-btn"), { opacity: 0 });
+      tl.fromTo(q(".s14-btn"), { opacity: 0, scale: 0.5, y: 60 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "back.out(2)", immediateRender: false }, ESCRIBINOS - 0.15);
+      tl.to(q(".s14-btn"), { scale: 1.06, duration: 0.35, yoyo: true, repeat: 9, ease: "sine.inOut" }, ESCRIBINOS + 0.35);
+      tl.to(q(".s14-carta"), { y: -8, duration: 1, yoyo: true, repeat: 3, ease: "sine.inOut" }, ESCRIBINOS);
+      // sin salida: el CTA queda hasta el final
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

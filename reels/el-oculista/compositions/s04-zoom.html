@@ -1,0 +1,112 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/consultorio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-zoom"] .s04-capa, [data-composition-id="s04-zoom"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-zoom"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-zoom"] .s04-tag { left: 50%; top: 1468px; width: 400px; margin-left: -200px; }
+    [data-composition-id="s04-zoom"] .s04-z { display: block; }
+    [data-composition-id="s04-zoom"] .s04-z1, [data-composition-id="s04-zoom"] .s04-z2, [data-composition-id="s04-zoom"] .s04-z3 { position: absolute; left: 0; right: 0; top: 10px; opacity: 0; }
+    [data-composition-id="s04-zoom"] .s04-media { left: 760px; top: 760px; font-size: 52px; }
+  </style>
+  <div id="root" data-composition-id="s04-zoom" data-width="1080" data-height="1920" data-duration="5.98">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="5.98" data-track-index="0">
+      <div class="s04-escenario">
+        <svg class="s04-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="oc-tag s04-tag"><span class="s04-z s04-z0">ZOOM 100%</span><span class="s04-z s04-z1">ZOOM 400%</span><span class="s04-z s04-z2">ZOOM 1100%</span><span class="s04-z s04-z3">¿Y LA PÁGINA?</span></div>
+        <div class="oc-sello s04-media">MEDIA<br>LETRA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-zoom";
+      const DUR = 5.98;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = OC.INK, X = 290, Y = 600, W = 500, H = 820;
+      let filas = "";
+      for (let k = 0; k < 14; k++) {
+        const y = 760 + k * 34;
+        filas += `<rect x="310" y="${y}" width="${150 + ((k * 37) % 70)}" height="9" rx="4" fill="${I}" opacity="0.55"/><rect x="${720 - 40}" y="${y}" width="60" height="9" rx="4" fill="${OC.ROJO}" opacity="0.6"/>`;
+      }
+      root.querySelector(".s04-svg").innerHTML =
+        // la carta (viene de s03) que se achica y se vuelve celular
+        `<g class="s04-carta"><rect x="106" y="586" width="868" height="868" rx="16" fill="${I}"/><rect x="120" y="600" width="840" height="840" rx="8" fill="${OC.BLA}"/></g>` +
+        OC.celular(X, Y, W, H, "s04-clip") +
+        `<g clip-path="url(#s04-clip)">
+          <g class="s04-pagina">
+            <rect x="${X}" y="${Y}" width="${W}" height="110" fill="${OC.ROJO}"/>
+            <text x="310" y="668" font-family="Lexend" font-weight="800" font-size="28" fill="${OC.BLA}">PIZZERÍA DON CARMELO</text>
+            <text x="310" y="736" font-family="Lexend" font-weight="700" font-size="12" fill="${I}" data-layout-ignore>NUESTRA CARTA · PRECIOS · PEDIDOS · CONTACTO · BLOG · NOSOTROS</text>
+            ${filas}
+            <rect x="310" y="1260" width="460" height="130" rx="10" fill="#8cc4d8" opacity="0.6"/>
+          </g>
+          <g class="s04-vacio">
+            <rect x="${X + 40}" y="${Y + H - 50}" width="${W - 80}" height="14" rx="7" fill="#8cc4d8" opacity="0.5"/>
+            <rect class="s04-barra" x="${X + 40}" y="${Y + H - 50}" width="90" height="14" rx="7" fill="${I}" opacity="0.7"/>
+          </g>
+        </g>` +
+        OC.celularBorde(X, Y, W, H) +
+        `<g class="s04-dedos">
+          <g class="s04-d1"><circle cx="500" cy="1060" r="40" fill="${OC.PIEL}" stroke="${I}" stroke-width="7"/><path d="M482 1048 Q500 1036 518 1048" fill="none" stroke="${I}" stroke-width="4" stroke-linecap="round"/></g>
+          <g class="s04-d2"><circle cx="590" cy="970" r="40" fill="${OC.PIEL}" stroke="${I}" stroke-width="7"/><path d="M572 958 Q590 946 608 958" fill="none" stroke="${I}" stroke-width="4" stroke-linecap="round"/></g>
+        </g>
+        <g class="s04-flechas" stroke="${OC.ROJO}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <path d="M440 1120 L380 1180 M380 1140 V1180 H420"/><path d="M650 910 L710 850 M670 850 H710 V890"/>
+        </g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = OC.kit(tl, root);
+      const { q, qa } = K;
+
+      const ZOOM = 0.26;
+      const DOS = 1.22;
+      const MEDIA = 2.71;
+      const LETRA = 3.14;
+      const COSTADO = 5.0;
+
+      // cuadro 0: la carta se cierra en un celular
+      K.origen(q(".s04-carta"), "540 1010");
+      tl.fromTo(q(".s04-carta"), { scaleX: 1, scaleY: 1, opacity: 1 }, { scaleX: 0.6, scaleY: 0.95, opacity: 0, duration: 0.4, ease: "power3.in" }, 0);
+      K.origen(q(".oc-cel"), "540 1010");
+      K.origen(q(".oc-cel-borde"), "540 1010");
+      tl.fromTo([q(".oc-cel"), q(".oc-cel-borde")], { scale: 1.25, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, 0.1);
+      tl.fromTo(q(".s04-pagina"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.3);
+      K.pop(q(".s04-tag"), ZOOM + 0.1);
+      // "dos dedos": las yemas aparecen y hacen pinza
+      gsap.set(q(".s04-dedos"), { opacity: 0 });
+      tl.to(q(".s04-dedos"), { opacity: 1, duration: 0.15 }, DOS - 0.25);
+      tl.to(q(".s04-d1"), { x: -150, y: 150, duration: 0.6, ease: "power2.inOut" }, DOS);
+      tl.to(q(".s04-d2"), { x: 150, y: -150, duration: 0.6, ease: "power2.inOut" }, DOS);
+      qa(".s04-flechas path").forEach((p, i) => K.dibujar(p, DOS + 0.1 + i * 0.05, 0.3));
+      tl.to(q(".s04-flechas"), { opacity: 0, duration: 0.2 }, DOS + 0.9);
+      tl.to(q(".s04-dedos"), { opacity: 0, duration: 0.2 }, DOS + 0.75);
+      // el zoom: la página crece hasta que la P no entra
+      K.origen(q(".s04-pagina"), "320 652");
+      tl.to(q(".s04-pagina"), { scale: 3.5, x: 60, y: 120, duration: 0.6, ease: "power2.in" }, DOS + 0.2);
+      tl.to(q(".s04-pagina"), { scale: 14, x: 20, y: 330, duration: 0.6, ease: "power3.out" }, MEDIA - 0.3);
+      const zs = (a, b, t) => { tl.set(q(a), { opacity: 0 }, t); tl.set(q(b), { opacity: 1 }, t); };
+      zs(".s04-z0", ".s04-z1", DOS + 0.5);
+      zs(".s04-z1", ".s04-z2", MEDIA);
+      tl.fromTo(q(".s04-tag"), { scale: 1 }, { scale: 1.12, duration: 0.1, yoyo: true, repeat: 1, immediateRender: false }, MEDIA);
+      // "media letra": sello
+      K.sello(q(".s04-media"), LETRA, 8);
+      // "costado": la página se va para el costado y queda blanco con la barra de desplazamiento
+      tl.to(q(".s04-pagina"), { x: 1500, duration: 0.45, ease: "power3.in" }, COSTADO - 0.3);
+      tl.to(q(".s04-barra"), { x: 330, duration: 0.45, ease: "power3.in" }, COSTADO - 0.3);
+      tl.to(q(".s04-media"), { opacity: 0, duration: 0.2 }, COSTADO - 0.3);
+      K.sacudon(q(".oc-cel-borde"), COSTADO + 0.15, 0.6);
+      zs(".s04-z2", ".s04-z3", COSTADO + 0.1);
+      tl.fromTo(q(".s04-tag"), { scale: 1 }, { scale: 1.12, duration: 0.1, yoyo: true, repeat: 1, immediateRender: false }, COSTADO + 0.1);
+      tl.to(q(".s04-escenario"), { rotation: -2, duration: 0.6, ease: "sine.inOut", transformOrigin: "50% 55%" }, COSTADO + 0.2);
+
+      K.salida(q("#s04-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

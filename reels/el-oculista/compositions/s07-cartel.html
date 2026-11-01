@@ -1,0 +1,93 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/consultorio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-cartel"] .s07-capa, [data-composition-id="s07-cartel"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-cartel"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-cartel"] .s07-pop { position: absolute; box-sizing: border-box; background: #f6fafc; border: 7px solid #16324a; border-radius: 22px; box-shadow: 12px 12px 0 rgba(22, 50, 74, 0.35); text-align: center; font-family: "Lexend", sans-serif; color: #16324a; }
+    [data-composition-id="s07-cartel"] .s07-main { left: 200px; top: 780px; width: 680px; height: 420px; padding: 50px 40px 0; border-color: #e63946; }
+    [data-composition-id="s07-cartel"] .s07-main b { display: block; font-weight: 800; font-size: 58px; line-height: 1.05; color: #e63946; }
+    [data-composition-id="s07-cartel"] .s07-main .s07-input { margin: 30px auto 0; width: 520px; height: 70px; border: 5px solid #8cc4d8; border-radius: 12px; font-weight: 600; font-size: 30px; line-height: 60px; color: #7fb8cc; text-align: left; padding-left: 24px; box-sizing: border-box; }
+    [data-composition-id="s07-cartel"] .s07-main .s07-btn { margin: 20px auto 0; width: 520px; height: 76px; background: #e63946; border-radius: 12px; font-weight: 800; font-size: 34px; line-height: 76px; color: #f6fafc; letter-spacing: 0.06em; }
+    [data-composition-id="s07-cartel"] .s07-x { position: absolute; right: 14px; top: 8px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 16px; color: #8cc4d8; }
+    [data-composition-id="s07-cartel"] .s07-cook { left: 150px; top: 1250px; width: 780px; height: 150px; padding-top: 26px; background: #16324a; border-color: #16324a; color: #f6fafc; }
+    [data-composition-id="s07-cartel"] .s07-cook b { display: block; font-weight: 800; font-size: 44px; }
+    [data-composition-id="s07-cartel"] .s07-cook small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.14em; color: #bfe0ec; }
+    [data-composition-id="s07-cartel"] .s07-mail { left: 300px; top: 600px; width: 580px; white-space: nowrap; height: 140px; padding-top: 34px; transform: rotate(4deg); border-color: #2c5a7a; }
+    [data-composition-id="s07-cartel"] .s07-mail b { font-weight: 800; font-size: 42px; }
+  </style>
+  <div id="root" data-composition-id="s07-cartel" data-width="1080" data-height="1920" data-duration="4.12">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.12" data-track-index="0">
+      <div class="s07-escenario">
+        <svg class="s07-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s07-pop s07-main"><b>¡SUSCRIBITE A NUESTRO BOLETÍN!</b><div class="s07-input">tu mail acá</div><div class="s07-btn">SUSCRIBIRME</div><span class="s07-x" data-layout-ignore>x</span></div>
+        <div class="s07-pop s07-cook"><b>ACEPTÁ LAS COOKIES</b><small>Y LAS DE LA ABUELA TAMBIÉN</small></div>
+        <div class="s07-pop s07-mail"><b>¿NOS DEJÁS TU MAIL?</b></div>
+        <svg class="s07-lupa-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-cartel";
+      const DUR = 4.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = OC.INK, X = 290, Y = 600, W = 500, H = 820;
+      let filas = "";
+      for (let k = 0; k < 12; k++) filas += `<rect x="320" y="${760 + k * 44}" width="${260 + ((k * 41) % 120)}" height="14" rx="7" fill="${I}" opacity="0.4"/>`;
+      root.querySelector(".s07-svg").innerHTML =
+        OC.celular(X, Y, W, H, "s07-clip") +
+        `<g clip-path="url(#s07-clip)">
+          <rect x="${X}" y="${Y}" width="${W}" height="120" fill="${OC.ROJO}"/>
+          <text x="320" y="680" font-family="Lexend" font-weight="800" font-size="36" fill="${OC.BLA}">DON CARMELO</text>
+          ${filas}
+          <rect class="s07-sombra" x="${X}" y="${Y}" width="${W}" height="${H}" fill="${I}" opacity="0"/>
+        </g>` +
+        OC.celularBorde(X, Y, W, H);
+      // la lupa: va al rincón de la X diminuta (la X está en ~ (858, 800))
+      root.querySelector(".s07-lupa-svg").innerHTML =
+        `<g class="s07-lupa">
+          <path d="M925 870 L1010 960" stroke="${I}" stroke-width="30" stroke-linecap="round"/>
+          <circle cx="860" cy="805" r="88" fill="${OC.BLA}" stroke="${OC.ROJO}" stroke-width="16"/>
+          <text x="860" y="842" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="110" fill="#7fb8cc">x</text>
+        </g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = OC.kit(tl, root);
+      const { q, qa } = K;
+
+      const CARTEL = 0.34;
+      const TODO = 1.36;
+      const SUSCRIBITE = 2.11;
+      const BOLETIN = 3.22;
+
+      // cuadro 0: el celular con la página
+      tl.fromTo(q(".s07-escenario"), { scale: 0.96 }, { scale: 1.03, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      tl.fromTo(q(".oc-cel"), { opacity: 0.6 }, { opacity: 1, duration: 0.2 }, 0);
+      // "cartel": cae el cartel emergente y tapa todo
+      gsap.set(q(".s07-main"), { opacity: 0 });
+      tl.fromTo(q(".s07-main"), { opacity: 0, y: -700, rotation: -8 }, { opacity: 1, y: 0, rotation: -2, duration: 0.35, ease: "back.out(1.3)", immediateRender: false }, CARTEL - 0.15);
+      tl.to(q(".s07-sombra"), { opacity: 0.45, duration: 0.2 }, CARTEL);
+      K.sacudon(q(".s07-svg"), CARTEL + 0.2, 0.7);
+      // "todo": se apilan más carteles
+      gsap.set([q(".s07-cook"), q(".s07-mail")], { opacity: 0 });
+      tl.fromTo(q(".s07-cook"), { opacity: 0, y: 260 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.5)", immediateRender: false }, TODO - 0.1);
+      tl.fromTo(q(".s07-mail"), { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, TODO + 0.15);
+      // "suscribite": el principal se sacude
+      tl.to(q(".s07-main"), { rotation: 3, duration: 0.07, yoyo: true, repeat: 5, ease: "sine.inOut" }, SUSCRIBITE);
+      tl.fromTo(q(".s07-btn"), { scale: 1 }, { scale: 1.08, duration: 0.12, yoyo: true, repeat: 3, immediateRender: false }, SUSCRIBITE + 0.1);
+      // "boletín": la lupa busca la X diminuta
+      gsap.set(q(".s07-lupa"), { opacity: 0 });
+      tl.fromTo(q(".s07-lupa"), { opacity: 0, x: 120, y: 500 }, { opacity: 1, x: 0, y: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, BOLETIN - 0.3);
+      tl.to(q(".s07-lupa"), { x: -12, y: 8, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, BOLETIN + 0.15);
+
+      K.salida(q("#s07-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

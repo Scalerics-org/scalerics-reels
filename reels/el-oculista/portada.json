@@ -1,0 +1,4 @@
+{ "t": 1.0, "chica": "No estás ciego:", "grande": "es tu página", "sello": "Doctor, ¿me quedo ciego?",
+  "acento": "#ff4d5a", "sello_color": "#7fe0ff", "velo": "22,50,74", "fondo": "#16324a",
+  "zoom": 1.5, "foco": "70%", "foco_x": "30%",
+  "circulo": { "x": 300, "y": 770, "r": 230 }, "flecha": { "x": 860, "y": 560, "rot": 160 } }

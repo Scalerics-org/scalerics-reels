@@ -1,0 +1,101 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/consultorio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-carmelo"] .s11-capa, [data-composition-id="s11-carmelo"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-carmelo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-carmelo"] .s11-sobrino { left: 610px; top: 850px; transform: rotate(-6deg); font-size: 32px; }
+    [data-composition-id="s11-carmelo"] .s11-para { left: 70px; top: 560px; font-size: 80px; }
+  </style>
+  <div id="root" data-composition-id="s11-carmelo" data-width="1080" data-height="1920" data-duration="4.30">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.30" data-track-index="0">
+      <div class="s11-escenario">
+        <svg class="s11-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="oc-sello mostaza s11-para">¡PARÁ!</div>
+        <div class="oc-tag rojo s11-sobrino">COMPU DEL SOBRINO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-carmelo";
+      const DUR = 4.30;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = OC.INK, M = OC.MOS;
+      const corazon = (x, y, s, c) => `<path class="s11-co" d="M${x} ${y + 30 * s} C${x - 40 * s} ${y} ${x - 50 * s} ${y - 25 * s} ${x - 30 * s} ${y - 38 * s} C${x - 15 * s} ${y - 48 * s} ${x} ${y - 38 * s} ${x} ${y - 25 * s} C${x} ${y - 38 * s} ${x + 15 * s} ${y - 48 * s} ${x + 30 * s} ${y - 38 * s} C${x + 50 * s} ${y - 25 * s} ${x + 40 * s} ${y} ${x} ${y + 30 * s} Z" fill="${c}" stroke="${I}" stroke-width="4"/>`;
+      const brillo = (x, y, s) => `<path class="s11-br" d="M${x} ${y - 24 * s} L${x + 6 * s} ${y - 6 * s} L${x + 24 * s} ${y} L${x + 6 * s} ${y + 6 * s} L${x} ${y + 24 * s} L${x - 6 * s} ${y + 6 * s} L${x - 24 * s} ${y} L${x - 6 * s} ${y - 6 * s} Z" fill="${OC.BLA}" stroke="${I}" stroke-width="3"/>`;
+      root.querySelector(".s11-svg").innerHTML =
+        // la puerta del consultorio
+        `<g class="s11-puerta">
+          <rect x="80" y="640" width="420" height="780" rx="6" fill="#16324a"/>
+          <g class="s11-hoja"><rect x="92" y="652" width="396" height="768" rx="4" fill="${OC.BLA}" stroke="${I}" stroke-width="6"/>
+            <rect x="150" y="720" width="280" height="200" rx="8" fill="#8cc4d8" stroke="${I}" stroke-width="5"/>
+            <text x="290" y="830" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="28" fill="${I}">CONSULTORIO 3</text>
+            <circle cx="450" cy="1060" r="16" fill="${M}" stroke="${I}" stroke-width="5"/></g>
+        </g>
+        <g class="s11-monitor">
+          <rect x="560" y="610" width="470" height="300" rx="16" fill="${I}"/>
+          <rect x="576" y="626" width="438" height="250" rx="6" fill="#fff4dc"/>
+          <rect x="576" y="626" width="438" height="56" fill="${M}"/>
+          <text x="795" y="664" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="28" fill="${I}">PIZZERÍA DON CARMELO</text>
+          <rect x="600" y="700" width="180" height="150" rx="10" fill="${OC.ROJO}" opacity="0.85"/>
+          <circle cx="690" cy="775" r="52" fill="${M}" stroke="${I}" stroke-width="5"/>
+          <circle cx="670" cy="760" r="9" fill="${OC.ROJO}"/><circle cx="705" cy="790" r="9" fill="${OC.ROJO}"/><circle cx="700" cy="752" r="7" fill="${OC.ROJO}"/>
+          <rect x="800" y="704" width="190" height="14" rx="7" fill="${I}" opacity="0.5"/><rect x="800" y="732" width="160" height="14" rx="7" fill="${I}" opacity="0.5"/><rect x="800" y="760" width="180" height="14" rx="7" fill="${I}" opacity="0.5"/>
+          <rect x="800" y="800" width="150" height="40" rx="10" fill="${OC.ROJO}"/>
+          <path d="M770 910 L750 980 H840 L820 910 Z" fill="#2c5a7a" stroke="${I}" stroke-width="6" stroke-linejoin="round"/>
+          <rect x="700" y="976" width="190" height="20" rx="8" fill="#2c5a7a" stroke="${I}" stroke-width="6"/>
+        </g>
+        <g class="s11-adornos">${corazon(600, 620, 1, OC.ROJO)}${corazon(1010, 640, 0.8, M)}${corazon(1000, 880, 1.1, OC.ROJO)}${brillo(560, 880, 1.2)}${brillo(890, 600, 1)}${brillo(1030, 760, 0.9)}</g>` +
+        OC.carmelo(330, 1560, 1.08);
+      const tl = gsap.timeline({ paused: true });
+      const K = OC.kit(tl, root);
+      const { q, qa } = K;
+
+      const PARA2 = 0.18;
+      const PRECIOSA = 1.43;
+      const COMPU = 2.59;
+      const SOBRINO = 3.12;
+
+      // cuadro 0: la puerta se abre de golpe y entra Don Carmelo
+      K.origen(q(".s11-hoja"), "92 1036");
+      tl.fromTo(q(".s11-hoja"), { scaleX: 1 }, { scaleX: 0.12, duration: 0.18, ease: "power4.in" }, 0);
+      tl.to(q(".s11-hoja"), { scaleX: 0.2, duration: 0.15, yoyo: true, repeat: 1, ease: "sine.out" }, 0.2);
+      tl.fromTo(q(".oc-c"), { x: -320, opacity: 0.3 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0.04);
+      K.sacudon(q(".s11-escenario"), 0.18, 1.2);
+      K.golpe(q(".s11-para"), 0.08, -6);
+      // "pará, pará": el brazo arriba, sacudiéndose
+      K.origen(q(".oc-c-brazo"), "-180 -190");
+      tl.fromTo(q(".oc-c-brazo"), { rotation: 10 }, { rotation: -8, duration: 0.1, yoyo: true, repeat: 5, ease: "sine.inOut" }, PARA2 - 0.1);
+      tl.to(q(".oc-c-cejas"), { y: 10, duration: 0.1 }, 0.1);
+      K.hablar(".oc-c-boca", 0.05, 6, 0.1);
+      tl.to(q(".s11-para"), { opacity: 0, duration: 0.2 }, PRECIOSA - 0.3);
+      // "preciosa": aparece el monitor ancho con su página, con corazones y brillitos
+      K.origen(q(".s11-monitor"), "795 800");
+      K.pop(q(".s11-monitor"), PRECIOSA - 0.15, 0.4);
+      qa(".s11-co, .s11-br").forEach((el, i) => {
+        const b = el.getBBox();
+        K.origen(el, `${b.x + b.width / 2} ${b.y + b.height / 2}`);
+        K.pop(el, PRECIOSA + 0.05 + i * 0.07, 0.3);
+        tl.to(el, { scale: 1.2, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, PRECIOSA + 0.5 + i * 0.05);
+      });
+      K.origen(q(".oc-c-cabeza"), "0 -240");
+      tl.to(q(".oc-c-cabeza"), { rotation: -6, duration: 0.3, ease: "sine.inOut" }, PRECIOSA);
+      // brazo baja, orgulloso, mostrando
+      tl.to(q(".oc-c-brazo"), { rotation: -28, duration: 0.3, ease: "power2.inOut" }, PRECIOSA + 0.1);
+      // "compu de mi sobrino": se pega el cartel
+      K.sello(q(".s11-sobrino"), COMPU, -6);
+      tl.to(q(".oc-c-cabeza"), { rotation: 4, duration: 0.3, ease: "sine.inOut" }, SOBRINO);
+      tl.to(q(".oc-c-cejas"), { y: -6, duration: 0.15 }, SOBRINO);
+
+      K.salida(q("#s11-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

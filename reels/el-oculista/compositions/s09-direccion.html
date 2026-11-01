@@ -1,0 +1,93 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/consultorio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-direccion"] .s09-capa, [data-composition-id="s09-direccion"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-direccion"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-direccion"] .s09-no { left: 560px; top: 1110px; font-size: 70px; }
+  </style>
+  <div id="root" data-composition-id="s09-direccion" data-width="1080" data-height="1920" data-duration="3.68">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="3.68" data-track-index="0">
+      <div class="s09-escenario">
+        <svg class="s09-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="oc-sello s09-no">NO FIGURA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-direccion";
+      const DUR = 3.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = OC.INK, R = OC.ROJO;
+      const FILAS = ["LETRA", "ZOOM", "CARGA", "CARTELES", "HORARIO", "DIRECCIÓN"];
+      let filas = "";
+      FILAS.forEach((t, i) => {
+        const y = 830 + i * 92;
+        filas += `<g class="s09-f s09-f${i}"><text x="140" y="${y}" font-family="Caveat" font-weight="700" font-size="58" fill="${I}">${t}</text>
+          <path d="M100 ${y + 18} H520" stroke="#8cc4d8" stroke-width="4"/>
+          <path class="s09-x" d="M450 ${y - 40} L494 ${y + 4} M494 ${y - 40} L450 ${y + 4}" stroke="${R}" stroke-width="9" stroke-linecap="round" fill="none"/></g>`;
+      });
+      let calles = "";
+      for (let k = 0; k < 5; k++) calles += `<path d="M640 ${800 + k * 90} H1000" stroke="${OC.BLA}" stroke-width="16"/><path d="M${660 + k * 85} 760 V1240" stroke="${OC.BLA}" stroke-width="16"/>`;
+      root.querySelector(".s09-svg").innerHTML =
+        // planilla del oculista
+        `<g class="s09-planilla">
+          <rect x="70" y="620" width="490" height="720" rx="20" fill="#2c5a7a" stroke="${I}" stroke-width="8"/>
+          <rect x="90" y="660" width="450" height="660" rx="8" fill="${OC.BLA}" stroke="${I}" stroke-width="5"/>
+          <rect x="230" y="600" width="170" height="60" rx="14" fill="#8cc4d8" stroke="${I}" stroke-width="7"/>
+          <text x="315" y="730" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="26" letter-spacing="3" fill="${I}">EXAMEN DE LA PÁGINA</text>
+          ${filas}
+        </g>
+        <g class="s09-mapa">
+          <rect x="620" y="740" width="400" height="520" rx="20" fill="#dceef5" stroke="${I}" stroke-width="8"/>
+          ${calles}
+          <path d="M640 1180 C720 1120 820 1200 1000 1100" stroke="#8cc4d8" stroke-width="26" fill="none" opacity="0.8"/>
+          <rect x="620" y="740" width="400" height="520" rx="20" fill="none" stroke="${I}" stroke-width="8"/>
+        </g>
+        <g class="s09-pin">
+          <path d="M820 1000 C760 930 760 860 820 850 C880 860 880 930 820 1000 Z" fill="${R}" stroke="${I}" stroke-width="7" stroke-linejoin="round" transform="translate(0 -40) scale(1)"/>
+          <text x="820" y="915" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="56" fill="${OC.BLA}">?</text>
+        </g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = OC.kit(tl, root);
+      const { q, qa } = K;
+
+      const DIRECCION = 0.70;
+      const NINGUN = 1.94;
+
+      // cuadro 0: la planilla con los renglones ya tachados
+      tl.fromTo(q(".s09-planilla"), { x: -60, rotation: -4, opacity: 0.5 }, { x: 0, rotation: -2, opacity: 1, duration: 0.35, ease: "back.out(1.6)", transformOrigin: "50% 50%" }, 0);
+      const XS = qa(".s09-x");
+      XS.slice(0, 4).forEach((x, i) => K.dibujar(x, 0.05 + i * 0.1, 0.18));
+      gsap.set(q(".s09-f5"), { opacity: 0 });
+      gsap.set(q(".s09-f4 .s09-x"), { opacity: 0 });
+      K.dibujar(q(".s09-f4 .s09-x"), 0.45, 0.18);
+      // la mapita llega
+      tl.fromTo(q(".s09-mapa"), { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 0.15);
+      // "dirección": aparece el renglón y el pin busca
+      tl.fromTo(q(".s09-f5"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25, immediateRender: false }, DIRECCION);
+      gsap.set(q(".s09-pin"), { opacity: 0 });
+      tl.to(q(".s09-pin"), { opacity: 1, duration: 0.15 }, DIRECCION);
+      tl.to(q(".s09-pin"), { x: -110, y: 120, duration: 0.35, ease: "sine.inOut" }, DIRECCION + 0.1);
+      tl.to(q(".s09-pin"), { x: 100, y: 60, duration: 0.35, ease: "sine.inOut" }, DIRECCION + 0.45);
+      tl.to(q(".s09-pin"), { x: 20, y: -40, duration: 0.35, ease: "sine.inOut" }, DIRECCION + 0.8);
+      // "ningún lado": tachado, sello y el pin se cae
+      K.dibujar(XS[5], NINGUN, 0.2);
+      K.sello(q(".s09-no"), NINGUN + 0.1, -8);
+      tl.to(q(".s09-pin"), { y: 380, rotation: 70, opacity: 0, duration: 0.5, ease: "power2.in", transformOrigin: "50% 100%" }, NINGUN + 0.2);
+      K.sacudon(q(".s09-mapa"), NINGUN + 0.15, 0.8);
+      // queda la planilla con un leve vaivén
+      tl.to(q(".s09-planilla"), { rotation: 1, duration: 0.8, ease: "sine.inOut", transformOrigin: "50% 50%" }, NINGUN + 0.5);
+
+      K.salida(q("#s09-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

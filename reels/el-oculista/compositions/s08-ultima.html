@@ -1,0 +1,87 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/consultorio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-ultima"] .s08-capa, [data-composition-id="s08-ultima"] .s08-escenario, [data-composition-id="s08-ultima"] .s08-fondo { position: absolute; inset: 0; }
+    [data-composition-id="s08-ultima"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-ultima"] .s08-tira { position: absolute; left: 60px; top: 820px; width: 960px; height: 190px; box-sizing: border-box; background: #f6fafc; border: 10px solid #16324a; border-radius: 18px; box-shadow: 14px 14px 0 rgba(22, 50, 74, 0.35); text-align: center; }
+    [data-composition-id="s08-ultima"] .s08-tira b { display: block; margin-top: 44px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 72px; line-height: 1; letter-spacing: 0; color: #16324a; white-space: nowrap; }
+    [data-composition-id="s08-ultima"] .s08-tira small { position: absolute; left: 24px; top: -48px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 26px; letter-spacing: 0.2em; color: #16324a; }
+    [data-composition-id="s08-ultima"] .s08-hor { left: 70px; top: 1250px; font-size: 64px; }
+    [data-composition-id="s08-ultima"] .s08-pre { left: 590px; top: 1250px; font-size: 64px; }
+  </style>
+  <div id="root" data-composition-id="s08-ultima" data-width="1080" data-height="1920" data-duration="7.19">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="7.19" data-track-index="0">
+      <div class="s08-escenario">
+        <div class="s08-fondo" data-layout-allow-overlap><svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg></div>
+        <svg class="s08-iconos" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s08-tira"><small>ÚLTIMA LÍNEA · AMPLIADA</small><b>MAR A DOM · 19 A 2350</b></div>
+        <div class="oc-sello celeste s08-hor">¿HORARIO?</div>
+        <div class="oc-sello s08-pre">¿PRECIO?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-ultima";
+      const DUR = 7.19;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = OC.INK;
+      root.querySelector(".s08-svg").innerHTML =
+        OC.carta(80, 600, 480, 470, [["PIZZERÍA", 62], ["DON CARMELO", 44], ["MUZZA · FAINÁ", 38], ["FUGAZZETA · NAPO", 30], ["PEDIDOS · TEL", 24], ["DIRECCIÓN: VER MAPA", 18], ["MAR A DOM 19 A 2350", 14, "s08-ult"]], 1) +
+        OC.oculista(760, 1540, 1.05, { espejo: true });
+      root.querySelector(".s08-iconos").innerHTML =
+        // relojito a la izquierda y etiqueta de precio a la derecha
+        `<g class="s08-reloj"><circle cx="230" cy="1430" r="62" fill="${OC.BLA}" stroke="${I}" stroke-width="9"/><path d="M230 1430 V1390 M230 1430 L262 1446" stroke="${I}" stroke-width="9" stroke-linecap="round"/></g>
+        <g class="s08-precio"><path d="M700 1380 L840 1380 L890 1430 L840 1480 L700 1480 Z" fill="${OC.ROJO}" stroke="${I}" stroke-width="8" stroke-linejoin="round"/><circle cx="850" cy="1430" r="10" fill="${OC.BLA}"/><text x="770" y="1450" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="56" fill="${OC.BLA}">$</text></g>
+        <g class="s08-marco"><rect x="96" y="999" width="448" height="32" rx="8" fill="none" stroke="${OC.ROJO}" stroke-width="6"/></g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = OC.kit(tl, root);
+      const { q, qa } = K;
+
+      const ULTIMA = 0.78;
+      const MARTES = 2.16;
+      const DIECINUEVE = 3.85;
+      const HORARIO = 5.64;
+      const PRECIO = 6.32;
+
+      // cuadro 0: la carta y el oculista con el puntero
+      tl.fromTo(q(".oc-carta"), { opacity: 0.4, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".oc-o"), { x: -120 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      K.apuntar(0, 20, 0.01);
+      K.hablar(".oc-o-boca", 0.05, 4);
+      // "última": el puntero baja a la última fila y aparece el marco rojo
+      K.apuntar(ULTIMA - 0.2, -46, 0.4);
+      gsap.set(q(".s08-marco"), { opacity: 0 });
+      tl.to(q(".s08-marco"), { opacity: 1, duration: 0.08, yoyo: true, repeat: 3 }, ULTIMA + 0.2);
+      tl.set(q(".s08-marco"), { opacity: 1 }, ULTIMA + 0.55);
+      // "martes": la última fila se amplía
+      tl.to(q(".s08-fondo"), { opacity: 0.3, filter: "blur(4px)", duration: 0.35 }, MARTES - 0.15);
+      tl.to(q(".s08-marco"), { opacity: 0, duration: 0.2 }, MARTES - 0.15);
+      gsap.set(q(".s08-tira"), { opacity: 0 });
+      tl.fromTo(q(".s08-tira"), { opacity: 0, scaleX: 0.45, scaleY: 0.2, y: 330 }, { opacity: 1, scaleX: 1, scaleY: 1, y: 0, duration: 0.4, ease: "back.out(1.4)", immediateRender: false }, MARTES - 0.1);
+      // "diecinueve a...": la tira tiembla (no se entiende)
+      tl.to(q(".s08-tira b"), { x: 6, duration: 0.05, yoyo: true, repeat: 7, ease: "none" }, DIECINUEVE);
+      tl.to(q(".s08-tira"), { rotation: -2, duration: 0.3, ease: "sine.inOut" }, DIECINUEVE + 0.5);
+      // "horario" / "precio"
+      K.sello(q(".s08-hor"), HORARIO, -5);
+      K.origen(q(".s08-reloj"), "230 1430");
+      K.pop(q(".s08-reloj"), HORARIO + 0.05);
+      K.origen(qa(".s08-reloj path")[0], "230 1430");
+      tl.to(qa(".s08-reloj path")[0], { rotation: 360, duration: 0.6, ease: "none" }, HORARIO + 0.1);
+      K.sello(q(".s08-pre"), PRECIO, 5);
+      K.origen(q(".s08-precio"), "795 1430");
+      K.pop(q(".s08-precio"), PRECIO + 0.05);
+      tl.to(q(".s08-precio"), { rotation: 8, duration: 0.12, yoyo: true, repeat: 3 }, PRECIO + 0.3);
+
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

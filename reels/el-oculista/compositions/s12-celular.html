@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/consultorio.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-celular"] .s12-capa, [data-composition-id="s12-celular"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-celular"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-celular"] .s12-ven { left: 640px; top: 1010px; transform: rotate(-4deg); }
+    [data-composition-id="s12-celular"] .s12-cli { left: 300px; top: 1500px; }
+  </style>
+  <div id="root" data-composition-id="s12-celular" data-width="1080" data-height="1920" data-duration="6.26">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="6.26" data-track-index="0">
+      <div class="s12-escenario">
+        <svg class="s12-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="oc-tag s12-cli">SUS CLIENTES</div>
+        <div class="oc-tag rojo s12-ven">ASÍ LA VEN</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-celular";
+      const DUR = 6.26;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const I = OC.INK, M = OC.MOS;
+      const pantalla = `<rect x="576" y="626" width="438" height="250" rx="6" fill="#fff4dc"/>
+          <rect x="576" y="626" width="438" height="56" fill="${M}"/>
+          <text x="795" y="664" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="28" fill="${I}">PIZZERÍA DON CARMELO</text>
+          <rect x="600" y="700" width="180" height="150" rx="10" fill="${OC.ROJO}" opacity="0.85"/>
+          <circle cx="690" cy="775" r="52" fill="${M}" stroke="${I}" stroke-width="5"/>
+          <rect x="800" y="704" width="190" height="14" rx="7" fill="${I}" opacity="0.5"/><rect x="800" y="732" width="160" height="14" rx="7" fill="${I}" opacity="0.5"/><rect x="800" y="760" width="180" height="14" rx="7" fill="${I}" opacity="0.5"/>
+          <rect x="800" y="800" width="150" height="40" rx="10" fill="${OC.ROJO}"/>`;
+      const cliente = (x, c, k) => `<g class="s12-c s12-c${k}">
+          <path d="M${x - 110} 1480 C${x - 105} 1360 ${x - 60} 1320 ${x} 1320 C${x + 60} 1320 ${x + 105} 1360 ${x + 110} 1480 Z" fill="${c}" stroke="${I}" stroke-width="7"/>
+          <circle cx="${x}" cy="1250" r="62" fill="${k === 1 ? "#e8b48c" : OC.PIEL}" stroke="${I}" stroke-width="7"/>
+          <path d="M${x - 62} 1240 C${x - 60} 1170 ${x + 60} 1170 ${x + 62} 1240 C${x + 30} 1215 ${x - 30} 1215 ${x - 62} 1240 Z" fill="${k === 2 ? "#c9d3d8" : "#5a3a28"}" stroke="${I}" stroke-width="5"/>
+          <path d="M${x - 26} 1268 Q${x - 18} 1274 ${x - 10} 1268 M${x + 10} 1268 Q${x + 18} 1274 ${x + 26} 1268" fill="none" stroke="${I}" stroke-width="5" stroke-linecap="round"/>
+          <rect x="${x - 34}" y="1350" width="68" height="110" rx="12" fill="${I}"/><rect x="${x - 26}" y="1360" width="52" height="88" rx="6" fill="${OC.BLA}"/>
+        </g>`;
+      root.querySelector(".s12-svg").innerHTML =
+        `<g class="s12-monitor"><g transform="translate(60 640) scale(0.85) translate(-560 -610)">
+          <rect x="560" y="610" width="470" height="300" rx="16" fill="${I}"/>
+          ${pantalla}
+          <path d="M770 910 L750 980 H840 L820 910 Z" fill="#2c5a7a" stroke="${I}" stroke-width="6" stroke-linejoin="round"/>
+          <rect x="700" y="976" width="190" height="20" rx="8" fill="#2c5a7a" stroke="${I}" stroke-width="6"/>
+        </g></g>
+        <g class="s12-tacha" stroke="${OC.ROJO}" stroke-width="20" stroke-linecap="round" fill="none"><path d="M70 640 L470 960"/><path d="M470 640 L70 960"/></g>` +
+        `<g class="s12-cel">${OC.celular(660, 620, 300, 560, "s12-clip")}
+          <g clip-path="url(#s12-clip)"><g class="s12-copia"><g transform="translate(660 660) scale(0.685) translate(-576 -626)">${pantalla}</g></g></g>
+          ${OC.celularBorde(660, 620, 300, 560)}</g>` +
+        OC.oculista(870, 1160, 0.85, { espejo: true }) + cliente(200, "#8cc4d8", 0) + cliente(540, OC.ROJO, 1) + cliente(880, M, 2);
+      const tl = gsap.timeline({ paused: true });
+      const K = OC.kit(tl, root);
+      const { q, qa } = K;
+
+      const CLIENTES = 1.48;
+      const COMPU = 2.78;
+      const TIENEN = 4.48;
+      const CELULAR = 4.96;
+
+      // cuadro 0: el monitor del sobrino, a la izquierda
+      tl.fromTo(q(".s12-monitor"), { opacity: 0.4, x: 30 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s12-escenario"), { scale: 1 }, { scale: 1.03, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+      tl.fromTo(q(".oc-o"), { x: -200, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      K.apuntar(0, 0, 0.01);
+      K.hablar(".oc-o-boca", 0.1, 5);
+      tl.to(q(".oc-o-brazo"), { rotation: -6, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.4);
+      tl.to(q(".oc-o"), { x: -400, opacity: 0, duration: 0.3, ease: "power2.in" }, TIENEN - 0.35);
+      // "clientes": aparecen tres clientes con el celular en la mano
+      qa(".s12-c").forEach((c, i) => {
+        K.origen(c, `${200 + i * 340} 1480`);
+        tl.fromTo(c, { opacity: 0, y: 120 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, CLIENTES - 0.1 + i * 0.12);
+        tl.to(c, { rotation: i % 2 ? 3 : -3, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, CLIENTES + 0.5 + i * 0.1);
+      });
+      K.pop(q(".s12-cli"), CLIENTES + 0.3);
+      // "compu": tachada
+      qa(".s12-tacha path").forEach((p, i) => K.dibujar(p, COMPU + i * 0.12, 0.2));
+      tl.to(q(".s12-monitor"), { opacity: 0.5, duration: 0.3 }, COMPU + 0.3);
+      // "tienen un celular": el celular aparece y la página se aplasta adentro, diminuta
+      gsap.set(q(".s12-cel"), { opacity: 0 });
+      K.origen(q(".s12-cel"), "810 900");
+      tl.fromTo(q(".s12-cel"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, TIENEN - 0.1);
+      gsap.set(q(".s12-copia"), { opacity: 0 });
+      K.origen(q(".s12-copia"), "660 660");
+      tl.fromTo(q(".s12-copia"), { opacity: 0, scaleX: 1.9, scaleY: 1.9, x: -560 }, { opacity: 1, scaleX: 1, scaleY: 1, x: 0, duration: 0.4, ease: "power3.in", immediateRender: false }, CELULAR - 0.35);
+      K.sacudon(q(".s12-cel"), CELULAR + 0.06, 0.8);
+      K.sello(q(".s12-ven"), CELULAR + 0.3, -4);
+      // los clientes entrecierran los ojos (se acercan el celular)
+      tl.to(qa(".s12-c rect"), { y: -30, duration: 0.25, ease: "power2.out" }, CELULAR + 0.4);
+
+      K.salida(q("#s12-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
