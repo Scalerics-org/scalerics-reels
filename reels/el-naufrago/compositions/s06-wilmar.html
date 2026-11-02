@@ -1,0 +1,170 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Luckiest Guy"; font-weight: 400; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-wilmar"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-wilmar"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-wilmar"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-wilmar"] .tinta { stroke: #04161c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-wilmar"] .mar { fill: none; stroke: #37d3c4; stroke-width: 5; stroke-linecap: round; opacity: 0.55; }
+    [data-composition-id="s06-wilmar"] .cliente { fill: #ffc145; stroke: #04161c; stroke-width: 4; }
+    [data-composition-id="s06-wilmar"] .s06-grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Luckiest Guy", sans-serif; line-height: 1; white-space: nowrap; color: #f2d49b; -webkit-text-stroke: 12px #04161c; paint-order: stroke fill; text-shadow: 10px 12px 0 #04161c; }
+    [data-composition-id="s06-wilmar"] .s06-papel { position: absolute; padding: 18px 30px 12px; background: #fff4dc; border: 5px solid #04161c; border-radius: 8px; font-family: "Caveat", cursive; font-weight: 700; color: #04161c; line-height: 1; white-space: nowrap; box-shadow: 8px 10px 0 #04161c; }
+    [data-composition-id="s06-wilmar"] .s06-globo { position: absolute; padding: 18px 28px 14px; background: #fff4dc; border: 5px solid #04161c; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 700; color: #04161c; line-height: 1.12; box-shadow: 8px 10px 0 #04161c; }
+    [data-composition-id="s06-wilmar"] .s06-globo b { color: #ff6f59; font-weight: 800; }
+    [data-composition-id="s06-wilmar"] .s06-sello { position: absolute; padding: 14px 30px 6px; border: 10px solid #ff6f59; border-radius: 22px; text-align: center; font-family: "Luckiest Guy", sans-serif; line-height: 1; white-space: nowrap; color: #ff6f59; background: rgba(6, 28, 35, 0.88); }
+    [data-composition-id="s06-wilmar"] .s06-sello.verde { border-color: #6bbf59; color: #6bbf59; }
+
+    [data-composition-id="s06-wilmar"] .s06-barra { position: absolute; left: 0; right: 0; height: 90px; background: #04161c; }
+    [data-composition-id="s06-wilmar"] .s06-peli { position: absolute; left: 0; right: 0; top: 590px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; color: #fff4dc; }
+    [data-composition-id="s06-wilmar"] .s06-nombre { position: absolute; left: 640px; top: 1080px; font-family: "Caveat", cursive; font-weight: 700; font-size: 84px; color: #ffc145; -webkit-text-stroke: 8px #04161c; paint-order: stroke fill; transform: rotate(-8deg); }
+
+  </style>
+  <div id="root" data-composition-id="s06-wilmar" data-width="1080" data-height="1920" data-duration="3.33">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="3.33" data-track-index="0">
+      <div class="s06-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          
+          <g class="s06-isla-pos" transform="translate(560 1500) scale(1.45)"><g class="s06-isla">
+            
+            <path class="tinta" fill="#d4ac68" d="M250 -110 C240 -260 220 -380 180 -480 L208 -488 C252 -390 272 -270 284 -110 Z" />
+            <path fill="none" stroke="#04161c" stroke-width="4" d="M232 -200 h40 M222 -280 h38 M208 -360 h34 M194 -430 h28" />
+            <g class="s06-hojas">
+              <path class="tinta" fill="#6bbf59" d="M194 -484 C140 -540 60 -540 8 -500 C70 -520 120 -500 194 -484 Z" />
+              <path class="tinta" fill="#6bbf59" d="M194 -484 C160 -560 100 -590 50 -580 C110 -560 150 -530 194 -484 Z" />
+              <path class="tinta" fill="#6bbf59" d="M194 -484 C220 -560 290 -590 350 -574 C290 -560 240 -530 194 -484 Z" />
+              <path class="tinta" fill="#6bbf59" d="M194 -484 C260 -530 340 -520 390 -470 C330 -490 270 -490 194 -484 Z" />
+              <path class="tinta" fill="#6bbf59" d="M194 -484 C200 -420 180 -370 150 -340 C180 -390 184 -430 194 -484 Z" />
+            </g>
+            <circle class="tinta" fill="#d4ac68" cx="182" cy="-468" r="18" />
+            <circle class="tinta" fill="#d4ac68" cx="212" cy="-462" r="16" />
+            <path class="tinta" fill="#f2d49b" d="M-390 0 C-320 -130 -160 -160 0 -160 C160 -160 320 -130 390 0 Z" />
+            <path fill="none" stroke="#d4ac68" stroke-width="5" stroke-linecap="round" d="M-240 -50 q20 -8 40 0 M100 -80 q20 -8 40 0 M220 -35 q20 -8 40 0" />
+          </g></g>
+          <path class="mar s06-ola" d="M40 1520 q40 -16 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" />
+          <!-- fogata -->
+          <g class="s06-fogata">
+            <path class="tinta" fill="#d4ac68" d="M480 1400 L640 1370 L646 1388 L486 1418 Z M486 1370 L646 1400 L640 1418 L480 1388 Z" />
+            <path class="tinta s06-llama" fill="#ff6f59" d="M560 1380 C510 1360 520 1300 545 1270 C548 1300 560 1305 566 1290 C570 1260 590 1240 600 1230 C596 1270 620 1300 606 1350 C600 1370 580 1384 560 1380 Z" />
+            <path class="s06-llama2" fill="#ffc145" d="M562 1374 C540 1360 545 1330 558 1312 C562 1330 572 1330 576 1316 C590 1334 592 1360 562 1374 Z" />
+          </g>
+          
+          <g class="s06-vero-pos" transform="translate(330 1420) scale(0.95)" ><g class="s06-vero">
+            <g class="s06-vero-in">
+            <ellipse cx="-26" cy="0" rx="24" ry="10" fill="#d4ac68" class="tinta" />
+            <ellipse cx="26" cy="0" rx="24" ry="10" fill="#d4ac68" class="tinta" />
+            <path class="tinta" fill="#f2d49b" d="M-40 -2 L-36 -116 L-12 -116 L-14 -2 Z" />
+            <path class="tinta" fill="#f2d49b" d="M14 -2 L12 -116 L36 -116 L40 -2 Z" />
+            <path class="tinta" fill="#d4ac68" d="M-48 -100 L-44 -160 L44 -160 L48 -100 L6 -100 L0 -122 L-6 -100 Z" />
+            <g class="s06-brazo-i"><path class="tinta" fill="#f2d49b" d="M-44 -268 C-76 -240 -86 -200 -82 -160 L-62 -158 C-62 -196 -54 -226 -34 -252 Z" /><circle class="tinta" fill="#f2d49b" cx="-72" cy="-152" r="14" /></g>
+            <g class="s06-brazo-d"><path class="tinta" fill="#f2d49b" d="M44 -268 C76 -240 86 -200 82 -160 L62 -158 C62 -196 54 -226 34 -252 Z" /><circle class="tinta" fill="#f2d49b" cx="72" cy="-152" r="14" /></g>
+            <path class="tinta" fill="#37d3c4" d="M-50 -150 L-46 -262 C-30 -284 30 -284 46 -262 L50 -150 L34 -164 L18 -148 L2 -164 L-14 -148 L-30 -164 Z" />
+            <path fill="none" stroke="#04161c" stroke-width="4" stroke-linecap="round" d="M20 -220 l10 12 M28 -210 l-8 10" />
+            <g class="s06-cabeza">
+              <path class="tinta" fill="#f2d49b" d="M-14 -276 h28 v-22 h-28 Z" />
+              <circle class="tinta" fill="#f2d49b" cx="0" cy="-350" r="58" />
+              <path class="tinta" fill="#ff6f59" d="M-56 -364 C-62 -420 -20 -440 12 -434 C50 -430 64 -398 58 -366 C40 -386 20 -394 0 -386 C-24 -394 -44 -380 -56 -364 Z" />
+              <circle class="tinta" fill="#ff6f59" cx="16" cy="-444" r="30" />
+              <path fill="none" stroke="#ff6f59" stroke-width="5" stroke-linecap="round" d="M-10 -466 l-14 -16 M42 -460 l14 -14 M20 -476 l2 -20" />
+              <path class="tinta" fill="#ffc145" d="M-20 -420 L60 -470 L66 -462 L-14 -412 Z" />
+              <g class="s06-ojos"><circle fill="#04161c" cx="-20" cy="-350" r="7" /><circle fill="#04161c" cx="22" cy="-350" r="7" /></g>
+              <path fill="none" stroke="#d4ac68" stroke-width="4" stroke-linecap="round" d="M-32 -334 q12 8 24 0 M10 -334 q12 8 24 0" />
+              <path class="tinta s06-boca" fill="#fff4dc" d="M-24 -320 Q0 -298 26 -320 Z" />
+            </g>
+            </g>
+          </g></g>
+          
+          <g class="s06-wilmar-pos" transform="translate(800 1340) scale(1.0)"><g class="s06-wilmar">
+            <ellipse cx="0" cy="84" rx="70" ry="12" fill="#04161c" opacity="0.35" />
+            <circle class="tinta" fill="#fff4dc" cx="0" cy="0" r="80" />
+            <path fill="none" stroke="#d4ac68" stroke-width="5" stroke-linecap="round" d="M-78 -18 C-30 -10 10 -40 26 -76 M-60 52 C-20 20 40 20 74 30 M-6 80 C10 40 40 10 78 -14" />
+            <path fill="#ff6f59" opacity="0.92" d="M-44 -40 C-50 -60 -40 -70 -32 -56 L-26 -66 C-24 -84 -10 -84 -10 -66 L-4 -72 C0 -88 16 -86 14 -68 L20 -70 C26 -84 40 -78 34 -60 C48 -60 50 -44 42 -30 C50 0 40 40 0 46 C-40 46 -52 10 -44 -40 Z" />
+            <circle fill="#04161c" cx="-16" cy="-18" r="8" />
+            <circle fill="#04161c" cx="18" cy="-20" r="8" />
+            <path class="s06-wboca" fill="#04161c" d="M-18 14 Q2 30 22 12 Q2 20 -18 14 Z" />
+            <g class="s06-lentes" opacity="0">
+              <path class="tinta" fill="#04161c" d="M-46 -34 H-4 V-14 C-4 0 -44 0 -46 -14 Z M6 -34 H48 V-14 C46 0 8 0 6 -14 Z M-4 -28 H6" />
+            </g>
+          </g></g>
+        </svg>
+        <div class="s06-barra s06-b1" style="top: 540px;"></div>
+        <div class="s06-barra s06-b2" style="top: 1440px;"></div>
+        <div class="s06-peli">COMO EN LA PELÍCULA</div>
+        <div class="s06-nombre">Wilmar</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-wilmar";
+      const DUR = 3.33;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const pop = (el, t, from = 0.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t, from = 2.4) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (els, t, d = 0.2) => tl.to(els, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s06-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const habla = (sel, t, n, d = 0.11) => {
+        // boca que se abre y cierra n veces
+        for (let i = 0; i < n; i++) tl.to(q(sel), { scaleY: 0.25, duration: d, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + i * d * 2);
+      };
+
+
+      const PELICULA = 0.24, PELOTA = 1.36, QUE = 1.76, WILMAR = 2.32;
+      tl.fromTo(q(".s06-escenario"), { scale: 1.06 }, { scale: 1, duration: 1.7, ease: "none", transformOrigin: "50% 65%" }, 0);
+      tl.fromTo(q(".s06-isla"), { opacity: 0.6 }, { opacity: 1, duration: 0.25 }, 0);
+      // barras de cine
+      tl.fromTo(q(".s06-b1"), { y: -90 }, { y: 0, duration: 0.3, ease: "power3.out" }, 0.05);
+      tl.fromTo(q(".s06-b2"), { y: 90 }, { y: 0, duration: 0.3, ease: "power3.out" }, 0.05);
+      gsap.set(q(".s06-peli"), { opacity: 0 });
+      tl.fromTo(q(".s06-peli"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, PELICULA);
+      fuera(q(".s06-peli"), PELOTA + 0.2);
+      // llamas que tiemblan
+      tl.to(q(".s06-llama"), { scaleY: 1.12, scaleX: 0.92, svgOrigin: "560 1380", duration: 0.14, yoyo: true, repeat: 21, ease: "sine.inOut" }, 0);
+      tl.to(q(".s06-llama2"), { scaleY: 0.85, svgOrigin: "562 1374", duration: 0.11, yoyo: true, repeat: 27, ease: "sine.inOut" }, 0);
+      // Vero cuchichea a cámara
+      tl.to(q(".s06-brazo-d"), { rotation: -110, svgOrigin: "44 -262", duration: 0.2 }, 0.3);
+      tl.to(q(".s06-cabeza"), { rotation: 8, svgOrigin: "0 -290", duration: 0.25 }, 0.3);
+      // "una pelota": aparece Wilmar
+      gsap.set(q(".s06-wilmar"), { opacity: 0 });
+      tl.fromTo(q(".s06-wilmar"), { opacity: 0, y: -300 }, { opacity: 1, y: 0, duration: 0.35, ease: "bounce.out", immediateRender: false }, PELOTA - 0.3);
+      golpe(PELOTA + 0.05, 10);
+      // "¿Qué decís, Wilmar?": se da vuelta hacia la pelota, zoom
+      tl.to(q(".s06-cabeza"), { rotation: -6, duration: 0.2 }, QUE);
+      tl.to(q(".s06-brazo-d"), { rotation: -70, duration: 0.2 }, QUE);
+      tl.to(q(".s06-b1"), { y: -120, opacity: 0, duration: 0.25, ease: "power2.in" }, QUE);
+      tl.to(q(".s06-b2"), { y: 120, opacity: 0, duration: 0.25, ease: "power2.in" }, QUE);
+      tl.to(q(".s06-escenario"), { scale: 1.45, transformOrigin: "800px 1300px", duration: 0.5, ease: "power3.inOut" }, QUE + 0.1);
+      gsap.set(q(".s06-nombre"), { rotation: -8 });
+      pop(q(".s06-nombre"), WILMAR, 0.4);
+
+
+      // salida: una ola se la lleva hacia abajo
+      tl.to(q("#s06-escena"), { y: 260, opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power3.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

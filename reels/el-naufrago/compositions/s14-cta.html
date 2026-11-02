@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Luckiest Guy"; font-weight: 400; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-cta"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] .s14-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-cta"] .tinta { stroke: #04161c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .mar { fill: none; stroke: #37d3c4; stroke-width: 5; stroke-linecap: round; opacity: 0.55; }
+    [data-composition-id="s14-cta"] .cliente { fill: #ffc145; stroke: #04161c; stroke-width: 4; }
+    [data-composition-id="s14-cta"] .s14-grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Luckiest Guy", sans-serif; line-height: 1; white-space: nowrap; color: #f2d49b; -webkit-text-stroke: 12px #04161c; paint-order: stroke fill; text-shadow: 10px 12px 0 #04161c; }
+    [data-composition-id="s14-cta"] .s14-papel { position: absolute; padding: 18px 30px 12px; background: #fff4dc; border: 5px solid #04161c; border-radius: 8px; font-family: "Caveat", cursive; font-weight: 700; color: #04161c; line-height: 1; white-space: nowrap; box-shadow: 8px 10px 0 #04161c; }
+    [data-composition-id="s14-cta"] .s14-globo { position: absolute; padding: 18px 28px 14px; background: #fff4dc; border: 5px solid #04161c; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 700; color: #04161c; line-height: 1.12; box-shadow: 8px 10px 0 #04161c; }
+    [data-composition-id="s14-cta"] .s14-globo b { color: #ff6f59; font-weight: 800; }
+    [data-composition-id="s14-cta"] .s14-sello { position: absolute; padding: 14px 30px 6px; border: 10px solid #ff6f59; border-radius: 22px; text-align: center; font-family: "Luckiest Guy", sans-serif; line-height: 1; white-space: nowrap; color: #ff6f59; background: rgba(6, 28, 35, 0.88); }
+    [data-composition-id="s14-cta"] .s14-sello.verde { border-color: #6bbf59; color: #6bbf59; }
+
+    [data-composition-id="s14-cta"] .s14-preg { position: absolute; left: 150px; top: 700px; width: 360px; font-family: "Caveat", cursive; font-weight: 700; font-size: 70px; line-height: 1.02; color: #04161c; transform: rotate(-3deg); }
+    [data-composition-id="s14-cta"] .s14-preg b { color: #ff6f59; }
+    [data-composition-id="s14-cta"] .s14-com { left: 300px; top: 1340px; width: 690px; font-size: 42px; padding-left: 34px; }
+    [data-composition-id="s14-cta"] .s14-com::after { content: ""; position: absolute; left: 40px; bottom: -34px; width: 0; height: 0; border-left: 18px solid transparent; border-right: 18px solid transparent; border-top: 30px solid #04161c; }
+
+  </style>
+  <div id="root" data-composition-id="s14-cta" data-width="1080" data-height="1920" data-duration="6.81">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="6.81" data-track-index="0">
+      <div class="s14-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s14-libro">
+            <path class="tinta" fill="#d4ac68" d="M90 640 L540 660 L990 640 L1000 1300 L540 1320 L80 1300 Z" />
+            <path class="tinta" fill="#fff4dc" d="M110 620 C250 610 420 620 540 650 L540 1290 C420 1260 250 1250 110 1270 Z" />
+            <path class="tinta" fill="#fff4dc" d="M970 620 C830 610 660 620 540 650 L540 1290 C660 1260 830 1250 970 1270 Z" />
+            <path fill="none" stroke="#37d3c4" stroke-width="3" opacity="0.5" d="M130 760 H520 M130 860 H520 M130 960 H520 M130 1060 H520 M130 1160 H520 M560 760 H950 M560 860 H950 M560 960 H950 M560 1060 H950 M560 1160 H950" />
+          </g>
+          <g class="s14-rayas"></g>
+          
+          <g class="s14-wilmar-pos" transform="translate(160 1420) scale(0.85)"><g class="s14-wilmar">
+            <ellipse cx="0" cy="84" rx="70" ry="12" fill="#04161c" opacity="0.35" />
+            <circle class="tinta" fill="#fff4dc" cx="0" cy="0" r="80" />
+            <path fill="none" stroke="#d4ac68" stroke-width="5" stroke-linecap="round" d="M-78 -18 C-30 -10 10 -40 26 -76 M-60 52 C-20 20 40 20 74 30 M-6 80 C10 40 40 10 78 -14" />
+            <path fill="#ff6f59" opacity="0.92" d="M-44 -40 C-50 -60 -40 -70 -32 -56 L-26 -66 C-24 -84 -10 -84 -10 -66 L-4 -72 C0 -88 16 -86 14 -68 L20 -70 C26 -84 40 -78 34 -60 C48 -60 50 -44 42 -30 C50 0 40 40 0 46 C-40 46 -52 10 -44 -40 Z" />
+            <circle fill="#04161c" cx="-16" cy="-18" r="8" />
+            <circle fill="#04161c" cx="18" cy="-20" r="8" />
+            <path class="s14-wboca" fill="#04161c" d="M-18 14 Q2 30 22 12 Q2 20 -18 14 Z" />
+            <g class="s14-lentes" opacity="1">
+              <path class="tinta" fill="#04161c" d="M-46 -34 H-4 V-14 C-4 0 -44 0 -46 -14 Z M6 -34 H48 V-14 C46 0 8 0 6 -14 Z M-4 -28 H6" />
+            </g>
+          </g></g>
+        </svg>
+        <div class="s14-preg">¿Cuántos <b>días</b> llevás en la isla?</div>
+        <div class="s14-globo s14-com">Dejá tus <b>rayitas</b> en los comentarios</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-cta";
+      const DUR = 6.81;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const pop = (el, t, from = 0.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t, from = 2.4) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (els, t, d = 0.2) => tl.to(els, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s14-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const habla = (sel, t, n, d = 0.11) => {
+        // boca que se abre y cierra n veces
+        for (let i = 0; i < n; i++) tl.to(q(sel), { scaleY: 0.25, duration: d, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + i * d * 2);
+      };
+
+
+      const DIAS = 0.34, ISLA = 0.95, DEJA = 1.65, RAYITAS = 2.08, COMENT = 2.78;
+      const NS = "http://www.w3.org/2000/svg";
+      tl.fromTo(q(".s14-libro"), { y: 60, opacity: 0.5, rotation: -3 }, { y: 0, opacity: 1, rotation: 0, svgOrigin: "540 960", duration: 0.35, ease: "back.out(1.4)" }, 0);
+      tl.fromTo(q(".s14-preg"), { opacity: 0.3, scale: 1.2 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out" }, 0);
+      tl.to(q(".s14-preg b"), { scale: 1.1, duration: 0.12, yoyo: true, repeat: 1 }, DIAS);
+      // rayitas que se dibujan solas en la página derecha, hasta el final
+      const g = q(".s14-rayas");
+      let k = 0;
+      for (let fila = 0; fila < 5; fila++) {
+        for (let grupo = 0; grupo < 3; grupo++) {
+          const x0 = 590 + grupo * 125, y0 = 690 + fila * 100;
+          for (let r = 0; r < 5; r++) {
+            const pth = document.createElementNS(NS, "path");
+            pth.setAttribute("fill", "none");
+            pth.setAttribute("stroke", fila % 2 ? "#ff6f59" : "#04161c");
+            pth.setAttribute("stroke-width", "7");
+            pth.setAttribute("stroke-linecap", "round");
+            pth.setAttribute("d", r < 4 ? `M${x0 + r * 18} ${y0} v66` : `M${x0 - 12} ${y0 + 54} L${x0 + 70} ${y0 + 10}`);
+            g.appendChild(pth);
+            gsap.set(pth, { strokeDasharray: 100, strokeDashoffset: 100, opacity: 0 });
+            const t = DIAS + k * 0.085;
+            if (t < DUR - 0.4) { tl.set(pth, { opacity: 1 }, t); tl.to(pth, { strokeDashoffset: 0, duration: 0.07, ease: "none" }, t); }
+            k++;
+          }
+        }
+      }
+      // el globo de comentario
+      pop(q(".s14-com"), DEJA - 0.1, 0.5);
+      tl.to(q(".s14-com b"), { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1 }, RAYITAS);
+      tl.to(q(".s14-com"), { y: -10, duration: 0.15, yoyo: true, repeat: 1 }, COMENT);
+      // Wilmar asiente y la cámara respira (no queda quieto)
+      tl.fromTo(q(".s14-wilmar"), { x: -200 }, { x: 0, duration: 0.3, ease: "back.out(1.6)" }, 0.2);
+      tl.to(q(".s14-wilmar"), { rotation: 8, duration: 0.45, yoyo: true, repeat: 7, ease: "sine.inOut" }, 1.0);
+      tl.fromTo(q(".s14-escenario"), { scale: 1 }, { scale: 1.04, transformOrigin: "50% 55%", duration: DUR, ease: "none" }, 0);
+
+
+      // salida: una ola se la lleva hacia abajo
+      tl.to(q("#s14-escena"), { y: 260, opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power3.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

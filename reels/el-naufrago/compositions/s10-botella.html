@@ -1,0 +1,122 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Luckiest Guy"; font-weight: 400; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-botella"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-botella"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-botella"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-botella"] .tinta { stroke: #04161c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-botella"] .mar { fill: none; stroke: #37d3c4; stroke-width: 5; stroke-linecap: round; opacity: 0.55; }
+    [data-composition-id="s10-botella"] .cliente { fill: #ffc145; stroke: #04161c; stroke-width: 4; }
+    [data-composition-id="s10-botella"] .s10-grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Luckiest Guy", sans-serif; line-height: 1; white-space: nowrap; color: #f2d49b; -webkit-text-stroke: 12px #04161c; paint-order: stroke fill; text-shadow: 10px 12px 0 #04161c; }
+    [data-composition-id="s10-botella"] .s10-papel { position: absolute; padding: 18px 30px 12px; background: #fff4dc; border: 5px solid #04161c; border-radius: 8px; font-family: "Caveat", cursive; font-weight: 700; color: #04161c; line-height: 1; white-space: nowrap; box-shadow: 8px 10px 0 #04161c; }
+    [data-composition-id="s10-botella"] .s10-globo { position: absolute; padding: 18px 28px 14px; background: #fff4dc; border: 5px solid #04161c; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 700; color: #04161c; line-height: 1.12; box-shadow: 8px 10px 0 #04161c; }
+    [data-composition-id="s10-botella"] .s10-globo b { color: #ff6f59; font-weight: 800; }
+    [data-composition-id="s10-botella"] .s10-sello { position: absolute; padding: 14px 30px 6px; border: 10px solid #ff6f59; border-radius: 22px; text-align: center; font-family: "Luckiest Guy", sans-serif; line-height: 1; white-space: nowrap; color: #ff6f59; background: rgba(6, 28, 35, 0.88); }
+    [data-composition-id="s10-botella"] .s10-sello.verde { border-color: #6bbf59; color: #6bbf59; }
+
+    [data-composition-id="s10-botella"] .s10-para { top: 600px; font-size: 110px; }
+    [data-composition-id="s10-botella"] .s10-hay { top: 580px; font-size: 96px; line-height: 1.02; }
+    [data-composition-id="s10-botella"] .s10-hay span { display: inline-block; color: #ffc145; font-size: 136px; }
+    [data-composition-id="s10-botella"] .s10-quiero { position: absolute; left: 470px; top: 930px; font-family: "Caveat", cursive; font-weight: 700; font-size: 72px; color: #fff4dc; -webkit-text-stroke: 8px #04161c; paint-order: stroke fill; transform: rotate(-6deg); }
+
+  </style>
+  <div id="root" data-composition-id="s10-botella" data-width="1080" data-height="1920" data-duration="4.45">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="4.45" data-track-index="0">
+      <div class="s10-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="mar s10-ola" d="M40 1460 q40 -16 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" />
+          <!-- la clienta con el celular, lista para comprar -->
+          <g class="s10-clienta">
+            <path class="tinta" fill="#ffc145" d="M200 1440 L220 1180 C240 1140 360 1140 380 1180 L400 1440 Z" />
+            <circle class="tinta" fill="#ffc145" cx="300" cy="1070" r="74" />
+            <circle fill="#04161c" cx="276" cy="1062" r="8" /><circle fill="#04161c" cx="324" cy="1062" r="8" />
+            <path class="s10-cboca" fill="none" stroke="#04161c" stroke-width="5" stroke-linecap="round" d="M276 1098 q24 16 48 0" />
+            <path class="tinta" fill="#ffc145" d="M372 1190 C420 1220 430 1260 420 1290 L398 1284 C404 1260 396 1236 360 1214 Z" />
+            <g class="s10-cel"><rect class="tinta" fill="#04161c" x="400" y="1200" width="70" height="120" rx="14" /><rect fill="#37d3c4" x="410" y="1214" width="50" height="80" rx="6" /></g>
+            <g class="s10-papel-g"><path class="tinta" fill="#fff4dc" d="M410 1230 L520 1220 L528 1330 L418 1340 Z" /><path fill="none" stroke="#04161c" stroke-width="4" d="M430 1260 q20 -10 40 0 t40 0 M430 1290 q20 -10 40 0" /></g>
+          </g>
+          
+          <g class="s10-botella-pos" transform="translate(700 1190) rotate(-18) scale(2.5)"><g class="s10-botella s10-gigante">
+            <path class="tinta" fill="rgba(55,211,196,0.35)" stroke="#37d3c4" d="M-110 -40 C-130 -40 -130 40 -110 40 L30 40 C50 40 60 18 80 14 L100 14 L100 -14 L80 -14 C60 -18 50 -40 30 -40 Z" />
+            <path fill="none" stroke="#04161c" stroke-width="5" stroke-linejoin="round" d="M-110 -40 C-130 -40 -130 40 -110 40 L30 40 C50 40 60 18 80 14 L100 14 L100 -14 L80 -14 C60 -18 50 -40 30 -40 Z" />
+            <rect class="tinta s10-corcho" fill="#d4ac68" x="98" y="-12" width="30" height="24" rx="5" />
+            <path class="tinta" fill="#fff4dc" d="M-90 -18 L10 -18 L10 18 L-90 18 Z" />
+            <path fill="none" stroke="#04161c" stroke-width="3" d="M-76 -4 H-6 M-76 6 H-26" />
+            <path fill="none" stroke="#fff4dc" stroke-width="6" stroke-linecap="round" opacity="0.6" d="M-100 -26 H10" />
+          </g></g>
+        </svg>
+        <div class="s10-quiero">¡lo quiero!</div>
+        <div class="s10-grande s10-para">PARA COMPRARTE</div>
+        <div class="s10-grande s10-hay">HAY QUE MANDARTE<br /><span>UNA BOTELLA</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-botella";
+      const DUR = 4.45;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const pop = (el, t, from = 0.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t, from = 2.4) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (els, t, d = 0.2) => tl.to(els, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const habla = (sel, t, n, d = 0.11) => {
+        // boca que se abre y cierra n veces
+        for (let i = 0; i < n; i++) tl.to(q(sel), { scaleY: 0.25, duration: d, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + i * d * 2);
+      };
+
+
+      const PERDIDA = 0.24, PORQUE = 0.79, COMPRARTE = 1.33, HAY = 1.97, MANDARTE = 2.42, BOTELLA = 3.15;
+      tl.fromTo(q(".s10-escenario"), { scale: 1.08 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "40% 60%" }, 0);
+      tl.fromTo(q(".s10-clienta"), { x: -200, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.to(q(".s10-cel"), { y: -10, duration: 0.15, yoyo: true, repeat: 3 }, 0.3);
+      gsap.set(q(".s10-quiero"), { rotation: -6 });
+      pop(q(".s10-quiero"), PORQUE - 0.1, 0.4);
+      slam(q(".s10-para"), COMPRARTE);
+      golpe(COMPRARTE + 0.05, 8);
+      gsap.set(q(".s10-papel-g"), { opacity: 0 });
+      fuera([q(".s10-quiero"), q(".s10-cel")], HAY - 0.1, 0.12);
+      pop(q(".s10-papel-g"), HAY - 0.05, 0.5);
+      tl.to(q(".s10-papel-g"), { rotation: 4, svgOrigin: "470 1280", duration: 0.08, yoyo: true, repeat: 5 }, HAY + 0.2);
+      tl.to(q(".s10-cboca"), { scaleY: -1, svgOrigin: "300 1104", duration: 0.2 }, HAY);
+      fuera(q(".s10-para"), MANDARTE - 0.12, 0.1);
+      slam(q(".s10-hay"), MANDARTE);
+      golpe(MANDARTE + 0.05, 10);
+      gsap.set(q(".s10-gigante"), { opacity: 0 });
+      tl.fromTo(q(".s10-gigante"), { opacity: 1, y: -900, rotation: -40 }, { opacity: 1, y: 0, rotation: 0, duration: 0.3, ease: "power3.in", immediateRender: false }, BOTELLA - 0.3);
+      golpe(BOTELLA, 24);
+      tl.to(q(".s10-gigante"), { rotation: 6, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, BOTELLA + 0.1);
+      tl.to(q(".s10-hay span"), { scale: 1.08, duration: 0.12, yoyo: true, repeat: 1 }, BOTELLA);
+
+
+      // salida: una ola se la lleva hacia abajo
+      tl.to(q("#s10-escena"), { y: 260, opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power3.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

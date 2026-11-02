@@ -1,0 +1,54 @@
+[
+ {
+  "t": 0.1,
+  "sfx": "splash",
+  "vol": 0.25
+ },
+ {
+  "t": 0.4,
+  "sfx": "moneda",
+  "vol": 0.3
+ },
+ {
+  "t": 0.58,
+  "sfx": "moneda",
+  "vol": 0.3
+ },
+ {
+  "t": 0.76,
+  "sfx": "moneda",
+  "vol": 0.3
+ },
+ {
+  "t": 0.8,
+  "sfx": "chime",
+  "vol": 0.3
+ },
+ {
+  "t": 1.1,
+  "sfx": "splash",
+  "vol": 0.25
+ },
+ {
+  "t": 2.35,
+  "sfx": "ronquido",
+  "vol": 0.3,
+  "max": 1.0
+ },
+ {
+  "t": 2.55,
+  "sfx": "notification",
+  "vol": 0.4
+ },
+ {
+  "t": 4.15,
+  "sfx": "impact-bass-2",
+  "vol": 0.42,
+  "max": 0.6
+ },
+ {
+  "t": 5.25,
+  "sfx": "pop",
+  "vol": 0.3
+ }
+]

@@ -1,0 +1,175 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Luckiest Guy"; font-weight: 400; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-pelota"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-pelota"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-pelota"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-pelota"] .tinta { stroke: #04161c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-pelota"] .mar { fill: none; stroke: #37d3c4; stroke-width: 5; stroke-linecap: round; opacity: 0.55; }
+    [data-composition-id="s07-pelota"] .cliente { fill: #ffc145; stroke: #04161c; stroke-width: 4; }
+    [data-composition-id="s07-pelota"] .s07-grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Luckiest Guy", sans-serif; line-height: 1; white-space: nowrap; color: #f2d49b; -webkit-text-stroke: 12px #04161c; paint-order: stroke fill; text-shadow: 10px 12px 0 #04161c; }
+    [data-composition-id="s07-pelota"] .s07-papel { position: absolute; padding: 18px 30px 12px; background: #fff4dc; border: 5px solid #04161c; border-radius: 8px; font-family: "Caveat", cursive; font-weight: 700; color: #04161c; line-height: 1; white-space: nowrap; box-shadow: 8px 10px 0 #04161c; }
+    [data-composition-id="s07-pelota"] .s07-globo { position: absolute; padding: 18px 28px 14px; background: #fff4dc; border: 5px solid #04161c; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 700; color: #04161c; line-height: 1.12; box-shadow: 8px 10px 0 #04161c; }
+    [data-composition-id="s07-pelota"] .s07-globo b { color: #ff6f59; font-weight: 800; }
+    [data-composition-id="s07-pelota"] .s07-sello { position: absolute; padding: 14px 30px 6px; border: 10px solid #ff6f59; border-radius: 22px; text-align: center; font-family: "Luckiest Guy", sans-serif; line-height: 1; white-space: nowrap; color: #ff6f59; background: rgba(6, 28, 35, 0.88); }
+    [data-composition-id="s07-pelota"] .s07-sello.verde { border-color: #6bbf59; color: #6bbf59; }
+
+    [data-composition-id="s07-pelota"] .s07-globo1 { left: 70px; top: 1110px; width: 500px; font-size: 42px; }
+    [data-composition-id="s07-pelota"] .s07-pelota { top: 600px; font-size: 118px; }
+    [data-composition-id="s07-pelota"] .s07-ventas { top: 580px; font-size: 112px; color: #ffc145; line-height: 1; }
+
+  </style>
+  <div id="root" data-composition-id="s07-pelota" data-width="1080" data-height="1920" data-duration="7.03">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="7.03" data-track-index="0">
+      <div class="s07-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          
+          <g class="s07-isla-pos" transform="translate(560 1540) scale(1.5)"><g class="s07-isla">
+            
+            <path class="tinta" fill="#f2d49b" d="M-390 0 C-320 -130 -160 -160 0 -160 C160 -160 320 -130 390 0 Z" />
+            <path fill="none" stroke="#d4ac68" stroke-width="5" stroke-linecap="round" d="M-240 -50 q20 -8 40 0 M100 -80 q20 -8 40 0 M220 -35 q20 -8 40 0" />
+          </g></g>
+          <g class="s07-tags"><g class="s07-tag" transform="translate(170 740) rotate(-4)"><g class="s07-tag-in">
+              <path fill="none" stroke="#fff4dc" stroke-width="4" d="M0 -180 V0" />
+              <path class="tinta" fill="#ffc145" d="M-60 20 L0 -10 L60 20 L60 150 L-60 150 Z" />
+              <circle class="tinta" fill="#10495a" cx="0" cy="18" r="9" />
+              <text x="0" y="118" text-anchor="middle" font-family="Luckiest Guy" font-size="72" fill="#04161c">$</text>
+            </g></g><g class="s07-tag" transform="translate(330 800) rotate(3)"><g class="s07-tag-in">
+              <path fill="none" stroke="#fff4dc" stroke-width="4" d="M0 -240 V0" />
+              <path class="tinta" fill="#ffc145" d="M-60 20 L0 -10 L60 20 L60 150 L-60 150 Z" />
+              <circle class="tinta" fill="#10495a" cx="0" cy="18" r="9" />
+              <text x="0" y="118" text-anchor="middle" font-family="Luckiest Guy" font-size="72" fill="#04161c">$</text>
+            </g></g><g class="s07-tag" transform="translate(490 720) rotate(-2)"><g class="s07-tag-in">
+              <path fill="none" stroke="#fff4dc" stroke-width="4" d="M0 -160 V0" />
+              <path class="tinta" fill="#ffc145" d="M-60 20 L0 -10 L60 20 L60 150 L-60 150 Z" />
+              <circle class="tinta" fill="#10495a" cx="0" cy="18" r="9" />
+              <text x="0" y="118" text-anchor="middle" font-family="Luckiest Guy" font-size="72" fill="#04161c">$</text>
+            </g></g></g>
+          
+          <g class="s07-wilmar-pos" transform="translate(740 1200) scale(1.9)"><g class="s07-wilmar">
+            <ellipse cx="0" cy="84" rx="70" ry="12" fill="#04161c" opacity="0.35" />
+            <circle class="tinta" fill="#fff4dc" cx="0" cy="0" r="80" />
+            <path fill="none" stroke="#d4ac68" stroke-width="5" stroke-linecap="round" d="M-78 -18 C-30 -10 10 -40 26 -76 M-60 52 C-20 20 40 20 74 30 M-6 80 C10 40 40 10 78 -14" />
+            <path fill="#ff6f59" opacity="0.92" d="M-44 -40 C-50 -60 -40 -70 -32 -56 L-26 -66 C-24 -84 -10 -84 -10 -66 L-4 -72 C0 -88 16 -86 14 -68 L20 -70 C26 -84 40 -78 34 -60 C48 -60 50 -44 42 -30 C50 0 40 40 0 46 C-40 46 -52 10 -44 -40 Z" />
+            <circle fill="#04161c" cx="-16" cy="-18" r="8" />
+            <circle fill="#04161c" cx="18" cy="-20" r="8" />
+            <path class="s07-wboca" fill="#04161c" d="M-18 14 Q2 30 22 12 Q2 20 -18 14 Z" />
+            <g class="s07-lentes" opacity="0">
+              <path class="tinta" fill="#04161c" d="M-46 -34 H-4 V-14 C-4 0 -44 0 -46 -14 Z M6 -34 H48 V-14 C46 0 8 0 6 -14 Z M-4 -28 H6" />
+            </g>
+          </g></g>
+          
+          <g class="s07-vero-pos" transform="translate(250 1560) scale(1.35)" ><g class="s07-vero">
+            <g class="s07-vero-in">
+            <ellipse cx="-26" cy="0" rx="24" ry="10" fill="#d4ac68" class="tinta" />
+            <ellipse cx="26" cy="0" rx="24" ry="10" fill="#d4ac68" class="tinta" />
+            <path class="tinta" fill="#f2d49b" d="M-40 -2 L-36 -116 L-12 -116 L-14 -2 Z" />
+            <path class="tinta" fill="#f2d49b" d="M14 -2 L12 -116 L36 -116 L40 -2 Z" />
+            <path class="tinta" fill="#d4ac68" d="M-48 -100 L-44 -160 L44 -160 L48 -100 L6 -100 L0 -122 L-6 -100 Z" />
+            <g class="s07-brazo-i"><path class="tinta" fill="#f2d49b" d="M-44 -268 C-76 -240 -86 -200 -82 -160 L-62 -158 C-62 -196 -54 -226 -34 -252 Z" /><circle class="tinta" fill="#f2d49b" cx="-72" cy="-152" r="14" /></g>
+            <g class="s07-brazo-d"><path class="tinta" fill="#f2d49b" d="M44 -268 C76 -240 86 -200 82 -160 L62 -158 C62 -196 54 -226 34 -252 Z" /><circle class="tinta" fill="#f2d49b" cx="72" cy="-152" r="14" /></g>
+            <path class="tinta" fill="#37d3c4" d="M-50 -150 L-46 -262 C-30 -284 30 -284 46 -262 L50 -150 L34 -164 L18 -148 L2 -164 L-14 -148 L-30 -164 Z" />
+            <path fill="none" stroke="#04161c" stroke-width="4" stroke-linecap="round" d="M20 -220 l10 12 M28 -210 l-8 10" />
+            <g class="s07-cabeza">
+              <path class="tinta" fill="#f2d49b" d="M-14 -276 h28 v-22 h-28 Z" />
+              <circle class="tinta" fill="#f2d49b" cx="0" cy="-350" r="58" />
+              <path class="tinta" fill="#ff6f59" d="M-56 -364 C-62 -420 -20 -440 12 -434 C50 -430 64 -398 58 -366 C40 -386 20 -394 0 -386 C-24 -394 -44 -380 -56 -364 Z" />
+              <circle class="tinta" fill="#ff6f59" cx="16" cy="-444" r="30" />
+              <path fill="none" stroke="#ff6f59" stroke-width="5" stroke-linecap="round" d="M-10 -466 l-14 -16 M42 -460 l14 -14 M20 -476 l2 -20" />
+              <path class="tinta" fill="#ffc145" d="M-20 -420 L60 -470 L66 -462 L-14 -412 Z" />
+              <g class="s07-ojos"><circle fill="#04161c" cx="-20" cy="-350" r="7" /><circle fill="#04161c" cx="22" cy="-350" r="7" /></g>
+              <path fill="none" stroke="#d4ac68" stroke-width="4" stroke-linecap="round" d="M-32 -334 q12 8 24 0 M10 -334 q12 8 24 0" />
+              <path class="tinta s07-boca" fill="#fff4dc" d="M-24 -320 Q0 -298 26 -320 Z" />
+            </g>
+            </g>
+          </g></g>
+          <path class="s07-dedo" fill="none" stroke="#ff6f59" stroke-width="8" stroke-linecap="round" d="M420 1040 l60 -20 M420 1080 l70 0 M420 1120 l60 20" />
+        </svg>
+        <div class="s07-globo s07-globo1">Te <b>dije</b> que pusieras los <b>precios</b> a la vista.</div>
+        <div class="s07-grande s07-pelota">¡SOS UNA PELOTA!</div>
+        <div class="s07-grande s07-ventas">SÉ MÁS DE VENTAS<br />QUE VOS</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-pelota";
+      const DUR = 7.03;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const pop = (el, t, from = 0.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t, from = 2.4) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (els, t, d = 0.2) => tl.to(els, { opacity: 0, duration: d, ease: "power2.in" }, t);
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const habla = (sel, t, n, d = 0.11) => {
+        // boca que se abre y cierra n veces
+        for (let i = 0; i < n; i++) tl.to(q(sel), { scaleY: 0.25, duration: d, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + i * d * 2);
+      };
+
+
+      const DIJE = 0.09, PRECIOS = 1.0, VISTA = 1.64, VOS = 2.75, PELOTA = 3.23, WILMAR = 3.63, Y = 4.6, SE = 4.73, VENTAS = 5.23, VOS2 = 5.96;
+      tl.fromTo(q(".s07-escenario"), { scale: 1.12 }, { scale: 1, duration: 2.6, ease: "power2.out", transformOrigin: "70% 62%" }, 0);
+      // Wilmar habla, seco
+      habla(".s07-wboca", 0.05, 6, 0.1);
+      pop(q(".s07-globo1"), 0.02, 0.5);
+      // las etiquetas de precio caen de arriba
+      qa(".s07-tag-in").forEach((t, i) => {
+        gsap.set(t, { opacity: 0 });
+        tl.fromTo(t, { opacity: 0, y: -300 }, { opacity: 1, y: 0, duration: 0.4, ease: "bounce.out", immediateRender: false }, PRECIOS - 0.15 + i * 0.1);
+        tl.to(t, { rotation: i % 2 ? 6 : -6, svgOrigin: "0 -200", duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut" }, PRECIOS + 0.3 + i * 0.05);
+      });
+      tl.to(qa(".s07-tag-in"), { scale: 1.15, duration: 0.12, yoyo: true, repeat: 1, stagger: 0.05 }, VISTA);
+      // "¡Vos sos una pelota, Wilmar!": entra Vero furiosa y lo señala
+      fuera([q(".s07-globo1"), q(".s07-tags")], VOS - 0.2, 0.15);
+      gsap.set(q(".s07-vero"), { opacity: 0 });
+      tl.fromTo(q(".s07-vero"), { opacity: 0, x: -300 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out", immediateRender: false }, VOS - 0.15);
+      tl.to(q(".s07-brazo-d"), { rotation: -95, svgOrigin: "44 -262", duration: 0.15 }, VOS);
+      tl.to(q(".s07-boca"), { scaleY: 2, svgOrigin: "0 -318", duration: 0.1 }, VOS);
+      gsap.set(q(".s07-dedo"), { opacity: 0 });
+      tl.fromTo(q(".s07-dedo"), { opacity: 0 }, { opacity: 1, duration: 0.06, yoyo: true, repeat: 5, immediateRender: false }, PELOTA);
+      slam(q(".s07-pelota"), PELOTA);
+      golpe(PELOTA + 0.05, 14);
+      tl.to(q(".s07-vero-in"), { y: -30, duration: 0.12, yoyo: true, repeat: 1 }, WILMAR);
+      // "Y sé más de ventas que vos": caen los lentes, Wilmar sobrador
+      fuera(q(".s07-pelota"), Y - 0.1, 0.12);
+      tl.to(q(".s07-vero"), { x: -80, opacity: 0.55, duration: 0.3 }, Y);
+      tl.to(q(".s07-boca"), { scaleY: 0.3, duration: 0.15 }, Y);
+      gsap.set(q(".s07-lentes"), { opacity: 0 });
+      tl.fromTo(q(".s07-lentes"), { opacity: 1, y: -260 }, { opacity: 1, y: 0, duration: 0.3, ease: "bounce.out", immediateRender: false }, SE - 0.1);
+      habla(".s07-wboca", Y, 6, 0.11);
+      tl.to(q(".s07-wilmar"), { rotation: -8, duration: 0.3, ease: "sine.inOut" }, SE + 0.2);
+      slam(q(".s07-ventas"), VENTAS);
+      golpe(VENTAS + 0.05, 12);
+      tl.to(q(".s07-ventas"), { scale: 1.08, duration: 0.12, yoyo: true, repeat: 1 }, VOS2);
+
+
+      // salida: una ola se la lleva hacia abajo
+      tl.to(q("#s07-escena"), { y: 260, opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power3.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
