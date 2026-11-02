@@ -1,0 +1,1 @@
+La automatización de Scalerics. Pasa los pedidos del WhatsApp a la planilla, avisa que el pedido está listo, recuerda turnos y pagos, y te manda el reporte del día al celular. Solo.

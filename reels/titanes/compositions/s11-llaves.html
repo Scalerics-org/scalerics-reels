@@ -1,0 +1,81 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-llaves"] .esc-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-llaves"] .esc-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-llaves"] svg.esc-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-llaves"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.01em; }
+    [data-composition-id="s11-llaves"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-llaves"] .cartel { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap; letter-spacing: -0.01em; color: #ffd23f; -webkit-text-stroke: 8px #0b0b12; paint-order: stroke fill; text-shadow: 10px 10px 0 #e8332a; }
+    [data-composition-id="s11-llaves"] .cartel.rojo { color: #e8332a; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s11-llaves"] .cartel.azul { color: #f4efe2; text-shadow: 10px 10px 0 #2a5cff; }
+    [data-composition-id="s11-llaves"] .cartel.verde { color: #5ce611; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s11-llaves"] .sello { position: absolute; padding: 8px 24px; border: 7px solid currentColor; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s11-llaves"] .s11-ok { position: absolute; left: 600px; width: 400px; padding: 14px 18px; background: #f4efe2; border: 5px solid #0b0b12; border-radius: 12px; box-shadow: 8px 8px 0 #5ce611; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 32px; color: #0b0b12; }
+    [data-composition-id="s11-llaves"] .s11-ok b { color: #2f8f0a; font-weight: 900; }
+    [data-composition-id="s11-llaves"] .s11-o1 { top: 720px; }
+    [data-composition-id="s11-llaves"] .s11-o2 { top: 840px; }
+    [data-composition-id="s11-llaves"] .s11-solo { top: 490px; font-size: 150px; }
+  </style>
+  <div id="root" data-composition-id="s11-llaves" data-width="1080" data-height="1920" data-duration="4.22">
+    <div id="s11-llaves-escena" class="esc-capa clip" data-start="0" data-duration="4.22" data-track-index="0">
+      <div class="esc-escenario">
+
+        <svg class="esc-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(20 660) scale(0.9)"><g class="s11-compa"></g></g>
+          <g transform="translate(650 700) scale(0.82)"><g class="s11-rm"><g class="s11-r"></g></g></g>
+          <g transform="translate(800 1000) scale(0.75)"><g class="s11-cel"></g></g>
+        </svg>
+        <div class="s11-ok s11-o1"><b>✓</b> Turno 10:00 confirmado</div>
+        <div class="s11-ok s11-o2"><b>✓</b> Gómez: pago recordado</div>
+        <div class="cartel verde s11-solo">¡Solo!</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-llaves";
+      const DUR = 4.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const K = window.KIT;
+      const esc = q(".esc-escenario");
+      const tl = gsap.timeline({ paused: true });
+
+      q(".s11-compa").innerHTML = K.luchador({ color: "#0b0b12", trim: "#5ce611", emblema: "engranaje", nombre: "AUTOMATIZACIÓN", tamNombre: 17, boca: "risa" });
+      q(".s11-r").innerHTML = K.luchador({ color: "#e8332a", trim: "#f4efe2", emblema: "reloj", nombre: "RECORDATORIO", tamNombre: 17, boca: "dolor" });
+      q(".s11-cel").innerHTML = K.celular({ titulo: "Reporte del día", colorBarra: "#0b0b12", colorMio: "#2f8f0a", globos: [["Pedidos: listos", 1], ["Avisos: enviados", 1], ["Turnos: al día", 1], ["Pagos: al día", 1]] });
+      const co = q(".s11-compa");
+      const TURNOS = 0.38, PAGOS = 0.73, MANDA = 1.6, REPORTE = 1.86, CELULAR = 2.82, SOLO = 3.42;
+      // llave al Recordatorio, y sale volando
+      tl.to(q(".s11-compa .k-l-brazoD"), { rotation: 60, svgOrigin: "322 262", duration: 0.12, ease: "power4.in" }, 0.1);
+      tl.to(q(".s11-rm"), { x: 520, rotation: 35, svgOrigin: "220 692", duration: 0.45, ease: "power2.in" }, 0.22);
+      K.sacudir(tl, esc, 0.24, 14);
+      tl.to(q(".s11-compa .k-l-brazoD"), { rotation: 0, svgOrigin: "322 262", duration: 0.3 }, 0.5);
+      K.pop(tl, q(".s11-o1"), TURNOS + 0.1);
+      K.pop(tl, q(".s11-o2"), PAGOS + 0.1);
+      // el reporte del día llega al celular
+      tl.to([q(".s11-o1"), q(".s11-o2")], { opacity: 0, y: -30, duration: 0.2 }, MANDA - 0.2);
+      gsap.set(q(".s11-cel"), { opacity: 0 });
+      tl.fromTo(q(".s11-cel"), { opacity: 1, y: 400 }, { y: 0, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, MANDA);
+      [0, 1, 2, 3].forEach((i) => { gsap.set(q(".s11-cel .k-ce-g" + i), { opacity: 0 }); tl.to(q(".s11-cel .k-ce-g" + i), { opacity: 1, duration: 0.08 }, REPORTE + 0.1 + i * 0.25); });
+      tl.to(q(".s11-cel"), { rotation: -6, svgOrigin: "0 0", duration: 0.1, yoyo: true, repeat: 3 }, CELULAR);
+      // ¡solo!: saca músculo
+      K.golpe(tl, q(".s11-solo"), SOLO);
+      tl.to(q(".s11-compa .k-l-brazoD"), { rotation: -25, svgOrigin: "322 262", duration: 0.2 }, SOLO);
+      tl.to(q(".s11-compa .k-l-brazoI"), { rotation: 25, svgOrigin: "118 262", duration: 0.2 }, SOLO);
+      tl.to(co, { y: -12, duration: 0.15, yoyo: true, repeat: 1 }, SOLO);
+
+      // salida
+      tl.to(q("#s11-llaves-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

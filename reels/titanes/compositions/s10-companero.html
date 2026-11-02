@@ -1,0 +1,90 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-companero"] .esc-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-companero"] .esc-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-companero"] svg.esc-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-companero"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.01em; }
+    [data-composition-id="s10-companero"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-companero"] .cartel { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap; letter-spacing: -0.01em; color: #ffd23f; -webkit-text-stroke: 8px #0b0b12; paint-order: stroke fill; text-shadow: 10px 10px 0 #e8332a; }
+    [data-composition-id="s10-companero"] .cartel.rojo { color: #e8332a; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s10-companero"] .cartel.azul { color: #f4efe2; text-shadow: 10px 10px 0 #2a5cff; }
+    [data-composition-id="s10-companero"] .cartel.verde { color: #5ce611; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s10-companero"] .sello { position: absolute; padding: 8px 24px; border: 7px solid currentColor; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s10-companero"] .s10-nombre { top: 490px; font-size: 92px; }
+    [data-composition-id="s10-companero"] .s10-de { position: absolute; left: 0; right: 0; top: 600px; text-align: center; color: #f4efe2; font-size: 34px; letter-spacing: 0.3em; }
+  </style>
+  <div id="root" data-composition-id="s10-companero" data-width="1080" data-height="1920" data-duration="5.18">
+    <div id="s10-companero-escena" class="esc-capa clip" data-start="0" data-duration="5.18" data-track-index="0">
+      <div class="esc-escenario">
+
+        <svg class="esc-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(40 660) scale(0.9)"><g class="s10-compa"></g></g>
+          <g transform="translate(640 700) scale(0.82)"><g class="s10-m1"><g class="s10-r1"></g></g></g>
+          <g transform="translate(640 700) scale(0.82)"><g class="s10-m2"><g class="s10-r2"></g></g></g>
+          <g transform="translate(540 1150) scale(0.55)"><g class="s10-hoja"></g></g>
+          <g transform="translate(530 1060) scale(0.55)"><g class="s10-cel"></g></g>
+          <g transform="translate(700 880) scale(0.62)"><g class="s10-pum"></g></g>
+        </svg>
+        <div class="cartel verde s10-nombre">¡Automatización!</div>
+        <div class="mono s10-de">DE SCALERICS</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-companero";
+      const DUR = 5.18;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const K = window.KIT;
+      const esc = q(".esc-escenario");
+      const tl = gsap.timeline({ paused: true });
+
+      q(".s10-compa").innerHTML = K.luchador({ color: "#0b0b12", trim: "#5ce611", emblema: "engranaje", nombre: "AUTOMATIZACIÓN", tamNombre: 17, boca: "risa" });
+      q(".s10-r1").innerHTML = K.luchador({ color: "#2a5cff", trim: "#ffd23f", emblema: "planilla", nombre: "LA PLANILLA", boca: "dolor" });
+      q(".s10-r2").innerHTML = K.luchador({ color: "#0b0b12", trim: "#ffd23f", emblema: "listo", nombre: "¡ESTÁ LISTO!", boca: "dolor" });
+      q(".s10-hoja").innerHTML = K.planilla();
+      q(".s10-cel").innerHTML = K.celular({ titulo: "Clientes", colorBarra: "#0b0b12", colorMio: "#2f8f0a", globos: [["¡Está listo!", 1], ["¡Está listo!", 1], ["¡Está listo!", 1], ["¡Está listo!", 1]] });
+      q(".s10-pum").innerHTML = K.estallido("¡ZAS!", "#5ce611", "#0b0b12", 64);
+      const co = q(".s10-compa");
+      const SCALERICS = 0.78, PASA = 1.52, PLANILLA = 2.78, AVISA = 3.64, LISTO = 4.52;
+      // entra saltando por encima de las cuerdas
+      tl.fromTo(co, { y: -260, x: -160 }, { y: 0, x: 0, duration: 0.45, ease: "power2.in" }, 0);
+      K.sacudir(tl, esc, 0.46, 18);
+      K.golpe(tl, q(".s10-nombre"), 0.3);
+      K.pop(tl, q(".s10-de"), SCALERICS);
+      tl.to(co, { y: -16, duration: 0.25, yoyo: true, repeat: 1 }, SCALERICS);
+      // La Planilla: él pasa los pedidos solo y la tira
+      gsap.set([q(".s10-m1"), q(".s10-m2"), q(".s10-hoja"), q(".s10-cel"), q(".s10-pum")], { opacity: 0 });
+      tl.fromTo(q(".s10-m1"), { opacity: 1, x: 400 }, { x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, PASA - 0.3);
+      tl.to([q(".s10-nombre"), q(".s10-de")], { opacity: 0, duration: 0.2 }, PASA);
+      K.popSvg(tl, q(".s10-hoja"), PASA + 0.2);
+      tl.to(q(".s10-compa .k-l-brazoD"), { rotation: 60, svgOrigin: "322 262", duration: 0.15, ease: "power4.in" }, PLANILLA - 0.15);
+      K.popSvg(tl, q(".s10-pum"), PLANILLA);
+      K.fueraSvg(tl, q(".s10-pum"), PLANILLA + 0.45);
+      tl.to(q(".s10-m1"), { x: 520, rotation: 40, svgOrigin: "220 692", duration: 0.45, ease: "power2.in" }, PLANILLA + 0.05);
+      tl.to(q(".s10-hoja"), { y: -200, opacity: 0, duration: 0.4 }, PLANILLA + 0.1);
+      tl.to(q(".s10-compa .k-l-brazoD"), { rotation: 0, svgOrigin: "322 262", duration: 0.3 }, PLANILLA + 0.3);
+      // ¡Está listo!: avisa a todos de una y tira al otro
+      tl.fromTo(q(".s10-m2"), { opacity: 1, x: 400 }, { x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, AVISA - 0.35);
+      K.popSvg(tl, q(".s10-cel"), AVISA);
+      [0, 1, 2, 3].forEach((i) => { gsap.set(q(".s10-cel .k-ce-g" + i), { opacity: 0 }); tl.to(q(".s10-cel .k-ce-g" + i), { opacity: 1, duration: 0.05 }, AVISA + 0.2 + i * 0.1); });
+      tl.to(q(".s10-compa .k-l-brazoD"), { rotation: 60, svgOrigin: "322 262", duration: 0.15, ease: "power4.in" }, LISTO - 0.15);
+      tl.set(q(".s10-pum"), { opacity: 0, scale: 1 }, LISTO - 0.01);
+      K.popSvg(tl, q(".s10-pum"), LISTO);
+      tl.to(q(".s10-m2"), { x: 520, rotation: 40, svgOrigin: "220 692", duration: 0.45, ease: "power2.in" }, LISTO + 0.05);
+
+      // salida
+      tl.to(q("#s10-companero-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

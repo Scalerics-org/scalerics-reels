@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-rincon"] .esc-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-rincon"] .esc-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-rincon"] svg.esc-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-rincon"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.01em; }
+    [data-composition-id="s03-rincon"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s03-rincon"] .cartel { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap; letter-spacing: -0.01em; color: #ffd23f; -webkit-text-stroke: 8px #0b0b12; paint-order: stroke fill; text-shadow: 10px 10px 0 #e8332a; }
+    [data-composition-id="s03-rincon"] .cartel.rojo { color: #e8332a; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s03-rincon"] .cartel.azul { color: #f4efe2; text-shadow: 10px 10px 0 #2a5cff; }
+    [data-composition-id="s03-rincon"] .cartel.verde { color: #5ce611; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s03-rincon"] .sello { position: absolute; padding: 8px 24px; border: 7px solid currentColor; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s03-rincon"] .s03-tag { position: absolute; padding: 8px 18px; background: #0b0b12; border: 4px solid #ffd23f; border-radius: 8px; color: #ffd23f; font-size: 28px; }
+    [data-composition-id="s03-rincon"] .s03-t1 { left: 40px; top: 690px; }
+    [data-composition-id="s03-rincon"] .s03-t2 { left: 700px; top: 1040px; }
+    [data-composition-id="s03-rincon"] .s03-duenio { top: 500px; font-size: 132px; }
+    [data-composition-id="s03-rincon"] .s03-ficha { position: absolute; left: 160px; top: 1330px; width: 760px; padding: 12px 22px; background: #f4efe2; border: 5px solid #0b0b12; border-radius: 8px; color: #0b0b12; font-size: 28px; text-align: center; box-shadow: 8px 8px 0 #2a5cff; }
+    [data-composition-id="s03-rincon"] .s03-cerrado { position: absolute; left: 66px; top: 1000px; width: 240px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 38px; color: #e8332a; letter-spacing: 0.04em; }
+  </style>
+  <div id="root" data-composition-id="s03-rincon" data-width="1080" data-height="1920" data-duration="5.93">
+    <div id="s03-rincon-escena" class="esc-capa clip" data-start="0" data-duration="5.93" data-track-index="0">
+      <div class="esc-escenario">
+
+        <svg class="esc-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s03-local">
+            <rect x="60" y="820" width="252" height="300" fill="#0b0b12" stroke="#f4efe2" stroke-width="6"/>
+            <rect x="48" y="790" width="276" height="50" rx="4" fill="#e8332a" stroke="#0b0b12" stroke-width="5"/>
+            <text x="186" y="826" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="28" fill="#f4efe2">TU LOCAL</text>
+            <g class="s03-luz"><rect x="84" y="860" width="204" height="240" fill="#ffd23f" fill-opacity="0.85"/></g>
+            <g class="s03-persiana"><rect x="66" y="846" width="240" height="268" fill="#9a9aa8" stroke="#0b0b12" stroke-width="4"/>
+              <path d="M66 876 H306 M66 906 H306 M66 936 H306 M66 966 H306 M66 996 H306 M66 1026 H306 M66 1056 H306 M66 1086 H306" stroke="#0b0b12" stroke-width="3" stroke-opacity="0.5"/></g>
+          </g>
+          <g transform="translate(340 700) scale(0.95)"><g class="s03-du"></g></g>
+          <path class="s03-f1" d="M270 740 Q380 700 470 790" stroke="#ffd23f" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path class="s03-f2" d="M760 1030 Q700 990 640 1010" stroke="#ffd23f" stroke-width="7" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="mono s03-tag s03-t1">SIN MÁSCARA</div>
+        <div class="mono s03-tag s03-t2">CON DELANTAL</div>
+        <div class="cartel azul s03-duenio">¡El dueño!</div>
+        <div class="s03-cerrado">CERRADO</div>
+        <div class="mono s03-ficha">ENTRENA DE 7 A 23 · CENA: NUNCA</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-rincon";
+      const DUR = 5.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const K = window.KIT;
+      const esc = q(".esc-escenario");
+      const tl = gsap.timeline({ paused: true });
+
+      q(".s03-du").innerHTML = K.duenio({ cara: "cansado" });
+      const du = q(".s03-du");
+      const MASCARA = 0.25, DELANTAL = 0.95, DUENIO = 2.18, LOCAL = 2.87, PARA = 4.24, PERSIANA = 4.86;
+      tl.fromTo(du, { y: 30, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      gsap.set(q(".s03-local"), { opacity: 0 });
+      gsap.set(q(".s03-persiana"), { y: -268, opacity: 0 });
+      K.pop(tl, q(".s03-t1"), MASCARA);
+      K.dibujar(tl, q(".s03-f1"), MASCARA + 0.05, 0.35);
+      K.pop(tl, q(".s03-t2"), DELANTAL);
+      K.dibujar(tl, q(".s03-f2"), DELANTAL + 0.05, 0.35);
+      tl.to(q(".s03-du .k-d-delantal"), { fill: "#ffd23f", duration: 0.12, yoyo: true, repeat: 1 }, DELANTAL + 0.3);
+      // "el dueño del local": lo presentan, saluda sin ganas
+      tl.to([q(".s03-t1"), q(".s03-t2"), q(".s03-f1"), q(".s03-f2")], { opacity: 0, duration: 0.2 }, DUENIO - 0.25);
+      K.golpe(tl, q(".s03-duenio"), DUENIO + 0.05);
+      tl.to(q(".s03-du .k-d-brazoD"), { rotation: -150, svgOrigin: "276 266", duration: 0.3, ease: "back.out(2)" }, DUENIO + 0.2);
+      tl.to(q(".s03-du .k-d-brazoD"), { rotation: -135, svgOrigin: "276 266", duration: 0.2, yoyo: true, repeat: 3 }, DUENIO + 0.5);
+      K.pop(tl, q(".s03-ficha"), LOCAL);
+      tl.to(q(".s03-du .k-d-brazoD"), { rotation: 0, svgOrigin: "276 266", duration: 0.3 }, PARA - 0.5);
+      // "pará, que bajo la persiana": aparece el local y baja la persiana
+      tl.to(q(".s03-duenio"), { opacity: 0, duration: 0.2 }, PARA - 0.3);
+      tl.to(du, { x: 140, duration: 0.3, ease: "power2.out" }, PARA - 0.3);
+      tl.to(q(".s03-local"), { opacity: 1, duration: 0.2 }, PARA - 0.2);
+      tl.to(q(".s03-du .k-d-brazoI"), { rotation: 60, svgOrigin: "124 266", duration: 0.25, ease: "back.out(2)" }, PARA);
+      tl.set(q(".s03-persiana"), { opacity: 1 }, PERSIANA - 0.3);
+      tl.to(q(".s03-persiana"), { y: 0, duration: 0.6, ease: "bounce.out" }, PERSIANA - 0.3);
+      tl.to(q(".s03-luz"), { opacity: 0, duration: 0.3 }, PERSIANA + 0.2);
+      tl.fromTo(q(".s03-cerrado"), { opacity: 0 }, { opacity: 1, duration: 0.01 }, PERSIANA + 0.4);
+
+      // salida
+      tl.to(q("#s03-rincon-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

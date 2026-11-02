@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-lona"] .esc-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-lona"] .esc-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-lona"] svg.esc-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-lona"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.01em; }
+    [data-composition-id="s08-lona"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s08-lona"] .cartel { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap; letter-spacing: -0.01em; color: #ffd23f; -webkit-text-stroke: 8px #0b0b12; paint-order: stroke fill; text-shadow: 10px 10px 0 #e8332a; }
+    [data-composition-id="s08-lona"] .cartel.rojo { color: #e8332a; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s08-lona"] .cartel.azul { color: #f4efe2; text-shadow: 10px 10px 0 #2a5cff; }
+    [data-composition-id="s08-lona"] .cartel.verde { color: #5ce611; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s08-lona"] .sello { position: absolute; padding: 8px 24px; border: 7px solid currentColor; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s08-lona"] .s08-lona { top: 490px; font-size: 140px; }
+    [data-composition-id="s08-lona"] .s08-hora { position: absolute; left: 340px; top: 470px; width: 400px; padding: 6px 0 14px; text-align: center; background: #0b0b12; border: 6px solid #e8332a; border-radius: 16px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 120px; color: #e8332a; letter-spacing: 0.04em; }
+    [data-composition-id="s08-lona"] .s08-n { top: 450px; font-size: 230px; }
+    [data-composition-id="s08-lona"] .s08-ko { left: 690px; top: 1040px; font-size: 76px; color: #ffd23f; background: #0b0b12; transform: rotate(-8deg); }
+  </style>
+  <div id="root" data-composition-id="s08-lona" data-width="1080" data-height="1920" data-duration="6.75">
+    <div id="s08-lona-escena" class="esc-capa clip" data-start="0" data-duration="6.75" data-track-index="0">
+      <div class="esc-escenario">
+
+        <svg class="esc-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(40 790) scale(0.47)"><g class="s08-r1"></g></g>
+          <g transform="translate(250 780) scale(0.47)"><g class="s08-r2"></g></g>
+          <g transform="translate(460 790) scale(0.47)"><g class="s08-r3"></g></g>
+          <g transform="translate(670 780) scale(0.47)"><g class="s08-r4"></g></g>
+          <g transform="translate(150 1310) rotate(-90) scale(0.72)"><g class="s08-du"></g></g>
+          <g transform="translate(730 920) scale(0.95)"><g class="s08-arb"></g></g>
+        </svg>
+        <div class="cartel rojo s08-lona">¡A la lona!</div>
+        <div class="s08-hora">23:00</div>
+        <div class="cartel s08-n s08-n1">1</div>
+        <div class="cartel s08-n s08-n2">2</div>
+        <div class="cartel rojo s08-n s08-n3">3</div>
+        <div class="sello s08-ko">K.O.</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-lona";
+      const DUR = 6.75;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const K = window.KIT;
+      const esc = q(".esc-escenario");
+      const tl = gsap.timeline({ paused: true });
+
+      q(".s08-r1").innerHTML = K.luchador({ color: "#2a5cff", trim: "#ffd23f", emblema: "planilla", nombre: "LA PLANILLA", boca: "risa" });
+      q(".s08-r2").innerHTML = K.luchador({ color: "#ffd23f", trim: "#e8332a", emblema: "copia", nombre: "COPIA-PEGA", tamNombre: 20, boca: "risa" });
+      q(".s08-r3").innerHTML = K.luchador({ color: "#e8332a", trim: "#f4efe2", emblema: "reloj", nombre: "RECORDATORIO", tamNombre: 17, boca: "risa" });
+      q(".s08-r4").innerHTML = K.luchador({ color: "#0b0b12", trim: "#ffd23f", emblema: "listo", nombre: "¡ESTÁ LISTO!", boca: "risa" });
+      q(".s08-du").innerHTML = K.duenio({ cara: "ko" });
+      q(".s08-arb").innerHTML = K.arbitro();
+      const LONA = 0.4, ONCE = 1.62, CUENTA = [3.14, 3.97, 4.96];
+      // el dueño cae de golpe en el cuadro 0 (ya está casi en la lona)
+      tl.fromTo(q(".s08-du"), { y: -120, rotation: 30, svgOrigin: "200 632" }, { y: 0, rotation: 0, svgOrigin: "200 632", duration: 0.35, ease: "power3.in" }, 0);
+      K.sacudir(tl, esc, 0.36, 22);
+      K.golpe(tl, q(".s08-lona"), LONA + 0.05);
+      // los cuatro rivales festejan atrás
+      [".s08-r1", ".s08-r2", ".s08-r3", ".s08-r4"].forEach((s, i) => {
+        tl.fromTo(q(s), { y: 0 }, { y: -30, duration: 0.18, yoyo: true, repeat: 5, ease: "power2.out", immediateRender: false }, 0.5 + i * 0.08);
+        tl.to(q(s + " .k-l-brazoD"), { rotation: -40, svgOrigin: "322 262", duration: 0.2 }, 0.5 + i * 0.08);
+      });
+      // once de la noche
+      tl.to(q(".s08-lona"), { opacity: 0, duration: 0.15 }, ONCE - 0.2);
+      K.golpe(tl, q(".s08-hora"), ONCE, 1.8);
+      tl.to(q(".s08-hora"), { opacity: 0.3, duration: 0.25, yoyo: true, repeat: 3, ease: "steps(1)" }, ONCE + 0.3);
+      tl.to(q(".s08-hora"), { opacity: 0, duration: 0.15 }, CUENTA[0] - 0.15);
+      // el árbitro cuenta
+      gsap.set(q(".s08-arb"), { opacity: 0 });
+      tl.fromTo(q(".s08-arb"), { opacity: 1, x: 300 }, { x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 2.5);
+      CUENTA.forEach((t, i) => {
+        tl.to(q(".s08-arb .k-a-brazo"), { rotation: -70, svgOrigin: "200 190", duration: 0.2, ease: "power2.out" }, t - 0.4);
+        tl.to(q(".s08-arb .k-a-brazo"), { rotation: 0, svgOrigin: "200 190", duration: 0.1, ease: "power4.in" }, t - 0.1);
+        K.sacudir(tl, esc, t, 10);
+        K.golpe(tl, q(".s08-n" + (i + 1)), t + 0.02, 2.6);
+        if (i < 2) tl.to(q(".s08-n" + (i + 1)), { opacity: 0, duration: 0.1 }, CUENTA[i + 1] - 0.12);
+      });
+      K.golpe(tl, q(".s08-ko"), CUENTA[2] + 0.5, 2.2);
+      tl.to(q(".s08-du"), { y: -8, duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut" }, 5.0);
+
+      // salida
+      tl.to(q("#s08-lona-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

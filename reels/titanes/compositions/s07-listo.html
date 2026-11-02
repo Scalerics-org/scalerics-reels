@@ -1,0 +1,87 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-listo"] .esc-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-listo"] .esc-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-listo"] svg.esc-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-listo"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.01em; }
+    [data-composition-id="s07-listo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-listo"] .cartel { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap; letter-spacing: -0.01em; color: #ffd23f; -webkit-text-stroke: 8px #0b0b12; paint-order: stroke fill; text-shadow: 10px 10px 0 #e8332a; }
+    [data-composition-id="s07-listo"] .cartel.rojo { color: #e8332a; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s07-listo"] .cartel.azul { color: #f4efe2; text-shadow: 10px 10px 0 #2a5cff; }
+    [data-composition-id="s07-listo"] .cartel.verde { color: #5ce611; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s07-listo"] .sello { position: absolute; padding: 8px 24px; border: 7px solid currentColor; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s07-listo"] .s07-final { top: 470px; font-size: 92px; }
+    [data-composition-id="s07-listo"] .s07-l1 { top: 470px; font-size: 120px; }
+    [data-composition-id="s07-listo"] .s07-l2 { top: 590px; font-size: 120px; }
+  </style>
+  <div id="root" data-composition-id="s07-listo" data-width="1080" data-height="1920" data-duration="6.58">
+    <div id="s07-listo-escena" class="esc-capa clip" data-start="0" data-duration="6.58" data-track-index="0">
+      <div class="esc-escenario">
+
+        <svg class="esc-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(40 800) scale(0.78)"><g class="s07-du"></g></g>
+          <g transform="translate(610 690) scale(0.86)"><g class="s07-rmov"><g class="s07-rival"></g></g></g>
+          <g transform="translate(440 990) scale(0.72)"><g class="s07-cel"></g></g>
+        </svg>
+        <div class="cartel rojo s07-final">¡Golpe final!</div>
+        <div class="cartel s07-l1 s07-a">Tu pedido</div>
+        <div class="cartel s07-l2 s07-b">está listo</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-listo";
+      const DUR = 6.58;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const K = window.KIT;
+      const esc = q(".esc-escenario");
+      const tl = gsap.timeline({ paused: true });
+
+      q(".s07-du").innerHTML = K.duenio({ cara: "cansado" });
+      q(".s07-rival").innerHTML = K.luchador({ color: "#0b0b12", trim: "#ffd23f", emblema: "listo", nombre: "¡ESTÁ LISTO!", boca: "burla" });
+      q(".s07-cel").innerHTML = K.celular({ titulo: "Clientes", colorBarra: "#2a5cff", colorMio: "#2a5cff", globos: [["¡Está listo!", 1], ["¡Está listo!", 1], ["¡Está listo!", 1], ["¡Está...", 1]] });
+      const du = q(".s07-du");
+      const GOLPE = 0.2, TU = 1.22, PEDIDO = 1.36, ESTA = 1.96, LISTO = 2.37, H1 = 2.97, H2 = 4.9;
+      // el último rival ya está en el ring, enorme, a contraluz
+      tl.fromTo(q(".s07-rmov"), { scale: 1.15, svgOrigin: "220 692" }, { scale: 1, svgOrigin: "220 692", duration: 1.0, ease: "power2.out" }, 0);
+      gsap.set([du, q(".s07-cel")], { opacity: 0 });
+      K.golpe(tl, q(".s07-final"), GOLPE + 0.1);
+      tl.to(q(".s07-final"), { opacity: 0, duration: 0.15 }, TU - 0.2);
+      K.golpe(tl, q(".s07-a"), PEDIDO, 2.0);
+      K.golpe(tl, q(".s07-b"), LISTO, 2.0);
+      K.sacudir(tl, esc, LISTO + 0.02, 16);
+      tl.to(q(".s07-rival .k-l-brazoD"), { rotation: -30, svgOrigin: "322 262", duration: 0.2, yoyo: true, repeat: 1 }, ESTA);
+      tl.to(q(".s07-rival .k-l-brazoI"), { rotation: 30, svgOrigin: "118 262", duration: 0.2, yoyo: true, repeat: 1 }, ESTA);
+      // "hola, tu pedido está listo": el dueño escribe uno por uno
+      tl.to([q(".s07-a"), q(".s07-b")], { opacity: 0, duration: 0.2 }, H1 - 0.3);
+      tl.to(du, { opacity: 1, duration: 0.2 }, H1 - 0.3);
+      K.popSvg(tl, q(".s07-cel"), H1 - 0.2);
+      [0, 1, 2, 3].forEach((i) => gsap.set(q(".s07-cel .k-ce-g" + i), { opacity: 0 }));
+      [H1 + 0.2, 4.38, H2 + 0.1, 5.7].forEach((t, i) => {
+        tl.fromTo(q(".s07-cel .k-ce-g" + i), { opacity: 1, scale: 0.6, svgOrigin: "120 " + (-140 + i * 84) }, { scale: 1, svgOrigin: "120 " + (-140 + i * 84), duration: 0.18, ease: "back.out(2)", immediateRender: false }, t);
+      });
+      // cada vez más agotado, y el rival le aplica una llave
+      K.cara(tl, du, "dolor", 4.4);
+      tl.to(q(".s07-rmov"), { x: -170, duration: 0.5, ease: "power2.inOut" }, 4.6);
+      tl.to(q(".s07-rival .k-l-brazoI"), { rotation: -70, svgOrigin: "118 262", duration: 0.3 }, 4.8);
+      tl.to(du, { rotation: -8, svgOrigin: "200 632", duration: 0.6, ease: "power2.in" }, 5.4);
+      K.cara(tl, du, "ko", 5.9);
+      tl.to(q(".s07-du .k-d-sudor"), { opacity: 1, duration: 0.1 }, 4.0);
+      tl.fromTo(q(".s07-du .k-d-sudor"), { y: 0 }, { y: 50, duration: 1.6, ease: "power1.in", immediateRender: false }, 4.0);
+
+      // salida
+      tl.to(q("#s07-listo-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

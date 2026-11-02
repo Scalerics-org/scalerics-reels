@@ -1,0 +1,57 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* dos reflectores de colores que barren el ring desde arriba */
+    [data-composition-id="ambiente"] .amb-cono { position: absolute; top: -80px; width: 760px; height: 1600px; opacity: 0.5; clip-path: polygon(46% 0, 54% 0, 100% 100%, 0 100%); }
+    [data-composition-id="ambiente"] .amb-c1 { left: -260px; background: linear-gradient(180deg, rgba(255, 210, 63, 0.22) 0%, rgba(255, 210, 63, 0.05) 60%, rgba(255, 210, 63, 0) 100%); }
+    [data-composition-id="ambiente"] .amb-c2 { left: 580px; background: linear-gradient(180deg, rgba(42, 92, 255, 0.28) 0%, rgba(42, 92, 255, 0.06) 60%, rgba(42, 92, 255, 0) 100%); }
+    [data-composition-id="ambiente"] .amb-verde { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 700px 900px at 540px 1000px, rgba(92, 230, 17, 0.14) 0%, rgba(92, 230, 17, 0) 70%); }
+    /* la tele de antes: líneas de barrido y viñeta */
+    [data-composition-id="ambiente"] .amb-scan { position: absolute; inset: 0; opacity: 0.18; background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0px, rgba(0, 0, 0, 0.55) 2px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0) 5px); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 820px 1150px at 540px 900px, rgba(7, 7, 12, 0) 60%, rgba(7, 7, 12, 0.8) 100%); }
+    [data-composition-id="ambiente"] .amb-bug { position: absolute; left: 60px; top: 112px; display: flex; align-items: center; gap: 16px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 26px; letter-spacing: 0.16em; color: #f4efe2; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-vivo { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; background: #e8332a; border-radius: 4px; }
+    [data-composition-id="ambiente"] .amb-punto { width: 14px; height: 14px; border-radius: 50%; background: #f4efe2; }
+    [data-composition-id="ambiente"] .amb-canal { padding: 6px 14px; border: 3px solid #ffd23f; border-radius: 4px; color: #ffd23f; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #f4efe2; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="77.73">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="77.73" data-track-index="0">
+      <div class="amb-cono amb-c1"></div>
+      <div class="amb-cono amb-c2"></div>
+      <div class="amb-verde"></div>
+      <div class="amb-scan"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-bug" data-layout-ignore><span class="amb-vivo"><span class="amb-punto"></span>EN VIVO</span><span class="amb-canal">LUCHA DEL BARRIO</span></div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 77.73;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      // los reflectores barren, cada uno a su ritmo
+      tl.fromTo(q(".amb-c1"), { rotation: -14, transformOrigin: "50% 0%" }, { rotation: 14, transformOrigin: "50% 0%", duration: DUR / 9, ease: "sine.inOut", yoyo: true, repeat: 8 }, 0);
+      tl.fromTo(q(".amb-c2"), { rotation: 12, transformOrigin: "50% 0%" }, { rotation: -12, transformOrigin: "50% 0%", duration: DUR / 7, ease: "sine.inOut", yoyo: true, repeat: 6 }, 0);
+      tl.to(q(".amb-punto"), { opacity: 0.2, duration: 0.5, yoyo: true, repeat: Math.floor(DUR / 0.5) - 1, ease: "steps(1)" }, 0);
+      // la imagen de tele vieja tiembla apenas
+      tl.fromTo(q(".amb-scan"), { y: 0 }, { y: 5, duration: 0.2, ease: "steps(1)", yoyo: true, repeat: Math.floor(DUR / 0.2) - 1 }, 0);
+      // flash de las cámaras en los golpes (segundos globales)
+      [1.15, 17.25, 27.72, 35.82, 39.35, 43.96, 48.52, 54.61, 57.75, 60.07, 61.81, 65.89, 66.89].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.28, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+      // entra el compañero: el ring se tiñe de verde
+      tl.to(q(".amb-verde"), { opacity: 1, duration: 0.6 }, 55.5);
+      tl.to(q(".amb-c1"), { opacity: 0.25, duration: 0.6 }, 55.5);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

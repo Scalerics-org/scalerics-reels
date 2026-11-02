@@ -1,0 +1,91 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-paliza"] .esc-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-paliza"] .esc-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-paliza"] svg.esc-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-paliza"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.01em; }
+    [data-composition-id="s01-paliza"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-paliza"] .cartel { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap; letter-spacing: -0.01em; color: #ffd23f; -webkit-text-stroke: 8px #0b0b12; paint-order: stroke fill; text-shadow: 10px 10px 0 #e8332a; }
+    [data-composition-id="s01-paliza"] .cartel.rojo { color: #e8332a; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s01-paliza"] .cartel.azul { color: #f4efe2; text-shadow: 10px 10px 0 #2a5cff; }
+    [data-composition-id="s01-paliza"] .cartel.verde { color: #5ce611; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s01-paliza"] .sello { position: absolute; padding: 8px 24px; border: 7px solid currentColor; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s01-paliza"] .s01-paliza { top: 500px; font-size: 150px; }
+    [data-composition-id="s01-paliza"] .s01-volves { top: 500px; font-size: 128px; }
+    [data-composition-id="s01-paliza"] .s01-tag { position: absolute; left: 0; right: 0; top: 1350px; text-align: center; }
+    [data-composition-id="s01-paliza"] .s01-tag span { display: inline-block; padding: 10px 26px; background: #0b0b12; border: 4px solid #ffd23f; border-radius: 8px; color: #ffd23f; font-size: 32px; }
+  </style>
+  <div id="root" data-composition-id="s01-paliza" data-width="1080" data-height="1920" data-duration="4.37">
+    <div id="s01-paliza-escena" class="esc-capa clip" data-start="0" data-duration="4.37" data-track-index="0">
+      <div class="esc-escenario">
+
+        <svg class="esc-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(570 640) scale(0.95)"><g class="s01-rival"></g></g>
+          <g transform="translate(70 700) scale(0.95)"><g class="s01-dmov"><g class="s01-duenio"></g></g></g>
+          <g transform="translate(470 930) scale(0.85)"><g class="s01-paf"></g></g>
+        </svg>
+        <div class="cartel rojo s01-paliza">¡Paliza!</div>
+        <div class="cartel s01-volves">¡Y volvés!</div>
+        <div class="mono s01-tag"><span>TODAS LAS NOCHES · 23:00</span></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-paliza";
+      const DUR = 4.37;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const K = window.KIT;
+      const esc = q(".esc-escenario");
+      const tl = gsap.timeline({ paused: true });
+
+      q(".s01-rival").innerHTML = K.luchador({ color: "#2b2540", trim: "#e8332a", emblema: "planilla", boca: "risa" });
+      q(".s01-duenio").innerHTML = K.duenio({ cara: "cansado" });
+      q(".s01-paf").innerHTML = K.estallido("¡PAF!", "#ffd23f", "#0b0b12", 76);
+      const PALIZA = 1.15, Y = 2.19, SUBIR = 2.69, RING = 3.08;
+      const du = q(".s01-duenio"), ri = q(".s01-rival");
+      // cuadro 0: los dos en el ring, la cámara se acerca
+      tl.fromTo(esc, { scale: 1.08 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+      tl.to(du, { y: 8, duration: 0.3, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0);
+      // el rival levanta el brazo y baja el golpe
+      tl.to(q(".s01-rival .k-l-brazoI"), { rotation: 40, svgOrigin: "118 262", duration: 0.5, ease: "power2.out" }, 0.3);
+      tl.to(q(".s01-rival .k-l-brazoI"), { rotation: -50, x: -60, svgOrigin: "118 262", duration: 0.12, ease: "power4.in" }, PALIZA - 0.12);
+      K.popSvg(tl, q(".s01-paf"), PALIZA);
+      K.fueraSvg(tl, q(".s01-paf"), PALIZA + 0.6);
+      K.cara(tl, du, "dolor", PALIZA);
+      tl.to(du, { rotation: -78, svgOrigin: "200 632", duration: 0.35, ease: "power3.in" }, PALIZA);
+      tl.to(q(".s01-dmov"), { x: 240, duration: 0.35, ease: "power3.in" }, PALIZA);
+      K.cara(tl, du, "ko", PALIZA + 0.35);
+      K.sacudir(tl, esc, PALIZA + 0.36, 20);
+      K.golpe(tl, q(".s01-paliza"), PALIZA + 0.05);
+      K.pop(tl, q(".s01-tag"), PALIZA + 0.4);
+      tl.to(q(".s01-rival .k-l-brazoI"), { rotation: 0, x: 0, svgOrigin: "118 262", duration: 0.4 }, PALIZA + 0.3);
+      // "y vos volvés a subir": se levanta, tambaleando
+      tl.to(q(".s01-paliza"), { opacity: 0, y: -30, duration: 0.2 }, Y - 0.1);
+      K.cara(tl, du, "cansado", Y + 0.1);
+      tl.to(du, { rotation: 0, svgOrigin: "200 632", duration: 0.55, ease: "back.out(1.4)" }, Y + 0.05);
+      tl.to(q(".s01-dmov"), { x: 0, duration: 0.55, ease: "power2.out" }, Y + 0.05);
+      tl.to(q(".s01-duenio .k-d-sudor"), { opacity: 1, duration: 0.1 }, Y + 0.4);
+      tl.fromTo(q(".s01-duenio .k-d-sudor"), { y: 0 }, { y: 40, duration: 0.8, ease: "power1.in", immediateRender: false }, Y + 0.4);
+      tl.to(du, { rotation: 4, svgOrigin: "200 632", duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, Y + 0.65);
+      K.golpe(tl, q(".s01-volves"), SUBIR);
+      // "ring": el rival se ríe y saca músculo
+      K.cara(tl, ri, "grito", RING, "k-l-boca");
+      tl.to(q(".s01-rival .k-l-brazoD"), { rotation: -20, svgOrigin: "322 262", duration: 0.2, yoyo: true, repeat: 3 }, RING);
+      tl.to(q(".s01-volves"), { scale: 1.06, duration: 0.25, yoyo: true, repeat: 1 }, RING + 0.1);
+
+      // salida
+      tl.to(q("#s01-paliza-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

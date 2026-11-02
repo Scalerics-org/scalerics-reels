@@ -1,0 +1,97 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-relevo"] .esc-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-relevo"] .esc-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-relevo"] svg.esc-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-relevo"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.01em; }
+    [data-composition-id="s09-relevo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-relevo"] .cartel { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap; letter-spacing: -0.01em; color: #ffd23f; -webkit-text-stroke: 8px #0b0b12; paint-order: stroke fill; text-shadow: 10px 10px 0 #e8332a; }
+    [data-composition-id="s09-relevo"] .cartel.rojo { color: #e8332a; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s09-relevo"] .cartel.azul { color: #f4efe2; text-shadow: 10px 10px 0 #2a5cff; }
+    [data-composition-id="s09-relevo"] .cartel.verde { color: #5ce611; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s09-relevo"] .sello { position: absolute; padding: 8px 24px; border: 7px solid currentColor; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s09-relevo"] .s09-esperen { top: 490px; font-size: 128px; }
+    [data-composition-id="s09-relevo"] .s09-pinias { top: 490px; font-size: 104px; }
+    [data-composition-id="s09-relevo"] .s09-parejas { top: 490px; font-size: 96px; }
+    [data-composition-id="s09-relevo"] .s09-tag { position: absolute; left: 0; right: 0; top: 1350px; text-align: center; }
+    [data-composition-id="s09-relevo"] .s09-tag span { display: inline-block; padding: 10px 26px; background: #0b0b12; border: 4px solid #5ce611; border-radius: 8px; color: #5ce611; font-size: 32px; }
+  </style>
+  <div id="root" data-composition-id="s09-relevo" data-width="1080" data-height="1920" data-duration="6.98">
+    <div id="s09-relevo-escena" class="esc-capa clip" data-start="0" data-duration="6.98" data-track-index="0">
+      <div class="esc-escenario">
+
+        <svg class="esc-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(-40 650) scale(0.86)"><g class="s09-compa"></g></g>
+          <g transform="translate(470 790) scale(0.8)"><g class="s09-dmov"><g class="s09-du"></g></g></g>
+          <g transform="translate(690 700) scale(0.88)"><g class="s09-pres"></g></g>
+          <g transform="translate(330 960) scale(0.6)"><g class="s09-choque"></g></g>
+        </svg>
+        <div class="cartel s09-esperen">¡Esperen!</div>
+        <div class="cartel rojo s09-pinias">¡A piñas no!</div>
+        <div class="cartel azul s09-parejas">¡Por parejas!</div>
+        <div class="mono s09-tag"><span>RELEVO</span></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-relevo";
+      const DUR = 6.98;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const K = window.KIT;
+      const esc = q(".esc-escenario");
+      const tl = gsap.timeline({ paused: true });
+
+      q(".s09-compa").innerHTML = K.luchador({ color: "#0b0b12", trim: "#5ce611", emblema: "engranaje", nombre: "AUTOMATIZACIÓN", tamNombre: 17, boca: "risa" });
+      q(".s09-du").innerHTML = K.duenio({ cara: "ko" });
+      q(".s09-pres").innerHTML = K.presentador({ boca: "grito" });
+      q(".s09-choque").innerHTML = K.estallido("¡PLAF!", "#5ce611", "#0b0b12", 64);
+      const co = q(".s09-compa"), du = q(".s09-du"), pr = q(".s09-pres");
+      const ESTO = 0.78, PINIAS = 1.41, ES = 2.09, PAREJAS = 2.66, DUENIO = 3.59, RELEVO = 4.3, COMPANIERO = 5.31;
+      // el compañero espera afuera del ring, a contraluz
+      gsap.set(co, { filter: "brightness(0.12)" });
+      // el presentador frena todo
+      tl.fromTo(pr, { x: 300 }, { x: 0, duration: 0.25, ease: "power3.out" }, 0);
+      K.hablar(tl, pr, 0, 2.9);
+      K.golpe(tl, q(".s09-esperen"), 0.12);
+      tl.to(q(".s09-esperen"), { opacity: 0, duration: 0.12 }, ESTO);
+      K.golpe(tl, q(".s09-pinias"), PINIAS);
+      tl.to(q(".s09-pinias"), { opacity: 0, duration: 0.12 }, ES);
+      K.golpe(tl, q(".s09-parejas"), PAREJAS);
+      K.sacudir(tl, esc, PAREJAS + 0.02, 10);
+      tl.to(pr, { x: 420, duration: 0.4, ease: "power2.in" }, 2.9);
+      // el dueño se arrastra a su rincón y estira la mano
+      tl.to(du, { rotation: -10, svgOrigin: "200 632", duration: 0.3 }, 0.4);
+      K.cara(tl, du, "dolor", 2.2);
+      tl.to(q(".s09-dmov"), { x: -110, duration: 1.2, ease: "power1.inOut" }, 2.3);
+      tl.to(q(".s09-parejas"), { opacity: 0, duration: 0.2 }, DUENIO);
+      tl.to(q(".s09-du .k-d-brazoI"), { rotation: 95, svgOrigin: "124 266", duration: 0.5, ease: "power2.out" }, DUENIO - 0.2);
+      tl.to(q(".s09-compa .k-l-brazoD"), { rotation: 70, svgOrigin: "322 262", duration: 0.5, ease: "power2.out" }, DUENIO);
+      tl.to(co, { filter: "brightness(0.35)", duration: 0.4 }, DUENIO);
+      // el relevo: chocan las manos
+      K.popSvg(tl, q(".s09-choque"), RELEVO);
+      K.fueraSvg(tl, q(".s09-choque"), RELEVO + 0.6);
+      K.sacudir(tl, esc, RELEVO + 0.02, 14);
+      K.pop(tl, q(".s09-tag"), RELEVO + 0.05);
+      K.cara(tl, du, "feliz", RELEVO + 0.2);
+      // "a su compañero": se enciende en verde
+      tl.to(co, { filter: "brightness(1)", duration: 0.35, ease: "power2.out" }, COMPANIERO - 0.1);
+      tl.fromTo(co, { scale: 1 }, { scale: 1.08, svgOrigin: "220 692", duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, COMPANIERO);
+      tl.to(q(".s09-compa .k-l-brazoD"), { rotation: -20, svgOrigin: "322 262", duration: 0.3 }, COMPANIERO + 0.3);
+      tl.to(q(".s09-compa .k-l-brazoI"), { rotation: 20, svgOrigin: "118 262", duration: 0.3 }, COMPANIERO + 0.3);
+
+      // salida
+      tl.to(q("#s09-relevo-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

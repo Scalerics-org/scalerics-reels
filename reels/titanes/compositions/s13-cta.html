@@ -1,0 +1,82 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/kit.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-cta"] .esc-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] .esc-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] svg.esc-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-cta"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; font-weight: 900; letter-spacing: -0.01em; }
+    [data-composition-id="s13-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-cta"] .cartel { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; white-space: nowrap; letter-spacing: -0.01em; color: #ffd23f; -webkit-text-stroke: 8px #0b0b12; paint-order: stroke fill; text-shadow: 10px 10px 0 #e8332a; }
+    [data-composition-id="s13-cta"] .cartel.rojo { color: #e8332a; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s13-cta"] .cartel.azul { color: #f4efe2; text-shadow: 10px 10px 0 #2a5cff; }
+    [data-composition-id="s13-cta"] .cartel.verde { color: #5ce611; text-shadow: 10px 10px 0 #0b0b12; }
+    [data-composition-id="s13-cta"] .sello { position: absolute; padding: 8px 24px; border: 7px solid currentColor; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s13-cta"] .s13-cual { top: 490px; font-size: 104px; }
+    [data-composition-id="s13-cta"] .s13-nom { position: absolute; top: 1150px; width: 250px; text-align: center; font-size: 21px; letter-spacing: 0.04em; color: #ffd23f; }
+    [data-composition-id="s13-cta"] .s13-caja { position: absolute; left: 90px; top: 1250px; width: 900px; padding: 18px 26px; background: #f4efe2; border: 5px solid #0b0b12; border-radius: 18px; box-shadow: 10px 10px 0 #5ce611; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; color: #0b0b12; white-space: nowrap; }
+    [data-composition-id="s13-cta"] .s13-caja i { font-style: normal; color: #2a5cff; }
+    [data-composition-id="s13-cta"] .s13-cursor { display: inline-block; width: 4px; height: 38px; background: #0b0b12; vertical-align: middle; }
+  </style>
+  <div id="root" data-composition-id="s13-cta" data-width="1080" data-height="1920" data-duration="6.65">
+    <div id="s13-cta-escena" class="esc-capa clip" data-start="0" data-duration="6.65" data-track-index="0">
+      <div class="esc-escenario">
+
+        <svg class="esc-svg" viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(25 760) scale(0.53)"><g class="s13-r1"></g></g>
+          <g transform="translate(285 750) scale(0.53)"><g class="s13-r2"></g></g>
+          <g transform="translate(545 760) scale(0.53)"><g class="s13-r3"></g></g>
+          <g transform="translate(805 750) scale(0.53)"><g class="s13-r4"></g></g>
+        </svg>
+        <div class="cartel s13-cual">¿Cuál te tira?</div>
+        <div class="mono s13-nom" style="left: 20px">LA PLANILLA</div>
+        <div class="mono s13-nom" style="left: 280px">COPIA-PEGA</div>
+        <div class="mono s13-nom" style="left: 540px">RECORDATORIO</div>
+        <div class="mono s13-nom" style="left: 800px">¡ESTÁ LISTO!</div>
+        <div class="s13-caja"><span class="s13-txt">Contanos: <i>el mío es...</i></span> <span class="s13-cursor"></span></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-cta";
+      const DUR = 6.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => root.querySelectorAll(s);
+      const K = window.KIT;
+      const esc = q(".esc-escenario");
+      const tl = gsap.timeline({ paused: true });
+
+      const R = [{ color: "#2a5cff", trim: "#ffd23f", emblema: "planilla", nombre: "LA PLANILLA", boca: "burla" }, { color: "#ffd23f", trim: "#e8332a", emblema: "copia", nombre: "COPIA-PEGA", tamNombre: 20, boca: "burla" }, { color: "#e8332a", trim: "#f4efe2", emblema: "reloj", nombre: "RECORDATORIO", tamNombre: 17, boca: "burla" }, { color: "#0b0b12", trim: "#ffd23f", emblema: "listo", nombre: "¡ESTÁ LISTO!", boca: "burla" }];
+      R.forEach((o, i) => (q(".s13-r" + (i + 1)).innerHTML = K.luchador(o)));
+      const RIVAL = 0.4, VOS = 1.3, CONTANOS = 1.92, COMENTARIOS = 2.72;
+      // los cuatro rivales en fila, como en el póster
+      [1, 2, 3, 4].forEach((i) => tl.fromTo(q(".s13-r" + i), { y: 80, opacity: 0.3 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(2)" }, (i - 1) * 0.08));
+      qa(".s13-nom").forEach((n, i) => tl.fromTo(n, { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.2 + i * 0.08));
+      K.golpe(tl, q(".s13-cual"), RIVAL);
+      // el foco salta de uno a otro, como eligiendo
+      [0.9, 1.4, 1.9, 2.4, 2.9, 3.4, 3.9, 4.4].forEach((t, k) => {
+        const i = (k % 4) + 1;
+        tl.fromTo(q(".s13-r" + i), { scale: 1 }, { scale: 1.12, svgOrigin: "220 692", duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, t);
+        K.cara(tl, q(".s13-r" + i), "risa", t, "k-l-boca");
+        K.cara(tl, q(".s13-r" + i), "burla", t + 0.45, "k-l-boca");
+      });
+      // la caja de comentario
+      gsap.set(q(".s13-caja"), { opacity: 0 });
+      tl.fromTo(q(".s13-caja"), { opacity: 1, y: 120 }, { y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, CONTANOS);
+      tl.fromTo(q(".s13-txt"), { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 1.0, ease: "none", immediateRender: false }, CONTANOS + 0.3);
+      tl.to(q(".s13-cursor"), { opacity: 0, duration: 0.3, yoyo: true, repeat: 9, ease: "steps(1)" }, CONTANOS + 0.3);
+      tl.to(q(".s13-cual"), { scale: 1.05, duration: 0.25, yoyo: true, repeat: 1 }, COMENTARIOS);
+
+      // salida
+      tl.to(q("#s13-cta-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
