@@ -1,0 +1,132 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-cta"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-cta"] .tinta { stroke: #2b1a0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-cta"] .trazo { fill: none; stroke: #2b1a0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-cta"] .mar { fill: none; stroke: #2f7fb5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s13-cta"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #f5b82e; -webkit-text-stroke: 12px #2b1a0c; paint-order: stroke fill; text-shadow: 8px 10px 0 #2b1a0c; }
+    [data-composition-id="s13-cta"] .mano { font-family: "Caveat", cursive; font-weight: 700; color: #2b1a0c; }
+    [data-composition-id="s13-cta"] .sello { position: absolute; white-space: nowrap; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; color: #d23a2a; border: 10px solid #d23a2a; border-radius: 18px; padding: 16px 30px 10px; background: rgba(236, 215, 166, 0.92); }
+    [data-composition-id="s13-cta"] .rotulo { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ecd7a6; }
+    
+    [data-composition-id="s13-cta"] .s13-tit { position: absolute; left: 0; right: 0; top: 625px; text-align: center; font-family: "Cinzel", serif; font-weight: 900; font-size: 64px; color: #2b1a0c; }
+    [data-composition-id="s13-cta"] .s13-preg { position: absolute; font-family: "Cinzel", serif; font-weight: 900; font-size: 84px; color: #f5b82e; -webkit-text-stroke: 7px #2b1a0c; paint-order: stroke fill; }
+    [data-composition-id="s13-cta"] .s13-globo { position: absolute; left: 150px; top: 1350px; width: 780px; padding: 22px 0 18px; text-align: center; background: #fff8e6; border: 6px solid #2b1a0c; border-radius: 44px; box-shadow: 8px 10px 0 #2b1a0c; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 44px; color: #2b1a0c; }
+    [data-composition-id="s13-cta"] .s13-globo::after { content: ""; position: absolute; left: 110px; bottom: -40px; border: 20px solid transparent; border-top: 24px solid #2b1a0c; }
+    [data-composition-id="s13-cta"] .s13-lehacemos { position: absolute; left: 0; right: 0; top: 1260px; text-align: center; font-size: 60px; color: #d23a2a; }
+    
+  </style>
+  <div id="root" data-composition-id="s13-cta" data-width="1080" data-height="1920" data-duration="7.17">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="7.17" data-track-index="0">
+      <div class="s13-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s13-mapa">
+            <path class="s13-papel tinta" fill="#ecd7a6" d="M90 600 L202.5 596 L315 605 L427.5 598 L540 604 L652.5 595 L765 602 L877.5 597 L990 603 L994 690 L985 780 L992 870 L987 960 L993 1050 L986 1140 L995 1230 L988 1320 L877.5 1324 L765 1318 L652.5 1325 L540 1316 L427.5 1323 L315 1317 L202.5 1322 L90 1315 L93 1230 L87 1140 L92 1050 L85 960 L94 870 L88 780 L95 690 Z" /><path fill="none" stroke="#c9a46a" stroke-width="16" opacity="0.55" d="M90 600 L202.5 596 L315 605 L427.5 598 L540 604 L652.5 595 L765 602 L877.5 597 L990 603 L994 690 L985 780 L992 870 L987 960 L993 1050 L986 1140 L995 1230 L988 1320 L877.5 1324 L765 1318 L652.5 1325 L540 1316 L427.5 1323 L315 1317 L202.5 1322 L90 1315 L93 1230 L87 1140 L92 1050 L85 960 L94 870 L88 780 L95 690 Z" transform="translate(540 960) scale(0.975) translate(-540 -960)" />
+            <path fill="none" stroke="#c9a46a" stroke-width="56" d="M90 900 H990 M90 1170 H990 M330 700 V1320 M680 700 V1320" />
+            <path fill="none" stroke="#2f7fb5" stroke-width="6" opacity="0.5" d="M120 1270 q30 -14 60 0 t60 0 M840 1270 q30 -14 60 0 t60 0" />
+            <path class="tinta" fill="#c9a46a" d="M190 820 h60 v-44 l-30 -24 l-30 24 Z" /><path class="tinta" fill="#c9a46a" d="M400 830 h60 v-44 l-30 -24 l-30 24 Z" /><path class="tinta" fill="#c9a46a" d="M740 820 h60 v-44 l-30 -24 l-30 24 Z" /><path class="tinta" fill="#c9a46a" d="M190 1100 h60 v-44 l-30 -24 l-30 24 Z" /><path class="tinta" fill="#c9a46a" d="M400 1100 h60 v-44 l-30 -24 l-30 24 Z" /><path class="tinta" fill="#c9a46a" d="M760 1110 h60 v-44 l-30 -24 l-30 24 Z" /><path class="tinta" fill="#c9a46a" d="M870 820 h60 v-44 l-30 -24 l-30 24 Z" />
+            <g transform="translate(900 1220) scale(0.42)">
+<g class="s13-rosa">
+  <circle fill="none" stroke="#2b1a0c" stroke-width="4" cx="0" cy="0" r="96" /><circle fill="none" stroke="#2b1a0c" stroke-width="2" cx="0" cy="0" r="84" />
+  <path class="tinta" fill="#c9a46a" d="M0 -70 L14 -14 L70 0 L14 14 L0 70 L-14 14 L-70 0 L-14 -14 Z" transform="rotate(45)" />
+  <path class="tinta" fill="#f5b82e" d="M0 -112 L18 -18 L112 0 L18 18 L0 112 L-18 18 L-112 0 L-18 -18 Z" />
+  <path fill="#d23a2a" d="M0 -112 L18 -18 L0 0 Z" />
+  <circle class="tinta" fill="#ecd7a6" cx="0" cy="0" r="10" />
+  <text data-layout-ignore x="0" y="-122" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="34" fill="#2b1a0c">N</text>
+</g></g>
+            <g class="s13-xs"><path fill="none" stroke="#d23a2a" stroke-width="16" stroke-linecap="round" d="M270 730 L330 790 M330 730 L270 790" /><path fill="none" stroke="#d23a2a" stroke-width="16" stroke-linecap="round" d="M590 870 L650 930 M650 870 L590 930" /><path fill="none" stroke="#d23a2a" stroke-width="16" stroke-linecap="round" d="M850 970 L910 1030 M910 970 L850 1030" /><path fill="none" stroke="#d23a2a" stroke-width="16" stroke-linecap="round" d="M250 1010 L310 1070 M310 1010 L250 1070" /><path fill="none" stroke="#d23a2a" stroke-width="16" stroke-linecap="round" d="M530 1170 L590 1230 M590 1170 L530 1230" /></g>
+          </g>
+        </svg>
+        <div class="s13-tit">TU BARRIO</div>
+        <div class="s13-preg" style="left:274px; top:708px">?</div><div class="s13-preg" style="left:594px; top:848px">?</div><div class="s13-preg" style="left:854px; top:948px">?</div><div class="s13-preg" style="left:254px; top:988px">?</div><div class="s13-preg" style="left:534px; top:1148px">?</div>
+        <div class="s13-lehacemos mano">le hacemos el mapa</div>
+        <div class="s13-globo">Dejalo en los comentarios</div>
+  
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-cta";
+      const DUR = 7.17;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      // helpers
+      const pop = (el, t, from = 0.6, d = 0.32) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t, from = 2.4) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (el, t, d = 0.22) => tl.to(el, { opacity: 0, scale: 0.8, transformOrigin: "50% 50%", duration: d, ease: "power2.in" }, t);
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s13-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (els, t, d = 0.6, st = 0.05) => {
+        [].concat(els).forEach((el, i) => {
+          const L = el.getTotalLength ? el.getTotalLength() + 2 : 1000;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t + i * st);
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st);
+        });
+      };
+      // boca que habla entre t0 y t1
+      const hablar = (el, t0, t1, r = 0.11) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / (2 * r)));
+        tl.fromTo(el, { scaleY: 0.3, transformOrigin: "50% 50%" }, { scaleY: 1.15, transformOrigin: "50% 50%", duration: r, ease: "sine.inOut", yoyo: true, repeat: n * 2 - 1, immediateRender: false }, t0);
+      };
+      // respirar / flotar (cantidad fija de repeticiones)
+      const flotar = (el, t, hasta, amp = 8, per = 0.9) => {
+        const n = Math.max(1, Math.floor((hasta - t) / per));
+        tl.fromTo(el, { y: 0 }, { y: -amp, duration: per, ease: "sine.inOut", yoyo: true, repeat: n - 1, immediateRender: false }, t);
+      };
+      
+      const TESORO = 0.34, ESCONDIDO = 0.59, BARRIO = 1.27, DEJALO = 1.91, COMENT = 2.28, LE = 3.09, MAPA = 3.56;
+      // cuadro 0: el mapa del barrio se despliega
+      tl.fromTo(q(".s13-mapa"), { scaleY: 0.5, opacity: 0.8, transformOrigin: "50% 50%" }, { scaleY: 1, opacity: 1, transformOrigin: "50% 50%", duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s13-escenario"), { scale: 1.04 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      pop(q(".s13-tit"), 0.15, 0.7);
+      // "tesoro escondido": signos de pregunta por todo el barrio
+      qa(".s13-preg").forEach((p, i) => {
+        pop(p, ESCONDIDO + i * 0.12, 0.2);
+        tl.to(p, { y: -14, rotation: 8, duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut" }, ESCONDIDO + 0.4 + i * 0.1);
+      });
+      tl.to(q(".s13-tit"), { scale: 1.1, transformOrigin: "50% 50%", duration: 0.15, yoyo: true, repeat: 1 }, BARRIO);
+      // "dejalo en los comentarios"
+      gsap.set(q(".s13-globo"), { opacity: 0 });
+      tl.fromTo(q(".s13-globo"), { opacity: 0, y: 80, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, DEJALO - 0.1);
+      tl.to(q(".s13-globo"), { scale: 1.05, duration: 0.15, yoyo: true, repeat: 1 }, COMENT + 0.1);
+      // "le hacemos el mapa": cada pregunta se vuelve una X roja
+      gsap.set(qa(".s13-xs path"), { opacity: 0 });
+      qa(".s13-preg").forEach((p, i) => {
+        const t = LE + i * 0.14;
+        tl.to(p, { opacity: 0, scale: 0.3, duration: 0.15 }, t);
+        tl.fromTo(qa(".s13-xs path")[i], { opacity: 1, scale: 2.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.16, ease: "power4.in", immediateRender: false }, t + 0.05);
+      });
+      golpe(MAPA + 0.1, 10);
+      pop(q(".s13-lehacemos"), MAPA - 0.2, 0.5);
+      tl.to(qa(".s13-xs path"), { scale: 1.12, transformOrigin: "50% 50%", duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut", stagger: 0.08 }, MAPA + 0.6);
+      
+
+      // salida
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", scale: 1.04, transformOrigin: "50% 50%", duration: 0.28, ease: "power2.in" }, DUR - 0.28);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

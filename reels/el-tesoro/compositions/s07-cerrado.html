@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-cerrado"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-cerrado"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-cerrado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-cerrado"] .tinta { stroke: #2b1a0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cerrado"] .trazo { fill: none; stroke: #2b1a0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cerrado"] .mar { fill: none; stroke: #2f7fb5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s07-cerrado"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #f5b82e; -webkit-text-stroke: 12px #2b1a0c; paint-order: stroke fill; text-shadow: 8px 10px 0 #2b1a0c; }
+    [data-composition-id="s07-cerrado"] .mano { font-family: "Caveat", cursive; font-weight: 700; color: #2b1a0c; }
+    [data-composition-id="s07-cerrado"] .sello { position: absolute; white-space: nowrap; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; color: #d23a2a; border: 10px solid #d23a2a; border-radius: 18px; padding: 16px 30px 10px; background: rgba(236, 215, 166, 0.92); }
+    [data-composition-id="s07-cerrado"] .rotulo { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ecd7a6; }
+    
+    [data-composition-id="s07-cerrado"] .s07-cartel { position: absolute; left: 270px; top: 640px; width: 540px; padding: 18px 0 10px; text-align: center; background: #f5b82e; border: 7px solid #2b1a0c; border-radius: 14px; font-family: "Cinzel", serif; font-weight: 900; font-size: 50px; line-height: 1.05; color: #2b1a0c; }
+    [data-composition-id="s07-cerrado"] .s07-cerrado { position: absolute; left: 380px; top: 1080px; width: 320px; padding: 16px 0 8px; text-align: center; background: #d23a2a; border: 7px solid #2b1a0c; border-radius: 12px; font-family: "Cinzel", serif; font-weight: 900; font-size: 64px; color: #ecd7a6; }
+    
+  </style>
+  <div id="root" data-composition-id="s07-cerrado" data-width="1080" data-height="1920" data-duration="2.98">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="2.98" data-track-index="0">
+      <div class="s07-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="tinta" fill="#c9a46a" d="M230 760 H850 V1240 H230 Z" />
+          <path class="tinta" fill="#d23a2a" d="M210 870 L250 800 H830 L870 870 Z" />
+          <path fill="none" stroke="#ecd7a6" stroke-width="16" d="M330 810 l-20 54 M440 810 l-10 54 M540 810 v54 M640 810 l10 54 M750 810 l20 54" />
+          <path class="tinta" fill="#0b2438" d="M330 880 H750 V1240 H330 Z" />
+          <g class="s07-persiana">
+            <path class="tinta" fill="#6b4423" d="M330 880 H750 V1240 H330 Z" />
+            <g fill="none" stroke="#2b1a0c" stroke-width="4"><path d="M330 880 H750" /><path d="M330 906 H750" /><path d="M330 932 H750" /><path d="M330 958 H750" /><path d="M330 984 H750" /><path d="M330 1010 H750" /><path d="M330 1036 H750" /><path d="M330 1062 H750" /><path d="M330 1088 H750" /><path d="M330 1114 H750" /><path d="M330 1140 H750" /><path d="M330 1166 H750" /></g>
+            <path class="tinta" fill="#2b1a0c" d="M520 1226 h40 v10 h-40 Z" />
+          </g>
+          <path class="trazo s07-hilo" d="M540 1010 L420 1086 M540 1010 L660 1086" />
+          <circle class="tinta" fill="#f5b82e" cx="540" cy="1010" r="10" />
+          <g transform="translate(160 1400) scale(0.55)"><g class="s07-gru-g">
+<g class="s07-gru">
+  <path class="tinta" fill="#ecd7a6" d="M-122 300 C-116 200 -82 140 -30 124 L30 124 C82 140 116 200 122 300 Z" />
+  <path fill="none" stroke="#2f7fb5" stroke-width="16" d="M-92 180 H92 M-106 222 H106 M-114 264 H114" />
+  <path class="tinta" fill="none" d="M-122 300 C-116 200 -82 140 -30 124 L30 124 C82 140 116 200 122 300" />
+  <path class="tinta" fill="#e9b98c" d="M-22 70 h44 v62 h-44 Z" />
+  
+  <circle class="tinta" fill="#e9b98c" cx="-70" cy="10" r="15" /><circle class="tinta" fill="#e9b98c" cx="70" cy="10" r="15" />
+  <circle class="tinta" fill="#f5b82e" cx="-74" cy="34" r="7" />
+  <circle class="tinta" fill="#e9b98c" cx="0" cy="0" r="72" />
+  <path class="tinta" fill="#d23a2a" d="M-76 -6 C-78 -80 -32 -102 0 -102 C32 -102 78 -80 76 -6 C42 -30 -42 -30 -76 -6 Z" />
+  <circle fill="#ecd7a6" cx="-30" cy="-62" r="6" /><circle fill="#ecd7a6" cx="12" cy="-76" r="6" /><circle fill="#ecd7a6" cx="44" cy="-50" r="6" /><circle fill="#ecd7a6" cx="-50" cy="-30" r="5" />
+  <path class="tinta" fill="#d23a2a" d="M70 -24 l46 -18 l-6 34 Z M70 -20 l40 22 l-22 16 Z" />
+  <g class="s07-gru-ojos">
+    <circle class="tinta" fill="#fbf3dc" cx="-26" cy="2" r="17" /><circle class="tinta" fill="#fbf3dc" cx="26" cy="2" r="17" />
+    <circle class="s07-gru-pupila" fill="#2b1a0c" cx="-24" cy="4" r="7" /><circle class="s07-gru-pupila" fill="#2b1a0c" cx="28" cy="4" r="7" />
+  </g>
+  <path fill="none" stroke="#2b1a0c" stroke-width="6" stroke-linecap="round" d="M-40 -24 l24 -6 M16 -30 l24 6" />
+  <circle fill="#6b4423" cx="-44" cy="26" r="3" /><circle fill="#6b4423" cx="-34" cy="32" r="3" /><circle fill="#6b4423" cx="36" cy="32" r="3" /><circle fill="#6b4423" cx="46" cy="26" r="3" />
+  <ellipse class="s07-gru-boca" fill="#2b1a0c" cx="0" cy="42" rx="16" ry="11" />
+</g></g></g>
+        </svg>
+        <div class="s07-cartel">PIZZERÍA<br />DOÑA ROSA</div>
+        <div class="s07-cerrado">CERRADO</div>
+  
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-cerrado";
+      const DUR = 2.98;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      // helpers
+      const pop = (el, t, from = 0.6, d = 0.32) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t, from = 2.4) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (el, t, d = 0.22) => tl.to(el, { opacity: 0, scale: 0.8, transformOrigin: "50% 50%", duration: d, ease: "power2.in" }, t);
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (els, t, d = 0.6, st = 0.05) => {
+        [].concat(els).forEach((el, i) => {
+          const L = el.getTotalLength ? el.getTotalLength() + 2 : 1000;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t + i * st);
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st);
+        });
+      };
+      // boca que habla entre t0 y t1
+      const hablar = (el, t0, t1, r = 0.11) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / (2 * r)));
+        tl.fromTo(el, { scaleY: 0.3, transformOrigin: "50% 50%" }, { scaleY: 1.15, transformOrigin: "50% 50%", duration: r, ease: "sine.inOut", yoyo: true, repeat: n * 2 - 1, immediateRender: false }, t0);
+      };
+      // respirar / flotar (cantidad fija de repeticiones)
+      const flotar = (el, t, hasta, amp = 8, per = 0.9) => {
+        const n = Math.max(1, Math.floor((hasta - t) / per));
+        tl.fromTo(el, { y: 0 }, { y: -amp, duration: per, ease: "sine.inOut", yoyo: true, repeat: n - 1, immediateRender: false }, t);
+      };
+      
+      const LLEGAMOS = 0.8, ESTA = 1.76, CERRADO = 1.92;
+      // cuadro 0: el local aparece, la persiana arriba
+      tl.fromTo(q(".s07-escenario"), { scale: 1.12, y: 40 }, { scale: 1, y: 0, duration: 0.8, ease: "power2.out", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s07-gru-g"), { y: 300 }, { y: 0, duration: 0.3, ease: "back.out(1.6)" }, 0.1);
+      hablar(q(".s07-gru-boca"), 0.05, 2.5);
+      tl.fromTo(q(".s07-persiana"), { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 0.25, transformOrigin: "50% 0%", duration: 0.2 }, 0);
+      // "llegamos": la persiana baja de golpe
+      tl.to(q(".s07-persiana"), { scaleY: 1, transformOrigin: "50% 0%", duration: 0.35, ease: "bounce.out" }, LLEGAMOS);
+      golpe(LLEGAMOS + 0.3, 10);
+      // "cerrado": cae el cartelito y se hamaca
+      gsap.set([q(".s07-cerrado"), q(".s07-hilo")], { opacity: 0 });
+      tl.set(q(".s07-hilo"), { opacity: 1 }, CERRADO - 0.05);
+      tl.fromTo(q(".s07-cerrado"), { opacity: 1, y: -200, rotation: 0 }, { opacity: 1, y: 0, rotation: -12, duration: 0.2, ease: "power3.in", immediateRender: false }, CERRADO - 0.15);
+      tl.to(q(".s07-cerrado"), { rotation: 8, transformOrigin: "50% -60px", duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, CERRADO + 0.05);
+      golpe(CERRADO + 0.05, 16);
+      tl.to(qa(".s07-gru-pupila"), { y: 6, duration: 0.2 }, CERRADO);
+      tl.to(q(".s07-gru-g"), { y: 20, duration: 0.4 }, CERRADO + 0.2);
+      
+
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", scale: 1.04, transformOrigin: "50% 50%", duration: 0.28, ease: "power2.in" }, DUR - 0.28);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

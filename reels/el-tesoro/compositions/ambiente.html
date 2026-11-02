@@ -1,0 +1,55 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-ola { fill: none; stroke: #2f7fb5; stroke-width: 5; stroke-linecap: round; }
+    [data-composition-id="ambiente"] .amb-brillo { fill: #f5b82e; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 780px 1120px at 540px 920px, rgba(6, 20, 31, 0) 58%, rgba(6, 20, 31, 0.85) 100%); }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 64px; top: 1590px; font-family: "Caveat", cursive; font-weight: 700; font-size: 44px; color: #ecd7a6; opacity: 0.7; text-align: right; line-height: 1; transform: rotate(-3deg); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #ecd7a6; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.61">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="73.61" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="amb-o1" opacity="0.4"><path class="amb-ola" d="M-480 1560 q60 -22 120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0" /></g>
+        <g class="amb-o2" opacity="0.28"><path class="amb-ola" d="M-480 1640 q60 -20 120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0" /></g>
+        <g class="amb-o3" opacity="0.18"><path class="amb-ola" d="M-480 1712 q60 -18 120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0" /></g>
+        <circle class="amb-brillo amb-b1" cx="210" cy="1600" r="4" opacity="0" />
+        <circle class="amb-brillo amb-b2" cx="760" cy="1680" r="4" opacity="0" />
+        <circle class="amb-brillo amb-b3" cx="470" cy="1540" r="3" opacity="0" />
+      </svg>
+      <div class="amb-vineta"></div>
+      <div class="amb-rotulo amb-r1" data-layout-ignore>Rumbo: lo de Doña Rosa</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 73.61;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(q(".amb-o1"), { x: 0 }, { x: 240 * 10, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".amb-o2"), { x: 0 }, { x: -240 * 7, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".amb-o3"), { x: 0 }, { x: 240 * 5, duration: DUR, ease: "none" }, 0);
+      tl.fromTo([q(".amb-o1"), q(".amb-o3")], { y: 0 }, { y: -10, duration: 2.2, ease: "sine.inOut", yoyo: true, repeat: Math.max(0, Math.floor(DUR / 2.2) - 1) }, 0);
+      tl.fromTo(q(".amb-o2"), { y: -6 }, { y: 6, duration: 2.6, ease: "sine.inOut", yoyo: true, repeat: Math.max(0, Math.floor(DUR / 2.6) - 1) }, 0);
+      [[".amb-b1", 0.6], [".amb-b2", 1.5], [".amb-b3", 2.3]].forEach(([s, d]) => {
+        for (let t = d; t < DUR - 1; t += 3.1) tl.to(q(s), { opacity: 0.9, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      });
+      // el rótulo de la travesía, hasta que entra Scalerics
+      tl.to(q(".amb-r1"), { opacity: 0, duration: 0.3 }, 50.1);
+      // flashes: la X del gancho, "cerrado", "el mapa" del giro, la X del sitio
+      [3.38, 39.22, 49.21, 53.56].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.4, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.04);
+      });
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

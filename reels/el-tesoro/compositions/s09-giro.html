@@ -1,0 +1,169 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-giro"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-giro"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-giro"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-giro"] .tinta { stroke: #2b1a0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-giro"] .trazo { fill: none; stroke: #2b1a0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-giro"] .mar { fill: none; stroke: #2f7fb5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s09-giro"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #f5b82e; -webkit-text-stroke: 12px #2b1a0c; paint-order: stroke fill; text-shadow: 8px 10px 0 #2b1a0c; }
+    [data-composition-id="s09-giro"] .mano { font-family: "Caveat", cursive; font-weight: 700; color: #2b1a0c; }
+    [data-composition-id="s09-giro"] .sello { position: absolute; white-space: nowrap; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; color: #d23a2a; border: 10px solid #d23a2a; border-radius: 18px; padding: 16px 30px 10px; background: rgba(236, 215, 166, 0.92); }
+    [data-composition-id="s09-giro"] .rotulo { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ecd7a6; }
+    
+    [data-composition-id="s09-giro"] .s09-existe { top: 585px; font-size: 84px; }
+    [data-composition-id="s09-giro"] .s09-buen { left: 640px; top: 1010px; font-size: 54px; transform: rotate(10deg); }
+    [data-composition-id="s09-giro"] .s09-prob { top: 585px; font-size: 84px; color: #ecd7a6; }
+    [data-composition-id="s09-giro"] .s09-mapa-t { top: 700px; font-size: 120px; color: #d23a2a; }
+    
+  </style>
+  <div id="root" data-composition-id="s09-giro" data-width="1080" data-height="1920" data-duration="6.67">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="6.67" data-track-index="0">
+      <div class="s09-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 900)">
+            <g class="s09-rayos" fill="none" stroke="#f5b82e" stroke-width="14" stroke-linecap="round"><path d="M0 -170 L0 -260" transform="rotate(0)" /><path d="M0 -170 L0 -260" transform="rotate(25.7)" /><path d="M0 -170 L0 -260" transform="rotate(51.4)" /><path d="M0 -170 L0 -260" transform="rotate(77.1)" /><path d="M0 -170 L0 -260" transform="rotate(102.8)" /><path d="M0 -170 L0 -260" transform="rotate(128.5)" /><path d="M0 -170 L0 -260" transform="rotate(154.2)" /><path d="M0 -170 L0 -260" transform="rotate(179.9)" /><path d="M0 -170 L0 -260" transform="rotate(205.6)" /><path d="M0 -170 L0 -260" transform="rotate(231.29999999999998)" /><path d="M0 -170 L0 -260" transform="rotate(257)" /><path d="M0 -170 L0 -260" transform="rotate(282.7)" /><path d="M0 -170 L0 -260" transform="rotate(308.4)" /><path d="M0 -170 L0 -260" transform="rotate(334.09999999999997)" /></g>
+            <g class="s09-cofre">
+              <g transform="translate(0 -90) scale(0.85)"><g class="s09-porc-g">
+<g class="s09-porcion">
+  <path class="tinta" fill="#f5b82e" d="M0 -126 L-96 112 C-32 132 32 132 96 112 Z" />
+  <path class="tinta" fill="#c9a46a" d="M-102 108 C-34 132 34 132 102 108 L106 128 C34 154 -34 154 -106 128 Z" />
+  <g fill="none" stroke="#ecd7a6" stroke-width="6"><ellipse cx="-20" cy="20" rx="26" ry="16" /><ellipse cx="34" cy="70" rx="24" ry="14" /><ellipse cx="4" cy="-50" rx="18" ry="11" /><ellipse cx="-50" cy="86" rx="20" ry="12" /></g>
+  <g fill="#6b4423"><circle cx="20" cy="10" r="4" /><circle cx="-40" cy="50" r="4" /><circle cx="0" cy="96" r="4" /><circle cx="14" cy="-20" r="4" /><circle cx="60" cy="98" r="4" /></g>
+</g></g></g>
+              <g class="s09-monedas"><g transform="translate(-150 40)"><ellipse class="tinta" fill="#f5b82e" rx="30" ry="22" /><path fill="none" stroke="#2b1a0c" stroke-width="3" d="M-10 -6 h20" /></g><g transform="translate(-110 10)"><ellipse class="tinta" fill="#f5b82e" rx="30" ry="22" /><path fill="none" stroke="#2b1a0c" stroke-width="3" d="M-10 -6 h20" /></g><g transform="translate(130 30)"><ellipse class="tinta" fill="#f5b82e" rx="30" ry="22" /><path fill="none" stroke="#2b1a0c" stroke-width="3" d="M-10 -6 h20" /></g><g transform="translate(160 5)"><ellipse class="tinta" fill="#f5b82e" rx="30" ry="22" /><path fill="none" stroke="#2b1a0c" stroke-width="3" d="M-10 -6 h20" /></g><g transform="translate(-60 -10)"><ellipse class="tinta" fill="#f5b82e" rx="30" ry="22" /><path fill="none" stroke="#2b1a0c" stroke-width="3" d="M-10 -6 h20" /></g><g transform="translate(80 -14)"><ellipse class="tinta" fill="#f5b82e" rx="30" ry="22" /><path fill="none" stroke="#2b1a0c" stroke-width="3" d="M-10 -6 h20" /></g><g transform="translate(0 20)"><ellipse class="tinta" fill="#f5b82e" rx="30" ry="22" /><path fill="none" stroke="#2b1a0c" stroke-width="3" d="M-10 -6 h20" /></g></g>
+              <path class="tinta" fill="#6b4423" d="M-200 30 H200 V180 H-200 Z" />
+              <path fill="none" stroke="#f5b82e" stroke-width="16" d="M-130 30 V180 M130 30 V180" />
+              <path class="tinta" fill="#f5b82e" d="M-26 60 h52 v56 h-52 Z" />
+              <g class="s09-tapa"><path class="tinta" fill="#6b4423" d="M-206 30 C-200 -70 200 -70 206 30 Z" /><path fill="none" stroke="#f5b82e" stroke-width="16" d="M-130 -26 V30 M130 -26 V30" /></g>
+            </g>
+          </g>
+          <g transform="translate(540 990) rotate(-6) scale(0.9)"><g class="s09-viejo">
+            <g transform="translate(-540 -930)">
+              <path class="s09-vp tinta" fill="#c9a46a" d="M260 760 L330 756 L400 765 L470 758 L540 764 L610 755 L680 762 L750 757 L820 763 L824 805 L815 850 L822 895 L817 940 L823 985 L816 1030 L825 1075 L818 1120 L750 1124 L680 1118 L610 1125 L540 1116 L470 1123 L400 1117 L330 1122 L260 1115 L263 1075 L257 1030 L262 985 L255 940 L264 895 L258 850 L265 805 Z" /><path fill="none" stroke="#c9a46a" stroke-width="16" opacity="0.55" d="M260 760 L330 756 L400 765 L470 758 L540 764 L610 755 L680 762 L750 757 L820 763 L824 805 L815 850 L822 895 L817 940 L823 985 L816 1030 L825 1075 L818 1120 L750 1124 L680 1118 L610 1125 L540 1116 L470 1123 L400 1117 L330 1122 L260 1115 L263 1075 L257 1030 L262 985 L255 940 L264 895 L258 850 L265 805 Z" transform="translate(540 940) scale(0.975) translate(-540 -940)" />
+              <path fill="none" stroke="#2b1a0c" stroke-width="5" stroke-linecap="round" opacity="0.7" d="M320 820 q60 40 30 90 q-40 60 40 100 M500 800 q-30 60 40 80 q80 20 30 90 M620 820 l80 120 M700 820 l-90 130 M330 1060 q100 -30 160 20" />
+              <g font-family="Cinzel" font-weight="900" font-size="70" fill="#2b1a0c" opacity="0.75"><text x="420" y="930">?</text><text x="600" y="1060">?</text><text x="720" y="880">?</text></g>
+            </g>
+          </g></g>
+          <ellipse class="s09-circulo" fill="none" stroke="#d23a2a" stroke-width="14" stroke-linecap="round" cx="540" cy="1000" rx="310" ry="210" transform="rotate(-6 540 1000)" />
+          <g transform="translate(540 1330) scale(0.62)"><g class="s09-cap-g">
+<g class="s09-cap">
+  <path class="tinta" fill="#d23a2a" d="M-190 330 C-185 230 -140 172 -60 150 L60 150 C140 172 185 230 190 330 Z" />
+  <path class="tinta" fill="#ecd7a6" d="M-44 152 L0 250 L44 152 Z" />
+  <path fill="none" stroke="#f5b82e" stroke-width="8" stroke-linecap="round" d="M-64 152 L-8 280 M64 152 L8 280" />
+  <circle class="tinta" fill="#f5b82e" cx="-40" cy="300" r="10" /><circle class="tinta" fill="#f5b82e" cx="40" cy="300" r="10" />
+  <path fill="none" stroke="#f5b82e" stroke-width="10" stroke-linecap="round" d="M-176 240 l-6 40 M176 240 l6 40" />
+  
+  <circle class="tinta" fill="#e9b98c" cx="-92" cy="12" r="20" /><circle class="tinta" fill="#e9b98c" cx="92" cy="12" r="20" />
+  <ellipse class="tinta" fill="#e9b98c" cx="0" cy="0" rx="92" ry="102" />
+  <path class="tinta" fill="#6b4423" d="M-96 8 C-112 120 -62 205 0 212 C62 205 112 120 96 8 C76 58 44 72 0 72 C-44 72 -76 58 -96 8 Z" />
+  <path fill="none" stroke="#ecd7a6" stroke-width="4" stroke-linecap="round" opacity="0.35" d="M-70 110 q10 14 0 28 M-30 150 q10 14 0 28 M30 150 q10 14 0 28 M70 110 q10 14 0 28 M0 176 q10 12 0 24" />
+  <ellipse class="s09-cap-boca" fill="#2b1a0c" cx="0" cy="88" rx="24" ry="15" />
+  <path class="tinta" fill="#2b1a0c" d="M-64 52 C-34 28 -12 36 0 46 C12 36 34 28 64 52 C44 64 22 62 0 56 C-22 62 -44 64 -64 52 Z" />
+  <circle class="tinta" fill="#e9b98c" cx="0" cy="26" r="20" />
+  <circle class="s09-cap-ojo" fill="#2b1a0c" cx="-36" cy="-10" r="10" />
+  <path class="s09-cap-ceja" fill="none" stroke="#2b1a0c" stroke-width="10" stroke-linecap="round" d="M-60 -38 L-16 -30" />
+  <path fill="none" stroke="#2b1a0c" stroke-width="6" d="M16 -24 L-86 -62 M58 -6 L94 6" />
+  <ellipse fill="#2b1a0c" cx="38" cy="-10" rx="24" ry="20" />
+  <path class="tinta" fill="#2b1a0c" d="M-170 -58 C-128 -152 -62 -204 0 -210 C62 -204 128 -152 170 -58 C104 -92 52 -82 0 -98 C-52 -82 -104 -92 -170 -58 Z" />
+  <path fill="none" stroke="#f5b82e" stroke-width="9" stroke-linecap="round" d="M-166 -62 C-104 -94 -52 -84 0 -100 C52 -84 104 -94 166 -62" />
+  <circle fill="#ecd7a6" cx="0" cy="-152" r="22" /><circle fill="#2b1a0c" cx="-8" cy="-154" r="5" /><circle fill="#2b1a0c" cx="8" cy="-154" r="5" />
+  <path fill="none" stroke="#ecd7a6" stroke-width="7" stroke-linecap="round" d="M-30 -112 L30 -132 M-30 -132 L30 -112" />
+</g></g></g>
+        </svg>
+        <div class="grande s09-existe">EL TESORO EXISTE</div>
+        <div class="sello s09-buen">¡BUENÍSIMO!</div>
+        <div class="grande s09-prob">EL PROBLEMA ES</div>
+        <div class="grande s09-mapa-t">EL MAPA</div>
+  
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-giro";
+      const DUR = 6.67;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      // helpers
+      const pop = (el, t, from = 0.6, d = 0.32) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t, from = 2.4) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (el, t, d = 0.22) => tl.to(el, { opacity: 0, scale: 0.8, transformOrigin: "50% 50%", duration: d, ease: "power2.in" }, t);
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s09-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (els, t, d = 0.6, st = 0.05) => {
+        [].concat(els).forEach((el, i) => {
+          const L = el.getTotalLength ? el.getTotalLength() + 2 : 1000;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t + i * st);
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st);
+        });
+      };
+      // boca que habla entre t0 y t1
+      const hablar = (el, t0, t1, r = 0.11) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / (2 * r)));
+        tl.fromTo(el, { scaleY: 0.3, transformOrigin: "50% 50%" }, { scaleY: 1.15, transformOrigin: "50% 50%", duration: r, ease: "sine.inOut", yoyo: true, repeat: n * 2 - 1, immediateRender: false }, t0);
+      };
+      // respirar / flotar (cantidad fija de repeticiones)
+      const flotar = (el, t, hasta, amp = 8, per = 0.9) => {
+        const n = Math.max(1, Math.floor((hasta - t) / per));
+        tl.fromTo(el, { y: 0 }, { y: -amp, duration: per, ease: "sine.inOut", yoyo: true, repeat: n - 1, immediateRender: false }, t);
+      };
+      
+      const GRUMETE = 0.73, TESORO = 1.84, EXISTE = 2.96, BUEN = 3.61, PROBLEMA = 4.77, MAPA = 5.54;
+      // cuadro 0: el capitán serio y el cofre cerrado
+      tl.fromTo(q(".s09-cap-g"), { y: 200 }, { y: 0, duration: 0.35, ease: "back.out(1.5)" }, 0);
+      pop(q(".s09-cofre"), 0, 0.85);
+      hablar(q(".s09-cap-boca"), 0.05, 1.2, 0.13);
+      hablar(q(".s09-cap-boca"), 1.78, 4.4, 0.12);
+      hablar(q(".s09-cap-boca"), 4.71, 6.1, 0.13);
+      tl.to(q(".s09-cofre"), { rotation: 2, transformOrigin: "50% 100%", duration: 0.1, yoyo: true, repeat: 5 }, GRUMETE);
+      // "el tesoro existe": se abre el cofre
+      gsap.set([q(".s09-porc-g"), q(".s09-monedas"), q(".s09-rayos")], { opacity: 0 });
+      tl.to(q(".s09-tapa"), { rotation: -100, svgOrigin: "-206 30", y: -20, duration: 0.3, ease: "back.out(1.6)" }, TESORO - 0.05);
+      tl.fromTo(q(".s09-monedas"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, TESORO + 0.05);
+      tl.fromTo(q(".s09-porc-g"), { opacity: 0, y: 120, scale: 0.5, transformOrigin: "50% 100%" }, { opacity: 1, y: 0, scale: 1, transformOrigin: "50% 100%", duration: 0.45, ease: "back.out(1.6)", immediateRender: false }, TESORO + 0.15);
+      tl.fromTo(q(".s09-rayos"), { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, immediateRender: false }, TESORO + 0.1);
+      tl.fromTo(q(".s09-rayos"), { rotation: 0 }, { rotation: 40, svgOrigin: "0 0", duration: 3, ease: "none", immediateRender: false }, TESORO);
+      slam(q(".s09-existe"), EXISTE - 0.1);
+      golpe(EXISTE, 12);
+      // "buenísimo"
+      slam(q(".s09-buen"), BUEN + 0.05, 1.8);
+      tl.to(q(".s09-porc-g"), { scale: 1.1, transformOrigin: "50% 100%", duration: 0.15, yoyo: true, repeat: 3 }, BUEN);
+      // "el problema es el mapa": el cofre se apaga y cae el mapa viejo arrugado
+      tl.to([q(".s09-cofre"), q(".s09-rayos")], { opacity: 0.2, duration: 0.25 }, PROBLEMA - 0.15);
+      tl.to([q(".s09-existe"), q(".s09-buen")], { opacity: 0, duration: 0.2 }, PROBLEMA - 0.15);
+      slam(q(".s09-prob"), PROBLEMA);
+      gsap.set(q(".s09-viejo"), { opacity: 0 });
+      tl.fromTo(q(".s09-viejo"), { opacity: 1, y: -700, rotation: -20 }, { opacity: 1, y: 0, rotation: 0, duration: 0.35, ease: "power3.in", immediateRender: false }, MAPA - 0.4);
+      slam(q(".s09-mapa-t"), MAPA);
+      golpe(MAPA + 0.05, 18);
+      dibujar(q(".s09-circulo"), MAPA + 0.1, 0.45);
+      tl.to(q(".s09-cap-ceja"), { rotation: 15, transformOrigin: "100% 50%", duration: 0.15 }, MAPA);
+      
+
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", scale: 1.04, transformOrigin: "50% 50%", duration: 0.28, ease: "power2.in" }, DUR - 0.28);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

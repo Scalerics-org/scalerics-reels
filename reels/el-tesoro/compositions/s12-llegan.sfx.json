@@ -1,0 +1,8 @@
+[
+  {"t":0.1,"sfx":"salto","vol":0.3},
+  {"t":1.05,"sfx":"impact-bass-1","vol":0.35,"max":0.5},
+  {"t":2.18,"sfx":"golpe","vol":0.3},
+  {"t":2.9,"sfx":"fanfarria","vol":0.25,"max":1.6},
+  {"t":3.2,"sfx":"moneda","vol":0.35},
+  {"t":3.9,"sfx":"moneda","vol":0.3}
+]

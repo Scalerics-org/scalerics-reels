@@ -1,0 +1,9 @@
+[
+  {"t":0.1,"sfx":"drama","vol":0.25,"max":1.5},
+  {"t":1.8,"sfx":"chime","vol":0.35},
+  {"t":1.95,"sfx":"moneda","vol":0.35},
+  {"t":2.9,"sfx":"impact-bass-1","vol":0.38,"max":0.6},
+  {"t":3.6,"sfx":"sparkle","vol":0.3},
+  {"t":5.2,"sfx":"whoosh","vol":0.3},
+  {"t":5.5,"sfx":"impact-bass-2","vol":0.45,"max":0.7}
+]

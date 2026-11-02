@@ -1,0 +1,185 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-kiosco"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-kiosco"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-kiosco"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-kiosco"] .tinta { stroke: #2b1a0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-kiosco"] .trazo { fill: none; stroke: #2b1a0c; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-kiosco"] .mar { fill: none; stroke: #2f7fb5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s04-kiosco"] .grande { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #f5b82e; -webkit-text-stroke: 12px #2b1a0c; paint-order: stroke fill; text-shadow: 8px 10px 0 #2b1a0c; }
+    [data-composition-id="s04-kiosco"] .mano { font-family: "Caveat", cursive; font-weight: 700; color: #2b1a0c; }
+    [data-composition-id="s04-kiosco"] .sello { position: absolute; white-space: nowrap; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; color: #d23a2a; border: 10px solid #d23a2a; border-radius: 18px; padding: 16px 30px 10px; background: rgba(236, 215, 166, 0.92); }
+    [data-composition-id="s04-kiosco"] .rotulo { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #ecd7a6; }
+    
+    [data-composition-id="s04-kiosco"] .s04-nota { position: absolute; left: 110px; top: 600px; width: 860px; text-align: center; font-size: 66px; line-height: 1; }
+    [data-composition-id="s04-kiosco"] .s04-etq { position: absolute; font-size: 48px; }
+    [data-composition-id="s04-kiosco"] .s04-yano { top: 840px; font-size: 128px; color: #d23a2a; }
+    
+  </style>
+  <div id="root" data-composition-id="s04-kiosco" data-width="1080" data-height="1920" data-duration="6.69">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.69" data-track-index="0">
+      <div class="s04-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s04-mapa">
+            <path class="s04-papel tinta" fill="#ecd7a6" d="M90 580 L202.5 576 L315 585 L427.5 578 L540 584 L652.5 575 L765 582 L877.5 577 L990 583 L994 660 L985 740 L992 820 L987 900 L993 980 L986 1060 L995 1140 L988 1220 L877.5 1224 L765 1218 L652.5 1225 L540 1216 L427.5 1223 L315 1217 L202.5 1222 L90 1215 L93 1140 L87 1060 L92 980 L85 900 L94 820 L88 740 L95 660 Z" /><path fill="none" stroke="#c9a46a" stroke-width="16" opacity="0.55" d="M90 580 L202.5 576 L315 585 L427.5 578 L540 584 L652.5 575 L765 582 L877.5 577 L990 583 L994 660 L985 740 L992 820 L987 900 L993 980 L986 1060 L995 1140 L988 1220 L877.5 1224 L765 1218 L652.5 1225 L540 1216 L427.5 1223 L315 1217 L202.5 1222 L90 1215 L93 1140 L87 1060 L92 980 L85 900 L94 820 L88 740 L95 660 Z" transform="translate(540 900) scale(0.975) translate(-540 -900)" />
+            <path fill="none" stroke="#c9a46a" stroke-width="80" d="M90 960 H990 M560 720 V1220" />
+            <path class="trazo" d="M90 920 H520 M600 920 H990 M90 1000 H520 M600 1000 H990 M520 720 V920 M600 720 V920 M520 1000 V1220 M600 1000 V1220" />
+            <g class="s04-local">
+              <path class="tinta" fill="#ecd7a6" d="M220 1180 h190 v-120 h-190 Z" />
+              <path class="tinta" fill="#d23a2a" d="M206 1060 l14 -34 h190 l14 34 Z" />
+              <path class="tinta" fill="#6b4423" d="M290 1180 v-70 h40 v70" />
+            </g>
+            <g class="s04-kiosco" fill="none" stroke="#2b1a0c" stroke-width="6" stroke-dasharray="16 14" stroke-linecap="round">
+              <path d="M700 890 h150 v-120 h-150 Z M686 770 l14 -30 h150 l14 30 M740 890 v-60 h70 v60" />
+            </g>
+            <path class="s04-flecha trazo" d="M770 1000 C760 1060 560 1080 430 1110 M450 1086 l-24 26 l34 6" />
+          </g>
+          <g class="s04-puff" fill="#ecd7a6" stroke="#2b1a0c" stroke-width="5">
+            <circle cx="740" cy="820" r="40" /><circle cx="800" cy="790" r="48" /><circle cx="860" cy="830" r="38" /><circle cx="780" cy="860" r="36" />
+          </g>
+          <g transform="translate(220 1390) scale(0.62)"><g class="s04-gru-g">
+<g class="s04-gru">
+  <path class="tinta" fill="#ecd7a6" d="M-122 300 C-116 200 -82 140 -30 124 L30 124 C82 140 116 200 122 300 Z" />
+  <path fill="none" stroke="#2f7fb5" stroke-width="16" d="M-92 180 H92 M-106 222 H106 M-114 264 H114" />
+  <path class="tinta" fill="none" d="M-122 300 C-116 200 -82 140 -30 124 L30 124 C82 140 116 200 122 300" />
+  <path class="tinta" fill="#e9b98c" d="M-22 70 h44 v62 h-44 Z" />
+  <g class="s04-gru-brazo"><path fill="none" stroke="#2b1a0c" stroke-width="44" stroke-linecap="round" d="M96 200 C150 170 170 110 168 60" /><path fill="none" stroke="#ecd7a6" stroke-width="32" stroke-linecap="round" d="M96 200 C150 170 170 110 168 60" /><circle class="tinta" fill="#e9b98c" cx="168" cy="52" r="22" /></g>
+  <circle class="tinta" fill="#e9b98c" cx="-70" cy="10" r="15" /><circle class="tinta" fill="#e9b98c" cx="70" cy="10" r="15" />
+  <circle class="tinta" fill="#f5b82e" cx="-74" cy="34" r="7" />
+  <circle class="tinta" fill="#e9b98c" cx="0" cy="0" r="72" />
+  <path class="tinta" fill="#d23a2a" d="M-76 -6 C-78 -80 -32 -102 0 -102 C32 -102 78 -80 76 -6 C42 -30 -42 -30 -76 -6 Z" />
+  <circle fill="#ecd7a6" cx="-30" cy="-62" r="6" /><circle fill="#ecd7a6" cx="12" cy="-76" r="6" /><circle fill="#ecd7a6" cx="44" cy="-50" r="6" /><circle fill="#ecd7a6" cx="-50" cy="-30" r="5" />
+  <path class="tinta" fill="#d23a2a" d="M70 -24 l46 -18 l-6 34 Z M70 -20 l40 22 l-22 16 Z" />
+  <g class="s04-gru-ojos">
+    <circle class="tinta" fill="#fbf3dc" cx="-26" cy="2" r="17" /><circle class="tinta" fill="#fbf3dc" cx="26" cy="2" r="17" />
+    <circle class="s04-gru-pupila" fill="#2b1a0c" cx="-24" cy="4" r="7" /><circle class="s04-gru-pupila" fill="#2b1a0c" cx="28" cy="4" r="7" />
+  </g>
+  <path fill="none" stroke="#2b1a0c" stroke-width="6" stroke-linecap="round" d="M-40 -24 l24 -6 M16 -30 l24 6" />
+  <circle fill="#6b4423" cx="-44" cy="26" r="3" /><circle fill="#6b4423" cx="-34" cy="32" r="3" /><circle fill="#6b4423" cx="36" cy="32" r="3" /><circle fill="#6b4423" cx="46" cy="26" r="3" />
+  <ellipse class="s04-gru-boca" fill="#2b1a0c" cx="0" cy="42" rx="16" ry="11" />
+</g></g></g>
+          <g transform="translate(820 1330) scale(0.7)"><g class="s04-cap-g">
+<g class="s04-cap">
+  <path class="tinta" fill="#d23a2a" d="M-190 330 C-185 230 -140 172 -60 150 L60 150 C140 172 185 230 190 330 Z" />
+  <path class="tinta" fill="#ecd7a6" d="M-44 152 L0 250 L44 152 Z" />
+  <path fill="none" stroke="#f5b82e" stroke-width="8" stroke-linecap="round" d="M-64 152 L-8 280 M64 152 L8 280" />
+  <circle class="tinta" fill="#f5b82e" cx="-40" cy="300" r="10" /><circle class="tinta" fill="#f5b82e" cx="40" cy="300" r="10" />
+  <path fill="none" stroke="#f5b82e" stroke-width="10" stroke-linecap="round" d="M-176 240 l-6 40 M176 240 l6 40" />
+  
+  <circle class="tinta" fill="#e9b98c" cx="-92" cy="12" r="20" /><circle class="tinta" fill="#e9b98c" cx="92" cy="12" r="20" />
+  <ellipse class="tinta" fill="#e9b98c" cx="0" cy="0" rx="92" ry="102" />
+  <path class="tinta" fill="#6b4423" d="M-96 8 C-112 120 -62 205 0 212 C62 205 112 120 96 8 C76 58 44 72 0 72 C-44 72 -76 58 -96 8 Z" />
+  <path fill="none" stroke="#ecd7a6" stroke-width="4" stroke-linecap="round" opacity="0.35" d="M-70 110 q10 14 0 28 M-30 150 q10 14 0 28 M30 150 q10 14 0 28 M70 110 q10 14 0 28 M0 176 q10 12 0 24" />
+  <ellipse class="s04-cap-boca" fill="#2b1a0c" cx="0" cy="88" rx="24" ry="15" />
+  <path class="tinta" fill="#2b1a0c" d="M-64 52 C-34 28 -12 36 0 46 C12 36 34 28 64 52 C44 64 22 62 0 56 C-22 62 -44 64 -64 52 Z" />
+  <circle class="tinta" fill="#e9b98c" cx="0" cy="26" r="20" />
+  <circle class="s04-cap-ojo" fill="#2b1a0c" cx="-36" cy="-10" r="10" />
+  <path class="s04-cap-ceja" fill="none" stroke="#2b1a0c" stroke-width="10" stroke-linecap="round" d="M-60 -38 L-16 -30" />
+  <path fill="none" stroke="#2b1a0c" stroke-width="6" d="M16 -24 L-86 -62 M58 -6 L94 6" />
+  <ellipse fill="#2b1a0c" cx="38" cy="-10" rx="24" ry="20" />
+  <path class="tinta" fill="#2b1a0c" d="M-170 -58 C-128 -152 -62 -204 0 -210 C62 -204 128 -152 170 -58 C104 -92 52 -82 0 -98 C-52 -82 -104 -92 -170 -58 Z" />
+  <path fill="none" stroke="#f5b82e" stroke-width="9" stroke-linecap="round" d="M-166 -62 C-104 -94 -52 -84 0 -100 C52 -84 104 -94 166 -62" />
+  <circle fill="#ecd7a6" cx="0" cy="-152" r="22" /><circle fill="#2b1a0c" cx="-8" cy="-154" r="5" /><circle fill="#2b1a0c" cx="8" cy="-154" r="5" />
+  <path fill="none" stroke="#ecd7a6" stroke-width="7" stroke-linecap="round" d="M-30 -112 L30 -132 M-30 -132 L30 -112" />
+</g></g></g>
+        </svg>
+        <div class="s04-nota mano">"frente a donde estaba el kiosco"</div>
+        <div class="s04-etq mano" style="left:690px; top:660px">el kiosco</div>
+        <div class="s04-etq mano" style="left:210px; top:940px; color:#d23a2a">¿acá?</div>
+        <div class="grande s04-yano">¡YA NO ESTÁ!</div>
+  
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-kiosco";
+      const DUR = 6.69;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      // helpers
+      const pop = (el, t, from = 0.6, d = 0.32) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t, from = 2.4) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (el, t, d = 0.22) => tl.to(el, { opacity: 0, scale: 0.8, transformOrigin: "50% 50%", duration: d, ease: "power2.in" }, t);
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (els, t, d = 0.6, st = 0.05) => {
+        [].concat(els).forEach((el, i) => {
+          const L = el.getTotalLength ? el.getTotalLength() + 2 : 1000;
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.set(el, { opacity: 1 }, t + i * st);
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * st);
+        });
+      };
+      // boca que habla entre t0 y t1
+      const hablar = (el, t0, t1, r = 0.11) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / (2 * r)));
+        tl.fromTo(el, { scaleY: 0.3, transformOrigin: "50% 50%" }, { scaleY: 1.15, transformOrigin: "50% 50%", duration: r, ease: "sine.inOut", yoyo: true, repeat: n * 2 - 1, immediateRender: false }, t0);
+      };
+      // respirar / flotar (cantidad fija de repeticiones)
+      const flotar = (el, t, hasta, amp = 8, per = 0.9) => {
+        const n = Math.max(1, Math.floor((hasta - t) / per));
+        tl.fromTo(el, { y: 0 }, { y: -amp, duration: per, ease: "sine.inOut", yoyo: true, repeat: n - 1, immediateRender: false }, t);
+      };
+      
+      const FRENTE = 0.92, DONDE = 1.76, KIOSCO = 2.8, QUE = 3.96, SI = 4.65, NO = 5.65;
+      // cuadro 0: el mapa del barrio y el grumete leyendo
+      tl.fromTo(q(".s04-mapa"), { opacity: 0.6, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s04-gru-g"), { y: 300 }, { y: 0, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      hablar(q(".s04-gru-boca"), 0.05, 3.3);
+      tl.to(qa(".s04-gru-pupila"), { x: 8, y: -8, duration: 0.2 }, 0.3);
+      gsap.set(q(".s04-nota"), { clipPath: "inset(0 100% 0 0)" });
+      tl.to(q(".s04-nota"), { clipPath: "inset(0 0% 0 0)", duration: 2.4, ease: "none" }, 0.1);
+      // "frente a": flecha, local con "¿acá?"
+      pop(q(".s04-local"), FRENTE - 0.1, 0.4);
+      dibujar(q(".s04-flecha"), FRENTE + 0.1, 0.6);
+      pop(q(".s04-etq:nth-of-type(3)"), FRENTE + 0.6, 0.4);
+      // "estaba el kiosco": el fantasma del kiosco, punteado
+      gsap.set(q(".s04-kiosco"), { opacity: 0 });
+      tl.fromTo(q(".s04-kiosco"), { opacity: 0 }, { opacity: 0.85, duration: 0.3, immediateRender: false }, DONDE);
+      tl.to(q(".s04-kiosco"), { opacity: 0.4, duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, KIOSCO);
+      pop(q(".s04-etq:nth-of-type(2)"), KIOSCO - 0.1, 0.4);
+      // "¿Qué kiosco?": entra el capitán furioso
+      tl.fromTo(q(".s04-cap-g"), { x: 700 }, { x: 0, duration: 0.25, ease: "back.out(1.6)" }, QUE - 0.25);
+      tl.to(q(".s04-cap-ceja"), { rotation: 18, transformOrigin: "100% 50%", duration: 0.12 }, QUE);
+      hablar(q(".s04-cap-boca"), QUE, DUR - 0.4, 0.09);
+      golpe(QUE + 0.05, 12);
+      tl.to(q(".s04-cap-g"), { y: -30, duration: 0.1, yoyo: true, repeat: 3 }, SI);
+      // "¡ya no está!": el kiosco se desvanece en una nube
+      tl.to(q(".s04-kiosco"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%", duration: 0.25 }, NO - 0.1);
+      tl.to(q(".s04-etq:nth-of-type(2)"), { opacity: 0, duration: 0.2 }, NO);
+      qa(".s04-puff circle").forEach((c, i) => {
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { opacity: 1, scale: 0.2, transformOrigin: "50% 50%" }, { opacity: 0, scale: 1.6, transformOrigin: "50% 50%", duration: 0.7, ease: "power2.out", immediateRender: false }, NO - 0.1 + i * 0.05);
+      });
+      tl.to(q(".s04-mapa"), { opacity: 0.45, duration: 0.2 }, NO - 0.05);
+      tl.to(q(".s04-nota"), { opacity: 0.4, duration: 0.2 }, NO - 0.05);
+      slam(q(".s04-yano"), NO + 0.02);
+      golpe(NO + 0.06, 16);
+      
+
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", scale: 1.04, transformOrigin: "50% 50%", duration: 0.28, ease: "power2.in" }, DUR - 0.28);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
