@@ -1,0 +1,170 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-turnos"] .s13-capa, [data-composition-id="s13-turnos"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-turnos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; clip-path: inset(-200px -200px 568px -200px); }
+    [data-composition-id="s13-turnos"] .b { fill: #1d2747; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .k { fill: #0b1020; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .l { fill: none; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .w { fill: #efeadf; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .y { fill: #ffc23a; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .yl { fill: none; stroke: #ffc23a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .r { fill: #ff3b4a; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .rl { fill: none; stroke: #ff3b4a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .m { fill: #ff8a1f; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .s { fill: #5ce611; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .g { fill: #3d7bff; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .piel { fill: #f0d6b0; stroke: #efeadf; stroke-width: 7; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .d { fill: none; stroke: #0b1020; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .dk { fill: #0b1020; stroke: #0b1020; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .az { fill: #1e3a8a; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .azl { fill: none; stroke: #3d7bff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .nl { fill: none; stroke: #ff8a1f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-turnos"] .fino { stroke-width: 3.5; }
+    [data-composition-id="s13-turnos"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #efeadf; }
+    [data-composition-id="s13-turnos"] .sello { position: absolute; padding: 14px 28px 10px; border: 8px solid #ff3b4a; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; letter-spacing: 0.04em; line-height: 1; color: #ff3b4a; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-turnos"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffc23a; color: #0b1020; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s13-turnos"] .etiqueta { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1452px; padding: 10px 22px 8px; background: #ff8a1f; color: #0b1020; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-turnos"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s13-turnos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s13-turnos"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s13-turnos"] .lex6 { font-family: "Lexend", sans-serif; font-weight: 600; }
+
+  [data-composition-id="s13-turnos"] .s13-card { position: absolute; left: 450px; width: 560px; padding: 18px 24px 18px 84px; background: #0b1020; border: 4px solid #5ce611; border-radius: 18px; white-space: nowrap; }
+  [data-composition-id="s13-turnos"] .s13-card::before { content: ""; position: absolute; left: 24px; top: 50%; width: 40px; height: 40px; margin-top: -20px; border-radius: 50%; background: #5ce611; }
+  [data-composition-id="s13-turnos"] .s13-card b { display: block; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 38px; color: #efeadf; line-height: 1.1; }
+  [data-composition-id="s13-turnos"] .s13-card span { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #9aa3b8; margin-top: 6px; }
+  [data-composition-id="s13-turnos"] .s13-globo { position: absolute; left: 330px; top: 640px; padding: 14px 24px; background: #5ce611; color: #0b1020; border-radius: 24px 24px 24px 6px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 36px; white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="s13-turnos" data-width="1080" data-height="1920" data-duration="5.79">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="5.79" data-track-index="0">
+      <div class="s13-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <circle cx="222" cy="990" r="240" fill="#5ce611" opacity="0.10" />
+          <g transform="translate(80 760) scale(0.95)"><g class="s13-ag">
+      <rect class="k" x="20" y="20" width="260" height="460" rx="46" />
+      <rect class="s" x="40" y="70" width="220" height="370" rx="20" stroke-width="5" />
+      <path class="l" d="M120 44 H180" stroke-width="7" />
+      <path class="sl s13-vincha" d="M10 230 C10 60 290 60 290 230" stroke="#efeadf" stroke-width="12" />
+      <rect class="w" x="-8" y="200" width="36" height="74" rx="14" stroke-width="5" />
+      <rect class="w" x="272" y="200" width="36" height="74" rx="14" stroke-width="5" />
+      <path class="l" d="M272 262 C250 320 210 330 180 330" stroke-width="6" />
+      <circle cx="176" cy="330" r="10" fill="#efeadf" />
+      <ellipse class="s13-agente-ojos" cx="112" cy="200" rx="16" ry="20" fill="#0b1020" />
+      <ellipse class="s13-agente-ojos" cx="188" cy="200" rx="16" ry="20" fill="#0b1020" />
+      <path class="d s13-agente-boca" data-o="150 260" d="M108 252 C126 290 174 290 192 252" stroke-width="8" /></g></g>
+          <g transform="translate(650 820) scale(0.95)"><g class="s13-pj">
+      <path class="" fill="#7fa6d6" stroke="#efeadf" stroke-width="7" stroke-linejoin="round" d="M24 540 C24 404 92 362 180 362 C268 362 336 404 336 540 Z" />
+      <path class="w" d="M140 366 L180 420 L220 366 L206 362 L180 396 L154 362 Z" stroke-width="5" />
+      <circle cx="180" cy="452" r="6" fill="#0b1020" /><circle cx="180" cy="500" r="6" fill="#0b1020" />
+      <ellipse class="piel" cx="100" cy="258" rx="16" ry="24" stroke-width="5" /><ellipse class="piel" cx="260" cy="258" rx="16" ry="24" stroke-width="5" />
+      <ellipse class="piel" cx="180" cy="256" rx="82" ry="96" stroke-width="5" />
+      <path fill="#a8a8b0" stroke="#a8a8b0" stroke-width="5" d="M98 250 C92 214 98 196 112 188 C114 206 112 222 118 238 Z M262 250 C268 214 262 196 248 188 C246 206 248 222 242 238 Z" />
+      <path class="d" d="M150 176 C160 170 174 170 182 174" stroke-width="4" opacity="0.35" />
+      <path class="d s13-dueno-cejas" d="M128 226 L168 216 M192 216 L232 226" stroke-width="7" />
+      <circle class="s13-dueno-ojos" cx="150" cy="250" r="9" fill="#0b1020" />
+      <circle class="s13-dueno-ojos" cx="210" cy="250" r="9" fill="#0b1020" />
+      <path d="M132 270 C142 278 158 278 166 270 M194 270 C202 278 218 278 228 270" fill="none" stroke="#8a6f9e" stroke-width="5" stroke-linecap="round" opacity="0.8" />
+      <path fill="#a8a8b0" stroke="#efeadf" stroke-width="3" d="M138 292 C154 278 206 278 222 292 C206 302 154 302 138 292 Z" />
+      <path class="d s13-dueno-boca" data-o="180 304" d="M150 300 C162 318 200 318 212 298" stroke-width="7" />
+      <path class="w s13-gota" d="M86 196 C76 214 76 226 86 230 C96 226 96 214 86 196 Z" stroke-width="3" opacity="0" />
+      <path class="w s13-gota" d="M276 214 C266 232 266 244 276 248 C286 244 286 232 276 214 Z" stroke-width="3" opacity="0" /></g></g>
+          <path class="sl s13-flecha" d="M380 980 C460 900 560 900 620 960 M590 930 L624 964 L580 978" stroke-width="10" />
+        </svg>
+        <div class="s13-card s13-c1" style="top: 700px"><b>Turno agendado</b><span>Martes · 10:00</span></div>
+        <div class="s13-card s13-c2" style="top: 860px"><b>Pedido tomado</b><span>Para retirar mañana</span></div>
+        <div class="s13-globo">Esta es para vos</div>
+        <div class="etiqueta s13-et" style="background: #5ce611">Tu empleado de IA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-turnos";
+      const DUR = 5.79;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s13-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // cronómetro de 7 segmentos: pinta("cls", "6000") prende los segmentos; reloj("cls", f) lo maneja
+      // con UNA sola interpolación sobre toda la escena (f(t) devuelve 4 caracteres: dígitos, "-" o " ")
+      const SEG = { 0: "abcdef", 1: "bc", 2: "abdeg", 3: "abcdg", 4: "bcfg", 5: "acdfg", 6: "acdefg", 7: "abc", 8: "abcdefg", 9: "abcdfg", "-": "g", " ": "" };
+      const pinta = (cls, str) => {
+        const ds = qa("." + cls + " .dig");
+        str.split("").forEach((ch, i) => { if (ds[i]) for (const r of ds[i].children) r.style.opacity = (SEG[ch] || "").includes(r.dataset.s) ? 1 : 0.07; });
+      };
+      const mmss = (s) => { s = Math.max(0, Math.ceil(s - 1e-6)); return String(Math.floor(s / 60)).padStart(2, "0") + String(s % 60).padStart(2, "0"); };
+      const reloj = (cls, f) => {
+        const o = { t: 0 };
+        pinta(cls, f(0));
+        tl.fromTo(o, { t: 0 }, { t: DUR, duration: DUR, ease: "none", immediateRender: false, onUpdate: () => pinta(cls, f(o.t)) }, 0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+tl.fromTo(q(".s13-ag"), { opacity: 0.6, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 0);
+      pop(".s13-et", 0.2);
+      hablar(".s13-agente-boca", 0.0, 2.3, 0.4);
+      // "Agendan turnos", "toman pedidos"
+      entra(".s13-c1", 0.05, 140, 0, 0.3);
+      entra(".s13-c2", 1.35, 140, 0, 0.3);
+      // "si es para vos, te pasan la conversación": entra el dueño, flecha
+      tl.to(qa(".s13-c1, .s13-c2"), { opacity: 0, x: 120, duration: 0.25, ease: "power2.in" }, 2.45);
+      gsap.set(qa(".s13-pj, .s13-globo"), { opacity: 0 });
+      entra(".s13-pj", 2.6, 200, 0, 0.35);
+      pop(".s13-globo", 3.0, 0.3, { transformOrigin: "0% 100%" });
+      dibujar(".s13-flecha", 3.8, 0.45);
+      tl.to(q(".s13-ag"), { rotation: 6, svgOrigin: "150 480", duration: 0.25, yoyo: true, repeat: 1 }, 3.8);
+      hablar(".s13-dueno-boca", 4.5, 5.4, 0.6);
+      parpadeo(".s13-dueno-ojos", 4.3);
+
+      // salida: barrido con blur
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

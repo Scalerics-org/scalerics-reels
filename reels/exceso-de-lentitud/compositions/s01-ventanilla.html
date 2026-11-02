@@ -1,0 +1,211 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-ventanilla"] .s01-capa, [data-composition-id="s01-ventanilla"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-ventanilla"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; clip-path: inset(-200px -200px 568px -200px); }
+    [data-composition-id="s01-ventanilla"] .b { fill: #1d2747; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .k { fill: #0b1020; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .l { fill: none; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .w { fill: #efeadf; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .y { fill: #ffc23a; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .yl { fill: none; stroke: #ffc23a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .r { fill: #ff3b4a; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .rl { fill: none; stroke: #ff3b4a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .m { fill: #ff8a1f; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .s { fill: #5ce611; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .g { fill: #3d7bff; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .piel { fill: #f0d6b0; stroke: #efeadf; stroke-width: 7; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .d { fill: none; stroke: #0b1020; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .dk { fill: #0b1020; stroke: #0b1020; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .az { fill: #1e3a8a; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .azl { fill: none; stroke: #3d7bff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .nl { fill: none; stroke: #ff8a1f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-ventanilla"] .fino { stroke-width: 3.5; }
+    [data-composition-id="s01-ventanilla"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #efeadf; }
+    [data-composition-id="s01-ventanilla"] .sello { position: absolute; padding: 14px 28px 10px; border: 8px solid #ff3b4a; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; letter-spacing: 0.04em; line-height: 1; color: #ff3b4a; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-ventanilla"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffc23a; color: #0b1020; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s01-ventanilla"] .etiqueta { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1452px; padding: 10px 22px 8px; background: #ff8a1f; color: #0b1020; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-ventanilla"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s01-ventanilla"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s01-ventanilla"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s01-ventanilla"] .lex6 { font-family: "Lexend", sans-serif; font-weight: 600; }
+
+  [data-composition-id="s01-ventanilla"] .s01-cartel { left: 0; right: 0; margin: 0 auto; width: max-content; top: 600px; font-size: 54px; background: #0b1020; color: #ffc23a; border-color: #ffc23a; }
+
+  </style>
+  <div id="root" data-composition-id="s01-ventanilla" data-width="1080" data-height="1920" data-duration="3.95">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="3.95" data-track-index="0">
+      <div class="s01-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s01-todo">
+            <g transform="translate(40 580) scale(1.2)">
+      <rect x="70" y="60" width="530" height="290" fill="#05080f" />
+      <path d="M430 340 V150 C430 120 450 100 480 100 H560 V340 Z" fill="#141a2e" stroke="#2a3352" stroke-width="5" /></g>
+            <g transform="translate(262 590) scale(0.95)"><g class="s01-pj">
+      <path class="" fill="#7fa6d6" stroke="#efeadf" stroke-width="7" stroke-linejoin="round" d="M24 540 C24 404 92 362 180 362 C268 362 336 404 336 540 Z" />
+      <path class="w" d="M140 366 L180 420 L220 366 L206 362 L180 396 L154 362 Z" stroke-width="5" />
+      <circle cx="180" cy="452" r="6" fill="#0b1020" /><circle cx="180" cy="500" r="6" fill="#0b1020" />
+      <ellipse class="piel" cx="100" cy="258" rx="16" ry="24" stroke-width="5" /><ellipse class="piel" cx="260" cy="258" rx="16" ry="24" stroke-width="5" />
+      <ellipse class="piel" cx="180" cy="256" rx="82" ry="96" stroke-width="5" />
+      <path fill="#a8a8b0" stroke="#a8a8b0" stroke-width="5" d="M98 250 C92 214 98 196 112 188 C114 206 112 222 118 238 Z M262 250 C268 214 262 196 248 188 C246 206 248 222 242 238 Z" />
+      <path class="d" d="M150 176 C160 170 174 170 182 174" stroke-width="4" opacity="0.35" />
+      <path class="d s01-dueno-cejas" d="M128 226 L168 216 M192 216 L232 226" stroke-width="7" />
+      <circle class="s01-dueno-ojos" cx="150" cy="250" r="9" fill="#0b1020" />
+      <circle class="s01-dueno-ojos" cx="210" cy="250" r="9" fill="#0b1020" />
+      <path d="M132 270 C142 278 158 278 166 270 M194 270 C202 278 218 278 228 270" fill="none" stroke="#8a6f9e" stroke-width="5" stroke-linecap="round" opacity="0.8" />
+      <path fill="#a8a8b0" stroke="#efeadf" stroke-width="3" d="M138 292 C154 278 206 278 222 292 C206 302 154 302 138 292 Z" />
+      <path class="d s01-dueno-boca" data-o="180 312" d="M150 318 C164 304 198 304 212 318" stroke-width="7" />
+      <path class="w s01-gota" d="M86 196 C76 214 76 226 86 230 C96 226 96 214 86 196 Z" stroke-width="3" opacity="0" />
+      <path class="w s01-gota" d="M276 214 C266 232 266 244 276 248 C286 244 286 232 276 214 Z" stroke-width="3" opacity="0" /></g></g>
+            <g transform="translate(240 900) scale(0.9)">
+      <circle cx="150" cy="150" r="130" fill="none" stroke="#0b1020" stroke-width="30" />
+      <circle cx="150" cy="150" r="130" fill="none" stroke="#efeadf" stroke-width="4" opacity="0.5" />
+      <path d="M20 150 H280 M150 150 V280" stroke="#0b1020" stroke-width="22" /></g>
+            <g transform="translate(40 580) scale(1.2)">
+      <defs><clipPath id="s01-vent"><path d="M70 340 V120 C70 86 96 60 130 60 H540 C570 60 600 90 600 120 V340 Z" /></clipPath></defs>
+      <g clip-path="url(#s01-vent)">
+        <g class="s01-vidrio">
+          <rect x="60" y="50" width="560" height="300" fill="#6d8bd6" opacity="0.32" />
+          <path d="M150 60 L90 340 M230 60 L170 340" stroke="#efeadf" stroke-width="14" opacity="0.18" />
+        </g>
+      </g>
+      <path fill="#8c2433" stroke="#efeadf" stroke-width="7" stroke-linejoin="round" fill-rule="evenodd"
+        d="M20 640 V110 C20 50 70 10 130 10 H560 C640 10 700 70 720 150 L740 340 V640 Z M70 340 V120 C70 86 96 60 130 60 H540 C570 60 600 90 600 120 V340 Z" />
+      <path class="l" d="M70 340 H600" stroke-width="8" />
+      <path d="M20 440 H740" stroke="#efeadf" stroke-width="4" opacity="0.35" />
+      <rect class="k" x="520" y="400" width="130" height="34" rx="16" stroke-width="5" />
+      <path class="k" d="M610 160 L700 150 C730 150 740 180 730 210 L620 220 Z" stroke-width="6" /></g>
+            <g transform="translate(520 690) scale(0.55)"><g class="s01-cel">
+      <rect class="k" x="0" y="0" width="300" height="560" rx="42" />
+      <rect x="20" y="60" width="260" height="460" rx="14" fill="#efeadf" stroke="#efeadf" stroke-width="3" />
+      <path class="l" d="M120 32 H180" stroke-width="7" />
+              <text x="150" y="250" text-anchor="middle" class="lex6" font-size="44" fill="#0b1020">escribiendo</text>
+              <circle class="s01-p1" cx="100" cy="320" r="18" fill="#0b1020" /><circle class="s01-p2" cx="150" cy="320" r="18" fill="#0b1020" /><circle class="s01-p3" cx="200" cy="320" r="18" fill="#0b1020" />
+            </g></g>
+          </g>
+          <g transform="translate(730 900) rotate(8)"><g class="s01-lint">
+      <path class="s01-haz" d="M0 30 L-520 -120 L-520 180 Z" fill="#fff3c4" opacity="0.16" />
+      <rect class="k" x="0" y="8" width="170" height="44" rx="10" stroke-width="5" />
+      <path class="k" d="M-30 -4 H10 V64 H-30 Z" stroke-width="5" />
+      <ellipse cx="-30" cy="30" rx="8" ry="32" fill="#fff3c4" /></g></g>
+          <g transform="translate(650 690) scale(1.05)"><g class="s01-ins">
+      <path fill="#3a2414" stroke="#3a2414" stroke-width="5" d="M246 214 C300 230 306 300 282 352 C270 330 262 290 244 262 Z" />
+      <path class="az"  d="M24 540 C24 404 92 362 180 362 C268 362 336 404 336 540 Z" />
+      <path class="m" d="M60 430 C70 396 110 374 146 368 L172 470 L172 540 H44 C44 500 50 460 60 430 Z" stroke-width="6" />
+      <path class="m" d="M300 430 C290 396 250 374 214 368 L188 470 L188 540 H316 C316 500 310 460 300 430 Z" stroke-width="6" />
+      <path d="M50 478 H172 M188 478 H310 M46 512 H172 M188 512 H314" stroke="#efeadf" stroke-width="12" />
+      <rect class="k" x="226" y="392" width="34" height="56" rx="6" stroke-width="4" />
+      <path class="l" d="M252 392 V364" stroke-width="5" />
+      <ellipse class="piel" cx="100" cy="258" rx="16" ry="24" stroke-width="5" /><ellipse class="piel" cx="260" cy="258" rx="16" ry="24" stroke-width="5" />
+      <ellipse class="piel" cx="180" cy="256" rx="80" ry="94" stroke-width="5" />
+      <path fill="#3a2414" stroke="#3a2414" stroke-width="5" d="M102 236 C104 214 112 204 124 200 H236 C248 204 256 214 258 236 C240 222 220 218 180 218 C140 218 120 222 102 236 Z" />
+      <g class="s01-gorra">
+        <path class="az" d="M98 204 C96 160 112 116 180 112 C248 116 264 160 262 204 Z" stroke-width="6" />
+        <path d="M100 194 H260" stroke="#efeadf" stroke-width="8" stroke-dasharray="14 10" opacity="0.8" />
+        <path class="dk" d="M90 204 C130 190 230 190 270 204 C252 222 108 222 90 204 Z" />
+        <path class="y" d="M180 132 L198 140 V160 C198 172 190 178 180 182 C170 178 162 172 162 160 V140 Z" stroke-width="4" />
+      </g>
+      <path class="d s01-ins-cejas" d="M126 232 H166 M194 232 H234" stroke-width="7" />
+      <circle class="s01-ins-ojos" cx="148" cy="256" r="8" fill="#0b1020" />
+      <circle class="s01-ins-ojos" cx="212" cy="256" r="8" fill="#0b1020" />
+      <path class="d" d="M180 262 L174 286 H186" stroke-width="5" opacity="0.5" />
+      <path class="d s01-ins-boca" data-o="180 308" d="M154 308 H206" stroke-width="7" /></g></g>
+        </svg>
+        <div class="sello s01-cartel">CONTROL DE VELOCIDAD</div>
+        <div class="etiqueta s01-et">Operativo: WhatsApp lento</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-ventanilla";
+      const DUR = 3.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s01-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // cronómetro de 7 segmentos: pinta("cls", "6000") prende los segmentos; reloj("cls", f) lo maneja
+      // con UNA sola interpolación sobre toda la escena (f(t) devuelve 4 caracteres: dígitos, "-" o " ")
+      const SEG = { 0: "abcdef", 1: "bc", 2: "abdeg", 3: "abcdg", 4: "bcfg", 5: "acdfg", 6: "acdefg", 7: "abc", 8: "abcdefg", 9: "abcdfg", "-": "g", " ": "" };
+      const pinta = (cls, str) => {
+        const ds = qa("." + cls + " .dig");
+        str.split("").forEach((ch, i) => { if (ds[i]) for (const r of ds[i].children) r.style.opacity = (SEG[ch] || "").includes(r.dataset.s) ? 1 : 0.07; });
+      };
+      const mmss = (s) => { s = Math.max(0, Math.ceil(s - 1e-6)); return String(Math.floor(s / 60)).padStart(2, "0") + String(s % 60).padStart(2, "0"); };
+      const reloj = (cls, f) => {
+        const o = { t: 0 };
+        pinta(cls, f(0));
+        tl.fromTo(o, { t: 0 }, { t: DUR, duration: DUR, ease: "none", immediateRender: false, onUpdate: () => pinta(cls, f(o.t)) }, 0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+// cuadro 0: el auto parado y la inspectora ya inclinada
+      tl.fromTo(q(".s01-ins"), { x: 80, opacity: 0.7 }, { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      hablar(".s01-ins-boca", 0.05, 3.4, 0.3);
+      // "Bajá la ventanilla": el vidrio baja
+      tl.fromTo(q(".s01-vidrio"), { y: 0 }, { y: 300, duration: 0.9, ease: "power1.inOut" }, 0.15);
+      tl.fromTo(q(".s01-haz"), { opacity: 0.05 }, { opacity: 0.2, duration: 0.3 }, 0.6);
+      parpadeo(".s01-dueno-ojos", 0.7);
+      // "velocidad": cartel
+      golpe(".s01-cartel", 1.9, 2.2);
+      tl.set(q(".s01-cartel"), { rotation: -3 }, 0);
+      // "contestando": el celular con "escribiendo..." asoma, y la linterna lo apunta
+      gsap.set(q(".s01-cel"), { opacity: 0 });
+      tl.fromTo(q(".s01-cel"), { opacity: 0, y: 160 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, 2.65);
+      ["p1", "p2", "p3"].forEach((p, i) => tl.fromTo(q(".s01-" + p), { opacity: 0.2 }, { opacity: 1, duration: 0.2, yoyo: true, repeat: 3, immediateRender: false }, 2.9 + i * 0.12));
+      tl.to(q(".s01-lint"), { rotation: -14, svgOrigin: "0 30", duration: 0.35, ease: "power2.out" }, 2.6);
+      tl.to(qa(".s01-gota"), { opacity: 0.85, duration: 0.2 }, 2.8);
+      tl.to(qa(".s01-gota"), { y: 30, duration: 0.8, ease: "power1.in" }, 2.9);
+      tl.to(q(".s01-ins"), { y: -10, rotation: -3, svgOrigin: "180 540", duration: 0.3 }, 2.6);
+      pop(".s01-et", 0.4);
+
+      // salida: barrido con blur
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

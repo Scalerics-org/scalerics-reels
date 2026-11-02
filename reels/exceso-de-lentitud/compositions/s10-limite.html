@@ -1,0 +1,172 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-limite"] .s10-capa, [data-composition-id="s10-limite"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-limite"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; clip-path: inset(-200px -200px 568px -200px); }
+    [data-composition-id="s10-limite"] .b { fill: #1d2747; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .k { fill: #0b1020; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .l { fill: none; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .w { fill: #efeadf; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .y { fill: #ffc23a; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .yl { fill: none; stroke: #ffc23a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .r { fill: #ff3b4a; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .rl { fill: none; stroke: #ff3b4a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .m { fill: #ff8a1f; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .s { fill: #5ce611; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .g { fill: #3d7bff; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .piel { fill: #f0d6b0; stroke: #efeadf; stroke-width: 7; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .d { fill: none; stroke: #0b1020; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .dk { fill: #0b1020; stroke: #0b1020; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .az { fill: #1e3a8a; stroke: #efeadf; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .azl { fill: none; stroke: #3d7bff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .nl { fill: none; stroke: #ff8a1f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-limite"] .fino { stroke-width: 3.5; }
+    [data-composition-id="s10-limite"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #efeadf; }
+    [data-composition-id="s10-limite"] .sello { position: absolute; padding: 14px 28px 10px; border: 8px solid #ff3b4a; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; letter-spacing: 0.04em; line-height: 1; color: #ff3b4a; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-limite"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffc23a; color: #0b1020; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s10-limite"] .etiqueta { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 1452px; padding: 10px 22px 8px; background: #ff8a1f; color: #0b1020; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-limite"] .mano { font-family: "Caveat", cursive; font-weight: 700; }
+    [data-composition-id="s10-limite"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s10-limite"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+    [data-composition-id="s10-limite"] .lex6 { font-family: "Lexend", sans-serif; font-weight: 600; }
+
+  [data-composition-id="s10-limite"] .s10-t { position: absolute; left: 520px; width: 400px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; color: #0b1020; }
+  [data-composition-id="s10-limite"] .s10-vos { top: 790px; font-size: 92px; }
+  [data-composition-id="s10-limite"] .s10-cli { top: 776px; font-size: 52px; }
+  [data-composition-id="s10-limite"] .s10-cli small { display: block; font-size: 30px; color: #ff3b4a; margin-bottom: 4px; }
+  [data-composition-id="s10-limite"] .s10-cartel { left: 540px; top: 1120px; font-size: 40px; }
+
+  </style>
+  <div id="root" data-composition-id="s10-limite" data-width="1080" data-height="1920" data-duration="5.01">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="5.01" data-track-index="0">
+      <div class="s10-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(20 760) scale(0.95)"><g class="s10-pj">
+      <path fill="#3a2414" stroke="#3a2414" stroke-width="5" d="M246 214 C300 230 306 300 282 352 C270 330 262 290 244 262 Z" />
+      <path class="az"  d="M24 540 C24 404 92 362 180 362 C268 362 336 404 336 540 Z" />
+      <path class="m" d="M60 430 C70 396 110 374 146 368 L172 470 L172 540 H44 C44 500 50 460 60 430 Z" stroke-width="6" />
+      <path class="m" d="M300 430 C290 396 250 374 214 368 L188 470 L188 540 H316 C316 500 310 460 300 430 Z" stroke-width="6" />
+      <path d="M50 478 H172 M188 478 H310 M46 512 H172 M188 512 H314" stroke="#efeadf" stroke-width="12" />
+      <rect class="k" x="226" y="392" width="34" height="56" rx="6" stroke-width="4" />
+      <path class="l" d="M252 392 V364" stroke-width="5" />
+      <ellipse class="piel" cx="100" cy="258" rx="16" ry="24" stroke-width="5" /><ellipse class="piel" cx="260" cy="258" rx="16" ry="24" stroke-width="5" />
+      <ellipse class="piel" cx="180" cy="256" rx="80" ry="94" stroke-width="5" />
+      <path fill="#3a2414" stroke="#3a2414" stroke-width="5" d="M102 236 C104 214 112 204 124 200 H236 C248 204 256 214 258 236 C240 222 220 218 180 218 C140 218 120 222 102 236 Z" />
+      <g class="s10-gorra">
+        <path class="az" d="M98 204 C96 160 112 116 180 112 C248 116 264 160 262 204 Z" stroke-width="6" />
+        <path d="M100 194 H260" stroke="#efeadf" stroke-width="8" stroke-dasharray="14 10" opacity="0.8" />
+        <path class="dk" d="M90 204 C130 190 230 190 270 204 C252 222 108 222 90 204 Z" />
+        <path class="y" d="M180 132 L198 140 V160 C198 172 190 178 180 182 C170 178 162 172 162 160 V140 Z" stroke-width="4" />
+      </g>
+      <path class="d s10-ins-cejas" d="M126 232 H166 M194 232 H234" stroke-width="7" />
+      <circle class="s10-ins-ojos" cx="148" cy="256" r="8" fill="#0b1020" />
+      <circle class="s10-ins-ojos" cx="212" cy="256" r="8" fill="#0b1020" />
+      <path class="d" d="M180 262 L174 286 H186" stroke-width="5" opacity="0.5" />
+      <path class="d s10-ins-boca" data-o="180 304" d="M150 300 C162 318 200 318 212 298" stroke-width="7" /></g></g>
+          <g transform="translate(720 840)"><g class="s10-senal">
+      <path d="M-10 190 V610 H10 V190 Z" fill="#9aa3b8" stroke="#efeadf" stroke-width="4" />
+      <circle cx="0" cy="0" r="190" fill="#efeadf" />
+      <circle cx="0" cy="0" r="172" fill="none" stroke="#ff3b4a" stroke-width="34" /></g></g>
+          <path class="rl s10-tacha" d="M590 900 L850 800" stroke-width="16" />
+        </svg>
+        <div class="s10-t s10-vos">Vos</div>
+        <div class="s10-t s10-cli"><small>límite</small>Tu<br />cliente</div>
+        <div class="cartel s10-cartel">Lo pone el cliente</div>
+        <div class="etiqueta s10-et">Ley de tránsito</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-limite";
+      const DUR = 5.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s10-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // cronómetro de 7 segmentos: pinta("cls", "6000") prende los segmentos; reloj("cls", f) lo maneja
+      // con UNA sola interpolación sobre toda la escena (f(t) devuelve 4 caracteres: dígitos, "-" o " ")
+      const SEG = { 0: "abcdef", 1: "bc", 2: "abdeg", 3: "abcdg", 4: "bcfg", 5: "acdfg", 6: "acdefg", 7: "abc", 8: "abcdefg", 9: "abcdfg", "-": "g", " ": "" };
+      const pinta = (cls, str) => {
+        const ds = qa("." + cls + " .dig");
+        str.split("").forEach((ch, i) => { if (ds[i]) for (const r of ds[i].children) r.style.opacity = (SEG[ch] || "").includes(r.dataset.s) ? 1 : 0.07; });
+      };
+      const mmss = (s) => { s = Math.max(0, Math.ceil(s - 1e-6)); return String(Math.floor(s / 60)).padStart(2, "0") + String(s % 60).padStart(2, "0"); };
+      const reloj = (cls, f) => {
+        const o = { t: 0 };
+        pinta(cls, f(0));
+        tl.fromTo(o, { t: 0 }, { t: DUR, duration: DUR, ease: "none", immediateRender: false, onUpdate: () => pinta(cls, f(o.t)) }, 0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+// "Ya sé.": la inspectora se ablanda (se acomoda la gorra)
+      tl.fromTo(q(".s10-pj"), { x: -40, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      tl.to(q(".s10-gorra"), { rotation: -8, svgOrigin: "180 200", y: -6, duration: 0.3, yoyo: true, repeat: 1 }, 0.1);
+      hablar(".s10-ins-boca", 0.0, 0.5, 0.5);
+      hablar(".s10-ins-boca", 0.97, 4.3, 0.5);
+      parpadeo(".s10-ins-ojos", 0.5);
+      pop(".s10-et", 0.3);
+      // "límite": la señal
+      gsap.set(qa(".s10-cli, .s10-vos"), { opacity: 0 });
+      tl.fromTo(q(".s10-senal"), { opacity: 0, scale: 0.4, svgOrigin: "0 300" }, { opacity: 1, scale: 1, svgOrigin: "0 300", duration: 0.4, ease: "back.out(1.8)", immediateRender: false }, 0.6);
+      gsap.set(q(".s10-senal"), { opacity: 0 });
+      // "no lo ponés vos": VOS, tachado
+      tl.fromTo(q(".s10-vos"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power4.in", immediateRender: false }, 2.1);
+      dibujar(".s10-tacha", 2.45, 0.25);
+      // "Lo pone tu cliente": cambia
+      tl.to(qa(".s10-vos, .s10-tacha"), { opacity: 0, duration: 0.15 }, 3.1);
+      tl.to(q(".s10-senal"), { rotation: 360, svgOrigin: "0 0", duration: 0.5, ease: "power2.inOut" }, 3.1);
+      tl.fromTo(q(".s10-cli"), { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 3.6);
+      pop(".s10-cartel", 3.55, 0.3);
+      tl.set(q(".s10-cartel"), { rotation: -3 }, 0);
+
+      // salida: barrido con blur
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

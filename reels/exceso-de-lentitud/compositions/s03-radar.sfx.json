@@ -1,0 +1,8 @@
+[
+  {"t":0,"sfx":"whoosh-short","vol":0.25},
+  {"t":1.45,"sfx":"beep","vol":0.25,"max":0.4},
+  {"t":1.75,"sfx":"beep","vol":0.25,"max":0.4},
+  {"t":2.9,"sfx":"key-press","vol":0.3,"max":0.6},
+  {"t":4,"sfx":"impact-bass-1","vol":0.42,"max":0.6},
+  {"t":4.02,"sfx":"click","vol":0.3}
+]
