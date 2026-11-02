@@ -1,0 +1,81 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/fabrica.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-fabrica"] .s01-capa, [data-composition-id="s01-fabrica"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-fabrica"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-fabrica"] .s01-tag { left: 300px; top: 1400px; width: 480px; }
+    [data-composition-id="s01-fabrica"] .s01-uno { left: 560px; top: 850px; font-size: 44px; }
+  </style>
+  <div id="root" data-composition-id="s01-fabrica" data-width="1080" data-height="1920" data-duration="5.95">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.95" data-track-index="0">
+      <div class="s01-escenario">
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="fx-tag s01-tag">PLANTA DE PEDIDOS</div>
+        <div class="fx-sello s01-uno">1 SOLO OPERARIO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-fabrica";
+      const DUR = 5.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const F = FAB, I = F.INK;
+      // disco día/noche: sol arriba, luna abajo; gira 180 en "noche"
+      const disco = `<g class="s01-disco" data-c="850 740">
+          <circle cx="850" cy="740" r="104" fill="${F.ACE}" stroke="${I}" stroke-width="8"/>
+          <path d="M746 740 L954 740" stroke="${F.ACE3}" stroke-width="5"/>
+          <g><circle cx="850" cy="688" r="30" fill="${F.AMA}" stroke="${I}" stroke-width="6"/>
+            <path d="M850 640 L850 650 M850 726 L850 734 M802 688 L812 688 M888 688 L898 688 M816 654 L823 661 M877 715 L884 722 M884 654 L877 661 M816 722 L823 715" stroke="${F.AMA}" stroke-width="6" stroke-linecap="round"/></g>
+          <path d="M836 762 C806 772 806 816 836 826 C824 806 824 782 836 762 Z" fill="${F.HUE}" stroke="${I}" stroke-width="5" stroke-linejoin="round" transform="rotate(180 850 794) translate(-4 0)"/>
+        </g>
+        <path d="M850 620 L836 596 L864 596 Z" fill="${F.ROJ}" stroke="${I}" stroke-width="5" stroke-linejoin="round"/>`;
+      // cajas de pedidos sobre la cinta (van a la derecha)
+      const cajas = [0, 1, 2, 3, 4].map((i) => `<g class="s01-caja">${F.caja(-60 + i * 240, 1120, 128, 104, { texto: "PEDIDO", fs: 24 })}</g>`).join("");
+      root.querySelector(".s01-svg").innerHTML =
+        F.engranaje(240, 760, 120, 12, { cls: "s01-g1" }) +
+        F.engranaje(410, 650, 74, 9, { cls: "s01-g2", fill: F.AMA }) +
+        F.engranaje(130, 610, 56, 8, { cls: "s01-g3" }) +
+        disco +
+        `<g class="s01-luz"><path d="M540 600 L380 1230 L700 1230 Z" fill="${F.HUE}" opacity="0.12"/></g>` +
+        `<g class="s01-op">${F.operario(540, 1250, 0.78, { cara: "cansado", celular: true })}</g>` +
+        F.cinta(70, 1226, 940, { patas: 150 }) +
+        `<g class="s01-cajas">${cajas}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = F.kit(tl, root);
+      const { q, qa } = K;
+
+      const FABRICA = 1.58, DIA = 3.08, NOCHE = 3.58, TIENE = 3.95, OPERARIO = 5.0;
+
+      // cuadro 0: la planta ya está andando; la cámara se acerca despacio
+      tl.fromTo(q(".s01-escenario"), { scale: 1.06 }, { scale: 1.0, duration: DUR, ease: "power1.out", transformOrigin: "50% 55%" }, 0);
+      K.correr(0, DUR, 200);
+      tl.fromTo(qa(".s01-caja"), { x: 0 }, { x: 240 * 1.2, duration: DUR, ease: "none" }, 0);
+      K.girar(".s01-g1", 0, DUR, 140);
+      K.girar(".s01-g2", 0, DUR, -230);
+      K.girar(".s01-g3", 0, DUR, 300);
+      // "fábrica": los engranajes dan un saltito
+      [".s01-g1", ".s01-g2", ".s01-g3"].forEach((s, i) => K.sacudon(q(s), FABRICA + i * 0.06, 0.6));
+      K.pop(q(".s01-tag"), FABRICA - 0.1);
+      // día y noche: el disco gira
+      K.origen(q(".s01-disco"), "850 740");
+      tl.fromTo(q(".s01-disco"), { rotation: 0 }, { rotation: 180, duration: 0.5, ease: "back.inOut(1.4)", immediateRender: false }, NOCHE - 0.2);
+      tl.fromTo(q(".s01-disco"), { scale: 1 }, { scale: 1.1, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, DIA - 0.05);
+      // "¡Y tiene un solo operario!": el operario aparece detrás de la cinta, con el celular
+      gsap.set(q(".s01-op"), { opacity: 0 });
+      gsap.set(q(".s01-luz"), { opacity: 0 });
+      tl.to(q(".s01-luz"), { opacity: 1, duration: 0.25 }, TIENE);
+      tl.fromTo(q(".s01-op"), { opacity: 1, y: 380 }, { y: 0, duration: 0.5, ease: "back.out(1.3)", immediateRender: false }, TIENE + 0.05);
+      K.sello(q(".s01-uno"), OPERARIO, -6);
+      tl.to(q(".s01-tag"), { opacity: 0, duration: 0.2 }, TIENE);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

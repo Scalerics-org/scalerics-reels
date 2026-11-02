@@ -1,0 +1,55 @@
+export const css = `
+P .s08-c4 { left: 230px; top: 610px; width: 620px; }
+P .s08-c5 { left: 200px; top: 610px; width: 680px; }`;
+export const html = `
+<div data-layout-allow-overlap class="fx-cartel s08-c4"><span class="fx-cadena" style="left:70px"></span><span class="fx-cadena" style="right:70px"></span><small>ESTACIÓN 4</small><b>EL STOCK</b></div>
+<div data-layout-allow-overlap class="fx-cartel s08-c5"><span class="fx-cadena" style="left:70px"></span><span class="fx-cadena" style="right:70px"></span><small>ESTACIÓN 5</small><b>EL REPORTE</b></div>`;
+export const svg = (F) => {
+  const I = F.INK;
+  const tienda = `<g class="s08-tienda">
+    <rect x="170" y="860" width="740" height="440" rx="18" fill="${F.HUE}" stroke="${I}" stroke-width="8"/>
+    <rect x="170" y="860" width="740" height="70" rx="18" fill="${F.ACE}" stroke="${I}" stroke-width="8"/>
+    <circle cx="214" cy="895" r="11" fill="${F.ROJ}"/><circle cx="250" cy="895" r="11" fill="${F.AMA}"/><circle cx="286" cy="895" r="11" fill="${F.ACE3}"/>
+    <text x="560" y="906" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="28" fill="${F.HUE}">TIENDA ONLINE</text>
+    <rect x="220" y="970" width="300" height="290" rx="14" fill="#ffffff" stroke="${I}" stroke-width="6"/>
+    <ellipse cx="370" cy="1060" rx="100" ry="50" fill="${F.CAR}" stroke="${I}" stroke-width="6"/>
+    <path d="M300 1050 Q370 1030 440 1060" fill="none" stroke="${F.CAR2}" stroke-width="5"/>
+    <text x="370" y="1160" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="32" fill="${I}">Milanesas</text>
+    <text x="560" y="1050" font-family="IBM Plex Mono" font-weight="600" font-size="30" fill="${F.ACE2}">STOCK:</text>
+    <text class="s08-12" x="560" y="1150" font-family="Black Ops One" font-size="110" fill="${I}">12</text>
+    <path class="s08-tacha" d="M550 1080 L700 1150" stroke="${F.ROJ}" stroke-width="12" stroke-linecap="round"/>
+    <text class="s08-10" x="720" y="1230" font-family="Black Ops One" font-size="110" fill="${F.AZU}">10</text>
+    <path class="s08-lapiz" d="M820 1190 L880 1100 L900 1112 L840 1202 Z M820 1190 L812 1214 L840 1202" fill="${F.AMA}" stroke="${I}" stroke-width="6" stroke-linejoin="round"/>
+  </g>`;
+  let lineas = "";
+  [0, 1, 2, 3, 4].forEach((k) => { lineas += `<path class="s08-ln" d="M330 ${1030 + k * 66} C400 ${1020 + k * 66} 470 ${1040 + k * 66} 540 ${1028 + k * 66} S650 ${1036 + k * 66} ${700 - (k % 2) * 80} ${1030 + k * 66}" fill="none" stroke="${F.AZU}" stroke-width="7" stroke-linecap="round"/>`; });
+  const reporte = `<g class="s08-rep">
+    <rect x="290" y="880" width="460" height="520" rx="10" fill="${F.HUE}" stroke="${I}" stroke-width="8"/>
+    <text x="520" y="960" text-anchor="middle" font-family="Black Ops One" font-size="40" fill="${I}">REPORTE DEL DÍA</text>
+    <path d="M320 985 L720 985" stroke="${I}" stroke-width="5"/>
+    ${lineas}
+    <g class="s08-lap"><path d="M700 1300 L780 1180 L804 1196 L724 1316 Z M700 1300 L690 1330 L724 1316" fill="${F.AMA}" stroke="${I}" stroke-width="6" stroke-linejoin="round"/></g>
+    ${F.reloj(880, 960, 70, 23, 40, { cls: "s08-rj" })}
+  </g>`;
+  return tienda + reporte;
+};
+export const js = `
+const STOCK = 0.99, CINCO = 2.38, REPORTE = 3.41;
+K.bajar(q(".s08-c4"), 0.0);
+K.pop(q(".s08-tienda"), 0.05);
+gsap.set(qa(".s08-10, .s08-lapiz"), { opacity: 0 });
+K.dibujar(q(".s08-tacha"), STOCK - 0.1, 0.25);
+tl.to(q(".s08-lapiz"), { opacity: 1, duration: 0.1 }, STOCK - 0.2);
+tl.fromTo(q(".s08-lapiz"), { x: -60, y: 40 }, { x: 0, y: 0, duration: 0.4, ease: "power2.out", immediateRender: false }, STOCK - 0.2);
+K.popSvg(q(".s08-10"), STOCK + 0.25, "790 1190", 0.3, 0.4);
+// estación cinco
+tl.to(q(".s08-c4"), { y: -300, opacity: 0, duration: 0.3, ease: "power2.in" }, CINCO - 0.25);
+tl.to(q(".s08-tienda"), { opacity: 0, y: 60, duration: 0.25 }, CINCO - 0.25);
+gsap.set(q(".s08-c5"), { opacity: 0 });
+K.bajar(q(".s08-c5"), CINCO);
+gsap.set(q(".s08-rep"), { opacity: 0 });
+tl.fromTo(q(".s08-rep"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.5)", immediateRender: false }, CINCO + 0.05);
+qa(".s08-ln").forEach((l, i) => K.dibujar(l, REPORTE - 0.2 + i * 0.22, 0.25, "none"));
+tl.fromTo(q(".s08-lap"), { x: -380, y: -240 }, { x: 0, y: 0, duration: 1.2, ease: "none", immediateRender: false }, REPORTE - 0.2);
+tl.fromTo(q(".s08-lap"), { y: -250 }, { y: -230, duration: 0.11, yoyo: true, repeat: 10, ease: "sine.inOut", immediateRender: false }, REPORTE - 0.2);`;
+export const sfx = [{ t: 0.05, sfx: "golpe", vol: 0.3, max: 0.6 }, { t: 0.95, sfx: "tiza", vol: 0.3, max: 0.5 }, { t: 2.38, sfx: "golpe", vol: 0.3, max: 0.6 }, { t: 3.3, sfx: "tiza", vol: 0.3, max: 1.0 }];

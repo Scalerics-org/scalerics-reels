@@ -1,0 +1,59 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/fabrica.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s17-cta"] .s17-capa, [data-composition-id="s17-cta"] .s17-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s17-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    
+    [data-composition-id="s17-cta"] .s17-m { left: 0; right: 0; top: 620px; font-size: 140px; }
+    [data-composition-id="s17-cta"] .s17-a { left: 0; right: 0; top: 790px; font-size: 58px; }
+    [data-composition-id="s17-cta"] .s17-f { left: 0; right: 0; top: 870px; font-size: 84px; }
+    [data-composition-id="s17-cta"] .s17-pil { position: absolute; left: 160px; top: 1010px; width: 760px; height: 110px; box-sizing: border-box; background: #121417; border: 6px solid #5ce611; border-radius: 55px;
+    font-family: "Lexend", sans-serif; font-weight: 700; font-size: 46px; line-height: 98px; color: #f2f1ea; padding-left: 40px; white-space: nowrap; box-shadow: 8px 8px 0 rgba(0,0,0,0.5); }
+    [data-composition-id="s17-cta"] .s17-pil span { color: #5ce611; }
+    [data-composition-id="s17-cta"] .s17-pil i { display: inline-block; width: 6px; height: 50px; background: #b8ff7a; vertical-align: -8px; margin-left: 6px; }
+  </style>
+  <div id="root" data-composition-id="s17-cta" data-width="1080" data-height="1920" data-duration="4.88">
+    <div id="s17-escena" class="s17-capa clip" data-start="0" data-duration="4.88" data-track-index="0">
+      <div class="s17-escenario">
+        <svg class="s17-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="fx-titulo verde s17-m">MANDÁSELO</div>
+        <div class="fx-titulo hueso s17-a">AL QUE ES</div>
+        <div class="fx-titulo s17-f">LA FÁBRICA ENTERA</div>
+        <div class="s17-pil"><span>Enviar a:</span> el operario<i class="s17-cur"></i></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s17-cta";
+      const DUR = 4.88;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const F = FAB, I = F.INK;
+      root.querySelector(".s17-svg").innerHTML = ((F) => `<g class="s17-op">${F.operario(540, 1480, 0.6, { cara: "feliz", parche: "GUSTAVO", mate: true })}</g>
+  ${F.engranaje(150, 1360, 80, 9, { cls: "s17-e1", fill: F.VER, linea: "#2f7a0a" })}${F.engranaje(930, 1360, 80, 9, { cls: "s17-e2", fill: F.VER, linea: "#2f7a0a" })}`)(F);
+      const tl = gsap.timeline({ paused: true });
+      const K = F.kit(tl, root);
+      const { q, qa } = K;
+      const AL = 0.53, FABRICA = 0.79, ENTERA = 1.22;
+      K.sello(q(".s17-m"), 0.1, -2);
+      K.pop(q(".s17-a"), AL - 0.1);
+      K.sello(q(".s17-f"), ENTERA - 0.1, 0);
+      K.pop(q(".s17-pil"), ENTERA + 0.4);
+      tl.fromTo(q(".s17-cur"), { opacity: 1 }, { opacity: 0, duration: 0.3, yoyo: true, repeat: 9, ease: "steps(1)", immediateRender: false }, ENTERA + 0.6);
+      tl.fromTo(q(".s17-op"), { y: 200 }, { y: 0, duration: 0.45, ease: "back.out(1.5)" }, 0.15);
+      K.flotar(q(".s17-op"), 0.8, DUR - 1.2, 8, 1.2);
+      K.girar(".s17-e1", 0, DUR, 200);
+      K.girar(".s17-e2", 0, DUR, -200);
+      tl.to(q(".s17-pil"), { scale: 1.05, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 2.6);
+
+      K.salida(q("#s17-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

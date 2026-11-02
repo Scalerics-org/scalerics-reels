@@ -1,0 +1,59 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/fabrica.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-maquinas"] .s12-capa, [data-composition-id="s12-maquinas"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-maquinas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    
+    [data-composition-id="s12-maquinas"] .s12-q1 { left: 210px; top: 700px; font-size: 150px; }
+    [data-composition-id="s12-maquinas"] .s12-q2 { left: 760px; top: 700px; font-size: 150px; }
+    [data-composition-id="s12-maquinas"] .s12-v1 { left: 130px; top: 1330px; }
+    [data-composition-id="s12-maquinas"] .s12-v2 { left: 700px; top: 1330px; }
+  </style>
+  <div id="root" data-composition-id="s12-maquinas" data-width="1080" data-height="1920" data-duration="2.65">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="2.65" data-track-index="0">
+      <div class="s12-escenario">
+        <svg class="s12-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="fx-titulo hueso s12-q1">?</div>
+        <div class="fx-titulo hueso s12-q2">?</div>
+        <div class="fx-tag hueso s12-v1">VACÍO</div>
+        <div class="fx-tag hueso s12-v2">VACÍO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-maquinas";
+      const DUR = 2.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const F = FAB, I = F.INK;
+      root.querySelector(".s12-svg").innerHTML = ((F) => `${F.brazo(260, 1300, 0.95, { fantasma: true, cls: "s12-b1" })}${F.brazo(820, 1300, 0.95, { fantasma: true, espejo: true, cls: "s12-b2" })}
+  <rect x="80" y="1270" width="380" height="40" fill="none" stroke="${F.ACE3}" stroke-width="5" stroke-dasharray="14 12"/>
+  <rect x="620" y="1270" width="380" height="40" fill="none" stroke="${F.ACE3}" stroke-width="5" stroke-dasharray="14 12"/>
+  <g class="s12-op">${F.operario(540, 1500, 0.72, { cara: "sorpresa", parche: "GUSTAVO" })}</g>`)(F);
+      const tl = gsap.timeline({ paused: true });
+      const K = F.kit(tl, root);
+      const { q, qa } = K;
+      const MAQ = 0.26, QUE = 1.04;
+      tl.fromTo(qa(".s12-b1, .s12-b2"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0);
+      tl.fromTo(qa(".s12-b1, .s12-b2"), { opacity: 1 }, { opacity: 0.4, duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, 0.4);
+      K.pop(q(".s12-v1"), 0.1);
+      K.pop(q(".s12-v2"), 0.2);
+      K.sello(q(".s12-q1"), MAQ + 0.05, -10);
+      K.sello(q(".s12-q2"), MAQ + 0.2, 10);
+      gsap.set(q(".s12-op"), { opacity: 0 });
+      tl.fromTo(q(".s12-op"), { opacity: 1, y: 520 }, { y: 0, duration: 0.35, ease: "back.out(1.5)", immediateRender: false }, QUE - 0.2);
+      K.hablar(".fx-op-boca", QUE, 2, 0.12);
+      tl.to(q(".s12-q1"), { x: 120, y: 60, duration: 0.3 }, QUE + 0.2);
+      tl.to(q(".s12-q2"), { x: -120, y: 60, duration: 0.3 }, QUE + 0.2);
+
+      K.salida(q("#s12-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

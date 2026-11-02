@@ -1,0 +1,70 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/fabrica.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-de-verdad"] .s13-capa, [data-composition-id="s13-de-verdad"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-de-verdad"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    
+    [data-composition-id="s13-de-verdad"] .s13-h1 { left: 130px; top: 610px; }
+    [data-composition-id="s13-de-verdad"] .s13-h2 { left: 720px; top: 610px; }
+  </style>
+  <div id="root" data-composition-id="s13-de-verdad" data-width="1080" data-height="1920" data-duration="5.06">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="5.06" data-track-index="0">
+      <div class="s13-escenario">
+        <svg class="s13-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="fx-tag hueso s13-h1">DE VERDAD</div>
+        <div class="fx-tag rojo s13-h2">ACÁ</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-de-verdad";
+      const DUR = 5.06;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const F = FAB, I = F.INK;
+      root.querySelector(".s13-svg").innerHTML = ((F) => {
+  const I = F.INK;
+  const cajas = [0, 1, 2, 3].map((k) => F.caja(70 + k * 150, 1218, 90, 70, { cls: "s13-cj" })).join("");
+  return `<rect x="40" y="680" width="490" height="790" rx="16" fill="${F.ACE}" stroke="${F.HUE}" stroke-width="6"/>
+    <rect x="550" y="680" width="490" height="790" rx="16" fill="${F.ACE}" stroke="${F.ROJ}" stroke-width="6"/>
+    <defs><clipPath id="s13-cl"><rect x="44" y="684" width="482" height="782" rx="14"/></clipPath><clipPath id="s13-cr"><rect x="554" y="684" width="482" height="782" rx="14"/></clipPath></defs>
+    <g clip-path="url(#s13-cl)">
+      ${F.engranaje(110, 760, 60, 8, { cls: "s13-e1", fill: F.AMA })}${F.engranaje(460, 800, 46, 7, { cls: "s13-e2" })}
+      <g class="s13-cajas">${cajas}</g>
+      ${F.cinta(50, 1290, 470, { patas: 90, cls: "s13-cin" })}
+      ${F.brazo(380, 1460, 0.75, { cls: "s13-br", espejo: true })}
+    </g>
+    <g clip-path="url(#s13-cr)">
+      ${F.reloj(960, 790, 56, 23, 0)}
+      <g class="s13-op">${F.operario(780, 1470, 0.72, { cara: "cansado", celular: true })}</g>
+    </g>`;
+})(F);
+      const tl = gsap.timeline({ paused: true });
+      const K = F.kit(tl, root);
+      const { q, qa } = K;
+      const FABRICAS = 1.08, ESTO = 1.91, MAQUINAS = 3.83;
+      K.pop(q(".s13-h2"), 0.0);
+      K.pop(q(".s13-h1"), FABRICAS - 0.15);
+      // la fábrica de verdad trabaja sola
+      K.correr(FABRICAS, DUR - FABRICAS, 140, "s13-cin");
+      tl.fromTo(q(".s13-cajas"), { x: 0 }, { x: 150 * 3, duration: DUR - FABRICAS, ease: "none", immediateRender: false }, FABRICAS);
+      K.girar(".s13-e1", 0, DUR, 300);
+      K.girar(".s13-e2", 0, DUR, -380);
+      const a = q(".s13-br .fx-br-a");
+      gsap.set(a, { svgOrigin: "0 -56" });
+      [FABRICAS, ESTO + 0.3, MAQUINAS - 0.2].forEach((t) => tl.fromTo(a, { rotation: 0 }, { rotation: -22, duration: 0.35, yoyo: true, repeat: 1, ease: "power2.inOut", immediateRender: false }, t));
+      // acá: Gustavo suspira
+      K.flotar(q(".s13-op"), 0.2, DUR - 0.5, 6, 1.4);
+      tl.to(q(".s13-op"), { y: 16, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, MAQUINAS + 0.1);
+
+      K.salida(q("#s13-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
