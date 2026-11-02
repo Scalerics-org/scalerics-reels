@@ -1,0 +1,95 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-destrabamos"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-destrabamos"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-destrabamos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-destrabamos"] .lin { fill: none; stroke: #3fd6e0; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-destrabamos"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s13-destrabamos"] .grande { font-weight: 900; letter-spacing: -0.02em; }
+    [data-composition-id="s13-destrabamos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s13-destrabamos"] .sello b { display: inline-block; transform: rotate(-4deg); padding: 10px 26px; border: 6px solid currentColor; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; background: rgba(3, 18, 26, 0.88); }
+    [data-composition-id="s13-destrabamos"] .chip b { display: inline-block; padding: 8px 22px; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s13-destrabamos"] .t-cinta { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; fill: #03121a; letter-spacing: 0.1em; }
+    [data-composition-id="s13-destrabamos"] .t-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; fill: #3fd6e0; letter-spacing: 0.1em; }
+    [data-composition-id="s13-destrabamos"] .t-web { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 30px; fill: #03121a; }
+    [data-composition-id="s13-destrabamos"] .s13-chip { top: 1380px; } [data-composition-id="s13-destrabamos"] .s13-chip b { background: #5ce611; color: #03121a; }
+    [data-composition-id="s13-destrabamos"] .s13-sello { top: 1380px; color: #5ce611; } [data-composition-id="s13-destrabamos"] .s13-sello b { font-size: 50px; }
+  </style>
+  <div id="root" data-composition-id="s13-destrabamos" data-width="1080" data-height="1920" data-duration="4.09">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="4.09" data-track-index="0">
+      <div class="s13-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s13-cel">
+            <rect class="s13-pant" x="330" y="640" width="420" height="690" rx="52" fill="#072630" stroke="#ff4d4d" stroke-width="7" />
+            <rect x="490" y="664" width="100" height="14" rx="7" fill="#3fd6e0" opacity="0.6" />
+            <g class="s13-web">
+              <rect x="360" y="700" width="360" height="80" rx="14" fill="#5ce611" />
+              <text class="t-web" x="540" y="752" text-anchor="middle">DOÑA ELSA</text>
+              <rect class="s13-b" x="360" y="800" width="360" height="160" rx="14" fill="#5ce611" fill-opacity="0.18" stroke="#5ce611" stroke-width="4" />
+              <rect class="s13-b" x="360" y="980" width="260" height="22" rx="11" fill="#5ce611" opacity="0.6" />
+              <rect class="s13-b" x="360" y="1020" width="320" height="22" rx="11" fill="#5ce611" opacity="0.6" />
+              <rect class="s13-b" x="360" y="1070" width="360" height="70" rx="35" fill="#5ce611" />
+            </g>
+          </g>
+          <g class="s13-candado">
+            <path class="s13-arco" d="M480 960 V900 a60 60 0 0 1 120 0 V960" fill="none" stroke="#ff4d4d" stroke-width="18" stroke-linecap="round" />
+            <rect class="s13-cuerpo" x="450" y="950" width="180" height="150" rx="22" fill="#ff4d4d" />
+            <circle cx="540" cy="1010" r="18" fill="#03121a" /><rect x="532" y="1015" width="16" height="44" rx="6" fill="#03121a" />
+          </g>
+          <g class="s13-cinta1"><g transform="rotate(-14 540 820)"><rect x="40" y="790" width="1000" height="64" fill="#ffb020" /><text class="t-cinta" x="540" y="836" text-anchor="middle">TRABADA · NO PASA NADIE · TRABADA</text></g></g>
+          <g class="s13-cinta2"><g transform="rotate(12 540 1200)"><rect x="40" y="1170" width="1000" height="64" fill="#ffb020" /><text class="t-cinta" x="540" y="1216" text-anchor="middle">NO PASA NADIE · TRABADA · NO PASA</text></g></g>
+        </svg>
+        <div class="txt chip s13-chip"><b>Scalerics</b></div>
+        <div class="txt sello s13-sello"><b>Sitio web</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-destrabamos";
+      const DUR = 4.09;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (el, t, d = 0.6, desde = 1) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * desde, opacity: desde >= 1 ? 0 : 1 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const pop = (el, t, s = 0.85) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const golpe = (el, t) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s13-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const PUERTA = 0.27, DESTRABAMOS = 0.98, SCALERICS = 1.87, HACEMOS = 2.79, WEB = 3.48;
+      tl.fromTo(q(".s13-escenario"), { scale: 1.03 }, { scale: 1, transformOrigin: "50% 52%", duration: 0.6, ease: "power2.out" }, 0);
+      tl.to(q(".s13-candado"), { rotation: -6, svgOrigin: "540 900", duration: 0.1, yoyo: true, repeat: 3 }, PUERTA);
+      // destrabamos: el candado se abre y se pone verde, las cintas se caen
+      tl.to(q(".s13-arco"), { y: -50, duration: 0.25, ease: "back.out(2)" }, DESTRABAMOS);
+      tl.to(q(".s13-arco"), { stroke: "#5ce611", duration: 0.1 }, DESTRABAMOS);
+      tl.to(q(".s13-cuerpo"), { fill: "#5ce611", duration: 0.1 }, DESTRABAMOS);
+      tl.to(q(".s13-pant"), { stroke: "#5ce611", duration: 0.1 }, DESTRABAMOS);
+      tl.to(q(".s13-cinta1"), { y: 900, rotation: -20, svgOrigin: "540 820", opacity: 0, duration: 0.6, ease: "power2.in" }, DESTRABAMOS + 0.1);
+      tl.to(q(".s13-cinta2"), { y: 700, rotation: 25, svgOrigin: "540 1200", opacity: 0, duration: 0.6, ease: "power2.in" }, DESTRABAMOS + 0.18);
+      pop(q(".s13-chip"), SCALERICS - 0.1, 0.6);
+      tl.to(q(".s13-candado"), { opacity: 0, scale: 0.4, svgOrigin: "540 1000", duration: 0.3, ease: "power2.in" }, HACEMOS - 0.3);
+      // hacemos tu sitio web: se arma la página
+      gsap.set(q(".s13-web"), { opacity: 0 });
+      tl.to(q(".s13-web"), { opacity: 1, duration: 0.1 }, HACEMOS);
+      qa(".s13-web > *").forEach((b, i) => { gsap.set(b, { opacity: 0 }); tl.fromTo(b, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(1.6)", immediateRender: false }, HACEMOS + i * 0.08); });
+      fuera(q(".s13-chip"), WEB - 0.2, 0.15);
+      golpe(q(".s13-sello"), WEB - 0.1);
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

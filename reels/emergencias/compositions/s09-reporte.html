@@ -1,0 +1,120 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-reporte"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-reporte"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-reporte"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-reporte"] .lin { fill: none; stroke: #3fd6e0; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-reporte"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s09-reporte"] .grande { font-weight: 900; letter-spacing: -0.02em; }
+    [data-composition-id="s09-reporte"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s09-reporte"] .sello b { display: inline-block; transform: rotate(-4deg); padding: 10px 26px; border: 6px solid currentColor; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; background: rgba(3, 18, 26, 0.88); }
+    [data-composition-id="s09-reporte"] .chip b { display: inline-block; padding: 8px 22px; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s09-reporte"] .t-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; fill: #3fd6e0; letter-spacing: 0.1em; }
+    [data-composition-id="s09-reporte"] .t-cartel { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; fill: #e8f4f6; letter-spacing: 0.02em; }
+    [data-composition-id="s09-reporte"] .t-abierto { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; fill: #ffb020; letter-spacing: 0.08em; }
+    [data-composition-id="s09-reporte"] .s09-chip { top: 1380px; } [data-composition-id="s09-reporte"] .s09-chip b { background: #3fd6e0; color: #03121a; }
+    [data-composition-id="s09-reporte"] .s09-chip2 { top: 1380px; } [data-composition-id="s09-reporte"] .s09-chip2 b { background: #ffb020; color: #03121a; }
+  </style>
+  <div id="root" data-composition-id="s09-reporte" data-width="1080" data-height="1920" data-duration="7.01">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="7.01" data-track-index="0">
+      <div class="s09-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s09-radio">
+            <path class="lin s09-ant" d="M620 820 V640" stroke-width="12" />
+            <rect x="420" y="800" width="260" height="500" rx="40" fill="#072630" stroke="#3fd6e0" stroke-width="7" />
+            <rect x="460" y="850" width="180" height="90" rx="12" fill="#0c3a46" />
+            <text class="t-mono" x="550" y="908" text-anchor="middle" style="fill:#ffb020">U-4</text>
+            <g stroke="#3fd6e0" stroke-width="6" stroke-linecap="round" opacity="0.7"><path d="M470 990 H630 M470 1030 H630 M470 1070 H630 M470 1110 H630 M470 1150 H630" /></g>
+            <circle class="s09-led" cx="640" cy="1240" r="16" fill="#ffb020" />
+            <g class="s09-ondas" fill="none" stroke="#ffb020" stroke-width="6" stroke-linecap="round">
+              <path class="s09-w" d="M680 650 a50 50 0 0 1 0 80" /><path class="s09-w" d="M710 620 a90 90 0 0 1 0 140" /><path class="s09-w" d="M740 590 a130 130 0 0 1 0 200" />
+            </g>
+          </g>
+          <g class="s09-local">
+            <rect x="160" y="640" width="760" height="110" rx="14" fill="#0c3a46" stroke="#e8f4f6" stroke-width="6" />
+            <text class="t-cartel" x="540" y="714" text-anchor="middle">ROTISERÍA DOÑA ELSA</text>
+            <path d="M160 750 H920 L890 830 H190 Z" fill="#ffb020" />
+            <g fill="#03121a" opacity="0.6"><path d="M250 750 h80 l-10 80 h-80 Z M410 750 h80 l-6 80 h-80 Z M570 750 h80 l-2 80 h-80 Z M730 750 h80 l4 80 h-80 Z" /></g>
+            <path class="lin s09-fach" d="M190 830 V1330 M890 830 V1330" style="stroke:#e8f4f6" />
+            <rect x="230" y="880" width="320" height="300" rx="10" fill="#ffb020" fill-opacity="0.12" stroke="#e8f4f6" stroke-width="5" />
+            <rect x="610" y="880" width="230" height="450" rx="10" fill="#03121a" stroke="#e8f4f6" stroke-width="5" />
+            <g class="s09-abierto"><rect x="250" y="960" width="280" height="90" rx="45" fill="#03121a" stroke="#ffb020" stroke-width="6" /><text class="t-abierto" x="390" y="1022" text-anchor="middle">ABIERTO</text></g>
+            <!-- patrullero estacionado -->
+            <g class="s09-auto"><rect x="-150" y="0" width="300" height="90" rx="30" fill="#e8f4f6" /><rect x="-90" y="-50" width="180" height="60" rx="18" fill="#e8f4f6" /><rect x="-90" y="20" width="180" height="22" fill="#03121a" /><circle cx="-90" cy="92" r="30" fill="#03121a" stroke="#e8f4f6" stroke-width="6" /><circle cx="90" cy="92" r="30" fill="#03121a" stroke="#e8f4f6" stroke-width="6" /><rect class="s09-baliza" x="-40" y="-72" width="80" height="24" rx="8" fill="#ffb020" /></g>
+          </g>
+          <g class="s09-plato">
+            <ellipse cx="540" cy="1050" rx="330" ry="150" fill="#072630" stroke="#e8f4f6" stroke-width="7" />
+            <ellipse cx="540" cy="1050" rx="240" ry="100" fill="none" stroke="#e8f4f6" stroke-width="3" opacity="0.5" />
+            <path d="M380 1050 C370 980 520 950 620 965 C720 980 730 1070 650 1100 C560 1130 400 1120 380 1050 Z" fill="#ffb020" fill-opacity="0.35" stroke="#ffb020" stroke-width="7" />
+            <path d="M440 1030 l24 12 M520 1000 l24 12 M600 1050 l24 12 M660 1010 l20 10 M480 1080 l24 12" stroke="#ffb020" stroke-width="6" stroke-linecap="round" />
+            <g fill="none" stroke="#e8f4f6" stroke-width="6" stroke-linecap="round" opacity="0.8">
+              <path class="s09-vapor" d="M470 900 c-20 -40 20 -60 0 -100" /><path class="s09-vapor" d="M550 890 c-20 -40 20 -60 0 -100" /><path class="s09-vapor" d="M630 900 c-20 -40 20 -60 0 -100" />
+            </g>
+            <g class="s09-brillo" fill="#ffb020"><path d="M260 860 l12 30 l30 12 l-30 12 l-12 30 l-12 -30 l-30 -12 l30 -12 Z" /><path d="M820 840 l10 24 l24 10 l-24 10 l-10 24 l-10 -24 l-24 -10 l24 -10 Z" /><path d="M850 1180 l10 24 l24 10 l-24 10 l-10 24 l-10 -24 l-24 -10 l24 -10 Z" /></g>
+          </g>
+        </svg>
+        <div class="txt chip s09-chip"><b>UNIDAD 4 · REPORTE</b></div>
+        <div class="txt chip s09-chip2"><b>Espectaculares</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-reporte";
+      const DUR = 7.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (el, t, d = 0.6, desde = 1) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * desde, opacity: desde >= 1 ? 0 : 1 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const pop = (el, t, s = 0.85) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const golpe = (el, t) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s09-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const REPORTE = 1.12, CENTRAL = 2.28, LLEGAMOS = 2.98, ABIERTO = 4.09, MILANESAS = 4.82, ESPECT = 5.67;
+      dibujar(q(".s09-ant"), 0, 0.4, 0.5);
+      tl.fromTo(q(".s09-radio"), { opacity: 0.6, scale: 0.92 }, { opacity: 1, scale: 1, svgOrigin: "540 1050", duration: 0.3, ease: "back.out(1.6)" }, 0);
+      qa(".s09-w").forEach((w, i) => tl.fromTo(w, { opacity: 0 }, { opacity: 1, duration: 0.12, yoyo: true, repeat: 5, ease: "steps(1)" }, 0.1 + i * 0.12));
+      pop(q(".s09-chip"), REPORTE - 0.1, 0.6);
+      tl.fromTo(q(".s09-led"), { fill: "#ffb020" }, { fill: "#e8f4f6", duration: 0.12, yoyo: true, repeat: 7, ease: "steps(1)" }, CENTRAL - 0.1);
+      tl.to(q(".s09-radio"), { rotation: -6, svgOrigin: "550 1300", duration: 0.2, yoyo: true, repeat: 1 }, CENTRAL);
+      // llegamos: el local
+      tl.to(q(".s09-radio"), { opacity: 0, x: -300, duration: 0.3, ease: "power2.in" }, LLEGAMOS - 0.25);
+      fuera(q(".s09-chip"), LLEGAMOS - 0.25, 0.2);
+      gsap.set(q(".s09-local"), { opacity: 0 });
+      tl.fromTo(q(".s09-local"), { opacity: 0, scale: 0.9, svgOrigin: "540 1000" }, { opacity: 1, scale: 1, svgOrigin: "540 1000", duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, LLEGAMOS - 0.05);
+      dibujar(q(".s09-fach"), LLEGAMOS, 0.4);
+      gsap.set(q(".s09-auto"), { x: -300, y: 1230 });
+      tl.to(q(".s09-auto"), { x: 380, duration: 0.6, ease: "power2.out" }, LLEGAMOS);
+      tl.fromTo(q(".s09-baliza"), { fill: "#ffb020" }, { fill: "#3fd6e0", duration: 0.15, yoyo: true, repeat: 11, ease: "steps(1)" }, LLEGAMOS);
+      gsap.set(q(".s09-abierto"), { opacity: 0.25 });
+      tl.to(q(".s09-abierto"), { opacity: 1, duration: 0.06, yoyo: true, repeat: 3, ease: "steps(1)" }, ABIERTO - 0.1);
+      tl.to(q(".s09-abierto"), { opacity: 1, duration: 0.05 }, ABIERTO + 0.3);
+      tl.to(q(".s09-abierto"), { scale: 1.15, svgOrigin: "390 1005", duration: 0.15, yoyo: true, repeat: 1 }, ABIERTO);
+      // las milanesas, de cerca
+      tl.to(q(".s09-local"), { opacity: 0, scale: 1.5, svgOrigin: "390 1005", duration: 0.3, ease: "power2.in" }, MILANESAS - 0.3);
+      gsap.set(q(".s09-plato"), { opacity: 0 });
+      tl.fromTo(q(".s09-plato"), { opacity: 0, scale: 0.6, svgOrigin: "540 1050" }, { opacity: 1, scale: 1, svgOrigin: "540 1050", duration: 0.4, ease: "back.out(1.6)", immediateRender: false }, MILANESAS - 0.05);
+      qa(".s09-vapor").forEach((v, i) => tl.fromTo(v, { y: 20, opacity: 0 }, { y: -30, opacity: 0.8, duration: 0.9, yoyo: true, repeat: 1, ease: "sine.inOut" }, MILANESAS + i * 0.2));
+      gsap.set(qa(".s09-brillo path"), { opacity: 0 });
+      qa(".s09-brillo path").forEach((b, i) => tl.fromTo(b, { opacity: 0, scale: 0.2, rotation: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 90, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(2)", immediateRender: false }, ESPECT + i * 0.1));
+      pop(q(".s09-chip2"), ESPECT, 0.5);
+      tl.to(q(".s09-plato"), { scale: 1.08, svgOrigin: "540 1050", duration: 1.2, ease: "sine.inOut" }, ESPECT);
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

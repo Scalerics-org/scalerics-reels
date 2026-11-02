@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-despacho"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-despacho"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-despacho"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-despacho"] .lin { fill: none; stroke: #3fd6e0; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-despacho"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s05-despacho"] .grande { font-weight: 900; letter-spacing: -0.02em; }
+    [data-composition-id="s05-despacho"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s05-despacho"] .sello b { display: inline-block; transform: rotate(-4deg); padding: 10px 26px; border: 6px solid currentColor; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; background: rgba(3, 18, 26, 0.88); }
+    [data-composition-id="s05-despacho"] .chip b { display: inline-block; padding: 8px 22px; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s05-despacho"] .t-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; fill: #e8f4f6; letter-spacing: 0.08em; }
+    [data-composition-id="s05-despacho"] .s05-sello { top: 1330px; color: #ffb020; } [data-composition-id="s05-despacho"] .s05-sello b { font-size: 54px; }
+    [data-composition-id="s05-despacho"] .s05-u4 { top: 590px; text-align: left; padding-left: 110px; } [data-composition-id="s05-despacho"] .s05-u4 b { background: #ffb020; color: #03121a; }
+  </style>
+  <div id="root" data-composition-id="s05-despacho" data-width="1080" data-height="1920" data-duration="4.43">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.43" data-track-index="0">
+      <div class="s05-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s05-mapa">
+            <rect class="lin s05-borde" x="110" y="660" width="860" height="620" rx="20" stroke-width="5" />
+            <g fill="#3fd6e0" fill-opacity="0.08" stroke="#3fd6e0" stroke-width="3" stroke-opacity="0.55">
+              <rect class="s05-man" x="150" y="700" width="160" height="140" rx="8" /><rect class="s05-man" x="360" y="700" width="160" height="140" rx="8" /><rect class="s05-man" x="660" y="700" width="120" height="140" rx="8" />
+              <rect class="s05-man" x="150" y="880" width="160" height="140" rx="8" /><rect class="s05-man" x="360" y="880" width="220" height="140" rx="8" /><rect class="s05-man" x="660" y="880" width="270" height="140" rx="8" />
+              <rect class="s05-man" x="250" y="1070" width="330" height="170" rx="8" /><rect class="s05-man" x="660" y="1070" width="270" height="170" rx="8" />
+            </g>
+            <path class="s05-ruta" d="M200 1240 V1045 H620 V860 H850 V770" fill="none" stroke="#ffb020" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="18 14" />
+            <g class="s05-pin">
+              <path d="M850 770 C810 730 815 680 850 680 C885 680 890 730 850 770 Z" fill="#ff4d4d" />
+              <circle cx="850" cy="712" r="13" fill="#03121a" />
+            </g>
+            <g class="s05-lbl"><rect x="690" y="598" width="270" height="54" rx="10" fill="#03121a" stroke="#ff4d4d" stroke-width="4" /><text class="t-mono" x="825" y="634" text-anchor="middle">DOÑA ELSA</text></g>
+            <g class="s05-auto">
+              <rect x="-40" y="-24" width="80" height="48" rx="12" fill="#ffb020" />
+              <rect x="-14" y="-24" width="28" height="48" fill="#03121a" opacity="0.35" />
+              <rect class="s05-luz" x="-6" y="-30" width="12" height="60" rx="4" fill="#ff4d4d" />
+              <circle class="s05-halo" r="56" fill="none" stroke="#ffb020" stroke-width="4" />
+            </g>
+          </g>
+        </svg>
+        <div class="txt chip s05-u4"><b>UNIDAD 4 · EN CAMINO</b></div>
+        <div class="txt sello s05-sello"><b>Código milanesa</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-despacho";
+      const DUR = 4.43;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (el, t, d = 0.6, desde = 1) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * desde, opacity: desde >= 1 ? 0 : 1 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const pop = (el, t, s = 0.85) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const golpe = (el, t) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s05-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const CUATRO = 0.38, CODIGO = 0.75, MILANESA = 1.23, DIRIJASE = 1.79, ROTI = 2.64, ELSA = 3.39;
+      dibujar(q(".s05-borde"), 0, 0.5, 0.45);
+      tl.fromTo(qa(".s05-man"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, stagger: 0.03, ease: "back.out(1.6)" }, 0);
+      gsap.set(q(".s05-auto"), { x: 200, y: 1240 });
+      pop(q(".s05-auto"), CUATRO - 0.15, 0.4);
+      tl.fromTo(q(".s05-halo"), { scale: 0.6, opacity: 1, transformOrigin: "50% 50%" }, { scale: 1.6, opacity: 0, duration: 0.6, repeat: 5, ease: "power1.out" }, CUATRO);
+      tl.fromTo(q(".s05-luz"), { fill: "#ff4d4d" }, { fill: "#3fd6e0", duration: 0.15, yoyo: true, repeat: 25, ease: "steps(1)" }, 0);
+      pop(q(".s05-u4"), CUATRO, 0.6);
+      // código milanesa: el sello cae
+      golpe(q(".s05-sello"), MILANESA - 0.12);
+      sacudon(MILANESA, 1.1);
+      // diríjase: se marca la ruta y el auto la recorre
+      const r = q(".s05-ruta"); const L = r.getTotalLength();
+      gsap.set(r, { strokeDasharray: "18 14", opacity: 0 });
+      tl.to(r, { opacity: 1, duration: 0.2 }, DIRIJASE - 0.1);
+      tl.fromTo(r, { strokeDashoffset: 0 }, { strokeDashoffset: -160, duration: 2.6, ease: "none" }, DIRIJASE);
+      tl.to(q(".s05-auto"), { y: 1045, duration: 0.4, ease: "power1.in" }, DIRIJASE);
+      tl.to(q(".s05-auto"), { x: 620, duration: 0.6, ease: "none" }, DIRIJASE + 0.4);
+      tl.to(q(".s05-auto"), { y: 860, duration: 0.4, ease: "none" }, DIRIJASE + 1.0);
+      tl.to(q(".s05-auto"), { x: 760, duration: 0.5, ease: "power1.out" }, DIRIJASE + 1.4);
+      gsap.set(q(".s05-pin"), { opacity: 0 });
+      tl.fromTo(q(".s05-pin"), { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.3, ease: "bounce.out", immediateRender: false }, ROTI - 0.1);
+      pop(q(".s05-lbl"), ELSA - 0.2, 0.7);
+      tl.fromTo(q(".s05-mapa"), { scale: 1 }, { scale: 1.06, svgOrigin: "540 960", duration: DUR, ease: "none" }, 0);
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

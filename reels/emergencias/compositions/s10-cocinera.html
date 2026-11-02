@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-cocinera"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-cocinera"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-cocinera"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-cocinera"] .lin { fill: none; stroke: #3fd6e0; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-cocinera"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s10-cocinera"] .grande { font-weight: 900; letter-spacing: -0.02em; }
+    [data-composition-id="s10-cocinera"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s10-cocinera"] .sello b { display: inline-block; transform: rotate(-4deg); padding: 10px 26px; border: 6px solid currentColor; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; background: rgba(3, 18, 26, 0.88); }
+    [data-composition-id="s10-cocinera"] .chip b { display: inline-block; padding: 8px 22px; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s10-cocinera"] .t-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; fill: #e8f4f6; letter-spacing: 0.08em; }
+    [data-composition-id="s10-cocinera"] .t-nota { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 54px; fill: #ffb020; }
+    [data-composition-id="s10-cocinera"] .s10-chip { top: 1390px; } [data-composition-id="s10-cocinera"] .s10-chip b { background: #ffb020; color: #03121a; }
+    [data-composition-id="s10-cocinera"] .s10-preg { top: 1180px; font-size: 150px; color: #ff4d4d; }
+  </style>
+  <div id="root" data-composition-id="s10-cocinera" data-width="1080" data-height="1920" data-duration="3.34">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="3.34" data-track-index="0">
+      <div class="s10-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s10-elsa">
+            <!-- doña Elsa: rodete, cara, delantal, sartén -->
+            <circle class="lin s10-e" cx="440" cy="760" r="52" style="stroke:#e8f4f6" />
+            <circle cx="440" cy="790" r="96" fill="#072630" stroke="#e8f4f6" stroke-width="7" />
+            <path d="M398 790 q14 12 28 0 M454 790 q14 12 28 0" fill="none" stroke="#e8f4f6" stroke-width="6" stroke-linecap="round" />
+            <path d="M410 830 q30 22 60 0" fill="none" stroke="#e8f4f6" stroke-width="6" stroke-linecap="round" />
+            <path d="M300 1330 C300 1010 330 920 440 910 C550 920 580 1010 580 1330" fill="#072630" stroke="#e8f4f6" stroke-width="7" />
+            <path d="M370 1000 H510 V1330 H370 Z" fill="#ffb020" fill-opacity="0.18" stroke="#ffb020" stroke-width="6" />
+            <path d="M370 1000 C380 960 500 960 510 1000" fill="none" stroke="#ffb020" stroke-width="6" />
+            <g class="s10-sarten">
+              <path d="M560 1080 L640 1060" stroke="#e8f4f6" stroke-width="12" stroke-linecap="round" />
+              <path d="M640 1040 H900 C900 1100 860 1120 770 1120 C680 1120 640 1100 640 1040 Z" fill="#03121a" stroke="#e8f4f6" stroke-width="7" />
+              <path class="s10-mila" d="M690 1040 C700 1010 840 1010 850 1040 Z" fill="#ffb020" />
+            </g>
+            <text class="t-nota s10-n1" x="590" y="760">♪</text><text class="t-nota s10-n2" x="640" y="700">♫</text>
+          </g>
+          <g class="s10-exp">
+            <rect x="150" y="640" width="780" height="520" rx="18" fill="#e8f4f6" />
+            <rect x="150" y="640" width="780" height="90" rx="18" fill="#ffb020" />
+            <text class="t-mono" x="190" y="700" style="fill:#03121a;font-size:36px">EXPEDIENTE · NOCHE</text>
+            <text class="t-mono" x="190" y="800" style="fill:#03121a">LUGAR: ROTISERÍA</text>
+            <text class="t-mono" x="190" y="860" style="fill:#03121a">UNIDAD: 4</text>
+            <text class="t-mono" x="190" y="940" style="fill:#03121a">DELITO:</text>
+            <rect x="370" y="958" width="500" height="6" fill="#03121a" opacity="0.4" />
+          </g>
+        </svg>
+        <div class="txt chip s10-chip"><b>Ni se enteró</b></div>
+        <div class="txt grande s10-preg">¿?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-cocinera";
+      const DUR = 3.34;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (el, t, d = 0.6, desde = 1) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * desde, opacity: desde >= 1 ? 0 : 1 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const pop = (el, t, s = 0.85) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const golpe = (el, t) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const COCINERA = 0.09, NI = 0.84, DELITO = 2.31, Y = 2.02;
+      dibujar(q(".s10-e"), 0, 0.4, 0.5);
+      tl.fromTo(q(".s10-elsa"), { opacity: 0.6, scale: 0.94 }, { opacity: 1, scale: 1, svgOrigin: "540 1100", duration: 0.3, ease: "back.out(1.6)" }, 0);
+      // salta la milanesa en la sartén, tararea
+      tl.fromTo(q(".s10-sarten"), { rotation: 0 }, { rotation: -6, svgOrigin: "560 1080", duration: 0.2, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.1);
+      tl.fromTo(q(".s10-mila"), { y: 0 }, { y: -70, duration: 0.25, yoyo: true, repeat: 3, ease: "power2.out" }, 0.3);
+      [".s10-n1", ".s10-n2"].forEach((n, i) => tl.fromTo(q(n), { opacity: 0, y: 20 }, { opacity: 1, y: -30, duration: 0.8, ease: "sine.out" }, 0.15 + i * 0.35));
+      pop(q(".s10-chip"), NI - 0.1, 0.6);
+      // ¿y el delito?: llega el expediente
+      tl.to(q(".s10-elsa"), { opacity: 0, x: -250, duration: 0.3, ease: "power2.in" }, Y - 0.25);
+      fuera(q(".s10-chip"), Y - 0.25, 0.2);
+      gsap.set(q(".s10-exp"), { opacity: 0 });
+      tl.fromTo(q(".s10-exp"), { opacity: 0, x: 300, rotation: 6, svgOrigin: "540 900" }, { opacity: 1, x: 0, rotation: -2, svgOrigin: "540 900", duration: 0.35, ease: "power3.out", immediateRender: false }, Y - 0.1);
+      golpe(q(".s10-preg"), DELITO);
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,7 @@
+[{"t":0.05,"sfx":"glitch-1","vol":0.2,"max":0.4},
+{"t":1.05,"sfx":"click","vol":0.3},
+{"t":2.2,"sfx":"glitch-1","vol":0.2,"max":0.4},
+{"t":2.95,"sfx":"whoosh","vol":0.25},
+{"t":4,"sfx":"ping","vol":0.3},
+{"t":4.8,"sfx":"pop","vol":0.3},
+{"t":5.65,"sfx":"sparkle","vol":0.35,"max":1}]

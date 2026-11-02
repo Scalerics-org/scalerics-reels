@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-inocente"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-inocente"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-inocente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-inocente"] .lin { fill: none; stroke: #3fd6e0; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-inocente"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s11-inocente"] .grande { font-weight: 900; letter-spacing: -0.02em; }
+    [data-composition-id="s11-inocente"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s11-inocente"] .sello b { display: inline-block; transform: rotate(-4deg); padding: 10px 26px; border: 6px solid currentColor; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; background: rgba(3, 18, 26, 0.88); }
+    [data-composition-id="s11-inocente"] .chip b { display: inline-block; padding: 8px 22px; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s11-inocente"] .t-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; fill: #03121a; letter-spacing: 0.08em; }
+    [data-composition-id="s11-inocente"] .t-res { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; fill: #03121a; }
+    [data-composition-id="s11-inocente"] .s11-sello { top: 1010px; color: #ffb020; } [data-composition-id="s11-inocente"] .s11-sello b { font-size: 46px; transform: rotate(-8deg); }
+    [data-composition-id="s11-inocente"] .s11-puertat { top: 1360px; font-size: 76px; color: #ff4d4d; }
+  </style>
+  <div id="root" data-composition-id="s11-inocente" data-width="1080" data-height="1920" data-duration="4.46">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.46" data-track-index="0">
+      <div class="s11-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-exp">
+            <rect x="150" y="620" width="780" height="660" rx="18" fill="#e8f4f6" />
+            <rect x="150" y="620" width="780" height="90" rx="18" fill="#ffb020" />
+            <text class="t-mono" x="190" y="680" style="font-size:36px">EXPEDIENTE · NOCHE</text>
+            <text class="t-mono" x="190" y="790">COCINA:</text>
+            <text class="t-res s11-r1" x="400" y="792">SIN DELITO</text>
+            <path class="s11-check" d="M800 760 l30 32 l60 -70" fill="none" stroke="#0c3a46" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M190 830 H890" stroke="#03121a" stroke-width="3" opacity="0.25" />
+            <text class="t-mono s11-fila2" x="190" y="1160">PROBLEMA:</text>
+            <text class="t-res s11-r2" x="440" y="1162" style="fill:#ff4d4d">LA PUERTA</text>
+            <g class="s11-puerta"><rect x="780" y="1080" width="90" height="150" rx="8" fill="none" stroke="#ff4d4d" stroke-width="8" /><circle cx="852" cy="1160" r="8" fill="#ff4d4d" /></g>
+          </g>
+        </svg>
+        <div class="txt sello s11-sello"><b>Cocina bárbara</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-inocente";
+      const DUR = 4.46;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (el, t, d = 0.6, desde = 1) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * desde, opacity: desde >= 1 ? 0 : 1 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const pop = (el, t, s = 0.85) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const golpe = (el, t) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const NINGUNO = 0.96, BARBARO = 2.67, PROBLEMA = 3.48, PUERTA = 4.1;
+      tl.fromTo(q(".s11-exp"), { rotation: -2, svgOrigin: "540 950" }, { rotation: 0, svgOrigin: "540 950", duration: 0.4, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s11-exp"), { scale: 1 }, { scale: 1.03, svgOrigin: "540 950", duration: DUR, ease: "none" }, 0);
+      pop(q(".s11-r1"), 0.2, 0.7);
+      dibujar(q(".s11-check"), NINGUNO - 0.1, 0.35);
+      golpe(q(".s11-sello"), BARBARO - 0.1);
+      sacudon(BARBARO + 0.04, 0.8);
+      gsap.set([q(".s11-fila2"), q(".s11-r2"), q(".s11-puerta")], { opacity: 0 });
+      tl.to(q(".s11-fila2"), { opacity: 1, duration: 0.2 }, PROBLEMA - 0.2);
+      tl.to(q(".s11-sello"), { opacity: 0.35, duration: 0.3 }, PROBLEMA - 0.2);
+      pop(q(".s11-r2"), PUERTA - 0.15, 0.6);
+      tl.fromTo(q(".s11-puerta"), { opacity: 0, scale: 0.3, svgOrigin: "825 1155" }, { opacity: 1, scale: 1, svgOrigin: "825 1155", duration: 0.3, ease: "back.out(2)", immediateRender: false }, PUERTA - 0.1);
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

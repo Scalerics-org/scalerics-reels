@@ -1,0 +1,4 @@
+[{"t":0.15,"sfx":"typing","vol":0.2,"max":0.6},
+{"t":1.2,"sfx":"click-soft","vol":0.25},
+{"t":2.45,"sfx":"glitch-1","vol":0.35,"max":0.6},
+{"t":2.55,"sfx":"impact-bass-2","vol":0.45,"max":0.7}]
