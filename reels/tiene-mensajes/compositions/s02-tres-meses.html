@@ -1,0 +1,169 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-tres-meses"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-tres-meses"] .s02-esc { position: absolute; inset: 0; }
+    [data-composition-id="s02-tres-meses"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-tres-meses"] .lin { fill: none; stroke: #f6ecd8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-tres-meses"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s02-tres-meses"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s02-tres-meses"] .tira { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s02-tres-meses"] .tira b { display: inline-block; padding: 14px 30px; background: #2a0f0b; border: 5px solid #17110c; border-radius: 12px; color: #ff3b2a; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 44px; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; text-shadow: 0 0 14px rgba(255, 59, 42, 0.55); }
+    [data-composition-id="s02-tres-meses"] .sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s02-tres-meses"] .sello b { display: inline-block; padding: 10px 30px; border: 8px solid #ff3b2a; border-radius: 14px; color: #ff3b2a; background: rgba(23, 17, 12, 0.88); font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-tres-meses"] .sello.am b { border-color: #ffd84a; color: #ffd84a; }
+    [data-composition-id="s02-tres-meses"] .bip { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 170px; line-height: 1; color: #ff3b2a; letter-spacing: 0.06em; text-shadow: 8px 8px 0 #17110c; }
+
+    [data-composition-id="s02-tres-meses"] .s02-tira { top: 1096px; }
+    [data-composition-id="s02-tres-meses"] .s02-bip { top: 1236px; }
+  </style>
+  <div id="root" data-composition-id="s02-tres-meses" data-width="1080" data-height="1920" data-duration="3.95">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="3.95" data-track-index="0">
+      <div class="s02-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(610 860) scale(1.3)"><g class="s02-maq">
+<g class="s02c">
+  <ellipse cx="0" cy="190" rx="380" ry="28" fill="#17110c" opacity="0.55" />
+  <g class="s02c-cuerpo">
+  <path d="M-330 -120 L-296 -176 H296 L330 -120 Z" fill="#f6ecd8" stroke="#17110c" stroke-width="6" stroke-linejoin="round" />
+  <rect x="-360" y="-122" width="720" height="300" rx="34" fill="#d8ccb0" stroke="#17110c" stroke-width="6" />
+  <path d="M-330 150 H330" stroke="#17110c" stroke-width="3" opacity="0.25" />
+  <!-- casete -->
+  <rect x="-326" y="-96" width="342" height="160" rx="16" fill="#17110c" />
+  <rect x="-310" y="-82" width="310" height="132" rx="10" fill="#5a3a24" stroke="#d8ccb0" stroke-width="3" />
+  <rect x="-280" y="-74" width="250" height="26" rx="4" fill="#f6ecd8" />
+  <text x="-155" y="-54" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="26" fill="#17110c">mensajes</text>
+  <path d="M-266 20 Q-155 44 -44 20" stroke="#17110c" stroke-width="5" fill="none" />
+  <g class="s02c-r1">
+  <circle cx="-235" cy="-18" r="40" fill="#d8ccb0" stroke="#17110c" stroke-width="5" />
+  <circle cx="-235" cy="-18" r="16.8" fill="#17110c" />
+  <path d="M-218.2 -18.0 L-200.6 -18.0" stroke="#17110c" stroke-width="7" stroke-linecap="round" /><path d="M-226.6 -3.5 L-217.8 11.8" stroke="#17110c" stroke-width="7" stroke-linecap="round" /><path d="M-243.4 -3.5 L-252.2 11.8" stroke="#17110c" stroke-width="7" stroke-linecap="round" /><path d="M-251.8 -18.0 L-269.4 -18.0" stroke="#17110c" stroke-width="7" stroke-linecap="round" /><path d="M-243.4 -32.5 L-252.2 -47.8" stroke="#17110c" stroke-width="7" stroke-linecap="round" /><path d="M-226.6 -32.5 L-217.8 -47.8" stroke="#17110c" stroke-width="7" stroke-linecap="round" />
+  <circle cx="-235" cy="-18" r="6.4" fill="#d8ccb0" />
+</g>
+  <g class="s02c-r2">
+  <circle cx="-75" cy="-18" r="40" fill="#d8ccb0" stroke="#17110c" stroke-width="5" />
+  <circle cx="-75" cy="-18" r="16.8" fill="#17110c" />
+  <path d="M-58.2 -18.0 L-40.6 -18.0" stroke="#17110c" stroke-width="7" stroke-linecap="round" /><path d="M-66.6 -3.5 L-57.8 11.8" stroke="#17110c" stroke-width="7" stroke-linecap="round" /><path d="M-83.4 -3.5 L-92.2 11.8" stroke="#17110c" stroke-width="7" stroke-linecap="round" /><path d="M-91.8 -18.0 L-109.4 -18.0" stroke="#17110c" stroke-width="7" stroke-linecap="round" /><path d="M-83.4 -32.5 L-92.2 -47.8" stroke="#17110c" stroke-width="7" stroke-linecap="round" /><path d="M-66.6 -32.5 L-57.8 -47.8" stroke="#17110c" stroke-width="7" stroke-linecap="round" />
+  <circle cx="-75" cy="-18" r="6.4" fill="#d8ccb0" />
+</g>
+  <!-- display -->
+  <rect x="60" y="-96" width="250" height="140" rx="14" fill="#2a0f0b" stroke="#17110c" stroke-width="6" />
+  <g transform="skewX(-7)" style="transform-box: fill-box"><rect x="117.8" y="-76.0" width="40.4" height="13.0" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="153.0" y="-68.2" width="13.0" height="38.3" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="153.0" y="-22.1" width="13.0" height="38.3" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="117.8" y="11.0" width="40.4" height="13.0" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="110.0" y="-22.1" width="13.0" height="38.3" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="110.0" y="-68.2" width="13.0" height="38.3" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="117.8" y="-32.5" width="40.4" height="13.0" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="193.8" y="-76.0" width="40.4" height="13.0" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="229.0" y="-68.2" width="13.0" height="38.3" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="229.0" y="-22.1" width="13.0" height="38.3" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="193.8" y="11.0" width="40.4" height="13.0" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="186.0" y="-22.1" width="13.0" height="38.3" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="186.0" y="-68.2" width="13.0" height="38.3" rx="5.4" fill="rgba(255,59,42,0.13)" /><rect x="193.8" y="-32.5" width="40.4" height="13.0" rx="5.4" fill="rgba(255,59,42,0.13)" /><g class="s02c-v0" opacity="1"><rect x="117.8" y="-76.0" width="40.4" height="13.0" rx="5.4" fill="#ff3b2a" /><rect x="153.0" y="-68.2" width="13.0" height="38.3" rx="5.4" fill="#ff3b2a" /><rect x="153.0" y="-22.1" width="13.0" height="38.3" rx="5.4" fill="#ff3b2a" /><rect x="117.8" y="11.0" width="40.4" height="13.0" rx="5.4" fill="#ff3b2a" /><rect x="110.0" y="-22.1" width="13.0" height="38.3" rx="5.4" fill="#ff3b2a" /><rect x="110.0" y="-68.2" width="13.0" height="38.3" rx="5.4" fill="#ff3b2a" /><rect x="229.0" y="-68.2" width="13.0" height="38.3" rx="5.4" fill="#ff3b2a" /><rect x="229.0" y="-22.1" width="13.0" height="38.3" rx="5.4" fill="#ff3b2a" /></g></g>
+  <text x="185" y="72" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="22" fill="#17110c" letter-spacing="4">MENSAJES</text>
+  <!-- luz -->
+  <circle class="s02c-halo" cx="34" cy="-140" r="26" fill="#ff3b2a" opacity="0.25" />
+  <circle class="s02c-luz" cx="34" cy="-140" r="13" fill="#ff3b2a" stroke="#17110c" stroke-width="3" />
+  <text x="-20" y="-132" text-anchor="end" font-family="IBM Plex Mono" font-weight="500" font-size="20" fill="#17110c" letter-spacing="3">NUEVOS</text>
+  <!-- teclas -->
+  <g class="s02c-t0 s02c-play"><rect x="-330" y="96" width="120" height="44" rx="10" fill="#ffd84a" stroke="#17110c" stroke-width="4" />
+  <text x="-270" y="126" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="22" fill="#17110c" letter-spacing="2">PLAY</text></g><g class="s02c-t1"><rect x="-196" y="96" width="120" height="44" rx="10" fill="#f6ecd8" stroke="#17110c" stroke-width="4" />
+  <text x="-136" y="126" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="22" fill="#17110c" letter-spacing="2">STOP</text></g><g class="s02c-t2"><rect x="-62" y="96" width="120" height="44" rx="10" fill="#f6ecd8" stroke="#17110c" stroke-width="4" />
+  <text x="-2" y="126" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="22" fill="#17110c" letter-spacing="2">&lt;<</text></g><g class="s02c-t3"><rect x="72" y="96" width="120" height="44" rx="10" fill="#f6ecd8" stroke="#17110c" stroke-width="4" />
+  <text x="132" y="126" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="22" fill="#17110c" letter-spacing="2">>></text></g><g class="s02c-t4"><rect x="206" y="96" width="120" height="44" rx="10" fill="#f6ecd8" stroke="#17110c" stroke-width="4" />
+  <text x="266" y="126" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="22" fill="#17110c" letter-spacing="2">BORRAR</text></g>
+  </g>
+</g></g></g>
+          <g class="s02-cal">
+            <rect x="400" y="1216" width="280" height="200" rx="12" fill="#f6ecd8" stroke="#17110c" stroke-width="5" />
+            <text x="540" y="1350" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="80" fill="#17110c" data-layout-ignore>NOV</text>
+            <g class="s02-h2"><rect x="400" y="1216" width="280" height="200" rx="12" fill="#f6ecd8" stroke="#17110c" stroke-width="5" />
+            <rect x="400" y="1216" width="280" height="50" rx="12" fill="#ff3b2a" stroke="#17110c" stroke-width="5" />
+            <text x="540" y="1374" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="80" fill="#17110c" data-layout-ignore>OCT</text></g><g class="s02-h1"><rect x="400" y="1216" width="280" height="200" rx="12" fill="#f6ecd8" stroke="#17110c" stroke-width="5" />
+            <rect x="400" y="1216" width="280" height="50" rx="12" fill="#ff3b2a" stroke="#17110c" stroke-width="5" />
+            <text x="540" y="1374" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="80" fill="#17110c" data-layout-ignore>SEP</text></g><g class="s02-h0"><rect x="400" y="1216" width="280" height="200" rx="12" fill="#f6ecd8" stroke="#17110c" stroke-width="5" />
+            <rect x="400" y="1216" width="280" height="50" rx="12" fill="#ff3b2a" stroke="#17110c" stroke-width="5" />
+            <text x="540" y="1374" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="80" fill="#17110c" data-layout-ignore>AGO</text></g>
+            <path d="M450 1206 V1232 M630 1206 V1232" stroke="#17110c" stroke-width="10" stroke-linecap="round" />
+          </g>
+        </svg>
+        <div class="tira s02-tira"><b>Recibido hace 3 meses</b></div>
+        <div class="bip s02-bip">BIP</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-tres-meses";
+      const DUR = 3.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const lista = (x) => (typeof x === "string" ? qa(x) : Array.isArray(x) ? x : [x]);
+      // trazo que se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (sel, t, d = 0.6) => lista(sel).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (sel, t, d = 0.35, s = 0.8) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe, como un sello
+      const golpe = (sel, t, s = 2.2) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const fuera = (sel, t, d = 0.25) => tl.to(lista(sel), { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1, sel = ".s02-esc") => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(sel), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // la boca se mueve mientras habla
+      const hablar = (sel, t0, t1) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.12));
+        tl.fromTo(q(sel), { scaleY: 0.45, transformOrigin: "50% 50%" }, { scaleY: 1.25, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0);
+      };
+      // la onda de audio se mueve mientras habla (quieta y bajita fuera de eso)
+      const ondear = (cls, t0, t1) => qa("." + cls + "-b").forEach((b, i) => {
+        gsap.set(b, { scaleY: 0.18, transformOrigin: "50% 50%" });
+        const d = 0.08 + ((i * 7) % 5) * 0.022;
+        const n = Math.max(1, Math.floor((t1 - t0) / d));
+        tl.fromTo(b, { scaleY: 0.18 }, { scaleY: 1, duration: d, ease: "sine.inOut", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0 + (i % 4) * 0.02);
+      });
+      // carretes del casete girando (sel, svgOrigin, desde, hasta, vueltas por segundo)
+      const girar = (sel, origen, t0, t1, vps = 0.8) => tl.fromTo(q(sel), { rotation: 0, svgOrigin: origen }, { rotation: 360 * vps * (t1 - t0), svgOrigin: origen, duration: t1 - t0, ease: "none", immediateRender: false }, t0);
+      // display: [[índice del valor, t], ...]
+      const lcd = (p, n, pares) => pares.forEach(([k, t]) => { for (let i = 0; i < n; i++) tl.set(q("." + p + "-v" + i), { opacity: i === k ? 1 : 0 }, t); });
+      // luz que titila
+      const titilar = (sel, t0, t1, per = 0.5) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / (per / 2)));
+        tl.fromTo(lista(sel), { opacity: 1 }, { opacity: 0.12, duration: per / 2, ease: "steps(1)", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0);
+      };
+      // el BIP del contestador
+      const bip = (sel, t) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(3)", immediateRender: false }, t);
+        tl.to(q(sel), { scale: 1.12, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + 0.16);
+        tl.to(q(sel), { opacity: 0, duration: 0.15 }, t + 0.5);
+      };
+
+
+      const UNO = 0.47, RECIBIDO = 0.91, TRES = 2.07, BIP = 3.35;
+      tl.fromTo(q(".s02-maq"), { scale: 0.92, transformOrigin: "50% 50%" }, { scale: 1, duration: 3.9, ease: "sine.out" }, 0);
+      girar(".s02c-r1", "-235 -18", 0, DUR, 0.7);
+      girar(".s02c-r2", "-75 -18", 0, DUR, 0.7);
+      titilar([q(".s02c-luz"), q(".s02c-halo")], 0, DUR, 0.5);
+      tl.fromTo(q(".s02c-v0"), { scale: 1.3, svgOrigin: "185 -26" }, { scale: 1, svgOrigin: "185 -26", duration: 0.25, ease: "back.out(2)" }, UNO);
+      pop(".s02-tira", RECIBIDO, 0.3, 0.6);
+      pop(".s02-cal", RECIBIDO + 0.3, 0.35, 0.6);
+      // las hojas del almanaque se arrancan: AGO, SEP, OCT
+      [0, 1, 2].forEach((i) => {
+        const t = TRES - 0.2 + i * 0.3;
+        tl.to(q(".s02-h" + i), { y: 520, x: (i % 2 ? 1 : -1) * 160, rotation: (i % 2 ? 1 : -1) * 40, opacity: 0, svgOrigin: "540 1216", duration: 0.55, ease: "power2.in" }, t);
+      });
+      bip(".s02-bip", BIP);
+      tl.to(q(".s02-cal"), { opacity: 0, duration: 0.15 }, BIP - 0.05);
+
+      // salida: blur
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

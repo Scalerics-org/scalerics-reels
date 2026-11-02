@@ -1,0 +1,151 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-quien-era"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-quien-era"] .s04-esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-quien-era"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-quien-era"] .lin { fill: none; stroke: #f6ecd8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-quien-era"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s04-quien-era"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s04-quien-era"] .tira { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s04-quien-era"] .tira b { display: inline-block; padding: 14px 30px; background: #2a0f0b; border: 5px solid #17110c; border-radius: 12px; color: #ff3b2a; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 44px; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; text-shadow: 0 0 14px rgba(255, 59, 42, 0.55); }
+    [data-composition-id="s04-quien-era"] .sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s04-quien-era"] .sello b { display: inline-block; padding: 10px 30px; border: 8px solid #ff3b2a; border-radius: 14px; color: #ff3b2a; background: rgba(23, 17, 12, 0.88); font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-quien-era"] .sello.am b { border-color: #ffd84a; color: #ffd84a; }
+    [data-composition-id="s04-quien-era"] .bip { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 170px; line-height: 1; color: #ff3b2a; letter-spacing: 0.06em; text-shadow: 8px 8px 0 #17110c; }
+
+    [data-composition-id="s04-quien-era"] .s04-preg { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; color: #ffd84a; text-shadow: 6px 6px 0 #17110c; line-height: 1; }
+    [data-composition-id="s04-quien-era"] .s04-cart { top: 600px; font-weight: 900; font-size: 86px; color: #ffd84a; text-shadow: 6px 6px 0 #17110c; }
+    [data-composition-id="s04-quien-era"] .s04-cart.no { color: #ff3b2a; }
+  </style>
+  <div id="root" data-composition-id="s04-quien-era" data-width="1080" data-height="1920" data-duration="4.08">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.08" data-track-index="0">
+      <div class="s04-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(560 1040) scale(1.35)"><g class="s04-due">
+<g class="s04d">
+  <path d="M-170 300 L-176 160 Q-170 104 -110 98 L-34 92 Q0 112 34 92 L110 98 Q170 104 176 160 L170 300 Z" fill="#5a3a24" stroke="#f6ecd8" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-40 94 Q0 140 40 94" fill="none" stroke="#f6ecd8" stroke-width="4" />
+  <rect x="-22" y="52" width="44" height="46" fill="#f6ecd8" stroke="#17110c" stroke-width="4" />
+  <ellipse cx="-62" cy="6" rx="11" ry="17" fill="#f6ecd8" stroke="#17110c" stroke-width="4" /><ellipse cx="62" cy="6" rx="11" ry="17" fill="#f6ecd8" stroke="#17110c" stroke-width="4" />
+  <ellipse cx="0" cy="0" rx="62" ry="74" fill="#f6ecd8" stroke="#17110c" stroke-width="4" />
+  <path d="M-62 -14 L-70 -50 L-50 -44 L-52 -82 L-28 -66 L-16 -100 L2 -72 L22 -102 L30 -68 L56 -86 L50 -48 L72 -52 L62 -14 C40 -44 -40 -44 -62 -14 Z" fill="#d8ccb0" stroke="#17110c" stroke-width="4" stroke-linejoin="round" />
+  <path class="s04d-cejas" d="M-42 -26 L-14 -20 M14 -20 L42 -26" stroke="#17110c" stroke-width="6" stroke-linecap="round" />
+  <g class="s04d-ojos"><circle cx="-26" cy="-4" r="6" fill="#17110c" /><circle cx="26" cy="-4" r="6" fill="#17110c" /></g>
+  <path d="M-38 10 Q-26 18 -14 10 M14 10 Q26 18 38 10" stroke="#5a3a24" stroke-width="4" fill="none" stroke-linecap="round" />
+  <path d="M-3 4 Q-8 22 4 24" stroke="#17110c" stroke-width="3.5" fill="none" stroke-linecap="round" />
+  <circle cx="-40" cy="40" r="2.6" fill="#5a3a24" /><circle cx="-30" cy="54" r="2.6" fill="#5a3a24" /><circle cx="-14" cy="62" r="2.6" fill="#5a3a24" /><circle cx="14" cy="62" r="2.6" fill="#5a3a24" /><circle cx="30" cy="54" r="2.6" fill="#5a3a24" /><circle cx="40" cy="40" r="2.6" fill="#5a3a24" /><circle cx="-46" cy="26" r="2.6" fill="#5a3a24" /><circle cx="46" cy="26" r="2.6" fill="#5a3a24" /><circle cx="0" cy="66" r="2.6" fill="#5a3a24" />
+  <ellipse class="s04d-boca" cx="0" cy="44" rx="13" ry="6" fill="#17110c" />
+  <path class="s04d-gota" d="M70 -40 C60 -22 60 -12 70 -10 C80 -12 80 -22 70 -40 Z" fill="#f6ecd8" stroke="#17110c" stroke-width="3" opacity="0" />
+  <g class="s04d-brazo">
+    <path d="M120 140 C150 60 120 -40 70 -70" stroke="#5a3a24" stroke-width="46" fill="none" stroke-linecap="round" />
+    <path d="M120 140 C150 60 120 -40 70 -70" stroke="#f6ecd8" stroke-width="4" fill="none" opacity="0.6" />
+    <circle cx="62" cy="-78" r="26" fill="#f6ecd8" stroke="#17110c" stroke-width="4" />
+    <path d="M44 -96 L36 -106 M56 -102 L52 -114 M70 -102 L72 -114" stroke="#17110c" stroke-width="4" stroke-linecap="round" />
+  </g>
+</g></g></g>
+          <g class="s04-flor">
+            <path d="M270 1400 C 280 1300 300 1220 300 1150" stroke="#1f3328" stroke-width="10" fill="none" stroke-linecap="round" />
+            <path d="M286 1300 C 250 1280 230 1290 220 1270 C 250 1260 270 1270 286 1300 Z" fill="#1f3328" stroke="#f6ecd8" stroke-width="3" />
+            <g transform="rotate(0 300 1110)"><ellipse class="s04-pe0" cx="300" cy="1052" rx="20" ry="42" fill="#f6ecd8" stroke="#17110c" stroke-width="4" /></g><g transform="rotate(45 300 1110)"><ellipse class="s04-pe1" cx="300" cy="1052" rx="20" ry="42" fill="#f6ecd8" stroke="#17110c" stroke-width="4" /></g><g transform="rotate(90 300 1110)"><ellipse class="s04-pe2" cx="300" cy="1052" rx="20" ry="42" fill="#f6ecd8" stroke="#17110c" stroke-width="4" /></g><g transform="rotate(135 300 1110)"><ellipse class="s04-pe3" cx="300" cy="1052" rx="20" ry="42" fill="#f6ecd8" stroke="#17110c" stroke-width="4" /></g><g transform="rotate(180 300 1110)"><ellipse class="s04-pe4" cx="300" cy="1052" rx="20" ry="42" fill="#f6ecd8" stroke="#17110c" stroke-width="4" /></g><g transform="rotate(225 300 1110)"><ellipse class="s04-pe5" cx="300" cy="1052" rx="20" ry="42" fill="#f6ecd8" stroke="#17110c" stroke-width="4" /></g><g transform="rotate(270 300 1110)"><ellipse class="s04-pe6" cx="300" cy="1052" rx="20" ry="42" fill="#f6ecd8" stroke="#17110c" stroke-width="4" /></g><g transform="rotate(315 300 1110)"><ellipse class="s04-pe7" cx="300" cy="1052" rx="20" ry="42" fill="#f6ecd8" stroke="#17110c" stroke-width="4" /></g>
+            <circle cx="300" cy="1110" r="28" fill="#ffd84a" stroke="#17110c" stroke-width="5" />
+          </g>
+        </svg>
+        <div class="s04-preg s04-q1" style="left:800px;top:700px;font-size:160px">?</div>
+        <div class="s04-preg s04-q2" style="left:150px;top:690px;font-size:130px">?</div>
+        <div class="s04-preg s04-q3" style="left:880px;top:930px;font-size:100px">?</div>
+        <div class="txt s04-cart s04-k0">Le mandé</div>
+        <div class="txt s04-cart no s04-k1">No le mandé</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-quien-era";
+      const DUR = 4.08;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const lista = (x) => (typeof x === "string" ? qa(x) : Array.isArray(x) ? x : [x]);
+      // trazo que se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (sel, t, d = 0.6) => lista(sel).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (sel, t, d = 0.35, s = 0.8) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe, como un sello
+      const golpe = (sel, t, s = 2.2) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const fuera = (sel, t, d = 0.25) => tl.to(lista(sel), { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1, sel = ".s04-esc") => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(sel), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // la boca se mueve mientras habla
+      const hablar = (sel, t0, t1) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.12));
+        tl.fromTo(q(sel), { scaleY: 0.45, transformOrigin: "50% 50%" }, { scaleY: 1.25, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0);
+      };
+      // la onda de audio se mueve mientras habla (quieta y bajita fuera de eso)
+      const ondear = (cls, t0, t1) => qa("." + cls + "-b").forEach((b, i) => {
+        gsap.set(b, { scaleY: 0.18, transformOrigin: "50% 50%" });
+        const d = 0.08 + ((i * 7) % 5) * 0.022;
+        const n = Math.max(1, Math.floor((t1 - t0) / d));
+        tl.fromTo(b, { scaleY: 0.18 }, { scaleY: 1, duration: d, ease: "sine.inOut", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0 + (i % 4) * 0.02);
+      });
+      // carretes del casete girando (sel, svgOrigin, desde, hasta, vueltas por segundo)
+      const girar = (sel, origen, t0, t1, vps = 0.8) => tl.fromTo(q(sel), { rotation: 0, svgOrigin: origen }, { rotation: 360 * vps * (t1 - t0), svgOrigin: origen, duration: t1 - t0, ease: "none", immediateRender: false }, t0);
+      // display: [[índice del valor, t], ...]
+      const lcd = (p, n, pares) => pares.forEach(([k, t]) => { for (let i = 0; i < n; i++) tl.set(q("." + p + "-v" + i), { opacity: i === k ? 1 : 0 }, t); });
+      // luz que titila
+      const titilar = (sel, t0, t1, per = 0.5) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / (per / 2)));
+        tl.fromTo(lista(sel), { opacity: 1 }, { opacity: 0.12, duration: per / 2, ease: "steps(1)", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0);
+      };
+      // el BIP del contestador
+      const bip = (sel, t) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(3)", immediateRender: false }, t);
+        tl.to(q(sel), { scale: 1.12, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + 0.16);
+        tl.to(q(sel), { opacity: 0, duration: 0.15 }, t + 0.5);
+      };
+
+
+      const QUE = 1.27, LE = 2.28;
+      tl.fromTo(q(".s04-due"), { y: 40, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s04d-brazo"), { rotation: -6, svgOrigin: "120 140" }, { rotation: 6, svgOrigin: "120 140", duration: 0.16, yoyo: true, repeat: 11, ease: "sine.inOut" }, 0);
+      hablar(".s04d-boca", 0.0, 0.9); hablar(".s04d-boca", QUE, 2.0); hablar(".s04d-boca", LE, 3.7);
+      pop(".s04-q2", 0.05, 0.3, 0.3);
+      pop(".s04-q1", QUE, 0.3, 0.3);
+      pop(".s04-q3", QUE + 0.25, 0.3, 0.3);
+      tl.to(qa(".s04-preg"), { y: -14, rotation: 10, duration: 0.45, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.4);
+      tl.to(q(".s04d-cejas"), { y: -8, duration: 0.2, yoyo: true, repeat: 1 }, QUE);
+      // la margarita
+      pop(".s04-flor", LE - 0.35, 0.3, 0.5);
+      gsap.set(qa(".s04-cart"), { opacity: 0 });
+      for (let i = 0; i < 8; i++) {
+        const t = LE + 0.1 + i * 0.2;
+        tl.to(q(".s04-pe" + i), { y: 380, rotation: 70, opacity: 0, duration: 0.5, ease: "power2.in" }, t);
+        tl.set(q(".s04-k" + (i % 2)), { opacity: 1 }, t);
+        tl.set(q(".s04-k" + ((i + 1) % 2)), { opacity: 0 }, t);
+      }
+      tl.fromTo(q(".s04-flor"), { rotation: -4, svgOrigin: "270 1400" }, { rotation: 4, svgOrigin: "270 1400", duration: 0.2, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, LE);
+
+      // salida: blur
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

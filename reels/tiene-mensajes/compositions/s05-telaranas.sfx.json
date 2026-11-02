@@ -1,0 +1,4 @@
+[{"t":0,"sfx":"click","vol":0.3},
+{"t":0.55,"sfx":"key-press","vol":0.3},
+{"t":1.3,"sfx":"sparkle","vol":0.2,"max":0.8},
+{"t":1.5,"sfx":"whoosh-short","vol":0.2}]
