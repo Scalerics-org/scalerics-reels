@@ -1,0 +1,141 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-tienda"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-tienda"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-tienda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-tienda"] .tinta { stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-tienda"] .linea { fill: none; stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-tienda"] .crema { fill: none; stroke: #f4ead5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-tienda"] .afiche { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #ffd23f; -webkit-text-stroke: 10px #12061f; paint-order: stroke fill; text-shadow: 9px 9px 0 #c8102e; }
+    [data-composition-id="s03-tienda"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #b6ff3b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s03-tienda"] .sello { position: absolute; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #c8102e; border: 10px solid #c8102e; border-radius: 20px; background: rgba(18, 6, 31, 0.9); }
+  </style>
+  <div id="root" data-composition-id="s03-tienda" data-width="1080" data-height="1920" data-duration="5.1">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="5.1" data-track-index="0">
+      <div class="s03-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s03-tienda">
+    <path class="tinta" fill="#2a1546" d="M520 1240 V820 H1010 V1240 Z" />
+    <rect class="tinta" fill="#f4ead5" x="560" y="740" width="410" height="78" rx="10" />
+    <text x="765" y="793" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="40" fill="#12061f">TIENDA · CENTRO</text>
+    <g class="s03-toldo">
+      <path class="tinta" fill="#c8102e" d="M500 830 h530 l-20 70 H520 Z" />
+      <path fill="#f4ead5" d="M560 832 h50 l-4 66 h-50 Z M670 832 h50 l-2 66 h-50 Z M780 832 h50 v66 h-50 Z M890 832 h50 l2 66 h-50 Z" />
+      <path class="linea" d="M500 830 h530 l-20 70 H520 Z" />
+      <path class="tinta" fill="#c8102e" d="M520 900 q27 30 54 0 q27 30 54 0 q27 30 54 0 q27 30 54 0 q27 30 54 0 q27 30 54 0 q27 30 54 0 q27 30 54 0 q27 30 46 0 Z" />
+    </g>
+    <rect class="tinta" fill="#ffd9a0" x="560" y="950" width="410" height="250" rx="6" />
+    <g class="s03-maniqui">
+      <path class="tinta" fill="#7a4e2d" d="M760 1200 v-30 h10 v30 Z M730 1200 h70 v-8 h-70 Z" />
+      <g class="s03-capa-nueva">
+        <path class="s03-forro tinta" fill="#c8102e" d="M700 1168 L734 1000 L796 1000 L830 1168 Z" />
+        <path class="s03-izq tinta" fill="#160a24" d="M700 1168 L734 1000 L765 1000 L765 1168 Z" />
+        <path class="s03-der tinta" fill="#160a24" d="M830 1168 L796 1000 L765 1000 L765 1168 Z" />
+        <path class="tinta" fill="#c8102e" d="M736 1002 L714 960 L756 990 Z M794 1002 L816 960 L774 990 Z" />
+      </g>
+      <circle class="tinta" fill="#e3d3ad" cx="765" cy="978" r="22" />
+    </g>
+    <text class="s03-precio" x="900" y="1150" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="42" fill="#c8102e" transform="rotate(-8 900 1150)">lana!</text>
+  </g>
+  <g class="s03-brillos">
+    <path fill="#ffd23f" d="M680 1000 l6 -16 l6 16 l16 6 l-16 6 l-6 16 l-6 -16 l-16 -6 Z" />
+    <path fill="#ffd23f" d="M860 1060 l5 -13 l5 13 l13 5 l-13 5 l-5 13 l-5 -13 l-13 -5 Z" />
+    <path fill="#ffd23f" d="M840 960 l4 -10 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 Z" />
+  </g>
+          <g transform="translate(230 1240) scale(1.3 1.3)"><g class="s03-igor">
+  <path class="tinta" fill="#3b2a1a" d="M-62 0 h50 v-16 h-50Z M18 0 h50 v-16 h-50Z" />
+  <path class="tinta" fill="#7a4e2d" d="M-70 -14 L-84 -150 C-96 -260 24 -300 74 -222 C92 -184 84 -100 72 -14 Z" />
+  <path class="linea" d="M-80 -92 L76 -84" />
+  <path class="linea" d="M-20 -230 q20 30 4 70" opacity="0.6" />
+  <g class="s03-igor-cabeza">
+    <circle class="tinta" fill="#c9b98a" cx="76" cy="-232" r="48" />
+    <path class="tinta" fill="#3b2a1a" d="M32 -252 C34 -304 114 -304 120 -252 L108 -264 L98 -246 L86 -268 L74 -250 L62 -270 L50 -252 L40 -266 Z" />
+    <circle fill="#ffffff" stroke="#12061f" stroke-width="4" cx="92" cy="-230" r="15" />
+    <circle class="s03-igor-ojo" fill="#12061f" cx="96" cy="-230" r="6" />
+    <circle fill="#12061f" cx="60" cy="-234" r="5" />
+    <path class="linea" d="M64 -202 q16 8 32 -4" />
+    <path fill="#ffffff" stroke="#12061f" stroke-width="2" d="M78 -200 v8 h6 v-9 Z" />
+  </g>
+  <g class="s03-perg">
+    <path class="tinta" fill="#f4ead5" d="M104 -196 h70 v150 h-70 Z" />
+    <path class="tinta" fill="#e3d3ad" d="M98 -204 h82 v14 h-82 Z M98 -52 h82 v14 h-82 Z" />
+    <path class="linea" stroke-width="3" d="M114 -170 h50 M114 -150 h40 M114 -130 h50 M114 -110 h34 M114 -90 h46" />
+    <circle class="tinta" fill="#c9b98a" cx="110" cy="-120" r="13" />
+  </g>
+</g></g>
+        </svg>
+        <div class="etiqueta s03-e1">tienda del centro</div>
+        <div class="etiqueta s03-e2">forrada en rojo</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-tienda";
+      const DUR = 5.1;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, from = 0.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s03-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 1000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const sale = (el, t) => tl.to(el, { opacity: 0, scale: 0.85, duration: 0.2, ease: "power2.in" }, t);
+      // etiquetas: varios .etiqueta; muestra(el, t) apaga la que estaba y prende esta
+      let etActual = null;
+      const muestra = (el, t) => {
+        if (etActual) tl.to(etActual, { opacity: 0, y: -10, duration: 0.12 }, t - 0.12);
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out", immediateRender: false }, t);
+        etActual = el;
+      };
+
+
+      const TIENDA = 0.8, CAPAS = 2.09, LANA = 2.4, ROJO = 3.52;
+      tl.fromTo(q(".s03-igor"), { x: -160, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s03-perg"), { scaleY: 0.2 }, { scaleY: 1, svgOrigin: "140 -196", duration: 0.4, ease: "back.out(2)" }, 0.1);
+      tl.to(q(".s03-igor-cabeza"), { rotation: 4, svgOrigin: "60 -190", duration: 0.25, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0.3);
+      // la tienda aparece en "tienda"
+      gsap.set(q(".s03-tienda"), { opacity: 0 });
+      tl.fromTo(q(".s03-tienda"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.5)", immediateRender: false }, TIENDA - 0.1);
+      tl.fromTo(q(".s03-toldo"), { scaleY: 0 }, { scaleY: 1, svgOrigin: "765 830", duration: 0.35, ease: "back.out(2)", immediateRender: false }, TIENDA + 0.15);
+      muestra(q(".s03-e1"), 1.2);
+      // capas de lana: el maniquí con la capa
+      pop(q(".s03-maniqui"), CAPAS - 0.05, 0.4);
+      pop(q(".s03-precio"), LANA, 0.4);
+      // forradas en rojo: se abre
+      tl.to(q(".s03-izq"), { scaleX: 0.25, svgOrigin: "702 1100", duration: 0.3, ease: "back.out(2)" }, ROJO - 0.3);
+      tl.to(q(".s03-der"), { scaleX: 0.25, svgOrigin: "828 1100", duration: 0.3, ease: "back.out(2)" }, ROJO - 0.3);
+      qa(".s03-brillos path").forEach((b, i) => {
+        gsap.set(b, { opacity: 0 });
+        tl.fromTo(b, { opacity: 0, scale: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.25, ease: "back.out(3)", immediateRender: false }, ROJO + i * 0.1);
+        tl.to(b, { rotation: 90, transformOrigin: "50% 50%", duration: 0.8, ease: "none" }, ROJO + 0.25 + i * 0.1);
+      });
+      muestra(q(".s03-e2"), ROJO);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

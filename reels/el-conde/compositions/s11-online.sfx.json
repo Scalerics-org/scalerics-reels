@@ -1,0 +1,43 @@
+[
+ {
+  "t": 0.05,
+  "sfx": "whoosh",
+  "vol": 0.2
+ },
+ {
+  "t": 1.13,
+  "sfx": "pop",
+  "vol": 0.25
+ },
+ {
+  "t": 1.5,
+  "sfx": "click-soft",
+  "vol": 0.3
+ },
+ {
+  "t": 3.3,
+  "sfx": "whoosh-cinematic",
+  "vol": 0.25,
+  "max": 0.8
+ },
+ {
+  "t": 4.78,
+  "sfx": "sparkle",
+  "vol": 0.3
+ },
+ {
+  "t": 5.95,
+  "sfx": "click",
+  "vol": 0.35
+ },
+ {
+  "t": 6.15,
+  "sfx": "moneda",
+  "vol": 0.35
+ },
+ {
+  "t": 6.55,
+  "sfx": "ping",
+  "vol": 0.25
+ }
+]

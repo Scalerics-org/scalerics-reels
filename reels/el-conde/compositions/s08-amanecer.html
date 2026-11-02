@@ -1,0 +1,173 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-amanecer"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-amanecer"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-amanecer"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-amanecer"] .tinta { stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-amanecer"] .linea { fill: none; stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-amanecer"] .crema { fill: none; stroke: #f4ead5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-amanecer"] .afiche { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #ffd23f; -webkit-text-stroke: 10px #12061f; paint-order: stroke fill; text-shadow: 9px 9px 0 #c8102e; }
+    [data-composition-id="s08-amanecer"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #b6ff3b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s08-amanecer"] .sello { position: absolute; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #c8102e; border: 10px solid #c8102e; border-radius: 20px; background: rgba(18, 6, 31, 0.9); }
+  </style>
+  <div id="root" data-composition-id="s08-amanecer" data-width="1080" data-height="1920" data-duration="6.99">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="6.99" data-track-index="0">
+      <div class="s08-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs>
+            <linearGradient id="s08-cielo" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ff8a3d" /><stop offset="0.6" stop-color="#ffb36b" /><stop offset="1" stop-color="#ffd23f" />
+            </linearGradient>
+            <clipPath id="s08-ventclip"><path d="M320 960 V720 Q540 520 760 720 V960 Z" /></clipPath>
+            <clipPath id="s08-ataud-clip"><rect x="0" y="0" width="1080" height="1150" /></clipPath>
+          </defs>
+          <!-- ventana del castillo con el amanecer -->
+          <g clip-path="url(#s08-ventclip)">
+            <rect fill="#23104a" x="300" y="560" width="480" height="420" />
+            <rect class="s08-cielo" fill="url(#s08-cielo)" x="300" y="560" width="480" height="420" />
+            <g class="s08-sol"><circle class="tinta" fill="#ffd23f" cx="540" cy="930" r="90" /></g>
+            <path class="tinta" fill="#2a1546" d="M300 960 L420 900 L520 940 L640 880 L780 940 V980 H300 Z" />
+          </g>
+          <path class="tinta" fill="none" stroke-width="12" d="M320 960 V720 Q540 520 760 720 V960 Z" />
+          <path class="linea" stroke-width="8" d="M540 600 V960 M320 820 H760" />
+          <rect class="tinta" fill="#2a1546" x="300" y="958" width="480" height="26" />
+          <!-- retrato del primo -->
+          <g class="s08-retrato">
+            <path class="linea" stroke="#ffd23f" d="M912 600 L890 640 M912 600 L934 640" style="stroke:#ffd23f" />
+            <ellipse class="tinta" fill="#ffd23f" cx="912" cy="770" rx="118" ry="150" />
+            <ellipse class="tinta" fill="#3a1766" cx="912" cy="770" rx="94" ry="126" />
+            <g class="s08-primo">
+              <path class="tinta" fill="#c8102e" d="M850 880 L878 800 L946 800 L974 880 Z" />
+              <path class="tinta" fill="#dfe8c8" d="M872 760 C870 700 954 700 952 760 C950 796 930 812 912 814 C894 812 874 796 872 760 Z" />
+              <path class="tinta" fill="#160a24" d="M868 754 C862 680 962 680 956 754 C946 724 930 722 912 744 C894 722 878 724 868 754 Z" />
+              <path class="tinta" fill="#160a24" d="M884 778 Q912 766 940 778 Q912 788 884 778 Z" />
+              <path class="tinta" fill="#5a0c1c" d="M892 790 Q912 812 932 790 Z" />
+              <path class="linea" stroke-width="4" d="M888 752 l12 6 M936 752 l-12 6" />
+            </g>
+            <rect class="tinta" fill="#f4ead5" x="852" y="904" width="120" height="34" rx="6" />
+            <text x="912" y="930" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="22" fill="#12061f">PRIMO D.</text>
+          </g>
+          <text class="s08-ja1" x="730" y="660" font-family="Cinzel" font-weight="900" font-size="64" fill="#ffd23f" stroke="#12061f" stroke-width="8" paint-order="stroke" transform="rotate(-12 730 660)">JA</text>
+          <text class="s08-ja2" x="930" y="980" font-family="Cinzel" font-weight="900" font-size="56" fill="#ffd23f" stroke="#12061f" stroke-width="8" paint-order="stroke" transform="rotate(10 930 980)">JA JA</text>
+          <!-- ataúd con el Conde -->
+          <g clip-path="url(#s08-ataud-clip)"><g class="s08-baja"><g transform="translate(650 1160) scale(0.62 0.62)"><g class="s08-conde">
+  <g class="s08-cuerpo">
+    <path class="tinta" fill="#c8102e" d="M-160 0 L-112 -330 L112 -330 L160 0 Z" />
+    <path class="tinta" fill="#160a24" d="M-160 0 L-112 -330 L-62 -330 L-78 0 Z" />
+    <path class="tinta" fill="#160a24" d="M160 0 L112 -330 L62 -330 L78 0 Z" />
+    <path class="tinta" fill="#2a1546" d="M-62 0 L-56 -330 L56 -330 L62 0 Z" />
+    <path class="tinta" fill="#f4ead5" d="M-24 -330 L0 -246 L24 -330 Z" />
+    <circle class="tinta" fill="#ffd23f" cx="0" cy="-232" r="13" />
+    <path class="tinta" fill="#c8102e" d="M-58 -330 L-128 -452 L-40 -386 Z" />
+    <path class="tinta" fill="#c8102e" d="M58 -330 L128 -452 L40 -386 Z" />
+  </g>
+  <g class="s08-cabeza">
+    <path class="tinta" fill="#dfe8c8" d="M-56 -414 L-70 -440 L-48 -426 Z M56 -414 L70 -440 L48 -426 Z" />
+    <path class="tinta" fill="#dfe8c8" d="M-50 -405 C-52 -478 52 -478 50 -405 C48 -356 22 -334 0 -332 C-22 -334 -48 -356 -50 -405 Z" />
+    <path class="tinta" fill="#160a24" d="M-52 -410 C-58 -492 58 -492 52 -410 C44 -446 22 -450 0 -414 C-22 -450 -44 -446 -52 -410 Z" />
+    <path class="s08-cejas linea" d="M-36 -414 L-12 -402 M36 -414 L12 -402" />
+    <circle class="s08-ojo" fill="#c8102e" cx="-21" cy="-392" r="6.5" />
+    <circle class="s08-ojo" fill="#c8102e" cx="21" cy="-392" r="6.5" />
+    <path class="tinta s08-boca" fill="#5a0c1c" d="M-20 -368 Q0 -380 20 -368 Q22 -340 0 -336 Q-22 -340 -20 -368 Z" /><path fill="#ffffff" stroke="#12061f" stroke-width="2.5" stroke-linejoin="round" d="M-13 -370 l4 12 l4 -11 Z M5 -371 l4 11 l4 -12 Z" />
+  </g>
+  
+</g></g></g></g>
+          <path class="tinta" fill="#5a3520" d="M420 1160 L470 1100 L880 1100 L920 1160 L880 1236 L470 1236 Z" />
+          <path class="linea" d="M640 1120 v80 M610 1150 h60" stroke="#ffd23f" style="stroke:#ffd23f" />
+          <g class="s08-tapa"><path class="tinta" fill="#7a4e2d" d="M420 1100 L470 1060 L880 1060 L920 1100 Z" /></g>
+          <g transform="translate(160 1240) scale(0.95 0.95)"><g class="s08-igor">
+  <path class="tinta" fill="#3b2a1a" d="M-62 0 h50 v-16 h-50Z M18 0 h50 v-16 h-50Z" />
+  <path class="tinta" fill="#7a4e2d" d="M-70 -14 L-84 -150 C-96 -260 24 -300 74 -222 C92 -184 84 -100 72 -14 Z" />
+  <path class="linea" d="M-80 -92 L76 -84" />
+  <path class="linea" d="M-20 -230 q20 30 4 70" opacity="0.6" />
+  <g class="s08-igor-cabeza">
+    <circle class="tinta" fill="#c9b98a" cx="76" cy="-232" r="48" />
+    <path class="tinta" fill="#3b2a1a" d="M32 -252 C34 -304 114 -304 120 -252 L108 -264 L98 -246 L86 -268 L74 -250 L62 -270 L50 -252 L40 -266 Z" />
+    <circle fill="#ffffff" stroke="#12061f" stroke-width="4" cx="92" cy="-230" r="15" />
+    <circle class="s08-igor-ojo" fill="#12061f" cx="96" cy="-230" r="6" />
+    <circle fill="#12061f" cx="60" cy="-234" r="5" />
+    <path class="linea" d="M64 -202 q16 8 32 -4" />
+    <path fill="#ffffff" stroke="#12061f" stroke-width="2" d="M78 -200 v8 h6 v-9 Z" />
+  </g>
+  <g class="s08-brazo"><path class="tinta" fill="#7a4e2d" d="M50 -160 C110 -170 170 -190 220 -230 L232 -214 C186 -170 120 -144 50 -136 Z" /><circle class="tinta" fill="#c9b98a" cx="230" cy="-226" r="15" /></g>
+</g></g>
+        </svg>
+        <div class="etiqueta s08-e1">otra noche sin capa</div>
+        <div class="etiqueta s08-e2">primo d. · 600 años</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-amanecer";
+      const DUR = 6.99;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, from = 0.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s08-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 1000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const sale = (el, t) => tl.to(el, { opacity: 0, scale: 0.85, duration: 0.2, ease: "power2.in" }, t);
+      // etiquetas: varios .etiqueta; muestra(el, t) apaga la que estaba y prende esta
+      let etActual = null;
+      const muestra = (el, t) => {
+        if (etActual) tl.to(etActual, { opacity: 0, y: -10, duration: 0.12 }, t - 0.12);
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out", immediateRender: false }, t);
+        etActual = el;
+      };
+
+
+      const SALIENDO = 0.88, SOL = 1.44, OTRA = 2.25, CAPA = 3.23, PRIMO = 4.67, DRAC = 4.95, REIR = 5.86;
+      tl.fromTo(q(".s08-igor"), { x: -100, opacity: 0.5 }, { x: 0, opacity: 1, duration: 0.3 }, 0);
+      gsap.set(q(".s08-brazo"), { opacity: 0 });
+      tl.set(q(".s08-brazo"), { opacity: 1 }, 0.3);
+      tl.fromTo(q(".s08-brazo"), { rotation: 40 }, { rotation: 0, svgOrigin: "50 -150", duration: 0.25, ease: "back.out(2)", immediateRender: false }, 0.3);
+      // el cielo se pone naranja y sale el sol
+      tl.fromTo(q(".s08-cielo"), { opacity: 0 }, { opacity: 1, duration: 1.6, ease: "power1.inOut" }, 0.2);
+      tl.fromTo(q(".s08-sol"), { y: 200 }, { y: 0, duration: 2.2, ease: "power2.out" }, SALIENDO - 0.4);
+      tl.to(q(".s08-igor"), { x: 4, duration: 0.05, yoyo: true, repeat: 11, ease: "none" }, SOL);
+      // el Conde salta al ataúd y la tapa baja
+      tl.fromTo(q(".s08-baja"), { y: 0 }, { y: -60, duration: 0.18, ease: "power2.out" }, OTRA - 0.1);
+      tl.to(q(".s08-baja"), { y: 420, duration: 0.45, ease: "power2.in" }, OTRA + 0.25);
+      gsap.set(q(".s08-tapa"), { rotation: -60, svgOrigin: "420 1100" });
+      tl.to(q(".s08-tapa"), { rotation: -8, svgOrigin: "420 1100", duration: 0.5, ease: "power2.in" }, OTRA + 0.6);
+      tl.to(q(".s08-tapa"), { rotation: 0, svgOrigin: "420 1100", duration: 0.12, ease: "power2.in" }, CAPA + 0.1);
+      golpe(CAPA + 0.22, 10);
+      muestra(q(".s08-e1"), CAPA);
+      // el primo Drácula se ríe desde el cuadro
+      tl.fromTo(q(".s08-retrato"), { opacity: 0.25 }, { opacity: 1, duration: 0.2, immediateRender: true }, PRIMO - 0.2);
+      tl.to(q(".s08-retrato"), { scale: 1.08, svgOrigin: "912 770", duration: 0.15, yoyo: true, repeat: 1 }, DRAC);
+      tl.to(q(".s08-primo"), { y: -8, duration: 0.08, yoyo: true, repeat: 17, ease: "none" }, DRAC + 0.2);
+      pop(q(".s08-ja1"), DRAC + 0.3, 0.3);
+      pop(q(".s08-ja2"), REIR - 0.1, 0.3);
+      tl.to(q(".s08-retrato"), { rotation: 4, svgOrigin: "912 600", duration: 0.1, yoyo: true, repeat: 7 }, REIR);
+      muestra(q(".s08-e2"), DRAC + 0.1);
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

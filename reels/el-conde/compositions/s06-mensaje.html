@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-mensaje"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-mensaje"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-mensaje"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-mensaje"] .tinta { stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-mensaje"] .linea { fill: none; stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-mensaje"] .crema { fill: none; stroke: #f4ead5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-mensaje"] .afiche { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #ffd23f; -webkit-text-stroke: 10px #12061f; paint-order: stroke fill; text-shadow: 9px 9px 0 #c8102e; }
+    [data-composition-id="s06-mensaje"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #b6ff3b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-mensaje"] .sello { position: absolute; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #c8102e; border: 10px solid #c8102e; border-radius: 20px; background: rgba(18, 6, 31, 0.9); }
+
+    [data-composition-id="s06-mensaje"] .s06-cel { position: absolute; left: 420px; top: 600px; width: 450px; height: 640px; background: #f4ead5; border: 7px solid #12061f; border-radius: 48px; box-shadow: 12px 12px 0 #12061f; overflow: hidden; }
+    [data-composition-id="s06-mensaje"] .s06-barra { position: absolute; left: 0; right: 0; top: 0; height: 104px; background: #2a1546; display: flex; align-items: center; gap: 16px; padding: 20px 0 0 26px; }
+    [data-composition-id="s06-mensaje"] .s06-avatar { width: 58px; height: 58px; border-radius: 50%; background: #c8102e; border: 4px solid #f4ead5; font-family: "Cinzel", serif; font-weight: 900; font-size: 30px; color: #f4ead5; text-align: center; line-height: 52px; }
+    [data-composition-id="s06-mensaje"] .s06-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; color: #f4ead5; line-height: 1.1; }
+    [data-composition-id="s06-mensaje"] .s06-nombre small { display: block; font-weight: 400; font-size: 20px; color: #b9a6e0; }
+    [data-composition-id="s06-mensaje"] .s06-burb { position: absolute; max-width: 330px; padding: 14px 20px 30px; border: 4px solid #12061f; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.2; color: #12061f; }
+    [data-composition-id="s06-mensaje"] .s06-burb i { position: absolute; right: 16px; bottom: 6px; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 18px; color: #6d5f86; }
+    [data-composition-id="s06-mensaje"] .s06-yo { right: 22px; top: 140px; background: #b6ff3b; border-bottom-right-radius: 6px; }
+    [data-composition-id="s06-mensaje"] .s06-ella1 { left: 22px; top: 330px; background: #ffffff; border-bottom-left-radius: 6px; }
+    [data-composition-id="s06-mensaje"] .s06-ella2 { left: 22px; top: 430px; background: #ffffff; border-bottom-left-radius: 6px; }
+    [data-composition-id="s06-mensaje"] .s06-visto { position: absolute; right: 30px; top: 300px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; color: #2a8bd8; }
+    [data-composition-id="s06-mensaje"] .s06-cursor { display: inline-block; width: 3px; height: 30px; background: #12061f; vertical-align: -4px; }
+  </style>
+  <div id="root" data-composition-id="s06-mensaje" data-width="1080" data-height="1920" data-duration="4.21">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="4.21" data-track-index="0">
+      <div class="s06-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(170 1240) scale(1.05 1.05)"><g class="s06-igor">
+  <path class="tinta" fill="#3b2a1a" d="M-62 0 h50 v-16 h-50Z M18 0 h50 v-16 h-50Z" />
+  <path class="tinta" fill="#7a4e2d" d="M-70 -14 L-84 -150 C-96 -260 24 -300 74 -222 C92 -184 84 -100 72 -14 Z" />
+  <path class="linea" d="M-80 -92 L76 -84" />
+  <path class="linea" d="M-20 -230 q20 30 4 70" opacity="0.6" />
+  <g class="s06-igor-cabeza">
+    <circle class="tinta" fill="#c9b98a" cx="76" cy="-232" r="48" />
+    <path class="tinta" fill="#3b2a1a" d="M32 -252 C34 -304 114 -304 120 -252 L108 -264 L98 -246 L86 -268 L74 -250 L62 -270 L50 -252 L40 -266 Z" />
+    <circle fill="#ffffff" stroke="#12061f" stroke-width="4" cx="92" cy="-230" r="15" />
+    <circle class="s06-igor-ojo" fill="#12061f" cx="96" cy="-230" r="6" />
+    <circle fill="#12061f" cx="60" cy="-234" r="5" />
+    <path class="linea" d="M64 -202 q16 8 32 -4" />
+    <path fill="#ffffff" stroke="#12061f" stroke-width="2" d="M78 -200 v8 h6 v-9 Z" />
+  </g>
+  <g class="s06-brazo"><path class="tinta" fill="#7a4e2d" d="M40 -170 C90 -170 130 -180 150 -200 L162 -184 C140 -160 96 -146 36 -146 Z" /><circle class="tinta" fill="#c9b98a" cx="160" cy="-196" r="15" /></g>
+</g></g>
+        </svg>
+        <div class="s06-cel">
+          <div class="s06-barra"><div class="s06-avatar">T</div><div class="s06-nombre">tienda.centro<small>activa hace 9 h</small></div></div>
+          <div class="s06-burb s06-yo"><span class="s06-tp">Buenas</span> <span class="s06-tp">noches.</span> <span class="s06-tp">¿Me</span> <span class="s06-tp">venden</span> <span class="s06-tp">una</span> <span class="s06-tp">capa?</span><i>3:12</i></div>
+          <div class="s06-visto">Visto 10:46</div>
+          <div class="s06-burb s06-ella1">Hola.<i>10:47</i></div>
+          <div class="s06-burb s06-ella2">Pasá por el local.<i>10:47</i></div>
+        </div>
+        <div class="etiqueta s06-e1">por instagram, 3:12</div>
+        <div class="etiqueta s06-e2">respuesta: 10:47</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-mensaje";
+      const DUR = 4.21;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, from = 0.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s06-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 1000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const sale = (el, t) => tl.to(el, { opacity: 0, scale: 0.85, duration: 0.2, ease: "power2.in" }, t);
+      // etiquetas: varios .etiqueta; muestra(el, t) apaga la que estaba y prende esta
+      let etActual = null;
+      const muestra = (el, t) => {
+        if (etActual) tl.to(etActual, { opacity: 0, y: -10, duration: 0.12 }, t - 0.12);
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out", immediateRender: false }, t);
+        etActual = el;
+      };
+
+
+      const ESCRIBI = 0.16, INSTA = 0.72, HOLA = 2.14, PASA = 3.0;
+      tl.fromTo(q(".s06-igor"), { x: -120, opacity: 0.4 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s06-cel"), { y: 300, rotation: 8, opacity: 0.4 }, { y: 0, rotation: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, 0);
+      // se tipea el mensaje del ayudante (revela por recorte)
+      gsap.set(q(".s06-yo"), { opacity: 0 });
+      tl.fromTo(q(".s06-yo"), { opacity: 0, scale: 0.7, transformOrigin: "100% 100%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, ESCRIBI + 0.1);
+      qa(".s06-tp").forEach((w, i) => { gsap.set(w, { opacity: 0 }); tl.set(w, { opacity: 1 }, ESCRIBI + 0.25 + i * 0.15); });
+      tl.to(q(".s06-brazo"), { y: -6, duration: 0.08, yoyo: true, repeat: 11 }, ESCRIBI + 0.2);
+      muestra(q(".s06-e1"), INSTA);
+      // visto... y la respuesta a la mañana
+      pop(q(".s06-visto"), 1.6, 0.8);
+      pop(q(".s06-ella1"), HOLA, 0.6);
+      pop(q(".s06-ella2"), PASA, 0.6);
+      tl.to(q(".s06-igor-cabeza"), { rotation: -10, svgOrigin: "60 -190", duration: 0.2 }, PASA + 0.2);
+      tl.to(q(".s06-ella2"), { scale: 1.08, duration: 0.12, yoyo: true, repeat: 1 }, 3.5);
+      muestra(q(".s06-e2"), PASA + 0.1);
+
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

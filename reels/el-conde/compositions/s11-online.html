@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-online"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-online"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-online"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-online"] .tinta { stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-online"] .linea { fill: none; stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-online"] .crema { fill: none; stroke: #f4ead5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-online"] .afiche { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #ffd23f; -webkit-text-stroke: 10px #12061f; paint-order: stroke fill; text-shadow: 9px 9px 0 #c8102e; }
+    [data-composition-id="s11-online"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #b6ff3b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-online"] .sello { position: absolute; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #c8102e; border: 10px solid #c8102e; border-radius: 20px; background: rgba(18, 6, 31, 0.9); }
+
+    [data-composition-id="s11-online"] .s11-cel { position: absolute; left: 300px; top: 600px; width: 480px; height: 650px; background: #f4ead5; border: 7px solid #12061f; border-radius: 52px; box-shadow: 12px 12px 0 #5ce611; overflow: hidden; }
+    [data-composition-id="s11-online"] .s11-barra { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #12061f; display: flex; align-items: center; justify-content: space-between; padding: 18px 28px 0; }
+    [data-composition-id="s11-online"] .s11-nombre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; color: #f4ead5; }
+    [data-composition-id="s11-online"] .s11-abierto { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 20px; letter-spacing: 0.1em; color: #12061f; background: #5ce611; border-radius: 30px; padding: 6px 14px; }
+    [data-composition-id="s11-online"] .s11-foto { position: absolute; left: 28px; right: 28px; top: 120px; height: 270px; background: #3a1766; border: 4px solid #12061f; border-radius: 22px; }
+    [data-composition-id="s11-online"] .s11-prod { position: absolute; left: 32px; top: 410px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 32px; color: #12061f; line-height: 1.2; }
+    [data-composition-id="s11-online"] .s11-prod small { display: block; font-weight: 400; font-size: 22px; color: #6d5f86; }
+    [data-composition-id="s11-online"] .s11-boton { position: absolute; left: 32px; right: 32px; top: 520px; height: 84px; background: #5ce611; border: 5px solid #12061f; border-radius: 22px; text-align: center; line-height: 74px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 36px; color: #12061f; }
+    [data-composition-id="s11-online"] .s11-vendido { position: absolute; left: 60px; right: 60px; top: 300px; padding: 18px 0; background: #12061f; border: 5px solid #5ce611; border-radius: 22px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 36px; color: #5ce611; }
+    [data-composition-id="s11-online"] .s11-reloj { position: absolute; left: 700px; top: 560px; padding: 10px 20px; background: #12061f; border: 5px solid #5ce611; border-radius: 18px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; color: #5ce611; transform: rotate(6deg); }
+  </style>
+  <div id="root" data-composition-id="s11-online" data-width="1080" data-height="1920" data-duration="7.55">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="7.55" data-track-index="0">
+      <div class="s11-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-cama">
+            <rect class="tinta" fill="#23104a" x="640" y="640" width="260" height="220" rx="12" />
+            <circle class="tinta" fill="#ffd23f" cx="720" cy="720" r="40" />
+            <path class="linea" stroke="#f4ead5" style="stroke:#f4ead5" stroke-width="5" d="M770 640 V860 M640 750 H900" />
+            <path class="tinta" fill="#7a4e2d" d="M150 1240 V960 h40 V1240 Z M890 1240 V1060 h40 V1240 Z" />
+            <rect class="tinta" fill="#f4ead5" x="170" y="1080" width="740" height="110" rx="20" />
+            <path class="tinta" fill="#9ec5ff" d="M380 1080 C420 1000 860 1010 900 1080 V1190 H380 Z" />
+            <path class="linea" stroke-width="4" d="M460 1040 V1190 M560 1030 V1190 M660 1030 V1190 M760 1036 V1190" />
+            <rect class="tinta" fill="#f4ead5" x="200" y="1030" width="150" height="70" rx="30" />
+            <circle class="tinta" fill="#e8c9a0" cx="300" cy="1010" r="48" />
+            <path class="tinta" fill="#c8102e" d="M252 1000 Q270 930 350 950 L380 1000 L340 990 Q300 980 252 1000 Z" />
+            <circle fill="#12061f" cx="320" cy="1006" r="5" />
+            <g class="s11-colmillos"><path fill="#fff" stroke="#12061f" stroke-width="3" d="M310 1030 l5 14 l5 -14 Z M326 1030 l5 14 l5 -14 Z" /></g>
+            <rect class="tinta" fill="#12061f" x="380" y="930" width="56" height="94" rx="10" transform="rotate(-20 408 977)" />
+            <rect fill="#5ce611" x="388" y="940" width="40" height="72" rx="4" transform="rotate(-20 408 977)" opacity="0.9" />
+            <path class="tinta" fill="#e8c9a0" d="M400 1010 q-30 10 -40 40 l30 10 Z" />
+          </g>
+          <text class="s11-zz" x="200" y="900" font-family="Lexend" font-weight="700" font-size="40" fill="#f4ead5">3:00</text>
+        </svg>
+        <div class="s11-cel">
+          <div class="s11-barra"><div class="s11-nombre">tienda.centro</div><div class="s11-abierto">ABIERTA 24 H</div></div>
+          <div class="s11-foto">
+            <svg viewBox="0 0 420 270" style="position:absolute;left:0;top:0;width:100%;height:100%" aria-hidden="true">
+              <circle cx="330" cy="70" r="36" fill="#ffd23f" stroke="#12061f" stroke-width="4" />
+              <path fill="#c8102e" stroke="#12061f" stroke-width="5" stroke-linejoin="round" d="M130 250 L176 70 L244 70 L290 250 Z" />
+              <path fill="#160a24" stroke="#12061f" stroke-width="5" stroke-linejoin="round" d="M130 250 L176 70 L196 70 L180 250 Z M290 250 L244 70 L224 70 L240 250 Z" />
+              <path fill="#c8102e" stroke="#12061f" stroke-width="5" stroke-linejoin="round" d="M178 72 L150 30 L200 60 Z M242 72 L270 30 L220 60 Z" />
+            </svg>
+          </div>
+          <div class="s11-prod">Capa de lana, forro rojo<small>Envío a todo el país</small></div>
+          <div class="s11-boton">Comprar</div>
+          <div class="s11-vendido">¡Vendida!</div>
+        </div>
+        <div class="s11-reloj">3:00 AM</div>
+        <div class="etiqueta s11-e1">no son vampiros</div>
+        <div class="etiqueta s11-e2">compran de noche</div>
+        <div class="etiqueta s11-e3">tienda online</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-online";
+      const DUR = 7.55;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, from = 0.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 1000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const sale = (el, t) => tl.to(el, { opacity: 0, scale: 0.85, duration: 0.2, ease: "power2.in" }, t);
+      // etiquetas: varios .etiqueta; muestra(el, t) apaga la que estaba y prende esta
+      let etActual = null;
+      const muestra = (el, t) => {
+        if (etActual) tl.to(etActual, { opacity: 0, y: -10, duration: 0.12 }, t - 0.12);
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out", immediateRender: false }, t);
+        etActual = el;
+      };
+
+
+      const NO = 0.61, VAMP = 1.13, COMPRAN = 2.0, EN = 3.22, TIENDAS = 4.78, SOLAS = 6.0, HORA = 6.52;
+      tl.fromTo(q(".s11-cama"), { opacity: 0.5, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      // se le caen los colmillos: no son vampiros
+      tl.to(q(".s11-colmillos"), { y: 240, rotation: 90, svgOrigin: "323 1036", duration: 0.5, ease: "power2.in" }, VAMP);
+      tl.to(q(".s11-colmillos"), { opacity: 0, duration: 0.1 }, VAMP + 0.5);
+      muestra(q(".s11-e1"), NO);
+      pop(q(".s11-zz"), COMPRAN, 0.4);
+      muestra(q(".s11-e2"), COMPRAN);
+      tl.to(q(".s11-zz"), { y: -10, duration: 0.3, yoyo: true, repeat: 2 }, COMPRAN + 0.3);
+      // entra la tienda online a pantalla
+      tl.to([q(".s11-cama"), q(".s11-zz")], { opacity: 0.15, duration: 0.3 }, EN);
+      gsap.set(q(".s11-cel"), { opacity: 0 });
+      tl.fromTo(q(".s11-cel"), { opacity: 0, y: 400, rotation: -6 }, { opacity: 1, y: 0, rotation: 0, duration: 0.45, ease: "back.out(1.3)", immediateRender: false }, EN + 0.1);
+      tl.fromTo(q(".s11-abierto"), { scale: 1 }, { scale: 1.15, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, TIENDAS);
+      muestra(q(".s11-e3"), TIENDAS);
+      // vende sola: el botón se aprieta solo
+      tl.to(q(".s11-boton"), { scale: 0.92, duration: 0.1, yoyo: true, repeat: 1 }, SOLAS - 0.1);
+      pop(q(".s11-vendido"), SOLAS + 0.15, 0.5);
+      pop(q(".s11-reloj"), HORA, 0.4);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

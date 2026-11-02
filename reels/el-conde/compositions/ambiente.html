@@ -1,0 +1,98 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-estrella { fill: #f4ead5; }
+    [data-composition-id="ambiente"] .amb-murci { fill: #12061f; stroke: #f4ead5; stroke-width: 3; stroke-linejoin: round; }
+    [data-composition-id="ambiente"] .amb-niebla { fill: none; stroke: #b9a6e0; stroke-width: 26; stroke-linecap: round; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1100px at 540px 920px, rgba(18, 6, 31, 0) 56%, rgba(18, 6, 31, 0.88) 100%); }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 60px; top: 1600px; font-family: "Cinzel", serif; font-weight: 800; font-size: 34px; letter-spacing: 0.12em; color: #ffd23f; opacity: 0.7; text-align: right; line-height: 1.15; }
+    [data-composition-id="ambiente"] .amb-rotulo small { display: block; font-weight: 600; font-size: 22px; letter-spacing: 0.3em; color: #f4ead5; }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #e9e2ff; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="75.84">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="75.84" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="amb-estrellas"></g>
+        <!-- niebla baja: tres trazos anchos y transparentes que se corren -->
+        <g class="amb-n1" opacity="0.10"><path class="amb-niebla" d="M-600 1420 q150 -30 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0" /></g>
+        <g class="amb-n2" opacity="0.07"><path class="amb-niebla" d="M-600 1500 q150 -24 300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0 t300 0" /></g>
+        <!-- murciélagos que cruzan -->
+        <g class="amb-m1"><g class="amb-ala1"><path class="amb-murci" d="M0 0 C-14 -16 -34 -20 -54 -10 C-44 -6 -40 2 -42 10 C-32 2 -22 4 -14 10 C-10 4 -4 2 0 4 C4 2 10 4 14 10 C22 4 32 2 42 10 C40 2 44 -6 54 -10 C34 -20 14 -16 0 0 Z" /></g></g>
+        <g class="amb-m2"><g class="amb-ala2"><path class="amb-murci" d="M0 0 C-14 -16 -34 -20 -54 -10 C-44 -6 -40 2 -42 10 C-32 2 -22 4 -14 10 C-10 4 -4 2 0 4 C4 2 10 4 14 10 C22 4 32 2 42 10 C40 2 44 -6 54 -10 C34 -20 14 -16 0 0 Z" /></g></g>
+      </svg>
+      <div class="amb-vineta"></div>
+      <div class="amb-rotulo" data-layout-ignore>EL CONDE<small>en technicolor</small></div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 75.84;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+
+      // estrellas: posiciones fijas (pseudoaleatorias deterministas) arriba y a los costados
+      const est = q(".amb-estrellas");
+      let s = 7;
+      const rnd = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
+      const estrellas = [];
+      for (let i = 0; i < 34; i++) {
+        const x = 30 + rnd() * 1020;
+        const y = rnd() < 0.5 ? 470 + rnd() * 120 : 600 + rnd() * 760;
+        if (x > 160 && x < 920 && y > 600) continue; // no encima del dibujo
+        const c = document.createElementNS(NS, "circle");
+        c.setAttribute("class", "amb-estrella");
+        c.setAttribute("cx", x.toFixed(0));
+        c.setAttribute("cy", y.toFixed(0));
+        c.setAttribute("r", (2 + rnd() * 2.5).toFixed(1));
+        c.setAttribute("opacity", "0.35");
+        est.appendChild(c);
+        estrellas.push([c, rnd() * 3]);
+      }
+      estrellas.forEach(([c, d]) => {
+        for (let t = d; t < DUR - 1; t += 3.4) tl.to(c, { opacity: 0.95, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      });
+
+      // niebla que se corre (múltiplos de 300 para que no se note el borde)
+      tl.fromTo(q(".amb-n1"), { x: 0 }, { x: 300 * 6, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".amb-n2"), { x: 0 }, { x: -300 * 4, duration: DUR, ease: "none" }, 0);
+
+      // aleteo (cantidad fija de repeticiones)
+      tl.fromTo(q(".amb-ala1"), { scaleY: 1 }, { scaleY: 0.35, svgOrigin: "0 0", duration: 0.14, yoyo: true, repeat: Math.floor(DUR / 0.14) - 1, ease: "sine.inOut" }, 0);
+      tl.fromTo(q(".amb-ala2"), { scaleY: 0.4 }, { scaleY: 1, svgOrigin: "0 0", duration: 0.17, yoyo: true, repeat: Math.floor(DUR / 0.17) - 1, ease: "sine.inOut" }, 0);
+      // cruces: [murciélago, inicio, de x, a x, y desde, y hasta, escala]
+      gsap.set([q(".amb-m1"), q(".amb-m2")], { x: -200, y: 520 });
+      [
+        [".amb-m1", 0.2, -120, 1200, 540, 470, 1],
+        [".amb-m2", 7.0, 1200, -120, 1420, 1380, 0.8],
+        [".amb-m1", 14.5, -120, 1200, 1460, 1500, 0.9],
+        [".amb-m2", 23.0, 1200, -120, 520, 560, 1.1],
+        [".amb-m1", 34.0, 1200, -120, 1440, 1400, 0.8],
+        [".amb-m2", 41.5, -120, 1200, 520, 480, 0.9],
+        [".amb-m1", 50.0, 1200, -120, 1460, 1420, 0.8],
+        [".amb-m2", 66.0, -120, 1200, 1430, 1470, 0.9],
+        [".amb-m1", 70.5, 1200, -120, 520, 500, 1.1],
+      ].forEach(([sel, t, x0, x1, y0, y1, k]) => {
+        tl.fromTo(q(sel), { x: x0, y: y0, scale: k }, { x: x1, y: y1, scale: k, duration: 3.2, ease: "none", immediateRender: false }, t);
+      });
+
+      // relámpagos (segundos globales): "siete" del gancho, "local?" del grito, "vampiros?"
+      [4.95, 30.38, 47.3].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.5, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0.05, duration: 0.06 }, t + 0.05);
+        tl.to(q(".amb-flash"), { opacity: 0.35, duration: 0.03 }, t + 0.13);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.17);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

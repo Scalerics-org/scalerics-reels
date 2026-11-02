@@ -1,0 +1,155 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-hace"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-hace"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-hace"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-hace"] .tinta { stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-hace"] .linea { fill: none; stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-hace"] .s01-titulo { position: absolute; left: 0; right: 0; top: 590px; text-align: center; font-family: "Cinzel", serif; font-weight: 900; font-size: 150px; line-height: 1; white-space: nowrap; color: #ffd23f; -webkit-text-stroke: 10px #12061f; paint-order: stroke fill; text-shadow: 10px 10px 0 #c8102e; }
+    [data-composition-id="s01-hace"] .s01-cartel { position: absolute; left: 612px; top: 930px; width: 360px; padding: 20px 0 14px; background: #f4ead5; border: 6px solid #12061f; border-radius: 14px; text-align: center; font-family: "Cinzel", serif; font-weight: 900; font-size: 58px; line-height: 1; color: #c8102e; box-shadow: 8px 8px 0 #12061f; }
+    [data-composition-id="s01-hace"] .s01-cartel i { display: block; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.28em; color: #12061f; margin-top: 8px; }
+    [data-composition-id="s01-hace"] .s01-sello { position: absolute; left: 600px; top: 1130px; width: 390px; padding: 12px 0 6px; border: 10px solid #c8102e; border-radius: 20px; text-align: center; font-family: "Cinzel", serif; font-weight: 900; font-size: 104px; line-height: 1; color: #c8102e; background: rgba(18, 6, 31, 0.9); }
+  </style>
+  <div id="root" data-composition-id="s01-hace" data-width="1080" data-height="1920" data-duration="6.13">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="6.13" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- luna gigante -->
+          <circle class="s01-luna tinta" fill="#ffd23f" cx="790" cy="840" r="230" />
+          <circle fill="#f0bd2a" cx="720" cy="780" r="34" opacity="0.7" />
+          <circle fill="#f0bd2a" cx="860" cy="920" r="22" opacity="0.7" />
+          <circle fill="#f0bd2a" cx="850" cy="740" r="16" opacity="0.7" />
+          <!-- colina y castillo recortado -->
+          <g class="s01-castillo">
+            <path class="tinta" fill="#1c0d30" d="M480 1330 C560 1180 700 1110 820 1110 C930 1110 1040 1170 1100 1240 L1100 1330 Z" />
+            <path class="tinta" fill="#12061f" d="M690 1130 V930 h-20 l40 -70 l40 70 h-20 V1000 h60 V880 h-22 l52 -96 l52 96 h-22 V1000 h50 V950 h-18 l36 -62 l36 62 h-18 V1130 Z" />
+            <rect class="s01-ventana" fill="#b6ff3b" x="702" y="960" width="14" height="24" rx="7" />
+            <rect class="s01-ventana" fill="#b6ff3b" x="808" y="900" width="16" height="28" rx="8" />
+            <rect class="s01-ventana" fill="#b6ff3b" x="900" y="990" width="14" height="24" rx="7" />
+            <path fill="#12061f" d="M800 1130 v-60 q16 -20 32 0 v60 Z" />
+          </g>
+          <!-- EL CONDE (pies en 0,0) -->
+          <g transform="translate(300 1320) scale(1.08)"><g class="s01-conde">
+            <g class="s01-cuerpo">
+              <path class="tinta" fill="#c8102e" d="M-160 0 L-112 -330 L112 -330 L160 0 Z" />
+              <path class="tinta" fill="#160a24" d="M-160 0 L-112 -330 L-62 -330 L-78 0 Z" />
+              <path class="tinta" fill="#160a24" d="M160 0 L112 -330 L62 -330 L78 0 Z" />
+              <path class="tinta" fill="#1c0d30" d="M-62 0 L-56 -330 L56 -330 L62 0 Z" />
+              <path class="tinta" fill="#f4ead5" d="M-24 -330 L0 -246 L24 -330 Z" />
+              <circle class="tinta" fill="#ffd23f" cx="0" cy="-232" r="13" />
+              <path class="tinta" fill="#c8102e" d="M-58 -330 L-128 -452 L-40 -386 Z" />
+              <path class="tinta" fill="#c8102e" d="M58 -330 L128 -452 L40 -386 Z" />
+            </g>
+            <g class="s01-cabeza">
+              <path class="tinta" fill="#dfe8c8" d="M-56 -414 L-70 -440 L-48 -426 Z M56 -414 L70 -440 L48 -426 Z" />
+              <path class="tinta" fill="#dfe8c8" d="M-50 -405 C-52 -478 52 -478 50 -405 C48 -356 22 -334 0 -332 C-22 -334 -48 -356 -50 -405 Z" />
+              <path class="tinta" fill="#160a24" d="M-52 -410 C-58 -492 58 -492 52 -410 C44 -446 22 -450 0 -414 C-22 -450 -44 -446 -52 -410 Z" />
+              <path class="s01-cejas linea" d="M-36 -414 L-12 -402 M36 -414 L12 -402" />
+              <circle fill="#c8102e" cx="-21" cy="-392" r="6.5" />
+              <circle fill="#c8102e" cx="21" cy="-392" r="6.5" />
+              <path class="linea" d="M-18 -362 Q0 -352 18 -362" />
+              <path fill="#ffffff" stroke="#12061f" stroke-width="2.5" stroke-linejoin="round" d="M-12 -359 l4 11 l4 -10 Z M4 -358 l4 10 l4 -11 Z" />
+            </g>
+            <!-- brazo con la bolsita de monedas -->
+            <g class="s01-brazo">
+              <path class="tinta" fill="#1c0d30" d="M50 -300 C100 -290 150 -270 180 -250 L168 -228 C140 -246 96 -262 46 -268 Z" />
+              <circle class="tinta" fill="#dfe8c8" cx="184" cy="-236" r="16" />
+              <path class="tinta" fill="#7a4e2d" d="M168 -220 C150 -180 160 -140 200 -136 C240 -140 250 -180 230 -220 Z" />
+              <path class="linea" d="M172 -222 q28 10 56 0" />
+              <text x="199" y="-166" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="34" fill="#ffd23f">$</text>
+            </g>
+          </g></g>
+          <!-- monedas que saltan -->
+          <g class="s01-monedas">
+            <circle class="tinta" fill="#ffd23f" cx="520" cy="1080" r="14" />
+            <circle class="tinta" fill="#ffd23f" cx="548" cy="1060" r="12" />
+            <circle class="tinta" fill="#ffd23f" cx="500" cy="1050" r="11" />
+          </g>
+          <!-- cordeles del cartel -->
+          <path class="s01-cordel linea" stroke="#f4ead5" d="M650 840 L680 934 M930 840 L900 934" style="stroke: #f4ead5" />
+        </svg>
+        <div class="s01-titulo">400 AÑOS</div>
+        <div class="s01-cartel"><span class="s01-abierto">ABIERTO</span><span class="s01-cerrado" style="display:none">CERRADO</span><i>TIENDA · CENTRO</i></div>
+        <div class="s01-sello" data-layout-allow-overlap>19:00</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-hace";
+      const DUR = 6.13;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      const pop = (el, t, from = 0.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+
+      const CUATRO = 0.23, COMPRARTE = 2.03, CERRAS = 3.91, SIETE = 4.96;
+
+      // cuadro 0: el afiche ya está a medio aparecer y la cámara se acerca
+      tl.fromTo(q(".s01-escenario"), { scale: 1.07 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "40% 60%" }, 0);
+      tl.fromTo(q(".s01-luna"), { scale: 0.85, opacity: 0.6 }, { scale: 1, opacity: 1, svgOrigin: "790 840", duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-castillo"), { y: 60, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-conde"), { y: 40, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.5)" }, 0);
+      qa(".s01-ventana").forEach((v, i) => tl.to(v, { opacity: 0.4, duration: 0.12, yoyo: true, repeat: 5, ease: "none" }, 0.5 + i * 0.4));
+      // respira la capa
+      tl.to(q(".s01-cuerpo"), { scaleX: 1.03, svgOrigin: "0 0", duration: 0.8, yoyo: true, repeat: 6, ease: "sine.inOut" }, 0.3);
+
+      // "cuatrocientos años"
+      tl.fromTo(q(".s01-titulo"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in" }, CUATRO - 0.08);
+      golpe(CUATRO + 0.12, 12);
+      tl.to(q(".s01-titulo"), { y: -6, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, CUATRO + 0.4);
+
+      // "comprarte algo": saca la bolsita
+      gsap.set(q(".s01-brazo"), { opacity: 0 });
+      tl.fromTo(q(".s01-brazo"), { opacity: 0, rotation: 30 }, { opacity: 1, rotation: 0, svgOrigin: "50 -290", duration: 0.35, ease: "back.out(2)", immediateRender: false }, COMPRARTE - 0.1);
+      tl.to(q(".s01-brazo"), { rotation: -6, svgOrigin: "50 -290", duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, COMPRARTE + 0.3);
+      qa(".s01-monedas circle").forEach((c, i) => {
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { opacity: 0, y: 30 }, { opacity: 1, y: -30 - i * 12, duration: 0.3, ease: "power2.out", immediateRender: false }, COMPRARTE + 0.3 + i * 0.08);
+        tl.to(c, { y: 60, opacity: 0, duration: 0.35, ease: "power2.in" }, COMPRARTE + 0.62 + i * 0.08);
+      });
+
+      // el cartel de la tienda: ABIERTO -> se da vuelta -> CERRADO
+      pop(q(".s01-cartel"), 2.8, 0.7);
+      gsap.set(q(".s01-cordel"), { opacity: 0 });
+      tl.to(q(".s01-cordel"), { opacity: 1, duration: 0.2 }, 2.8);
+      tl.to(q(".s01-cartel"), { rotation: 3, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 3.1);
+      tl.to(q(".s01-cartel"), { rotationY: 90, duration: 0.14, ease: "power2.in" }, CERRAS - 0.05);
+      tl.set(q(".s01-abierto"), { display: "none" }, CERRAS + 0.09);
+      tl.set(q(".s01-cerrado"), { display: "inline" }, CERRAS + 0.09);
+      tl.to(q(".s01-cartel"), { rotationY: 0, duration: 0.18, ease: "back.out(2)" }, CERRAS + 0.09);
+      // el Conde se indigna
+      tl.to(q(".s01-cejas"), { y: 6, duration: 0.15 }, CERRAS);
+      tl.to(q(".s01-brazo"), { opacity: 0, rotation: 30, svgOrigin: "50 -290", duration: 0.2 }, CERRAS + 0.1);
+
+      // "siete": sello 19:00
+      gsap.set(q(".s01-sello"), { rotation: -8 });
+      slam(q(".s01-sello"), SIETE);
+      golpe(SIETE + 0.05, 18);
+      tl.to(q(".s01-cabeza"), { rotation: -4, svgOrigin: "0 -340", duration: 0.08, yoyo: true, repeat: 5 }, SIETE + 0.05);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

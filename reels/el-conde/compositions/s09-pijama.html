@@ -1,0 +1,142 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-pijama"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-pijama"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-pijama"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-pijama"] .tinta { stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-pijama"] .linea { fill: none; stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-pijama"] .crema { fill: none; stroke: #f4ead5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-pijama"] .afiche { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #ffd23f; -webkit-text-stroke: 10px #12061f; paint-order: stroke fill; text-shadow: 9px 9px 0 #c8102e; }
+    [data-composition-id="s09-pijama"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #b6ff3b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-pijama"] .sello { position: absolute; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #c8102e; border: 10px solid #c8102e; border-radius: 20px; background: rgba(18, 6, 31, 0.9); }
+  </style>
+  <div id="root" data-composition-id="s09-pijama" data-width="1080" data-height="1920" data-duration="7.02">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="7.02" data-track-index="0">
+      <div class="s09-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s09-card s09-c1">
+    <rect class="tinta" fill="#f4ead5" x="250" y="610" width="300" height="290" rx="22" />
+    <rect class="tinta" fill="#23104a" x="290" y="640" width="220" height="190" rx="10" />
+    <circle class="tinta" fill="#ffd23f" cx="350" cy="700" r="34" />
+    <circle fill="#23104a" cx="368" cy="690" r="30" />
+    <path class="linea" stroke="#f4ead5" style="stroke:#f4ead5" stroke-width="4" d="M400 640 V830 M290 735 H510" />
+    <rect class="tinta" fill="#12061f" x="410" y="760" width="92" height="50" rx="8" />
+    <text x="456" y="796" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="30" fill="#b6ff3b">3:00</text>
+    <text x="400" y="878" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#12061f">DE NOCHE</text>
+  </g>
+          <g class="s09-card s09-c2">
+    <rect class="tinta" fill="#f4ead5" x="600" y="610" width="300" height="290" rx="22" />
+    <path class="tinta" fill="#9ec5ff" d="M690 840 V740 q60 -26 120 0 V840 Z" />
+    <path class="linea" stroke-width="4" d="M714 732 V840 M738 726 V840 M762 726 V840 M786 732 V840" />
+    <circle class="tinta" fill="#e8c9a0" cx="750" cy="702" r="38" />
+    <path class="tinta" fill="#c8102e" d="M710 690 Q750 630 810 650 L836 696 L790 680 Q750 676 710 690 Z" />
+    <circle class="tinta" fill="#f4ead5" cx="838" cy="700" r="12" />
+    <path class="linea" stroke-width="4" d="M732 704 q6 5 12 0 M756 704 q6 5 12 0" />
+    <path class="linea" stroke-width="4" d="M742 722 q8 4 16 0" />
+    <text x="750" y="878" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#12061f">EN PIJAMA</text>
+  </g>
+          <g class="s09-card s09-c3">
+    <rect class="tinta" fill="#f4ead5" x="250" y="935" width="300" height="290" rx="22" />
+    <path class="tinta" fill="#e8c9a0" d="M320 1165 C310 1105 330 1075 360 1065 L460 1065 L470 1165 Z" />
+    <rect class="tinta" fill="#12061f" x="350" y="959" width="100" height="180" rx="16" />
+    <rect fill="#b6ff3b" x="362" y="979" width="76" height="130" rx="6" />
+    <rect fill="#12061f" x="374" y="995" width="52" height="40" rx="4" />
+    <rect fill="#12061f" x="374" y="1047" width="52" height="14" rx="4" />
+    <rect fill="#c8102e" x="374" y="1075" width="52" height="20" rx="6" />
+    <path class="tinta" fill="#e8c9a0" d="M344 1085 q-20 10 -6 30 l30 -6 Z" />
+    <text x="400" y="1203" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#12061f">DESDE EL CELULAR</text>
+  </g>
+          <g class="s09-card s09-c4">
+    <rect class="tinta" fill="#f4ead5" x="600" y="935" width="300" height="290" rx="22" />
+    <path class="tinta" fill="#b6ff3b" d="M670 995 L740 965 L790 985 L840 1045 L830 1105 L790 1145 L720 1150 L680 1125 L654 1065 Z" />
+    <g class="s09-pin"><path class="tinta" fill="#c8102e" d="M740 1055 C710 1025 710 985 740 985 C770 985 770 1025 740 1055 Z" /><circle fill="#f4ead5" cx="740" cy="1011" r="10" /></g>
+    <circle fill="#12061f" cx="730" cy="1131" r="7" />
+    <text x="750" y="1203" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#12061f">DESDE EL INTERIOR</text>
+  </g>
+          <g transform="translate(120 1240) scale(0.8 0.8)"><g class="s09-igor">
+  <path class="tinta" fill="#3b2a1a" d="M-62 0 h50 v-16 h-50Z M18 0 h50 v-16 h-50Z" />
+  <path class="tinta" fill="#7a4e2d" d="M-70 -14 L-84 -150 C-96 -260 24 -300 74 -222 C92 -184 84 -100 72 -14 Z" />
+  <path class="linea" d="M-80 -92 L76 -84" />
+  <path class="linea" d="M-20 -230 q20 30 4 70" opacity="0.6" />
+  <g class="s09-igor-cabeza">
+    <circle class="tinta" fill="#c9b98a" cx="76" cy="-232" r="48" />
+    <path class="tinta" fill="#3b2a1a" d="M32 -252 C34 -304 114 -304 120 -252 L108 -264 L98 -246 L86 -268 L74 -250 L62 -270 L50 -252 L40 -266 Z" />
+    <circle fill="#ffffff" stroke="#12061f" stroke-width="4" cx="92" cy="-230" r="15" />
+    <circle class="s09-igor-ojo" fill="#12061f" cx="96" cy="-230" r="6" />
+    <circle fill="#12061f" cx="60" cy="-234" r="5" />
+    <path class="linea" d="M64 -202 q16 8 32 -4" />
+    <path fill="#ffffff" stroke="#12061f" stroke-width="2" d="M78 -200 v8 h6 v-9 Z" />
+  </g>
+  <g class="s09-brazo"><path class="tinta" fill="#7a4e2d" d="M50 -160 C100 -170 140 -186 170 -206 L182 -190 C150 -166 110 -150 50 -138 Z" /><circle class="tinta" fill="#c9b98a" cx="180" cy="-200" r="15" /><path class="linea" stroke="#ffd23f" style="stroke:#ffd23f" stroke-width="7" d="M184 -204 L290 -290" /></g>
+</g></g>
+        </svg>
+        <div class="afiche s09-unico" style="top: 600px; font-size: 100px;">NO ES EL<br />ÚNICO</div>
+        <div class="etiqueta s09-e1">así compra mucha gente</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-pijama";
+      const DUR = 7.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, from = 0.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s09-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 1000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const sale = (el, t) => tl.to(el, { opacity: 0, scale: 0.85, duration: 0.2, ease: "power2.in" }, t);
+      // etiquetas: varios .etiqueta; muestra(el, t) apaga la que estaba y prende esta
+      let etActual = null;
+      const muestra = (el, t) => {
+        if (etActual) tl.to(etActual, { opacity: 0, y: -10, duration: 0.12 }, t - 0.12);
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out", immediateRender: false }, t);
+        etActual = el;
+      };
+
+
+      const UNICO = 1.2, MUCHA = 1.91, NOCHE = 3.44, PIJAMA = 4.16, CEL = 5.2, INT = 6.08;
+      tl.fromTo(q(".s09-igor"), { x: 200, y: -230, scale: 1.85, opacity: 0.5 }, { x: 240, y: -230, scale: 1.85, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.to(q(".s09-igor"), { x: 0, y: 0, scale: 1, duration: 0.4, ease: "power3.inOut" }, 3.0);
+      tl.fromTo(q(".s09-brazo"), { rotation: 30 }, { rotation: 0, svgOrigin: "50 -150", duration: 0.3, ease: "back.out(2)" }, 0.2);
+      tl.to(q(".s09-igor-cabeza"), { rotation: 6, svgOrigin: "60 -190", duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.4);
+      gsap.set(q(".s09-unico"), { lineHeight: 1.05 });
+      slam(q(".s09-unico"), UNICO);
+      tl.to(q(".s09-unico"), { scale: 1.05, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, UNICO + 0.2);
+      tl.to(q(".s09-unico"), { opacity: 0, y: -40, duration: 0.25, ease: "power2.in" }, NOCHE - 0.3);
+      muestra(q(".s09-e1"), MUCHA);
+      [[".s09-c1", NOCHE], [".s09-c2", PIJAMA], [".s09-c3", CEL], [".s09-c4", INT]].forEach(([s, t]) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, t - 0.08);
+      });
+      tl.fromTo(q(".s09-pin"), { y: -60 }, { y: 0, duration: 0.35, ease: "bounce.out", immediateRender: false }, INT + 0.1);
+      tl.to(q(".s09-brazo"), { rotation: 12, svgOrigin: "50 -150", duration: 0.12, yoyo: true, repeat: 1 }, CEL);
+
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

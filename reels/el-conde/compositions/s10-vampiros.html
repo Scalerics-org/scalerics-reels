@@ -1,0 +1,190 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-vampiros"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-vampiros"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-vampiros"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-vampiros"] .tinta { stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-vampiros"] .linea { fill: none; stroke: #12061f; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-vampiros"] .crema { fill: none; stroke: #f4ead5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-vampiros"] .afiche { position: absolute; left: 0; right: 0; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #ffd23f; -webkit-text-stroke: 10px #12061f; paint-order: stroke fill; text-shadow: 9px 9px 0 #c8102e; }
+    [data-composition-id="s10-vampiros"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #b6ff3b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s10-vampiros"] .sello { position: absolute; text-align: center; font-family: "Cinzel", serif; font-weight: 900; line-height: 1; white-space: nowrap; color: #c8102e; border: 10px solid #c8102e; border-radius: 20px; background: rgba(18, 6, 31, 0.9); }
+
+    [data-composition-id="s10-vampiros"] .s10-hor { position: absolute; left: 470px; width: 540px; padding: 12px 0; background: #12061f; border: 5px solid #ffd23f; border-radius: 16px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.12em; color: #f4ead5; }
+    [data-composition-id="s10-vampiros"] .s10-hor b { font-family: "Cinzel", serif; font-weight: 900; font-size: 44px; letter-spacing: 0; color: #ffd23f; margin-left: 14px; }
+    [data-composition-id="s10-vampiros"] .s10-h1 { top: 640px; }
+    [data-composition-id="s10-vampiros"] .s10-h2 { top: 750px; }
+  </style>
+  <div id="root" data-composition-id="s10-vampiros" data-width="1080" data-height="1920" data-duration="4.96">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="4.96" data-track-index="0">
+      <div class="s10-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s10-burbuja">
+            <circle class="tinta" fill="#f4ead5" cx="380" cy="900" r="16" />
+            <circle class="tinta" fill="#f4ead5" cx="420" cy="860" r="24" />
+            <path class="tinta" fill="#f4ead5" d="M470 720 C450 640 560 600 620 640 C660 590 780 590 820 640 C880 600 1000 640 980 720 C1030 760 1010 880 960 900 C960 960 860 980 820 950 C780 990 660 990 620 950 C560 980 470 940 480 890 C420 870 420 760 470 720 Z" />
+            <g class="s10-vamps"><g transform="translate(560 900) scale(0.9)">
+      <path class="tinta" fill="#c8102e" d="M-44 -70 L-62 -110 L-20 -86 Z M44 -70 L62 -110 L20 -86 Z" /><path class="tinta" fill="#160a24" d="M-56 0 L-40 -80 L40 -80 L56 0 Z" />
+      <path class="tinta" fill="#2a1546" d="M-38 0 V-60 q38 -30 76 0 V0 Z" />
+      <circle class="tinta" fill="#dfe8c8" cx="0" cy="-124" r="32" />
+      <path class="tinta" fill="#160a24" d="M-32 -128 C-34 -164 34 -164 32 -128 C20 -146 -20 -146 -32 -128 Z" />
+      <circle fill="#12061f" cx="-11" cy="-128" r="4" /><circle fill="#12061f" cx="11" cy="-128" r="4" />
+      <path fill="#fff" stroke="#12061f" stroke-width="2" d="M-8 -118 l3 8 l3 -8 Z M2 -118 l3 8 l3 -8 Z" />
+    </g><g transform="translate(680 900) scale(0.9)">
+      <path class="tinta" fill="#c8102e" d="M-44 -70 L-62 -110 L-20 -86 Z M44 -70 L62 -110 L20 -86 Z" /><path class="tinta" fill="#160a24" d="M-56 0 L-40 -80 L40 -80 L56 0 Z" />
+      <path class="tinta" fill="#2a1546" d="M-38 0 V-60 q38 -30 76 0 V0 Z" />
+      <circle class="tinta" fill="#dfe8c8" cx="0" cy="-124" r="32" />
+      <path class="tinta" fill="#160a24" d="M-32 -128 C-34 -164 34 -164 32 -128 C20 -146 -20 -146 -32 -128 Z" />
+      <circle fill="#12061f" cx="-11" cy="-128" r="4" /><circle fill="#12061f" cx="11" cy="-128" r="4" />
+      <path fill="#fff" stroke="#12061f" stroke-width="2" d="M-8 -118 l3 8 l3 -8 Z M2 -118 l3 8 l3 -8 Z" />
+    </g><g transform="translate(800 900) scale(0.9)">
+      <path class="tinta" fill="#c8102e" d="M-44 -70 L-62 -110 L-20 -86 Z M44 -70 L62 -110 L20 -86 Z" /><path class="tinta" fill="#160a24" d="M-56 0 L-40 -80 L40 -80 L56 0 Z" />
+      <path class="tinta" fill="#2a1546" d="M-38 0 V-60 q38 -30 76 0 V0 Z" />
+      <circle class="tinta" fill="#dfe8c8" cx="0" cy="-124" r="32" />
+      <path class="tinta" fill="#160a24" d="M-32 -128 C-34 -164 34 -164 32 -128 C20 -146 -20 -146 -32 -128 Z" />
+      <circle fill="#12061f" cx="-11" cy="-128" r="4" /><circle fill="#12061f" cx="11" cy="-128" r="4" />
+      <path fill="#fff" stroke="#12061f" stroke-width="2" d="M-8 -118 l3 8 l3 -8 Z M2 -118 l3 8 l3 -8 Z" />
+    </g><g transform="translate(920 900) scale(0.9)">
+      <path class="tinta" fill="#c8102e" d="M-44 -70 L-62 -110 L-20 -86 Z M44 -70 L62 -110 L20 -86 Z" /><path class="tinta" fill="#160a24" d="M-56 0 L-40 -80 L40 -80 L56 0 Z" />
+      <path class="tinta" fill="#2a1546" d="M-38 0 V-60 q38 -30 76 0 V0 Z" />
+      <circle class="tinta" fill="#dfe8c8" cx="0" cy="-124" r="32" />
+      <path class="tinta" fill="#160a24" d="M-32 -128 C-34 -164 34 -164 32 -128 C20 -146 -20 -146 -32 -128 Z" />
+      <circle fill="#12061f" cx="-11" cy="-128" r="4" /><circle fill="#12061f" cx="11" cy="-128" r="4" />
+      <path fill="#fff" stroke="#12061f" stroke-width="2" d="M-8 -118 l3 8 l3 -8 Z M2 -118 l3 8 l3 -8 Z" />
+    </g></g>
+          </g>
+          <g class="s10-oficina">
+            <rect class="tinta" fill="#f4ead5" x="470" y="1110" width="540" height="40" rx="6" />
+            <g transform="translate(560 1150) scale(1.0)">
+      
+      <path class="tinta" fill="#4a7bd0" d="M-38 0 V-60 q38 -30 76 0 V0 Z" /><path class="tinta" fill="#c8102e" d="M0 -80 l-8 10 l8 40 l8 -40 Z" />
+      <circle class="tinta" fill="#e8c9a0" cx="0" cy="-124" r="32" />
+      <path class="tinta" fill="#160a24" d="M-32 -128 C-34 -164 34 -164 32 -128 C20 -146 -20 -146 -32 -128 Z" />
+      <circle fill="#12061f" cx="-11" cy="-128" r="4" /><circle fill="#12061f" cx="11" cy="-128" r="4" />
+      <path class="linea" stroke-width="4" d="M-8 -116 q8 5 16 0" />
+    </g><g transform="translate(690 1150) scale(1.0)">
+      
+      <path class="tinta" fill="#7a4e2d" d="M-38 0 V-60 q38 -30 76 0 V0 Z" /><path class="tinta" fill="#c8102e" d="M0 -80 l-8 10 l8 40 l8 -40 Z" />
+      <circle class="tinta" fill="#e8c9a0" cx="0" cy="-124" r="32" />
+      <path class="tinta" fill="#160a24" d="M-32 -128 C-34 -164 34 -164 32 -128 C20 -146 -20 -146 -32 -128 Z" />
+      <circle fill="#12061f" cx="-11" cy="-128" r="4" /><circle fill="#12061f" cx="11" cy="-128" r="4" />
+      <path class="linea" stroke-width="4" d="M-8 -116 q8 5 16 0" />
+    </g><g transform="translate(820 1150) scale(1.0)">
+      
+      <path class="tinta" fill="#1f7a4a" d="M-38 0 V-60 q38 -30 76 0 V0 Z" /><path class="tinta" fill="#c8102e" d="M0 -80 l-8 10 l8 40 l8 -40 Z" />
+      <circle class="tinta" fill="#e8c9a0" cx="0" cy="-124" r="32" />
+      <path class="tinta" fill="#160a24" d="M-32 -128 C-34 -164 34 -164 32 -128 C20 -146 -20 -146 -32 -128 Z" />
+      <circle fill="#12061f" cx="-11" cy="-128" r="4" /><circle fill="#12061f" cx="11" cy="-128" r="4" />
+      <path class="linea" stroke-width="4" d="M-8 -116 q8 5 16 0" />
+    </g><g transform="translate(950 1150) scale(1.0)">
+      
+      <path class="tinta" fill="#6d5f86" d="M-38 0 V-60 q38 -30 76 0 V0 Z" /><path class="tinta" fill="#c8102e" d="M0 -80 l-8 10 l8 40 l8 -40 Z" />
+      <circle class="tinta" fill="#e8c9a0" cx="0" cy="-124" r="32" />
+      <path class="tinta" fill="#160a24" d="M-32 -128 C-34 -164 34 -164 32 -128 C20 -146 -20 -146 -32 -128 Z" />
+      <circle fill="#12061f" cx="-11" cy="-128" r="4" /><circle fill="#12061f" cx="11" cy="-128" r="4" />
+      <path class="linea" stroke-width="4" d="M-8 -116 q8 5 16 0" />
+    </g>
+            <rect class="tinta" fill="#f4ead5" x="470" y="1150" width="540" height="30" rx="6" />
+          </g>
+          <g transform="translate(220 1240) scale(0.85 0.85)"><g class="s10-conde">
+  <g class="s10-cuerpo">
+    <path class="tinta" fill="#c8102e" d="M-160 0 L-112 -330 L112 -330 L160 0 Z" />
+    <path class="tinta" fill="#160a24" d="M-160 0 L-112 -330 L-62 -330 L-78 0 Z" />
+    <path class="tinta" fill="#160a24" d="M160 0 L112 -330 L62 -330 L78 0 Z" />
+    <path class="tinta" fill="#2a1546" d="M-62 0 L-56 -330 L56 -330 L62 0 Z" />
+    <path class="tinta" fill="#f4ead5" d="M-24 -330 L0 -246 L24 -330 Z" />
+    <circle class="tinta" fill="#ffd23f" cx="0" cy="-232" r="13" />
+    <path class="tinta" fill="#c8102e" d="M-58 -330 L-128 -452 L-40 -386 Z" />
+    <path class="tinta" fill="#c8102e" d="M58 -330 L128 -452 L40 -386 Z" />
+  </g>
+  <g class="s10-cabeza">
+    <path class="tinta" fill="#dfe8c8" d="M-56 -414 L-70 -440 L-48 -426 Z M56 -414 L70 -440 L48 -426 Z" />
+    <path class="tinta" fill="#dfe8c8" d="M-50 -405 C-52 -478 52 -478 50 -405 C48 -356 22 -334 0 -332 C-22 -334 -48 -356 -50 -405 Z" />
+    <path class="tinta" fill="#160a24" d="M-52 -410 C-58 -492 58 -492 52 -410 C44 -446 22 -450 0 -414 C-22 -450 -44 -446 -52 -410 Z" />
+    <path class="s10-cejas linea" d="M-36 -414 L-12 -402 M36 -414 L12 -402" />
+    <circle class="s10-ojo" fill="#c8102e" cx="-21" cy="-392" r="6.5" />
+    <circle class="s10-ojo" fill="#c8102e" cx="21" cy="-392" r="6.5" />
+    <path class="linea" d="M-18 -362 Q0 -352 18 -362" /><path fill="#ffffff" stroke="#12061f" stroke-width="2.5" stroke-linejoin="round" d="M-12 -359 l4 11 l4 -10 Z M4 -358 l4 10 l4 -11 Z" />
+  </g>
+  
+</g></g>
+        </svg>
+        <div class="s10-hor s10-h1">TU LOCAL <b>9 a 19</b></div>
+        <div class="s10-hor s10-h2">TU CLIENTE <b>9 a 19</b></div>
+        <div class="sello s10-sello" style="left: 490px; top: 850px; width: 500px; font-size: 44px; padding: 12px 0 6px;" data-layout-allow-overlap>MISMO HORARIO</div>
+        <div class="etiqueta s10-e1">trabajan de 9 a 19</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-vampiros";
+      const DUR = 4.96;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, from = 0.6) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, t);
+      };
+      const slam = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const golpe = (t, f = 14) => {
+        [[-f, f * 0.6], [f * 0.8, -f * 0.5], [-f * 0.4, f * 0.2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-escenario"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      };
+      const dibujar = (el, t, d = 0.6) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 1000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      };
+      const sale = (el, t) => tl.to(el, { opacity: 0, scale: 0.85, duration: 0.2, ease: "power2.in" }, t);
+      // etiquetas: varios .etiqueta; muestra(el, t) apaga la que estaba y prende esta
+      let etActual = null;
+      const muestra = (el, t) => {
+        if (etActual) tl.to(etActual, { opacity: 0, y: -10, duration: 0.12 }, t - 0.12);
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out", immediateRender: false }, t);
+        etActual = el;
+      };
+
+
+      const TODOS = 0.52, VAMP = 0.82, NO = 2.13, TRABAJAN = 3.11, SIETE = 3.89;
+      tl.fromTo(q(".s10-conde"), { x: -80, opacity: 0.5 }, { x: 0, opacity: 1, duration: 0.3 }, 0);
+      tl.to(q(".s10-cabeza"), { rotation: 8, svgOrigin: "0 -340", duration: 0.4, ease: "sine.inOut" }, 0.1);
+      // burbuja de pensamiento con vampiros
+      gsap.set(q(".s10-burbuja"), { opacity: 0 });
+      tl.fromTo(q(".s10-burbuja"), { opacity: 0, scale: 0.6, transformOrigin: "20% 80%" }, { opacity: 1, scale: 1, transformOrigin: "20% 80%", duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, 0.05);
+      qa(".s10-vamps > g").forEach((g, i) => {
+        gsap.set(g, { opacity: 0 });
+        tl.to(g, { opacity: 1, duration: 0.15 }, TODOS + i * 0.1);
+      });
+      tl.to(q(".s10-vamps"), { y: -8, duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, VAMP);
+      // "No, amo": se borra la burbuja
+      tl.to(q(".s10-burbuja"), { opacity: 0, scale: 0.4, transformOrigin: "20% 80%", duration: 0.25, ease: "power2.in" }, NO);
+      tl.to(q(".s10-cabeza"), { rotation: 0, svgOrigin: "0 -340", duration: 0.2 }, NO);
+      // la gente trabaja hasta las siete
+      gsap.set(q(".s10-oficina"), { opacity: 0 });
+      tl.fromTo(q(".s10-oficina"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.5)", immediateRender: false }, NO + 0.35);
+      pop(q(".s10-h1"), TRABAJAN, 0.7);
+      pop(q(".s10-h2"), SIETE - 0.1, 0.7);
+      gsap.set(q(".s10-sello"), { rotation: -6 });
+      slam(q(".s10-sello"), SIETE + 0.45);
+      golpe(SIETE + 0.5, 12);
+      muestra(q(".s10-e1"), TRABAJAN);
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
