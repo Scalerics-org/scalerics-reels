@@ -1,0 +1,69 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/ascensor.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-giro"] .s11-capa, [data-composition-id="s11-giro"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-giro"] svg.s11-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-giro"] .s11-tag { left: 300px; top: 600px; }
+    [data-composition-id="s11-giro"] .s11-tranca { left: 470px; top: 960px; font-size: 54px; }
+    [data-composition-id="s11-giro"] .s11-cli { position: absolute; left: 490px; top: 820px; width: 300px; height: 96px; background: #fff6e3; border: 5px solid #14181d; border-radius: 18px; }
+    [data-composition-id="s11-giro"] .s11-cli i { position: absolute; left: 14px; top: 14px; width: 60px; height: 60px; border-radius: 50%; background: #e5303a; border: 4px solid #14181d; }
+    [data-composition-id="s11-giro"] .s11-cli b { position: absolute; left: 86px; top: 12px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 28px; color: #14181d; white-space: nowrap; }
+    [data-composition-id="s11-giro"] .s11-cli small { position: absolute; left: 86px; top: 50px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 18px; color: #6b7580; white-space: nowrap; }
+    [data-composition-id="s11-giro"] .s11-puerta { position: absolute; top: 790px; width: 150px; height: 160px; background: #b8c0c8; border: 5px solid #14181d; }
+  </style>
+  <div id="root" data-composition-id="s11-giro" data-width="1080" data-height="1920" data-duration="6.92">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="6.92" data-track-index="0">
+      <div class="s11-escenario">
+        <svg class="s11-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="as-tag s11-tag">NO ES MAL VENDEDOR</div>
+        <div class="s11-cli"><i></i><b>VALERIA</b><small>PLACARD · ABRIL</small></div>
+        <div class="s11-puerta s11-pi" style="left:410px"></div><div class="s11-puerta s11-pd" style="left:730px"></div>
+        <div class="as-sello s11-tranca">TRANCADA</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-giro";
+      const DUR = 6.92;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const svg = root.querySelector(".s11-svg");
+      svg.innerHTML = `<g class="s11-nube"><path d="M140 1000 C80 990 70 900 140 880 C120 800 220 760 270 800 C300 730 420 730 450 790 C510 760 580 820 550 880 C610 900 600 990 530 1000 Z" fill="#fff6e3" stroke="#14181d" stroke-width="8"/><circle cx="250" cy="1050" r="20" fill="#fff6e3" stroke="#14181d" stroke-width="6"/><circle cx="270" cy="1100" r="12" fill="#fff6e3" stroke="#14181d" stroke-width="5"/></g>` + [[220,890],[300,850],[380,880],[460,900],[260,950],[340,940],[420,955]].map(([x,y],i)=>`<g class="s11-cara"><circle cx="${x}" cy="${y}" r="26" fill="${i%2?AS.ACE:AS.PIEL}" stroke="${AS.INK}" stroke-width="5"/><circle cx="${x-8}" cy="${y-4}" r="4" fill="${AS.INK}"/><circle cx="${x+8}" cy="${y-4}" r="4" fill="${AS.INK}"/></g>`).join('') + `<g class="s11-posts">${AS.postit(130, 1150, -12, ["¿Gómez?"], { w: 150, fs: 34 })}${AS.postit(470, 1120, 10, ["llamar!!"], { w: 150, fs: 34 })}${AS.postit(150, 1330, 8, ["presup."], { w: 140, fs: 34 })}</g>` + `<g class="s11-r">${AS.ruben(300, 1560, 1.15, {"cara":"culpa","sudor":true})}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = AS.kit(tl, root);
+      const { q, qa } = K;
+      
+      const VENDEDOR = 0.49, CABEZA = 2.3, POSTITS = 3.12, CHATS = 3.85, ALGUNO = 5.17, TRANCADO = 6.07;
+      K.respirar(q(".s11-r"), 0, DUR, 5);
+      K.sudar(0, DUR);
+      K.pop(q(".s11-tag"), VENDEDOR);
+      tl.to(q(".s11-tag"), { opacity: 0, duration: 0.2 }, CABEZA - 0.3);
+      // la cabeza: una nube llena de clientes
+      K.popSvg(q(".s11-nube"), CABEZA - 0.1, "340 900", 0.4, 0.3);
+      qa(".s11-cara").forEach((c, i) => K.popSvg(c, CABEZA + i * 0.08, K.centro(c), 0.3, 0.2));
+      // los post-its se le pegan alrededor
+      qa(".s11-posts .as-post").forEach((p, i) => K.popSvg(p, POSTITS + i * 0.12, K.centro(p), 0.3, 1.6));
+      // los cinco chats vibran (los globitos de la nube tiemblan)
+      tl.fromTo(q(".s11-nube"), { x: 0 }, { x: 6, duration: 0.05, yoyo: true, repeat: 9, ease: "none", immediateRender: false }, CHATS);
+      // una clienta sale de la cabeza... y queda trancada entre dos puertas de ascensor
+      const cli = q(".s11-cli");
+      gsap.set(cli, { opacity: 0 });
+      tl.fromTo(cli, { opacity: 0, x: -300, scale: 0.5 }, { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)", immediateRender: false }, ALGUNO - 0.2);
+      gsap.set(q(".s11-pi"), { x: -260, opacity: 0 });
+      gsap.set(q(".s11-pd"), { x: 260, opacity: 0 });
+      tl.to(q(".s11-pi"), { x: 0, opacity: 1, duration: 0.35, ease: "power3.in" }, TRANCADO - 0.4);
+      tl.to(q(".s11-pd"), { x: 0, opacity: 1, duration: 0.35, ease: "power3.in" }, TRANCADO - 0.4);
+      K.sacudon(cli, TRANCADO - 0.05, 0.6);
+      K.sello(q(".s11-tranca"), TRANCADO + 0.1, 5);
+      
+      K.salida(q("#s11-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

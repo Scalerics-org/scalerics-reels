@@ -1,0 +1,125 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/ascensor.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .am-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 780px 1120px at 540px 900px, rgba(20, 24, 29, 0) 60%, rgba(20, 24, 29, 0.38) 100%); }
+    [data-composition-id="ambiente"] .am-rojo { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 900px 900px at 120px 120px, rgba(229, 48, 58, 0.55) 0%, rgba(229, 48, 58, 0.22) 45%, rgba(229, 48, 58, 0.1) 100%); }
+    [data-composition-id="ambiente"] .am-lampara { position: absolute; left: 44px; top: 44px; width: 280px; height: 150px; background: #14181d; border: 6px solid #6b7580; border-radius: 20px; box-shadow: 6px 8px 0 rgba(20, 24, 29, 0.35); }
+    [data-composition-id="ambiente"] .am-lampara svg { position: absolute; left: 14px; top: 16px; width: 110px; height: 110px; }
+    [data-composition-id="ambiente"] .am-lampara b { position: absolute; left: 128px; top: 34px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.14em; line-height: 1.3; color: #ff7a80; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-lampara b.am-ok { color: #5ce611; opacity: 0; }
+    [data-composition-id="ambiente"] .am-display { position: absolute; right: 44px; top: 44px; width: 300px; height: 150px; background: #14181d; border: 6px solid #6b7580; border-radius: 20px; box-shadow: 6px 8px 0 rgba(20, 24, 29, 0.35); }
+    [data-composition-id="ambiente"] .am-display svg { position: absolute; inset: 0; width: 300px; height: 150px; }
+    [data-composition-id="ambiente"] .am-chapas { position: absolute; left: 44px; top: 1572px; width: 640px; height: 100px; }
+    [data-composition-id="ambiente"] .am-ch { position: absolute; left: 0; top: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .am-ch .am-pl { display: inline-block; padding: 12px 26px 10px; background: #14181d; border-left: 14px solid currentColor; border-radius: 8px; box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3); }
+    [data-composition-id="ambiente"] .am-ch b { display: block; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 36px; line-height: 1; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-ch small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.14em; color: #fff6e3; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-placa { position: absolute; right: 44px; top: 1560px; width: 300px; height: 112px; background: #dfe4e8; border: 5px solid #14181d; border-radius: 10px; box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3); text-align: center; }
+    [data-composition-id="ambiente"] .am-placa b { position: absolute; left: 0; right: 0; top: 14px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1; color: #14181d; white-space: nowrap; letter-spacing: 0.02em; }
+    [data-composition-id="ambiente"] .am-placa small { position: absolute; left: 0; right: 0; top: 74px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 19px; letter-spacing: 0.12em; color: #6b7580; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-mas { position: absolute; right: 44px; top: 1500px; padding: 8px 16px 6px; background: #e5303a; border: 4px solid #14181d; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 21px; letter-spacing: 0.08em; color: #fff6e3; white-space: nowrap; opacity: 0; }
+    [data-composition-id="ambiente"] .am-mas.am-verde { background: #14181d; border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #fff6e3; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="72.6">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="72.6" data-track-index="0">
+      <div class="am-rojo"></div>
+      <div class="am-vineta"></div>
+      <div class="am-lampara">
+        <svg viewBox="0 0 110 110" aria-hidden="true"><path d="M10 90 L100 90" stroke="#6b7580" stroke-width="10" stroke-linecap="round"/><path class="am-domo" d="M18 88 Q18 20 55 20 Q92 20 92 88 Z" fill="#a81c25" stroke="#fff6e3" stroke-width="5"/><path d="M34 70 Q34 40 52 34" fill="none" stroke="#fff6e3" stroke-width="6" stroke-linecap="round" opacity="0.6"/></svg>
+        <b class="am-alarma">ALARMA<br/>ACTIVADA</b>
+        <b class="am-ok" style="position:absolute">EN<br/>SERVICIO</b>
+      </div>
+      <div class="am-display"><svg class="am-dsvg" viewBox="0 0 300 150" aria-hidden="true"></svg></div>
+      <div class="am-chapas">
+        <div class="am-ch am-chr" style="color:#ff9a3c"><div class="am-pl"><b>RUBÉN</b><small>CARPINTERÍA A MEDIDA</small></div></div>
+        <div class="am-ch am-chv" style="color:#ff7a80"><div class="am-pl"><b>VALERIA</b><small>PIDIÓ PRESUPUESTO EN ABRIL</small></div></div>
+        <div class="am-ch am-chk" style="color:#ffd166"><div class="am-pl"><b>EMERGENCIAS</b><small>INTERCOMUNICADOR</small></div></div>
+        <div class="am-ch am-cho" style="color:#5ce611"><div class="am-pl"><b>SCALERICS</b><small>CRM A MEDIDA</small></div></div>
+      </div>
+      <div class="am-mas am-rojo-tag">+1 PRESUPUESTO SIN LLAMAR</div>
+      <div class="am-mas am-verde">CLIENTES AL DÍA</div>
+      <div class="am-placa"><b>CAPACIDAD<br/>4 PERSONAS</b><small>300 KG · ASCENSOR</small></div>
+      <div class="am-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 72.6;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // segundos globales (los reescribe armar.mjs desde assets/voice/palabras.json)
+      const TURNOS = [[0,"r"],[4.91,"v"],[8.15,"r"],[11.14,"v"],[12.78,"r"],[15.2,"v"],[16.62,"r"],[20.57,"r"],[23.85,"v"],[25.97,"k"],[32.18,"r"],[33.8,"k"],[36.32,"v"],[42.82,"r"],[44.93,"v"],[46.52,"o"],[62.33,"r"],[63.34,"v"],[65.29,"o"]];
+      const M = {"TRANCA":0.33,"FIN1":3.17,"ABRIL":7.09,"MUY":44.93,"GIRO":46.52,"SCALERICS":53.49,"AHORA":62.33,"LLAMA":63.34,"CTA":65.29};
+
+      // display de pisos: flecha y dígito de 7 segmentos (4, trancado; sube a 7 al final)
+      const pisos = ["4", "5", "6", "7"];
+      q(".am-dsvg").innerHTML =
+        `<text x="26" y="40" font-family="IBM Plex Mono" font-weight="600" font-size="20" fill="#a3acb5" letter-spacing="3">PISO</text>` +
+        `<path class="am-flecha" d="M60 64 L88 104 L32 104 Z" fill="${AS.NAR}"/>` +
+        pisos.map((p, i) => AS.seg7(p, 150, 26, 98, { cls: "am-p" + p })).join("") +
+        `<text class="am-det" x="226" y="134" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="16" fill="#ffb0b4" letter-spacing="2">DETENIDO</text>`;
+      gsap.set(qa(".am-p5, .am-p6, .am-p7"), { opacity: 0 });
+      gsap.set(q(".am-det"), { opacity: 0 });
+
+      tl.fromTo(q(".am-lampara"), { x: -40, opacity: 0.3 }, { x: 0, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".am-display"), { x: 40, opacity: 0.3 }, { x: 0, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".am-placa"), { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 0.2);
+
+      // trancado: la flecha deja de subir y titila; DETENIDO; luz roja que titila hasta Scalerics
+      tl.fromTo(q(".am-flecha"), { y: 10 }, { y: 0, duration: 0.3, ease: "power2.out" }, 0);
+      tl.to(q(".am-det"), { opacity: 1, duration: 0.05 }, M.TRANCA + 0.1);
+      const nRojo = Math.floor((M.SCALERICS - M.TRANCA) / 0.7);
+      tl.fromTo(q(".am-flecha"), { opacity: 1 }, { opacity: 0.15, duration: 0.35, yoyo: true, repeat: nRojo * 2 - 1, ease: "steps(1)" }, M.TRANCA);
+      tl.fromTo(q(".am-rojo"), { opacity: 0 }, { opacity: 1, duration: 0.35, yoyo: true, repeat: nRojo * 2 - 1, ease: "sine.inOut" }, M.TRANCA);
+      tl.fromTo(q(".am-domo"), { fill: "#a81c25" }, { fill: "#ff3b45", duration: 0.35, yoyo: true, repeat: nRojo * 2 - 1, ease: "steps(1)" }, M.TRANCA);
+      tl.fromTo(q(".am-alarma"), { opacity: 1 }, { opacity: 0.35, duration: 0.35, yoyo: true, repeat: nRojo * 2 - 1, ease: "steps(1)" }, M.TRANCA);
+
+      // chapa de quién habla
+      const CH = { r: ".am-chr", v: ".am-chv", k: ".am-chk", o: ".am-cho" };
+      let ant = null;
+      TURNOS.forEach(([t, quien]) => {
+        const el = q(CH[quien]);
+        if (ant && ant !== el) tl.to(ant, { opacity: 0, x: -30, duration: 0.12, ease: "power2.in" }, t - 0.12);
+        if (ant !== el) tl.fromTo(el, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(2.2)", immediateRender: false }, Math.max(0, t));
+        ant = el;
+      });
+
+      // la placa de capacidad suma un presupuesto sin llamar en "Abril"; en Scalerics, clientes al día
+      tl.fromTo(q(".am-rojo-tag"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, M.ABRIL);
+      tl.fromTo(q(".am-placa"), { x: 0 }, { x: 7, duration: 0.05, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, M.ABRIL);
+      tl.to(q(".am-rojo-tag"), { opacity: 0, duration: 0.15 }, M.SCALERICS);
+      tl.fromTo(q(".am-am-verde, .am-mas.am-verde"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, M.SCALERICS + 0.1);
+
+      // Scalerics: se apaga la alarma, flash, lámpara EN SERVICIO en verde
+      tl.to(q(".am-rojo"), { opacity: 0, duration: 0.2 }, M.SCALERICS + 0.01);
+      tl.to(q(".am-flash"), { opacity: 0.5, duration: 0.03 }, M.SCALERICS);
+      tl.to(q(".am-flash"), { opacity: 0, duration: 0.4, ease: "power2.out" }, M.SCALERICS + 0.04);
+      tl.to(q(".am-alarma"), { opacity: 0, duration: 0.1 }, M.SCALERICS + 0.02);
+      tl.to(q(".am-ok"), { opacity: 1, duration: 0.2 }, M.SCALERICS + 0.1);
+      tl.to(q(".am-domo"), { fill: AS.VERDE, duration: 0.2 }, M.SCALERICS + 0.02);
+      tl.to(q(".am-lampara"), { borderColor: AS.VERDE, duration: 0.2 }, M.SCALERICS);
+
+      // el ascensor arranca: 4 -> 5 -> 6 -> 7 entre "¿Y ahora qué hago?" y "Llamá"
+      tl.to(q(".am-det"), { opacity: 0, duration: 0.1 }, M.AHORA);
+      tl.to(q(".am-flecha"), { opacity: 1, duration: 0.05 }, M.AHORA);
+      const paso = Math.max(0.2, (M.LLAMA - M.AHORA - 0.1) / 3);
+      ["4", "5", "6"].forEach((p, i) => {
+        tl.to(q(".am-p" + p), { opacity: 0, duration: 0.02 }, M.AHORA + 0.1 + paso * i);
+        tl.to(q(".am-p" + pisos[i + 1]), { opacity: 1, duration: 0.02 }, M.AHORA + 0.1 + paso * i);
+      });
+      tl.to(q(".am-display"), { borderColor: AS.VERDE, duration: 0.2 }, M.LLAMA - 0.1);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,76 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/ascensor.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-enfrente"] .s09-capa, [data-composition-id="s09-enfrente"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-enfrente"] svg.s09-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-enfrente"] .s09-cel { position: absolute; left: 330px; top: 585px; width: 420px; height: 500px; background: #14181d; border-radius: 46px; }
+    [data-composition-id="s09-enfrente"] .s09-pant { position: absolute; left: 14px; top: 14px; right: 14px; bottom: 14px; background: #eef1f3; border-radius: 34px; overflow: hidden; }
+    [data-composition-id="s09-enfrente"] .s09-cab { position: absolute; left: 0; right: 0; top: 0; height: 92px; background: #6b7580; }
+    [data-composition-id="s09-enfrente"] .s09-cab i { position: absolute; left: 18px; top: 18px; width: 54px; height: 54px; border-radius: 50%; background: #c98a4b; border: 4px solid #14181d; }
+    [data-composition-id="s09-enfrente"] .s09-cab b { position: absolute; left: 84px; top: 16px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 25px; color: #fff6e3; white-space: nowrap; }
+    [data-composition-id="s09-enfrente"] .s09-cab small { position: absolute; left: 84px; top: 52px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 18px; color: #dfe4e8; white-space: nowrap; }
+    [data-composition-id="s09-enfrente"] .s09-llam { position: absolute; left: 18px; right: 18px; top: 112px; height: 84px; background: #fff6e3; border: 4px solid #14181d; border-radius: 18px; }
+    [data-composition-id="s09-enfrente"] .s09-llam b { position: absolute; left: 84px; top: 12px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 26px; color: #14181d; white-space: nowrap; }
+    [data-composition-id="s09-enfrente"] .s09-llam small { position: absolute; left: 84px; top: 46px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 18px; color: #6b7580; white-space: nowrap; }
+    [data-composition-id="s09-enfrente"] .s09-llam svg { position: absolute; left: 14px; top: 14px; width: 56px; height: 56px; }
+    [data-composition-id="s09-enfrente"] .s09-glo { position: absolute; padding: 12px 18px; border: 4px solid #14181d; border-radius: 20px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 26px; line-height: 1.2; color: #14181d; }
+    [data-composition-id="s09-enfrente"] .s09-g1 { left: 18px; top: 214px; width: 300px; background: #ffffff; }
+    [data-composition-id="s09-enfrente"] .s09-g2 { right: 18px; top: 362px; background: #ffd84a; }
+    [data-composition-id="s09-enfrente"] .s09-sello { left: 90px; top: 960px; font-size: 48px; }
+  </style>
+  <div id="root" data-composition-id="s09-enfrente" data-width="1080" data-height="1920" data-duration="6.5">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="6.5" data-track-index="0">
+      <div class="s09-escenario">
+        <svg class="s09-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s09-cel"><div class="s09-pant">
+        <div class="s09-cab"><i></i><b>Carpintería de enfrente</b><small>en línea</small></div>
+        <div class="s09-llam"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" fill="#c98a4b" stroke="#14181d" stroke-width="4"/><path d="M18 16 Q16 30 28 38 Q36 44 40 40 L42 34 L35 30 L31 33 Q24 29 23 22 L26 19 L23 12 Z" fill="#fff6e3" stroke="#14181d" stroke-width="3" stroke-linejoin="round"/></svg><b>Llamada · 4 min</b><small>AL OTRO DÍA</small></div>
+        <div class="s09-glo s09-g1">¡Hola, Valeria! ¿Quedó conforme con el placard?</div>
+        <div class="s09-glo s09-g2">¡Divino! Gracias</div>
+        </div></div>
+        <div class="as-sello s09-sello">EL DE ENFRENTE</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-enfrente";
+      const DUR = 6.5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const svg = root.querySelector(".s09-svg");
+      svg.innerHTML = `<g class="s09-v">${AS.valeria(810, 1600, 1.12, {"cara":"sonrisa","brazo":"celular"})}</g>` + `<g class="s09-r">${AS.ruben(300, 1600, 1.15, {"cara":"triste","sudor":true})}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = AS.kit(tl, root);
+      const { q, qa } = K;
+      
+      const PLAC = 0.34, ENFRENTE = 1.56, LLAMO = 2.52, DIA = 3.04, ESCRIBIO = 4.08, CONFORME = 5.3;
+      K.respirar(q(".s09-r"), 0, DUR, 4);
+      K.respirar(q(".s09-v"), 0, DUR, 3);
+      K.sudar(0.1, DUR - 0.1);
+      K.hablar(".s09-v .as-v-boca", 0.02, 22, 0.11);
+      // ella levanta el celular y lo muestra
+      const cel = q(".s09-cel");
+      gsap.set(cel, { opacity: 0 });
+      tl.fromTo(cel, { opacity: 0, y: 300, scale: 0.6, rotation: 8 }, { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.6)", immediateRender: false }, PLAC);
+      gsap.set(q(".s09-cab"), { opacity: 0 });
+      tl.to(q(".s09-cab"), { opacity: 1, duration: 0.2 }, ENFRENTE - 0.2);
+      K.sello(q(".s09-sello"), ENFRENTE, -5);
+      tl.to(q(".s09-sello"), { opacity: 0, duration: 0.2 }, LLAMO - 0.1);
+      K.pop(q(".s09-llam"), LLAMO);
+      tl.fromTo(q(".s09-llam svg"), { rotation: -12 }, { rotation: 12, duration: 0.07, yoyo: true, repeat: 7, ease: "none", immediateRender: false }, LLAMO + 0.1);
+      K.pop(q(".s09-g1"), ESCRIBIO);
+      K.pop(q(".s09-g2"), CONFORME);
+      // Rubén se achica
+      tl.to(q(".s09-r"), { scale: 0.92, svgOrigin: "300 1600", duration: 1.2, ease: "power1.inOut" }, DIA);
+      
+      K.salida(q("#s09-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

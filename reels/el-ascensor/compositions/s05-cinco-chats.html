@@ -1,0 +1,66 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/ascensor.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-cinco-chats"] .s05-capa, [data-composition-id="s05-cinco-chats"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-cinco-chats"] svg.s05-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-cinco-chats"] .s05-chat { position: absolute; width: 330px; height: 104px; background: #fff6e3; border: 6px solid #14181d; border-radius: 22px; box-shadow: 6px 6px 0 rgba(0,0,0,0.25); }
+    [data-composition-id="s05-cinco-chats"] .s05-chat i { position: absolute; left: 16px; top: 18px; width: 58px; height: 58px; border-radius: 50%; background: #b8c0c8; border: 4px solid #14181d; }
+    [data-composition-id="s05-cinco-chats"] .s05-chat b { position: absolute; left: 88px; top: 16px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 28px; color: #14181d; white-space: nowrap; }
+    [data-composition-id="s05-cinco-chats"] .s05-chat small { position: absolute; left: 88px; top: 56px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; color: #6b7580; white-space: nowrap; }
+    [data-composition-id="s05-cinco-chats"] .s05-chat em { position: absolute; right: -14px; top: -14px; min-width: 46px; height: 46px; padding: 0 8px; box-sizing: border-box; border-radius: 23px; background: #e5303a; border: 4px solid #14181d; font-family: "Lexend", sans-serif; font-weight: 800; font-style: normal; font-size: 22px; line-height: 38px; text-align: center; color: #fff6e3; }
+    [data-composition-id="s05-cinco-chats"] .s05-cinco { left: 330px; top: 1050px; font-size: 52px; }
+  </style>
+  <div id="root" data-composition-id="s05-cinco-chats" data-width="1080" data-height="1920" data-duration="3.95">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.95" data-track-index="0">
+      <div class="s05-escenario">
+        <svg class="s05-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="s05-chat s05-c0" style="left:70px;top:610px"><i></i><b>FAMILIA</b><small>audio de 4 min</small><em>99</em></div>
+        <div class="s05-chat s05-c1" style="left:680px;top:620px"><i></i><b>PROVEEDORES</b><small>llegó la madera</small><em>12</em></div>
+        <div class="s05-chat s05-c2" style="left:120px;top:760px"><i></i><b>FÚTBOL 5</b><small>¿quién trae pelota?</small><em>47</em></div>
+        <div class="s05-chat s05-c3" style="left:620px;top:780px"><i></i><b>CLIENTES</b><small>¿y el presupuesto?</small><em>8</em></div>
+        <div class="s05-chat s05-c4" style="left:330px;top:910px"><i></i><b>CLIENTES 2</b><small>¿Valeria? ¿cuál?</small><em>23</em></div>
+        <div class="as-sello s05-cinco">UNO DE LOS CINCO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-cinco-chats";
+      const DUR = 3.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const svg = root.querySelector(".s05-svg");
+      svg.innerHTML = `<g class="s05-vuela">${AS.postit(620, 830, 6, ["Llamar a", "la del", "placard"], { w: 210, fs: 40 })}</g>` + `<g class="s05-v">${AS.valeria(800, 1540, 1.22, {"cara":"seria"})}</g>` + `<g class="s05-r">${AS.ruben(300, 1540, 1.27, {"cara":"culpa","brazo":"celular","sudor":true})}</g>`;
+      const tl = gsap.timeline({ paused: true });
+      const K = AS.kit(tl, root);
+      const { q, qa } = K;
+      
+      const PERDIO = 0.08, DESPUES = 1.13, CHAT = 2.17, UNO = 2.83, CINCO = 3.17;
+      K.respirar(q(".s05-r"), 0, DUR, 5);
+      K.respirar(q(".s05-v"), 0, DUR, 3);
+      K.sudar(0.1, DUR - 0.1);
+      // el post-it se va volando
+      tl.to(q(".s05-vuela"), { x: -720, y: 260, rotation: -220, svgOrigin: "620 830", duration: 0.9, ease: "power2.in" }, PERDIO);
+      tl.to(q(".s05-vuela"), { opacity: 0, duration: 0.1 }, PERDIO + 0.85);
+      K.hablar(".s05-r .as-r-boca", 0.05, 12, 0.11);
+      // los cinco chats se despliegan del celular
+      ["s05-c0", "s05-c1", "s05-c2", "s05-c3", "s05-c4"].forEach((c, i) => {
+        const el = q("." + c);
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.4, y: 260, rotation: i % 2 ? 8 : -8 }, { opacity: 1, scale: 1, y: 0, rotation: i % 2 ? 2 : -2, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, DESPUES + i * 0.22);
+        tl.to(el, { y: -8, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, CHAT + i * 0.1);
+      });
+      tl.to(qa(".s05-c0, .s05-c1, .s05-c2, .s05-c3"), { opacity: 0.45, duration: 0.2 }, UNO);
+      tl.fromTo(q(".s05-c4"), { scale: 1 }, { scale: 1.12, duration: 0.2, ease: "back.out(2)", immediateRender: false }, UNO);
+      K.sello(q(".s05-cinco"), CINCO, -5);
+      
+      K.salida(q("#s05-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
