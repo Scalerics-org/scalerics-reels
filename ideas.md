@@ -146,6 +146,12 @@
 
 ## En curso
 
+- 02-11 · `la-galaxia` · Agente de IA · space opera: "Hace mucho tiempo, en un barrio muy, muy lejano... un comerciante dejó un mensaje en visto. Y empezó la guerra." [formato P space opera · estilo galaxia con texto que se aleja en perspectiva] (tanda 2 del 02-11)
+- 02-11 · `prueba-de-adn` · Agente de IA · talk show de escándalos: "¡Que pase el desgraciado! Hoy sabremos de quién es este cliente." [formato P talk show con prueba de ADN · estilo estudio de talk show de los 90] (tanda 2 del 02-11)
+- 02-11 · `modo-dificil` · Automatizaciones · "Tu vida es un videojuego. Y el que juega es malísimo." simulador de vida [formato G simulación de pantalla (simulador de vida) · estilo videojuego isométrico pastel con barras de necesidades] (tanda 2 del 02-11)
+- 02-11 · `la-tasacion` · Sistema a medida · "Quiero vender mi negocio." "Sin usted adentro, vale cero." casa de empeños [formato A polémica con giro (tasación en casa de empeños) · estilo casa de empeños con neón y vitrinas] (tanda 2 del 02-11)
+- 02-11 · `emergencias` · Sitio web · "Emergencias, ¿cuál es su emergencia?" "Son las nueve, tengo hambre y la página de la rotisería no dice si abren." [formato B diálogo (llamada a emergencias) · estilo central de despacho nocturna] (tanda 2 del 02-11)
+
 
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
