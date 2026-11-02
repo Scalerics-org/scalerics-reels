@@ -1,0 +1,72 @@
+s04-copia 5.31
+===CSS===
+    P .X-cel { position: absolute; left: 70px; top: 640px; width: 290px; height: 470px; background: #0f1826; border: 6px solid #fbf3dc; border-radius: 40px; }
+    P .X-burb { position: absolute; left: 20px; width: 238px; padding: 10px 14px; background: #8fe3b9; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; line-height: 1.15; color: #0f1826; }
+    P .X-lap { position: absolute; left: 700px; top: 610px; width: 320px; height: 330px; background: #fbf3dc; border: 6px solid #0f1826; border-radius: 22px; box-shadow: 0 8px 0 #0f1826; overflow: hidden; }
+    P .X-lap-t { position: absolute; left: 0; right: 0; top: 0; height: 52px; background: #8ccfe8; border-bottom: 4px solid #0f1826; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; line-height: 50px; text-align: center; color: #0f1826; }
+    P .X-fila { position: absolute; left: 14px; width: 288px; height: 46px; border-bottom: 3px solid #8ccfe8; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; line-height: 46px; color: #0f1826; }
+    P .X-vuela { position: absolute; left: 90px; top: 700px; width: 238px; padding: 10px 14px; background: #8fe3b9; border: 4px solid #0f1826; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; color: #0f1826; }
+===HTML===
+        <div class="X-cel">
+          <div class="X-burb" style="top:30px">2 cuchillos</div>
+          <div class="X-burb" style="top:120px">¿tenés pava?</div>
+          <div class="X-burb" style="top:210px">colador y balde</div>
+          <div class="X-burb" style="top:300px">tapa de olla</div>
+          <div class="X-burb" style="top:390px">3 vasos</div>
+        </div>
+        <div class="X-lap">
+          <div class="X-lap-t">PLANILLA</div>
+          <div class="X-fila X-f1" style="top:66px">2 cuchillos</div>
+          <div class="X-fila X-f2" style="top:116px">pava</div>
+          <div class="X-fila X-f3" style="top:166px">colador, balde</div>
+          <div class="X-fila X-f4" style="top:216px">tapa de olla</div>
+        </div>
+        <div class="X-vuela X-v1">2 cuchillos</div>
+        <div class="X-vuela X-v2" style="top:790px">¿tenés pava?</div>
+        <div class="X-vuela X-v3" style="top:880px">colador y balde</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 1250) scale(0.95)"><g class="X-hugo"></g></g>
+          <path d="M150 1170 L930 1170 L1000 1250 L80 1250 Z" fill="#f4a3b8" stroke="#0f1826" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M80 1250 H1000 V1320 H80 Z" fill="#c98aa0" stroke="#0f1826" stroke-width="5" stroke-linejoin="round"/>
+          <g class="X-glob" transform="translate(540 770)"><g class="X-glob-i"></g></g>
+          <g transform="translate(820 1060)"><g class="X-nube"></g></g>
+          <g transform="translate(260 290)"><g class="X-cama">
+            <path d="M500 800 V740 H620 V800 M500 778 H620" fill="none" stroke="#0f1826" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="508" y="742" width="34" height="22" rx="8" fill="#8ccfe8" stroke="#0f1826" stroke-width="4"/>
+          </g></g>
+        </svg>
+===JS===
+      q(".X-hugo").innerHTML = HUGO();
+      q(".X-glob-i").innerHTML = GLOBO(420, 110, "¡Grubel nifa!", 46);
+      q(".X-nube").innerHTML = NUBE(90);
+      diamGira(".X-hugo", 0);
+      const COPIA = 0.41, PEGA = 1.67, COPIA2 = 2.92, QUIERE = 3.97, DORMIR = 4.18;
+      tl.fromTo(q(".X-cel"), { opacity: 0.4, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".X-lap"), { opacity: 0.4, x: 40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 0);
+      ["f1", "f2", "f3", "f4"].forEach((f) => gsap.set(q(".X-" + f), { opacity: 0 }));
+      ["v1", "v2", "v3"].forEach((v) => gsap.set(q(".X-" + v), { opacity: 0 }));
+      // copia: el mensaje vuela del celular a la planilla; pega: aparece la fila
+      const vuelo = (v, f, t, dy) => {
+        tl.fromTo(q(".X-" + v), { opacity: 1, x: 0, y: 0, scale: 1 }, { x: 620, y: dy, scale: 0.8, duration: 0.55, ease: "power2.inOut", immediateRender: false }, t);
+        tl.to(q(".X-" + v), { opacity: 0, duration: 0.1 }, t + 0.5);
+        pop(q(".X-" + f), t + 0.5, 0.25);
+      };
+      vuelo("v1", "f1", COPIA, -10);
+      vuelo("v2", "f2", PEGA - 0.2, -40);
+      vuelo("v3", "f3", COPIA2, -70);
+      vuelo("v1", "f4", 3.7, 120);
+      // los brazos de Hugo: tecleo
+      tl.to(q(".X-hugo .h-brazo-i"), { rotation: 14, duration: 0.14, yoyo: true, repeat: 17, svgOrigin: "-60 -196" }, 0.3);
+      tl.to(q(".X-hugo .h-brazo-d"), { rotation: -14, duration: 0.14, yoyo: true, repeat: 17, svgOrigin: "60 -196" }, 0.37);
+      // murmullo
+      pop(q(".X-glob-i"), COPIA);
+      tl.to(q(".X-glob-i"), { opacity: 0, duration: 0.15 }, 3.4);
+      // quiere dormir: ojos que se caen, nube con la cama
+      ojos(".X-hugo", "m", 2.6);
+      tl.to(q(".X-hugo .h-ojeras"), { opacity: 1, duration: 0.3 }, 2.6);
+      pop(q(".X-nube"), QUIERE - 0.25, 0.4);
+      pop(q(".X-cama"), DORMIR - 0.05, 0.3);
+      ojos(".X-hugo", "c", DORMIR + 0.3);
+      tl.to(q(".X-hugo"), { rotation: 6, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut", svgOrigin: "0 0" }, DORMIR + 0.3);
+===SFX===
+[{"t":0.4,"sfx":"whoosh-short","vol":0.25},{"t":0.95,"sfx":"pop","vol":0.25},{"t":1.5,"sfx":"whoosh-short","vol":0.25},{"t":2.05,"sfx":"pop","vol":0.25},{"t":2.9,"sfx":"whoosh-short","vol":0.25},{"t":3.45,"sfx":"pop","vol":0.25},{"t":0.3,"sfx":"typing","vol":0.2,"max":3},{"t":3.75,"sfx":"sparkle","vol":0.2,"max":0.6}]

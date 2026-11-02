@@ -1,0 +1,79 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/juego.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-cta"] .s15-capa { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s15-cta"] .s15-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s15-cta"] .s15-big { font-weight: 900; color: #fbf3dc; text-shadow: 0 7px 0 #0f1826; }
+    [data-composition-id="s15-cta"] .s15-sello b { display: inline-block; transform: rotate(-5deg); padding: 10px 26px; background: #ef5b5b; border: 6px solid #0f1826; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; color: #fbf3dc; box-shadow: 0 8px 0 #0f1826; }
+    [data-composition-id="s15-cta"] .s15-sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; margin-bottom: 4px; color: #0f1826; }
+    [data-composition-id="s15-cta"] .s15-pill b { display: inline-block; padding: 10px 24px; background: #0f1826; border: 4px solid #fbf3dc; border-radius: 40px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 36px; color: #fbf3dc; }
+    [data-composition-id="s15-cta"] .s15-menu { position: absolute; left: 110px; top: 600px; width: 860px; height: 560px; background: rgba(15, 24, 38, 0.95); border: 6px solid #fbf3dc; border-radius: 36px; }
+    [data-composition-id="s15-cta"] .s15-menu-t { position: absolute; left: 0; right: 0; top: 34px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.22em; color: #8ccfe8; }
+    [data-composition-id="s15-cta"] .s15-opc { position: absolute; left: 50px; width: 760px; height: 116px; border-radius: 26px; border: 5px solid #2c3f58; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 54px; line-height: 106px; padding-left: 36px; color: #fbf3dc; text-transform: uppercase; }
+    [data-composition-id="s15-cta"] .s15-opc small { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.06em; text-transform: none; margin-left: 18px; color: #8ccfe8; }
+    [data-composition-id="s15-cta"] .s15-dif { border-color: #ef5b5b; }
+    [data-composition-id="s15-cta"] .s15-dif-on { position: absolute; inset: -5px; border-radius: 26px; background: #ef5b5b; opacity: 0; }
+    [data-composition-id="s15-cta"] .s15-dif span { position: relative; }
+    [data-composition-id="s15-cta"] .s15-tag { top: 1210px; }
+    [data-composition-id="s15-cta"] .s15-tag b { display: inline-block; padding: 14px 36px; background: #8fe3b9; border: 6px solid #0f1826; border-radius: 50px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 58px; color: #0f1826; box-shadow: 0 8px 0 #0f1826; }
+  </style>
+  <div id="root" data-composition-id="s15-cta" data-width="1080" data-height="1920" data-duration="6.09">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="6.09" data-track-index="0">
+      <div class="s15-escenario">
+        <div class="s15-menu">
+          <div class="s15-menu-t">ELEGÍ LA DIFICULTAD</div>
+          <div class="s15-opc s15-o1" style="top:110px">Fácil<small>con trucos</small></div>
+          <div class="s15-opc s15-o2" style="top:250px">Normal</div>
+          <div class="s15-opc s15-dif" style="top:390px"><div class="s15-dif-on"></div><span>Difícil<small style="color:#fbf3dc">todo a mano</small></span></div>
+        </div>
+        <div class="s15-txt s15-tag"><b>@ Etiquetalo</b></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(860 1200)"><g class="s15-cursor"></g></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-cta";
+      const DUR = 6.09;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const golpe = (el, t) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const sale = (el, t, d = 0.2) => tl.to(el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1) => [[-12, 7], [10, -5], [-4, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s15-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (el, t, d = 0.6) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); };
+      const ojos = (h, cual, t) => ["a", "m", "c"].forEach((k) => tl.to(q(h + " .h-ojo-" + k), { opacity: k === cual ? 1 : 0, duration: 0.05 }, t));
+      const diamRojo = (h, t) => { tl.to(q(h + " .h-diam-r"), { opacity: 1, duration: 0.15 }, t); };
+      const diamGira = (h, t0 = 0) => { tl.fromTo(q(h + " .h-diam"), { scaleX: 1 }, { scaleX: -1, duration: 0.7, yoyo: true, repeat: Math.max(1, Math.floor((DUR - t0) / 0.7)), ease: "sine.inOut", svgOrigin: "0 0" }, t0); tl.fromTo(q(h + " .h-diam-r"), { scaleX: 1 }, { scaleX: -1, duration: 0.7, yoyo: true, repeat: Math.max(1, Math.floor((DUR - t0) / 0.7)), ease: "sine.inOut", svgOrigin: "0 0" }, t0); tl.fromTo(q(h + " .h-diam-g"), { y: 0 }, { y: -14, duration: 0.8, yoyo: true, repeat: Math.max(1, Math.floor((DUR - t0) / 0.8)), ease: "sine.inOut" }, t0); };
+      q(".s15-cursor").innerHTML = CURSOR();
+      const ETIQUETA = 0, JUEGA = 0.58, NEGOCIO = 1.06, MODO = 1.83, DIFICIL = 2.11;
+      tl.fromTo(q(".s15-menu"), { opacity: 0.3, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      [".s15-o1", ".s15-o2", ".s15-dif"].forEach((o, i) => tl.fromTo(q(o), { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, 0.1 + i * 0.12));
+      // el cursor pasa por fácil... y elige difícil
+      tl.fromTo(q(".s15-cursor"), { x: 100, y: 100 }, { x: -60, y: -480, duration: 0.45, ease: "power3.out" }, JUEGA - 0.3);
+      tl.to(q(".s15-cursor"), { y: -260, duration: 0.4, ease: "power2.inOut" }, NEGOCIO);
+      tl.to(q(".s15-cursor"), { scale: 0.8, duration: 0.07, yoyo: true, repeat: 1, svgOrigin: "0 0" }, DIFICIL - 0.05);
+      tl.to(q(".s15-dif-on"), { opacity: 1, duration: 0.1 }, DIFICIL - 0.05);
+      tl.to(q(".s15-dif"), { scale: 1.06, duration: 0.12, yoyo: true, repeat: 1 }, DIFICIL);
+      sacudon(DIFICIL + 0.05, 1.2);
+      // la acción: etiquetalo
+      golpe(q(".s15-tag"), DIFICIL + 0.6);
+      tl.to(q(".s15-tag"), { scale: 1.06, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, DIFICIL + 1);
+      tl.to(q(".s15-o1"), { borderColor: "#8fe3b9", duration: 0.3 }, 3.6);
+      tl.to(q(".s15-cursor"), { y: -540, duration: 0.6, ease: "power2.inOut" }, 3.6);
+      tl.to(q("#s15-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

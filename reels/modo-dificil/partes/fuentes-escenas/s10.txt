@@ -1,0 +1,63 @@
+s10-cuarta-pared 8.23
+===CSS===
+    P .X-mal { top: 600px; font-size: 130px; color: #ef5b5b; }
+    P .X-nomalo { top: 590px; }
+    P .X-nomalo b { display: inline-block; padding: 12px 34px; background: #fbf3dc; border: 6px solid #0f1826; border-radius: 40px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; color: #0f1826; box-shadow: 0 8px 0 #0f1826; }
+    P .X-vos { top: 590px; font-size: 150px; color: #fbf3dc; }
+    P .X-op { position: absolute; top: 980px; width: 330px; padding: 18px 0; text-align: center; border-radius: 30px; border: 6px solid #0f1826; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 54px; color: #0f1826; text-transform: uppercase; box-shadow: 0 8px 0 #0f1826; }
+    P .X-op small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0; margin-top: 6px; }
+===HTML===
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 1370)"><g class="X-z"><g class="X-hugo"></g></g></g>
+          <g transform="translate(800 1150)"><g class="X-cursor"></g></g>
+          <g transform="translate(860 1180)"><g class="X-tacha"><circle r="46" fill="#ef5b5b" stroke="#0f1826" stroke-width="5"/><path d="M-17 -17 L17 17 M17 -17 L-17 17" stroke="#fbf3dc" stroke-width="9" stroke-linecap="round"/></g></g>
+        </svg>
+        <div class="X-txt X-big X-mal">¡Malísimo!</div>
+        <div class="X-txt X-nomalo"><b>Hugo no es malo</b></div>
+        <div class="X-txt X-big X-vos">Sos vos</div>
+        <div class="X-op X-mano" style="left:50px;background:#ef5b5b">A mano<small>lo que hace Hugo</small></div>
+        <div class="X-op X-solo" style="left:700px;background:#8fe3b9">Solo<small>lo que se puede</small></div>
+===JS===
+      q(".X-hugo").innerHTML = HUGO();
+      q(".X-cursor").innerHTML = CURSOR();
+      diamGira(".X-hugo", 0);
+      gsap.set(q(".X-hugo .h-diam-r"), { opacity: 1 });
+      gsap.set(q(".X-hugo .h-ojeras"), { opacity: 1 });
+      ojos(".X-hugo", "m", 0);
+      const HUGO_T = 0.19, MALISIMO = 0.87, HUGO2 = 2.43, MALO = 2.9, JUEGA = 3.75, SOS = 4.22, VOS = 4.6, LO = 5.24, MANO = 6.01, SOLO = 7.05;
+      // el jugador hace clic, clic, clic, enojado
+      tl.fromTo(q(".X-cursor"), { x: 140, y: 120 }, { x: -200, y: -100, duration: 0.25, ease: "power3.out" }, 0);
+      [0.3, 0.5, 0.7, 1.0, 1.2].forEach((t) => {
+        tl.to(q(".X-cursor"), { scale: 0.75, duration: 0.06, yoyo: true, repeat: 1, svgOrigin: "0 0" }, t);
+        tl.to(q(".X-hugo"), { rotation: -5, duration: 0.06, yoyo: true, repeat: 1, svgOrigin: "0 0" }, t);
+      });
+      golpe(q(".X-mal"), MALISIMO);
+      sacudon(MALISIMO + 0.04, 1.3);
+      tl.to(q(".X-mal"), { opacity: 0, y: -20, duration: 0.2 }, HUGO2 - 0.3);
+      // Hugo se da vuelta y mira a cámara: rompe la cuarta pared
+      ojos(".X-hugo", "a", HUGO2);
+      tl.to(q(".X-hugo .h-ojeras"), { opacity: 0.4, duration: 0.2 }, HUGO2);
+      tl.to(q(".X-z"), { scale: 1.42, duration: 0.5, ease: "power3.inOut", svgOrigin: "0 0" }, HUGO2 - 0.1);
+      tl.to(q(".X-cursor"), { x: 0, y: 40, duration: 0.5, ease: "power2.out" }, HUGO2);
+      tl.to(q(".X-hugo .h-boca"), { opacity: 0, duration: 0.05 }, HUGO2);
+      tl.to(q(".X-hugo .h-boca-t"), { opacity: 1, duration: 0.05 }, HUGO2);
+      pop(q(".X-nomalo"), MALO - 0.15);
+      tl.to(q(".X-nomalo"), { opacity: 0, duration: 0.15 }, SOS - 0.15);
+      // "sos vos": señala a cámara; el cursor queda tachado
+      tl.to(q(".X-hugo .h-brazo-d"), { rotation: -118, duration: 0.25, ease: "back.out(2)", svgOrigin: "60 -196" }, JUEGA);
+      golpe(q(".X-vos"), SOS);
+      sacudon(VOS, 1.4);
+      pop(q(".X-tacha"), VOS - 0.05, 0.25);
+      tl.to(q(".X-cursor"), { opacity: 0.35, duration: 0.2 }, VOS);
+      // a mano / solo
+      tl.to([q(".X-vos"), q(".X-tacha"), q(".X-cursor")], { opacity: 0, duration: 0.2 }, LO - 0.1);
+      tl.to(q(".X-z"), { scale: 1, duration: 0.45, ease: "power3.inOut", svgOrigin: "0 0" }, LO - 0.1);
+      tl.to(q(".X-hugo .h-brazo-d"), { rotation: 0, duration: 0.3, svgOrigin: "60 -196" }, LO);
+      pop(q(".X-mano"), MANO - 0.15);
+      tl.to(q(".X-hugo .h-brazo-i"), { rotation: 60, duration: 0.25, ease: "back.out(2)", svgOrigin: "-60 -196" }, MANO - 0.1);
+      pop(q(".X-solo"), SOLO - 0.15);
+      tl.to(q(".X-hugo .h-brazo-i"), { rotation: 0, duration: 0.2, svgOrigin: "-60 -196" }, SOLO - 0.2);
+      tl.to(q(".X-hugo .h-brazo-d"), { rotation: -60, duration: 0.25, ease: "back.out(2)", svgOrigin: "60 -196" }, SOLO - 0.1);
+      tl.fromTo(q(".X-solo"), { y: 0 }, { y: -14, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, SOLO + 0.3);
+===SFX===
+[{"t":0.3,"sfx":"click","vol":0.35},{"t":0.5,"sfx":"click","vol":0.35},{"t":0.7,"sfx":"click","vol":0.35},{"t":0.8,"sfx":"impact-bass-1","vol":0.4,"max":0.6},{"t":2.35,"sfx":"whoosh","vol":0.3},{"t":4.15,"sfx":"impact-bass-2","vol":0.45,"max":0.6},{"t":5.9,"sfx":"pop","vol":0.3},{"t":6.95,"sfx":"chime","vol":0.3,"max":0.8}]

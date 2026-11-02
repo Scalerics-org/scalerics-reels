@@ -1,0 +1,49 @@
+s03-orden 4.48
+===CSS===
+    P .X-op { position: absolute; padding: 12px 26px; border-radius: 40px; border: 5px solid #0f1826; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 38px; color: #0f1826; white-space: nowrap; box-shadow: 0 6px 0 #0f1826; }
+    P .X-op.X-off { background: #6e7d92; color: #2c3f58; }
+    P .X-raya { position: absolute; left: -8px; right: -8px; top: 50%; height: 6px; background: #ef5b5b; transform-origin: 0 50%; }
+    P .X-uno { top: 650px; font-size: 120px; color: #fbf3dc; }
+===HTML===
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="X-pieza"></g>
+          <g transform="translate(540 1300) scale(0.95)"><g class="X-hugo"></g></g>
+          <g class="X-ring"><circle cx="540" cy="1050" r="150" fill="none" stroke="#fbf3dc" stroke-width="5" stroke-dasharray="14 16" opacity="0.6"/></g>
+          <g transform="translate(860 1200)"><g class="X-cursor"></g></g>
+        </svg>
+        <div class="X-op X-o1" style="left:70px;top:660px;background:#8fe3b9">Copiar pedidos</div>
+        <div class="X-op X-o2 X-off" style="left:680px;top:660px">Dormir<div class="X-raya"></div></div>
+        <div class="X-op X-o3 X-off" style="left:60px;top:830px">Cenar<div class="X-raya"></div></div>
+        <div class="X-op X-o4 X-off" style="left:770px;top:830px">Familia<div class="X-raya"></div></div>
+        <div class="X-txt X-big X-uno">Uno por uno</div>
+===JS===
+      q(".X-pieza").innerHTML = PIEZA(540, 1130, 420, 6, 250);
+      q(".X-hugo").innerHTML = HUGO();
+      q(".X-cursor").innerHTML = CURSOR();
+      diamGira(".X-hugo", 0);
+      const HUGO_T = 0.13, COPIAR = 0.87, PEDIDOS = 1.33, PLANILLA = 2.35, UNO = 2.72, POR = 3.37, UNO2 = 3.56;
+      tl.fromTo(q(".X-pieza"), { opacity: 0.6 }, { opacity: 1, duration: 0.3 }, 0);
+      // clic sobre Hugo: aparece el menú de acciones
+      tl.fromTo(q(".X-cursor"), { x: 120, y: 160 }, { x: -200, y: -80, duration: 0.35, ease: "power3.out" }, 0);
+      tl.to(q(".X-cursor"), { scale: 0.8, duration: 0.07, yoyo: true, repeat: 1, svgOrigin: "0 0" }, HUGO_T + 0.25);
+      gsap.set(q(".X-ring"), { opacity: 0 });
+      tl.fromTo(q(".X-ring"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", svgOrigin: "540 1050", immediateRender: false }, HUGO_T + 0.3);
+      tl.to(q(".X-ring"), { rotation: 90, duration: 4, ease: "none", svgOrigin: "540 1050" }, HUGO_T + 0.3);
+      [".X-o1", ".X-o2", ".X-o3", ".X-o4"].forEach((o, i) => pop(q(o), HUGO_T + 0.35 + i * 0.08));
+      // dormir, cenar, familia: tachados
+      qa(".X-raya").forEach((r, i) => { gsap.set(r, { scaleX: 0 }); tl.to(r, { scaleX: 1, duration: 0.2, ease: "power2.out" }, COPIAR - 0.2 + i * 0.1); });
+      // "copiar": el cursor va a la opción y hace clic
+      tl.to(q(".X-cursor"), { x: -560, y: -470, duration: 0.4, ease: "power3.inOut" }, COPIAR);
+      tl.to(q(".X-cursor"), { scale: 0.8, duration: 0.07, yoyo: true, repeat: 1, svgOrigin: "0 0" }, PEDIDOS);
+      tl.fromTo(q(".X-o1"), { scale: 1 }, { scale: 1.15, duration: 0.12, yoyo: true, repeat: 1 }, PEDIDOS);
+      tl.to(q(".X-hugo .h-boca"), { opacity: 0, duration: 0.05 }, PEDIDOS + 0.2);
+      tl.to(q(".X-hugo .h-boca-t"), { opacity: 1, duration: 0.05 }, PEDIDOS + 0.2);
+      // se va el menú; "uno por uno"
+      tl.to([q(".X-o1"), q(".X-o2"), q(".X-o3"), q(".X-o4"), q(".X-ring"), q(".X-cursor")], { opacity: 0, y: -20, duration: 0.25, stagger: 0.03 }, PLANILLA);
+      golpe(q(".X-uno"), UNO);
+      sacudon(UNO + 0.05);
+      tl.fromTo(q(".X-uno"), { y: 0 }, { y: 12, duration: 0.1, yoyo: true, repeat: 1 }, POR);
+      tl.fromTo(q(".X-uno"), { scale: 1 }, { scale: 1.08, duration: 0.1, yoyo: true, repeat: 1 }, UNO2);
+      tl.to(q(".X-hugo"), { rotation: -4, duration: 0.15, yoyo: true, repeat: 3, svgOrigin: "0 0" }, UNO);
+===SFX===
+[{"t":0.35,"sfx":"click","vol":0.4},{"t":0.5,"sfx":"pop","vol":0.3},{"t":0.75,"sfx":"glitch-1","vol":0.2,"max":0.4},{"t":1.33,"sfx":"click","vol":0.4},{"t":2.62,"sfx":"impact-bass-1","vol":0.4,"max":0.6}]

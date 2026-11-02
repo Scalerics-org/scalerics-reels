@@ -1,0 +1,75 @@
+s05-listo 5.17
+===CSS===
+    P .X-cel { position: absolute; left: 60px; top: 610px; width: 470px; height: 700px; background: #0f1826; border: 6px solid #fbf3dc; border-radius: 48px; }
+    P .X-cel-t { position: absolute; left: 0; right: 0; top: 22px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; color: #8ccfe8; }
+    P .X-chat { position: absolute; left: 22px; width: 414px; height: 104px; border-bottom: 3px solid #2c3f58; }
+    P .X-av { position: absolute; left: 6px; top: 20px; width: 62px; height: 62px; border-radius: 50%; border: 4px solid #fbf3dc; }
+    P .X-nom { position: absolute; left: 86px; top: 14px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 30px; color: #fbf3dc; }
+    P .X-ult { position: absolute; left: 86px; top: 56px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; color: #8fe3b9; opacity: 0; }
+    P .X-vuela { position: absolute; left: 600px; top: 700px; padding: 14px 22px; background: #8fe3b9; border: 5px solid #0f1826; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 34px; color: #0f1826; white-space: nowrap; box-shadow: 0 6px 0 #0f1826; }
+    P .X-cuad { position: absolute; left: 580px; top: 820px; width: 440px; height: 360px; background: #fbf3dc; border: 6px solid #0f1826; border-radius: 18px; box-shadow: 0 8px 0 #0f1826; transform: rotate(3deg); }
+    P .X-cuad-t { position: absolute; left: 24px; top: 18px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 40px; color: #ef5b5b; }
+    P .X-deb { position: absolute; left: 24px; width: 390px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; color: #0f1826; border-bottom: 3px solid #8ccfe8; padding-bottom: 6px; }
+===HTML===
+        <div class="X-cel">
+          <div class="X-cel-t">CHATS</div>
+          <div class="X-chat" style="top:70px"><div class="X-av" style="background:#f4a3b8"></div><div class="X-nom">Sra. Marta</div><div class="X-ult">Tu pedido está listo</div></div>
+          <div class="X-chat" style="top:180px"><div class="X-av" style="background:#8ccfe8"></div><div class="X-nom">Raúl</div><div class="X-ult">Tu pedido está listo</div></div>
+          <div class="X-chat" style="top:290px"><div class="X-av" style="background:#8fe3b9"></div><div class="X-nom">Taller Pocho</div><div class="X-ult">Tu pedido está listo</div></div>
+          <div class="X-chat" style="top:400px"><div class="X-av" style="background:#fbf3dc"></div><div class="X-nom">Lucía</div><div class="X-ult">Tu pedido está listo</div></div>
+          <div class="X-chat" style="top:510px"><div class="X-av" style="background:#f4a3b8"></div><div class="X-nom">Don Tito</div><div class="X-ult">Tu pedido está listo</div></div>
+        </div>
+        <div class="X-vuela">Tu pedido está listo</div>
+        <div class="X-cuad">
+          <div class="X-cuad-t">DEBEN</div>
+          <div class="X-deb" style="top:90px">Raúl · la pava</div>
+          <div class="X-deb" style="top:150px">Pocho · 2 baldes</div>
+          <div class="X-deb" style="top:210px">Tito · el termo</div>
+          <div class="X-deb" style="top:270px">Marta · la olla</div>
+        </div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 880)"><g class="X-nube"></g></g>
+          <g transform="translate(-20 110)"><g class="X-cama">
+            <path d="M500 800 V740 H620 V800 M500 778 H620" fill="none" stroke="#0f1826" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="508" y="742" width="34" height="22" rx="8" fill="#8ccfe8" stroke="#0f1826" stroke-width="4"/>
+          </g></g>
+          <g transform="translate(630 760)"><g class="X-cancel"><circle r="44" fill="#ef5b5b" stroke="#0f1826" stroke-width="5"/><path d="M-16 -16 L16 16 M16 -16 L-16 16" stroke="#fbf3dc" stroke-width="9" stroke-linecap="round"/></g></g>
+          <g transform="translate(940 820)"><g class="X-campana"><path d="M-36 20 Q-36 -40 0 -44 Q36 -40 36 20 L46 32 H-46 Z" fill="#ef5b5b" stroke="#0f1826" stroke-width="5" stroke-linejoin="round"/><circle cy="44" r="10" fill="#0f1826"/><path d="M-60 -30 Q-70 0 -60 30 M60 -30 Q70 0 60 30" fill="none" stroke="#fbf3dc" stroke-width="5" stroke-linecap="round"/></g></g>
+          <g transform="translate(860 1420) scale(0.8)"><g class="X-hugo"></g></g>
+          <g transform="translate(760 820)"><g class="X-cursor"></g></g>
+        </svg>
+===JS===
+      q(".X-nube").innerHTML = NUBE(110);
+      q(".X-hugo").innerHTML = HUGO({ sinDiamante: true });
+      q(".X-cursor").innerHTML = CURSOR();
+      const AHI = 0.18, AHORA = 0.74, LISTO = 1.85, CADA = 2.4, CLIENTE = 2.59, RECORDALE = 3.33, PAGO = 3.89, DEBE = 4.35;
+      // "ni ahí": la nube de la cama se cancela
+      tl.fromTo(q(".X-nube"), { opacity: 1, scale: 1 }, { scale: 1.04, duration: 0.15, yoyo: true, repeat: 1 }, 0);
+      tl.fromTo(q(".X-cursor"), { x: 80, y: 80 }, { x: -110, y: -40, duration: 0.25, ease: "power3.out" }, 0);
+      pop(q(".X-cancel"), AHI - 0.05, 0.2);
+      tl.to(q(".X-cursor"), { scale: 0.8, duration: 0.06, yoyo: true, repeat: 1, svgOrigin: "0 0" }, AHI);
+      tl.to([q(".X-nube"), q(".X-cama"), q(".X-cancel")], { opacity: 0, scale: 0.3, duration: 0.25, ease: "back.in(2)", svgOrigin: "540 880" }, AHI + 0.3);
+      tl.to(q(".X-cursor"), { opacity: 0, duration: 0.2 }, AHORA);
+      // el celular con los chats
+      pop(q(".X-cel"), AHORA - 0.1, 0.35);
+      ojos(".X-hugo", "m", 0);
+      tl.to(q(".X-hugo .h-ojeras"), { opacity: 1, duration: 0.05 }, 0);
+      tl.fromTo(q(".X-hugo"), { y: 120 }, { y: 0, duration: 0.4, ease: "back.out(1.6)" }, AHORA);
+      // "tu pedido está listo" vuela a cada chat, uno por uno
+      const ult = qa(".X-ult");
+      gsap.set(q(".X-vuela"), { opacity: 0 });
+      ult.forEach((u, i) => {
+        const t = 1.0 + i * 0.4;
+        tl.fromTo(q(".X-vuela"), { opacity: 1, x: 0, y: 0, scale: 1 }, { x: -380, y: 40 + i * 110, scale: 0.55, duration: 0.3, ease: "power2.in", immediateRender: false }, t);
+        tl.set(q(".X-vuela"), { opacity: 0 }, t + 0.3);
+        tl.to(u, { opacity: 1, duration: 0.1 }, t + 0.3);
+      });
+      tl.to(q(".X-hugo .h-brazo-d"), { rotation: -20, duration: 0.2, yoyo: true, repeat: 9, svgOrigin: "60 -196" }, 1.0);
+      // el cuaderno de los que deben y la campana
+      pop(q(".X-cuad"), RECORDALE - 0.4, 0.35);
+      tl.fromTo(qa(".X-deb"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.15, stagger: 0.12 }, RECORDALE - 0.2);
+      pop(q(".X-campana"), PAGO - 0.2, 0.25);
+      tl.to(q(".X-campana"), { rotation: 18, duration: 0.08, yoyo: true, repeat: 9, svgOrigin: "0 -40" }, PAGO);
+      tl.fromTo(q(".X-cuad"), { x: 0 }, { x: 8, duration: 0.05, yoyo: true, repeat: 5 }, DEBE);
+===SFX===
+[{"t":0.15,"sfx":"glitch-1","vol":0.3,"max":0.4},{"t":0.8,"sfx":"pop","vol":0.25},{"t":1.25,"sfx":"click-soft","vol":0.3},{"t":1.65,"sfx":"click-soft","vol":0.3},{"t":2.05,"sfx":"click-soft","vol":0.3},{"t":2.45,"sfx":"click-soft","vol":0.3},{"t":2.85,"sfx":"click-soft","vol":0.3},{"t":3.85,"sfx":"notification","vol":0.35,"max":0.8}]

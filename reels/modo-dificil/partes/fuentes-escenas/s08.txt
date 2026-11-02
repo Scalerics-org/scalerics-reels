@@ -1,0 +1,44 @@
+s08-galletitas 4.91
+===CSS===
+    /* sin estilos propios */
+===HTML===
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 1640) scale(2)"><g class="X-hugo"></g></g>
+          <g class="X-venas" stroke="#ef5b5b" stroke-width="4" stroke-linecap="round" opacity="0">
+            <path d="M478 1092 l-8 -6 M486 1094 l2 -9 M594 1092 l8 -6 M586 1094 l-2 -9"/>
+          </g>
+          <g transform="translate(250 1150)"><g class="X-paq">
+            <path d="M-110 -120 L90 -150 L120 60 L-80 90 Z" fill="#f4a3b8" stroke="#0f1826" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M-110 -120 L-130 -150 L70 -180 L90 -150" fill="#fbf3dc" stroke="#0f1826" stroke-width="6" stroke-linejoin="round"/>
+            <circle cx="-10" cy="-30" r="44" fill="#e8b878" stroke="#0f1826" stroke-width="5"/>
+            <circle cx="-24" cy="-40" r="5" fill="#0f1826"/><circle cx="6" cy="-24" r="5" fill="#0f1826"/><circle cx="-4" cy="-50" r="5" fill="#0f1826"/>
+          </g></g>
+          <g class="X-migas" fill="#e8b878" stroke="#0f1826" stroke-width="2">
+            <circle cx="500" cy="1180" r="7"/><circle cx="530" cy="1192" r="5"/><circle cx="572" cy="1184" r="6"/><circle cx="548" cy="1200" r="4"/>
+          </g>
+          <g transform="translate(830 760)"><g class="X-glob"></g></g>
+        </svg>
+===JS===
+      q(".X-hugo").innerHTML = HUGO({ diamY: -390 });
+      q(".X-glob").innerHTML = GLOBO(360, 110, "Nefi... plub.", 46);
+      diamGira(".X-hugo", 0);
+      gsap.set(q(".X-hugo .h-diam-r"), { opacity: 1 });
+      gsap.set(q(".X-hugo .h-ojeras"), { opacity: 1 });
+      const NO = 0.3, SIENTE = 0.5, OJOS = 1.3, HUGO2 = 2.52, CENO = 2.8, GALLETITAS = 4.08;
+      ojos(".X-hugo", "m", 0);
+      tl.fromTo(q(".X-hugo"), { scale: 0.92 }, { scale: 1, duration: 0.5, ease: "power3.out", svgOrigin: "0 0" }, 0);
+      pop(q(".X-glob"), NO, 0.3);
+      // "ojos": tic en los ojos, venitas rojas
+      tl.to(q(".X-venas"), { opacity: 1, duration: 0.1 }, OJOS - 0.1);
+      tl.fromTo(q(".X-hugo .h-ojo-m"), { scaleY: 1 }, { scaleY: 0.3, duration: 0.06, yoyo: true, repeat: 7, svgOrigin: "0 -270" }, OJOS);
+      tl.to(q(".X-hugo .h-cabeza"), { rotation: -5, duration: 0.6, yoyo: true, repeat: 5, ease: "sine.inOut", svgOrigin: "0 -214" }, 0.4);
+      tl.to(q(".X-glob"), { opacity: 0, duration: 0.2 }, HUGO2 - 0.3);
+      // "cenó galletitas": el paquete y las migas en el bigote
+      pop(q(".X-paq"), CENO - 0.1, 0.35);
+      tl.to(q(".X-paq"), { rotation: -8, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut", svgOrigin: "0 0" }, CENO + 0.3);
+      tl.to(q(".X-hugo .h-brazo-i"), { rotation: 30, duration: 0.25, yoyo: true, repeat: 5, svgOrigin: "-60 -196" }, CENO);
+      gsap.set(qa(".X-migas circle"), { opacity: 0 });
+      tl.to(qa(".X-migas circle"), { opacity: 1, duration: 0.1, stagger: 0.12 }, GALLETITAS - 0.3);
+      tl.fromTo(q(".X-migas"), { y: 0 }, { y: 8, duration: 0.2, yoyo: true, repeat: 2 }, GALLETITAS);
+===SFX===
+[{"t":0.3,"sfx":"pop","vol":0.25},{"t":1.3,"sfx":"glitch-1","vol":0.2,"max":0.4},{"t":2.75,"sfx":"pop","vol":0.3},{"t":3.2,"sfx":"click-soft","vol":0.3},{"t":3.6,"sfx":"click-soft","vol":0.3},{"t":4.05,"sfx":"click-soft","vol":0.3}]

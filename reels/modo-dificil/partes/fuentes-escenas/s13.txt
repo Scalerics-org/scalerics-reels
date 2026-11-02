@@ -1,0 +1,42 @@
+s13-solo 3.45
+===CSS===
+    P .X-msg { position: absolute; left: 120px; width: 620px; height: 84px; padding: 0 24px; background: #fbf3dc; border: 5px solid #0f1826; border-radius: 24px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 36px; line-height: 76px; color: #0f1826; box-shadow: 0 6px 0 #0f1826; }
+    P .X-msg svg { position: absolute; left: auto; right: 18px; top: 22px; width: 56px; height: 36px; }
+    P .X-auto { position: absolute; left: 770px; top: 690px; transform: rotate(6deg); }
+    P .X-auto b { display: inline-block; padding: 10px 20px; background: #5ce611; border: 5px solid #0f1826; border-radius: 16px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 36px; color: #0f1826; text-transform: uppercase; }
+    P .X-caja { position: absolute; top: 1000px; width: 300px; height: 260px; background: #0f1826; border: 5px solid #fbf3dc; border-radius: 26px; }
+    P .X-caja-t { position: absolute; left: 0; right: 0; top: 18px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.16em; color: #8ccfe8; }
+    P .X-caja-n { position: absolute; left: 0; right: 0; top: 76px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 110px; line-height: 1; color: #fbf3dc; }
+    P .X-caja-s { position: absolute; left: 0; right: 0; top: 200px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #fbf3dc; }
+    P .X-sinc { top: 1280px; }
+    P .X-sinc b { display: inline-block; padding: 6px 20px; border: 4px solid #5ce611; border-radius: 14px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.16em; color: #5ce611; background: #0f1826; }
+===HTML===
+        <div class="X-msg X-m1" style="top:610px">Tu pedido está listo<svg viewBox="0 0 56 36"><path d="M3 18 L13 28 L30 6 M22 26 L26 30 L52 4" fill="none" stroke="#5ce611" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="X-msg X-m2" style="top:716px;left:180px">Tu pedido está listo<svg viewBox="0 0 56 36"><path d="M3 18 L13 28 L30 6 M22 26 L26 30 L52 4" fill="none" stroke="#5ce611" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="X-msg X-m3" style="top:822px;left:240px">Tu pedido está listo<svg viewBox="0 0 56 36"><path d="M3 18 L13 28 L30 6 M22 26 L26 30 L52 4" fill="none" stroke="#5ce611" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="X-auto"><b>Solo</b></div>
+        <div class="X-caja X-c1" style="left:80px"><div class="X-caja-t">LOCAL</div><div class="X-caja-n">2</div><div class="X-caja-s">termos</div></div>
+        <div class="X-caja X-c2" style="left:700px"><div class="X-caja-t">TIENDA</div><div class="X-caja-n"><span class="X-n1">3</span></div><div class="X-caja-n X-n2">2</div><div class="X-caja-s">termos</div></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="X-flecha" d="M400 1130 C470 1080 610 1080 680 1130" fill="none" stroke="#5ce611" stroke-width="10" stroke-linecap="round"/>
+          <path class="X-punta" d="M650 1100 L684 1134 L640 1146" fill="none" stroke="#5ce611" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="X-txt X-sinc"><b>SE ACTUALIZÓ SOLO</b></div>
+===JS===
+      const ESTA = 0.36, LISTO = 0.54, SALE = 0.9, SOLO = 1.27, STOCK = 1.9, ACTUALIZA = 2.45, SOLO2 = 2.81;
+      // los avisos salen solos, a todos
+      [".X-m1", ".X-m2", ".X-m3"].forEach((m, i) => { gsap.set(q(m), { opacity: 0 }); tl.fromTo(q(m), { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(1.6)", immediateRender: false }, i === 0 ? 0 : SALE - 0.5 + i * 0.18); });
+      qa(".X-msg svg").forEach((s, i) => { gsap.set(s, { opacity: 0 }); tl.to(s, { opacity: 1, duration: 0.1 }, SALE + i * 0.1); });
+      golpe(q(".X-auto"), SOLO);
+      // stock local y tienda, sincronizados
+      pop(q(".X-c1"), STOCK - 0.3, 0.3);
+      pop(q(".X-c2"), STOCK - 0.15, 0.3);
+      dibujar(q(".X-flecha"), STOCK + 0.1, 0.4);
+      dibujar(q(".X-punta"), STOCK + 0.45, 0.15);
+      gsap.set(q(".X-n2"), { opacity: 0 });
+      tl.to(q(".X-n1"), { opacity: 0, duration: 0.08 }, ACTUALIZA);
+      tl.fromTo(q(".X-n2"), { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, ACTUALIZA);
+      tl.fromTo(q(".X-c2"), { borderColor: "#fbf3dc" }, { borderColor: "#5ce611", duration: 0.2 }, ACTUALIZA);
+      pop(q(".X-sinc"), SOLO2 - 0.15, 0.3);
+===SFX===
+[{"t":0.05,"sfx":"pop","vol":0.25},{"t":0.9,"sfx":"ping","vol":0.25},{"t":1.0,"sfx":"ping","vol":0.25},{"t":1.25,"sfx":"impact-bass-2","vol":0.3,"max":0.5},{"t":2.0,"sfx":"whoosh-short","vol":0.25},{"t":2.45,"sfx":"click","vol":0.3},{"t":2.8,"sfx":"chime","vol":0.3,"max":0.6}]

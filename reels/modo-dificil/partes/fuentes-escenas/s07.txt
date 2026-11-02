@@ -1,0 +1,95 @@
+s07-velocidad 6.12
+===CSS===
+    P .X-cola { position: absolute; left: 0; right: 0; top: 590px; display: flex; justify-content: center; gap: 22px; }
+    P .X-slot { width: 112px; height: 112px; border-radius: 26px; background: rgba(15, 24, 38, 0.9); border: 5px solid #fbf3dc; }
+    P .X-slot svg { position: static; width: 112px; height: 112px; }
+    P .X-cola-t { position: absolute; left: 0; right: 0; top: 724px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; color: #8ccfe8; }
+    P .X-tienda { position: absolute; left: 230px; top: 800px; width: 620px; height: 470px; background: #fbf3dc; border: 6px solid #0f1826; border-radius: 26px; box-shadow: 0 10px 0 #0f1826; overflow: hidden; }
+    P .X-tienda-t { position: absolute; left: 0; right: 0; top: 0; height: 64px; background: #f4a3b8; border-bottom: 5px solid #0f1826; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 32px; line-height: 60px; text-align: center; color: #0f1826; text-transform: uppercase; }
+    P .X-prod { position: absolute; left: 270px; top: 110px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 54px; color: #0f1826; }
+    P .X-stock { position: absolute; left: 270px; top: 190px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; color: #0f1826; }
+    P .X-a-mano { position: absolute; left: 0; right: 0; top: 340px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; color: #ef5b5b; text-transform: uppercase; }
+    P .X-vend { top: 1170px; }
+    P .X-rep { position: absolute; left: 300px; top: 790px; width: 480px; height: 500px; background: #fbf3dc; border: 6px solid #0f1826; border-radius: 14px; box-shadow: 0 10px 0 #0f1826; }
+    P .X-rep-t { position: absolute; left: 30px; top: 26px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; color: #0f1826; text-transform: uppercase; }
+    P .X-vel { top: 760px; font-size: 220px; color: #8fe3b9; letter-spacing: -0.06em; }
+    P .X-vel-t { top: 975px; font-size: 64px; }
+===HTML===
+        <div class="X-cola">
+          <div class="X-slot X-q1"><svg viewBox="0 0 112 112"><rect x="40" y="26" width="32" height="64" rx="10" fill="#8ccfe8" stroke="#0f1826" stroke-width="4"/><rect x="44" y="18" width="24" height="12" rx="4" fill="#0f1826"/></svg></div>
+          <div class="X-slot X-q2"><svg viewBox="0 0 112 112"><path d="M26 42 H86 L80 84 H32 Z" fill="#f4a3b8" stroke="#fbf3dc" stroke-width="4" stroke-linejoin="round"/><path d="M42 42 Q42 24 56 24 Q70 24 70 42" fill="none" stroke="#fbf3dc" stroke-width="4"/></svg></div>
+          <div class="X-slot X-q3"><svg viewBox="0 0 112 112"><rect x="32" y="22" width="48" height="66" rx="6" fill="#fbf3dc" stroke="#0f1826" stroke-width="4"/><path d="M42 40 H70 M42 54 H70 M42 68 H60" stroke="#0f1826" stroke-width="4" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="X-cola-t">COLA DE ACCIONES</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="X-local">
+            <path d="M160 1060 H920 V1160 H160 Z" fill="#8ccfe8" stroke="#0f1826" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M140 1040 H940 V1068 H140 Z" fill="#fbf3dc" stroke="#0f1826" stroke-width="6" stroke-linejoin="round"/>
+            <g transform="translate(540 1040) scale(0.75)"><g class="X-termo"><rect x="-50" y="-250" width="100" height="250" rx="34" fill="#8fe3b9" stroke="#0f1826" stroke-width="6"/><rect x="-40" y="-290" width="80" height="48" rx="12" fill="#0f1826"/><path d="M-50 -170 H50 M-50 -80 H50" stroke="#0f1826" stroke-width="5"/><path d="M50 -210 Q96 -180 50 -130" fill="none" stroke="#0f1826" stroke-width="10"/></g></g>
+          </g>
+        </svg>
+        <div class="X-txt X-sello X-vend"><b>Vendido en el local</b></div>
+        <div class="X-tienda">
+          <div class="X-tienda-t">Tu tienda online</div>
+          <svg viewBox="0 0 620 470" style="width:620px;height:470px"><g transform="translate(150 300) scale(0.75)"><rect x="-50" y="-250" width="100" height="250" rx="34" fill="#8fe3b9" stroke="#0f1826" stroke-width="6"/><rect x="-40" y="-290" width="80" height="48" rx="12" fill="#0f1826"/><path d="M-50 -170 H50 M-50 -80 H50" stroke="#0f1826" stroke-width="5"/></g></svg>
+          <div class="X-prod">Termo</div>
+          <div class="X-stock">stock: <span class="X-n" style="position:relative;display:inline-block;width:40px"><span class="X-n1">4</span><span class="X-n2" style="position:absolute;left:0;top:0;color:#ef5b5b">3</span></span></div>
+          <div class="X-a-mano">A mano · tecla por tecla</div>
+        </div>
+        <div class="X-rep">
+          <div class="X-rep-t">Reporte del día</div>
+          <svg viewBox="0 0 480 500" style="width:480px;height:500px">
+            <path class="X-l1" d="M40 200 H400" stroke="#0f1826" stroke-width="6" stroke-linecap="round"/>
+            <path class="X-l2" d="M40 250 H340" stroke="#0f1826" stroke-width="6" stroke-linecap="round"/>
+            <path class="X-l3" d="M40 300 H380" stroke="#0f1826" stroke-width="6" stroke-linecap="round"/>
+            <path class="X-l4" d="M40 350 H280" stroke="#0f1826" stroke-width="6" stroke-linecap="round"/>
+            <path class="X-l5" d="M60 470 L150 420 L230 445 L330 395 L420 410" fill="none" stroke="#f4a3b8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="X-lineas" stroke="#fbf3dc" stroke-width="6" stroke-linecap="round" opacity="0">
+            <path d="M80 1180 H300 M120 1240 H380 M760 1180 H1000 M700 1240 H960 M60 1300 H260 M820 1300 H1020"/>
+          </g>
+          <g transform="translate(540 1390) scale(0.75)"><g class="X-hugo"></g></g>
+        </svg>
+        <div class="X-txt X-big X-vel">&gt;&gt;&gt;</div>
+        <div class="X-txt X-big X-vel-t">Velocidad 3</div>
+===JS===
+      q(".X-hugo").innerHTML = HUGO();
+      const VENDIO = 0.71, TERMO = 1.02, ACTUALICE = 1.76, STOCK = 2.32, TIENDA = 2.69, ARME = 3.52, REPORTE = 3.70, LO = 4.17, VELOCIDAD = 4.91, TRES = 5.28;
+      gsap.set(q(".X-hugo .h-diam-r"), { opacity: 1 });
+      ojos(".X-hugo", "m", 0);
+      gsap.set(q(".X-hugo .h-ojeras"), { opacity: 1 });
+      gsap.set(q(".X-hugo"), { opacity: 0 });
+      // cola de acciones: se suma una por cada orden
+      tl.fromTo(q(".X-cola-t"), { opacity: 0.3 }, { opacity: 1, duration: 0.3 }, 0);
+      pop(q(".X-q1"), TERMO - 0.1); pop(q(".X-q2"), TIENDA - 0.2); pop(q(".X-q3"), REPORTE - 0.1);
+      // el termo en el mostrador
+      tl.fromTo(q(".X-local"), { opacity: 0.4, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      pop(q(".X-termo"), VENDIO - 0.1, 0.35);
+      golpe(q(".X-vend"), TERMO + 0.2);
+      tl.to([q(".X-local"), q(".X-vend")], { opacity: 0, y: -30, duration: 0.2 }, ACTUALICE - 0.15);
+      // la tienda: el stock se cambia a mano
+      pop(q(".X-tienda"), ACTUALICE - 0.05, 0.35);
+      gsap.set(q(".X-n2"), { opacity: 0 }); gsap.set(q(".X-a-mano"), { opacity: 0 });
+      tl.to(q(".X-n1"), { opacity: 0, duration: 0.05, yoyo: true, repeat: 3, ease: "steps(1)" }, STOCK);
+      tl.set(q(".X-n1"), { opacity: 0 }, TIENDA);
+      tl.to(q(".X-n2"), { opacity: 1, duration: 0.05 }, TIENDA);
+      pop(q(".X-a-mano"), TIENDA + 0.1, 0.3);
+      tl.to(q(".X-tienda"), { opacity: 0, y: -30, duration: 0.2 }, ARME - 0.2);
+      // el reporte, línea por línea
+      pop(q(".X-rep"), ARME - 0.1, 0.3);
+      ["l1", "l2", "l3", "l4", "l5"].forEach((l, i) => dibujar(q(".X-" + l), REPORTE - 0.1 + i * 0.1, 0.25));
+      tl.to(q(".X-rep"), { opacity: 0, scale: 0.8, duration: 0.2 }, LO + 0.3);
+      tl.to([q(".X-cola"), q(".X-cola-t")], { opacity: 0, duration: 0.2 }, LO + 0.3);
+      // velocidad tres: Hugo a mil
+      golpe(q(".X-vel"), VELOCIDAD);
+      golpe(q(".X-vel-t"), TRES);
+      sacudon(VELOCIDAD + 0.05, 1.3); sacudon(TRES + 0.05, 1.3);
+      tl.to(q(".X-hugo"), { opacity: 1, duration: 0.1 }, VELOCIDAD);
+      tl.fromTo(q(".X-hugo"), { x: -260 }, { x: 260, duration: 0.18, yoyo: true, repeat: 6, ease: "none" }, VELOCIDAD);
+      tl.fromTo(q(".X-hugo"), { filter: "blur(0px)" }, { filter: "blur(3px)", duration: 0.1 }, VELOCIDAD);
+      tl.to(q(".X-lineas"), { opacity: 0.6, duration: 0.1 }, VELOCIDAD);
+      tl.fromTo(q(".X-lineas"), { x: 60 }, { x: -60, duration: 0.15, yoyo: true, repeat: 7, ease: "none" }, VELOCIDAD);
+===SFX===
+[{"t":0.65,"sfx":"pop","vol":0.3},{"t":1.1,"sfx":"impact-bass-2","vol":0.3,"max":0.5},{"t":1.7,"sfx":"pop","vol":0.25},{"t":2.3,"sfx":"key-press","vol":0.35},{"t":2.65,"sfx":"key-press","vol":0.35},{"t":3.6,"sfx":"typing","vol":0.25,"max":0.7},{"t":4.85,"sfx":"riser","vol":0.3,"max":1.2},{"t":5.25,"sfx":"impact-bass-1","vol":0.45,"max":0.6}]

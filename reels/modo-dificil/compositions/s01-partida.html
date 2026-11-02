@@ -1,0 +1,83 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/juego.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-partida"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-partida"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-partida"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-partida"] .s01-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s01-partida"] .s01-chica { top: 592px; font-weight: 800; font-size: 56px; color: #fbf3dc; letter-spacing: 0.04em; text-shadow: 0 5px 0 #0f1826; }
+    [data-composition-id="s01-partida"] .s01-grande { top: 656px; font-weight: 900; font-size: 128px; color: #8fe3b9; letter-spacing: -0.01em; text-shadow: 0 8px 0 #0f1826, 0 0 30px rgba(143, 227, 185, 0.35); }
+    [data-composition-id="s01-partida"] .s01-sello { top: 930px; right: 440px; }
+    [data-composition-id="s01-partida"] .s01-sello b { display: inline-block; transform: rotate(-6deg); padding: 12px 28px; background: #ef5b5b; border: 6px solid #0f1826; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 52px; color: #fbf3dc; letter-spacing: 0.02em; box-shadow: 0 8px 0 #0f1826; }
+    [data-composition-id="s01-partida"] .s01-sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; margin-bottom: 4px; color: #0f1826; }
+  </style>
+  <div id="root" data-composition-id="s01-partida" data-width="1080" data-height="1920" data-duration="2.78">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="2.78" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s01-pieza"></g>
+          <g transform="translate(650 1270) scale(0.95)"><g class="s01-hugo"></g></g>
+          <g transform="translate(900 1180)"><g class="s01-cursor"></g></g>
+        </svg>
+        <div class="s01-txt s01-chica">Tu vida es un</div>
+        <div class="s01-txt s01-grande">Videojuego</div>
+        <div class="s01-txt s01-sello"><b><small>JUGADOR</small>MALÍSIMO</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-partida";
+      const DUR = 2.78;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      q(".s01-pieza").innerHTML = PIEZA(540, 1130, 420, 6, 250);
+      q(".s01-hugo").innerHTML = HUGO();
+      q(".s01-cursor").innerHTML = CURSOR();
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, d = 0.35) => tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.6)", immediateRender: false }, t);
+      const sacudon = (t, f = 1) => [[-12, 7], [10, -5], [-4, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const VIDEOJUEGO = 0.46, JUEGA = 1.57, MALISIMO = 2.22;
+
+      // cuadro 0: la pieza ya está, el piso "carga" en damero
+      tl.fromTo(q(".s01-pieza"), { opacity: 0.6, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-hugo"), { opacity: 0.5, y: -60 }, { opacity: 1, y: 0, duration: 0.35, ease: "bounce.out" }, 0);
+      tl.fromTo(q(".s01-chica"), { opacity: 0.3, y: 16 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 0);
+      gsap.set(q(".s01-grande"), { opacity: 0 });
+      tl.fromTo(q(".s01-grande"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.in", immediateRender: false }, VIDEOJUEGO - 0.12);
+      sacudon(VIDEOJUEGO + 0.08);
+      // el diamante gira sobre la cabeza
+      const dg = q(".s01-hugo .h-diam-g");
+      tl.fromTo(dg, { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2)", svgOrigin: "0 0" }, 0.25);
+      tl.to(dg, { y: -16, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.6);
+      tl.fromTo(q(".s01-hugo .h-diam"), { scaleX: 1 }, { scaleX: -1, duration: 0.7, repeat: 3, yoyo: true, ease: "sine.inOut", svgOrigin: "0 0" }, 0.6);
+      // parpadeo de Hugo
+      tl.to(q(".s01-hugo .h-ojo-a"), { opacity: 0, duration: 0.05, yoyo: true, repeat: 1 }, 1.1);
+      tl.to(q(".s01-hugo .h-ojo-c"), { opacity: 1, duration: 0.05, yoyo: true, repeat: 1 }, 1.1);
+
+      // "el que juega": entra el cursor y hace clic sobre Hugo
+      gsap.set(q(".s01-cursor"), { opacity: 0 });
+      tl.fromTo(q(".s01-cursor"), { opacity: 0, x: 220, y: 120 }, { opacity: 1, x: -170, y: -40, duration: 0.5, ease: "power3.out", immediateRender: false }, JUEGA - 0.25);
+      tl.to(q(".s01-cursor"), { scale: 0.8, duration: 0.07, yoyo: true, repeat: 3, svgOrigin: "0 0" }, JUEGA + 0.3);
+      tl.to(q(".s01-hugo"), { rotation: -6, duration: 0.08, yoyo: true, repeat: 3, svgOrigin: "0 0" }, JUEGA + 0.3);
+
+      // "malísimo": sello rojo
+      gsap.set(q(".s01-sello"), { opacity: 0 });
+      tl.fromTo(q(".s01-sello"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, MALISIMO - 0.12);
+      sacudon(MALISIMO + 0.03, 1.3);
+      tl.to(q(".s01-hugo .h-ojo-a"), { opacity: 0, duration: 0.05 }, MALISIMO);
+      tl.to(q(".s01-hugo .h-ojo-m"), { opacity: 1, duration: 0.05 }, MALISIMO);
+
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

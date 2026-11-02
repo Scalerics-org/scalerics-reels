@@ -1,0 +1,60 @@
+s12-planilla 4.55
+===CSS===
+    P .X-badge { top: 600px; }
+    P .X-badge b { display: inline-block; padding: 12px 30px; background: #0f1826; border: 5px solid #5ce611; border-radius: 40px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; color: #fbf3dc; letter-spacing: 0.02em; }
+    P .X-badge i { font-style: normal; color: #5ce611; }
+    P .X-cel { position: absolute; left: 70px; top: 740px; width: 300px; height: 520px; background: #0f1826; border: 6px solid #fbf3dc; border-radius: 40px; }
+    P .X-burb { position: absolute; left: 22px; width: 244px; padding: 10px 14px; background: #8fe3b9; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; color: #0f1826; }
+    P .X-vuela { position: absolute; left: 92px; width: 244px; padding: 10px 14px; background: #8fe3b9; border: 4px solid #0f1826; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; color: #0f1826; }
+    P .X-lap { position: absolute; left: 640px; top: 760px; width: 380px; height: 400px; background: #fbf3dc; border: 6px solid #0f1826; border-radius: 22px; box-shadow: 0 8px 0 #0f1826; overflow: hidden; }
+    P .X-lap-t { position: absolute; left: 0; right: 0; top: 0; height: 56px; background: #8ccfe8; border-bottom: 4px solid #0f1826; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; line-height: 54px; text-align: center; color: #0f1826; }
+    P .X-fila { position: absolute; left: 16px; width: 344px; height: 60px; border-bottom: 3px solid #8ccfe8; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; line-height: 60px; color: #0f1826; }
+    P .X-fila svg { position: absolute; left: auto; right: 6px; top: 12px; width: 40px; height: 36px; }
+===HTML===
+        <div class="X-txt X-badge"><b><i>Scalerics</i> · automatizaciones</b></div>
+        <div class="X-cel">
+          <div class="X-burb" style="top:40px">2 cuchillos</div>
+          <div class="X-burb" style="top:130px">¿tenés pava?</div>
+          <div class="X-burb" style="top:220px">colador y balde</div>
+          <div class="X-burb" style="top:310px">tapa de olla</div>
+          <div class="X-burb" style="top:400px">3 vasos</div>
+        </div>
+        <div class="X-lap">
+          <div class="X-lap-t">PLANILLA</div>
+          <div class="X-fila X-f1" style="top:70px">2 cuchillos<svg viewBox="0 0 40 36"><path d="M4 18 L15 29 L36 6" fill="none" stroke="#5ce611" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="X-fila X-f2" style="top:134px">pava<svg viewBox="0 0 40 36"><path d="M4 18 L15 29 L36 6" fill="none" stroke="#5ce611" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="X-fila X-f3" style="top:198px">colador, balde<svg viewBox="0 0 40 36"><path d="M4 18 L15 29 L36 6" fill="none" stroke="#5ce611" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="X-fila X-f4" style="top:262px">tapa de olla<svg viewBox="0 0 40 36"><path d="M4 18 L15 29 L36 6" fill="none" stroke="#5ce611" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="X-fila X-f5" style="top:326px">3 vasos<svg viewBox="0 0 40 36"><path d="M4 18 L15 29 L36 6" fill="none" stroke="#5ce611" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="X-vuela X-v1" style="top:780px">2 cuchillos</div>
+        <div class="X-vuela X-v2" style="top:870px">¿tenés pava?</div>
+        <div class="X-vuela X-v3" style="top:960px">colador y balde</div>
+        <div class="X-vuela X-v4" style="top:1050px">tapa de olla</div>
+        <div class="X-vuela X-v5" style="top:1140px">3 vasos</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(505 1000)"><g class="X-eng">
+            <path d="M-12 -62 H12 L16 -44 L32 -36 L48 -48 L64 -32 L52 -16 L60 0 L52 16 L64 32 L48 48 L32 36 L16 44 L12 62 H-12 L-16 44 L-32 36 L-48 48 L-64 32 L-52 16 L-60 0 L-52 -16 L-64 -32 L-48 -48 L-32 -36 L-16 -44 Z" fill="#5ce611" stroke="#0f1826" stroke-width="5" stroke-linejoin="round"/>
+            <circle r="22" fill="#0f1826"/>
+          </g></g>
+        </svg>
+===JS===
+      const SCALERICS = 0.51, AUTOMATIZAMOS = 1.52, PEDIDOS = 2.18, WHATSAPP = 2.64, PASAN = 3.23, SOLOS = 3.45, PLANILLA = 4.18;
+      golpe(q(".X-badge"), SCALERICS);
+      tl.fromTo(q(".X-cel"), { opacity: 0.3, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".X-lap"), { opacity: 0.3, x: 40 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 0);
+      pop(q(".X-eng"), AUTOMATIZAMOS - 0.2, 0.35);
+      tl.to(q(".X-eng"), { rotation: 360, duration: DUR - AUTOMATIZAMOS, ease: "none", svgOrigin: "0 0" }, AUTOMATIZAMOS);
+      qa(".X-burb").forEach((b, i) => tl.fromTo(b, { scale: 1 }, { scale: 1.06, duration: 0.12, yoyo: true, repeat: 1 }, PEDIDOS + i * 0.1));
+      // pasan solos, todos a la vez
+      const filas = qa(".X-fila"), v = qa(".X-vuela");
+      gsap.set(filas, { opacity: 0 }); gsap.set(v, { opacity: 0 });
+      v.forEach((e, i) => {
+        const t = PASAN - 0.25 + i * 0.1;
+        tl.fromTo(e, { opacity: 1, x: 0, y: 0, scale: 1 }, { x: 560, y: 50 - i * 26, scale: 0.8, duration: 0.5, ease: "power2.inOut", immediateRender: false }, t);
+        tl.to(e, { opacity: 0, duration: 0.08 }, t + 0.45);
+        tl.to(filas[i], { opacity: 1, duration: 0.15 }, t + 0.45);
+      });
+      tl.fromTo(q(".X-lap"), { scale: 1 }, { scale: 1.04, duration: 0.15, yoyo: true, repeat: 1 }, PLANILLA);
+===SFX===
+[{"t":0.45,"sfx":"impact-bass-2","vol":0.35,"max":0.5},{"t":1.35,"sfx":"pop","vol":0.3},{"t":3.0,"sfx":"whoosh","vol":0.3},{"t":3.5,"sfx":"ping","vol":0.3},{"t":4.1,"sfx":"chime","vol":0.3,"max":0.8}]

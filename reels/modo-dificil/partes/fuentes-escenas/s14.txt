@@ -1,0 +1,74 @@
+s14-duerme 5.56
+===CSS===
+    P .X-cel { position: absolute; left: 300px; top: 600px; width: 480px; height: 720px; background: #0f1826; border: 7px solid #fbf3dc; border-radius: 56px; }
+    P .X-hora { position: absolute; left: 0; right: 0; top: 70px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 300; font-size: 120px; line-height: 1; color: #fbf3dc; }
+    P .X-not { position: absolute; left: 24px; top: 250px; width: 418px; height: 300px; background: #fbf3dc; border: 5px solid #5ce611; border-radius: 30px; }
+    P .X-not-t { position: absolute; left: 24px; top: 20px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.1em; color: #2c3f58; }
+    P .X-not-s { position: absolute; left: 24px; top: 62px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 44px; color: #0f1826; }
+    P .X-not svg { position: absolute; left: 24px; top: 130px; width: 370px; height: 150px; }
+    P .X-zz { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; color: #8ccfe8; text-shadow: 0 5px 0 #0f1826; }
+===HTML===
+        <div class="X-cel">
+          <div class="X-hora">21:30</div>
+          <div class="X-not">
+            <div class="X-not-t">SCALERICS · AHORA</div>
+            <div class="X-not-s">Reporte del día</div>
+            <svg viewBox="0 0 370 150" style="left:24px;top:130px;width:370px;height:150px"><rect class="X-bar" x="10" y="70" width="56" height="80" rx="8" fill="#8ccfe8" stroke="#0f1826" stroke-width="4"/><rect class="X-bar" x="84" y="40" width="56" height="110" rx="8" fill="#8fe3b9" stroke="#0f1826" stroke-width="4"/><rect class="X-bar" x="158" y="86" width="56" height="64" rx="8" fill="#f4a3b8" stroke="#0f1826" stroke-width="4"/><rect class="X-bar" x="232" y="20" width="56" height="130" rx="8" fill="#5ce611" stroke="#0f1826" stroke-width="4"/><rect class="X-bar" x="306" y="56" width="56" height="94" rx="8" fill="#8ccfe8" stroke="#0f1826" stroke-width="4"/></svg>
+          </div>
+        </div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="X-cuarto">
+            <path d="M120 1180 L540 960 L960 1180 L540 1400 Z" fill="#8ccfe8" opacity="0.35" stroke="#0f1826" stroke-width="5"/>
+            <path d="M250 1130 L620 940 L900 1080 L530 1270 Z" fill="#fbf3dc" stroke="#0f1826" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M250 1130 V1180 L530 1320 V1270 Z M530 1270 V1320 L900 1130 V1080 Z" fill="#c98aa0" stroke="#0f1826" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M560 970 L700 900 L790 946 L650 1016 Z" fill="#fbf3dc" stroke="#0f1826" stroke-width="5" stroke-linejoin="round"/>
+            <circle cx="680" cy="930" r="56" fill="#f2c9a5" stroke="#0f1826" stroke-width="5"/>
+            <path d="M640 900 Q630 930 650 960" fill="none" stroke="#fbf3dc" stroke-width="14" stroke-linecap="round"/>
+            <path d="M660 924 Q668 932 676 924 M694 920 Q702 928 710 920" fill="none" stroke="#0f1826" stroke-width="5" stroke-linecap="round"/>
+            <path d="M664 950 Q684 940 706 950 Q692 962 680 956 Q670 962 664 950 Z" fill="#2c3f58" stroke="#0f1826" stroke-width="3"/>
+            <path d="M300 1110 L600 955 L870 1090 L560 1250 Z" fill="#8fe3b9" stroke="#0f1826" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M380 1120 L620 996 M450 1160 L700 1030" stroke="#0f1826" stroke-width="4" opacity="0.35"/>
+            <g transform="translate(680 800)"><g class="X-dm"></g></g>
+          </g>
+          <g class="X-cena">
+            <g transform="translate(390 1220) scale(0.85)"><g class="X-hugo"></g></g>
+            <g transform="translate(610 1240) scale(0.8)"><g class="X-fam"></g></g>
+            <path d="M120 1160 H960 L1000 1250 H80 Z" fill="#fbf3dc" stroke="#0f1826" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M80 1250 H1000 V1300 H80 Z" fill="#c98aa0" stroke="#0f1826" stroke-width="6"/>
+            <ellipse cx="400" cy="1200" rx="80" ry="24" fill="#8ccfe8" stroke="#0f1826" stroke-width="5"/>
+            <ellipse cx="680" cy="1200" rx="80" ry="24" fill="#8ccfe8" stroke="#0f1826" stroke-width="5"/>
+            <path d="M500 1196 Q540 1150 580 1196 Z" fill="#f4a3b8" stroke="#0f1826" stroke-width="5" stroke-linejoin="round"/>
+            <path class="X-cor" d="M540 700 C510 670 470 700 540 750 C610 700 570 670 540 700 Z" fill="#f4a3b8" stroke="#0f1826" stroke-width="5"/>
+          </g>
+        </svg>
+        <div class="X-zz X-z1" style="left:780px;top:880px;font-size:56px">Z</div>
+        <div class="X-zz X-z2" style="left:826px;top:810px;font-size:72px">Z</div>
+        <div class="X-zz X-z3" style="left:884px;top:730px;font-size:88px">Z</div>
+===JS===
+      q(".X-hugo").innerHTML = HUGO();
+      q(".X-fam").innerHTML = FAMILIA();
+      q(".X-dm").innerHTML = DIAMANTE(0);
+      const REPORTE = 0.18, DIA = 0.82, LLEGA = 1.36, CELULAR = 1.64, HUGO_T = 2.69, DUERME = 2.99, HUGO3 = 3.7, CENA = 3.89, FAMILIA_T = 4.49;
+      // el reporte llega solo al celular
+      tl.fromTo(q(".X-cel"), { opacity: 0.4, y: 60 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      gsap.set(q(".X-not"), { opacity: 0 });
+      tl.fromTo(q(".X-not"), { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, REPORTE + 0.05);
+      qa(".X-bar").forEach((b, i) => tl.fromTo(b, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)" }, DIA - 0.2 + i * 0.08));
+      tl.fromTo(q(".X-cel"), { rotation: 0 }, { rotation: 3, duration: 0.06, yoyo: true, repeat: 5 }, LLEGA);
+      tl.to(q(".X-cel"), { opacity: 0, y: 60, duration: 0.25, ease: "power2.in" }, HUGO_T - 0.3);
+      // Hugo duerme
+      gsap.set(q(".X-cuarto"), { opacity: 0 });
+      tl.fromTo(q(".X-cuarto"), { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)", svgOrigin: "540 1100", immediateRender: false }, HUGO_T - 0.1);
+      tl.fromTo(q(".X-dm .h-diam"), { scaleX: 1 }, { scaleX: -1, duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut", svgOrigin: "0 0" }, HUGO_T);
+      ["X-z1", "X-z2", "X-z3"].forEach((z, i) => { gsap.set(q("." + z), { opacity: 0 }); tl.fromTo(q("." + z), { opacity: 0, y: 20 }, { opacity: 1, y: -10, duration: 0.3, immediateRender: false }, DUERME + i * 0.15); tl.to(q("." + z), { opacity: 0, duration: 0.15 }, HUGO3 - 0.2); });
+      tl.to(q(".X-cuarto"), { opacity: 0, duration: 0.2 }, HUGO3 - 0.2);
+      // cena con la familia
+      gsap.set(q(".X-cena"), { opacity: 0 });
+      tl.to(q(".X-cena"), { opacity: 1, duration: 0.25 }, HUGO3 - 0.05);
+      tl.set(q(".X-fam .f-boca"), { scaleY: -1, svgOrigin: "-8 -190" }, 0);
+      tl.fromTo(q(".X-fam"), { x: 200 }, { x: 0, duration: 0.5, ease: "power3.out" }, CENA);
+      tl.fromTo(q(".X-hugo .h-brazo-d"), { rotation: 0 }, { rotation: -40, duration: 0.25, yoyo: true, repeat: 3, svgOrigin: "60 -196" }, FAMILIA_T - 0.3);
+      pop(q(".X-cor"), FAMILIA_T, 0.35);
+      tl.to(q(".X-cor"), { y: -20, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, FAMILIA_T + 0.3);
+===SFX===
+[{"t":0.2,"sfx":"notification","vol":0.35,"max":0.8},{"t":0.8,"sfx":"pop","vol":0.25},{"t":2.6,"sfx":"whoosh-short","vol":0.25},{"t":3.0,"sfx":"sparkle","vol":0.2,"max":0.6},{"t":3.85,"sfx":"pop","vol":0.3},{"t":4.45,"sfx":"chime","vol":0.3,"max":0.8}]

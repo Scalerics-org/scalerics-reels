@@ -1,0 +1,38 @@
+s06-critica 2.92
+===CSS===
+    P .X-dlg { position: absolute; left: 90px; top: 600px; width: 900px; height: 250px; background: #fbf3dc; border: 8px solid #ef5b5b; border-radius: 30px; box-shadow: 0 10px 0 #0f1826; }
+    P .X-dlg-t { position: absolute; left: 180px; top: 40px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 54px; color: #0f1826; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    P .X-dlg-s { position: absolute; left: 180px; top: 126px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 84px; color: #ef5b5b; text-transform: uppercase; line-height: 1; }
+    P .X-zz { position: absolute; font-family: "Lexend", sans-serif; font-weight: 900; color: #8ccfe8; text-shadow: 0 5px 0 #0f1826; }
+===HTML===
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 1650) scale(1.7)"><g class="X-hugo"></g></g>
+        </svg>
+        <div class="X-dlg">
+          <svg viewBox="0 0 160 250" style="width:160px;height:250px"><circle cx="92" cy="122" r="58" fill="#ef5b5b" stroke="#0f1826" stroke-width="5"/><path d="M92 92 V128" stroke="#fbf3dc" stroke-width="14" stroke-linecap="round"/><circle cx="92" cy="152" r="8" fill="#fbf3dc"/></svg>
+          <div class="X-dlg-t">Necesidad crítica</div>
+          <div class="X-dlg-s">Sueño</div>
+        </div>
+        <div class="X-zz X-z1" style="left:760px;top:990px;font-size:60px">Z</div>
+        <div class="X-zz X-z2" style="left:812px;top:920px;font-size:76px">Z</div>
+        <div class="X-zz X-z3" style="left:874px;top:840px;font-size:92px">Z</div>
+===JS===
+      q(".X-hugo").innerHTML = HUGO();
+      diamGira(".X-hugo", 0);
+      const CRITICA = 0.82, SUENO = 1.75;
+      ojos(".X-hugo", "m", 0);
+      gsap.set(q(".X-hugo .h-ojeras"), { opacity: 1 });
+      tl.fromTo(q(".X-hugo"), { y: 40 }, { y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      pop(q(".X-dlg"), 0.02, 0.3);
+      gsap.set(q(".X-dlg-s"), { opacity: 0 });
+      // "crítica": el diamante se pone rojo, sacudón
+      diamRojo(".X-hugo", CRITICA - 0.05);
+      tl.to(q(".X-dlg"), { scale: 1.06, duration: 0.1, yoyo: true, repeat: 3, ease: "power2.out" }, CRITICA);
+      sacudon(CRITICA, 1.4);
+      // "sueño": se le cierran los ojos, cabeceo y Zzz
+      pop(q(".X-dlg-s"), SUENO - 0.1, 0.3);
+      ojos(".X-hugo", "c", SUENO);
+      tl.to(q(".X-hugo .h-cabeza"), { rotation: 12, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1, svgOrigin: "0 -214" }, SUENO);
+      ["X-z1", "X-z2", "X-z3"].forEach((z, i) => { gsap.set(q("." + z), { opacity: 0 }); tl.fromTo(q("." + z), { opacity: 0, y: 20 }, { opacity: 1, y: -10, duration: 0.35, ease: "power2.out", immediateRender: false }, SUENO + 0.1 + i * 0.15); });
+===SFX===
+[{"t":0.05,"sfx":"pop","vol":0.3},{"t":0.78,"sfx":"glitch-1","vol":0.4,"max":0.5},{"t":0.8,"sfx":"impact-bass-1","vol":0.4,"max":0.6},{"t":1.7,"sfx":"impact-bass-2","vol":0.35,"max":0.6}]

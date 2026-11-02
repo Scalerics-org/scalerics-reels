@@ -1,0 +1,61 @@
+s11-trucos 6.0
+===CSS===
+    P .X-que { top: 640px; font-size: 170px; color: #fbf3dc; }
+    P .X-tru { top: 640px; font-size: 150px; color: #8ccfe8; }
+    P .X-con { position: absolute; left: 60px; top: 600px; width: 960px; height: 230px; background: #0f1826; border: 6px solid #8fe3b9; border-radius: 26px; box-shadow: 0 10px 0 rgba(143, 227, 185, 0.25); }
+    P .X-con-t { position: absolute; left: 32px; top: 24px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.2em; color: #8fe3b9; }
+    P .X-con-l { position: absolute; left: 32px; top: 92px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 84px; line-height: 1; color: #fbf3dc; white-space: nowrap; }
+    P .X-caret { display: inline-block; width: 40px; height: 76px; background: #8fe3b9; vertical-align: -8px; margin-left: 4px; }
+    P .X-ok { top: 870px; }
+    P .X-ok b { display: inline-block; padding: 12px 30px; background: #8fe3b9; border: 6px solid #0f1826; border-radius: 40px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; color: #0f1826; box-shadow: 0 8px 0 #0f1826; }
+===HTML===
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 1370) scale(0.95)"><g class="X-hugo"></g></g>
+          <g class="X-brillos" fill="#8fe3b9" stroke="#0f1826" stroke-width="3">
+            <path class="X-b" d="M330 1050 l10 -26 l10 26 l26 10 l-26 10 l-10 26 l-10 -26 l-26 -10 Z"/>
+            <path class="X-b" d="M760 1000 l10 -26 l10 26 l26 10 l-26 10 l-10 26 l-10 -26 l-26 -10 Z"/>
+            <path class="X-b" d="M280 1230 l8 -20 l8 20 l20 8 l-20 8 l-8 20 l-8 -20 l-20 -8 Z"/>
+            <path class="X-b" d="M800 1210 l8 -20 l8 20 l20 8 l-20 8 l-8 20 l-8 -20 l-20 -8 Z"/>
+            <path class="X-b" d="M420 940 l8 -20 l8 20 l20 8 l-20 8 l-8 20 l-8 -20 l-20 -8 Z"/>
+            <path class="X-b" d="M650 930 l8 -20 l8 20 l20 8 l-20 8 l-8 20 l-8 -20 l-20 -8 Z"/>
+          </g>
+        </svg>
+        <div class="X-txt X-big X-que">¿Qué?</div>
+        <div class="X-txt X-big X-tru">¿Trucos?</div>
+        <div class="X-con">
+          <div class="X-con-t">CÓDIGO DE TRUCOS</div>
+          <div class="X-con-l">&gt; <span class="X-ch">a</span><span class="X-ch">u</span><span class="X-ch">t</span><span class="X-ch">o</span><span class="X-ch">m</span><span class="X-ch">a</span><span class="X-ch">t</span><span class="X-ch">i</span><span class="X-ch">z</span><span class="X-ch">a</span><span class="X-ch">r</span><span class="X-caret"></span></div>
+        </div>
+        <div class="X-txt X-ok"><b>Truco activado</b></div>
+===JS===
+      q(".X-hugo").innerHTML = HUGO();
+      diamGira(".X-hugo", 0);
+      gsap.set(q(".X-hugo .h-diam-r"), { opacity: 1 });
+      gsap.set(q(".X-hugo .h-ojeras"), { opacity: 0.5 });
+      const ESTE = 0.52, TRUCOS = 1.63, CODIGO = 2.95, TRUCOS2 = 3.51, AUTOMATIZAR = 4.33;
+      golpe(q(".X-que"), 0.08);
+      sacudon(0.1);
+      tl.to(q(".X-que"), { opacity: 0, scale: 0.8, duration: 0.15 }, TRUCOS - 0.2);
+      golpe(q(".X-tru"), TRUCOS);
+      tl.to(q(".X-tru"), { rotation: 4, duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, TRUCOS + 0.1);
+      tl.to(q(".X-hugo .h-cabeza"), { rotation: 8, duration: 0.3, yoyo: true, repeat: 1, svgOrigin: "0 -214" }, ESTE);
+      tl.to(q(".X-tru"), { opacity: 0, duration: 0.15 }, CODIGO - 0.25);
+      // consola de trucos: se escribe "automatizar"
+      gsap.set(q(".X-con"), { opacity: 0 });
+      tl.fromTo(q(".X-con"), { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, CODIGO - 0.15);
+      const ch = qa(".X-ch");
+      gsap.set(ch, { opacity: 0 });
+      ch.forEach((c, i) => tl.set(c, { opacity: 1 }, TRUCOS2 + i * ((AUTOMATIZAR + 0.3 - TRUCOS2) / ch.length)));
+      tl.to(q(".X-caret"), { opacity: 0, duration: 0.2, yoyo: true, repeat: 11, ease: "steps(1)" }, CODIGO);
+      // ¡activado! el diamante vuelve a verde
+      golpe(q(".X-ok"), AUTOMATIZAR + 0.1);
+      sacudon(AUTOMATIZAR + 0.12, 1.2);
+      tl.to(q(".X-con"), { scale: 1.04, duration: 0.12, yoyo: true, repeat: 1 }, AUTOMATIZAR);
+      tl.to(q(".X-hugo .h-diam-r"), { opacity: 0, duration: 0.3 }, AUTOMATIZAR);
+      tl.to(q(".X-hugo .h-ojeras"), { opacity: 0, duration: 0.3 }, AUTOMATIZAR);
+      const b = qa(".X-b");
+      gsap.set(b, { opacity: 0 });
+      b.forEach((e, i) => { tl.fromTo(e, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)", transformOrigin: "50% 50%", immediateRender: false }, AUTOMATIZAR + i * 0.06); tl.to(e, { rotation: 90, duration: 1.2, ease: "none", transformOrigin: "50% 50%" }, AUTOMATIZAR + 0.3); });
+      tl.fromTo(q(".X-hugo"), { y: 0 }, { y: -30, duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out" }, AUTOMATIZAR + 0.1);
+===SFX===
+[{"t":0.05,"sfx":"impact-bass-2","vol":0.35,"max":0.5},{"t":1.55,"sfx":"pop","vol":0.3},{"t":2.85,"sfx":"whoosh-short","vol":0.25},{"t":3.5,"sfx":"typing","vol":0.3,"max":1.0},{"t":4.35,"sfx":"sparkle","vol":0.4},{"t":4.4,"sfx":"chime","vol":0.35,"max":1.2}]

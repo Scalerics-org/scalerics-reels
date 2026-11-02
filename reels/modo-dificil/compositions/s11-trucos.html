@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/juego.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-trucos"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-trucos"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-trucos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-trucos"] .s11-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s11-trucos"] .s11-big { font-weight: 900; color: #fbf3dc; text-shadow: 0 7px 0 #0f1826; }
+    [data-composition-id="s11-trucos"] .s11-sello b { display: inline-block; transform: rotate(-5deg); padding: 10px 26px; background: #ef5b5b; border: 6px solid #0f1826; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; color: #fbf3dc; box-shadow: 0 8px 0 #0f1826; }
+    [data-composition-id="s11-trucos"] .s11-sello small { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; margin-bottom: 4px; color: #0f1826; }
+    [data-composition-id="s11-trucos"] .s11-pill b { display: inline-block; padding: 10px 24px; background: #0f1826; border: 4px solid #fbf3dc; border-radius: 40px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 36px; color: #fbf3dc; }
+    [data-composition-id="s11-trucos"] .s11-que { top: 640px; font-size: 170px; color: #fbf3dc; }
+    [data-composition-id="s11-trucos"] .s11-tru { top: 640px; font-size: 150px; color: #8ccfe8; }
+    [data-composition-id="s11-trucos"] .s11-con { position: absolute; left: 60px; top: 600px; width: 960px; height: 230px; background: #0f1826; border: 6px solid #8fe3b9; border-radius: 26px; box-shadow: 0 10px 0 rgba(143, 227, 185, 0.25); }
+    [data-composition-id="s11-trucos"] .s11-con-t { position: absolute; left: 32px; top: 24px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.2em; color: #8fe3b9; }
+    [data-composition-id="s11-trucos"] .s11-con-l { position: absolute; left: 32px; top: 92px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 84px; line-height: 1; color: #fbf3dc; white-space: nowrap; }
+    [data-composition-id="s11-trucos"] .s11-caret { display: inline-block; width: 40px; height: 76px; background: #8fe3b9; vertical-align: -8px; margin-left: 4px; }
+    [data-composition-id="s11-trucos"] .s11-ok { top: 870px; }
+    [data-composition-id="s11-trucos"] .s11-ok b { display: inline-block; padding: 12px 30px; background: #8fe3b9; border: 6px solid #0f1826; border-radius: 40px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; color: #0f1826; box-shadow: 0 8px 0 #0f1826; }
+  </style>
+  <div id="root" data-composition-id="s11-trucos" data-width="1080" data-height="1920" data-duration="6.0">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="6.0" data-track-index="0">
+      <div class="s11-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(540 1370) scale(0.95)"><g class="s11-hugo"></g></g>
+          <g class="s11-brillos" fill="#8fe3b9" stroke="#0f1826" stroke-width="3">
+            <path class="s11-b" d="M330 1050 l10 -26 l10 26 l26 10 l-26 10 l-10 26 l-10 -26 l-26 -10 Z"/>
+            <path class="s11-b" d="M760 1000 l10 -26 l10 26 l26 10 l-26 10 l-10 26 l-10 -26 l-26 -10 Z"/>
+            <path class="s11-b" d="M280 1230 l8 -20 l8 20 l20 8 l-20 8 l-8 20 l-8 -20 l-20 -8 Z"/>
+            <path class="s11-b" d="M800 1210 l8 -20 l8 20 l20 8 l-20 8 l-8 20 l-8 -20 l-20 -8 Z"/>
+            <path class="s11-b" d="M420 940 l8 -20 l8 20 l20 8 l-20 8 l-8 20 l-8 -20 l-20 -8 Z"/>
+            <path class="s11-b" d="M650 930 l8 -20 l8 20 l20 8 l-20 8 l-8 20 l-8 -20 l-20 -8 Z"/>
+          </g>
+        </svg>
+        <div class="s11-txt s11-big s11-que">¿Qué?</div>
+        <div class="s11-txt s11-big s11-tru">¿Trucos?</div>
+        <div class="s11-con">
+          <div class="s11-con-t">CÓDIGO DE TRUCOS</div>
+          <div class="s11-con-l">&gt; <span class="s11-ch">a</span><span class="s11-ch">u</span><span class="s11-ch">t</span><span class="s11-ch">o</span><span class="s11-ch">m</span><span class="s11-ch">a</span><span class="s11-ch">t</span><span class="s11-ch">i</span><span class="s11-ch">z</span><span class="s11-ch">a</span><span class="s11-ch">r</span><span class="s11-caret"></span></div>
+        </div>
+        <div class="s11-txt s11-ok"><b>Truco activado</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-trucos";
+      const DUR = 6.0;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const pop = (el, t, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const golpe = (el, t) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const sale = (el, t, d = 0.2) => tl.to(el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1) => [[-12, 7], [10, -5], [-4, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s11-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const dibujar = (el, t, d = 0.6) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t); };
+      const ojos = (h, cual, t) => ["a", "m", "c"].forEach((k) => tl.to(q(h + " .h-ojo-" + k), { opacity: k === cual ? 1 : 0, duration: 0.05 }, t));
+      const diamRojo = (h, t) => { tl.to(q(h + " .h-diam-r"), { opacity: 1, duration: 0.15 }, t); };
+      const diamGira = (h, t0 = 0) => { tl.fromTo(q(h + " .h-diam"), { scaleX: 1 }, { scaleX: -1, duration: 0.7, yoyo: true, repeat: Math.max(1, Math.floor((DUR - t0) / 0.7)), ease: "sine.inOut", svgOrigin: "0 0" }, t0); tl.fromTo(q(h + " .h-diam-r"), { scaleX: 1 }, { scaleX: -1, duration: 0.7, yoyo: true, repeat: Math.max(1, Math.floor((DUR - t0) / 0.7)), ease: "sine.inOut", svgOrigin: "0 0" }, t0); tl.fromTo(q(h + " .h-diam-g"), { y: 0 }, { y: -14, duration: 0.8, yoyo: true, repeat: Math.max(1, Math.floor((DUR - t0) / 0.8)), ease: "sine.inOut" }, t0); };
+      q(".s11-hugo").innerHTML = HUGO();
+      diamGira(".s11-hugo", 0);
+      gsap.set(q(".s11-hugo .h-diam-r"), { opacity: 1 });
+      gsap.set(q(".s11-hugo .h-ojeras"), { opacity: 0.5 });
+      const ESTE = 0.52, TRUCOS = 1.63, CODIGO = 2.95, TRUCOS2 = 3.51, AUTOMATIZAR = 4.33;
+      golpe(q(".s11-que"), 0.08);
+      sacudon(0.1);
+      tl.to(q(".s11-que"), { opacity: 0, scale: 0.8, duration: 0.15 }, TRUCOS - 0.2);
+      golpe(q(".s11-tru"), TRUCOS);
+      tl.to(q(".s11-tru"), { rotation: 4, duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, TRUCOS + 0.1);
+      tl.to(q(".s11-hugo .h-cabeza"), { rotation: 8, duration: 0.3, yoyo: true, repeat: 1, svgOrigin: "0 -214" }, ESTE);
+      tl.to(q(".s11-tru"), { opacity: 0, duration: 0.15 }, CODIGO - 0.25);
+      // consola de trucos: se escribe "automatizar"
+      gsap.set(q(".s11-con"), { opacity: 0 });
+      tl.fromTo(q(".s11-con"), { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, CODIGO - 0.15);
+      const ch = qa(".s11-ch");
+      gsap.set(ch, { opacity: 0 });
+      ch.forEach((c, i) => tl.set(c, { opacity: 1 }, TRUCOS2 + i * ((AUTOMATIZAR + 0.3 - TRUCOS2) / ch.length)));
+      tl.to(q(".s11-caret"), { opacity: 0, duration: 0.2, yoyo: true, repeat: 11, ease: "steps(1)" }, CODIGO);
+      // ¡activado! el diamante vuelve a verde
+      golpe(q(".s11-ok"), AUTOMATIZAR + 0.1);
+      sacudon(AUTOMATIZAR + 0.12, 1.2);
+      tl.to(q(".s11-con"), { scale: 1.04, duration: 0.12, yoyo: true, repeat: 1 }, AUTOMATIZAR);
+      tl.to(q(".s11-hugo .h-diam-r"), { opacity: 0, duration: 0.3 }, AUTOMATIZAR);
+      tl.to(q(".s11-hugo .h-ojeras"), { opacity: 0, duration: 0.3 }, AUTOMATIZAR);
+      const b = qa(".s11-b");
+      gsap.set(b, { opacity: 0 });
+      b.forEach((e, i) => { tl.fromTo(e, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)", transformOrigin: "50% 50%", immediateRender: false }, AUTOMATIZAR + i * 0.06); tl.to(e, { rotation: 90, duration: 1.2, ease: "none", transformOrigin: "50% 50%" }, AUTOMATIZAR + 0.3); });
+      tl.fromTo(q(".s11-hugo"), { y: 0 }, { y: -30, duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out" }, AUTOMATIZAR + 0.1);
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
