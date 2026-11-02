@@ -1,0 +1,136 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-atento"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-atento"] .s04-esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-atento"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-atento"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s04-atento"] .grito { font-weight: 900; color: #fbf9f1; -webkit-text-stroke: 4px #0d2c54; paint-order: stroke fill; text-shadow: 8px 8px 0 #0d2c54; }
+    [data-composition-id="s04-atento"] .grito.nar { color: #ff7a1a; }
+    [data-composition-id="s04-atento"] .zoc { position: absolute; left: 50px; top: 1386px; display: flex; height: 100px; border: 4px solid #0d2c54; border-radius: 10px; overflow: hidden; box-shadow: 8px 8px 0 rgba(13, 44, 84, 0.6); }
+    [data-composition-id="s04-atento"] .zoc .tab { display: flex; align-items: center; padding: 0 18px; background: #ff7a1a; color: #0d2c54; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-atento"] .zoc .tab.verde { background: #5ce611; color: #0d2c54; }
+    [data-composition-id="s04-atento"] .zoc .tit { display: flex; align-items: center; padding: 0 26px; background: #fbf9f1; color: #0d2c54; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-atento"] .sello b { display: inline-block; padding: 10px 28px; border: 7px solid #ff7a1a; border-radius: 14px; color: #ff7a1a; background: rgba(13, 44, 84, 0.9); font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s04-atento"] .s04-a { top: 590px; font-size: 104px; }
+    [data-composition-id="s04-atento"] .s04-b { top: 708px; font-size: 104px; }
+    [data-composition-id="s04-atento"] .s04-c { top: 826px; font-size: 132px; }
+  </style>
+  <div id="root" data-composition-id="s04-atento" data-width="1080" data-height="1920" data-duration="2.67">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="2.67" data-track-index="0">
+      <div class="s04-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(470 1180) scale(1.45)"><g class="s04-tito">
+<g class="s04t">
+  <path d="M-150 340 L-156 170 Q-152 112 -100 104 L-30 96 L0 130 L30 96 L100 104 Q152 112 156 170 L150 340 Z" fill="#0d2c54" stroke="#fbf9f1" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-112 112 L-58 104 L-44 340 L-118 340 Z M112 112 L58 104 L44 340 L118 340 Z" fill="#ff7a1a" stroke="#0d2c54" stroke-width="4" stroke-linejoin="round" />
+  <path d="M-114 230 L-46 230 M114 230 L46 230" stroke="#fbf9f1" stroke-width="10" />
+  <rect x="-96" y="276" width="192" height="50" rx="16" fill="#0d2c54" stroke="#fbf9f1" stroke-width="4" />
+  <rect x="-40" y="270" width="80" height="58" rx="12" fill="#ff7a1a" stroke="#0d2c54" stroke-width="4" />
+  <path d="M-16 290 h32 M-22 302 a8 8 0 1 0 0 -14 M22 302 a8 8 0 1 1 0 -14" stroke="#0d2c54" stroke-width="4" fill="none" stroke-linecap="round" />
+  <path d="M-24 96 Q0 210 24 96" stroke="#fbf9f1" stroke-width="4" fill="none" />
+  <g class="s04t-silbato"><rect x="-18" y="196" width="40" height="24" rx="10" fill="#fbf9f1" stroke="#0d2c54" stroke-width="4" /><circle cx="-14" cy="208" r="13" fill="#fbf9f1" stroke="#0d2c54" stroke-width="4" /></g>
+  <rect x="-22" y="52" width="44" height="50" fill="#fbf9f1" stroke="#0d2c54" stroke-width="4" />
+  <ellipse cx="0" cy="0" rx="62" ry="72" fill="#fbf9f1" stroke="#0d2c54" stroke-width="4" />
+  <path d="M-66 -26 C-66 -96 66 -96 66 -26 Z" fill="#ff7a1a" stroke="#0d2c54" stroke-width="4" stroke-linejoin="round" />
+  <path d="M-10 -30 C30 -40 92 -36 112 -20 C80 -14 30 -18 -10 -22 Z" fill="#ff7a1a" stroke="#0d2c54" stroke-width="4" stroke-linejoin="round" />
+  <text x="0" y="-48" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="28" fill="#0d2c54" data-layout-ignore>T</text>
+  <path class="s04t-cejas" d="M-42 -12 L-14 -16 M14 -20 L42 -26" stroke="#0d2c54" stroke-width="7" stroke-linecap="round" />
+  <g class="s04t-ojos"><circle cx="-26" cy="4" r="7" fill="#0d2c54" /><circle cx="26" cy="2" r="7" fill="#0d2c54" /></g>
+  <path d="M-6 14 Q2 30 -8 34" stroke="#0d2c54" stroke-width="4" fill="none" stroke-linecap="round" />
+  <path class="s04t-boca" d="M-26 48 Q6 66 34 42" stroke="#0d2c54" stroke-width="6" fill="#fbf9f1" stroke-linecap="round" />
+  <path d="M-46 54 Q0 92 46 54" stroke="#0d2c54" stroke-width="3" fill="none" opacity="0.35" stroke-dasharray="2 9" stroke-linecap="round" />
+  <g class="s04t-brazo">
+    <path d="M96 130 L236 40" stroke="#0d2c54" stroke-width="44" stroke-linecap="round" />
+    <circle cx="250" cy="30" r="26" fill="#fbf9f1" stroke="#0d2c54" stroke-width="4" />
+    <path d="M262 18 L304 -8" stroke="#fbf9f1" stroke-width="16" stroke-linecap="round" />
+  </g>
+</g></g></g>
+          <g class="s04-rayos" stroke="#fbf9f1" stroke-width="9" stroke-linecap="round">
+            <path d="M600 1210 L680 1180" /><path d="M606 1250 L700 1256" /><path d="M596 1290 L676 1324" />
+          </g>
+          <g transform="translate(930 1150) rotate(12)"><g class="s04-cel">
+            <rect x="-56" y="-96" width="112" height="192" rx="18" fill="#fbf9f1" stroke="#0d2c54" stroke-width="6" />
+            <rect x="-40" y="-72" width="80" height="128" rx="8" fill="#2f7fd0" />
+            <circle cx="48" cy="-90" r="26" fill="#ff7a1a" stroke="#0d2c54" stroke-width="4" />
+            <text x="48" y="-79" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="30" fill="#0d2c54">1</text>
+          </g></g>
+        </svg>
+        <div class="txt grito s04-a">¡Atento!</div>
+        <div class="txt grito s04-b">¡Celular!</div>
+        <div class="txt grito nar s04-c">¡Contestá!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-atento";
+      const DUR = 2.67;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const lista = (x) => (typeof x === "string" ? qa(x) : Array.isArray(x) ? x : [x]);
+      // trazo que se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (sel, t, d = 0.6) => lista(sel).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (sel, t, d = 0.35, s = 0.8) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe, como un sello
+      const golpe = (sel, t, s = 2.2) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const fuera = (sel, t, d = 0.25) => tl.to(lista(sel), { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1, sel = ".s04-esc") => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(sel), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // la boca se mueve mientras habla
+      const hablar = (sel, t0, t1) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.12));
+        tl.fromTo(q(sel), { scaleY: 0.45, transformOrigin: "50% 50%" }, { scaleY: 1.3, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0);
+      };
+      // la cola del perro
+      const cola = (sel, t, veces = 5) => tl.fromTo(qa(sel), { rotation: -12, svgOrigin: "70 190" }, { rotation: 14, svgOrigin: "70 190", duration: 0.16, yoyo: true, repeat: veces * 2 - 1, ease: "sine.inOut", immediateRender: false }, t);
+      // zócalos: cada uno entra desde la izquierda y saca al anterior
+      const zocalos = (pares) => pares.forEach(([sel, t], i) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, x: -1100 }, { opacity: 1, x: 0, duration: 0.32, ease: "power3.out", immediateRender: false }, t);
+        if (i > 0) tl.to(q(pares[i - 1][0]), { opacity: 0, y: 30, duration: 0.18 }, t);
+      });
+
+
+      const CELULAR = 0.93, CONTESTA = 1.69;
+      tl.fromTo(q(".s04-tito"), { y: 200, scale: 0.9, transformOrigin: "50% 100%" }, { y: 0, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      golpe(".s04-a", 0.08, 1.8);
+      sacudon(0.1, 0.9);
+      hablar(".s04t-boca", 0, 2.3);
+      tl.fromTo(q(".s04t-brazo"), { rotation: 0, svgOrigin: "96 130" }, { rotation: -26, svgOrigin: "96 130", duration: 0.12, yoyo: true, repeat: 5, ease: "power2.inOut", immediateRender: false }, 0);
+      [0.05, CELULAR, CONTESTA].forEach((t) => {
+        tl.fromTo(qa(".s04-rayos path"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.12, immediateRender: false }, t);
+        tl.to(qa(".s04-rayos path"), { opacity: 0, duration: 0.2 }, t + 0.4);
+      });
+      golpe(".s04-b", CELULAR, 1.8);
+      pop(".s04-cel", CELULAR, 0.3, 0.4);
+      tl.to(q(".s04-cel"), { x: 8, duration: 0.05, yoyo: true, repeat: 13, ease: "none" }, CELULAR + 0.3);
+      golpe(".s04-c", CONTESTA, 2.2);
+      sacudon(CONTESTA + 0.05, 1.4);
+      tl.to(q(".s04-c"), { scale: 1.08, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, CONTESTA + 0.2);
+
+      // salida: blur
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

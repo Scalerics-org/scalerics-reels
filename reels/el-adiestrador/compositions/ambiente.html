@@ -1,0 +1,72 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-noche { position: absolute; inset: 0; opacity: 0; background: linear-gradient(180deg, rgba(8, 22, 48, 0.82) 0%, rgba(8, 22, 48, 0.55) 55%, rgba(8, 22, 48, 0.62) 100%); }
+    /* barra del programa */
+    [data-composition-id="ambiente"] .amb-barra { position: absolute; left: 50px; top: 116px; height: 76px; display: flex; white-space: nowrap; border-radius: 12px; overflow: hidden; border: 3px solid #0d2c54; box-shadow: 6px 6px 0 rgba(13, 44, 84, 0.55); }
+    [data-composition-id="ambiente"] .amb-barra > div { display: flex; align-items: center; padding: 0 18px; font-family: "Lexend", sans-serif; font-weight: 800; text-transform: uppercase; font-size: 27px; letter-spacing: 0.03em; }
+    [data-composition-id="ambiente"] .amb-vivo { background: #0d2c54; color: #fbf9f1; gap: 10px; }
+    [data-composition-id="ambiente"] .amb-punto { width: 14px; height: 14px; border-radius: 50%; background: #ff7a1a; }
+    [data-composition-id="ambiente"] .amb-prog { background: #ff7a1a; color: #0d2c54; }
+    [data-composition-id="ambiente"] .amb-con { background: #fbf9f1; color: #0d2c54; }
+    [data-composition-id="ambiente"] .amb-pts { background: #0d2c54; color: #fbf9f1; gap: 10px; position: relative; }
+    [data-composition-id="ambiente"] .amb-pts small { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.1em; opacity: 0.85; }
+    [data-composition-id="ambiente"] .amb-n { display: inline-block; min-width: 56px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; }
+    [data-composition-id="ambiente"] .amb-n2, [data-composition-id="ambiente"] .amb-n3 { position: absolute; right: 18px; top: 19px; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-n2 { color: #ff7a1a; }
+    [data-composition-id="ambiente"] .amb-n3 { color: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="75.22">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="75.22" data-track-index="0">
+      <div class="amb-noche"></div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="amb-cielo" opacity="0">
+          <g class="amb-luna"><circle cx="930" cy="530" r="62" fill="#fbf9f1" /><circle cx="958" cy="512" r="58" fill="#1a3a6a" /></g>
+          <path class="amb-est" d="M610 458 L614 466 L622 470 L614 474 L610 482 L606 474 L598 470 L606 466 Z" fill="#fbf9f1" opacity="0.6" /><path class="amb-est" d="M700 528 L704 536 L712 540 L704 544 L700 552 L696 544 L688 540 L696 536 Z" fill="#fbf9f1" opacity="0.73" /><path class="amb-est" d="M820 443 L824 451 L832 455 L824 459 L820 467 L816 459 L808 455 L816 451 Z" fill="#fbf9f1" opacity="0.86" /><path class="amb-est" d="M1010 598 L1014 606 L1022 610 L1014 614 L1010 622 L1006 614 L998 610 L1006 606 Z" fill="#fbf9f1" opacity="0.6" /><path class="amb-est" d="M560 588 L564 596 L572 600 L564 604 L560 612 L556 604 L548 600 L556 596 Z" fill="#fbf9f1" opacity="0.73" /><path class="amb-est" d="M960 458 L964 466 L972 470 L964 474 L960 482 L956 474 L948 470 L956 466 Z" fill="#fbf9f1" opacity="0.86" /><path class="amb-est" d="M880 628 L884 636 L892 640 L884 644 L880 652 L876 644 L868 640 L876 636 Z" fill="#fbf9f1" opacity="0.6" />
+        </g>
+      </svg>
+      <div class="amb-barra">
+        <div class="amb-vivo"><span class="amb-punto"></span><span>En vivo</span></div>
+        <div class="amb-prog"><span>¡Sentado, dueño!</span></div>
+        <div class="amb-con"><span>con Tito</span></div>
+        <div class="amb-pts"><small>OBEDIENCIA</small><span class="amb-n amb-n1">?</span><span class="amb-n amb-n2">0</span><span class="amb-n amb-n3">10</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 75.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const CERO = 24.43, NOCHE = 26.2, DIA = 34.1, DIEZ = 64.27;
+      // la barra entra en el primer segundo
+      tl.fromTo(q(".amb-barra"), { x: -1100 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0.05);
+      tl.to(q(".amb-punto"), { opacity: 0.2, duration: 0.5, yoyo: true, repeat: Math.floor(DUR / 0.5) - 1, ease: "steps(1)" }, 0);
+      // el puntaje de obediencia: ? -> 0 -> 10
+      tl.to(q(".amb-n1"), { opacity: 0, duration: 0.1 }, CERO);
+      tl.fromTo(q(".amb-n2"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in" }, CERO);
+      tl.to(q(".amb-barra"), { x: 10, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, CERO + 0.15);
+      tl.to(q(".amb-n2"), { opacity: 0, duration: 0.1 }, DIEZ);
+      tl.fromTo(q(".amb-n3"), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in" }, DIEZ);
+      tl.to(q(".amb-pts"), { scale: 1.08, transformOrigin: "50% 50%", duration: 0.2, yoyo: true, repeat: 3 }, DIEZ + 0.2);
+      // la noche: se oscurece el campo, sale la luna; vuelve el día en el giro
+      tl.to(q(".amb-noche"), { opacity: 1, duration: 0.6, ease: "power2.inOut" }, NOCHE);
+      tl.to(q(".amb-cielo"), { opacity: 1, duration: 0.6 }, NOCHE + 0.2);
+      tl.fromTo(q(".amb-luna"), { y: 120 }, { y: 0, duration: 1.2, ease: "power2.out" }, NOCHE + 0.2);
+      qa(".amb-est").forEach((e, i) => tl.to(e, { opacity: 0.25, duration: 0.4, yoyo: true, repeat: 7, ease: "sine.inOut" }, NOCHE + 0.6 + i * 0.17));
+      tl.to(q(".amb-noche"), { opacity: 0, duration: 0.5, ease: "power2.inOut" }, DIA);
+      tl.to(q(".amb-cielo"), { opacity: 0, duration: 0.4 }, DIA);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["ambiente"] = tl;
+    })();
+  </script>
+</template>

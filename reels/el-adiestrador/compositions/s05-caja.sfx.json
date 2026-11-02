@@ -1,0 +1,4 @@
+[{"t":0.1,"sfx":"notification","vol":0.25},
+{"t":0.5,"sfx":"glitch-1","vol":0.15,"max":0.3},
+{"t":1.4,"sfx":"chime","vol":0.32,"max":0.6},
+{"t":1.75,"sfx":"notification","vol":0.22}]
