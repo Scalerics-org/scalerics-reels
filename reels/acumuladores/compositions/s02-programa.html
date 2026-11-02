@@ -1,0 +1,399 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-programa"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-programa"] .s02-esc { position: absolute; inset: 0; }
+    [data-composition-id="s02-programa"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-programa"] .lin { fill: none; stroke: #f4ecd8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-programa"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s02-programa"] .ops { font-family: "Black Ops One", sans-serif; font-weight: 400; }
+    [data-composition-id="s02-programa"] .mano { font-family: "Caveat", cursive; font-weight: 700; text-transform: none; }
+    [data-composition-id="s02-programa"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s02-programa"] .zoc { position: absolute; left: 50px; top: 1376px; display: flex; height: 100px; border: 4px solid #1c1b1a; border-radius: 6px; overflow: hidden; box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.55); }
+    [data-composition-id="s02-programa"] .zoc .tab { display: flex; align-items: center; padding: 0 18px; background: #d7332b; color: #f4ecd8; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-programa"] .zoc .tab.turq { background: #19c2a5; color: #1c1b1a; }
+    [data-composition-id="s02-programa"] .zoc .tit { display: flex; align-items: center; padding: 0 26px; background: #f2c230; color: #1c1b1a; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-programa"] .sello b { display: inline-block; padding: 8px 26px; border: 7px solid #d7332b; border-radius: 10px; color: #d7332b; background: rgba(28, 27, 26, 0.85); font-family: "Black Ops One", sans-serif; font-weight: 400; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-programa"] .sello.turq b { border-color: #19c2a5; color: #19c2a5; }
+    [data-composition-id="s02-programa"] .tira { position: absolute; left: -60px; right: -60px; height: 128px; background: #f2c230; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s02-programa"] .tira span { font-family: "Black Ops One", sans-serif; font-size: 92px; color: #1c1b1a; white-space: nowrap; line-height: 1; }
+
+    [data-composition-id="s02-programa"] .s02-t1 { top: 700px; transform: rotate(-6deg); }
+    [data-composition-id="s02-programa"] .s02-t2 { top: 880px; transform: rotate(4deg); background: #f4ecd8; }
+    [data-composition-id="s02-programa"] .s02-t1 span, [data-composition-id="s02-programa"] .s02-t2 span { font-size: 112px; }
+    [data-composition-id="s02-programa"] .s02-sub { top: 1080px; font-size: 34px; color: #f4ecd8; opacity: 0.85; }
+    [data-composition-id="s02-programa"] .s02-peligro { top: 1150px; }
+    [data-composition-id="s02-programa"] .s02-peligro b { font-size: 70px; transform: rotate(-8deg); }
+  </style>
+  <div id="root" data-composition-id="s02-programa" data-width="1080" data-height="1920" data-duration="7.02">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="7.02" data-track-index="0">
+      <div class="s02-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <defs><clipPath id="s02-clip"><rect x="160" y="620" width="760" height="720" /></clipPath></defs>
+          <g class="s02-ficha"><g class="s02-fichar">
+            <rect x="290" y="630" width="500" height="640" rx="8" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="5" transform="rotate(-3 540 950)" />
+            <rect x="320" y="660" width="440" height="460" fill="#77736b" transform="rotate(-3 540 950)" />
+            <g transform="rotate(-3 540 950)"><g transform="translate(540 810) scale(0.82)"><g class="s02-nor">
+<g class="s02n">
+  <path d="M-140 340 L-148 170 Q-146 112 -96 104 L-30 98 Q0 130 30 98 L96 104 Q146 112 148 170 L140 340 Z" fill="#d7332b" stroke="#f4ecd8" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-30 98 Q0 130 30 98 L22 340 H-22 Z" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="3" />
+  <circle cx="-44" cy="170" r="7" fill="#f2c230" /><circle cx="-44" cy="220" r="7" fill="#f2c230" /><circle cx="-44" cy="270" r="7" fill="#f2c230" />
+  <path d="M-120 140 Q-150 230 -120 320" stroke="#d7332b" stroke-width="44" stroke-linecap="round" fill="none" /><path d="M120 140 Q150 230 120 320" stroke="#d7332b" stroke-width="44" stroke-linecap="round" fill="none" />
+      <circle cx="-120" cy="326" r="22" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="4" /><circle cx="120" cy="326" r="22" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="4" />
+  <rect x="-20" y="52" width="40" height="50" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="4" />
+  <path d="M87.9 5.2 Q97.7 36.8 65.2 42.9 Q59.2 75.4 27.6 65.8 Q7.1 91.8 -16.4 68.5 Q-46.6 82.1 -56.6 50.5 Q-89.6 48.5 -83.8 15.9 Q-112.1 -1.2 -91.8 -27.4 Q-108.9 -55.7 -78.8 -69.4 Q-80.8 -102.4 -47.8 -100.6 Q-34.1 -130.8 -5.7 -113.8 Q20.3 -134.2 37.6 -106.0 Q70.1 -111.9 72.3 -78.9 Q103.9 -69.0 90.5 -38.8 Q113.8 -15.4 87.9 5.2 Z" fill="#d8d2c4" stroke="#f4ecd8" stroke-width="4" stroke-linejoin="round" />
+  <ellipse cx="0" cy="4" rx="62" ry="72" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="4" />
+  <path d="M-63.8 -64.6 Q-65.7 -80.8 -38.0 -79.2 Q-21.0 -96.6 5.5 -83.9 Q33.6 -94.3 46.5 -76.4 Q72.4 -75.0 65.7 -60.4 Q77.3 -47.8 54.2 -43.2 Q46.1 -25.3 17.3 -32.9 Q-6.7 -18.1 -27.7 -34.4 Q-56.4 -29.6 -59.7 -46.9 Q-79.7 -54.4 -63.8 -64.6 Z" fill="#d8d2c4" stroke="#f4ecd8" stroke-width="3" stroke-linejoin="round" />
+  <path class="s02n-cejas" d="M-38 -22 Q-24 -30 -10 -24 M10 -24 Q24 -30 38 -22" stroke="#1c1b1a" stroke-width="5" fill="none" stroke-linecap="round" />
+  <g class="s02n-ojos"><circle cx="-24" cy="-4" r="7" fill="#1c1b1a" /><circle cx="24" cy="-4" r="7" fill="#1c1b1a" /></g>
+  <circle cx="-24" cy="-4" r="20" fill="none" stroke="#1c1b1a" stroke-width="4" /><circle cx="24" cy="-4" r="20" fill="none" stroke="#1c1b1a" stroke-width="4" /><path d="M-4 -6 H4" stroke="#1c1b1a" stroke-width="4" />
+  <path d="M-44 -2 Q-70 60 -30 96 M44 -2 Q70 60 30 96" stroke="#f2c230" stroke-width="3" fill="none" stroke-dasharray="3 6" stroke-linecap="round" />
+  <circle cx="-36" cy="26" r="11" fill="#d7332b" opacity="0.35" /><circle cx="36" cy="26" r="11" fill="#d7332b" opacity="0.35" />
+  <path d="M-4 10 Q0 22 6 18" stroke="#1c1b1a" stroke-width="4" fill="none" stroke-linecap="round" />
+  <ellipse class="s02n-boca" cx="0" cy="42" rx="15" ry="9" fill="#d7332b" stroke="#1c1b1a" stroke-width="3" />
+  <g class="s02n-lagrima" opacity="0"><path d="M-30 18 C-38 34 -38 44 -30 48 C-22 44 -22 34 -30 18 Z" fill="#f4ecd8" stroke="#19c2a5" stroke-width="3" /></g>
+</g></g></g></g>
+            <rect x="320" y="1090" width="440" height="40" fill="#f4ecd8" transform="rotate(-3 540 950)" />
+            <text x="540" y="1188" text-anchor="middle" font-family="Black Ops One" font-size="64" fill="#1c1b1a" transform="rotate(-3 540 950)">NORMA</text>
+            <text class="s02-bazar" x="540" y="1246" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="46" fill="#d7332b" transform="rotate(-3 540 950)">bazar de barrio</text>
+            <rect x="250" y="610" width="140" height="44" fill="#f2c230" opacity="0.9" transform="rotate(-30 320 632)" />
+            <rect x="690" y="610" width="140" height="44" fill="#f2c230" opacity="0.9" transform="rotate(28 760 632)" />
+          </g></g>
+          <g class="s02-dep">
+            <rect x="160" y="620" width="760" height="720" fill="#1c1b1a" stroke="#f4ecd8" stroke-width="6" />
+            <g clip-path="url(#s02-clip)">
+              <g class="s02-cajas"><g class="s02-c s02-c-f0">
+    <rect x="157" y="1220" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M157 1243.4 H313" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="220.96" y="1220" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M163 1331 L203.8 1331" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="178.84" y="1269.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 235 1278.5)" />
+       <text x="235" y="1301.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 235 1278.5)" data-layout-ignore>CAMPERAS</text>
+  </g><g class="s02-c s02-c-f0">
+    <rect x="322" y="1218" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M322 1241.4 H478" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="385.96" y="1218" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M328 1329 L368.8 1329" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="343.84000000000003" y="1267.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 400 1276.5)" />
+       <text x="400" y="1299.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 400 1276.5)" data-layout-ignore>ojotas</text>
+  </g><g class="s02-c s02-c-f0">
+    <rect x="480" y="1216" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M480 1239.4 H636" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="543.96" y="1216" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M486 1327 L526.8 1327" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="501.84000000000003" y="1265.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 558 1274.5)" />
+       <text x="558" y="1297.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 558 1274.5)" data-layout-ignore>???</text><text x="494" y="1319" font-family="Black Ops One" font-size="20" fill="#d7332b" opacity="0.9" data-layout-ignore>URGENTE</text>
+  </g><g class="s02-c s02-c-f0">
+    <rect x="638" y="1220" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M638 1243.4 H794" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="701.96" y="1220" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M644 1331 L684.8 1331" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="659.84" y="1269.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 716 1278.5)" />
+       <text x="716" y="1301.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 716 1278.5)" data-layout-ignore>CAMPERAS</text>
+  </g><g class="s02-c s02-c-f0">
+    <rect x="803" y="1218" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M803 1241.4 H959" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="866.96" y="1218" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M809 1329 L849.8 1329" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="824.84" y="1267.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 881 1276.5)" />
+       <text x="881" y="1299.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 881 1276.5)" data-layout-ignore>tazas</text>
+  </g><g class="s02-c s02-c-f1">
+    <rect x="81" y="1096" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M81 1119.4 H237" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="144.96" y="1096" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M87 1207 L127.8 1207" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="102.84" y="1145.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 159 1154.5)" />
+       <text x="159" y="1177.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 159 1154.5)" data-layout-ignore>CAMPERAS</text>
+  </g><g class="s02-c s02-c-f1">
+    <rect x="239" y="1100" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M239 1123.4 H395" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="302.96" y="1100" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M245 1211 L285.8 1211" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="260.84000000000003" y="1149.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 317 1158.5)" />
+       <text x="317" y="1181.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 317 1158.5)" data-layout-ignore>ojotas</text>
+  </g><g class="s02-c s02-c-f1">
+    <rect x="397" y="1098" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M397 1121.4 H553" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="460.96" y="1098" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M403 1209 L443.8 1209" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="418.84000000000003" y="1147.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 475 1156.5)" />
+       <text x="475" y="1179.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 475 1156.5)" data-layout-ignore>???</text>
+  </g><g class="s02-c s02-c-f1">
+    <rect x="562" y="1096" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M562 1119.4 H718" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="625.96" y="1096" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M568 1207 L608.8 1207" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="583.84" y="1145.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 640 1154.5)" />
+       <text x="640" y="1177.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 640 1154.5)" data-layout-ignore>CAMPERAS</text><text x="576" y="1199" font-family="Black Ops One" font-size="20" fill="#d7332b" opacity="0.9" data-layout-ignore>URGENTE</text>
+  </g><g class="s02-c s02-c-f1">
+    <rect x="720" y="1100" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M720 1123.4 H876" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="783.96" y="1100" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M726 1211 L766.8 1211" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="741.84" y="1149.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 798 1158.5)" />
+       <text x="798" y="1181.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 798 1158.5)" data-layout-ignore>tazas</text>
+  </g><g class="s02-c s02-c-f1">
+    <rect x="878" y="1098" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M878 1121.4 H1034" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="941.96" y="1098" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M884 1209 L924.8 1209" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="899.84" y="1147.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 956 1156.5)" />
+       <text x="956" y="1179.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 956 1156.5)" data-layout-ignore>CAMPERAS</text>
+  </g><g class="s02-c s02-c-f2">
+    <rect x="163" y="976" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M163 999.4 H319" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="226.96" y="976" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M169 1087 L209.8 1087" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="184.84" y="1025.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 241 1034.5)" />
+       <text x="241" y="1057.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 241 1034.5)" data-layout-ignore>ojotas</text>
+  </g><g class="s02-c s02-c-f2">
+    <rect x="321" y="980" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M321 1003.4 H477" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="384.96" y="980" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M327 1091 L367.8 1091" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="342.84000000000003" y="1029.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 399 1038.5)" />
+       <text x="399" y="1061.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 399 1038.5)" data-layout-ignore>???</text>
+  </g><g class="s02-c s02-c-f2">
+    <rect x="479" y="978" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M479 1001.4 H635" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="542.96" y="978" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M485 1089 L525.8 1089" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="500.84000000000003" y="1027.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 557 1036.5)" />
+       <text x="557" y="1059.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 557 1036.5)" data-layout-ignore>CAMPERAS</text><text x="493" y="1081" font-family="Black Ops One" font-size="20" fill="#d7332b" opacity="0.9" data-layout-ignore>URGENTE</text>
+  </g><g class="s02-c s02-c-f2">
+    <rect x="637" y="976" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M637 999.4 H793" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="700.96" y="976" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M643 1087 L683.8 1087" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="658.84" y="1025.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 715 1034.5)" />
+       <text x="715" y="1057.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 715 1034.5)" data-layout-ignore>tazas</text>
+  </g><g class="s02-c s02-c-f2">
+    <rect x="802" y="980" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M802 1003.4 H958" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="865.96" y="980" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M808 1091 L848.8 1091" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="823.84" y="1029.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 880 1038.5)" />
+       <text x="880" y="1061.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 880 1038.5)" data-layout-ignore>CAMPERAS</text>
+  </g><g class="s02-c s02-c-f3">
+    <rect x="80" y="858" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M80 881.4 H236" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="143.96" y="858" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M86 969 L126.8 969" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="101.84" y="907.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 158 916.5)" />
+       <text x="158" y="939.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 158 916.5)" data-layout-ignore>ojotas</text>
+  </g><g class="s02-c s02-c-f3">
+    <rect x="238" y="856" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M238 879.4 H394" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="301.96" y="856" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M244 967 L284.8 967" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="259.84000000000003" y="905.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 316 914.5)" />
+       <text x="316" y="937.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 316 914.5)" data-layout-ignore>???</text>
+  </g><g class="s02-c s02-c-f3">
+    <rect x="403" y="860" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M403 883.4 H559" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="466.96" y="860" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M409 971 L449.8 971" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="424.84000000000003" y="909.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 481 918.5)" />
+       <text x="481" y="941.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 481 918.5)" data-layout-ignore>CAMPERAS</text>
+  </g><g class="s02-c s02-c-f3">
+    <rect x="561" y="858" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M561 881.4 H717" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="624.96" y="858" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M567 969 L607.8 969" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="582.84" y="907.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 639 916.5)" />
+       <text x="639" y="939.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 639 916.5)" data-layout-ignore>tazas</text>
+  </g><g class="s02-c s02-c-f3">
+    <rect x="719" y="856" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M719 879.4 H875" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="782.96" y="856" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M725 967 L765.8 967" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="740.84" y="905.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 797 914.5)" />
+       <text x="797" y="937.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 797 914.5)" data-layout-ignore>CAMPERAS</text>
+  </g><g class="s02-c s02-c-f3">
+    <rect x="877" y="860" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M877 883.4 H1033" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="940.96" y="860" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M883 971 L923.8 971" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="898.84" y="909.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 955 918.5)" />
+       <text x="955" y="941.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 955 918.5)" data-layout-ignore>ojotas</text>
+  </g><g class="s02-c s02-c-f4">
+    <rect x="162" y="738" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M162 761.4 H318" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="225.96" y="738" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M168 849 L208.8 849" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="183.84" y="787.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 240 796.5)" />
+       <text x="240" y="819.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 240 796.5)" data-layout-ignore>???</text>
+  </g><g class="s02-c s02-c-f4">
+    <rect x="320" y="736" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M320 759.4 H476" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="383.96" y="736" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M326 847 L366.8 847" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="341.84000000000003" y="785.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 398 794.5)" />
+       <text x="398" y="817.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 398 794.5)" data-layout-ignore>CAMPERAS</text>
+  </g><g class="s02-c s02-c-f4">
+    <rect x="478" y="740" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M478 763.4 H634" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="541.96" y="740" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M484 851 L524.8 851" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="499.84000000000003" y="789.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 556 798.5)" />
+       <text x="556" y="821.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 556 798.5)" data-layout-ignore>tazas</text>
+  </g><g class="s02-c s02-c-f4">
+    <rect x="643" y="738" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M643 761.4 H799" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="706.96" y="738" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M649 849 L689.8 849" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="664.84" y="787.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 721 796.5)" />
+       <text x="721" y="819.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 721 796.5)" data-layout-ignore>CAMPERAS</text>
+  </g><g class="s02-c s02-c-f4">
+    <rect x="801" y="736" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M801 759.4 H957" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="864.96" y="736" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M807 847 L847.8 847" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="822.84" y="785.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 879 794.5)" />
+       <text x="879" y="817.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 879 794.5)" data-layout-ignore>ojotas</text>
+  </g><g class="s02-c s02-c-f5">
+    <rect x="79" y="620" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M79 643.4 H235" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="142.96" y="620" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M85 731 L125.8 731" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="100.84" y="669.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 157 678.5)" />
+       <text x="157" y="701.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 157 678.5)" data-layout-ignore>???</text>
+  </g><g class="s02-c s02-c-f5">
+    <rect x="237" y="618" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M237 641.4 H393" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="300.96" y="618" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M243 729 L283.8 729" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="258.84000000000003" y="667.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 315 676.5)" />
+       <text x="315" y="699.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 315 676.5)" data-layout-ignore>CAMPERAS</text>
+  </g><g class="s02-c s02-c-f5">
+    <rect x="402" y="616" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M402 639.4 H558" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="465.96" y="616" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M408 727 L448.8 727" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="423.84000000000003" y="665.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 480 674.5)" />
+       <text x="480" y="697.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 480 674.5)" data-layout-ignore>tazas</text>
+  </g><g class="s02-c s02-c-f5">
+    <rect x="560" y="620" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M560 643.4 H716" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="623.96" y="620" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M566 731 L606.8 731" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="581.84" y="669.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 638 678.5)" />
+       <text x="638" y="701.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 638 678.5)" data-layout-ignore>CAMPERAS</text>
+  </g><g class="s02-c s02-c-f5">
+    <rect x="718" y="618" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M718 641.4 H874" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="781.96" y="618" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M724 729 L764.8 729" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="739.84" y="667.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 796 676.5)" />
+       <text x="796" y="699.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 796 676.5)" data-layout-ignore>ojotas</text>
+  </g><g class="s02-c s02-c-f5">
+    <rect x="883" y="616" width="156" height="117" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M883 639.4 H1039" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="946.96" y="616" width="28.08" height="39.78" fill="#f2c230" opacity="0.9" />
+    <path d="M889 727 L929.8 727" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="904.84" y="665.14" width="112.32" height="46" rx="4" fill="#f4ecd8" transform="rotate(-3 961 674.5)" />
+       <text x="961" y="697.14" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="28" fill="#1c1b1a" transform="rotate(-3 961 674.5)" data-layout-ignore>???</text>
+  </g></g>
+              <rect x="160" y="620" width="760" height="720" fill="#1c1b1a" opacity="0.35" />
+              <g class="s02-persiana">
+                <rect x="160" y="620" width="760" height="720" fill="#77736b" />
+                <path d="M160 660 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 700 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 740 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 780 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 820 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 860 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 900 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 940 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 980 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 1020 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 1060 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 1100 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 1140 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 1180 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 1220 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 1260 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 1300 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" /><path d="M160 1340 H920" stroke="#1c1b1a" stroke-width="4" opacity="0.6" />
+                <rect x="480" y="1290" width="120" height="26" rx="6" fill="#1c1b1a" />
+              </g>
+            </g>
+          </g>
+        </svg>
+        <div class="tira s02-t1"><span>ENTERRADOS</span></div>
+        <div class="tira s02-t2"><span>EN STOCK</span></div>
+        <div class="txt sello s02-peligro"><b>Zona de derrumbe</b></div>
+        <div class="zoc s02-z1"><div class="tab">Hoy</div><div class="tit">El caso de Norma</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-programa";
+      const DUR = 7.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const lista = (x) => (typeof x === "string" ? qa(x) : Array.isArray(x) ? x : [x]);
+      // trazo que se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (sel, t, d = 0.6) => lista(sel).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (sel, t, d = 0.35, s = 0.8) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe, como un sello
+      const golpe = (sel, t, s = 2.2) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      // cae desde arriba y rebota (cajas)
+      const cae = (sel, t, dy = -700, d = 0.4) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, y: dy }, { opacity: 1, y: 0, duration: d, ease: "bounce.out", immediateRender: false }, t);
+      });
+      // tira de cinta que entra cruzando
+      const tira = (sel, t, desde = -1300) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, x: desde }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      });
+      const fuera = (sel, t, d = 0.25) => tl.to(lista(sel), { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1, sel = ".s02-esc") => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(sel), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // la boca se mueve mientras habla
+      const hablar = (sel, t0, t1) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.12));
+        tl.fromTo(q(sel), { scaleY: 0.45, transformOrigin: "50% 50%" }, { scaleY: 1.25, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0);
+      };
+      // zócalos: cada uno entra desde la izquierda y saca al anterior
+      const zocalos = (pares) => pares.forEach(([sel, t], i) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, x: -1100 }, { opacity: 1, x: 0, duration: 0.32, ease: "power3.out", immediateRender: false }, t);
+        if (i > 0) tl.to(q(pares[i - 1][0]), { opacity: 0, y: 30, duration: 0.18 }, t);
+      });
+      // cámara en mano: deriva lenta del contenedor de la escena
+      tl.fromTo(q(".s02-esc"), { scale: 1.0, transformOrigin: "50% 55%" }, { scale: 1.035, duration: DUR, ease: "none" }, 0);
+
+
+      const STOCK = 1.46, HOY = 2.07, BAZAR = 3.88, Y = 4.95, MIEDO = 5.94;
+      tira(".s02-t1", 0, -1300);
+      tira(".s02-t2", STOCK - 0.1, 1300);
+      sacudon(STOCK, 0.8);
+      fuera([".s02-t1", ".s02-t2"], HOY - 0.05, 0.2);
+      gsap.set(q(".s02-ficha"), { opacity: 0 });
+      tl.fromTo(q(".s02-ficha"), { opacity: 1, y: 900 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.3)", immediateRender: false }, HOY);
+      tl.fromTo(q(".s02-fichar"), { rotation: 12, svgOrigin: "540 950" }, { rotation: 0, svgOrigin: "540 950", duration: 0.45, ease: "back.out(1.3)" }, HOY);
+      zocalos([[".s02-z1", HOY + 0.1]]);
+      gsap.set(q(".s02-bazar"), { opacity: 0 });
+      tl.to(q(".s02-bazar"), { opacity: 1, duration: 0.2 }, BAZAR);
+      tl.fromTo(q(".s02-nor"), { rotation: -3, transformOrigin: "50% 100%" }, { rotation: 3, transformOrigin: "50% 100%", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, HOY + 0.4);
+      // el depósito: la persiana sube
+      tl.to(q(".s02-ficha"), { opacity: 0, x: -400, duration: 0.25, ease: "power2.in" }, Y - 0.1);
+      gsap.set(q(".s02-dep"), { opacity: 0 });
+      tl.fromTo(q(".s02-dep"), { opacity: 0, scale: 0.92, svgOrigin: "540 980" }, { opacity: 1, scale: 1, svgOrigin: "540 980", duration: 0.25, immediateRender: false }, Y);
+      tl.to(q(".s02-persiana"), { y: -700, duration: 0.75, ease: "power2.inOut" }, Y + 0.15);
+      tl.fromTo(q(".s02-cajas"), { y: 0 }, { y: -8, duration: 0.08, yoyo: true, repeat: 5, ease: "none" }, MIEDO);
+      golpe(".s02-peligro", MIEDO + 0.1, 2.4);
+      sacudon(MIEDO + 0.1, 1.6);
+
+      // salida: blur
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

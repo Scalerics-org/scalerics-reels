@@ -1,0 +1,173 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-tienda"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-tienda"] .s11-esc { position: absolute; inset: 0; }
+    [data-composition-id="s11-tienda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-tienda"] .lin { fill: none; stroke: #f4ecd8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-tienda"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s11-tienda"] .ops { font-family: "Black Ops One", sans-serif; font-weight: 400; }
+    [data-composition-id="s11-tienda"] .mano { font-family: "Caveat", cursive; font-weight: 700; text-transform: none; }
+    [data-composition-id="s11-tienda"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s11-tienda"] .zoc { position: absolute; left: 50px; top: 1376px; display: flex; height: 100px; border: 4px solid #1c1b1a; border-radius: 6px; overflow: hidden; box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.55); }
+    [data-composition-id="s11-tienda"] .zoc .tab { display: flex; align-items: center; padding: 0 18px; background: #d7332b; color: #f4ecd8; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-tienda"] .zoc .tab.turq { background: #19c2a5; color: #1c1b1a; }
+    [data-composition-id="s11-tienda"] .zoc .tit { display: flex; align-items: center; padding: 0 26px; background: #f2c230; color: #1c1b1a; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-tienda"] .sello b { display: inline-block; padding: 8px 26px; border: 7px solid #d7332b; border-radius: 10px; color: #d7332b; background: rgba(28, 27, 26, 0.85); font-family: "Black Ops One", sans-serif; font-weight: 400; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-tienda"] .sello.turq b { border-color: #19c2a5; color: #19c2a5; }
+    [data-composition-id="s11-tienda"] .tira { position: absolute; left: -60px; right: -60px; height: 128px; background: #f2c230; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s11-tienda"] .tira span { font-family: "Black Ops One", sans-serif; font-size: 92px; color: #1c1b1a; white-space: nowrap; line-height: 1; }
+
+    [data-composition-id="s11-tienda"] .s11-24 { top: 1150px; left: 430px; right: auto; }
+    [data-composition-id="s11-tienda"] .s11-24 b { font-size: 64px; transform: rotate(-9deg); }
+  </style>
+  <div id="root" data-composition-id="s11-tienda" data-width="1080" data-height="1920" data-duration="4.65">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.65" data-track-index="0">
+      <div class="s11-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-cel">
+  <rect x="290" y="560" width="500" height="790" rx="56" fill="#1c1b1a" stroke="#f4ecd8" stroke-width="6" />
+  <rect x="310" y="580" width="460" height="750" rx="40" fill="#f4ecd8" />
+  <rect x="490" y="592" width="100" height="18" rx="9" fill="#1c1b1a" />
+  <rect x="310" y="626" width="460" height="92" fill="#19c2a5" />
+  <text x="336" y="686" font-family="Lexend" font-weight="800" font-size="36" fill="#1c1b1a">Bazar Norma</text>
+            <text class="s11-online" x="540" y="790" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="28" fill="#1c1b1a" letter-spacing="4">TIENDA ONLINE</text>
+            <g class="s11-t1">
+  <rect x="320" y="820" width="210" height="240" rx="18" fill="#fffaf0" stroke="#77736b" stroke-width="3" />
+  <g transform="translate(425 900) scale(0.9)"><path d="M-50 50 L-30 -40 L0 -54 L30 -40 L50 50 L30 56 L26 0 L26 60 H-26 L-26 0 L-30 56 Z" fill="#77736b" stroke="#1c1b1a" stroke-width="4" stroke-linejoin="round" /><path d="M0 -50 V60" stroke="#f4ecd8" stroke-width="3" stroke-dasharray="5 5" /></g>
+  <text x="425" y="986" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1c1b1a">Campera</text>
+  <rect x="342" y="1004" width="166" height="42" rx="21" fill="#19c2a5" />
+  <text x="425" y="1034" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="24" fill="#1c1b1a">Comprar</text>
+</g><g class="s11-t2">
+  <rect x="550" y="820" width="210" height="240" rx="18" fill="#fffaf0" stroke="#77736b" stroke-width="3" />
+  <g transform="translate(655 900) scale(0.9)"><ellipse cx="-22" cy="0" rx="22" ry="52" fill="#f2c230" stroke="#1c1b1a" stroke-width="4" /><ellipse cx="26" cy="4" rx="22" ry="52" fill="#d7332b" stroke="#1c1b1a" stroke-width="4" /><path d="M-22 -30 L-38 0 M-22 -30 L-6 0 M26 -26 L10 4 M26 -26 L42 4" stroke="#f4ecd8" stroke-width="5" stroke-linecap="round" /></g>
+  <text x="655" y="986" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1c1b1a">Ojotas</text>
+  <rect x="572" y="1004" width="166" height="42" rx="21" fill="#19c2a5" />
+  <text x="655" y="1034" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="24" fill="#1c1b1a">Comprar</text>
+</g>
+            <g class="s11-t3">
+  <rect x="320" y="1080" width="210" height="240" rx="18" fill="#fffaf0" stroke="#77736b" stroke-width="3" />
+  <g transform="translate(425 1160) scale(0.9)"><path d="M-40 -36 H30 V30 Q30 52 -5 52 Q-40 52 -40 30 Z" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="4" /><path d="M30 -16 Q56 -16 54 8 Q52 28 30 26" stroke="#1c1b1a" stroke-width="6" fill="none" /><path d="M-26 -10 H16" stroke="#d7332b" stroke-width="6" /></g>
+  <text x="425" y="1246" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1c1b1a">Taza</text>
+  <rect x="342" y="1264" width="166" height="42" rx="21" fill="#19c2a5" />
+  <text x="425" y="1294" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="24" fill="#1c1b1a">Comprar</text>
+</g><g class="s11-t4">
+  <rect x="550" y="1080" width="210" height="240" rx="18" fill="#fffaf0" stroke="#77736b" stroke-width="3" />
+  <g transform="translate(655 1160) scale(0.9)"><path d="M-34 -30 Q-46 30 -10 52 H10 Q46 30 34 -30 Z" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" /><path d="M10 -30 L34 -66" stroke="#77736b" stroke-width="8" stroke-linecap="round" /><path d="M-34 -30 H34" stroke="#1c1b1a" stroke-width="4" /></g>
+  <text x="655" y="1246" text-anchor="middle" font-family="Lexend" font-weight="700" font-size="26" fill="#1c1b1a">Mate</text>
+  <rect x="572" y="1264" width="166" height="42" rx="21" fill="#19c2a5" />
+  <text x="655" y="1294" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="24" fill="#1c1b1a">Comprar</text>
+</g>
+          </g>
+          <g class="s11-vuela">
+            <g class="s11-c1">
+    <rect x="40" y="760" width="150" height="110" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M40 782 H190" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="101.5" y="760" width="27" height="37.400000000000006" fill="#f2c230" opacity="0.9" />
+    <path d="M46 864 L85 864" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="61" y="806.2" width="108" height="40" rx="4" fill="#f4ecd8" transform="rotate(-3 115 815)" />
+       <text x="115" y="832.2" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="22" fill="#1c1b1a" transform="rotate(-3 115 815)" data-layout-ignore>CAMPERAS</text>
+  </g><g class="s11-c2">
+    <rect x="30" y="960" width="160" height="110" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M30 982 H190" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="95.6" y="960" width="28.799999999999997" height="37.400000000000006" fill="#f2c230" opacity="0.9" />
+    <path d="M36 1064 L78 1064" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="52.400000000000006" y="1006.2" width="115.19999999999999" height="42" rx="4" fill="#f4ecd8" transform="rotate(-3 110 1015)" />
+       <text x="110" y="1034.2" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="24" fill="#1c1b1a" transform="rotate(-3 110 1015)" data-layout-ignore>ojotas</text>
+  </g>
+            <g class="s11-c3">
+    <rect x="50" y="1160" width="140" height="110" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M50 1182 H190" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="107.4" y="1160" width="25.2" height="37.400000000000006" fill="#f2c230" opacity="0.9" />
+    <path d="M56 1264 L92 1264" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="69.6" y="1206.2" width="100.8" height="42" rx="4" fill="#f4ecd8" transform="rotate(-3 120 1215)" />
+       <text x="120" y="1234.2" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="24" fill="#1c1b1a" transform="rotate(-3 120 1215)" data-layout-ignore>tazas</text>
+  </g>
+          </g>
+        </svg>
+        <div class="txt sello turq s11-24"><b>Abierto 24 h</b></div>
+        <div class="zoc s11-z1"><div class="tab turq">Scalerics</div><div class="tit">Tu tienda online</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-tienda";
+      const DUR = 4.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const lista = (x) => (typeof x === "string" ? qa(x) : Array.isArray(x) ? x : [x]);
+      // trazo que se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (sel, t, d = 0.6) => lista(sel).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (sel, t, d = 0.35, s = 0.8) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe, como un sello
+      const golpe = (sel, t, s = 2.2) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      // cae desde arriba y rebota (cajas)
+      const cae = (sel, t, dy = -700, d = 0.4) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, y: dy }, { opacity: 1, y: 0, duration: d, ease: "bounce.out", immediateRender: false }, t);
+      });
+      // tira de cinta que entra cruzando
+      const tira = (sel, t, desde = -1300) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, x: desde }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      });
+      const fuera = (sel, t, d = 0.25) => tl.to(lista(sel), { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1, sel = ".s11-esc") => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(sel), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // la boca se mueve mientras habla
+      const hablar = (sel, t0, t1) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.12));
+        tl.fromTo(q(sel), { scaleY: 0.45, transformOrigin: "50% 50%" }, { scaleY: 1.25, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0);
+      };
+      // zócalos: cada uno entra desde la izquierda y saca al anterior
+      const zocalos = (pares) => pares.forEach(([sel, t], i) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, x: -1100 }, { opacity: 1, x: 0, duration: 0.32, ease: "power3.out", immediateRender: false }, t);
+        if (i > 0) tl.to(q(pares[i - 1][0]), { opacity: 0, y: 30, duration: 0.18 }, t);
+      });
+      // cámara en mano: deriva lenta del contenedor de la escena
+      tl.fromTo(q(".s11-esc"), { scale: 1.0, transformOrigin: "50% 55%" }, { scale: 1.035, duration: DUR, ease: "none" }, 0);
+
+
+      const ARM = 0.7, TIENDA = 1.31, TODO = 2.27, DEP = 2.54, H24 = 3.59;
+      gsap.set(q(".s11-cel"), { opacity: 0 });
+      tl.fromTo(q(".s11-cel"), { opacity: 0, y: 300, scale: 0.85, svgOrigin: "540 955" }, { opacity: 1, y: 0, scale: 1, svgOrigin: "540 955", duration: 0.45, ease: "back.out(1.4)", immediateRender: false }, 0);
+      zocalos([[".s11-z1", ARM]]);
+      pop(".s11-online", TIENDA, 0.3, 0.6);
+      // las cajas vuelan al celular y se vuelven productos
+      qa(".s11-c1, .s11-c2, .s11-c3").forEach((c, i) => {
+        gsap.set(c, { opacity: 0 });
+        tl.fromTo(c, { opacity: 1, x: -250 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, TODO - 0.3 + i * 0.05);
+        tl.to(c, { x: 380, y: 60 - i * 80, scale: 0.2, opacity: 0, transformOrigin: "50% 50%", duration: 0.35, ease: "power2.in" }, TODO + 0.1 + i * 0.12);
+      });
+      ["s11-t1", "s11-t2", "s11-t3", "s11-t4"].forEach((t, i) => pop("." + t, DEP + i * 0.14, 0.32, 0.4));
+      golpe(".s11-24", H24, 2.2);
+      tl.to(qa(".s11-t1 rect:nth-of-type(2), .s11-t4 rect:nth-of-type(2)"), { opacity: 0.5, duration: 0.15, yoyo: true, repeat: 3 }, H24 + 0.3);
+
+      // salida: blur
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

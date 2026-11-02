@@ -1,0 +1,153 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-esa-no"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-esa-no"] .s04-esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-esa-no"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-esa-no"] .lin { fill: none; stroke: #f4ecd8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-esa-no"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s04-esa-no"] .ops { font-family: "Black Ops One", sans-serif; font-weight: 400; }
+    [data-composition-id="s04-esa-no"] .mano { font-family: "Caveat", cursive; font-weight: 700; text-transform: none; }
+    [data-composition-id="s04-esa-no"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s04-esa-no"] .zoc { position: absolute; left: 50px; top: 1376px; display: flex; height: 100px; border: 4px solid #1c1b1a; border-radius: 6px; overflow: hidden; box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.55); }
+    [data-composition-id="s04-esa-no"] .zoc .tab { display: flex; align-items: center; padding: 0 18px; background: #d7332b; color: #f4ecd8; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-esa-no"] .zoc .tab.turq { background: #19c2a5; color: #1c1b1a; }
+    [data-composition-id="s04-esa-no"] .zoc .tit { display: flex; align-items: center; padding: 0 26px; background: #f2c230; color: #1c1b1a; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-esa-no"] .sello b { display: inline-block; padding: 8px 26px; border: 7px solid #d7332b; border-radius: 10px; color: #d7332b; background: rgba(28, 27, 26, 0.85); font-family: "Black Ops One", sans-serif; font-weight: 400; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-esa-no"] .sello.turq b { border-color: #19c2a5; color: #19c2a5; }
+    [data-composition-id="s04-esa-no"] .tira { position: absolute; left: -60px; right: -60px; height: 128px; background: #f2c230; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.35); }
+    [data-composition-id="s04-esa-no"] .tira span { font-family: "Black Ops One", sans-serif; font-size: 92px; color: #1c1b1a; white-space: nowrap; line-height: 1; }
+
+    [data-composition-id="s04-esa-no"] .s04-grito { top: 590px; font-family: "Black Ops One", sans-serif; font-size: 118px; color: #f2c230; text-shadow: 7px 7px 0 #d7332b; }
+    [data-composition-id="s04-esa-no"] .s04-grito span { display: inline-block; }
+  </style>
+  <div id="root" data-composition-id="s04-esa-no" data-width="1080" data-height="1920" data-duration="3.8">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.8" data-track-index="0">
+      <div class="s04-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s04-cj">
+    <rect x="250" y="1050" width="580" height="300" rx="5" fill="#c08a4e" stroke="#1c1b1a" stroke-width="4" />
+    <path d="M250 1110 H830" stroke="#8a5a2b" stroke-width="3" />
+    <rect x="487.8" y="1050" width="104.39999999999999" height="102.00000000000001" fill="#f2c230" opacity="0.9" />
+    <path d="M256 1344 L424 1344" stroke="#8a5a2b" stroke-width="3" opacity="0.6" />
+    <rect x="450" y="1176" width="180" height="62" rx="4" fill="#f4ecd8" transform="rotate(-3 540 1200)" />
+       <text x="540" y="1224" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="44" fill="#1c1b1a" transform="rotate(-3 540 1200)" data-layout-ignore>CAMPERAS</text><text x="264" y="1336" font-family="Black Ops One" font-size="75" fill="#d7332b" opacity="0.9" data-layout-ignore>URGENTE</text>
+  </g>
+          <g class="s04-campera"><g transform="translate(-110 20)">
+            <path d="M800 1050 L850 960 L900 940 L950 960 L1000 1050 L970 1062 L950 1010 L950 1080 L850 1080 L850 1010 L830 1062 Z" fill="#77736b" stroke="#f4ecd8" stroke-width="5" stroke-linejoin="round" />
+            <path d="M900 950 V1080" stroke="#f4ecd8" stroke-width="4" stroke-dasharray="6 6" />
+          </g></g>
+          <g transform="translate(540 960)"><g class="s04-nor">
+<g class="s04n">
+  <path d="M-140 340 L-148 170 Q-146 112 -96 104 L-30 98 Q0 130 30 98 L96 104 Q146 112 148 170 L140 340 Z" fill="#d7332b" stroke="#f4ecd8" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-30 98 Q0 130 30 98 L22 340 H-22 Z" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="3" />
+  <circle cx="-44" cy="170" r="7" fill="#f2c230" /><circle cx="-44" cy="220" r="7" fill="#f2c230" /><circle cx="-44" cy="270" r="7" fill="#f2c230" />
+  <g class="s04n-bi"><path d="M-110 140 Q-220 150 -300 110" stroke="#d7332b" stroke-width="44" stroke-linecap="round" fill="none" /><circle cx="-312" cy="104" r="24" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="4" /></g>
+      <g class="s04n-bd"><path d="M110 140 Q220 150 300 110" stroke="#d7332b" stroke-width="44" stroke-linecap="round" fill="none" /><circle cx="312" cy="104" r="24" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="4" /></g>
+  <rect x="-20" y="52" width="40" height="50" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="4" />
+  <path d="M87.9 5.2 Q97.7 36.8 65.2 42.9 Q59.2 75.4 27.6 65.8 Q7.1 91.8 -16.4 68.5 Q-46.6 82.1 -56.6 50.5 Q-89.6 48.5 -83.8 15.9 Q-112.1 -1.2 -91.8 -27.4 Q-108.9 -55.7 -78.8 -69.4 Q-80.8 -102.4 -47.8 -100.6 Q-34.1 -130.8 -5.7 -113.8 Q20.3 -134.2 37.6 -106.0 Q70.1 -111.9 72.3 -78.9 Q103.9 -69.0 90.5 -38.8 Q113.8 -15.4 87.9 5.2 Z" fill="#d8d2c4" stroke="#f4ecd8" stroke-width="4" stroke-linejoin="round" />
+  <ellipse cx="0" cy="4" rx="62" ry="72" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="4" />
+  <path d="M-63.8 -64.6 Q-65.7 -80.8 -38.0 -79.2 Q-21.0 -96.6 5.5 -83.9 Q33.6 -94.3 46.5 -76.4 Q72.4 -75.0 65.7 -60.4 Q77.3 -47.8 54.2 -43.2 Q46.1 -25.3 17.3 -32.9 Q-6.7 -18.1 -27.7 -34.4 Q-56.4 -29.6 -59.7 -46.9 Q-79.7 -54.4 -63.8 -64.6 Z" fill="#d8d2c4" stroke="#f4ecd8" stroke-width="3" stroke-linejoin="round" />
+  <path class="s04n-cejas" d="M-38 -22 Q-24 -30 -10 -24 M10 -24 Q24 -30 38 -22" stroke="#1c1b1a" stroke-width="5" fill="none" stroke-linecap="round" />
+  <g class="s04n-ojos"><circle cx="-24" cy="-4" r="7" fill="#1c1b1a" /><circle cx="24" cy="-4" r="7" fill="#1c1b1a" /></g>
+  <circle cx="-24" cy="-4" r="20" fill="none" stroke="#1c1b1a" stroke-width="4" /><circle cx="24" cy="-4" r="20" fill="none" stroke="#1c1b1a" stroke-width="4" /><path d="M-4 -6 H4" stroke="#1c1b1a" stroke-width="4" />
+  <path d="M-44 -2 Q-70 60 -30 96 M44 -2 Q70 60 30 96" stroke="#f2c230" stroke-width="3" fill="none" stroke-dasharray="3 6" stroke-linecap="round" />
+  <circle cx="-36" cy="26" r="11" fill="#d7332b" opacity="0.35" /><circle cx="36" cy="26" r="11" fill="#d7332b" opacity="0.35" />
+  <path d="M-4 10 Q0 22 6 18" stroke="#1c1b1a" stroke-width="4" fill="none" stroke-linecap="round" />
+  <ellipse class="s04n-boca" cx="0" cy="42" rx="15" ry="9" fill="#d7332b" stroke="#1c1b1a" stroke-width="3" />
+  <g class="s04n-lagrima" opacity="0"><path d="M-30 18 C-38 34 -38 44 -30 48 C-22 44 -22 34 -30 18 Z" fill="#f4ecd8" stroke="#19c2a5" stroke-width="3" /></g>
+</g></g></g>
+          <g class="s04-cal">
+            <rect x="70" y="740" width="230" height="250" rx="10" fill="#f4ecd8" stroke="#1c1b1a" stroke-width="5" />
+            <rect x="70" y="740" width="230" height="70" rx="10" fill="#d7332b" />
+            <text x="185" y="790" text-anchor="middle" font-family="Black Ops One" font-size="46" fill="#f4ecd8">MARZO</text>
+            <rect x="92" y="830" width="36" height="36" rx="4" fill="#77736b" opacity="0.5" /><rect x="142" y="830" width="36" height="36" rx="4" fill="#77736b" opacity="0.5" /><rect x="192" y="830" width="36" height="36" rx="4" fill="#77736b" opacity="0.5" /><rect x="242" y="830" width="36" height="36" rx="4" fill="#77736b" opacity="0.5" /><rect x="92" y="880" width="36" height="36" rx="4" fill="#77736b" opacity="0.5" /><rect x="142" y="880" width="36" height="36" rx="4" fill="#f2c230" opacity="1" /><rect x="192" y="880" width="36" height="36" rx="4" fill="#77736b" opacity="0.5" /><rect x="242" y="880" width="36" height="36" rx="4" fill="#77736b" opacity="0.5" /><rect x="92" y="930" width="36" height="36" rx="4" fill="#77736b" opacity="0.5" /><rect x="142" y="930" width="36" height="36" rx="4" fill="#77736b" opacity="0.5" /><rect x="192" y="930" width="36" height="36" rx="4" fill="#77736b" opacity="0.5" /><rect x="242" y="930" width="36" height="36" rx="4" fill="#77736b" opacity="0.5" />
+          </g>
+        </svg>
+        <div class="txt s04-grito"><span class="s04-g1">¡No,</span> <span class="s04-g2">esa no!</span></div>
+        <div class="zoc s04-z1"><div class="tab">Caso 12</div><div class="tit">Norma defiende la caja</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-esa-no";
+      const DUR = 3.8;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const lista = (x) => (typeof x === "string" ? qa(x) : Array.isArray(x) ? x : [x]);
+      // trazo que se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (sel, t, d = 0.6) => lista(sel).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (sel, t, d = 0.35, s = 0.8) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe, como un sello
+      const golpe = (sel, t, s = 2.2) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      // cae desde arriba y rebota (cajas)
+      const cae = (sel, t, dy = -700, d = 0.4) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, y: dy }, { opacity: 1, y: 0, duration: d, ease: "bounce.out", immediateRender: false }, t);
+      });
+      // tira de cinta que entra cruzando
+      const tira = (sel, t, desde = -1300) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, x: desde }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      });
+      const fuera = (sel, t, d = 0.25) => tl.to(lista(sel), { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1, sel = ".s04-esc") => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(sel), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // la boca se mueve mientras habla
+      const hablar = (sel, t0, t1) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.12));
+        tl.fromTo(q(sel), { scaleY: 0.45, transformOrigin: "50% 50%" }, { scaleY: 1.25, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0);
+      };
+      // zócalos: cada uno entra desde la izquierda y saca al anterior
+      const zocalos = (pares) => pares.forEach(([sel, t], i) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, x: -1100 }, { opacity: 1, x: 0, duration: 0.32, ease: "power3.out", immediateRender: false }, t);
+        if (i > 0) tl.to(q(pares[i - 1][0]), { opacity: 0, y: 30, duration: 0.18 }, t);
+      });
+      // cámara en mano: deriva lenta del contenedor de la escena
+      tl.fromTo(q(".s04-esc"), { scale: 1.0, transformOrigin: "50% 55%" }, { scale: 1.035, duration: DUR, ease: "none" }, 0);
+
+
+      const ESA = 0.64, CAMP = 1.43, MARZO = 2.87;
+      tl.fromTo(q(".s04-nor"), { x: 700, y: -200, rotation: 25, transformOrigin: "50% 100%" }, { x: 0, y: 0, rotation: 0, transformOrigin: "50% 100%", duration: 0.35, ease: "power3.out" }, 0);
+      golpe(".s04-g1", 0.12, 2.4);
+      golpe(".s04-g2", ESA, 2.4);
+      sacudon(0.15, 1.2); sacudon(ESA + 0.05, 1.5);
+      hablar(".s04n-boca", 0, 1.2);
+      hablar(".s04n-boca", 1.26, 3.4);
+      tl.fromTo(q(".s04n-bi"), { rotation: 0 }, { rotation: -8, transformOrigin: "100% 100%", duration: 0.2, yoyo: true, repeat: 5 }, 0.4);
+      tl.fromTo(q(".s04n-bd"), { rotation: 0 }, { rotation: 8, transformOrigin: "0% 100%", duration: 0.2, yoyo: true, repeat: 5 }, 0.4);
+      gsap.set(q(".s04-campera"), { opacity: 0 });
+      tl.fromTo(q(".s04-campera"), { opacity: 1, y: 120 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, CAMP);
+      zocalos([[".s04-z1", 1.0]]);
+      gsap.set(q(".s04-cal"), { opacity: 0 });
+      tl.fromTo(q(".s04-cal"), { opacity: 0, scale: 0.4, rotation: -30, svgOrigin: "185 865" }, { opacity: 1, scale: 1, rotation: -6, svgOrigin: "185 865", duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, MARZO - 0.1);
+      tl.to(q(".s04-grito"), { opacity: 0.35, scale: 0.85, duration: 0.3 }, CAMP);
+
+      // salida: blur
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,94 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1100px at 540px 960px, rgba(22, 21, 19, 0) 58%, rgba(22, 21, 19, 0.8) 100%); }
+    [data-composition-id="ambiente"] .amb-turq { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 700px 420px at 540px 480px, rgba(25, 194, 165, 0.22) 0%, rgba(25, 194, 165, 0) 80%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #f4ecd8; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-barra { position: absolute; left: 60px; top: 120px; height: 66px; display: flex; gap: 14px; align-items: center; white-space: nowrap; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 27px; letter-spacing: 0.1em; text-transform: uppercase; color: #f4ecd8; }
+    [data-composition-id="ambiente"] .amb-rec { display: flex; align-items: center; gap: 10px; color: #d7332b; font-weight: 500; }
+    [data-composition-id="ambiente"] .amb-punto { width: 20px; height: 20px; border-radius: 50%; background: #d7332b; }
+    [data-composition-id="ambiente"] .amb-prog { background: #f2c230; color: #1c1b1a; padding: 6px 14px; font-family: "Lexend", sans-serif; font-weight: 800; letter-spacing: 0.04em; }
+    [data-composition-id="ambiente"] .amb-cam { opacity: 0.75; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="75.93">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="75.93" data-track-index="0">
+      <div class="amb-turq"></div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- tubo fluorescente -->
+        <g class="amb-tubo">
+          <path d="M300 470 V452 M780 470 V452" stroke="#77736b" stroke-width="4" />
+          <rect x="250" y="470" width="580" height="30" rx="8" fill="#1c1b1a" stroke="#77736b" stroke-width="4" />
+          <rect class="amb-luz" x="262" y="476" width="556" height="16" rx="8" fill="#f4ecd8" />
+          <ellipse class="amb-halo" cx="540" cy="500" rx="420" ry="70" fill="#f4ecd8" opacity="0.07" />
+        </g>
+        <!-- polvo -->
+        <g class="amb-polvo" fill="#f4ecd8">
+          <circle class="amb-p1" cx="140" cy="760" r="4" opacity="0.25" /><circle class="amb-p2" cx="930" cy="880" r="3" opacity="0.3" />
+          <circle class="amb-p3" cx="210" cy="1240" r="5" opacity="0.2" /><circle class="amb-p4" cx="880" cy="1300" r="4" opacity="0.25" />
+          <circle class="amb-p5" cx="70" cy="1020" r="3" opacity="0.3" /><circle class="amb-p6" cx="1010" cy="640" r="4" opacity="0.2" />
+        </g>
+        <!-- visor de la cámara en mano -->
+        <g class="amb-visor" fill="none" stroke="#f4ecd8" stroke-width="5" stroke-linecap="round" opacity="0.7">
+          <path d="M36 150 V100 H86" /><path d="M994 100 H1044 V150" />
+          <path d="M36 1640 V1690 H86" /><path d="M994 1690 H1044 V1640" />
+          <path d="M520 960 H560 M540 940 V980" stroke-width="3" opacity="0.35" />
+        </g>
+      </svg>
+      <div class="amb-vineta"></div>
+      <div class="amb-barra">
+        <div class="amb-rec"><span class="amb-punto"></span><span>REC</span></div>
+        <div class="amb-prog">Enterrados en Stock</div>
+        <div class="amb-cam">T3 · E12 · CAM 2</div>
+      </div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 75.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // TIEMPOS globales (de la locución)
+      const MIEDO = 12.2, NO_ESA = 18.11, CONF0 = 40.55, CONF1 = 46.3, TIENDA = 52.3, MES = 60.83;
+
+      // el tubo parpadea (al arrancar, en "miedo", en "¡no, esa no!" y cuando vuelve la luz)
+      const parpadeo = (t, n = 5) => {
+        for (let i = 0; i < n; i++) {
+          tl.set(q(".amb-luz"), { opacity: i % 2 ? 1 : 0.15 }, t + i * 0.07);
+          tl.set(q(".amb-halo"), { opacity: i % 2 ? 0.07 : 0 }, t + i * 0.07);
+        }
+        tl.set(q(".amb-luz"), { opacity: 1 }, t + n * 0.07);
+        tl.set(q(".amb-halo"), { opacity: 0.07 }, t + n * 0.07);
+      };
+      parpadeo(0.05, 4); parpadeo(MIEDO, 7); parpadeo(NO_ESA, 3); parpadeo(MES + 1.0, 5);
+      tl.to(q(".amb-flash"), { opacity: 0.35, duration: 0.03 }, MIEDO - 0.02);
+      tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3 }, MIEDO + 0.02);
+      // confesionario: el tubo se apaga
+      tl.to(q(".amb-tubo"), { opacity: 0.12, duration: 0.25 }, CONF0);
+      tl.to(q(".amb-tubo"), { opacity: 1, duration: 0.25 }, CONF1);
+      // la tienda: luz turquesa
+      tl.to(q(".amb-turq"), { opacity: 1, duration: 0.6 }, TIENDA);
+      tl.to(q(".amb-luz"), { fill: "#19c2a5", duration: 0.4 }, TIENDA);
+
+      // cámara en mano: el visor deriva
+      tl.fromTo(q(".amb-visor"), { x: 0, y: 0 }, { x: 6, y: -5, duration: 1.7, yoyo: true, repeat: Math.floor(DUR / 1.7) - 1, ease: "sine.inOut" }, 0);
+      tl.to(q(".amb-punto"), { opacity: 0.15, duration: 0.5, yoyo: true, repeat: Math.floor(DUR / 0.5) - 1, ease: "steps(1)" }, 0);
+      // polvo flotando
+      ["amb-p1", "amb-p2", "amb-p3", "amb-p4", "amb-p5", "amb-p6"].forEach((p, i) => {
+        const d = 3 + i * 0.6;
+        tl.fromTo(q("." + p), { y: 0, x: 0 }, { y: -60 - i * 10, x: i % 2 ? 24 : -24, duration: d, yoyo: true, repeat: Math.floor(DUR / d) - 1, ease: "sine.inOut" }, 0);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
