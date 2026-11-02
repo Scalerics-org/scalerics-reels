@@ -150,6 +150,11 @@
 - 02-11 · `modo-dificil` · Automatizaciones · "Tu vida es un videojuego. Y el que juega es malísimo." Simulador de vida (como Los Sims, solo nombrado) transmitido en vivo: el jugador maneja a Hugo, dueño de un bazar, a las 23:00: copiar los pedidos de WhatsApp a la planilla uno por uno ("Hugo copia. Hugo pega. Hugo quiere dormir"), mandar "tu pedido está listo" a cada uno, actualizar el stock, armar el reporte del día; "necesidad crítica: sueño", "tranqui, lo pongo en velocidad tres", el diamante se pone rojo, Hugo cena galletitas a las 2, "atención: la familia se fue de la casa"; giro: Hugo mira a cámara, "Hugo no es malo, el que juega mal sos vos: lo ponés a hacer a mano lo que se puede hacer solo"; código de trucos: automatizar (pedidos que pasan solos a la planilla, el aviso sale solo, el stock se actualiza solo, el reporte llega al celular); barras llenas, la familia vuelve · Etiquetá al que juega su negocio en modo difícil [formato G simulación de pantalla (simulador de vida) · estilo videojuego isométrico pastel azul noche/menta/rosa/crema con barras de necesidades, diamante y reloj con velocidades, cuatro voces]
 
 ## En curso
+- 02-11 · `el-adiestrador` · Agente de IA · programa de adiestramiento canino: el adiestrador entrena al DUEÑO ("¡Sentado! ¡Quieto! ¡Contestá!"); giro: no es mal dueño, está solo; entra el agente · corrida 02-11 07h (en curso)
+- 02-11 · `cadena-nacional` · Agente de IA · cadena nacional del "Presidente del Local" que decreta contestar "cuando yo pueda"; protesta afuera; giro: asume el agente de IA · corrida 02-11 07h (en curso)
+- 02-11 · `modo-de-armado` · Automatizaciones · manual de instrucciones de mueble en kit (pictogramas): cómo armar la noche del comerciante, paso 1 a paso 47 copiando y pegando · corrida 02-11 07h (en curso)
+- 02-11 · `tiene-mensajes` · CRM · contestador automático de los 90: "Tiene catorce mensajes nuevos", clientes olvidados con presupuestos que nunca se mandaron · corrida 02-11 07h (en curso)
+- 02-11 · `acumuladores` · Tienda online · reality de acumuladores: el depósito lleno de mercadería que solo se vende al que pasa por la puerta · corrida 02-11 07h (en curso)
 
 
 
