@@ -1,0 +1,147 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-interrumpimos"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-interrumpimos"] .s01-esc { position: absolute; inset: 0; }
+    [data-composition-id="s01-interrumpimos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-interrumpimos"] .lin { fill: none; stroke: #f7f4ea; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-interrumpimos"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s01-interrumpimos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s01-interrumpimos"] .art { top: 586px; font-weight: 900; font-size: 92px; color: #e0b13a; text-shadow: 6px 6px 0 #d7262e; }
+    [data-composition-id="s01-interrumpimos"] .art small { font-size: 0.62em; color: #f7f4ea; text-shadow: none; letter-spacing: 0.08em; margin-right: 18px; vertical-align: 0.14em; }
+    [data-composition-id="s01-interrumpimos"] .zoc { position: absolute; left: 50px; top: 1376px; display: flex; height: 104px; border: 4px solid #e0b13a; border-radius: 6px; overflow: hidden; box-shadow: 8px 8px 0 rgba(7, 22, 64, 0.8); }
+    [data-composition-id="s01-interrumpimos"] .zoc .tab { display: flex; align-items: center; padding: 0 18px; background: #e0b13a; color: #071640; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-interrumpimos"] .zoc .tab.verde { background: #5ce611; color: #071640; }
+    [data-composition-id="s01-interrumpimos"] .zoc .tit { display: flex; align-items: center; padding: 0 26px; background: #d7262e; color: #f7f4ea; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-interrumpimos"] .zoc .tit.azul { background: #163a8c; }
+    [data-composition-id="s01-interrumpimos"] .sello b { display: inline-block; padding: 10px 28px; border: 7px solid #d7262e; border-radius: 14px; color: #d7262e; background: rgba(7, 22, 64, 0.9); font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s01-interrumpimos"] .s01-l1 { top: 600px; font-weight: 900; font-size: 84px; color: #f7f4ea; text-shadow: 6px 6px 0 #071640; }
+    [data-composition-id="s01-interrumpimos"] .s01-l2 { top: 694px; font-weight: 900; font-size: 128px; color: #e0b13a; text-shadow: 7px 7px 0 #d7262e; }
+    [data-composition-id="s01-interrumpimos"] .s01-com { top: 1218px; font-size: 32px; color: #f7f4ea; letter-spacing: 0.3em; }
+    [data-composition-id="s01-interrumpimos"] .s01-sello { top: 1100px; }
+    [data-composition-id="s01-interrumpimos"] .s01-sello b { font-size: 64px; transform: rotate(-5deg); }
+  </style>
+  <div id="root" data-composition-id="s01-interrumpimos" data-width="1080" data-height="1920" data-duration="5.73">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.73" data-track-index="0">
+      <div class="s01-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s01-barras">
+            <rect x="-5" y="540" width="160" height="620" fill="#f7f4ea" /><rect x="150" y="540" width="160" height="620" fill="#e0b13a" /><rect x="305" y="540" width="160" height="620" fill="#163a8c" /><rect x="460" y="540" width="160" height="620" fill="#d7262e" /><rect x="615" y="540" width="160" height="620" fill="#0e2766" /><rect x="770" y="540" width="160" height="620" fill="#e0b13a" /><rect x="925" y="540" width="160" height="620" fill="#f7f4ea" />
+            <rect x="-5" y="1160" width="160" height="90" fill="#163a8c" /><rect x="150" y="1160" width="160" height="90" fill="#071640" /><rect x="305" y="1160" width="160" height="90" fill="#d7262e" /><rect x="460" y="1160" width="160" height="90" fill="#071640" /><rect x="615" y="1160" width="160" height="90" fill="#e0b13a" /><rect x="770" y="1160" width="160" height="90" fill="#071640" /><rect x="925" y="1160" width="160" height="90" fill="#163a8c" />
+            <rect x="-5" y="1250" width="1090" height="110" fill="#071640" />
+            <text x="540" y="1325" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="40" fill="#f7f4ea" letter-spacing="8">SEÑAL INTERRUMPIDA</text>
+          </g>
+          <g class="s01-rayos" opacity="0.14" fill="#e0b13a">
+            <path d="M540 990 L1440 990 L1420.332840660425 1177.1205217359834 Z" /><path d="M540 990 L1319.4228634059948 1440 L1208.8303429296548 1592.2175457229723 Z" /><path d="M540 990 L990.0000000000001 1769.4228634059946 L818.1152949374527 1845.9508646656382 Z" /><path d="M540 990 L540 1890 L352.8794782640168 1870.332840660425 Z" /><path d="M540 990 L90.00000000000023 1769.4228634059948 L-62.21754572297243 1658.8303429296548 Z" /><path d="M540 990 L-239.4228634059948 1440 L-315.95086466563816 1268.1152949374527 Z" /><path d="M540 990 L-360 990.0000000000001 L-340.33284066042506 802.8794782640168 Z" /><path d="M540 990 L-239.4228634059947 539.9999999999999 L-128.83034292965488 387.78245427702757 Z" /><path d="M540 990 L89.9999999999996 210.5771365940053 L261.8847050625472 134.04913533436184 Z" /><path d="M540 990 L539.9999999999999 90 L727.1205217359827 109.66715933957482 Z" /><path d="M540 990 L990.0000000000001 210.5771365940053 L1142.2175457229719 321.1696570703449 Z" /><path d="M540 990 L1319.4228634059946 539.9999999999995 L1395.9508646656382 711.8847050625471 Z" />
+          </g>
+          <g transform="translate(540 1000) scale(1.05)"><g class="s01-escudo">
+<g class="s01e" transform="scale(1)">
+  <g class="s01e-laurel" fill="#e0b13a" stroke="#071640" stroke-width="3">
+    <ellipse cx="-150" cy="100" rx="14" ry="30" transform="rotate(-30 -150 100)" />
+    <ellipse cx="150" cy="100" rx="14" ry="30" transform="rotate(30 150 100)" /><ellipse cx="-146" cy="56" rx="14" ry="30" transform="rotate(-22 -146 56)" />
+    <ellipse cx="146" cy="56" rx="14" ry="30" transform="rotate(22 146 56)" /><ellipse cx="-142" cy="12" rx="14" ry="30" transform="rotate(-14 -142 12)" />
+    <ellipse cx="142" cy="12" rx="14" ry="30" transform="rotate(14 142 12)" /><ellipse cx="-138" cy="-32" rx="14" ry="30" transform="rotate(-6 -138 -32)" />
+    <ellipse cx="138" cy="-32" rx="14" ry="30" transform="rotate(6 138 -32)" /><ellipse cx="-134" cy="-76" rx="14" ry="30" transform="rotate(2 -134 -76)" />
+    <ellipse cx="134" cy="-76" rx="14" ry="30" transform="rotate(-2 134 -76)" /><ellipse cx="-130" cy="-120" rx="14" ry="30" transform="rotate(10 -130 -120)" />
+    <ellipse cx="130" cy="-120" rx="14" ry="30" transform="rotate(-10 130 -120)" />
+  </g>
+  <path d="M-110 -130 H110 V20 C110 100 50 140 0 160 C-50 140 -110 100 -110 20 Z" fill="#163a8c" stroke="#e0b13a" stroke-width="10" stroke-linejoin="round" />
+  <path d="M-110 -60 H110" stroke="#e0b13a" stroke-width="6" />
+  <circle cx="-70" cy="-95" r="9" fill="#e0b13a" /><circle cx="-35" cy="-95" r="9" fill="#e0b13a" /><circle cx="0" cy="-95" r="9" fill="#e0b13a" /><circle cx="35" cy="-95" r="9" fill="#e0b13a" /><circle cx="70" cy="-95" r="9" fill="#e0b13a" />
+  <g class="s01e-taza">
+    <path class="s01e-humo" d="M-26 -38 c-12 -14 12 -22 0 -36 M4 -38 c-12 -14 12 -22 0 -36 M34 -38 c-12 -14 12 -22 0 -36" stroke="#f7f4ea" stroke-width="6" fill="none" stroke-linecap="round" />
+    <path d="M-50 -20 H58 L50 50 Q46 74 22 74 H-14 Q-38 74 -42 50 Z" fill="#f7f4ea" stroke="#071640" stroke-width="4" stroke-linejoin="round" />
+    <path d="M54 -6 C86 -6 86 40 50 40" stroke="#f7f4ea" stroke-width="10" fill="none" stroke-linecap="round" />
+    <path d="M-66 84 H76" stroke="#f7f4ea" stroke-width="8" stroke-linecap="round" />
+  </g>
+  <path d="M-170 150 L-130 130 H130 L170 150 L130 172 H-130 Z" fill="#d7262e" stroke="#e0b13a" stroke-width="4" stroke-linejoin="round" />
+  <text x="0" y="162" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="26" fill="#f7f4ea" letter-spacing="3" data-layout-ignore>CUANDO PUEDO</text>
+</g></g></g>
+        </svg>
+        <div class="txt s01-l1">Interrumpimos</div>
+        <div class="txt s01-l2">tu scroll</div>
+        <div class="txt mono s01-com">Comunicado oficial del local</div>
+        <div class="txt sello s01-sello"><b>¡No te va a gustar!</b></div>
+        <div class="zoc s01-z"><div class="tab">Cadena nacional</div><div class="tit">Mensaje del dueño</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-interrumpimos";
+      const DUR = 5.73;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const lista = (x) => (typeof x === "string" ? qa(x) : Array.isArray(x) ? x : [x]);
+      // trazo que se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (sel, t, d = 0.6) => lista(sel).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (sel, t, d = 0.35, s = 0.8) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe, como un sello
+      const golpe = (sel, t, s = 2.2) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const fuera = (sel, t, d = 0.25) => tl.to(lista(sel), { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1, sel = ".s01-esc") => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(sel), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // la boca se mueve mientras habla
+      const hablar = (sel, t0, t1) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.12));
+        tl.fromTo(q(sel), { scaleY: 0.45, transformOrigin: "50% 50%" }, { scaleY: 1.25, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0);
+      };
+      // zócalos: cada uno entra desde la izquierda y saca al anterior
+      const zocalos = (pares) => pares.forEach(([sel, t], i) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, x: -1100 }, { opacity: 1, x: 0, duration: 0.32, ease: "power3.out", immediateRender: false }, t);
+        if (i > 0) tl.to(q(pares[i - 1][0]), { opacity: 0, y: 30, duration: 0.18 }, t);
+      });
+      // la bandera flamea
+      const flamear = (sel, t0, t1) => lista(sel).forEach((el, i) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.6));
+        tl.fromTo(el, { skewY: -3 }, { skewY: 3, duration: 0.6, yoyo: true, repeat: n, ease: "sine.inOut", svgOrigin: "0 50" }, t0 + i * 0.15);
+      });
+      // confeti que cae
+      const llover = (sel, t) => qa(sel).forEach((k, i) => tl.fromTo(k, { y: 0, rotation: 0, opacity: 0 }, { opacity: 1, y: 900 + (i % 3) * 80, rotation: 360 + i * 40, transformOrigin: "50% 50%", duration: 2.2 + (i % 4) * 0.2, ease: "none", immediateRender: false }, t + (i % 5) * 0.08));
+
+
+      const SCROLL = 0.88, DUENO = 1.75, ANUNCIO = 3.33, GUSTAR = 4.24;
+      // cuadro 0: barras de color de la señal; se cortan con un glitch
+      tl.to(q(".s01-barras"), { x: 30, duration: 0.05, yoyo: true, repeat: 5, ease: "steps(1)" }, 0.15);
+      tl.to(q(".s01-barras"), { scaleY: 0.02, opacity: 0, transformOrigin: "50% 950px", duration: 0.16, ease: "power3.in" }, 0.5);
+      tl.fromTo(q(".s01-l1"), { opacity: 0.4, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in" }, 0);
+      gsap.set(q(".s01-escudo"), { opacity: 0 });
+      tl.fromTo(q(".s01-escudo"), { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)", immediateRender: false }, 0.6);
+      tl.fromTo(q(".s01-rayos"), { rotation: 0, opacity: 0 }, { rotation: 40, opacity: 0.14, svgOrigin: "540 990", duration: 5.6, ease: "none" }, 0.6);
+      golpe(".s01-l2", SCROLL, 1.8);
+      sacudon(SCROLL + 0.05, 1.2);
+      zocalos([[".s01-z", DUENO - 0.1]]);
+      pop(".s01-com", ANUNCIO - 0.05, 0.3);
+      tl.to(q(".s01e-humo"), { y: -10, opacity: 0.5, duration: 0.5, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.8);
+      // "y no te va a gustar"
+      tl.to(q(".s01-com"), { opacity: 0, duration: 0.15 }, GUSTAR - 0.15);
+      golpe(".s01-sello", GUSTAR + 0.1, 2.2);
+      sacudon(GUSTAR + 0.12, 1.4);
+      tl.to(q(".s01-escudo"), { scale: 0.92, duration: 0.2, yoyo: true, repeat: 1 }, GUSTAR + 0.1);
+
+      // salida: blur
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,1 @@
+Un agente de IA que armamos en Scalerics. Contesta al instante, a cualquier hora, con tus precios, tu stock y tus horarios. Toma pedidos y reservas y, cuando es para vos, te pasa la conversación.

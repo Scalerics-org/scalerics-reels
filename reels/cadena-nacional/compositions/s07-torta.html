@@ -1,0 +1,149 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-torta"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-torta"] .s07-esc { position: absolute; inset: 0; }
+    [data-composition-id="s07-torta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-torta"] .lin { fill: none; stroke: #f7f4ea; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-torta"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s07-torta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s07-torta"] .art { top: 586px; font-weight: 900; font-size: 92px; color: #e0b13a; text-shadow: 6px 6px 0 #d7262e; }
+    [data-composition-id="s07-torta"] .art small { font-size: 0.62em; color: #f7f4ea; text-shadow: none; letter-spacing: 0.08em; margin-right: 18px; vertical-align: 0.14em; }
+    [data-composition-id="s07-torta"] .zoc { position: absolute; left: 50px; top: 1376px; display: flex; height: 104px; border: 4px solid #e0b13a; border-radius: 6px; overflow: hidden; box-shadow: 8px 8px 0 rgba(7, 22, 64, 0.8); }
+    [data-composition-id="s07-torta"] .zoc .tab { display: flex; align-items: center; padding: 0 18px; background: #e0b13a; color: #071640; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-torta"] .zoc .tab.verde { background: #5ce611; color: #071640; }
+    [data-composition-id="s07-torta"] .zoc .tit { display: flex; align-items: center; padding: 0 26px; background: #d7262e; color: #f7f4ea; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-torta"] .zoc .tit.azul { background: #163a8c; }
+    [data-composition-id="s07-torta"] .sello b { display: inline-block; padding: 10px 28px; border: 7px solid #d7262e; border-radius: 14px; color: #d7262e; background: rgba(7, 22, 64, 0.9); font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s07-torta"] .s07-sello { top: 1230px; left: 520px; right: auto; width: 520px; }
+    [data-composition-id="s07-torta"] .s07-sello b { font-size: 60px; transform: rotate(-6deg); }
+  </style>
+  <div id="root" data-composition-id="s07-torta" data-width="1080" data-height="1920" data-duration="4.22">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.22" data-track-index="0">
+      <div class="s07-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(270 1010) scale(1.05)"><g class="s07-vec">
+<g class="s07v">
+  <path d="M56 -50 C126 -40 146 40 116 130 C106 160 86 170 76 160 C106 90 96 10 46 -20 Z" fill="#071640" stroke="#f7f4ea" stroke-width="4" stroke-linejoin="round" />
+  <path d="M-120 360 L-128 170 Q-124 112 -84 104 L-26 96 Q0 120 26 96 L84 104 Q124 112 128 170 L120 360 Z" fill="#d7262e" stroke="#f7f4ea" stroke-width="5" stroke-linejoin="round" />
+  <rect x="-20" y="52" width="40" height="50" fill="#f7f4ea" stroke="#071640" stroke-width="4" />
+  <ellipse cx="0" cy="0" rx="58" ry="70" fill="#f7f4ea" stroke="#071640" stroke-width="4" />
+  <path d="M-62 10 C-74 -62 -30 -96 10 -90 C52 -86 72 -52 62 4 C50 -26 30 -40 4 -42 C-12 -24 -40 -18 -62 10 Z" fill="#071640" stroke="#f7f4ea" stroke-width="4" stroke-linejoin="round" />
+  <circle cx="50" cy="-58" r="12" fill="#e0b13a" />
+  <path class="s07v-cejas" d="M-38 -30 L-12 -20 M12 -20 L38 -30" stroke="#071640" stroke-width="6" stroke-linecap="round" />
+  <g class="s07v-ojos"><circle cx="-22" cy="-4" r="7" fill="#071640" /><circle cx="22" cy="-4" r="7" fill="#071640" /></g>
+  <circle cx="-56" cy="24" r="7" fill="#e0b13a" /><circle cx="56" cy="24" r="7" fill="#e0b13a" />
+  <ellipse class="s07v-boca" cx="0" cy="38" rx="15" ry="10" fill="#071640" />
+</g></g></g>
+          <g transform="translate(150 1270) scale(0.8)"><g class="s07-cac">
+<g class="s07o">
+  <path d="M-80 -30 H80 V30 Q80 60 50 60 H-50 Q-80 60 -80 30 Z" fill="#163a8c" stroke="#f7f4ea" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-92 -34 H92" stroke="#f7f4ea" stroke-width="8" stroke-linecap="round" />
+  <path d="M-80 -10 H-120 M80 -10 H120" stroke="#f7f4ea" stroke-width="12" stroke-linecap="round" />
+  <path d="M-60 0 Q0 12 60 0" stroke="#f7f4ea" stroke-width="3" fill="none" opacity="0.4" />
+  <g class="s07o-cuch"><path d="M30 -60 L110 -150" stroke="#e0b13a" stroke-width="10" stroke-linecap="round" /><ellipse cx="20" cy="-48" rx="18" ry="12" fill="#e0b13a" transform="rotate(-48 20 -48)" /></g>
+</g></g></g>
+          <g class="s07-cel">
+            
+  <rect x="520" y="640" width="460" height="640" rx="50" fill="#071640" stroke="#f7f4ea" stroke-width="6" />
+  <rect x="538" y="658" width="424" height="604" rx="36" fill="#0e2766" />
+  <rect x="700" y="670" width="100" height="16" rx="8" fill="#071640" />
+  <path d="M538 768 H962" stroke="#f7f4ea" stroke-width="3" opacity="0.3" />
+  <circle cx="590" cy="730" r="26" fill="#d7262e" stroke="#f7f4ea" stroke-width="3" />
+  <text x="630" y="741" font-family="Lexend" font-weight="700" font-size="30" fill="#f7f4ea">La vecina</text>
+            <g class="s07-g1">
+    <rect x="600" y="800" width="350" height="136" rx="20" fill="#e0b13a" stroke="#071640" stroke-width="4" />
+    <text x="622" y="848" font-family="Lexend" font-weight="600" font-size="29" fill="#071640">¿Tienen torta</text><text x="622" y="888" font-family="Lexend" font-weight="600" font-size="29" fill="#071640">para el domingo?</text>
+    <text x="928" y="922" text-anchor="end" font-family="IBM Plex Mono" font-weight="500" font-size="24" fill="#071640" opacity="0.75">Vie 20:14</text>
+  </g>
+            <g class="s07-dias">
+              <text x="750" y="1010" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="26" fill="#f7f4ea" opacity="0.8">sáb · dom · lun</text>
+              <path d="M600 1022 H900" stroke="#f7f4ea" stroke-width="3" opacity="0.4" stroke-dasharray="6 10" />
+            </g>
+            <g class="s07-g2">
+    <rect x="550" y="1050" width="330" height="136" rx="20" fill="#f7f4ea" stroke="#071640" stroke-width="4" />
+    <text x="572" y="1098" font-family="Lexend" font-weight="600" font-size="29" fill="#071640">Hola! Sí,</text><text x="572" y="1138" font-family="Lexend" font-weight="600" font-size="29" fill="#071640">¿para cuándo?</text>
+    <text x="858" y="1172" text-anchor="end" font-family="IBM Plex Mono" font-weight="500" font-size="24" fill="#071640" opacity="0.75">Mar 11:02</text>
+  </g>
+          </g>
+        </svg>
+        <div class="txt sello s07-sello"><b>¡El martes!</b></div>
+        <div class="zoc s07-z"><div class="tab">Vecina</div><div class="tit">«¡Me contestó el martes!»</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-torta";
+      const DUR = 4.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const lista = (x) => (typeof x === "string" ? qa(x) : Array.isArray(x) ? x : [x]);
+      // trazo que se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (sel, t, d = 0.6) => lista(sel).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (sel, t, d = 0.35, s = 0.8) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe, como un sello
+      const golpe = (sel, t, s = 2.2) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const fuera = (sel, t, d = 0.25) => tl.to(lista(sel), { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1, sel = ".s07-esc") => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(sel), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // la boca se mueve mientras habla
+      const hablar = (sel, t0, t1) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.12));
+        tl.fromTo(q(sel), { scaleY: 0.45, transformOrigin: "50% 50%" }, { scaleY: 1.25, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0);
+      };
+      // zócalos: cada uno entra desde la izquierda y saca al anterior
+      const zocalos = (pares) => pares.forEach(([sel, t], i) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, x: -1100 }, { opacity: 1, x: 0, duration: 0.32, ease: "power3.out", immediateRender: false }, t);
+        if (i > 0) tl.to(q(pares[i - 1][0]), { opacity: 0, y: 30, duration: 0.18 }, t);
+      });
+      // la bandera flamea
+      const flamear = (sel, t0, t1) => lista(sel).forEach((el, i) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.6));
+        tl.fromTo(el, { skewY: -3 }, { skewY: 3, duration: 0.6, yoyo: true, repeat: n, ease: "sine.inOut", svgOrigin: "0 50" }, t0 + i * 0.15);
+      });
+      // confeti que cae
+      const llover = (sel, t) => qa(sel).forEach((k, i) => tl.fromTo(k, { y: 0, rotation: 0, opacity: 0 }, { opacity: 1, y: 900 + (i % 3) * 80, rotation: 360 + i * 40, transformOrigin: "50% 50%", duration: 2.2 + (i % 4) * 0.2, ease: "none", immediateRender: false }, t + (i % 5) * 0.08));
+
+
+      const TORTA = 1.02, VIERNES = 1.67, CONTESTO = 2.68, MARTES = 3.77;
+      tl.fromTo(q(".s07-vec"), { x: -400 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s07-cel"), { x: 600 }, { x: 0, duration: 0.45, ease: "power3.out" }, 0.1);
+      hablar(".s07v-boca", 0, 4.1);
+      tl.to(q(".s07o-cuch"), { rotation: 24, svgOrigin: "30 -60", duration: 0.1, yoyo: true, repeat: 7, ease: "power1.in" }, 0.2);
+      tl.to(q(".s07o-cuch"), { rotation: 24, svgOrigin: "30 -60", duration: 0.1, yoyo: true, repeat: 5, ease: "power1.in" }, MARTES);
+      pop(".s07-g1", TORTA - 0.1, 0.35, 0.6);
+      tl.to(q(".s07-g1"), { scale: 1.05, transformOrigin: "50% 50%", duration: 0.15, yoyo: true, repeat: 1 }, VIERNES);
+      pop(".s07-dias", CONTESTO - 0.5, 0.3);
+      zocalos([[".s07-z", CONTESTO - 0.3]]);
+      pop(".s07-g2", CONTESTO, 0.35, 0.6);
+      golpe(".s07-sello", MARTES, 2);
+      sacudon(MARTES + 0.02, 1.2);
+      tl.to(q(".s07v-cejas"), { y: 6, duration: 0.15 }, MARTES);
+
+      // salida: blur
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

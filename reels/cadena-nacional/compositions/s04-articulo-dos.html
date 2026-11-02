@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-articulo-dos"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-articulo-dos"] .s04-esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-articulo-dos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-articulo-dos"] .lin { fill: none; stroke: #f7f4ea; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-articulo-dos"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s04-articulo-dos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s04-articulo-dos"] .art { top: 586px; font-weight: 900; font-size: 92px; color: #e0b13a; text-shadow: 6px 6px 0 #d7262e; }
+    [data-composition-id="s04-articulo-dos"] .art small { font-size: 0.62em; color: #f7f4ea; text-shadow: none; letter-spacing: 0.08em; margin-right: 18px; vertical-align: 0.14em; }
+    [data-composition-id="s04-articulo-dos"] .zoc { position: absolute; left: 50px; top: 1376px; display: flex; height: 104px; border: 4px solid #e0b13a; border-radius: 6px; overflow: hidden; box-shadow: 8px 8px 0 rgba(7, 22, 64, 0.8); }
+    [data-composition-id="s04-articulo-dos"] .zoc .tab { display: flex; align-items: center; padding: 0 18px; background: #e0b13a; color: #071640; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-articulo-dos"] .zoc .tab.verde { background: #5ce611; color: #071640; }
+    [data-composition-id="s04-articulo-dos"] .zoc .tit { display: flex; align-items: center; padding: 0 26px; background: #d7262e; color: #f7f4ea; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-articulo-dos"] .zoc .tit.azul { background: #163a8c; }
+    [data-composition-id="s04-articulo-dos"] .sello b { display: inline-block; padding: 10px 28px; border: 7px solid #d7262e; border-radius: 14px; color: #d7262e; background: rgba(7, 22, 64, 0.9); font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s04-articulo-dos"] .s04-ups { top: 1270px; font-size: 34px; color: #e0b13a; letter-spacing: 0.24em; }
+  </style>
+  <div id="root" data-composition-id="s04-articulo-dos" data-width="1080" data-height="1920" data-duration="4.82">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.82" data-track-index="0">
+      <div class="s04-esc">
+
+        <div class="txt art s04-art"><small>Artículo</small>2</div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s04-puerta">
+            <rect x="290" y="740" width="500" height="600" fill="#0e2766" stroke="#f7f4ea" stroke-width="6" />
+            <rect x="330" y="780" width="420" height="380" fill="#163a8c" stroke="#f7f4ea" stroke-width="4" />
+            <path d="M360 800 L440 900 M600 800 L720 950" stroke="#f7f4ea" stroke-width="5" opacity="0.3" stroke-linecap="round" />
+            <circle cx="710" cy="1230" r="14" fill="#e0b13a" />
+            <path d="M250 1340 H830" stroke="#f7f4ea" stroke-width="6" stroke-linecap="round" />
+            <circle cx="540" cy="820" r="8" fill="#f7f4ea" />
+          </g>
+          <g class="s04-cartel">
+            <path d="M540 820 L420 900 M540 820 L660 900" stroke="#f7f4ea" stroke-width="4" />
+            <rect x="360" y="900" width="360" height="200" rx="10" fill="#f7f4ea" stroke="#071640" stroke-width="5" />
+            <text x="540" y="958" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="40" fill="#d7262e">HORARIO</text>
+            <text x="540" y="1012" text-anchor="middle" font-family="Lexend" font-weight="600" font-size="30" fill="#071640">Lun a Vie 9 a 13</text>
+            <text x="540" y="1056" text-anchor="middle" font-family="Lexend" font-weight="600" font-size="28" fill="#071640">16 a 20 (más o menos)</text>
+          </g>
+          <g class="s04-polvo" fill="#f7f4ea" opacity="0">
+            <circle cx="400" cy="1320" r="18" /><circle cx="460" cy="1306" r="12" /><circle cx="640" cy="1308" r="14" /><circle cx="700" cy="1322" r="20" />
+          </g>
+        </svg>
+        <div class="txt mono s04-ups">(se cayó)</div>
+        <div class="zoc s04-z"><div class="tab">Decreto 2</div><div class="tit">El horario es el del cartel</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-articulo-dos";
+      const DUR = 4.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const lista = (x) => (typeof x === "string" ? qa(x) : Array.isArray(x) ? x : [x]);
+      // trazo que se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (sel, t, d = 0.6) => lista(sel).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (sel, t, d = 0.35, s = 0.8) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe, como un sello
+      const golpe = (sel, t, s = 2.2) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const fuera = (sel, t, d = 0.25) => tl.to(lista(sel), { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1, sel = ".s04-esc") => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(sel), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // la boca se mueve mientras habla
+      const hablar = (sel, t0, t1) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.12));
+        tl.fromTo(q(sel), { scaleY: 0.45, transformOrigin: "50% 50%" }, { scaleY: 1.25, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0);
+      };
+      // zócalos: cada uno entra desde la izquierda y saca al anterior
+      const zocalos = (pares) => pares.forEach(([sel, t], i) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, x: -1100 }, { opacity: 1, x: 0, duration: 0.32, ease: "power3.out", immediateRender: false }, t);
+        if (i > 0) tl.to(q(pares[i - 1][0]), { opacity: 0, y: 30, duration: 0.18 }, t);
+      });
+      // la bandera flamea
+      const flamear = (sel, t0, t1) => lista(sel).forEach((el, i) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.6));
+        tl.fromTo(el, { skewY: -3 }, { skewY: 3, duration: 0.6, yoyo: true, repeat: n, ease: "sine.inOut", svgOrigin: "0 50" }, t0 + i * 0.15);
+      });
+      // confeti que cae
+      const llover = (sel, t) => qa(sel).forEach((k, i) => tl.fromTo(k, { y: 0, rotation: 0, opacity: 0 }, { opacity: 1, y: 900 + (i % 3) * 80, rotation: 360 + i * 40, transformOrigin: "50% 50%", duration: 2.2 + (i % 4) * 0.2, ease: "none", immediateRender: false }, t + (i % 5) * 0.08));
+
+
+      const DOS = 0.54, HORARIO = 1.31, CARTEL = 2.85, QUE = 3.36, CAYO = 4.05;
+      golpe(".s04-art", DOS, 1.8);
+      sacudon(DOS + 0.02, 0.9);
+      tl.fromTo(q(".s04-puerta"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0);
+      gsap.set(q(".s04-cartel"), { opacity: 0 });
+      tl.fromTo(q(".s04-cartel"), { opacity: 0, rotation: -20, svgOrigin: "540 820" }, { opacity: 1, rotation: 0, svgOrigin: "540 820", duration: 0.5, ease: "back.out(2)", immediateRender: false }, HORARIO - 0.1);
+      zocalos([[".s04-z", HORARIO + 0.4]]);
+      tl.to(q(".s04-cartel"), { rotation: 6, svgOrigin: "540 820", duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, CARTEL);
+      // "que se cayó": se zafa de un lado y cae
+      tl.to(q(".s04-cartel"), { rotation: 28, svgOrigin: "540 820", duration: 0.3, ease: "power2.in" }, QUE);
+      tl.to(q(".s04-cartel"), { y: 300, rotation: 84, svgOrigin: "540 820", duration: 0.3, ease: "power3.in" }, CAYO - 0.25);
+      tl.to(q(".s04-polvo"), { opacity: 0.6, duration: 0.05 }, CAYO + 0.05);
+      tl.to(q(".s04-polvo"), { opacity: 0, y: -40, scale: 1.4, transformOrigin: "50% 50%", duration: 0.5 }, CAYO + 0.1);
+      sacudon(CAYO + 0.06, 1.1);
+      pop(".s04-ups", CAYO + 0.15, 0.3);
+
+      // salida: blur
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

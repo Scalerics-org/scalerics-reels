@@ -1,0 +1,92 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-barrido { position: absolute; inset: 0; opacity: 0.16; background: repeating-linear-gradient(0deg, rgba(7, 22, 64, 0.9) 0px, rgba(7, 22, 64, 0.9) 2px, rgba(7, 22, 64, 0) 2px, rgba(7, 22, 64, 0) 5px); }
+    [data-composition-id="ambiente"] .amb-banda { position: absolute; left: 0; right: 0; top: 0; height: 140px; opacity: 0.05; background: #f7f4ea; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 720px 1080px at 540px 960px, rgba(7, 22, 64, 0) 58%, rgba(7, 22, 64, 0.88) 100%); }
+    [data-composition-id="ambiente"] .amb-flicker { position: absolute; inset: 0; background: #f7f4ea; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-barra { position: absolute; left: 60px; top: 116px; height: 72px; display: flex; white-space: nowrap; border-radius: 6px; overflow: hidden; border: 3px solid #e0b13a; }
+    [data-composition-id="ambiente"] .amb-barra > div { display: flex; align-items: center; padding: 0 18px; font-family: "Lexend", sans-serif; font-weight: 800; text-transform: uppercase; font-size: 26px; letter-spacing: 0.05em; }
+    [data-composition-id="ambiente"] .amb-vivo { background: #d7262e; color: #f7f4ea; gap: 10px; }
+    [data-composition-id="ambiente"] .amb-punto { width: 14px; height: 14px; border-radius: 50%; background: #f7f4ea; }
+    [data-composition-id="ambiente"] .amb-cn { background: #e0b13a; color: #071640; }
+    [data-composition-id="ambiente"] .amb-hora { background: #071640; color: #f7f4ea; font-family: "IBM Plex Mono", monospace !important; font-weight: 500 !important; font-size: 28px !important; }
+    [data-composition-id="ambiente"] .amb-ticker { position: absolute; left: 0; right: 0; top: 1520px; height: 64px; overflow: hidden; display: flex; border-top: 3px solid #e0b13a; border-bottom: 3px solid #e0b13a; background: #071640; }
+    [data-composition-id="ambiente"] .amb-tk-tab { position: absolute; left: 0; top: 0; bottom: 0; width: 270px; justify-content: center; display: flex; white-space: nowrap; align-items: center; padding: 0 18px; background: #d7262e; color: #f7f4ea; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 26px; text-transform: uppercase; letter-spacing: 0.06em; }
+    [data-composition-id="ambiente"] .amb-tk-tab.v { font-size: 23px; background: #5ce611; color: #071640; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-tk-clip { position: absolute; left: 270px; right: 0; top: 0; bottom: 0; overflow: hidden; }
+    [data-composition-id="ambiente"] .amb-tk { position: absolute; left: 16px; top: 0; height: 58px; display: flex; align-items: center; white-space: nowrap; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; color: #f7f4ea; }
+    [data-composition-id="ambiente"] .amb-tk2 { color: #5ce611; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="75.3">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="75.3" data-track-index="0">
+      <div class="amb-vineta"></div>
+      <div class="amb-barrido"></div>
+      <div class="amb-banda"></div>
+      <div class="amb-flicker"></div>
+      <div class="amb-barra">
+        <div class="amb-vivo"><span class="amb-punto"></span><span>En vivo</span></div>
+        <div class="amb-cn"><span>Cadena nacional</span></div>
+        <div class="amb-hora"><span>20:00</span></div>
+      </div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true"><g transform="translate(960 152) scale(0.3)"><g class="amb-escudo">
+<g class="amb-e" transform="scale(1)">
+  <g class="amb-e-laurel" fill="#e0b13a" stroke="#071640" stroke-width="3">
+    <ellipse cx="-150" cy="100" rx="14" ry="30" transform="rotate(-30 -150 100)" />
+    <ellipse cx="150" cy="100" rx="14" ry="30" transform="rotate(30 150 100)" /><ellipse cx="-146" cy="56" rx="14" ry="30" transform="rotate(-22 -146 56)" />
+    <ellipse cx="146" cy="56" rx="14" ry="30" transform="rotate(22 146 56)" /><ellipse cx="-142" cy="12" rx="14" ry="30" transform="rotate(-14 -142 12)" />
+    <ellipse cx="142" cy="12" rx="14" ry="30" transform="rotate(14 142 12)" /><ellipse cx="-138" cy="-32" rx="14" ry="30" transform="rotate(-6 -138 -32)" />
+    <ellipse cx="138" cy="-32" rx="14" ry="30" transform="rotate(6 138 -32)" /><ellipse cx="-134" cy="-76" rx="14" ry="30" transform="rotate(2 -134 -76)" />
+    <ellipse cx="134" cy="-76" rx="14" ry="30" transform="rotate(-2 134 -76)" /><ellipse cx="-130" cy="-120" rx="14" ry="30" transform="rotate(10 -130 -120)" />
+    <ellipse cx="130" cy="-120" rx="14" ry="30" transform="rotate(-10 130 -120)" />
+  </g>
+  <path d="M-110 -130 H110 V20 C110 100 50 140 0 160 C-50 140 -110 100 -110 20 Z" fill="#163a8c" stroke="#e0b13a" stroke-width="10" stroke-linejoin="round" />
+  <path d="M-110 -60 H110" stroke="#e0b13a" stroke-width="6" />
+  <circle cx="-70" cy="-95" r="9" fill="#e0b13a" /><circle cx="-35" cy="-95" r="9" fill="#e0b13a" /><circle cx="0" cy="-95" r="9" fill="#e0b13a" /><circle cx="35" cy="-95" r="9" fill="#e0b13a" /><circle cx="70" cy="-95" r="9" fill="#e0b13a" />
+  <g class="amb-e-taza">
+    <path class="amb-e-humo" d="M-26 -38 c-12 -14 12 -22 0 -36 M4 -38 c-12 -14 12 -22 0 -36 M34 -38 c-12 -14 12 -22 0 -36" stroke="#f7f4ea" stroke-width="6" fill="none" stroke-linecap="round" />
+    <path d="M-50 -20 H58 L50 50 Q46 74 22 74 H-14 Q-38 74 -42 50 Z" fill="#f7f4ea" stroke="#071640" stroke-width="4" stroke-linejoin="round" />
+    <path d="M54 -6 C86 -6 86 40 50 40" stroke="#f7f4ea" stroke-width="10" fill="none" stroke-linecap="round" />
+    <path d="M-66 84 H76" stroke="#f7f4ea" stroke-width="8" stroke-linecap="round" />
+  </g>
+  <path d="M-170 150 L-130 130 H130 L170 150 L130 172 H-130 Z" fill="#d7262e" stroke="#e0b13a" stroke-width="4" stroke-linejoin="round" />
+  <text x="0" y="162" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="26" fill="#f7f4ea" letter-spacing="3" data-layout-ignore>CUANDO PUEDO</text>
+</g></g></g></svg>
+      <div class="amb-ticker">
+        <div class="amb-tk-tab amb-tk-r">Comunicado</div>
+        <div class="amb-tk-tab v">Último momento</div>
+        <div class="amb-tk-clip">
+          <div class="amb-tk amb-tk1">COMUNICADO OFICIAL DEL LOCAL · LOS WHATSAPP SE CONTESTAN CUANDO SE PUEDA · EL HORARIO ES EL DEL CARTEL · PRECIOS: PASAR EL LUNES · COMUNICADO OFICIAL DEL LOCAL · LOS WHATSAPP SE CONTESTAN CUANDO SE PUEDA · EL HORARIO ES EL DEL CARTEL · PRECIOS: PASAR EL LUNES · COMUNICADO OFICIAL DEL LOCAL · LOS WHATSAPP SE CONTESTAN CUANDO SE PUEDA · EL HORARIO ES EL DEL CARTEL · PRECIOS: PASAR EL LUNES · COMUNICADO OFICIAL DEL LOCAL · LOS WHATSAPP SE CONTESTAN CUANDO SE PUEDA · EL HORARIO ES EL DEL CARTEL · PRECIOS: PASAR EL LUNES · </div>
+          <div class="amb-tk amb-tk2">ÚLTIMO MOMENTO · ASUMIÓ EL NUEVO MINISTRO DE ATENCIÓN · CONTESTA A CUALQUIER HORA · TOMA PEDIDOS Y RESERVAS · ÚLTIMO MOMENTO · ASUMIÓ EL NUEVO MINISTRO DE ATENCIÓN · CONTESTA A CUALQUIER HORA · TOMA PEDIDOS Y RESERVAS · ÚLTIMO MOMENTO · ASUMIÓ EL NUEVO MINISTRO DE ATENCIÓN · CONTESTA A CUALQUIER HORA · TOMA PEDIDOS Y RESERVAS · ÚLTIMO MOMENTO · ASUMIÓ EL NUEVO MINISTRO DE ATENCIÓN · CONTESTA A CUALQUIER HORA · TOMA PEDIDOS Y RESERVAS · </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 75.3;
+      const MINISTRO = 49.3;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      // TV vieja: la banda clara baja sin parar y la imagen parpadea apenas
+      tl.fromTo(q(".amb-banda"), { y: -200 }, { y: 1960, duration: 3.2, ease: "none", repeat: Math.floor(DUR / 3.2) - 1 }, 0);
+      tl.to(q(".amb-flicker"), { opacity: 0.035, duration: 0.07, yoyo: true, repeat: Math.floor(DUR / 0.07) - 1, ease: "steps(1)" }, 0);
+      tl.to(q(".amb-punto"), { opacity: 0.2, duration: 0.5, yoyo: true, repeat: Math.floor(DUR / 0.5) - 1, ease: "steps(1)" }, 0);
+      // el zócalo corrido
+      tl.fromTo(q(".amb-tk1"), { x: 0 }, { x: -110 * MINISTRO, duration: MINISTRO, ease: "none" }, 0);
+      tl.to([q(".amb-tk1"), q(".amb-tk-r")], { opacity: 0, duration: 0.2 }, MINISTRO);
+      tl.to([q(".amb-tk2"), q(".amb-tk-tab.v")], { opacity: 1, duration: 0.2 }, MINISTRO);
+      tl.fromTo(q(".amb-tk2"), { x: 0 }, { x: -110 * (DUR - MINISTRO), duration: DUR - MINISTRO, ease: "none" }, MINISTRO);
+      tl.to(q(".amb-escudo"), { rotation: 6, svgOrigin: "0 0", duration: 1.6, yoyo: true, repeat: Math.floor(DUR / 1.6) - 1, ease: "sine.inOut" }, 0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
