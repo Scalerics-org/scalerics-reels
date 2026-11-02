@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-alfajor"] .s10-capa, [data-composition-id="s10-alfajor"] .s10-esc { position: absolute; inset: 0; }
+    [data-composition-id="s10-alfajor"] .s10-abs { position: absolute; }
+    [data-composition-id="s10-alfajor"] .s10-abs > svg { display: block; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s10-alfajor"] svg.s10-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-alfajor"] .s10-big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; letter-spacing: -0.02em; white-space: nowrap; color: #f1e6c8; }
+    [data-composition-id="s10-alfajor"] .s10-neon { color: #ff3b4a; text-shadow: 0 0 18px rgba(255, 59, 74, 0.75), 0 0 46px rgba(255, 59, 74, 0.45); }
+    [data-composition-id="s10-alfajor"] .s10-neonaz { color: #4aa8ff; text-shadow: 0 0 18px rgba(74, 168, 255, 0.75), 0 0 46px rgba(74, 168, 255, 0.4); }
+    [data-composition-id="s10-alfajor"] .s10-oro { color: #c9a24a; }
+    [data-composition-id="s10-alfajor"] .s10-pieza { position: absolute; left: 70px; top: 572px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: #c9a24a; white-space: nowrap; }
+    [data-composition-id="s10-alfajor"] .s10-pieza b { display: inline-block; padding: 4px 14px; margin-right: 14px; background: #c9a24a; color: #07120d; border-radius: 6px; font-weight: 500; }
+    /* etiqueta de precio colgante: hilo + cartón crema con agujero */
+    [data-composition-id="s10-alfajor"] .s10-tag { position: absolute; transform-origin: 50% 0; }
+    [data-composition-id="s10-alfajor"] .s10-tag .hilo { position: absolute; left: 50%; top: 0; width: 4px; margin-left: -2px; background: #c9a24a; }
+    [data-composition-id="s10-alfajor"] .s10-tag .carton { position: absolute; left: 0; right: 0; bottom: 0; background: #f1e6c8; color: #07120d; border-radius: 16px 16px 16px 16px; padding: 30px 26px 18px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; text-align: center; line-height: 1; white-space: nowrap; clip-path: polygon(14% 0, 86% 0, 100% 18%, 100% 100%, 0 100%, 0 18%); }
+    [data-composition-id="s10-alfajor"] .s10-tag .agujero { position: absolute; left: 50%; width: 22px; height: 22px; margin-left: -11px; border-radius: 50%; background: #07120d; border: 4px solid #c9a24a; }
+    [data-composition-id="s10-alfajor"] .s10-sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s10-alfajor"] .s10-sello b { display: inline-block; padding: 10px 28px; border: 7px solid #ff3b4a; border-radius: 14px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 46px; letter-spacing: 0.08em; color: #ff3b4a; text-transform: uppercase; white-space: nowrap; background: rgba(7, 18, 13, 0.88); }
+    [data-composition-id="s10-alfajor"] .s10-globo { position: absolute; padding: 18px 28px; background: #f1e6c8; color: #07120d; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; line-height: 1.1; white-space: nowrap; text-transform: uppercase; }
+    [data-composition-id="s10-alfajor"] .s10-globo.az { background: #4aa8ff; }
+    [data-composition-id="s10-alfajor"] .s10-globo.ro { background: #ff3b4a; color: #f1e6c8; }
+    [data-composition-id="s10-alfajor"] .s10-mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s10-alfajor"] .s10-ayu { left: 600px; top: 830px; width: 440px; height: 605px; }
+    [data-composition-id="s10-alfajor"] .s10-beto { left: 30px; top: 900px; width: 460px; height: 552px; }
+    [data-composition-id="s10-alfajor"] .s10-alf { left: 380px; top: 1180px; width: 320px; height: 220px; }
+    [data-composition-id="s10-alfajor"] .s10-ofer { left: 320px; top: 620px; }
+    [data-composition-id="s10-alfajor"] .s10-grito { top: 700px; font-size: 104px; }
+  </style>
+  <div id="root" data-composition-id="s10-alfajor" data-width="1080" data-height="1920" data-duration="4.81">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="4.81" data-track-index="0">
+      <div class="s10-esc">
+        <div class="s10-abs s10-beto"><svg viewBox="0 0 400 480" aria-hidden="true">
+  <path d="M26 480 C26 384 78 340 140 326 L260 326 C322 340 374 384 374 480 Z" fill="#16392a" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M146 322 L200 376 L254 322 L236 310 L200 348 L164 310 Z" fill="#c9a24a" />
+  <path d="M200 376 V440" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><circle cx="200" cy="400" r="5" fill="#f1e6c8" /><circle cx="200" cy="428" r="5" fill="#f1e6c8" />
+  <rect x="262" y="392" width="70" height="40" rx="6" fill="none" stroke="#c9a24a" stroke-width="4" /><path d="M274 404 h46 M274 418 h30" stroke="#c9a24a" stroke-width="4" stroke-linecap="round" />
+  <ellipse cx="200" cy="206" rx="120" ry="122" fill="#0d241a" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M84 196 C60 188 58 240 88 244 M316 196 C340 188 342 240 312 244" fill="#0d241a" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M96 168 C108 104 160 92 214 96 M112 150 C150 104 250 98 300 150 M140 120 C200 96 270 106 306 168" fill="none" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <g class="s10b-cejas"><path d="M134 166 Q160 154 184 166" fill="none" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><path d="M216 166 Q240 154 266 166" fill="none" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></g>
+  <g class="s10b-cejasI" opacity="0"><path d="M134 150 L184 172" fill="none" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round" /><path d="M216 172 L266 150" fill="none" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round" /></g>
+  <g class="s10b-ojos"><circle cx="160" cy="198" r="10" fill="#f1e6c8" /><circle cx="240" cy="198" r="10" fill="#f1e6c8" /></g>
+  <ellipse cx="200" cy="234" rx="26" ry="20" fill="#16392a" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M136 270 C156 244 188 250 200 258 C212 250 244 244 264 270 C248 288 216 282 200 274 C184 282 152 288 136 270 Z" fill="#f1e6c8" />
+  <path class="s10b-boca" d="M176 296 Q200 314 224 296" fill="none" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <ellipse class="s10b-bocaO s10b-bocaA" cx="200" cy="304" rx="17" ry="20" fill="#07120d" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0" />
+  <path class="s10b-gota" d="M318 132 C306 152 304 164 318 166 C332 164 330 152 318 132 Z" fill="#4aa8ff" opacity="0" />
+</svg></div>
+        <div class="s10-abs s10-ayu"><svg viewBox="0 0 320 440" aria-hidden="true">
+  <path d="M28 440 C28 362 70 330 120 318 L200 318 C250 330 292 362 292 440 Z" fill="#16392a" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M118 318 C130 350 190 350 202 318" fill="none" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><path d="M140 346 V392 M180 346 V392" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <ellipse cx="160" cy="204" rx="86" ry="106" fill="#0d241a" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M76 196 C56 190 56 232 80 234 M244 196 C264 190 264 232 240 234" fill="#0d241a" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="248" cy="240" r="7" fill="none" stroke="#c9a24a" stroke-width="4" />
+  <path d="M76 158 C78 80 242 80 244 158 Z" fill="#ff3b4a" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M244 146 L292 138 L290 160 L240 164" fill="#ff3b4a" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M112 182 Q132 166 150 178" fill="none" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /><path d="M172 184 L204 184" fill="none" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <circle class="s10a-ojo" cx="134" cy="206" r="8" fill="#f1e6c8" /><circle class="s10a-ojo" cx="188" cy="206" r="8" fill="#f1e6c8" />
+  <path d="M118 198 H150 M172 198 H204" stroke="#f1e6c8" stroke-width="5" stroke-linecap="round" />
+  <path d="M160 214 Q150 242 168 242" fill="none" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path class="s10a-boca" d="M132 266 Q164 282 192 258" fill="none" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <ellipse class="s10a-bocaA" cx="162" cy="270" rx="18" ry="12" fill="#07120d" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0" />
+  <circle class="s10a-chicle" cx="198" cy="268" r="26" fill="#ff3b4a" opacity="0" stroke="#f1e6c8" stroke-width="4" />
+</svg></div>
+        <div class="s10-globo az s10-ofer">¿Cincuenta y un alfajor?</div>
+        <div class="s10-abs s10-alf"><svg viewBox="0 0 320 220" aria-hidden="true">
+          <ellipse cx="160" cy="150" rx="140" ry="44" fill="#07120d" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M20 120 V150 C20 210 300 210 300 150 V120" fill="#c9a24a" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+          <ellipse cx="160" cy="118" rx="140" ry="44" fill="#0d241a" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M60 104 C100 90 140 96 160 110 M180 96 C210 90 240 96 262 110" fill="none" stroke="#f1e6c8" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+        </svg></div>
+        <div class="s10-tag s10-t" style="left:430px;top:1040px;width:220px;height:110px"><div class="hilo" style="height:54px"></div><div class="carton" style="height:70px;font-size:34px">Oferta</div><div class="agujero" style="top:48px"></div></div>
+        <div class="s10-big s10-neon s10-grito">¡¿Un alfajor?!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-alfajor";
+      const DUR = 4.81;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (sel, t, d = 0.6, stg = 0) => qa(sel).forEach((el, i) => { const L = el.getTotalLength(); gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 }); tl.set(el, { opacity: 1 }, t + i * stg); tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t + i * stg); });
+      const pop = (sel, t, o = {}) => { const els = qa(sel); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: o.s ?? 0.85, y: o.y ?? 0, x: o.x ?? 0, rotation: o.r ?? 0 }, { opacity: 1, scale: 1, y: 0, x: 0, rotation: o.rf ?? 0, duration: o.d ?? 0.35, ease: o.e ?? "back.out(1.6)", stagger: o.st ?? 0, immediateRender: false }, t); };
+      const golpe = (sel, t, s = 1.9) => { const els = qa(sel); gsap.set(els, { opacity: 0 }); tl.fromTo(els, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.12); };
+      const fuera = (sel, t, d = 0.25) => tl.to(qa(sel), { opacity: 0, duration: d, ease: "power1.in" }, t);
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s10-esc"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // boca que habla: alterna abierta/cerrada entre t0 y t1
+      const hablar = (pre, t0, t1, paso = 0.13) => { const c = qa(pre + "-boca"), a = qa(pre + "-bocaA"); for (let t = t0, k = 0; t < t1; t += paso, k++) { tl.set(c, { opacity: k % 2 ? 1 : 0 }, t); tl.set(a, { opacity: k % 2 ? 0 : 1 }, t); } tl.set(c, { opacity: 1 }, t1); tl.set(a, { opacity: 0 }, t1); };
+      // la etiqueta se hamaca colgada del hilo
+      const hamaca = (sel, t, ang = 7, n = 3, d = 0.6) => { tl.fromTo(qa(sel), { rotation: ang }, { rotation: -ang * 0.6, duration: d, yoyo: true, repeat: n, ease: "sine.inOut", immediateRender: false }, t); tl.to(qa(sel), { rotation: 0, duration: 0.5, ease: "sine.out" }, t + d * (n + 1)); };
+      const respira = (sel, t = 0, amp = 6, d = 1.1) => tl.to(qa(sel), { y: -amp, duration: d, yoyo: true, repeat: Math.max(1, Math.floor((DUR - t) / d) - 1), ease: "sine.inOut" }, t);
+      const parpadeo = (sel, ts) => ts.forEach((t) => { tl.to(qa(sel), { scaleY: 0.1, duration: 0.06, transformOrigin: "50% 50%" }, t); tl.to(qa(sel), { scaleY: 1, duration: 0.08 }, t + 0.08); });
+
+      tl.fromTo(q(".s10-ayu"), { opacity: 0.6, x: 60 }, { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s10-beto"), { opacity: 0.6 }, { opacity: 1, duration: 0.3 }, 0);
+      hablar(".s10a", 0.05, 2.97);
+      pop(".s10-ofer", 0.75 - 0.1, { s: 0.6, x: 60 });
+      pop(".s10-alf", 2.33 - 0.15, { y: -200, s: 1, e: "bounce.out", d: 0.45 });
+      pop(".s10-t", 2.33 + 0.2, { y: -60, s: 1, d: 0.2, e: "power2.out" });
+      hamaca(".s10-t", 2.33 + 0.4, 10, 2, 0.4);
+      // Beto se indigna
+      fuera(".s10-ofer", 3.49 - 0.15, 0.12);
+      tl.set(qa(".s10b-cejas"), { opacity: 0 }, 3.49);
+      tl.set(qa(".s10b-cejasI"), { opacity: 1 }, 3.49);
+      tl.set(q(".s10b-boca"), { opacity: 0 }, 3.49);
+      tl.set(q(".s10b-bocaO"), { opacity: 1 }, 3.49);
+      golpe(".s10-grito", 3.49 + 0.05, 2.2);
+      sacudon(3.49 + 0.08, 1.4);
+      tl.to(q(".s10-beto"), { y: -40, duration: 0.15, yoyo: true, repeat: 3, ease: "power1.out" }, 3.49);
+      tl.to(q(".s10a-boca"), { opacity: 0, duration: 0.01 }, 2.97 + 0.1);
+      tl.set(q(".s10a-chicle"), { opacity: 1 }, 2.97 + 0.1);
+      tl.fromTo(q(".s10a-chicle"), { scale: 0.2, transformOrigin: "50% 50%" }, { scale: 1.3, duration: 0.6, immediateRender: false }, 2.97 + 0.1);
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
