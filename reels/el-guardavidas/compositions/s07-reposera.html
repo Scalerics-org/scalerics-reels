@@ -1,0 +1,59 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/playa.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-reposera"] .s07-capa, [data-composition-id="s07-reposera"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-reposera"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-reposera"] .s07-tag { left: 90px; top: 1390px; }
+    [data-composition-id="s07-reposera"] .s07-man { position: absolute; left: 600px; top: 640px; width: 380px; height: 250px; background: #fff6e3; border: 6px solid #10202b; border-radius: 10px; box-shadow: 8px 8px 0 rgba(16,32,43,0.3); text-align: center; }
+    [data-composition-id="s07-reposera"] .s07-man small { display: block; margin-top: 0; padding: 8px 0; background: #e5484d; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.24em; color: #fff6e3; }
+    [data-composition-id="s07-reposera"] .s07-man b { display: block; margin-top: 14px; font-family: "Caveat", cursive; font-weight: 700; font-size: 76px; line-height: 0.9; color: #10202b; }
+  </style>
+  <div id="root" data-composition-id="s07-reposera" data-width="1080" data-height="1920" data-duration="3.69">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="3.69" data-track-index="0">
+      <div class="s07-escenario">
+        <svg class="s07-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+
+        <div class="pl-tag rojo s07-tag">MODO REPOSERA</div>
+        <div class="s07-man"><small>PENDIENTES</small><b>mañana le<br>contesto</b></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-reposera";
+      const DUR = 3.69;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const svg = root.querySelector(".s07-svg");
+      const tl = gsap.timeline({ paused: true });
+
+      svg.innerHTML =
+        `<path d="M620 1380 L650 760" stroke="${PL.INK}" stroke-width="16" stroke-linecap="round" class="s07-palo"/>
+         <path d="M380 800 Q650 600 920 720 Q840 750 790 780 Q720 740 650 760 Q580 750 510 790 Q450 790 380 800 Z" fill="${PL.ROJO}" stroke="${PL.INK}" stroke-width="9" stroke-linejoin="round" class="s07-somb"/>` +
+        `<g class="s07-due">${PL.dueno(420, 1370, 1.25, { cara: "desganado", cel: true, zzz: true })}</g>`;
+      const K = PL.kit(tl, root);
+      const { q } = K;
+      const REPO = 0.36, MANANA = 2.01, CONTESTO = 3.10;
+      K.popSvg(q(".s07-due"), 0, "420 1370", 0.35, 0.85);
+      tl.fromTo(q(".s07-escenario"), { scale: 1.04 }, { scale: 1, duration: DUR, ease: "power1.out", transformOrigin: "40% 70%" }, 0);
+      K.hablar(".s07-due .pl-d-boca", 0.05, 4, 0.14);
+      K.pop(q(".s07-tag"), REPO);
+      // se acomoda: la cabeza se ladea, el celular boca abajo vibra
+      const cab = q(".s07-due .pl-d-cabeza");
+      tl.to(cab, { rotation: -6, svgOrigin: "0 -300", duration: 0.5, ease: "sine.inOut" }, REPO + 0.2);
+      tl.fromTo(q(".s07-due .pl-d-cel"), { x: 0 }, { x: 5, duration: 0.04, yoyo: true, repeat: 11, ease: "none", immediateRender: false }, 1.0);
+      K.sello(q(".s07-man"), MANANA, 4);
+      tl.fromTo(q(".s07-due .pl-d-zzz"), { y: 10, opacity: 0 }, { y: -20, opacity: 1, duration: 0.6, ease: "sine.out", immediateRender: false }, CONTESTO);
+
+      K.salida(q("#s07-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

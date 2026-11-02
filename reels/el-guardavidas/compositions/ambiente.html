@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .am-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 780px 1120px at 540px 900px, rgba(16, 32, 43, 0) 62%, rgba(16, 32, 43, 0.3) 100%); }
+    [data-composition-id="ambiente"] .am-bug { position: absolute; left: 44px; top: 70px; height: 122px; width: 650px; background: #a8202c; border: 6px solid #10202b; border-radius: 20px; box-shadow: 6px 8px 0 rgba(16, 32, 43, 0.35); }
+    [data-composition-id="ambiente"] .am-bug svg { position: absolute; left: 14px; top: 12px; width: 92px; height: 92px; }
+    [data-composition-id="ambiente"] .am-bug b { position: absolute; left: 116px; top: 24px; font-family: "Black Ops One", sans-serif; font-weight: 400; font-size: 32px; line-height: 1; color: #ffc93c; letter-spacing: 0.01em; white-space: nowrap; text-shadow: 3px 3px 0 #10202b; }
+    [data-composition-id="ambiente"] .am-bug small { position: absolute; left: 118px; top: 74px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 21px; letter-spacing: 0.2em; color: #fff6e3; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-bug small i { display: inline-block; width: 15px; height: 15px; border-radius: 50%; background: #ffc93c; margin-left: 10px; vertical-align: 0; }
+    [data-composition-id="ambiente"] .am-bug small.am-ia { color: #5ce611; opacity: 0; text-shadow: 2px 2px 0 #10202b; }
+    [data-composition-id="ambiente"] .am-hora { position: absolute; right: 44px; top: 70px; width: 280px; height: 122px; background: #10202b; border: 6px solid #ffc93c; border-radius: 20px; box-shadow: 6px 8px 0 rgba(16, 32, 43, 0.35); text-align: center; }
+    [data-composition-id="ambiente"] .am-hora b { position: absolute; left: 0; right: 0; top: 16px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; line-height: 1; color: #ffc93c; white-space: nowrap; opacity: 0; }
+    [data-composition-id="ambiente"] .am-hora b.am-h0 { opacity: 1; }
+    [data-composition-id="ambiente"] .am-hora small { position: absolute; left: 0; right: 0; top: 76px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 19px; letter-spacing: 0.18em; color: #fff6e3; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-chapas { position: absolute; left: 44px; top: 1572px; width: 640px; height: 100px; }
+    [data-composition-id="ambiente"] .am-ch { position: absolute; left: 0; top: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .am-ch .am-pl { display: inline-block; padding: 12px 26px 10px; background: #10202b; border-left: 14px solid currentColor; border-radius: 8px; box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3); }
+    [data-composition-id="ambiente"] .am-ch b { display: block; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 36px; line-height: 1; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-ch small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 20px; letter-spacing: 0.16em; color: #fff6e3; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-mar { position: absolute; right: 44px; top: 1572px; width: 300px; height: 100px; background: #10202b; border: 4px solid #e5484d; border-radius: 12px; }
+    [data-composition-id="ambiente"] .am-mar small { position: absolute; left: 96px; top: 14px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 18px; letter-spacing: 0.22em; color: #fff6e3; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-mar svg { position: absolute; left: 16px; top: 10px; width: 70px; height: 80px; }
+    [data-composition-id="ambiente"] .am-mar .am-est { position: absolute; left: 96px; top: 40px; font-family: "Black Ops One", sans-serif; font-size: 44px; line-height: 1; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-mar .am-roja { color: #e5484d; }
+    [data-composition-id="ambiente"] .am-mar .am-verde { color: #5ce611; opacity: 0; }
+    [data-composition-id="ambiente"] .am-alerta { position: absolute; right: 44px; top: 1500px; padding: 8px 18px 6px; background: #e5484d; border: 4px solid #10202b; border-radius: 10px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 22px; letter-spacing: 0.16em; color: #fff6e3; white-space: nowrap; opacity: 0; }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #fff6e3; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="70.76">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="70.76" data-track-index="0">
+      <div class="am-vineta"></div>
+      <div class="am-bug">
+        <svg viewBox="0 0 92 92" aria-hidden="true"><circle cx="46" cy="46" r="40" fill="#fff6e3" stroke="#10202b" stroke-width="5"/><circle cx="46" cy="46" r="18" fill="#e5484d" stroke="#10202b" stroke-width="5"/><path d="M46 6 L46 28 M46 64 L46 86 M6 46 L28 46 M64 46 L86 46" stroke="#e5484d" stroke-width="12"/><circle cx="46" cy="46" r="40" fill="none" stroke="#10202b" stroke-width="5"/></svg>
+        <b>GUARDAVIDAS DE LA RAMBLA</b>
+        <small class="am-sub">LA SERIE · EN VIVO<i></i></small>
+        <small class="am-ia" style="position:absolute">CON AGENTE DE IA · SIN HORARIO</small>
+      </div>
+      <div class="am-hora"><b class="am-h0">15:40</b><b class="am-h1">20:00</b><b class="am-h2">03:12</b><b class="am-h3">15:41</b><small>PLAYA WHATSAPP</small></div>
+      <div class="am-chapas">
+        <div class="am-ch am-chf" style="color:#ffc93c"><div class="am-pl"><b>EL GUARDAVIDAS</b><small>TORRE 1 · LA RAMBLA</small></div></div>
+        <div class="am-ch am-chc" style="color:#7fe0e6"><div class="am-pl"><b>LA CLIENTA</b><small>EN EL AGUA · QUIERE COMPRAR</small></div></div>
+        <div class="am-ch am-chd" style="color:#ff9a8a"><div class="am-pl"><b>EL DUEÑO</b><small>TIENDA DE ROPA · EN LA REPOSERA</small></div></div>
+        <div class="am-ch am-chk" style="color:#5ce611"><div class="am-pl"><b>EL AGENTE DE IA</b><small>NUNCA SE BAJA DE LA TORRE</small></div></div>
+        <div class="am-ch am-cho" style="color:#5ce611"><div class="am-pl"><b>SCALERICS</b><small>AGENTES DE IA</small></div></div>
+      </div>
+      <div class="am-alerta">CLIENTA PERDIDA</div>
+      <div class="am-mar">
+        <svg viewBox="0 0 70 80" aria-hidden="true"><path d="M10 6 L10 78" stroke="#fff6e3" stroke-width="6" stroke-linecap="round"/><path class="am-tela" d="M12 8 L62 14 L58 30 L62 46 L12 42 Z" fill="#e5484d" stroke="#10202b" stroke-width="3" stroke-linejoin="round"/></svg>
+        <small>BANDERA</small><b class="am-est am-roja">ROJA</b><b class="am-est am-verde">VERDE</b>
+      </div>
+      <div class="am-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 70.76;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      // segundos globales (los reescribe armar.mjs desde assets/voice/palabras.json)
+      const TURNOS = [[0,"f"],[14.18,"c"],[16.83,"f"],[20.25,"c"],[21.9,"f"],[25.5,"d"],[29.19,"f"],[32.33,"c"],[34.49,"f"],[40.08,"o"],[46.53,"k"],[50.71,"c"],[53.05,"k"],[60.86,"d"],[62.08,"f"],[64.61,"o"]];
+      const OCHO = 38.45;
+      const SCALERICS = 40.77;
+      const DIA = 53.05;
+      const VISTO = 21.9;
+      const PERDIDA = 32.33;
+      const VERDE = 63.15;
+
+      tl.fromTo(q(".am-bug"), { x: -40, opacity: 0.3 }, { x: 0, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".am-hora"), { x: 40, opacity: 0.3 }, { x: 0, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".am-bug small i"), { opacity: 1 }, { opacity: 0.2, duration: 0.5, yoyo: true, repeat: Math.max(0, Math.floor(DUR) * 2 - 1), ease: "steps(1)" }, 0);
+      // la bandera del widget flamea todo el tiempo
+      gsap.set(q(".am-tela"), { svgOrigin: "12 25", smoothOrigin: false });
+      tl.fromTo(q(".am-tela"), { scaleX: 1, skewY: 0 }, { scaleX: 0.86, skewY: 6, duration: 0.45, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 0.45) - 1), ease: "sine.inOut", svgOrigin: "12 25" }, 0);
+
+      const CH = { f: ".am-chf", c: ".am-chc", d: ".am-chd", k: ".am-chk", o: ".am-cho" };
+      let ant = null;
+      TURNOS.forEach(([t, quien]) => {
+        const el = q(CH[quien]);
+        if (ant && ant !== el) tl.to(ant, { opacity: 0, x: -30, duration: 0.12, ease: "power2.in" }, t - 0.12);
+        if (ant !== el) tl.fromTo(el, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.25, ease: "back.out(2.2)", immediateRender: false }, Math.max(0, t));
+        ant = el;
+      });
+
+      // la hora: 15:40 -> 20:00 (se baja de la torre) -> 03:12 (el agente) -> 15:41
+      const horas = [[OCHO, ".am-h0", ".am-h1"], [SCALERICS, ".am-h1", ".am-h2"], [DIA, ".am-h2", ".am-h3"]];
+      horas.forEach(([t, a, b]) => {
+        tl.to(q(a), { opacity: 0, y: -20, duration: 0.15 }, t);
+        tl.fromTo(q(b), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, t + 0.1);
+      });
+      tl.to(q(".am-hora"), { borderColor: "#5ce611", duration: 0.2 }, SCALERICS);
+      tl.to(q(".am-hora b.am-h2"), { color: "#5ce611", duration: 0.01 }, SCALERICS);
+
+      // alerta: la dejaron en visto -> clienta perdida
+      tl.fromTo(q(".am-alerta"), { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, PERDIDA);
+      tl.to(q(".am-alerta"), { opacity: 0, duration: 0.2 }, SCALERICS);
+      tl.fromTo(q(".am-mar"), { x: 0 }, { x: 8, duration: 0.05, yoyo: true, repeat: 7, ease: "none", immediateRender: false }, VISTO);
+
+      // bandera verde
+      tl.to(q(".am-roja"), { opacity: 0, duration: 0.1 }, VERDE);
+      tl.fromTo(q(".am-verde"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)", immediateRender: false }, VERDE);
+      tl.to(q(".am-tela"), { fill: "#5ce611", duration: 0.15 }, VERDE);
+      tl.to(q(".am-mar"), { borderColor: "#5ce611", duration: 0.2 }, VERDE);
+
+      [SCALERICS, VERDE].forEach((t) => {
+        tl.to(q(".am-flash"), { opacity: 0.5, duration: 0.03 }, t);
+        tl.to(q(".am-flash"), { opacity: 0, duration: 0.4, ease: "power2.out" }, t + 0.04);
+      });
+      tl.to(q(".am-sub"), { opacity: 0, duration: 0.15 }, SCALERICS);
+      tl.to(q(".am-ia"), { opacity: 1, duration: 0.2 }, SCALERICS + 0.1);
+      tl.to(q(".am-bug"), { borderColor: "#5ce611", backgroundColor: "#10202b", duration: 0.2 }, SCALERICS);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

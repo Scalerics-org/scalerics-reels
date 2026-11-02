@@ -1,0 +1,75 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/playa.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-rescate"] .s11-capa, [data-composition-id="s11-rescate"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-rescate"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-rescate"] .s11-sello { left: 300px; top: 1380px; font-size: 64px; }
+  </style>
+  <div id="root" data-composition-id="s11-rescate" data-width="1080" data-height="1920" data-duration="6.52">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="6.52" data-track-index="0">
+      <div class="s11-escenario">
+        <svg class="s11-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+
+        <div class="pl-sello verde s11-sello">¡RESCATADA!</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-rescate";
+      const DUR = 6.52;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const svg = root.querySelector(".s11-svg");
+      const tl = gsap.timeline({ paused: true });
+
+      const [b1] = PL.globo(60, 620, ["¡Hola! Sí, del azul en M", "nos queda uno."], "i", { fs: 36, fill: "#d6f0c4", hora: "03:12", cls: "s11-b1" });
+      const [b2] = PL.globo(60, 772, "¿Te lo reservo?", "i", { fs: 36, fill: "#d6f0c4", hora: "03:12", cls: "s11-b2" });
+      const [b3] = PL.globo(1030, 680, ["¡Ay, me salvaron!", "Sí, porfa."], "d", { fs: 38, fill: "#ffffff", hora: "03:12", cls: "s11-b3" });
+      svg.innerHTML =
+        PL.olas(1120, { L: 200, amp: 16, h: 200, color: PL.TUR3, cls: "s11-o1", op: 0.6 }) +
+        `<g class="s11-c1">${PL.clienta(780, 1200, 0.8, { cara: "asustada", mano: "auxilio", id: "s11-cc1" })}</g>` +
+        `<g class="s11-c2">${PL.clienta(780, 1200, 0.8, { cara: "feliz", mano: "celular", id: "s11-cc2" })}</g>` +
+        `<g class="s11-c3">${PL.clienta(780, 1200, 0.8, { cara: "aliviada", mano: "celular", id: "s11-cc3" })}</g>` +
+        `<g class="s11-sv">${PL.salvavidas(0, 0, 118, { color: PL.VERDE })}</g>` +
+        `<g class="s11-k">${PL.agente(230, 1340, 0.62, { brazo: "tira" })}</g>` +
+        b1 + b2 + b3;
+      const K = PL.kit(tl, root);
+      const { q } = K;
+      const SI = 0.24, UNO = 2.46, RES = 3.27, AY = 4.18, SALV = 4.62, PORFA = 5.43;
+      K.popSvg(q(".s11-k"), 0, "230 1340", 0.3, 0.85);
+      K.olear(".s11-o1", 0, DUR, 200, 1.3);
+      gsap.set([q(".s11-c2"), q(".s11-c3")], { opacity: 0 });
+      K.flotar(q(".s11-c1 .pl-c-cuerpo"), 0, 1, 14);
+      // el salvavidas verde vuela de la mano del agente a la clienta
+      gsap.set(q(".s11-sv"), { x: 410, y: 1085, opacity: 0 });
+      tl.set(q(".s11-sv"), { opacity: 1 }, SI);
+      tl.to(q(".s11-sv"), { x: 780, duration: 0.6, ease: "none" }, SI);
+      tl.to(q(".s11-sv"), { y: 880, duration: 0.28, ease: "power2.out" }, SI);
+      tl.to(q(".s11-sv"), { y: 1215, duration: 0.32, ease: "power2.in" }, SI + 0.28);
+      tl.to(q(".s11-sv"), { rotation: 300, transformOrigin: "50% 50%", duration: 0.6, ease: "none" }, SI);
+      tl.fromTo(q(".s11-sv"), { scale: 1 }, { scale: 1.1, transformOrigin: "50% 50%", duration: 0.1, yoyo: true, repeat: 1, immediateRender: false }, SI + 0.6);
+      tl.set(q(".s11-c1"), { opacity: 0 }, SI + 0.6);
+      tl.set(q(".s11-c2"), { opacity: 1 }, SI + 0.6);
+      K.flotar(q(".s11-c2 .pl-c-cuerpo"), SI + 0.6, 3, 5);
+      K.popSvg(q(".s11-b1"), 0.05, "300 680", 0.3, 0.5);
+      K.popSvg(q(".s11-b2"), RES, "200 810", 0.3, 0.5);
+      tl.to([q(".s11-b1"), q(".s11-b2")], { opacity: 0, y: -30, duration: 0.25 }, AY - 0.1);
+      tl.set(q(".s11-c2"), { opacity: 0 }, AY);
+      tl.set(q(".s11-c3"), { opacity: 1 }, AY);
+      K.flotar(q(".s11-c3 .pl-c-cuerpo"), AY, DUR - AY, 5);
+      K.popSvg(q(".s11-b3"), AY, "800 740", 0.3, 0.5);
+      K.sello(q(".s11-sello"), SALV, -4);
+
+      K.salida(q("#s11-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

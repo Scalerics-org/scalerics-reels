@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #8fd6f0; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #8fd6f0; }
+      /* playa de verano al mediodía: cielo celeste, sol arriba a la derecha, mar turquesa (horizonte y 840) con franjas de olas, arena desde y 1290 */
+      #fondo { position: absolute; inset: 0; background: linear-gradient(180deg, #5cc2e8 0px, #8fd6f0 420px, #c9eef8 830px, #0b6e7a 840px, #1aa6b7 1000px, #34bcc8 1240px, #7fe0e6 1288px, #fff6e3 1292px, #f2d49b 1310px, #f2d49b 1700px, #e6c07e 1920px); }
+      #fondo .sol { position: absolute; left: 820px; top: 470px; width: 170px; height: 170px; border-radius: 50%; background: #ffe27a; box-shadow: 0 0 0 26px rgba(255, 226, 122, 0.35), 0 0 0 58px rgba(255, 226, 122, 0.15); }
+      #fondo .nube { position: absolute; height: 54px; border-radius: 30px; background: #fff6e3; opacity: 0.85; }
+      #fondo .olas { position: absolute; left: 0; right: 0; top: 870px; height: 410px; background: repeating-linear-gradient(180deg, rgba(255, 246, 227, 0) 0px, rgba(255, 246, 227, 0) 70px, rgba(255, 246, 227, 0.16) 70px, rgba(255, 246, 227, 0.16) 78px); }
+      #fondo .tarde { position: absolute; inset: 0; opacity: 0; background: linear-gradient(180deg, #e2733a 0px, #ff9e5c 600px, #ffc98a 838px, #0b5a6a 842px, #127e8c 1288px, #e9b98a 1292px, #d9a46c 1920px); }
+      #fondo .noche { position: absolute; inset: 0; opacity: 0; background: linear-gradient(180deg, #07142a 0px, #10264a 600px, #1b3560 838px, #06303c 842px, #0a4652 1288px, #7a6a52 1292px, #5e5240 1920px); }
+      #fondo .luna { position: absolute; left: 800px; top: 470px; width: 150px; height: 150px; border-radius: 50%; background: #fff6e3; box-shadow: 0 0 0 30px rgba(255, 246, 227, 0.12); }
+      #fondo .granos { position: absolute; left: 0; right: 0; top: 1320px; bottom: 0; background-image: radial-gradient(circle, rgba(185, 140, 70, 0.35) 2px, rgba(0, 0, 0, 0) 3px); background-size: 46px 38px; }
+      .scene, #el-subtitulos { position: absolute; inset: 0; width: 100%; height: 100%; }
+      #firma { position: absolute; left: 50%; top: 1746px; height: 40px; width: auto; transform: translateX(-50%); opacity: 0.8; z-index: 50; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="70.76" data-width="1080" data-height="1920">
+      <div id="fondo" class="clip" data-start="0" data-duration="70.76" data-track-index="0"><div class="sol"></div><div class="nube" style="left:90px;top:560px;width:230px"></div><div class="nube" style="left:160px;top:620px;width:150px"></div><div class="nube" style="left:600px;top:700px;width:180px"></div><div class="olas"></div><div class="granos"></div><div class="tarde"></div><div class="noche"><div class="luna"></div></div></div>
+      <div id="el-s01-bandera" class="scene" data-composition-id="s01-bandera" data-composition-src="compositions/s01-bandera.html" data-start="0" data-duration="3.66" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s02-mate" class="scene" data-composition-id="s02-mate" data-composition-src="compositions/s02-mate.html" data-start="3.66" data-duration="2" data-track-index="2" data-track-kind="graphics"></div>
+      <div id="el-s03-programa" class="scene" data-composition-id="s03-programa" data-composition-src="compositions/s03-programa.html" data-start="5.66" data-duration="5.85" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s04-prismaticos" class="scene" data-composition-id="s04-prismaticos" data-composition-src="compositions/s04-prismaticos.html" data-start="11.51" data-duration="5.32" data-track-index="2" data-track-kind="graphics"></div>
+      <div id="el-s05-orilla" class="scene" data-composition-id="s05-orilla" data-composition-src="compositions/s05-orilla.html" data-start="16.83" data-duration="3.42" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s06-visto" class="scene" data-composition-id="s06-visto" data-composition-src="compositions/s06-visto.html" data-start="20.25" data-duration="5.25" data-track-index="2" data-track-kind="graphics"></div>
+      <div id="el-s07-reposera" class="scene" data-composition-id="s07-reposera" data-composition-src="compositions/s07-reposera.html" data-start="25.5" data-duration="3.69" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s08-enfrente" class="scene" data-composition-id="s08-enfrente" data-composition-src="compositions/s08-enfrente.html" data-start="29.19" data-duration="5.3" data-track-index="2" data-track-kind="graphics"></div>
+      <div id="el-s09-torre" class="scene" data-composition-id="s09-torre" data-composition-src="compositions/s09-torre.html" data-start="34.49" data-duration="5.59" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s10-agente" class="scene" data-composition-id="s10-agente" data-composition-src="compositions/s10-agente.html" data-start="40.08" data-duration="6.45" data-track-index="2" data-track-kind="graphics"></div>
+      <div id="el-s11-rescate" class="scene" data-composition-id="s11-rescate" data-composition-src="compositions/s11-rescate.html" data-start="46.53" data-duration="6.52" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s12-explica" class="scene" data-composition-id="s12-explica" data-composition-src="compositions/s12-explica.html" data-start="53.05" data-duration="7.81" data-track-index="2" data-track-kind="graphics"></div>
+      <div id="el-s13-verde" class="scene" data-composition-id="s13-verde" data-composition-src="compositions/s13-verde.html" data-start="60.86" data-duration="3.75" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s14-cta" class="scene" data-composition-id="s14-cta" data-composition-src="compositions/s14-cta.html" data-start="64.61" data-duration="6.15" data-track-index="2" data-track-kind="graphics"></div>
+      <div id="el-ambiente" class="scene" data-composition-id="ambiente" data-composition-src="compositions/ambiente.html" data-start="0" data-duration="70.76" data-track-index="4" data-track-kind="graphics"></div>
+      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="70.76" data-track-index="5" data-track-kind="captions"></div>
+      <img id="firma" class="clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="0" data-duration="70.76" data-track-index="9" />
+      <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="67.56" data-track-index="30" data-volume="1"></audio>
+      <audio id="bgm" src="assets/bgm/bed.mp3" data-start="0" data-duration="63.9" data-track-index="31" data-volume="0.3"></audio>
+      <audio id="sfx-00" src="assets/sfx/sirena.mp3" data-start="0" data-duration="1.19" data-track-index="40" data-volume="0.22"></audio>
+      <audio id="sfx-01" src="assets/sfx/golpe.mp3" data-start="0.5" data-duration="0.43" data-track-index="41" data-volume="0.4"></audio>
+      <audio id="sfx-02" src="assets/sfx/whoosh.mp3" data-start="1.6" data-duration="0.49" data-track-index="42" data-volume="0.2"></audio>
+      <audio id="sfx-03" src="assets/sfx/uuh.mp3" data-start="1.95" data-duration="0.79" data-track-index="43" data-volume="0.15"></audio>
+      <audio id="sfx-04" src="assets/sfx/pop.mp3" data-start="2.55" data-duration="0.71" data-track-index="44" data-volume="0.25"></audio>
+      <audio id="sfx-05" src="assets/sfx/notification.mp3" data-start="2.82" data-duration="2.45" data-track-index="45" data-volume="0.3"></audio>
+      <audio id="sfx-06" src="assets/sfx/whoosh-short.mp3" data-start="3.51" data-duration="0.56" data-track-index="46" data-volume="0.22"></audio>
+      <audio id="sfx-07" src="assets/sfx/ronquido.mp3" data-start="3.86" data-duration="0.99" data-track-index="47" data-volume="0.2"></audio>
+      <audio id="sfx-08" src="assets/sfx/click-soft.mp3" data-start="4.26" data-duration="0.36" data-track-index="40" data-volume="0.3"></audio>
+      <audio id="sfx-09" src="assets/sfx/pop.mp3" data-start="4.6" data-duration="0.71" data-track-index="41" data-volume="0.3"></audio>
+      <audio id="sfx-10" src="assets/sfx/whoosh-short.mp3" data-start="5.51" data-duration="0.56" data-track-index="42" data-volume="0.22"></audio>
+      <audio id="sfx-11" src="assets/sfx/riser.mp3" data-start="5.66" data-duration="0.89" data-track-index="43" data-volume="0.25"></audio>
+      <audio id="sfx-12" src="assets/sfx/impact-bass-1.mp3" data-start="6.46" data-duration="0.79" data-track-index="44" data-volume="0.35"></audio>
+      <audio id="sfx-13" src="assets/sfx/sparkle.mp3" data-start="8.13" data-duration="1.79" data-track-index="45" data-volume="0.3"></audio>
+      <audio id="sfx-14" src="assets/sfx/pop.mp3" data-start="9.93" data-duration="0.71" data-track-index="46" data-volume="0.3"></audio>
+      <audio id="sfx-15" src="assets/sfx/pop.mp3" data-start="10.33" data-duration="0.71" data-track-index="47" data-volume="0.3"></audio>
+      <audio id="sfx-16" src="assets/sfx/whoosh-short.mp3" data-start="11.36" data-duration="0.56" data-track-index="40" data-volume="0.22"></audio>
+      <audio id="sfx-17" src="assets/sfx/click.mp3" data-start="11.51" data-duration="0.36" data-track-index="41" data-volume="0.3"></audio>
+      <audio id="sfx-18" src="assets/sfx/whoosh.mp3" data-start="12.31" data-duration="0.56" data-track-index="42" data-volume="0.25"></audio>
+      <audio id="sfx-19" src="assets/sfx/notification.mp3" data-start="14.18" data-duration="2.45" data-track-index="43" data-volume="0.35"></audio>
+      <audio id="sfx-20" src="assets/sfx/pop.mp3" data-start="15.07" data-duration="0.71" data-track-index="44" data-volume="0.3"></audio>
+      <audio id="sfx-21" src="assets/sfx/whoosh-short.mp3" data-start="16.68" data-duration="0.56" data-track-index="45" data-volume="0.22"></audio>
+      <audio id="sfx-22" src="assets/sfx/click-soft.mp3" data-start="16.83" data-duration="0.36" data-track-index="46" data-volume="0.3"></audio>
+      <audio id="sfx-23" src="assets/sfx/pop.mp3" data-start="17.88" data-duration="0.71" data-track-index="47" data-volume="0.3"></audio>
+      <audio id="sfx-24" src="assets/sfx/whoosh.mp3" data-start="18.77" data-duration="0.56" data-track-index="40" data-volume="0.3"></audio>
+      <audio id="sfx-25" src="assets/sfx/correcta.mp3" data-start="19.33" data-duration="1.22" data-track-index="41" data-volume="0.3"></audio>
+      <audio id="sfx-26" src="assets/sfx/whoosh-short.mp3" data-start="20.1" data-duration="0.56" data-track-index="42" data-volume="0.22"></audio>
+      <audio id="sfx-27" src="assets/sfx/notification.mp3" data-start="20.3" data-duration="2.45" data-track-index="43" data-volume="0.25"></audio>
+      <audio id="sfx-28" src="assets/sfx/notification.mp3" data-start="20.91" data-duration="2.45" data-track-index="44" data-volume="0.25"></audio>
+      <audio id="sfx-29" src="assets/sfx/golpe.mp3" data-start="21.85" data-duration="0.43" data-track-index="45" data-volume="0.4"></audio>
+      <audio id="sfx-30" src="assets/sfx/glitch-1.mp3" data-start="21.9" data-duration="0.39" data-track-index="46" data-volume="0.25"></audio>
+      <audio id="sfx-31" src="assets/sfx/whoosh-cinematic.mp3" data-start="23.55" data-duration="1.19" data-track-index="47" data-volume="0.3"></audio>
+      <audio id="sfx-32" src="assets/sfx/uuh.mp3" data-start="24.4" data-duration="0.79" data-track-index="40" data-volume="0.2"></audio>
+      <audio id="sfx-33" src="assets/sfx/whoosh-short.mp3" data-start="25.35" data-duration="0.56" data-track-index="41" data-volume="0.22"></audio>
+      <audio id="sfx-34" src="assets/sfx/ronquido.mp3" data-start="25.5" data-duration="0.99" data-track-index="42" data-volume="0.18"></audio>
+      <audio id="sfx-35" src="assets/sfx/pop.mp3" data-start="25.86" data-duration="0.71" data-track-index="43" data-volume="0.25"></audio>
+      <audio id="sfx-36" src="assets/sfx/vibra.mp3" data-start="26.5" data-duration="0.49" data-track-index="44" data-volume="0.25"></audio>
+      <audio id="sfx-37" src="assets/sfx/golpe.mp3" data-start="27.5" data-duration="0.43" data-track-index="45" data-volume="0.3"></audio>
+      <audio id="sfx-38" src="assets/sfx/whoosh-short.mp3" data-start="29.04" data-duration="0.56" data-track-index="46" data-volume="0.22"></audio>
+      <audio id="sfx-39" src="assets/sfx/golpe.mp3" data-start="29.19" data-duration="0.43" data-track-index="47" data-volume="0.35"></audio>
+      <audio id="sfx-40" src="assets/sfx/whoosh.mp3" data-start="30.54" data-duration="0.49" data-track-index="40" data-volume="0.25"></audio>
+      <audio id="sfx-41" src="assets/sfx/pop.mp3" data-start="30.74" data-duration="0.71" data-track-index="41" data-volume="0.3"></audio>
+      <audio id="sfx-42" src="assets/sfx/buzzer.mp3" data-start="31.28" data-duration="0.59" data-track-index="42" data-volume="0.2"></audio>
+      <audio id="sfx-43" src="assets/sfx/notification.mp3" data-start="32.33" data-duration="2.45" data-track-index="43" data-volume="0.3"></audio>
+      <audio id="sfx-44" src="assets/sfx/whoosh-short.mp3" data-start="34.34" data-duration="0.56" data-track-index="44" data-volume="0.22"></audio>
+      <audio id="sfx-45" src="assets/sfx/click-soft.mp3" data-start="34.49" data-duration="0.36" data-track-index="45" data-volume="0.25"></audio>
+      <audio id="sfx-46" src="assets/sfx/tic.mp3" data-start="35.5" data-duration="0.09" data-track-index="46" data-volume="0.3"></audio>
+      <audio id="sfx-47" src="assets/sfx/tic.mp3" data-start="36.09" data-duration="0.09" data-track-index="47" data-volume="0.25"></audio>
+      <audio id="sfx-48" src="assets/sfx/tic.mp3" data-start="36.69" data-duration="0.09" data-track-index="40" data-volume="0.25"></audio>
+      <audio id="sfx-49" src="assets/sfx/martillo.mp3" data-start="38.45" data-duration="0.47" data-track-index="41" data-volume="0.3"></audio>
+      <audio id="sfx-50" src="assets/sfx/whoosh.mp3" data-start="38.69" data-duration="0.49" data-track-index="42" data-volume="0.25"></audio>
+      <audio id="sfx-51" src="assets/sfx/whoosh-short.mp3" data-start="39.93" data-duration="0.56" data-track-index="43" data-volume="0.22"></audio>
+      <audio id="sfx-52" src="assets/sfx/sparkle.mp3" data-start="40.77" data-duration="1.79" data-track-index="44" data-volume="0.35"></audio>
+      <audio id="sfx-53" src="assets/sfx/impact-bass-2.mp3" data-start="40.8" data-duration="0.79" data-track-index="45" data-volume="0.3"></audio>
+      <audio id="sfx-54" src="assets/sfx/chime.mp3" data-start="42.11" data-duration="2.53" data-track-index="46" data-volume="0.3"></audio>
+      <audio id="sfx-55" src="assets/sfx/pop.mp3" data-start="43.63" data-duration="0.71" data-track-index="47" data-volume="0.25"></audio>
+      <audio id="sfx-56" src="assets/sfx/click.mp3" data-start="44.7" data-duration="0.36" data-track-index="40" data-volume="0.3"></audio>
+      <audio id="sfx-57" src="assets/sfx/whoosh-short.mp3" data-start="46.38" data-duration="0.56" data-track-index="41" data-volume="0.22"></audio>
+      <audio id="sfx-58" src="assets/sfx/notification.mp3" data-start="46.58" data-duration="2.45" data-track-index="42" data-volume="0.3"></audio>
+      <audio id="sfx-59" src="assets/sfx/whoosh.mp3" data-start="46.77" data-duration="0.56" data-track-index="43" data-volume="0.3"></audio>
+      <audio id="sfx-60" src="assets/sfx/golpe.mp3" data-start="47.37" data-duration="0.43" data-track-index="44" data-volume="0.3"></audio>
+      <audio id="sfx-61" src="assets/sfx/notification.mp3" data-start="49.8" data-duration="2.45" data-track-index="45" data-volume="0.25"></audio>
+      <audio id="sfx-62" src="assets/sfx/pop.mp3" data-start="50.71" data-duration="0.71" data-track-index="46" data-volume="0.3"></audio>
+      <audio id="sfx-63" src="assets/sfx/correcta.mp3" data-start="51.15" data-duration="1.22" data-track-index="47" data-volume="0.35"></audio>
+      <audio id="sfx-64" src="assets/sfx/whoosh-short.mp3" data-start="52.9" data-duration="0.56" data-track-index="40" data-volume="0.22"></audio>
+      <audio id="sfx-65" src="assets/sfx/click.mp3" data-start="53.62" data-duration="0.36" data-track-index="41" data-volume="0.3"></audio>
+      <audio id="sfx-66" src="assets/sfx/click.mp3" data-start="54.53" data-duration="0.36" data-track-index="42" data-volume="0.3"></audio>
+      <audio id="sfx-67" src="assets/sfx/click.mp3" data-start="55.76" data-duration="0.36" data-track-index="43" data-volume="0.3"></audio>
+      <audio id="sfx-68" src="assets/sfx/click.mp3" data-start="56.41" data-duration="0.36" data-track-index="44" data-volume="0.3"></audio>
+      <audio id="sfx-69" src="assets/sfx/click.mp3" data-start="57.15" data-duration="0.36" data-track-index="45" data-volume="0.3"></audio>
+      <audio id="sfx-70" src="assets/sfx/whoosh.mp3" data-start="59.16" data-duration="0.56" data-track-index="46" data-volume="0.3"></audio>
+      <audio id="sfx-71" src="assets/sfx/pop.mp3" data-start="59.5" data-duration="0.71" data-track-index="47" data-volume="0.3"></audio>
+      <audio id="sfx-72" src="assets/sfx/whoosh-short.mp3" data-start="60.71" data-duration="0.56" data-track-index="40" data-volume="0.22"></audio>
+      <audio id="sfx-73" src="assets/sfx/pop.mp3" data-start="61.23" data-duration="0.71" data-track-index="41" data-volume="0.25"></audio>
+      <audio id="sfx-74" src="assets/sfx/click-soft.mp3" data-start="62.48" data-duration="0.36" data-track-index="42" data-volume="0.3"></audio>
+      <audio id="sfx-75" src="assets/sfx/whoosh.mp3" data-start="63.06" data-duration="0.56" data-track-index="43" data-volume="0.3"></audio>
+      <audio id="sfx-76" src="assets/sfx/campana.mp3" data-start="63.53" data-duration="1.19" data-track-index="44" data-volume="0.3"></audio>
+      <audio id="sfx-77" src="assets/sfx/risas.mp3" data-start="63.56" data-duration="0.99" data-track-index="45" data-volume="0.12"></audio>
+      <audio id="sfx-78" src="assets/sfx/whoosh-short.mp3" data-start="64.46" data-duration="0.56" data-track-index="46" data-volume="0.22"></audio>
+      <audio id="sfx-79" src="assets/sfx/golpe.mp3" data-start="64.66" data-duration="0.43" data-track-index="47" data-volume="0.35"></audio>
+      <audio id="sfx-80" src="assets/sfx/pop.mp3" data-start="65.68" data-duration="0.71" data-track-index="40" data-volume="0.25"></audio>
+      <audio id="sfx-81" src="assets/sfx/martillo.mp3" data-start="67.02" data-duration="0.47" data-track-index="41" data-volume="0.3"></audio>
+      <audio id="sfx-82" src="assets/sfx/uuh.mp3" data-start="67.41" data-duration="0.79" data-track-index="42" data-volume="0.15"></audio>
+      <audio id="sfx-83" src="assets/sfx/chime.mp3" data-start="67.91" data-duration="2.53" data-track-index="43" data-volume="0.25"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      // el-guardavidas: la playa se hace tarde a las ocho, de noche con el agente (03:12) y de día otra vez en "Atiendo"
+      (function () {
+        const tl = gsap.timeline({ paused: true });
+        const f = document.querySelector("#fondo");
+        tl.to(f.querySelector(".tarde"), { opacity: 1, duration: 0.6, ease: "power2.out" }, 38.45);
+        tl.to(f.querySelector(".noche"), { opacity: 1, duration: 0.5, ease: "power2.out" }, 40.77);
+        tl.to(f.querySelector(".tarde"), { opacity: 0, duration: 0.01 }, 41.27);
+        tl.to(f.querySelector(".noche"), { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 53.05);
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>
