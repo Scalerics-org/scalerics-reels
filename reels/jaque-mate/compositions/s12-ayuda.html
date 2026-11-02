@@ -1,0 +1,60 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/ajedrez.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-ayuda"] .s12-capa, [data-composition-id="s12-ayuda"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-ayuda"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-ayuda"] .s12-mejor { left: 90px; top: 640px; }
+    [data-composition-id="s12-ayuda"] .s12-ayuda { left: 420px; top: 1390px; font-size: 64px; }
+  </style>
+  <div id="root" data-composition-id="s12-ayuda" data-width="1080" data-height="1920" data-duration="3.29">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="3.29" data-track-index="0">
+      <div class="s12-escenario">
+        <svg class="s12-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+
+        <div class="aj-tag mar s12-mejor">NO JUEGA MEJOR</div>
+        <div class="aj-sello lat s12-ayuda">TIENE AYUDA</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-ayuda";
+      const DUR = 3.29;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const svg = root.querySelector(".s12-svg");
+      const tl = gsap.timeline({ paused: true });
+      const K = AJ.kit(tl, root);
+      const { q, qa } = K;
+
+      svg.innerHTML =
+        `<g class="s12-luz" opacity="0"><path d="M700 560 L520 1330 L1060 1330 L900 560 Z" fill="${AJ.LAT}" opacity="0.18"/></g>` +
+        `<g class="s12-sombra"><g transform="translate(780 1330) scale(2.6)"><path d="M-62 0 L62 0 L56 -24 L-56 -24 Z M-46 -24 L46 -24 L40 -42 L-40 -42 Z M-38 -40 Q-28 -118 -20 -150 L20 -150 Q28 -118 38 -40 Z M-34 -160 L-48 -216 L-22 -186 L0 -230 L22 -186 L48 -216 L34 -160 Z" fill="#120c08" stroke="${AJ.LAT2}" stroke-width="3" stroke-linejoin="round"/></g>
+          <text class="s12-q" data-layout-ignore x="780" y="1130" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="200" fill="${AJ.LAT}">?</text></g>` +
+        `<g class="s12-n">${AJ.pieza("caballo", 380, 1330, 2.4, "n", { cara: "canchero" })}</g>` +
+        `<g class="s12-psst"><text data-layout-ignore x="560" y="850" font-family="Caveat" font-weight="700" font-size="64" fill="${AJ.MAR}">psst...</text></g>` +
+        `<path d="M40 1330 L1040 1330" stroke="${AJ.INK}" stroke-width="10"/>`;
+      const NO = 0.40, MEJOR = 1.30, TIENE = 2.01, AYUDA = 2.21;
+      K.popSvg(q(".s12-n"), 0, "380 1330", 0.35, 0.85);
+      tl.fromTo(q(".s12-sombra"), { opacity: 0.25 }, { opacity: 0.6, duration: TIENE, ease: "none" }, 0);
+      K.pop(q(".s12-mejor"), NO);
+      tl.to(q(".s12-mejor"), { rotation: -3, duration: 0.15, yoyo: true, repeat: 1 }, MEJOR);
+      K.popSvg(q(".s12-psst"), MEJOR + 0.2, "620 830", 0.3, 0.4);
+      tl.to(q(".s12-sombra"), { opacity: 1, duration: 0.15 }, AYUDA - 0.1);
+      tl.to(q(".s12-luz"), { opacity: 1, duration: 0.15 }, AYUDA - 0.1);
+      tl.fromTo(q(".s12-q"), { opacity: 0.5 }, { opacity: 1, duration: 0.15, yoyo: true, repeat: 5, ease: "steps(1)", immediateRender: false }, AYUDA);
+      K.sello(q(".s12-ayuda"), AYUDA + 0.05, -3);
+      tl.fromTo(q(".s12-escenario"), { scale: 1 }, { scale: 1.07, duration: DUR, ease: "none", transformOrigin: "60% 60%" }, 0);
+
+      K.salida(q("#s12-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

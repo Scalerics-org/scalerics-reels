@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/ajedrez.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-manana"] .s06-capa, [data-composition-id="s06-manana"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-manana"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-manana"] .s06-sello { left: 90px; top: 640px; font-size: 64px; }
+  </style>
+  <div id="root" data-composition-id="s06-manana" data-width="1080" data-height="1920" data-duration="3.57">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="3.57" data-track-index="0">
+      <div class="s06-escenario">
+        <svg class="s06-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+
+        <div class="aj-sello s06-sello">HACE 3 DÍAS</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-manana";
+      const DUR = 3.57;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const svg = root.querySelector(".s06-svg");
+      const tl = gsap.timeline({ paused: true });
+      const K = AJ.kit(tl, root);
+      const { q, qa } = K;
+
+      const dias = ["LUN", "MAR", "MIÉ", "JUE"];
+      let hojas = "";
+      dias.slice().reverse().forEach((d, i) => {
+        const k = dias.length - 1 - i;
+        hojas += `<g class="s06-h s06-h${k}"><rect x="780" y="640" width="230" height="230" rx="10" fill="${AJ.MAR}" stroke="${AJ.INK}" stroke-width="6"/><rect x="780" y="640" width="230" height="60" rx="10" fill="${AJ.ROJO}" stroke="${AJ.INK}" stroke-width="6"/>
+          <text data-layout-ignore x="895" y="684" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="30" fill="${AJ.MAR}">${d}</text>
+          <text data-layout-ignore x="895" y="830" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="110" fill="${AJ.INK}">${12 + k}</text></g>`;
+      });
+      svg.innerHTML =
+        `<g class="s06-cal">${hojas}<circle cx="840" cy="640" r="12" fill="${AJ.LAT}" stroke="${AJ.INK}" stroke-width="5"/><circle cx="950" cy="640" r="12" fill="${AJ.LAT}" stroke="${AJ.INK}" stroke-width="5"/></g>` +
+        `<g class="s06-d">${AJ.dueno(470, 1350, 0.95, { cara: "desganado", brazo: "celular" })}</g>` +
+        `<g class="s06-tela" fill="none" stroke="${AJ.MAR}" stroke-width="5" stroke-linecap="round">
+          <path class="s06-t" d="M500 1150 L620 1180"/><path class="s06-t" d="M500 1150 L590 1250"/><path class="s06-t" d="M500 1150 L520 1270"/>
+          <path class="s06-t" d="M545 1161 Q540 1185 530 1196 Q520 1210 510 1214"/><path class="s06-t" d="M580 1170 Q568 1210 560 1232 Q540 1250 515 1250"/></g>`;
+      const ESO = 1.23, DIJO = 1.48, HACE = 1.89, TRES = 2.30, DIAS = 2.63;
+      K.popSvg(q(".s06-d"), 0, "470 1350", 0.35, 0.85);
+      K.hablar(".s06-d .aj-d-boca", 0.05, 3, 0.12);
+      K.respirar(q(".s06-d"), 0.4, DUR - 0.4, 0.015, "470 1350");
+      K.popSvg(q(".s06-cal"), ESO - 0.2, "895 640", 0.35, 0.3);
+      // las hojas se arrancan: LUN, MAR, MIÉ... queda JUE
+      [DIJO, HACE, TRES].forEach((t, k) => {
+        tl.to(q(".s06-h" + k), { y: -120, rotation: -25, opacity: 0, svgOrigin: "895 640", duration: 0.3, ease: "power2.in" }, t);
+      });
+      K.sello(q(".s06-sello"), DIAS, -5);
+      qa(".s06-t").forEach((el, i) => K.dibujar(el, DIAS + 0.1 + i * 0.08, 0.4));
+
+      K.salida(q("#s06-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

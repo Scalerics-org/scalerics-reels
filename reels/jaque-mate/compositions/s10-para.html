@@ -1,0 +1,70 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/ajedrez.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: block; src: url("assets/fonts/CormorantGaramond-Italic-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-para"] .s10-capa, [data-composition-id="s10-para"] .s10-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s10-para"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-para"] .s10-mate { left: 120px; top: 620px; font-size: 104px; }
+    [data-composition-id="s10-para"] .s10-nota { left: 90px; top: 1400px; }
+  </style>
+  <div id="root" data-composition-id="s10-para" data-width="1080" data-height="1920" data-duration="5.19">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="5.19" data-track-index="0">
+      <div class="s10-escenario">
+        <svg class="s10-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+
+        <div class="aj-sello s10-mate">JAQUE MATE</div>
+        <div class="aj-nota s10-nota"><b>0-1</b>abandono por mostrador</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-para";
+      const DUR = 5.19;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const svg = root.querySelector(".s10-svg");
+      const tl = gsap.timeline({ paused: true });
+      const K = AJ.kit(tl, root);
+      const { q, qa } = K;
+const TB = { cx: 540, yN: 1330, yF: 900, W: 1000, k: 0.75 };
+      const C = (c, r) => AJ.casilla(TB, c, r);
+      const inserto = (cx, cy, r, pj, id) => `<defs><clipPath id="${id}"><circle cx="${cx}" cy="${cy}" r="${r - 4}"/></clipPath></defs><circle cx="${cx}" cy="${cy}" r="${r}" fill="${AJ.EBA}"/><g clip-path="url(#${id})">${pj}</g><circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${AJ.LAT}" stroke-width="8"/>`;
+      const k = C(5, 1), n = C(4, 3), d = C(6, 4), cl = C(3, 5), w = C(4, 6);
+      svg.innerHTML =
+        `<g class="s10-tienda"><g class="s10-du">${AJ.dueno(540, 1290, 1.0, { cara: "grito", brazo: "caja" })}</g>` + `<path d="M20 1250 L1060 1250 L1060 1370 L20 1370 Z" fill="${AJ.MAD2}" stroke="${AJ.INK}" stroke-width="8" stroke-linejoin="round"/><path d="M20 1250 L1060 1250 L1060 1274 L20 1274 Z" fill="${AJ.MAD3}" stroke="${AJ.INK}" stroke-width="6"/>` +
+          `<g class="s10-bang"><text data-layout-ignore x="150" y="900" font-family="Cinzel" font-weight="900" font-size="150" fill="${AJ.ROJO}" stroke="${AJ.INK}" stroke-width="6" paint-order="stroke">!</text><text data-layout-ignore x="870" y="880" font-family="Cinzel" font-weight="900" font-size="150" fill="${AJ.ROJO}" stroke="${AJ.INK}" stroke-width="6" paint-order="stroke">!</text></g></g>` +
+        `<g class="s10-tab">${AJ.tablero(TB)}` +
+          AJ.pieza("peon", w.x, w.y, 1.1 * w.p, "b", { extra: "gorra" }) + AJ.pieza("peon", cl.x, cl.y, 1.15 * cl.p, "b", { extra: "colita" }) +
+          AJ.pieza("dama", d.x, d.y, 1.25 * d.p, "n", { cara: "canchero" }) + AJ.pieza("caballo", n.x, n.y, 1.4 * n.p, "n", { cara: "canchero" }) +
+          `<g class="s10-k">${AJ.pieza("rey", k.x, k.y, 1.55 * k.p, "b", { cara: "susto", extra: "delantal" })}</g></g>` +
+        `<g class="s10-a">${inserto(880, 1250, 150, AJ.ayudante(880, 1430, 0.55, { cara: "triste" }), "s10-clip")}</g>`;
+      const PARA2 = 0.17, MOSTRADOR = 1.53, MATE = 2.53, JUEGA = 4.17;
+      const kb = `${k.x} ${k.y}`;
+      K.popSvg(q(".s10-du"), 0, "540 1290", 0.25, 0.9);
+      K.sacudon(q(".s10-du"), 0.05, 1);
+      K.sacudon(q(".s10-du"), PARA2 + 0.05, 1);
+      K.hablar(".s10-du .aj-d-boca", 0.3, 6, 0.1);
+      K.popSvg(q(".s10-bang"), PARA2, "540 850", 0.3, 0.4);
+      tl.to(q(".s10-bang"), { opacity: 0.3, duration: 0.15, yoyo: true, repeat: 5, ease: "steps(1)" }, PARA2 + 0.4);
+      // corte al tablero en "Jaque mate"
+      gsap.set(q(".s10-tab"), { opacity: 0 });
+      tl.to(q(".s10-tienda"), { opacity: 0, duration: 0.12 }, MATE - 0.12);
+      tl.to(q(".s10-tab"), { opacity: 1, duration: 0.12 }, MATE - 0.1);
+      K.sello(q(".s10-mate"), MATE + 0.05, -4);
+      K.tumbar(q(".s10-k"), MATE + 0.3, kb, -84);
+      K.sacudon(q(".s10-escenario"), MATE + 0.85, 1.2);
+      K.pop(q(".s10-nota"), MATE + 0.9);
+      K.popSvg(q(".s10-a"), JUEGA - 0.2, "880 1250", 0.3, 0.3);
+
+      K.salida(q("#s10-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

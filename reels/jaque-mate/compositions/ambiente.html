@@ -1,0 +1,128 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/ajedrez.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Cinzel"; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .am-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1100px at 540px 920px, rgba(10, 6, 4, 0) 60%, rgba(10, 6, 4, 0.45) 100%); }
+    [data-composition-id="ambiente"] .am-rojo { position: absolute; inset: 0; opacity: 0; box-shadow: inset 0 0 0 18px #d7263d, inset 0 0 160px 40px rgba(215, 38, 61, 0.55); }
+    [data-composition-id="ambiente"] .am-bug { position: absolute; left: 44px; top: 70px; height: 122px; width: 640px; background: #2a211b; border: 5px solid #d4a73a; border-radius: 14px; box-shadow: 6px 8px 0 rgba(0, 0, 0, 0.4); }
+    [data-composition-id="ambiente"] .am-bug svg { position: absolute; left: 12px; top: 8px; width: 96px; height: 100px; }
+    [data-composition-id="ambiente"] .am-bug b { position: absolute; left: 112px; top: 18px; font-family: "Cinzel", serif; font-weight: 900; font-size: 40px; line-height: 1; color: #f3e6c8; letter-spacing: 0.03em; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-bug small { position: absolute; left: 114px; top: 74px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 21px; letter-spacing: 0.2em; color: #d4a73a; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-bug small i { display: inline-block; width: 15px; height: 15px; border-radius: 50%; background: #d7263d; margin-left: 10px; vertical-align: 0; }
+    [data-composition-id="ambiente"] .am-bug small.am-ia { color: #5ce611; opacity: 0; }
+    [data-composition-id="ambiente"] .am-chapas { position: absolute; left: 44px; top: 1574px; width: 560px; height: 104px; }
+    [data-composition-id="ambiente"] .am-ch { position: absolute; left: 0; top: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .am-ch .am-pl { display: inline-block; padding: 12px 24px 10px; background: #2a211b; border-left: 14px solid currentColor; border-radius: 8px; box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.35); }
+    [data-composition-id="ambiente"] .am-ch b { display: block; font-family: "Cinzel", serif; font-weight: 900; font-size: 34px; line-height: 1.05; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-ch small { display: block; margin-top: 6px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 19px; letter-spacing: 0.14em; color: #f3e6c8; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-reloj { position: absolute; right: 44px; top: 1556px; width: 400px; height: 140px; background: #4a2c17; border: 5px solid #1c1612; border-radius: 14px; box-shadow: 6px 8px 0 rgba(0, 0, 0, 0.4); }
+    [data-composition-id="ambiente"] .am-reloj svg { position: absolute; left: 0; top: 0; width: 400px; height: 140px; }
+    [data-composition-id="ambiente"] .am-reloj .am-lbl { position: absolute; top: 104px; width: 180px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 18px; letter-spacing: 0.18em; color: #f3e6c8; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-flash { position: absolute; inset: 0; background: #f3e6c8; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="74.32">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="74.32" data-track-index="0">
+      <div class="am-vineta"></div>
+      <div class="am-rojo"></div>
+      <div class="am-bug">
+        <svg viewBox="0 0 96 100" aria-hidden="true"><g transform="translate(48 96) scale(0.34)"><path d="M-62 0 L62 0 L56 -24 L-56 -24 Z M-46 -24 L46 -24 L40 -42 L-40 -42 Z M-40 -40 Q-30 -122 -22 -158 L22 -158 Q30 -122 40 -40 Z M-34 -166 Q-46 -210 -24 -224 L24 -224 Q46 -210 34 -166 Z M-8 -224 L-8 -240 L-24 -240 L-24 -256 L-8 -256 L-8 -272 L8 -272 L8 -256 L24 -256 L24 -240 L8 -240 L8 -224 Z" fill="#f3e6c8" stroke="#1c1612" stroke-width="8" stroke-linejoin="round"/></g></svg>
+        <b>TORNEO DEL BARRIO</b>
+        <small class="am-sub">RONDA 1 · EN VIVO<i></i></small>
+        <small class="am-ia">CON AGENTE DE IA · REVANCHA</small>
+      </div>
+      <div class="am-chapas">
+        <div class="am-ch am-chm" style="color:#ffcf5a"><div class="am-pl"><b>EL GRAN MAESTRO</b><small>COMENTARISTA OFICIAL</small></div></div>
+        <div class="am-ch am-cha" style="color:#ff8a8a"><div class="am-pl"><b>EL AYUDANTE</b><small>NO SABE MOVER EL CABALLO</small></div></div>
+        <div class="am-ch am-chd" style="color:#e8a66a"><div class="am-pl"><b>EL DUEÑO</b><small>ZAPATERÍA · JUEGA CON BLANCAS</small></div></div>
+        <div class="am-ch am-chc" style="color:#ffb3c7"><div class="am-pl"><b>LA CLIENTA</b><small>PREGUNTÓ UN PRECIO</small></div></div>
+        <div class="am-ch am-chk" style="color:#5ce611"><div class="am-pl"><b>EL AGENTE DE IA</b><small>JUEGA CON VOS</small></div></div>
+        <div class="am-ch am-cho" style="color:#5ce611"><div class="am-pl"><b>SCALERICS</b><small>AGENTES DE IA</small></div></div>
+      </div>
+      <div class="am-reloj">
+        <svg viewBox="0 0 400 140" aria-hidden="true">
+          <rect x="14" y="14" width="180" height="86" rx="10" fill="#14100d" stroke="#1c1612" stroke-width="4"/>
+          <rect x="206" y="14" width="180" height="86" rx="10" fill="#14100d" stroke="#1c1612" stroke-width="4"/>
+          <g class="am-izq"></g><g class="am-der"></g>
+          <path class="am-turno-i" d="M104 2 L116 2 L110 10 Z" fill="#d4a73a"/>
+          <path class="am-turno-d" d="M290 2 L302 2 L296 10 Z" fill="#d4a73a" opacity="0"/>
+        </svg>
+        <div class="am-lbl am-lbl-i" style="left:14px">TU LOCAL</div>
+        <div class="am-lbl" style="left:206px">ENFRENTE</div>
+      </div>
+      <div class="am-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 74.32;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      // segundos globales (los reescribe armar.mjs desde assets/voice/palabras.json y reel.marcas)
+      const TURNOS = [[0,"m"],[3.33,"a"],[9.4,"m"],[12.4,"c"],[15.73,"d"],[18.57,"m"],[21.41,"a"],[22.52,"d"],[23.75,"m"],[26.09,"a"],[29.3,"m"],[32.05,"a"],[34.7,"m"],[38.11,"d"],[40.64,"m"],[42.12,"a"],[43.3,"m"],[53.65,"o"],[60.3,"k"],[62.63,"c"],[64.28,"a"],[65.72,"m"],[66.9,"o"]];
+      const M = {"RELOJ":20.7,"DIAS":25.15,"MUEVE":26.09,"JAQUE":37.24,"MATE":40.64,"SCALERICS":55.01,"REVANCHA":65.72};
+
+      // ---- reloj de ajedrez: TU LOCAL corre (y se va a 72 horas), ENFRENTE casi no gasta tiempo
+      const fmt = (min) => { const h = Math.floor(min / 60), m = Math.floor(min % 60); return String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0"); };
+      const izq = q(".am-izq"), der = q(".am-der");
+      const pintar = (el, x, min, col) => { el.innerHTML = AJ.seg(fmt(min), x, 30, 52, col, true); };
+      pintar(izq, 34, 0, "#ff8a8a");
+      pintar(der, 226, 0, "#f3e6c8");
+      const reloj1 = { v: 0 };
+      tl.to(reloj1, { v: 3, duration: M.RELOJ, ease: "none", onUpdate: () => pintar(izq, 34, reloj1.v, "#ff8a8a") }, 0);
+      const reloj2 = { v: 3 };
+      tl.to(reloj2, { v: 72 * 60, duration: M.DIAS - M.RELOJ + 0.3, ease: "power3.in", onUpdate: () => pintar(izq, 34, reloj2.v, "#ff8a8a") }, M.RELOJ);
+      const reloj3 = { v: 72 * 60 };
+      tl.to(reloj3, { v: 72 * 60 + (M.SCALERICS - M.DIAS) * 1.5, duration: M.SCALERICS - M.DIAS - 0.3, ease: "none", onUpdate: () => pintar(izq, 34, reloj3.v, "#ff8a8a") }, M.DIAS + 0.3);
+      // el de enfrente mueve al toque: 1 minuto y vuelve a apretar el botón
+      const rd = { v: 0 };
+      tl.to(rd, { v: 1, duration: 0.6, ease: "steps(1)", onUpdate: () => pintar(der, 226, rd.v, "#f3e6c8") }, M.MUEVE);
+      tl.to(q(".am-turno-d"), { opacity: 1, duration: 0.05 }, M.MUEVE - 0.1);
+      tl.to(q(".am-turno-d"), { opacity: 0, duration: 0.05 }, M.MUEVE + 0.6);
+      tl.to(q(".am-reloj"), { scale: 1.08, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", transformOrigin: "75% 50%" }, M.MUEVE);
+      // en "días" el reloj del local tiembla en rojo
+      tl.to(q(".am-reloj"), { x: -8, duration: 0.05, yoyo: true, repeat: 7, ease: "none" }, M.DIAS);
+      // con Scalerics: el reloj del local vuelve a cero, en verde, y el agente mueve
+      const rv = { v: 0 };
+      tl.to(rv, { v: 1, duration: M.REVANCHA - M.SCALERICS, ease: "steps(1)", onUpdate: () => pintar(izq, 34, rv.v, "#5ce611") }, M.SCALERICS);
+      tl.to(q(".am-lbl-i"), { color: "#5ce611", duration: 0.2 }, M.SCALERICS);
+      tl.to(q(".am-turno-i"), { fill: "#5ce611", duration: 0.2 }, M.SCALERICS);
+
+      // ---- bug del torneo
+      tl.fromTo(q(".am-bug"), { x: -40, opacity: 0.3 }, { x: 0, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".am-reloj"), { y: 40, opacity: 0.3 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".am-bug small i"), { opacity: 1 }, { opacity: 0.2, duration: 0.5, yoyo: true, repeat: Math.max(0, Math.floor(DUR) * 2 - 1), ease: "steps(1)" }, 0);
+      tl.to(q(".am-bug"), { borderColor: "#5ce611", duration: 0.3 }, M.SCALERICS);
+      tl.to(q(".am-bug .am-sub"), { opacity: 0, duration: 0.2 }, M.SCALERICS);
+      tl.to(q(".am-bug .am-ia"), { opacity: 1, duration: 0.3 }, M.SCALERICS + 0.1);
+
+      // ---- chapa de quién habla
+      const CH = { m: ".am-chm", a: ".am-cha", d: ".am-chd", c: ".am-chc", k: ".am-chk", o: ".am-cho" };
+      TURNOS.forEach(([t, v], i) => {
+        const fin = i + 1 < TURNOS.length ? TURNOS[i + 1][0] : DUR;
+        const el = q(CH[v]);
+        tl.fromTo(el, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.2, ease: "power2.out", immediateRender: false }, Math.max(0, t - 0.05));
+        tl.to(el, { opacity: 0, duration: 0.12, ease: "power1.in" }, Math.max(0, fin - 0.14));
+      });
+
+      // ---- borde rojo en los jaques; flash en Scalerics
+      const rojo = q(".am-rojo");
+      [[0, 1.4], [M.JAQUE, 0.9], [M.MATE, 1.6]].forEach(([t, d]) => {
+        tl.fromTo(rojo, { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "none", immediateRender: false }, t);
+        tl.to(rojo, { opacity: 0.55, duration: 0.15, yoyo: true, repeat: 3, ease: "steps(1)" }, t + 0.1);
+        tl.to(rojo, { opacity: 0, duration: 0.3, ease: "power2.in" }, t + d);
+      });
+      tl.fromTo(q(".am-flash"), { opacity: 0 }, { opacity: 0.6, duration: 0.06, ease: "none", immediateRender: false }, M.SCALERICS);
+      tl.to(q(".am-flash"), { opacity: 0, duration: 0.4, ease: "power2.out" }, M.SCALERICS + 0.06);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
