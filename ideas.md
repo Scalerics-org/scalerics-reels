@@ -160,6 +160,11 @@
 - 02-11 · `el-guardavidas` · Agente de IA · "Bandera roja. Hay una clienta ahogándose en tu WhatsApp. Y vos, tomando mate." Serie de guardavidas "Guardavidas de la Rambla" ("como Guardianes de la Bahía, pero con termo y bizcochos"): la clienta pregunta por el vestido azul en talle M y se hunde en el visto mientras el dueño en la reposera dice "mañana le contesto"; la rescata el de enfrente; giro: "nadie puede vigilar el agua todo el día, ni yo: a las ocho me bajo de la torre"; el agente de IA, un guardavidas que nunca se baja de la torre, la rescata a las 03:12; "Vos, cebá otro mate. ¡Bandera verde!" · Mandáselo al que tiene la bandera roja puesta desde marzo [formato P serie de guardavidas · estilo playa de la rambla turquesa/arena/rojo bandera/amarillo torre con banderas, torre y salvavidas, día-tarde-noche, cinco voces]
 
 ## En curso
+- 02-11 · `jaque-mate` · Agente de IA · transmisión de torneo de ajedrez: el de enfrente le escribe a la clienta que preguntó y no compró; vos seguís pensando la jugada hace tres días · corrida 02-11 09:15
+- 02-11 · `la-sitcom` · Agente de IA · sitcom de los 90 con risas grabadas: el agente de IA es el compañero de casa del dueño, atiende a las 3 y le pasa la conversación cuando es para él · corrida 02-11 09:15
+- 02-11 · `titanes` · Automatizaciones · lucha libre de TV: el dueño contra La Planilla, El Copia-Pega y El Recordatorio, rival por rival; giro: tag team con la automatización · corrida 02-11 09:15
+- 02-11 · `el-ascensor` · CRM · atrapado en el ascensor con la clienta que pidió presupuesto en marzo y nunca llamaste · corrida 02-11 09:15
+- 02-11 · `el-conde` · Tienda online · película de vampiros: el Conde solo puede comprar de noche y tu local cierra a las siete; envío al castillo · corrida 02-11 09:15
 
 
 
