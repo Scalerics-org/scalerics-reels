@@ -1,0 +1,1 @@
+En Scalerics hacemos automatizaciones. El pedido de WhatsApp pasa solo a la planilla. El aviso de que está listo sale solo. El stock de la tienda se actualiza cuando vendés en el local. Y el reporte del día te llega al celular.

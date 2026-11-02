@@ -1,0 +1,7 @@
+[{"t":0.05,"sfx":"typing","vol":0.2,"max":0.9},
+ {"t":1.1,"sfx":"chime","vol":0.25,"max":0.7},
+ {"t":2.1,"sfx":"click","vol":0.35},
+ {"t":3.64,"sfx":"pop","vol":0.3},
+ {"t":5,"sfx":"whoosh-short","vol":0.3},
+ {"t":5.48,"sfx":"impact-bass-2","vol":0.45,"max":0.6},
+ {"t":5.9,"sfx":"ping","vol":0.25}]

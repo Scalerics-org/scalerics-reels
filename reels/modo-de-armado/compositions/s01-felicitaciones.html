@@ -1,0 +1,161 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-felicitaciones"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-felicitaciones"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-felicitaciones"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    /* pictograma: línea negra gruesa con relleno papel */
+    [data-composition-id="s01-felicitaciones"] .tinta { fill: #fffdf6; stroke: #1a1a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-felicitaciones"] .linea { fill: none; stroke: #1a1a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-felicitaciones"] .fina { fill: none; stroke: #1a1a1a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-felicitaciones"] .guia { fill: none; stroke: #b9b3a3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 12; }
+    [data-composition-id="s01-felicitaciones"] .sombra { fill: #b9b3a3; opacity: 0.55; }
+    [data-composition-id="s01-felicitaciones"] .amarillo { fill: #ffcf1f; stroke: #1a1a1a; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s01-felicitaciones"] .azul { fill: none; stroke: #2b50d6; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-felicitaciones"] .rojo { fill: none; stroke: #e0362c; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    /* brazos y piernas de doble trazo: negro de 28 y papel de 15 encima */
+    [data-composition-id="s01-felicitaciones"] .mb-n { fill: none; stroke: #1a1a1a; stroke-width: 28; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-felicitaciones"] .mb-p { fill: none; stroke: #fffdf6; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-felicitaciones"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #1a1a1a; }
+    [data-composition-id="s01-felicitaciones"] .num { font-family: "Lexend", sans-serif; font-weight: 800; fill: #1a1a1a; }
+    [data-composition-id="s01-felicitaciones"] .s01-sello { position: absolute; left: 0; right: 0; top: 596px; text-align: center; }
+    [data-composition-id="s01-felicitaciones"] .s01-sello span { display: inline-block; padding: 14px 34px 16px; background: #2b50d6; border: 6px solid #1a1a1a; border-radius: 18px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 66px; letter-spacing: 0.01em; color: #fffdf6; text-transform: uppercase; box-shadow: 8px 8px 0 #b9b3a3; white-space: nowrap; }
+    [data-composition-id="s01-felicitaciones"] .s01-etiqueta { position: absolute; left: 0; right: 0; top: 1476px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.34em; color: #2b50d6; text-transform: uppercase; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s01-felicitaciones" data-width="1080" data-height="1920" data-duration="6.53">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="6.53" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la caja del kit, en perspectiva -->
+          <g class="s01-caja">
+            <path class="sombra" d="M428 1238 H868 L928 1188 V1236 L878 1270 H436 Z" />
+            <path class="tinta s01-cara" d="M420 900 H860 V1230 H420 Z" />
+            <path class="tinta s01-tapa" d="M420 900 L480 840 H920 L860 900 Z" />
+            <path class="tinta s01-lado" d="M860 900 L920 840 V1170 L860 1230 Z" />
+            <!-- el local dibujado en la caja: toldo, vidriera, puerta -->
+            <path class="fina s01-toldo" d="M470 990 H810 L790 1040 H490 Z M530 990 L520 1040 M590 990 L585 1040 M650 990 L650 1040 M710 990 L715 1040 M770 990 L780 1040" />
+            <path class="fina s01-vidriera" d="M490 1060 H640 V1180 H490 Z M680 1060 H780 V1200 H680 Z M760 1130 v8" />
+            <text class="mono s01-modelo" x="462" y="950">TU NEGOCIO</text>
+          </g>
+          <!-- el sticker amarillo: 47 PASOS -->
+          <g class="s01-sticker">
+            <circle class="amarillo" cx="860" cy="868" r="118" />
+            <text class="num s01-47" x="860" y="884" text-anchor="middle" font-size="126">47</text>
+            <text class="mono" x="860" y="932" text-anchor="middle" font-size="28">PASOS</text>
+          </g>
+          <text class="num s01-x47" x="730" y="1350" fill="#e0362c" font-size="74" style="fill:#e0362c">x47</text>
+          <!-- "se arma solo": caja chica con chispas, tachada con la X roja -->
+          <g class="s01-solo">
+            <path class="tinta" d="M130 1278 h126 v76 h-126 Z" />
+            <path class="azul" d="M150 1266 l-12 -16 M193 1260 v-20 M236 1266 l12 -16" />
+            <text class="mono" x="193" y="1418" text-anchor="middle" font-size="26">SE ARMA SOLO</text>
+            <circle class="rojo s01-xcirc" cx="193" cy="1316" r="66" />
+            <path class="rojo s01-x" d="M150 1273 L236 1359 M236 1273 L150 1359" />
+          </g>
+          <g class="s01-hombre-pos" transform="translate(250 1236) scale(1.12)"></g>
+        </svg>
+        <div class="s01-sello"><span>¡Felicitaciones!</span></div>
+        <div class="s01-etiqueta s01-et1">Modo de armado</div>
+        <div class="s01-etiqueta s01-et2">x47 pasos · 1 persona</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-felicitaciones";
+      const DUR = 6.53;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+
+      // ---- el hombrecito del pictograma: pies en (0,0), ~300 px de alto, sin cara.
+      // Brazos en grupos .hb-bi / .hb-bd que rotan en el hombro (svgOrigin "-40 -196" / "40 -196").
+      const miembro = (d) => `<path class="mb-n" d="${d}"/><path class="mb-p" d="${d}"/>`;
+      const hombre = (o = {}) => `
+        <g class="hb">
+          <g class="hb-piernas">${miembro(o.piernaI ?? "M-22 -104 L-27 -10 L-46 -10")}${miembro(o.piernaD ?? "M22 -104 L27 -10 L46 -10")}</g>
+          <g class="hb-bi">${miembro(o.brazoI ?? "M-40 -196 L-58 -142 L-62 -100")}</g>
+          <g class="hb-bd">${miembro(o.brazoD ?? "M40 -196 L58 -142 L62 -100")}</g>
+          <path class="tinta hb-cuerpo" d="M-50 -208 Q0 -224 50 -208 L46 -98 Q0 -88 -46 -98 Z" />
+          <circle class="tinta hb-cabeza" cx="0" cy="-258" r="36" />
+          ${o.extra ?? ""}
+        </g>`;
+      q(".s01-hombre-pos").innerHTML = hombre();
+
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1) });
+          if ((desde ?? 1) >= 1) { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, desde) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const golpe = (el, t, escala) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: escala ?? 2.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const temblor = (t, f) => [[-12, 7], [9, -5], [-4, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      // tiempos (relativos a la escena = palabras de la locución)
+      const NEGOCIO = 1.29, CUARENTA = 2.76, PASOS = 3.62, NINGUNO = 4.48, SOLO = 5.52;
+
+      // cuadro 0: la caja ya está medio dibujada y el hombrecito está
+      dibujar(qa(".s01-caja .tinta"), 0, 0.6, 0.45);
+      dibujar(qa(".s01-toldo, .s01-vidriera"), 0.25, 0.7);
+      gsap.set(q(".s01-caja .sombra"), { opacity: 0 });
+      tl.to(q(".s01-caja .sombra"), { opacity: 0.55, duration: 0.3 }, 0.4);
+      tl.fromTo(q(".s01-hombre-pos .hb"), { opacity: 0.6, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      // "felicitaciones": el sello azul cae y el hombrecito saluda
+      tl.fromTo(q(".s01-sello span"), { opacity: 0.6, scale: 1.12, rotation: -4 }, { opacity: 1, scale: 1, rotation: -2, duration: 0.3, ease: "power4.out" }, 0);
+      const bd = q(".s01-hombre-pos .hb-bd");
+      tl.to(bd, { rotation: -150, svgOrigin: "40 -196", duration: 0.3, ease: "back.out(1.8)" }, 0.15);
+      [-130, -160, -130, -158].forEach((r, i) => tl.to(bd, { rotation: r, svgOrigin: "40 -196", duration: 0.18, ease: "sine.inOut" }, 0.5 + i * 0.18));
+      // "negocio": el rótulo de la caja
+      pop(q(".s01-modelo"), NEGOCIO - 0.1);
+      tl.to(q(".s01-caja"), { scale: 1.03, svgOrigin: "670 1040", duration: 0.15, yoyo: true, repeat: 1, ease: "sine.inOut" }, NEGOCIO);
+      // "cuarenta y siete pasos": el sticker amarillo cae de golpe
+      golpe(q(".s01-sticker"), CUARENTA, 2.6);
+      temblor(CUARENTA + 0.06);
+      tl.to(q(".s01-sticker"), { rotation: 8, svgOrigin: "860 868", duration: 0.25, ease: "back.out(2)" }, CUARENTA + 0.1);
+      tl.to(bd, { rotation: -20, svgOrigin: "40 -196", duration: 0.3, ease: "power2.inOut" }, CUARENTA + 0.1);
+      tl.to(q(".s01-hombre-pos .hb-cabeza"), { y: -10, duration: 0.15, yoyo: true, repeat: 1 }, CUARENTA + 0.1);
+      golpe(q(".s01-x47"), PASOS, 2);
+      tl.to(q(".s01-x47"), { rotation: -6, transformOrigin: "50% 50%", duration: 0.2 }, PASOS + 0.1);
+      // "ninguno se hace solo": aparece el ícono de "se arma solo" y lo tacha la X roja
+      pop(q(".s01-solo .tinta"), NINGUNO - 0.3);
+      pop(q(".s01-solo text"), NINGUNO - 0.2);
+      dibujar(qa(".s01-solo .azul"), NINGUNO - 0.2, 0.3);
+      dibujar([q(".s01-xcirc")], SOLO - 0.35, 0.3);
+      dibujar(qa(".s01-x"), SOLO - 0.1, 0.18);
+      temblor(SOLO + 0.05, 0.7);
+      // el hombrecito se desinfla: los dos brazos caen y se encorva
+      tl.to(q(".s01-hombre-pos .hb"), { rotation: 6, svgOrigin: "0 0", duration: 0.4, ease: "power2.out" }, SOLO);
+      tl.to(q(".s01-hombre-pos .hb-cabeza"), { y: 14, duration: 0.4, ease: "power2.out" }, SOLO);
+      tl.to(q(".s01-hombre-pos .hb-bi"), { rotation: 8, svgOrigin: "-40 -196", duration: 0.4 }, SOLO);
+      tl.to(bd, { rotation: 0, svgOrigin: "40 -196", duration: 0.4 }, SOLO);
+      tl.to(q(".s01-sello span"), { y: 10, rotation: -5, duration: 0.5, ease: "power2.out" }, SOLO);
+
+      // etiqueta
+      tl.fromTo(q(".s01-et1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3 }, 0.3);
+      tl.to(q(".s01-et1"), { opacity: 0, y: -14, duration: 0.2 }, PASOS - 0.1);
+      gsap.set(q(".s01-et2"), { opacity: 0 });
+      tl.fromTo(q(".s01-et2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, PASOS + 0.1);
+
+      // deriva lenta de cámara
+      tl.fromTo(q(".s01-escenario"), { scale: 1.04 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      // salida: la hoja se da vuelta hacia arriba
+      tl.to(q("#s01-escena"), { y: -260, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

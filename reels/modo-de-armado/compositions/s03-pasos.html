@@ -1,0 +1,178 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-pasos"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-pasos"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-pasos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-pasos"] .tinta { fill: #fffdf6; stroke: #1a1a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pasos"] .linea { fill: none; stroke: #1a1a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pasos"] .fina { fill: none; stroke: #1a1a1a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pasos"] .guia { fill: none; stroke: #b9b3a3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 12; }
+    [data-composition-id="s03-pasos"] .sombra { fill: #b9b3a3; opacity: 0.55; }
+    [data-composition-id="s03-pasos"] .relleno-n { fill: #1a1a1a; }
+    [data-composition-id="s03-pasos"] .amarillo { fill: #ffcf1f; stroke: #1a1a1a; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s03-pasos"] .azul { fill: none; stroke: #2b50d6; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pasos"] .azul-r { fill: #2b50d6; stroke: #1a1a1a; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s03-pasos"] .rojo { fill: none; stroke: #e0362c; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pasos"] .mb-n { fill: none; stroke: #1a1a1a; stroke-width: 28; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pasos"] .mb-p { fill: none; stroke: #fffdf6; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pasos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #1a1a1a; }
+    [data-composition-id="s03-pasos"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #1a1a1a; }
+    [data-composition-id="s03-pasos"] .num { font-family: "Lexend", sans-serif; font-weight: 800; fill: #1a1a1a; }
+    [data-composition-id="s03-pasos"] .s03-etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.34em; color: #2b50d6; text-transform: uppercase; white-space: nowrap; }
+    
+  </style>
+  <div id="root" data-composition-id="s03-pasos" data-width="1080" data-height="1920" data-duration="7.59">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="7.59" data-track-index="0">
+      <div class="s03-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          
+          <g class="s03-cuadro s03-c1">
+            <rect class="sombra" x="78" y="608" width="455" height="350" rx="18" />
+            <rect class="tinta" x="70" y="600" width="455" height="350" rx="18" />
+            <text class="num s03-n" x="96" y="718" font-size="120">1</text>
+          </g>
+          
+          <g class="s03-cuadro s03-c2">
+            <rect class="sombra" x="563" y="608" width="455" height="350" rx="18" />
+            <rect class="tinta" x="555" y="600" width="455" height="350" rx="18" />
+            <text class="num s03-n" x="581" y="718" font-size="120">2</text>
+          </g>
+          
+          <g class="s03-cuadro s03-c3">
+            <rect class="sombra" x="78" y="983" width="455" height="350" rx="18" />
+            <rect class="tinta" x="70" y="975" width="455" height="350" rx="18" />
+            <text class="num s03-n" x="96" y="1093" font-size="120">3</text>
+          </g>
+          
+          <g class="s03-cuadro s03-c4">
+            <rect class="sombra" x="563" y="983" width="455" height="350" rx="18" />
+            <rect class="tinta" x="555" y="975" width="455" height="350" rx="18" />
+            <text class="num s03-n" x="581" y="1093" font-size="120">4</text>
+          </g>
+          <!-- 1: el celular con el chat -->
+          <g class="s03-cel">
+            <rect class="tinta" x="300" y="642" width="140" height="266" rx="24" />
+            <path class="fina" d="M348 660 h44" />
+            <path class="tinta" d="M318 700 h100 a12 12 0 0 1 12 12 v34 a12 12 0 0 1 -12 12 h-80 l-20 16 Z" />
+            <path class="fina" d="M334 720 h70 M334 738 h44" />
+            <path class="azul s03-vib" d="M282 700 q-14 20 0 40 M458 700 q14 20 0 40" style="stroke-width:6" />
+          </g>
+          <!-- 2: el pedido seleccionado para copiar -->
+          <g class="s03-ped">
+            <path class="tinta" d="M700 668 h236 a14 14 0 0 1 14 14 v96 a14 14 0 0 1 -14 14 h-210 l-26 22 Z" />
+            <path class="fina" d="M722 700 h150 M722 728 h190 M722 756 h110" />
+            <text class="mono" x="722" y="694" font-size="22" data-layout-ignore>PEDIDO</text>
+          </g>
+          <rect class="s03-sel" x="684" y="652" width="282" height="150" rx="10" fill="none" stroke="#2b50d6" stroke-width="5" stroke-dasharray="14 10" />
+          <g class="s03-copiar">
+            <rect class="tinta" x="690" y="850" width="46" height="56" rx="6" />
+            <rect class="tinta" x="708" y="836" width="46" height="56" rx="6" />
+            <text class="mono" x="776" y="884" fill="#2b50d6" style="fill:#2b50d6">COPIAR</text>
+          </g>
+          <!-- 3: la planilla y el pegado -->
+          <g class="s03-pla">
+            <rect class="tinta" x="230" y="1050" width="270" height="250" rx="6" />
+            <path class="fina" d="M230 1100 H500 M230 1150 H500 M230 1200 H500 M230 1250 H500 M300 1050 V1300 M400 1050 V1300" />
+          </g>
+          <rect class="s03-celda" x="303" y="1203" width="94" height="44" fill="#ffcf1f" />
+          <rect class="tinta s03-papel" x="306" y="1206" width="88" height="38" rx="6" />
+          <path class="azul s03-flecha" d="M120 1210 Q170 1240 280 1226" />
+          <path class="azul s03-punta" d="M262 1206 L284 1226 L258 1242" />
+          <!-- 4: repetí -->
+          <circle class="s03-loop" cx="830" cy="1170" r="104" fill="none" stroke="#2b50d6" stroke-width="16" stroke-linecap="round" stroke-dasharray="560 200" />
+          <path class="s03-loop-p" d="M878 1036 L940 1080 L868 1100" fill="none" stroke="#2b50d6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+          <text class="num s03-x47" x="830" y="1196" text-anchor="middle" font-size="70" fill="#e0362c" style="fill:#e0362c">x47</text>
+  
+        </svg>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-pasos";
+      const DUR = 7.59;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      // el hombrecito del pictograma (igual que en s01): pies en (0,0), ~300 px, sin cara
+      const miembro = (d) => '<path class="mb-n" d="' + d + '"/><path class="mb-p" d="' + d + '"/>';
+      const hombre = (o) => { o = o || {}; return '<g class="hb">' +
+        '<g class="hb-piernas">' + miembro(o.piernaI || "M-22 -104 L-27 -10 L-46 -10") + miembro(o.piernaD || "M22 -104 L27 -10 L46 -10") + '</g>' +
+        '<g class="hb-bi">' + miembro(o.brazoI || "M-40 -196 L-58 -142 L-62 -100") + '</g>' +
+        '<g class="hb-bd">' + miembro(o.brazoD || "M40 -196 L58 -142 L62 -100") + '</g>' +
+        '<path class="tinta hb-cuerpo" d="M-50 -208 Q0 -224 50 -208 L46 -98 Q0 -88 -46 -98 Z" />' +
+        '<circle class="tinta hb-cabeza" cx="0" cy="-258" r="36" />' + (o.extra || "") + '</g>'; };
+      qa("[data-hombre]").forEach((g) => { g.innerHTML = hombre(JSON.parse(g.dataset.hombre || "{}")); });
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1) });
+          if ((desde ?? 1) >= 1) { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, desde) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const golpe = (el, t, escala) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: escala ?? 2.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (el, t, d) => tl.to(el, { opacity: 0, duration: d ?? 0.2 }, t);
+      const temblor = (t, f) => [[-12, 7], [9, -5], [-4, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s03-escenario"), { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiquetas = (lista) => lista.forEach(([sel, a, b]) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, a);
+        if (b != null) tl.to(q(sel), { opacity: 0, y: -14, duration: 0.2 }, b);
+      });
+
+      const P1 = 0, WA = 1.21, P2 = 1.88, COPIA = 2.76, P3 = 3.82, PEGA = 4.59, P4 = 5.80, REPETI = 6.60;
+      // cuadro 0: el paso 1 ya está
+      tl.fromTo(q(".s03-c1"), { opacity: 0.5, scale: 0.92, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s03-c1 .s03-n"), { scale: 1.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power4.in" }, 0);
+      tl.fromTo(q(".s03-cel"), { opacity: 0.5, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.15);
+      dibujar(qa(".s03-vib"), WA - 0.05, 0.2);
+      tl.to(q(".s03-cel"), { x: 5, duration: 0.05, yoyo: true, repeat: 7, ease: "none" }, WA);
+      const paso = (s, t) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, scale: 0.9, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, t - 0.1);
+        tl.fromTo(q(s + " .s03-n"), { scale: 2.2, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.18, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      paso(".s03-c2", P2);
+      pop(q(".s03-ped"), P2 + 0.1);
+      gsap.set(q(".s03-sel"), { opacity: 0 });
+      tl.fromTo(q(".s03-sel"), { opacity: 0, scale: 1.1, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, immediateRender: false }, COPIA - 0.1);
+      tl.fromTo(q(".s03-sel"), { strokeDashoffset: 0 }, { strokeDashoffset: -96, duration: 1, ease: "none", immediateRender: false }, COPIA);
+      pop(q(".s03-copiar"), COPIA + 0.1);
+      paso(".s03-c3", P3);
+      pop(q(".s03-pla"), P3 + 0.1);
+      dibujar([q(".s03-flecha")], PEGA - 0.3, 0.3);
+      dibujar([q(".s03-punta")], PEGA, 0.12);
+      gsap.set(q(".s03-papel"), { opacity: 0 });
+      tl.fromTo(q(".s03-papel"), { opacity: 0, x: -200, y: -10, rotation: -12, transformOrigin: "50% 50%" }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: 0.35, ease: "back.out(1.4)", immediateRender: false }, PEGA - 0.1);
+      gsap.set(q(".s03-celda"), { opacity: 0 });
+      tl.to(q(".s03-celda"), { opacity: 1, duration: 0.1 }, PEGA + 0.25);
+      paso(".s03-c4", P4);
+      pop(q(".s03-loop"), P4 + 0.05);
+      pop(q(".s03-loop-p"), P4 + 0.05);
+      tl.to([q(".s03-loop"), q(".s03-loop-p")], { rotation: 360, svgOrigin: "830 1170", duration: 0.9, ease: "power2.inOut" }, REPETI - 0.1);
+      golpe(q(".s03-x47"), REPETI, 2);
+      // el loop: los cuatro pasos laten en orden, como si volviera a empezar
+      [".s03-c1", ".s03-c2", ".s03-c3", ".s03-c4"].forEach((s, i) => tl.to(q(s), { scale: 1.04, transformOrigin: "50% 50%", duration: 0.1, yoyo: true, repeat: 1 }, REPETI + 0.15 + i * 0.12));
+      tl.to(q(".s03-escenario"), { rotation: -1.5, transformOrigin: "50% 50%", duration: 0.3, yoyo: true, repeat: 1 }, REPETI + 0.2);
+  
+      tl.fromTo(q(".s03-escenario"), { scale: 1.035 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      tl.to(q("#s03-escena"), { y: -260, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

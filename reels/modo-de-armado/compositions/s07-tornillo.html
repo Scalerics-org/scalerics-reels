@@ -1,0 +1,148 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-tornillo"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-tornillo"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-tornillo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-tornillo"] .tinta { fill: #fffdf6; stroke: #1a1a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-tornillo"] .linea { fill: none; stroke: #1a1a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-tornillo"] .fina { fill: none; stroke: #1a1a1a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-tornillo"] .guia { fill: none; stroke: #b9b3a3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 12; }
+    [data-composition-id="s07-tornillo"] .sombra { fill: #b9b3a3; opacity: 0.55; }
+    [data-composition-id="s07-tornillo"] .relleno-n { fill: #1a1a1a; }
+    [data-composition-id="s07-tornillo"] .amarillo { fill: #ffcf1f; stroke: #1a1a1a; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s07-tornillo"] .azul { fill: none; stroke: #2b50d6; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-tornillo"] .azul-r { fill: #2b50d6; stroke: #1a1a1a; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s07-tornillo"] .rojo { fill: none; stroke: #e0362c; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-tornillo"] .mb-n { fill: none; stroke: #1a1a1a; stroke-width: 28; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-tornillo"] .mb-p { fill: none; stroke: #fffdf6; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-tornillo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #1a1a1a; }
+    [data-composition-id="s07-tornillo"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #1a1a1a; }
+    [data-composition-id="s07-tornillo"] .num { font-family: "Lexend", sans-serif; font-weight: 800; fill: #1a1a1a; }
+    [data-composition-id="s07-tornillo"] .s07-etiqueta { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.34em; color: #2b50d6; text-transform: uppercase; white-space: nowrap; }
+    
+  </style>
+  <div id="root" data-composition-id="s07-tornillo" data-width="1080" data-height="1920" data-duration="7.38">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="7.38" data-track-index="0">
+      <div class="s07-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <!-- reloj de pared -->
+          <g class="s07-reloj">
+            <circle class="tinta" cx="800" cy="760" r="120" />
+            <path class="fina" d="M800 652 v18 M800 850 v18 M692 760 h18 M890 760 h18" />
+          </g>
+          <path class="s07-ah" d="M800 760 V672" fill="none" stroke="#1a1a1a" stroke-width="9" stroke-linecap="round" />
+          <path class="s07-am" d="M800 760 V700" fill="none" stroke="#e0362c" stroke-width="12" stroke-linecap="round" />
+          <circle cx="800" cy="760" r="10" class="relleno-n" />
+          <text class="num s07-hora" x="800" y="950" text-anchor="middle" font-size="64" style="fill:#e0362c">00:30</text>
+          <path class="linea" d="M80 1272 H1010" style="stroke:#b9b3a3" />
+          <!-- el hombrecito sentado en el piso, encorvado, con la llave Allen -->
+          <g transform="translate(290 1404) scale(1.3)"><g class="s07-h" data-hombre='{"piernaI":"M-20 -104 L52 -168 L92 -104 L112 -104","piernaD":"M20 -104 L78 -158 L118 -104 L136 -104","brazoD":"M40 -196 L82 -150 L118 -170","brazoI":"M-40 -196 L-10 -150 L30 -150"}'></g></g>
+          <path class="s07-allen" d="M455 1180 H500 V1230" fill="none" stroke="#1a1a1a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+          <!-- el tornillo sobrante -->
+          <g class="s07-tor">
+            <path class="tinta" d="M600 1226 h28 v44 h-28 Z" />
+            <path class="tinta" d="M628 1238 h70 l10 10 l-10 10 h-70 Z" />
+            <path class="fina" d="M642 1238 l-6 20 M660 1238 l-6 20 M678 1238 l-6 20" />
+          </g>
+          <circle class="rojo s07-circ" cx="654" cy="1248" r="78" />
+          <text class="mono s07-x1" x="740" y="1160">x1 ?</text>
+          <path class="guia s07-vuelo" d="M640 1220 Q470 980 236 1160" />
+          <path class="rojo s07-crac" d="M196 1110 l-34 -20 M200 1160 l-44 0 M196 1210 l-34 20" style="stroke-width:7" />
+          <g class="s07-ok">
+            <circle cx="620" cy="1100" r="58" fill="#fffdf6" stroke="#2b50d6" stroke-width="8" />
+            <path class="azul" d="M590 1102 L612 1126 L650 1078" style="stroke-width:10" />
+            <text class="lex" x="700" y="1116" font-size="46" style="fill:#2b50d6">normal</text>
+          </g>
+  
+        </svg>
+<div class="s07-etiqueta">Pieza sobrante</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-tornillo";
+      const DUR = 7.38;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      // el hombrecito del pictograma (igual que en s01): pies en (0,0), ~300 px, sin cara
+      const miembro = (d) => '<path class="mb-n" d="' + d + '"/><path class="mb-p" d="' + d + '"/>';
+      const hombre = (o) => { o = o || {}; return '<g class="hb">' +
+        '<g class="hb-piernas">' + miembro(o.piernaI || "M-22 -104 L-27 -10 L-46 -10") + miembro(o.piernaD || "M22 -104 L27 -10 L46 -10") + '</g>' +
+        '<g class="hb-bi">' + miembro(o.brazoI || "M-40 -196 L-58 -142 L-62 -100") + '</g>' +
+        '<g class="hb-bd">' + miembro(o.brazoD || "M40 -196 L58 -142 L62 -100") + '</g>' +
+        '<path class="tinta hb-cuerpo" d="M-50 -208 Q0 -224 50 -208 L46 -98 Q0 -88 -46 -98 Z" />' +
+        '<circle class="tinta hb-cabeza" cx="0" cy="-258" r="36" />' + (o.extra || "") + '</g>'; };
+      qa("[data-hombre]").forEach((g) => { g.innerHTML = hombre(JSON.parse(g.dataset.hombre || "{}")); });
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1) });
+          if ((desde ?? 1) >= 1) { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, desde) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const golpe = (el, t, escala) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: escala ?? 2.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (el, t, d) => tl.to(el, { opacity: 0, duration: d ?? 0.2 }, t);
+      const temblor = (t, f) => [[-12, 7], [9, -5], [-4, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiquetas = (lista) => lista.forEach(([sel, a, b]) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, a);
+        if (b != null) tl.to(q(sel), { opacity: 0, y: -14, duration: 0.2 }, b);
+      });
+
+      const DOCE = 0.47, MEDIA = 1.16, TORNILLO = 2.36, ESE = 3.64, ESPALDA = 5.46, NORMAL = 5.99;
+      const H = q(".s07-h .hb");
+      gsap.set(H, { rotation: 14, svgOrigin: "0 -104" });
+      tl.fromTo(H, { opacity: 0.6, y: 10 }, { opacity: 1, y: 0, duration: 0.3 }, 0);
+      tl.fromTo(q(".s07-reloj"), { opacity: 0.5, scale: 0.9, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      // las agujas giran hasta las doce y media
+      gsap.set(q(".s07-ah"), { rotation: -40, svgOrigin: "800 760" });
+      gsap.set(q(".s07-am"), { rotation: -200, svgOrigin: "800 760" });
+      tl.to(q(".s07-ah"), { rotation: 15, svgOrigin: "800 760", duration: 1.0, ease: "power2.inOut" }, 0.05);
+      tl.to(q(".s07-am"), { rotation: 180, svgOrigin: "800 760", duration: 1.1, ease: "power2.inOut" }, 0.05);
+      golpe(q(".s07-hora"), MEDIA, 1.8);
+      tl.to(q(".s07-reloj"), { rotation: 5, svgOrigin: "800 760", duration: 0.06, yoyo: true, repeat: 5 }, MEDIA + 0.1);
+      // la llave Allen gira en la mano, cansada
+      tl.to(q(".s07-allen"), { rotation: -30, svgOrigin: "470 1200", duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.2);
+      // "me sobró un tornillo"
+      pop(q(".s07-tor"), TORNILLO - 0.3, 0.4);
+      dibujar([q(".s07-circ")], TORNILLO - 0.05, 0.35);
+      pop(q(".s07-x1"), TORNILLO + 0.2);
+      tl.to(q(".s07-h .hb-cabeza"), { x: 10, duration: 0.25, ease: "power2.out" }, TORNILLO);
+      // "ese tornillo": zoom al tornillo
+      tl.to(q(".s07-tor"), { scale: 1.5, svgOrigin: "654 1248", duration: 0.4, ease: "back.out(1.6)" }, ESE);
+      tl.to(q(".s07-circ"), { scale: 1.5, svgOrigin: "654 1248", duration: 0.4, ease: "back.out(1.6)" }, ESE);
+      tl.to(q(".s07-tor"), { rotation: 20, svgOrigin: "654 1248", duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, ESE + 0.4);
+      // "es tu espalda": el tornillo vuela a la espalda y el hombrecito se endereza con un crac
+      dibujar([q(".s07-vuelo")], ESPALDA - 0.6, 0.4);
+      tl.to([q(".s07-circ"), q(".s07-x1")], { opacity: 0, duration: 0.15 }, ESPALDA - 0.5);
+      tl.to(q(".s07-tor"), { x: -400, y: -80, scale: 0.9, rotation: -160, svgOrigin: "654 1248", duration: 0.5, ease: "power2.in" }, ESPALDA - 0.45);
+      tl.to(H, { rotation: 0, svgOrigin: "0 -104", duration: 0.15, ease: "back.out(3)" }, ESPALDA + 0.05);
+      dibujar(qa(".s07-crac"), ESPALDA + 0.05, 0.12);
+      temblor(ESPALDA + 0.05, 1.2);
+      tl.to(q(".s07-vuelo"), { opacity: 0, duration: 0.2 }, ESPALDA + 0.2);
+      pop(q(".s07-ok"), NORMAL - 0.1, 0.5);
+      etiquetas([[".s07-etiqueta", TORNILLO]]);
+  
+      tl.fromTo(q(".s07-escenario"), { scale: 1.035 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      tl.to(q("#s07-escena"), { y: -260, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

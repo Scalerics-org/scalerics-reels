@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-una-pagina"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-una-pagina"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-una-pagina"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-una-pagina"] .tinta { fill: #fffdf6; stroke: #1a1a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-una-pagina"] .linea { fill: none; stroke: #1a1a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-una-pagina"] .fina { fill: none; stroke: #1a1a1a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-una-pagina"] .guia { fill: none; stroke: #b9b3a3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 12; }
+    [data-composition-id="s12-una-pagina"] .sombra { fill: #b9b3a3; opacity: 0.55; }
+    [data-composition-id="s12-una-pagina"] .relleno-n { fill: #1a1a1a; }
+    [data-composition-id="s12-una-pagina"] .amarillo { fill: #ffcf1f; stroke: #1a1a1a; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s12-una-pagina"] .azul { fill: none; stroke: #2b50d6; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-una-pagina"] .azul-r { fill: #2b50d6; stroke: #1a1a1a; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s12-una-pagina"] .rojo { fill: none; stroke: #e0362c; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-una-pagina"] .mb-n { fill: none; stroke: #1a1a1a; stroke-width: 28; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-una-pagina"] .mb-p { fill: none; stroke: #fffdf6; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-una-pagina"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #1a1a1a; }
+    [data-composition-id="s12-una-pagina"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #1a1a1a; }
+    [data-composition-id="s12-una-pagina"] .num { font-family: "Lexend", sans-serif; font-weight: 800; fill: #1a1a1a; }
+    [data-composition-id="s12-una-pagina"] .s12-etiqueta { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.34em; color: #2b50d6; text-transform: uppercase; white-space: nowrap; }
+    
+  </style>
+  <div id="root" data-composition-id="s12-una-pagina" data-width="1080" data-height="1920" data-duration="4.35">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="4.35" data-track-index="0">
+      <div class="s12-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <rect class="tinta s12-hoja" x="390" y="1275" width="300" height="15" rx="3" style="stroke-width:5" />
+          <rect class="tinta s12-hoja" x="398" y="1260" width="300" height="15" rx="3" style="stroke-width:5" />
+          <rect class="tinta s12-hoja" x="390" y="1245" width="300" height="15" rx="3" style="stroke-width:5" />
+          <rect class="tinta s12-hoja" x="398" y="1230" width="300" height="15" rx="3" style="stroke-width:5" />
+          <rect class="tinta s12-hoja" x="390" y="1215" width="300" height="15" rx="3" style="stroke-width:5" />
+          <rect class="tinta s12-hoja" x="398" y="1200" width="300" height="15" rx="3" style="stroke-width:5" />
+          <rect class="tinta s12-hoja" x="390" y="1185" width="300" height="15" rx="3" style="stroke-width:5" />
+          <rect class="tinta s12-hoja" x="398" y="1170" width="300" height="15" rx="3" style="stroke-width:5" />
+          <rect class="tinta s12-hoja" x="390" y="1155" width="300" height="15" rx="3" style="stroke-width:5" />
+          <g class="s12-hojita">
+            <rect class="sombra" x="218" y="618" width="660" height="700" rx="14" />
+            <rect class="tinta" x="210" y="610" width="660" height="700" rx="14" />
+            <text class="num" x="250" y="690" font-size="44">MANUAL NUEVO</text>
+            <path class="fina" d="M250 716 H830" />
+          </g>
+          <g class="s12-sello">
+            <rect x="690" y="640" width="150" height="70" rx="10" fill="#ffcf1f" stroke="#1a1a1a" stroke-width="6" />
+            <text class="num" x="765" y="690" text-anchor="middle" font-size="44">1/1</text>
+          </g>
+          <text class="num s12-uno" x="250" y="900" font-size="190">1</text>
+          <!-- la cama -->
+          <g class="s12-cama">
+            <path class="tinta" d="M300 1150 H800 V1210 H300 Z" />
+            <path class="linea" d="M300 1060 V1270 M800 1120 V1270" />
+            <rect class="tinta" x="320" y="1100" width="110" height="46" rx="18" />
+          </g>
+          <g transform="translate(640 1108) rotate(-90) scale(0.9)"><g class="s12-h" data-hombre='{}'></g></g>
+          <path class="tinta s12-manta" d="M500 1070 Q650 1050 790 1080 V1150 H500 Z" />
+          <text class="num s12-z s12-z1" x="440" y="1030" font-size="54" style="fill:#2b50d6">Z</text>
+          <text class="num s12-z s12-z2" x="490" y="980" font-size="66" style="fill:#2b50d6">Z</text>
+          <text class="num s12-z s12-z3" x="550" y="920" font-size="80" style="fill:#2b50d6">Z</text>
+          <path class="linea s12-luna" d="M780 900 A46 46 0 1 1 746 840 A36 36 0 1 0 780 900 Z" />
+  
+        </svg>
+<div class="s12-etiqueta">1 paso</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-una-pagina";
+      const DUR = 4.35;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      // el hombrecito del pictograma (igual que en s01): pies en (0,0), ~300 px, sin cara
+      const miembro = (d) => '<path class="mb-n" d="' + d + '"/><path class="mb-p" d="' + d + '"/>';
+      const hombre = (o) => { o = o || {}; return '<g class="hb">' +
+        '<g class="hb-piernas">' + miembro(o.piernaI || "M-22 -104 L-27 -10 L-46 -10") + miembro(o.piernaD || "M22 -104 L27 -10 L46 -10") + '</g>' +
+        '<g class="hb-bi">' + miembro(o.brazoI || "M-40 -196 L-58 -142 L-62 -100") + '</g>' +
+        '<g class="hb-bd">' + miembro(o.brazoD || "M40 -196 L58 -142 L62 -100") + '</g>' +
+        '<path class="tinta hb-cuerpo" d="M-50 -208 Q0 -224 50 -208 L46 -98 Q0 -88 -46 -98 Z" />' +
+        '<circle class="tinta hb-cabeza" cx="0" cy="-258" r="36" />' + (o.extra || "") + '</g>'; };
+      qa("[data-hombre]").forEach((g) => { g.innerHTML = hombre(JSON.parse(g.dataset.hombre || "{}")); });
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1) });
+          if ((desde ?? 1) >= 1) { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, desde) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const golpe = (el, t, escala) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: escala ?? 2.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (el, t, d) => tl.to(el, { opacity: 0, duration: d ?? 0.2 }, t);
+      const temblor = (t, f) => [[-12, 7], [9, -5], [-4, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s12-escenario"), { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiquetas = (lista) => lista.forEach(([sel, a, b]) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, a);
+        if (b != null) tl.to(q(sel), { opacity: 0, y: -14, duration: 0.2 }, b);
+      });
+
+      const NUEVO = 0.52, UNA = 1.27, PAGINA = 1.49, PASO = 2.23, ANDA = 3.05;
+      // el manual de 47 pasos se desarma: las hojas vuelan
+      qa(".s12-hoja").forEach((h, i) => {
+        tl.fromTo(h, { opacity: 1, x: 0, y: 0, rotation: 0 }, { opacity: 0, x: (i % 2 ? 1 : -1) * (400 + i * 40), y: -300 - i * 40, rotation: (i % 2 ? 40 : -40), transformOrigin: "50% 50%", duration: 0.5, ease: "power2.in" }, 0.05 + i * 0.04);
+      });
+      gsap.set(q(".s12-hojita"), { opacity: 0 });
+      tl.fromTo(q(".s12-hojita"), { opacity: 0, scale: 0.7, rotation: -6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 0, duration: 0.4, ease: "back.out(1.6)", immediateRender: false }, NUEVO - 0.15);
+      golpe(q(".s12-sello"), UNA + 0.1, 2.2);
+      tl.to(q(".s12-sello"), { rotation: 8, svgOrigin: "765 675", duration: 0.2 }, PAGINA);
+      golpe(q(".s12-uno"), PASO + 0.1, 2);
+      // "andá a dormir": cama, hombrecito acostado, Z Z Z
+      pop(q(".s12-cama"), ANDA - 0.4);
+      gsap.set(q(".s12-manta"), { opacity: 0 });
+      tl.fromTo(q(".s12-manta"), { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, ANDA + 0.05);
+      gsap.set(q(".s12-h .hb"), { opacity: 0 });
+      tl.fromTo(q(".s12-h .hb"), { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", immediateRender: false }, ANDA - 0.2);
+      tl.to(q(".s12-cama"), { y: 6, duration: 0.08, yoyo: true, repeat: 1 }, ANDA + 0.1);
+      qa(".s12-z").forEach((z, i) => {
+        gsap.set(z, { opacity: 0 });
+        tl.fromTo(z, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, ANDA + 0.2 + i * 0.25);
+        tl.to(z, { y: -10, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, ANDA + 0.5 + i * 0.25);
+      });
+      dibujar([q(".s12-luna")], ANDA, 0.4);
+      etiquetas([[".s12-etiqueta", PASO]]);
+  
+      tl.fromTo(q(".s12-escenario"), { scale: 1.035 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      tl.to(q("#s12-escena"), { y: -260, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

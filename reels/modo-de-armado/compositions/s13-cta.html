@@ -1,0 +1,136 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-cta"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-cta"] .tinta { fill: #fffdf6; stroke: #1a1a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-cta"] .linea { fill: none; stroke: #1a1a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-cta"] .fina { fill: none; stroke: #1a1a1a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-cta"] .guia { fill: none; stroke: #b9b3a3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 12; }
+    [data-composition-id="s13-cta"] .sombra { fill: #b9b3a3; opacity: 0.55; }
+    [data-composition-id="s13-cta"] .relleno-n { fill: #1a1a1a; }
+    [data-composition-id="s13-cta"] .amarillo { fill: #ffcf1f; stroke: #1a1a1a; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s13-cta"] .azul { fill: none; stroke: #2b50d6; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-cta"] .azul-r { fill: #2b50d6; stroke: #1a1a1a; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s13-cta"] .rojo { fill: none; stroke: #e0362c; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-cta"] .mb-n { fill: none; stroke: #1a1a1a; stroke-width: 28; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-cta"] .mb-p { fill: none; stroke: #fffdf6; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #1a1a1a; }
+    [data-composition-id="s13-cta"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #1a1a1a; }
+    [data-composition-id="s13-cta"] .num { font-family: "Lexend", sans-serif; font-weight: 800; fill: #1a1a1a; }
+    [data-composition-id="s13-cta"] .s13-etiqueta { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.34em; color: #2b50d6; text-transform: uppercase; white-space: nowrap; }
+    
+  </style>
+  <div id="root" data-composition-id="s13-cta" data-width="1080" data-height="1920" data-duration="5.79">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="5.79" data-track-index="0">
+      <div class="s13-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <g class="s13-glob">
+            <path class="sombra" d="M138 668 H978 a24 24 0 0 1 24 24 V998 a24 24 0 0 1 -24 24 H330 L218 1100 L238 1022 H138 a24 24 0 0 1 -24 -24 V692 a24 24 0 0 1 24 -24 Z" />
+            <path class="tinta" d="M130 660 H970 a24 24 0 0 1 24 24 V990 a24 24 0 0 1 -24 24 H322 L210 1092 L230 1014 H130 a24 24 0 0 1 -24 -24 V684 a24 24 0 0 1 24 -24 Z" />
+            <text class="mono" x="160" y="716" style="fill:#7d7768">COMENTARIOS</text>
+            <path class="guia" d="M160 740 H960" />
+          </g>
+          <text class="num s13-paso" x="160" y="900" font-size="130">Paso</text>
+          <path class="s13-raya" d="M505 905 H700" fill="none" stroke="#2b50d6" stroke-width="12" stroke-linecap="round" />
+          <rect class="s13-cursor" x="712" y="790" width="10" height="120" fill="#2b50d6" />
+          <text class="num s13-preg" x="780" y="905" font-size="140" style="fill:#e0362c">?</text>
+          <text class="lex s13-sub" x="160" y="975" font-size="40">¿en cuál te agarran las doce?</text>
+          <!-- el reloj chico -->
+          <g class="s13-reloj">
+            <circle class="tinta" cx="840" cy="1210" r="86" style="stroke:#e0362c;stroke-width:8" />
+            <path class="fina" d="M840 1136 v12 M840 1272 v12 M766 1210 h12 M902 1210 h12" />
+          </g>
+          <path class="s13-ah" d="M840 1210 V1160" fill="none" stroke="#1a1a1a" stroke-width="9" stroke-linecap="round" />
+          <path class="s13-am" d="M840 1210 V1144" fill="none" stroke="#e0362c" stroke-width="7" stroke-linecap="round" />
+          <circle cx="840" cy="1210" r="9" class="relleno-n s13-eje" />
+          <g transform="translate(380 1330) scale(0.75)"><g class="s13-h" data-hombre='{"brazoD":"M40 -196 L90 -230 L120 -280"}'></g></g>
+          <path class="azul s13-flecha" d="M520 1220 Q620 1150 640 1060" />
+          <path class="azul s13-punta" d="M616 1080 L640 1056 L660 1084" />
+  
+        </svg>
+<div class="s13-etiqueta">Comentá tu paso</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-cta";
+      const DUR = 5.79;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      // el hombrecito del pictograma (igual que en s01): pies en (0,0), ~300 px, sin cara
+      const miembro = (d) => '<path class="mb-n" d="' + d + '"/><path class="mb-p" d="' + d + '"/>';
+      const hombre = (o) => { o = o || {}; return '<g class="hb">' +
+        '<g class="hb-piernas">' + miembro(o.piernaI || "M-22 -104 L-27 -10 L-46 -10") + miembro(o.piernaD || "M22 -104 L27 -10 L46 -10") + '</g>' +
+        '<g class="hb-bi">' + miembro(o.brazoI || "M-40 -196 L-58 -142 L-62 -100") + '</g>' +
+        '<g class="hb-bd">' + miembro(o.brazoD || "M40 -196 L58 -142 L62 -100") + '</g>' +
+        '<path class="tinta hb-cuerpo" d="M-50 -208 Q0 -224 50 -208 L46 -98 Q0 -88 -46 -98 Z" />' +
+        '<circle class="tinta hb-cabeza" cx="0" cy="-258" r="36" />' + (o.extra || "") + '</g>'; };
+      qa("[data-hombre]").forEach((g) => { g.innerHTML = hombre(JSON.parse(g.dataset.hombre || "{}")); });
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1) });
+          if ((desde ?? 1) >= 1) { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, desde) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const golpe = (el, t, escala) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: escala ?? 2.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (el, t, d) => tl.to(el, { opacity: 0, duration: d ?? 0.2 }, t);
+      const temblor = (t, f) => [[-12, 7], [9, -5], [-4, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s13-escenario"), { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiquetas = (lista) => lista.forEach(([sel, a, b]) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, a);
+        if (b != null) tl.to(q(sel), { opacity: 0, y: -14, duration: 0.2 }, b);
+      });
+
+      const COMENT = 0.46, QUE = 1.18, PASO = 1.28, AGARRAN = 1.73, DOCE = 2.09;
+      tl.fromTo(q(".s13-glob"), { opacity: 0.5, scale: 0.9, transformOrigin: "30% 100%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 0);
+      tl.to(q(".s13-glob"), { scale: 1.03, transformOrigin: "30% 100%", duration: 0.12, yoyo: true, repeat: 1 }, COMENT);
+      tl.fromTo(q(".s13-h .hb"), { opacity: 0.5, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, 0.1);
+      pop(q(".s13-paso"), QUE - 0.1);
+      dibujar([q(".s13-raya")], PASO, 0.3);
+      golpe(q(".s13-preg"), PASO + 0.2, 2);
+      pop(q(".s13-sub"), AGARRAN - 0.1);
+      // el cursor titila (finito, determinista)
+      gsap.set(q(".s13-cursor"), { opacity: 0 });
+      for (let t = PASO + 0.3; t < DUR - 0.3; t += 0.5) { tl.set(q(".s13-cursor"), { opacity: 1 }, t); tl.set(q(".s13-cursor"), { opacity: 0 }, t + 0.25); }
+      // "las doce": el reloj llega a las 12 con un sacudón
+      pop(q(".s13-reloj"), 0.2);
+      gsap.set(q(".s13-ah"), { rotation: -60, svgOrigin: "840 1210" });
+      gsap.set(q(".s13-am"), { rotation: -200, svgOrigin: "840 1210" });
+      tl.to(q(".s13-ah"), { rotation: 0, svgOrigin: "840 1210", duration: 1.6, ease: "power2.inOut" }, 0.4);
+      tl.to(q(".s13-am"), { rotation: 0, svgOrigin: "840 1210", duration: 1.7, ease: "power2.inOut" }, 0.4);
+      tl.to(q(".s13-reloj"), { rotation: 8, svgOrigin: "840 1210", duration: 0.06, yoyo: true, repeat: 7 }, DOCE);
+      temblor(DOCE + 0.05, 0.8);
+      // la flecha de montaje apunta al comentario; el hombrecito señala
+      dibujar([q(".s13-flecha")], AGARRAN, 0.4);
+      dibujar([q(".s13-punta")], AGARRAN + 0.35, 0.12);
+      tl.to(q(".s13-h .hb-bd"), { rotation: -18, svgOrigin: "40 -196", duration: 0.35, yoyo: true, repeat: 5, ease: "sine.inOut" }, DOCE + 0.3);
+      tl.to(q(".s13-preg"), { rotation: 14, svgOrigin: "820 860", duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, DOCE + 0.2);
+      tl.to(q(".s13-flecha"), { y: -10, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, DOCE + 0.6);
+      tl.to(q(".s13-punta"), { y: -10, duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, DOCE + 0.6);
+      etiquetas([[".s13-etiqueta", AGARRAN]]);
+  
+      tl.fromTo(q(".s13-escenario"), { scale: 1.035 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      tl.to(q("#s13-escena"), { y: -260, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

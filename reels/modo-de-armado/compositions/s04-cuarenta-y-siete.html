@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-cuarenta-y-siete"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-cuarenta-y-siete"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-cuarenta-y-siete"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-cuarenta-y-siete"] .tinta { fill: #fffdf6; stroke: #1a1a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cuarenta-y-siete"] .linea { fill: none; stroke: #1a1a1a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cuarenta-y-siete"] .fina { fill: none; stroke: #1a1a1a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cuarenta-y-siete"] .guia { fill: none; stroke: #b9b3a3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 12; }
+    [data-composition-id="s04-cuarenta-y-siete"] .sombra { fill: #b9b3a3; opacity: 0.55; }
+    [data-composition-id="s04-cuarenta-y-siete"] .relleno-n { fill: #1a1a1a; }
+    [data-composition-id="s04-cuarenta-y-siete"] .amarillo { fill: #ffcf1f; stroke: #1a1a1a; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s04-cuarenta-y-siete"] .azul { fill: none; stroke: #2b50d6; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cuarenta-y-siete"] .azul-r { fill: #2b50d6; stroke: #1a1a1a; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s04-cuarenta-y-siete"] .rojo { fill: none; stroke: #e0362c; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cuarenta-y-siete"] .mb-n { fill: none; stroke: #1a1a1a; stroke-width: 28; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cuarenta-y-siete"] .mb-p { fill: none; stroke: #fffdf6; stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cuarenta-y-siete"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #1a1a1a; }
+    [data-composition-id="s04-cuarenta-y-siete"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #1a1a1a; }
+    [data-composition-id="s04-cuarenta-y-siete"] .num { font-family: "Lexend", sans-serif; font-weight: 800; fill: #1a1a1a; }
+    [data-composition-id="s04-cuarenta-y-siete"] .s04-etiqueta { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.34em; color: #2b50d6; text-transform: uppercase; white-space: nowrap; }
+    
+  </style>
+  <div id="root" data-composition-id="s04-cuarenta-y-siete" data-width="1080" data-height="1920" data-duration="5.37">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="5.37" data-track-index="0">
+      <div class="s04-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+          <ellipse class="sombra" cx="330" cy="1316" rx="130" ry="16" />
+          <g transform="translate(330 1310) scale(1.55)"><g class="s04-h" data-hombre='{"extra":""}'></g></g>
+          <!-- globito con signo de pregunta -->
+          <g class="s04-glob">
+            <path class="tinta" d="M430 620 h170 a24 24 0 0 1 24 24 v110 a24 24 0 0 1 -24 24 h-110 l-50 40 l10 -40 h-20 a24 24 0 0 1 -24 -24 v-110 a24 24 0 0 1 24 -24 Z" />
+            <text class="num s04-preg" x="515" y="746" text-anchor="middle" font-size="120">?</text>
+            <text class="num s04-excl" x="515" y="746" text-anchor="middle" font-size="110" fill="#e0362c" style="fill:#e0362c">¡?</text>
+          </g>
+          <!-- la pila del manual -->
+          <g class="s04-hoja"><rect class="tinta" x="640" y="1284" width="320" height="16" rx="3" /></g>
+          <g class="s04-hoja"><rect class="tinta" x="648" y="1268" width="320" height="16" rx="3" /></g>
+          <g class="s04-hoja"><rect class="tinta" x="640" y="1252" width="320" height="16" rx="3" /></g>
+          <g class="s04-hoja"><rect class="tinta" x="648" y="1236" width="320" height="16" rx="3" /></g>
+          <g class="s04-hoja"><rect class="tinta" x="640" y="1220" width="320" height="16" rx="3" /></g>
+          <g class="s04-hoja"><rect class="tinta" x="648" y="1204" width="320" height="16" rx="3" /></g>
+          <g class="s04-hoja"><rect class="tinta" x="640" y="1188" width="320" height="16" rx="3" /></g>
+          <g class="s04-hoja"><rect class="tinta" x="648" y="1172" width="320" height="16" rx="3" /></g>
+          <g class="s04-hoja"><rect class="tinta" x="640" y="1156" width="320" height="16" rx="3" /></g>
+          <g class="s04-hoja"><rect class="tinta" x="648" y="1140" width="320" height="16" rx="3" /></g>
+          <text class="num s04-47" x="800" y="1130" text-anchor="middle" font-size="230">47</text>
+          <g class="s04-tilde">
+            <circle cx="962" cy="930" r="40" fill="#fffdf6" stroke="#2b50d6" stroke-width="7" />
+            <path class="azul" d="M942 932 L957 948 L984 914" />
+          </g>
+          <path class="rojo s04-rayos" d="M240 820 l-40 -40 M330 790 v-56 M420 820 l40 -40" />
+  
+        </svg>
+<div class="s04-etiqueta">Paso 47 de 47</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-cuarenta-y-siete";
+      const DUR = 5.37;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      // el hombrecito del pictograma (igual que en s01): pies en (0,0), ~300 px, sin cara
+      const miembro = (d) => '<path class="mb-n" d="' + d + '"/><path class="mb-p" d="' + d + '"/>';
+      const hombre = (o) => { o = o || {}; return '<g class="hb">' +
+        '<g class="hb-piernas">' + miembro(o.piernaI || "M-22 -104 L-27 -10 L-46 -10") + miembro(o.piernaD || "M22 -104 L27 -10 L46 -10") + '</g>' +
+        '<g class="hb-bi">' + miembro(o.brazoI || "M-40 -196 L-58 -142 L-62 -100") + '</g>' +
+        '<g class="hb-bd">' + miembro(o.brazoD || "M40 -196 L58 -142 L62 -100") + '</g>' +
+        '<path class="tinta hb-cuerpo" d="M-50 -208 Q0 -224 50 -208 L46 -98 Q0 -88 -46 -98 Z" />' +
+        '<circle class="tinta hb-cabeza" cx="0" cy="-258" r="36" />' + (o.extra || "") + '</g>'; };
+      qa("[data-hombre]").forEach((g) => { g.innerHTML = hombre(JSON.parse(g.dataset.hombre || "{}")); });
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1) });
+          if ((desde ?? 1) >= 1) { gsap.set(el, { opacity: 0 }); tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04); }
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, desde) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const golpe = (el, t, escala) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: escala ?? 2.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const fuera = (el, t, d) => tl.to(el, { opacity: 0, duration: d ?? 0.2 }, t);
+      const temblor = (t, f) => [[-12, 7], [9, -5], [-4, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x: x * (f ?? 1), y: y * (f ?? 1), duration: 0.04, ease: "none" }, t + i * 0.045));
+      const etiquetas = (lista) => lista.forEach(([sel, a, b]) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, a);
+        if (b != null) tl.to(q(sel), { opacity: 0, y: -14, duration: 0.2 }, b);
+      });
+
+      const CUANDO = 0.19, HASTA = 1.56, CUARENTA = 2.09, SIETE = 2.71, GRITO = 3.46;
+      const H = ".s04-h .hb";
+      tl.fromTo(q(H), { opacity: 0.6, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      // "¿hasta cuándo?": cabeza ladeada, mano al mentón, globito
+      tl.to(q(H + " .hb-cabeza"), { rotation: -14, svgOrigin: "0 -222", duration: 0.3, ease: "power2.out" }, 0.05);
+      tl.to(q(H + " .hb-bd"), { rotation: -105, svgOrigin: "40 -196", duration: 0.3, ease: "power2.out" }, 0.05);
+      pop(q(".s04-glob"), CUANDO - 0.1, 0.5);
+      gsap.set(q(".s04-excl"), { opacity: 0 });
+      tl.to(q(".s04-preg"), { rotation: 12, svgOrigin: "515 710", duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.5);
+      // "hasta el paso cuarenta y siete": la pila crece hoja a hoja
+      qa(".s04-hoja").forEach((h, i) => {
+        gsap.set(h, { opacity: 0 });
+        tl.fromTo(h, { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.14, ease: "power2.in", immediateRender: false }, HASTA - 0.2 + i * 0.07);
+      });
+      golpe(q(".s04-47"), CUARENTA + 0.1, 2.2);
+      pop(q(".s04-tilde"), SIETE);
+      // "¿¡cuarenta y siete!?": salta, brazos arriba, el 47 se pone rojo
+      tl.to(q(".s04-preg"), { opacity: 0, duration: 0.05 }, GRITO - 0.05);
+      tl.to(q(".s04-excl"), { opacity: 1, duration: 0.05 }, GRITO - 0.05);
+      tl.fromTo(q(".s04-glob"), { scale: 1 }, { scale: 1.25, transformOrigin: "30% 100%", duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, GRITO);
+      tl.to(q(H + " .hb-cabeza"), { rotation: 0, svgOrigin: "0 -222", duration: 0.1 }, GRITO);
+      tl.to(q(H + " .hb-bd"), { rotation: -160, svgOrigin: "40 -196", duration: 0.15, ease: "back.out(2)" }, GRITO);
+      tl.to(q(H + " .hb-bi"), { rotation: 160, svgOrigin: "-40 -196", duration: 0.15, ease: "back.out(2)" }, GRITO);
+      tl.to(q(H), { y: -50, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, GRITO);
+      tl.to(q(".s04-47"), { fill: "#e0362c", scale: 1.15, transformOrigin: "50% 50%", duration: 0.12 }, GRITO);
+      tl.to(q(".s04-47"), { scale: 1, duration: 0.3, ease: "back.out(2)" }, GRITO + 0.15);
+      tl.to(q(".s04-tilde"), { opacity: 0, scale: 0.5, transformOrigin: "50% 50%", duration: 0.15 }, GRITO);
+      dibujar(qa(".s04-rayos"), GRITO + 0.05, 0.15);
+      temblor(GRITO + 0.05, 1.3);
+      tl.to(q(".s04-glob"), { rotation: 6, svgOrigin: "430 820", duration: 0.08, yoyo: true, repeat: 7 }, GRITO + 0.3);
+      etiquetas([[".s04-etiqueta", SIETE]]);
+  
+      tl.fromTo(q(".s04-escenario"), { scale: 1.035 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 55%" }, 0);
+      tl.to(q("#s04-escena"), { y: -260, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
