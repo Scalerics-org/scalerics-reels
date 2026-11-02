@@ -141,6 +141,12 @@
 
 ## En curso
 
+- 02-11 · `el-hipodromo` · Agente de IA · transmisión de turf en Maroñas: tu cliente "corre" hacia el de enfrente mientras tu local larga último por no contestar · reservado (corrida 02-11)
+- 02-11 · `toma-catorce` · Agente de IA · detrás de cámaras del rodaje de la publicidad del local: el WhatsApp interrumpe cada toma, "¡corten!" · reservado (corrida 02-11)
+- 02-11 · `asmr` · Automatizaciones · video ASMR para dormir: el sonido de un comerciante pasando pedidos a la planilla a las 23:40 · reservado (corrida 02-11)
+- 02-11 · `el-match` · CRM · coach de citas revisa la app del dueño: clientes que "matchearon" y nunca les volvió a escribir · reservado (corrida 02-11)
+- 02-11 · `el-naufrago` · Tienda online · bitácora de náufrago en "la isla de Instagram": miles de seguidores y nadie compra · reservado (corrida 02-11)
+
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)
