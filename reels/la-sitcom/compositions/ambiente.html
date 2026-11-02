@@ -1,0 +1,86 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    @font-face { font-family: "Luckiest Guy"; font-weight: 400; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    /* tele vieja: viñeteado y scanlines suaves */
+    [data-composition-id="ambiente"] .am-tele { position: absolute; inset: 0;
+      background: radial-gradient(ellipse 760px 1120px at 540px 960px, rgba(36, 18, 47, 0) 62%, rgba(36, 18, 47, 0.55) 100%); }
+    [data-composition-id="ambiente"] .am-lineas { position: absolute; inset: 0; opacity: 0.07;
+      background: repeating-linear-gradient(180deg, #24122f 0px, #24122f 2px, rgba(36, 18, 47, 0) 2px, rgba(36, 18, 47, 0) 6px); }
+    /* arriba a la izquierda: el logo de la serie */
+    [data-composition-id="ambiente"] .am-logo { position: absolute; left: 56px; top: 96px; font-family: "Fredoka", sans-serif; font-weight: 700; font-size: 62px; line-height: 1; white-space: nowrap; transform: rotate(-3deg); }
+    [data-composition-id="ambiente"] .am-logo span { display: inline-block; -webkit-text-stroke: 5px #24122f; paint-order: stroke fill; text-shadow: 0 5px 0 #24122f; }
+    /* arriba a la derecha: el cartel del público */
+    [data-composition-id="ambiente"] .am-cartel { position: absolute; right: 52px; top: 96px; width: 300px; height: 80px; border: 6px solid #24122f; border-radius: 16px; background: #3a1b56; box-shadow: 0 6px 0 #24122f; }
+    [data-composition-id="ambiente"] .am-cartel span { position: absolute; left: 0; right: 0; top: 18px; text-align: center; font-family: "Luckiest Guy", sans-serif; font-size: 44px; letter-spacing: 0.06em; line-height: 1; color: #fff4e0; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-cartel .am-on { position: absolute; inset: 0; border-radius: 10px; background: #d4581f; box-shadow: 0 0 34px rgba(240, 180, 41, 0.9); opacity: 0; }
+    /* abajo: el golpe de la risa grabada */
+    [data-composition-id="ambiente"] .am-golpe { position: absolute; left: 0; right: 0; top: 1470px; text-align: center; font-family: "Luckiest Guy", sans-serif; font-size: 150px; line-height: 1; white-space: nowrap; color: #f0b429; -webkit-text-stroke: 10px #24122f; paint-order: stroke fill; text-shadow: 0 12px 0 #24122f; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="73.5">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="73.5" data-track-index="0">
+      <div class="am-tele"></div>
+      <div class="am-lineas"></div>
+      <div class="am-logo"><span style="color:#f0b429">D</span><span style="color:#1fb5a8">o</span><span style="color:#d4581f">s</span> <span style="color:#fff4e0">e</span><span style="color:#f0b429">n</span> <span style="color:#1fb5a8">e</span><span style="color:#d4581f">l</span> <span style="color:#f0b429">L</span><span style="color:#fff4e0">o</span><span style="color:#1fb5a8">c</span><span style="color:#d4581f">a</span><span style="color:#f0b429">l</span></div>
+      <div class="am-cartel">
+        <div class="am-on"></div>
+        <span class="am-t0" style="opacity: 0.25">RISAS</span>
+        <span class="am-t1" style="opacity: 0">UUUH</span>
+        <span class="am-t2" style="opacity: 0">AWWW</span>
+      </div>
+      <div class="am-golpe am-g0" style="color:#f0b429; transform: rotate(-5deg)">¡RISAS!</div>
+      <div class="am-golpe am-g1" style="color:#1fb5a8; transform: rotate(4deg)">¡UUUUH!</div>
+      <div class="am-golpe am-g2" style="color:#d4581f; transform: rotate(-3deg)">¡AWWW!</div>
+      <div class="am-golpe am-g3" style="color:#f0b429; transform: rotate(5deg)">¡RISAS!</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const FIN = 58.49; // entra Scalerics: se apaga el set
+      const LOGO = 7.9;  // termina la apertura
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+
+      // logo chico de la serie: aparece cuando termina la apertura, letras que saltan
+      gsap.set(q(".am-logo"), { opacity: 0 });
+      tl.to(q(".am-logo"), { opacity: 1, duration: 0.01 }, LOGO);
+      qa(".am-logo span").forEach((el, i) => tl.fromTo(el, { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(3)", immediateRender: false }, LOGO + i * 0.035));
+      for (let t = 14; t < FIN - 2; t += 9) qa(".am-logo span").forEach((el, i) => tl.fromTo(el, { y: 0 }, { y: -12, duration: 0.12, yoyo: true, repeat: 1, ease: "sine.out", immediateRender: false }, t + i * 0.04));
+      // el cartel del público entra con el logo
+      gsap.set(q(".am-cartel"), { opacity: 0 });
+      tl.fromTo(q(".am-cartel"), { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, LOGO);
+
+      // cartel: [texto, desde, hasta]; en las risas chicas (4.99 y 20.32) solo se prende el cartel
+      const CARTEL = [[0, 20.32, 21.3], [0, 27.76, 29.2], [1, 42.39, 43.7], [2, 51.27, 52.55], [0, 57.03, 58.4]];
+      let actual = 0;
+      for (const [k, a, b] of CARTEL) {
+        if (k !== actual) { tl.set(q(".am-t" + actual), { opacity: 0 }, a - 0.01); actual = k; }
+        tl.set(q(".am-t" + k), { opacity: 1 }, a);
+        tl.fromTo(q(".am-cartel .am-on"), { opacity: 1 }, { opacity: 0.55, duration: 0.18, yoyo: true, repeat: Math.max(1, Math.round((b - a) / 0.18) | 1), ease: "steps(1)", immediateRender: false }, a);
+        tl.fromTo(q(".am-cartel"), { scale: 1.2 }, { scale: 1, duration: 0.3, ease: "back.out(3)", immediateRender: false }, a);
+        tl.set(q(".am-cartel .am-on"), { opacity: 0 }, b);
+        tl.set(q(".am-t" + k), { opacity: 0.25 }, b);
+      }
+      // golpes gigantes de la risa grabada
+      const GOLPES = [[".am-g0", 27.76, 29.25], [".am-g1", 42.39, 43.7], [".am-g2", 51.27, 52.6], [".am-g3", 57.03, 58.3]];
+      for (const [s, a, b] of GOLPES) {
+        tl.fromTo(q(s), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, a);
+        tl.fromTo(q(s), { y: 0 }, { y: -14, duration: 0.15, yoyo: true, repeat: Math.max(1, Math.round((b - a - 0.4) / 0.15) | 1), ease: "sine.inOut", immediateRender: false }, a + 0.18);
+        tl.to(q(s), { opacity: 0, scale: 0.8, duration: 0.18, ease: "power2.in" }, b - 0.18);
+      }
+
+      // Scalerics: se apaga el set de la serie
+      tl.to([q(".am-logo"), q(".am-cartel")], { opacity: 0, y: -40, duration: 0.3 }, FIN);
+      tl.to([q(".am-tele"), q(".am-lineas")], { opacity: 0, duration: 0.5 }, FIN);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,177 @@
+// Arma index.html, compositions/subtitulos.html y tiempos.md desde reel.json y la locución.
+// Correr de nuevo después de cambiar reel.json, la voz o los .sfx.json.
+//
+// reel.json:
+//   escenas: [["s01-algo", 0], ["s02-otra", 15], ...]  id y ÍNDICE de la palabra donde arranca
+//   cortes:  [0, 7, 15, ...]                           primera palabra de cada grupo de subtítulos
+//   acento:  [2, 5, 6, ...]                            palabras en verde
+// Las duraciones salen solas de assets/voice/palabras.json: si la voz cambia, las escenas se
+// recalculan (las animaciones internas de cada escena no: ver "Si la voz cambia" en ../CLAUDE.md).
+import fs from "node:fs";
+import { execSync } from "node:child_process";
+const largo = {};
+const durArchivo = (n) => (largo[n] ??= Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 assets/sfx/${n}.mp3`).toString()));
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+const r2 = (n) => Math.round(n * 100) / 100;
+
+const reel = JSON.parse(fs.readFileSync("reel.json", "utf8"));
+const palabras = JSON.parse(fs.readFileSync("assets/voice/palabras.json", "utf8"));
+const VOZ = r2(Number(execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString()));
+// el CTA queda ~3 s quieto después de la última palabra
+const DUR = r2(Math.max(VOZ, palabras.at(-1).end) + 3.2);
+
+const inicio = (i) => (i === 0 ? 0 : r2(palabras[i].start));
+const TODAS = reel.escenas.map(([id, i], k) => [id, inicio(i), k + 1 < reel.escenas.length ? inicio(reel.escenas[k + 1][1]) : DUR]);
+export const ESCENAS = TODAS.filter(([id]) => fs.existsSync(`compositions/${id}.html`));
+const CORTES = reel.cortes;
+const ACENTO = new Set(reel.acento);
+// la-sitcom: el acento de los subtítulos tiene el color de quien habla
+// (reel.voces: [[índice de palabra, clase]]; d el dueño, a agente de IA, c clientas, o Scalerics)
+const vozDe = (i) => (reel.voces ?? [[0, "d"]]).filter(([d]) => d <= i).at(-1)[1];
+
+// tiempos.md: lo que leen los que construyen escenas
+fs.writeFileSync(
+  "tiempos.md",
+  TODAS.map(([id, a, b]) =>
+    `### ${id} — dura ${(b - a).toFixed(2)} s (inicio global ${a.toFixed(2)})\nPalabras (segundos relativos a la escena): ` +
+    palabras.filter((w) => w.start >= a - 0.01 && w.start < b).map((w) => `${w.text} ${(w.start - a).toFixed(2)}`).join(" · "),
+  ).join("\n\n") + `\n\nDuración total ${DUR} (la voz termina en ${VOZ}).\n`,
+);
+
+// ---------- subtítulos ----------
+let grupos = "";
+let anim = "";
+CORTES.forEach((desde, g) => {
+  const hasta = g + 1 < CORTES.length ? CORTES[g + 1] : palabras.length;
+  const ws = palabras.slice(desde, hasta);
+  const ini = r2(Math.max(0, ws[0].start - 0.12));
+  const proximo = g + 1 < CORTES.length ? palabras[CORTES[g + 1]].start - 0.12 : DUR;
+  const fin = r2(Math.min(proximo, DUR));
+  const id = `sub-g${String(g + 1).padStart(2, "0")}`;
+  const spans = ws
+    .map((w, k) => {
+      const i = desde + k;
+      return `<span class="w${ACENTO.has(i) ? " ac ac-" + vozDe(i) : ""}" data-t="${r2(w.start - ini)}">${esc(w.text)}</span>`;
+    })
+    .join(" ");
+  grupos += `    <div id="${id}" class="grupo clip" data-start="${ini}" data-duration="${r2(fin - ini)}" data-track-index="0"><p>${spans}</p></div>\n`;
+  anim += `      ["${id}", ${ini}, ${r2(fin - ini)}],\n`;
+});
+
+const subtitulos = `<template>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
+    [data-composition-id="subtitulos"] .grupo { position: absolute; left: 72px; top: 236px; width: 936px; }
+    [data-composition-id="subtitulos"] p { margin: 0; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 52px; line-height: 1.24; letter-spacing: -0.005em; color: #efeee5; }
+    [data-composition-id="subtitulos"] .w { display: inline-block; opacity: 0; }
+    [data-composition-id="subtitulos"] p { color: #fff4e0; text-shadow: 0 4px 0 #24122f, 0 0 14px rgba(36, 18, 47, 0.9); }
+    [data-composition-id="subtitulos"] .w.ac { color: #f0b429; }
+    [data-composition-id="subtitulos"] .w.ac-d { color: #f0b429; }
+    [data-composition-id="subtitulos"] .w.ac-c { color: #3fd6c8; }
+    [data-composition-id="subtitulos"] .w.ac-a { color: #5ce611; }
+    [data-composition-id="subtitulos"] .w.ac-o { color: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="subtitulos" data-width="1080" data-height="1920" data-duration="${DUR}">
+${grupos}  </div>
+  <script>
+    (function () {
+      const ID = "subtitulos";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const GRUPOS = [
+${anim}      ];
+      for (const [id, ini, dur] of GRUPOS) {
+        const el = root.querySelector("#" + id);
+        for (const w of el.querySelectorAll(".w")) {
+          const t = ini + Number(w.dataset.t);
+          tl.fromTo(w, { opacity: 0, y: 10, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "power3.out" }, t);
+        }
+        tl.to(el.querySelector("p"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power2.in" }, ini + dur - 0.2);
+      }
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
+`;
+fs.writeFileSync("compositions/subtitulos.html", subtitulos);
+
+// ---------- fondo: el living del set de sitcom (pared violeta empapelada, zócalo, piso, alfombra) ----------
+const LIVING = (() => {
+  let out = "";
+  // empapelado: rombos chiquitos mostaza muy suaves
+  for (let y = 560; y < 1480; y += 80) for (let x = (y / 80) % 2 ? 40 : 0; x < 1100; x += 80)
+    out += `<path d="M${x} ${y - 12} L${x + 10} ${y} L${x} ${y + 12} L${x - 10} ${y} Z" fill="#f0b429" opacity="0.10" />`;
+  // franjas verticales del empapelado
+  for (let x = 0; x < 1080; x += 160) out += `<rect x="${x}" y="470" width="70" height="1010" fill="#8a4cc2" opacity="0.10" />`;
+  // moldura arriba y zócalo
+  out += `<rect x="0" y="456" width="1080" height="18" fill="#f0b429" opacity="0.55" />`;
+  out += `<rect x="0" y="1440" width="1080" height="44" fill="#24122f" /><rect x="0" y="1440" width="1080" height="10" fill="#d4581f" />`;
+  // piso de madera en perspectiva
+  for (let k = 0; k < 12; k++) out += `<path d="M${-300 + k * 150} 1920 L${180 + k * 66} 1484" stroke="#24122f" stroke-width="4" opacity="0.55" />`;
+  // alfombra turquesa con guarda
+  out += `<ellipse cx="540" cy="1620" rx="470" ry="96" fill="#1fb5a8" opacity="0.55" /><ellipse cx="540" cy="1620" rx="420" ry="76" fill="none" stroke="#fff4e0" stroke-width="5" stroke-dasharray="18 14" opacity="0.4" />`;
+  return `<svg viewBox="0 0 1080 1920" aria-hidden="true">${out}</svg>`;
+})();
+
+// ---------- index ----------
+const hosts = ESCENAS.map(
+  ([id, a, b], i) => `      <div id="el-${id}" class="scene" data-composition-id="${id}" data-composition-src="compositions/${id}.html" data-start="${a}" data-duration="${r2(b - a)}" data-track-index="${1 + (i % 2)}" data-track-kind="graphics"></div>`,
+).join("\n");
+
+const sfx = [];
+for (const [id, a] of ESCENAS) {
+  const f = `compositions/${id}.sfx.json`;
+  if (!fs.existsSync(f)) continue;
+  for (const s of JSON.parse(fs.readFileSync(f, "utf8"))) {
+    sfx.push({ t: r2(a + s.t), name: s.sfx, vol: s.vol ?? 0.35, max: s.max });
+  }
+}
+// un whoosh suave en cada cambio de escena
+for (const [, a] of ESCENAS.slice(1)) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.16 });
+sfx.sort((x, y) => x.t - y.t);
+const sfxTags = sfx
+  .map((s, i) => `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${r2(Math.min(s.max ?? 99, durArchivo(s.name)) - 0.01)}" data-track-index="${40 + (i % 8)}" data-volume="${s.vol}"></audio>`)
+  .join("\n");
+
+const index = `<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #24122f; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #24122f; }
+      #fondo { position: absolute; inset: 0;
+        background:
+          radial-gradient(ellipse 620px 520px at 540px 1000px, rgba(240, 180, 41, 0.16) 0%, rgba(240, 180, 41, 0) 75%),
+          linear-gradient(180deg, #24122f 0%, #3a1b56 18%, #5b2a86 40%, #5b2a86 74%, #24122f 75.2%, #7a3a1c 77%, #5a2a16 100%); }
+      #fondo svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .scene, #el-subtitulos { position: absolute; inset: 0; width: 100%; height: 100%; }
+      #firma { position: absolute; left: 50%; top: 1746px; height: 40px; width: auto; transform: translateX(-50%); opacity: 0.8; z-index: 50; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="${DUR}" data-width="1080" data-height="1920">
+      <div id="fondo" class="clip" data-start="0" data-duration="${DUR}" data-track-index="0">${LIVING}</div>
+${hosts}
+${fs.existsSync("compositions/ambiente.html") ? `      <div id="el-ambiente" class="scene" data-composition-id="ambiente" data-composition-src="compositions/ambiente.html" data-start="0" data-duration="${DUR}" data-track-index="4" data-track-kind="graphics"></div>
+` : ""}      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
+      <img id="firma" class="clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
+      <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
+${fs.existsSync("assets/bgm/escenario.mp3") ? `      <audio id="bgm" src="assets/bgm/escenario.mp3" data-start="0" data-duration="${DUR}" data-track-index="31" data-volume="0.5"></audio>\n` : ""}${sfxTags}
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>
+`;
+fs.writeFileSync("index.html", index);
+console.log(`index: ${ESCENAS.length} escenas, ${sfx.length} efectos; subtítulos: ${CORTES.length} grupos`);

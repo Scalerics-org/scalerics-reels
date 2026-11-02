@@ -1,0 +1,148 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    @font-face { font-family: "Luckiest Guy"; font-weight: 400; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-abrazo"] .s12-capa, [data-composition-id="s12-abrazo"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-abrazo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-abrazo"] .b { fill: #24122f; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .l { fill: none; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .lc { fill: none; stroke: #fff4e0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .c { fill: #fff4e0; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .o { fill: #d4581f; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .ol { fill: none; stroke: #d4581f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .t { fill: #1fb5a8; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .tl { fill: none; stroke: #1fb5a8; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .y { fill: #f0b429; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .yl { fill: none; stroke: #f0b429; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .v { fill: #8a4cc2; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .vd { fill: #5b2a86; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .g { fill: #5ce611; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .ag { fill: #24122f; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-abrazo"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Luckiest Guy", "Lexend", sans-serif; font-weight: 400; color: #fff4e0; -webkit-text-stroke: 0; text-shadow: 0 8px 0 #24122f, 0 0 0 #24122f; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s12-abrazo"] .cartela { position: absolute; padding: 14px 28px 8px; font-family: "Luckiest Guy", sans-serif; font-weight: 400; border: 6px solid #24122f; border-radius: 18px; box-shadow: 0 8px 0 #24122f; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s12-abrazo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s12-abrazo"] .s12-cartel { position: absolute; left: 0; right: 0; top: 560px; text-align: center; }
+    [data-composition-id="s12-abrazo"] .s12-cartel span { display: inline-block; padding: 16px 30px 8px; background: #d4581f; color: #fff4e0; border: 7px solid #24122f; border-radius: 22px; box-shadow: 0 10px 0 #24122f; font-family: "Luckiest Guy", sans-serif; font-size: 58px; line-height: 1.05; transform: rotate(-3deg); }
+
+  </style>
+  <div id="root" data-composition-id="s12-abrazo" data-width="1080" data-height="1920" data-duration="2.89">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="2.89" data-track-index="0">
+      <div class="s12-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <circle class="s12-halo" cx="540" cy="1080" r="420" fill="#f0b429" opacity="0.14" />
+          <g class="s12-du"><g transform="translate(130 760) scale(1.2)">
+              <path class="t" d="M30 560 C30 430 92 380 180 380 C268 380 330 430 330 560 Z" />
+              <path d="M110 420 V556 M150 396 V556 M210 396 V556 M250 420 V556" stroke="#f0b429" stroke-width="10" opacity="0.9" />
+              <path class="t" d="M30 560 C30 430 92 380 180 380 C268 380 330 430 330 560 Z" fill="none" />
+              <path class="c" d="M140 384 L180 440 L220 384" stroke-width="6" />
+              <circle cx="180" cy="474" r="7" fill="#24122f" /><circle cx="180" cy="512" r="7" fill="#24122f" />
+              <path class="c" d="M154 300 V386 H206 V300" />
+              <ellipse class="c" cx="104" cy="242" rx="14" ry="22" stroke-width="6" /><ellipse class="c" cx="256" cy="242" rx="14" ry="22" stroke-width="6" />
+              <ellipse class="c" cx="180" cy="236" rx="76" ry="84" />
+              <g class="s12-pelo"><path class="b" d="M104 214 C84 170 100 128 126 140 C122 108 150 92 170 116 C176 82 214 86 214 118 C236 96 270 120 254 150 C276 156 274 196 258 214 C246 184 226 168 196 170 C166 158 128 170 104 214 Z" /></g>
+              <path d="M128 296 C150 330 210 330 232 296" stroke="#24122f" stroke-width="3" stroke-dasharray="2 10" fill="none" stroke-linecap="round" opacity="0.6" />
+              <circle cx="150" cy="238" r="14" fill="#24122f" /><circle cx="210" cy="238" r="14" fill="#24122f" />
+              <circle cx="155" cy="232" r="5" fill="#fff4e0" /><circle cx="215" cy="232" r="5" fill="#fff4e0" />
+              <path class="l" d="M130 214 C140 204 156 202 168 208 M192 208 C204 202 220 204 230 214" stroke-width="6" />
+              <path class="t s12-lagrima" d="M226 254 C232 270 238 280 230 290 C222 296 212 288 216 276 Z" stroke-width="4" />
+              <path class="b s12-boca" d="M150 276 C160 300 200 300 210 276 C196 284 164 284 150 276 Z" />
+              <g class="s12-du-bd"><path class="t" d="M300 430 C356 420 400 400 420 360 L392 340 C372 376 340 392 290 398 Z" stroke-width="6" /><circle class="c" cx="414" cy="344" r="22" stroke-width="6" /></g>
+</g></g>
+          
+          <g class="s12-sillon">
+            <path class="o" d="M60 1404.0 C50 1240 1030 1240 1020 1404.0 Z" />
+            <path d="M140 1300 C384.0 1274 696.0 1274 940 1300" stroke="#fff4e0" stroke-width="5" opacity="0.35" fill="none" stroke-linecap="round" />
+            <rect class="o" x="100" y="1381" width="293" height="64" rx="16" /><rect class="o" x="393" y="1381" width="293" height="64" rx="16" /><rect class="o" x="687" y="1381" width="293" height="64" rx="16" />
+            <rect class="o" x="20" y="1334.4" width="110" height="162.4" rx="46" />
+            <rect class="o" x="950" y="1334.4" width="110" height="162.4" rx="46" />
+            <rect class="o" x="80" y="1438.8" width="920" height="58.0" rx="16" />
+            <path class="l" d="M110 1496.8 V1536 M970 1496.8 V1536" stroke-width="10" />
+            <rect class="t" x="170" y="1317.0" width="120" height="110" rx="26" transform="rotate(-12 230 1372.0)" />
+            <rect class="y" x="780" y="1317.0" width="120" height="110" rx="26" transform="rotate(10 840 1372.0)" />
+          </g>
+          <g class="s12-ag"><g transform="translate(560 800) scale(0.95)">
+              <g class="s12-ag-pies"><path class="l" d="M140 470 V530 M220 470 V530" stroke-width="10" />
+              <path class="o" d="M104 548 C104 526 122 520 148 522 C160 524 160 548 152 552 H112 Z" stroke-width="6" />
+              <path class="o" d="M212 552 C204 548 204 524 216 522 C242 520 260 526 260 548 L252 552 Z" stroke-width="6" /></g>
+              <g class="s12-ag-bi"><path class="l" d="M70 310 C42 340 40 380 56 410" stroke-width="10" /><circle class="c" cx="58" cy="420" r="22" stroke-width="6" /></g>
+              <g class="s12-ag-bd"><path class="l" d="M290 310 C318 340 320 380 304 410" stroke-width="10" /><circle class="c" cx="302" cy="420" r="22" stroke-width="6" /></g>
+              <rect class="b" x="66" y="108" width="228" height="372" rx="46" />
+              <rect class="ag s12-ag-pantalla" x="84" y="140" width="192" height="306" rx="30" stroke-width="5" />
+              <rect x="150" y="120" width="60" height="10" rx="5" fill="#8a4cc2" />
+              <ellipse cx="124" cy="270" rx="16" ry="9" fill="#d4581f" opacity="0.8" /><ellipse cx="236" cy="270" rx="16" ry="9" fill="#d4581f" opacity="0.8" />
+              <g class="s12-ag-ojos"><path class="gl" d="M120 222 C130 210 152 210 162 222 M198 222 C208 210 230 210 240 222" stroke-width="10" /></g>
+              <path class="gl s12-ag-boca" d="M140 276 C156 304 204 304 220 276" stroke-width="10" />
+              <rect x="150" y="414" width="60" height="8" rx="4" fill="#5ce611" opacity="0.6" />
+              <g class="s12-ag-gorra"><path class="y" d="M92 128 C96 70 264 70 268 128 Z" stroke-width="6" /><path class="y" d="M92 126 C70 128 52 120 44 108 L94 104 Z" stroke-width="6" /><circle class="o" cx="180" cy="80" r="10" stroke-width="5" /></g>
+</g></g>
+          <g transform="translate(130 760) scale(1.2)"><g class="s12-brazo"><path class="t" d="M300 430 C356 420 400 400 420 360 L392 340 C372 376 340 392 290 398 Z" stroke-width="6" /><circle class="c" cx="414" cy="344" r="22" stroke-width="6" /></g></g>
+          <path class="s12-cor s12-c1" transform="translate(260 900) scale(0.8)" d="M0 -10 C-10 -36 -50 -36 -50 -4 C-50 22 -18 40 0 58 C18 40 50 22 50 -4 C50 -36 10 -36 0 -10 Z" fill="#d4581f" stroke="#24122f" stroke-width="6" stroke-linejoin="round" /><path class="s12-cor s12-c2" transform="translate(880 860) scale(1.0)" d="M0 -10 C-10 -36 -50 -36 -50 -4 C-50 22 -18 40 0 58 C18 40 50 22 50 -4 C50 -36 10 -36 0 -10 Z" fill="#1fb5a8" stroke="#24122f" stroke-width="6" stroke-linejoin="round" /><path class="s12-cor s12-c3" transform="translate(560 760) scale(0.7)" d="M0 -10 C-10 -36 -50 -36 -50 -4 C-50 22 -18 40 0 58 C18 40 50 22 50 -4 C50 -36 10 -36 0 -10 Z" fill="#f0b429" stroke="#24122f" stroke-width="6" stroke-linejoin="round" />
+        </svg>
+        <div class="s12-cartel"><span>MEJOR COMPAÑERO<br>DE CASA</span></div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-abrazo";
+      const DUR = 2.89;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s12-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // X roja gigante que cae (dos trazos que se dibujan + golpe)
+      const equis = (sel, t) => { golpe(sel, t, 2.2); sacudon(t + 0.04, 1.1); };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // zoom de cámara sobre el escenario (punch-in)
+      const zoom = (t, s, d = 0.35, ox = "50%", oy = "50%") => tl.to(q(ESC), { scale: s, transformOrigin: ox + " " + oy, duration: d, ease: "power3.out" }, t);
+
+      const MEJOR = 0.37;
+      tl.fromTo(q(ESC), { scale: 1.08, transformOrigin: "50% 60%" }, { scale: 1, transformOrigin: "50% 60%", duration: 0.8, ease: "power3.out", immediateRender: false }, 0);
+      habla(".s12-boca", 0, 2.1, "180 284");
+      tl.fromTo(q(".s12-lagrima"), { y: 0, opacity: 1 }, { y: 50, opacity: 0, duration: 0.9, repeat: 2, ease: "power1.in", immediateRender: false }, 0.2);
+      tl.fromTo(q(".s12-du"), { x: 0 }, { x: 14, duration: 0.3, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, 0);
+      tl.fromTo(q(".s12-ag"), { rotation: -3, svgOrigin: "740 1300" }, { rotation: 3, svgOrigin: "740 1300", duration: 0.3, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, 0);
+      golpe(".s12-cartel", MEJOR, 2.2);
+      [".s12-c1", ".s12-c2", ".s12-c3"].forEach((s, i) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, y: 40 }, { opacity: 1, y: -60, duration: 1.2, ease: "power1.out", immediateRender: false }, 0.5 + i * 0.3);
+      });
+      tl.fromTo(q(".s12-halo"), { scale: 0.9, svgOrigin: "540 1080" }, { scale: 1.1, svgOrigin: "540 1080", duration: 0.7, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, 0);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

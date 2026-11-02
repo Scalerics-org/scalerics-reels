@@ -1,0 +1,122 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    @font-face { font-family: "Luckiest Guy"; font-weight: 400; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-yogures"] .s13-capa, [data-composition-id="s13-yogures"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-yogures"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-yogures"] .b { fill: #24122f; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .l { fill: none; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .lc { fill: none; stroke: #fff4e0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .c { fill: #fff4e0; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .o { fill: #d4581f; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .ol { fill: none; stroke: #d4581f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .t { fill: #1fb5a8; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .tl { fill: none; stroke: #1fb5a8; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .y { fill: #f0b429; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .yl { fill: none; stroke: #f0b429; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .v { fill: #8a4cc2; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .vd { fill: #5b2a86; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .g { fill: #5ce611; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .ag { fill: #24122f; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-yogures"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Luckiest Guy", "Lexend", sans-serif; font-weight: 400; color: #fff4e0; -webkit-text-stroke: 0; text-shadow: 0 8px 0 #24122f, 0 0 0 #24122f; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s13-yogures"] .cartela { position: absolute; padding: 14px 28px 8px; font-family: "Luckiest Guy", sans-serif; font-weight: 400; border: 6px solid #24122f; border-radius: 18px; box-shadow: 0 8px 0 #24122f; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-yogures"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s13-yogures"] .s13-nota { position: absolute; left: 560px; top: 560px; padding: 18px 24px 12px; background: #f0b429; border: 6px solid #24122f; box-shadow: 0 8px 0 #24122f; font-family: "Caveat", cursive; font-weight: 700; font-size: 62px; line-height: 0.95; color: #24122f; transform: rotate(6deg); white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="s13-yogures" data-width="1080" data-height="1920" data-duration="2.93">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="2.93" data-track-index="0">
+      <div class="s13-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s13-heladera">
+            <rect class="c" x="480" y="680" width="520" height="800" rx="40" />
+            <rect x="510" y="710" width="460" height="740" rx="24" fill="#1fb5a8" stroke="#24122f" stroke-width="7" />
+            <path class="l" d="M510 930 H970 M510 1160 H970" />
+            <rect class="s13-luz" x="510" y="710" width="460" height="740" rx="24" fill="#fff4e0" opacity="0.25" />
+            <g class="s13-y s13-y1"><path class="c" d="M560 810 H650 L640 920 H570 Z" stroke-width="6" /><rect class="o" x="554" y="794" width="102" height="22" rx="8" stroke-width="5" />
+      <text x="605" y="876" text-anchor="middle" font-family="Luckiest Guy" font-size="28" fill="#24122f">DUEÑO</text></g><g class="s13-y s13-y2"><path class="c" d="M700 810 H790 L780 920 H710 Z" stroke-width="6" /><rect class="o" x="694" y="794" width="102" height="22" rx="8" stroke-width="5" />
+      <text x="745" y="876" text-anchor="middle" font-family="Luckiest Guy" font-size="28" fill="#24122f">DUEÑO</text></g><g class="s13-y s13-y3"><path class="c" d="M840 810 H930 L920 920 H850 Z" stroke-width="6" /><rect class="o" x="834" y="794" width="102" height="22" rx="8" stroke-width="5" />
+      <text x="885" y="876" text-anchor="middle" font-family="Luckiest Guy" font-size="28" fill="#24122f">DUEÑO</text></g>
+            <rect class="o" x="580" y="1030" width="140" height="120" rx="16" /><rect class="y" x="760" y="1060" width="160" height="90" rx="40" />
+            <rect class="c" x="980" y="690" width="90" height="780" rx="20" transform="skewY(-8) translate(0 140)" />
+          </g>
+          <g class="s13-ag"><g transform="translate(60 900) scale(1.0)">
+              <g class="s13-ag-pies"><path class="l" d="M140 470 V530 M220 470 V530" stroke-width="10" />
+              <path class="o" d="M104 548 C104 526 122 520 148 522 C160 524 160 548 152 552 H112 Z" stroke-width="6" />
+              <path class="o" d="M212 552 C204 548 204 524 216 522 C242 520 260 526 260 548 L252 552 Z" stroke-width="6" /></g>
+              <g class="s13-ag-bi"><path class="l" d="M70 310 C42 340 40 380 56 410" stroke-width="10" /><circle class="c" cx="58" cy="420" r="22" stroke-width="6" /></g>
+              <g class="s13-ag-bd"><path class="l" d="M290 310 C326 300 344 270 346 236" stroke-width="10" /><rect class="c" x="322" y="214" width="46" height="40" rx="14" stroke-width="6" /><rect class="c" x="334" y="176" width="20" height="44" rx="10" stroke-width="6" /></g>
+              <rect class="b" x="66" y="108" width="228" height="372" rx="46" />
+              <rect class="ag s13-ag-pantalla" x="84" y="140" width="192" height="306" rx="30" stroke-width="5" />
+              <rect x="150" y="120" width="60" height="10" rx="5" fill="#8a4cc2" />
+              <ellipse cx="124" cy="270" rx="16" ry="9" fill="#d4581f" opacity="0.8" /><ellipse cx="236" cy="270" rx="16" ry="9" fill="#d4581f" opacity="0.8" />
+              <g class="s13-ag-ojos"><path class="gl" d="M122 220 C132 206 152 206 162 220" stroke-width="10" /><rect x="198" y="196" width="34" height="50" rx="17" fill="#5ce611" /></g>
+              <path class="gl s13-ag-boca" d="M140 276 C156 304 204 304 220 276" stroke-width="10" />
+              <rect x="150" y="414" width="60" height="8" rx="4" fill="#5ce611" opacity="0.6" />
+              <g class="s13-ag-gorra"><path class="y" d="M92 128 C96 70 264 70 268 128 Z" stroke-width="6" /><path class="y" d="M92 126 C70 128 52 120 44 108 L94 104 Z" stroke-width="6" /><circle class="o" cx="180" cy="80" r="10" stroke-width="5" /></g>
+</g></g>
+        </svg>
+        <div class="s13-nota">¡NO TOCAR!</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-yogures";
+      const DUR = 2.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s13-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // X roja gigante que cae (dos trazos que se dibujan + golpe)
+      const equis = (sel, t) => { golpe(sel, t, 2.2); sacudon(t + 0.04, 1.1); };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // zoom de cámara sobre el escenario (punch-in)
+      const zoom = (t, s, d = 0.35, ox = "50%", oy = "50%") => tl.to(q(ESC), { scale: s, transformOrigin: ox + " " + oy, duration: d, ease: "power3.out" }, t);
+
+      const YOG = 0.95, RISAS = 1.47;
+      tl.fromTo(q(".s13-heladera"), { x: 40 }, { x: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, 0);
+      habla(".s13-ag-boca", 0, 1.3, "180 290");
+      tl.fromTo(q(".s13-luz"), { opacity: 0.4 }, { opacity: 0.15, duration: 0.5, immediateRender: false }, 0);
+      [1, 2, 3].forEach((k) => tl.fromTo(q(".s13-y" + k), { scale: 1, svgOrigin: (560 + (k - 1) * 140 + 45) + " 920" }, { scale: 1.25, svgOrigin: (560 + (k - 1) * 140 + 45) + " 920", duration: 0.15, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, YOG + k * 0.08));
+      golpe(".s13-nota", YOG + 0.1, 2.2); sacudon(YOG + 0.14, 0.6);
+      tl.fromTo(q(".s13-ag"), { y: 0 }, { y: -16, duration: 0.12, yoyo: true, repeat: 9, ease: "sine.inOut", immediateRender: false }, RISAS);
+      tl.fromTo(q(".s13-ag-bd"), { rotation: 0, svgOrigin: "290 310" }, { rotation: -12, svgOrigin: "290 310", duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, 0.1);
+
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

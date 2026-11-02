@@ -1,0 +1,149 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    @font-face { font-family: "Luckiest Guy"; font-weight: 400; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-al-reves"] .s11-capa, [data-composition-id="s11-al-reves"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-al-reves"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-al-reves"] .b { fill: #24122f; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .l { fill: none; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .lc { fill: none; stroke: #fff4e0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .c { fill: #fff4e0; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .o { fill: #d4581f; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .ol { fill: none; stroke: #d4581f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .t { fill: #1fb5a8; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .tl { fill: none; stroke: #1fb5a8; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .y { fill: #f0b429; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .yl { fill: none; stroke: #f0b429; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .v { fill: #8a4cc2; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .vd { fill: #5b2a86; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .g { fill: #5ce611; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .ag { fill: #24122f; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-al-reves"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Luckiest Guy", "Lexend", sans-serif; font-weight: 400; color: #fff4e0; -webkit-text-stroke: 0; text-shadow: 0 8px 0 #24122f, 0 0 0 #24122f; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s11-al-reves"] .cartela { position: absolute; padding: 14px 28px 8px; font-family: "Luckiest Guy", sans-serif; font-weight: 400; border: 6px solid #24122f; border-radius: 18px; box-shadow: 0 8px 0 #24122f; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-al-reves"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s11-al-reves"] .s11-reves { position: absolute; left: 0; right: 0; top: 540px; text-align: center; font-family: "Luckiest Guy", sans-serif; font-size: 120px; line-height: 1; color: #f0b429; -webkit-text-stroke: 10px #24122f; paint-order: stroke fill; text-shadow: 0 12px 0 #24122f; white-space: nowrap; }
+    [data-composition-id="s11-al-reves"] .s11-tit { position: absolute; top: 720px; width: 460px; text-align: center; font-family: "Luckiest Guy", sans-serif; font-size: 62px; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s11-al-reves"] .s11-sub { position: absolute; top: 790px; width: 460px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 28px; letter-spacing: 0.14em; white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="s11-al-reves" data-width="1080" data-height="1920" data-duration="5.18">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="5.18" data-track-index="0">
+      <div class="s11-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-pi"><rect class="b" x="40" y="690" width="480" height="720" rx="30" /><rect x="40" y="690" width="480" height="720" rx="30" fill="none" stroke="#5ce611" stroke-width="7" />
+            <g transform="translate(110 860) scale(0.88)">
+              <g class="s11-ag-pies"><path class="l" d="M140 470 V530 M220 470 V530" stroke-width="10" />
+              <path class="o" d="M104 548 C104 526 122 520 148 522 C160 524 160 548 152 552 H112 Z" stroke-width="6" />
+              <path class="o" d="M212 552 C204 548 204 524 216 522 C242 520 260 526 260 548 L252 552 Z" stroke-width="6" /></g>
+              <g class="s11-ag-bi"><path class="l" d="M70 310 C42 340 40 380 56 410" stroke-width="10" /><circle class="c" cx="58" cy="420" r="22" stroke-width="6" /></g>
+              <g class="s11-ag-bd"><path class="l" d="M290 300 C330 280 340 230 330 190" stroke-width="10" /><circle class="c" cx="330" cy="178" r="24" stroke-width="6" /></g>
+              <rect class="b" x="66" y="108" width="228" height="372" rx="46" />
+              <rect class="ag s11-ag-pantalla" x="84" y="140" width="192" height="306" rx="30" stroke-width="5" />
+              <rect x="150" y="120" width="60" height="10" rx="5" fill="#8a4cc2" />
+              <ellipse cx="124" cy="270" rx="16" ry="9" fill="#d4581f" opacity="0.8" /><ellipse cx="236" cy="270" rx="16" ry="9" fill="#d4581f" opacity="0.8" />
+              <g class="s11-ag-ojos"><rect x="126" y="192" width="34" height="52" rx="17" fill="#5ce611" /><rect x="200" y="192" width="34" height="52" rx="17" fill="#5ce611" /></g>
+              <path class="gl s11-ag-boca" d="M140 276 C156 304 204 304 220 276" stroke-width="10" />
+              <rect x="150" y="414" width="60" height="8" rx="4" fill="#5ce611" opacity="0.6" />
+              <g class="s11-ag-gorra"><path class="y" d="M92 128 C96 70 264 70 268 128 Z" stroke-width="6" /><path class="y" d="M92 126 C70 128 52 120 44 108 L94 104 Z" stroke-width="6" /><circle class="o" cx="180" cy="80" r="10" stroke-width="5" /></g>
+</g></g>
+          <g class="s11-pd"><rect class="y" x="560" y="690" width="480" height="720" rx="30" />
+            <defs><clipPath id="s11-clip"><rect x="560" y="690" width="480" height="720" rx="30" /></clipPath></defs>
+            <g clip-path="url(#s11-clip)"><g transform="translate(620 890) scale(1.0)">
+              <path class="t" d="M30 560 C30 430 92 380 180 380 C268 380 330 430 330 560 Z" />
+              <path d="M110 420 V556 M150 396 V556 M210 396 V556 M250 420 V556" stroke="#f0b429" stroke-width="10" opacity="0.9" />
+              <path class="t" d="M30 560 C30 430 92 380 180 380 C268 380 330 430 330 560 Z" fill="none" />
+              <path class="c" d="M140 384 L180 440 L220 384" stroke-width="6" />
+              <circle cx="180" cy="474" r="7" fill="#24122f" /><circle cx="180" cy="512" r="7" fill="#24122f" />
+              <path class="c" d="M154 300 V386 H206 V300" />
+              <ellipse class="c" cx="104" cy="242" rx="14" ry="22" stroke-width="6" /><ellipse class="c" cx="256" cy="242" rx="14" ry="22" stroke-width="6" />
+              <ellipse class="c" cx="180" cy="236" rx="76" ry="84" />
+              <g class="s11-pelo"><path class="b" d="M104 214 C84 170 100 128 126 140 C122 108 150 92 170 116 C176 82 214 86 214 118 C236 96 270 120 254 150 C276 156 274 196 258 214 C246 184 226 168 196 170 C166 158 128 170 104 214 Z" /></g>
+              <path d="M128 296 C150 330 210 330 232 296" stroke="#24122f" stroke-width="3" stroke-dasharray="2 10" fill="none" stroke-linecap="round" opacity="0.6" />
+              <path class="l" d="M134 236 C142 222 160 222 168 236 M192 236 C200 222 218 222 226 236" stroke-width="7" />
+              <path class="l" d="M132 206 C142 198 158 198 168 204 M192 204 C202 198 218 198 228 206" stroke-width="6" />
+              <path class="b s11-boca" d="M146 270 C156 306 204 306 214 270 Z" />
+              <g class="s11-du-bi"><path class="t" d="M58 450 C40 500 44 530 60 556 L92 548 C80 520 80 494 96 460 Z" stroke-width="6" /></g>
+              <g class="s11-du-bd"><path class="t" d="M300 440 C312 470 300 480 276 476 L268 450 C280 452 284 448 280 430 Z" stroke-width="6" /><circle class="c" cx="276" cy="466" r="20" stroke-width="6" /></g>
+</g></g>
+            <rect x="560" y="690" width="480" height="720" rx="30" fill="none" stroke="#24122f" stroke-width="7" /></g>
+          <path class="s11-flecha" d="M380 1150 C460 1060 560 1060 640 1130" fill="none" stroke="#d4581f" stroke-width="16" stroke-linecap="round" />
+          <path class="s11-punta" d="M600 1100 L652 1140 L596 1166" fill="none" stroke="#d4581f" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+          <path class="s11-cor s11-c1" transform="translate(140 1300) scale(0.9)" d="M0 -10 C-10 -36 -50 -36 -50 -4 C-50 22 -18 40 0 58 C18 40 50 22 50 -4 C50 -36 10 -36 0 -10 Z" fill="#d4581f" stroke="#24122f" stroke-width="6" stroke-linejoin="round" /><path class="s11-cor s11-c2" transform="translate(950 1250) scale(1.1)" d="M0 -10 C-10 -36 -50 -36 -50 -4 C-50 22 -18 40 0 58 C18 40 50 22 50 -4 C50 -36 10 -36 0 -10 Z" fill="#5ce611" stroke="#24122f" stroke-width="6" stroke-linejoin="round" /><path class="s11-cor s11-c3" transform="translate(540 1360) scale(0.8)" d="M0 -10 C-10 -36 -50 -36 -50 -4 C-50 22 -18 40 0 58 C18 40 50 22 50 -4 C50 -36 10 -36 0 -10 Z" fill="#1fb5a8" stroke="#24122f" stroke-width="6" stroke-linejoin="round" />
+        </svg>
+        <div class="s11-reves">¡AL REVÉS!</div>
+        <div class="s11-tit s11-t1" style="left:50px;color:#5ce611">LO FÁCIL</div>
+        <div class="s11-sub s11-s1" style="left:50px;color:#fff4e0">A CUALQUIER HORA</div>
+        <div class="s11-tit s11-t2" style="left:570px;color:#24122f">LO GRANDE</div>
+        <div class="s11-sub s11-s2" style="left:570px;color:#24122f">PARA VOS</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-al-reves";
+      const DUR = 5.18;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s11-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // X roja gigante que cae (dos trazos que se dibujan + golpe)
+      const equis = (sel, t) => { golpe(sel, t, 2.2); sacudon(t + 0.04, 1.1); };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // zoom de cámara sobre el escenario (punch-in)
+      const zoom = (t, s, d = 0.35, ox = "50%", oy = "50%") => tl.to(q(ESC), { scale: s, transformOrigin: ox + " " + oy, duration: d, ease: "power3.out" }, t);
+
+      const REVES = 0.18, FACIL = 1.27, HORA = 1.64, GRANDE = 2.73, PASO = 3.37, AWW = 3.78;
+      // "al revés": el texto aparece dado vuelta y gira
+      gsap.set(q(".s11-reves"), { opacity: 0 });
+      tl.fromTo(q(".s11-reves"), { opacity: 1, rotation: 180, scale: 1.4 }, { opacity: 1, rotation: 0, scale: 1, duration: 0.45, ease: "back.out(1.8)", immediateRender: false }, REVES - 0.15);
+      sacudon(REVES + 0.3, 0.6);
+      pop(".s11-pi", 0.0, { transformOrigin: "280px 1050px" });
+      habla(".s11-ag-boca", 0, 3.7, "180 290");
+      pop(".s11-t1", FACIL - 0.05); pop(".s11-s1", HORA);
+      tl.fromTo(q(".s11-ag-bd"), { rotation: -14, svgOrigin: "290 300" }, { rotation: 14, svgOrigin: "290 300", duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, FACIL);
+      pop(".s11-pd", GRANDE - 0.15, { transformOrigin: "800px 1050px" });
+      pop(".s11-t2", GRANDE); pop(".s11-s2", GRANDE + 0.3);
+      dibujar(".s11-flecha", PASO, 0.35); dibujar(".s11-punta", PASO + 0.3, 0.15);
+      // "awww": corazones
+      [".s11-c1", ".s11-c2", ".s11-c3"].forEach((s, i) => {
+        gsap.set(q(s), { opacity: 0 });
+        tl.fromTo(q(s), { opacity: 0, scale: 0.3, y: 0 }, { opacity: 1, scale: 1, y: -80, duration: 0.6, ease: "back.out(2)", immediateRender: false }, AWW + i * 0.12);
+      });
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

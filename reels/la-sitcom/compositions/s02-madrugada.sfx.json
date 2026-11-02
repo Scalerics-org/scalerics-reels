@@ -1,0 +1,28 @@
+[
+ {
+  "t": 0.02,
+  "sfx": "notification",
+  "vol": 0.3
+ },
+ {
+  "t": 0.86,
+  "sfx": "pop",
+  "vol": 0.3
+ },
+ {
+  "t": 1.34,
+  "sfx": "click-soft",
+  "vol": 0.3
+ },
+ {
+  "t": 2.5,
+  "sfx": "impact-bass-2",
+  "vol": 0.3,
+  "max": 0.5
+ },
+ {
+  "t": 2.98,
+  "sfx": "ping",
+  "vol": 0.3
+ }
+]

@@ -1,0 +1,128 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    @font-face { font-family: "Fredoka"; font-weight: 300 700; font-display: block; src: url("assets/fonts/Fredoka-var.woff2") format("woff2"); }
+    @font-face { font-family: "Luckiest Guy"; font-weight: 400; font-display: block; src: url("assets/fonts/LuckiestGuy.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-apartada"] .s04-capa, [data-composition-id="s04-apartada"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-apartada"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-apartada"] .b { fill: #24122f; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .l { fill: none; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .lc { fill: none; stroke: #fff4e0; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .c { fill: #fff4e0; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .o { fill: #d4581f; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .ol { fill: none; stroke: #d4581f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .t { fill: #1fb5a8; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .tl { fill: none; stroke: #1fb5a8; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .y { fill: #f0b429; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .yl { fill: none; stroke: #f0b429; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .v { fill: #8a4cc2; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .vd { fill: #5b2a86; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .g { fill: #5ce611; stroke: #24122f; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .ag { fill: #24122f; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-apartada"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Luckiest Guy", "Lexend", sans-serif; font-weight: 400; color: #fff4e0; -webkit-text-stroke: 0; text-shadow: 0 8px 0 #24122f, 0 0 0 #24122f; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s04-apartada"] .cartela { position: absolute; padding: 14px 28px 8px; font-family: "Luckiest Guy", sans-serif; font-weight: 400; border: 6px solid #24122f; border-radius: 18px; box-shadow: 0 8px 0 #24122f; font-size: 44px; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-apartada"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s04-apartada"] .s04-nunca { position: absolute; left: 60px; top: 560px; }
+    [data-composition-id="s04-apartada"] .s04-ticket { position: absolute; left: 540px; top: 760px; width: 470px; padding: 30px 32px 34px; background: #fff4e0; border: 7px solid #24122f; border-radius: 24px; box-shadow: 0 10px 0 #24122f; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 34px; line-height: 1.5; color: #24122f; transform: rotate(3deg); }
+    [data-composition-id="s04-apartada"] .s04-ticket b { display: block; font-family: "Luckiest Guy", sans-serif; font-weight: 400; font-size: 52px; color: #d4581f; margin-bottom: 8px; }
+    [data-composition-id="s04-apartada"] .s04-sello { position: absolute; left: 490px; top: 1090px; padding: 16px 30px 8px; border: 10px solid #5ce611; border-radius: 18px; font-family: "Luckiest Guy", sans-serif; font-size: 76px; line-height: 1; color: #5ce611; background: rgba(36, 18, 47, 0.9); transform: rotate(-12deg); white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="s04-apartada" data-width="1080" data-height="1920" data-duration="4.19">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.19" data-track-index="0">
+      <div class="s04-escenario">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <rect class="s04-noche" x="0" y="0" width="1080" height="1920" fill="#0f0820" opacity="0.6" />
+          <g class="s04-sillon">
+            <path class="o" d="M-160 1400.0 C-170 1230 670 1230 660 1400.0 Z" />
+            <path d="M-80 1290 C115.0 1264 385.0 1264 580 1290" stroke="#fff4e0" stroke-width="5" opacity="0.35" fill="none" stroke-linecap="round" />
+            <rect class="o" x="-120" y="1376" width="247" height="66" rx="16" /><rect class="o" x="127" y="1376" width="247" height="66" rx="16" /><rect class="o" x="373" y="1376" width="247" height="66" rx="16" />
+            <rect class="o" x="-200" y="1328.0" width="110" height="168.00000000000003" rx="46" />
+            <rect class="o" x="590" y="1328.0" width="110" height="168.00000000000003" rx="46" />
+            <rect class="o" x="-140" y="1436.0" width="780" height="60.0" rx="16" />
+            <path class="l" d="M-110 1496.0 V1536 M610 1496.0 V1536" stroke-width="10" />
+            <rect class="t" x="-50" y="1310.0" width="120" height="110" rx="26" transform="rotate(-12 10 1365.0)" />
+            <rect class="y" x="420" y="1310.0" width="120" height="110" rx="26" transform="rotate(10 480 1365.0)" />
+          </g>
+          <ellipse class="s04-brillo" cx="280" cy="1060" rx="300" ry="280" fill="#5ce611" opacity="0.12" />
+          <g class="s04-ag"><g transform="translate(60 740) scale(1.15)">
+              <g class="s04-ag-pies"><path class="l" d="M140 470 V530 M220 470 V530" stroke-width="10" />
+              <path class="o" d="M104 548 C104 526 122 520 148 522 C160 524 160 548 152 552 H112 Z" stroke-width="6" />
+              <path class="o" d="M212 552 C204 548 204 524 216 522 C242 520 260 526 260 548 L252 552 Z" stroke-width="6" /></g>
+              <g class="s04-ag-bi"><path class="l" d="M70 310 C42 340 40 380 56 410" stroke-width="10" /><circle class="c" cx="58" cy="420" r="22" stroke-width="6" /></g>
+              <g class="s04-ag-bd"><path class="l" d="M290 310 C326 300 344 270 346 236" stroke-width="10" /><rect class="c" x="322" y="214" width="46" height="40" rx="14" stroke-width="6" /><rect class="c" x="334" y="176" width="20" height="44" rx="10" stroke-width="6" /></g>
+              <rect class="b" x="66" y="108" width="228" height="372" rx="46" />
+              <rect class="ag s04-ag-pantalla" x="84" y="140" width="192" height="306" rx="30" stroke-width="5" />
+              <rect x="150" y="120" width="60" height="10" rx="5" fill="#8a4cc2" />
+              <ellipse cx="124" cy="270" rx="16" ry="9" fill="#d4581f" opacity="0.8" /><ellipse cx="236" cy="270" rx="16" ry="9" fill="#d4581f" opacity="0.8" />
+              <g class="s04-ag-ojos"><path class="gl" d="M122 220 C132 206 152 206 162 220" stroke-width="10" /><rect x="198" y="196" width="34" height="50" rx="17" fill="#5ce611" /></g>
+              <path class="gl s04-ag-boca" d="M140 276 C156 304 204 304 220 276" stroke-width="10" />
+              <rect x="150" y="414" width="60" height="8" rx="4" fill="#5ce611" opacity="0.6" />
+              <g class="s04-ag-gorra"><path class="y" d="M92 128 C96 70 264 70 268 128 Z" stroke-width="6" /><path class="y" d="M92 126 C70 128 52 120 44 108 L94 104 Z" stroke-width="6" /><circle class="o" cx="180" cy="80" r="10" stroke-width="5" /></g>
+</g></g>
+        </svg>
+        <div class="cartela s04-cartel s04-nunca" style="left:60px;top:570px;transform:rotate(-6deg);background:#f0b429;color:#24122f;font-size:60px;">NUNCA DORMIMOS</div>
+        <div class="s04-ticket"><b>PEDIDO</b>CAMPERA VERDE<br>TALLE M<br>A NOMBRE DE: SOFI</div>
+        <div class="s04-sello">APARTADA</div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-apartada";
+      const DUR = 4.19;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = ".s04-escenario";
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(ESC), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const golpe = (sel, t, desde = 2.4) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      const pop = (sel, t, extra = {}) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 0, scale: 0.7, ...extra }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      const entra = (sel, t, desde = { x: -600 }) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: false }, t);
+      };
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // vaivén suave (respira) de t a t+d
+      const respira = (sel, t, d, dy = 8, per = 0.5) => tl.fromTo(q(sel), { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per) | 1), ease: "sine.inOut", immediateRender: false }, t);
+      // X roja gigante que cae (dos trazos que se dibujan + golpe)
+      const equis = (sel, t) => { golpe(sel, t, 2.2); sacudon(t + 0.04, 1.1); };
+      const habla = (sel, t, d, origin) => tl.fromTo(q(sel), { scaleY: 1, svgOrigin: origin }, { scaleY: 2.4, svgOrigin: origin, duration: 0.11, yoyo: true, repeat: Math.max(1, Math.round(d / 0.11)) | 1, ease: "sine.inOut", immediateRender: false }, t);
+      // zoom de cámara sobre el escenario (punch-in)
+      const zoom = (t, s, d = 0.35, ox = "50%", oy = "50%") => tl.to(q(ESC), { scale: s, transformOrigin: ox + " " + oy, duration: d, ease: "power3.out" }, t);
+
+      const NUNCA = 0.52, LISTO = 1.83, APART = 2.72;
+      tl.fromTo(q(".s04-ag"), { scale: 1.08, transformOrigin: "260px 1060px" }, { scale: 1, transformOrigin: "260px 1060px", duration: 0.6, ease: "power3.out", immediateRender: false }, 0);
+      habla(".s04-ag-boca", 0, 3.6, "180 290");
+      golpe(".s04-nunca", NUNCA, 2.2); sacudon(NUNCA + 0.04, 0.6);
+      tl.fromTo(q(".s04-ag-bd"), { rotation: 0, svgOrigin: "290 310" }, { rotation: -10, svgOrigin: "290 310", duration: 0.2, yoyo: true, repeat: 1, ease: "back.out(2)", immediateRender: false }, LISTO);
+      entra(".s04-ticket", LISTO, { x: 600 });
+      golpe(".s04-sello", APART, 2.6); sacudon(APART + 0.04, 1.0);
+      tl.fromTo(q(".s04-brillo"), { opacity: 0.08 }, { opacity: 0.2, duration: 0.5, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, 0);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
