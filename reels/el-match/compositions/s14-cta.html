@@ -1,0 +1,151 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s14-cta"] .s14-capa { position: absolute; inset: 0; }
+    [data-composition-id="s14-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s14-cta"] .ln { fill: none; stroke: #fff7f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .nf { fill: #1a0d2b; stroke: #fff7f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .vf { fill: #9b6bff; stroke: #fff7f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .wf { fill: #fff7f4; stroke: #1a0d2b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .cf { fill: #ff5a6e; stroke: none; }
+    [data-composition-id="s14-cta"] .bf { fill: #fff7f4; stroke: none; }
+    [data-composition-id="s14-cta"] .kf { fill: #1a0d2b; stroke: none; }
+    [data-composition-id="s14-cta"] .cl { fill: none; stroke: #ff5a6e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .la { fill: none; stroke: #b9a8d6; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .kn { fill: none; stroke: #1a0d2b; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .kw { fill: #fff7f4; stroke: #1a0d2b; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .lente { fill: rgba(185, 168, 214, 0.35); stroke: #fff7f4; stroke-width: 8; stroke-linejoin: round; }
+    [data-composition-id="s14-cta"] .lentek { fill: rgba(185, 168, 214, 0.5); stroke: #1a0d2b; stroke-width: 7; stroke-linejoin: round; }
+    /* tarjeta de perfil */
+    [data-composition-id="s14-cta"] .tarjeta { position: absolute; width: 460px; height: 640px; border-radius: 36px; background: #fff7f4; overflow: hidden; box-shadow: 0 18px 40px rgba(18, 8, 32, 0.55); }
+    [data-composition-id="s14-cta"] .tarjeta .foto { position: absolute; left: 0; top: 0; width: 460px; height: 420px; background: #ff5a6e; overflow: hidden; }
+    [data-composition-id="s14-cta"] .tarjeta .foto.v { background: #9b6bff; }
+    [data-composition-id="s14-cta"] .tarjeta .foto.l { background: #b9a8d6; }
+    [data-composition-id="s14-cta"] .tarjeta .foto svg { width: 460px; height: 420px; }
+    [data-composition-id="s14-cta"] .tarjeta .nom { position: absolute; left: 34px; top: 440px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 60px; line-height: 1; color: #1a0d2b; letter-spacing: -0.02em; }
+    [data-composition-id="s14-cta"] .tarjeta .bio { position: absolute; left: 36px; top: 522px; right: 30px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; line-height: 1.3; color: #1a0d2b; opacity: 0.8; letter-spacing: 0.04em; }
+    [data-composition-id="s14-cta"] .boton { position: absolute; width: 112px; height: 112px; border-radius: 50%; border: 6px solid #b9a8d6; background: #120820; }
+    [data-composition-id="s14-cta"] .boton.c { border-color: #ff5a6e; }
+    [data-composition-id="s14-cta"] .boton svg { position: absolute; left: -6px; top: -6px; width: 112px; height: 112px; }
+    [data-composition-id="s14-cta"] .sello { position: absolute; padding: 10px 22px; border: 7px solid #ff5a6e; border-radius: 16px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 58px; line-height: 1; color: #ff5a6e; white-space: nowrap; }
+    [data-composition-id="s14-cta"] .sello.la { border-color: #b9a8d6; color: #b9a8d6; background: rgba(18, 8, 32, 0.9); }
+    [data-composition-id="s14-cta"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.16em; color: #b9a8d6; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s14-cta"] .gigante { position: absolute; left: 50px; right: 50px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; letter-spacing: -0.02em; color: #fff7f4; }
+    [data-composition-id="s14-cta"] .burbuja { position: absolute; padding: 22px 30px; border-radius: 36px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 42px; line-height: 1.2; }
+    [data-composition-id="s14-cta"] .burbuja.yo { background: #9b6bff; color: #fff7f4; border-bottom-right-radius: 8px; }
+    [data-composition-id="s14-cta"] .burbuja.ella { background: #fff7f4; color: #1a0d2b; border-bottom-left-radius: 8px; }
+    [data-composition-id="s14-cta"] .burbuja small { display: block; margin-top: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; opacity: 0.85; text-align: right; }
+    [data-composition-id="s14-cta"] .cel { position: absolute; border: 6px solid #fff7f4; border-radius: 58px; background: #120820; overflow: hidden; }
+    [data-composition-id="s14-cta"] .cel .barra { position: absolute; left: 50%; top: 18px; width: 108px; height: 26px; margin-left: -54px; border-radius: 14px; background: #fff7f4; opacity: 0.85; }
+
+    [data-composition-id="s14-cta"] .s14-match { top: 610px; font-size: 220px; font-style: italic; color: #ff5a6e; text-shadow: 0 0 50px rgba(255, 90, 110, 0.75), 0 10px 0 #1a0d2b; }
+    [data-composition-id="s14-cta"] .s14-a { position: absolute; top: 960px; width: 260px; height: 260px; border-radius: 50%; border: 8px solid #fff7f4; overflow: hidden; background: #ff5a6e; }
+    [data-composition-id="s14-cta"] .s14-a.v { background: #9b6bff; }
+    [data-composition-id="s14-cta"] .s14-a svg { position: absolute; left: -30px; top: -10px; width: 320px; height: 292px; }
+    [data-composition-id="s14-cta"] .s14-cm { position: absolute; left: 470px; top: 1030px; width: 140px; height: 140px; }
+    [data-composition-id="s14-cta"] .s14-cuantos { top: 620px; font-size: 100px; }
+    [data-composition-id="s14-cta"] .s14-cuantos em { font-style: normal; color: #ff5a6e; }
+    [data-composition-id="s14-cta"] .s14-tv { position: absolute; left: 420px; top: 880px; width: 240px; height: 110px; }
+    [data-composition-id="s14-cta"] .s14-caja { position: absolute; left: 100px; top: 1050px; width: 880px; height: 120px; border-radius: 60px; border: 6px solid #fff7f4; background: #120820; }
+    [data-composition-id="s14-cta"] .s14-caja span { position: absolute; left: 44px; top: 32px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 46px; line-height: 1; color: #fff7f4; white-space: nowrap; }
+    [data-composition-id="s14-cta"] .s14-caja i { position: absolute; top: 28px; width: 6px; height: 62px; background: #ff5a6e; }
+    [data-composition-id="s14-cta"] .s14-btn { position: absolute; left: 290px; top: 1220px; width: 500px; height: 130px; border-radius: 65px; background: #ff5a6e; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 60px; line-height: 130px; color: #fff7f4; letter-spacing: 0.04em; box-shadow: 0 0 40px rgba(255, 90, 110, 0.55); }
+    [data-composition-id="s14-cta"] .s14-gota { position: absolute; top: 520px; width: 60px; height: 60px; }
+  
+  </style>
+  <div id="root" data-composition-id="s14-cta" data-width="1080" data-height="1920" data-duration="8.37">
+    <div id="s14-escena" class="s14-capa clip" data-start="0" data-duration="8.37" data-track-index="0">
+      <div class="s14-esc s14-capa">
+
+        <div class="s14-fase1 s14-capa">
+          <div class="gigante s14-match">¡MATCH!</div>
+          <div class="s14-a s14-a1" style="left:190px"><svg viewBox="0 0 460 420" aria-hidden="true"><path class="kf" d="M150 210 Q140 96 230 92 Q320 96 310 210 L326 340 L134 340 Z" /><path class="kw s14-l" d="M80 430 Q92 316 230 304 Q368 316 380 430" /><path class="kw s14-l" d="M200 250 V312 Q230 326 260 312 V250" /><ellipse class="kw s14-l" cx="230" cy="196" rx="72" ry="86" /><circle class="kf" cx="204" cy="196" r="8" /><circle class="kf" cx="256" cy="196" r="8" /><path class="kn s14-l" d="M204 250 Q230 266 256 250" /><path class="kf" d="M158 178 Q164 110 230 108 Q296 110 302 178 Q262 140 210 148 Q182 152 158 178 Z" /><ellipse fill="#9b6bff" stroke="#1a0d2b" stroke-width="5" cx="202" cy="116" rx="28" ry="16" /><ellipse fill="#9b6bff" stroke="#1a0d2b" stroke-width="5" cx="258" cy="116" rx="28" ry="16" /><path class="kn" d="M230 116 h0" /></svg></div>
+          <div class="s14-a v s14-a2" style="left:630px"><svg viewBox="0 0 460 420" aria-hidden="true"><path class="kw s14-l" d="M80 430 Q92 316 230 304 Q368 316 380 430" /><path class="kw s14-l" d="M200 250 V312 Q230 326 260 312 V250" /><ellipse class="kw s14-l" cx="230" cy="196" rx="72" ry="86" /><circle class="kf" cx="204" cy="196" r="8" /><circle class="kf" cx="256" cy="196" r="8" /><path class="kn s14-l" d="M210 262 Q230 256 250 262" /><path class="kn" d="M160 190 Q156 120 190 108 M300 190 Q304 120 270 108 M218 108 Q230 98 242 108" /><rect class="lentek" x="166" y="168" width="58" height="50" rx="16" /><rect class="lentek" x="236" y="168" width="58" height="50" rx="16" /><path class="kn" d="M224 190 H236" /><path class="kf" d="M196 240 Q214 226 230 236 Q246 226 264 240 Q246 252 230 246 Q214 252 196 240 Z" /></svg></div>
+          <svg class="s14-cm" viewBox="-170 -150 340 340" aria-hidden="true"><path class="cf" d="M0 -60 C-40 -140 -170 -110 -160 -10 C-150 70 -50 120 0 170 C50 120 150 70 160 -10 C170 -110 40 -140 0 -60 Z" style="stroke:#fff7f4;stroke-width:16" /></svg>
+          <svg class="s14-gota s14-g0" viewBox="-170 -150 340 340" style="left:120px" aria-hidden="true"><path class="cf" d="M0 -60 C-40 -140 -170 -110 -160 -10 C-150 70 -50 120 0 170 C50 120 150 70 160 -10 C170 -110 40 -140 0 -60 Z" /></svg><svg class="s14-gota s14-g1" viewBox="-170 -150 340 340" style="left:300px" aria-hidden="true"><path class="bf" d="M0 -60 C-40 -140 -170 -110 -160 -10 C-150 70 -50 120 0 170 C50 120 150 70 160 -10 C170 -110 40 -140 0 -60 Z" /></svg><svg class="s14-gota s14-g2" viewBox="-170 -150 340 340" style="left:470px" aria-hidden="true"><path class="cf" d="M0 -60 C-40 -140 -170 -110 -160 -10 C-150 70 -50 120 0 170 C50 120 150 70 160 -10 C170 -110 40 -140 0 -60 Z" /></svg><svg class="s14-gota s14-g3" viewBox="-170 -150 340 340" style="left:640px" aria-hidden="true"><path class="cf" d="M0 -60 C-40 -140 -170 -110 -160 -10 C-150 70 -50 120 0 170 C50 120 150 70 160 -10 C170 -110 40 -140 0 -60 Z" /></svg><svg class="s14-gota s14-g4" viewBox="-170 -150 340 340" style="left:820px" aria-hidden="true"><path class="bf" d="M0 -60 C-40 -140 -170 -110 -160 -10 C-150 70 -50 120 0 170 C50 120 150 70 160 -10 C170 -110 40 -140 0 -60 Z" /></svg><svg class="s14-gota s14-g5" viewBox="-170 -150 340 340" style="left:960px" aria-hidden="true"><path class="cf" d="M0 -60 C-40 -140 -170 -110 -160 -10 C-150 70 -50 120 0 170 C50 120 150 70 160 -10 C170 -110 40 -140 0 -60 Z" /></svg><svg class="s14-gota s14-g6" viewBox="-170 -150 340 340" style="left:210px" aria-hidden="true"><path class="cf" d="M0 -60 C-40 -140 -170 -110 -160 -10 C-150 70 -50 120 0 170 C50 120 150 70 160 -10 C170 -110 40 -140 0 -60 Z" /></svg><svg class="s14-gota s14-g7" viewBox="-170 -150 340 340" style="left:740px" aria-hidden="true"><path class="bf" d="M0 -60 C-40 -140 -170 -110 -160 -10 C-150 70 -50 120 0 170 C50 120 150 70 160 -10 C170 -110 40 -140 0 -60 Z" /></svg><svg class="s14-gota s14-g8" viewBox="-170 -150 340 340" style="left:560px" aria-hidden="true"><path class="cf" d="M0 -60 C-40 -140 -170 -110 -160 -10 C-150 70 -50 120 0 170 C50 120 150 70 160 -10 C170 -110 40 -140 0 -60 Z" /></svg><svg class="s14-gota s14-g9" viewBox="-170 -150 340 340" style="left:900px" aria-hidden="true"><path class="cf" d="M0 -60 C-40 -140 -170 -110 -160 -10 C-150 70 -50 120 0 170 C50 120 150 70 160 -10 C170 -110 40 -140 0 -60 Z" /></svg>
+        </div>
+        <div class="s14-fase2 s14-capa">
+          <div class="gigante s14-cuantos">¿Cuántos tenés<br /><em>en visto?</em></div>
+          <svg class="s14-tv" viewBox="0 0 60 26" aria-hidden="true"><path class="la" d="M4 6 l12 12 l22 -24 M24 12 l6 6 l22 -24" /></svg>
+          <div class="s14-caja"><span class="s14-txt"></span><i class="s14-cursor" style="left:44px"></i></div>
+          <div class="s14-btn">CONFESAR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s14-cta";
+      const DUR = 8.37;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.02);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.02);
+        });
+      };
+      const oculto = (els) => gsap.set(els, { opacity: 0 });
+      const pop = (el, t, desde = 0.85) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const entra = (el, t, desde = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: 30, ...desde }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, t); };
+      const sale = (el, t, d = 0.2) => tl.to(el, { opacity: 0, duration: d }, t);
+      const golpe = (t, f = 10) => tl.fromTo(q(".s14-esc"), { x: -f }, { x: 0, duration: 0.3, ease: "elastic.out(1, 0.3)", immediateRender: false }, t);
+      // sello que cae de golpe
+      const sellar = (el, t, rot = -8) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.2, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.22, ease: "power4.in", immediateRender: false }, t - 0.18); golpe(t + 0.04, 12); };
+      // swipe de tarjeta: dir -1 izquierda (nope), 1 derecha (like)
+      const swipe = (el, t, dir = -1, dur = 0.4) => tl.to(el, { x: dir * 900, rotation: dir * 24, opacity: 0, duration: dur, ease: "power2.in" }, t);
+      const late = (el, t, n = 2, s = 1.12, origen) => tl.to(el, { scale: s, ...(origen ? { svgOrigin: origen } : {}), duration: 0.15, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t);
+
+
+      const VOS = 1.14, CUANTOS = 1.74, VISTO = 2.85, CONF = 3.65;
+      gsap.set(q(".s14-match"), { opacity: 0 });
+      tl.fromTo(q(".s14-match"), { opacity: 0, scale: 2.2, rotation: -12 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.22, ease: "power4.in", immediateRender: false }, 0);
+      golpe(0.22, 20);
+      tl.to(q(".s14-match"), { scale: 1.06, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.4);
+      tl.fromTo(q(".s14-a1"), { x: -500 }, { x: 0, duration: 0.35, ease: "back.out(1.3)" }, 0.05);
+      tl.fromTo(q(".s14-a2"), { x: 500 }, { x: 0, duration: 0.35, ease: "back.out(1.3)" }, 0.05);
+      tl.to([q(".s14-a1")], { x: 30, duration: 0.12, yoyo: true, repeat: 1 }, 0.4);
+      tl.to([q(".s14-a2")], { x: -30, duration: 0.12, yoyo: true, repeat: 1 }, 0.4);
+      pop(q(".s14-cm"), 0.4, 0.2);
+      late(q(".s14-cm"), 0.75, 2, 1.25);
+      gsap.set(q(".s14-g0"), { opacity: 0 }); tl.fromTo(q(".s14-g0"), { opacity: 1, y: 0, rotation: 0 }, { y: 900, rotation: -30, duration: 1.1, ease: "power1.in", immediateRender: false }, 0.30); tl.to(q(".s14-g0"), { opacity: 0, duration: 0.2 }, 1.20);
+      gsap.set(q(".s14-g1"), { opacity: 0 }); tl.fromTo(q(".s14-g1"), { opacity: 1, y: 0, rotation: 0 }, { y: 900, rotation: 30, duration: 1.1, ease: "power1.in", immediateRender: false }, 0.50); tl.to(q(".s14-g1"), { opacity: 0, duration: 0.2 }, 1.40);
+      gsap.set(q(".s14-g2"), { opacity: 0 }); tl.fromTo(q(".s14-g2"), { opacity: 1, y: 0, rotation: 0 }, { y: 900, rotation: -30, duration: 1.1, ease: "power1.in", immediateRender: false }, 0.35); tl.to(q(".s14-g2"), { opacity: 0, duration: 0.2 }, 1.25);
+      gsap.set(q(".s14-g3"), { opacity: 0 }); tl.fromTo(q(".s14-g3"), { opacity: 1, y: 0, rotation: 0 }, { y: 900, rotation: 30, duration: 1.1, ease: "power1.in", immediateRender: false }, 0.60); tl.to(q(".s14-g3"), { opacity: 0, duration: 0.2 }, 1.50);
+      gsap.set(q(".s14-g4"), { opacity: 0 }); tl.fromTo(q(".s14-g4"), { opacity: 1, y: 0, rotation: 0 }, { y: 900, rotation: -30, duration: 1.1, ease: "power1.in", immediateRender: false }, 0.42); tl.to(q(".s14-g4"), { opacity: 0, duration: 0.2 }, 1.32);
+      gsap.set(q(".s14-g5"), { opacity: 0 }); tl.fromTo(q(".s14-g5"), { opacity: 1, y: 0, rotation: 0 }, { y: 900, rotation: 30, duration: 1.1, ease: "power1.in", immediateRender: false }, 0.55); tl.to(q(".s14-g5"), { opacity: 0, duration: 0.2 }, 1.45);
+      gsap.set(q(".s14-g6"), { opacity: 0 }); tl.fromTo(q(".s14-g6"), { opacity: 1, y: 0, rotation: 0 }, { y: 900, rotation: -30, duration: 1.1, ease: "power1.in", immediateRender: false }, 0.75); tl.to(q(".s14-g6"), { opacity: 0, duration: 0.2 }, 1.65);
+      gsap.set(q(".s14-g7"), { opacity: 0 }); tl.fromTo(q(".s14-g7"), { opacity: 1, y: 0, rotation: 0 }, { y: 900, rotation: 30, duration: 1.1, ease: "power1.in", immediateRender: false }, 0.80); tl.to(q(".s14-g7"), { opacity: 0, duration: 0.2 }, 1.70);
+      gsap.set(q(".s14-g8"), { opacity: 0 }); tl.fromTo(q(".s14-g8"), { opacity: 1, y: 0, rotation: 0 }, { y: 900, rotation: -30, duration: 1.1, ease: "power1.in", immediateRender: false }, 0.90); tl.to(q(".s14-g8"), { opacity: 0, duration: 0.2 }, 1.80);
+      gsap.set(q(".s14-g9"), { opacity: 0 }); tl.fromTo(q(".s14-g9"), { opacity: 1, y: 0, rotation: 0 }, { y: 900, rotation: 30, duration: 1.1, ease: "power1.in", immediateRender: false }, 0.95); tl.to(q(".s14-g9"), { opacity: 0, duration: 0.2 }, 1.85);
+      // fase 2: la pregunta y la caja de comentario
+      tl.to(q(".s14-fase1"), { opacity: 0, y: -80, duration: 0.25, ease: "power2.in" }, VOS - 0.1);
+      gsap.set(q(".s14-cuantos"), { opacity: 0 });
+      tl.fromTo(q(".s14-cuantos"), { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out", immediateRender: false }, VOS + 0.05);
+      gsap.set(q(".s14-tv"), { opacity: 0 });
+      tl.fromTo(q(".s14-tv"), { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, VISTO - 0.05);
+      golpe(VISTO, 10);
+      entra(q(".s14-caja"), CONF - 0.2);
+      pop(q(".s14-btn"), CONF + 0.1, 0.6);
+      const TXT = "yo tengo... unos cuantos";
+      const c = { n: 0 };
+      tl.to(c, { n: TXT.length, duration: 1.6, ease: "none", onUpdate: () => { const s = TXT.slice(0, Math.round(c.n)); q(".s14-txt").textContent = s; gsap.set(q(".s14-cursor"), { x: q(".s14-txt").offsetWidth + 6 }); } }, CONF + 0.3);
+      tl.to(q(".s14-cursor"), { opacity: 0, duration: 0.25, yoyo: true, repeat: 15, ease: "steps(1)" }, CONF);
+      for (let t = CONF + 0.6; t < DUR - 0.5; t += 0.8) tl.to(q(".s14-btn"), { scale: 1.07, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, t);
+      tl.to(q("#s14-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

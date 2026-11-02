@@ -1,0 +1,55 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .am-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="ambiente"] .am-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 720px 1100px at 540px 980px, rgba(11, 11, 14, 0) 55%, rgba(11, 11, 14, 0.8) 100%); }
+    [data-composition-id="ambiente"] .am-cinta { position: absolute; left: -40px; top: 34px; width: 1180px; height: 58px; background: #ffcc1a; border-top: 4px solid #111014; border-bottom: 4px solid #111014; transform: rotate(-2deg); overflow: hidden; box-shadow: 0 8px 0 rgba(0,0,0,0.35); }
+    [data-composition-id="ambiente"] .am-cinta span { position: absolute; left: 0; top: 9px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.08em; color: #111014; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-rec { position: absolute; right: 60px; top: 132px; display: flex; align-items: center; gap: 14px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 32px; letter-spacing: 0.08em; color: #f4f1ea; white-space: nowrap; }
+    [data-composition-id="ambiente"] .am-punto { width: 24px; height: 24px; border-radius: 50%; background: #ff3b30; }
+    [data-composition-id="ambiente"] .am-pausa { position: absolute; right: 60px; top: 132px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 32px; letter-spacing: 0.08em; color: #5ce611; white-space: nowrap; opacity: 0; }
+    [data-composition-id="ambiente"] .am-toma { position: relative; display: inline-block; width: 150px; height: 40px; }
+    [data-composition-id="ambiente"] .am-toma b { position: absolute; left: 0; top: 0; font-weight: 600; color: #ffcc1a; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="71.88">
+    <div id="am-escena" class="am-capa clip" data-start="0" data-duration="71.88" data-track-index="0">
+      <div class="am-vineta"></div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true" data-layout-ignore><path d="M44 516 L44 470 L90 470" fill="none" stroke="#f4f1ea" stroke-width="4" opacity="0.45" /><path d="M1036 516 L1036 470 L990 470" fill="none" stroke="#f4f1ea" stroke-width="4" opacity="0.45" /><path d="M44 1644 L44 1690 L90 1690" fill="none" stroke="#f4f1ea" stroke-width="4" opacity="0.45" /><path d="M1036 1644 L1036 1690 L990 1690" fill="none" stroke="#f4f1ea" stroke-width="4" opacity="0.45" /></svg>
+      <div class="am-cinta" data-layout-ignore><span data-layout-ignore>SILENCIO · RODANDO · SILENCIO · RODANDO · SILENCIO · RODANDO · SILENCIO · RODANDO · SILENCIO · RODANDO · SILENCIO · RODANDO · SILENCIO · RODANDO · SILENCIO · RODANDO ·</span></div>
+      <div class="am-rec"><span class="am-punto"></span>REC<span class="am-toma"><b class="am-t0">TOMA 14</b><b class="am-t1">TOMA 15</b><b class="am-t2">TOMA 16</b><b class="am-t3">TOMA 17</b></span></div>
+      <div class="am-pausa">II PAUSA</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 71.88;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // la cinta se desliza despacio
+      tl.fromTo(q(".am-cinta span"), { x: 0 }, { x: -380, duration: DUR, ease: "none" }, 0);
+      // REC titila
+      tl.fromTo(q(".am-punto"), { opacity: 1 }, { opacity: 0.15, duration: 0.5, yoyo: true, repeat: Math.round(DUR / 0.5), ease: "steps(1)", immediateRender: false }, 0);
+      // número de toma
+      const T = [0,15.55,26.8,58.45];
+      T.forEach((t, i) => {
+        if (i > 0) tl.fromTo(q(".am-t" + i), { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, t);
+        if (i + 1 < T.length) tl.to(q(".am-t" + i), { opacity: 0, y: 20, duration: 0.15 }, T[i + 1] - 0.05);
+      });
+      gsap.set(q(".am-t0"), { opacity: 1 });
+      // con Scalerics: REC en pausa
+      tl.to(q(".am-rec"), { opacity: 0, duration: 0.2 }, 45.99);
+      tl.to(q(".am-pausa"), { opacity: 1, duration: 0.2 }, 45.99);
+      tl.to(q(".am-pausa"), { opacity: 0, duration: 0.2 }, 58.45);
+      tl.to(q(".am-rec"), { opacity: 1, duration: 0.2 }, 58.45);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

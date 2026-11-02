@@ -1,0 +1,109 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-llegada"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-llegada"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-llegada"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-llegada"] .s07-w { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; color: #f5f2e8; line-height: 1; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s07-llegada"] .s07-l1 { top: 590px; font-size: 76px; opacity: 0.6; }
+    [data-composition-id="s07-llegada"] .s07-l2 { top: 680px; font-size: 100px; opacity: 0.8; }
+    [data-composition-id="s07-llegada"] .s07-l3 { top: 794px; font-size: 128px; color: #ffcc1f; }
+    [data-composition-id="s07-llegada"] .s07-tab { position: absolute; left: 70px; top: 600px; width: 940px; height: 600px; border: 7px solid #f5f2e8; border-radius: 22px; background: #04130b; }
+    [data-composition-id="s07-llegada"] .s07-th { position: absolute; left: 0; right: 0; top: 0; height: 100px; background: #f5f2e8; color: #04130b; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; text-transform: uppercase; letter-spacing: 0.06em; }
+    [data-composition-id="s07-llegada"] .s07-fila { position: absolute; left: 40px; right: 40px; height: 130px; display: flex; align-items: center; gap: 26px; border-bottom: 3px dashed rgba(245, 242, 232, 0.3); font-family: "Lexend", sans-serif; font-weight: 800; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-llegada"] .s07-pos { width: 130px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 52px; color: #d9a35b; }
+    [data-composition-id="s07-llegada"] .s07-num { width: 96px; height: 96px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 64px; font-weight: 900; }
+    [data-composition-id="s07-llegada"] .s07-nom { font-size: 52px; color: #f5f2e8; }
+    [data-composition-id="s07-llegada"] .s07-r1 { top: 140px; } [data-composition-id="s07-llegada"] .s07-r2 { top: 290px; } [data-composition-id="s07-llegada"] .s07-r3 { top: 440px; border-bottom: 0; }
+    [data-composition-id="s07-llegada"] .s07-dif { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 48px; color: #ffcc1f; letter-spacing: 0.04em; }
+    [data-composition-id="s07-llegada"] .s07-nl { margin-left: auto; padding: 6px 16px; border: 5px solid #e63946; border-radius: 10px; color: #e63946; font-size: 40px; }
+  </style>
+  <div id="root" data-composition-id="s07-llegada" data-width="1080" data-height="1920" data-duration="6.66">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="6.66" data-track-index="0">
+      <div class="s07-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s07-pista">
+            <rect x="0" y="1130" width="1080" height="250" fill="#d9a35b" opacity="0.3" />
+            <path d="M0 1108 H1080" stroke="#f5f2e8" stroke-width="7" />
+            <g class="s07-postes" stroke="#f5f2e8" stroke-width="6"><path d="M40 1108 V1140 M220 1108 V1140 M400 1108 V1140 M580 1108 V1140 M760 1108 V1140 M940 1108 V1140 M1120 1108 V1140 M1300 1108 V1140" /></g>
+            <!-- el poste de llegada (disco) -->
+            <g class="s07-disco">
+              <path d="M820 1380 V1010" stroke="#f5f2e8" stroke-width="12" stroke-linecap="round" />
+              <circle cx="820" cy="1010" r="56" fill="#f5f2e8" /><circle cx="820" cy="1010" r="38" fill="#e63946" /><circle cx="820" cy="1010" r="16" fill="#f5f2e8" />
+            </g>
+            <g class="s07-caballo"><g transform="translate(60 965) scale(1.3)"><g class="s07-cuerpo">
+              <path d="M100 125 C130 100 230 100 270 112 C290 90 315 60 340 40 L352 30 L356 44 C375 50 400 65 412 82 C414 92 404 98 394 96 C375 90 355 88 340 92 C325 110 315 135 305 160 C315 175 345 195 385 215 L392 228 L380 232 C350 215 320 200 295 190 C300 210 310 235 300 262 L290 266 L286 258 C292 235 280 210 268 195 C230 200 180 200 150 192 C130 210 95 235 50 255 L40 250 L46 240 C85 222 105 205 112 185 C100 200 90 225 82 260 L70 262 L72 252 C78 225 82 195 88 170 C70 160 45 150 15 150 C40 135 70 125 100 125 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="4" stroke-linejoin="round" />
+              <circle cx="372" cy="62" r="5" fill="#f5f2e8" />
+              <rect x="168" y="112" width="74" height="54" rx="6" fill="#ffcc1f" />
+              <text x="205" y="153" text-anchor="middle" style="font-family: Lexend, sans-serif; font-weight: 900; font-size: 40px; fill: #04130b;">7</text>
+              <path d="M215 104 L238 140 L258 134" fill="none" stroke="#f5f2e8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M188 108 C198 70 238 54 276 62 C288 76 282 96 266 106 Z" fill="#ffcc1f" stroke="#04130b" stroke-width="3" />
+              <path d="M262 76 L326 96" stroke="#ffcc1f" stroke-width="12" stroke-linecap="round" />
+              <circle cx="292" cy="50" r="19" fill="#ffcc1f" stroke="#04130b" stroke-width="3" />
+            </g></g></g>
+          </g>
+        </svg>
+        <div class="s07-w s07-l1">¡Llegan!</div>
+        <div class="s07-w s07-l2">¡Llegan!</div>
+        <div class="s07-w s07-l3">¡Llegan!</div>
+        <div class="s07-w s07-l3 s07-gano">¡Ganó!</div>
+        <div class="s07-tab">
+          <div class="s07-th">Marcador de llegada</div>
+          <div class="s07-fila s07-r1"><span class="s07-pos">1°</span><span class="s07-num" style="background:#ffcc1f;color:#04130b">7</span><span class="s07-nom">El de enfrente</span></div>
+          <div class="s07-fila s07-r2"><span class="s07-pos">Dif.</span><span class="s07-dif">Varios cuerpos</span></div>
+          <div class="s07-fila s07-r3"><span class="s07-pos">Últ.</span><span class="s07-num" style="background:#e63946;color:#f5f2e8">3</span><span class="s07-nom">Tu local</span><span class="s07-nl">No largó</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-llegada";
+      const DUR = 6.66;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const L = [0, 0.67, 1.25], GANO = 1.90, ENFRENTE = 2.41, VARIOS = 3.08, LOCAL = 4.33, SALIO = 5.39;
+
+      // la pista corre; el disco se acerca; el caballo llega
+      tl.fromTo(q(".s07-postes"), { x: 0 }, { x: -720, duration: GANO + 0.4, ease: "none" }, 0);
+      tl.fromTo(q(".s07-disco"), { x: 260 }, { x: 0, duration: GANO, ease: "none" }, 0);
+      tl.fromTo(q(".s07-caballo"), { x: -60 }, { x: 420, duration: GANO + 0.1, ease: "power1.in" }, 0);
+      tl.fromTo(q(".s07-cuerpo"), { y: 0, rotation: 0, svgOrigin: "200 200" }, { y: -16, rotation: -3, svgOrigin: "200 200", duration: 0.15, yoyo: true, repeat: 17, ease: "sine.inOut" }, 0);
+
+      // ¡LLEGAN! x3, cada uno más grande
+      ["s07-l1", "s07-l2", "s07-l3"].forEach((c, i) => {
+        gsap.set(q("." + c), { opacity: 0 });
+        tl.fromTo(q("." + c), { opacity: 0, scale: 2 }, { opacity: i === 2 ? 1 : 0.6 + i * 0.2, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, L[i] - 0.06);
+        sacudon(L[i] + 0.08, 0.8 + i * 0.3);
+      });
+      gsap.set(q(".s07-gano"), { opacity: 0 });
+      tl.to(q(".s07-l3"), { opacity: 0, duration: 0.05 }, GANO - 0.06);
+      tl.fromTo(q(".s07-gano"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, GANO - 0.06);
+      sacudon(GANO + 0.04, 1.5);
+
+      // el marcador de llegada
+      gsap.set(q(".s07-tab"), { opacity: 0 });
+      tl.to([q(".s07-l1"), q(".s07-l2"), q(".s07-gano")], { opacity: 0, duration: 0.15 }, ENFRENTE - 0.25);
+      tl.to(q(".s07-pista"), { opacity: 0.25, duration: 0.2 }, ENFRENTE - 0.25);
+      tl.fromTo(q(".s07-tab"), { opacity: 0, scale: 0.85, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, ENFRENTE - 0.25);
+      const fila = (sel, t) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.22, ease: "power3.out", immediateRender: false }, t); };
+      fila(".s07-r1", ENFRENTE - 0.05);
+      fila(".s07-r2", VARIOS - 0.1);
+      fila(".s07-r3", LOCAL - 0.1);
+      gsap.set(q(".s07-nl"), { opacity: 0 });
+      tl.fromTo(q(".s07-nl"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, SALIO - 0.1);
+      tl.to(q(".s07-nl"), { opacity: 0.25, duration: 0.12, yoyo: true, repeat: 3, ease: "steps(1)" }, SALIO + 0.2);
+      sacudon(SALIO + 0.04);
+
+      tl.to(q("#s07-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

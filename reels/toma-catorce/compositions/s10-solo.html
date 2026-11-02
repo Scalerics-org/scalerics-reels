@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-solo"] .capa, [data-composition-id="s10-solo"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s10-solo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-solo"] .fl { position: absolute; inset: 0; background: #f4f1ea; opacity: 0; }
+    [data-composition-id="s10-solo"] .tit { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-style: normal; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.03em; white-space: nowrap; }
+    [data-composition-id="s10-solo"] .sello { position: absolute; padding: 10px 28px 6px; border: 9px solid #ff3b30; border-radius: 14px; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: 0.04em; color: #ff3b30; white-space: nowrap; background: rgba(17, 16, 20, 0.6); }
+    [data-composition-id="s10-solo"] .barra { position: absolute; padding: 12px 30px 10px; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; white-space: nowrap; border: 6px solid #111014; box-shadow: 10px 10px 0 #111014; }
+    [data-composition-id="s10-solo"] .tag { position: absolute; padding: 8px 20px 6px; font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; color: #111014; background: #ffcc1a; border: 4px solid #111014; }
+    [data-composition-id="s10-solo"] .globo { position: absolute; padding: 18px 26px 16px; border: 5px solid #111014; font-family: "Lexend", sans-serif; font-weight: 600; line-height: 1.12; color: #111014; box-shadow: 8px 8px 0 rgba(17, 16, 20, 0.6); }
+    [data-composition-id="s10-solo"] .globo.der { background: #d9f7c4; border-radius: 34px 34px 8px 34px; }
+    [data-composition-id="s10-solo"] .globo.izq { background: #f4f1ea; border-radius: 34px 34px 34px 8px; }
+    [data-composition-id="s10-solo"] .globo .chk { font-style: normal; margin-left: 12px; font-size: 0.6em; color: #5b6170; letter-spacing: -0.2em; }
+    [data-composition-id="s10-solo"] .noti { position: absolute; display: flex; align-items: center; gap: 22px; padding: 22px 26px; background: #f4f1ea; border: 6px solid #111014; border-radius: 30px; box-shadow: 10px 10px 0 rgba(17, 16, 20, 0.7); font-family: "Lexend", sans-serif; color: #111014; }
+    [data-composition-id="s10-solo"] .noti .noti-ic { flex: none; width: 74px; height: 74px; border-radius: 20px; background: #ff9a3c; border: 5px solid #111014; }
+    [data-composition-id="s10-solo"] .noti b { display: block; font-weight: 800; font-size: 30px; color: #5b6170; letter-spacing: 0.02em; }
+    [data-composition-id="s10-solo"] .noti span { display: block; font-weight: 700; line-height: 1.1; }
+    [data-composition-id="s10-solo"] .noti i { position: absolute; right: 26px; top: 18px; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #5b6170; }
+[data-composition-id="s10-solo"] .s10-tag { left: 420px; top: 680px; font-size: 40px; background: #ff3b30; color: #f4f1ea; }
+  </style>
+  <div id="root" data-composition-id="s10-solo" data-width="1080" data-height="1920" data-duration="2.18">
+    <div id="s10-solo-capa" class="capa clip" data-start="0" data-duration="2.18" data-track-index="0">
+      <div class="esc">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+  <path class="s10-cono" d="M480 560 L600 560 L890 1600 L190 1600 Z" fill="#ff9a3c" opacity="0.14" />
+  <ellipse cx="540" cy="1600" rx="340" ry="44" fill="#ff9a3c" opacity="0.12" />
+  <g class="s10-todo">
+  <rect x="360" y="1440" width="360" height="170" rx="10" fill="#6b4a32" stroke="#111014" stroke-width="7" />
+  <path d="M360 1500 L720 1500 M360 1560 L720 1560" stroke="#111014" stroke-width="5" opacity="0.5" />
+  <text x="540" y="1546" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="60" fill="#f4f1ea" opacity="0.8">BETO</text>
+  <g transform="translate(540 1430) rotate(0) scale(1)"><g class="s10-beto">
+    
+    <path d="M-190 160 C-190 -40 -150 -110 -60 -130 L60 -130 C150 -110 190 -40 190 160 Z" fill="#ff3b30" stroke="#111014" stroke-width="7" stroke-linejoin="round" />
+    <path d="M-100 -60 L-100 160 L100 160 L100 -60 Q60 -84 0 -84 Q-60 -84 -100 -60 Z" fill="#f4f1ea" stroke="#111014" stroke-width="6" stroke-linejoin="round" /><path d="M-100 -60 L-60 -128 M100 -60 L60 -128" stroke="#f4f1ea" stroke-width="10" /><path d="M-100 -60 L-60 -128 M100 -60 L60 -128" fill="none" stroke="#111014" stroke-width="3" /><rect x="-46" y="40" width="92" height="60" rx="8" fill="none" stroke="#111014" stroke-width="5" />
+    <rect x="-28" y="-160" width="56" height="40" fill="#f2c6a0" stroke="#111014" stroke-width="6" />
+    <path d="M-40 -128 L0 -84 L40 -128" fill="#f2c6a0" stroke="#111014" stroke-width="6" stroke-linejoin="round" />
+    <ellipse cx="-82" cy="-226" rx="14" ry="22" fill="#f2c6a0" stroke="#111014" stroke-width="6" /><ellipse cx="82" cy="-226" rx="14" ry="22" fill="#f2c6a0" stroke="#111014" stroke-width="6" />
+    <ellipse cx="0" cy="-230" rx="80" ry="92" fill="#f2c6a0" stroke="#111014" stroke-width="7" />
+    <path d="M-82 -236 C-92 -210 -86 -190 -78 -186 M82 -236 C92 -210 86 -190 78 -186" fill="none" stroke="#7a6a60" stroke-width="14" stroke-linecap="round" /><path d="M-30 -300 Q0 -312 30 -300" fill="none" stroke="#f4f1ea" stroke-width="6" stroke-linecap="round" opacity="0.5" /><g class="s10-beto-gorro"><path d="M-70 -280 C-120 -330 -90 -400 -40 -380 C-30 -430 30 -430 40 -380 C90 -400 120 -330 70 -280 Z" fill="#f4f1ea" stroke="#111014" stroke-width="6" stroke-linejoin="round" /><rect x="-74" y="-300" width="148" height="34" rx="8" fill="#f4f1ea" stroke="#111014" stroke-width="6" /></g>
+    <path d="M-56 -262 L-20 -274 M56 -262 L20 -274" fill="none" stroke="#111014" stroke-width="7" stroke-linecap="round" />
+    <g class="s10-beto-ojos" data-o="0 -236"><ellipse cx="-36" cy="-236" rx="11" ry="14" fill="#111014" /><ellipse cx="36" cy="-236" rx="11" ry="14" fill="#111014" /><circle cx="-32" cy="-242" r="4" fill="#f4f1ea" /><circle cx="40" cy="-242" r="4" fill="#f4f1ea" /></g>
+    <ellipse cx="-56" cy="-200" rx="16" ry="9" fill="#ff3b30" opacity="0.28" /><ellipse cx="56" cy="-200" rx="16" ry="9" fill="#ff3b30" opacity="0.28" />
+    <path d="M0 -226 Q-12 -206 4 -202" fill="none" stroke="#111014" stroke-width="5" stroke-linecap="round" />
+    <path d="M0 -206 Q-30 -218 -58 -194 Q-26 -184 0 -196 Q26 -184 58 -194 Q30 -218 0 -206 Z" fill="#4a3228" stroke="#111014" stroke-width="5" stroke-linejoin="round" /><path class="boca s10-beto-boca" data-o="0 -186" d="M-24 -178 Q0 -196 24 -178" fill="none" stroke="#111014" stroke-width="7" stroke-linecap="round" />
+    
+  </g></g>
+  <g class="s10-celg"><g transform="translate(540 1300) rotate(0) scale(0.6)"><g class="s10-cel">
+  <circle class="s10-cel-brillo" r="150" fill="#f4f1ea" opacity="0.10" />
+  <rect x="-70" y="-130" width="140" height="260" rx="22" fill="#111014" stroke="#8a91a3" stroke-width="6" />
+  <rect x="-58" y="-112" width="116" height="220" rx="10" fill="#f4f1ea" />
+  
+</g></g><g transform="translate(500 1360) rotate(30) scale(0.9)"><g class=""><path d="M-34 -10 Q-40 30 -10 40 L24 40 Q40 30 36 -6 Q30 -26 0 -24 Q-30 -26 -34 -10 Z" fill="#f2c6a0" stroke="#111014" stroke-width="6" stroke-linejoin="round" /><path d="M-30 4 L30 4 M-28 18 L30 18" stroke="#111014" stroke-width="4" stroke-linecap="round" /></g></g><g transform="translate(580 1360) rotate(-30) scale(0.9)"><g class=""><path d="M-34 -10 Q-40 30 -10 40 L24 40 Q40 30 36 -6 Q30 -26 0 -24 Q-30 -26 -34 -10 Z" fill="#f2c6a0" stroke="#111014" stroke-width="6" stroke-linejoin="round" /><path d="M-30 4 L30 4 M-28 18 L30 18" stroke="#111014" stroke-width="4" stroke-linecap="round" /></g></g></g>
+  </g>
+
+        </svg>
+<div class="tag s10-tag">YO SOLO</div>
+      </div>
+      <div class="fl"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-solo";
+      const DUR = 2.18;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".esc");
+      const org = (el, o) => (el instanceof SVGElement ? { svgOrigin: o ?? "0 0" } : { transformOrigin: o ?? "50% 50%" });
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // flash a pantalla completa
+      const flash = (t, a = 0.85) => { tl.fromTo(q(".fl"), { opacity: a }, { opacity: 0, duration: 0.28, ease: "power2.out", immediateRender: false }, t); };
+      const tiembla = (sel, t, d, a = 5, per = 0.05) => qa(sel).forEach((el) => tl.fromTo(el, { x: -a, rotation: -0.6 }, { x: a, rotation: 0.6, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per)) | 1, ease: "none", immediateRender: false }, t));
+      // vibración de celular (x rápido)
+      const vibrar = (sel, t, d, a = 8) => qa(sel).forEach((el) => tl.fromTo(el, { x: -a }, { x: a, duration: 0.035, yoyo: true, repeat: Math.max(1, Math.round(d / 0.035)) | 1, ease: "none", immediateRender: false }, t));
+      const pop = (sel, t, { d = 0.32, desde = 0.6, o } = {}) => qa(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde, ...org(el, o) }, { opacity: 1, scale: 1, ...org(el, o), duration: d, ease: "back.out(2)", immediateRender: false }, t);
+      });
+      const golpe = (sel, t, { desde = 2.2, o } = {}) => qa(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: desde, ...org(el, o) }, { opacity: 1, scale: 1, ...org(el, o), duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const entra = (sel, t, desde = { x: -700 }, d = 0.32) => qa(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 1, ...desde }, { opacity: 1, x: 0, y: 0, duration: d, ease: "back.out(1.3)", immediateRender: false }, t);
+      });
+      const sale = (sel, t, d = 0.2) => qa(sel).forEach((el) => tl.to(el, { opacity: 0, duration: d }, t));
+      const dibujar = (sel, t, d = 0.5) => qa(sel).forEach((p) => {
+        const L = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(p, { opacity: 1, duration: 0.01 }, t);
+        tl.to(p, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const habla = (sel, t, d, per = 0.1, min = 0.45) => qa(sel).forEach((el) => {
+        const o = el.dataset.o ?? "0 0";
+        const n = Math.max(1, Math.round(d / per)) | 1;
+        tl.fromTo(el, { scaleY: 1, svgOrigin: o }, { scaleY: min, svgOrigin: o, duration: per, yoyo: true, repeat: n, ease: "sine.inOut", immediateRender: false }, t);
+      });
+      const respira = (sel, t, d, dy = 8, per = 0.5) => qa(sel).forEach((el) => tl.fromTo(el, { y: 0 }, { y: dy, duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per)) | 1, ease: "sine.inOut", immediateRender: false }, t));
+      const balancea = (sel, t, d, deg = 4, per = 0.25, o) => qa(sel).forEach((el) => tl.fromTo(el, { rotation: -deg, ...org(el, o) }, { rotation: deg, ...org(el, o), duration: per, yoyo: true, repeat: Math.max(1, Math.round(d / per)) | 1, ease: "sine.inOut", immediateRender: false }, t));
+      const pestanea = (sel, t) => qa(sel).forEach((el) => tl.to(el, { scaleY: 0.1, ...org(el, el.dataset?.o), duration: 0.06, yoyo: true, repeat: 1 }, t));
+      const acerca = (sel, t, d, a = 1, b = 1.08, o) => qa(sel).forEach((el) => tl.fromTo(el, { scale: a, ...org(el, o) }, { scale: b, ...org(el, o), duration: d, ease: "none", immediateRender: false }, t));
+      // la claqueta: barra abierta (grados) que se cierra de golpe en t ("clac") y rebota
+      const clac = (sel, t, abierta = 24) => qa(sel).forEach((el) => {
+        tl.fromTo(el, { rotation: -abierta, svgOrigin: "-196 -96" }, { rotation: 0, svgOrigin: "-196 -96", duration: 0.09, ease: "power4.in", immediateRender: false }, t - 0.09);
+        tl.to(el, { rotation: -3, svgOrigin: "-196 -96", duration: 0.06, yoyo: true, repeat: 1, ease: "power1.out" }, t);
+      });
+      // la claqueta se abre (antes del clac)
+      const abre = (sel, t, abierta = 24, d = 0.3) => qa(sel).forEach((el) => tl.fromTo(el, { rotation: 0, svgOrigin: "-196 -96" }, { rotation: -abierta, svgOrigin: "-196 -96", duration: d, ease: "back.out(2)", immediateRender: false }, t));
+
+
+      const Y = 0, LES = 0.35, SI = 0.89, SOLO = 1.33;
+      tl.fromTo(q(".s10-todo"), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 0);
+      habla(".s10-beto-boca", 0.0, 1.8, 0.1, 0.6);
+      tl.fromTo(q(".s10-cel-brillo"), { opacity: 0.08 }, { opacity: 0.25, duration: 0.25, yoyo: true, repeat: 7, ease: "sine.inOut", immediateRender: false }, 0);
+      pop(".s10-tag", SOLO, { desde: 1.8 });
+      tl.fromTo(q(".s10-cono"), { scaleX: 1, svgOrigin: "540 560" }, { scaleX: 0.7, svgOrigin: "540 560", duration: 1.6, ease: "none", immediateRender: false }, 0.2);
+      acerca(".s10-todo", 0, DUR, 1, 1.06, "540 1400");
+
+      tl.to(q(".capa"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

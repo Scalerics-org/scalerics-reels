@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-visto"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-visto"] .s04-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s04-visto"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-visto"] .s04-crono { position: absolute; left: 0; right: 0; top: 584px; text-align: center; }
+    [data-composition-id="s04-visto"] .s04-crono b { display: inline-block; padding: 8px 26px; border: 4px solid #f5f2e8; border-radius: 12px; background: #04130b; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 44px; color: #f5f2e8; letter-spacing: 0.04em; white-space: nowrap; }
+    [data-composition-id="s04-visto"] .s04-crono i { font-style: normal; color: #d9a35b; font-size: 30px; letter-spacing: 0.2em; margin-right: 18px; }
+    [data-composition-id="s04-visto"] .s04-rot { position: absolute; left: 0; right: 0; top: 1350px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.22em; color: #d9a35b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s04-visto"] .s04-zzz { position: absolute; left: 700px; top: 760px; font-family: "Lexend", sans-serif; font-weight: 800; color: #f5f2e8; }
+    [data-composition-id="s04-visto"] .s04-zzz span { position: absolute; display: block; }
+    [data-composition-id="s04-visto"] .s04-sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s04-visto"] .s04-sello b { display: inline-flex; align-items: center; gap: 16px; padding: 6px 30px; border: 8px solid #e63946; border-radius: 16px; background: rgba(4, 19, 11, 0.88); font-family: "Lexend", sans-serif; font-weight: 900; color: #e63946; text-transform: uppercase; white-space: nowrap; letter-spacing: 0.02em; }
+    [data-composition-id="s04-visto"] .s04-v1 { top: 760px; } [data-composition-id="s04-visto"] .s04-v1 b { font-size: 70px; transform: rotate(-8deg); }
+    [data-composition-id="s04-visto"] .s04-v2 { top: 940px; } [data-composition-id="s04-visto"] .s04-v2 b { font-size: 90px; transform: rotate(5deg); }
+    [data-composition-id="s04-visto"] .s04-v3 { top: 1130px; } [data-composition-id="s04-visto"] .s04-v3 b { font-size: 112px; transform: rotate(-3deg); }
+  </style>
+  <div id="root" data-composition-id="s04-visto" data-width="1080" data-height="1920" data-duration="6.64">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.64" data-track-index="0">
+      <div class="s04-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <rect x="290" y="720" width="500" height="580" fill="#04130b" />
+          <g class="s04-caballo" transform="translate(540 1040) scale(1.25)">
+            <path d="M-80 -40 L-110 200 H110 L80 -40 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="4" stroke-linejoin="round" />
+            <path class="s04-oreja-i" d="M-52 -150 L-40 -205 L-16 -152 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="4" stroke-linejoin="round" />
+            <path class="s04-oreja-d" d="M52 -150 L40 -205 L16 -152 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="4" stroke-linejoin="round" />
+            <path d="M-62 -140 C-70 -60 -50 40 -40 90 C-38 130 -45 160 -30 180 C-10 195 10 195 30 180 C45 160 38 130 40 90 C50 40 70 -60 62 -140 C30 -165 -30 -165 -62 -140 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="4" stroke-linejoin="round" />
+            <path d="M-8 -118 L8 -118 L13 70 L-13 70 Z" fill="#f5f2e8" opacity="0.85" />
+            <path d="M-30 -150 C-20 -120 -5 -110 0 -96 C5 -110 20 -120 30 -150" fill="none" stroke="#f5f2e8" stroke-width="4" stroke-linecap="round" />
+            <path d="M-60 -100 H60 M-44 110 H44" stroke="#e63946" stroke-width="9" stroke-linecap="round" />
+            <path d="M-60 -58 Q-46 -46 -32 -58 M32 -58 Q46 -46 60 -58" fill="none" stroke="#f5f2e8" stroke-width="4" stroke-linecap="round" />
+            <circle cx="-17" cy="160" r="6" fill="#f5f2e8" /><circle cx="17" cy="160" r="6" fill="#f5f2e8" />
+          </g>
+          <!-- el cajón de cerca -->
+          <path class="s04-marco" d="M290 1300 V720 H790 V1300" fill="none" stroke="#f5f2e8" stroke-width="7" stroke-linejoin="round" />
+          <rect x="490" y="690" width="100" height="56" rx="10" fill="#e63946" />
+          <text x="540" y="735" text-anchor="middle" style="font-family: Lexend, sans-serif; font-weight: 800; font-size: 46px; fill: #f5f2e8;">3</text>
+          <path d="M200 1300 H880" stroke="#d9a35b" stroke-width="6" opacity="0.6" />
+        </svg>
+        <div class="s04-crono"><b><i>Tiempo</i><span class="s04-t">0:00.0</span></b></div>
+        <div class="s04-zzz" data-layout-allow-overlap><span class="s04-z1" style="left:0;top:80px;font-size:50px">Z</span><span class="s04-z2" style="left:46px;top:20px;font-size:66px">Z</span><span class="s04-z3" style="left:108px;top:-50px;font-size:82px">Z</span></div>
+        <div class="s04-rot">Partidor · cajón 3</div>
+        <div class="s04-sello s04-v1"><b>
+          <svg viewBox="0 0 80 50" style="position:static;width:80px;height:50px" aria-hidden="true"><path d="M4 26 L18 40 L44 10 M30 34 L36 40 L66 6" fill="none" stroke="#e63946" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" /></svg>En visto</b></div>
+        <div class="s04-sello s04-v2"><b>
+          <svg viewBox="0 0 80 50" style="position:static;width:96px;height:60px" aria-hidden="true"><path d="M4 26 L18 40 L44 10 M30 34 L36 40 L66 6" fill="none" stroke="#e63946" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" /></svg>En visto</b></div>
+        <div class="s04-sello s04-v3"><b>
+          <svg viewBox="0 0 80 50" style="position:static;width:116px;height:72px" aria-hidden="true"><path d="M4 26 L18 40 L44 10 M30 34 L36 40 L66 6" fill="none" stroke="#e63946" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" /></svg>En visto</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-visto";
+      const DUR = 6.64;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s04-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const NO = 0.67, PARTIDOR = 2.19, V = [3.24, 4.10, 4.95];
+
+      // cuadro 0: el cajón de cerca, zoom lento hacia el caballo
+      tl.fromTo(q(".s04-escenario"), { scale: 1.08 }, { scale: 1, duration: 0.35, ease: "power3.out", transformOrigin: "50% 55%" }, 0);
+      tl.to(q(".s04-escenario"), { scale: 1.06, duration: DUR - 0.6, ease: "none", transformOrigin: "50% 55%" }, 0.35);
+      // respira dormido
+      tl.to(q(".s04-caballo"), { scale: 1.27, svgOrigin: "540 1040", duration: 0.9, yoyo: true, repeat: 6, ease: "sine.inOut" }, 0);
+      ["s04-z1", "s04-z2", "s04-z3"].forEach((z, i) => {
+        tl.fromTo(q("." + z), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1 + i * 0.2);
+        tl.to(q("." + z), { y: -30, opacity: 0.6, duration: 1.6, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0.5 + i * 0.2);
+      });
+
+      // "no se mueve": el cronómetro de la carrera corre
+      const t = q(".s04-t"); const reloj = { s: 0 };
+      gsap.set(q(".s04-crono"), { opacity: 0 });
+      tl.fromTo(q(".s04-crono"), { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, NO - 0.1);
+      tl.to(reloj, { s: 74.6, duration: DUR - NO, ease: "power1.in", onUpdate: () => { const s = reloj.s; t.textContent = Math.floor(s / 60) + ":" + String(Math.floor(s % 60)).padStart(2, "0") + "." + Math.floor((s * 10) % 10); } }, NO);
+
+      // "partidor": rótulo
+      tl.fromTo(q(".s04-rot"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3 }, PARTIDOR - 0.1);
+
+      // tres "EN VISTO", cada uno más grande; el caballo ni se mosquea (solo una oreja)
+      ["s04-v1", "s04-v2", "s04-v3"].forEach((c, i) => {
+        gsap.set(q("." + c), { opacity: 0 });
+        tl.fromTo(q("." + c), { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, V[i] - 0.1);
+        sacudon(V[i] + 0.04, 1 + i * 0.4);
+        tl.to(q(i % 2 ? ".s04-oreja-d" : ".s04-oreja-i"), { rotation: i % 2 ? 14 : -14, svgOrigin: i % 2 ? "574 853" : "506 853", duration: 0.12, yoyo: true, repeat: 1 }, V[i] + 0.25);
+      });
+      tl.to(q(".s04-rot"), { opacity: 0, duration: 0.2 }, V[2] - 0.2);
+
+      tl.to(q("#s04-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

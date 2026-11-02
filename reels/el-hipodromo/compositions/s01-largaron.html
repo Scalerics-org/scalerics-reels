@@ -1,0 +1,141 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-largaron"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-largaron"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-largaron"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-largaron"] .lin { fill: none; stroke: #f5f2e8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-largaron"] .reja { fill: none; stroke: #f5f2e8; stroke-width: 3; opacity: 0.7; }
+    [data-composition-id="s01-largaron"] .num { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; fill: #04130b; text-anchor: middle; }
+    [data-composition-id="s01-largaron"] .s01-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s01-largaron"] .s01-larg { top: 588px; font-weight: 900; font-size: 128px; letter-spacing: -0.02em; color: #f5f2e8; text-shadow: 0 0 34px rgba(245, 242, 232, 0.25); }
+    [data-composition-id="s01-largaron"] .s01-tag { top: 742px; } [data-composition-id="s01-largaron"] .s01-tag b { display: inline-block; padding: 8px 22px; background: #e63946; color: #f5f2e8; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+    [data-composition-id="s01-largaron"] .s01-zzz { position: absolute; left: 706px; top: 1000px; font-family: "Lexend", sans-serif; font-weight: 800; color: #f5f2e8; white-space: nowrap; }
+    [data-composition-id="s01-largaron"] .s01-zzz span { position: absolute; display: block; }
+    [data-composition-id="s01-largaron"] .s01-sello { top: 1362px; } [data-composition-id="s01-largaron"] .s01-sello b { display: inline-block; transform: rotate(-4deg); padding: 10px 26px; border: 6px solid #e63946; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.08em; color: #e63946; text-transform: uppercase; white-space: nowrap; background: rgba(4, 19, 11, 0.85); }
+  </style>
+  <div id="root" data-composition-id="s01-largaron" data-width="1080" data-height="1920" data-duration="4.25">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.25" data-track-index="0">
+      <div class="s01-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- pista de arena delante del partidor -->
+          <path class="s01-arena" d="M40 1290 H1040 L1080 1500 H0 Z" fill="#d9a35b" opacity="0.22" />
+          <!-- interior oscuro de los cajones -->
+          <rect x="100" y="910" width="880" height="380" fill="#04130b" />
+          <!-- el caballo de tu local, de frente, dormido (detrás de las puertas) -->
+          <g class="s01-caballo" transform="translate(650 1122) scale(0.82)">
+            <path d="M-80 -40 L-110 200 H110 L80 -40 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="5" stroke-linejoin="round" />
+            <path d="M-52 -150 L-40 -205 L-16 -152 Z M52 -150 L40 -205 L16 -152 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="5" stroke-linejoin="round" />
+            <path d="M-62 -140 C-70 -60 -50 40 -40 90 C-38 130 -45 160 -30 180 C-10 195 10 195 30 180 C45 160 38 130 40 90 C50 40 70 -60 62 -140 C30 -165 -30 -165 -62 -140 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="5" stroke-linejoin="round" />
+            <path d="M-8 -118 L8 -118 L13 70 L-13 70 Z" fill="#f5f2e8" opacity="0.85" />
+            <path d="M-30 -150 C-20 -120 -5 -110 0 -96 C5 -110 20 -120 30 -150" fill="none" stroke="#f5f2e8" stroke-width="5" stroke-linecap="round" />
+            <!-- cabezada roja -->
+            <path d="M-60 -100 H60 M-44 110 H44" stroke="#e63946" stroke-width="10" stroke-linecap="round" />
+            <!-- ojos abiertos / cerrados -->
+            <g class="s01-ojos-a"><circle cx="-46" cy="-56" r="9" fill="#f5f2e8" /><circle cx="46" cy="-56" r="9" fill="#f5f2e8" /></g>
+            <path class="s01-ojos-c" d="M-60 -58 Q-46 -46 -32 -58 M32 -58 Q46 -46 60 -58" fill="none" stroke="#f5f2e8" stroke-width="5" stroke-linecap="round" />
+            <circle cx="-17" cy="160" r="7" fill="#f5f2e8" /><circle cx="17" cy="160" r="7" fill="#f5f2e8" />
+          </g>
+          <!-- polvo de los que largaron -->
+          <g class="s01-polvo" fill="#d9a35b">
+            <circle class="s01-p" cx="210" cy="1220" r="70" /><circle class="s01-p" cx="430" cy="1230" r="70" /><circle class="s01-p" cx="870" cy="1220" r="70" />
+            <circle class="s01-p" cx="170" cy="1260" r="50" /><circle class="s01-p" cx="470" cy="1270" r="50" /><circle class="s01-p" cx="910" cy="1265" r="50" />
+          </g>
+          <!-- estructura del partidor -->
+          <g class="s01-estructura">
+            <path class="lin s01-marco" d="M100 1290 V850 H980 V1290" />
+            <path class="lin s01-postes" d="M320 850 V1290 M540 850 V1290 M760 850 V1290 M100 910 H980" />
+            <rect x="170" y="862" width="80" height="40" rx="8" fill="#f5f2e8" /><text class="num" x="210" y="897">1</text>
+            <rect x="390" y="862" width="80" height="40" rx="8" fill="#f5f2e8" /><text class="num" x="430" y="897">2</text>
+            <rect x="610" y="862" width="80" height="40" rx="8" fill="#e63946" /><text class="num" x="650" y="897" style="fill:#f5f2e8">3</text>
+            <rect x="830" y="862" width="80" height="40" rx="8" fill="#f5f2e8" /><text class="num" x="870" y="897">4</text>
+          </g>
+          <!-- puertas de rejas (cada cajón, dos hojas) -->
+          <g class="s01-puertas">
+            <g class="s01-hoja s01-izq" data-x="106"><rect x="106" y="930" width="102" height="350" fill="#08261a" stroke="#f5f2e8" stroke-width="4" /><path class="reja" d="M106 1000 L208 1080 M106 1100 L208 1180 M106 1200 L208 1280 M208 1000 L106 1080 M208 1100 L106 1180 M208 930 L106 1000" /></g>
+            <g class="s01-hoja s01-der" data-x="314"><rect x="212" y="930" width="102" height="350" fill="#08261a" stroke="#f5f2e8" stroke-width="4" /><path class="reja" d="M212 1000 L314 1080 M212 1100 L314 1180 M212 1200 L314 1280 M314 1000 L212 1080 M314 1100 L212 1180 M314 930 L212 1000" /></g>
+            <g class="s01-hoja s01-izq" data-x="326"><rect x="326" y="930" width="102" height="350" fill="#08261a" stroke="#f5f2e8" stroke-width="4" /><path class="reja" d="M326 1000 L428 1080 M326 1100 L428 1180 M326 1200 L428 1280 M428 1000 L326 1080 M428 1100 L326 1180 M428 930 L326 1000" /></g>
+            <g class="s01-hoja s01-der" data-x="534"><rect x="432" y="930" width="102" height="350" fill="#08261a" stroke="#f5f2e8" stroke-width="4" /><path class="reja" d="M432 1000 L534 1080 M432 1100 L534 1180 M432 1200 L534 1280 M534 1000 L432 1080 M534 1100 L432 1180 M534 930 L432 1000" /></g>
+            <g class="s01-hoja s01-izq" data-x="546"><rect x="546" y="930" width="102" height="350" fill="#08261a" stroke="#f5f2e8" stroke-width="4" /><path class="reja" d="M546 1000 L648 1080 M546 1100 L648 1180 M546 1200 L648 1280 M648 1000 L546 1080 M648 1100 L546 1180 M648 930 L546 1000" /></g>
+            <g class="s01-hoja s01-der" data-x="754"><rect x="652" y="930" width="102" height="350" fill="#08261a" stroke="#f5f2e8" stroke-width="4" /><path class="reja" d="M652 1000 L754 1080 M652 1100 L754 1180 M652 1200 L754 1280 M754 1000 L652 1080 M754 1100 L652 1180 M754 930 L652 1000" /></g>
+            <g class="s01-hoja s01-izq" data-x="766"><rect x="766" y="930" width="102" height="350" fill="#08261a" stroke="#f5f2e8" stroke-width="4" /><path class="reja" d="M766 1000 L868 1080 M766 1100 L868 1180 M766 1200 L868 1280 M868 1000 L766 1080 M868 1100 L766 1180 M868 930 L766 1000" /></g>
+            <g class="s01-hoja s01-der" data-x="974"><rect x="872" y="930" width="102" height="350" fill="#08261a" stroke="#f5f2e8" stroke-width="4" /><path class="reja" d="M872 1000 L974 1080 M872 1100 L974 1180 M872 1200 L974 1280 M974 1000 L872 1080 M974 1100 L872 1180 M974 930 L872 1000" /></g>
+          </g>
+          <!-- flecha del cartel al cajón 3 -->
+          <path class="s01-flecha" d="M600 812 C630 820 645 832 650 845 M636 836 L650 848 L662 832" fill="none" stroke="#e63946" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="s01-txt s01-larg">¡Largaron!</div>
+        <div class="s01-txt s01-tag"><b>Tu local</b></div>
+        <div class="s01-zzz"><span class="s01-z1" style="left:0;top:60px;font-size:44px">Z</span><span class="s01-z2" style="left:40px;top:10px;font-size:58px">Z</span><span class="s01-z3" style="left:96px;top:-50px;font-size:66px">Z</span></div>
+        <div class="s01-txt s01-sello"><b>Se quedó en el partidor</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-largaron";
+      const DUR = 4.25;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const ABREN = 0.15;
+      const LOCAL = 1.62;
+      const DORMIDO = 2.19;
+      const PARTIDOR = 2.95;
+
+      // cuadro 0: el marco a medio dibujar
+      const m = q(".s01-marco"); const Lm = m.getTotalLength();
+      tl.fromTo(m, { strokeDasharray: Lm, strokeDashoffset: Lm * 0.45 }, { strokeDashoffset: 0, duration: 0.35, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s01-escenario"), { scale: 1.05 }, { scale: 1, duration: DUR, ease: "none", transformOrigin: "50% 60%" }, 0);
+
+      // "¡Largaron!": entra de golpe
+      tl.fromTo(q(".s01-larg"), { opacity: 0.5, scale: 1.22 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in" }, 0);
+      sacudon(0.18, 1.2);
+
+      // se abren las puertas (cada hoja gira sobre su bisagra exterior)
+      qa(".s01-hoja").forEach((h) => {
+        const x = Number(h.dataset.x);
+        tl.to(h, { scaleX: 0.08, svgOrigin: x + " 1100", duration: 0.22, ease: "power3.out" }, ABREN);
+      });
+      // polvo de los que largaron (cajones 1, 2 y 4)
+      gsap.set(qa(".s01-p"), { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" });
+      tl.to(qa(".s01-p"), { opacity: 0.5, scale: 1, duration: 0.25, ease: "power2.out", stagger: 0.03, immediateRender: false }, ABREN + 0.05);
+      tl.to(qa(".s01-p"), { opacity: 0, scale: 1.6, y: 80, duration: 0.9, ease: "power1.in" }, ABREN + 0.4);
+      tl.fromTo(q(".s01-arena"), { opacity: 0.22 }, { opacity: 0.36, duration: 0.2, yoyo: true, repeat: 1 }, ABREN);
+
+      // el caballo ni se mueve; "tu local"
+      gsap.set([q(".s01-tag"), q(".s01-flecha")], { opacity: 0 });
+      tl.fromTo(q(".s01-tag"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, LOCAL - 0.12);
+      tl.to(q(".s01-flecha"), { opacity: 1, duration: 0.2 }, LOCAL);
+      tl.to(q(".s01-larg"), { opacity: 0.35, duration: 0.3 }, LOCAL);
+
+      // "dormido": cierra los ojos, Zzz
+      gsap.set(q(".s01-ojos-c"), { opacity: 0 });
+      tl.to(q(".s01-ojos-a"), { opacity: 0, duration: 0.08 }, DORMIDO - 0.05);
+      tl.to(q(".s01-ojos-c"), { opacity: 1, duration: 0.08 }, DORMIDO - 0.05);
+      tl.to(q(".s01-caballo"), { rotation: 4, svgOrigin: "650 1290", duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut" }, DORMIDO);
+      ["s01-z1", "s01-z2", "s01-z3"].forEach((z, i) => {
+        gsap.set(q("." + z), { opacity: 0 });
+        tl.fromTo(q("." + z), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", immediateRender: false }, DORMIDO + i * 0.18);
+        tl.to(q("." + z), { y: -24, duration: 1.4, ease: "sine.inOut" }, DORMIDO + 0.3 + i * 0.18);
+      });
+
+      // "partidor": sello rojo
+      gsap.set(q(".s01-sello"), { opacity: 0 });
+      tl.fromTo(q(".s01-sello"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, PARTIDOR - 0.1);
+      sacudon(PARTIDOR + 0.04);
+
+      // salida: barrido hacia la derecha, como la cámara que sigue a los que largaron
+      tl.to(q("#s01-escena"), { x: 300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

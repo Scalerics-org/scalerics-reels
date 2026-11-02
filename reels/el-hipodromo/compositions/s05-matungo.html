@@ -1,0 +1,110 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-matungo"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-matungo"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-matungo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-matungo"] .s05-globo { position: absolute; left: 0; right: 0; top: 590px; text-align: center; } [data-composition-id="s05-matungo"] .s05-globo b { display: inline-block; padding: 14px 34px; background: #f5f2e8; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 74px; letter-spacing: -0.01em; color: #04130b; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s05-matungo"] .s05-boleto { position: absolute; left: 580px; top: 760px; width: 400px; height: 440px; background: #f5f2e8; border-radius: 14px; color: #04130b; text-align: center; }
+    [data-composition-id="s05-matungo"] .s05-boleto .bh { margin-top: 26px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; text-transform: uppercase; }
+    [data-composition-id="s05-matungo"] .s05-boleto .bn { margin-top: 6px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 170px; line-height: 1; color: #e63946; }
+    [data-composition-id="s05-matungo"] .s05-boleto .bl { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 44px; text-transform: uppercase; }
+    [data-composition-id="s05-matungo"] .s05-boleto .bg { margin-top: 14px; padding-top: 14px; border-top: 4px dashed #04130b; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.16em; text-transform: uppercase; }
+    [data-composition-id="s05-matungo"] .s05-todo { position: absolute; left: 640px; top: 1110px; padding: 4px 26px; border: 7px solid #ffcc1f; border-radius: 14px; background: #04130b; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 92px; color: #ffcc1f; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s05-matungo"] .s05-zzz { position: absolute; left: 900px; top: 700px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 44px; color: #e63946; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s05-matungo" data-width="1080" data-height="1920" data-duration="4.93">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.93" data-track-index="0">
+      <div class="s05-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- la tribuna: escalones -->
+          <g stroke="#d9a35b" stroke-width="4" opacity="0.35"><path d="M0 1200 H1080 M0 1290 H1080 M0 1380 H1080 M0 1470 H1080" /></g>
+          <g class="s05-tipo">
+            <!-- brazo levantado con el boleto -->
+            <path class="s05-brazo" d="M440 1230 C500 1150 540 1080 600 1000" fill="none" stroke="#f5f2e8" stroke-width="54" stroke-linecap="round" />
+            <path class="s05-brazo2" d="M440 1230 C500 1150 540 1080 600 1000" fill="none" stroke="#08261a" stroke-width="42" stroke-linecap="round" />
+            <!-- cuerpo con saco -->
+            <path d="M190 1500 C190 1300 230 1180 340 1170 C450 1180 490 1300 490 1500 Z" fill="#08261a" stroke="#f5f2e8" stroke-width="6" stroke-linejoin="round" />
+            <path d="M300 1176 L340 1290 L380 1176" fill="none" stroke="#f5f2e8" stroke-width="5" stroke-linejoin="round" />
+            <path d="M330 1200 L350 1200 L356 1290 L340 1312 L324 1290 Z" fill="#e63946" />
+            <!-- binoculares colgados -->
+            <path d="M300 1182 C290 1240 300 1270 300 1290 M380 1182 C390 1240 380 1270 380 1290" fill="none" stroke="#f5f2e8" stroke-width="3" opacity="0.7" />
+            <rect x="282" y="1290" width="48" height="66" rx="14" fill="#04130b" stroke="#f5f2e8" stroke-width="5" />
+            <rect x="350" y="1290" width="48" height="66" rx="14" fill="#04130b" stroke="#f5f2e8" stroke-width="5" />
+            <path d="M330 1316 H350" stroke="#f5f2e8" stroke-width="6" />
+            <!-- cabeza -->
+            <g class="s05-cabeza">
+              <circle cx="340" cy="1070" r="86" fill="#0d3a20" stroke="#f5f2e8" stroke-width="6" />
+              <path d="M290 1030 L322 1042 M390 1030 L358 1042" stroke="#f5f2e8" stroke-width="7" stroke-linecap="round" />
+              <circle cx="312" cy="1058" r="7" fill="#f5f2e8" /><circle cx="368" cy="1058" r="7" fill="#f5f2e8" />
+              <path d="M296 1094 C318 1080 362 1080 384 1094 C362 1104 318 1104 296 1094 Z" fill="#f5f2e8" />
+              <ellipse class="s05-boca" cx="340" cy="1122" rx="22" ry="17" fill="#04130b" stroke="#f5f2e8" stroke-width="5" />
+            </g>
+            <!-- sombrero -->
+            <g class="s05-sombrero">
+              <path d="M262 990 C264 930 292 908 340 908 C388 908 416 930 418 990 Z" fill="#04130b" stroke="#f5f2e8" stroke-width="6" stroke-linejoin="round" />
+              <path d="M264 966 H416" stroke="#d9a35b" stroke-width="12" />
+              <ellipse cx="340" cy="992" rx="128" ry="22" fill="#04130b" stroke="#f5f2e8" stroke-width="6" />
+            </g>
+            <!-- líneas de grito -->
+            <g class="s05-grito" stroke="#f5f2e8" stroke-width="6" stroke-linecap="round"><path d="M200 1080 L150 1066 M206 1120 L150 1130 M216 1040 L172 1010" /></g>
+          </g>
+        </svg>
+        <div class="s05-globo"><b>¡Dale, matungo!</b></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true"><path class="s05-cola" d="M300 700 L330 700 L320 900 Z" fill="#f5f2e8" /></svg>
+        <div class="s05-boleto">
+          <div class="bh">Maroñas · 5ª</div>
+          <div class="bn">3</div>
+          <div class="bl">Tu local</div>
+          <div class="bg">A ganador</div>
+        </div>
+        <div class="s05-todo">Todo</div>
+        <div class="s05-zzz">zzz</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-matungo";
+      const DUR = 4.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s05-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const MATUNGO = 0.57, JUGUE = 1.81, TODO = 2.29, DURMIENDO = 3.59;
+
+      // cuadro 0: el tipo ya está, gritando
+      tl.fromTo(q(".s05-tipo"), { y: 40, opacity: 0.7 }, { y: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s05-globo"), { opacity: 0.4, scale: 1.3, transformOrigin: "30% 100%" }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in" }, 0);
+      sacudon(MATUNGO, 1.2);
+      tl.to(q(".s05-boca"), { scaleY: 1.5, svgOrigin: "340 1122", duration: 0.1, yoyo: true, repeat: 7 }, 0);
+      tl.fromTo(q(".s05-grito"), { opacity: 0 }, { opacity: 1, duration: 0.1, yoyo: true, repeat: 5 }, 0.05);
+      tl.to(q(".s05-tipo"), { rotation: -2, svgOrigin: "340 1500", duration: 0.25, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.3);
+
+      // "jugué": el boleto en alto
+      gsap.set(q(".s05-boleto"), { opacity: 0 });
+      tl.fromTo(q(".s05-boleto"), { opacity: 0, scale: 0.5, rotation: -20, y: 120 }, { opacity: 1, scale: 1, rotation: 6, y: 0, duration: 0.35, ease: "back.out(1.8)", immediateRender: false }, JUGUE - 0.15);
+      tl.to(q(".s05-boleto"), { rotation: 2, duration: 0.18, yoyo: true, repeat: 7, ease: "sine.inOut" }, JUGUE + 0.25);
+      tl.to([q(".s05-globo"), q(".s05-cola")], { opacity: 0.3, duration: 0.3 }, JUGUE);
+      // "todo": sello amarillo
+      gsap.set(q(".s05-todo"), { opacity: 0 });
+      tl.fromTo(q(".s05-todo"), { opacity: 0, scale: 2.4, rotation: -10 }, { opacity: 1, scale: 1, rotation: -10, duration: 0.14, ease: "power4.in", immediateRender: false }, TODO - 0.1);
+      sacudon(TODO + 0.04);
+
+      // "durmiendo": salta el sombrero, se agarra la cabeza, zzz en el boleto
+      tl.to(q(".s05-sombrero"), { y: -90, rotation: -18, svgOrigin: "340 990", duration: 0.2, ease: "power3.out" }, DURMIENDO - 0.1);
+      tl.to(q(".s05-sombrero"), { y: -40, rotation: -8, svgOrigin: "340 990", duration: 0.5, ease: "bounce.out" }, DURMIENDO + 0.15);
+      gsap.set(q(".s05-zzz"), { opacity: 0 });
+      tl.fromTo(q(".s05-zzz"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, DURMIENDO);
+      tl.to(q(".s05-zzz"), { y: -20, duration: 0.9, ease: "sine.inOut" }, DURMIENDO + 0.3);
+
+      tl.to(q("#s05-escena"), { x: 300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

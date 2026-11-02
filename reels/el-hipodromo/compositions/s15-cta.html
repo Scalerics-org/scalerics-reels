@@ -1,0 +1,73 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-cta"] .s15-capa { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] .s15-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s15-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s15-cta"] .s15-boleto { position: absolute; left: 100px; top: 620px; width: 880px; height: 680px; background: #f5f2e8; border-radius: 20px; color: #04130b; }
+    [data-composition-id="s15-cta"] .s15-bh { position: absolute; left: 44px; right: 44px; top: 34px; display: flex; justify-content: space-between; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 4px dashed #04130b; padding-bottom: 16px; }
+    [data-composition-id="s15-cta"] .s15-et { position: absolute; left: 0; right: 0; top: 128px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 146px; letter-spacing: -0.03em; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s15-cta"] .s15-al { position: absolute; left: 44px; right: 44px; top: 296px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 50px; line-height: 1.15; text-transform: uppercase; }
+    [data-composition-id="s15-cta"] .s15-al b { color: #e63946; }
+    [data-composition-id="s15-cta"] .s15-arroba { position: absolute; left: 700px; top: 470px; width: 150px; height: 150px; border-radius: 50%; background: #5ce611; display: flex; align-items: center; justify-content: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 96px; color: #04130b; }
+    [data-composition-id="s15-cta"] .s15-zzz { position: absolute; left: 330px; top: 1078px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; color: #04130b; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s15-cta" data-width="1080" data-height="1920" data-duration="5.61">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="5.61" data-track-index="0">
+      <div class="s15-escenario">
+        <div class="s15-boleto">
+          <div class="s15-bh"><span>Maroñas · revancha</span><span>N° 3</span></div>
+          <div class="s15-et">Etiquetá</div>
+          <div class="s15-al">al que siempre se queda<br /><b>en el partidor</b></div>
+          <div class="s15-arroba">@</div>
+        </div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- cajoncito con la cabeza roja dormida -->
+          <g transform="translate(10 18)"><g class="s15-mini">
+            <rect x="160" y="1080" width="150" height="190" fill="#04130b" />
+            <g transform="translate(235 1190) scale(0.42)">
+              <path d="M-52 -150 L-40 -205 L-16 -152 Z M52 -150 L40 -205 L16 -152 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="8" stroke-linejoin="round" />
+              <path d="M-62 -140 C-70 -60 -50 40 -40 90 C-38 130 -45 160 -30 180 C-10 195 10 195 30 180 C45 160 38 130 40 90 C50 40 70 -60 62 -140 C30 -165 -30 -165 -62 -140 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="8" />
+              <path d="M-60 -100 H60" stroke="#e63946" stroke-width="16" stroke-linecap="round" />
+              <path d="M-60 -58 Q-46 -46 -32 -58 M32 -58 Q46 -46 60 -58" fill="none" stroke="#f5f2e8" stroke-width="8" stroke-linecap="round" />
+            </g>
+            <path d="M160 1270 V1060 H310 V1270" fill="none" stroke="#04130b" stroke-width="7" stroke-linejoin="round" />
+            <rect x="207" y="1040" width="56" height="34" rx="6" fill="#e63946" />
+            <text x="235" y="1068" text-anchor="middle" style="font-family: Lexend, sans-serif; font-weight: 800; font-size: 28px; fill: #f5f2e8;">3</text>
+          </g></g>
+        </svg>
+        <div class="s15-zzz">zzz</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-cta";
+      const DUR = 5.61;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const SIEMPRE = 0.66, PARTIDOR = 1.60;
+
+      // cuadro 0: el boleto cae y "ETIQUETÁ"
+      tl.fromTo(q(".s15-boleto"), { opacity: 0.5, y: -80, rotation: -8 }, { opacity: 1, y: 0, rotation: -3, duration: 0.4, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".s15-et"), { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in" }, 0.05);
+      gsap.set([q(".s15-al"), q(".s15-arroba"), q(".s15-mini"), q(".s15-zzz")], { opacity: 0 });
+      tl.fromTo(q(".s15-al"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", immediateRender: false }, SIEMPRE - 0.15);
+      tl.fromTo(q(".s15-mini"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(2)", immediateRender: false }, PARTIDOR - 0.1);
+      tl.fromTo(q(".s15-zzz"), { opacity: 0, y: 10 }, { opacity: 1, y: -10, duration: 0.6, ease: "sine.out", immediateRender: false }, PARTIDOR + 0.3);
+      tl.to(q(".s15-zzz"), { y: -24, opacity: 0.5, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut" }, PARTIDOR + 0.9);
+      tl.fromTo(q(".s15-arroba"), { opacity: 0, scale: 0.3, rotation: -30 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2.5)", immediateRender: false }, PARTIDOR + 0.3);
+      // latido suave hasta el final (sin salida)
+      tl.to(q(".s15-arroba"), { scale: 1.1, duration: 0.4, yoyo: true, repeat: 7, ease: "sine.inOut" }, PARTIDOR + 0.75);
+      tl.to(q(".s15-boleto"), { rotation: -2, duration: 1.2, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0.4);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,94 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-precios"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-precios"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-precios"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-precios"] .s12-tuyo { position: absolute; left: 60px; top: 600px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 96px; color: #f5f2e8; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s12-precios"] .s12-tuyo b { color: #5ce611; }
+    [data-composition-id="s12-precios"] .s12-tag { position: absolute; left: 60px; display: flex; align-items: center; gap: 16px; padding: 10px 24px 10px 14px; border: 5px solid #5ce611; border-radius: 16px; background: #04130b; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 44px; color: #f5f2e8; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s12-precios"] .s12-g1 { top: 724px; } [data-composition-id="s12-precios"] .s12-g2 { top: 824px; } [data-composition-id="s12-precios"] .s12-g3 { top: 924px; }
+    [data-composition-id="s12-precios"] .s12-cel { position: absolute; left: 600px; top: 600px; width: 420px; height: 760px; border: 7px solid #f5f2e8; border-radius: 50px; background: #04130b; overflow: hidden; }
+    [data-composition-id="s12-precios"] .s12-head { position: absolute; left: 0; right: 0; top: 0; height: 100px; background: #08261a; display: flex; align-items: center; gap: 14px; padding-left: 24px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 30px; color: #f5f2e8; text-transform: uppercase; }
+    [data-composition-id="s12-precios"] .s12-av { width: 52px; height: 52px; border-radius: 50%; background: #e63946; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+    [data-composition-id="s12-precios"] .s12-b { position: absolute; width: 330px; padding: 16px 20px; border-radius: 22px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.25; }
+    [data-composition-id="s12-precios"] .s12-in { left: 18px; top: 130px; background: #f5f2e8; color: #04130b; border-top-left-radius: 6px; }
+    [data-composition-id="s12-precios"] .s12-out { right: 18px; top: 330px; background: #5ce611; color: #04130b; border-top-right-radius: 6px; }
+    [data-composition-id="s12-precios"] .s12-ts { position: absolute; right: 24px; top: 560px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #5ce611; letter-spacing: 0.08em; }
+  </style>
+  <div id="root" data-composition-id="s12-precios" data-width="1080" data-height="1920" data-duration="6.31">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="6.31" data-track-index="0">
+      <div class="s12-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <rect x="0" y="1340" width="1080" height="50" fill="#2f8f46" opacity="0.35" />
+          <g transform="translate(40 1030) scale(1.15)"><g class="s12-caballo">
+            <g class="s12-abajo"><path d="M95 125 C140 105 230 105 268 112 C292 112 315 122 328 136 L330 114 L346 138 C356 152 368 180 376 204 C380 216 372 224 360 220 C344 216 326 212 318 198 C314 188 306 186 300 190 C297 194 297 196 296 200 L298 270 L282 270 L280 205 L272 205 L272 270 L258 270 L256 200 C220 205 170 205 140 198 L138 270 L124 270 L118 205 L110 205 L112 270 L98 270 L94 190 C90 175 88 160 90 150 C80 170 70 200 66 225 C60 228 58 220 60 210 C66 180 78 150 95 125 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="4" stroke-linejoin="round" /></g>
+            <g class="s12-arriba"><path d="M95 125 C140 105 230 105 268 112 C285 95 300 70 318 45 L326 30 L334 46 C350 55 372 72 384 92 C388 102 380 108 370 106 C352 100 338 98 326 100 C318 120 305 140 296 165 C298 185 298 195 296 200 L298 270 L282 270 L280 205 L272 205 L272 270 L258 270 L256 200 C220 205 170 205 140 198 L138 270 L124 270 L118 205 L110 205 L112 270 L98 270 L94 190 C90 175 88 160 90 150 C80 170 70 200 66 225 C60 228 58 220 60 210 C66 180 78 150 95 125 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="4" stroke-linejoin="round" /><circle cx="350" cy="68" r="5" fill="#f5f2e8" /></g>
+            <rect x="160" y="110" width="80" height="56" rx="6" fill="#e63946" />
+            <text x="200" y="152" text-anchor="middle" style="font-family: Lexend, sans-serif; font-weight: 900; font-size: 42px; fill: #f5f2e8;">3</text>
+            <g class="s12-jinete">
+              <path d="M246 104 L250 150 L270 150" fill="none" stroke="#f5f2e8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M190 106 C190 62 204 42 228 42 C252 42 260 62 260 106 Z" fill="#5ce611" stroke="#04130b" stroke-width="3" />
+              <path d="M250 64 L300 84" stroke="#5ce611" stroke-width="12" stroke-linecap="round" />
+              <circle cx="226" cy="22" r="20" fill="#5ce611" stroke="#04130b" stroke-width="3" />
+              <rect x="228" y="12" width="24" height="11" rx="4" fill="#04130b" />
+            </g>
+          </g></g>
+        </svg>
+        <div class="s12-tuyo">El <b>tuyo</b></div>
+        <div class="s12-tag s12-g1"><svg viewBox="0 0 40 40" style="position:static;width:44px;height:44px" aria-hidden="true"><path d="M6 21 L16 31 L35 9" fill="none" stroke="#5ce611" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></svg>Precios</div>
+        <div class="s12-tag s12-g2"><svg viewBox="0 0 40 40" style="position:static;width:44px;height:44px" aria-hidden="true"><path d="M6 21 L16 31 L35 9" fill="none" stroke="#5ce611" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></svg>Stock</div>
+        <div class="s12-tag s12-g3"><svg viewBox="0 0 40 40" style="position:static;width:44px;height:44px" aria-hidden="true"><path d="M6 21 L16 31 L35 9" fill="none" stroke="#5ce611" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></svg>Horarios</div>
+        <div class="s12-cel">
+          <div class="s12-head"><span class="s12-av">3</span>Tu local</div>
+          <div class="s12-b s12-in">¿Tenés el vestido negro en talle M?</div>
+          <div class="s12-b s12-out">¡Sí! Queda en M. ¿Te lo guardo para el sábado?</div>
+          <div class="s12-ts">22:00 · al instante</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-precios";
+      const DUR = 6.31;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-12, 7], [9, -5], [-4, 2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s12-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const TUYO = 1.42, WHATSAPP = 2.50, INSTANTE = 3.03, PRECIOS = 4.10, STOCK = 4.82, HORARIOS = 5.53;
+
+      // cuadro 0: tu caballo dormido, cabeza gacha, sin jinete
+      tl.fromTo(q(".s12-caballo"), { opacity: 0.6, x: -20 }, { opacity: 1, x: 0, duration: 0.3 }, 0);
+      gsap.set([q(".s12-arriba"), q(".s12-jinete"), q(".s12-tuyo")], { opacity: 0 });
+      // "el tuyo": cae el jinete verde y el caballo levanta la cabeza
+      tl.fromTo(q(".s12-tuyo"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, transformOrigin: "0% 50%", duration: 0.14, ease: "power4.in", immediateRender: false }, TUYO - 0.1);
+      tl.fromTo(q(".s12-jinete"), { opacity: 0, y: -160 }, { opacity: 1, y: 0, duration: 0.3, ease: "bounce.out", immediateRender: false }, TUYO);
+      tl.to(q(".s12-abajo"), { opacity: 0, duration: 0.06 }, TUYO + 0.25);
+      tl.to(q(".s12-arriba"), { opacity: 1, duration: 0.06 }, TUYO + 0.25);
+      sacudon(TUYO + 0.3);
+      tl.to(q(".s12-caballo"), { y: -6, duration: 0.3, yoyo: true, repeat: 7, ease: "sine.inOut" }, TUYO + 0.4);
+
+      // "WhatsApp": el celular, y la respuesta al instante
+      gsap.set([q(".s12-cel"), q(".s12-out"), q(".s12-ts")], { opacity: 0 });
+      tl.fromTo(q(".s12-cel"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, WHATSAPP - 0.2);
+      tl.fromTo(q(".s12-out"), { opacity: 0, scale: 0.6, transformOrigin: "100% 0%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, INSTANTE - 0.1);
+      tl.to(q(".s12-ts"), { opacity: 1, duration: 0.2 }, INSTANTE + 0.2);
+      tl.to(q(".s12-tuyo"), { opacity: 0.35, duration: 0.3 }, PRECIOS - 0.4);
+
+      // las fichas que se tildan
+      [[".s12-g1", PRECIOS], [".s12-g2", STOCK], [".s12-g3", HORARIOS]].forEach(([c, t]) => {
+        gsap.set(q(c), { opacity: 0 });
+        tl.fromTo(q(c), { opacity: 0, x: -60, scale: 0.9 }, { opacity: 1, x: 0, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, t - 0.12);
+      });
+
+      tl.to(q("#s12-escena"), { x: -300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

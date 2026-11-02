@@ -1,0 +1,94 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-de-dia"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-de-dia"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-de-dia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-de-dia"] .s09-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s09-de-dia"] .s09-burro { top: 590px; font-size: 92px; color: #f5f2e8; opacity: 0.85; }
+    [data-composition-id="s09-de-dia"] .s09-mejor { top: 712px; font-size: 92px; color: #ffcc1f; text-shadow: 0 0 30px rgba(255, 204, 31, 0.35); }
+    [data-composition-id="s09-de-dia"] .s09-pista { top: 812px; font-size: 52px; color: #f5f2e8; letter-spacing: 0.06em; }
+    [data-composition-id="s09-de-dia"] .s09-sol-b { position: absolute; inset: 0; background: radial-gradient(ellipse 700px 600px at 540px 1100px, rgba(217, 163, 91, 0.22), rgba(217, 163, 91, 0) 70%); }
+  </style>
+  <div id="root" data-composition-id="s09-de-dia" data-width="1080" data-height="1920" data-duration="3.52">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="3.52" data-track-index="0">
+      <div class="s09-escenario">
+        <div class="s09-sol-b"></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el sol -->
+          <g class="s09-sol">
+            <g class="s09-rayos" stroke="#d9a35b" stroke-width="10" stroke-linecap="round">
+              <path d="M920 790 V760 M920 1010 V1040 M810 900 H780 M1030 900 H1060 M842 822 L820 800 M998 978 L1020 1000 M998 822 L1020 800 M842 978 L820 1000" />
+            </g>
+            <circle cx="920" cy="900" r="80" fill="#d9a35b" />
+          </g>
+          <rect x="0" y="1340" width="1080" height="60" fill="#2f8f46" opacity="0.5" />
+          <!-- tu caballo N° 3, entero y parado, con su jinete (el dueño) -->
+          <g transform="translate(150 905) scale(1.7)"><g class="s09-caballo">
+            <path d="M95 125 C140 105 230 105 268 112 C285 95 300 70 318 45 L326 30 L334 46 C350 55 372 72 384 92 C388 102 380 108 370 106 C352 100 338 98 326 100 C318 120 305 140 296 165 C298 185 298 195 296 200 L298 270 L282 270 L280 205 L272 205 L272 270 L258 270 L256 200 C220 205 170 205 140 198 L138 270 L124 270 L118 205 L110 205 L112 270 L98 270 L94 190 C90 175 88 160 90 150 C80 170 70 200 66 225 C60 228 58 220 60 210 C66 180 78 150 95 125 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="4" stroke-linejoin="round" />
+            <circle cx="350" cy="68" r="5" fill="#f5f2e8" />
+            <rect x="160" y="110" width="80" height="56" rx="6" fill="#e63946" />
+            <text x="200" y="152" text-anchor="middle" style="font-family: Lexend, sans-serif; font-weight: 900; font-size: 42px; fill: #f5f2e8;">3</text>
+            <path d="M246 104 L250 150 L270 150" fill="none" stroke="#f5f2e8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M190 106 C190 62 204 42 228 42 C252 42 260 62 260 106 Z" fill="#e63946" stroke="#04130b" stroke-width="3" />
+            <path d="M250 64 L300 84" stroke="#e63946" stroke-width="12" stroke-linecap="round" />
+            <circle cx="226" cy="22" r="20" fill="#e63946" stroke="#04130b" stroke-width="3" />
+          </g></g>
+          <!-- la tachadura de BURRO -->
+          <path class="s09-tacha" d="M300 640 L780 628" stroke="#e63946" stroke-width="14" stroke-linecap="round" />
+          <!-- escarapela de ganador -->
+          <g transform="translate(-130 -60)"><g class="s09-escarapela">
+            <path d="M246 900 L226 990 L254 976 L270 1000 L282 905 Z M290 905 L304 1000 L320 976 L346 990 L322 900 Z" fill="#ffcc1f" />
+            <circle cx="284" cy="880" r="50" fill="#ffcc1f" stroke="#04130b" stroke-width="5" />
+            <circle cx="284" cy="880" r="30" fill="none" stroke="#04130b" stroke-width="4" />
+            <text x="284" y="896" text-anchor="middle" style="font-family: Lexend, sans-serif; font-weight: 900; font-size: 40px; fill: #04130b;">1</text>
+          </g></g>
+        </svg>
+        <div class="s09-txt s09-burro">Burro</div>
+        <div class="s09-txt s09-mejor">El mejor</div>
+        <div class="s09-txt s09-pista">de la pista</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-de-dia";
+      const DUR = 3.52;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      const BURRO = 1.38, DIA = 2.03, MEJOR = 2.50, PISTA = 3.14;
+
+      // cuadro 0: calma; el caballo ya está, entero
+      tl.fromTo(q(".s09-caballo"), { opacity: 0.6, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 0);
+      tl.to(q(".s09-caballo"), { y: -4, duration: 0.8, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.4);
+      tl.fromTo(q(".s09-burro"), { opacity: 0, y: 14 }, { opacity: 0.85, y: 0, duration: 0.3 }, 0.9);
+      // "no es un burro": se tacha
+      const t = q(".s09-tacha"); const L = t.getTotalLength();
+      gsap.set(t, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+      tl.to(t, { opacity: 1, duration: 0.01 }, BURRO - 0.05);
+      tl.to(t, { strokeDashoffset: 0, duration: 0.3, ease: "power2.inOut" }, BURRO - 0.05);
+      tl.to([q(".s09-burro"), t], { opacity: 0.35, duration: 0.3 }, DIA - 0.2);
+
+      // "día": sale el sol
+      gsap.set([q(".s09-sol"), q(".s09-sol-b")], { opacity: 0 });
+      tl.fromTo(q(".s09-sol"), { opacity: 0, y: 160 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, DIA - 0.15);
+      tl.to(q(".s09-sol-b"), { opacity: 1, duration: 0.5 }, DIA - 0.15);
+      tl.fromTo(q(".s09-rayos"), { rotation: 0, svgOrigin: "920 900" }, { rotation: 40, svgOrigin: "920 900", duration: 1.6, ease: "none" }, DIA - 0.15);
+
+      // "mejor": escarapela y título
+      gsap.set([q(".s09-mejor"), q(".s09-pista"), q(".s09-escarapela")], { opacity: 0 });
+      tl.fromTo(q(".s09-mejor"), { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, MEJOR - 0.08);
+      tl.fromTo(q(".s09-escarapela"), { opacity: 0, scale: 0.3, rotation: -40, svgOrigin: "284 900" }, { opacity: 1, scale: 1, rotation: 0, svgOrigin: "284 900", duration: 0.35, ease: "back.out(2)", immediateRender: false }, MEJOR);
+      tl.fromTo(q(".s09-pista"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, PISTA - 0.25);
+
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

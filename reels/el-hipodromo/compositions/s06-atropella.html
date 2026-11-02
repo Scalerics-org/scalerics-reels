@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-atropella"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-atropella"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-atropella"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-atropella"] .s06-fila { position: absolute; left: 0; right: 0; text-align: center; white-space: nowrap; }
+    [data-composition-id="s06-atropella"] .s06-p { display: inline-flex; align-items: center; gap: 14px; margin: 0 10px; padding: 12px 28px; background: #ffcc1f; color: #04130b; border-radius: 40px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; text-transform: uppercase; letter-spacing: 0.01em; }
+    [data-composition-id="s06-atropella"] .s06-p i { font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; padding: 2px 12px; background: #04130b; color: #ffcc1f; border-radius: 10px; }
+    [data-composition-id="s06-atropella"] .s06-f1 { top: 590px; } [data-composition-id="s06-atropella"] .s06-f2 { top: 700px; } [data-composition-id="s06-atropella"] .s06-f3 { top: 810px; }
+    [data-composition-id="s06-atropella"] .s06-rot { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; letter-spacing: 0.2em; color: #f5f2e8; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-atropella"] .s06-rot b { color: #ffcc1f; font-weight: 500; }
+  </style>
+  <div id="root" data-composition-id="s06-atropella" data-width="1080" data-height="1920" data-duration="6.76">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="6.76" data-track-index="0">
+      <div class="s06-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- pista de arena y baranda de adentro (se desliza rápido) -->
+          <rect x="0" y="1130" width="1080" height="250" fill="#d9a35b" opacity="0.3" />
+          <path d="M0 1108 H1080" stroke="#f5f2e8" stroke-width="7" />
+          <g class="s06-postes" stroke="#f5f2e8" stroke-width="6"><path d="M40 1108 V1140 M220 1108 V1140 M400 1108 V1140 M580 1108 V1140 M760 1108 V1140 M940 1108 V1140 M1120 1108 V1140 M1300 1108 V1140 M1480 1108 V1140 M1660 1108 V1140 M1840 1108 V1140" /></g>
+          <!-- líneas de velocidad -->
+          <g class="s06-vel" stroke="#f5f2e8" stroke-width="5" stroke-linecap="round" opacity="0.55">
+            <path d="M40 1000 H260" /><path d="M0 1080 H200" /><path d="M60 1230 H300" /><path d="M10 1300 H180" />
+          </g>
+          <!-- polvo -->
+          <g class="s06-polvo" fill="#d9a35b"><circle cx="300" cy="1340" r="46" /><circle cx="240" cy="1356" r="34" /><circle cx="180" cy="1350" r="24" /></g>
+          <!-- EL CABALLO N° 7 al galope, con su jinete amarillo -->
+          <g class="s06-caballo"><g transform="translate(300 965) scale(1.3)">
+            <g class="s06-cuerpo">
+              <path d="M100 125 C130 100 230 100 270 112 C290 90 315 60 340 40 L352 30 L356 44 C375 50 400 65 412 82 C414 92 404 98 394 96 C375 90 355 88 340 92 C325 110 315 135 305 160 C315 175 345 195 385 215 L392 228 L380 232 C350 215 320 200 295 190 C300 210 310 235 300 262 L290 266 L286 258 C292 235 280 210 268 195 C230 200 180 200 150 192 C130 210 95 235 50 255 L40 250 L46 240 C85 222 105 205 112 185 C100 200 90 225 82 260 L70 262 L72 252 C78 225 82 195 88 170 C70 160 45 150 15 150 C40 135 70 125 100 125 Z" fill="#0d3a20" stroke="#f5f2e8" stroke-width="4" stroke-linejoin="round" />
+              <circle cx="372" cy="62" r="5" fill="#f5f2e8" />
+              <rect x="168" y="112" width="74" height="54" rx="6" fill="#ffcc1f" />
+              <text x="205" y="153" text-anchor="middle" style="font-family: Lexend, sans-serif; font-weight: 900; font-size: 40px; fill: #04130b;">7</text>
+              <path d="M215 104 L238 140 L258 134" fill="none" stroke="#f5f2e8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M188 108 C198 70 238 54 276 62 C288 76 282 96 266 106 Z" fill="#ffcc1f" stroke="#04130b" stroke-width="3" />
+              <path d="M262 76 L326 96" stroke="#ffcc1f" stroke-width="12" stroke-linecap="round" />
+              <circle cx="292" cy="50" r="19" fill="#ffcc1f" stroke="#04130b" stroke-width="3" />
+              <path d="M298 40 L318 46" stroke="#04130b" stroke-width="5" stroke-linecap="round" />
+            </g>
+          </g></g>
+        </svg>
+        <div class="s06-fila s06-f1"><span class="s06-p s06-inst">Al instante <i>0:01</i></span></div>
+        <div class="s06-fila s06-f2"><span class="s06-p s06-precio">Precio <i>$</i></span><span class="s06-p s06-foto">Foto
+          <svg viewBox="0 0 40 40" style="position:static;width:40px;height:40px" aria-hidden="true"><rect x="3" y="3" width="34" height="34" rx="6" fill="none" stroke="#04130b" stroke-width="4" /><path d="M14 9 L26 9 L30 33 H10 Z" fill="#04130b" /></svg></span></div>
+        <div class="s06-fila s06-f3"><span class="s06-p s06-guarda">Guardado para el sábado
+          <svg viewBox="0 0 40 40" style="position:static;width:40px;height:40px" aria-hidden="true"><path d="M6 21 L16 31 L35 9" fill="none" stroke="#04130b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div>
+        <div class="s06-rot">El de enfrente · <b>N° 7</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-atropella";
+      const DUR = 6.76;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-12, 7], [9, -5], [-4, 2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s06-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const ENFRENTE = 1.34, CONTESTA = 2.34, INSTANTE = 2.96, PRECIO = 3.82, FOTO = 4.19, GUARDA = 5.15;
+
+      // la pista corre todo el tiempo
+      tl.fromTo(q(".s06-postes"), { x: 0 }, { x: -720 * 2, duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s06-vel"), { x: 0 }, { x: -120, duration: 0.3, repeat: Math.max(0, Math.floor(DUR / 0.3) - 1), ease: "none" }, 0);
+      tl.fromTo(q(".s06-polvo"), { opacity: 0.6, scale: 0.6, svgOrigin: "240 1350" }, { opacity: 0.1, scale: 1.4, svgOrigin: "240 1350", duration: 0.4, repeat: Math.max(0, Math.floor(DUR / 0.4) - 1), ease: "power1.out" }, 0);
+
+      // cuadro 0: el caballo ya asoma por la izquierda y atropella
+      gsap.set(q(".s06-caballo"), { x: -420 });
+      tl.to(q(".s06-caballo"), { x: 0, duration: 0.6, ease: "power3.out" }, 0);
+      // galope: rebote y cabeceo
+      tl.fromTo(q(".s06-cuerpo"), { y: 0, rotation: 0, svgOrigin: "200 200" }, { y: -16, rotation: -3, svgOrigin: "200 200", duration: 0.16, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 0.16) - 1), ease: "sine.inOut" }, 0);
+      sacudon(0.3, 1.2);
+
+      // "enfrente": rótulo
+      gsap.set(q(".s06-rot"), { opacity: 0 });
+      tl.fromTo(q(".s06-rot"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, immediateRender: false }, ENFRENTE - 0.1);
+
+      // las respuestas salen al instante
+      const pop = (sel, t) => { gsap.set(q(sel), { opacity: 0 }); tl.fromTo(q(sel), { opacity: 0, scale: 0.4, y: 60 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "back.out(2)", immediateRender: false }, t); };
+      pop(".s06-inst", CONTESTA + 0.05);
+      tl.fromTo(q(".s06-inst"), { rotation: 0 }, { rotation: -2, duration: 0.1, yoyo: true, repeat: 3 }, INSTANTE);
+      pop(".s06-precio", PRECIO - 0.08);
+      pop(".s06-foto", FOTO - 0.08);
+      pop(".s06-guarda", GUARDA - 0.1);
+      sacudon(GUARDA + 0.15);
+
+      tl.to(q("#s06-escena"), { x: 300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

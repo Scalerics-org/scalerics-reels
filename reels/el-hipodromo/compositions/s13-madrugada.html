@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-madrugada"] .s13-capa { position: absolute; inset: 0; }
+    [data-composition-id="s13-madrugada"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-madrugada"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-madrugada"] .s13-ticket { position: absolute; left: 150px; top: 600px; width: 780px; height: 300px; background: #f5f2e8; border-radius: 16px; color: #04130b; padding: 26px 36px; }
+    [data-composition-id="s13-madrugada"] .s13-ticket .th { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.2em; text-transform: uppercase; border-bottom: 4px dashed #04130b; padding-bottom: 12px; }
+    [data-composition-id="s13-madrugada"] .s13-ticket .tl { margin-top: 18px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 50px; text-transform: uppercase; line-height: 1.15; }
+    [data-composition-id="s13-madrugada"] .s13-ticket .tl i { font-style: normal; color: #2f8f46; }
+    [data-composition-id="s13-madrugada"] .s13-tomado { position: absolute; left: 640px; top: 820px; padding: 4px 22px; border: 7px solid #5ce611; border-radius: 14px; background: #04130b; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 60px; color: #5ce611; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-madrugada"] .s13-lbl { position: absolute; top: 1300px; width: 300px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-madrugada"] .s13-la { left: 110px; color: #5ce611; } [data-composition-id="s13-madrugada"] .s13-lb { left: 670px; color: #f5f2e8; }
+    [data-composition-id="s13-madrugada"] .s13-vos { position: absolute; left: 0; right: 0; top: 1000px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 54px; color: #f5f2e8; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-madrugada"] .s13-reloj { position: absolute; left: 190px; top: 600px; width: 560px; height: 230px; border: 6px solid #f5f2e8; border-radius: 18px; background: #04130b; display: flex; align-items: center; justify-content: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 170px; color: #5ce611; text-shadow: 0 0 30px rgba(92, 230, 17, 0.45); }
+    [data-composition-id="s13-madrugada"] .s13-rl { position: absolute; left: 190px; top: 846px; width: 560px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.24em; color: #d9a35b; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s13-madrugada" data-width="1080" data-height="1920" data-duration="4.90">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="4.90" data-track-index="0">
+      <div class="s13-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el agente (jinete verde) -->
+          <g class="s13-agente">
+            <circle cx="260" cy="1110" r="110" fill="#04130b" stroke="#5ce611" stroke-width="6" />
+            <path d="M190 1250 C190 1180 220 1160 260 1160 C300 1160 330 1180 330 1250" fill="#5ce611" />
+            <circle cx="260" cy="1090" r="56" fill="#5ce611" />
+            <rect x="248" y="1066" width="64" height="26" rx="8" fill="#04130b" />
+            <circle class="s13-visor" cx="290" cy="1079" r="7" fill="#5ce611" />
+          </g>
+          <!-- el dueño -->
+          <g class="s13-duenio">
+            <circle cx="820" cy="1110" r="110" fill="#04130b" stroke="#f5f2e8" stroke-width="6" />
+            <path d="M750 1250 C750 1180 780 1160 820 1160 C860 1160 890 1180 890 1250" fill="#e63946" />
+            <circle cx="820" cy="1090" r="52" fill="#0d3a20" stroke="#f5f2e8" stroke-width="6" />
+            <circle cx="802" cy="1084" r="6" fill="#f5f2e8" /><circle cx="838" cy="1084" r="6" fill="#f5f2e8" />
+            <path d="M804 1108 Q820 1120 836 1108" fill="none" stroke="#f5f2e8" stroke-width="5" stroke-linecap="round" />
+          </g>
+          <!-- la flecha: te pasa la conversación -->
+          <path class="s13-flecha" d="M390 1110 H680" fill="none" stroke="#5ce611" stroke-width="8" stroke-linecap="round" stroke-dasharray="4 22" />
+          <path class="s13-punta" d="M660 1086 L690 1110 L660 1134" fill="none" stroke="#5ce611" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+          <g class="s13-globo"><rect x="400" y="1066" width="96" height="66" rx="18" fill="#f5f2e8" /><circle cx="428" cy="1099" r="7" fill="#04130b" /><circle cx="448" cy="1099" r="7" fill="#04130b" /><circle cx="468" cy="1099" r="7" fill="#04130b" /></g>
+          <!-- luna de madrugada -->
+          <g class="s13-luna"><path d="M900 640 A62 62 0 1 0 910 746 A50 50 0 1 1 900 640 Z" fill="#f5f2e8" /></g>
+        </svg>
+        <div class="s13-ticket"><div class="th">Pedido · tu local</div><div class="tl">Vestido negro · <i>M</i><br />Retira el sábado</div></div>
+        <div class="s13-tomado">Tomado</div>
+        <div class="s13-vos">Para vos</div>
+        <div class="s13-lbl s13-la">Agente de IA</div>
+        <div class="s13-lbl s13-lb">Vos</div>
+        <div class="s13-reloj"><span>03:00</span></div>
+        <div class="s13-rl">Sigue atendiendo</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-madrugada";
+      const DUR = 4.90;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-12, 7], [9, -5], [-4, 2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s13-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const PEDIDO = 0.21, VOS = 1.28, CONVERSACION = 2.45, MADRUGADA = 3.78;
+
+      // cuadro 0: el ticket del pedido ya entra; el agente está
+      tl.fromTo(q(".s13-ticket"), { opacity: 0.5, y: -40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s13-agente"), { opacity: 0.5, scale: 0.9, svgOrigin: "260 1110" }, { opacity: 1, scale: 1, svgOrigin: "260 1110", duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.fromTo(q(".s13-la"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+      tl.to(q(".s13-visor"), { opacity: 0.2, duration: 0.15, yoyo: true, repeat: 13, ease: "steps(1)" }, 0.3);
+      gsap.set(q(".s13-tomado"), { opacity: 0 });
+      tl.fromTo(q(".s13-tomado"), { opacity: 0, scale: 2.4, rotation: -8 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.14, ease: "power4.in", immediateRender: false }, PEDIDO + 0.05);
+      sacudon(PEDIDO + 0.2);
+
+      // "si es para vos": aparece el dueño y la flecha
+      gsap.set([q(".s13-duenio"), q(".s13-lb"), q(".s13-vos"), q(".s13-punta"), q(".s13-globo")], { opacity: 0 });
+      tl.fromTo(q(".s13-duenio"), { opacity: 0, scale: 0.6, svgOrigin: "820 1110" }, { opacity: 1, scale: 1, svgOrigin: "820 1110", duration: 0.3, ease: "back.out(2)", immediateRender: false }, VOS - 0.2);
+      tl.to(q(".s13-lb"), { opacity: 1, duration: 0.2 }, VOS);
+      const f = q(".s13-flecha");
+      gsap.set(f, { clipPath: "inset(0 100% 0 0)" });
+      tl.to(f, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power2.inOut" }, VOS + 0.1);
+      tl.to(q(".s13-punta"), { opacity: 1, duration: 0.1 }, VOS + 0.5);
+      tl.fromTo(q(".s13-vos"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, VOS + 0.1);
+      // "conversación": el globo viaja al dueño
+      tl.fromTo(q(".s13-globo"), { opacity: 1, x: 0 }, { opacity: 1, x: 230, duration: 0.6, ease: "power2.inOut", immediateRender: false }, CONVERSACION - 0.3);
+      tl.to(q(".s13-globo"), { opacity: 0, duration: 0.15 }, CONVERSACION + 0.3);
+      tl.to(q(".s13-duenio"), { scale: 1.08, svgOrigin: "820 1110", duration: 0.12, yoyo: true, repeat: 1 }, CONVERSACION + 0.3);
+
+      // "madrugada": 03:00 y luna; el agente sigue
+      gsap.set([q(".s13-reloj"), q(".s13-rl"), q(".s13-luna")], { opacity: 0 });
+      tl.to([q(".s13-ticket"), q(".s13-tomado")], { opacity: 0, y: -30, duration: 0.2 }, MADRUGADA - 0.35);
+      tl.fromTo(q(".s13-reloj"), { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.in", immediateRender: false }, MADRUGADA - 0.12);
+      tl.fromTo(q(".s13-luna"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, MADRUGADA - 0.1);
+      tl.fromTo(q(".s13-rl"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25, immediateRender: false }, MADRUGADA + 0.2);
+      tl.to([q(".s13-duenio"), q(".s13-lb"), q(".s13-vos"), f, q(".s13-punta")], { opacity: 0.3, duration: 0.3 }, MADRUGADA);
+      sacudon(MADRUGADA + 0.06);
+
+      tl.to(q("#s13-escena"), { x: 300, opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

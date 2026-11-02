@@ -1,0 +1,83 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-burro"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-burro"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-burro"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-burro"] .s08-txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s08-burro"] .s08-es { top: 600px; font-size: 80px; color: #f5f2e8; }
+    [data-composition-id="s08-burro"] .s08-burro { top: 790px; font-size: 230px; letter-spacing: -0.03em; color: #e63946; text-shadow: 0 0 40px rgba(230, 57, 70, 0.4); }
+    [data-composition-id="s08-burro"] .s08-mitad { position: absolute; left: 290px; top: 1060px; width: 500px; height: 300px; }
+    [data-composition-id="s08-burro"] .s08-bol { position: absolute; inset: 0; background: #f5f2e8; border-radius: 14px; color: #04130b; display: flex; align-items: center; gap: 26px; padding: 0 34px; }
+    [data-composition-id="s08-burro"] .s08-bol .bn { font-family: "Lexend", sans-serif; font-weight: 900; font-size: 200px; line-height: 1; color: #e63946; }
+    [data-composition-id="s08-burro"] .s08-bol .bt { font-family: "Lexend", sans-serif; font-weight: 800; font-size: 50px; line-height: 1.1; text-transform: uppercase; }
+    [data-composition-id="s08-burro"] .s08-bol .bt i { display: block; margin-top: 10px; font-style: normal; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; }
+    [data-composition-id="s08-burro"] .s08-a { clip-path: polygon(0 0, 52% 0, 47% 15%, 54% 30%, 46% 45%, 53% 60%, 47% 75%, 54% 90%, 49% 100%, 0 100%); }
+    [data-composition-id="s08-burro"] .s08-b { clip-path: polygon(52% 0, 100% 0, 100% 100%, 49% 100%, 54% 90%, 47% 75%, 53% 60%, 46% 45%, 54% 30%, 47% 15%); }
+  </style>
+  <div id="root" data-composition-id="s08-burro" data-width="1080" data-height="1920" data-duration="3.65">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="3.65" data-track-index="0">
+      <div class="s08-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- orejas de burro arriba de la palabra -->
+          <g class="s08-orejas" fill="#0d3a20" stroke="#f5f2e8" stroke-width="7" stroke-linejoin="round">
+            <path class="s08-oi" d="M330 800 C290 700 280 600 330 560 C380 600 390 700 380 800 Z" />
+            <path class="s08-od" d="M700 800 C690 700 700 600 750 560 C800 600 790 700 750 800 Z" />
+            <path d="M330 780 C315 700 315 640 332 600 M745 780 C750 700 748 640 750 600" stroke="#e63946" stroke-width="6" fill="none" />
+          </g>
+          <!-- papelitos -->
+          <g class="s08-papel" fill="#f5f2e8">
+            <rect class="s08-pp" x="520" y="1180" width="22" height="14" /><rect class="s08-pp" x="540" y="1200" width="16" height="12" /><rect class="s08-pp" x="530" y="1150" width="18" height="12" />
+            <rect class="s08-pp" x="545" y="1240" width="20" height="14" /><rect class="s08-pp" x="525" y="1280" width="14" height="10" /><rect class="s08-pp" x="550" y="1120" width="16" height="12" />
+          </g>
+        </svg>
+        <div class="s08-txt s08-es">¡Es un</div>
+        <div class="s08-txt s08-burro">Burro!</div>
+        <div class="s08-mitad s08-a"><div class="s08-bol"><span class="bn">3</span><span class="bt">Tu local<i>A ganador</i></span></div></div>
+        <div class="s08-mitad s08-b"><div class="s08-bol"><span class="bn">3</span><span class="bt">Tu local<i>A ganador</i></span></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-burro";
+      const DUR = 3.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-16, 9], [12, -7], [-6, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s08-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+
+      const BURRO = 0.38, ROMPO = 1.48, BOLETO = 2.11;
+
+      // cuadro 0: "¡Es un" y el boleto entero
+      tl.fromTo(q(".s08-es"), { opacity: 0.5, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.out" }, 0);
+      tl.fromTo([q(".s08-a"), q(".s08-b")], { y: 60, opacity: 0.6 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      // "burro"
+      gsap.set([q(".s08-burro"), q(".s08-orejas")], { opacity: 0 });
+      tl.fromTo(q(".s08-burro"), { opacity: 0, scale: 2.6 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, BURRO - 0.1);
+      tl.fromTo(q(".s08-orejas"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(2.5)", immediateRender: false }, BURRO + 0.05);
+      sacudon(BURRO + 0.04, 1.4);
+      tl.to(q(".s08-oi"), { rotation: -12, svgOrigin: "355 800", duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, BURRO + 0.35);
+      tl.to(q(".s08-od"), { rotation: 12, svgOrigin: "725 800", duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, BURRO + 0.42);
+
+      // "rompo": el boleto se tensa; "boleto": se parte y vuela
+      tl.to([q(".s08-a"), q(".s08-b")], { rotation: 0, scale: 1.04, duration: 0.08, yoyo: true, repeat: 5 }, ROMPO);
+      tl.to(q(".s08-a"), { x: -230, y: 260, rotation: -38, duration: 0.9, ease: "power2.in" }, BOLETO);
+      tl.to(q(".s08-b"), { x: 230, y: 240, rotation: 34, duration: 0.9, ease: "power2.in" }, BOLETO);
+      sacudon(BOLETO + 0.02);
+      gsap.set(qa(".s08-pp"), { opacity: 0 });
+      qa(".s08-pp").forEach((p, i) => {
+        const dx = (i % 2 ? 1 : -1) * (80 + i * 40), dy = 120 + (i % 3) * 90;
+        tl.fromTo(p, { opacity: 1, x: 0, y: 0, rotation: 0 }, { opacity: 0, x: dx, y: dy, rotation: 180 + i * 60, svgOrigin: "540 1200", duration: 1.1, ease: "power1.out", immediateRender: false }, BOLETO + 0.02);
+      });
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(10px)", scale: 0.96, duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

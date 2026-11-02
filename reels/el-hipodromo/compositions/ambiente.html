@@ -1,0 +1,86 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* franjas de césped cortado, muy tenues, que se deslizan (la cámara sigue la carrera) */
+    [data-composition-id="ambiente"] .amb-cesped { position: absolute; left: 0; top: 0; width: 1800px; height: 1920px; opacity: 0.55;
+      background-image: repeating-linear-gradient(90deg, rgba(47, 143, 70, 0) 0px, rgba(47, 143, 70, 0) 180px, rgba(47, 143, 70, 0.07) 180px, rgba(47, 143, 70, 0.07) 360px); }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1120px at 540px 920px, rgba(4, 19, 11, 0) 50%, rgba(4, 19, 11, 0.9) 100%); }
+    /* reflectores del hipódromo de noche */
+    [data-composition-id="ambiente"] .amb-luz { position: absolute; top: -40px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(245, 242, 232, 0.22) 0%, rgba(245, 242, 232, 0) 65%); }
+    [data-composition-id="ambiente"] .amb-luz-a { left: -90px; }
+    [data-composition-id="ambiente"] .amb-luz-b { right: -90px; }
+    [data-composition-id="ambiente"] .amb-alarma { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 620px 620px at 0% 0%, rgba(230, 57, 70, 0.4), rgba(230, 57, 70, 0) 70%), radial-gradient(ellipse 620px 620px at 100% 100%, rgba(230, 57, 70, 0.4), rgba(230, 57, 70, 0) 70%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #f5f2e8; opacity: 0; }
+    /* barra de transmisión de turf */
+    [data-composition-id="ambiente"] .amb-barra { position: absolute; left: 60px; top: 116px; height: 76px; display: flex; gap: 0; white-space: nowrap; border-radius: 12px; overflow: hidden; border: 3px solid #f5f2e8; }
+    [data-composition-id="ambiente"] .amb-barra > div { display: flex; align-items: center; padding: 0 20px; font-family: "Lexend", sans-serif; font-weight: 800; text-transform: uppercase; font-size: 27px; letter-spacing: 0.04em; }
+    [data-composition-id="ambiente"] .amb-vivo { background: #e63946; color: #f5f2e8; gap: 10px; }
+    [data-composition-id="ambiente"] .amb-punto { width: 14px; height: 14px; border-radius: 50%; background: #f5f2e8; }
+    [data-composition-id="ambiente"] .amb-hip { background: #f5f2e8; color: #04130b; }
+    [data-composition-id="ambiente"] .amb-carrera { background: #08261a; color: #ffcc1f; }
+    [data-composition-id="ambiente"] .amb-hora { background: #04130b; color: #f5f2e8; font-family: "IBM Plex Mono", monospace !important; font-weight: 500 !important; font-size: 30px !important; }
+    /* baranda blanca con postes que pasa abajo */
+    [data-composition-id="ambiente"] .amb-baranda { position: absolute; left: -240px; top: 1548px; width: 1560px; height: 40px; }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 60px; top: 1612px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.16em; color: #d9a35b; opacity: 0.75; text-align: right; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="72.66">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="72.66" data-track-index="0">
+      <div class="amb-cesped"></div>
+      <div class="amb-luz amb-luz-a"></div>
+      <div class="amb-luz amb-luz-b"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-alarma"></div>
+      <div class="amb-barra">
+        <div class="amb-vivo"><span class="amb-punto"></span><span>Vivo</span></div>
+        <div class="amb-hip"><span>Maroñas</span></div>
+        <div class="amb-carrera"><span class="amb-lbl">5ª · Nocturna</span></div>
+        <div class="amb-hora"><span class="amb-h" style="position:relative;display:inline-block"><span class="amb-h1">22:00</span><span class="amb-h2" style="position:absolute;left:0;top:0;color:#5ce611">03:00</span></span></div>
+      </div>
+      <svg class="amb-baranda" viewBox="0 0 1560 40" aria-hidden="true">
+        <path d="M0 8 H1560" stroke="#f5f2e8" stroke-width="7" stroke-linecap="round" opacity="0.8" />
+        <path d="M0 8 H1560" stroke="#f5f2e8" stroke-width="0" />
+        <g stroke="#f5f2e8" stroke-width="6" opacity="0.6">
+          <path d="M30 8 V40 M150 8 V40 M270 8 V40 M390 8 V40 M510 8 V40 M630 8 V40 M750 8 V40 M870 8 V40 M990 8 V40 M1110 8 V40 M1230 8 V40 M1350 8 V40 M1470 8 V40" />
+        </g>
+      </svg>
+      <div class="amb-rotulo" data-layout-ignore>PISTA DE ARENA · NOCHE</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 72.66;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      // TIEMPOS (segundos globales, de la locución)
+      const VISTO = [15.79, 16.65, 17.5], BURRO = 37.92, GANO = 32.78, PRIMERO = 65.78, MADRUGADA = 62.47, LLEGAN = 30.88;
+      gsap.set(q(".amb-h2"), { opacity: 0 });
+      tl.to(q(".amb-h1"), { opacity: 0, duration: 0.1 }, MADRUGADA - 0.1);
+      tl.to(q(".amb-h2"), { opacity: 1, duration: 0.1 }, MADRUGADA - 0.1);
+      // alarma roja: "visto" x3 y "burro"
+      [...VISTO, BURRO].forEach((t) => tl.to(q(".amb-alarma"), { opacity: 1, duration: 0.1, yoyo: true, repeat: 3, ease: "steps(1)" }, t - 0.02));
+      // flash de photo finish: "ganó" y "primero"
+      [GANO, PRIMERO].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.65, duration: 0.03 }, t - 0.02);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.02);
+      });
+      // "VIVO" titila en la llegada
+      tl.to(q(".amb-vivo"), { opacity: 0.4, duration: 0.15, yoyo: true, repeat: 11, ease: "steps(1)" }, LLEGAN);
+
+      // la cámara sigue la carrera: césped y baranda se deslizan
+      tl.fromTo(q(".amb-cesped"), { x: 0 }, { x: -360, duration: 6, ease: "none", repeat: Math.max(0, Math.floor(DUR / 6)) }, 0);
+      tl.fromTo(q(".amb-baranda"), { x: 0 }, { x: -120, duration: 0.8, ease: "none", repeat: Math.max(0, Math.floor(DUR / 0.8)) }, 0);
+      // los reflectores respiran
+      tl.fromTo([q(".amb-luz-a"), q(".amb-luz-b")], { opacity: 0.7 }, { opacity: 1, duration: 2, yoyo: true, repeat: Math.max(0, Math.floor(DUR / 2) - 1), ease: "sine.inOut" }, 0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

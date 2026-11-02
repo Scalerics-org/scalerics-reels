@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-optica"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-optica"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-optica"] .ln { fill: none; stroke: #fff7f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-optica"] .nf { fill: #1a0d2b; stroke: #fff7f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-optica"] .vf { fill: #9b6bff; stroke: #fff7f4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-optica"] .wf { fill: #fff7f4; stroke: #1a0d2b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-optica"] .cf { fill: #ff5a6e; stroke: none; }
+    [data-composition-id="s02-optica"] .bf { fill: #fff7f4; stroke: none; }
+    [data-composition-id="s02-optica"] .kf { fill: #1a0d2b; stroke: none; }
+    [data-composition-id="s02-optica"] .cl { fill: none; stroke: #ff5a6e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-optica"] .gl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-optica"] .la { fill: none; stroke: #b9a8d6; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-optica"] .kn { fill: none; stroke: #1a0d2b; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-optica"] .kw { fill: #fff7f4; stroke: #1a0d2b; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-optica"] .lente { fill: rgba(185, 168, 214, 0.35); stroke: #fff7f4; stroke-width: 8; stroke-linejoin: round; }
+    [data-composition-id="s02-optica"] .lentek { fill: rgba(185, 168, 214, 0.5); stroke: #1a0d2b; stroke-width: 7; stroke-linejoin: round; }
+    /* tarjeta de perfil */
+    [data-composition-id="s02-optica"] .tarjeta { position: absolute; width: 460px; height: 640px; border-radius: 36px; background: #fff7f4; overflow: hidden; box-shadow: 0 18px 40px rgba(18, 8, 32, 0.55); }
+    [data-composition-id="s02-optica"] .tarjeta .foto { position: absolute; left: 0; top: 0; width: 460px; height: 420px; background: #ff5a6e; overflow: hidden; }
+    [data-composition-id="s02-optica"] .tarjeta .foto.v { background: #9b6bff; }
+    [data-composition-id="s02-optica"] .tarjeta .foto.l { background: #b9a8d6; }
+    [data-composition-id="s02-optica"] .tarjeta .foto svg { width: 460px; height: 420px; }
+    [data-composition-id="s02-optica"] .tarjeta .nom { position: absolute; left: 34px; top: 440px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 60px; line-height: 1; color: #1a0d2b; letter-spacing: -0.02em; }
+    [data-composition-id="s02-optica"] .tarjeta .bio { position: absolute; left: 36px; top: 522px; right: 30px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; line-height: 1.3; color: #1a0d2b; opacity: 0.8; letter-spacing: 0.04em; }
+    [data-composition-id="s02-optica"] .boton { position: absolute; width: 112px; height: 112px; border-radius: 50%; border: 6px solid #b9a8d6; background: #120820; }
+    [data-composition-id="s02-optica"] .boton.c { border-color: #ff5a6e; }
+    [data-composition-id="s02-optica"] .boton svg { position: absolute; left: -6px; top: -6px; width: 112px; height: 112px; }
+    [data-composition-id="s02-optica"] .sello { position: absolute; padding: 10px 22px; border: 7px solid #ff5a6e; border-radius: 16px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 58px; line-height: 1; color: #ff5a6e; white-space: nowrap; }
+    [data-composition-id="s02-optica"] .sello.la { border-color: #b9a8d6; color: #b9a8d6; background: rgba(18, 8, 32, 0.9); }
+    [data-composition-id="s02-optica"] .mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.16em; color: #b9a8d6; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s02-optica"] .gigante { position: absolute; left: 50px; right: 50px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; line-height: 1; letter-spacing: -0.02em; color: #fff7f4; }
+    [data-composition-id="s02-optica"] .burbuja { position: absolute; padding: 22px 30px; border-radius: 36px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 42px; line-height: 1.2; }
+    [data-composition-id="s02-optica"] .burbuja.yo { background: #9b6bff; color: #fff7f4; border-bottom-right-radius: 8px; }
+    [data-composition-id="s02-optica"] .burbuja.ella { background: #fff7f4; color: #1a0d2b; border-bottom-left-radius: 8px; }
+    [data-composition-id="s02-optica"] .burbuja small { display: block; margin-top: 8px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; opacity: 0.85; text-align: right; }
+    [data-composition-id="s02-optica"] .cel { position: absolute; border: 6px solid #fff7f4; border-radius: 58px; background: #120820; overflow: hidden; }
+    [data-composition-id="s02-optica"] .cel .barra { position: absolute; left: 50%; top: 18px; width: 108px; height: 26px; margin-left: -54px; border-radius: 14px; background: #fff7f4; opacity: 0.85; }
+
+    [data-composition-id="s02-optica"] .s02-cartel { position: absolute; left: 90px; top: 610px; width: 440px; height: 150px; border: 6px solid #fff7f4; border-radius: 20px; background: #1a0d2b; }
+    [data-composition-id="s02-optica"] .s02-cartel b { position: absolute; left: 0; right: 0; top: 18px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; line-height: 1; color: #fff7f4; letter-spacing: 0.08em; }
+    [data-composition-id="s02-optica"] .s02-cartel svg { width: 440px; height: 150px; }
+    [data-composition-id="s02-optica"] .s02-globo { position: absolute; left: 90px; top: 860px; width: 330px; height: 200px; border-radius: 60px; background: #fff7f4; }
+    [data-composition-id="s02-optica"] .s02-globo svg { width: 330px; height: 240px; }
+    [data-composition-id="s02-optica"] .s02-grito { position: absolute; left: 60px; top: 1290px; width: 520px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 84px; line-height: 0.95; color: #ff5a6e; letter-spacing: -0.02em; transform: rotate(-6deg); text-shadow: 0 0 24px rgba(18, 8, 32, 0.9); }
+  
+  </style>
+  <div id="root" data-composition-id="s02-optica" data-width="1080" data-height="1920" data-duration="2.94">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="2.94" data-track-index="0">
+      <div class="s02-esc s02-capa">
+
+        <div class="s02-cartel"><b>ÓPTICA</b><svg viewBox="0 0 440 150" aria-hidden="true"><rect class="lente" x="146" y="96" width="64" height="40" rx="14" style="stroke-width:6" /><rect class="lente" x="230" y="96" width="64" height="40" rx="14" style="stroke-width:6" /><path class="ln" d="M210 112 H230 M146 110 L118 100 M294 110 L322 100" /></svg></div>
+        <div class="s02-globo"><svg viewBox="0 0 330 240" aria-hidden="true"><path class="bf" d="M40 170 L20 236 L110 190 Z" /><circle class="kf s02-pt" cx="105" cy="100" r="20" /><circle class="kf s02-pt" cx="165" cy="100" r="20" /><circle class="kf s02-pt" cx="225" cy="100" r="20" /></svg></div>
+        <svg class="s02-dueno" viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- brazo estirado hacia el celular -->
+          <path class="wf s02-l" d="M600 1250 Q520 1180 470 1110 L520 1070 Q580 1140 660 1190 Z" />
+          <path class="nf s02-l" d="M470 1110 Q440 1080 448 1050 Q470 1030 500 1050 L520 1070 Z" />
+          <g transform="translate(760 1030)">
+          <path class="wf s02-l" d="M-180 430 Q-170 200 -74 160 L0 236 L74 160 Q170 200 180 430 Z" />
+          <path class="kn s02-l" d="M-74 160 L-34 310 M74 160 L34 310" />
+          <rect class="kn s02-l" x="60" y="300" width="64" height="50" rx="6" /><path class="cl s02-l" d="M78 296 V330" />
+          <path class="nf s02-l" d="M-28 88 V176 Q0 194 28 176 V88" />
+          <ellipse class="nf s02-l" cx="-80" cy="10" rx="14" ry="24" /><ellipse class="nf s02-l" cx="80" cy="10" rx="14" ry="24" />
+          <ellipse class="nf s02-l" cx="0" cy="0" rx="78" ry="96" />
+          <path class="ln s02-l" d="M-76 -14 Q-82 -76 -46 -94 M76 -14 Q82 -76 46 -94 M-14 -96 Q0 -110 14 -96" />
+          <path class="ln s02-l s02-cejas" d="M-64 -46 Q-42 -36 -16 -42 M64 -46 Q42 -36 16 -42" />
+          <rect class="lente s02-l" x="-68" y="-30" width="60" height="50" rx="16" /><rect class="lente s02-l" x="8" y="-30" width="60" height="50" rx="16" />
+          <path class="ln s02-l" d="M-8 -8 H8" />
+          <circle class="cf" cx="-38" cy="-4" r="7" /><circle class="cf" cx="38" cy="-4" r="7" />
+          <path class="bf" d="M-42 46 Q-20 30 0 40 Q20 30 42 46 Q20 60 0 52 Q-20 60 -42 46 Z" />
+          <ellipse class="nf s02-l s02-boca" cx="0" cy="72" rx="14" ry="10" />
+            <path class="la s02-gota" d="M100 -70 Q112 -50 100 -40 Q88 -50 100 -70 Z" />
+            <path class="la s02-gota" d="M-104 -40 Q-92 -20 -104 -10 Q-116 -20 -104 -40 Z" />
+          </g>
+        </svg>
+        <div class="s02-grito">¡ES DE<br />LA ÓPTICA!</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-optica";
+      const DUR = 2.94;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.02);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.02);
+        });
+      };
+      const oculto = (els) => gsap.set(els, { opacity: 0 });
+      const pop = (el, t, desde = 0.85) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const entra = (el, t, desde = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: 30, ...desde }, { opacity: 1, x: 0, y: 0, rotation: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, t); };
+      const sale = (el, t, d = 0.2) => tl.to(el, { opacity: 0, duration: d }, t);
+      const golpe = (t, f = 10) => tl.fromTo(q(".s02-esc"), { x: -f }, { x: 0, duration: 0.3, ease: "elastic.out(1, 0.3)", immediateRender: false }, t);
+      // sello que cae de golpe
+      const sellar = (el, t, rot = -8) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 2.2, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.22, ease: "power4.in", immediateRender: false }, t - 0.18); golpe(t + 0.04, 12); };
+      // swipe de tarjeta: dir -1 izquierda (nope), 1 derecha (like)
+      const swipe = (el, t, dir = -1, dur = 0.4) => tl.to(el, { x: dir * 900, rotation: dir * 24, opacity: 0, duration: dur, ease: "power2.in" }, t);
+      const late = (el, t, n = 2, s = 1.12, origen) => tl.to(el, { scale: s, ...(origen ? { svgOrigin: origen } : {}), duration: 0.15, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut" }, t);
+
+
+      const WSP = 0.66, OPTICA = 1.33;
+      dibujar(qa(".s02-l"), 0, 0.5, 0.4);
+      tl.fromTo(q(".s02-dueno"), { x: 260 }, { x: 0, duration: 0.35, ease: "back.out(1.4)" }, 0);
+      tl.to(q(".s02-cejas"), { y: 8, duration: 0.15 }, 0.1);
+      tl.to(q(".s02-dueno"), { x: 8, duration: 0.05, yoyo: true, repeat: 5 }, 0.35);
+      pop(q(".s02-cartel"), 0.1);
+      pop(q(".s02-globo"), WSP - 0.1, 0.5);
+      qa(".s02-pt").forEach((p, i) => tl.to(p, { y: -14, duration: 0.16, yoyo: true, repeat: 5, ease: "sine.inOut" }, WSP + 0.2 + i * 0.08));
+      oculto(qa(".s02-gota"));
+      qa(".s02-gota").forEach((g, i) => { tl.to(g, { opacity: 1, duration: 0.1 }, 0.5 + i * 0.3); tl.to(g, { y: 40, opacity: 0, duration: 0.6, ease: "power1.in" }, 0.6 + i * 0.3); });
+      gsap.set(q(".s02-grito"), { opacity: 0 });
+      tl.fromTo(q(".s02-grito"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power4.in", immediateRender: false }, OPTICA - 0.1);
+      golpe(OPTICA + 0.08, 14);
+      tl.to(q(".s02-cartel"), { rotation: 4, duration: 0.1, yoyo: true, repeat: 3 }, OPTICA);
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
