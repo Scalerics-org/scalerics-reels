@@ -1,0 +1,69 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/asmr.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-pedido-doce"] .s05-capa, [data-composition-id="s05-pedido-doce"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-pedido-doce"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="s05-pedido-doce" data-width="1080" data-height="1920" data-duration="4.00">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.00" data-track-index="0">
+      <div class="s05-escenario">
+        <svg class="s05-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-pedido-doce";
+      const DUR = 4.0;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = AS.kit(tl, root);
+      const { q, qa } = K;
+
+      const X = 60, Y = 620, W = 960, RH = 84;
+      const filas = [["9", "~", "~", "~"], ["10", "~", "~", "~"], ["11", "~", "~", "~"], ["", "", "", ""]];
+      const cols = [0.12, 0.24, 0.42, 0.22];
+      const cx = [X, X + cols[0] * W, X + (cols[0] + cols[1]) * W, X + (cols[0] + cols[1] + cols[2]) * W].map((v) => v + 16);
+      const fy = Y + 64 + RH * 4 + RH * 0.68; // la fila 12 (la cuarta)
+      const txt = (cls, x, t, fs) => `<text class="${cls}" x="${x}" y="${fy}" font-family="Lexend" font-weight="700" font-size="${fs || 36}" fill="${AS.AZ3}">${t}</text>`;
+      q(".s05-svg").innerHTML =
+        `<g class="s05-pl">${AS.planilla(X, Y, W, filas, { fs: 34, rh: RH, cols, titulo: "PEDIDOS · PLANILLA" })}</g>
+        <rect class="s05-resalta" x="${X + 4}" y="${Y + 64 + RH * 4 + 3}" width="${W - 8}" height="${RH - 6}" rx="10" fill="${AS.AZ}" opacity="0"/>
+        ${txt("s05-n", cx[0], "12")}${txt("s05-c", cx[1], "Ofelia")}${txt("s05-p", cx[2], "2 doc. bizcochos")}${txt("s05-r", cx[3], "mañana")}
+        <rect class="s05-cur" x="${cx[0]}" y="${fy - 34}" width="5" height="42" fill="${AS.AZ3}"/>
+        ${AS.bizcocho(540, 1290, 1.1, "s05-biz")}
+        ${AS.estrellas([[400, 1230, 14], [690, 1220, 18], [720, 1330, 10]], AS.AMB2, "s05-est")}`;
+
+      const DOCE = 0.4, DOS = 1.11, BIZ = 1.82, RETIRA = 1.98, MANANA = 2.84;
+      // cuadro 0: la planilla ya está; zoom lento hacia la fila 12
+      tl.fromTo(q(".s05-escenario"), { scale: 1, opacity: 0.6 }, { scale: 1.06, opacity: 1, duration: DUR, ease: "none", transformOrigin: "50% 62%" }, 0);
+      tl.fromTo(q(".s05-escenario"), { opacity: 0.6 }, { opacity: 1, duration: 0.25 }, 0);
+      tl.fromTo(q(".s05-resalta"), { opacity: 0 }, { opacity: 0.22, duration: 0.3 }, 0.05);
+      // el cursor titila y salta de celda en celda
+      const cur = q(".s05-cur");
+      tl.to(cur, { opacity: 0, duration: 0.1, yoyo: true, repeat: 3, ease: "steps(1)" }, 0);
+      K.tipearSvg(q(".s05-n"), DOCE, 0.15);
+      tl.set(cur, { x: cx[1] - cx[0] }, DOCE + 0.2);
+      K.tipearSvg(q(".s05-c"), DOCE + 0.35, 0.35);
+      tl.set(cur, { x: cx[2] - cx[0] }, DOS - 0.05);
+      K.tipearSvg(q(".s05-p"), DOS, 0.75);
+      tl.set(cur, { x: cx[3] - cx[0] }, RETIRA + 0.1);
+      tl.to(cur, { opacity: 0, duration: 0.1, yoyo: true, repeat: 5, ease: "steps(1)" }, RETIRA + 0.1);
+      K.tipearSvg(q(".s05-r"), MANANA - 0.1, 0.4);
+      tl.set(cur, { x: cx[3] - cx[0] + 150 }, MANANA + 0.3);
+      // "bizcochos": la medialuna aparece y flota
+      K.popSvg(q(".s05-biz"), BIZ - 0.05, "540 1270");
+      K.flotar(q(".s05-biz"), BIZ + 0.4, 1.6, 10, 1.2);
+      K.titilar(".s05-est", BIZ + 0.1, 1.8);
+
+      K.salida(q("#s05-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

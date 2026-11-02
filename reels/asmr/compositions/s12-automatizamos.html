@@ -1,0 +1,93 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/asmr.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-automatizamos"] .s12-capa, [data-composition-id="s12-automatizamos"] .s12-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s12-automatizamos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-automatizamos"] .s12-dormir { left: 0; right: 0; margin: 0 auto; width: 420px; top: 610px; font-size: 40px; }
+    [data-composition-id="s12-automatizamos"] .s12-auto { left: 0; right: 0; margin: 0 auto; width: 440px; top: 640px; font-size: 34px; }
+  </style>
+  <div id="root" data-composition-id="s12-automatizamos" data-width="1080" data-height="1920" data-duration="5.65">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="5.65" data-track-index="0">
+      <div class="s12-escenario">
+        <svg class="s12-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="as-sello verde s12-dormir">¡A DORMIR!</div>
+        <div class="as-tag verde s12-auto">AUTOMÁTICO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-automatizamos";
+      const DUR = 5.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = AS.kit(tl, root);
+      const { q, qa } = K;
+
+      const filas = [["1", "~", "~", "~"], ["2", "~", "~", "~"], ["3", "", "", ""], ["4", "", "", ""], ["5", "", "", ""]];
+      const PL = { x: 590, y: 820, w: 430, rh: 56 };
+      const [m1] = AS.globo(70, 960, "2 tortas", "i", { fs: 28, cls: "s12-m s12-m0" });
+      const [m2] = AS.globo(70, 1050, "1 docena", "i", { fs: 28, cls: "s12-m s12-m1" });
+      const [m3] = AS.globo(70, 1140, "3 flautas", "i", { fs: 28, cls: "s12-m s12-m2" });
+      let checks = "";
+      for (let i = 0; i < 3; i++) {
+        const y = PL.y + 64 + PL.rh * (i + 3) + PL.rh / 2;
+        checks += `<g class="s12-ok s12-ok${i}"><rect x="${PL.x + 60}" y="${y - 9}" width="${PL.w * 0.5}" height="18" rx="9" fill="${AS.VERDE}" opacity="0.55"/>
+          <path d="M${PL.x + PL.w - 60} ${y} l12 12 l22 -24" fill="none" stroke="${AS.VERDE}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+      }
+      q(".s12-svg").innerHTML =
+        `<g class="s12-beto">${AS.beto(540, 1430, 1.0, { cara: "feliz" })}${AS.luna(820, 820, 50)}</g>
+        <g class="s12-flujo">
+          ${AS.celular(40, 800, 340, 520, { nombre: "WhatsApp", colorAvatar: AS.VERDE })}
+          ${m1}${m2}${m3}
+          <path class="s12-tubo" d="M390 1060 C470 1060 500 1000 580 1000" fill="none" stroke="${AS.VERDE}" stroke-width="10" stroke-linecap="round" stroke-dasharray="4 22"/>
+          <g class="s12-pl">${AS.planilla(PL.x, PL.y, PL.w, filas, { fs: 22, rh: PL.rh, titulo: "PEDIDOS" })}</g>
+          ${checks}
+          <circle class="s12-bola s12-bola0" cx="390" cy="1060" r="16" fill="${AS.VERDE}"/>
+          <circle class="s12-bola s12-bola1" cx="390" cy="1060" r="16" fill="${AS.VERDE}"/>
+          <circle class="s12-bola s12-bola2" cx="390" cy="1060" r="16" fill="${AS.VERDE}"/>
+        </g>`;
+
+      const ANDA = 0.5, ESO = 1.07, AUTO = 1.83, SCAL = 2.34, PEDIDOS = 3.3, PASAN = 4.27, SOLOS = 4.53, PLAN = 4.97;
+      // cuadro 0: se prendió la luz; Beto feliz, lo mandan a dormir
+      tl.fromTo(q(".s12-beto"), { opacity: 0.6, scale: 1.05, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1, duration: 0.3 }, 0);
+      K.sello(q(".s12-dormir"), ANDA, -4);
+      tl.to(q(".s12-beto"), { x: 700, rotation: 8, opacity: 0, duration: 0.45, ease: "power2.in" }, ESO - 0.2);
+      tl.to(q(".s12-dormir"), { opacity: 0, duration: 0.2 }, ESO - 0.1);
+      // "automatizamos": aparece el sistema: chat -> tubo verde -> planilla
+      gsap.set(q(".s12-flujo"), { opacity: 0 });
+      tl.fromTo(q(".s12-flujo"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, ESO + 0.1);
+      qa(".s12-m").forEach((m) => gsap.set(m, { opacity: 0 }));
+      qa(".s12-m").forEach((m, i) => K.popSvg(m, ESO + 0.4 + i * 0.25, `120 ${990 + i * 90}`, 0.3));
+      const tubo = q(".s12-tubo");
+      gsap.set(tubo, { clipPath: "inset(0 100% 0 0)" });
+      tl.to(tubo, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power2.inOut" }, AUTO);
+      tl.fromTo(tubo, { strokeDashoffset: 0 }, { strokeDashoffset: -260, duration: DUR - AUTO, ease: "none", immediateRender: false }, AUTO);
+      K.pop(q(".s12-auto"), SCAL);
+      // "los pedidos pasan solos a la planilla": cada mensaje viaja por el tubo y la fila se llena sola
+      const L = tubo.getTotalLength();
+      const t0 = [PEDIDOS - 0.1, PASAN - 0.25, SOLOS + 0.05];
+      qa(".s12-ok").forEach((o) => gsap.set(o, { opacity: 0 }));
+      t0.forEach((t, i) => {
+        const bola = q(".s12-bola" + i), m = q(".s12-m" + i);
+        gsap.set(bola, { opacity: 0 });
+        tl.to(m, { opacity: 0.35, duration: 0.15 }, t);
+        tl.set(bola, { opacity: 1 }, t);
+        const p = { v: 0 };
+        tl.to(p, { v: 1, duration: 0.45, ease: "power1.inOut", onUpdate: () => { const pt = tubo.getPointAtLength(p.v * L); bola.setAttribute("cx", pt.x); bola.setAttribute("cy", pt.y); } }, t);
+        tl.set(bola, { opacity: 0 }, t + 0.46);
+        K.popSvg(q(".s12-ok" + i), t + 0.45, `${PL.x + PL.w / 2} ${PL.y + 64 + PL.rh * (i + 3.5)}`, 0.3, 0.6);
+      });
+      tl.to(q(".s12-pl"), { scale: 1.03, svgOrigin: `${PL.x + PL.w / 2} 1000`, duration: 0.15, yoyo: true, repeat: 1 }, PLAN);
+
+      K.salida(q("#s12-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

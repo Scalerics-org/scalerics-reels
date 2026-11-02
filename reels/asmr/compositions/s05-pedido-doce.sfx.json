@@ -1,0 +1,8 @@
+[
+  {"t": 0.35, "sfx": "key-press", "vol": 0.35},
+  {"t": 0.75, "sfx": "tipeo", "vol": 0.3},
+  {"t": 1.1, "sfx": "typing", "vol": 0.25, "max": 0.8},
+  {"t": 1.8, "sfx": "sparkle", "vol": 0.15},
+  {"t": 2.75, "sfx": "tipeo", "vol": 0.3},
+  {"t": 3.3, "sfx": "suspiro", "vol": 0.3}
+]

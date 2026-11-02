@@ -1,0 +1,90 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/asmr.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-shhh"] .s01-capa, [data-composition-id="s01-shhh"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-shhh"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-shhh"] .s01-tag { left: 0; right: 0; margin: 0 auto; width: 520px; top: 590px; }
+    [data-composition-id="s01-shhh"] .s01-shh { left: 0; right: 0; top: 660px; font-size: 120px; }
+    [data-composition-id="s01-shhh"] .s01-sello { left: 0; right: 0; margin: 0 auto; width: 560px; top: 620px; font-size: 78px; transform-origin: 50% 50%; }
+    [data-composition-id="s01-shhh"] .s01-abierto { left: 650px; top: 1250px; font-size: 30px; }
+  </style>
+  <div id="root" data-composition-id="s01-shhh" data-width="1080" data-height="1920" data-duration="6.32">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="6.32" data-track-index="0">
+      <div class="s01-escenario">
+        <svg class="s01-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="as-tag s01-tag">ASMR · PARA DORMIR</div>
+        <div class="as-susurro s01-shh">shhh...</div>
+        <div class="as-sello s01-sello">NO DUERME</div>
+        <div class="as-tag amb s01-abierto">ABIERTO 24 H</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-shhh";
+      const DUR = 6.32;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = AS.kit(tl, root);
+      const { q, qa } = K;
+
+      q(".s01-svg").innerHTML =
+        `<g class="s01-asmr">
+          ${AS.estrellas([[150, 760, 16], [930, 700, 12], [870, 900, 18], [210, 980, 10], [980, 1120, 10]], AS.LAV2, "s01-est")}
+          ${AS.luna(880, 760, 46, "s01-luna")}
+          <g class="s01-chica">${AS.asmrtista(360, 1420, 1.05, { dedo: true })}</g>
+          <g class="s01-arcos">${AS.arcos(470, 1130, 1, AS.LAV, "s01-arco", 3)}</g>
+          <g class="s01-mic">${AS.mic(790, 1070, 0.82)}</g>
+        </g>
+        <g class="s01-beto">
+          <ellipse cx="560" cy="1060" rx="330" ry="360" fill="${AS.AZ}" opacity="0.10"/>
+          <g class="s01-b-cansado">${AS.beto(560, 1420, 1.0, { cara: "cansado" })}</g>
+          <g class="s01-b-ojos" opacity="0">${AS.beto(560, 1420, 1.0, { cara: "panico" })}</g>
+        </g>`;
+
+      const DORMIR = 1.36, COMERCIANTE = 2.72, NO = 3.72, ABRIO = 5.07;
+
+      // cuadro 0: la ASMRtista ya está, con el dedo en los labios; la cámara se acerca despacio
+      tl.fromTo(q(".s01-asmr"), { opacity: 0.6 }, { opacity: 1, duration: 0.4 }, 0);
+      tl.fromTo(q(".s01-escenario"), { scale: 1.04 }, { scale: 1, duration: COMERCIANTE, ease: "none", transformOrigin: "50% 60%" }, 0);
+      K.suave(q(".s01-shh"), 0.05, 0.5);
+      tl.to(q(".s01-shh"), { opacity: 0, filter: "blur(10px)", duration: 0.4 }, 0.9);
+      K.latir(".s01-arco", 0.05, 1.2);
+      // las orejas del micrófono "escuchan": se inclinan hacia ella
+      K.origen(q(".s01-mic .as-m-oi"), q(".s01-mic .as-m-oi").dataset.o);
+      tl.fromTo(q(".s01-mic .as-m-oi"), { rotation: 0 }, { rotation: -8, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, 0.2);
+      tl.to(q(".s01-mic .as-m-led"), { opacity: 0.3, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.2);
+      K.pop(q(".s01-tag"), 0.9);
+      // "dormir": la luna y las estrellas
+      K.popSvg(q(".s01-luna"), DORMIR - 0.1, "880 760");
+      K.titilar(".s01-est", DORMIR, 1.2);
+      // baja el brazo y abre los ojos (sigue susurrando)
+      tl.to(q(".s01-chica .as-a-brazo"), { y: 260, opacity: 0, duration: 0.4, ease: "power2.in" }, 1.0);
+      K.hablar(".s01-chica .as-a-boca", 1.0, 6, 0.13);
+
+      // "comerciante": la ASMRtista se va a la esquina y aparece Beto, iluminado por la pantalla
+      tl.to(q(".s01-asmr"), { opacity: 0, scale: 0.6, x: -260, y: 200, transformOrigin: "30% 80%", duration: 0.45, ease: "power3.inOut" }, COMERCIANTE - 0.25);
+      tl.to(q(".s01-tag"), { opacity: 0, duration: 0.2 }, COMERCIANTE - 0.2);
+      gsap.set(q(".s01-beto"), { opacity: 0 });
+      tl.fromTo(q(".s01-beto"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, COMERCIANTE - 0.05);
+      tl.fromTo(qa(".s01-beto .as-b-luz"), { opacity: 0.1 }, { opacity: 0.32, duration: 0.25, yoyo: true, repeat: 9, ease: "sine.inOut", immediateRender: false }, COMERCIANTE);
+      // "no duerme": abre los ojos de golpe + sello
+      tl.set(q(".s01-b-cansado"), { opacity: 0 }, NO);
+      tl.set(q(".s01-b-ojos"), { opacity: 1 }, NO);
+      K.sacudon(q(".s01-beto"), NO + 0.02, 0.8);
+      K.sello(q(".s01-sello"), NO + 0.2, -4);
+      // "desde que abrió el local"
+      K.pop(q(".s01-abierto"), ABRIO - 0.1);
+      tl.to(q(".s01-abierto"), { rotation: -4, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, ABRIO + 0.3);
+
+      K.salida(q("#s01-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

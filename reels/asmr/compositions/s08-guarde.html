@@ -1,0 +1,65 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/asmr.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-guarde"] .s08-capa, [data-composition-id="s08-guarde"] .s08-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s08-guarde"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-guarde"] .s08-preg { left: 890px; top: 600px; font-size: 200px; width: 140px; }
+    [data-composition-id="s08-guarde"] .s08-no { left: 70px; top: 640px; font-size: 84px; width: 260px; text-align: left; }
+  </style>
+  <div id="root" data-composition-id="s08-guarde" data-width="1080" data-height="1920" data-duration="3.32">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="3.32" data-track-index="0">
+      <div class="s08-escenario">
+        <svg class="s08-svg" viewBox="0 0 1080 1920" aria-hidden="true"></svg>
+        <div class="as-titulo rosa s08-preg">?</div>
+        <div class="as-titulo amb s08-no s08-no1">NO</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-guarde";
+      const DUR = 3.32;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const tl = gsap.timeline({ paused: true });
+      const K = AS.kit(tl, root);
+      const { q, qa } = K;
+
+      q(".s08-svg").innerHTML =
+        `<g class="s08-beto">${AS.beto(500, 1430, 1.25, { cara: "panico", manos: true })}</g>
+        <g class="s08-disk">${AS.disquete(800, 790, 0.75)}</g>`;
+
+      const NO = [0, 0.18, 0.55], GUARDE = 1.27, DECIME = 1.99, GUARDE2 = 2.39;
+      const b = q(".s08-beto");
+      tl.fromTo(b, { opacity: 0.6 }, { opacity: 1, duration: 0.15 }, 0);
+      tl.fromTo(qa(".s08-beto .as-b-luz"), { opacity: 0.35 }, { opacity: 0.15, duration: 0.6, immediateRender: false }, 0);
+      // "no, no, no": cada "no" un sacudón y un NO que se agranda
+      NO.forEach((t, i) => K.sacudon(b, t + 0.02, 0.6 + i * 0.2));
+      gsap.set(q(".s08-no1"), { opacity: 0 });
+      tl.fromTo(q(".s08-no1"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.12, immediateRender: false }, 0.02);
+      tl.to(q(".s08-no1"), { scale: 1.25, duration: 0.1 }, NO[1]);
+      tl.to(q(".s08-no1"), { scale: 1.5, duration: 0.1 }, NO[2]);
+      tl.to(q(".s08-no1"), { opacity: 0, duration: 0.2 }, GUARDE - 0.25);
+      // "¿guardé?": el disquete con signo de pregunta
+      K.popSvg(q(".s08-disk"), GUARDE - 0.1, "800 790", 0.35);
+      K.sello(q(".s08-preg"), GUARDE + 0.05, 8);
+      tl.to(q(".s08-preg"), { rotation: -8, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, GUARDE + 0.2);
+      tl.to(q(".s08-disk"), { rotation: 6, svgOrigin: "800 790", duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, GUARDE + 0.3);
+      // "decime que guardé": suplica, gota de sudor
+      const gota = q(".s08-beto .as-b-gota");
+      tl.fromTo(gota, { opacity: 0, y: -10 }, { opacity: 1, y: 30, duration: 0.6, ease: "power1.in", immediateRender: false }, DECIME - 0.1);
+      K.origen(q(".s08-beto .as-b-cabeza"), "0 -230");
+      tl.to(q(".s08-beto .as-b-cabeza"), { rotation: -5, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, DECIME);
+      K.vibrar(b, GUARDE2, 0.5, 5);
+      K.hablar(".s08-beto .as-b-boca", DECIME, 4, 0.1);
+
+      K.salida(q("#s08-escena"), DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

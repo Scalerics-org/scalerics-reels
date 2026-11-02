@@ -1,0 +1,84 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 780px 1150px at 540px 930px, rgba(18, 12, 34, 0) 55%, rgba(18, 12, 34, 0.9) 100%); }
+    /* la luz del cuarto que se prende cuando entra Scalerics */
+    [data-composition-id="ambiente"] .amb-luz { position: absolute; inset: 0; opacity: 0;
+      background: radial-gradient(ellipse 900px 1000px at 540px 700px, rgba(255, 224, 176, 0.22) 0%, rgba(255, 224, 176, 0.08) 50%, rgba(255, 224, 176, 0) 80%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #e4dcff; opacity: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="ambiente"] .amb-rotulo { position: absolute; right: 64px; top: 1596px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.18em; color: #b9a6ff; opacity: 0.7; text-align: right; line-height: 1.55; }
+    [data-composition-id="ambiente"] .amb-rec { position: absolute; left: 64px; top: 1596px; font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 24px; letter-spacing: 0.18em; color: #b9a6ff; opacity: 0.7; line-height: 1.55; }
+    [data-composition-id="ambiente"] .amb-punto { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: #ff6f91; margin-right: 10px; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="72.15">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="72.15" data-track-index="0">
+      <div class="amb-luz"></div>
+      <div class="amb-vineta"></div>
+      <svg viewBox="0 0 1080 1920" aria-hidden="true"><g class="amb-onda"></g></svg>
+      <div class="amb-rec" data-layout-ignore><span class="amb-punto"></span>REC · BINAURAL<br />L · · · · · · R</div>
+      <div class="amb-rotulo" data-layout-ignore>ASMR PARA DORMIR<br />USÁ AURICULARES</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 72.15;
+      // tiempos globales (los reescribe armar.mjs desde la locución)
+      const TURNOS = [[0,"a"],[24.12,"d"],[27.9,"a"],[32.06,"d"],[35.38,"a"],[40.25,"d"],[45.57,"a"],[52.3,"o"],[62.14,"a"],[64.7,"o"]];
+      const TRANCA = 31.08;
+      const GUARDE = 33.33;
+      const LUZ = 52.3;
+      const DURMIENDO = 63.43;
+      const CTA = 64.7;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const COLOR = { a: "#b9a6ff", d: "#ffbf69", o: "#5ce611" };
+
+      // la onda de audio: barras finas entre y 1470 y 1550, centradas en 1510
+      const N = 47, X0 = 150, PASO = (930 - 150) / (N - 1);
+      let barras = "";
+      for (let i = 0; i < N; i++) barras += `<rect class="amb-b" x="${(X0 + i * PASO - 4).toFixed(1)}" y="1470" width="8" height="80" rx="4" fill="#b9a6ff"/>`;
+      q(".amb-onda").innerHTML = barras;
+      const bs = qa(".amb-b");
+      bs.forEach((b, i) => {
+        gsap.set(b, { svgOrigin: `${X0 + i * PASO} 1510`, smoothOrigin: false, scaleY: 0.12 });
+        const env = Math.sin((i / (N - 1)) * Math.PI); // más alto al medio
+        const per = 0.5 + ((i * 37) % 11) * 0.06;
+        const n = Math.floor(DUR / per);
+        tl.fromTo(b, { scaleY: 0.1 + 0.08 * env }, { scaleY: 0.2 + 0.55 * env * (0.6 + ((i * 53) % 7) / 15), duration: per / 2, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", immediateRender: false }, ((i * 13) % 9) * 0.05);
+      });
+      tl.fromTo(q(".amb-onda"), { opacity: 0.55 }, { opacity: 0.55, duration: 0.01 }, 0);
+      // la onda toma el color de quien habla
+      TURNOS.forEach(([t, v]) => tl.to(bs, { fill: COLOR[v], duration: 0.3 }, Math.max(0, t - 0.15)));
+
+      // el punto de REC titila despacio
+      const nRec = Math.floor(DUR / 1.6);
+      tl.fromTo(q(".amb-punto"), { opacity: 1 }, { opacity: 0.25, duration: 0.8, yoyo: true, repeat: nRec * 2 - 1, ease: "sine.inOut", immediateRender: false }, 0);
+
+      // "se tranca" y "¿guardé?": parpadeo de la pantalla
+      [[TRANCA, 0.35], [GUARDE, 0.22]].forEach(([t, o]) => {
+        tl.to(q(".amb-flash"), { opacity: o, duration: 0.03 }, t);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.35, ease: "power2.out" }, t + 0.05);
+      });
+
+      // entra Scalerics: se prende la luz del cuarto (golpe y queda); al dormir se apaga
+      tl.to(q(".amb-flash"), { opacity: 0.5, duration: 0.03 }, LUZ - 0.05);
+      tl.to(q(".amb-flash"), { opacity: 0, duration: 0.4, ease: "power2.out" }, LUZ);
+      tl.to(q(".amb-luz"), { opacity: 1, duration: 0.15 }, LUZ - 0.05);
+      tl.to(q(".amb-vineta"), { opacity: 0.45, duration: 0.15 }, LUZ - 0.05);
+      tl.to(q(".amb-luz"), { opacity: 0, duration: 0.8, ease: "power2.inOut" }, DURMIENDO - 1.2);
+      tl.to(q(".amb-vineta"), { opacity: 1, duration: 0.8, ease: "power2.inOut" }, DURMIENDO - 1.2);
+      tl.to(q(".amb-onda"), { opacity: 0.8, duration: 0.4 }, CTA);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
