@@ -155,6 +155,11 @@
 - 02-11 · `el-adiestrador` · Agente de IA · "El problema no es el perro. Es el dueño. Y hoy vino uno que deja en visto." Programa de adiestramiento "¡Sentado, dueño!" con Tito en el campo de entrenamiento: Sofía pregunta por championes en 38, "¡atento! ¡celular! ¡contestá!", el dueño gruñe "estoy en la caja", "¡soltá la caja!", obediencia cero; a las once, dormido, "pasá el lunes"; giro: no es malo, está solo (caja, repone, cobra); no necesita correa, necesita un compañero: el agente de IA contesta al instante y le pasa lo suyo; "¡buen dueño! diez puntos, una galletita" "¿es de las de perro?" · Mandáselo al que dice «ya te contesto» [formato P programa de adiestramiento canino · estilo campo de entrenamiento al aire libre celeste/verde césped/naranja conos/azul marino con vallas, conos, zócalo del programa y puntaje de obediencia, cuatro voces]
 
 ## En curso
+- 02-11 · `el-guardavidas` · Agente de IA · serie de guardavidas en la playa (bandera roja, cliente ahogándose en tu WhatsApp) · corrida 02-11 08:20
+- 02-11 · `exceso-de-lentitud` · Agente de IA · control de tránsito nocturno (radar, multa por contestar lento) · corrida 02-11 08:20
+- 02-11 · `como-se-hace` · Automatizaciones · documental de fábrica "cómo se hace" (la fábrica es el dueño a mano) · corrida 02-11 08:20
+- 02-11 · `la-bomba` · Sistema a medida · película de desactivar bombas (la planilla de 14 pestañas que si la tocás explota) · corrida 02-11 08:20
+- 02-11 · `el-tesoro` · Sitio web · película de piratas (el cliente busca tu local con un mapa del tesoro) · corrida 02-11 08:20
 
 
 
