@@ -1,0 +1,176 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-boom"] .s11-capa, [data-composition-id="s11-boom"] .s11-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s11-boom"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-boom"] .b { fill: #1f231d; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .k { fill: #070807; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .l { fill: none; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .w { fill: #ecebe4; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .v { fill: #21a366; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .vl { fill: none; stroke: #21a366; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .vd { fill: #0e2a1e; stroke: #21a366; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .r { fill: #ff2d2d; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .rl { fill: none; stroke: #ff2d2d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .a { fill: #2f7bff; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .al { fill: none; stroke: #2f7bff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .y { fill: #ffb020; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .yl { fill: none; stroke: #ffb020; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .s { fill: #5ce611; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .o { fill: #4a5a2e; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .ol { fill: none; stroke: #4a5a2e; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .cara { fill: #ecebe4; stroke: #ecebe4; stroke-width: 7; }
+    [data-composition-id="s11-boom"] .d { fill: none; stroke: #070807; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-boom"] .fino { stroke-width: 3; }
+    [data-composition-id="s11-boom"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #ecebe4; }
+    [data-composition-id="s11-boom"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff2d2d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff2d2d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s11-boom"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffb020; color: #070807; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s11-boom"] .ops { font-family: "Black Ops One", sans-serif; font-weight: 400; text-transform: uppercase; }
+    [data-composition-id="s11-boom"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s11-boom"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s11-boom"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s11-boom"] .s11-ven { position: absolute; left: 130px; top: 700px; width: 820px; height: 340px; border-radius: 18px; background: #ecebe4; border: 6px solid #070807; box-shadow: 0 20px 50px rgba(0,0,0,0.6); overflow: hidden; }
+  [data-composition-id="s11-boom"] .s11-ven .bar { height: 60px; background: #21a366; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; color: #ecebe4; padding: 15px 24px; white-space: nowrap; }
+  [data-composition-id="s11-boom"] .s11-ven .msg { position: absolute; left: 190px; top: 120px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 50px; color: #070807; white-space: nowrap; }
+  [data-composition-id="s11-boom"] .s11-ven .sub { position: absolute; left: 190px; top: 192px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 30px; color: #3b3d38; white-space: nowrap; }
+  [data-composition-id="s11-boom"] .s11-cuerpo { top: 600px; font-size: 96px; color: #ffb020; }
+  [data-composition-id="s11-boom"] .s11-boom { top: 860px; font-size: 230px; color: #070807; }
+
+  </style>
+  <div id="root" data-composition-id="s11-boom" data-width="1080" data-height="1920" data-duration="3.59">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="3.59" data-track-index="0">
+      <div class="s11-escenario">
+<div class="s11-ven"><div class="bar">planilla_local_FINAL_v14.xlsx</div>
+          <svg viewBox="0 0 820 340" style="width:820px;height:340px" aria-hidden="true"><g class="s11-rueda"><circle cx="100" cy="190" r="52" fill="none" stroke="#3b3d38" stroke-width="12" opacity="0.25" /><path d="M100 138 A52 52 0 0 1 152 190" fill="none" stroke="#21a366" stroke-width="12" stroke-linecap="round" /></g></svg>
+          <div class="msg">(No responde)</div><div class="sub">¿Esperar? ¿Esperar más?</div></div>
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s11-gente">
+            <g transform="translate(60 980) scale(0.75)"><g class="s11-exp">
+      <path class="o" d="M30 540 C30 410 92 368 180 368 C268 368 330 410 330 540 Z" />
+      <path class="l" d="M118 380 V540 M242 380 V540" stroke-width="6" opacity="0.7" />
+      <rect class="y" x="196" y="430" width="34" height="50" rx="6" stroke-width="4" />
+      <rect class="y" x="130" y="430" width="34" height="50" rx="6" stroke-width="4" />
+      <ellipse class="cara" cx="180" cy="252" rx="80" ry="94" />
+      
+      <circle class="s11-exp-ojos" cx="150" cy="248" r="9" fill="#070807" />
+      <circle class="s11-exp-ojos" cx="212" cy="248" r="9" fill="#070807" />
+      <path class="d s11-exp-cejas" d="M130 222 L166 230 M196 230 L232 222" stroke-width="7" />
+      <ellipse class="s11-exp-boca" data-o="180 304" cx="180" cy="304" rx="18" ry="10" fill="#070807" />
+      <!-- casco con linterna -->
+      <path class="o" d="M92 200 C86 128 140 104 180 104 C220 104 274 128 268 200 Z" />
+      <path class="k" d="M80 200 H280 C282 214 268 220 252 218 H96 C84 218 78 212 80 200 Z" stroke-width="6" />
+      <rect class="k" x="152" y="136" width="56" height="40" rx="10" stroke-width="5" />
+      <circle class="y s11-exp-lampara" cx="180" cy="156" r="13" stroke-width="4" />
+      <path class="a s11-gota" d="M100 216 C92 232 92 244 102 246 C112 244 110 232 100 216 Z" stroke-width="3" />
+      <path class="a s11-gota" d="M258 230 C250 246 250 258 260 260 C270 258 268 246 258 230 Z" stroke-width="3" />
+      <path class="a s11-gota" d="M238 186 C232 198 232 206 240 208 C248 206 246 198 238 186 Z" stroke-width="3" />
+      </g></g>
+            <g transform="translate(720 980) scale(0.75)"><g class="s11-comp">
+      <path class="k s11-comp-cola" d="M248 186 C330 176 344 266 304 336 C294 286 284 246 244 226 Z" />
+      <path class="o" d="M40 540 C40 420 96 380 180 380 C264 380 320 420 320 540 Z" />
+      <path class="l" d="M140 384 L180 440 L220 384" stroke-width="6" />
+      <path class="y" d="M80 470 H140 V500 H80 Z" stroke-width="4" />
+      <ellipse class="cara" cx="180" cy="262" rx="76" ry="90" />
+      <path class="k" d="M100 254 C90 172 150 150 186 152 C234 154 270 186 260 240 C232 212 170 198 100 254 Z" />
+      <path class="d" d="M134 226 L166 216 M226 226 L194 216" stroke-width="7" />
+      <circle cx="152" cy="256" r="11" fill="#070807" />
+      <circle cx="208" cy="256" r="11" fill="#070807" />
+      <ellipse class="s11-comp-boca" fill="#070807" data-o="180 312" cx="180" cy="312" rx="20" ry="18" />
+      </g></g>
+          </g>
+          <path class="s11-est" d="M960 960 L762 1020 L904 1170 L703 1123 L750 1324 L600 1182 L540 1380 L480 1182 L330 1324 L377 1123 L176 1170 L318 1020 L120 960 L318 900 L176 750 L377 797 L330 596 L480 738 L540 540 L600 738 L750 596 L703 797 L904 750 L762 900 Z" fill="#ffb020" stroke="#ecebe4" stroke-width="8" stroke-linejoin="round" />
+          <path class="s11-est2" d="M814 1016 L662 1029 L729 1166 L598 1087 L572 1238 L512 1097 L402 1204 L437 1055 L285 1076 L401 976 L266 904 L418 891 L351 754 L482 833 L508 682 L568 823 L678 716 L643 865 L795 844 L679 944 Z" fill="#ff2d2d" stroke="#ecebe4" stroke-width="6" stroke-linejoin="round" />
+          <circle class="s11-humo" cx="260" cy="900" r="150" fill="#3b3d38" opacity="0.9" /><circle class="s11-humo" cx="440" cy="1120" r="180" fill="#3b3d38" opacity="0.9" /><circle class="s11-humo" cx="700" cy="1000" r="170" fill="#3b3d38" opacity="0.9" /><circle class="s11-humo" cx="860" cy="1180" r="140" fill="#3b3d38" opacity="0.9" /><circle class="s11-humo" cx="540" cy="800" r="160" fill="#3b3d38" opacity="0.9" /><circle class="s11-humo" cx="300" cy="1240" r="130" fill="#3b3d38" opacity="0.9" /><circle class="s11-humo" cx="800" cy="760" r="120" fill="#3b3d38" opacity="0.9" />
+        </svg>
+        <div class="txt ops s11-cuerpo">¡Cuerpo a tierra!</div>
+        <div class="txt ops s11-boom">BOOM</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-boom";
+      const DUR = 3.59;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s11-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+const RESPONDE = 0.09, CUERPO = 1.25, BOOM = 2.2;
+      tl.fromTo(ESC, { scale: 1.0 }, { scale: 1.05, duration: BOOM, ease: "none", transformOrigin: "50% 50%" }, 0);
+      tl.fromTo(q(".s11-ven"), { opacity: 0.3, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, 0);
+      tl.to(q(".s11-rueda"), { rotation: 720, svgOrigin: "100 190", duration: 1.2, ease: "none" }, 0);
+      tl.to(q(".s11-ven"), { x: 8, duration: 0.04, yoyo: true, repeat: 7, ease: "none" }, RESPONDE + 0.3);
+      // "¡cuerpo a tierra!": se tiran al piso
+      tl.to(q(".s11-ven"), { opacity: 0, y: -40, duration: 0.15 }, CUERPO - 0.15);
+      golpe(".s11-cuerpo", CUERPO, 1.8);
+      gsap.set(q(".s11-gente"), { opacity: 0 });
+      tl.set(q(".s11-gente"), { opacity: 1 }, CUERPO - 0.05);
+      tl.fromTo(q(".s11-exp"), { x: 0, y: 0, rotation: 0 }, { x: 60, y: 260, rotation: -80, svgOrigin: "180 540", duration: 0.45, ease: "power2.in", immediateRender: false }, CUERPO + 0.3);
+      tl.fromTo(q(".s11-comp"), { x: 0, y: 0, rotation: 0 }, { x: -60, y: 260, rotation: 80, svgOrigin: "180 540", duration: 0.45, ease: "power2.in", immediateRender: false }, CUERPO + 0.4);
+      hablar(".s11-exp-boca", CUERPO, CUERPO + 0.6, 0.3);
+      // BOOM
+      gsap.set(qa(".s11-est, .s11-est2, .s11-humo"), { opacity: 0 });
+      tl.fromTo(q(".s11-est"), { opacity: 1, scale: 0.1 }, { opacity: 1, scale: 1.25, svgOrigin: "540 960", duration: 0.25, ease: "power4.out", immediateRender: false }, BOOM);
+      tl.fromTo(q(".s11-est2"), { opacity: 1, scale: 0.1 }, { opacity: 1, scale: 1.2, svgOrigin: "540 960", duration: 0.3, ease: "power4.out", immediateRender: false }, BOOM + 0.03);
+      tl.to(qa(".s11-est, .s11-est2"), { rotation: 12, svgOrigin: "540 960", duration: 1.2, ease: "none" }, BOOM);
+      tl.to(qa(".s11-cuerpo, .s11-gente"), { opacity: 0, duration: 0.05 }, BOOM);
+      golpe(".s11-boom", BOOM + 0.05, 3);
+      for (let i = 0; i < 6; i++) sacudon(BOOM + i * 0.18, 2.2 - i * 0.3);
+      // humo que tapa todo
+      qa(".s11-humo").forEach((h, i) => tl.fromTo(h, { opacity: 0, scale: 0.3 }, { opacity: 0.95, scale: 1.4, transformOrigin: "50% 50%", duration: 0.7, ease: "power2.out", immediateRender: false }, BOOM + 0.45 + i * 0.05));
+      tl.to(qa(".s11-est, .s11-est2"), { opacity: 0, duration: 0.4 }, BOOM + 0.7);
+      tl.to(q(".s11-boom"), { opacity: 0, scale: 1.3, duration: 0.4 }, BOOM + 0.9);
+
+      // salida: barrido con blur
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

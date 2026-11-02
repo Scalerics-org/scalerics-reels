@@ -1,0 +1,150 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-archivo"] .s13-capa, [data-composition-id="s13-archivo"] .s13-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s13-archivo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-archivo"] .b { fill: #1f231d; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .k { fill: #070807; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .l { fill: none; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .w { fill: #ecebe4; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .v { fill: #21a366; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .vl { fill: none; stroke: #21a366; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .vd { fill: #0e2a1e; stroke: #21a366; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .r { fill: #ff2d2d; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .rl { fill: none; stroke: #ff2d2d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .a { fill: #2f7bff; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .al { fill: none; stroke: #2f7bff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .y { fill: #ffb020; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .yl { fill: none; stroke: #ffb020; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .s { fill: #5ce611; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .o { fill: #4a5a2e; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .ol { fill: none; stroke: #4a5a2e; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .cara { fill: #ecebe4; stroke: #ecebe4; stroke-width: 7; }
+    [data-composition-id="s13-archivo"] .d { fill: none; stroke: #070807; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s13-archivo"] .fino { stroke-width: 3; }
+    [data-composition-id="s13-archivo"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #ecebe4; }
+    [data-composition-id="s13-archivo"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff2d2d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff2d2d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s13-archivo"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffb020; color: #070807; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s13-archivo"] .ops { font-family: "Black Ops One", sans-serif; font-weight: 400; text-transform: uppercase; }
+    [data-composition-id="s13-archivo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s13-archivo"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s13-archivo"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s13-archivo"] .s13-negocio { position: absolute; left: 0; right: 0; top: 1290px; text-align: center; font-family: "Black Ops One", sans-serif; font-size: 52px; color: #ecebe4; white-space: nowrap; }
+  [data-composition-id="s13-archivo"] .s13-q { position: absolute; font-family: "Black Ops One", sans-serif; font-size: 80px; color: #ff2d2d; }
+
+  </style>
+  <div id="root" data-composition-id="s13-archivo" data-width="1080" data-height="1920" data-duration="4.53">
+    <div id="s13-escena" class="s13-capa clip" data-start="0" data-duration="4.53" data-track-index="0">
+      <div class="s13-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <!-- el archivo -->
+          <g class="s13-arch">
+            <path class="b" d="M440 600 H600 L650 650 V800 H440 Z" style="stroke:#21a366" />
+            <path class="l" d="M600 600 V650 H650" style="stroke:#21a366" />
+            <rect x="460" y="700" width="170" height="52" rx="6" fill="#21a366" />
+            <text x="545" y="736" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="30" fill="#070807">.XLSX</text>
+            <rect x="452" y="766" width="120" height="26" rx="4" fill="#ff2d2d" />
+            <text x="512" y="786" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="17" fill="#070807">NO TOCAR</text>
+          </g>
+          <!-- el hilo -->
+          <path class="l s13-hilo" d="M545 800 C548 840 540 870 545 930" stroke-width="4" />
+          <path class="l s13-v" d="M545 930 L330 990 M545 930 L760 990" stroke-width="4" />
+          <!-- el local -->
+          <g class="s13-local">
+            <rect class="b" x="300" y="1030" width="490" height="230" />
+            <path class="w" d="M280 1030 H810 L790 980 H300 Z" stroke-width="5" />
+            <path d="M345 980 L338 1030 M420 980 L416 1030 M495 980 V1030 M570 980 V1030 M645 980 L649 1030 M720 980 L726 1030" stroke="#ffb020" stroke-width="30" />
+            <path class="l" d="M280 1030 H810 L790 980 H300 Z" stroke-width="5" />
+            <rect class="k" x="330" y="1070" width="230" height="150" stroke-width="5" />
+            <path class="l fino" d="M340 1110 H550 M340 1150 H550 M340 1190 H550" />
+            <rect class="y fino" x="350" y="1086" width="30" height="24" /><rect class="v fino" x="400" y="1086" width="30" height="24" /><rect class="r fino" x="460" y="1126" width="30" height="24" /><rect class="a fino" x="370" y="1166" width="30" height="24" /><rect class="y fino" x="500" y="1166" width="30" height="24" />
+            <rect class="k" x="600" y="1070" width="150" height="190" stroke-width="5" />
+            <circle class="w" cx="620" cy="1170" r="7" stroke-width="2" />
+          </g>
+        </svg>
+        <div class="s13-negocio">tu negocio entero</div>
+        <div class="s13-q s13-q1" style="left:330px; top:600px">?</div>
+        <div class="s13-q s13-q2" style="left:690px; top:610px">?</div>
+        <div class="s13-q s13-q3" style="left:380px; top:740px">?</div>
+        <div class="s13-q s13-q4" style="left:670px; top:760px">?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-archivo";
+      const DUR = 4.53;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s13-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+const BOMBA = 0.61, NEGOCIO = 1.3, DEPENDE = 2.0, ARCHIVO = 2.5, NADIE = 3.4;
+      tl.fromTo(ESC, { scale: 1.0 }, { scale: 1.06, duration: DUR, ease: "none", transformOrigin: "50% 40%" }, 0);
+      // el local aparece entero, colgado
+      tl.fromTo(q(".s13-local"), { opacity: 0.3, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      golpe(".s13-negocio", NEGOCIO, 1.6);
+      // se balancea
+      tl.to(qa(".s13-local, .s13-v"), { rotation: 3, svgOrigin: "545 930", duration: 0.8, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.2);
+      // "depende de un archivo"
+      dibujar(".s13-hilo", DEPENDE - 0.2, 0.4);
+      dibujar(".s13-v", DEPENDE - 0.1, 0.4);
+      pop(".s13-arch", ARCHIVO - 0.1, 0.35);
+      // "que no entiende nadie"
+      ["1", "2", "3", "4"].forEach((n, i) => pop(".s13-q" + n, 2.95 + i * 0.12, 0.25));
+      tl.to(qa(".s13-q"), { rotation: 12, duration: 0.15, yoyo: true, repeat: 5, ease: "none" }, NADIE);
+      // el hilo se tensa
+      tl.fromTo(q(".s13-hilo"), { strokeWidth: 4 }, { strokeWidth: 2, duration: 0.1, yoyo: true, repeat: 5, ease: "steps(1)", immediateRender: false }, NADIE + 0.2);
+
+      // salida: barrido con blur
+      tl.to(q("#s13-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

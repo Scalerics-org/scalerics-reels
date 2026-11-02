@@ -1,0 +1,162 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "Black Ops One"; font-weight: 400; font-display: block; src: url("assets/fonts/BlackOpsOne.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-cables"] .s07-capa, [data-composition-id="s07-cables"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-cables"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-cables"] .b { fill: #1f231d; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .k { fill: #070807; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .l { fill: none; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .w { fill: #ecebe4; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .v { fill: #21a366; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .vl { fill: none; stroke: #21a366; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .vd { fill: #0e2a1e; stroke: #21a366; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .r { fill: #ff2d2d; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .rl { fill: none; stroke: #ff2d2d; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .a { fill: #2f7bff; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .al { fill: none; stroke: #2f7bff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .y { fill: #ffb020; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .yl { fill: none; stroke: #ffb020; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .s { fill: #5ce611; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .sl { fill: none; stroke: #5ce611; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .o { fill: #4a5a2e; stroke: #ecebe4; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .ol { fill: none; stroke: #4a5a2e; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .cara { fill: #ecebe4; stroke: #ecebe4; stroke-width: 7; }
+    [data-composition-id="s07-cables"] .d { fill: none; stroke: #070807; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-cables"] .fino { stroke-width: 3; }
+    [data-composition-id="s07-cables"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #ecebe4; }
+    [data-composition-id="s07-cables"] .sello { position: absolute; padding: 12px 26px 10px; border: 6px solid #ff2d2d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.1em; line-height: 1; color: #ff2d2d; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-cables"] .cartel { position: absolute; padding: 14px 28px 12px; background: #ffb020; color: #070807; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 48px; line-height: 1; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.01em; }
+    [data-composition-id="s07-cables"] .ops { font-family: "Black Ops One", sans-serif; font-weight: 400; text-transform: uppercase; }
+    [data-composition-id="s07-cables"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s07-cables"] .smono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; }
+    [data-composition-id="s07-cables"] .slex { font-family: "Lexend", sans-serif; font-weight: 800; }
+
+  [data-composition-id="s07-cables"] .s07-tranq { top: 600px; font-size: 100px; color: #ecebe4; }
+  [data-composition-id="s07-cables"] .s07-peli { left: 60px; top: 1300px; font-size: 34px; border-color: #ffb020; color: #ffb020; background: rgba(7,8,7,0.85); }
+  [data-composition-id="s07-cables"] .s07-rojo { position: absolute; left: 600px; top: 640px; font-family: "Black Ops One", sans-serif; font-size: 96px; color: #ff2d2d; white-space: nowrap; }
+  [data-composition-id="s07-cables"] .s07-azul { position: absolute; left: 640px; top: 1150px; font-family: "Black Ops One", sans-serif; font-size: 96px; color: #2f7bff; white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="s07-cables" data-width="1080" data-height="1920" data-duration="5.3">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.3" data-track-index="0">
+      <div class="s07-escenario">
+<svg viewBox="0 0 1080 1920" aria-hidden="true"><defs><radialGradient id="hazgrad"><stop offset="0" stop-color="#ffb020" stop-opacity="0.28" /><stop offset="0.6" stop-color="#ffb020" stop-opacity="0.1" /><stop offset="1" stop-color="#ffb020" stop-opacity="0" /></radialGradient></defs>
+          <circle cx="760" cy="980" r="440" fill="url(#hazgrad)" />
+          <path class="l s07-cr" d="M1120 780 C900 760 760 860 720 960 C690 1040 820 1080 1120 1000" style="stroke:#ff2d2d; stroke-width:30px" />
+          <path class="l s07-ca" d="M1120 1120 C920 1140 800 1080 740 1000 C700 940 860 900 1120 900" style="stroke:#2f7bff; stroke-width:30px" />
+          <g transform="translate(20 690) scale(1.2)"><g class="s07-exp">
+      <path class="o" d="M30 540 C30 410 92 368 180 368 C268 368 330 410 330 540 Z" />
+      <path class="l" d="M118 380 V540 M242 380 V540" stroke-width="6" opacity="0.7" />
+      <rect class="y" x="196" y="430" width="34" height="50" rx="6" stroke-width="4" />
+      <rect class="y" x="130" y="430" width="34" height="50" rx="6" stroke-width="4" />
+      <ellipse class="cara" cx="180" cy="252" rx="80" ry="94" />
+      
+      <circle class="s07-exp-ojos" cx="150" cy="248" r="9" fill="#070807" />
+      <circle class="s07-exp-ojos" cx="212" cy="248" r="9" fill="#070807" />
+      <path class="d s07-exp-cejas" d="M130 222 L166 230 M196 230 L232 222" stroke-width="7" />
+      <ellipse class="s07-exp-boca" data-o="180 304" cx="180" cy="304" rx="18" ry="10" fill="#070807" />
+      <!-- casco con linterna -->
+      <path class="o" d="M92 200 C86 128 140 104 180 104 C220 104 274 128 268 200 Z" />
+      <path class="k" d="M80 200 H280 C282 214 268 220 252 218 H96 C84 218 78 212 80 200 Z" stroke-width="6" />
+      <rect class="k" x="152" y="136" width="56" height="40" rx="10" stroke-width="5" />
+      <circle class="y s07-exp-lampara" cx="180" cy="156" r="13" stroke-width="4" />
+      <path class="a s07-gota" d="M100 216 C92 232 92 244 102 246 C112 244 110 232 100 216 Z" stroke-width="3" />
+      <path class="a s07-gota" d="M258 230 C250 246 250 258 260 260 C270 258 268 246 258 230 Z" stroke-width="3" />
+      <path class="a s07-gota" d="M238 186 C232 198 232 206 240 208 C248 206 246 198 238 186 Z" stroke-width="3" />
+      <g class="s07-exp-brazo">
+        <path class="o" d="M300 470 C340 430 340 380 320 330" stroke-width="7" />
+        <path class="k" d="M300 330 L340 220 L356 226 L322 334 Z" stroke-width="5" />
+        <path class="r" d="M296 334 L322 340 L318 420 L300 418 Z" stroke-width="4" />
+        <path class="k" d="M338 222 L372 190 M352 228 L392 210" stroke-width="7" />
+      </g></g></g>
+          <circle class="rl s07-cir" cx="740" cy="960" r="70" stroke-width="7" />
+        </svg>
+        <div class="txt ops s07-tranq">Tranquilos.</div>
+        <div class="sello s07-peli">como en las películas</div>
+        <div class="s07-rojo">¿ROJO</div>
+        <div class="s07-azul">o AZUL?</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-cables";
+      const DUR = 5.3;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const ESC = q(".s07-escenario");
+      // golpe: la palabra cae de grande a su lugar, EN la palabra
+      const golpe = (el, t, s = 2.6) => {
+        el = typeof el === "string" ? q(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      };
+      // pop: aparece con rebote
+      const pop = (el, t, d = 0.32, extra = {}) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false, ...extra }, t);
+      };
+      // entra desde un lado (dx, dy)
+      const entra = (el, t, dx = 0, dy = 120, d = 0.35) => {
+        el = typeof el === "string" ? qa(el) : el;
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: dx, y: dy }, { opacity: 1, x: 0, y: 0, duration: d, ease: "power3.out", immediateRender: false }, t);
+      };
+      const sale = (el, t, d = 0.2) => tl.to(typeof el === "string" ? qa(el) : el, { opacity: 0, duration: d }, t);
+      const sacudon = (t, k = 1) => [[-14, 8], [10, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(ESC, { x: x * k, y: y * k, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // dibujar: el trazo se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (el, t, d = 0.5) => {
+        for (const e of typeof el === "string" ? qa(el) : [].concat(el)) {
+          const L = e.getTotalLength();
+          gsap.set(e, { strokeDasharray: L + " " + L, strokeDashoffset: L, opacity: 0 });
+          tl.set(e, { opacity: 1 }, t);
+          tl.to(e, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+        }
+      };
+      // hablar: la boca se abre y cierra entre t0 y t1 (sin repeat infinito)
+      const hablar = (el, t0, t1, min = 0.25, paso = 0.13) => {
+        el = typeof el === "string" ? q(el) : el;
+        const n = Math.max(1, Math.round((t1 - t0) / (paso * 2)));
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: min, duration: paso, yoyo: true, repeat: n * 2 - 1, ease: "sine.inOut", transformOrigin: "50% 50%", immediateRender: false }, t0);
+      };
+      // parpadeo de ojos
+      const parpadeo = (el, t) => tl.to(typeof el === "string" ? qa(el) : el, { scaleY: 0.1, duration: 0.06, yoyo: true, repeat: 1, ease: "none", transformOrigin: "50% 50%" }, t);
+
+const ESTO = 1.21, PELIS = 1.89, CORTO = 2.92, ROJO = 3.59, AZUL = 4.4;
+      tl.fromTo(ESC, { scale: 1.0 }, { scale: 1.08, duration: DUR, ease: "none", transformOrigin: "60% 55%" }, 0);
+      tl.fromTo(q(".s07-exp"), { opacity: 0.3, x: -60 }, { opacity: 1, x: 0, duration: 0.3 }, 0);
+      dibujar(".s07-cr", 0.0, 0.6);
+      dibujar(".s07-ca", 0.15, 0.6);
+      hablar(".s07-exp-boca", 0.0, 0.8, 0.35);
+      hablar(".s07-exp-boca", ESTO, 2.5, 0.35);
+      hablar(".s07-exp-boca", CORTO, 4.9, 0.35);
+      golpe(".s07-tranq", 0.1, 1.6);
+      sale(".s07-tranq", CORTO - 0.3, 0.2);
+      pop(".s07-peli", PELIS, 0.3);
+      tl.set(q(".s07-peli"), { rotation: -4 }, 0);
+      // el alicate se acerca y duda entre los dos cables
+      tl.to(q(".s07-exp-brazo"), { x: 30, y: 10, duration: 0.5, ease: "sine.inOut" }, CORTO);
+      tl.to(q(".s07-exp-brazo"), { x: 40, y: -30, duration: 0.3, ease: "sine.inOut" }, ROJO);
+      tl.to(q(".s07-exp-brazo"), { x: 40, y: 40, duration: 0.3, ease: "sine.inOut" }, AZUL);
+      golpe(".s07-rojo", ROJO, 2.0);
+      tl.fromTo(q(".s07-cr"), { strokeWidth: 30 }, { strokeWidth: 42, duration: 0.15, yoyo: true, repeat: 3, immediateRender: false }, ROJO);
+      golpe(".s07-azul", AZUL, 2.0);
+      tl.fromTo(q(".s07-ca"), { strokeWidth: 30 }, { strokeWidth: 42, duration: 0.15, yoyo: true, repeat: 3, immediateRender: false }, AZUL);
+      dibujar(".s07-cir", CORTO + 0.1, 0.4);
+      tl.to(qa(".s07-gota"), { y: 8, duration: 0.25, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0);
+
+      // salida: barrido con blur
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, DUR - 0.22);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
