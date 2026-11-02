@@ -1,0 +1,84 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-tripulacion"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-tripulacion"] .s09-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s09-tripulacion"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-tripulacion"] .s09-big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; letter-spacing: -0.02em; white-space: nowrap; }
+    [data-composition-id="s09-tripulacion"] .s09-rot { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.24em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s09-tripulacion"] .s09-chip { position: absolute; display: inline-block; padding: 10px 24px; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 42px; text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; }
+    [data-composition-id="s09-tripulacion"] .s09-sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s09-tripulacion"] .s09-sello b { display: inline-block; padding: 10px 26px; border: 6px solid #e5484d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.08em; color: #e5484d; text-transform: uppercase; white-space: nowrap; background: rgba(3, 4, 10, 0.85); }
+    [data-composition-id="s09-tripulacion"] .s09-globo { position: absolute; padding: 18px 26px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; line-height: 1.2; }
+
+    [data-composition-id="s09-tripulacion"] .s09-pil { position: absolute; left: 190px; top: 640px; width: 260px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.2em; color: #f2f0e6; }
+    [data-composition-id="s09-tripulacion"] .s09-cor { left: 420px; top: 650px; background: #ffd21f; color: #03040a; transform: rotate(-4deg); font-size: 36px; }
+    [data-composition-id="s09-tripulacion"] .s09-vac { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.16em; color: #3fa9ff; background: rgba(3,4,10,0.85); padding: 4px 12px; }
+    [data-composition-id="s09-tripulacion"] .s09-busca { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; }
+    [data-composition-id="s09-tripulacion"] .s09-busca b { display: inline-block; padding: 12px 28px; background: #ffd21f; color: #03040a; border-radius: 10px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 50px; text-transform: uppercase; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s09-tripulacion" data-width="1080" data-height="1920" data-duration="4.94">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="4.94" data-track-index="0">
+      <div class="s09-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s09-ven" d="M140 760 L200 600 H880 L940 760" fill="none" stroke="#f2f0e6" stroke-width="5" opacity="0.6" />
+          <g class="s09-s1"><path d="M210 1040 V890 Q210 840 260 840 H380 Q430 840 430 890 V1040 Z" fill="#141a33" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" /><rect x="260" y="760" width="120" height="70" rx="22" fill="#141a33" stroke="#f2f0e6" stroke-width="5" /></g><g class="s09-s2"><path d="M650 1040 V890 Q650 840 700 840 H820 Q870 840 870 890 V1040 Z" fill="#141a33" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" /><rect x="700" y="760" width="120" height="70" rx="22" fill="#141a33" stroke="#f2f0e6" stroke-width="5" /></g><g class="s09-s3"><path d="M210 1400 V1250 Q210 1200 260 1200 H380 Q430 1200 430 1250 V1400 Z" fill="#141a33" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" /><rect x="260" y="1120" width="120" height="70" rx="22" fill="#141a33" stroke="#f2f0e6" stroke-width="5" /></g><g class="s09-s4"><path d="M650 1400 V1250 Q650 1200 700 1200 H820 Q870 1200 870 1250 V1400 Z" fill="#141a33" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" /><rect x="700" y="1120" width="120" height="70" rx="22" fill="#141a33" stroke="#f2f0e6" stroke-width="5" /></g>
+          <g class="s09-cabeza"><circle cx="320" cy="760" r="62" fill="#141a33" stroke="#f2f0e6" stroke-width="5" /><path d="M262 770 C256 740 262 728 270 722 M378 770 C384 740 378 728 370 722" fill="none" stroke="#f2f0e6" stroke-width="7" stroke-linecap="round" /></g>
+          <rect class="s09-m" x="630" y="740" width="260" height="320" rx="30" fill="none" stroke="#3fa9ff" stroke-width="5" stroke-dasharray="14 12" /><rect class="s09-m" x="190" y="1100" width="260" height="320" rx="30" fill="none" stroke="#3fa9ff" stroke-width="5" stroke-dasharray="14 12" /><rect class="s09-m" x="630" y="1100" width="260" height="320" rx="30" fill="none" stroke="#3fa9ff" stroke-width="5" stroke-dasharray="14 12" />
+        </svg>
+        <div class="s09-pil">Piloto</div>
+        <div class="s09-chip s09-cor">Coraje: de sobra</div>
+        <div class="s09-vac" style="left:700px;top:960px">Vacío</div>
+        <div class="s09-vac" style="left:260px;top:1320px">Vacío</div>
+        <div class="s09-vac" style="left:700px;top:1320px">Vacío</div>
+        <div class="s09-busca"><b>Se busca tripulación</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-tripulacion";
+      const DUR = 4.94;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s09-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const popSvg = (el, t, o, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.5, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const golpe = (el, t, f = 2.2) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: f }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const aparece = (el, t, d = 0.3, dy = 16) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: dy }, { opacity: 1, y: 0, duration: d, ease: "power2.out", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, filter: "blur(6px)", duration: d }, t);
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+
+      const PILOTO = 0.44, SOBRA = 1.32, FALTA = 2.72, TRIP = 3.51;
+      dibujar([q(".s09-ven")], 0, 0.5, 0.5);
+      tl.fromTo(q(".s09-escenario"), { scale: 1.06 }, { scale: 1, transformOrigin: "50% 50%", duration: DUR, ease: "none" }, 0);
+      tl.fromTo(q(".s09-cabeza"), { rotation: -3 }, { rotation: 3, svgOrigin: "320 820", duration: 0.8, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0);
+      aparece(q(".s09-pil"), PILOTO - 0.05);
+      golpe(q(".s09-cor"), SOBRA, 1.7);
+      tl.to(q(".s09-cor"), { opacity: 0.3, duration: 0.3 }, FALTA - 0.2);
+      qa(".s09-m").forEach((m, i) => { dibujar([m], FALTA - 0.05 + i * 0.12, 0.45); tl.to(m, { opacity: 0.35, duration: 0.25, yoyo: true, repeat: 3 }, FALTA + 0.6 + i * 0.12); });
+      qa(".s09-vac").forEach((v, i) => pop(v, FALTA + 0.1 + i * 0.12));
+      golpe(q(".s09-busca"), TRIP, 1.8);
+      sacudon(TRIP + 0.04, 0.7);
+
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

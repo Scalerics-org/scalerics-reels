@@ -1,0 +1,94 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-holograma"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-holograma"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-holograma"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-holograma"] .s05-big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; letter-spacing: -0.02em; white-space: nowrap; }
+    [data-composition-id="s05-holograma"] .s05-rot { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.24em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s05-holograma"] .s05-chip { position: absolute; display: inline-block; padding: 10px 24px; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 42px; text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; }
+    [data-composition-id="s05-holograma"] .s05-sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s05-holograma"] .s05-sello b { display: inline-block; padding: 10px 26px; border: 6px solid #e5484d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.08em; color: #e5484d; text-transform: uppercase; white-space: nowrap; background: rgba(3, 4, 10, 0.85); }
+    [data-composition-id="s05-holograma"] .s05-globo { position: absolute; padding: 18px 26px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; line-height: 1.2; }
+
+    [data-composition-id="s05-holograma"] .s05-reloj { position: absolute; left: 700px; top: 600px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 64px; color: #3fa9ff; border: 4px solid #3fa9ff; border-radius: 12px; padding: 4px 18px; }
+    [data-composition-id="s05-holograma"] .s05-globo { left: 90px; top: 590px; width: 560px; background: rgba(63, 169, 255, 0.16); border: 4px solid #3fa9ff; color: #f2f0e6; }
+    [data-composition-id="s05-holograma"] .s05-rot1 { top: 1440px; color: #3fa9ff; }
+    [data-composition-id="s05-holograma"] .s05-38 { position: absolute; left: 820px; top: 1030px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; color: #03040a; background: #3fa9ff; border-radius: 50%; width: 120px; height: 120px; line-height: 120px; text-align: center; }
+  </style>
+  <div id="root" data-composition-id="s05-holograma" data-width="1080" data-height="1920" data-duration="5.74">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="5.74" data-track-index="0">
+      <div class="s05-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <path class="s05-cono" d="M400 1380 L250 760 H630 L480 1380 Z" fill="#3fa9ff" opacity="0.12" />
+          <g transform="translate(440 1010) scale(1.05)"><g class="s05-holo" style="filter: drop-shadow(0 0 14px rgba(63,169,255,0.7))"><g class="s05-cl" fill="none" stroke="#3fa9ff" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M-120 230 C-120 110 -80 70 0 70 C80 70 120 110 120 230 Z" fill="rgba(63,169,255,0.12)" />
+  <circle cx="0" cy="-20" r="70" fill="rgba(63,169,255,0.12)" />
+  <path d="M-70 -30 C-72 -100 72 -100 70 -30 C50 -64 -40 -70 -70 -30 Z" fill="rgba(63,169,255,0.35)" />
+  <path d="M58 -66 C110 -60 120 0 96 60 C110 10 96 -30 66 -40" fill="rgba(63,169,255,0.35)" />
+  <circle cx="-24" cy="-14" r="6" fill="#3fa9ff" /><circle cx="24" cy="-14" r="6" fill="#3fa9ff" />
+  <path d="M-16 22 Q0 32 16 22" />
+  <path d="M60 130 L92 40 M92 40 h34 v64 h-34 z" />
+</g></g></g>
+          <g class="s05-barrido" stroke="#3fa9ff" stroke-width="3" opacity="0.35"><path d="M250 900 H630 M250 960 H630 M250 1020 H630 M250 1080 H630 M250 1140 H630" /></g>
+          <path class="s05-proy" d="M330 1380 H550 L520 1420 H360 Z" fill="#141a33" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" />
+          <g class="s05-zapa" fill="none" stroke="#3fa9ff" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M700 1130 C700 1080 720 1050 760 1050 L800 1070 C840 1100 900 1110 960 1120 C990 1126 1000 1150 990 1170 H710 C702 1160 700 1150 700 1130 Z" />
+            <path d="M706 1150 H992 M770 1062 L790 1100 M790 1072 L808 1104" />
+          </g>
+        </svg>
+        <div class="s05-globo">¿Tenés las zapatillas blancas en 38?</div>
+        <div class="s05-reloj">23:00</div>
+        <div class="s05-38">38</div>
+        <div class="s05-rot s05-rot1">Transmisión rebelde · 23:00</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-holograma";
+      const DUR = 5.74;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s05-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const popSvg = (el, t, o, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.5, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const golpe = (el, t, f = 2.2) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: f }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const aparece = (el, t, d = 0.3, dy = 16) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: dy }, { opacity: 1, y: 0, duration: d, ease: "power2.out", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, filter: "blur(6px)", duration: d }, t);
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+
+      const ONCE = 1.21, TENES = 2.6, ZAPA = 3.24, OCHO = 4.85;
+      tl.fromTo(q(".s05-cono"), { opacity: 0.05 }, { opacity: 0.14, duration: 0.3 }, 0);
+      tl.fromTo(q(".s05-holo"), { opacity: 0.3, scaleY: 0.2, svgOrigin: "0 350" }, { opacity: 1, scaleY: 1, svgOrigin: "0 350", duration: 0.45, ease: "power3.out" }, 0);
+      tl.to(q(".s05-holo"), { opacity: 0.55, duration: 0.05, yoyo: true, repeat: 3, ease: "steps(1)" }, 1.9);
+      tl.to(q(".s05-holo"), { opacity: 0.6, duration: 0.05, yoyo: true, repeat: 1, ease: "steps(1)" }, 4.3);
+      tl.fromTo(q(".s05-barrido"), { y: -140 }, { y: 360, duration: 1.4, ease: "none", repeat: 3 }, 0);
+      aparece(q(".s05-rot1"), 0.2);
+      pop(q(".s05-reloj"), ONCE - 0.05);
+      tl.to(q(".s05-reloj"), { opacity: 0.4, duration: 0.3, yoyo: true, repeat: 5, ease: "steps(1)" }, ONCE + 0.5);
+      pop(q(".s05-globo"), TENES - 0.05);
+      dibujar(qa(".s05-zapa path"), ZAPA - 0.05, 0.5);
+      golpe(q(".s05-38"), OCHO);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,84 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-imperio"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-imperio"] .s03-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s03-imperio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-imperio"] .s03-big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; letter-spacing: -0.02em; white-space: nowrap; }
+    [data-composition-id="s03-imperio"] .s03-rot { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.24em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s03-imperio"] .s03-chip { position: absolute; display: inline-block; padding: 10px 24px; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 42px; text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; }
+    [data-composition-id="s03-imperio"] .s03-sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s03-imperio"] .s03-sello b { display: inline-block; padding: 10px 26px; border: 6px solid #e5484d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.08em; color: #e5484d; text-transform: uppercase; white-space: nowrap; background: rgba(3, 4, 10, 0.85); }
+    [data-composition-id="s03-imperio"] .s03-globo { position: absolute; padding: 18px 26px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; line-height: 1.2; }
+
+    [data-composition-id="s03-imperio"] .s03-est { position: absolute; left: 140px; right: 140px; top: 590px; text-align: center; }
+    [data-composition-id="s03-imperio"] .s03-est b { display: inline-block; padding: 12px 30px; background: #e5484d; color: #f2f0e6; border-radius: 8px; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 46px; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s03-imperio" data-width="1080" data-height="1920" data-duration="1.84">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="1.84" data-track-index="0">
+      <div class="s03-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s03-vent"><path d="M90 1460 V760 Q540 640 990 760 V1460" fill="rgba(20,26,51,0.5)" stroke="#f2f0e6" stroke-width="5" /><path d="M300 700 V1460 M780 700 V1460" stroke="#f2f0e6" stroke-width="4" opacity="0.5" /></g>
+          <g transform="translate(540 1130) scale(1.0)"><g class="s03-v"><g class="s03-vil">
+  <path d="M-270 340 L-205 40 C-175 -20 -120 -40 -60 -50 L60 -50 C120 -40 175 -20 205 40 L270 340 Z" fill="#0a0d1c" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-120 340 L-80 -20 L0 70 L80 -20 L120 340 Z" fill="#e5484d" />
+  <path d="M-80 -20 L0 70 L80 -20" fill="none" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-150 -30 L-200 -230 L-95 -95 Z M150 -30 L200 -230 L95 -95 Z" fill="#0a0d1c" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-58 -82 L-50 -40 H50 L58 -82 Z" fill="#141a33" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-72 -255 C-78 -330 78 -330 72 -255 L64 -130 C56 -75 30 -55 0 -52 C-30 -55 -56 -75 -64 -130 Z" fill="#141a33" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-74 -250 C-66 -320 66 -320 74 -250 C40 -285 -14 -290 -74 -250 Z" fill="#f2f0e6" />
+  <path d="M-54 -208 L-12 -186 M54 -208 L12 -186" stroke="#f2f0e6" stroke-width="8" stroke-linecap="round" />
+  <g class="s03-vil-ojos" style="filter: drop-shadow(0 0 10px rgba(229,72,77,0.9))"><ellipse cx="-31" cy="-170" rx="12" ry="6" fill="#e5484d" /><ellipse cx="31" cy="-170" rx="12" ry="6" fill="#e5484d" /></g>
+  <path d="M-4 -160 L-10 -122 H8" fill="none" stroke="#f2f0e6" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+  <path d="M0 -104 C-10 -112 -30 -114 -44 -102 C-52 -96 -58 -100 -62 -112 M0 -104 C10 -112 30 -114 44 -102 C52 -96 58 -100 62 -112" fill="none" stroke="#f2f0e6" stroke-width="5" stroke-linecap="round" />
+  <path class="s03-vil-boca" d="M-24 -84 Q0 -72 24 -84" fill="none" stroke="#f2f0e6" stroke-width="4" stroke-linecap="round" />
+  <g transform="translate(0 175)"><path d="M-54 -24 H54 L44 12 H-44 Z" fill="#03040a" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /><path d="M-32 -24 L-26 12 M-11 -24 L-9 12 M11 -24 L9 12 M32 -24 L26 12" stroke="#f2f0e6" stroke-width="3" /><path d="M-44 12 V40 H44 V12" fill="none" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /></g>
+</g></g></g>
+        </svg>
+        <div class="s03-est"><b>Imperio del de enfrente</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-imperio";
+      const DUR = 1.84;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s03-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const popSvg = (el, t, o, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.5, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const golpe = (el, t, f = 2.2) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: f }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const aparece = (el, t, d = 0.3, dy = 16) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: dy }, { opacity: 1, y: 0, duration: d, ease: "power2.out", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, filter: "blur(6px)", duration: d }, t);
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+
+      const IMPERIO = 0.5, ENFRENTE = 1.34;
+      dibujar(qa(".s03-vent path"), 0, 0.4, 0.5);
+      tl.fromTo(q(".s03-v"), { y: 60, opacity: 0.4 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s03-v"), { scale: 1 }, { scale: 1.04, svgOrigin: "0 0", duration: 1.8, ease: "none" }, 0);
+      pop(q(".s03-est"), IMPERIO - 0.05);
+      tl.fromTo(q(".s03-vil-ojos"), { opacity: 1 }, { opacity: 0.2, duration: 0.06, yoyo: true, repeat: 3, ease: "steps(1)" }, ENFRENTE);
+      tl.to(q(".s03-vil-ojos"), { scale: 1.6, transformOrigin: "50% 50%", duration: 0.2, yoyo: true, repeat: 1 }, ENFRENTE);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

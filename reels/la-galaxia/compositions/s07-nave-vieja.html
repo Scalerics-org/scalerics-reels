@@ -1,0 +1,129 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-nave-vieja"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-nave-vieja"] .s07-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s07-nave-vieja"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-nave-vieja"] .s07-big { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; line-height: 0.95; letter-spacing: -0.02em; white-space: nowrap; }
+    [data-composition-id="s07-nave-vieja"] .s07-rot { position: absolute; left: 0; right: 0; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; letter-spacing: 0.24em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s07-nave-vieja"] .s07-chip { position: absolute; display: inline-block; padding: 10px 24px; border-radius: 12px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 42px; text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; }
+    [data-composition-id="s07-nave-vieja"] .s07-sello { position: absolute; left: 0; right: 0; text-align: center; }
+    [data-composition-id="s07-nave-vieja"] .s07-sello b { display: inline-block; padding: 10px 26px; border: 6px solid #e5484d; border-radius: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 40px; letter-spacing: 0.08em; color: #e5484d; text-transform: uppercase; white-space: nowrap; background: rgba(3, 4, 10, 0.85); }
+    [data-composition-id="s07-nave-vieja"] .s07-globo { position: absolute; padding: 18px 26px; border-radius: 26px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; line-height: 1.2; }
+
+    [data-composition-id="s07-nave-vieja"] .s07-tri { top: 1448px; color: #ffd21f; }
+    [data-composition-id="s07-nave-vieja"] .s07-c1 { left: 70px; top: 600px; background: #ffd21f; color: #03040a; transform: rotate(-6deg); }
+    [data-composition-id="s07-nave-vieja"] .s07-c2 { left: 720px; top: 700px; background: #ffd21f; color: #03040a; transform: rotate(5deg); }
+    [data-composition-id="s07-nave-vieja"] .s07-c3 { left: 80px; top: 820px; background: #ffd21f; color: #03040a; transform: rotate(3deg); }
+    [data-composition-id="s07-nave-vieja"] .s07-reloj { position: absolute; left: 470px; top: 1290px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 44px; color: #ffd21f; }
+    [data-composition-id="s07-nave-vieja"] .s07-zzz { position: absolute; left: 640px; top: 880px; font-family: "Lexend", sans-serif; font-weight: 800; color: #f2f0e6; }
+    [data-composition-id="s07-nave-vieja"] .s07-zzz span { position: absolute; display: block; }
+  </style>
+  <div id="root" data-composition-id="s07-nave-vieja" data-width="1080" data-height="1920" data-duration="7.36">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="7.36" data-track-index="0">
+      <div class="s07-escenario">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g class="s07-cab">
+  <path class="s07-ven" d="M120 1080 L200 640 H880 L960 1080 Z" fill="rgba(10,13,28,0.6)" stroke="#f2f0e6" stroke-width="6" stroke-linejoin="round" />
+  <path class="s07-ven" d="M540 640 V1080 M160 860 H920" fill="none" stroke="#f2f0e6" stroke-width="4" opacity="0.5" />
+  <path d="M780 700 L860 680 L850 740 Z" fill="none" stroke="#ffd21f" stroke-width="4" stroke-dasharray="6 6" />
+</g>
+          <g class="s07-humo" fill="#f2f0e6" opacity="0.18"><circle cx="900" cy="1150" r="40" /><circle cx="940" cy="1100" r="54" /><circle cx="980" cy="1040" r="64" /></g>
+          <g transform="translate(540 1010)"><g class="s07-du-a"><g class="s07-du">
+  <path d="M-135 210 C-135 85 -90 45 0 45 C90 45 135 85 135 210 Z" fill="#141a33" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-62 62 L-54 210 H54 L62 62 C40 76 -40 76 -62 62 Z" fill="#0a0d1c" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-62 62 L-30 45 M62 62 L30 45" fill="none" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="0" cy="-30" r="74" fill="#141a33" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-74 -30 C-80 -60 -70 -70 -62 -74 M74 -30 C80 -60 70 -70 62 -74" fill="none" stroke="#f2f0e6" stroke-width="7" stroke-linecap="round" />
+  <path d="M-46 -64 L-12 -58 M46 -64 L12 -58" stroke="#f2f0e6" stroke-width="6" stroke-linecap="round" />
+  <g class="s07-du-ojos"><circle cx="-26" cy="-40" r="7" fill="#f2f0e6" /><circle cx="26" cy="-40" r="7" fill="#f2f0e6" /><path d="M-40 -26 Q-26 -18 -12 -26 M12 -26 Q26 -18 40 -26" fill="none" stroke="#f2f0e6" stroke-width="3" opacity="0.6" stroke-linecap="round" /></g>
+  <path d="M-46 4 C-30 -14 -8 -10 0 -2 C8 -10 30 -14 46 4 C30 0 10 4 0 6 C-10 4 -30 0 -46 4 Z" fill="#f2f0e6" />
+  <path d="M-16 24 Q0 18 16 24" fill="none" stroke="#f2f0e6" stroke-width="4" stroke-linecap="round" />
+</g></g></g>
+          <g transform="translate(540 1040)"><g class="s07-du-b" opacity="0"><g class="s07-dub">
+  <path d="M-135 210 C-135 85 -90 45 0 45 C90 45 135 85 135 210 Z" fill="#141a33" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-62 62 L-54 210 H54 L62 62 C40 76 -40 76 -62 62 Z" fill="#0a0d1c" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-62 62 L-30 45 M62 62 L30 45" fill="none" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="0" cy="-30" r="74" fill="#141a33" stroke="#f2f0e6" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M-74 -30 C-80 -60 -70 -70 -62 -74 M74 -30 C80 -60 70 -70 62 -74" fill="none" stroke="#f2f0e6" stroke-width="7" stroke-linecap="round" />
+  <path d="M-46 -64 L-12 -58 M46 -64 L12 -58" stroke="#f2f0e6" stroke-width="6" stroke-linecap="round" />
+  <path d="M-38 -38 Q-26 -28 -14 -38 M14 -38 Q26 -28 38 -38" fill="none" stroke="#f2f0e6" stroke-width="5" stroke-linecap="round" />
+  <path d="M-46 4 C-30 -14 -8 -10 0 -2 C8 -10 30 -14 46 4 C30 0 10 4 0 6 C-10 4 -30 0 -46 4 Z" fill="#f2f0e6" />
+  <path d="M-16 24 Q0 18 16 24" fill="none" stroke="#f2f0e6" stroke-width="4" stroke-linecap="round" />
+</g></g></g>
+          <g class="s07-tab">
+  <path d="M60 1180 Q540 1120 1020 1180 V1420 H60 Z" fill="#141a33" stroke="#f2f0e6" stroke-width="6" stroke-linejoin="round" />
+  <circle cx="190" cy="1270" r="50" fill="#0a0d1c" stroke="#f2f0e6" stroke-width="5" /><path class="s07-aguja1" d="M190 1270 L220 1240" stroke="#ffd21f" stroke-width="6" stroke-linecap="round" />
+  <circle cx="890" cy="1270" r="50" fill="#0a0d1c" stroke="#f2f0e6" stroke-width="5" /><path class="s07-aguja2" d="M890 1270 L860 1240" stroke="#ffd21f" stroke-width="6" stroke-linecap="round" />
+  <g class="s07-luces"><circle cx="330" cy="1350" r="12" fill="#3fa9ff" /><circle cx="375" cy="1350" r="12" fill="#ffd21f" /><circle cx="705" cy="1350" r="12" fill="#3fa9ff" /><circle cx="750" cy="1350" r="12" fill="#ffd21f" /></g>
+  <g class="s07-rojas" opacity="0"><circle cx="330" cy="1350" r="14" fill="#e5484d" /><circle cx="375" cy="1350" r="14" fill="#e5484d" /><circle cx="705" cy="1350" r="14" fill="#e5484d" /><circle cx="750" cy="1350" r="14" fill="#e5484d" /></g>
+  <path d="M420 1250 H660 M450 1250 V1210 M630 1250 V1210" stroke="#f2f0e6" stroke-width="10" stroke-linecap="round" fill="none" />
+</g>
+        </svg>
+        <div class="s07-chip s07-c1">Atiendo</div>
+        <div class="s07-chip s07-c2">Cobro</div>
+        <div class="s07-chip s07-c3">Repongo</div>
+        <div class="s07-reloj">23:00</div>
+        <div class="s07-zzz"><span class="s07-z1" style="left:0;top:60px;font-size:44px">Z</span><span class="s07-z2" style="left:40px;top:10px;font-size:58px">Z</span><span class="s07-z3" style="left:96px;top:-50px;font-size:66px">Z</span></div>
+        <div class="s07-rot s07-tri">Tripulación: 1</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-nave-vieja";
+      const DUR = 7.36;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const sacudon = (t, f = 1) => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(".s07-escenario"), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      const pop = (el, t, d = 0.35, extra = {}) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.6 }, Object.assign({ opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, extra), t); };
+      const popSvg = (el, t, o, d = 0.35) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.5, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const golpe = (el, t, f = 2.2) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: f }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1); };
+      const aparece = (el, t, d = 0.3, dy = 16) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: dy }, { opacity: 1, y: 0, duration: d, ease: "power2.out", immediateRender: false }, t); };
+      const fuera = (el, t, d = 0.25) => tl.to(el, { opacity: 0, filter: "blur(6px)", duration: d }, t);
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+
+
+      const SOLO = 1.09, ATIENDO = 2.34, COBRO = 3.25, REPONGO = 3.72, ONCE = 4.91, DUERMO = 5.54, TABLERO = 6.27;
+      dibujar(qa(".s07-ven"), 0, 0.5, 0.4);
+      // la nave tiembla todo el tiempo, cada vez más
+      [[0, 0.6], [2.3, 1.0], [3.2, 1.3], [3.7, 1.6]].forEach(([t, f]) => sacudon(t, f));
+      tl.to(q(".s07-aguja1"), { rotation: 70, svgOrigin: "190 1270", duration: 0.3, yoyo: true, repeat: 9, ease: "sine.inOut" }, 0);
+      tl.to(q(".s07-aguja2"), { rotation: -80, svgOrigin: "890 1270", duration: 0.25, yoyo: true, repeat: 11, ease: "sine.inOut" }, 0.2);
+      tl.fromTo(q(".s07-humo"), { y: 0, opacity: 0.1 }, { y: -80, opacity: 0.25, duration: 3, ease: "none", yoyo: true, repeat: 1 }, 0);
+      tl.fromTo(q(".s07-du-a"), { y: 6 }, { y: -6, duration: 0.3, yoyo: true, repeat: 15, ease: "sine.inOut" }, 0);
+      aparece(q(".s07-tri"), SOLO);
+      golpe(q(".s07-c1"), ATIENDO, 1.6);
+      golpe(q(".s07-c2"), COBRO, 1.6);
+      golpe(q(".s07-c3"), REPONGO, 1.6);
+      gsap.set(q(".s07-reloj"), { opacity: 0.0 });
+      pop(q(".s07-reloj"), ONCE - 0.05);
+      tl.to([q(".s07-c1"), q(".s07-c2"), q(".s07-c3")], { opacity: 0.25, duration: 0.3 }, ONCE);
+      // se duerme
+      tl.to(q(".s07-du-a"), { opacity: 0, duration: 0.12 }, DUERMO - 0.1);
+      tl.to(q(".s07-du-b"), { opacity: 1, duration: 0.12 }, DUERMO - 0.1);
+      tl.to(q(".s07-du-b"), { rotation: 8, transformOrigin: "50% 100%", duration: 0.5, yoyo: true, repeat: 2, ease: "sine.inOut" }, DUERMO);
+      ["s07-z1", "s07-z2", "s07-z3"].forEach((z, i) => { aparece(q("." + z), DUERMO + i * 0.15, 0.3, 20); tl.to(q("." + z), { y: -24, duration: 1.2, ease: "sine.inOut" }, DUERMO + 0.3 + i * 0.15); });
+      tl.to(q(".s07-luces"), { opacity: 0, duration: 0.05 }, TABLERO - 0.05);
+      tl.fromTo(q(".s07-rojas"), { opacity: 0 }, { opacity: 1, duration: 0.1, yoyo: true, repeat: 7, ease: "steps(1)", immediateRender: false }, TABLERO);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
