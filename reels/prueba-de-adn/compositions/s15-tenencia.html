@@ -1,0 +1,136 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s15-tenencia"] .s15-capa { position: absolute; inset: 0; }
+    [data-composition-id="s15-tenencia"] .s15-esc { position: absolute; inset: 0; }
+    [data-composition-id="s15-tenencia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s15-tenencia"] .lin { fill: none; stroke: #fff4dc; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s15-tenencia"] .txt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s15-tenencia"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s15-tenencia"] .zoc { position: absolute; left: 50px; top: 1376px; display: flex; height: 104px; border: 4px solid #fff4dc; border-radius: 10px; overflow: hidden; box-shadow: 8px 8px 0 rgba(10, 18, 80, 0.75); }
+    [data-composition-id="s15-tenencia"] .zoc .tab { display: flex; align-items: center; padding: 0 18px; background: #e5262d; color: #fff4dc; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s15-tenencia"] .zoc .tab.verde { background: #5ce611; color: #0a1250; }
+    [data-composition-id="s15-tenencia"] .zoc .tit { display: flex; align-items: center; padding: 0 26px; background: #ffd21f; color: #0a1250; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s15-tenencia"] .sello b { display: inline-block; padding: 10px 28px; border: 7px solid #e5262d; border-radius: 14px; color: #e5262d; background: rgba(10, 18, 80, 0.88); font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
+
+    [data-composition-id="s15-tenencia"] .s15-sello { top: 610px; }
+    [data-composition-id="s15-tenencia"] .s15-sello b { font-size: 64px; color: #5ce611; border-color: #5ce611; transform: rotate(-4deg); }
+  </style>
+  <div id="root" data-composition-id="s15-tenencia" data-width="1080" data-height="1920" data-duration="3.51">
+    <div id="s15-escena" class="s15-capa clip" data-start="0" data-duration="3.51" data-track-index="0">
+      <div class="s15-esc">
+
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+          <g transform="translate(400 980) scale(0.9)"><g class="s15-rub">
+<g class="s15r">
+  <path d="M-140 340 Q-152 172 -100 116 Q-50 96 0 100 Q50 96 100 116 Q152 172 140 340 Z" fill="#fff4dc" stroke="#0a1250" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-82 150 H82 L98 340 H-98 Z" fill="#2343c9" stroke="#fff4dc" stroke-width="5" stroke-linejoin="round" />
+  <path d="M-60 150 L-40 104 M60 150 L40 104" stroke="#2343c9" stroke-width="12" stroke-linecap="round" />
+  <rect x="30" y="200" width="46" height="50" rx="6" fill="none" stroke="#fff4dc" stroke-width="4" />
+  <path d="M44 214 V178" stroke="#ffd21f" stroke-width="9" stroke-linecap="round" /><path d="M60 214 V184 M52 184 H68" stroke="#fff4dc" stroke-width="6" stroke-linecap="round" />
+  <rect x="-22" y="58" width="44" height="48" fill="#fff4dc" stroke="#0a1250" stroke-width="4" />
+  <ellipse cx="-66" cy="4" rx="12" ry="18" fill="#fff4dc" stroke="#0a1250" stroke-width="4" /><ellipse cx="66" cy="4" rx="12" ry="18" fill="#fff4dc" stroke="#0a1250" stroke-width="4" />
+  <ellipse cx="0" cy="0" rx="66" ry="76" fill="#fff4dc" stroke="#0a1250" stroke-width="4" />
+  <path d="M-66 -10 C-70 -40 -58 -52 -46 -50 M66 -10 C70 -40 58 -52 46 -50" stroke="#0a1250" stroke-width="9" stroke-linecap="round" fill="none" opacity="0.55" />
+  <path d="M-20 -60 Q-6 -66 6 -58 M10 -64 Q20 -68 28 -62" stroke="#0a1250" stroke-width="3" fill="none" opacity="0.5" />
+  <path class="s15r-cejas" d="M-44 -34 L-12 -28 M12 -28 L44 -34" stroke="#0a1250" stroke-width="7" stroke-linecap="round" />
+  <g class="s15r-ojos"><circle cx="-26" cy="-8" r="6" fill="#0a1250" /><circle cx="26" cy="-8" r="6" fill="#0a1250" /></g>
+  <circle cx="-26" cy="-8" r="21" fill="none" stroke="#0a1250" stroke-width="4" /><circle cx="26" cy="-8" r="21" fill="none" stroke="#0a1250" stroke-width="4" />
+  <path d="M-5 -8 H5" stroke="#0a1250" stroke-width="4" />
+  <ellipse cx="0" cy="16" rx="13" ry="15" fill="#fff4dc" stroke="#0a1250" stroke-width="4" />
+  <ellipse class="s15r-boca" cx="0" cy="50" rx="15" ry="10" fill="#0a1250" />
+  <path d="M-44 36 C-34 18 -8 20 0 28 C8 20 34 18 44 36 C28 32 12 40 0 35 C-12 40 -28 32 -44 36 Z" fill="#0a1250" stroke="#0a1250" stroke-width="3" stroke-linejoin="round" />
+  <g class="s15r-lagrimas" opacity="0"><path d="M-30 18 C-36 30 -36 40 -30 42 C-24 40 -24 30 -30 18 Z M30 18 C24 30 24 40 30 42 C36 40 36 30 30 18 Z" fill="#fff4dc" stroke="#2343c9" stroke-width="3" /></g>
+</g></g></g>
+          <g transform="translate(720 1000) scale(0.85)"><g class="s15-rom">
+<g class="s15m">
+  <path d="M60 -50 C130 -40 150 40 120 130 C110 160 90 170 80 160 C110 90 100 10 50 -20 Z" fill="#0a1250" stroke="#fff4dc" stroke-width="4" stroke-linejoin="round" />
+  <path d="M-120 340 L-128 170 Q-124 112 -84 104 L-26 96 Q0 120 26 96 L84 104 Q124 112 128 170 L120 340 Z" fill="#e5262d" stroke="#fff4dc" stroke-width="5" stroke-linejoin="round" />
+  <rect x="-20" y="52" width="40" height="50" fill="#fff4dc" stroke="#0a1250" stroke-width="4" />
+  <ellipse cx="0" cy="0" rx="58" ry="70" fill="#fff4dc" stroke="#0a1250" stroke-width="4" />
+  <path d="M-62 10 C-74 -62 -30 -96 10 -90 C52 -86 72 -52 62 4 C50 -26 30 -40 4 -42 C-12 -24 -40 -18 -62 10 Z" fill="#0a1250" stroke="#fff4dc" stroke-width="4" stroke-linejoin="round" />
+  <circle cx="52" cy="-58" r="12" fill="#ffd21f" />
+  <path class="s15m-cejas" d="M-36 -26 L-12 -20 M12 -20 L36 -26" stroke="#0a1250" stroke-width="5" stroke-linecap="round" />
+  <g class="s15m-ojos"><circle cx="-22" cy="-4" r="7" fill="#0a1250" /><circle cx="22" cy="-4" r="7" fill="#0a1250" /></g>
+  <circle cx="-58" cy="24" r="7" fill="#ffd21f" /><circle cx="58" cy="24" r="7" fill="#ffd21f" />
+  <ellipse class="s15m-boca" cx="0" cy="38" rx="14" ry="9" fill="#0a1250" />
+</g></g></g>
+          <path class="s15-brazo" d="M480 1150 C560 1110 620 1110 660 1140" stroke="#fff4dc" stroke-width="26" stroke-linecap="round" fill="none" />
+          <g class="s15-cor" fill="#e5262d" stroke="#fff4dc" stroke-width="4">
+            <path d="M560 860 c-20 -30 -60 -10 -40 20 l40 40 l40 -40 c20 -30 -20 -50 -40 -20 Z" />
+            <path d="M240 820 c-14 -20 -42 -7 -28 14 l28 28 l28 -28 c14 -21 -14 -34 -28 -14 Z" />
+            <path d="M880 830 c-14 -20 -42 -7 -28 14 l28 28 l28 -28 c14 -21 -14 -34 -28 -14 Z" />
+          </g>
+          <g class="s15-confeti">
+            <rect class="s15-k" x="120" y="520" width="18" height="30" rx="4" fill="#ffd21f" /><rect class="s15-k" x="220" y="480" width="18" height="30" rx="4" fill="#e5262d" /><rect class="s15-k" x="330" y="440" width="18" height="30" rx="4" fill="#5ce611" /><rect class="s15-k" x="450" y="400" width="18" height="30" rx="4" fill="#ffd21f" /><rect class="s15-k" x="560" y="520" width="18" height="30" rx="4" fill="#fff4dc" /><rect class="s15-k" x="680" y="480" width="18" height="30" rx="4" fill="#e5262d" /><rect class="s15-k" x="790" y="440" width="18" height="30" rx="4" fill="#ffd21f" /><rect class="s15-k" x="890" y="400" width="18" height="30" rx="4" fill="#5ce611" /><rect class="s15-k" x="980" y="520" width="18" height="30" rx="4" fill="#e5262d" /><rect class="s15-k" x="170" y="480" width="18" height="30" rx="4" fill="#fff4dc" /><rect class="s15-k" x="610" y="440" width="18" height="30" rx="4" fill="#5ce611" /><rect class="s15-k" x="930" y="400" width="18" height="30" rx="4" fill="#ffd21f" />
+          </g>
+        </svg>
+        <div class="txt sello s15-sello"><b>Tenencia recuperada</b></div>
+        <div class="zoc s15-z"><div class="tab verde">Fallo</div><div class="tit">Rubén recupera a Romina</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s15-tenencia";
+      const DUR = 3.51;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      const lista = (x) => (typeof x === "string" ? qa(x) : Array.isArray(x) ? x : [x]);
+      // trazo que se dibuja solo (opacity 0 hasta que arranca: sin puntitos de los caps)
+      const dibujar = (sel, t, d = 0.6) => lista(sel).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      // aparece entero con rebote
+      const pop = (sel, t, d = 0.35, s = 0.8) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d, ease: "back.out(1.8)", immediateRender: false }, t);
+      });
+      // cae de golpe, como un sello
+      const golpe = (sel, t, s = 2.2) => lista(sel).forEach((el) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: s, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in", immediateRender: false }, t - 0.1);
+      });
+      const fuera = (sel, t, d = 0.25) => tl.to(lista(sel), { opacity: 0, duration: d }, t);
+      const sacudon = (t, f = 1, sel = ".s15-esc") => [[-14, 8], [11, -6], [-5, 3], [0, 0]].forEach(([x, y], i) => tl.to(q(sel), { x: x * f, y: y * f, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // la boca se mueve mientras habla
+      const hablar = (sel, t0, t1) => {
+        const n = Math.max(1, Math.floor((t1 - t0) / 0.12));
+        tl.fromTo(q(sel), { scaleY: 0.45, transformOrigin: "50% 50%" }, { scaleY: 1.25, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: n % 2 ? n : n + 1, immediateRender: false }, t0);
+      };
+      // zócalos: cada uno entra desde la izquierda y saca al anterior
+      const zocalos = (pares) => pares.forEach(([sel, t], i) => {
+        gsap.set(q(sel), { opacity: 0 });
+        tl.fromTo(q(sel), { opacity: 1, x: -1100 }, { opacity: 1, x: 0, duration: 0.32, ease: "power3.out", immediateRender: false }, t);
+        if (i > 0) tl.to(q(pares[i - 1][0]), { opacity: 0, y: 30, duration: 0.18 }, t);
+      });
+
+
+      const RECUPERA = 1.13, TENENCIA = 1.84;
+      tl.fromTo(q(".s15-rub"), { x: -400 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s15-rom"), { x: 400 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      dibujar(".s15-brazo", 0.4, 0.35);
+      zocalos([[".s15-z", RECUPERA - 0.1]]);
+      golpe(".s15-sello", TENENCIA + 0.05, 2);
+      sacudon(TENENCIA + 0.08, 0.8);
+      pop(".s15-cor path", RECUPERA, 0.35, 0.3);
+      tl.to(qa(".s15-cor path"), { y: -20, duration: 0.4, yoyo: true, repeat: 3, stagger: 0.1, ease: "sine.inOut" }, RECUPERA + 0.4);
+      // confeti que cae (determinista)
+      qa(".s15-k").forEach((k, i) => tl.fromTo(k, { y: 0, rotation: 0, opacity: 0 }, { opacity: 1, y: 900 + (i % 3) * 80, rotation: 360 + i * 40, transformOrigin: "50% 50%", duration: 2.2 + (i % 4) * 0.2, ease: "none" }, TENENCIA - 0.2 + (i % 5) * 0.08));
+      tl.to(q(".s15-rub"), { rotation: -4, svgOrigin: "0 300", duration: 0.3, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.5);
+
+      // salida: blur
+      tl.to(q("#s15-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.25, ease: "power2.in" }, DUR - 0.25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

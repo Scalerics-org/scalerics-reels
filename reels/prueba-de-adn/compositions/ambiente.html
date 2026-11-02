@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 760px 1100px at 540px 940px, rgba(10, 18, 80, 0) 55%, rgba(10, 18, 80, 0.85) 100%); }
+    [data-composition-id="ambiente"] .amb-rojo { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 640px 640px at 0% 0%, rgba(229, 38, 45, 0.5), rgba(229, 38, 45, 0) 70%), radial-gradient(ellipse 640px 640px at 100% 100%, rgba(229, 38, 45, 0.5), rgba(229, 38, 45, 0) 70%); }
+    [data-composition-id="ambiente"] .amb-flash { position: absolute; inset: 0; background: #fff4dc; opacity: 0; }
+    /* barra del programa */
+    [data-composition-id="ambiente"] .amb-barra { position: absolute; left: 60px; top: 116px; height: 76px; display: flex; white-space: nowrap; border-radius: 12px; overflow: hidden; border: 3px solid #fff4dc; }
+    [data-composition-id="ambiente"] .amb-barra > div { display: flex; align-items: center; padding: 0 20px; font-family: "Lexend", sans-serif; font-weight: 800; text-transform: uppercase; font-size: 27px; letter-spacing: 0.04em; }
+    [data-composition-id="ambiente"] .amb-vivo { background: #e5262d; color: #fff4dc; gap: 10px; }
+    [data-composition-id="ambiente"] .amb-punto { width: 14px; height: 14px; border-radius: 50%; background: #fff4dc; }
+    [data-composition-id="ambiente"] .amb-prog { background: #ffd21f; color: #0a1250; }
+    [data-composition-id="ambiente"] .amb-con { background: #2343c9; color: #fff4dc; }
+    [data-composition-id="ambiente"] .amb-hora { background: #0a1250; color: #fff4dc; font-family: "IBM Plex Mono", monospace !important; font-weight: 500 !important; font-size: 30px !important; }
+    /* el público reacciona */
+    [data-composition-id="ambiente"] .amb-uuuh { position: absolute; left: 0; right: 0; top: 1500px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 120px; line-height: 1; letter-spacing: 0.02em; color: #ffd21f; text-shadow: 7px 7px 0 #e5262d; white-space: nowrap; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="74.57">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="74.57" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- rayos del decorado de los 90, girando lento -->
+        <g class="amb-rayos" opacity="0.06" fill="#fff4dc">
+          <path d="M540 980 L540 -500 L926 -460 Z" /><path d="M540 980 L1588 -68 L1820 240 Z" /><path d="M540 980 L2020 980 L1980 1366 Z" />
+          <path d="M540 980 L1588 2028 L1280 2260 Z" /><path d="M540 980 L540 2460 L154 2420 Z" /><path d="M540 980 L-508 2028 L-740 1720 Z" />
+          <path d="M540 980 L-940 980 L-900 594 Z" /><path d="M540 980 L-508 -68 L-200 -300 Z" />
+        </g>
+        <!-- formas geométricas del decorado, en los bordes -->
+        <g class="amb-f1"><path d="M58 600 L118 580 L96 640 Z" fill="none" stroke="#ffd21f" stroke-width="6" stroke-linejoin="round" opacity="0.7" /></g>
+        <g class="amb-f2"><path d="M960 700 q15 -24 30 0 t30 0 t30 0" fill="none" stroke="#e5262d" stroke-width="7" stroke-linecap="round" opacity="0.8" /></g>
+        <g class="amb-f3"><circle cx="1000" cy="1230" r="26" fill="none" stroke="#ffd21f" stroke-width="7" opacity="0.6" /></g>
+        <g class="amb-f4"><path d="M50 1160 l40 0 l-20 34 Z" fill="#e5262d" opacity="0.7" /></g>
+        <g class="amb-f5"><path d="M40 900 l20 -20 l20 20 l20 -20 l20 20" fill="none" stroke="#fff4dc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" /></g>
+        <g class="amb-f6"><rect x="950" y="960" width="40" height="40" rx="6" fill="none" stroke="#fff4dc" stroke-width="5" opacity="0.35" transform="rotate(20 970 980)" /></g>
+        <!-- piso del estudio y el público -->
+        <ellipse cx="540" cy="1680" rx="760" ry="190" fill="#0a1250" opacity="0.55" />
+        <path d="M-200 1520 Q540 1440 1280 1520" fill="none" stroke="#fff4dc" stroke-width="3" opacity="0.18" />
+        <g class="amb-publico" fill="#0a1250" stroke="#2343c9" stroke-width="4">
+          <g class="amb-c"><circle cx="70" cy="1640" r="40" /><path d="M0 1740 Q70 1660 140 1740 Z" /></g>
+          <g class="amb-c"><circle cx="200" cy="1660" r="42" /><path d="M126 1760 Q200 1680 274 1760 Z" /></g>
+          <g class="amb-c"><circle cx="330" cy="1640" r="38" /><path d="M262 1740 Q330 1662 398 1740 Z" /></g>
+          <g class="amb-c"><circle cx="750" cy="1640" r="38" /><path d="M682 1740 Q750 1662 818 1740 Z" /></g>
+          <g class="amb-c"><circle cx="880" cy="1660" r="42" /><path d="M806 1760 Q880 1680 954 1760 Z" /></g>
+          <g class="amb-c"><circle cx="1010" cy="1640" r="40" /><path d="M940 1740 Q1010 1660 1080 1740 Z" /></g>
+        </g>
+      </svg>
+      <div class="amb-vineta"></div>
+      <div class="amb-rojo"></div>
+      <div class="amb-barra">
+        <div class="amb-vivo"><span class="amb-punto"></span><span>En vivo</span></div>
+        <div class="amb-prog"><span>Cara a cara</span></div>
+        <div class="amb-con"><span>con Norma</span></div>
+        <div class="amb-hora"><span>15:30</span></div>
+      </div>
+      <div class="amb-uuuh amb-u1">¡Uuuh!</div>
+      <div class="amb-uuuh amb-u2">¡Uuuh!</div>
+      <div class="amb-uuuh amb-u3">¡Uuuuh!</div>
+      <div class="amb-uuuh amb-u4">¡UUUUH!</div>
+      <div class="amb-uuuh amb-u5">¡Aplausos!</div>
+      <div class="amb-flash"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 74.57;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => [...root.querySelectorAll(s)];
+      const tl = gsap.timeline({ paused: true });
+      // TIEMPOS (segundos globales, de la locución): el público reacciona en los silencios
+      const UUUH = [[".amb-u1", 4.55], [".amb-u2", 12.85], [".amb-u3", 19.6], [".amb-u4", 43.15], [".amb-u5", 67.95]];
+      const NO = 41.13, PADRE = 42.78;
+
+      UUUH.forEach(([s, t]) => {
+        tl.fromTo(q(s), { opacity: 0, scale: 0.5, rotation: -8 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.22, ease: "back.out(2.4)" }, t);
+        tl.to(q(s), { scale: 1.08, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + 0.22);
+        tl.to(q(s), { opacity: 0, y: -30, duration: 0.25 }, t + 0.85);
+        // el público salta
+        qa(".amb-c").forEach((c, i) => tl.to(c, { y: -26, duration: 0.12, yoyo: true, repeat: 3, ease: "power1.out" }, t + (i % 3) * 0.05));
+      });
+      // "no es el padre": alarma roja y flash
+      [NO, PADRE].forEach((t) => {
+        tl.to(q(".amb-flash"), { opacity: 0.55, duration: 0.03 }, t - 0.02);
+        tl.to(q(".amb-flash"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.02);
+      });
+      tl.to(q(".amb-rojo"), { opacity: 1, duration: 0.12, yoyo: true, repeat: 7, ease: "steps(1)" }, PADRE);
+
+      // el decorado respira
+      tl.fromTo(q(".amb-rayos"), { rotation: 0 }, { rotation: 28, svgOrigin: "540 980", duration: DUR, ease: "none" }, 0);
+      ["amb-f1", "amb-f2", "amb-f3", "amb-f4", "amb-f5", "amb-f6"].forEach((f, i) =>
+        tl.fromTo(q("." + f), { y: 0 }, { y: i % 2 ? 16 : -16, duration: 2.2 + i * 0.3, yoyo: true, repeat: Math.floor(DUR / (2.2 + i * 0.3)) - 1, ease: "sine.inOut" }, 0));
+      tl.to(q(".amb-punto"), { opacity: 0.2, duration: 0.5, yoyo: true, repeat: Math.floor(DUR / 0.5) - 1, ease: "steps(1)" }, 0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
