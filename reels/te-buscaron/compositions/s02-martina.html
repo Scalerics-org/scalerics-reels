@@ -1,0 +1,144 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-martina"] .cap { position: absolute; inset: 0; }
+    [data-composition-id="s02-martina"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-martina"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-martina"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-martina"] .ln3 { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-martina"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-martina"] .ln-gris { fill: none; stroke: #7c8698; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-martina"] .ln-rojo { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-martina"] .lg4 { fill: none; stroke: #7c8698; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-martina"] .lg3 { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s02-martina"] .lc4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-martina"] .la4 { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; }
+    [data-composition-id="s02-martina"] .la-f, [data-composition-id="s02-martina"] .verde { fill: #5ce611; }
+    [data-composition-id="s02-martina"] .rojo { fill: #b8574e; }
+    [data-composition-id="s02-martina"] .crema { fill: #efeee5; }
+    [data-composition-id="s02-martina"] .borrosa { filter: blur(3.5px); }
+    [data-composition-id="s02-martina"] .etiqueta { position: absolute; left: 0; right: 0; top: 1612px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-martina"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s02-martina"] .etiqueta span.mal { color: #d27a6e; }
+    [data-composition-id="s02-martina"] .barra { position: absolute; left: 90px; top: 600px; width: 900px; height: 96px; border: 3px solid rgba(239, 238, 229, 0.5); border-radius: 48px; background: rgba(239, 238, 229, 0.05); }
+    [data-composition-id="s02-martina"] .barra .lupa { position: absolute; left: 30px; top: 21px; width: 48px; height: 48px; }
+    [data-composition-id="s02-martina"] .barra .txt { position: absolute; left: 100px; top: 20px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 38px; line-height: 50px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s02-martina"] .cursor { display: inline-block; width: 4px; height: 42px; background: #5ce611; vertical-align: -7px; margin-left: 4px; }
+    [data-composition-id="s02-martina"] .card { position: absolute; left: 90px; width: 900px; height: 420px; border-radius: 32px; border: 3px solid rgba(239, 238, 229, 0.28); background: rgba(239, 238, 229, 0.04); }
+    [data-composition-id="s02-martina"] .card .thumb { position: absolute; left: 30px; top: 30px; width: 220px; height: 220px; border-radius: 20px; border: 3px solid rgba(239, 238, 229, 0.2); overflow: hidden; }
+    [data-composition-id="s02-martina"] .card .thumb svg { position: absolute; left: -3px; top: -3px; width: 220px; height: 220px; }
+    [data-composition-id="s02-martina"] .card .tit { position: absolute; left: 282px; top: 30px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 42px; line-height: 54px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s02-martina"] .card .sub { position: absolute; left: 282px; top: 96px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; line-height: 36px; color: #8f99aa; white-space: nowrap; }
+    [data-composition-id="s02-martina"] .card .est { position: absolute; left: 282px; top: 142px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 32px; line-height: 44px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s02-martina"] .card .web { position: absolute; left: 282px; top: 200px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; line-height: 36px; color: #8f99aa; white-space: nowrap; }
+    [data-composition-id="s02-martina"] .punto { display: inline-block; width: 16px; height: 16px; border-radius: 50%; margin-right: 12px; vertical-align: 3px; }
+    [data-composition-id="s02-martina"] .p-rojo { background: #b8574e; } [data-composition-id="s02-martina"] .p-verde { background: #5ce611; }
+    [data-composition-id="s02-martina"] .t-rojo { color: #d27a6e; } [data-composition-id="s02-martina"] .t-verde { color: #5ce611; } [data-composition-id="s02-martina"] .t-gris { color: #8f99aa; }
+    [data-composition-id="s02-martina"] .chips { position: absolute; left: 30px; top: 290px; width: 840px; height: 96px; }
+    [data-composition-id="s02-martina"] .chip { position: absolute; top: 0; width: 266px; height: 96px; border-radius: 48px; border: 3px solid rgba(239, 238, 229, 0.4); font-family: "Lexend", sans-serif; font-weight: 500; font-size: 30px; color: #efeee5; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+    [data-composition-id="s02-martina"] .chip.c1 { left: 0; } [data-composition-id="s02-martina"] .chip.c2 { left: 287px; } [data-composition-id="s02-martina"] .chip.c3 { left: 574px; }
+    [data-composition-id="s02-martina"] .chip.off { border-style: dashed; border-color: rgba(143, 153, 170, 0.7); color: #8f99aa; }
+    [data-composition-id="s02-martina"] .chip.ok { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s02-martina"] .chip.lleno { background: #5ce611; border-color: #5ce611; color: #07111f; font-weight: 600; }
+    [data-composition-id="s02-martina"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s02-martina"] .lex { font-family: "Lexend", sans-serif; }
+
+    [data-composition-id="s02-martina"] .reloj { position: absolute; left: 0; right: 0; top: 640px; text-align: center; }
+    [data-composition-id="s02-martina"] .reloj .dia { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.3em; color: #8f99aa; }
+    [data-composition-id="s02-martina"] .reloj .hora { font-family: "Lexend", sans-serif; font-weight: 200; font-size: 230px; line-height: 250px; color: #efeee5; letter-spacing: -0.02em; }
+    [data-composition-id="s02-martina"] .quien { position: absolute; left: 110px; top: 560px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; color: #8f99aa; opacity: 0; }
+    [data-composition-id="s02-martina"] .sug { position: absolute; left: 120px; font-family: "Lexend", sans-serif; font-weight: 400; font-size: 32px; color: rgba(239, 238, 229, 0.55); }
+  
+  </style>
+  <div id="root" data-composition-id="s02-martina" data-width="1080" data-height="1920" data-duration="5.85">
+    <div id="s02-escena" class="cap clip" data-start="0" data-duration="5.85" data-track-index="0">
+
+      <div class="reloj s02-reloj"><div class="dia">MARTES</div><div class="hora">21:00</div></div>
+      <div class="quien s02-quien">MARTINA BUSCA</div>
+      <div class="barra s02-barra"><svg class="lupa" viewBox="0 0 48 48" aria-hidden="true"><circle cx="20" cy="20" r="13" fill="none" stroke="#efeee5" stroke-width="4"/><path d="M30 30 L42 42" stroke="#efeee5" stroke-width="4" stroke-linecap="round"/></svg><div class="txt"><span class="s02-tipo"><span class="ch">v</span><span class="ch">e</span><span class="ch">t</span><span class="ch">e</span><span class="ch">r</span><span class="ch">i</span><span class="ch">n</span><span class="ch">a</span><span class="ch">r</span><span class="ch">i</span><span class="ch">a</span><span class="ch">&nbsp;</span><span class="ch">c</span><span class="ch">e</span><span class="ch">r</span><span class="ch">c</span><span class="ch">a</span></span><span class="cursor s02-cur"></span></div></div>
+      <div class="sug s02-sug" style="top:722px">veterinaria cerca abierta ahora</div>
+      <div class="sug s02-sug" style="top:770px">veterinaria cerca de mí</div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s02-gato">
+          <!-- cuerpo sentado -->
+          <path class="ln s02-dib" d="M470 1080 Q400 1140 410 1290 Q414 1360 470 1376 H640 Q700 1360 700 1290 Q706 1150 616 1080" />
+          <path class="ln s02-dib" d="M490 1376 V1330 M590 1376 V1330" />
+          <!-- cola -->
+          <g class="s02-cola"><path class="ln s02-dib" d="M690 1340 Q790 1340 790 1250 Q790 1196 752 1190" /></g>
+          <!-- cabeza -->
+          <path class="ln s02-dib" d="M450 1000 L452 902 L508 948 Q545 936 584 948 L640 902 L642 1000 Q646 1088 546 1094 Q446 1088 450 1000 Z" />
+          <!-- ojos culpables (medio cerrados, mirando al costado) -->
+          <path class="ln4 s02-dib" d="M486 998 Q504 986 522 998 M570 998 Q588 986 606 998" />
+          <circle class="crema s02-ojo" cx="510" cy="1002" r="6" /><circle class="crema s02-ojo" cx="594" cy="1002" r="6" />
+          <path class="ln4 s02-dib" d="M538 1030 L546 1038 L554 1030" />
+          <path class="ln3 s02-dib" d="M470 1036 H420 M472 1050 L426 1064 M622 1036 H672 M620 1050 L666 1064" />
+          <!-- la media colgando de la boca -->
+          <g class="s02-media">
+            <path class="ln s02-dib-m" d="M546 1056 V1150 Q546 1190 580 1196 L622 1200 Q646 1202 644 1178 Q642 1160 620 1158 L590 1154 Q578 1152 578 1138 V1056" />
+            <path class="ln-ac s02-dib-m" d="M548 1080 H576 M548 1102 H576" style="stroke-width:4" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Martes · 21:00</span><span class="s02-e2">veterinaria cerca</span><span class="s02-e3">Urgencia felina</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-martina";
+      const DUR = 5.85;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const sube = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+      // tipeo: cada letra aparece en su momento (determinista)
+      const tipear = (sel, t, dt) => qa(sel + " .ch").forEach((c, i) => tl.fromTo(c, { display: "none" }, { display: "inline", duration: 0.01 }, t + i * dt));
+      const titila = (el, t, n) => tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: 0.35, ease: "steps(1)", yoyo: true, repeat: n }, t);
+      // toque de dedo: onda que se abre
+      const toque = (el, t) => tl.fromTo(el, { opacity: 0.9, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 0, scale: 1.5, duration: 0.55, ease: "power2.out", immediateRender: false }, t);
+
+      const MARTINA = 1.31, ESCRIBE = 2.01, VET = 2.41, GATO = 4.31, MEDIA = 5.11;
+      gsap.set(q(".s02-barra"), { opacity: 0 });
+      gsap.set(qa(".s02-ojo"), { opacity: 0 });
+      tl.fromTo(q(".s02-reloj"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s02-reloj .hora"), { scale: 1.25, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "power4.out" }, 0.41);
+      etiqueta(".s02-e1", 0.1);
+      tl.to(q(".s02-reloj"), { opacity: 0, y: -60, scale: 0.8, duration: 0.3, ease: "power2.in" }, MARTINA - 0.05);
+      tl.to(q(".s02-quien"), { opacity: 1, duration: 0.3 }, MARTINA);
+      pop(q(".s02-barra"), MARTINA + 0.1);
+      tipear(".s02-tipo", VET - 0.05, 0.055);
+      titila(q(".s02-cur"), MARTINA + 0.4, 9);
+      etiqueta(".s02-e2", VET, ".s02-e1");
+      qa(".s02-sug").forEach((s, i) => tl.fromTo(s, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.25 }, 3.0 + i * 0.12));
+      tl.to(qa(".s02-sug"), { opacity: 0, duration: 0.2 }, GATO - 0.4);
+      // el gato
+      dibujar(qa(".s02-dib"), GATO - 0.45, 0.5);
+      tl.to(qa(".s02-ojo"), { opacity: 1, duration: 0.1 }, GATO);
+      tl.fromTo(q(".s02-gato"), { y: 30 }, { y: 0, duration: 0.5, ease: "back.out(1.6)" }, GATO - 0.45);
+      dibujar(qa(".s02-dib-m"), MEDIA - 0.15, 0.3);
+      tl.fromTo(q(".s02-media"), { rotation: -10, svgOrigin: "562 1056" }, { rotation: 8, svgOrigin: "562 1056", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 2 }, MEDIA + 0.1);
+      tl.to(qa(".s02-ojo"), { x: 8, duration: 0.2, yoyo: true, repeat: 1 }, MEDIA + 0.15);
+      tl.fromTo(q(".s02-cola"), { rotation: 0, svgOrigin: "690 1340" }, { rotation: -10, svgOrigin: "690 1340", duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 3 }, GATO + 0.1);
+      etiqueta(".s02-e3", MEDIA, ".s02-e2");
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,155 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-llama"] .cap { position: absolute; inset: 0; }
+    [data-composition-id="s06-llama"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-llama"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-llama"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-llama"] .ln3 { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-llama"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-llama"] .ln-gris { fill: none; stroke: #7c8698; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-llama"] .ln-rojo { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-llama"] .lg4 { fill: none; stroke: #7c8698; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-llama"] .lg3 { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s06-llama"] .lc4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-llama"] .la4 { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; }
+    [data-composition-id="s06-llama"] .la-f, [data-composition-id="s06-llama"] .verde { fill: #5ce611; }
+    [data-composition-id="s06-llama"] .rojo { fill: #b8574e; }
+    [data-composition-id="s06-llama"] .crema { fill: #efeee5; }
+    [data-composition-id="s06-llama"] .borrosa { filter: blur(3.5px); }
+    [data-composition-id="s06-llama"] .etiqueta { position: absolute; left: 0; right: 0; top: 1612px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-llama"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s06-llama"] .etiqueta span.mal { color: #d27a6e; }
+    [data-composition-id="s06-llama"] .barra { position: absolute; left: 90px; top: 600px; width: 900px; height: 96px; border: 3px solid rgba(239, 238, 229, 0.5); border-radius: 48px; background: rgba(239, 238, 229, 0.05); }
+    [data-composition-id="s06-llama"] .barra .lupa { position: absolute; left: 30px; top: 21px; width: 48px; height: 48px; }
+    [data-composition-id="s06-llama"] .barra .txt { position: absolute; left: 100px; top: 20px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 38px; line-height: 50px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s06-llama"] .cursor { display: inline-block; width: 4px; height: 42px; background: #5ce611; vertical-align: -7px; margin-left: 4px; }
+    [data-composition-id="s06-llama"] .card { position: absolute; left: 90px; width: 900px; height: 420px; border-radius: 32px; border: 3px solid rgba(239, 238, 229, 0.28); background: rgba(239, 238, 229, 0.04); }
+    [data-composition-id="s06-llama"] .card .thumb { position: absolute; left: 30px; top: 30px; width: 220px; height: 220px; border-radius: 20px; border: 3px solid rgba(239, 238, 229, 0.2); overflow: hidden; }
+    [data-composition-id="s06-llama"] .card .thumb svg { position: absolute; left: -3px; top: -3px; width: 220px; height: 220px; }
+    [data-composition-id="s06-llama"] .card .tit { position: absolute; left: 282px; top: 30px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 42px; line-height: 54px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s06-llama"] .card .sub { position: absolute; left: 282px; top: 96px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; line-height: 36px; color: #8f99aa; white-space: nowrap; }
+    [data-composition-id="s06-llama"] .card .est { position: absolute; left: 282px; top: 142px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 32px; line-height: 44px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s06-llama"] .card .web { position: absolute; left: 282px; top: 200px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; line-height: 36px; color: #8f99aa; white-space: nowrap; }
+    [data-composition-id="s06-llama"] .punto { display: inline-block; width: 16px; height: 16px; border-radius: 50%; margin-right: 12px; vertical-align: 3px; }
+    [data-composition-id="s06-llama"] .p-rojo { background: #b8574e; } [data-composition-id="s06-llama"] .p-verde { background: #5ce611; }
+    [data-composition-id="s06-llama"] .t-rojo { color: #d27a6e; } [data-composition-id="s06-llama"] .t-verde { color: #5ce611; } [data-composition-id="s06-llama"] .t-gris { color: #8f99aa; }
+    [data-composition-id="s06-llama"] .chips { position: absolute; left: 30px; top: 290px; width: 840px; height: 96px; }
+    [data-composition-id="s06-llama"] .chip { position: absolute; top: 0; width: 266px; height: 96px; border-radius: 48px; border: 3px solid rgba(239, 238, 229, 0.4); font-family: "Lexend", sans-serif; font-weight: 500; font-size: 30px; color: #efeee5; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+    [data-composition-id="s06-llama"] .chip.c1 { left: 0; } [data-composition-id="s06-llama"] .chip.c2 { left: 287px; } [data-composition-id="s06-llama"] .chip.c3 { left: 574px; }
+    [data-composition-id="s06-llama"] .chip.off { border-style: dashed; border-color: rgba(143, 153, 170, 0.7); color: #8f99aa; }
+    [data-composition-id="s06-llama"] .chip.ok { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s06-llama"] .chip.lleno { background: #5ce611; border-color: #5ce611; color: #07111f; font-weight: 600; }
+    [data-composition-id="s06-llama"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s06-llama"] .lex { font-family: "Lexend", sans-serif; }
+
+    [data-composition-id="s06-llama"] .llam { position: absolute; left: 0; right: 0; top: 600px; text-align: center; }
+    [data-composition-id="s06-llama"] .llam .k { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; color: #8f99aa; }
+    [data-composition-id="s06-llama"] .llam .n { margin-top: 14px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 54px; color: #efeee5; }
+  
+  </style>
+  <div id="root" data-composition-id="s06-llama" data-width="1080" data-height="1920" data-duration="4.6">
+    <div id="s06-escena" class="cap clip" data-start="0" data-duration="4.6" data-track-index="0">
+
+      <div class="llam s06-llam"><div class="k">LLAMANDO...</div><div class="n">Veterinaria del Prado</div></div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s06-tel">
+          <circle class="ln3 s06-anillo s06-a1" cx="540" cy="1000" r="130" style="stroke-width:4" />
+          <circle class="ln3 s06-anillo s06-a2" cx="540" cy="1000" r="130" style="stroke-width:4" />
+          <circle class="ln s06-dib-t" cx="540" cy="1000" r="120" />
+          <g class="s06-auri"><path class="ln s06-dib-t" d="M498 958 Q486 958 484 974 Q482 1010 514 1044 Q548 1076 584 1074 Q598 1072 598 1060 L596 1044 Q594 1034 582 1034 L566 1036 Q556 1036 548 1028 L524 1004 Q516 996 518 986 L520 970 Q520 958 508 958 Z" /></g>
+          <circle class="rojo s06-colgar" cx="540" cy="1290" r="62" />
+          <path class="s06-colgar" d="M508 1294 Q540 1270 572 1294" style="fill:none;stroke:#efeee5;stroke-width:8;stroke-linecap:round" />
+        </g>
+        <!-- vos, con un perro en la camilla -->
+        <g class="s06-vos">
+          <path class="ln s06-dib-c" d="M300 1240 H800 M330 1240 V1400 M770 1240 V1400 M330 1330 H770" />
+          <!-- perro acostado -->
+          <g class="s06-perro">
+            <path class="ln s06-dib-p" d="M420 1236 Q412 1170 480 1162 H620 Q676 1164 680 1210 Q682 1236 676 1236" />
+            <path class="ln s06-dib-p" d="M640 1170 Q646 1120 688 1112 Q736 1108 744 1146 Q750 1176 716 1186 Q690 1192 670 1182" />
+            <path class="ln s06-dib-p" d="M688 1114 Q664 1128 668 1166" />
+            <circle class="crema s06-ojo" cx="716" cy="1140" r="5" />
+            <g class="s06-colita"><path class="ln s06-dib-p" d="M424 1196 Q388 1176 378 1140" /></g>
+          </g>
+          <!-- vos: la veterinaria de guardapolvo -->
+          <g class="s06-persona">
+            <circle class="ln s06-dib-v" cx="560" cy="890" r="46" />
+            <path class="ln s06-dib-v" d="M514 884 Q514 834 560 836 Q606 834 606 884" />
+            <circle class="crema s06-cara" cx="545" cy="894" r="4.5" /><circle class="crema s06-cara" cx="575" cy="894" r="4.5" />
+            <path class="ln4 s06-dib-v" d="M546 914 Q560 924 574 914" />
+            <path class="ln s06-dib-v" d="M486 1090 V1000 Q486 958 526 958 H594 Q634 958 634 1000 V1090" />
+            <path class="ln s06-dib-v" d="M560 960 V1090" />
+            <path class="ln-ac s06-dib-v" d="M534 962 Q520 1030 556 1040 Q592 1030 586 962 M556 1040 V1062" style="stroke-width:4" />
+            <circle class="ln-ac s06-dib-v" cx="556" cy="1072" r="10" style="stroke-width:4" />
+            <path class="ln s06-dib-v" d="M486 1000 Q450 1080 520 1150 M634 1000 Q690 1080 640 1160" />
+          </g>
+          <!-- el celular en el mostrador, vibrando -->
+          <g class="s06-cel">
+            <rect class="ln4 s06-dib-c" x="840" y="1170" width="60" height="100" rx="12" />
+            <path class="ln-rojo s06-vib" d="M824 1190 V1250 M916 1190 V1250" style="stroke-width:4" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Llamando</span><span class="s06-e2 mal">Suena, suena</span><span class="s06-e3">Con un paciente</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-llama";
+      const DUR = 4.6;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const sube = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+      // tipeo: cada letra aparece en su momento (determinista)
+      const tipear = (sel, t, dt) => qa(sel + " .ch").forEach((c, i) => tl.fromTo(c, { display: "none" }, { display: "inline", duration: 0.01 }, t + i * dt));
+      const titila = (el, t, n) => tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: 0.35, ease: "steps(1)", yoyo: true, repeat: n }, t);
+      // toque de dedo: onda que se abre
+      const toque = (el, t) => tl.fromTo(el, { opacity: 0.9, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 0, scale: 1.5, duration: 0.55, ease: "power2.out", immediateRender: false }, t);
+
+      const LLAMA = 0.35, SUENA = 1.24, SUENA2 = 1.55, VOS = 2.46, PERRO = 3.15, CAMILLA = 3.55;
+      tl.fromTo(q(".s06-llam"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      dibujar(qa(".s06-dib-t"), 0.05, 0.45);
+      pop(qa(".s06-colgar"), 0.3);
+      etiqueta(".s06-e1", 0.1);
+      tl.fromTo(q(".s06-llam .k"), { opacity: 1 }, { opacity: 0.35, duration: 0.3, yoyo: true, repeat: 5 }, LLAMA);
+      [SUENA, SUENA2, SUENA + 0.62, SUENA2 + 0.62].forEach((t, i) => tl.fromTo(q(i % 2 ? ".s06-a2" : ".s06-a1"), { scale: 1, opacity: 0.9, svgOrigin: "540 1000" }, { scale: 1.8, opacity: 0, svgOrigin: "540 1000", duration: 0.6, ease: "power2.out" }, t));
+      [SUENA, SUENA2].forEach((t) => tl.fromTo(q(".s06-auri"), { rotation: -12, svgOrigin: "540 1000" }, { rotation: 12, svgOrigin: "540 1000", duration: 0.06, yoyo: true, repeat: 3 }, t));
+      etiqueta(".s06-e2", SUENA, ".s06-e1");
+      // corte a vos: la llamada se achica arriba
+      tl.to(q(".s06-tel"), { opacity: 0, scale: 0.6, svgOrigin: "540 1000", duration: 0.3, ease: "power2.in" }, VOS - 0.25);
+      tl.to(q(".s06-llam"), { scale: 0.75, y: -20, transformOrigin: "50% 0%", duration: 0.3 }, VOS - 0.2);
+      gsap.set(qa(".s06-cara, .s06-ojo"), { opacity: 0 });
+      tl.to(q(".s06-ojo"), { opacity: 1, duration: 0.1 }, PERRO + 0.2);
+      dibujar(qa(".s06-dib-v"), VOS - 0.1, 0.45);
+      tl.to(qa(".s06-cara"), { opacity: 1, duration: 0.1 }, VOS + 0.3);
+      dibujar(qa(".s06-dib-c"), CAMILLA - 0.6, 0.4);
+      dibujar(qa(".s06-dib-p"), PERRO - 0.15, 0.4);
+      tl.fromTo(q(".s06-colita"), { rotation: -14, svgOrigin: "424 1196" }, { rotation: 14, svgOrigin: "424 1196", duration: 0.14, yoyo: true, repeat: 5 }, PERRO + 0.3);
+      tl.fromTo(q(".s06-cel"), { x: -4 }, { x: 4, duration: 0.05, yoyo: true, repeat: 9 }, CAMILLA - 0.3);
+      tl.fromTo(q(".s06-vib"), { opacity: 0 }, { opacity: 1, duration: 0.2, yoyo: true, repeat: 3 }, CAMILLA - 0.3);
+      etiqueta(".s06-e3", VOS + 0.3, ".s06-e2");
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

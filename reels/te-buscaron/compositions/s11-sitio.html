@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-sitio"] .cap { position: absolute; inset: 0; }
+    [data-composition-id="s11-sitio"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-sitio"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sitio"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sitio"] .ln3 { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sitio"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sitio"] .ln-gris { fill: none; stroke: #7c8698; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sitio"] .ln-rojo { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sitio"] .lg4 { fill: none; stroke: #7c8698; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sitio"] .lg3 { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s11-sitio"] .lc4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sitio"] .la4 { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; }
+    [data-composition-id="s11-sitio"] .la-f, [data-composition-id="s11-sitio"] .verde { fill: #5ce611; }
+    [data-composition-id="s11-sitio"] .rojo { fill: #b8574e; }
+    [data-composition-id="s11-sitio"] .crema { fill: #efeee5; }
+    [data-composition-id="s11-sitio"] .borrosa { filter: blur(3.5px); }
+    [data-composition-id="s11-sitio"] .etiqueta { position: absolute; left: 0; right: 0; top: 1612px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-sitio"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s11-sitio"] .etiqueta span.mal { color: #d27a6e; }
+    [data-composition-id="s11-sitio"] .barra { position: absolute; left: 90px; top: 600px; width: 900px; height: 96px; border: 3px solid rgba(239, 238, 229, 0.5); border-radius: 48px; background: rgba(239, 238, 229, 0.05); }
+    [data-composition-id="s11-sitio"] .barra .lupa { position: absolute; left: 30px; top: 21px; width: 48px; height: 48px; }
+    [data-composition-id="s11-sitio"] .barra .txt { position: absolute; left: 100px; top: 20px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 38px; line-height: 50px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s11-sitio"] .cursor { display: inline-block; width: 4px; height: 42px; background: #5ce611; vertical-align: -7px; margin-left: 4px; }
+    [data-composition-id="s11-sitio"] .card { position: absolute; left: 90px; width: 900px; height: 420px; border-radius: 32px; border: 3px solid rgba(239, 238, 229, 0.28); background: rgba(239, 238, 229, 0.04); }
+    [data-composition-id="s11-sitio"] .card .thumb { position: absolute; left: 30px; top: 30px; width: 220px; height: 220px; border-radius: 20px; border: 3px solid rgba(239, 238, 229, 0.2); overflow: hidden; }
+    [data-composition-id="s11-sitio"] .card .thumb svg { position: absolute; left: -3px; top: -3px; width: 220px; height: 220px; }
+    [data-composition-id="s11-sitio"] .card .tit { position: absolute; left: 282px; top: 30px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 42px; line-height: 54px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s11-sitio"] .card .sub { position: absolute; left: 282px; top: 96px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; line-height: 36px; color: #8f99aa; white-space: nowrap; }
+    [data-composition-id="s11-sitio"] .card .est { position: absolute; left: 282px; top: 142px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 32px; line-height: 44px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s11-sitio"] .card .web { position: absolute; left: 282px; top: 200px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; line-height: 36px; color: #8f99aa; white-space: nowrap; }
+    [data-composition-id="s11-sitio"] .punto { display: inline-block; width: 16px; height: 16px; border-radius: 50%; margin-right: 12px; vertical-align: 3px; }
+    [data-composition-id="s11-sitio"] .p-rojo { background: #b8574e; } [data-composition-id="s11-sitio"] .p-verde { background: #5ce611; }
+    [data-composition-id="s11-sitio"] .t-rojo { color: #d27a6e; } [data-composition-id="s11-sitio"] .t-verde { color: #5ce611; } [data-composition-id="s11-sitio"] .t-gris { color: #8f99aa; }
+    [data-composition-id="s11-sitio"] .chips { position: absolute; left: 30px; top: 290px; width: 840px; height: 96px; }
+    [data-composition-id="s11-sitio"] .chip { position: absolute; top: 0; width: 266px; height: 96px; border-radius: 48px; border: 3px solid rgba(239, 238, 229, 0.4); font-family: "Lexend", sans-serif; font-weight: 500; font-size: 30px; color: #efeee5; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+    [data-composition-id="s11-sitio"] .chip.c1 { left: 0; } [data-composition-id="s11-sitio"] .chip.c2 { left: 287px; } [data-composition-id="s11-sitio"] .chip.c3 { left: 574px; }
+    [data-composition-id="s11-sitio"] .chip.off { border-style: dashed; border-color: rgba(143, 153, 170, 0.7); color: #8f99aa; }
+    [data-composition-id="s11-sitio"] .chip.ok { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s11-sitio"] .chip.lleno { background: #5ce611; border-color: #5ce611; color: #07111f; font-weight: 600; }
+    [data-composition-id="s11-sitio"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s11-sitio"] .lex { font-family: "Lexend", sans-serif; }
+
+    [data-composition-id="s11-sitio"] .nav { position: absolute; left: 90px; top: 600px; width: 900px; height: 80px; border-radius: 40px; background: rgba(239, 238, 229, 0.06); border: 3px solid rgba(239, 238, 229, 0.25); }
+    [data-composition-id="s11-sitio"] .nav .url { position: absolute; left: 76px; top: 20px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; color: #efeee5; }
+    [data-composition-id="s11-sitio"] .nav svg { position: absolute; left: 30px; top: 22px; width: 30px; height: 34px; }
+    [data-composition-id="s11-sitio"] .hero { position: absolute; left: 90px; top: 710px; width: 900px; height: 200px; }
+    [data-composition-id="s11-sitio"] .hero .cruz { position: absolute; left: 0; top: 10px; width: 120px; height: 120px; border-radius: 28px; border: 4px solid #5ce611; }
+    [data-composition-id="s11-sitio"] .hero .cruz svg { position: absolute; left: 0; top: 0; width: 112px; height: 112px; }
+    [data-composition-id="s11-sitio"] .hero .nom { position: absolute; left: 150px; top: 6px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 54px; line-height: 64px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s11-sitio"] .hero .sl { position: absolute; left: 150px; top: 80px; font-family: "Lexend", sans-serif; font-weight: 400; font-size: 32px; color: rgba(239, 238, 229, 0.7); white-space: nowrap; }
+    [data-composition-id="s11-sitio"] .abierto { position: absolute; left: 90px; top: 880px; height: 92px; padding: 0 40px; border-radius: 46px; border: 4px solid #5ce611; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; line-height: 84px; color: #5ce611; white-space: nowrap; }
+    [data-composition-id="s11-sitio"] .mapa { position: absolute; left: 90px; top: 1010px; width: 900px; height: 250px; border-radius: 28px; border: 3px solid rgba(239, 238, 229, 0.35); overflow: hidden; }
+    [data-composition-id="s11-sitio"] .mapa svg { position: absolute; left: 0; top: 0; width: 900px; height: 250px; }
+    [data-composition-id="s11-sitio"] .mapa .lbl { position: absolute; left: 28px; top: 22px; padding: 6px 16px; border-radius: 10px; background: #07111f; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; color: #efeee5; }
+    [data-composition-id="s11-sitio"] .wa { position: absolute; left: 90px; top: 1300px; width: 900px; height: 120px; border-radius: 60px; background: #5ce611; color: #07111f; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 42px; line-height: 120px; text-align: center; white-space: nowrap; }
+    [data-composition-id="s11-sitio"] .onda { position: absolute; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; border: 5px solid #5ce611; opacity: 0; }
+    [data-composition-id="s11-sitio"] .rapido { position: absolute; left: 640px; top: 618px; padding: 4px 16px; border-radius: 10px; background: #5ce611; color: #07111f; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; }
+    [data-composition-id="s11-sitio"] .carga { position: absolute; left: 130px; top: 676px; width: 820px; height: 6px; border-radius: 3px; background: #5ce611; transform-origin: 0 50%; }
+    [data-composition-id="s11-sitio"] .cargo { position: absolute; left: 0; right: 0; top: 1460px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.14em; color: #5ce611; }
+  
+  </style>
+  <div id="root" data-composition-id="s11-sitio" data-width="1080" data-height="1920" data-duration="5.62">
+    <div id="s11-escena" class="cap clip" data-start="0" data-duration="5.62" data-track-index="0">
+
+      <div class="nav s11-nav"><svg viewBox="0 0 30 34" aria-hidden="true"><rect x="3" y="14" width="24" height="18" rx="4" fill="none" stroke="#5ce611" stroke-width="3.5"/><path d="M8 14 V10 Q8 3 15 3 Q22 3 22 10 V14" fill="none" stroke="#5ce611" stroke-width="3.5"/></svg><span class="url">delprado.uy</span></div>
+      <div class="hero s11-hero"><div class="cruz"><svg viewBox="0 0 112 112" aria-hidden="true"><path d="M56 30 V82 M30 56 H82" fill="none" stroke="#5ce611" stroke-width="10" stroke-linecap="round"/></svg></div><div class="nom">Del Prado</div><div class="sl">Tu veterinaria</div></div>
+      <div class="abierto s11-abierto"><span class="punto p-verde"></span>Abierto hasta las 22:00</div>
+      <div class="mapa s11-mapa"><svg viewBox="0 0 900 250" aria-hidden="true">
+        <path d="M0 80 H900 M0 190 H900 M160 0 V250 M420 0 V250 M700 0 V250 M0 250 L300 0" fill="none" stroke="rgba(239,238,229,0.16)" stroke-width="14" />
+        <path class="s11-ruta" d="M90 230 L230 112 H560 V60" fill="none" stroke="#5ce611" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 16" />
+        <g class="s11-pin"><path d="M560 60 Q530 30 530 8 Q530 -18 560 -18 Q590 -18 590 8 Q590 30 560 60 Z" transform="translate(0 48)" fill="#5ce611" /><circle cx="560" cy="56" r="9" fill="#07111f" /></g>
+      </svg><div class="lbl">Cómo llegar</div></div>
+      <div class="wa s11-wa">Escribinos por WhatsApp</div>
+      <div class="onda s11-onda"></div>
+      <div class="carga s11-carga"></div>
+      <div class="rapido s11-rapido">RÁPIDO</div>
+      <div class="etiqueta"><span class="s11-e1">Tu sitio web</span><span class="s11-e2">Tu horario real</span><span class="s11-e4">Tu WhatsApp</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-sitio";
+      const DUR = 5.62;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const sube = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+      // tipeo: cada letra aparece en su momento (determinista)
+      const tipear = (sel, t, dt) => qa(sel + " .ch").forEach((c, i) => tl.fromTo(c, { display: "none" }, { display: "inline", duration: 0.01 }, t + i * dt));
+      const titila = (el, t, n) => tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: 0.35, ease: "steps(1)", yoyo: true, repeat: n }, t);
+      // toque de dedo: onda que se abre
+      const toque = (el, t) => tl.fromTo(el, { opacity: 0.9, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 0, scale: 1.5, duration: 0.55, ease: "power2.out", immediateRender: false }, t);
+
+      const SITIOS = 0.47, RAPIDOS = 0.87, CELULAR = 1.67, HORARIO = 2.67, UBIC = 3.27, WA = 4.17, TOQUE = 4.97;
+      tl.fromTo(q(".s11-nav"), { opacity: 0.4, scaleX: 0.7, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, duration: 0.4, ease: "power3.out" }, 0);
+      etiqueta(".s11-e1", 0.05);
+      tl.fromTo(q(".s11-carga"), { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.25, ease: "power3.out" }, SITIOS);
+      tl.to(q(".s11-carga"), { opacity: 0, duration: 0.2 }, SITIOS + 0.4);
+      sube(q(".s11-hero"), SITIOS + 0.1, 60);
+      tl.fromTo(q(".s11-rapido"), { opacity: 0, scale: 1.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "power4.out" }, RAPIDOS);
+      tl.to(q(".s11-hero .cruz"), { rotation: 90, duration: 0.5, ease: "back.out(1.6)" }, CELULAR);
+      tl.fromTo(q(".s11-abierto"), { opacity: 0, scale: 0.6, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, HORARIO - 0.1);
+      etiqueta(".s11-e2", HORARIO, ".s11-e1");
+      sube(q(".s11-mapa"), UBIC - 0.2, 60);
+      tl.fromTo(q(".s11-ruta"), { strokeDashoffset: 300 }, { strokeDashoffset: 0, duration: 2.3, ease: "none" }, UBIC);
+      tl.fromTo(q(".s11-pin"), { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "bounce.out" }, UBIC + 0.05);
+      tl.fromTo(q(".s11-wa"), { opacity: 0, scale: 0.7, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, WA - 0.1);
+      etiqueta(".s11-e4", WA, ".s11-e2");
+      gsap.set(q(".s11-onda"), { left: 540, top: 1360 });
+      tl.to(q(".s11-wa"), { scale: 0.95, transformOrigin: "50% 50%", duration: 0.1, yoyo: true, repeat: 1 }, TOQUE);
+      toque(q(".s11-onda"), TOQUE);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

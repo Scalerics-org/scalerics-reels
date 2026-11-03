@@ -1,0 +1,121 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-resultado"] .cap { position: absolute; inset: 0; }
+    [data-composition-id="s03-resultado"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-resultado"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-resultado"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-resultado"] .ln3 { fill: none; stroke: rgba(239, 238, 229, 0.35); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-resultado"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-resultado"] .ln-gris { fill: none; stroke: #7c8698; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-resultado"] .ln-rojo { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-resultado"] .lg4 { fill: none; stroke: #7c8698; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-resultado"] .lg3 { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; }
+    [data-composition-id="s03-resultado"] .lc4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-resultado"] .la4 { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; }
+    [data-composition-id="s03-resultado"] .la-f, [data-composition-id="s03-resultado"] .verde { fill: #5ce611; }
+    [data-composition-id="s03-resultado"] .rojo { fill: #b8574e; }
+    [data-composition-id="s03-resultado"] .crema { fill: #efeee5; }
+    [data-composition-id="s03-resultado"] .borrosa { filter: blur(3.5px); }
+    [data-composition-id="s03-resultado"] .etiqueta { position: absolute; left: 0; right: 0; top: 1612px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-resultado"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s03-resultado"] .etiqueta span.mal { color: #d27a6e; }
+    [data-composition-id="s03-resultado"] .barra { position: absolute; left: 90px; top: 600px; width: 900px; height: 96px; border: 3px solid rgba(239, 238, 229, 0.5); border-radius: 48px; background: rgba(239, 238, 229, 0.05); }
+    [data-composition-id="s03-resultado"] .barra .lupa { position: absolute; left: 30px; top: 21px; width: 48px; height: 48px; }
+    [data-composition-id="s03-resultado"] .barra .txt { position: absolute; left: 100px; top: 20px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 38px; line-height: 50px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s03-resultado"] .cursor { display: inline-block; width: 4px; height: 42px; background: #5ce611; vertical-align: -7px; margin-left: 4px; }
+    [data-composition-id="s03-resultado"] .card { position: absolute; left: 90px; width: 900px; height: 420px; border-radius: 32px; border: 3px solid rgba(239, 238, 229, 0.28); background: rgba(239, 238, 229, 0.04); }
+    [data-composition-id="s03-resultado"] .card .thumb { position: absolute; left: 30px; top: 30px; width: 220px; height: 220px; border-radius: 20px; border: 3px solid rgba(239, 238, 229, 0.2); overflow: hidden; }
+    [data-composition-id="s03-resultado"] .card .thumb svg { position: absolute; left: -3px; top: -3px; width: 220px; height: 220px; }
+    [data-composition-id="s03-resultado"] .card .tit { position: absolute; left: 282px; top: 30px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 42px; line-height: 54px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s03-resultado"] .card .sub { position: absolute; left: 282px; top: 96px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; line-height: 36px; color: #8f99aa; white-space: nowrap; }
+    [data-composition-id="s03-resultado"] .card .est { position: absolute; left: 282px; top: 142px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 32px; line-height: 44px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s03-resultado"] .card .web { position: absolute; left: 282px; top: 200px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; line-height: 36px; color: #8f99aa; white-space: nowrap; }
+    [data-composition-id="s03-resultado"] .punto { display: inline-block; width: 16px; height: 16px; border-radius: 50%; margin-right: 12px; vertical-align: 3px; }
+    [data-composition-id="s03-resultado"] .p-rojo { background: #b8574e; } [data-composition-id="s03-resultado"] .p-verde { background: #5ce611; }
+    [data-composition-id="s03-resultado"] .t-rojo { color: #d27a6e; } [data-composition-id="s03-resultado"] .t-verde { color: #5ce611; } [data-composition-id="s03-resultado"] .t-gris { color: #8f99aa; }
+    [data-composition-id="s03-resultado"] .chips { position: absolute; left: 30px; top: 290px; width: 840px; height: 96px; }
+    [data-composition-id="s03-resultado"] .chip { position: absolute; top: 0; width: 266px; height: 96px; border-radius: 48px; border: 3px solid rgba(239, 238, 229, 0.4); font-family: "Lexend", sans-serif; font-weight: 500; font-size: 30px; color: #efeee5; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+    [data-composition-id="s03-resultado"] .chip.c1 { left: 0; } [data-composition-id="s03-resultado"] .chip.c2 { left: 287px; } [data-composition-id="s03-resultado"] .chip.c3 { left: 574px; }
+    [data-composition-id="s03-resultado"] .chip.off { border-style: dashed; border-color: rgba(143, 153, 170, 0.7); color: #8f99aa; }
+    [data-composition-id="s03-resultado"] .chip.ok { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s03-resultado"] .chip.lleno { background: #5ce611; border-color: #5ce611; color: #07111f; font-weight: 600; }
+    [data-composition-id="s03-resultado"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s03-resultado"] .lex { font-family: "Lexend", sans-serif; }
+
+    [data-composition-id="s03-resultado"] .tu { position: absolute; left: 640px; top: 700px; padding: 6px 18px; border-radius: 12px; background: #5ce611; color: #07111f; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.16em; }
+    [data-composition-id="s03-resultado"] .uno { position: absolute; left: 50px; top: 708px; width: 76px; height: 76px; border-radius: 50%; border: 4px solid #efeee5; background: #07111f; color: #efeee5; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 38px; line-height: 68px; text-align: center; }
+    [data-composition-id="s03-resultado"] .otro { position: absolute; left: 90px; width: 900px; height: 150px; border-radius: 28px; border: 3px solid rgba(124, 134, 152, 0.45); }
+    [data-composition-id="s03-resultado"] .otro i { position: absolute; display: block; height: 20px; border-radius: 10px; background: rgba(124, 134, 152, 0.4); }
+  
+  </style>
+  <div id="root" data-composition-id="s03-resultado" data-width="1080" data-height="1920" data-duration="2.89">
+    <div id="s03-escena" class="cap clip" data-start="0" data-duration="2.89" data-track-index="0">
+
+      <div class="barra s03-barra"><svg class="lupa" viewBox="0 0 48 48" aria-hidden="true"><circle cx="20" cy="20" r="13" fill="none" stroke="#efeee5" stroke-width="4"/><path d="M30 30 L42 42" stroke="#efeee5" stroke-width="4" stroke-linecap="round"/></svg><div class="txt">veterinaria cerca</div></div>
+      
+<div class="card s03-card" style="top:740px">
+  <div class="thumb"><svg viewBox="0 0 220 220" aria-hidden="true"><g class="borrosa">
+  <rect class="lg4" x="40" y="30" width="140" height="32" rx="6" /><path class="lg4" d="M22 72 H198 M34 72 V200 M186 72 V200 M20 200 H200" />
+  <path class="lg3" d="M48 90 H172 M48 108 H172 M48 126 H172 M48 144 H172 M48 162 H172 M48 180 H172" /><path class="lg4" d="M48 84 H172 V196 H48 Z" /></g></svg></div>
+  <div class="tit">Veterinaria del Prado</div>
+  <div class="sub">Veterinaria · 350 m</div>
+  <div class="est"><span class="t-gris s03-cargando">· · ·</span></div>
+  <div class="web"></div>
+  <div class="chips"><div class="chip c1 ">Llamar</div><div class="chip c2 ">Cómo llegar</div><div class="chip c3 off">Sitio web</div></div>
+</div>
+      <div class="otro s03-otro" style="top:1200px"><i style="left:30px;top:40px;width:420px"></i><i style="left:30px;top:84px;width:260px"></i></div>
+      <div class="otro s03-otro" style="top:1376px"><i style="left:30px;top:40px;width:360px"></i><i style="left:30px;top:84px;width:300px"></i></div>
+      <div class="uno s03-uno">1</div>
+      <div class="tu s03-tu">TU VETERINARIA</div>
+      <div class="etiqueta"><span class="s03-e1">Aparece</span><span class="s03-e2">Primera de la lista</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-resultado";
+      const DUR = 2.89;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const sube = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+      // tipeo: cada letra aparece en su momento (determinista)
+      const tipear = (sel, t, dt) => qa(sel + " .ch").forEach((c, i) => tl.fromTo(c, { display: "none" }, { display: "inline", duration: 0.01 }, t + i * dt));
+      const titila = (el, t, n) => tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: 0.35, ease: "steps(1)", yoyo: true, repeat: n }, t);
+      // toque de dedo: onda que se abre
+      const toque = (el, t) => tl.fromTo(el, { opacity: 0.9, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 0, scale: 1.5, duration: 0.55, ease: "power2.out", immediateRender: false }, t);
+
+      const TU = 0.36, PRIMERA = 1.66;
+      tl.fromTo(q(".s03-barra"), { opacity: 0.6 }, { opacity: 1, duration: 0.2 }, 0);
+      tl.fromTo(q(".s03-card"), { opacity: 0.3, y: 120 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0);
+      qa(".s03-otro").forEach((o, i) => sube(o, 0.15 + i * 0.1, 80));
+      tl.fromTo(q(".s03-cargando"), { opacity: 0.3 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.2);
+      tl.fromTo(q(".s03-tu"), { opacity: 0, scale: 1.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "power4.out" }, TU);
+      etiqueta(".s03-e1", 0.05);
+      tl.fromTo(q(".s03-uno"), { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, PRIMERA);
+      tl.fromTo(q(".s03-card"), { borderColor: "rgba(239, 238, 229, 0.28)" }, { borderColor: "rgba(239, 238, 229, 0.75)", duration: 0.3 }, PRIMERA);
+      tl.to(q(".s03-card"), { scale: 1.02, transformOrigin: "50% 50%", duration: 0.18, yoyo: true, repeat: 1 }, PRIMERA);
+      etiqueta(".s03-e2", PRIMERA, ".s03-e1");
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

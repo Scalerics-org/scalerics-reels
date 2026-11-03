@@ -1,0 +1,66 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* el reel ES la pantalla de un celular: marco crema finito, isla y barra de estado */
+    [data-composition-id="ambiente"] .amb-marco { position: absolute; left: 14px; top: 14px; width: 1052px; height: 1892px; border: 4px solid rgba(239, 238, 229, 0.22); border-radius: 92px; }
+    [data-composition-id="ambiente"] .amb-isla { position: absolute; left: 440px; top: 38px; width: 200px; height: 56px; border-radius: 28px; background: #02050a; border: 2px solid rgba(239, 238, 229, 0.1); }
+    [data-composition-id="ambiente"] .amb-hora { position: absolute; left: 112px; top: 42px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 38px; line-height: 48px; color: #efeee5; }
+    [data-composition-id="ambiente"] .amb-hora span { position: absolute; left: 0; top: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-iconos { position: absolute; right: 104px; top: 48px; width: 180px; height: 38px; }
+    [data-composition-id="ambiente"] .amb-home { position: absolute; left: 400px; top: 1868px; width: 280px; height: 9px; border-radius: 5px; background: #efeee5; opacity: 0.4; }
+    [data-composition-id="ambiente"] .amb-modo { position: absolute; left: 112px; top: 132px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.24em; color: rgba(239, 238, 229, 0.6); white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-modo span { position: absolute; left: 0; top: 0; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-modo .verde { color: #5ce611; }
+    [data-composition-id="ambiente"] .amb-linea { position: absolute; left: 112px; right: 112px; top: 178px; height: 2px; background: rgba(239, 238, 229, 0.12); transform-origin: 0 50%; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="57.53">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="57.53" data-track-index="0">
+      <div class="amb-marco"></div>
+      <div class="amb-isla"></div>
+      <div class="amb-hora"><span class="amb-h0">21:00</span><span class="amb-h1">21:01</span><span class="amb-h2">21:02</span></div>
+      <svg class="amb-iconos" viewBox="0 0 180 38" aria-hidden="true">
+        <rect x="0" y="23" width="8" height="12" rx="2" fill="#efeee5" />
+        <rect x="13" y="16" width="8" height="19" rx="2" fill="#efeee5" />
+        <rect x="26" y="9" width="8" height="26" rx="2" fill="#efeee5" />
+        <rect x="39" y="2" width="8" height="33" rx="2" fill="#efeee5" opacity="0.4" />
+        <path d="M66 15 C78 3 98 3 110 15 M74 23 C82 15 94 15 102 23" fill="none" stroke="#efeee5" stroke-width="5" stroke-linecap="round" />
+        <circle cx="88" cy="30" r="4" fill="#efeee5" />
+        <rect x="122" y="5" width="48" height="27" rx="8" fill="none" stroke="#efeee5" stroke-width="3" opacity="0.6" />
+        <rect x="127" y="10" width="30" height="17" rx="4" fill="#5ce611" />
+        <rect x="173" y="14" width="5" height="10" rx="2" fill="#efeee5" opacity="0.6" />
+      </svg>
+      <div class="amb-modo"><span class="amb-m1">BÚSQUEDA · CERCA DE VOS</span><span class="amb-m2 verde">TU NEGOCIO · EN EL CELULAR</span></div>
+      <div class="amb-linea"></div>
+      <div class="amb-home"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // la hora del celular de Martina: 21:00 → 21:01 (llama) → 21:02 (va en camino)
+      const HORAS = [[".amb-h0", 0, 21.35], [".amb-h1", 21.35, 35.08], [".amb-h2", 35.08, 57.53]];
+      for (const [sel, a, b] of HORAS) {
+        if (a === 0) gsap.set(q(sel), { opacity: 1 }); else tl.fromTo(q(sel), { opacity: 0 }, { opacity: 1, duration: 0.01 }, a);
+        if (b < 57.5) tl.to(q(sel), { opacity: 0, duration: 0.01 }, b);
+      }
+      tl.fromTo(q(".amb-linea"), { scaleX: 0.3, opacity: 0.6 }, { scaleX: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 0);
+      // el rótulo: la búsqueda (en gris) y, desde "Hacemos" (44.02), tu negocio en verde
+      const HACEMOS = 44.02;
+      tl.fromTo(q(".amb-m1"), { opacity: 0, y: -4 }, { opacity: 1, y: 0, duration: 0.4 }, 0);
+      tl.to(q(".amb-m1"), { opacity: 0, y: -10, duration: 0.25 }, HACEMOS);
+      tl.fromTo(q(".amb-m2"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, HACEMOS + 0.1);
+      tl.to(q(".amb-linea"), { backgroundColor: "rgba(92, 230, 17, 0.35)", duration: 0.4 }, HACEMOS + 0.1);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
