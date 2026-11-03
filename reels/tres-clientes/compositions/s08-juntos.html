@@ -1,0 +1,108 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-juntos"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-juntos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-juntos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-juntos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-juntos"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-juntos"] .ln-ap { fill: none; stroke: #efeee5; stroke-opacity: 0.42; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-juntos"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.4; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 14; }
+    [data-composition-id="s08-juntos"] .relleno { fill: #5ce611; }
+    [data-composition-id="s08-juntos"] .rell-cr { fill: #efeee5; }
+    [data-composition-id="s08-juntos"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s08-juntos"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s08-juntos"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s08-juntos"] .t-ap { fill: #efeee5; fill-opacity: 0.45; }
+    [data-composition-id="s08-juntos"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s08-juntos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; }
+    [data-composition-id="s08-juntos"] .grande .ln { stroke-width: 3.7; }
+    [data-composition-id="s08-juntos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-juntos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-juntos" data-width="1080" data-height="1920" data-duration="3.69">
+    <div id="s08-escena" class="capa clip" data-start="0" data-duration="3.69" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s08-duenio"><circle class="ln" cx="540" cy="900" r="62" /><path class="ln" d="M482 880 Q490 830 540 828 Q590 830 598 880" /><path class="ln" d="M512 896 v8 M568 896 v8 M520 930 Q540 946 560 930" />
+          <path class="ln" d="M420 1120 Q420 990 540 990 Q660 990 660 1120" /><path class="ln" d="M490 1000 V1120 H590 V1000" /><path class="ln" d="M510 1050 H570" /></g>
+        <g class="s08-nb"><rect class="ln" x="130" y="658" width="240" height="74" rx="37" /><text class="lex t-cr" x="232" y="706" font-size="32" text-anchor="middle">Elsa</text><path class="ln-ac" d="M312 694 L324 706 L346 682" /></g><g class="s08-nb"><rect class="ln" x="420" y="608" width="240" height="74" rx="37" /><text class="lex t-cr" x="522" y="656" font-size="32" text-anchor="middle">Gustavo</text><path class="ln-ac" d="M602 644 L614 656 L636 632" /></g><g class="s08-nb"><rect class="ln" x="710" y="658" width="240" height="74" rx="37" /><text class="lex t-cr" x="812" y="706" font-size="32" text-anchor="middle">Walter</text><path class="ln-ac" d="M892 694 L904 706 L926 682" /></g>
+        <g class="s08-pa">
+        <g class="s08-a"><g class="s08-a-in">
+          <rect class="ln s08-a-l s08-a-marco" x="-140" y="-200" width="280" height="400" rx="28" />
+          <text class="mono t-ac s08-a-txt s08-a-letra" x="-108" y="-146" font-size="46">A</text>
+          <g class="s08-a-bust" transform="translate(0 6)"><circle class="ln s08-a-l" cx="0" cy="-50" r="46" /><circle class="ln s08-a-l" cx="0" cy="-112" r="18" /><path class="ln s08-a-l" d="M-46 -58 Q-30 -98 0 -96 Q30 -98 46 -58" /><circle class="ln s08-a-l" cx="-18" cy="-48" r="12" /><circle class="ln s08-a-l" cx="18" cy="-48" r="12" /><path class="ln s08-a-l" d="M-6 -48 H6" /><path class="ln s08-a-l" d="M-12 -22 Q0 -14 12 -22" /><path class="ln s08-a-l" d="M-84 76 Q-84 20 0 20 Q84 20 84 76" /><path class="ln s08-a-l" d="M-22 22 L0 46 L22 22" /></g>
+          <text class="lex t-cr s08-a-txt s08-a-nom" x="0" y="162" font-size="38" text-anchor="middle">Elsa</text>
+        </g></g></g><g class="s08-pb">
+        <g class="s08-b"><g class="s08-b-in">
+          <rect class="ln s08-b-l s08-b-marco" x="-140" y="-200" width="280" height="400" rx="28" />
+          <text class="mono t-ac s08-b-txt s08-b-letra" x="-108" y="-146" font-size="46">B</text>
+          <g class="s08-b-bust" transform="translate(0 6)"><circle class="ln s08-b-l" cx="0" cy="-50" r="46" /><path class="ln s08-b-l" d="M-46 -58 Q-40 -100 0 -98 Q40 -100 46 -58" /><path class="ln s08-b-l" d="M-18 -54 v6 M18 -54 v6" /><path class="ln s08-b-l" d="M-24 -22 Q-12 -34 0 -28 Q12 -34 24 -22 Q12 -24 0 -20 Q-12 -24 -24 -22 Z" /><path class="ln s08-b-l" d="M-10 -8 Q0 -2 10 -8" /><path class="ln s08-b-l" d="M-84 76 Q-84 20 0 20 Q84 20 84 76" /><path class="ln s08-b-l" d="M-34 24 L-16 76 M34 24 L16 76" /></g>
+          <text class="lex t-cr s08-b-txt s08-b-nom" x="0" y="162" font-size="38" text-anchor="middle">Gustavo</text>
+        </g></g></g><g class="s08-pc">
+        <g class="s08-c"><g class="s08-c-in">
+          <rect class="ln s08-c-l s08-c-marco" x="-140" y="-200" width="280" height="400" rx="28" />
+          <text class="mono t-ac s08-c-txt s08-c-letra" x="-108" y="-146" font-size="46">C</text>
+          <g class="s08-c-bust" transform="translate(0 6)"><circle class="ln s08-c-l" cx="0" cy="-50" r="46" /><path class="ln s08-c-l" d="M-50 -64 Q-46 -112 0 -112 Q46 -112 50 -64 Z" /><path class="ln s08-c-l" d="M-50 -64 H86" /><path class="ln s08-c-l" d="M-18 -46 v6 M18 -46 v6" /><path class="ln s08-c-l" d="M-14 -22 Q0 -12 14 -22" /><path class="ln s08-c-l" d="M-84 76 Q-84 20 0 20 Q84 20 84 76" /><path class="ln s08-c-l" d="M-36 26 V76 M36 26 V76" /><g class="s08-c-man"><circle class="relleno" cx="-20" cy="-86" r="6" /><circle class="relleno" cx="16" cy="-96" r="5" /></g></g>
+          <text class="lex t-cr s08-c-txt s08-c-nom" x="0" y="162" font-size="38" text-anchor="middle">Walter</text>
+        </g></g></g>
+        <rect class="ln-ac s08-marco" x="100" y="790" width="880" height="350" rx="32" />
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">Los conocés</span><span class="s08-e2">Verlos juntos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-juntos";
+      const DUR = 3.69;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s08-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s08-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // tarjeta: se dibuja y se escriben sus textos
+      const tarjeta = (c, t, dur, desde) => {
+        dibujar(qa("." + c + "-l"), t, dur ?? 0.55, desde);
+        qa("." + c + "-txt").forEach((el, i) => aparecer(el, Math.max(0, t + 0.25 + i * 0.1), 0.25));
+        const m = q("." + c + "-man"); if (m) aparecer(m, Math.max(0, t + 0.45), 0.25);
+      };
+
+      dibujar(qa(".s08-duenio path, .s08-duenio circle"), 0, 0.5, 0.5);
+      qa(".s08-nb").forEach((el, i) => pop(el, 0.4 + i * 0.2, 0.6));
+      tl.to(qa(".s08-duenio, .s08-nb"), { opacity: 0, duration: 0.35 }, 1.75);
+      const DESDE = [[180, 720, -16], [560, 1100, 12], [930, 760, -9]], A = [[250, 965], [540, 965], [830, 965]];
+      ["a", "b", "c"].forEach((k, i) => {
+        const pos = q(".s08-p" + k), g = q(".s08-" + k);
+        gsap.set(pos, { x: DESDE[i][0], y: DESDE[i][1], opacity: 0 });
+        gsap.set(g, { rotation: DESDE[i][2], scale: 0.62, svgOrigin: "0 0" });
+        tl.to(pos, { opacity: 1, duration: 0.2 }, 1.81 + i * 0.08);
+        tarjeta("s08-" + k, 1.81 + i * 0.08, 0.35);
+        tl.to(pos, { x: A[i][0], y: A[i][1], duration: 0.55, ease: "back.out(1.4)" }, 2.1 + i * 0.08);
+        tl.to(g, { rotation: 0, svgOrigin: "0 0", duration: 0.55, ease: "back.out(1.4)" }, 2.1 + i * 0.08);
+      });
+      dibujar([q(".s08-marco")], 2.62, 0.5);
+      tl.fromTo(q(".s08-marco"), { scale: 1.05, svgOrigin: "540 965" }, { scale: 1, svgOrigin: "540 965", duration: 0.5, ease: "power2.out" }, 2.62);
+      etq(1, 0.5); etq(2, 1.9);
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

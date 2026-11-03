@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-crm"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-crm"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-crm"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-crm"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-crm"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-crm"] .ln-ap { fill: none; stroke: #efeee5; stroke-opacity: 0.42; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-crm"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.4; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 14; }
+    [data-composition-id="s09-crm"] .relleno { fill: #5ce611; }
+    [data-composition-id="s09-crm"] .rell-cr { fill: #efeee5; }
+    [data-composition-id="s09-crm"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s09-crm"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s09-crm"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s09-crm"] .t-ap { fill: #efeee5; fill-opacity: 0.45; }
+    [data-composition-id="s09-crm"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s09-crm"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; }
+    [data-composition-id="s09-crm"] .grande .ln { stroke-width: 3.7; }
+    [data-composition-id="s09-crm"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-crm"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s09-crm" data-width="1080" data-height="1920" data-duration="5.12">
+    <div id="s09-escena" class="capa clip" data-start="0" data-duration="5.12" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s09-lap"><rect class="ln" x="110" y="650" width="860" height="480" rx="24" /><path class="ln" d="M50 1150 H1030 L1000 1185 H80 Z" /></g>
+        <text class="mono t-ac s09-tit" x="150" y="712" font-size="26">TUS CLIENTES</text>
+        <g class="s09-head"><text class="mono t-ap" x="150" y="772" font-size="20">CLIENTE</text><text class="mono t-ap" x="410" y="772" font-size="20">COMPRA</text><text class="mono t-ap" x="630" y="772" font-size="20">CADA</text><text class="mono t-ap" x="790" y="772" font-size="20">ÚLTIMA</text></g>
+        <path class="ln-ap s09-div" d="M150 790 H930" />
+        <g class="s09-fila s09-f0"><circle class="ln" cx="172" cy="850" r="22" /><text class="lex t-cr s09-n" x="208" y="860" font-size="30">Elsa</text>
+          <text class="lex t-cr s09-c" x="410" y="860" font-size="25">Focos, cinta</text><text class="lex t-cr s09-fr" x="630" y="860" font-size="25">Diario</text>
+          <text class="lex t-ac s09-u" x="790" y="860" font-size="24">Hoy</text><path class="ln-ap s09-sep" d="M150 900 H930" stroke-opacity="0.18" /></g><g class="s09-fila s09-f1"><circle class="ln" cx="172" cy="950" r="22" /><text class="lex t-cr s09-n" x="208" y="960" font-size="30">Gustavo</text>
+          <text class="lex t-cr s09-c" x="410" y="960" font-size="25">Herramientas</text><text class="lex t-cr s09-fr" x="630" y="960" font-size="25">Mensual</text>
+          <text class="lex t-ac s09-u" x="790" y="960" font-size="24">Hace 9 días</text><path class="ln-ap s09-sep" d="M150 1000 H930" stroke-opacity="0.18" /></g><g class="s09-fila s09-f2"><circle class="ln" cx="172" cy="1050" r="22" /><text class="lex t-cr s09-n" x="208" y="1060" font-size="30">Walter</text>
+          <text class="lex t-cr s09-c" x="410" y="1060" font-size="25">Pintura</text><text class="lex t-cr s09-fr" x="630" y="1060" font-size="25">Semanal</text>
+          <text class="lex t-ro s09-u" x="790" y="1060" font-size="24">Hace 5 sem.</text></g>
+        <path class="ln-ro s09-sub" d="M150 1102 H930" />
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">Tu CRM</span><span class="s09-e2">Quién dejó de venir</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-crm";
+      const DUR = 5.12;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s09-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s09-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // tarjeta: se dibuja y se escriben sus textos
+      const tarjeta = (c, t, dur, desde) => {
+        dibujar(qa("." + c + "-l"), t, dur ?? 0.55, desde);
+        qa("." + c + "-txt").forEach((el, i) => aparecer(el, Math.max(0, t + 0.25 + i * 0.1), 0.25));
+        const m = q("." + c + "-man"); if (m) aparecer(m, Math.max(0, t + 0.45), 0.25);
+      };
+
+      dibujar(qa(".s09-lap rect, .s09-lap path"), 0.3, 0.6, 0.6);
+      pop(q(".s09-tit"), 0.53, 0.8);
+      aparecer(q(".s09-head"), 0.75);
+      dibujar([q(".s09-div")], 0.8, 0.4);
+      gsap.set(qa(".s09-c, .s09-fr, .s09-u, .s09-sep"), { opacity: 0 });
+      qa(".s09-fila").forEach((el, i) => {
+        tl.fromTo(el.querySelectorAll("circle, .s09-n"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 1.71 + i * 0.12);
+        aparecer(el.querySelector(".s09-c"), 2.65 + i * 0.12, 0.25);
+        aparecer(el.querySelector(".s09-fr"), 3.13 + i * 0.12, 0.25);
+        tl.fromTo(el.querySelector(".s09-u"), { opacity: 0, scale: 0.7, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, transformOrigin: "0% 50%", duration: 0.3, ease: "back.out(2)" }, 4.0 + i * 0.15);
+      });
+      qa(".s09-sep").forEach((el) => aparecer(el, 1.9));
+      dibujar([q(".s09-sub")], 4.45, 0.4);
+      tl.to(q(".s09-f2 .s09-u"), { opacity: 0.45, duration: 0.15, yoyo: true, repeat: 3 }, 4.6);
+      etq(1, 0.53); etq(2, 3.9);
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

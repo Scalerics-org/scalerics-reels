@@ -1,0 +1,84 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-a-medida"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-a-medida"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-a-medida"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-a-medida"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-a-medida"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-a-medida"] .ln-ap { fill: none; stroke: #efeee5; stroke-opacity: 0.42; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-a-medida"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.4; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 14; }
+    [data-composition-id="s11-a-medida"] .relleno { fill: #5ce611; }
+    [data-composition-id="s11-a-medida"] .rell-cr { fill: #efeee5; }
+    [data-composition-id="s11-a-medida"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s11-a-medida"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s11-a-medida"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s11-a-medida"] .t-ap { fill: #efeee5; fill-opacity: 0.45; }
+    [data-composition-id="s11-a-medida"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s11-a-medida"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; }
+    [data-composition-id="s11-a-medida"] .grande .ln { stroke-width: 3.7; }
+    [data-composition-id="s11-a-medida"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-a-medida"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s11-a-medida" data-width="1080" data-height="1920" data-duration="3.28">
+    <div id="s11-escena" class="capa clip" data-start="0" data-duration="3.28" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s11-panel"><rect class="ln" x="220" y="790" width="640" height="340" rx="22" />
+          <circle class="ln" cx="270" cy="860" r="20" /><path class="ln-ap" d="M310 860 H560" /><path class="ln-ap" d="M640 860 H760" /><circle class="ln" cx="270" cy="950" r="20" /><path class="ln-ap" d="M310 950 H600" /><path class="ln-ap" d="M640 950 H720" /><circle class="ln" cx="270" cy="1040" r="20" /><path class="ln-ap" d="M310 1040 H520" /><path class="ln-ac" d="M640 1040 H800" /></g>
+        <g class="s11-toldo"><path class="ln" d="M200 790 L240 700 H840 L880 790" /><path class="ln" d="M200 790 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0 q22.5 32 45 0" />
+          <rect class="ln" x="400" y="620" width="280" height="62" rx="12" /><text class="mono t-cr" x="540" y="663" font-size="28" text-anchor="middle">FERRETERÍA</text></g>
+        <g class="s11-cinta"><rect class="ln-ac" x="140" y="1158" width="80" height="80" rx="16" /><circle class="ln-ac" cx="180" cy="1198" r="16" />
+          <g class="s11-tira"><rect class="ln-ac" x="220" y="1168" width="640" height="40" rx="4" /><path class="ln-ac" d="M236 1168 V1192" style="stroke-width:3" /><path class="ln-ac" d="M276 1168 V1182" style="stroke-width:3" /><path class="ln-ac" d="M316 1168 V1192" style="stroke-width:3" /><path class="ln-ac" d="M356 1168 V1182" style="stroke-width:3" /><path class="ln-ac" d="M396 1168 V1192" style="stroke-width:3" /><path class="ln-ac" d="M436 1168 V1182" style="stroke-width:3" /><path class="ln-ac" d="M476 1168 V1192" style="stroke-width:3" /><path class="ln-ac" d="M516 1168 V1182" style="stroke-width:3" /><path class="ln-ac" d="M556 1168 V1192" style="stroke-width:3" /><path class="ln-ac" d="M596 1168 V1182" style="stroke-width:3" /><path class="ln-ac" d="M636 1168 V1192" style="stroke-width:3" /><path class="ln-ac" d="M676 1168 V1182" style="stroke-width:3" /><path class="ln-ac" d="M716 1168 V1192" style="stroke-width:3" /><path class="ln-ac" d="M756 1168 V1182" style="stroke-width:3" /><path class="ln-ac" d="M796 1168 V1192" style="stroke-width:3" /><path class="ln-ac" d="M836 1168 V1182" style="stroke-width:3" /></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">CRM a medida</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-a-medida";
+      const DUR = 3.28;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s11-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s11-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      // tarjeta: se dibuja y se escriben sus textos
+      const tarjeta = (c, t, dur, desde) => {
+        dibujar(qa("." + c + "-l"), t, dur ?? 0.55, desde);
+        qa("." + c + "-txt").forEach((el, i) => aparecer(el, Math.max(0, t + 0.25 + i * 0.1), 0.25));
+        const m = q("." + c + "-man"); if (m) aparecer(m, Math.max(0, t + 0.45), 0.25);
+      };
+
+      dibujar(qa(".s11-panel rect, .s11-panel path, .s11-panel circle"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s11-panel"), { scale: 0.94, svgOrigin: "540 960" }, { scale: 1, svgOrigin: "540 960", duration: 0.5, ease: "power2.out" }, 0);
+      pop(q(".s11-cinta > rect"), 1.5, 0.5); pop(q(".s11-cinta > circle"), 1.55, 0.5);
+      tl.fromTo(q(".s11-tira"), { scaleX: 0, svgOrigin: "220 1188" }, { scaleX: 1, svgOrigin: "220 1188", duration: 0.6, ease: "power3.out" }, 1.64);
+      tl.fromTo(q(".s11-cinta > circle"), { rotation: 0, svgOrigin: "180 1198" }, { rotation: 540, svgOrigin: "180 1198", duration: 0.6, ease: "power3.out" }, 1.64);
+      dibujar(qa(".s11-toldo path, .s11-toldo rect"), 2.2, 0.45);
+      aparecer(q(".s11-toldo text"), 2.45, 0.25);
+      punch(q(".s11-panel"), 2.7, 1.03);
+      etq(1, 0.3);
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
