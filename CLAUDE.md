@@ -89,6 +89,12 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
    - **El primer cuadro es la portada en movimiento.** En el segundo 0 ya se ve el gancho entero en
      letras grandes (Lexend 800-900, 110-150 px, la palabra clave en verde) y el dibujo principal,
      no una frase cortada en chiquito. Los subtítulos karaoke arrancan recién después.
+   - **Pensá en la compresión de Instagram** (Juan, 03-11: "fijate la calidad con la que sube los
+     videos @resultaaquee"): Instagram recomprime todo, y lo que peor sobrevive son los fondos
+     oscuros con degradés y brillos suaves (salen bandas y bloques) y las líneas finas (se
+     ablandan). Preferí fondos lisos o con poco degradé, colores planos y llenos, y bordes
+     marcados. El render final se re-codifica en alta calidad (paso 10, crf 16, hasta 14 Mbps):
+     no lo cambies a `-c:v copy`.
    - **Trazos más gruesos.** Líneas de 6-8 px (no 3-4) y textos de interfaz de 28 px para arriba:
      tiene que leerse en un celular sin agrandar.
    - **Que no sean todos iguales en el feed.** Cada reel de la tanda con un fondo distinto dentro de
@@ -322,7 +328,7 @@ Todo desde la raíz del repo salvo donde dice. `<slug>` = nombre corto del reel 
 10. **Render.** Desde `reels/<slug>`:
     ```
     npx --yes hyperframes@0.8.206 render --workers 2 -o renders/<slug>.mp4
-    ffmpeg -y -i renders/<slug>.mp4 -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k renders/<slug>-final.mp4
+    ffmpeg -y -i renders/<slug>.mp4 -c:v libx264 -preset slow -crf 16 -tune animation -profile:v high -pix_fmt yuv420p -g 60 -maxrate 14M -bufsize 28M -movflags +faststart -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k renders/<slug>-final.mp4
     ```
     Sacá una hoja de cuadros del final (`ffmpeg -i renders/<slug>-final.mp4 -vf "fps=1/3,scale=240:-1,tile=6x3" -frames:v 1 renders/hoja.png`)
     y mirala.
