@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-once-anos"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-once-anos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-once-anos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once-anos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once-anos"] .ln-ap { fill: none; stroke: #efeee5; stroke-opacity: 0.4; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-once-anos"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s01-once-anos"] .relleno { fill: #5ce611; }
+    [data-composition-id="s01-once-anos"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s01-once-anos"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s01-once-anos"] .t-ap { fill: #efeee5; fill-opacity: 0.45; }
+    [data-composition-id="s01-once-anos"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s01-once-anos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s01-once-anos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-once-anos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s01-once-anos"] .s01-luz { fill: #5ce611; fill-opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-once-anos" data-width="1080" data-height="1920" data-duration="7.35">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="7.35" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="ln s01-suelo" d="M90 1150 H990" stroke-opacity="0.6" />
+        <g transform="translate(540 1150)"><g class="s01-loc">
+        <path class="ln s01-d" d="M-150 0 V-230 H150 V0" />
+        <path class="ln s01-d" d="M-172 -230 H172 L152 -292 H-152 Z" />
+        <path class="ln s01-d" d="M-172 -230 q17.2 26 34.4 0 q17.2 26 34.4 0 q17.2 26 34.4 0 q17.2 26 34.4 0 q17.2 26 34.4 0 q17.2 26 34.4 0 q17.2 26 34.4 0 q17.2 26 34.4 0 q17.2 26 34.4 0 q17.2 26 34.4 0" />
+        <path class="ln s01-d" stroke-opacity="0.55" d="M-103 -230 L-91 -292 M-34 -230 L-30 -292 M34 -230 L30 -292 M103 -230 L91 -292" />
+        <rect class="ln s01-d" x="-128" y="-368" width="256" height="58" rx="10" />
+        <rect class="ln s01-d" x="-126" y="-172" width="140" height="112" rx="6" />
+        <path class="ln s01-d" d="M-90 -172 v18 M-50 -172 v18" />
+        <path class="ln s01-d" d="M-102 -154 q12 -6 24 0 q6 26 -12 46 q-18 -20 -12 -46 Z" />
+        <path class="ln s01-d" d="M-62 -154 q12 -6 24 0 q6 26 -12 46 q-18 -20 -12 -46 Z" />
+        <path class="ln s01-d" d="M42 -182 h82 M42 -182 v182 M124 -182 v182" />
+        <circle class="ln s01-d" cx="58" cy="-92" r="4" /><text class="mono t-cr s01-cart" x="0" y="-330" font-size="26" text-anchor="middle">CARNICERÍA</text></g></g>
+        <path class="ln s01-r s01-r0" stroke-opacity="0.5" d="M290 1196 v26" /><path class="ln s01-r s01-r1" stroke-opacity="0.5" d="M340 1196 v26" /><path class="ln s01-r s01-r2" stroke-opacity="0.5" d="M390 1196 v26" /><path class="ln s01-r s01-r3" stroke-opacity="0.5" d="M440 1196 v26" /><path class="ln s01-r s01-r4" stroke-opacity="0.5" d="M490 1196 v26" /><path class="ln s01-r s01-r5" stroke-opacity="0.5" d="M540 1196 v26" /><path class="ln s01-r s01-r6" stroke-opacity="0.5" d="M590 1196 v26" /><path class="ln s01-r s01-r7" stroke-opacity="0.5" d="M640 1196 v26" /><path class="ln s01-r s01-r8" stroke-opacity="0.5" d="M690 1196 v26" /><path class="ln s01-r s01-r9" stroke-opacity="0.5" d="M740 1196 v26" /><path class="ln s01-r s01-r10" stroke-opacity="0.5" d="M790 1196 v26" />
+        <text class="mono t-ap s01-anos" x="540" y="1252" font-size="22" text-anchor="middle">ONCE AÑOS</text>
+        <g class="s01-card">
+        <path class="ln-ac" d="M600 700 L900 664 L912 820 L612 856 Z" />
+        <path class="ln-ac" stroke-opacity="0.5" d="M640 812 L880 783" />
+        <text class="lex t-ac" x="756" y="752" font-size="40" text-anchor="middle" transform="rotate(-6.8 756 752)">¡Feliz cumple!</text>
+        </g>
+        <path class="ln-ac s01-fx" d="M584 662 l-22 -24 M624 640 l-6 -30 M556 700 l-30 -6" />
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">La misma carnicería</span><span class="s01-e2">Por primera vez</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-once-anos";
+      const DUR = 7.35;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s01-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s01-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const ONCE = 0.18, CARNI = 1.88, AYER = 3.34, PRIMERA = 3.93, FELIZ = 5.45;
+      dibujar(qa(".s01-d"), 0, 0.8, 0.4);
+      tl.fromTo(q(".s01-suelo"), { scaleX: 0.5, svgOrigin: "540 1150" }, { scaleX: 1, svgOrigin: "540 1150", duration: 0.8, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s01-cart"), { opacity: 0.3 }, { opacity: 0.55, duration: 0.3 }, 0.2);
+      tl.fromTo(q(".s01-loc"), { scale: 0.96, svgOrigin: "0 -150" }, { scale: 1, svgOrigin: "0 -150", duration: 1.2, ease: "power2.out" }, 0);
+      qa(".s01-r").forEach((r, i) => pop(r, ONCE + 0.1 + i * 0.1, 0.4));
+      aparecer(q(".s01-anos"), ONCE + 1.1);
+      tl.to(q(".s01-cart"), { opacity: 1, duration: 0.25 }, CARNI);
+      punch(q(".s01-cart"), CARNI, 1.1);
+      tl.to(q(".s01-r10"), { stroke: "#5ce611", strokeOpacity: 1, duration: 0.2 }, AYER);
+      punch(q(".s01-r10"), AYER + 0.05, 1.5);
+      tl.to(q(".s01-anos"), { opacity: 0.25, duration: 0.3 }, AYER);
+      tl.to(q(".s01-loc"), { x: -80, duration: 1.2, ease: "power2.inOut" }, PRIMERA);
+      gsap.set(qa(".s01-card, .s01-fx"), { opacity: 0 });
+      pop(q(".s01-card"), FELIZ - 0.1, 0.6);
+      tl.fromTo(q(".s01-card"), { rotation: -6, svgOrigin: "756 760" }, { rotation: 0, svgOrigin: "756 760", duration: 0.5, ease: "back.out(2)" }, FELIZ - 0.1);
+      dibujar([q(".s01-fx")], FELIZ + 0.2, 0.3);
+      tl.to(q(".s01-card"), { y: -10, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, FELIZ + 0.5);
+      etq(1, 0.3); etq(2, PRIMERA);
+
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

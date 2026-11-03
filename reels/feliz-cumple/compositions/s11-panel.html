@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-panel"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-panel"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-panel"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-panel"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-panel"] .ln-ap { fill: none; stroke: #efeee5; stroke-opacity: 0.4; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-panel"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s11-panel"] .relleno { fill: #5ce611; }
+    [data-composition-id="s11-panel"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s11-panel"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s11-panel"] .t-ap { fill: #efeee5; fill-opacity: 0.45; }
+    [data-composition-id="s11-panel"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s11-panel"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s11-panel"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-panel"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s11-panel" data-width="1080" data-height="1920" data-duration="4.16">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="4.16" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s11-noti">
+        <rect class="ln-ac" x="190" y="616" width="700" height="104" rx="22" />
+        <path class="ln" d="M224 652 h40 v40 h-40 Z M224 664 q20 10 40 0 M244 652 v-12" />
+        <text class="lex t-ac" x="290" y="664" font-size="32">¡Feliz cumple, Rosa!</text>
+        <text class="mono t-ap" x="290" y="700" font-size="24">CARNICERÍA DON JULIO</text>
+        <g class="s11-env"><circle class="relleno" cx="850" cy="616" r="22" /><path d="M839 616 l8 8 l14 -16" fill="none" stroke="#050a12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></g>
+        </g>
+        <g class="s11-avion"><path class="ln-ac" d="M-30 -12 L32 0 L-30 14 L-20 0 Z M-20 0 L32 0" /></g>
+        <g class="s11-lap">
+        <rect class="ln s11-d" x="200" y="770" width="680" height="400" rx="18" />
+        <path class="ln s11-d" d="M150 1200 L200 1170 H880 L930 1200 Z" />
+        <text class="mono t-ap s11-h" x="240" y="820" font-size="24">TUS CLIENTES</text>
+        <text class="mono t-ap s11-h" x="870" y="820" font-size="24" text-anchor="end">VIENE CADA</text>
+        <g class="s11-fila s11-fila0"><circle class="ln" cx="252" cy="870" r="20" /><text class="lex t-cr" x="290" y="880" font-size="30">Graciela</text>
+        <rect class="ln-ap" x="520" y="856" width="180" height="22" rx="11" />
+        <rect class="relleno s11-bar" x="520" y="856" width="150" height="22" rx="11" />
+        <text class="mono t-ac s11-fr" x="870" y="880" font-size="24" text-anchor="end">7 DÍAS</text></g><g class="s11-fila s11-fila1"><circle class="ln" cx="252" cy="962" r="20" /><text class="lex t-cr" x="290" y="972" font-size="30">Rosa</text>
+        <rect class="ln-ap" x="520" y="948" width="180" height="22" rx="11" />
+        <rect class="relleno s11-bar" x="520" y="948" width="90" height="22" rx="11" />
+        <text class="mono t-ac s11-fr" x="870" y="972" font-size="24" text-anchor="end">15 DÍAS</text></g><g class="s11-fila s11-fila2"><circle class="ln" cx="252" cy="1054" r="20" /><text class="lex t-cr" x="290" y="1064" font-size="30">Héctor</text>
+        <rect class="ln-ap" x="520" y="1040" width="180" height="22" rx="11" />
+        <rect class="relleno s11-bar" x="520" y="1040" width="180" height="22" rx="11" />
+        <text class="mono t-ac s11-fr" x="870" y="1064" font-size="24" text-anchor="end">3 DÍAS</text></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Sale solo</span><span class="s11-e2">Quién viene y cada cuánto</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-panel";
+      const DUR = 4.16;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s11-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s11-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const SALUDO = 0.16, SALE = 0.98, SOLO = 1.25, VOS = 1.98, QUIEN = 2.76, CADA = 3.53;
+      gsap.set(qa(".s11-avion, .s11-env, .s11-fila, .s11-h"), { opacity: 0 });
+      tl.fromTo(q(".s11-noti"), { opacity: 0.4, y: -30 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, 0);
+      const P = [[880, 760], [960, 690], [1000, 620], [1060, 560]];
+      tl.set(q(".s11-avion"), { opacity: 1, x: P[0][0], y: P[0][1], rotation: -40, svgOrigin: "0 0" }, SALE - 0.1);
+      P.slice(1).forEach(([x, y], i) => tl.to(q(".s11-avion"), { x, y, svgOrigin: "0 0", duration: 0.14, ease: "none" }, SALE - 0.1 + i * 0.14));
+      tl.to(q(".s11-avion"), { opacity: 0, duration: 0.1 }, SALE + 0.32);
+      pop(q(".s11-env"), SOLO, 0.5);
+      tl.fromTo(q(".s11-lap"), { opacity: 0 }, { opacity: 1, duration: 0.05 }, SOLO + 0.2);
+      dibujar(qa(".s11-d"), SOLO + 0.2, 0.6);
+      tl.to(q(".s11-noti"), { opacity: 0.45, duration: 0.3 }, VOS);
+      tl.to(qa(".s11-h"), { opacity: 1, duration: 0.3 }, VOS);
+      qa(".s11-fila").forEach((f, i) => tl.fromTo(f, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, QUIEN - 0.2 + i * 0.15));
+      qa(".s11-bar").forEach((b, i) => tl.fromTo(b, { scaleX: 0, svgOrigin: "520 0" }, { scaleX: 1, svgOrigin: "520 0", duration: 0.5, ease: "power3.out" }, CADA - 0.2 + i * 0.1));
+      qa(".s11-fr").forEach((b, i) => tl.fromTo(b, { opacity: 0 }, { opacity: 1, duration: 0.25 }, CADA + 0.1 + i * 0.1));
+      etq(1, SALE); etq(2, VOS);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
