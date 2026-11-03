@@ -1,0 +1,191 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-sabado"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-sabado"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-sabado"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sabado"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sabado"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sabado"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sabado"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sabado"] .ln-ro4 { fill: none; stroke: #c0625a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-sabado"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s08-sabado"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s08-sabado"] .ln-marca { stroke: #efeee5; stroke-opacity: 0.6; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s08-sabado"] .punto { fill: #efeee5; }
+    [data-composition-id="s08-sabado"] .vidrio, [data-composition-id="s08-sabado"] .relleno { fill: #5ce611; }
+    [data-composition-id="s08-sabado"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s08-sabado"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s08-sabado"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s08-sabado"] .t-osc { fill: #07111f; }
+    [data-composition-id="s08-sabado"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s08-sabado"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; }
+    [data-composition-id="s08-sabado"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.18em; fill: #efeee5; }
+    [data-composition-id="s08-sabado"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; fill-opacity: 0.6; opacity: 0; }
+    [data-composition-id="s08-sabado"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s08-sabado"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s08-sabado"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-sabado"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s08-sabado" data-width="1080" data-height="1920" data-duration="4.6">
+    <div id="s08-escena" class="capa clip" data-start="0" data-duration="4.6" data-track-index="0">
+      <div id="s08-dibujo" class="capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        
+        <line class="ln s08-suelo" x1="40" y1="1180" x2="520" y2="1180" />
+        <g class="s08-pan-a"><g class="s08-pan-a-in">
+          <path class="ln s08-dib-a" d="M-180 0 V-230 H180 V0" />
+          <path class="ln s08-dib-a" d="M-200 -230 H200 L180 -272 H-180 Z" />
+          <path class="ln s08-dib-a" d="M-200 -230 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0" />
+          <rect class="ln s08-dib-a" x="-130" y="-336" width="260" height="50" rx="10" />
+          <text class="cartel s08-txt-a" x="0" y="-302" text-anchor="middle">PANADERÍA</text>
+          <rect class="ln s08-dib-a" x="-150" y="-190" width="200" height="130" rx="8" />
+          <rect class="ln-ac s08-vit-a" x="-150" y="-190" width="200" height="130" rx="8" />
+          <path class="ln4 s08-dib-a" d="M-142 -117 H42" />
+          <path class="ln4 s08-ml-a s08-ml-a-0" d="M-136 -133 C-133 -157 -103 -157 -100 -133 C-110 -143 -126 -143 -136 -133 Z M-124 -150 L-122 -143 M-112 -150 L-114 -143" />
+          <path class="ln4 s08-ml-a s08-ml-a-1" d="M-92 -133 C-89 -157 -59 -157 -56 -133 C-66 -143 -82 -143 -92 -133 Z M-80 -150 L-78 -143 M-68 -150 L-70 -143" />
+          <path class="ln4 s08-ml-a s08-ml-a-2" d="M-48 -133 C-45 -157 -15 -157 -12 -133 C-22 -143 -38 -143 -48 -133 Z M-36 -150 L-34 -143 M-24 -150 L-26 -143" />
+          <path class="ln4 s08-ml-a s08-ml-a-3" d="M-4 -133 C-1 -157 29 -157 32 -133 C22 -143 6 -143 -4 -133 Z M8 -150 L10 -143 M20 -150 L18 -143" />
+          <path class="ln4 s08-ml-a s08-ml-a-4" d="M-136 -75 C-133 -99 -103 -99 -100 -75 C-110 -85 -126 -85 -136 -75 Z M-124 -92 L-122 -85 M-112 -92 L-114 -85" />
+          <path class="ln4 s08-ml-a s08-ml-a-5" d="M-92 -75 C-89 -99 -59 -99 -56 -75 C-66 -85 -82 -85 -92 -75 Z M-80 -92 L-78 -85 M-68 -92 L-70 -85" />
+          <path class="ln4 s08-ml-a s08-ml-a-6" d="M-48 -75 C-45 -99 -15 -99 -12 -75 C-22 -85 -38 -85 -48 -75 Z M-36 -92 L-34 -85 M-24 -92 L-26 -85" />
+          <path class="ln4 s08-ml-a s08-ml-a-7" d="M-4 -75 C-1 -99 29 -99 32 -75 C22 -85 6 -85 -4 -75 Z M8 -92 L10 -85 M20 -92 L18 -85" />
+          <path class="ln s08-dib-a" d="M70 0 V-170 H150 V0" />
+          <rect class="vidrio s08-luz-a" x="84" y="-156" width="52" height="56" rx="4" />
+          <circle class="ln4 s08-dib-a" cx="88" cy="-80" r="4" />
+        </g></g>
+        <path class="ln4 s08-luna" d="M628 668 A26 26 0 1 0 628 712 A20 20 0 1 1 628 668 Z" />
+        <g class="s08-cel">
+          <rect class="ln s08-cel-c" x="650" y="800" width="320" height="430" rx="44" style="fill:#081322" />
+          <path class="ln4 s08-cel-b" d="M780 824 H840" />
+        </g>
+        <g class="s08-bars">
+          <text class="lex t-cr s08-tit" x="810" y="884" text-anchor="middle" font-size="30">DOMINGOS</text>
+          <path class="ln4 s08-eje" d="M690 1132 H930" />
+          <rect class="relleno s08-bar s08-bar-0" x="697" y="964" width="36" height="168" rx="4" />
+          <text class="lex t-ac s08-num s08-num-0" x="715" y="952" text-anchor="middle" font-size="28">7</text>
+          <rect class="relleno s08-bar s08-bar-1" x="757" y="940" width="36" height="192" rx="4" />
+          <text class="lex t-ac s08-num s08-num-1" x="775" y="928" text-anchor="middle" font-size="28">8</text>
+          <rect class="relleno s08-bar s08-bar-2" x="817" y="964" width="36" height="168" rx="4" />
+          <text class="lex t-ac s08-num s08-num-2" x="835" y="952" text-anchor="middle" font-size="28">7</text>
+          <rect class="relleno s08-bar s08-bar-3" x="877" y="940" width="36" height="192" rx="4" />
+          <text class="lex t-ac s08-num s08-num-3" x="895" y="928" text-anchor="middle" font-size="28">8</text>
+          <text class="mono t-cr s08-ban" x="810" y="1172" text-anchor="middle" font-size="24" fill-opacity="0.6">BANDEJAS</text>
+          <text class="mono t-ac s08-ult" x="810" y="1206" text-anchor="middle" font-size="24">ÚLTIMOS 4</text>
+        </g>
+        </svg>
+        <div class="etiqueta"><span class="s08-e1">Sábado, 21:00</span><span class="s08-e2">Los últimos domingos</span></div>
+      </div>
+      <div id="s08-cab" class="capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s08-head">
+          <line class="ln-div s08-div" x1="540" y1="812" x2="540" y2="1220" />
+          <g class="s08-reloj">
+            <circle class="ln s08-reloj-c" cx="540" cy="700" r="46" />
+            <line class="ln-marca" x1="540.0" y1="670.0" x2="540.0" y2="661.0" /><line class="ln-marca" x1="557.0" y1="670.6" x2="559.5" y2="666.2" /><line class="ln-marca" x1="569.4" y1="683.0" x2="573.8" y2="680.5" /><line class="ln-marca" x1="570.0" y1="700.0" x2="579.0" y2="700.0" /><line class="ln-marca" x1="569.4" y1="717.0" x2="573.8" y2="719.5" /><line class="ln-marca" x1="557.0" y1="729.4" x2="559.5" y2="733.8" /><line class="ln-marca" x1="540.0" y1="730.0" x2="540.0" y2="739.0" /><line class="ln-marca" x1="523.0" y1="729.4" x2="520.5" y2="733.8" /><line class="ln-marca" x1="510.6" y1="717.0" x2="506.2" y2="719.5" /><line class="ln-marca" x1="510.0" y1="700.0" x2="501.0" y2="700.0" /><line class="ln-marca" x1="510.6" y1="683.0" x2="506.2" y2="680.5" /><line class="ln-marca" x1="523.0" y1="670.6" x2="520.5" y2="666.2" />
+            <line class="ln s08-hh" x1="540" y1="700" x2="540" y2="676" />
+            <line class="ln4 s08-mm" x1="540" y1="700" x2="540" y2="666" />
+            <circle class="punto" cx="540" cy="700" r="6" />
+          </g>
+          <text class="rotulo s08-rot s08-rot-0" x="540" y="784" text-anchor="middle">DOM 10:00</text>
+          <text class="rotulo s08-rot s08-rot-1" x="540" y="784" text-anchor="middle">SÁB 21:00</text>
+          <g class="s08-head-a">
+            <text class="nom" x="270" y="672" text-anchor="middle" fill="#efeee5" fill-opacity="0.55">JORGE</text>
+            <text class="sub" x="270" y="712" text-anchor="middle" fill="#efeee5" fill-opacity="0.4">A OJO</text>
+          </g>
+          <g class="s08-head-b">
+            <text class="nom" x="810" y="672" text-anchor="middle" fill="#5ce611">MÓNICA</text>
+            <text class="sub" x="810" y="712" text-anchor="middle" fill="#5ce611" fill-opacity="0.8">A SU MEDIDA</text>
+          </g>
+        </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-sabado";
+      const P = "s08";
+      const DUR = 4.6;
+      const REL0 = 2760;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (sel) => root.querySelector(sel);
+      const qa = (sel) => Array.from(root.querySelectorAll(sel));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1 });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.04));
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s, org) => tl.to(el, { scale: s ?? 1.08, svgOrigin: org, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      let etqAct = null;
+      const etq = (sel, t) => {
+        if (etqAct) tl.to(etqAct, { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqAct = q(sel);
+      };
+      // reloj común: minutos desde las 0:00 (la aguja de minutos da 6 grados por minuto)
+      let rel = REL0;
+      const HH = q("." + P + "-hh"), MM = q("." + P + "-mm");
+      if (HH) {
+        gsap.set(HH, { rotation: rel * 0.5, svgOrigin: "540 700" });
+        gsap.set(MM, { rotation: rel * 6, svgOrigin: "540 700" });
+      }
+      const girar = (t, hasta, dur) => {
+        tl.to(HH, { rotation: hasta * 0.5, svgOrigin: "540 700", duration: dur ?? 0.9, ease: "power2.inOut" }, t);
+        tl.to(MM, { rotation: hasta * 6, svgOrigin: "540 700", duration: dur ?? 0.9, ease: "power2.inOut" }, t);
+        rel = hasta;
+      };
+      let rotAct = null;
+      const rotulo = (i, t) => {
+        if (rotAct) tl.to(rotAct, { opacity: 0, duration: 0.18 }, t - 0.1);
+        const el = q("." + P + "-rot-" + i);
+        if (t <= 0) gsap.set(el, { opacity: 1 }); else tl.fromTo(el, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+        rotAct = el;
+      };
+      const lado = (sel, op, t, d) => tl.to(qa(sel), { opacity: op, duration: d ?? 0.4, ease: "power2.out" }, t);
+
+      const SABADO = 0.69, MIRA = 1.85, VENDIO = 2.59, ULTIMOS = 3.09;
+      gsap.set(q(".s08-pan-a"), { x: 270, y: 1180 });
+      gsap.set(qa(".s08-vit-a, .s08-luz-a"), { opacity: 0 });
+      tl.fromTo(q(".s08-pan-a"), { opacity: 0.6 }, { opacity: 0.28, duration: 0.4 }, 0);
+      gsap.set(qa(".s08-luna, .s08-tit, .s08-num, .s08-ban, .s08-ult"), { opacity: 0 });
+      rotulo(0, 0);
+      // "el sábado a la noche"
+      girar(SABADO - 0.3, 3420, 0.9);
+      rotulo(1, SABADO);
+      pop(q(".s08-luna"), SABADO + 0.4, 0.5);
+      tl.to(q(".s08-luna"), { opacity: 0.6, duration: 0.3 }, SABADO + 0.9);
+      etq(".s08-e1", 0.2);
+      // el celular de Mónica
+      tl.fromTo(q(".s08-cel"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, 0.05);
+      dibujar(q(".s08-cel-c"), 0.05, 0.5, 0.4);
+      tl.fromTo(q(".s08-tit"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3 }, 0.5);
+      // "mira": ejes; "vendió": barras
+      dibujar(q(".s08-eje"), SABADO + 0.5, 0.35);
+      tl.fromTo(q(".s08-ban"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, SABADO + 0.7);
+      punch(q(".s08-tit"), MIRA, 1.08, "810 875");
+      qa(".s08-bar").forEach((el, i) => {
+        tl.fromTo(el, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, transformOrigin: "50% 100%", duration: 0.4, ease: "back.out(1.4)" }, VENDIO - 0.2 + i * 0.12);
+        tl.fromTo(q(".s08-num-" + i), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.25 }, VENDIO + 0.1 + i * 0.12);
+      });
+      tl.fromTo(q(".s08-ult"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3 }, ULTIMOS);
+      punch(q(".s08-cel"), ULTIMOS + 0.4, 1.03, "810 1015");
+      etq(".s08-e2", MIRA);
+      tl.to(q("#s08-dibujo"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

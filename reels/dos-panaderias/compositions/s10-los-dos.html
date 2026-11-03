@@ -1,0 +1,195 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-los-dos"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-los-dos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-los-dos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-los-dos"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-los-dos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-los-dos"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-los-dos"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-los-dos"] .ln-ro4 { fill: none; stroke: #c0625a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-los-dos"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s10-los-dos"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s10-los-dos"] .ln-marca { stroke: #efeee5; stroke-opacity: 0.6; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s10-los-dos"] .punto { fill: #efeee5; }
+    [data-composition-id="s10-los-dos"] .vidrio, [data-composition-id="s10-los-dos"] .relleno { fill: #5ce611; }
+    [data-composition-id="s10-los-dos"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s10-los-dos"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s10-los-dos"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s10-los-dos"] .t-osc { fill: #07111f; }
+    [data-composition-id="s10-los-dos"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s10-los-dos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; }
+    [data-composition-id="s10-los-dos"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.18em; fill: #efeee5; }
+    [data-composition-id="s10-los-dos"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; fill-opacity: 0.6; opacity: 0; }
+    [data-composition-id="s10-los-dos"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s10-los-dos"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s10-los-dos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-los-dos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s10-los-dos" data-width="1080" data-height="1920" data-duration="7.41">
+    <div id="s10-escena" class="capa clip" data-start="0" data-duration="7.41" data-track-index="0">
+      <div id="s10-dibujo" class="capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        
+        <line class="ln s10-suelo" x1="40" y1="1180" x2="1040" y2="1180" />
+        <g class="s10-jo "><g class="s10-jo-in"><g transform="scale(1.1)">
+          <path class="ln s10-jo-dib" d="M-24 -268 V-286 C-46 -290 -42 -324 -16 -316 C-10 -336 10 -336 16 -316 C42 -324 46 -290 24 -286 V-268 Z" />
+          <path class="ln4 s10-jo-dib" d="M-24 -280 H24" />
+          <circle class="ln s10-jo-dib" cx="0" cy="-238" r="27" />
+          <circle class="punto s10-jo-ojo" cx="-10" cy="-242" r="3.5" />
+          <circle class="punto s10-jo-ojo" cx="10" cy="-242" r="3.5" />
+          <path class="ln s10-jo-dib" d="M-13 -226 q13 8 26 0" />
+          <path class="ln s10-jo-dib" d="M-64 -120 V-172 Q-62 -212 0 -214 Q62 -212 64 -172 V-120" />
+          <path class="ln4 s10-jo-dib" d="M-30 -120 V-186 H30 V-120" />
+          <path class="ln s10-jo-dib" d="M-170 -120 H170 M-160 -120 V0 M160 -120 V0" />
+        </g></g></g>
+        <g class="s10-mo "><g class="s10-mo-in"><g transform="scale(1.1)">
+          <path class="ln s10-mo-dib" d="M-24 -268 V-286 C-46 -290 -42 -324 -16 -316 C-10 -336 10 -336 16 -316 C42 -324 46 -290 24 -286 V-268 Z" />
+          <path class="ln4 s10-mo-dib" d="M-24 -280 H24" />
+          <circle class="ln s10-mo-dib" cx="0" cy="-238" r="27" />
+          <circle class="punto s10-mo-ojo" cx="-10" cy="-242" r="3.5" />
+          <circle class="punto s10-mo-ojo" cx="10" cy="-242" r="3.5" />
+          <path class="ln s10-mo-dib" d="M-26 -250 q-10 24 -6 46 M26 -250 q10 24 6 46" />
+          <path class="ln s10-mo-dib" d="M-64 -120 V-172 Q-62 -212 0 -214 Q62 -212 64 -172 V-120" />
+          <path class="ln4 s10-mo-dib" d="M-30 -120 V-186 H30 V-120" />
+          <path class="ln s10-mo-dib" d="M-170 -120 H170 M-160 -120 V0 M160 -120 V0" />
+        </g></g></g>
+        <g class="s10-bj-a"><path class="ln4" d="M208 1046 H332" /><path class="ln4" d="M214 1039 C217 1015 247 1015 250 1039 C240 1029 224 1029 214 1039 Z M226 1022 L228 1029 M238 1022 L236 1029" /><path class="ln4" d="M252 1039 C255 1015 285 1015 288 1039 C278 1029 262 1029 252 1039 Z M264 1022 L266 1029 M276 1022 L274 1029" /><path class="ln4" d="M290 1039 C293 1015 323 1015 326 1039 C316 1029 300 1029 290 1039 Z M302 1022 L304 1029 M314 1022 L312 1029" /></g>
+        <g class="s10-bj-b"><path class="ln4" d="M748 1046 H872" /><path class="ln4" d="M754 1039 C757 1015 787 1015 790 1039 C780 1029 764 1029 754 1039 Z M766 1022 L768 1029 M778 1022 L776 1029" /><path class="ln4" d="M792 1039 C795 1015 825 1015 828 1039 C818 1029 802 1029 792 1039 Z M804 1022 L806 1029 M816 1022 L814 1029" /><path class="ln4" d="M830 1039 C833 1015 863 1015 866 1039 C856 1029 840 1029 830 1039 Z M842 1022 L844 1029 M854 1022 L852 1029" /></g>
+        <path class="ln s10-eq" d="M518 960 H562 M518 982 H562" />
+        <g class="s10-tka"><circle class="ln4 s10-tka-c" cx="370" cy="846" r="24" /><path class="ln4 s10-tka-t" d="M358.48 846 L367.12 855.6 L383.2 835.92" /></g>
+        <g class="s10-tkb"><circle class="ln4 s10-tkb-c" cx="910" cy="846" r="24" /><path class="ln4 s10-tkb-t" d="M898.48 846 L907.12 855.6 L923.2 835.92" /></g>
+        <g class="s10-pnl">
+          <rect class="ln-ac4" x="680" y="1074" width="260" height="88" rx="12" />
+          <rect class="relleno s10-bar" x="712" y="1102" width="28" height="48" rx="3" /><rect class="relleno s10-bar" x="768" y="1092" width="28" height="58" rx="3" /><rect class="relleno s10-bar" x="824" y="1102" width="28" height="48" rx="3" /><rect class="relleno s10-bar" x="880" y="1092" width="28" height="58" rx="3" />
+        </g>
+        <g class="s10-card">
+          <rect class="relleno" x="660" y="1068" width="300" height="100" rx="16" />
+          <text class="mono t-osc" x="684" y="1102" font-size="24">DOMINGO</text>
+          <text class="lex t-osc" x="684" y="1150" font-size="36">8 BANDEJAS</text>
+          <path d="M904 1094 l10 11 l20 -22" fill="none" stroke="#07111f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        </svg>
+        <div class="etiqueta"><span class="s10-e1">Igual de buenos</span><span class="s10-e2">La diferencia</span><span class="s10-e3">Una sabe qué va a vender</span></div>
+      </div>
+      <div id="s10-cab" class="capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s10-head">
+          <line class="ln-div s10-div" x1="540" y1="812" x2="540" y2="1220" />
+          <g class="s10-reloj">
+            <circle class="ln s10-reloj-c" cx="540" cy="700" r="46" />
+            <line class="ln-marca" x1="540.0" y1="670.0" x2="540.0" y2="661.0" /><line class="ln-marca" x1="557.0" y1="670.6" x2="559.5" y2="666.2" /><line class="ln-marca" x1="569.4" y1="683.0" x2="573.8" y2="680.5" /><line class="ln-marca" x1="570.0" y1="700.0" x2="579.0" y2="700.0" /><line class="ln-marca" x1="569.4" y1="717.0" x2="573.8" y2="719.5" /><line class="ln-marca" x1="557.0" y1="729.4" x2="559.5" y2="733.8" /><line class="ln-marca" x1="540.0" y1="730.0" x2="540.0" y2="739.0" /><line class="ln-marca" x1="523.0" y1="729.4" x2="520.5" y2="733.8" /><line class="ln-marca" x1="510.6" y1="717.0" x2="506.2" y2="719.5" /><line class="ln-marca" x1="510.0" y1="700.0" x2="501.0" y2="700.0" /><line class="ln-marca" x1="510.6" y1="683.0" x2="506.2" y2="680.5" /><line class="ln-marca" x1="523.0" y1="670.6" x2="520.5" y2="666.2" />
+            <line class="ln s10-hh" x1="540" y1="700" x2="540" y2="676" />
+            <line class="ln4 s10-mm" x1="540" y1="700" x2="540" y2="666" />
+            <circle class="punto" cx="540" cy="700" r="6" />
+          </g>
+          <text class="rotulo s10-rot s10-rot-0" x="540" y="784" text-anchor="middle">SÁB 21:00</text>
+          <text class="rotulo s10-rot s10-rot-1" x="540" y="784" text-anchor="middle">DOMINGO</text>
+          <g class="s10-head-a">
+            <text class="nom" x="270" y="672" text-anchor="middle" fill="#efeee5" fill-opacity="0.55">JORGE</text>
+            <text class="sub" x="270" y="712" text-anchor="middle" fill="#efeee5" fill-opacity="0.4">A OJO</text>
+          </g>
+          <g class="s10-head-b">
+            <text class="nom" x="810" y="672" text-anchor="middle" fill="#5ce611">MÓNICA</text>
+            <text class="sub" x="810" y="712" text-anchor="middle" fill="#5ce611" fill-opacity="0.8">A SU MEDIDA</text>
+          </g>
+        </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-los-dos";
+      const P = "s10";
+      const DUR = 7.41;
+      const REL0 = 3420;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (sel) => root.querySelector(sel);
+      const qa = (sel) => Array.from(root.querySelectorAll(sel));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1 });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.04));
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s, org) => tl.to(el, { scale: s ?? 1.08, svgOrigin: org, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      let etqAct = null;
+      const etq = (sel, t) => {
+        if (etqAct) tl.to(etqAct, { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqAct = q(sel);
+      };
+      // reloj común: minutos desde las 0:00 (la aguja de minutos da 6 grados por minuto)
+      let rel = REL0;
+      const HH = q("." + P + "-hh"), MM = q("." + P + "-mm");
+      if (HH) {
+        gsap.set(HH, { rotation: rel * 0.5, svgOrigin: "540 700" });
+        gsap.set(MM, { rotation: rel * 6, svgOrigin: "540 700" });
+      }
+      const girar = (t, hasta, dur) => {
+        tl.to(HH, { rotation: hasta * 0.5, svgOrigin: "540 700", duration: dur ?? 0.9, ease: "power2.inOut" }, t);
+        tl.to(MM, { rotation: hasta * 6, svgOrigin: "540 700", duration: dur ?? 0.9, ease: "power2.inOut" }, t);
+        rel = hasta;
+      };
+      let rotAct = null;
+      const rotulo = (i, t) => {
+        if (rotAct) tl.to(rotAct, { opacity: 0, duration: 0.18 }, t - 0.1);
+        const el = q("." + P + "-rot-" + i);
+        if (t <= 0) gsap.set(el, { opacity: 1 }); else tl.fromTo(el, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+        rotAct = el;
+      };
+      const lado = (sel, op, t, d) => tl.to(qa(sel), { opacity: op, duration: d ?? 0.4, ease: "power2.out" }, t);
+
+      const IGUAL = 0.67, BUENOS = 1.17, DIF = 2.87, MONICA = 3.87, SABE = 5.47;
+      gsap.set(q(".s10-jo"), { x: 270, y: 1180 });
+      gsap.set(q(".s10-mo"), { x: 810, y: 1180 });
+      gsap.set(qa(".s10-jo-ojo, .s10-mo-ojo, .s10-bj-a, .s10-bj-b, .s10-pnl, .s10-card"), { opacity: 0 });
+      rotulo(0, 0);
+      girar(0.1, 4080, 1.0);
+      rotulo(1, 0.4);
+      tl.to(q(".s10-div"), { opacity: 0, duration: 0.3 }, 0);
+      tl.to(q(".s10-head-a"), { opacity: 1, duration: 0.3 }, 0);
+      dibujar(qa(".s10-jo-dib"), 0, 0.55, 0.4);
+      dibujar(qa(".s10-mo-dib"), 0.08, 0.55, 0.4);
+      tl.to(qa(".s10-jo-ojo, .s10-mo-ojo"), { opacity: 1, duration: 0.15 }, 0.35);
+      pop(q(".s10-bj-a"), 0.45); pop(q(".s10-bj-b"), 0.55);
+      // "igual": el signo igual; "buenos panaderos": tilde para los dos
+      dibujar(q(".s10-eq"), IGUAL - 0.1, 0.35);
+      punch(q(".s10-eq"), IGUAL + 0.3, 1.2, "540 971");
+      gsap.set(qa(".s10-tka, .s10-tkb"), { opacity: 1 });
+      dibujar(qa(".s10-tka-c"), BUENOS, 0.3); dibujar(qa(".s10-tka-t"), BUENOS + 0.15, 0.25);
+      dibujar(qa(".s10-tkb-c"), BUENOS + 0.15, 0.3); dibujar(qa(".s10-tkb-t"), BUENOS + 0.3, 0.25);
+      tl.to(qa(".s10-jo-in, .s10-mo-in"), { y: -6, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, BUENOS + 0.3);
+      etq(".s10-e1", IGUAL);
+      // "la diferencia": el panel de Mónica
+      pop(q(".s10-pnl"), DIF - 0.05);
+      tl.fromTo(qa(".s10-bar"), { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, transformOrigin: "50% 100%", duration: 0.35, stagger: 0.08, ease: "back.out(1.4)" }, DIF + 0.1);
+      tl.to(q(".s10-tkb"), { opacity: 0, duration: 0.25 }, DIF);
+      tl.to(q(".s10-tka"), { opacity: 0.45, duration: 0.25 }, DIF);
+      etq(".s10-e2", DIF - 0.1);
+      punch(q(".s10-pnl"), MONICA + 0.5, 1.06, "810 1118");
+      // "sabe lo que va a vender"
+      tl.to(q(".s10-pnl"), { opacity: 0, duration: 0.2 }, SABE - 0.15);
+      pop(q(".s10-card"), SABE - 0.05, 0.7);
+      punch(q(".s10-card"), SABE + 0.6, 1.06, "810 1118");
+      tl.to(q(".s10-mo-in"), { rotation: 3, svgOrigin: "0 -132", duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, SABE + 0.3);
+      etq(".s10-e3", SABE - 0.1);
+      tl.to(q("#s10-dibujo"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      tl.to(q("#s10-cab"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

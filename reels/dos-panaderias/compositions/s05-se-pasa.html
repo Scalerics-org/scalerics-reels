@@ -1,0 +1,196 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-se-pasa"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-se-pasa"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-se-pasa"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-se-pasa"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-se-pasa"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-se-pasa"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-se-pasa"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-se-pasa"] .ln-ro4 { fill: none; stroke: #c0625a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-se-pasa"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s05-se-pasa"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s05-se-pasa"] .ln-marca { stroke: #efeee5; stroke-opacity: 0.6; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s05-se-pasa"] .punto { fill: #efeee5; }
+    [data-composition-id="s05-se-pasa"] .vidrio, [data-composition-id="s05-se-pasa"] .relleno { fill: #5ce611; }
+    [data-composition-id="s05-se-pasa"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s05-se-pasa"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s05-se-pasa"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s05-se-pasa"] .t-osc { fill: #07111f; }
+    [data-composition-id="s05-se-pasa"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s05-se-pasa"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; }
+    [data-composition-id="s05-se-pasa"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.18em; fill: #efeee5; }
+    [data-composition-id="s05-se-pasa"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; fill-opacity: 0.6; opacity: 0; }
+    [data-composition-id="s05-se-pasa"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s05-se-pasa"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s05-se-pasa"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-se-pasa"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s05-se-pasa" data-width="1080" data-height="1920" data-duration="5.45">
+    <div id="s05-escena" class="capa clip" data-start="0" data-duration="5.45" data-track-index="0">
+      <div id="s05-dibujo" class="capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        
+        <line class="ln s05-suelo" x1="40" y1="1180" x2="1040" y2="1180" />
+        <g class="s05-pan-b"><g class="s05-pan-b-in">
+          <path class="ln s05-dib-b" d="M-180 0 V-230 H180 V0" />
+          <path class="ln s05-dib-b" d="M-200 -230 H200 L180 -272 H-180 Z" />
+          <path class="ln s05-dib-b" d="M-200 -230 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0" />
+          <rect class="ln s05-dib-b" x="-130" y="-336" width="260" height="50" rx="10" />
+          <text class="cartel s05-txt-b" x="0" y="-302" text-anchor="middle">PANADERÍA</text>
+          <rect class="ln s05-dib-b" x="-150" y="-190" width="200" height="130" rx="8" />
+          <rect class="ln-ac s05-vit-b" x="-150" y="-190" width="200" height="130" rx="8" />
+          <path class="ln4 s05-dib-b" d="M-142 -117 H42" />
+          <path class="ln4 s05-ml-b s05-ml-b-0" d="M-136 -133 C-133 -157 -103 -157 -100 -133 C-110 -143 -126 -143 -136 -133 Z M-124 -150 L-122 -143 M-112 -150 L-114 -143" />
+          <path class="ln4 s05-ml-b s05-ml-b-1" d="M-92 -133 C-89 -157 -59 -157 -56 -133 C-66 -143 -82 -143 -92 -133 Z M-80 -150 L-78 -143 M-68 -150 L-70 -143" />
+          <path class="ln4 s05-ml-b s05-ml-b-2" d="M-48 -133 C-45 -157 -15 -157 -12 -133 C-22 -143 -38 -143 -48 -133 Z M-36 -150 L-34 -143 M-24 -150 L-26 -143" />
+          <path class="ln4 s05-ml-b s05-ml-b-3" d="M-4 -133 C-1 -157 29 -157 32 -133 C22 -143 6 -143 -4 -133 Z M8 -150 L10 -143 M20 -150 L18 -143" />
+          <path class="ln4 s05-ml-b s05-ml-b-4" d="M-136 -75 C-133 -99 -103 -99 -100 -75 C-110 -85 -126 -85 -136 -75 Z M-124 -92 L-122 -85 M-112 -92 L-114 -85" />
+          <path class="ln4 s05-ml-b s05-ml-b-5" d="M-92 -75 C-89 -99 -59 -99 -56 -75 C-66 -85 -82 -85 -92 -75 Z M-80 -92 L-78 -85 M-68 -92 L-70 -85" />
+          <path class="ln4 s05-ml-b s05-ml-b-6" d="M-48 -75 C-45 -99 -15 -99 -12 -75 C-22 -85 -38 -85 -48 -75 Z M-36 -92 L-34 -85 M-24 -92 L-26 -85" />
+          <path class="ln4 s05-ml-b s05-ml-b-7" d="M-4 -75 C-1 -99 29 -99 32 -75 C22 -85 6 -85 -4 -75 Z M8 -92 L10 -85 M20 -92 L18 -85" />
+          <path class="ln s05-dib-b" d="M70 0 V-170 H150 V0" />
+          <rect class="vidrio s05-luz-b" x="84" y="-156" width="52" height="56" rx="4" />
+          <circle class="ln4 s05-dib-b" cx="88" cy="-80" r="4" />
+        </g></g>
+        <g class="s05-vit">
+          <rect class="ln s05-vd" x="70" y="826" width="340" height="294" rx="14" />
+          <path class="ln s05-vd" d="M96 1120 V1180 M384 1120 V1180" />
+        </g>
+        <g class="s05-f s05-f0"><path class="ln4 s05-fl" d="M86 898 H394" /><path class="ln4 s05-m s05-m0" d="M88.4 888.4 C92 859.6 128 859.6 131.6 888.4 C119.6 876.4 100.4 876.4 88.4 888.4 Z M102.8 868 L105.2 876.4 M117.2 868 L114.8 876.4" /><path class="ln4 s05-m s05-m0" d="M148.4 888.4 C152 859.6 188 859.6 191.6 888.4 C179.6 876.4 160.4 876.4 148.4 888.4 Z M162.8 868 L165.2 876.4 M177.2 868 L174.8 876.4" /><path class="ln4 s05-m s05-m0" d="M208.4 888.4 C212 859.6 248 859.6 251.6 888.4 C239.6 876.4 220.4 876.4 208.4 888.4 Z M222.8 868 L225.2 876.4 M237.2 868 L234.8 876.4" /><path class="ln4 s05-m s05-m0" d="M268.4 888.4 C272 859.6 308 859.6 311.6 888.4 C299.6 876.4 280.4 876.4 268.4 888.4 Z M282.8 868 L285.2 876.4 M297.2 868 L294.8 876.4" /><path class="ln4 s05-m s05-m0" d="M328.4 888.4 C332 859.6 368 859.6 371.6 888.4 C359.6 876.4 340.4 876.4 328.4 888.4 Z M342.8 868 L345.2 876.4 M357.2 868 L354.8 876.4" /></g>
+        <g class="s05-f s05-f1"><path class="ln4 s05-fl" d="M86 958 H394" /><path class="ln4 s05-m s05-m1" d="M88.4 948.4 C92 919.6 128 919.6 131.6 948.4 C119.6 936.4 100.4 936.4 88.4 948.4 Z M102.8 928 L105.2 936.4 M117.2 928 L114.8 936.4" /><path class="ln4 s05-m s05-m1" d="M148.4 948.4 C152 919.6 188 919.6 191.6 948.4 C179.6 936.4 160.4 936.4 148.4 948.4 Z M162.8 928 L165.2 936.4 M177.2 928 L174.8 936.4" /><path class="ln4 s05-m s05-m1" d="M208.4 948.4 C212 919.6 248 919.6 251.6 948.4 C239.6 936.4 220.4 936.4 208.4 948.4 Z M222.8 928 L225.2 936.4 M237.2 928 L234.8 936.4" /><path class="ln4 s05-m s05-m1" d="M268.4 948.4 C272 919.6 308 919.6 311.6 948.4 C299.6 936.4 280.4 936.4 268.4 948.4 Z M282.8 928 L285.2 936.4 M297.2 928 L294.8 936.4" /><path class="ln4 s05-m s05-m1" d="M328.4 948.4 C332 919.6 368 919.6 371.6 948.4 C359.6 936.4 340.4 936.4 328.4 948.4 Z M342.8 928 L345.2 936.4 M357.2 928 L354.8 936.4" /></g>
+        <g class="s05-f s05-f2"><path class="ln4 s05-fl" d="M86 1018 H394" /><path class="ln4 s05-m s05-m2" d="M88.4 1008.4 C92 979.6 128 979.6 131.6 1008.4 C119.6 996.4 100.4 996.4 88.4 1008.4 Z M102.8 988 L105.2 996.4 M117.2 988 L114.8 996.4" /><path class="ln4 s05-m s05-m2" d="M148.4 1008.4 C152 979.6 188 979.6 191.6 1008.4 C179.6 996.4 160.4 996.4 148.4 1008.4 Z M162.8 988 L165.2 996.4 M177.2 988 L174.8 996.4" /><path class="ln4 s05-m s05-m2" d="M208.4 1008.4 C212 979.6 248 979.6 251.6 1008.4 C239.6 996.4 220.4 996.4 208.4 1008.4 Z M222.8 988 L225.2 996.4 M237.2 988 L234.8 996.4" /><path class="ln4 s05-m s05-m2" d="M268.4 1008.4 C272 979.6 308 979.6 311.6 1008.4 C299.6 996.4 280.4 996.4 268.4 1008.4 Z M282.8 988 L285.2 996.4 M297.2 988 L294.8 996.4" /><path class="ln4 s05-m s05-m2" d="M328.4 1008.4 C332 979.6 368 979.6 371.6 1008.4 C359.6 996.4 340.4 996.4 328.4 1008.4 Z M342.8 988 L345.2 996.4 M357.2 988 L354.8 996.4" /></g>
+        <g class="s05-f s05-f3"><path class="ln4 s05-fl" d="M86 1078 H394" /><path class="ln4 s05-m s05-m3" d="M88.4 1068.4 C92 1039.6 128 1039.6 131.6 1068.4 C119.6 1056.4 100.4 1056.4 88.4 1068.4 Z M102.8 1048 L105.2 1056.4 M117.2 1048 L114.8 1056.4" /><path class="ln4 s05-m s05-m3" d="M148.4 1068.4 C152 1039.6 188 1039.6 191.6 1068.4 C179.6 1056.4 160.4 1056.4 148.4 1068.4 Z M162.8 1048 L165.2 1056.4 M177.2 1048 L174.8 1056.4" /><path class="ln4 s05-m s05-m3" d="M208.4 1068.4 C212 1039.6 248 1039.6 251.6 1068.4 C239.6 1056.4 220.4 1056.4 208.4 1068.4 Z M222.8 1048 L225.2 1056.4 M237.2 1048 L234.8 1056.4" /><path class="ln4 s05-m s05-m3" d="M268.4 1068.4 C272 1039.6 308 1039.6 311.6 1068.4 C299.6 1056.4 280.4 1056.4 268.4 1068.4 Z M282.8 1048 L285.2 1056.4 M297.2 1048 L294.8 1056.4" /><path class="ln4 s05-m s05-m3" d="M328.4 1068.4 C332 1039.6 368 1039.6 371.6 1068.4 C359.6 1056.4 340.4 1056.4 328.4 1068.4 Z M342.8 1048 L345.2 1056.4 M357.2 1048 L354.8 1056.4" /></g>
+        <text class="lex t-ro s05-mas" x="70" y="806" font-size="52">+3</text>
+        <g class="s05-bolsa">
+          <path class="ln" d="M450 862 H520 L512 944 H458 Z" />
+          <path class="ln4" d="M470 862 q15 -24 30 0" />
+          <path class="ln4" d="M485 896 c-9 -10 -22 2 0 20 c22 -18 9 -30 0 -20 Z" />
+        </g>
+        <g class="s05-tacho">
+          <path class="ln-ro" d="M452 1086 H518 L510 1170 H460 Z" />
+          <path class="ln-ro" d="M442 1086 H528 M472 1086 V1074 H498 V1086" />
+          <path class="ln-ro4" d="M474 1104 V1152 M496 1104 V1152" />
+        </g>
+        </svg>
+        <div class="etiqueta"><span class="s05-e1">Un domingo</span><span class="s05-e2">Sobran 3 bandejas</span><span class="s05-e3">Regaladas o a la basura</span></div>
+      </div>
+      <div id="s05-cab" class="capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s05-head">
+          <line class="ln-div s05-div" x1="540" y1="812" x2="540" y2="1220" />
+          <g class="s05-reloj">
+            <circle class="ln s05-reloj-c" cx="540" cy="700" r="46" />
+            <line class="ln-marca" x1="540.0" y1="670.0" x2="540.0" y2="661.0" /><line class="ln-marca" x1="557.0" y1="670.6" x2="559.5" y2="666.2" /><line class="ln-marca" x1="569.4" y1="683.0" x2="573.8" y2="680.5" /><line class="ln-marca" x1="570.0" y1="700.0" x2="579.0" y2="700.0" /><line class="ln-marca" x1="569.4" y1="717.0" x2="573.8" y2="719.5" /><line class="ln-marca" x1="557.0" y1="729.4" x2="559.5" y2="733.8" /><line class="ln-marca" x1="540.0" y1="730.0" x2="540.0" y2="739.0" /><line class="ln-marca" x1="523.0" y1="729.4" x2="520.5" y2="733.8" /><line class="ln-marca" x1="510.6" y1="717.0" x2="506.2" y2="719.5" /><line class="ln-marca" x1="510.0" y1="700.0" x2="501.0" y2="700.0" /><line class="ln-marca" x1="510.6" y1="683.0" x2="506.2" y2="680.5" /><line class="ln-marca" x1="523.0" y1="670.6" x2="520.5" y2="666.2" />
+            <line class="ln s05-hh" x1="540" y1="700" x2="540" y2="676" />
+            <line class="ln4 s05-mm" x1="540" y1="700" x2="540" y2="666" />
+            <circle class="punto" cx="540" cy="700" r="6" />
+          </g>
+          <text class="rotulo s05-rot s05-rot-0" x="540" y="784" text-anchor="middle">CADA DÍA</text>
+          <text class="rotulo s05-rot s05-rot-1" x="540" y="784" text-anchor="middle">DOM 13:00</text>
+          <g class="s05-head-a">
+            <text class="nom" x="270" y="672" text-anchor="middle" fill="#efeee5" fill-opacity="0.55">JORGE</text>
+            <text class="sub" x="270" y="712" text-anchor="middle" fill="#efeee5" fill-opacity="0.4">A OJO</text>
+          </g>
+          <g class="s05-head-b">
+            <text class="nom" x="810" y="672" text-anchor="middle" fill="#5ce611">MÓNICA</text>
+            <text class="sub" x="810" y="712" text-anchor="middle" fill="#5ce611" fill-opacity="0.8">A SU MEDIDA</text>
+          </g>
+        </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-se-pasa";
+      const P = "s05";
+      const DUR = 5.45;
+      const REL0 = 1680;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (sel) => root.querySelector(sel);
+      const qa = (sel) => Array.from(root.querySelectorAll(sel));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1 });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.04));
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s, org) => tl.to(el, { scale: s ?? 1.08, svgOrigin: org, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      let etqAct = null;
+      const etq = (sel, t) => {
+        if (etqAct) tl.to(etqAct, { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqAct = q(sel);
+      };
+      // reloj común: minutos desde las 0:00 (la aguja de minutos da 6 grados por minuto)
+      let rel = REL0;
+      const HH = q("." + P + "-hh"), MM = q("." + P + "-mm");
+      if (HH) {
+        gsap.set(HH, { rotation: rel * 0.5, svgOrigin: "540 700" });
+        gsap.set(MM, { rotation: rel * 6, svgOrigin: "540 700" });
+      }
+      const girar = (t, hasta, dur) => {
+        tl.to(HH, { rotation: hasta * 0.5, svgOrigin: "540 700", duration: dur ?? 0.9, ease: "power2.inOut" }, t);
+        tl.to(MM, { rotation: hasta * 6, svgOrigin: "540 700", duration: dur ?? 0.9, ease: "power2.inOut" }, t);
+        rel = hasta;
+      };
+      let rotAct = null;
+      const rotulo = (i, t) => {
+        if (rotAct) tl.to(rotAct, { opacity: 0, duration: 0.18 }, t - 0.1);
+        const el = q("." + P + "-rot-" + i);
+        if (t <= 0) gsap.set(el, { opacity: 1 }); else tl.fromTo(el, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+        rotAct = el;
+      };
+      const lado = (sel, op, t, d) => tl.to(qa(sel), { opacity: op, duration: d ?? 0.4, ease: "power2.out" }, t);
+
+      const DOMINGO = 0.1, SOBRAN = 1.55, TRES = 1.8, REGALADAS = 3.4, BASURA = 4.4;
+      gsap.set(q(".s05-pan-b"), { x: 810, y: 1180, opacity: 0.28 });
+      gsap.set(q(".s05-luz-b"), { opacity: 0.9 });
+      gsap.set(qa(".s05-mas, .s05-bolsa, .s05-tacho"), { opacity: 0 });
+      rotulo(0, 0);
+      girar(0.0, 2220, 0.9);
+      rotulo(1, DOMINGO + 0.2);
+      etq(".s05-e1", 0.1);
+      dibujar(qa(".s05-vd"), 0, 0.5, 0.4);
+      // la vitrina se llena estante por estante
+      qa(".s05-f").forEach((g, i) => {
+        tl.fromTo(g, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, 0.15 + i * 0.22);
+      });
+      tl.to(q(".s05-vit"), { scale: 1.03, svgOrigin: "240 973", duration: 0.2, yoyo: true, repeat: 1 }, SOBRAN);
+      // "tres bandejas": las tres de abajo en rojo apagado
+      [1, 2, 3].forEach((i, k) => {
+        tl.to(qa(".s05-f" + i + " path"), { stroke: "#c0625a", duration: 0.2 }, TRES + k * 0.12);
+        tl.fromTo(q(".s05-f" + i), { x: 0 }, { x: 6, duration: 0.06, yoyo: true, repeat: 3 }, TRES + k * 0.12);
+      });
+      pop(q(".s05-mas"), TRES + 0.2, 0.6);
+      etq(".s05-e2", SOBRAN);
+      // "regaladas": una bandeja a la bolsita
+      pop(q(".s05-bolsa"), REGALADAS - 0.35);
+      tl.to(q(".s05-f1"), { x: 255, y: -40, scale: 0.3, svgOrigin: "240 958", duration: 0.5, ease: "power2.inOut" }, REGALADAS);
+      tl.to(q(".s05-f1"), { opacity: 0, duration: 0.15 }, REGALADAS + 0.45);
+      punch(q(".s05-bolsa"), REGALADAS + 0.5, 1.1, "485 900");
+      etq(".s05-e3", REGALADAS - 0.1);
+      // "basura": otra al tacho
+      pop(q(".s05-tacho"), BASURA - 0.4);
+      tl.to(q(".s05-f3"), { x: 245, y: 10, scale: 0.3, svgOrigin: "240 1078", duration: 0.4, ease: "power2.in" }, BASURA - 0.05);
+      tl.to(q(".s05-f3"), { y: 60, opacity: 0, duration: 0.2, ease: "power2.in" }, BASURA + 0.35);
+      tl.to(q(".s05-tacho"), { rotation: 5, svgOrigin: "485 1170", duration: 0.1, yoyo: true, repeat: 3 }, BASURA + 0.5);
+      tl.to(q("#s05-dibujo"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

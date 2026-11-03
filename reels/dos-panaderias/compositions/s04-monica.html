@@ -1,0 +1,241 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-monica"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-monica"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-monica"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-monica"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-monica"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-monica"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-monica"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-monica"] .ln-ro4 { fill: none; stroke: #c0625a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-monica"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s04-monica"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s04-monica"] .ln-marca { stroke: #efeee5; stroke-opacity: 0.6; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s04-monica"] .punto { fill: #efeee5; }
+    [data-composition-id="s04-monica"] .vidrio, [data-composition-id="s04-monica"] .relleno { fill: #5ce611; }
+    [data-composition-id="s04-monica"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s04-monica"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s04-monica"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s04-monica"] .t-osc { fill: #07111f; }
+    [data-composition-id="s04-monica"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s04-monica"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; }
+    [data-composition-id="s04-monica"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.18em; fill: #efeee5; }
+    [data-composition-id="s04-monica"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; fill-opacity: 0.6; opacity: 0; }
+    [data-composition-id="s04-monica"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s04-monica"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s04-monica"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-monica"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s04-monica" data-width="1080" data-height="1920" data-duration="6.69">
+    <div id="s04-escena" class="capa clip" data-start="0" data-duration="6.69" data-track-index="0">
+      <div id="s04-dibujo" class="capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        
+        <line class="ln s04-suelo" x1="40" y1="1180" x2="1040" y2="1180" />
+        <g class="s04-pan-a"><g class="s04-pan-a-in">
+          <path class="ln s04-dib-a" d="M-180 0 V-230 H180 V0" />
+          <path class="ln s04-dib-a" d="M-200 -230 H200 L180 -272 H-180 Z" />
+          <path class="ln s04-dib-a" d="M-200 -230 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0" />
+          <rect class="ln s04-dib-a" x="-130" y="-336" width="260" height="50" rx="10" />
+          <text class="cartel s04-txt-a" x="0" y="-302" text-anchor="middle">PANADERÍA</text>
+          <rect class="ln s04-dib-a" x="-150" y="-190" width="200" height="130" rx="8" />
+          <rect class="ln-ac s04-vit-a" x="-150" y="-190" width="200" height="130" rx="8" />
+          <path class="ln4 s04-dib-a" d="M-142 -117 H42" />
+          <path class="ln4 s04-ml-a s04-ml-a-0" d="M-136 -133 C-133 -157 -103 -157 -100 -133 C-110 -143 -126 -143 -136 -133 Z M-124 -150 L-122 -143 M-112 -150 L-114 -143" />
+          <path class="ln4 s04-ml-a s04-ml-a-1" d="M-92 -133 C-89 -157 -59 -157 -56 -133 C-66 -143 -82 -143 -92 -133 Z M-80 -150 L-78 -143 M-68 -150 L-70 -143" />
+          <path class="ln4 s04-ml-a s04-ml-a-2" d="M-48 -133 C-45 -157 -15 -157 -12 -133 C-22 -143 -38 -143 -48 -133 Z M-36 -150 L-34 -143 M-24 -150 L-26 -143" />
+          <path class="ln4 s04-ml-a s04-ml-a-3" d="M-4 -133 C-1 -157 29 -157 32 -133 C22 -143 6 -143 -4 -133 Z M8 -150 L10 -143 M20 -150 L18 -143" />
+          <path class="ln4 s04-ml-a s04-ml-a-4" d="M-136 -75 C-133 -99 -103 -99 -100 -75 C-110 -85 -126 -85 -136 -75 Z M-124 -92 L-122 -85 M-112 -92 L-114 -85" />
+          <path class="ln4 s04-ml-a s04-ml-a-5" d="M-92 -75 C-89 -99 -59 -99 -56 -75 C-66 -85 -82 -85 -92 -75 Z M-80 -92 L-78 -85 M-68 -92 L-70 -85" />
+          <path class="ln4 s04-ml-a s04-ml-a-6" d="M-48 -75 C-45 -99 -15 -99 -12 -75 C-22 -85 -38 -85 -48 -75 Z M-36 -92 L-34 -85 M-24 -92 L-26 -85" />
+          <path class="ln4 s04-ml-a s04-ml-a-7" d="M-4 -75 C-1 -99 29 -99 32 -75 C22 -85 6 -85 -4 -75 Z M8 -92 L10 -85 M20 -92 L18 -85" />
+          <path class="ln s04-dib-a" d="M70 0 V-170 H150 V0" />
+          <rect class="vidrio s04-luz-a" x="84" y="-156" width="52" height="56" rx="4" />
+          <circle class="ln4 s04-dib-a" cx="88" cy="-80" r="4" />
+        </g></g>
+        <g class="s04-pan-b"><g class="s04-pan-b-in">
+          <path class="ln s04-dib-b" d="M-180 0 V-230 H180 V0" />
+          <path class="ln s04-dib-b" d="M-200 -230 H200 L180 -272 H-180 Z" />
+          <path class="ln s04-dib-b" d="M-200 -230 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0" />
+          <rect class="ln s04-dib-b" x="-130" y="-336" width="260" height="50" rx="10" />
+          <text class="cartel s04-txt-b" x="0" y="-302" text-anchor="middle">PANADERÍA</text>
+          <rect class="ln s04-dib-b" x="-150" y="-190" width="200" height="130" rx="8" />
+          <rect class="ln-ac s04-vit-b" x="-150" y="-190" width="200" height="130" rx="8" />
+          <path class="ln4 s04-dib-b" d="M-142 -117 H42" />
+          <path class="ln4 s04-ml-b s04-ml-b-0" d="M-136 -133 C-133 -157 -103 -157 -100 -133 C-110 -143 -126 -143 -136 -133 Z M-124 -150 L-122 -143 M-112 -150 L-114 -143" />
+          <path class="ln4 s04-ml-b s04-ml-b-1" d="M-92 -133 C-89 -157 -59 -157 -56 -133 C-66 -143 -82 -143 -92 -133 Z M-80 -150 L-78 -143 M-68 -150 L-70 -143" />
+          <path class="ln4 s04-ml-b s04-ml-b-2" d="M-48 -133 C-45 -157 -15 -157 -12 -133 C-22 -143 -38 -143 -48 -133 Z M-36 -150 L-34 -143 M-24 -150 L-26 -143" />
+          <path class="ln4 s04-ml-b s04-ml-b-3" d="M-4 -133 C-1 -157 29 -157 32 -133 C22 -143 6 -143 -4 -133 Z M8 -150 L10 -143 M20 -150 L18 -143" />
+          <path class="ln4 s04-ml-b s04-ml-b-4" d="M-136 -75 C-133 -99 -103 -99 -100 -75 C-110 -85 -126 -85 -136 -75 Z M-124 -92 L-122 -85 M-112 -92 L-114 -85" />
+          <path class="ln4 s04-ml-b s04-ml-b-5" d="M-92 -75 C-89 -99 -59 -99 -56 -75 C-66 -85 -82 -85 -92 -75 Z M-80 -92 L-78 -85 M-68 -92 L-70 -85" />
+          <path class="ln4 s04-ml-b s04-ml-b-6" d="M-48 -75 C-45 -99 -15 -99 -12 -75 C-22 -85 -38 -85 -48 -75 Z M-36 -92 L-34 -85 M-24 -92 L-26 -85" />
+          <path class="ln4 s04-ml-b s04-ml-b-7" d="M-4 -75 C-1 -99 29 -99 32 -75 C22 -85 6 -85 -4 -75 Z M8 -92 L10 -85 M20 -92 L18 -85" />
+          <path class="ln s04-dib-b" d="M70 0 V-170 H150 V0" />
+          <rect class="vidrio s04-luz-b" x="84" y="-156" width="52" height="56" rx="4" />
+          <circle class="ln4 s04-dib-b" cx="88" cy="-80" r="4" />
+        </g></g>
+        <g class="s04-mo "><g class="s04-mo-in"><g transform="scale(1.25)">
+          <path class="ln s04-mo-dib" d="M-24 -268 V-286 C-46 -290 -42 -324 -16 -316 C-10 -336 10 -336 16 -316 C42 -324 46 -290 24 -286 V-268 Z" />
+          <path class="ln4 s04-mo-dib" d="M-24 -280 H24" />
+          <circle class="ln s04-mo-dib" cx="0" cy="-238" r="27" />
+          <circle class="punto s04-mo-ojo" cx="-10" cy="-242" r="3.5" />
+          <circle class="punto s04-mo-ojo" cx="10" cy="-242" r="3.5" />
+          <path class="ln s04-mo-dib" d="M-26 -250 q-10 24 -6 46 M26 -250 q10 24 6 46" />
+          <path class="ln s04-mo-dib" d="M-64 -120 V-172 Q-62 -212 0 -214 Q62 -212 64 -172 V-120" />
+          <path class="ln4 s04-mo-dib" d="M-30 -120 V-186 H30 V-120" />
+          <path class="ln s04-mo-dib" d="M-110 -120 H280 M-100 -120 V0 M270 -120 V0" />
+        </g></g></g>
+        <g class="s04-pan"><g transform="translate(818 1014) scale(0.7)"><rect class="ln s04-pan-d" x="-70" y="-18" width="140" height="36" rx="18" />
+          <path class="ln4 s04-pan-d" d="M-40 -9 l12 18 M-8 -9 l12 18 M24 -9 l12 18" /></g></g>
+        <g class="s04-caja">
+          <rect class="ln" x="895" y="985" width="120" height="45" rx="6" />
+          <rect class="ln" x="912" y="920" width="86" height="58" rx="6" />
+          <rect class="relleno s04-pant" x="920" y="928" width="70" height="42" rx="3" />
+          <path class="ln4" d="M910 1000 H980 M910 1014 H950" />
+        </g>
+        <path class="ln-ac s04-cinta" d="M880 1044 V905 H1030 V1044 Z" />
+        <path class="ln-ac4 s04-marcas" d="M900 905 v12 M920 905 v8 M940 905 v12 M960 905 v8 M980 905 v12 M1000 905 v8 M1030 925 h-12 M1030 945 h-8 M1030 965 h-12 M1030 985 h-8 M1030 1005 h-12 M1030 1025 h-8" />
+        <rect class="ln4 s04-tk s04-tk-0" x="-16" y="-20" width="32" height="40" rx="3" /><rect class="ln4 s04-tk s04-tk-1" x="-16" y="-20" width="32" height="40" rx="3" /><rect class="ln4 s04-tk s04-tk-2" x="-16" y="-20" width="32" height="40" rx="3" />
+        <g class="s04-sem">
+          <path class="ln-ac s04-bar s04-bar-0" d="M830 858 V836" />
+          <text class="mono t-ac s04-dia" x="830" y="888" text-anchor="middle" font-size="24" style="letter-spacing:0">L</text>
+          <path class="ln-ac s04-bar s04-bar-1" d="M862 858 V832" />
+          <text class="mono t-ac s04-dia" x="862" y="888" text-anchor="middle" font-size="24" style="letter-spacing:0">M</text>
+          <path class="ln-ac s04-bar s04-bar-2" d="M894 858 V834" />
+          <text class="mono t-ac s04-dia" x="894" y="888" text-anchor="middle" font-size="24" style="letter-spacing:0">M</text>
+          <path class="ln-ac s04-bar s04-bar-3" d="M926 858 V828" />
+          <text class="mono t-ac s04-dia" x="926" y="888" text-anchor="middle" font-size="24" style="letter-spacing:0">J</text>
+          <path class="ln-ac s04-bar s04-bar-4" d="M958 858 V822" />
+          <text class="mono t-ac s04-dia" x="958" y="888" text-anchor="middle" font-size="24" style="letter-spacing:0">V</text>
+          <path class="ln-ac s04-bar s04-bar-5" d="M990 858 V814" />
+          <text class="mono t-ac s04-dia" x="990" y="888" text-anchor="middle" font-size="24" style="letter-spacing:0">S</text>
+          <path class="ln-ac s04-bar s04-bar-6" d="M1022 858 V806" />
+          <text class="mono t-ac s04-dia" x="1022" y="888" text-anchor="middle" font-size="24" style="letter-spacing:0">D</text>
+        </g>
+        </svg>
+        <div class="etiqueta"><span class="s04-e1">La de Mónica</span><span class="s04-e2">El mismo pan</span><span class="s04-e3">Hecho a su medida</span><span class="s04-e4">Anota cada día</span></div>
+      </div>
+      <div id="s04-cab" class="capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s04-head">
+          <line class="ln-div s04-div" x1="540" y1="812" x2="540" y2="1220" />
+          <g class="s04-reloj">
+            <circle class="ln s04-reloj-c" cx="540" cy="700" r="46" />
+            <line class="ln-marca" x1="540.0" y1="670.0" x2="540.0" y2="661.0" /><line class="ln-marca" x1="557.0" y1="670.6" x2="559.5" y2="666.2" /><line class="ln-marca" x1="569.4" y1="683.0" x2="573.8" y2="680.5" /><line class="ln-marca" x1="570.0" y1="700.0" x2="579.0" y2="700.0" /><line class="ln-marca" x1="569.4" y1="717.0" x2="573.8" y2="719.5" /><line class="ln-marca" x1="557.0" y1="729.4" x2="559.5" y2="733.8" /><line class="ln-marca" x1="540.0" y1="730.0" x2="540.0" y2="739.0" /><line class="ln-marca" x1="523.0" y1="729.4" x2="520.5" y2="733.8" /><line class="ln-marca" x1="510.6" y1="717.0" x2="506.2" y2="719.5" /><line class="ln-marca" x1="510.0" y1="700.0" x2="501.0" y2="700.0" /><line class="ln-marca" x1="510.6" y1="683.0" x2="506.2" y2="680.5" /><line class="ln-marca" x1="523.0" y1="670.6" x2="520.5" y2="666.2" />
+            <line class="ln s04-hh" x1="540" y1="700" x2="540" y2="676" />
+            <line class="ln4 s04-mm" x1="540" y1="700" x2="540" y2="666" />
+            <circle class="punto" cx="540" cy="700" r="6" />
+          </g>
+          <text class="rotulo s04-rot s04-rot-0" x="540" y="784" text-anchor="middle">DOM 04:00</text>
+          <text class="rotulo s04-rot s04-rot-1" x="540" y="784" text-anchor="middle">CADA DÍA</text>
+          <g class="s04-head-a">
+            <text class="nom" x="270" y="672" text-anchor="middle" fill="#efeee5" fill-opacity="0.55">JORGE</text>
+            <text class="sub" x="270" y="712" text-anchor="middle" fill="#efeee5" fill-opacity="0.4">A OJO</text>
+          </g>
+          <g class="s04-head-b">
+            <text class="nom" x="810" y="672" text-anchor="middle" fill="#5ce611">MÓNICA</text>
+            <text class="sub" x="810" y="712" text-anchor="middle" fill="#5ce611" fill-opacity="0.8">A SU MEDIDA</text>
+          </g>
+        </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-monica";
+      const P = "s04";
+      const DUR = 6.69;
+      const REL0 = 240;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (sel) => root.querySelector(sel);
+      const qa = (sel) => Array.from(root.querySelectorAll(sel));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1 });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.04));
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s, org) => tl.to(el, { scale: s ?? 1.08, svgOrigin: org, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      let etqAct = null;
+      const etq = (sel, t) => {
+        if (etqAct) tl.to(etqAct, { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqAct = q(sel);
+      };
+      // reloj común: minutos desde las 0:00 (la aguja de minutos da 6 grados por minuto)
+      let rel = REL0;
+      const HH = q("." + P + "-hh"), MM = q("." + P + "-mm");
+      if (HH) {
+        gsap.set(HH, { rotation: rel * 0.5, svgOrigin: "540 700" });
+        gsap.set(MM, { rotation: rel * 6, svgOrigin: "540 700" });
+      }
+      const girar = (t, hasta, dur) => {
+        tl.to(HH, { rotation: hasta * 0.5, svgOrigin: "540 700", duration: dur ?? 0.9, ease: "power2.inOut" }, t);
+        tl.to(MM, { rotation: hasta * 6, svgOrigin: "540 700", duration: dur ?? 0.9, ease: "power2.inOut" }, t);
+        rel = hasta;
+      };
+      let rotAct = null;
+      const rotulo = (i, t) => {
+        if (rotAct) tl.to(rotAct, { opacity: 0, duration: 0.18 }, t - 0.1);
+        const el = q("." + P + "-rot-" + i);
+        if (t <= 0) gsap.set(el, { opacity: 1 }); else tl.fromTo(el, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+        rotAct = el;
+      };
+      const lado = (sel, op, t, d) => tl.to(qa(sel), { opacity: op, duration: d ?? 0.4, ease: "power2.out" }, t);
+
+      const DER = 0.19, MONICA = 1.09, PAN = 2.2, SISTEMA = 3.19, MEDIDA = 3.79, ANOTA = 4.39, CADA = 5.39;
+      gsap.set(q(".s04-pan-a"), { x: 270, y: 1180, opacity: 0.28 });
+      gsap.set(q(".s04-pan-b"), { x: 810, y: 1180 });
+      gsap.set(q(".s04-mo"), { x: 680, y: 1180 });
+      gsap.set(qa(".s04-vit-a, .s04-luz-a"), { opacity: 0 });
+      gsap.set(qa(".s04-luz-b"), { opacity: 0.9 });
+      gsap.set(qa(".s04-mo-ojo, .s04-caja, .s04-sem, .s04-tk, .s04-marcas"), { opacity: 0 });
+      rotulo(0, 0);
+      dibujar(qa(".s04-dib-b"), 0, 0.5, 0.4);
+      dibujar(q(".s04-vit-b"), 0, 0.5, 0.4);
+      punch(q(".s04-pan-b-in"), DER, 1.06, "0 -150");
+      etq(".s04-e1", 0.15);
+      tl.to(q(".s04-pan-b"), { opacity: 0, duration: 0.35 }, MONICA - 0.15);
+      dibujar(qa(".s04-mo-dib"), MONICA - 0.2, 0.5);
+      tl.to(qa(".s04-mo-ojo"), { opacity: 1, duration: 0.15 }, MONICA + 0.4);
+      dibujar(qa(".s04-pan-d"), PAN - 0.15, 0.4);
+      etq(".s04-e2", PAN - 0.1);
+      // "sistema": la caja con pantalla; "a su medida": la cinta métrica
+      pop(q(".s04-caja"), SISTEMA - 0.05);
+      tl.fromTo(q(".s04-pant"), { opacity: 0 }, { opacity: 0.85, duration: 0.2 }, SISTEMA + 0.2);
+      dibujar(q(".s04-cinta"), MEDIDA - 0.1, 0.6);
+      tl.to(q(".s04-marcas"), { opacity: 1, duration: 0.3 }, MEDIDA + 0.3);
+      etq(".s04-e3", SISTEMA);
+      // "anota qué se vende": tickets que entran a la caja
+      qa(".s04-tk").forEach((el, i) => {
+        const t = ANOTA - 0.1 + i * 0.28;
+        tl.fromTo(el, { x: 600 + i * 30, y: 960, opacity: 0, rotation: -12 }, { x: 955, y: 945, opacity: 1, rotation: 0, duration: 0.35, ease: "power2.out" }, t);
+        tl.to(el, { scale: 0.3, opacity: 0, duration: 0.15, ease: "power2.in" }, t + 0.35);
+        tl.to(q(".s04-pant"), { opacity: 0.4, duration: 0.06, yoyo: true, repeat: 1 }, t + 0.4);
+      });
+      // "cada día": la semana en barras y el reloj gira un día entero
+      tl.to(q(".s04-sem"), { opacity: 1, duration: 0.2 }, CADA - 0.2);
+      dibujar(qa(".s04-bar"), CADA - 0.15, 0.35);
+      tl.fromTo(qa(".s04-dia"), { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.05 }, CADA - 0.15);
+      girar(CADA - 0.3, 240 + 1440, 1.3);
+      rotulo(1, CADA - 0.2);
+      etq(".s04-e4", ANOTA);
+      tl.to(q("#s04-dibujo"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

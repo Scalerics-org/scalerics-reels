@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ro4 { fill: none; stroke: #c0625a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s12-cta"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s12-cta"] .ln-marca { stroke: #efeee5; stroke-opacity: 0.6; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s12-cta"] .punto { fill: #efeee5; }
+    [data-composition-id="s12-cta"] .vidrio, [data-composition-id="s12-cta"] .relleno { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s12-cta"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s12-cta"] .t-osc { fill: #07111f; }
+    [data-composition-id="s12-cta"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s12-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; }
+    [data-composition-id="s12-cta"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.18em; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; fill-opacity: 0.6; opacity: 0; }
+    [data-composition-id="s12-cta"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s12-cta"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s12-cta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s12-cta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="6.35">
+    <div id="s12-escena" class="capa clip" data-start="0" data-duration="6.35" data-track-index="0">
+      <div id="s12-dibujo" class="capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        
+        <g class="s12-reloj">
+          <circle class="ln s12-rc" cx="540" cy="760" r="84" />
+          <line class="ln-marca" x1="540.0" y1="706.0" x2="540.0" y2="690.0" /><line class="ln-marca" x1="571.0" y1="706.3" x2="575.0" y2="699.4" /><line class="ln-marca" x1="593.7" y1="729.0" x2="600.6" y2="725.0" /><line class="ln-marca" x1="594.0" y1="760.0" x2="610.0" y2="760.0" /><line class="ln-marca" x1="593.7" y1="791.0" x2="600.6" y2="795.0" /><line class="ln-marca" x1="571.0" y1="813.7" x2="575.0" y2="820.6" /><line class="ln-marca" x1="540.0" y1="814.0" x2="540.0" y2="830.0" /><line class="ln-marca" x1="509.0" y1="813.7" x2="505.0" y2="820.6" /><line class="ln-marca" x1="486.3" y1="791.0" x2="479.4" y2="795.0" /><line class="ln-marca" x1="486.0" y1="760.0" x2="470.0" y2="760.0" /><line class="ln-marca" x1="486.3" y1="729.0" x2="479.4" y2="725.0" /><line class="ln-marca" x1="509.0" y1="706.3" x2="505.0" y2="699.4" />
+          <line class="ln s12-h" x1="540" y1="760" x2="540" y2="716" />
+          <line class="ln4 s12-m" x1="540" y1="760" x2="540" y2="696" />
+          <circle class="punto" cx="540" cy="760" r="8" />
+        </g>
+        <path class="ln4 s12-luna" stroke-opacity="0.6" d="M690 712 A34 34 0 1 0 690 770 A26 26 0 1 1 690 712 Z" />
+        <g class="s12-lib">
+          <rect class="ln4" x="350" y="884" width="380" height="120" rx="12" />
+          <path class="ln4" d="M380 884 v-14 M430 884 v-14 M480 884 v-14 M530 884 v-14 M580 884 v-14 M630 884 v-14 M680 884 v-14" />
+          <text class="lex t-cr s12-n s12-n0" x="420" y="962" text-anchor="middle" font-size="36">¿6?</text>
+          <text class="lex t-cr s12-n s12-n1" x="530" y="962" text-anchor="middle" font-size="36">¿8?</text>
+          <text class="lex t-cr s12-n s12-n2" x="650" y="962" text-anchor="middle" font-size="36">¿10?</text>
+          <path class="ln-ro s12-tach" d="M384 950 L456 936 M494 950 L566 936 M606 950 L694 936" />
+        </g>
+        <g class="s12-btn">
+          <rect class="ln-ac" x="250" y="1060" width="500" height="112" rx="56" />
+          <text class="lex t-ac" x="560" y="1132" text-anchor="middle" font-size="46">MANDÁSELO</text>
+          <g class="s12-avion"><path class="ln-ac4" d="M300 1118 L370 1088 L350 1150 L336 1126 Z M336 1126 L370 1088" /></g>
+        </g>
+        <g class="s12-gorro"><path class="ln" d="M796 1146 V1124 C772 1120 776 1084 804 1092 C810 1070 834 1070 840 1092 C868 1084 872 1120 848 1124 V1146 Z" /><path class="ln4" d="M796 1134 H848" /></g>
+        </svg>
+        <div class="etiqueta"><span class="s12-e1">A las 4 de la mañana</span></div>
+      </div>
+      
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const P = "s12";
+      const DUR = 6.35;
+      const REL0 = 0;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (sel) => root.querySelector(sel);
+      const qa = (sel) => Array.from(root.querySelectorAll(sel));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1 });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.04));
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s, org) => tl.to(el, { scale: s ?? 1.08, svgOrigin: org, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      let etqAct = null;
+      const etq = (sel, t) => {
+        if (etqAct) tl.to(etqAct, { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqAct = q(sel);
+      };
+      // reloj común: minutos desde las 0:00 (la aguja de minutos da 6 grados por minuto)
+      let rel = REL0;
+      const HH = q("." + P + "-hh"), MM = q("." + P + "-mm");
+      if (HH) {
+        gsap.set(HH, { rotation: rel * 0.5, svgOrigin: "540 700" });
+        gsap.set(MM, { rotation: rel * 6, svgOrigin: "540 700" });
+      }
+      const girar = (t, hasta, dur) => {
+        tl.to(HH, { rotation: hasta * 0.5, svgOrigin: "540 700", duration: dur ?? 0.9, ease: "power2.inOut" }, t);
+        tl.to(MM, { rotation: hasta * 6, svgOrigin: "540 700", duration: dur ?? 0.9, ease: "power2.inOut" }, t);
+        rel = hasta;
+      };
+      let rotAct = null;
+      const rotulo = (i, t) => {
+        if (rotAct) tl.to(rotAct, { opacity: 0, duration: 0.18 }, t - 0.1);
+        const el = q("." + P + "-rot-" + i);
+        if (t <= 0) gsap.set(el, { opacity: 1 }); else tl.fromTo(el, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+        rotAct = el;
+      };
+      const lado = (sel, op, t, d) => tl.to(qa(sel), { opacity: op, duration: d ?? 0.4, ease: "power2.out" }, t);
+
+      const PANADERO = 0.46, CUENTAS = 1.46, CUATRO = 1.96;
+      gsap.set(qa(".s12-n, .s12-gorro, .s12-luna"), { opacity: 0 });
+      gsap.set(q(".s12-h"), { rotation: 110, svgOrigin: "540 760" });
+      gsap.set(q(".s12-m"), { rotation: 240, svgOrigin: "540 760" });
+      // cuadro 0: botón y reloj ya arrancando
+      tl.fromTo(q(".s12-btn"), { opacity: 0.4, scale: 0.9, svgOrigin: "500 1116" }, { opacity: 1, scale: 1, svgOrigin: "500 1116", duration: 0.4, ease: "back.out(1.8)" }, 0);
+      dibujar(q(".s12-rc"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s12-lib"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.15);
+      etq(".s12-e1", 0.2);
+      // "panadero": el gorro
+      pop(q(".s12-gorro"), PANADERO, 0.6);
+      // las cuentas a ojo, tachadas
+      qa(".s12-n").forEach((el, i) => tl.fromTo(el, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.22, ease: "back.out(2)" }, 0.5 + i * 0.25));
+      dibujar(q(".s12-tach"), CUENTAS, 0.45);
+      // "cuatro de la mañana": el reloj gira a las 4
+      tl.to(q(".s12-h"), { rotation: 120, svgOrigin: "540 760", duration: 0.7, ease: "power2.inOut" }, CUATRO - 0.3);
+      tl.to(q(".s12-m"), { rotation: 360, svgOrigin: "540 760", duration: 0.7, ease: "power2.inOut" }, CUATRO - 0.3);
+      pop(q(".s12-luna"), CUATRO + 0.2, 0.5);
+      punch(q(".s12-reloj"), CUATRO + 0.45, 1.06, "540 760");
+      // el avión sale y vuelve; el botón late
+      tl.to(q(".s12-avion"), { x: 40, y: -30, rotation: -8, svgOrigin: "335 1120", duration: 0.5, ease: "power2.out", yoyo: true, repeat: 1 }, 2.9);
+      tl.to(q(".s12-btn"), { scale: 1.05, svgOrigin: "500 1116", duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 3 }, 3.0);
+      tl.to(q(".s12-avion"), { y: -8, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 4.4);
+      tl.to(q(".s12-gorro"), { rotation: -6, svgOrigin: "822 1146", duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 3 }, 3.2);
+      tl.to(q("#s12-dibujo"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

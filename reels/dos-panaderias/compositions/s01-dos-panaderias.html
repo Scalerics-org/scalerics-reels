@@ -1,0 +1,213 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-dos-panaderias"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-dos-panaderias"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-dos-panaderias"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-dos-panaderias"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-dos-panaderias"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-dos-panaderias"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-dos-panaderias"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-dos-panaderias"] .ln-ro4 { fill: none; stroke: #c0625a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-dos-panaderias"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s01-dos-panaderias"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s01-dos-panaderias"] .ln-marca { stroke: #efeee5; stroke-opacity: 0.6; stroke-width: 3; stroke-linecap: round; }
+    [data-composition-id="s01-dos-panaderias"] .punto { fill: #efeee5; }
+    [data-composition-id="s01-dos-panaderias"] .vidrio, [data-composition-id="s01-dos-panaderias"] .relleno { fill: #5ce611; }
+    [data-composition-id="s01-dos-panaderias"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s01-dos-panaderias"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s01-dos-panaderias"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s01-dos-panaderias"] .t-osc { fill: #07111f; }
+    [data-composition-id="s01-dos-panaderias"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s01-dos-panaderias"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; }
+    [data-composition-id="s01-dos-panaderias"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.18em; fill: #efeee5; }
+    [data-composition-id="s01-dos-panaderias"] .rotulo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: #efeee5; fill-opacity: 0.6; opacity: 0; }
+    [data-composition-id="s01-dos-panaderias"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s01-dos-panaderias"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s01-dos-panaderias"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-dos-panaderias"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s01-dos-panaderias" data-width="1080" data-height="1920" data-duration="5.36">
+    <div id="s01-escena" class="capa clip" data-start="0" data-duration="5.36" data-track-index="0">
+      <div id="s01-dibujo" class="capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        
+        <line class="ln s01-suelo" x1="40" y1="1180" x2="1040" y2="1180" />
+        <g class="s01-pan-a"><g class="s01-pan-a-in">
+          <path class="ln s01-dib-a" d="M-180 0 V-230 H180 V0" />
+          <path class="ln s01-dib-a" d="M-200 -230 H200 L180 -272 H-180 Z" />
+          <path class="ln s01-dib-a" d="M-200 -230 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0" />
+          <rect class="ln s01-dib-a" x="-130" y="-336" width="260" height="50" rx="10" />
+          <text class="cartel s01-txt-a" x="0" y="-302" text-anchor="middle">PANADERÍA</text>
+          <rect class="ln s01-dib-a" x="-150" y="-190" width="200" height="130" rx="8" />
+          <rect class="ln-ac s01-vit-a" x="-150" y="-190" width="200" height="130" rx="8" />
+          <path class="ln4 s01-dib-a" d="M-142 -117 H42" />
+          <path class="ln4 s01-ml-a s01-ml-a-0" d="M-136 -133 C-133 -157 -103 -157 -100 -133 C-110 -143 -126 -143 -136 -133 Z M-124 -150 L-122 -143 M-112 -150 L-114 -143" />
+          <path class="ln4 s01-ml-a s01-ml-a-1" d="M-92 -133 C-89 -157 -59 -157 -56 -133 C-66 -143 -82 -143 -92 -133 Z M-80 -150 L-78 -143 M-68 -150 L-70 -143" />
+          <path class="ln4 s01-ml-a s01-ml-a-2" d="M-48 -133 C-45 -157 -15 -157 -12 -133 C-22 -143 -38 -143 -48 -133 Z M-36 -150 L-34 -143 M-24 -150 L-26 -143" />
+          <path class="ln4 s01-ml-a s01-ml-a-3" d="M-4 -133 C-1 -157 29 -157 32 -133 C22 -143 6 -143 -4 -133 Z M8 -150 L10 -143 M20 -150 L18 -143" />
+          <path class="ln4 s01-ml-a s01-ml-a-4" d="M-136 -75 C-133 -99 -103 -99 -100 -75 C-110 -85 -126 -85 -136 -75 Z M-124 -92 L-122 -85 M-112 -92 L-114 -85" />
+          <path class="ln4 s01-ml-a s01-ml-a-5" d="M-92 -75 C-89 -99 -59 -99 -56 -75 C-66 -85 -82 -85 -92 -75 Z M-80 -92 L-78 -85 M-68 -92 L-70 -85" />
+          <path class="ln4 s01-ml-a s01-ml-a-6" d="M-48 -75 C-45 -99 -15 -99 -12 -75 C-22 -85 -38 -85 -48 -75 Z M-36 -92 L-34 -85 M-24 -92 L-26 -85" />
+          <path class="ln4 s01-ml-a s01-ml-a-7" d="M-4 -75 C-1 -99 29 -99 32 -75 C22 -85 6 -85 -4 -75 Z M8 -92 L10 -85 M20 -92 L18 -85" />
+          <path class="ln s01-dib-a" d="M70 0 V-170 H150 V0" />
+          <rect class="vidrio s01-luz-a" x="84" y="-156" width="52" height="56" rx="4" />
+          <circle class="ln4 s01-dib-a" cx="88" cy="-80" r="4" />
+        </g></g>
+        <g class="s01-pan-b"><g class="s01-pan-b-in">
+          <path class="ln s01-dib-b" d="M-180 0 V-230 H180 V0" />
+          <path class="ln s01-dib-b" d="M-200 -230 H200 L180 -272 H-180 Z" />
+          <path class="ln s01-dib-b" d="M-200 -230 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0 q20 30 40 0" />
+          <rect class="ln s01-dib-b" x="-130" y="-336" width="260" height="50" rx="10" />
+          <text class="cartel s01-txt-b" x="0" y="-302" text-anchor="middle">PANADERÍA</text>
+          <rect class="ln s01-dib-b" x="-150" y="-190" width="200" height="130" rx="8" />
+          <rect class="ln-ac s01-vit-b" x="-150" y="-190" width="200" height="130" rx="8" />
+          <path class="ln4 s01-dib-b" d="M-142 -117 H42" />
+          <path class="ln4 s01-ml-b s01-ml-b-0" d="M-136 -133 C-133 -157 -103 -157 -100 -133 C-110 -143 -126 -143 -136 -133 Z M-124 -150 L-122 -143 M-112 -150 L-114 -143" />
+          <path class="ln4 s01-ml-b s01-ml-b-1" d="M-92 -133 C-89 -157 -59 -157 -56 -133 C-66 -143 -82 -143 -92 -133 Z M-80 -150 L-78 -143 M-68 -150 L-70 -143" />
+          <path class="ln4 s01-ml-b s01-ml-b-2" d="M-48 -133 C-45 -157 -15 -157 -12 -133 C-22 -143 -38 -143 -48 -133 Z M-36 -150 L-34 -143 M-24 -150 L-26 -143" />
+          <path class="ln4 s01-ml-b s01-ml-b-3" d="M-4 -133 C-1 -157 29 -157 32 -133 C22 -143 6 -143 -4 -133 Z M8 -150 L10 -143 M20 -150 L18 -143" />
+          <path class="ln4 s01-ml-b s01-ml-b-4" d="M-136 -75 C-133 -99 -103 -99 -100 -75 C-110 -85 -126 -85 -136 -75 Z M-124 -92 L-122 -85 M-112 -92 L-114 -85" />
+          <path class="ln4 s01-ml-b s01-ml-b-5" d="M-92 -75 C-89 -99 -59 -99 -56 -75 C-66 -85 -82 -85 -92 -75 Z M-80 -92 L-78 -85 M-68 -92 L-70 -85" />
+          <path class="ln4 s01-ml-b s01-ml-b-6" d="M-48 -75 C-45 -99 -15 -99 -12 -75 C-22 -85 -38 -85 -48 -75 Z M-36 -92 L-34 -85 M-24 -92 L-26 -85" />
+          <path class="ln4 s01-ml-b s01-ml-b-7" d="M-4 -75 C-1 -99 29 -99 32 -75 C22 -85 6 -85 -4 -75 Z M8 -92 L10 -85 M20 -92 L18 -85" />
+          <path class="ln s01-dib-b" d="M70 0 V-170 H150 V0" />
+          <rect class="vidrio s01-luz-b" x="84" y="-156" width="52" height="56" rx="4" />
+          <circle class="ln4 s01-dib-b" cx="88" cy="-80" r="4" />
+        </g></g>
+        <g class="s01-mlv"><path class="ln-ac4 s01-mlv-0" d="M-136 -133 C-133 -157 -103 -157 -100 -133 C-110 -143 -126 -143 -136 -133 Z M-124 -150 L-122 -143 M-112 -150 L-114 -143" /><path class="ln-ac4 s01-mlv-1" d="M-92 -133 C-89 -157 -59 -157 -56 -133 C-66 -143 -82 -143 -92 -133 Z M-80 -150 L-78 -143 M-68 -150 L-70 -143" /><path class="ln-ac4 s01-mlv-2" d="M-48 -133 C-45 -157 -15 -157 -12 -133 C-22 -143 -38 -143 -48 -133 Z M-36 -150 L-34 -143 M-24 -150 L-26 -143" /><path class="ln-ac4 s01-mlv-3" d="M-4 -133 C-1 -157 29 -157 32 -133 C22 -143 6 -143 -4 -133 Z M8 -150 L10 -143 M20 -150 L18 -143" /><path class="ln-ac4 s01-mlv-4" d="M-136 -75 C-133 -99 -103 -99 -100 -75 C-110 -85 -126 -85 -136 -75 Z M-124 -92 L-122 -85 M-112 -92 L-114 -85" /><path class="ln-ac4 s01-mlv-5" d="M-92 -75 C-89 -99 -59 -99 -56 -75 C-66 -85 -82 -85 -92 -75 Z M-80 -92 L-78 -85 M-68 -92 L-70 -85" /><path class="ln-ac4 s01-mlv-6" d="M-48 -75 C-45 -99 -15 -99 -12 -75 C-22 -85 -38 -85 -48 -75 Z M-36 -92 L-34 -85 M-24 -92 L-26 -85" /><path class="ln-ac4 s01-mlv-7" d="M-4 -75 C-1 -99 29 -99 32 -75 C22 -85 6 -85 -4 -75 Z M8 -92 L10 -85 M20 -92 L18 -85" /></g>
+        <g class="s01-tk"><circle class="ln-ac s01-tk-c" cx="810" cy="800" r="32" /><path class="ln-ac s01-tk-t" d="M794.64 800 L806.16 812.8 L827.6 786.56" /></g>
+        <text class="lex s01-preg" x="270" y="830" text-anchor="middle" font-size="84" fill="#efeee5" fill-opacity="0.45">?</text>
+        </svg>
+        <div class="etiqueta"><span class="s01-e1">Misma cuadra</span><span class="s01-e2">Una sabe cuánto hornear</span></div>
+      </div>
+      <div id="s01-cab" class="capa">
+        <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s01-head">
+          <line class="ln-div s01-div" x1="540" y1="812" x2="540" y2="1220" />
+          <g class="s01-reloj">
+            <circle class="ln s01-reloj-c" cx="540" cy="700" r="46" />
+            <line class="ln-marca" x1="540.0" y1="670.0" x2="540.0" y2="661.0" /><line class="ln-marca" x1="557.0" y1="670.6" x2="559.5" y2="666.2" /><line class="ln-marca" x1="569.4" y1="683.0" x2="573.8" y2="680.5" /><line class="ln-marca" x1="570.0" y1="700.0" x2="579.0" y2="700.0" /><line class="ln-marca" x1="569.4" y1="717.0" x2="573.8" y2="719.5" /><line class="ln-marca" x1="557.0" y1="729.4" x2="559.5" y2="733.8" /><line class="ln-marca" x1="540.0" y1="730.0" x2="540.0" y2="739.0" /><line class="ln-marca" x1="523.0" y1="729.4" x2="520.5" y2="733.8" /><line class="ln-marca" x1="510.6" y1="717.0" x2="506.2" y2="719.5" /><line class="ln-marca" x1="510.0" y1="700.0" x2="501.0" y2="700.0" /><line class="ln-marca" x1="510.6" y1="683.0" x2="506.2" y2="680.5" /><line class="ln-marca" x1="523.0" y1="670.6" x2="520.5" y2="666.2" />
+            <line class="ln s01-hh" x1="540" y1="700" x2="540" y2="676" />
+            <line class="ln4 s01-mm" x1="540" y1="700" x2="540" y2="666" />
+            <circle class="punto" cx="540" cy="700" r="6" />
+          </g>
+          <text class="rotulo s01-rot s01-rot-0" x="540" y="784" text-anchor="middle">DOMINGO</text>
+          <g class="s01-head-a">
+            <text class="nom" x="270" y="672" text-anchor="middle" fill="#efeee5" fill-opacity="0.55">JORGE</text>
+            <text class="sub" x="270" y="712" text-anchor="middle" fill="#efeee5" fill-opacity="0.4">A OJO</text>
+          </g>
+          <g class="s01-head-b">
+            <text class="nom" x="810" y="672" text-anchor="middle" fill="#5ce611">MÓNICA</text>
+            <text class="sub" x="810" y="712" text-anchor="middle" fill="#5ce611" fill-opacity="0.8">A SU MEDIDA</text>
+          </g>
+        </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-dos-panaderias";
+      const P = "s01";
+      const DUR = 5.36;
+      const REL0 = 120;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (sel) => root.querySelector(sel);
+      const qa = (sel) => Array.from(root.querySelectorAll(sel));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1 });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t + i * 0.04));
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s, org) => tl.to(el, { scale: s ?? 1.08, svgOrigin: org, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      let etqAct = null;
+      const etq = (sel, t) => {
+        if (etqAct) tl.to(etqAct, { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, t - 0.12);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqAct = q(sel);
+      };
+      // reloj común: minutos desde las 0:00 (la aguja de minutos da 6 grados por minuto)
+      let rel = REL0;
+      const HH = q("." + P + "-hh"), MM = q("." + P + "-mm");
+      if (HH) {
+        gsap.set(HH, { rotation: rel * 0.5, svgOrigin: "540 700" });
+        gsap.set(MM, { rotation: rel * 6, svgOrigin: "540 700" });
+      }
+      const girar = (t, hasta, dur) => {
+        tl.to(HH, { rotation: hasta * 0.5, svgOrigin: "540 700", duration: dur ?? 0.9, ease: "power2.inOut" }, t);
+        tl.to(MM, { rotation: hasta * 6, svgOrigin: "540 700", duration: dur ?? 0.9, ease: "power2.inOut" }, t);
+        rel = hasta;
+      };
+      let rotAct = null;
+      const rotulo = (i, t) => {
+        if (rotAct) tl.to(rotAct, { opacity: 0, duration: 0.18 }, t - 0.1);
+        const el = q("." + P + "-rot-" + i);
+        if (t <= 0) gsap.set(el, { opacity: 1 }); else tl.fromTo(el, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+        rotAct = el;
+      };
+      const lado = (sel, op, t, d) => tl.to(qa(sel), { opacity: op, duration: d ?? 0.4, ease: "power2.out" }, t);
+
+      const PANADERIAS = 0.4, CUADRA = 1.5, UNA = 2.32, MEDIALUNAS = 3.4, DOMINGO = 4.3;
+      gsap.set(q(".s01-pan-a"), { x: 270, y: 1180 });
+      gsap.set(q(".s01-pan-b"), { x: 810, y: 1180 });
+      gsap.set(q(".s01-mlv"), { x: 810, y: 1180 });
+      gsap.set(qa(".s01-mlv path"), { opacity: 0 });
+      gsap.set(qa(".s01-vit-a, .s01-vit-b, .s01-luz-a, .s01-luz-b"), { opacity: 0 });
+      // cuadro 0: la izquierda ya medio dibujada
+      dibujar(qa(".s01-dib-a"), 0, 0.6, 0.35);
+      dibujar(qa(".s01-ml-a"), 0.05, 0.4, 0.5);
+      tl.fromTo(q(".s01-txt-a"), { opacity: 0.3 }, { opacity: 1, duration: 0.3 }, 0.1);
+      tl.to(q(".s01-luz-a"), { opacity: 0.35, duration: 0.25 }, 0.4);
+      tl.fromTo(q(".s01-suelo"), { scaleX: 0.5, svgOrigin: "540 1180" }, { scaleX: 1, svgOrigin: "540 1180", duration: 0.7, ease: "power3.out" }, 0);
+      // "panaderías": la segunda, idéntica
+      dibujar(qa(".s01-dib-b"), PANADERIAS - 0.05, 0.55);
+      dibujar(qa(".s01-ml-b"), PANADERIAS + 0.3, 0.35);
+      tl.fromTo(q(".s01-txt-b"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, PANADERIAS + 0.35);
+      tl.to(q(".s01-luz-b"), { opacity: 0.35, duration: 0.25 }, PANADERIAS + 0.5);
+      tl.fromTo(q(".s01-pan-b-in"), { scale: 1.08, svgOrigin: "0 -150" }, { scale: 1, svgOrigin: "0 -150", duration: 0.4, ease: "power3.out" }, PANADERIAS);
+      etq(".s01-e1", 0.3);
+      // "cuadra": el reloj común, la divisoria y los nombres
+      dibujar(q(".s01-reloj-c"), CUADRA - 0.15, 0.45);
+      tl.fromTo(qa(".s01-reloj .ln-marca, .s01-hh, .s01-mm, .s01-reloj .punto"), { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.01 }, CUADRA);
+      tl.fromTo(q(".s01-reloj"), { scale: 0.7, svgOrigin: "540 700" }, { scale: 1, svgOrigin: "540 700", duration: 0.45, ease: "back.out(1.8)" }, CUADRA - 0.15);
+      girar(CUADRA, 180, 0.8);
+      rotulo(0, CUADRA + 0.2);
+      tl.fromTo(q(".s01-div"), { scaleY: 0, svgOrigin: "540 812" }, { scaleY: 1, svgOrigin: "540 812", duration: 0.5, ease: "power2.out" }, CUADRA);
+      tl.fromTo(q(".s01-head-a"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CUADRA + 0.05);
+      tl.fromTo(q(".s01-head-b"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CUADRA + 0.17);
+      // "Una": la de Mónica se prende, la de Jorge baja
+      tl.to(q(".s01-luz-b"), { opacity: 0.9, duration: 0.2 }, UNA);
+      tl.to(q(".s01-vit-b"), { opacity: 1, duration: 0.25 }, UNA);
+      punch(q(".s01-pan-b-in"), UNA, 1.06, "0 -150");
+      tl.to(qa(".s01-pan-a-in"), { opacity: 0.5, duration: 0.4 }, UNA + 0.1);
+      etq(".s01-e2", UNA + 0.1);
+      // "medialunas": las de Mónica se prenden una por una
+      qa(".s01-mlv path").forEach((el, i) => {
+        tl.fromTo(el, { opacity: 0, scale: 0.5, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "back.out(2)" }, MEDIALUNAS - 0.1 + i * 0.07);
+      });
+      // "domingo": tilde en lo de Mónica, "?" en lo de Jorge
+      dibujar(q(".s01-tk-c"), DOMINGO - 0.1, 0.35);
+      dibujar(q(".s01-tk-t"), DOMINGO + 0.1, 0.3);
+      tl.fromTo(q(".s01-tk"), { scale: 0.8, svgOrigin: "810 800" }, { scale: 1, svgOrigin: "810 800", duration: 0.4, ease: "back.out(2)" }, DOMINGO - 0.1);
+      pop(q(".s01-preg"), DOMINGO + 0.2, 0.6);
+      tl.to(q(".s01-preg"), { rotation: -8, svgOrigin: "270 800", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, DOMINGO + 0.55);
+      tl.to(q(".s01-tk"), { y: -6, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, DOMINGO + 0.5);
+      tl.to(q("#s01-dibujo"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
