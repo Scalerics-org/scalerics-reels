@@ -71,12 +71,13 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
 8. **El cierre de TODOS los reels: la videollamada gratis (Juan, 03-11).** El reel termina
    ofreciendo una videollamada gratis con Scalerics para ver el caso del que mira. Una sola
    acción, siempre la misma, para poder medir cuántos llegan:
-   - **En el video** (última escena, ~3 s, tipografía grande de marca): "Videollamada gratis con
-     Scalerics" y abajo "Link en nuestro perfil". La voz lo dice con naturalidad y ligado al tema
-     del reel ("¿Querés ver cómo quedaría en tu local? Agendá una videollamada gratis, el link está
-     en nuestro perfil."). Nada de "¡no te lo pierdas!" ni urgencias falsas.
+   - **En el video** (última escena, ~3 s, tipografía grande de marca): "Videollamada gratis" y
+     abajo, grande y en verde, "scalerics.com" (ahí está el botón para agendar, y es el link del
+     perfil). La voz lo dice con naturalidad y ligado al tema del reel ("¿Querés ver cómo quedaría
+     en tu local? Agendá una videollamada gratis en scalerics.com."). Nada de "¡no te lo pierdas!"
+     ni urgencias falsas.
    - **En `descripcion.txt`**, antes de los hashtags, una línea: "Agendá una videollamada gratis
-     con nosotros: link en el perfil (calendly.com/scalerics/consultoriagratuita)".
+     en scalerics.com (link en el perfil)".
    - Reemplaza al "comentá/etiquetá/mandáselo" como acción principal. Se puede dejar una pregunta
      para comentar ANTES, si suma, pero la última acción es la videollamada.
 
