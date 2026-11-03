@@ -1,0 +1,85 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-postit"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-postit"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-postit"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-postit"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s05-postit"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-postit"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-postit"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s05-postit"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s05-postit"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s05-postit"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s05-postit"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s05-postit"] .apagado { opacity: 0.45; }
+    [data-composition-id="s05-postit"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-postit"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s05-postit" data-width="1080" data-height="1920" data-duration="2.65">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="2.65" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s05-papel" transform="rotate(-5 540 900)">
+          <path class="ln s05-dib" d="M350 710 H730 V990 L640 1080 H350 Z" />
+          <path class="ln s05-dib" d="M730 990 H640 V1080" />
+          <text class="lex s05-tel" x="390" y="810" font-size="40" opacity="0.8">099 ··· 412</text>
+          <text class="lex s05-quien" x="390" y="920" font-size="54">¿quién era?</text>
+          <line class="ln-fino s05-dib" x1="390" y1="980" x2="580" y2="980" />
+        </g>
+        <text class="lex s05-preg" x="790" y="760" font-size="130" fill="#c0564b" text-anchor="middle">?</text>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">El post-it</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-postit";
+      const DUR = 2.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+
+      const POSTIT = 0.7, QUIEN = 1.1, ESTE = 1.8;
+      // arranca medio dibujado (el anterior se fue)
+      dibujar(qa(".s05-dib"), 0, 0.5, 0.5, 0.05);
+      tl.fromTo(q(".s05-papel"), { scale: 0.9, rotation: 4, svgOrigin: "540 900" }, { scale: 1, rotation: 0, svgOrigin: "540 900", duration: 0.5, ease: "back.out(1.6)" }, 0);
+      escribir(q(".s05-tel"), 0.35, 0.4);
+      escribir(q(".s05-quien"), QUIEN, 0.6);
+      tl.fromTo(q(".s05-preg"), { opacity: 0, scale: 0.4, transformOrigin: "50% 70%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, ESTE);
+      tl.to(q(".s05-preg"), { rotation: 10, transformOrigin: "50% 70%", duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, ESTE + 0.35);
+      tl.to(q(".s05-papel"), { y: -6, duration: 0.8, yoyo: true, repeat: 1, ease: "sine.inOut" }, POSTIT);
+
+      // etiqueta mono
+      const ET = [0.5];
+      ET.forEach((t, i) => {
+        const el = q(".s05-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

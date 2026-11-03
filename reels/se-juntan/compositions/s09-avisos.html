@@ -1,0 +1,120 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-avisos"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-avisos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-avisos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-avisos"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s09-avisos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-avisos"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-avisos"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s09-avisos"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s09-avisos"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s09-avisos"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s09-avisos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s09-avisos"] .apagado { opacity: 0.45; }
+    [data-composition-id="s09-avisos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-avisos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s09-avisos" data-width="1080" data-height="1920" data-duration="6.37">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="6.37" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect class="ln s09-pdib" x="120" y="610" width="840" height="600" rx="36" />
+        <line class="ln-fino s09-pdib" x1="120" y1="690" x2="960" y2="690" />
+        <circle class="relleno-ac s09-cab" cx="166" cy="650" r="12" />
+        <text class="lex s09-cab" x="194" y="661" font-size="30">Seguimiento</text>
+        <!-- fila 1: Marisa -->
+        <rect class="ln-fino s09-f1" x="150" y="720" width="780" height="200" rx="24" />
+        <g class="s09-cal">
+          <rect class="ln s09-cdib" x="190" y="764" width="110" height="110" rx="14" />
+          <line class="ln s09-cdib" x1="190" y1="796" x2="300" y2="796" />
+          <line class="ln s09-cdib" x1="218" y1="752" x2="218" y2="776" />
+          <line class="ln s09-cdib" x1="272" y1="752" x2="272" y2="776" />
+          <circle class="s09-dia ln-fino s09-cdib" cx="215" cy="822" r="6" /><circle class="ln-fino s09-cdib" cx="215" cy="852" r="6" /><circle class="ln-fino s09-cdib" cx="245" cy="822" r="6" /><circle class="ln-fino s09-cdib" cx="245" cy="852" r="6" /><circle class="ln-fino s09-cdib" cx="275" cy="822" r="6" /><circle class="ln-fino s09-cdib" cx="275" cy="852" r="6" />
+          <circle class="relleno-ac s09-marca" cx="215" cy="822" r="12" />
+        </g>
+        <text class="lex s09-t1" x="336" y="808" font-size="36">Llamar a Marisa</text>
+        <text class="mono s09-t1b" x="338" y="860" font-size="28" fill="#5ce611">LUNES 10:00</text>
+        <g class="s09-campana">
+          <path class="ln s09-bdib" d="M842 806 Q842 760 874 756 Q906 760 906 806 L916 822 H832 Z" />
+          <path class="ln s09-bdib" d="M864 832 Q874 844 884 832" />
+        </g>
+        <g class="s09-ok1"><circle class="ln-ac" cx="874" cy="878" r="26" /><path class="ln-ac" d="M863 878 L871 887 L886 869" /></g>
+        <!-- fila 2: el talle -->
+        <rect class="ln-fino s09-f2" x="150" y="944" width="780" height="236" rx="24" />
+        <g class="s09-caja">
+          <path class="ln s09-kdib" d="M190 1020 L245 994 L300 1020 V1086 L245 1112 L190 1086 Z" />
+          <path class="ln s09-kdib" d="M190 1020 L245 1046 L300 1020 M245 1046 V1112" />
+        </g>
+        <text class="lex s09-t2" x="336" y="1010" font-size="36">Llegó: talle 42</text>
+        <g class="s09-globo"><rect class="ln-ac" x="336" y="1040" width="320" height="62" rx="22" /><text class="lex-ac" x="358" y="1081" font-size="28">Ya llegó tu talle</text></g>
+        <text class="mono s09-env" x="338" y="1150" font-size="28" fill="#5ce611">ENVIADO HOY</text>
+        <g class="s09-ok2"><circle class="ln-ac" cx="874" cy="1062" r="26" /><path class="ln-ac" d="M863 1062 L871 1071 L886 1053" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">Aviso agendado</span><span class="s09-e2">Enviado hoy</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-avisos";
+      const DUR = 6.37;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+
+      const LUNES = 0.93, AVISO = 1.93, LLAMARLA = 2.43, TALLE = 3.43, LLEGO = 3.73, AVISO2 = 4.53, HOY = 5.63;
+      dibujar(qa(".s09-pdib"), 0, 0.5, 0.4);
+      tl.fromTo(qa(".s09-cab"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.1);
+      dibujar([q(".s09-f1")], 0.05, 0.5);
+      dibujar(qa(".s09-cdib"), 0.1, 0.4, 1, 0.015);
+      escribir(q(".s09-t1"), 0.0, 0.45);
+      // "lunes marcado"
+      pop(q(".s09-marca"), LUNES + 0.1);
+      tl.fromTo(q(".s09-t1b"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.3 }, LUNES);
+      // campanita
+      dibujar(qa(".s09-bdib"), AVISO - 0.15, 0.3);
+      tl.fromTo(q(".s09-campana"), { rotation: 0, svgOrigin: "874 756" }, { rotation: 14, svgOrigin: "874 756", duration: 0.09, yoyo: true, repeat: 5, ease: "sine.inOut" }, AVISO + 0.15);
+      pop(q(".s09-ok1"), LLAMARLA);
+      // fila 2
+      dibujar([q(".s09-f2")], TALLE - 0.3, 0.5);
+      dibujar(qa(".s09-kdib"), TALLE - 0.2, 0.4);
+      escribir(q(".s09-t2"), LLEGO - 0.2, 0.5);
+      tl.fromTo(q(".s09-globo"), { opacity: 0, scale: 0.6, svgOrigin: "336 1102" }, { opacity: 1, scale: 1, svgOrigin: "336 1102", duration: 0.35, ease: "back.out(1.8)" }, AVISO2);
+      tl.to(q(".s09-globo"), { x: 30, duration: 0.6, ease: "power2.out" }, AVISO2 + 0.35);
+      tl.fromTo(q(".s09-env"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3 }, HOY - 0.1);
+      pop(q(".s09-ok2"), HOY);
+
+      // etiqueta mono
+      const ET = [0.93,5.63];
+      ET.forEach((t, i) => {
+        const el = q(".s09-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

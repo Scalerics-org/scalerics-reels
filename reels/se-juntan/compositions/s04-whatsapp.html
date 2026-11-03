@@ -1,0 +1,88 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-whatsapp"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-whatsapp"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-whatsapp"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-whatsapp"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s04-whatsapp"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-whatsapp"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-whatsapp"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s04-whatsapp"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s04-whatsapp"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s04-whatsapp"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s04-whatsapp"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s04-whatsapp"] .apagado { opacity: 0.45; }
+    [data-composition-id="s04-whatsapp"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-whatsapp"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s04-whatsapp" data-width="1080" data-height="1920" data-duration="3.94">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.94" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s04-recorte"><rect x="352" y="724" width="376" height="470" /></clipPath></defs>
+        <rect class="ln s04-dib" x="350" y="610" width="380" height="600" rx="52" />
+        <line class="ln s04-dib" x1="500" y1="636" x2="580" y2="636" />
+        <circle class="ln s04-dib" cx="410" cy="684" r="22" />
+        <text class="lex s04-cab" x="446" y="694" font-size="28">Cliente</text>
+        <line class="ln-fino s04-dib" x1="350" y1="722" x2="730" y2="722" />
+        <g clip-path="url(#s04-recorte)"><g class="s04-chat">
+          <g class="s04-in"><rect class="ln" x="372" y="760" width="318" height="64" rx="22" /><text class="lex" x="392" y="801" font-size="25">¿Tenés el 42 en negro?</text></g>
+          <g class="s04-out"><rect class="ln-ac" x="384" y="850" width="330" height="64" rx="22" /><text class="lex-ac" x="404" y="891" font-size="25">Cuando llegue te aviso</text></g>
+          <g class="s04-gris apagado"><rect class="ln" x="372" y="960" width="230" height="56" rx="20" /><line class="ln-fino" x1="394" y1="988" x2="562" y2="988" /></g><g class="s04-gris apagado"><rect class="ln" x="460" y="1040" width="250" height="56" rx="20" /><line class="ln-fino" x1="482" y1="1068" x2="670" y2="1068" /></g><g class="s04-gris apagado"><rect class="ln" x="372" y="1120" width="270" height="56" rx="20" /><line class="ln-fino" x1="394" y1="1148" x2="602" y2="1148" /></g><g class="s04-gris apagado"><rect class="ln" x="430" y="1200" width="260" height="56" rx="20" /><line class="ln-fino" x1="452" y1="1228" x2="650" y2="1228" /></g><g class="s04-gris apagado"><rect class="ln" x="372" y="1280" width="220" height="56" rx="20" /><line class="ln-fino" x1="394" y1="1308" x2="552" y2="1308" /></g>
+        </g></g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">WhatsApp</span><span class="s04-e2">Te aviso</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-whatsapp";
+      const DUR = 3.94;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+
+      const PREGUNTO = 0.94, PROMETISTE = 2.54, LLEGARA = 3.64;
+      dibujar(qa(".s04-dib"), 0, 0.5, 0.5, 0.03);
+      tl.fromTo(q(".s04-cab"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.3);
+      tl.fromTo(q(".s04-in"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, PREGUNTO);
+      tl.fromTo(q(".s04-out"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, PROMETISTE);
+      // llegan otros chats y entierran la conversación
+      qa(".s04-gris").forEach((g, i) => tl.fromTo(g, { opacity: 0 }, { opacity: 0.45, duration: 0.15 }, 3.05 + i * 0.12));
+      tl.to(q(".s04-chat"), { y: -420, duration: 0.8, ease: "power2.inOut" }, 3.05);
+      tl.to(qa(".s04-in, .s04-out"), { opacity: 0.35, duration: 0.4 }, 3.1);
+
+      // etiqueta mono
+      const ET = [0.2,2.54];
+      ET.forEach((t, i) => {
+        const el = q(".s04-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

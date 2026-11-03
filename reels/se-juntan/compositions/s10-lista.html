@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-lista"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-lista"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-lista"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-lista"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s10-lista"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-lista"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-lista"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s10-lista"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s10-lista"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s10-lista"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s10-lista"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s10-lista"] .apagado { opacity: 0.45; }
+    [data-composition-id="s10-lista"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-lista"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s10-lista" data-width="1080" data-height="1920" data-duration="2.8">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="2.8" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect class="ln s10-dib" x="200" y="630" width="680" height="540" rx="32" />
+        <text class="mono s10-cab" x="246" y="704" font-size="26" fill="#5ce611">HOY · ESCRIBIRLE A</text>
+        <line class="ln-fino s10-dib" x1="200" y1="736" x2="880" y2="736" />
+        <g class="s10-fila s10-fila0">
+          <rect class="ln s10-box0" x="246" y="786" width="46" height="46" rx="10" />
+          <text class="lex s10-n0" x="320" y="820" font-size="34">Marisa A.</text>
+          <text class="mono" x="840" y="818" font-size="28" text-anchor="end" opacity="0.55" style="letter-spacing:0.04em">presupuesto</text>
+          <line class="ln-fino" x1="246" y1="868" x2="840" y2="868" opacity="0.3" />
+        </g><g class="s10-fila s10-fila1">
+          <rect class="ln s10-box1" x="246" y="906" width="46" height="46" rx="10" />
+          <text class="lex s10-n1" x="320" y="940" font-size="34">Diego R.</text>
+          <text class="mono" x="840" y="938" font-size="28" text-anchor="end" opacity="0.55" style="letter-spacing:0.04em">talle 42</text>
+          <line class="ln-fino" x1="246" y1="988" x2="840" y2="988" opacity="0.3" />
+        </g><g class="s10-fila s10-fila2">
+          <rect class="ln s10-box2" x="246" y="1026" width="46" height="46" rx="10" />
+          <text class="lex s10-n2" x="320" y="1060" font-size="34">Florencia P.</text>
+          <text class="mono" x="840" y="1058" font-size="28" text-anchor="end" opacity="0.55" style="letter-spacing:0.04em">reserva</text>
+          
+        </g>
+        <path class="ln-ac s10-tick" d="M257 809 L267 820 L284 798" />
+        <g class="s10-cursor"><path d="M0 0 L0 46 L12 35 L21 55 L30 51 L21 31 L37 31 Z" fill="#efeee5" stroke="#07111f" stroke-width="3" stroke-linejoin="round" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Cada mañana</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-lista";
+      const DUR = 2.8;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+
+      const LISTA = 0.66, ESCRIBIRLE = 1.86;
+      dibujar(qa(".s10-dib"), 0, 0.45, 0.4);
+      tl.fromTo(q(".s10-cab"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.15);
+      qa(".s10-fila").forEach((f, i) => tl.fromTo(f, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.5)" }, LISTA - 0.1 + i * 0.12));
+      tl.fromTo(q(".s10-cursor"), { x: 700, y: 1200, opacity: 0 }, { x: 272, y: 812, opacity: 1, duration: 0.6, ease: "power2.inOut" }, ESCRIBIRLE - 0.7);
+      tl.to(q(".s10-cursor"), { scale: 0.85, transformOrigin: "0 0", duration: 0.08, yoyo: true, repeat: 1 }, ESCRIBIRLE - 0.05);
+      tl.to(q(".s10-box0"), { stroke: "#5ce611", duration: 0.1 }, ESCRIBIRLE);
+      dibujar([q(".s10-tick")], ESCRIBIRLE, 0.25);
+      tl.to(q(".s10-n0"), { fill: "#5ce611", duration: 0.15 }, ESCRIBIRLE + 0.05);
+      tl.to(q(".s10-cursor"), { x: 660, y: 1120, duration: 0.5, ease: "power2.inOut" }, ESCRIBIRLE + 0.3);
+
+      // etiqueta mono
+      const ET = [0.16];
+      ET.forEach((t, i) => {
+        const el = q(".s10-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

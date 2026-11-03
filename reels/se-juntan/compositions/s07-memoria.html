@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-memoria"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-memoria"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-memoria"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-memoria"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s07-memoria"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-memoria"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-memoria"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s07-memoria"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s07-memoria"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s07-memoria"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s07-memoria"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s07-memoria"] .apagado { opacity: 0.45; }
+    [data-composition-id="s07-memoria"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-memoria"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s07-memoria" data-width="1080" data-height="1920" data-duration="3.15">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="3.15" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s07-suelo" x1="110" y1="1110" x2="980" y2="1110" />
+        <g transform="translate(320 950) scale(0.95)">
+    <path class="ln s07-c-dib" d="M-40 150 V95 Q-110 70 -110 -10 Q-110 -130 10 -130 Q110 -130 110 -30 Q110 0 128 30 L110 40 V80 Q110 100 80 100 H50 V150" />
+          <path class="ln-ac s07-tilde" d="M-48 -20 L-14 14 L52 -52" />
+        </g>
+        <g class="s07-local">
+          <g class="s07-piso2">
+            <path class="ln s07-p2" d="M670 980 V870 H890 V980" />
+            <rect class="ln s07-p2" x="700" y="900" width="50" height="44" rx="5" />
+            <rect class="ln s07-p2" x="810" y="900" width="50" height="44" rx="5" />
+          </g>
+          <path class="ln s07-dib" d="M670 1110 V980 H890 V1110" />
+          <path class="ln s07-dib" d="M650 980 H910 L894 940 H666 Z" />
+          <rect class="ln s07-dib" x="700" y="1018" width="50" height="44" rx="5" />
+          <path class="ln s07-dib" d="M800 1110 V1030 H850 V1110" />
+          <rect class="relleno-ac s07-luz" x="707" y="1025" width="36" height="30" rx="3" />
+          <g class="s07-caja s07-caja0"><rect class="ln" x="925" y="1062" width="46" height="46" rx="4" /></g>
+          <g class="s07-caja s07-caja1"><rect class="ln" x="932" y="1016" width="36" height="44" rx="4" /></g>
+          <g class="s07-caja s07-caja2"><rect class="ln" x="610" y="1066" width="44" height="42" rx="4" /></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">Tu memoria: bien</span><span class="s07-e2">El negocio creció</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-memoria";
+      const DUR = 3.15;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+
+      const MEMORIA = 0.27, BIEN = 0.87, CRECIO = 1.67, NEGOCIO = 2.27;
+      tl.fromTo(q(".s07-suelo"), { scaleX: 0.4, svgOrigin: "540 1110" }, { scaleX: 1, svgOrigin: "540 1110", duration: 0.6, ease: "power3.out" }, 0);
+      dibujar(qa(".s07-c-dib"), 0, 0.7, 0.45);
+      dibujar(qa(".s07-dib"), 0.15, 0.5, 1, 0.04);
+      tl.fromTo(q(".s07-luz"), { opacity: 0 }, { opacity: 0.85, duration: 0.2 }, 0.6);
+      dibujar([q(".s07-tilde")], BIEN, 0.35);
+      // el negocio crece; la cabeza, no
+      tl.fromTo(q(".s07-local"), { scale: 1, svgOrigin: "780 1110" }, { scale: 1.22, svgOrigin: "780 1110", duration: 0.5, ease: "back.out(1.5)" }, CRECIO);
+      dibujar(qa(".s07-p2"), CRECIO + 0.1, 0.45, 1, 0.06);
+      qa(".s07-caja").forEach((c, i) => pop(c, NEGOCIO - 0.2 + i * 0.12));
+      tl.to(q(".s07-local"), { scale: 1.27, svgOrigin: "780 1110", duration: 0.6, ease: "sine.out" }, NEGOCIO + 0.2);
+
+      // etiqueta mono
+      const ET = [0.05,1.9];
+      ET.forEach((t, i) => {
+        const el = q(".s07-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+      // salida
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
