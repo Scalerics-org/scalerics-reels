@@ -1,0 +1,132 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-pastillas"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-pastillas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-pastillas"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pastillas"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pastillas"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pastillas"] .ln-calle { fill: none; stroke: #efeee5; stroke-opacity: 0.2; stroke-width: 2.5; stroke-linecap: round; }
+    [data-composition-id="s03-pastillas"] .ln-av { fill: none; stroke: #efeee5; stroke-opacity: 0.32; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s03-pastillas"] .ln-arr { fill: none; stroke: #efeee5; stroke-opacity: 0.22; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 12; }
+    [data-composition-id="s03-pastillas"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.55; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s03-pastillas"] .ln-gar { fill: none; stroke: #efeee5; stroke-opacity: 0.6; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-pastillas"] .osc { fill: #0a1628; }
+    [data-composition-id="s03-pastillas"] .relleno { fill: #5ce611; }
+    [data-composition-id="s03-pastillas"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s03-pastillas"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s03-pastillas"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s03-pastillas"] .t-os { fill: #0a1628; }
+    [data-composition-id="s03-pastillas"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s03-pastillas"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s03-pastillas"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-pastillas"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s03-pastillas" data-width="1080" data-height="1920" data-duration="5.58">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="5.58" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g transform="translate(230 1200) scale(1)"><g class="s03-me">
+    <circle class="ln s03-me-d" cx="0" cy="-250" r="30" />
+    <path class="ln s03-me-d" d="M-32 -258 Q-30 -292 0 -292 Q30 -292 32 -258 Z M32 -258 H58" />
+    <path class="ln s03-me-d" d="M-11 -248 v2 M11 -248 v2" /><path class="ln s03-me-d" d="M-9 -232 h18" />
+    <path class="ln s03-me-d" d="M-38 -206 Q0 -216 38 -206 L40 -95 H-40 Z" /><path class="ln s03-me-d" d="M-22 -208 V-150 H22 V-208 M-12 -170 h24" />
+    <path class="ln s03-me-d" d="M-20 -95 L-22 0 M20 -95 L22 0" />
+    <g class="s03-me-bi"><path class="ln s03-me-d" d="M-38 -198 L-62 -112" /></g>
+    <g class="s03-me-bd"><path class="ln s03-me-d" d="M38 -198 L62 -112" /></g>
+  </g></g>
+        <g transform="translate(830 1200) scale(1)"><g class="s03-cl">
+    <circle class="ln s03-cl-d" cx="0" cy="-250" r="30" />
+    <path class="ln s03-cl-d" d="M-33 -244 Q-38 -292 0 -290 Q38 -292 33 -244 L35 -222 M-33 -244 L-35 -222 M-30 -262 Q-6 -262 6 -284" />
+    <path class="ln s03-cl-d" d="M-11 -252 v2 M11 -252 v2" /><path class="ln s03-cl-d s03-cl-boca" d="M-9 -234 q9 7 18 0" />
+    <path class="ln s03-cl-d" d="M-36 -204 Q0 -216 36 -204 L42 -95 H-42 Z" /><path class="ln s03-cl-d" d="M-12 -210 L0 -190 L12 -210" />
+    <path class="ln s03-cl-d" d="M-20 -95 L-24 0 M20 -95 L24 0" />
+    <g class="s03-cl-bi"><path class="ln s03-cl-d" d="M-36 -196 L-60 -110" /></g>
+    <g class="s03-cl-bd"><path class="ln s03-cl-d" d="M36 -196 L60 -110" /></g>
+  </g></g>
+        <path class="ln s03-mos" d="M400 1200 V1060 H680 V1200 M380 1060 H700" />
+        <g class="s03-bm"><rect class="ln" x="110" y="660" width="380" height="230" rx="28" style="fill:#0a1628" /><path class="ln" d="M200 890 L190 940 L250 890" style="fill:#0a1628" />
+          <path class="ln-ac s03-pad" d="M170 760 Q300 690 430 760 L410 800 Q300 750 190 800 Z" /><circle class="ln-ac" cx="230" cy="772" r="6" /><circle class="ln-ac" cx="370" cy="772" r="6" />
+          <text class="lex t-cr" x="300" y="856" font-size="34" text-anchor="middle">Pastillas de freno</text></g>
+        <g class="s03-bc"><circle class="ln" cx="700" cy="905" r="9" /><circle class="ln" cx="680" cy="860" r="14" /><rect class="ln" x="540" y="660" width="430" height="170" rx="40" style="fill:#0a1628" />
+          <text class="lex t-cr" x="755" y="736" font-size="36" text-anchor="middle">¿Quedan en</text><text class="lex t-cr" x="755" y="786" font-size="36" text-anchor="middle">el otro local?</text></g>
+        <g class="s03-tel"><rect class="ln" x="874" y="900" width="56" height="96" rx="12" style="fill:#0a1628" /><path class="ln" stroke-width="3" d="M892 912 h20" /></g>
+        <g class="s03-ondas"><path class="ln s03-o1" d="M948 918 q14 30 0 60" /><path class="ln s03-o2" d="M968 904 q24 44 0 88" /><path class="ln s03-o3" d="M988 890 q34 58 0 116" /></g>
+        <g class="s03-sin"><rect class="ln-ro" x="560" y="690" width="400" height="90" rx="45" style="fill:#0a1628" /><text class="lex t-ro" x="760" y="748" font-size="36" text-anchor="middle">Sin respuesta</text></g>
+        <g class="s03-pts"><circle class="relleno" cx="200" cy="760" r="0" /></g>
+        <text class="lex t-cr s03-dots" x="230" y="880" font-size="60" text-anchor="middle" fill-opacity="0.6">...</text>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">Pastillas de freno</span><span class="s03-e2">¿En el otro local?</span><span class="s03-e3">Nadie atiende</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-pastillas";
+      const DUR = 5.58;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const ti = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti <= 0 ? 1 : 0 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const borrar = (els, t, dur) => els.forEach((el) => { const L = el.getTotalLength(); tl.to(el, { strokeDashoffset: -L, duration: dur, ease: "power2.inOut" }, t); });
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s03-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s03-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const pinPop = (el, t) => tl.fromTo(el, { opacity: 0, scale: 0.3, svgOrigin: "0 0" }, { opacity: 1, scale: 1, svgOrigin: "0 0", duration: 0.45, ease: "back.out(2)" }, t);
+      const pinPunch = (el, t, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: "0 0", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      // mueve un grupo por puntos [[x,y],...] a velocidad pareja
+      const recorrer = (el, pts, t, dur, ease) => {
+        const ls = pts.slice(1).map((pt, i) => Math.hypot(pt[0] - pts[i][0], pt[1] - pts[i][1]));
+        const L = ls.reduce((a, b) => a + b, 0);
+        let tt = t;
+        pts.slice(1).forEach((pt, i) => { const d = dur * ls[i] / L; tl.to(el, { x: pt[0], y: pt[1], duration: d, ease: ease ?? "none" }, tt); tt += d; });
+      };
+
+      dibujar(qa(".s03-me-d"), 0, 0.6, 0.4, 0);
+      dibujar(qa(".s03-mos"), 0, 0.6, 0.5);
+      dibujar(qa(".s03-cl-d"), 0, 0.7, 0.6, 0);
+      gsap.set(qa(".s03-bm, .s03-bc, .s03-tel, .s03-ondas, .s03-sin, .s03-dots"), { opacity: 0 });
+      pop(q(".s03-bm"), 0.74 - 0.15, 0.6);
+      tl.to(q(".s03-me-bd"), { rotation: -40, svgOrigin: "38 -198", duration: 0.3, ease: "power2.out" }, 0.54);
+      punch(q(".s03-pad"), 1.34, 1.1);
+      // ¿quedan en el otro?
+      tl.to(q(".s03-bm"), { opacity: 0, y: -20, duration: 0.25 }, 2.1 - 0.2);
+      pop(q(".s03-bc"), 2.1 - 0.05, 0.6);
+      tl.to(q(".s03-cl"), { rotation: -4, svgOrigin: "0 0", duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, 2.54);
+      // llama
+      tl.to(q(".s03-bc"), { opacity: 0, duration: 0.25 }, 3.57 - 0.25);
+      tl.to(q(".s03-cl-bd"), { rotation: -120, svgOrigin: "36 -196", duration: 0.3, ease: "power2.out" }, 3.57 - 0.2);
+      pop(q(".s03-tel"), 3.57 - 0.05, 0.5);
+      tl.to(q(".s03-ondas"), { opacity: 1, duration: 0.05 }, 3.57);
+      ["1","2","3"].forEach((k, i) => tl.fromTo(q(".s03-o" + k), { opacity: 0 }, { opacity: 1, duration: 0.15, yoyo: true, repeat: 3, repeatDelay: 0.1 }, 3.57 + i * 0.12));
+      // no atiende nadie
+      tl.to(q(".s03-ondas"), { opacity: 0, duration: 0.2 }, 4.29);
+      pop(q(".s03-sin"), 4.29, 0.6);
+      tl.to(q(".s03-tel"), { x: 5, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, 4.29 + 0.1);
+      tl.to(q(".s03-tel rect"), { stroke: "#c0625a", duration: 0.2 }, 4.29);
+      aparecer(q(".s03-dots"), 4.64);
+      tl.to(q(".s03-me-bd"), { rotation: 0, svgOrigin: "38 -198", duration: 0.3 }, 4.64);
+      etq(1, 0.74); etq(2, 2.1); etq(3, 4.29);
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

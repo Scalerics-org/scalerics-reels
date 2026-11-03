@@ -1,0 +1,154 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-giro"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-giro"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-giro"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-giro"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-giro"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-giro"] .ln-calle { fill: none; stroke: #efeee5; stroke-opacity: 0.2; stroke-width: 2.5; stroke-linecap: round; }
+    [data-composition-id="s07-giro"] .ln-av { fill: none; stroke: #efeee5; stroke-opacity: 0.32; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s07-giro"] .ln-arr { fill: none; stroke: #efeee5; stroke-opacity: 0.22; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 12; }
+    [data-composition-id="s07-giro"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.55; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s07-giro"] .ln-gar { fill: none; stroke: #efeee5; stroke-opacity: 0.6; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-giro"] .osc { fill: #0a1628; }
+    [data-composition-id="s07-giro"] .relleno { fill: #5ce611; }
+    [data-composition-id="s07-giro"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s07-giro"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s07-giro"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s07-giro"] .t-os { fill: #0a1628; }
+    [data-composition-id="s07-giro"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s07-giro"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s07-giro"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-giro"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s07-giro"] .s07-fant .ln { stroke-dasharray: 9 12; stroke-opacity: 0.55; }
+  </style>
+  <div id="root" data-composition-id="s07-giro" data-width="1080" data-height="1920" data-duration="4.79">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.79" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s07-a">
+          <g transform="translate(330 1120) scale(1.5)"><g class="s07-p1"><path class="ln" d="M0 0 C-8 -20 -36 -38 -36 -66 A36 36 0 1 1 36 -66 C36 -38 8 -20 0 0 Z" style="fill:#0a1628" /><text class="lex t-cr" x="0" y="-54" font-size="34" text-anchor="middle">1</text></g></g>
+          <g transform="translate(750 1120) scale(1.5)"><g class="s07-p2"><path class="ln s07-p2b" d="M0 0 C-8 -20 -36 -38 -36 -66 A36 36 0 1 1 36 -66 C36 -38 8 -20 0 0 Z" style="fill:#0a1628" /><text class="lex t-cr s07-p2n" x="0" y="-54" font-size="34" text-anchor="middle">2</text></g></g>
+          <text class="mono t-cr s07-n1" x="330" y="1180" font-size="28" text-anchor="middle">UNIÓN</text>
+          <text class="mono t-cr s07-n2" x="750" y="1180" font-size="28" text-anchor="middle">PRADO</text>
+          <path class="ln-ac s07-crec" stroke-width="7" d="M420 1000 Q540 900 650 960" /><path class="ln-ac s07-crec" stroke-width="7" d="M618 930 L652 962 L612 982" />
+          <g class="s07-lupa"><circle class="ln" cx="0" cy="0" r="56" style="fill:none" /><path class="ln" stroke-width="9" d="M40 40 L92 92" /></g>
+          <g class="s07-ok"><circle class="ln-ac" cx="830" cy="870" r="34" style="fill:#0a1628" /><path class="ln-ac" stroke-width="7" d="M813 870 L826 883 L849 856" /></g>
+          <text class="lex t-ac s07-bh" x="540" y="760" font-size="58" text-anchor="middle">Bien hecho</text>
+        </g>
+        <g class="s07-b">
+          <g class="s07-fant s07-f1"><g transform="translate(540 1200) scale(1)"><g class="s07f1-cl">
+    <circle class="ln s07f1-cl-d" cx="0" cy="-250" r="30" />
+    <path class="ln s07f1-cl-d" d="M-33 -244 Q-38 -292 0 -290 Q38 -292 33 -244 L35 -222 M-33 -244 L-35 -222 M-30 -262 Q-6 -262 6 -284" />
+    <path class="ln s07f1-cl-d" d="M-11 -252 v2 M11 -252 v2" /><path class="ln s07f1-cl-d s07f1-cl-boca" d="M-9 -234 q9 7 18 0" />
+    <path class="ln s07f1-cl-d" d="M-36 -204 Q0 -216 36 -204 L42 -95 H-42 Z" /><path class="ln s07f1-cl-d" d="M-12 -210 L0 -190 L12 -210" />
+    <path class="ln s07f1-cl-d" d="M-20 -95 L-24 0 M20 -95 L24 0" />
+    <g class="s07f1-cl-bi"><path class="ln s07f1-cl-d" d="M-36 -196 L-60 -110" /></g>
+    <g class="s07f1-cl-bd"><path class="ln s07f1-cl-d" d="M36 -196 L60 -110" /></g>
+  </g></g></g>
+          <g class="s07-fant s07-f2"><g transform="translate(540 1200) scale(1)"><g class="s07f2-cl">
+    <circle class="ln s07f2-cl-d" cx="0" cy="-250" r="30" />
+    <path class="ln s07f2-cl-d" d="M-33 -244 Q-38 -292 0 -290 Q38 -292 33 -244 L35 -222 M-33 -244 L-35 -222 M-30 -262 Q-6 -262 6 -284" />
+    <path class="ln s07f2-cl-d" d="M-11 -252 v2 M11 -252 v2" /><path class="ln s07f2-cl-d s07f2-cl-boca" d="M-9 -234 q9 7 18 0" />
+    <path class="ln s07f2-cl-d" d="M-36 -204 Q0 -216 36 -204 L42 -95 H-42 Z" /><path class="ln s07f2-cl-d" d="M-12 -210 L0 -190 L12 -210" />
+    <path class="ln s07f2-cl-d" d="M-20 -95 L-24 0 M20 -95 L24 0" />
+    <g class="s07f2-cl-bi"><path class="ln s07f2-cl-d" d="M-36 -196 L-60 -110" /></g>
+    <g class="s07f2-cl-bd"><path class="ln s07f2-cl-d" d="M36 -196 L60 -110" /></g>
+  </g></g></g>
+          <g transform="translate(540 1200) scale(1)"><g class="s07-cl">
+    <circle class="ln s07-cl-d" cx="0" cy="-250" r="30" />
+    <path class="ln s07-cl-d" d="M-33 -244 Q-38 -292 0 -290 Q38 -292 33 -244 L35 -222 M-33 -244 L-35 -222 M-30 -262 Q-6 -262 6 -284" />
+    <path class="ln s07-cl-d" d="M-11 -252 v2 M11 -252 v2" /><path class="ln s07-cl-d s07-cl-boca" d="M-9 -234 q9 7 18 0" />
+    <path class="ln s07-cl-d" d="M-36 -204 Q0 -216 36 -204 L42 -95 H-42 Z" /><path class="ln s07-cl-d" d="M-12 -210 L0 -190 L12 -210" />
+    <path class="ln s07-cl-d" d="M-20 -95 L-24 0 M20 -95 L24 0" />
+    <g class="s07-cl-bi"><path class="ln s07-cl-d" d="M-36 -196 L-60 -110" /></g>
+    <g class="s07-cl-bd"><path class="ln s07-cl-d" d="M36 -196 L60 -110" /></g>
+  </g></g>
+          <path class="ln s07-gota" stroke-width="4" d="M600 940 q-10 16 0 22 q10 -6 0 -22 Z" />
+          <g class="s07-x1"><path class="ln-ro" stroke-width="7" d="M230 900 l60 60 M290 900 l-60 60" /></g>
+          <g class="s07-x2"><path class="ln-ro" stroke-width="7" d="M790 900 l60 60 M850 900 l-60 60" /></g>
+          <text class="lex t-cr s07-uno" x="540" y="760" font-size="58" text-anchor="middle">Hay una sola</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">Crecer</span><span class="s07-e2">Bien hecho</span><span class="s07-e3">Claudia hay una sola</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-giro";
+      const DUR = 4.79;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const ti = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti <= 0 ? 1 : 0 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const borrar = (els, t, dur) => els.forEach((el) => { const L = el.getTotalLength(); tl.to(el, { strokeDashoffset: -L, duration: dur, ease: "power2.inOut" }, t); });
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s07-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s07-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const pinPop = (el, t) => tl.fromTo(el, { opacity: 0, scale: 0.3, svgOrigin: "0 0" }, { opacity: 1, scale: 1, svgOrigin: "0 0", duration: 0.45, ease: "back.out(2)" }, t);
+      const pinPunch = (el, t, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: "0 0", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      // mueve un grupo por puntos [[x,y],...] a velocidad pareja
+      const recorrer = (el, pts, t, dur, ease) => {
+        const ls = pts.slice(1).map((pt, i) => Math.hypot(pt[0] - pts[i][0], pt[1] - pts[i][1]));
+        const L = ls.reduce((a, b) => a + b, 0);
+        let tt = t;
+        pts.slice(1).forEach((pt, i) => { const d = dur * ls[i] / L; tl.to(el, { x: pt[0], y: pt[1], duration: d, ease: ease ?? "none" }, tt); tt += d; });
+      };
+
+      tl.fromTo(qa(".s07-p1, .s07-p2"), { scale: 0.8, opacity: 1, svgOrigin: "0 0" }, { scale: 1, svgOrigin: "0 0", duration: 0.4, ease: "back.out(2)", stagger: 0.1 }, 0);
+      tl.fromTo(qa(".s07-n1, .s07-n2"), { opacity: 0.3 }, { opacity: 1, duration: 0.3 }, 0.1);
+      gsap.set(qa(".s07-ok, .s07-bh, .s07-b, .s07-crec"), { opacity: 0 });
+      gsap.set(q(".s07-lupa"), { x: 540, y: 820 });
+      pop(q(".s07-lupa"), 0, 0.6);
+      tl.to(q(".s07-lupa"), { x: 750, y: 960, duration: 0.6, ease: "power2.inOut" }, 1.12 - 0.4);
+      dibujar(qa(".s07-crec"), 0.71, 0.5, 1, 0.3);
+      tl.to(qa(".s07-crec"), { opacity: 1, duration: 0.01 }, 0.71);
+      // bien: el segundo local en verde
+      tl.to(q(".s07-lupa"), { opacity: 0, scale: 1.3, duration: 0.25 }, 1.92 - 0.2);
+      tl.to(q(".s07-p2b"), { stroke: "#5ce611", duration: 0.25 }, 1.92);
+      tl.to(q(".s07-p2n"), { fill: "#5ce611", duration: 0.25 }, 1.92);
+      pop(q(".s07-ok"), 1.92, 0.4);
+      pop(q(".s07-bh"), 1.92 + 0.05, 0.7);
+      pinPunch(q(".s07-p2"), 1.92 + 0.1, 1.08);
+      // lo que no se multiplica es Claudia
+      tl.to(q(".s07-a"), { opacity: 0, y: -30, duration: 0.3, ease: "power2.in" }, 2.73 - 0.25);
+      tl.to(q(".s07-b"), { opacity: 1, duration: 0.05 }, 2.73 - 0.05);
+      dibujar(qa(".s07-cl-d"), 2.73 - 0.05, 0.4, 1, 0.01);
+      gsap.set(qa(".s07-gota, .s07-x1, .s07-x2, .s07-uno, .s07-f1, .s07-f2"), { opacity: 0 });
+      tl.fromTo(q(".s07-f1"), { opacity: 0, x: 0 }, { opacity: 1, x: -280, duration: 0.45, ease: "power3.out" }, 3.12 - 0.05);
+      tl.fromTo(q(".s07-f2"), { opacity: 0, x: 0 }, { opacity: 1, x: 280, duration: 0.45, ease: "power3.out" }, 3.12 - 0.05);
+      pop(q(".s07-x1"), 3.72 - 0.1, 0.5);
+      pop(q(".s07-x2"), 3.72 - 0.05, 0.5);
+      tl.to(q(".s07-f1"), { opacity: 0, x: -200, duration: 0.3 }, 3.72 + 0.35);
+      tl.to(q(".s07-f2"), { opacity: 0, x: 200, duration: 0.3 }, 3.72 + 0.35);
+      tl.to(qa(".s07-x1, .s07-x2"), { opacity: 0, duration: 0.25 }, 3.72 + 0.5);
+      tl.to(q(".s07-cl-bi"), { rotation: 70, svgOrigin: "-36 -196", duration: 0.3, ease: "back.out(2)" }, 3.72);
+      tl.to(q(".s07-cl-bd"), { rotation: -70, svgOrigin: "36 -196", duration: 0.3, ease: "back.out(2)" }, 3.72);
+      pop(q(".s07-gota"), 3.72 + 0.2, 0.5);
+      tl.to(q(".s07-gota"), { y: 16, duration: 0.5, ease: "power1.in" }, 3.72 + 0.5);
+      pop(q(".s07-uno"), 3.72 + 0.3, 0.7);
+      etq(1, 0.71); etq(2, 1.92); etq(3, 3.72);
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

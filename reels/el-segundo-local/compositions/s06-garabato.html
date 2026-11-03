@@ -1,0 +1,102 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-garabato"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-garabato"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-garabato"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-garabato"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-garabato"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-garabato"] .ln-calle { fill: none; stroke: #efeee5; stroke-opacity: 0.2; stroke-width: 2.5; stroke-linecap: round; }
+    [data-composition-id="s06-garabato"] .ln-av { fill: none; stroke: #efeee5; stroke-opacity: 0.32; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s06-garabato"] .ln-arr { fill: none; stroke: #efeee5; stroke-opacity: 0.22; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 12; }
+    [data-composition-id="s06-garabato"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.55; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s06-garabato"] .ln-gar { fill: none; stroke: #efeee5; stroke-opacity: 0.6; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-garabato"] .osc { fill: #0a1628; }
+    [data-composition-id="s06-garabato"] .relleno { fill: #5ce611; }
+    [data-composition-id="s06-garabato"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s06-garabato"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s06-garabato"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s06-garabato"] .t-os { fill: #0a1628; }
+    [data-composition-id="s06-garabato"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s06-garabato"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s06-garabato"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-garabato"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s06-garabato" data-width="1080" data-height="1920" data-duration="2.72">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="2.72" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s06-mapa"><path class="ln-calle s06-calle" d="M120 680 H960" /><path class="ln-calle s06-calle" d="M120 780 H960" /><path class="ln-calle s06-calle" d="M120 880 H960" /><path class="ln-calle s06-calle" d="M120 980 H960" /><path class="ln-calle s06-calle" d="M120 1080 H960" /><path class="ln-calle s06-calle" d="M120 1170 H960" /><path class="ln-calle s06-calle" d="M180 650 V1190" /><path class="ln-calle s06-calle" d="M300 650 V1190" /><path class="ln-calle s06-calle" d="M420 650 V1190" /><path class="ln-calle s06-calle" d="M540 650 V1190" /><path class="ln-calle s06-calle" d="M660 650 V1190" /><path class="ln-calle s06-calle" d="M780 650 V1190" /><path class="ln-calle s06-calle" d="M900 650 V1190" />
+    <path class="ln-av s06-avn" d="M120 1150 L960 660" />
+    <path class="ln-arr s06-arr" d="M960 940 C880 930 860 1010 790 1000 S690 940 620 980 S560 1080 480 1060" />
+    <g class="s06-parque"><rect class="ln-calle" x="820" y="690" width="70" height="70" rx="8" /><circle class="ln-calle" cx="842" cy="712" r="9" /><circle class="ln-calle" cx="868" cy="738" r="9" /><circle class="ln-calle" cx="868" cy="710" r="7" /></g>
+  </g>
+        <g transform="translate(300 1080)"><g class="s06-pin1 ">
+    <path class="ln s06-pin1-b" d="M0 0 C-8 -20 -36 -38 -36 -66 A36 36 0 1 1 36 -66 C36 -38 8 -20 0 0 Z" style="fill:#0a1628" />
+    <text class="lex t-cr s06-pin1-n" x="0" y="-54" font-size="34" text-anchor="middle">1</text>
+    <g class="s06-pin1-lab"><rect class="ln" stroke-width="3" x="48" y="-104" width="130" height="48" rx="10" style="fill:#0a1628" /><text class="mono t-cr" x="113" y="-71" font-size="26" text-anchor="middle">UNIÓN</text></g>
+  </g></g>
+        <g transform="translate(780 780)"><g class="s06-pin2 ">
+    <path class="ln s06-pin2-b" d="M0 0 C-8 -20 -36 -38 -36 -66 A36 36 0 1 1 36 -66 C36 -38 8 -20 0 0 Z" style="fill:#0a1628" />
+    <text class="lex t-cr s06-pin2-n" x="0" y="-54" font-size="34" text-anchor="middle">2</text>
+    <g class="s06-pin2-lab"><rect class="ln" stroke-width="3" x="48" y="-104" width="130" height="48" rx="10" style="fill:#0a1628" /><text class="mono t-cr" x="113" y="-71" font-size="26" text-anchor="middle">PRADO</text></g>
+  </g></g>
+        <path class="ln-gar s06-gar" d="M300 1104 L330 1111 L352 1112 L362 1107 L365 1096 L369 1083 L379 1069 L395 1060 L411 1057 L419 1059 L417 1063 L406 1064 L389 1054 L383 1041 L389 1025 L401 1011 L411 1001 L414 997 L411 998 L408 1001 L414 1002 L428 998 L446 987 L458 971 L458 951 L447 932 L431 916 L420 903 L416 893 L422 887 L435 885 L441 878 L439 868 L436 857 L440 848 L456 844 L483 848 L512 857 L535 869 L549 881 L556 889 L564 891 L580 890 L602 888 L623 888 L636 891 L637 898 L629 905 L622 910 L623 910 L634 903 L644 882 L648 857 L646 833 L638 814 L632 802 L635 794 L649 788 L669 781 L686 771 L701 766 L707 763 L709 761 L713 764 L725 772 L741 785 L755 798 L759 809 L755 814 L747 812 L744 805 L816 772 L803 772 L777 768 L747 761 L720 754 L703 750 L695 751 L690 759 L679 772 L662 786 L641 798 L629 807 L636 819 L654 826 L674 832 L687 839 L690 850 L683 864 L674 878 L671 890 L673 895 L667 886 L656 873 L634 860 L604 850 L575 846 L554 848 L546 856 L546 866 L546 874 L540 878 L526 879 L511 877 L503 877 L504 880 L510 888 L514 898 L507 908 L488 915 L461 915 L437 908 L420 896 L419 891 L422 892 L418 897 L407 907 L392 920 L381 934 L383 945 L397 952 L415 957 L429 962 L434 971 L431 985 L427 1006 L430 1031 L440 1056 L451 1078 L456 1094 L449 1104 L423 1101 L392 1095 L368 1091 L355 1090 L349 1093 L343 1095 L332 1095 L313 1090 L295 1080 L283 1067 L284 1055 L297 1089 L293 1094 L289 1095 L294 1092 L311 1090 L337 1091 L365 1095 L387 1101 L399 1107 L406 1108 L417 1104 L432 1091 L444 1066 L455 1041 L456 1020 L445 1005 L426 996 L408 990 L400 985 L401 978 L407 967 L409 953 L404 940 L395 929 L389 924 L393 923 L408 925 L428 926 L444 922 L453 915 L459 909 L462 899 L468 889 L482 881 L499 878 L513 878 L516 880 L510 879 L502 875 L500 867 L511 857 L531 849 L554 845 L572 849 L582 858 L590 872 L601 885 L622 894 L650 898 L678 897 L697 894 L695 883 L681 873 L666 865 L658 860 L658 853 L662 842 L661 824 L651 801 L636 776 L632 760 L641 752 L663 750 L691 754 L719 761 L737 767 L747 771 L754 771 L766 769 L785 768 L808 769 L768 810 L753 799 L746 786 L748 773 L756 765 L759 762 L752 763 L732 766 L707 769 L684 768 L669 763 L663 760 L665 768 L660 780 L647 799 L631 822 L621 847 L623 871 L637 890 L654 902 L664 905 L656 898 L642 892 L628 889 L622 889 L622 891 L623 892 L617 890 L598 882 L569 871 L539 858 L516 848 L504 844 L498 847 L490 856 L476 867 L456 877 L437 884 L427 886 L428 885 L436 883 L443 885 L449 898 L447 917 L438 937 L432 954 L433 965 L439 970 L443 969 L439 966 L424 965 L404 969 L388 978 L384 992 L391 1007 L403 1021 L412 1031 L413 1038 L409 1045 L407 1054 L405 1059 L410 1068 L417 1081 L416 1095 L404 1106 L381 1112 L354 1111 L333 1104 L321 1096 L313 1090 L302 1086 L315 1061 L323 1052 L339 1047 L357 1048 L370 1056 L373 1068 L366 1082 L357 1094 L356 1100 L367 1101 L388 1098 L407 1091 L411 1078 L409 1068 L404 1061 L405 1055 L416 1045 L435 1030 L452 1009 L459 985 L453 960 L440 938 L427 923 L421 914 L423 909 L426 906 L423 902 L412 893 L395 882 L386 872 L395 872 L417 876 L445 885 L471 896 L488 908 L497 915 L505 915 L519 909 L540 898 L565 886 L583 877 L590 872 L586 871 L578 873 L575 874 L582 872 L597 866 L613 858 L623 851 L626 848 L628 851 L628 852 L637 855 L656 858 L675 857 L687 851 L688 839 L681 824 L673 808 L672 794 L686 793 L703 797 L713 800 L711 800 L703 795 L696 784 L700 771 L715 757 L738 749 L759 747 L773 751" />
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Ida y vuelta</span><span class="s06-e2">Un garabato</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-garabato";
+      const DUR = 2.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const ti = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: ti <= 0 ? 1 : 0 });
+          if (ti > 0) tl.to(el, { opacity: 1, duration: 0.04 }, ti);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, ti);
+        });
+      };
+      const borrar = (els, t, dur) => els.forEach((el) => { const L = el.getTotalLength(); tl.to(el, { strokeDashoffset: -L, duration: dur, ease: "power2.inOut" }, t); });
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s06-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s06-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const pinPop = (el, t) => tl.fromTo(el, { opacity: 0, scale: 0.3, svgOrigin: "0 0" }, { opacity: 1, scale: 1, svgOrigin: "0 0", duration: 0.45, ease: "back.out(2)" }, t);
+      const pinPunch = (el, t, s) => tl.to(el, { scale: s ?? 1.1, svgOrigin: "0 0", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      // mueve un grupo por puntos [[x,y],...] a velocidad pareja
+      const recorrer = (el, pts, t, dur, ease) => {
+        const ls = pts.slice(1).map((pt, i) => Math.hypot(pt[0] - pts[i][0], pt[1] - pts[i][1]));
+        const L = ls.reduce((a, b) => a + b, 0);
+        let tt = t;
+        pts.slice(1).forEach((pt, i) => { const d = dur * ls[i] / L; tl.to(el, { x: pt[0], y: pt[1], duration: d, ease: ease ?? "none" }, tt); tt += d; });
+      };
+
+      dibujar(qa(".s06-calle"), 0, 0.4, 0.3, 0);
+      dibujar(qa(".s06-avn, .s06-arr"), 0, 0.5, 0.3, 0);
+      tl.fromTo(qa(".s06-pin1, .s06-pin2"), { scale: 0.85, svgOrigin: "0 0" }, { scale: 1, svgOrigin: "0 0", duration: 0.35, ease: "back.out(2)" }, 0);
+      dibujar(qa(".s06-gar"), 0.1, 1.54 + 0.1, 1);
+      tl.to(q(".s06-gar"), { stroke: "#c0625a", strokeOpacity: 0.85, duration: 0.3 }, 1.54);
+      tl.to(q(".s06-gar"), { x: 6, duration: 0.05, yoyo: true, repeat: 7, ease: "none" }, 1.54 + 0.1);
+      tl.to(qa(".s06-pin1, .s06-pin2"), { opacity: 0.55, duration: 0.3 }, 1.54);
+      etq(1, 0.15); etq(2, 1.54);
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
