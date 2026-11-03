@@ -1,0 +1,147 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-reloj"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-reloj"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-reloj"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-reloj"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-reloj"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-reloj"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.5; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s01-reloj"] .relleno { fill: #5ce611; }
+    [data-composition-id="s01-reloj"] .osc { fill: #0a1628; }
+    [data-composition-id="s01-reloj"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s01-reloj"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s01-reloj"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s01-reloj"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s01-reloj"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s01-reloj"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-reloj"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-reloj" data-width="1080" data-height="1920" data-duration="6.14">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="6.14" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        
+        <g transform="translate(540 690) scale(1)"><g class="s01-rl">
+          <rect class="ln" x="-150" y="-62" width="300" height="124" rx="22" />
+          <text class="lex t-cr" x="0" y="30" font-size="84" text-anchor="middle">23<tspan class="s01-rl-dp">:</tspan>40</text>
+        </g></g>
+        <path class="ln s01-luna" d="M310 650 a40 40 0 1 0 30 70 a32 32 0 1 1 -30 -70 Z" />
+        <path class="ln s01-est" d="M790 640 v20 M780 650 h20" /><path class="ln s01-est" d="M840 730 v16 M832 738 h16" /><path class="ln s01-est" d="M230 770 v16 M222 778 h16" />
+        <path class="ln s01-suelo" stroke-opacity="0.5" d="M60 1200 H1020" />
+        
+        <g transform="translate(290 1200) scale(0.78)"><g class="s01-ta">
+          <path class="ln s01-ta-d" d="M-170 0 V-250 H170 V0" />
+          <path class="ln s01-ta-d" d="M-185 -200 L-170 -250 H170 L185 -200 Z" />
+          <path class="ln s01-ta-d" d="M-120 -250 L-128 -200 M-60 -250 L-64 -200 M0 -250 V-200 M60 -250 L64 -200 M120 -250 L128 -200" />
+          <rect class="ln s01-ta-d" x="-150" y="-330" width="300" height="62" rx="10" />
+          <rect class="ln s01-ta-d" x="-145" y="-175" width="175" height="150" rx="6" />
+          <path class="ln s01-ta-d" d="M65 0 V-175 H145 V0" />
+          <text class="mono t-cr s01-ta-nom" x="0" y="-288.92" font-size="28" text-anchor="middle">ROPA</text>
+          <g class="s01-ta-ropa"><path class="ln" d="M-50 -150 v-8 q0 -9 8 -9 q8 0 8 8" /><path class="ln" d="M-84 -140 L-64 -150 H-36 L-16 -140 L-10 -90 H-24 V-50 H-76 V-90 H-90 Z" /><path class="ln" d="M-50 -146 V-50" /></g>
+          <g class="s01-ta-pers"><rect x="-160" y="-196" width="320" height="196" fill="#0a1628" stroke="#efeee5" stroke-width="5" stroke-linejoin="round" />
+            <path class="ln" stroke-opacity="0.55" d="M-160 -172 H160 M-160 -150 H160 M-160 -128 H160 M-160 -106 H160 M-160 -84 H160 M-160 -62 H160 M-160 -40 H160 M-160 -18 H160" />
+            <path class="ln" d="M-14 -12 h28" /></g>
+        </g></g>
+        
+        <g transform="translate(790 1200) scale(0.78)"><g class="s01-tb">
+          <path class="ln s01-tb-d" d="M-170 0 V-250 H170 V0" />
+          <path class="ln s01-tb-d" d="M-185 -200 L-170 -250 H170 L185 -200 Z" />
+          <path class="ln s01-tb-d" d="M-120 -250 L-128 -200 M-60 -250 L-64 -200 M0 -250 V-200 M60 -250 L64 -200 M120 -250 L128 -200" />
+          <rect class="ln s01-tb-d" x="-150" y="-330" width="300" height="62" rx="10" />
+          <rect class="ln s01-tb-d" x="-145" y="-175" width="175" height="150" rx="6" />
+          <path class="ln s01-tb-d" d="M65 0 V-175 H145 V0" />
+          <text class="mono t-cr s01-tb-nom" x="0" y="-288.92" font-size="28" text-anchor="middle">ROPA</text>
+          <g class="s01-tb-ropa"><path class="ln" d="M-50 -150 v-8 q0 -9 8 -9 q8 0 8 8" /><path class="ln" d="M-84 -140 L-64 -150 H-36 L-16 -140 L-10 -90 H-24 V-50 H-76 V-90 H-90 Z" /><path class="ln" d="M-50 -146 V-50" /></g>
+          <g class="s01-tb-pers"><rect x="-160" y="-196" width="320" height="196" fill="#0a1628" stroke="#efeee5" stroke-width="5" stroke-linejoin="round" />
+            <path class="ln" stroke-opacity="0.55" d="M-160 -172 H160 M-160 -150 H160 M-160 -128 H160 M-160 -106 H160 M-160 -84 H160 M-160 -62 H160 M-160 -40 H160 M-160 -18 H160" />
+            <path class="ln" d="M-14 -12 h28" /></g>
+        </g></g>
+        <text class="lex t-cr s01-ig" x="540" y="1110" font-size="80" text-anchor="middle">=</text>
+        <g class="s01-cerr"><rect class="ln-ro" x="213" y="1090" width="154" height="48" rx="8" style="fill:#0a1628" /><text class="mono t-ro" x="290" y="1123" font-size="24" text-anchor="middle">CERRADO</text></g>
+        <g class="s01-ped"><rect class="ln-ac" x="650" y="800" width="280" height="74" rx="37" style="fill:#0a1628" />
+          <g class="s01-ped-ok"><circle class="ln-ac" cx="694" cy="837" r="22" /><path class="ln-ac" d="M684.1 837 L691.8 844.92 L705 829.08" /></g>
+          <text class="lex t-ac" x="730" y="849" font-size="34">+1 pedido</text></g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Misma hora</span><span class="s01-e2">Una cerró</span><span class="s01-e3">La otra vende</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-reloj";
+      const DUR = 6.14;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s01-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s01-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      // persiana: baja desde arriba (coordenadas locales de la tienda)
+      const bajar = (el, t, d) => {
+        tl.fromTo(el, { scaleY: 0, svgOrigin: "0 -196" }, { scaleY: 1, svgOrigin: "0 -196", duration: d ?? 0.5, ease: "power2.in" }, t);
+        tl.to(el, { y: -6, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1 }, t + (d ?? 0.5));
+      };
+      // los dos puntos del reloj titilan
+      const titilar = (el, t0, t1) => { for (let t = t0; t < t1 - 0.5; t += 1) tl.to(el, { attr: { "fill-opacity": 0.15 }, duration: 0.12, yoyo: true, repeat: 1, repeatDelay: 0.26 }, t); };
+
+
+      const TIENDAS = 0.38, IGUALES = 0.57, ONCE = 1.14, CUARENTA = 1.91, NOCHE = 2.57, CERRO = 3.43, OTRA = 4.38, VEND = 5.14;
+      // cuadro 0: reloj y tienda izquierda a medio dibujar
+      dibujar(qa(".s01-rl rect"), 0, 0.6, 0.4);
+      tl.fromTo(q(".s01-rl text"), { opacity: 0.35 }, { opacity: 1, duration: 0.3 }, 0.1);
+      dibujar(qa(".s01-ta-d, .s01-ta-ropa path"), 0, 0.6, 0.4);
+      tl.fromTo(q(".s01-ta-nom"), { opacity: 0.3 }, { opacity: 1, duration: 0.3 }, 0.15);
+      tl.fromTo(q(".s01-suelo"), { scaleX: 0.5, svgOrigin: "540 1200" }, { scaleX: 1, svgOrigin: "540 1200", duration: 0.7, ease: "power3.out" }, 0);
+      gsap.set(qa(".s01-ta-pers, .s01-tb-pers"), { scaleY: 0, svgOrigin: "0 -196" });
+      gsap.set(qa(".s01-luna, .s01-est, .s01-cerr, .s01-ped, .s01-ig"), { opacity: 0 });
+      titilar(q(".s01-rl-dp"), 0.6, 6);
+
+      // "tiendas": la segunda, idéntica
+      dibujar(qa(".s01-tb-d, .s01-tb-ropa path"), TIENDAS - 0.05, 0.55);
+      aparecer(q(".s01-tb-nom"), TIENDAS + 0.35);
+      pop(q(".s01-ig"), IGUALES + 0.1, 0.5);
+
+      // el reloj late en la hora
+      punch(q(".s01-rl"), ONCE, 1.07);
+      punch(q(".s01-rl"), CUARENTA, 1.07);
+      pop(q(".s01-luna"), NOCHE - 0.1, 0.6);
+      qa(".s01-est").forEach((e, i) => pop(e, NOCHE + i * 0.12, 0.3));
+      tl.to(qa(".s01-est"), { opacity: 0.4, duration: 0.25, yoyo: true, repeat: 3, stagger: 0.2 }, NOCHE + 0.6);
+
+      // "cerró": persiana izquierda
+      bajar(q(".s01-ta-pers"), CERRO - 0.05);
+      tl.to(q(".s01-ta"), { opacity: 0.45, duration: 0.4 }, CERRO + 0.5);
+      pop(q(".s01-cerr"), CERRO + 0.45, 0.6);
+      tl.to(q(".s01-cerr"), { rotation: -4, svgOrigin: "290 1090", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 3 }, CERRO + 0.8);
+      tl.to(q(".s01-ig"), { opacity: 0.25, duration: 0.3 }, CERRO);
+
+      // "la otra": también baja la persiana... y vende
+      bajar(q(".s01-tb-pers"), OTRA - 0.1);
+      pop(q(".s01-ped"), VEND - 0.05, 0.6);
+      dibujar(qa(".s01-ped-ok circle, .s01-ped-ok path"), VEND + 0.1, 0.3);
+      tl.to(q(".s01-ped"), { y: -10, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, VEND + 0.4);
+
+      etq(1, 0.2); etq(2, CERRO); etq(3, VEND - 0.35);
+
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

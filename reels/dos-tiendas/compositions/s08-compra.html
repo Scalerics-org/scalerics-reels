@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-compra"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-compra"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-compra"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-compra"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-compra"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-compra"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.5; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s08-compra"] .relleno { fill: #5ce611; }
+    [data-composition-id="s08-compra"] .osc { fill: #0a1628; }
+    [data-composition-id="s08-compra"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s08-compra"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s08-compra"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s08-compra"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s08-compra"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s08-compra"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-compra"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-compra" data-width="1080" data-height="1920" data-duration="6.89">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="6.89" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s08-tel"><rect class="s08-marco" x="300" y="636" width="480" height="606" rx="48" style="fill:#0a1628" stroke="#efeee5" stroke-width="5" />
+          <path class="ln" d="M510 656 h60" />
+          <text class="mono t-ac" x="332" y="700" font-size="24">23:40</text>
+          <text class="mono t-cr" x="748" y="700" font-size="24" text-anchor="end" fill-opacity="0.6">VALERIA · ROPA</text>
+          <rect class="ln" stroke-opacity="0.5" x="325" y="722" width="430" height="128" rx="18" />
+          <g transform="translate(385 742) scale(0.8)"><path class="ln" d="M0 12 v-8 q0 -9 8 -9 q8 0 8 8" /><path class="ln" d="M-34 22 L-14 12 H14 L34 22 L40 72 H26 V112 H-26 V72 H-40 Z" /><path class="ln" d="M0 16 V112" /></g>
+          <text class="lex t-cr" x="450" y="776" font-size="30">Campera negra</text>
+          <text class="lex t-cr s08-p1" x="450" y="828" font-size="40">$ 2.490</text>
+          <text class="lex t-ac s08-p2" x="450" y="828" font-size="40">$ 2.490</text>
+          <path class="ln-ac s08-psub" d="M450 840 H600" />
+          <g class="s08-btn"><rect class="ln s08-btn-r" x="325" y="868" width="430" height="70" rx="35" />
+            <text class="lex t-cr s08-btn-t" x="540" y="913" font-size="28" text-anchor="middle">Pagar con Mercado Pago</text></g>
+          <g class="s08-ok"><rect class="relleno" x="325" y="868" width="430" height="70" rx="35" />
+            <text class="lex" x="575" y="913" font-size="30" text-anchor="middle" fill="#0a1628">Pago aprobado</text>
+            <path d="M410 902 l12 12 l22 -24" fill="none" stroke="#0a1628" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></g>
+          <text class="mono t-cr s08-env" x="330" y="984" font-size="24" fill-opacity="0.6">ENVÍO</text>
+          <g class="s08-o1"><rect class="ln s08-o1-r" stroke-opacity="0.5" x="325" y="1000" width="430" height="84" rx="16" />
+    <circle class="ln" stroke-opacity="0.6" cx="362" cy="1042" r="16" />
+    <text class="lex t-cr" x="396" y="1038" font-size="30">DAC</text>
+    <text class="mono t-cr" x="396" y="1070" font-size="24" fill-opacity="0.6">al interior</text>
+    <g class="s08-o1-ok"><circle class="ln-ac" cx="712" cy="1042" r="22" /><path class="ln-ac" d="M702.1 1042 L709.8 1049.92 L723 1034.08" /></g></g>
+          <g class="s08-o2"><rect class="ln s08-o2-r" stroke-opacity="0.5" x="325" y="1100" width="430" height="84" rx="16" />
+    <circle class="ln" stroke-opacity="0.6" cx="362" cy="1142" r="16" />
+    <text class="lex t-cr" x="396" y="1138" font-size="30">PedidosYa</text>
+    <text class="mono t-cr" x="396" y="1170" font-size="24" fill-opacity="0.6">en el barrio</text>
+    <g class="s08-o2-ok"><circle class="ln-ac" cx="712" cy="1142" r="22" /><path class="ln-ac" d="M702.1 1142 L709.8 1149.92 L723 1134.08" /></g></g>
+        </g>
+        <circle class="ln s08-dedo" cx="0" cy="0" r="24" />
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">Precio a la vista</span><span class="s08-e2">Pago online</span><span class="s08-e3">Envío: DAC o PedidosYa</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-compra";
+      const DUR = 6.89;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s08-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s08-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      // persiana: baja desde arriba (coordenadas locales de la tienda)
+      const bajar = (el, t, d) => {
+        tl.fromTo(el, { scaleY: 0, svgOrigin: "0 -196" }, { scaleY: 1, svgOrigin: "0 -196", duration: d ?? 0.5, ease: "power2.in" }, t);
+        tl.to(el, { y: -6, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1 }, t + (d ?? 0.5));
+      };
+      // los dos puntos del reloj titilan
+      const titilar = (el, t0, t1) => { for (let t = t0; t < t1 - 0.5; t += 1) tl.to(el, { attr: { "fill-opacity": 0.15 }, duration: 0.12, yoyo: true, repeat: 1, repeatDelay: 0.26 }, t); };
+
+
+      const PRECIO = 0.76, MERCADO = 1.9, ENVIO = 3.33, DAC = 4.11, PYA = 5.14;
+      dibujar([q(".s08-marco")], 0, 0.6, 0.4);
+      tl.fromTo(qa(".s08-tel > *:not(.s08-marco):not(.s08-ok):not(.s08-p2):not(.s08-psub)"), { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.03 }, 0.1);
+      gsap.set(qa(".s08-p2, .s08-ok, .s08-o1-ok, .s08-o2-ok, .s08-dedo"), { opacity: 0 });
+      gsap.set(q(".s08-psub"), { opacity: 0 });
+      // dedo que toca cada paso
+      const tocar = (x, y, t) => {
+        tl.to(q(".s08-dedo"), { x, y, opacity: 0.9, duration: 0.3, ease: "power2.inOut" }, t - 0.35);
+        tl.to(q(".s08-dedo"), { scale: 0.75, svgOrigin: "0 0", duration: 0.1, yoyo: true, repeat: 1 }, t - 0.05);
+        tl.to(q(".s08-dedo"), { opacity: 0, duration: 0.2 }, t + 0.25);
+      };
+      tl.set(q(".s08-dedo"), { x: 900, y: 1150 }, 0);
+      tocar(640, 812, PRECIO);
+      tl.to(q(".s08-p1"), { opacity: 0, duration: 0.15 }, PRECIO);
+      tl.to(q(".s08-p2"), { opacity: 1, duration: 0.15 }, PRECIO);
+      punch(q(".s08-p2"), PRECIO + 0.05, 1.1);
+      dibujar([q(".s08-psub")], PRECIO + 0.1, 0.35);
+      tocar(640, 903, MERCADO - 0.1);
+      tl.to(q(".s08-btn"), { opacity: 0, duration: 0.15 }, MERCADO + 0.1);
+      pop(q(".s08-ok"), MERCADO + 0.1, 0.9);
+      tocar(640, 1042, DAC);
+      tl.to(q(".s08-o1-r"), { stroke: "#5ce611", strokeOpacity: 1, duration: 0.2 }, DAC);
+      pop(q(".s08-o1-ok"), DAC + 0.05, 0.5);
+      tocar(640, 1142, PYA);
+      tl.to(q(".s08-o2-r"), { stroke: "#5ce611", strokeOpacity: 1, duration: 0.2 }, PYA);
+      pop(q(".s08-o2-ok"), PYA + 0.05, 0.5);
+      tl.to(q(".s08-dedo"), { x: 900, y: 1180, opacity: 0, duration: 0.4 }, PYA + 0.5);
+      punch(q(".s08-tel"), 6.1, 1.03);
+      etq(1, PRECIO); etq(2, MERCADO); etq(3, ENVIO);
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

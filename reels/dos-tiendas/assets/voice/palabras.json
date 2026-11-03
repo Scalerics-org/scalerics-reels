@@ -1,0 +1,968 @@
+[
+ {
+  "id": 0,
+  "text": "Dos",
+  "start": 0.206,
+  "end": 0.381
+ },
+ {
+  "id": 1,
+  "text": "tiendas",
+  "start": 0.381,
+  "end": 0.571
+ },
+ {
+  "id": 2,
+  "text": "iguales,",
+  "start": 0.571,
+  "end": 1.143
+ },
+ {
+  "id": 3,
+  "text": "once",
+  "start": 1.143,
+  "end": 1.524
+ },
+ {
+  "id": 4,
+  "text": "y",
+  "start": 1.524,
+  "end": 1.905
+ },
+ {
+  "id": 5,
+  "text": "cuarenta",
+  "start": 1.905,
+  "end": 2.286
+ },
+ {
+  "id": 6,
+  "text": "de",
+  "start": 2.286,
+  "end": 2.381
+ },
+ {
+  "id": 7,
+  "text": "la",
+  "start": 2.381,
+  "end": 2.571
+ },
+ {
+  "id": 8,
+  "text": "noche.",
+  "start": 2.571,
+  "end": 2.667
+ },
+ {
+  "id": 9,
+  "text": "Una",
+  "start": 3.275,
+  "end": 3.429
+ },
+ {
+  "id": 10,
+  "text": "cerró.",
+  "start": 3.429,
+  "end": 3.81
+ },
+ {
+  "id": 11,
+  "text": "La",
+  "start": 4.288,
+  "end": 4.381
+ },
+ {
+  "id": 12,
+  "text": "otra",
+  "start": 4.381,
+  "end": 4.667
+ },
+ {
+  "id": 13,
+  "text": "está",
+  "start": 4.981,
+  "end": 5.143
+ },
+ {
+  "id": 14,
+  "text": "vendiendo.",
+  "start": 5.143,
+  "end": 5.714
+ },
+ {
+  "id": 15,
+  "text": "Mismo",
+  "start": 6.135,
+  "end": 6.381
+ },
+ {
+  "id": 16,
+  "text": "rubro,",
+  "start": 6.381,
+  "end": 6.667
+ },
+ {
+  "id": 17,
+  "text": "misma",
+  "start": 6.667,
+  "end": 7.143
+ },
+ {
+  "id": 18,
+  "text": "calle,",
+  "start": 7.143,
+  "end": 7.333
+ },
+ {
+  "id": 19,
+  "text": "una",
+  "start": 7.942,
+  "end": 8.095
+ },
+ {
+  "id": 20,
+  "text": "sola",
+  "start": 8.095,
+  "end": 8.381
+ },
+ {
+  "id": 21,
+  "text": "diferencia.",
+  "start": 8.381,
+  "end": 8.952
+ },
+ {
+  "id": 22,
+  "text": "Primero,",
+  "start": 9.523,
+  "end": 9.905
+ },
+ {
+  "id": 23,
+  "text": "la",
+  "start": 9.905,
+  "end": 10.286
+ },
+ {
+  "id": 24,
+  "text": "de",
+  "start": 10.286,
+  "end": 10.381
+ },
+ {
+  "id": 25,
+  "text": "Pablo:",
+  "start": 10.381,
+  "end": 10.762
+ },
+ {
+  "id": 26,
+  "text": "ropa",
+  "start": 11.193,
+  "end": 11.429
+ },
+ {
+  "id": 27,
+  "text": "linda,",
+  "start": 11.429,
+  "end": 11.81
+ },
+ {
+  "id": 28,
+  "text": "buenos",
+  "start": 11.81,
+  "end": 12.19
+ },
+ {
+  "id": 29,
+  "text": "precios,",
+  "start": 12.19,
+  "end": 12.571
+ },
+ {
+  "id": 30,
+  "text": "y",
+  "start": 12.571,
+  "end": 13.048
+ },
+ {
+  "id": 31,
+  "text": "a",
+  "start": 13.059,
+  "end": 13.143
+ },
+ {
+  "id": 32,
+  "text": "las",
+  "start": 13.143,
+  "end": 13.238
+ },
+ {
+  "id": 33,
+  "text": "siete",
+  "start": 13.238,
+  "end": 13.714
+ },
+ {
+  "id": 34,
+  "text": "baja",
+  "start": 13.714,
+  "end": 13.905
+ },
+ {
+  "id": 35,
+  "text": "la",
+  "start": 13.905,
+  "end": 14
+ },
+ {
+  "id": 36,
+  "text": "persiana.",
+  "start": 14,
+  "end": 14.19
+ },
+ {
+  "id": 37,
+  "text": "A",
+  "start": 15.055,
+  "end": 15.143
+ },
+ {
+  "id": 38,
+  "text": "esta",
+  "start": 15.143,
+  "end": 15.333
+ },
+ {
+  "id": 39,
+  "text": "hora,",
+  "start": 15.333,
+  "end": 15.524
+ },
+ {
+  "id": 40,
+  "text": "en",
+  "start": 15.524,
+  "end": 15.81
+ },
+ {
+  "id": 41,
+  "text": "su",
+  "start": 15.81,
+  "end": 15.905
+ },
+ {
+  "id": 42,
+  "text": "celular",
+  "start": 15.905,
+  "end": 16.19
+ },
+ {
+  "id": 43,
+  "text": "esperan",
+  "start": 16.19,
+  "end": 16.762
+ },
+ {
+  "id": 44,
+  "text": "tres",
+  "start": 16.762,
+  "end": 17.048
+ },
+ {
+  "id": 45,
+  "text": "consultas:",
+  "start": 17.048,
+  "end": 17.619
+ },
+ {
+  "id": 46,
+  "text": "¿la",
+  "start": 18.04,
+  "end": 18.19
+ },
+ {
+  "id": 47,
+  "text": "tenés",
+  "start": 18.195,
+  "end": 18.476
+ },
+ {
+  "id": 48,
+  "text": "en",
+  "start": 18.476,
+  "end": 18.667
+ },
+ {
+  "id": 49,
+  "text": "negro?,",
+  "start": 18.667,
+  "end": 18.762
+ },
+ {
+  "id": 50,
+  "text": "¿hacen",
+  "start": 19.462,
+  "end": 19.619
+ },
+ {
+  "id": 51,
+  "text": "envíos?,",
+  "start": 19.619,
+  "end": 20.19
+ },
+ {
+  "id": 52,
+  "text": "¿cuánto",
+  "start": 20.673,
+  "end": 20.857
+ },
+ {
+  "id": 53,
+  "text": "sale?",
+  "start": 20.857,
+  "end": 21.238
+ },
+ {
+  "id": 54,
+  "text": "Pablo",
+  "start": 21.874,
+  "end": 22
+ },
+ {
+  "id": 55,
+  "text": "las",
+  "start": 22,
+  "end": 22.286
+ },
+ {
+  "id": 56,
+  "text": "va",
+  "start": 22.286,
+  "end": 22.381
+ },
+ {
+  "id": 57,
+  "text": "a",
+  "start": 22.381,
+  "end": 22.381
+ },
+ {
+  "id": 58,
+  "text": "contestar",
+  "start": 22.381,
+  "end": 22.571
+ },
+ {
+  "id": 59,
+  "text": "mañana.",
+  "start": 22.571,
+  "end": 23.048
+ },
+ {
+  "id": 60,
+  "text": "Si",
+  "start": 23.65,
+  "end": 23.81
+ },
+ {
+  "id": 61,
+  "text": "la",
+  "start": 23.81,
+  "end": 23.905
+ },
+ {
+  "id": 62,
+  "text": "clienta",
+  "start": 23.905,
+  "end": 24.095
+ },
+ {
+  "id": 63,
+  "text": "todavía",
+  "start": 24.095,
+  "end": 24.381
+ },
+ {
+  "id": 64,
+  "text": "está.",
+  "start": 24.381,
+  "end": 24.857
+ },
+ {
+  "id": 65,
+  "text": "Ahora,",
+  "start": 25.63,
+  "end": 25.905
+ },
+ {
+  "id": 66,
+  "text": "la",
+  "start": 25.905,
+  "end": 26.095
+ },
+ {
+  "id": 67,
+  "text": "de",
+  "start": 26.095,
+  "end": 26.19
+ },
+ {
+  "id": 68,
+  "text": "Valeria:",
+  "start": 26.19,
+  "end": 26.571
+ },
+ {
+  "id": 69,
+  "text": "misma",
+  "start": 27.13,
+  "end": 27.429
+ },
+ {
+  "id": 70,
+  "text": "ropa,",
+  "start": 27.429,
+  "end": 27.714
+ },
+ {
+  "id": 71,
+  "text": "mismo",
+  "start": 27.996,
+  "end": 28.381
+ },
+ {
+  "id": 72,
+  "text": "horario,",
+  "start": 28.381,
+  "end": 28.571
+ },
+ {
+  "id": 73,
+  "text": "la",
+  "start": 28.571,
+  "end": 29.048
+ },
+ {
+  "id": 74,
+  "text": "misma",
+  "start": 29.048,
+  "end": 29.333
+ },
+ {
+  "id": 75,
+  "text": "persiana",
+  "start": 29.333,
+  "end": 29.905
+ },
+ {
+  "id": 76,
+  "text": "baja.",
+  "start": 29.905,
+  "end": 30.095
+ },
+ {
+  "id": 77,
+  "text": "Pero",
+  "start": 30.457,
+  "end": 30.762
+ },
+ {
+  "id": 78,
+  "text": "a",
+  "start": 30.762,
+  "end": 30.857
+ },
+ {
+  "id": 79,
+  "text": "las",
+  "start": 30.857,
+  "end": 30.952
+ },
+ {
+  "id": 80,
+  "text": "once",
+  "start": 30.952,
+  "end": 31.388
+ },
+ {
+  "id": 81,
+  "text": "y",
+  "start": 31.388,
+  "end": 31.822
+ },
+ {
+  "id": 82,
+  "text": "cuarenta,",
+  "start": 31.822,
+  "end": 32.257
+ },
+ {
+  "id": 83,
+  "text": "alguien",
+  "start": 32.257,
+  "end": 32.476
+ },
+ {
+  "id": 84,
+  "text": "en",
+  "start": 32.476,
+  "end": 32.667
+ },
+ {
+  "id": 85,
+  "text": "pijama",
+  "start": 32.667,
+  "end": 33.143
+ },
+ {
+  "id": 86,
+  "text": "elige",
+  "start": 33.143,
+  "end": 33.619
+ },
+ {
+  "id": 87,
+  "text": "una",
+  "start": 33.619,
+  "end": 33.81
+ },
+ {
+  "id": 88,
+  "text": "campera",
+  "start": 33.81,
+  "end": 34.286
+ },
+ {
+  "id": 89,
+  "text": "desde",
+  "start": 34.286,
+  "end": 34.476
+ },
+ {
+  "id": 90,
+  "text": "la",
+  "start": 34.476,
+  "end": 34.571
+ },
+ {
+  "id": 91,
+  "text": "cama.",
+  "start": 34.571,
+  "end": 34.857
+ },
+ {
+  "id": 92,
+  "text": "Ve",
+  "start": 34.857,
+  "end": 35.619
+ },
+ {
+  "id": 93,
+  "text": "el",
+  "start": 35.619,
+  "end": 35.619
+ },
+ {
+  "id": 94,
+  "text": "precio,",
+  "start": 35.619,
+  "end": 36.095
+ },
+ {
+  "id": 95,
+  "text": "paga",
+  "start": 36.397,
+  "end": 36.571
+ },
+ {
+  "id": 96,
+  "text": "con",
+  "start": 36.571,
+  "end": 36.762
+ },
+ {
+  "id": 97,
+  "text": "Mercado",
+  "start": 36.762,
+  "end": 36.857
+ },
+ {
+  "id": 98,
+  "text": "Pago",
+  "start": 36.857,
+  "end": 37.238
+ },
+ {
+  "id": 99,
+  "text": "y",
+  "start": 37.804,
+  "end": 37.905
+ },
+ {
+  "id": 100,
+  "text": "elige",
+  "start": 37.905,
+  "end": 38.095
+ },
+ {
+  "id": 101,
+  "text": "el",
+  "start": 38.095,
+  "end": 38.19
+ },
+ {
+  "id": 102,
+  "text": "envío:",
+  "start": 38.19,
+  "end": 38.381
+ },
+ {
+  "id": 103,
+  "text": "DAC",
+  "start": 38.97,
+  "end": 39.048
+ },
+ {
+  "id": 104,
+  "text": "al",
+  "start": 39.048,
+  "end": 39.238
+ },
+ {
+  "id": 105,
+  "text": "interior",
+  "start": 39.238,
+  "end": 39.333
+ },
+ {
+  "id": 106,
+  "text": "o",
+  "start": 39.333,
+  "end": 40
+ },
+ {
+  "id": 107,
+  "text": "PedidosYa",
+  "start": 40,
+  "end": 40.571
+ },
+ {
+  "id": 108,
+  "text": "en",
+  "start": 40.571,
+  "end": 40.667
+ },
+ {
+  "id": 109,
+  "text": "el",
+  "start": 40.667,
+  "end": 40.762
+ },
+ {
+  "id": 110,
+  "text": "barrio.",
+  "start": 40.762,
+  "end": 41.143
+ },
+ {
+  "id": 111,
+  "text": "Pedido",
+  "start": 41.75,
+  "end": 42.095
+ },
+ {
+  "id": 112,
+  "text": "confirmado.",
+  "start": 42.095,
+  "end": 42.762
+ },
+ {
+  "id": 113,
+  "text": "Valeria",
+  "start": 43.198,
+  "end": 43.619
+ },
+ {
+  "id": 114,
+  "text": "lo",
+  "start": 43.619,
+  "end": 43.714
+ },
+ {
+  "id": 115,
+  "text": "ve",
+  "start": 43.714,
+  "end": 43.81
+ },
+ {
+  "id": 116,
+  "text": "a",
+  "start": 43.81,
+  "end": 43.905
+ },
+ {
+  "id": 117,
+  "text": "la",
+  "start": 43.905,
+  "end": 44
+ },
+ {
+  "id": 118,
+  "text": "mañana,",
+  "start": 44,
+  "end": 44.381
+ },
+ {
+  "id": 119,
+  "text": "con",
+  "start": 44.705,
+  "end": 44.762
+ },
+ {
+  "id": 120,
+  "text": "el",
+  "start": 44.762,
+  "end": 44.857
+ },
+ {
+  "id": 121,
+  "text": "mate.",
+  "start": 44.857,
+  "end": 45.143
+ },
+ {
+  "id": 122,
+  "text": "Pablo",
+  "start": 45.822,
+  "end": 46
+ },
+ {
+  "id": 123,
+  "text": "y",
+  "start": 46,
+  "end": 46.095
+ },
+ {
+  "id": 124,
+  "text": "Valeria",
+  "start": 46.095,
+  "end": 46.476
+ },
+ {
+  "id": 125,
+  "text": "trabajan",
+  "start": 46.476,
+  "end": 46.952
+ },
+ {
+  "id": 126,
+  "text": "igual",
+  "start": 46.952,
+  "end": 47.143
+ },
+ {
+  "id": 127,
+  "text": "de",
+  "start": 47.143,
+  "end": 47.333
+ },
+ {
+  "id": 128,
+  "text": "duro.",
+  "start": 47.333,
+  "end": 47.619
+ },
+ {
+  "id": 129,
+  "text": "La",
+  "start": 47.619,
+  "end": 48.19
+ },
+ {
+  "id": 130,
+  "text": "diferencia",
+  "start": 48.19,
+  "end": 48.762
+ },
+ {
+  "id": 131,
+  "text": "es",
+  "start": 48.762,
+  "end": 48.762
+ },
+ {
+  "id": 132,
+  "text": "que",
+  "start": 48.762,
+  "end": 48.857
+ },
+ {
+  "id": 133,
+  "text": "la",
+  "start": 48.857,
+  "end": 49.048
+ },
+ {
+  "id": 134,
+  "text": "vidriera",
+  "start": 49.048,
+  "end": 49.429
+ },
+ {
+  "id": 135,
+  "text": "de",
+  "start": 49.429,
+  "end": 49.524
+ },
+ {
+  "id": 136,
+  "text": "Valeria",
+  "start": 49.524,
+  "end": 50
+ },
+ {
+  "id": 137,
+  "text": "no",
+  "start": 50,
+  "end": 50.476
+ },
+ {
+  "id": 138,
+  "text": "cierra.",
+  "start": 50.476,
+  "end": 50.952
+ },
+ {
+  "id": 139,
+  "text": "Eso",
+  "start": 51.414,
+  "end": 51.524
+ },
+ {
+  "id": 140,
+  "text": "hacemos",
+  "start": 51.524,
+  "end": 51.905
+ },
+ {
+  "id": 141,
+  "text": "en",
+  "start": 51.905,
+  "end": 52.095
+ },
+ {
+  "id": 142,
+  "text": "Scalerics:",
+  "start": 52.095,
+  "end": 52.958
+ },
+ {
+  "id": 143,
+  "text": "tiendas",
+  "start": 52.958,
+  "end": 53.429
+ },
+ {
+  "id": 144,
+  "text": "online",
+  "start": 53.429,
+  "end": 53.905
+ },
+ {
+  "id": 145,
+  "text": "que",
+  "start": 53.905,
+  "end": 54.095
+ },
+ {
+  "id": 146,
+  "text": "venden",
+  "start": 54.095,
+  "end": 54.476
+ },
+ {
+  "id": 147,
+  "text": "mientras",
+  "start": 54.476,
+  "end": 54.857
+ },
+ {
+  "id": 148,
+  "text": "tu",
+  "start": 54.857,
+  "end": 54.952
+ },
+ {
+  "id": 149,
+  "text": "local",
+  "start": 54.952,
+  "end": 55.238
+ },
+ {
+  "id": 150,
+  "text": "descansa.",
+  "start": 55.238,
+  "end": 55.81
+ },
+ {
+  "id": 151,
+  "text": "Mandáselo",
+  "start": 56.204,
+  "end": 56.762
+ },
+ {
+  "id": 152,
+  "text": "al",
+  "start": 56.762,
+  "end": 56.857
+ },
+ {
+  "id": 153,
+  "text": "amigo",
+  "start": 56.857,
+  "end": 57.143
+ },
+ {
+  "id": 154,
+  "text": "que",
+  "start": 57.143,
+  "end": 57.238
+ },
+ {
+  "id": 155,
+  "text": "a",
+  "start": 57.238,
+  "end": 57.238
+ },
+ {
+  "id": 156,
+  "text": "las",
+  "start": 57.238,
+  "end": 57.429
+ },
+ {
+  "id": 157,
+  "text": "siete",
+  "start": 57.429,
+  "end": 57.619
+ },
+ {
+  "id": 158,
+  "text": "baja",
+  "start": 57.619,
+  "end": 57.905
+ },
+ {
+  "id": 159,
+  "text": "la",
+  "start": 57.905,
+  "end": 58
+ },
+ {
+  "id": 160,
+  "text": "persiana.",
+  "start": 58,
+  "end": 58.095
+ }
+]

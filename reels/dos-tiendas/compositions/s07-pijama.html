@@ -1,0 +1,129 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-pijama"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-pijama"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-pijama"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-pijama"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-pijama"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-pijama"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.5; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s07-pijama"] .relleno { fill: #5ce611; }
+    [data-composition-id="s07-pijama"] .osc { fill: #0a1628; }
+    [data-composition-id="s07-pijama"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s07-pijama"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s07-pijama"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s07-pijama"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s07-pijama"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s07-pijama"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-pijama"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-pijama" data-width="1080" data-height="1920" data-duration="4.4">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.4" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s07-rc">
+        <g transform="translate(540 690) scale(0.8)"><g class="s07-r1">
+          <rect class="ln" x="-150" y="-62" width="300" height="124" rx="22" />
+          <text class="lex t-cr" x="0" y="30" font-size="84" text-anchor="middle">23<tspan class="s07-r1-dp">:</tspan>40</text>
+        </g></g></g>
+        <g class="s07-rv">
+        <g transform="translate(540 690) scale(0.8)"><g class="s07-r2">
+          <rect class="ln-ac" x="-150" y="-62" width="300" height="124" rx="22" />
+          <text class="lex t-ac" x="0" y="30" font-size="84" text-anchor="middle">23<tspan class="s07-r2-dp">:</tspan>40</text>
+        </g></g></g>
+        <!-- cama -->
+        <path class="ln s07-cama" d="M150 1210 V996 q0 -26 26 -26 h28 q26 0 26 26 V1130 H650 V1210 M230 1176 H650" />
+        <rect class="ln s07-cama" x="232" y="1012" width="64" height="56" rx="24" />
+        <!-- clienta sentada -->
+        <circle class="ln s07-cl" cx="336" cy="985" r="28" />
+        <path class="ln s07-cl" d="M309 978 Q336 942 363 978 M358 966 q22 4 20 34" />
+        <path class="ln s07-cl" d="M326 984 v2 M346 984 v2 M328 998 q8 6 16 0" />
+        <path class="ln s07-cl" d="M306 1018 Q336 1008 366 1018 L374 1124 H300 Z" />
+        <path class="ln s07-cl" d="M364 1034 L414 1074 L440 1044" />
+        <path class="ln s07-pij" d="M314 1046 h48 M312 1072 h54 M309 1098 h60" />
+        <path class="ln s07-cl" d="M372 1112 Q500 1084 640 1124" />
+        <rect class="ln s07-cl" x="430" y="1002" width="32" height="54" rx="8" />
+        <path class="ln-punt s07-zoom" d="M462 1004 L684 800 M462 1054 L684 1226" />
+        <!-- celular grande -->
+        <g class="s07-tel"><rect x="680" y="790" width="290" height="440" rx="40" style="fill:#0a1628" stroke="#5ce611" stroke-width="5" />
+          <path class="ln" d="M800 808 h50" />
+          <text class="mono t-ac" x="825" y="852" font-size="22" text-anchor="middle">VALERIA · ROPA</text>
+          <g class="s07-c1"><rect class="ln" stroke-opacity="0.5" x="700" y="872" width="110" height="150" rx="14" />
+   <g transform="translate(755 894) scale(0.62)"><path class="ln" d="M0 20 v-8 q0 -9 8 -9 q8 0 8 8" /><path class="ln" d="M-34 30 L-14 20 H14 L34 30 L40 80 H26 V120 H-26 V80 H-40 Z" /><path class="ln" d="M0 24 V120" /></g>
+   <path class="ln" stroke-opacity="0.5" d="M722 998 h50" /></g>
+          <g class="s07-c2"><rect class="ln" stroke-opacity="0.5" x="840" y="872" width="110" height="150" rx="14" />
+   <g transform="translate(895 894) scale(0.62)"><path class="ln" d="M-16 10 L-40 26 L-30 44 L-22 38 V90 H22 V38 L30 44 L40 26 L16 10 Q0 22 -16 10 Z" /></g>
+   <path class="ln" stroke-opacity="0.5" d="M862 998 h50" /></g>
+          <g class="s07-c3"><rect class="ln" stroke-opacity="0.5" x="700" y="1040" width="110" height="150" rx="14" />
+   <g transform="translate(755 1062) scale(0.62)"><path class="ln" d="M-16 10 L-40 26 L-30 44 L-22 38 V90 H22 V38 L30 44 L40 26 L16 10 Q0 22 -16 10 Z" /></g>
+   <path class="ln" stroke-opacity="0.5" d="M722 1166 h50" /></g>
+          <g class="s07-c4"><rect class="ln" stroke-opacity="0.5" x="840" y="1040" width="110" height="150" rx="14" />
+   <g transform="translate(895 1062) scale(0.62)"><path class="ln" d="M0 20 v-8 q0 -9 8 -9 q8 0 8 8" /><path class="ln" d="M-34 30 L-14 20 H14 L34 30 L40 80 H26 V120 H-26 V80 H-40 Z" /><path class="ln" d="M0 24 V120" /></g>
+   <path class="ln" stroke-opacity="0.5" d="M862 1166 h50" /></g>
+          <rect class="ln-ac s07-sel" x="700" y="872" width="110" height="150" rx="14" />
+          <circle class="ln-ac s07-tap" cx="770" cy="960" r="26" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">23:40 · Abierto</span><span class="s07-e2">Desde la cama</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-pijama";
+      const DUR = 4.4;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s07-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s07-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      // persiana: baja desde arriba (coordenadas locales de la tienda)
+      const bajar = (el, t, d) => {
+        tl.fromTo(el, { scaleY: 0, svgOrigin: "0 -196" }, { scaleY: 1, svgOrigin: "0 -196", duration: d ?? 0.5, ease: "power2.in" }, t);
+        tl.to(el, { y: -6, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1 }, t + (d ?? 0.5));
+      };
+      // los dos puntos del reloj titilan
+      const titilar = (el, t0, t1) => { for (let t = t0; t < t1 - 0.5; t += 1) tl.to(el, { attr: { "fill-opacity": 0.15 }, duration: 0.12, yoyo: true, repeat: 1, repeatDelay: 0.26 }, t); };
+
+
+      const ONCE = 0.49, ALGUIEN = 1.8, PIJAMA = 2.21, ELIGE = 2.68, CAMPERA = 3.35, CAMA = 4.11;
+      dibujar(qa(".s07-r1 rect"), 0, 0.45, 0.4);
+      gsap.set(qa(".s07-rv, .s07-pij, .s07-tel, .s07-sel, .s07-tap, .s07-zoom"), { opacity: 0 });
+      // se prende en verde
+      tl.to(q(".s07-rc"), { opacity: 0, duration: 0.2 }, ONCE);
+      tl.to(q(".s07-rv"), { opacity: 1, duration: 0.2 }, ONCE);
+      punch(q(".s07-rv"), ONCE + 0.05, 1.1);
+      titilar(q(".s07-r2-dp"), ONCE + 0.5, 4.3);
+      dibujar(qa(".s07-cama"), 0.2, 0.6);
+      dibujar(qa(".s07-cl"), ALGUIEN - 0.6, 0.5);
+      dibujar(qa(".s07-pij"), PIJAMA, 0.3);
+      tl.fromTo(q(".s07-zoom"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, ELIGE - 0.2);
+      pop(q(".s07-tel"), ELIGE - 0.15, 0.6);
+      pop(q(".s07-sel"), CAMPERA, 0.8);
+      tl.fromTo(q(".s07-tap"), { opacity: 0.9, scale: 0.4, svgOrigin: "770 960" }, { opacity: 0, scale: 1.6, svgOrigin: "770 960", duration: 0.5, ease: "power2.out" }, CAMPERA - 0.05);
+      punch(q(".s07-c1"), CAMPERA + 0.05, 1.08);
+      tl.to(qa(".s07-c2, .s07-c3, .s07-c4"), { opacity: 0.45, duration: 0.3 }, CAMPERA + 0.2);
+      etq(1, ONCE + 0.1); etq(2, CAMPERA + 0.1);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

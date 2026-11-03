@@ -1,0 +1,118 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-consultas"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-consultas"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-consultas"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-consultas"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-consultas"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-consultas"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.5; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s04-consultas"] .relleno { fill: #5ce611; }
+    [data-composition-id="s04-consultas"] .osc { fill: #0a1628; }
+    [data-composition-id="s04-consultas"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s04-consultas"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s04-consultas"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s04-consultas"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s04-consultas"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s04-consultas"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-consultas"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-consultas" data-width="1080" data-height="1920" data-duration="6.81">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.81" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        
+        <g transform="translate(540 680) scale(0.8)"><g class="s04-rl">
+          <rect class="ln" x="-150" y="-62" width="300" height="124" rx="22" />
+          <text class="lex t-cr" x="0" y="30" font-size="84" text-anchor="middle">23<tspan class="s04-rl-dp">:</tspan>40</text>
+        </g></g>
+        <path class="ln s04-luna" d="M340 640 a40 40 0 1 0 30 70 a32 32 0 1 1 -30 -70 Z" />
+        <g class="s04-tiendita" opacity="0.35">
+        <g transform="translate(160 1215) scale(0.42)"><g class="s04-t">
+          <path class="ln s04-t-d" d="M-170 0 V-250 H170 V0" />
+          <path class="ln s04-t-d" d="M-185 -200 L-170 -250 H170 L185 -200 Z" />
+          <path class="ln s04-t-d" d="M-120 -250 L-128 -200 M-60 -250 L-64 -200 M0 -250 V-200 M60 -250 L64 -200 M120 -250 L128 -200" />
+          <rect class="ln s04-t-d" x="-150" y="-330" width="300" height="62" rx="10" />
+          <rect class="ln s04-t-d" x="-145" y="-175" width="175" height="150" rx="6" />
+          <path class="ln s04-t-d" d="M65 0 V-175 H145 V0" />
+          <text class="mono t-cr s04-t-nom" data-layout-ignore x="0" y="-288.2" font-size="30" text-anchor="middle">PABLO</text>
+          <g class="s04-t-ropa"><path class="ln" d="M-50 -150 v-8 q0 -9 8 -9 q8 0 8 8" /><path class="ln" d="M-84 -140 L-64 -150 H-36 L-16 -140 L-10 -90 H-24 V-50 H-76 V-90 H-90 Z" /><path class="ln" d="M-50 -146 V-50" /></g>
+          <g class="s04-t-pers"><rect x="-160" y="-196" width="320" height="196" fill="#0a1628" stroke="#efeee5" stroke-width="5" stroke-linejoin="round" />
+            <path class="ln" stroke-opacity="0.55" d="M-160 -172 H160 M-160 -150 H160 M-160 -128 H160 M-160 -106 H160 M-160 -84 H160 M-160 -62 H160 M-160 -40 H160 M-160 -18 H160" />
+            <path class="ln" d="M-14 -12 h28" /></g>
+        </g></g></g>
+        <g class="s04-tel"><rect x="300" y="780" width="460" height="450" rx="46" style="fill:#0a1628" stroke="#efeee5" stroke-width="5" />
+          <path class="ln" d="M500 800 h60" />
+          <text class="mono t-cr" x="334" y="846" font-size="24" fill-opacity="0.75">PABLO · ROPA</text>
+          <text class="mono t-cr" x="728" y="846" font-size="24" text-anchor="end" fill-opacity="0.5">23:40</text>
+          <path class="ln" stroke-opacity="0.35" d="M330 864 H730" />
+          <g class="s04-b1"><rect class="ln" x="330" y="888" width="340" height="62" rx="22" style="fill:#0a1628" /><text class="lex t-cr" x="352" y="929" font-size="30">¿La tenés en negro?</text></g>
+          <g class="s04-b2"><rect class="ln" x="330" y="968" width="260" height="62" rx="22" style="fill:#0a1628" /><text class="lex t-cr" x="352" y="1009" font-size="30">¿Hacen envíos?</text></g>
+          <g class="s04-b3"><rect class="ln" x="330" y="1048" width="240" height="62" rx="22" style="fill:#0a1628" /><text class="lex t-cr" x="352" y="1089" font-size="30">¿Cuánto sale?</text></g>
+          <text class="lex t-ro s04-sin" x="530" y="1172" font-size="30" text-anchor="middle">Sin responder</text>
+        </g>
+        <g class="s04-badge"><circle cx="756" cy="786" r="32" stroke="#c0625a" stroke-width="5" style="fill:#0a1628" /><text class="lex t-ro" x="756" y="798" font-size="34" text-anchor="middle">3</text></g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">23:40</span><span class="s04-e2">Tres consultas</span><span class="s04-e3">Esperando</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-consultas";
+      const DUR = 6.81;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s04-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s04-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      // persiana: baja desde arriba (coordenadas locales de la tienda)
+      const bajar = (el, t, d) => {
+        tl.fromTo(el, { scaleY: 0, svgOrigin: "0 -196" }, { scaleY: 1, svgOrigin: "0 -196", duration: d ?? 0.5, ease: "power2.in" }, t);
+        tl.to(el, { y: -6, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1 }, t + (d ?? 0.5));
+      };
+      // los dos puntos del reloj titilan
+      const titilar = (el, t0, t1) => { for (let t = t0; t < t1 - 0.5; t += 1) tl.to(el, { attr: { "fill-opacity": 0.15 }, duration: 0.12, yoyo: true, repeat: 1, repeatDelay: 0.26 }, t); };
+
+
+      const CELULAR = 0.84, ESPERAN = 1.13, TRES = 1.7, NEGRO = 3.13, ENVIOS = 4.4, SALE = 5.61;
+      dibujar(qa(".s04-rl rect"), 0, 0.5, 0.4);
+      tl.fromTo(q(".s04-rl text"), { opacity: 0.35 }, { opacity: 1, duration: 0.3 }, 0.05);
+      titilar(q(".s04-rl-dp"), 0.5, 6.5);
+      gsap.set(qa(".s04-luna, .s04-tel, .s04-badge, .s04-b1, .s04-b2, .s04-b3, .s04-sin"), { opacity: 0 });
+      pop(q(".s04-luna"), 0.2, 0.6);
+      tl.fromTo(q(".s04-tiendita"), { opacity: 0 }, { opacity: 0.35, duration: 0.4 }, 0.3);
+      pop(q(".s04-tel"), CELULAR - 0.2, 0.8);
+      // vibra
+      tl.to(q(".s04-tel"), { x: 6, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, ESPERAN);
+      pop(q(".s04-badge"), TRES - 0.05, 0.4);
+      punch(q(".s04-badge"), TRES + 0.4, 1.15);
+      [[".s04-b1", NEGRO - 0.1], [".s04-b2", ENVIOS - 0.1], [".s04-b3", SALE - 0.1]].forEach(([s, t]) => {
+        tl.fromTo(q(s), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.6)" }, t);
+      });
+      tl.to(qa(".s04-b1, .s04-b2"), { opacity: 0.55, duration: 0.3 }, SALE + 0.3);
+      pop(q(".s04-sin"), SALE + 0.45, 0.7);
+      etq(1, 0.1); etq(2, TRES); etq(3, SALE + 0.45);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

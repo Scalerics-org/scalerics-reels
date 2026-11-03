@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-giro"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-giro"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-giro"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-giro"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-giro"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-giro"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.5; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s10-giro"] .relleno { fill: #5ce611; }
+    [data-composition-id="s10-giro"] .osc { fill: #0a1628; }
+    [data-composition-id="s10-giro"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s10-giro"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s10-giro"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s10-giro"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s10-giro"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s10-giro"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-giro"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s10-giro" data-width="1080" data-height="1920" data-duration="5.59">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="5.59" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s10-f1">
+          <text class="mono t-cr s10-n1" x="300" y="890" font-size="26" text-anchor="middle" fill-opacity="0.7">PABLO</text>
+          <text class="mono t-cr s10-n2" x="780" y="890" font-size="26" text-anchor="middle" fill-opacity="0.7">VALERIA</text>
+          
+        <g transform="translate(300 1200) scale(1)"><g class="s10-a">
+          <circle class="ln s10-a-d" cx="0" cy="-250" r="30" /><path class="ln s10-a-d" d="M-30 -256 Q-30 -290 0 -288 Q30 -290 30 -256" /><path class="ln s10-a-d" d="M-22 -240 Q0 -210 22 -240" />
+          <path class="ln s10-a-d" d="M-11 -254 v2 M11 -254 v2" />
+          <path class="ln s10-a-d" d="M-34 -205 Q0 -216 34 -205 L40 -95 H-40 Z" />
+          <path class="ln s10-a-d" d="M-20 -95 L-24 0 M20 -95 L24 0" />
+          <g class="s10-a-bi"><path class="ln s10-a-d" d="M-34 -196 L-58 -110" /></g>
+          <g class="s10-a-bd"><path class="ln s10-a-d" d="M34 -196 L58 -110" /></g>
+        </g></g>
+          
+        <g transform="translate(780 1200) scale(1)"><g class="s10-b">
+          <circle class="ln s10-b-d" cx="0" cy="-250" r="30" /><path class="ln s10-b-d" d="M-31 -250 Q-34 -292 0 -290 Q34 -292 31 -250 M-31 -250 Q-40 -218 -30 -196 M31 -250 Q40 -218 30 -196" /><path class="ln s10-b-d" d="M-10 -236 q10 8 20 0" />
+          <path class="ln s10-b-d" d="M-11 -254 v2 M11 -254 v2" />
+          <path class="ln s10-b-d" d="M-34 -205 Q0 -216 34 -205 L40 -95 H-40 Z" />
+          <path class="ln s10-b-d" d="M-20 -95 L-24 0 M20 -95 L24 0" />
+          <g class="s10-b-bi"><path class="ln s10-b-d" d="M-34 -196 L-58 -110" /></g>
+          <g class="s10-b-bd"><path class="ln s10-b-d" d="M34 -196 L58 -110" /></g>
+        </g></g>
+          <rect class="ln s10-caja" x="250" y="1040" width="100" height="70" rx="6" /><rect class="ln s10-caja" x="730" y="1040" width="100" height="70" rx="6" />
+          <path class="ln s10-g" stroke-width="4" d="M346 930 q-10 14 0 20 q10 -6 0 -20 Z" /><path class="ln s10-g" stroke-width="4" d="M826 930 q-10 14 0 20 q10 -6 0 -20 Z" />
+          <text class="lex t-cr s10-ig" x="540" y="1090" font-size="110" text-anchor="middle">=</text>
+        </g>
+        <g class="s10-f2">
+          <g class="s10-izq">
+        <g transform="translate(300 1200) scale(0.72)"><g class="s10-t">
+          <path class="ln s10-t-d" d="M-170 0 V-250 H170 V0" />
+          <path class="ln s10-t-d" d="M-185 -200 L-170 -250 H170 L185 -200 Z" />
+          <path class="ln s10-t-d" d="M-120 -250 L-128 -200 M-60 -250 L-64 -200 M0 -250 V-200 M60 -250 L64 -200 M120 -250 L128 -200" />
+          <rect class="ln s10-t-d" x="-150" y="-330" width="300" height="62" rx="10" />
+          <rect class="ln s10-t-d" x="-145" y="-175" width="175" height="150" rx="6" />
+          <path class="ln s10-t-d" d="M65 0 V-175 H145 V0" />
+          <text class="mono t-cr s10-t-nom" x="0" y="-288.2" font-size="30" text-anchor="middle">PABLO</text>
+          <g class="s10-t-ropa"><path class="ln" d="M-50 -150 v-8 q0 -9 8 -9 q8 0 8 8" /><path class="ln" d="M-84 -140 L-64 -150 H-36 L-16 -140 L-10 -90 H-24 V-50 H-76 V-90 H-90 Z" /><path class="ln" d="M-50 -146 V-50" /></g>
+          <g class="s10-t-pers"><rect x="-160" y="-196" width="320" height="196" fill="#0a1628" stroke="#efeee5" stroke-width="5" stroke-linejoin="round" />
+            <path class="ln" stroke-opacity="0.55" d="M-160 -172 H160 M-160 -150 H160 M-160 -128 H160 M-160 -106 H160 M-160 -84 H160 M-160 -62 H160 M-160 -40 H160 M-160 -18 H160" />
+            <path class="ln" d="M-14 -12 h28" /></g>
+        </g></g>
+            <g class="s10-cerr"><rect class="ln-ro" x="223" y="1094" width="154" height="48" rx="8" style="fill:#0a1628" /><text class="mono t-ro" x="300" y="1127" font-size="24" text-anchor="middle">CERRADO</text></g></g>
+          <g class="s10-der"><rect class="ln-ac" x="640" y="800" width="290" height="430" rx="40" style="fill:#0a1628" />
+            <path class="ln-ac" d="M760 818 h50" />
+            <text class="mono t-ac" x="785" y="868" font-size="24" text-anchor="middle">VALERIA</text>
+            <path class="ln-ac" d="M670 930 L684 892 H886 L900 930 Z" />
+            <path class="ln-ac" d="M718 892 L712 930 M758 892 L756 930 M812 892 L814 930 M852 892 L858 930" />
+            <rect class="ln-ac" x="680" y="950" width="210" height="150" rx="10" />
+            <g transform="translate(740 966)"><path class="ln-ac" d="M0 10 v-8 q0 -9 8 -9 q8 0 8 8" /><path class="ln-ac" d="M-34 20 L-14 10 H14 L34 20 L40 70 H26 V110 H-26 V70 H-40 Z" /><path class="ln-ac" d="M0 14 V110" /></g><g transform="translate(830 966)"><path class="ln-ac" d="M-16 6 L-40 22 L-30 40 L-22 34 V86 H22 V34 L30 40 L40 22 L16 6 Q0 18 -16 6 Z" /></g>
+            <text class="lex t-ac" x="785" y="1160" font-size="34" text-anchor="middle">ABIERTO</text></g>
+          <g class="s10-24"><circle class="relleno" cx="930" cy="800" r="48" /><text class="lex" x="930" y="812" font-size="32" text-anchor="middle" fill="#0a1628">24 H</text></g>
+          <text class="lex t-ac s10-mas1" x="560" y="900" font-size="44" text-anchor="middle">+1</text>
+          <text class="lex t-ac s10-mas2" x="580" y="1010" font-size="44" text-anchor="middle">+1</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Igual de duro</span><span class="s10-e2">Una vidriera que no cierra</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-giro";
+      const DUR = 5.59;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s10-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s10-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      // persiana: baja desde arriba (coordenadas locales de la tienda)
+      const bajar = (el, t, d) => {
+        tl.fromTo(el, { scaleY: 0, svgOrigin: "0 -196" }, { scaleY: 1, svgOrigin: "0 -196", duration: d ?? 0.5, ease: "power2.in" }, t);
+        tl.to(el, { y: -6, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1 }, t + (d ?? 0.5));
+      };
+      // los dos puntos del reloj titilan
+      const titilar = (el, t0, t1) => { for (let t = t0; t < t1 - 0.5; t += 1) tl.to(el, { attr: { "fill-opacity": 0.15 }, duration: 0.12, yoyo: true, repeat: 1, repeatDelay: 0.26 }, t); };
+
+
+      const IGUAL = 1.13, DURO = 1.51, DIF = 2.37, VIDRIERA = 3.23, NO = 4.18, CIERRA = 4.66;
+      dibujar(qa(".s10-a-d"), 0, 0.5, 0.45);
+      dibujar(qa(".s10-b-d"), 0.2, 0.5);
+      tl.fromTo(qa(".s10-n1, .s10-n2"), { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.2 }, 0.1);
+      gsap.set(qa(".s10-caja, .s10-g, .s10-ig, .s10-f2 > *"), { opacity: 0 });
+      // cargan cajas: trabajan
+      tl.to(qa(".s10-a-bi, .s10-b-bi"), { rotation: -30, svgOrigin: "-34 -196", duration: 0.25 }, 0.55);
+      tl.to(qa(".s10-a-bd, .s10-b-bd"), { rotation: 30, svgOrigin: "34 -196", duration: 0.25 }, 0.55);
+      qa(".s10-caja").forEach((c, i) => pop(c, 0.62 + i * 0.08, 0.6));
+      tl.to(qa(".s10-a, .s10-caja"), { y: -8, duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 5 }, 0.9);
+      qa(".s10-g").forEach((g, i) => { pop(g, IGUAL + i * 0.08, 0.4); tl.to(g, { y: 26, opacity: 0, duration: 0.6, ease: "power2.in" }, IGUAL + 0.5); });
+      pop(q(".s10-ig"), IGUAL, 0.5);
+      punch(q(".s10-ig"), DURO, 1.2);
+      // cambia: las dos vidrieras
+      tl.to(q(".s10-f1"), { opacity: 0, filter: "blur(6px)", duration: 0.3 }, DIF - 0.3);
+      tl.fromTo(q(".s10-izq"), { opacity: 0, x: -30 }, { opacity: 0.5, x: 0, duration: 0.4, ease: "power3.out" }, DIF);
+      pop(q(".s10-der"), VIDRIERA - 0.05, 0.7);
+      pop(q(".s10-24"), NO, 0.4);
+      punch(q(".s10-der"), NO + 0.1, 1.04);
+      [[".s10-mas1", CIERRA - 0.1], [".s10-mas2", CIERRA + 0.35]].forEach(([s, t]) => {
+        tl.fromTo(q(s), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, t);
+        tl.to(q(s), { y: -30, opacity: 0, duration: 0.5, ease: "power2.in" }, t + 0.5);
+      });
+      etq(1, IGUAL); etq(2, VIDRIERA);
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
