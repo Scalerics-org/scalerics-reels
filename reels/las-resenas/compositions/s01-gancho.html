@@ -1,0 +1,121 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .s01-capa, [data-composition-id="s01-gancho"] .s01-escenario, [data-composition-id="s01-gancho"] .s01-a, [data-composition-id="s01-gancho"] svg { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] .s01-l { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s01-gancho"] .s01-tus { top: 650px; font-weight: 800; font-size: 112px; color: #ffffff; }
+    [data-composition-id="s01-gancho"] .s01-contentos { top: 780px; font-weight: 900; font-size: 150px; color: #5ce611; }
+    [data-composition-id="s01-gancho"] .s01-no { top: 975px; font-weight: 800; font-size: 120px; color: #ffffff; }
+    [data-composition-id="s01-gancho"] .s01-resenas { top: 1110px; font-weight: 900; font-size: 160px; color: #7c8698; }
+    [data-composition-id="s01-gancho"] .s01-hay { top: 1060px; font-weight: 800; font-size: 112px; color: #ffffff; }
+    [data-composition-id="s01-gancho"] .s01-pedir { top: 1190px; font-weight: 900; font-size: 136px; color: #5ce611; }
+    [data-composition-id="s01-gancho"] .s01-raya { position: absolute; left: 170px; top: 1352px; width: 740px; height: 12px; border-radius: 6px; background: #5ce611; transform-origin: 0% 50%; }
+    [data-composition-id="s01-gancho"] .s01-etiqueta { position: absolute; left: 0; right: 0; top: 400px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #5ce611; text-transform: uppercase; }
+    [data-composition-id="s01-gancho"] .s01-d { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .s01-f { fill: #5ce611; stroke: #5ce611; stroke-width: 5; stroke-linejoin: round; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="4.39">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.39" data-track-index="0">
+      <div class="s01-escenario">
+        <div class="s01-etiqueta">Consejo para tu local</div>
+        <svg viewBox="0 0 1080 1920" width="1080" height="1920">
+          <g class="s01-estrellas"></g>
+        </svg>
+        <div class="s01-a">
+          <div class="s01-l s01-tus">Tus clientes</div>
+          <div class="s01-l s01-contentos">contentos</div>
+          <div class="s01-l s01-no">no dejan</div>
+          <div class="s01-l s01-resenas">reseñas.</div>
+        </div>
+        <div class="s01-l s01-hay">Hay que</div>
+        <div class="s01-l s01-pedir">pedírselas.</div>
+        <div class="s01-raya"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 4.39;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const estrella = (cx, cy, R) => {
+        let d = "";
+        for (let k = 0; k < 10; k++) {
+          const r = k % 2 ? R * 0.46 : R;
+          const a = -Math.PI / 2 + (k * Math.PI) / 5;
+          d += (k ? " L" : "M") + (cx + r * Math.cos(a)).toFixed(1) + " " + (cy + r * Math.sin(a)).toFixed(1);
+        }
+        return d + " Z";
+      };
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1), opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.05);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.05);
+        });
+      };
+
+      // cinco estrellas vacías arriba
+      const g = q(".s01-estrellas");
+      const CX = [300, 420, 540, 660, 780];
+      const rellenos = [];
+      const trazos = [];
+      CX.forEach((cx) => {
+        const p = document.createElementNS(NS, "path");
+        p.setAttribute("d", estrella(cx, 548, 48));
+        p.setAttribute("class", "s01-d");
+        g.appendChild(p);
+        trazos.push(p);
+        const f = document.createElementNS(NS, "path");
+        f.setAttribute("d", estrella(cx, 548, 48));
+        f.setAttribute("class", "s01-f");
+        g.appendChild(f);
+        rellenos.push([f, cx]);
+      });
+
+      const CONTENTOS = 0.7, NO = 1.0, RESENAS = 1.95, HAY = 3.07, PEDIR = 3.3;
+
+      // cuadro 0: estrellas a medio dibujar y "TUS CLIENTES" entrando
+      dibujar(trazos, 0, 0.55, 0.5);
+      tl.fromTo(q(".s01-tus"), { scale: 1.15, opacity: 0.55 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power4.out" }, 0);
+      tl.fromTo(q(".s01-etiqueta"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.1);
+      gsap.set([q(".s01-contentos"), q(".s01-no"), q(".s01-resenas"), q(".s01-hay"), q(".s01-pedir")], { opacity: 0 });
+      tl.fromTo(q(".s01-contentos"), { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.22, ease: "power4.out", immediateRender: false }, CONTENTOS - 0.06);
+      tl.fromTo(q(".s01-no"), { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.26, ease: "back.out(2)", immediateRender: false }, NO - 0.04);
+      tl.fromTo(q(".s01-resenas"), { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.22, ease: "power4.out", immediateRender: false }, RESENAS);
+      [[-7, 3], [5, -2], [0, 0]].forEach(([x, y], i) => tl.to(q(".s01-escenario"), { x, y, duration: 0.04, ease: "none" }, RESENAS + 0.16 + i * 0.045));
+      // las estrellas vacías se apagan: nadie las llena
+      tl.to(trazos, { opacity: 0.4, duration: 0.3, stagger: 0.05 }, RESENAS + 0.2);
+      tl.to(q(".s01-contentos"), { scale: 1.04, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.45);
+
+      // "hay que pedírselas": lo de arriba se achica, el consejo cae en verde
+      tl.to(q(".s01-a"), { scale: 0.56, y: -10, transformOrigin: "50% 640px", duration: 0.32, ease: "power3.inOut" }, HAY - 0.18);
+      tl.to(q(".s01-resenas"), { color: "#efeee5", duration: 0.3 }, PEDIR + 0.2);
+      tl.fromTo(q(".s01-hay"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, HAY - 0.02);
+      tl.fromTo(q(".s01-pedir"), { opacity: 0, scale: 1.45 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.out", immediateRender: false }, PEDIR);
+      gsap.set(q(".s01-raya"), { scaleX: 0 });
+      tl.to(q(".s01-raya"), { scaleX: 1, duration: 0.35, ease: "power3.out" }, PEDIR + 0.2);
+      // y las estrellas se llenan en verde, una por una
+      rellenos.forEach(([f, cx], i) => {
+        gsap.set(f, { opacity: 0, scale: 0, svgOrigin: cx + " 548" });
+        tl.to(f, { opacity: 1, scale: 1, duration: 0.26, ease: "back.out(2.2)" }, PEDIR + 0.15 + i * 0.1);
+      });
+      tl.to(trazos, { opacity: 1, stroke: "#5ce611", duration: 0.2, stagger: 0.1 }, PEDIR + 0.15);
+      tl.to(q(".s01-estrellas"), { scale: 1.06, svgOrigin: "540 548", duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, PEDIR + 0.75);
+
+      // salida
+      tl.to(q("#s01-escena"), { scale: 1.12, opacity: 0, filter: "blur(6px)", transformOrigin: "50% 60%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

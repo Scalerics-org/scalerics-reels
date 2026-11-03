@@ -1,0 +1,37 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    /* grilla de puntos muy tenue */
+    [data-composition-id="ambiente"] .amb-grilla { position: absolute; left: -60px; top: -60px; width: 1200px; height: 2040px; opacity: 0.07;
+      background-image: radial-gradient(circle, #efeee5 2px, transparent 2.5px); background-size: 60px 60px; }
+    [data-composition-id="ambiente"] .amb-vineta { position: absolute; inset: 0; background: radial-gradient(ellipse 720px 1080px at 540px 960px, rgba(5, 10, 18, 0) 55%, rgba(5, 10, 18, 0.9) 100%); }
+    [data-composition-id="ambiente"] .amb-verde { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse 620px 760px at 540px 980px, rgba(92, 230, 17, 1) 0%, rgba(92, 230, 17, 0) 75%); }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="58.65">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="58.65" data-track-index="0">
+      <div class="amb-grilla"></div>
+      <div class="amb-vineta"></div>
+      <div class="amb-verde"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 58.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      // la grilla deriva despacio en diagonal (60 px = un ciclo)
+      tl.fromTo(q(".amb-grilla"), { x: 0, y: 0 }, { x: 60, y: 60, duration: DUR, ease: "none" }, 0);
+      // destellos verdes suaves: "pedírselas", "automático" y "llegaron"
+      [3.35, 43.6, 50.0].forEach((t) => {
+        tl.to(q(".amb-verde"), { opacity: 0.13, duration: 0.08 }, t);
+        tl.to(q(".amb-verde"), { opacity: 0, duration: 0.6, ease: "power2.out" }, t + 0.1);
+      });
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

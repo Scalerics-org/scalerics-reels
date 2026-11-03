@@ -1,0 +1,163 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-auto"] .s10-capa, [data-composition-id="s10-auto"] .s10-esc, [data-composition-id="s10-auto"] .s10-svg { position: absolute; inset: 0; }
+    [data-composition-id="s10-auto"] .s10-l { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; font-weight: 800; color: #ffffff; }
+    [data-composition-id="s10-auto"] .s10-et { position: absolute; left: 0; right: 0; top: 400px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #5ce611; text-transform: uppercase; }
+    [data-composition-id="s10-auto"] .s10-d { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-auto"] .s10-g { fill: none; stroke: #7c8698; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-auto"] .s10-v { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-auto"] .s10-r { fill: none; stroke: #b25b57; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-auto"] .s10-card { position: absolute; border: 4px solid rgba(239, 238, 229, 0.85); border-radius: 30px; background: #0b1828; padding: 30px 34px; box-sizing: border-box; }
+    [data-composition-id="s10-auto"] .s10-cn { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 38px; color: #ffffff; }
+    [data-composition-id="s10-auto"] .s10-ct { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 36px; line-height: 1.3; color: #efeee5; }
+    [data-composition-id="s10-auto"] .s10-cm { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.06em; color: #7c8698; }
+    [data-composition-id="s10-auto"] .s10-ava { position: absolute; width: 78px; height: 78px; border-radius: 50%; border: 4px solid #efeee5; box-sizing: border-box; }
+    [data-composition-id="s10-auto"] .s10-mini { display: block; }
+    [data-composition-id="s10-auto"] .s10-en { top: 500px; font-size: 104px; }
+    [data-composition-id="s10-auto"] .s10-en span { color: #5ce611; }
+    [data-composition-id="s10-auto"] .s10-hacemos { top: 640px; font-size: 116px; }
+    [data-composition-id="s10-auto"] .s10-auto { top: 785px; font-size: 122px; color: #5ce611; font-weight: 900; }
+    [data-composition-id="s10-auto"] .s10-desp { top: 450px; font-size: 76px; }
+    [data-composition-id="s10-auto"] .s10-cada { top: 540px; font-size: 76px; color: #efeee5; }
+    [data-composition-id="s10-auto"] .s10-lab { position: absolute; width: 220px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.18em; color: #efeee5; text-transform: uppercase; }
+    [data-composition-id="s10-auto"] .s10-hora { position: absolute; left: 140px; width: 180px; top: 1085px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 36px; color: #efeee5; }
+    [data-composition-id="s10-auto"] .s10-chat { position: absolute; left: 505px; top: 760px; width: 350px; padding: 22px 24px; box-sizing: border-box; border-radius: 26px 26px 26px 6px; background: #13263a; border: 3px solid rgba(239, 238, 229, 0.5); }
+    [data-composition-id="s10-auto"] .s10-cht { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 33px; line-height: 1.3; color: #ffffff; }
+    [data-composition-id="s10-auto"] .s10-btn { position: absolute; left: 520px; top: 1150px; width: 320px; height: 90px; border-radius: 45px; background: #5ce611; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 38px; line-height: 90px; color: #071321; white-space: nowrap; }
+    [data-composition-id="s10-auto"] .s10-de { position: absolute; left: 505px; top: 710px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; color: rgba(239, 238, 229, 0.75); text-transform: uppercase; }
+    [data-composition-id="s10-auto"] .s10-solo { top: 1450px; font-size: 104px; color: #5ce611; font-weight: 900; }
+  </style>
+  <div id="root" data-composition-id="s10-auto" data-width="1080" data-height="1920" data-duration="7.47">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="7.47" data-track-index="0">
+      <div class="s10-esc">
+        <div class="s10-et s10-et1">Llega solo</div>
+        <div class="s10-a">
+        <div class="s10-l s10-en">En <span>Scalerics</span></div>
+        <div class="s10-l s10-hacemos">lo hacemos</div>
+        <div class="s10-l s10-auto">automático.</div>
+        </div>
+        <div class="s10-b">
+        <div class="s10-l s10-desp">Después de cada</div>
+        <div class="s10-l s10-cada">compra o turno,</div>
+        <svg class="s10-svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+        <path class="s10-d s10-tk" d="M150 700 L310 700 L310 900 L290 885 L270 900 L250 885 L230 900 L210 885 L190 900 L170 885 L150 900 Z" />
+        <path class="s10-d s10-tk" d="M180 750 L280 750 M180 790 L260 790 M180 830 L280 830" />
+        <circle class="s10-v s10-ok1" cx="312" cy="702" r="24" />
+        <path class="s10-v s10-ok1" d="M300 702 L309 712 L324 694" />
+        <path class="s10-d s10-ca" d="M160 1000 L300 1000 Q320 1000 320 1020 L320 1150 Q320 1170 300 1170 L160 1170 Q140 1170 140 1150 L140 1020 Q140 1000 160 1000 Z" />
+        <path class="s10-d s10-ca" d="M140 1050 L320 1050 M185 985 L185 1015 M275 985 L275 1015" />
+        <circle class="s10-v s10-ok2" cx="322" cy="1002" r="24" />
+        <path class="s10-v s10-ok2" d="M310 1002 L319 1012 L334 994" />
+        <path class="s10-v s10-fl" d="M350 940 Q410 940 445 960" />
+        <path class="s10-v s10-fl" d="M424 940 L448 962 L420 972" />
+        <rect class="s10-d s10-tel" x="470" y="640" width="420" height="760" rx="56" />
+        <path class="s10-d s10-tel" d="M630 675 L730 675" />
+        </svg>
+        <div class="s10-lab" style="left: 120px; top: 918px">Compra</div>
+        <div class="s10-lab" style="left: 120px; top: 1190px">Turno</div>
+        <div class="s10-hora">10:30</div>
+        <div class="s10-de">Mensaje del local</div>
+        <div class="s10-chat"><div class="s10-cht s10-chtt">¡Gracias por venir, Laura! Si te gustó, ¿nos dejás una reseña?</div></div>
+        <div class="s10-btn">Dejar reseña</div>
+        <div class="s10-l s10-solo">Le llega solo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-auto";
+      const DUR = 7.47;
+      const P = "s10-";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s.replace(/__/g, P));
+      const qa = (s) => Array.from(root.querySelectorAll(s.replace(/__/g, P)));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const estrella = (cx, cy, R) => {
+        let d = "";
+        for (let k = 0; k < 10; k++) {
+          const r = k % 2 ? R * 0.46 : R;
+          const a = -Math.PI / 2 + (k * Math.PI) / 5;
+          d += (k ? " L" : "M") + (cx + r * Math.cos(a)).toFixed(1) + " " + (cy + r * Math.sin(a)).toFixed(1);
+        }
+        return d + " Z";
+      };
+      // path de estrella dentro de un <svg>/<g>; devuelve el elemento
+      const ponerEstrella = (padre, cx, cy, R, estilo) => {
+        const p = document.createElementNS(NS, "path");
+        p.setAttribute("d", estrella(cx, cy, R));
+        for (const [k, v] of Object.entries(estilo)) p.setAttribute(k, v);
+        padre.appendChild(p);
+        return p;
+      };
+      // fila de 5 estrellas chicas en un svg .mini: llenas = cuántas, color = de las llenas
+      const fila = (svg, llenas, color) => {
+        const out = [];
+        for (let k = 0; k < 5; k++) {
+          const lleno = k < llenas;
+          out.push(ponerEstrella(svg, 24 + k * 52, 24, 20, lleno ? { fill: color, stroke: color, "stroke-width": 3, "stroke-linejoin": "round" } : { fill: "none", stroke: "#7c8698", "stroke-width": 3, "stroke-linejoin": "round" }));
+        }
+        return out;
+      };
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1), opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // golpe de escala (entra grande y cae)
+      const golpe = (el, t, s) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: s ?? 1.45 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.out", immediateRender: false }, t - 0.05); };
+      // entra desde abajo
+      const sube = (el, t, dy) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: dy ?? 70 }, { opacity: 1, y: 0, duration: 0.28, ease: "back.out(1.8)", immediateRender: false }, t - 0.04); };
+      // pop (scale 0.85 → 1)
+      const pop = (el, t) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const sacudon = (t) => [[-7, 3], [5, -2], [0, 0]].forEach(([x, y], i) => tl.to(q(".__esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // tipeo: muestra el texto letra por letra (determinista)
+      const tipear = (el, t, dur) => {
+        const txt = el.textContent; el.textContent = "";
+        const spans = [...txt].map((c) => { const s = document.createElement("span"); s.textContent = c; s.style.opacity = 0; el.appendChild(s); return s; });
+        spans.forEach((s, i) => tl.set(s, { opacity: 1 }, t + (dur * i) / spans.length));
+      };
+      const SCAL = 0.12, HACEMOS = 0.9, AUTO = 1.3, DESP = 2.35, COMPRA = 3.2, TURNO = 3.7, CLIENTE = 4.36, LLEGA = 4.9, SOLO = 5.2, LINK = 6.5;
+      tl.fromTo(q(".__en"), { opacity: 0.5, scale: 1.15 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power4.out" }, 0);
+      tl.fromTo(q(".__en span"), { opacity: 0.4 }, { opacity: 1, duration: 0.2 }, SCAL);
+      sube(q(".__hacemos"), HACEMOS, 40);
+      golpe(q(".__auto"), AUTO);
+      sacudon(AUTO + 0.12);
+      tl.to(q(".__a"), { opacity: 0, y: -50, duration: 0.2, ease: "power2.in" }, DESP - 0.2);
+      gsap.set(q(".__et1"), { opacity: 0 });
+      tl.to(q(".__et1"), { opacity: 1, duration: 0.25 }, DESP);
+      sube(q(".__desp"), DESP, 40);
+      sube(q(".__cada"), COMPRA - 0.3, 40);
+      dibujar(qa(".__tk"), COMPRA - 0.4, 0.45);
+      pop(qa(".__lab")[0], COMPRA - 0.1);
+      dibujar(qa(".__ok1"), COMPRA + 0.15, 0.25);
+      dibujar(qa(".__ca"), TURNO - 0.3, 0.45);
+      pop(q(".__hora"), TURNO);
+      pop(qa(".__lab")[1], TURNO);
+      dibujar(qa(".__ok2"), TURNO + 0.15, 0.25);
+      dibujar(qa(".__tel"), CLIENTE - 0.5, 0.5);
+      dibujar(qa(".__fl"), CLIENTE, 0.3);
+      pop(q(".__de"), LLEGA - 0.1);
+      gsap.set(q(".__chat"), { opacity: 0 });
+      tl.fromTo(q(".__chat"), { opacity: 0, y: 40, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.7)", immediateRender: false }, LLEGA - 0.05);
+      tipear(q(".__chtt"), LLEGA + 0.1, 1.2);
+      golpe(q(".__solo"), SOLO);
+      pop(q(".__btn"), LINK - 0.1);
+      tl.to(q(".__btn"), { scale: 1.08, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, LINK + 0.3);
+      tl.to(q(".__solo"), { scale: 1.04, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 6.0);
+
+      // salida
+      tl.to(q("#__escena"), { scale: 1.1, opacity: 0, filter: "blur(6px)", transformOrigin: "50% 55%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

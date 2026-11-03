@@ -1,0 +1,130 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-tres"] .s04-capa, [data-composition-id="s04-tres"] .s04-esc, [data-composition-id="s04-tres"] .s04-svg { position: absolute; inset: 0; }
+    [data-composition-id="s04-tres"] .s04-l { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; font-weight: 800; color: #ffffff; }
+    [data-composition-id="s04-tres"] .s04-et { position: absolute; left: 0; right: 0; top: 400px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #5ce611; text-transform: uppercase; }
+    [data-composition-id="s04-tres"] .s04-d { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-tres"] .s04-g { fill: none; stroke: #7c8698; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-tres"] .s04-v { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-tres"] .s04-r { fill: none; stroke: #b25b57; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-tres"] .s04-card { position: absolute; border: 4px solid rgba(239, 238, 229, 0.85); border-radius: 30px; background: #0b1828; padding: 30px 34px; box-sizing: border-box; }
+    [data-composition-id="s04-tres"] .s04-cn { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 38px; color: #ffffff; }
+    [data-composition-id="s04-tres"] .s04-ct { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 36px; line-height: 1.3; color: #efeee5; }
+    [data-composition-id="s04-tres"] .s04-cm { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.06em; color: #7c8698; }
+    [data-composition-id="s04-tres"] .s04-ava { position: absolute; width: 78px; height: 78px; border-radius: 50%; border: 4px solid #efeee5; box-sizing: border-box; }
+    [data-composition-id="s04-tres"] .s04-mini { display: block; }
+    [data-composition-id="s04-tres"] .s04-poreso { top: 450px; font-size: 78px; }
+    [data-composition-id="s04-tres"] .s04-atienden { top: 550px; font-size: 84px; }
+    [data-composition-id="s04-tres"] .s04-barbaro { top: 650px; font-size: 150px; color: #5ce611; font-weight: 900; }
+    [data-composition-id="s04-tres"] .s04-tienen { top: 1210px; font-size: 92px; }
+    [data-composition-id="s04-tres"] .s04-num { position: absolute; left: 0; right: 0; top: 1310px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 150px; line-height: 1; color: #7c8698; text-transform: uppercase; letter-spacing: -0.02em; white-space: nowrap; }
+    [data-composition-id="s04-tres"] .s04-abierto { position: absolute; left: 0; right: 0; top: 888px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-indent: 0.3em; color: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s04-tres" data-width="1080" data-height="1920" data-duration="3.68">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.68" data-track-index="0">
+      <div class="s04-esc">
+        <div class="s04-et">Atiende bárbaro</div>
+        <div class="s04-l s04-poreso">Por eso hay locales</div>
+        <div class="s04-l s04-atienden">que atienden</div>
+        <div class="s04-l s04-barbaro">bárbaro</div>
+        <svg class="s04-svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+        <path class="s04-d s04-lo" d="M290 1170 L290 960" />
+        <path class="s04-d s04-lo" d="M790 1170 L790 960" />
+        <path class="s04-d s04-lo" d="M260 960 L820 960 L800 850 L280 850 Z" />
+        <path class="s04-d s04-lo" d="M352 850 L346 960 M424 850 L420 960 M656 850 L660 960 M728 850 L734 960" />
+        <path class="s04-d s04-lo" d="M440 872 L640 872 L640 936 L440 936 Z" />
+        <path class="s04-d s04-lo" d="M330 1170 L330 1010 L470 1010 L470 1170" />
+        <path class="s04-d s04-lo" d="M520 1010 L760 1010 L760 1110 L520 1110 Z" />
+        <path class="s04-d s04-lo" d="M230 1170 L850 1170" />
+        <path class="s04-v s04-co" d="M640 1080 C600 1050 600 1020 625 1020 C635 1020 640 1030 640 1035 C640 1030 645 1020 655 1020 C680 1020 680 1050 640 1080 Z" />
+        </svg>
+        <div class="s04-abierto">ABIERTO</div>
+        <div class="s04-l s04-tienen">y tienen</div>
+        <div class="s04-num">3 reseñas.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-tres";
+      const DUR = 3.68;
+      const P = "s04-";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s.replace(/__/g, P));
+      const qa = (s) => Array.from(root.querySelectorAll(s.replace(/__/g, P)));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const estrella = (cx, cy, R) => {
+        let d = "";
+        for (let k = 0; k < 10; k++) {
+          const r = k % 2 ? R * 0.46 : R;
+          const a = -Math.PI / 2 + (k * Math.PI) / 5;
+          d += (k ? " L" : "M") + (cx + r * Math.cos(a)).toFixed(1) + " " + (cy + r * Math.sin(a)).toFixed(1);
+        }
+        return d + " Z";
+      };
+      // path de estrella dentro de un <svg>/<g>; devuelve el elemento
+      const ponerEstrella = (padre, cx, cy, R, estilo) => {
+        const p = document.createElementNS(NS, "path");
+        p.setAttribute("d", estrella(cx, cy, R));
+        for (const [k, v] of Object.entries(estilo)) p.setAttribute(k, v);
+        padre.appendChild(p);
+        return p;
+      };
+      // fila de 5 estrellas chicas en un svg .mini: llenas = cuántas, color = de las llenas
+      const fila = (svg, llenas, color) => {
+        const out = [];
+        for (let k = 0; k < 5; k++) {
+          const lleno = k < llenas;
+          out.push(ponerEstrella(svg, 24 + k * 52, 24, 20, lleno ? { fill: color, stroke: color, "stroke-width": 3, "stroke-linejoin": "round" } : { fill: "none", stroke: "#7c8698", "stroke-width": 3, "stroke-linejoin": "round" }));
+        }
+        return out;
+      };
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1), opacity: desde ? 1 : 0 });
+          if (!desde) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // golpe de escala (entra grande y cae)
+      const golpe = (el, t, s) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: s ?? 1.45 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.out", immediateRender: false }, t - 0.05); };
+      // entra desde abajo
+      const sube = (el, t, dy) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, y: dy ?? 70 }, { opacity: 1, y: 0, duration: 0.28, ease: "back.out(1.8)", immediateRender: false }, t - 0.04); };
+      // pop (scale 0.85 → 1)
+      const pop = (el, t) => { gsap.set(el, { opacity: 0 }); tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t); };
+      const sacudon = (t) => [[-7, 3], [5, -2], [0, 0]].forEach(([x, y], i) => tl.to(q(".__esc"), { x, y, duration: 0.04, ease: "none" }, t + i * 0.045));
+      // tipeo: muestra el texto letra por letra (determinista)
+      const tipear = (el, t, dur) => {
+        const txt = el.textContent; el.textContent = "";
+        const spans = [...txt].map((c) => { const s = document.createElement("span"); s.textContent = c; s.style.opacity = 0; el.appendChild(s); return s; });
+        spans.forEach((s, i) => tl.set(s, { opacity: 1 }, t + (dur * i) / spans.length));
+      };
+      const ATIENDEN = 0.81, BARBARO = 1.01, TIENEN = 1.81, TRES = 2.31;
+      tl.fromTo(q(".__poreso"), { opacity: 0.5, scale: 1.12 }, { opacity: 1, scale: 1, duration: 0.28, ease: "power4.out" }, 0);
+      tl.fromTo(q(".__et"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.05);
+      sube(q(".__atienden"), ATIENDEN - 0.1, 40);
+      golpe(q(".__barbaro"), BARBARO + 0.05);
+      dibujar(qa(".__lo"), 0, 0.55, 0.45);
+      pop(q(".__abierto"), 0.4);
+      dibujar([q(".__co")], BARBARO + 0.1, 0.4);
+      tl.to(q(".__co"), { fill: "#5ce611", duration: 0.2 }, BARBARO + 0.45);
+      tl.to(q(".__co"), { scale: 1.2, svgOrigin: "640 1050", duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, BARBARO + 0.5);
+      sube(q(".__tienen"), TIENEN);
+      golpe(q(".__num"), TRES, 1.6);
+      sacudon(TRES + 0.12);
+      tl.to(q(".__barbaro"), { opacity: 0.55, duration: 0.3 }, TRES + 0.1);
+      tl.to(q(".__num"), { scale: 0.96, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.9);
+
+      // salida
+      tl.to(q("#__escena"), { scale: 1.1, opacity: 0, filter: "blur(6px)", transformOrigin: "50% 55%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
