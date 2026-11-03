@@ -1,0 +1,5 @@
+[{"t":0.11,"sfx":"whoosh-short","vol":0.2},
+ {"t":0.41,"sfx":"click-soft","vol":0.2},
+ {"t":0.71,"sfx":"click-soft","vol":0.2},
+ {"t":1.01,"sfx":"click-soft","vol":0.2},
+ {"t":2.15,"sfx":"glitch-1","vol":0.25,"max":0.5}]

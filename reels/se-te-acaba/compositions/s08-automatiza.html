@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-automatiza"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-automatiza"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-automatiza"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-automatiza"] .ln-ap { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-automatiza"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-automatiza"] .ln-rojo { fill: none; stroke: #c7655b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-automatiza"] .punt { stroke-dasharray: 14 14; }
+    [data-composition-id="s08-automatiza"] .tx { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; font-size: 28px; }
+    [data-composition-id="s08-automatiza"] .tx-ap { font-family: "Lexend", sans-serif; font-weight: 500; fill: rgba(239, 238, 229, 0.6); font-size: 26px; }
+    [data-composition-id="s08-automatiza"] .tx-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; font-size: 28px; }
+    [data-composition-id="s08-automatiza"] .tx-rojo { font-family: "Lexend", sans-serif; font-weight: 600; fill: #c7655b; font-size: 28px; }
+    [data-composition-id="s08-automatiza"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; fill: #efeee5; font-size: 26px; letter-spacing: 0.1em; }
+    [data-composition-id="s08-automatiza"] .mono-ap { font-family: "IBM Plex Mono", monospace; font-weight: 500; fill: rgba(239, 238, 229, 0.55); font-size: 26px; letter-spacing: 0.1em; }
+    [data-composition-id="s08-automatiza"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; fill: #5ce611; font-size: 26px; letter-spacing: 0.1em; }
+    [data-composition-id="s08-automatiza"] .mono-rojo { font-family: "IBM Plex Mono", monospace; font-weight: 500; fill: #c7655b; font-size: 26px; letter-spacing: 0.1em; }
+    [data-composition-id="s08-automatiza"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-automatiza"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s08-automatiza"] .etiqueta .rojo { color: #c7655b; }
+    [data-composition-id="s08-automatiza"] .etiqueta .cr { color: rgba(239, 238, 229, 0.8); }
+  </style>
+  <div id="root" data-composition-id="s08-automatiza" data-width="1080" data-height="1920" data-duration="7.83">
+    <div id="s08-automatiza-escena" class="capa clip" data-start="0" data-duration="7.83" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+<g class="pa">
+<g class="chip"><rect class="ln-ac" x="400" y="815" width="280" height="80" rx="18" /><text class="mono-ac" x="540" y="866" text-anchor="middle" style="font-size:30px">LUNES</text></g>
+<g class="gear"><path class="ln-ac" d="M628 1060 L623.69 1087.19 L606.57 1081.63 L596.63 1101.14 L611.19 1111.73 L591.73 1131.19 L581.14 1116.63 L561.63 1126.57 L567.19 1143.69 L540 1148 L540 1130 L518.37 1126.57 L512.81 1143.69 L488.27 1131.19 L498.86 1116.63 L483.37 1101.14 L468.81 1111.73 L456.31 1087.19 L473.43 1081.63 L470 1060 L452 1060 L456.31 1032.81 L473.43 1038.37 L483.37 1018.86 L468.81 1008.27 L488.27 988.81 L498.86 1003.37 L518.37 993.43 L512.81 976.31 L540 972 L540 990 L561.63 993.43 L567.19 976.31 L591.73 988.81 L581.14 1003.37 L596.63 1018.86 L611.19 1008.27 L623.69 1032.81 L606.57 1038.37 L610 1060 Z" /><circle class="ln-ac" cx="540" cy="1060" r="30" /></g>
+</g>
+<g class="pb">
+<path class="ln-ap lb" d="M205 1100 C205 930 380 840 480 800" />
+<path class="ln-ap lb" d="M540 975 V800" />
+<path class="ln-ap lb" d="M890 1050 C890 920 700 840 600 800" />
+<path class="ln-ac lg lg1" d="M205 1100 C205 930 380 840 480 800" />
+<path class="ln-ac lg lg2" d="M540 975 V800" />
+<path class="ln-ac lg lg3" d="M890 1050 C890 920 700 840 600 800" />
+<path class="ln d" d="M110 1112 H300 V1186 H110 Z" />
+<g transform="translate(150 1108) scale(0.48)"><g class="vb"><path class="ln" style="stroke-width:9.09" d="M-32 -76 L-27 -6 Q0 2 27 -6 L32 -76" /><ellipse class="ln" style="stroke-width:9.09" cx="0" cy="-76" rx="32" ry="9" /><path class="ln-ap" style="stroke-width:9.09" d="M-31 -72 Q0 -112 31 -72" /><path class="ln-ap" style="stroke-width:9.09" d="M-30 -52 Q0 -46 30 -52 M-29 -26 Q0 -20 29 -26" /></g></g><g transform="translate(205 1108) scale(0.48)"><g class="vb"><path class="ln" style="stroke-width:9.09" d="M-32 -76 L-27 -6 Q0 2 27 -6 L32 -76" /><ellipse class="ln" style="stroke-width:9.09" cx="0" cy="-76" rx="32" ry="9" /><path class="ln-ap" style="stroke-width:9.09" d="M-31 -72 Q0 -112 31 -72" /><path class="ln-ap" style="stroke-width:9.09" d="M-30 -52 Q0 -46 30 -52 M-29 -26 Q0 -20 29 -26" /></g></g><g transform="translate(260 1108) scale(0.48)"><g class="vb"><path class="ln" style="stroke-width:9.09" d="M-32 -76 L-27 -6 Q0 2 27 -6 L32 -76" /><ellipse class="ln" style="stroke-width:9.09" cx="0" cy="-76" rx="32" ry="9" /><path class="ln-ap" style="stroke-width:9.09" d="M-31 -72 Q0 -112 31 -72" /><path class="ln-ap" style="stroke-width:9.09" d="M-30 -52 Q0 -46 30 -52 M-29 -26 Q0 -20 29 -26" /></g></g>
+<rect class="ln d" x="480" y="985" width="120" height="200" rx="20" /><path class="ln d" d="M525 1000 H555" />
+<g class="bu"><rect class="ln-ap" x="490" y="1035" width="100" height="44" rx="12" /><text class="tx" x="540" y="1066" text-anchor="middle" style="font-size:26px">x4</text></g>
+<rect class="ln d" x="790" y="1060" width="200" height="120" rx="10" /><path class="ln d" d="M765 1200 H1015 L995 1182 H785 Z" />
+<g class="w3"><text class="mono-ac" x="890" y="1108" text-anchor="middle" style="font-size:24px">STOCK</text><text class="tx-ac" x="890" y="1158" text-anchor="middle" style="font-size:40px">6</text></g>
+<text class="mono-ap lbl" x="205" y="1230" text-anchor="middle" style="font-size:24px">LOCAL</text>
+<text class="mono-ap lbl" x="540" y="1230" text-anchor="middle" style="font-size:24px">WHATSAPP</text>
+<text class="mono-ap lbl" x="890" y="1230" text-anchor="middle" style="font-size:24px">WEB</text>
+<g class="ok"><circle class="ln-ac" cx="300" cy="1100" r="22" /><path class="ln-ac" d="M290.1 1100.44 L297.8 1107.92 L310.56 1092.96" /></g>
+<g class="ok"><circle class="ln-ac" cx="612" cy="985" r="22" /><path class="ln-ac" d="M602.1 985.44 L609.8 992.92 L622.56 977.96" /></g>
+<g class="ok"><circle class="ln-ac" cx="1000" cy="1060" r="22" /><path class="ln-ac" d="M990.1 1060.44 L997.8 1067.92 L1010.56 1052.96" /></g>
+</g>
+      </svg>
+      <div class="etiqueta"><span class="e1 cr">Misma semana</span><span class="e2 ">Con una automatización</span><span class="e3 ">Se descuenta solo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-automatiza";
+      const DUR = 7.83;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.03);
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      const centro = (el) => { const b = el.getBBox(); return (b.x + b.width / 2) + " " + (b.y + b.height / 2); };
+      const pop = (els, t, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const o = centro(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t + i * (paso ?? 0.08));
+        });
+      };
+      const latir = (el, t, s) => { const o = centro(el); tl.to(el, { scale: s ?? 1.08, svgOrigin: o, duration: 0.13, yoyo: true, repeat: 1, ease: "power2.out" }, t); };
+      const fuera = (els, t, d) => tl.to(els, { opacity: 0, duration: d ?? 0.25, ease: "power2.in" }, t);
+      let etAnt = null;
+      const etq = (i, t) => {
+        const el = q(".e" + i);
+        if (etAnt) tl.to(etAnt, { opacity: 0, duration: 0.2 }, t - 0.2);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etAnt = el;
+      };
+
+      pop(q(".chip"), 0);
+      etq(1, 0.1);
+      dibujar(q(".gear path"), 0.05, 0.8, 0.5);
+      dibujar(q(".gear circle"), 0.2, 0.6);
+      tl.fromTo(q(".gear"), { rotation: 0 }, { rotation: 200, svgOrigin: "540 1060", duration: 2.4, ease: "power1.inOut" }, 0.1);
+      latir(q(".gear"), 1.3, 1.1);
+      etq(2, 1.3);
+      tl.to(q(".pa"), { opacity: 0, y: -20, duration: 0.3, ease: "power2.in" }, 2.27);
+      // los tres canales, unidos al stock
+      dibujar(qa(".d"), 2.57, 0.5, 1, 0.04);
+      dibujar(qa(".lb"), 2.77, 0.6, 1, 0.08);
+      pop(qa(".lbl"), 2.8699999999999997, 0.08);
+      pop(qa(".vb"), 2.8699999999999997, 0.05);
+      const corre = (el, t) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.to(el, { opacity: 1, duration: 0.04 }, t);
+        tl.fromTo(el, { strokeDashoffset: L }, { strokeDashoffset: 0, duration: 0.45, ease: "power2.in" }, t);
+      };
+      tl.to(qa(".vb"), { x: -60, opacity: 0, duration: 0.3, ease: "power2.in", stagger: 0.05 }, 3.6);
+      corre(q(".lg1"), 3.6);
+      pop(q(".bu"), 3.8);
+      corre(q(".lg2"), 4.3);
+      corre(q(".lg3"), 5.1);
+      pop(q(".w3"), 5.2);
+      pop(qa(".ok"), 5.87, 0.12);
+      etq(3, 5.87);
+      qa(".ok").forEach((el, i) => latir(el, 6.8 + i * 0.08, 1.15));
+      tl.to(q("#s08-automatiza-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

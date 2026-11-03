@@ -1,0 +1,8 @@
+[{"t":0,"sfx":"pop","vol":0.25},
+ {"t":3.3000000000000003,"sfx":"key-press","vol":0.25},
+ {"t":5.3,"sfx":"key-press","vol":0.25},
+ {"t":7.5,"sfx":"key-press","vol":0.3},
+ {"t":26,"sfx":"ping","vol":0.2},
+ {"t":29.599999999999998,"sfx":"key-press","vol":0.2},
+ {"t":30.2,"sfx":"key-press","vol":0.2},
+ {"t":39.8,"sfx":"key-press","vol":0.25}]
