@@ -53,8 +53,15 @@ jobs:
           fi
       - if: steps.toca.outputs.si == 'true'
         uses: actions/checkout@v4
+        # main pesa 4 GB (voces y assets de cada reel): de reels/ solo hace falta la descripción y la portada
         with:
           filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/reels/
+            /reels/*/descripcion.txt
+            /reels/*/portada.png
       # las ramas reel/* tienen los mp4: la cola automática los saca de ahí. Sin los archivos (blob:none):
       # bajar los videos de todas las ramas tardaba 15 min; el git show del que toca baja solo ese.
       - if: steps.toca.outputs.si == 'true'
