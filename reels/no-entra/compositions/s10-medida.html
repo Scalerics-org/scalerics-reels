@@ -1,0 +1,102 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-medida"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-medida"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-medida"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-medida"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s10-medida"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-medida"] .ac4 { fill: none; stroke: #5ce611; stroke-width: 4; }
+    [data-composition-id="s10-medida"] .gris { fill: none; stroke: #7c8698; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-medida"] .gris-fino { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-medida"] .molde { fill: #7c8698; fill-opacity: 0.2; fill-rule: evenodd; stroke: none; }
+    [data-composition-id="s10-medida"] .pz { fill: #5ce611; fill-opacity: 0.13; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-medida"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s10-medida"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s10-medida"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s10-medida"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s10-medida"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s10-medida"] .mono-gris { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #7c8698; }
+    [data-composition-id="s10-medida"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-medida"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s10-medida" data-width="1080" data-height="1920" data-duration="3.31">
+    <div id="s10-medida-escena" class="capa clip" data-start="0" data-duration="3.31" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s10-p"><g class="s10-pr">
+          <path class="ln s10-molde" d="M-140 -140 H-55 V-200 L0 -245 L55 -200 V-140 H140 V-95 H200 V-35 H140 V35 H200 V95 H140 V140 H35 V175 H90 V215 H-60 V140 H-140 V65 A65 65 0 0 1 -140 -65 Z" transform="scale(1.13)" />
+          <path class="pz s10-p-u" d="M-140 -140 H-55 V-200 L0 -245 L55 -200 V-140 H140 V-95 H200 V-35 H140 V35 H200 V95 H140 V140 H35 V175 H90 V215 H-60 V140 H-140 V65 A65 65 0 0 1 -140 -65 Z" /><g class="s10-p-glifos"><text class="mono-ac " x="-176" y="9" font-size="24" text-anchor="middle" data-layout-ignore>kg</text><circle class="ac4 " cx="0" cy="-210" r="8" /><text class="lex-ac " x="0" y="-158" font-size="34" text-anchor="middle" data-layout-ignore>$</text><text class="mono-ac " x="170" y="-57" font-size="26" text-anchor="middle" data-layout-ignore>1</text><text class="mono-ac " x="170" y="73" font-size="26" text-anchor="middle" data-layout-ignore>2</text><text class="mono-ac " x="-12" y="194" font-size="26" text-anchor="middle" data-layout-ignore>30</text></g>
+          <path class="gris-fino s10-corte" d="M-150 -150 H150 V150 H-150 Z" />
+          <g class="s10-no"><circle class="ln-ac" cx="196" cy="-196" r="24" /><path class="ln-ac" d="M184 -208 L208 -184 M208 -208 L184 -184" /></g>
+        </g></g>
+        <g class="s10-cinta">
+          <line class="ln-ac s10-cl" x1="376" y1="1112" x2="704" y2="1112" /><line class="ln-ac s10-tick" x1="376" y1="1112" x2="376" y2="1132" stroke-width="3" /><line class="ln-ac s10-tick" x1="417" y1="1112" x2="417" y2="1124" stroke-width="3" /><line class="ln-ac s10-tick" x1="458" y1="1112" x2="458" y2="1132" stroke-width="3" /><line class="ln-ac s10-tick" x1="499" y1="1112" x2="499" y2="1124" stroke-width="3" /><line class="ln-ac s10-tick" x1="540" y1="1112" x2="540" y2="1132" stroke-width="3" /><line class="ln-ac s10-tick" x1="581" y1="1112" x2="581" y2="1124" stroke-width="3" /><line class="ln-ac s10-tick" x1="622" y1="1112" x2="622" y2="1132" stroke-width="3" /><line class="ln-ac s10-tick" x1="663" y1="1112" x2="663" y2="1124" stroke-width="3" /><line class="ln-ac s10-tick" x1="704" y1="1112" x2="704" y2="1132" stroke-width="3" />
+          <text class="mono-ac s10-cm" x="540" y="1172" font-size="28" text-anchor="middle">A MEDIDA</text>
+        </g>
+      </svg>
+
+      <div class="etiqueta"><span class="e1">No recortes</span><span class="e2">A su medida</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-medida";
+      const DUR = 3.31;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+      // aparece suave desde abajo
+      const subir = (el, t, o) => tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: o ?? 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      // late una vez
+      const latir = (el, t, s, org) => tl.to(el, { scale: s ?? 1.1, svgOrigin: org ?? "0 0", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etiquetas = (ET) => ET.forEach((t, i) => {
+        const el = q(".e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+
+      const NO = 0.0, PIEZA = 0.75, HACE = 1.53, MOLDE = 1.75, MEDIDA = 2.25;
+      const PR = q(".s10-pr");
+      gsap.set(q(".s10-p"), { x: 540, y: 900 });
+      gsap.set(PR, { scale: 0.8, svgOrigin: "0 0" });
+      tl.fromTo(q(".s10-p"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0);
+      // la línea de corte (gris) se dibuja... y se cancela
+      dibujar([q(".s10-corte")], 0.05, 0.55);
+      pop(q(".s10-no"), PIEZA);
+      tl.to(q(".s10-corte"), { opacity: 0, duration: 0.4 }, PIEZA + 0.2);
+      latir(q(".s10-no"), PIEZA + 0.4, 1.15, "196 -196");
+      tl.to(q(".s10-no"), { opacity: 0, duration: 0.3 }, HACE);
+      // "molde": el contorno crema copia la forma de la pieza
+      dibujar([q(".s10-molde")], HACE, 0.8);
+      // "medida": la cinta métrica
+      dibujar([q(".s10-cl")], MOLDE, 0.4);
+      qa(".s10-tick").forEach((el, i) => pop(el, MOLDE + 0.15 + i * 0.03));
+      subir(q(".s10-cm"), MEDIDA);
+      latir(PR, MEDIDA, 1.04);
+      etiquetas([0.05, MEDIDA]);
+      tl.to(q("#s10-medida-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

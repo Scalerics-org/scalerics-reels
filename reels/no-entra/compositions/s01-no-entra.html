@@ -1,0 +1,107 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-no-entra"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-no-entra"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-no-entra"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-no-entra"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s01-no-entra"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-no-entra"] .ac4 { fill: none; stroke: #5ce611; stroke-width: 4; }
+    [data-composition-id="s01-no-entra"] .gris { fill: none; stroke: #7c8698; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-no-entra"] .gris-fino { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-no-entra"] .molde { fill: #7c8698; fill-opacity: 0.2; fill-rule: evenodd; stroke: none; }
+    [data-composition-id="s01-no-entra"] .pz { fill: #5ce611; fill-opacity: 0.13; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-no-entra"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s01-no-entra"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s01-no-entra"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s01-no-entra"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s01-no-entra"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s01-no-entra"] .mono-gris { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #7c8698; }
+    [data-composition-id="s01-no-entra"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-no-entra"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s01-no-entra" data-width="1080" data-height="1920" data-duration="2.79">
+    <div id="s01-no-entra-escena" class="capa clip" data-start="0" data-duration="2.79" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s01-m"><g class="s01-mr"><path class="molde s01-m-molde-f" d="M-170 -170 H170 V170 H-170 Z M-140 -140 V140 H140 V-140 Z" /><path class="gris s01-m-molde-d" d="M-170 -170 H170 V170 H-170 Z" /><path class="gris s01-m-molde-d" d="M-140 -140 H140 V140 H-140 Z" /></g></g>
+        <g class="s01-chispas">
+          <line class="gris-fino s01-ch" x1="398" y1="980" x2="368" y2="955" />
+          <line class="gris-fino s01-ch" x1="392" y1="999" x2="356" y2="999" />
+          <line class="gris-fino s01-ch" x1="682" y1="980" x2="712" y2="955" />
+          <line class="gris-fino s01-ch" x1="688" y1="999" x2="724" y2="999" />
+        </g>
+        <g class="s01-p"><g class="s01-pr"><path class="pz s01-p-u" d="M-140 -140 H-55 V-200 L0 -245 L55 -200 V-140 H140 V-95 H200 V-35 H140 V35 H200 V95 H140 V140 H35 V175 H90 V215 H-60 V140 H-140 V65 A65 65 0 0 1 -140 -65 Z" /><g class="s01-p-glifos"><text class="mono-ac " x="-176" y="9" font-size="24" text-anchor="middle" data-layout-ignore>kg</text><circle class="ac4 " cx="0" cy="-210" r="8" /><text class="lex-ac " x="0" y="-158" font-size="34" text-anchor="middle" data-layout-ignore>$</text><text class="mono-ac " x="170" y="-57" font-size="26" text-anchor="middle" data-layout-ignore>1</text><text class="mono-ac " x="170" y="73" font-size="26" text-anchor="middle" data-layout-ignore>2</text><text class="mono-ac " x="-12" y="194" font-size="26" text-anchor="middle" data-layout-ignore>30</text></g></g></g>
+      </svg>
+
+      <div class="etiqueta"><span class="e1">No entra</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-no-entra";
+      const DUR = 2.79;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+      // aparece suave desde abajo
+      const subir = (el, t, o) => tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: o ?? 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      // late una vez
+      const latir = (el, t, s, org) => tl.to(el, { scale: s ?? 1.1, svgOrigin: org ?? "0 0", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etiquetas = (ET) => ET.forEach((t, i) => {
+        const el = q(".e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+
+      const P = q(".s01-p"), M = q(".s01-m"), PR = q(".s01-pr");
+      const NO = 0.88, GEN = 1.8;
+      gsap.set(M, { x: 540, y: 1115 }); gsap.set(q(".s01-mr"), { scale: 0.72, svgOrigin: "0 0" });
+      gsap.set(P, { x: 540, y: 785 }); gsap.set(PR, { scale: 0.72, rotation: -4, svgOrigin: "0 0" });
+      // cuadro 0: el molde y la pieza ya a medio dibujar
+      dibujar(qa(".s01-m-molde-d"), 0, 0.5, 0.45, 0.05);
+      tl.fromTo(q(".s01-m-molde-f"), { opacity: 0.3 }, { opacity: 1, duration: 0.4 }, 0);
+      dibujar([q(".s01-p-u")], 0, 0.6, 0.5);
+      tl.fromTo(q(".s01-p-u"), { fillOpacity: 0.04 }, { fillOpacity: 0.13, duration: 0.4 }, 0.1);
+      tl.fromTo(q(".s01-p-glifos"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.3);
+      // primer intento: baja derecho y choca
+      tl.to(P, { y: 1072, duration: 0.5, ease: "power2.in" }, NO - 0.5); tl.to(PR, { rotation: 0, svgOrigin: "0 0", duration: 0.5, ease: "power2.in" }, NO - 0.5);
+      tl.to(P, { y: 915, duration: 0.42, ease: "power2.out" }, NO); tl.to(PR, { rotation: -10, svgOrigin: "0 0", duration: 0.42, ease: "power2.out" }, NO);
+      tl.to(P, { y: 930, duration: 0.4, ease: "sine.inOut" }, NO + 0.42); tl.to(PR, { rotation: -6, svgOrigin: "0 0", duration: 0.4, ease: "sine.inOut" }, NO + 0.42);
+      // segundo intento, girada: tampoco
+      tl.to(PR, { rotation: 90, svgOrigin: "0 0", duration: 0.35, ease: "power2.inOut" }, 1.42);
+      tl.to(P, { y: 1072, duration: 0.3, ease: "power2.in" }, GEN);
+      tl.to(P, { y: 935, duration: 0.38, ease: "power2.out" }, GEN + 0.3); tl.to(PR, { rotation: 82, svgOrigin: "0 0", duration: 0.38, ease: "power2.out" }, GEN + 0.3);
+      // el molde acusa el golpe
+      [NO, GEN + 0.3].forEach((t) => {
+        tl.fromTo(M, { x: 540 }, { x: 550, duration: 0.05, yoyo: true, repeat: 3, ease: "none" }, t);
+        tl.fromTo(qa(".s01-ch"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.12, ease: "power2.out" }, t);
+        tl.to(qa(".s01-ch"), { opacity: 0, duration: 0.25 }, t + 0.25);
+      });
+      gsap.set(qa(".s01-ch"), { opacity: 0 });
+      etiquetas([NO]);
+      tl.to(q("#s01-no-entra-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

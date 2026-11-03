@@ -1,0 +1,962 @@
+[
+ {
+  "id": 0,
+  "text": "Tu",
+  "start": 0,
+  "end": 0.3
+ },
+ {
+  "id": 1,
+  "text": "negocio",
+  "start": 0.3,
+  "end": 0.8
+ },
+ {
+  "id": 2,
+  "text": "no",
+  "start": 0.8,
+  "end": 0.9
+ },
+ {
+  "id": 3,
+  "text": "entra",
+  "start": 0.9,
+  "end": 1.1
+ },
+ {
+  "id": 4,
+  "text": "en",
+  "start": 1.1,
+  "end": 1.3
+ },
+ {
+  "id": 5,
+  "text": "un",
+  "start": 1.3,
+  "end": 1.4
+ },
+ {
+  "id": 6,
+  "text": "software",
+  "start": 1.4,
+  "end": 1.8
+ },
+ {
+  "id": 7,
+  "text": "genérico.",
+  "start": 1.8,
+  "end": 2.2
+ },
+ {
+  "id": 8,
+  "text": "Esta",
+  "start": 2.789,
+  "end": 3
+ },
+ {
+  "id": 9,
+  "text": "pieza",
+  "start": 3,
+  "end": 3.3
+ },
+ {
+  "id": 10,
+  "text": "es",
+  "start": 3.637,
+  "end": 3.8
+ },
+ {
+  "id": 11,
+  "text": "tu",
+  "start": 3.8,
+  "end": 3.9
+ },
+ {
+  "id": 12,
+  "text": "negocio,",
+  "start": 3.9,
+  "end": 4.1
+ },
+ {
+  "id": 13,
+  "text": "con",
+  "start": 4.712,
+  "end": 4.8
+ },
+ {
+  "id": 14,
+  "text": "su",
+  "start": 4.8,
+  "end": 4.9
+ },
+ {
+  "id": 15,
+  "text": "forma.",
+  "start": 4.9,
+  "end": 5.2
+ },
+ {
+  "id": 16,
+  "text": "Acá,",
+  "start": 5.895,
+  "end": 6
+ },
+ {
+  "id": 17,
+  "text": "la",
+  "start": 6,
+  "end": 6.4
+ },
+ {
+  "id": 18,
+  "text": "yerba",
+  "start": 6.4,
+  "end": 6.8
+ },
+ {
+  "id": 19,
+  "text": "suelta,",
+  "start": 6.8,
+  "end": 7.1
+ },
+ {
+  "id": 20,
+  "text": "por",
+  "start": 7.1,
+  "end": 7.2
+ },
+ {
+  "id": 21,
+  "text": "kilo.",
+  "start": 7.2,
+  "end": 7.3
+ },
+ {
+  "id": 22,
+  "text": "Acá,",
+  "start": 7.989,
+  "end": 8.2
+ },
+ {
+  "id": 23,
+  "text": "el",
+  "start": 8.2,
+  "end": 8.3
+ },
+ {
+  "id": 24,
+  "text": "precio",
+  "start": 8.3,
+  "end": 8.6
+ },
+ {
+  "id": 25,
+  "text": "especial",
+  "start": 8.6,
+  "end": 8.7
+ },
+ {
+  "id": 26,
+  "text": "del",
+  "start": 8.7,
+  "end": 9.1
+ },
+ {
+  "id": 27,
+  "text": "cliente",
+  "start": 9.1,
+  "end": 9.2
+ },
+ {
+  "id": 28,
+  "text": "de",
+  "start": 9.2,
+  "end": 9.5
+ },
+ {
+  "id": 29,
+  "text": "siempre.",
+  "start": 9.5,
+  "end": 9.9
+ },
+ {
+  "id": 30,
+  "text": "Acá,",
+  "start": 10.467,
+  "end": 10.7
+ },
+ {
+  "id": 31,
+  "text": "tus",
+  "start": 10.7,
+  "end": 11
+ },
+ {
+  "id": 32,
+  "text": "dos",
+  "start": 11,
+  "end": 11.2
+ },
+ {
+  "id": 33,
+  "text": "locales.",
+  "start": 11.2,
+  "end": 11.6
+ },
+ {
+  "id": 34,
+  "text": "Acá,",
+  "start": 12.171,
+  "end": 12.4
+ },
+ {
+  "id": 35,
+  "text": "el",
+  "start": 12.4,
+  "end": 12.5
+ },
+ {
+  "id": 36,
+  "text": "proveedor",
+  "start": 12.5,
+  "end": 12.8
+ },
+ {
+  "id": 37,
+  "text": "que",
+  "start": 12.8,
+  "end": 13
+ },
+ {
+  "id": 38,
+  "text": "te",
+  "start": 13,
+  "end": 13.2
+ },
+ {
+  "id": 39,
+  "text": "fía",
+  "start": 13.2,
+  "end": 13.5
+ },
+ {
+  "id": 40,
+  "text": "a",
+  "start": 13.5,
+  "end": 13.5
+ },
+ {
+  "id": 41,
+  "text": "treinta",
+  "start": 13.5,
+  "end": 14
+ },
+ {
+  "id": 42,
+  "text": "días.",
+  "start": 14,
+  "end": 14.2
+ },
+ {
+  "id": 43,
+  "text": "El",
+  "start": 15.139,
+  "end": 15.2
+ },
+ {
+  "id": 44,
+  "text": "software",
+  "start": 15.2,
+  "end": 15.6
+ },
+ {
+  "id": 45,
+  "text": "genérico",
+  "start": 15.6,
+  "end": 16
+ },
+ {
+  "id": 46,
+  "text": "es",
+  "start": 16,
+  "end": 16.4
+ },
+ {
+  "id": 47,
+  "text": "un",
+  "start": 16.4,
+  "end": 16.6
+ },
+ {
+  "id": 48,
+  "text": "molde",
+  "start": 16.6,
+  "end": 16.9
+ },
+ {
+  "id": 49,
+  "text": "cuadrado.",
+  "start": 16.9,
+  "end": 17.5
+ },
+ {
+  "id": 50,
+  "text": "Para",
+  "start": 17.5,
+  "end": 17.9
+ },
+ {
+  "id": 51,
+  "text": "que",
+  "start": 17.9,
+  "end": 18.2
+ },
+ {
+  "id": 52,
+  "text": "entre,",
+  "start": 18.2,
+  "end": 18.5
+ },
+ {
+  "id": 53,
+  "text": "hay",
+  "start": 18.5,
+  "end": 18.7
+ },
+ {
+  "id": 54,
+  "text": "que",
+  "start": 18.7,
+  "end": 18.8
+ },
+ {
+  "id": 55,
+  "text": "apretar.",
+  "start": 18.8,
+  "end": 19.2
+ },
+ {
+  "id": 56,
+  "text": "Y",
+  "start": 19.602,
+  "end": 19.7
+ },
+ {
+  "id": 57,
+  "text": "algo",
+  "start": 19.7,
+  "end": 20
+ },
+ {
+  "id": 58,
+  "text": "se",
+  "start": 20,
+  "end": 20.3
+ },
+ {
+  "id": 59,
+  "text": "corta.",
+  "start": 20.3,
+  "end": 20.7
+ },
+ {
+  "id": 60,
+  "text": "La",
+  "start": 21.21,
+  "end": 21.3
+ },
+ {
+  "id": 61,
+  "text": "yerba",
+  "start": 21.3,
+  "end": 21.5
+ },
+ {
+  "id": 62,
+  "text": "por",
+  "start": 21.5,
+  "end": 21.7
+ },
+ {
+  "id": 63,
+  "text": "kilo,",
+  "start": 21.7,
+  "end": 22
+ },
+ {
+  "id": 64,
+  "text": "a",
+  "start": 22,
+  "end": 22.1
+ },
+ {
+  "id": 65,
+  "text": "una",
+  "start": 22.1,
+  "end": 22.4
+ },
+ {
+  "id": 66,
+  "text": "planilla",
+  "start": 22.4,
+  "end": 22.7
+ },
+ {
+  "id": 67,
+  "text": "aparte.",
+  "start": 22.7,
+  "end": 23.3
+ },
+ {
+  "id": 68,
+  "text": "El",
+  "start": 23.72,
+  "end": 23.8
+ },
+ {
+  "id": 69,
+  "text": "precio",
+  "start": 23.8,
+  "end": 24.1
+ },
+ {
+  "id": 70,
+  "text": "especial,",
+  "start": 24.1,
+  "end": 24.2
+ },
+ {
+  "id": 71,
+  "text": "de",
+  "start": 24.2,
+  "end": 24.7
+ },
+ {
+  "id": 72,
+  "text": "memoria.",
+  "start": 24.7,
+  "end": 25.2
+ },
+ {
+  "id": 73,
+  "text": "El",
+  "start": 25.2,
+  "end": 25.7
+ },
+ {
+  "id": 74,
+  "text": "segundo",
+  "start": 25.7,
+  "end": 26.1
+ },
+ {
+  "id": 75,
+  "text": "local,",
+  "start": 26.1,
+  "end": 26.3
+ },
+ {
+  "id": 76,
+  "text": "en",
+  "start": 26.3,
+  "end": 26.6
+ },
+ {
+  "id": 77,
+  "text": "otro",
+  "start": 26.6,
+  "end": 26.9
+ },
+ {
+  "id": 78,
+  "text": "sistema.",
+  "start": 26.9,
+  "end": 27.2
+ },
+ {
+  "id": 79,
+  "text": "El",
+  "start": 27.2,
+  "end": 27.7
+ },
+ {
+  "id": 80,
+  "text": "proveedor,",
+  "start": 27.7,
+  "end": 28.1
+ },
+ {
+  "id": 81,
+  "text": "en",
+  "start": 28.1,
+  "end": 28.5
+ },
+ {
+  "id": 82,
+  "text": "un",
+  "start": 28.5,
+  "end": 28.6
+ },
+ {
+  "id": 83,
+  "text": "cuaderno.",
+  "start": 28.6,
+  "end": 29.19
+ },
+ {
+  "id": 84,
+  "text": "Cada",
+  "start": 29.891,
+  "end": 30
+ },
+ {
+  "id": 85,
+  "text": "punta",
+  "start": 30,
+  "end": 30.4
+ },
+ {
+  "id": 86,
+  "text": "que",
+  "start": 30.4,
+  "end": 30.5
+ },
+ {
+  "id": 87,
+  "text": "se",
+  "start": 30.5,
+  "end": 30.5
+ },
+ {
+  "id": 88,
+  "text": "corta",
+  "start": 30.5,
+  "end": 31
+ },
+ {
+  "id": 89,
+  "text": "es",
+  "start": 31,
+  "end": 31.2
+ },
+ {
+  "id": 90,
+  "text": "trabajo",
+  "start": 31.2,
+  "end": 31.7
+ },
+ {
+  "id": 91,
+  "text": "a",
+  "start": 31.7,
+  "end": 31.7
+ },
+ {
+  "id": 92,
+  "text": "mano",
+  "start": 31.7,
+  "end": 31.9
+ },
+ {
+  "id": 93,
+  "text": "para",
+  "start": 31.9,
+  "end": 32.2
+ },
+ {
+  "id": 94,
+  "text": "tu",
+  "start": 32.2,
+  "end": 32.3
+ },
+ {
+  "id": 95,
+  "text": "equipo.",
+  "start": 32.3,
+  "end": 32.5
+ },
+ {
+  "id": 96,
+  "text": "Pero",
+  "start": 33.14,
+  "end": 33.2
+ },
+ {
+  "id": 97,
+  "text": "ojo:",
+  "start": 33.2,
+  "end": 33.6
+ },
+ {
+  "id": 98,
+  "text": "lo",
+  "start": 34.037,
+  "end": 34.1
+ },
+ {
+  "id": 99,
+  "text": "raro",
+  "start": 34.1,
+  "end": 34.4
+ },
+ {
+  "id": 100,
+  "text": "de",
+  "start": 34.4,
+  "end": 34.4
+ },
+ {
+  "id": 101,
+  "text": "tu",
+  "start": 34.4,
+  "end": 34.6
+ },
+ {
+  "id": 102,
+  "text": "negocio",
+  "start": 34.6,
+  "end": 34.8
+ },
+ {
+  "id": 103,
+  "text": "no",
+  "start": 34.8,
+  "end": 35.3
+ },
+ {
+  "id": 104,
+  "text": "es",
+  "start": 35.3,
+  "end": 35.5
+ },
+ {
+  "id": 105,
+  "text": "un",
+  "start": 35.5,
+  "end": 35.6
+ },
+ {
+  "id": 106,
+  "text": "defecto.",
+  "start": 35.6,
+  "end": 36.18
+ },
+ {
+  "id": 107,
+  "text": "Es",
+  "start": 36.43,
+  "end": 36.55
+ },
+ {
+  "id": 108,
+  "text": "por",
+  "start": 36.55,
+  "end": 36.7
+ },
+ {
+  "id": 109,
+  "text": "qué",
+  "start": 36.7,
+  "end": 36.95
+ },
+ {
+  "id": 110,
+  "text": "te",
+  "start": 36.95,
+  "end": 37.05
+ },
+ {
+  "id": 111,
+  "text": "eligen.",
+  "start": 37.05,
+  "end": 37.35
+ },
+ {
+  "id": 112,
+  "text": "No",
+  "start": 37.85,
+  "end": 38
+ },
+ {
+  "id": 113,
+  "text": "recortes",
+  "start": 38,
+  "end": 38.5
+ },
+ {
+  "id": 114,
+  "text": "la",
+  "start": 38.5,
+  "end": 38.6
+ },
+ {
+  "id": 115,
+  "text": "pieza.",
+  "start": 38.6,
+  "end": 39
+ },
+ {
+  "id": 116,
+  "text": "Hacé",
+  "start": 39.381,
+  "end": 39.5
+ },
+ {
+  "id": 117,
+  "text": "el",
+  "start": 39.5,
+  "end": 39.6
+ },
+ {
+  "id": 118,
+  "text": "molde",
+  "start": 39.6,
+  "end": 39.9
+ },
+ {
+  "id": 119,
+  "text": "a",
+  "start": 39.9,
+  "end": 40
+ },
+ {
+  "id": 120,
+  "text": "su",
+  "start": 40,
+  "end": 40.1
+ },
+ {
+  "id": 121,
+  "text": "medida.",
+  "start": 40.1,
+  "end": 40.4
+ },
+ {
+  "id": 122,
+  "text": "En",
+  "start": 41.16,
+  "end": 41.3
+ },
+ {
+  "id": 123,
+  "text": "Scalerics",
+  "start": 41.3,
+  "end": 41.85
+ },
+ {
+  "id": 124,
+  "text": "armamos",
+  "start": 41.8,
+  "end": 42.2
+ },
+ {
+  "id": 125,
+  "text": "sistemas",
+  "start": 42.2,
+  "end": 42.8
+ },
+ {
+  "id": 126,
+  "text": "a",
+  "start": 42.95,
+  "end": 43.1
+ },
+ {
+  "id": 127,
+  "text": "medida:",
+  "start": 43.1,
+  "end": 43.75
+ },
+ {
+  "id": 128,
+  "text": "stock,",
+  "start": 44.09,
+  "end": 44.42
+ },
+ {
+  "id": 129,
+  "text": "pedidos,",
+  "start": 44.66,
+  "end": 45.1
+ },
+ {
+  "id": 130,
+  "text": "proveedores,",
+  "start": 45.1,
+  "end": 46
+ },
+ {
+  "id": 131,
+  "text": "caja",
+  "start": 46.39,
+  "end": 46.7
+ },
+ {
+  "id": 132,
+  "text": "y",
+  "start": 46.7,
+  "end": 46.8
+ },
+ {
+  "id": 133,
+  "text": "varios",
+  "start": 46.8,
+  "end": 47.2
+ },
+ {
+  "id": 134,
+  "text": "locales,",
+  "start": 47.2,
+  "end": 47.7
+ },
+ {
+  "id": 135,
+  "text": "con",
+  "start": 47.7,
+  "end": 48.2
+ },
+ {
+  "id": 136,
+  "text": "la",
+  "start": 48.2,
+  "end": 48.4
+ },
+ {
+  "id": 137,
+  "text": "forma",
+  "start": 48.4,
+  "end": 48.8
+ },
+ {
+  "id": 138,
+  "text": "de",
+  "start": 48.8,
+  "end": 48.9
+ },
+ {
+  "id": 139,
+  "text": "tu",
+  "start": 48.9,
+  "end": 49.1
+ },
+ {
+  "id": 140,
+  "text": "negocio.",
+  "start": 49.1,
+  "end": 49.3
+ },
+ {
+  "id": 141,
+  "text": "Y",
+  "start": 50.05,
+  "end": 50.15
+ },
+ {
+  "id": 142,
+  "text": "la",
+  "start": 50.057,
+  "end": 50.2
+ },
+ {
+  "id": 143,
+  "text": "pieza",
+  "start": 50.2,
+  "end": 50.5
+ },
+ {
+  "id": 144,
+  "text": "entra",
+  "start": 50.5,
+  "end": 51
+ },
+ {
+  "id": 145,
+  "text": "entera.",
+  "start": 51,
+  "end": 51.3
+ },
+ {
+  "id": 146,
+  "text": "Mandáselo",
+  "start": 52.085,
+  "end": 52.5
+ },
+ {
+  "id": 147,
+  "text": "al",
+  "start": 52.5,
+  "end": 52.6
+ },
+ {
+  "id": 148,
+  "text": "colega",
+  "start": 52.6,
+  "end": 52.9
+ },
+ {
+  "id": 149,
+  "text": "que",
+  "start": 52.9,
+  "end": 53.1
+ },
+ {
+  "id": 150,
+  "text": "todavía",
+  "start": 53.1,
+  "end": 53.5
+ },
+ {
+  "id": 151,
+  "text": "recorta",
+  "start": 53.5,
+  "end": 54
+ },
+ {
+  "id": 152,
+  "text": "su",
+  "start": 54,
+  "end": 54.2
+ },
+ {
+  "id": 153,
+  "text": "negocio",
+  "start": 54.2,
+  "end": 54.7
+ },
+ {
+  "id": 154,
+  "text": "para",
+  "start": 54.7,
+  "end": 54.8
+ },
+ {
+  "id": 155,
+  "text": "que",
+  "start": 54.8,
+  "end": 55
+ },
+ {
+  "id": 156,
+  "text": "entre",
+  "start": 55,
+  "end": 55.2
+ },
+ {
+  "id": 157,
+  "text": "en",
+  "start": 55.2,
+  "end": 55.4
+ },
+ {
+  "id": 158,
+  "text": "el",
+  "start": 55.4,
+  "end": 55.5
+ },
+ {
+  "id": 159,
+  "text": "sistema.",
+  "start": 55.5,
+  "end": 56
+ }
+]

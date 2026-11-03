@@ -1,0 +1,112 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-recortes"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-recortes"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-recortes"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-recortes"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s07-recortes"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-recortes"] .ac4 { fill: none; stroke: #5ce611; stroke-width: 4; }
+    [data-composition-id="s07-recortes"] .gris { fill: none; stroke: #7c8698; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-recortes"] .gris-fino { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-recortes"] .molde { fill: #7c8698; fill-opacity: 0.2; fill-rule: evenodd; stroke: none; }
+    [data-composition-id="s07-recortes"] .pz { fill: #5ce611; fill-opacity: 0.13; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-recortes"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s07-recortes"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s07-recortes"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s07-recortes"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s07-recortes"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s07-recortes"] .mono-gris { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #7c8698; }
+    [data-composition-id="s07-recortes"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-recortes"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+[data-composition-id="s07-recortes"] .pzg { fill: #7c8698; fill-opacity: 0.2; stroke: #7c8698; stroke-width: 6; stroke-linejoin: round; }
+    [data-composition-id="s07-recortes"] .pzg-t { fill: #7c8698; }
+    [data-composition-id="s07-recortes"] .ico { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <div id="root" data-composition-id="s07-recortes" data-width="1080" data-height="1920" data-duration="8.68">
+    <div id="s07-recortes-escena" class="capa clip" data-start="0" data-duration="8.68" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <line class="gris-fino s07-hilo s07-hilo0" x1="447.2" y1="874.2" x2="360.2" y2="817.2" opacity="0.5" /><line class="gris-fino s07-hilo s07-hilo1" x1="632.8" y1="874.2" x2="719.8" y2="817.2" opacity="0.5" /><line class="gris-fino s07-hilo s07-hilo2" x1="447.2" y1="983" x2="360.2" y2="1028" opacity="0.5" /><line class="gris-fino s07-hilo s07-hilo3" x1="632.8" y1="983" x2="719.8" y2="1028" opacity="0.5" />
+        <g class="s07-c"><g class="s07-cr"><path class="pz" d="M-140 -140 H140 V140 H-140 Z" /><path class="molde s07-c-molde-f" d="M-170 -170 H170 V170 H-170 Z M-140 -140 V140 H140 V-140 Z" /><path class="gris s07-c-molde-d" d="M-170 -170 H170 V170 H-170 Z" /><path class="gris s07-c-molde-d" d="M-140 -140 H140 V140 H-140 Z" /></g></g>
+        
+        <g class="s07-ico s07-ico0" transform="translate(250 745)"><g class="ico s07-ico-dib0"><rect x="-80" y="-55" width="160" height="110" rx="8" /><line x1="-80" y1="-25" x2="80" y2="-25" /><line x1="-25" y1="-55" x2="-25" y2="55" /><line x1="25" y1="-55" x2="25" y2="55" /><line x1="-80" y1="5" x2="80" y2="5" /><line x1="-80" y1="30" x2="80" y2="30" /></g></g>
+        <text class="mono-gris s07-cap0" x="250" y="663" font-size="28" text-anchor="middle">PLANILLA APARTE</text>
+        <g class="s07-ico s07-ico1" transform="translate(830 745)"><g class="ico s07-ico-dib1"><path d="M-25 62 V40 C-52 28 -60 0 -54 -26 C-46 -60 -10 -72 18 -64 C48 -56 60 -30 56 -6 L68 16 L56 22 V38 C56 48 46 52 30 50 V62" /></g></g>
+        <text class="mono-gris s07-cap1" x="830" y="663" font-size="28" text-anchor="middle">DE MEMORIA</text>
+        <g class="s07-ico s07-ico2" transform="translate(250 1085)"><g class="ico s07-ico-dib2"><rect x="-80" y="-58" width="160" height="104" rx="8" /><path d="M-18 46 L-28 70 H28 L18 46" /><line x1="-55" y1="-25" x2="20" y2="-25" /><line x1="-55" y1="0" x2="40" y2="0" /></g></g>
+        <text class="mono-gris s07-cap2" x="250" y="1200" font-size="28" text-anchor="middle">OTRO SISTEMA</text>
+        <g class="s07-ico s07-ico3" transform="translate(830 1085)"><g class="ico s07-ico-dib3"><rect x="-62" y="-72" width="124" height="144" rx="8" /><circle cx="-62" cy="-45" r="7" /><circle cx="-62" cy="-15" r="7" /><circle cx="-62" cy="15" r="7" /><circle cx="-62" cy="45" r="7" /><line x1="-35" y1="-40" x2="40" y2="-40" /><line x1="-35" y1="-10" x2="30" y2="-10" /><line x1="-35" y1="20" x2="40" y2="20" /></g></g>
+        <text class="mono-gris s07-cap3" x="830" y="1200" font-size="28" text-anchor="middle">CUADERNO</text>
+        <g class="s07-pt s07-pt0"><g class="s07-ptr0"><g transform="translate(178 0)"><path class="pzg" d="M-140 -65 A65 65 0 0 0 -140 65 Z" /><text class="pzg-t mono " x="-176" y="9" font-size="24" text-anchor="middle" data-layout-ignore>kg</text></g></g></g><g class="s07-pt s07-pt1"><g class="s07-ptr1"><g transform="translate(0 195)"><path class="pzg" d="M-55 -140 V-200 L0 -245 L55 -200 V-140 Z" /><circle class="ico " cx="0" cy="-210" r="8" /><text class="pzg-t lex " x="0" y="-158" font-size="34" text-anchor="middle" data-layout-ignore>$</text></g></g></g><g class="s07-pt s07-pt2"><g class="s07-ptr2"><g transform="translate(-170 0)"><path class="pzg" d="M140 -95 H200 V-35 H140 Z M140 35 H200 V95 H140 Z" /><text class="pzg-t mono " x="170" y="-57" font-size="26" text-anchor="middle" data-layout-ignore>1</text><text class="pzg-t mono " x="170" y="73" font-size="26" text-anchor="middle" data-layout-ignore>2</text></g></g></g><g class="s07-pt s07-pt3"><g class="s07-ptr3"><g transform="translate(0 -185)"><path class="pzg" d="M-60 140 V215 H90 V175 H35 V140 Z" /><text class="pzg-t mono " x="-12" y="194" font-size="26" text-anchor="middle" data-layout-ignore>30</text></g></g></g>
+      </svg>
+
+      <div class="etiqueta"><span class="e1">Lo que no entra</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-recortes";
+      const DUR = 8.68;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+      // aparece suave desde abajo
+      const subir = (el, t, o) => tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: o ?? 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      // late una vez
+      const latir = (el, t, s, org) => tl.to(el, { scale: s ?? 1.1, svgOrigin: org ?? "0 0", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etiquetas = (ET) => ET.forEach((t, i) => {
+        const el = q(".e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+
+      const DEST = [["yerba","planilla",250,745,"PLANILLA APARTE",[128,8]],["precio","cabeza",830,745,"DE MEMORIA",[6,-14]],["locales","monitor",250,1085,"OTRO SISTEMA",[112,-66]],["prov","cuaderno",830,1085,"CUADERNO",[-130,-95]]];
+      const CEN = {"yerba":[-178,0],"precio":[0,-195],"locales":[170,0],"prov":[0,185]};
+      const T = [[0.09, 1.19], [2.55, 3.49], [4.45, 5.39], [6.45, 7.39]];
+      gsap.set(q(".s07-c"), { x: 540, y: 935 });
+      gsap.set(q(".s07-cr"), { scale: 0.5, svgOrigin: "0 0" });
+      tl.fromTo(q(".s07-c"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0);
+      DEST.forEach(([n, ico, x, y, cap, [ax, ay]], i) => {
+        const [tv, tc] = T[i];
+        const pt = q(".s07-pt" + i), ptr = q(".s07-ptr" + i);
+        // la punta arranca al lado del cuadrado, donde estaba
+        const sx = 540 + CEN[n][0] * 0.5 * 1.35, sy = 935 + CEN[n][1] * 0.5 * 1.35;
+        gsap.set(pt, { x: sx, y: sy, opacity: 0 }); gsap.set(ptr, { scale: 0.5, rotation: 0, svgOrigin: "0 0" });
+        tl.to(pt, { opacity: 1, duration: 0.15 }, i === 0 ? 0.05 : tv - 0.35);
+        dibujar([q(".s07-hilo" + i)], tv, 0.5);
+        tl.to(pt, { x: x + ax, y: y + ay, duration: 0.75, ease: "power2.inOut" }, tv);
+        tl.to(ptr, { scale: 0.8, rotation: i % 2 ? 14 : -14, svgOrigin: "0 0", duration: 0.75, ease: "power2.inOut" }, tv);
+        dibujar(qa(".s07-ico-dib" + i + " > *"), tv + 0.35, 0.5, 1, 0.04);
+        subir(q(".s07-cap" + i), tc);
+        tl.to(ptr, { scale: 0.9, svgOrigin: "0 0", duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out" }, tv + 0.75);
+        // lo anterior se apaga un poco
+        if (i > 0) tl.to(qa(".s07-ico" + (i - 1) + ", .s07-cap" + (i - 1) + ", .s07-pt" + (i - 1)), { opacity: 0.55, duration: 0.4 }, tv);
+      });
+      tl.to(qa(".s07-ico, [class*='s07-cap'], .s07-pt"), { opacity: 1, duration: 0.3 }, 7.9);
+      latir(q(".s07-cr"), 7.9, 1.06);
+      etiquetas([0.2]);
+      tl.to(q("#s07-recortes-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

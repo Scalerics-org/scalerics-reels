@@ -1,0 +1,95 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-molde"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-molde"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-molde"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-molde"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s05-molde"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-molde"] .ac4 { fill: none; stroke: #5ce611; stroke-width: 4; }
+    [data-composition-id="s05-molde"] .gris { fill: none; stroke: #7c8698; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-molde"] .gris-fino { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-molde"] .molde { fill: #7c8698; fill-opacity: 0.2; fill-rule: evenodd; stroke: none; }
+    [data-composition-id="s05-molde"] .pz { fill: #5ce611; fill-opacity: 0.13; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-molde"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s05-molde"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s05-molde"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s05-molde"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s05-molde"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s05-molde"] .mono-gris { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #7c8698; }
+    [data-composition-id="s05-molde"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-molde"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s05-molde" data-width="1080" data-height="1920" data-duration="2.36">
+    <div id="s05-molde-escena" class="capa clip" data-start="0" data-duration="2.36" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s05-m"><g class="s05-mr"><path class="molde s05-m-molde-f" d="M-170 -170 H170 V170 H-170 Z M-140 -140 V140 H140 V-140 Z" /><path class="gris s05-m-molde-d" d="M-170 -170 H170 V170 H-170 Z" /><path class="gris s05-m-molde-d" d="M-140 -140 H140 V140 H-140 Z" />
+          <g class="s05-esq">
+            <path class="gris-fino" d="M-140 -110 V-140 H-110" /><path class="gris-fino" d="M140 -110 V-140 H110" />
+            <path class="gris-fino" d="M-140 110 V140 H-110" /><path class="gris-fino" d="M140 110 V140 H110" />
+          </g>
+          <text class="mono-gris s05-talle" x="0" y="-8" font-size="26" text-anchor="middle">TALLE</text>
+          <text class="mono-gris s05-talle" x="0" y="30" font-size="26" text-anchor="middle">ÚNICO</text>
+        </g></g>
+        <text class="mono-gris s05-nom" x="540" y="1185" font-size="28" text-anchor="middle">SOFTWARE GENÉRICO</text>
+      </svg>
+
+      <div class="etiqueta"><span class="e1">Molde cuadrado</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-molde";
+      const DUR = 2.36;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+      // aparece suave desde abajo
+      const subir = (el, t, o) => tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: o ?? 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      // late una vez
+      const latir = (el, t, s, org) => tl.to(el, { scale: s ?? 1.1, svgOrigin: org ?? "0 0", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etiquetas = (ET) => ET.forEach((t, i) => {
+        const el = q(".e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+
+      const SOFT = 0.06, GEN = 0.46, MOLDE = 1.46, CUAD = 1.76;
+      const MR = q(".s05-mr");
+      gsap.set(q(".s05-m"), { x: 540, y: 940 });
+      gsap.set(MR, { scale: 1.1, svgOrigin: "0 0" });
+      dibujar(qa(".s05-m-molde-d"), SOFT, 0.55, 1, 0.12);
+      tl.fromTo(q(".s05-m-molde-f"), { opacity: 0 }, { opacity: 1, duration: 0.4 }, SOFT + 0.3);
+      tl.fromTo(MR, { rotation: -6, svgOrigin: "0 0" }, { rotation: 0, svgOrigin: "0 0", duration: 0.7, ease: "power3.out" }, SOFT);
+      subir(q(".s05-nom"), GEN);
+      // "molde": talle único adentro; "cuadrado": las esquinas en escuadra
+      qa(".s05-talle").forEach((el, i) => pop(el, MOLDE + i * 0.1));
+      tl.fromTo(q(".s05-esq"), { opacity: 0, scale: 1.25, svgOrigin: "0 0" }, { opacity: 1, scale: 1, svgOrigin: "0 0", duration: 0.3, ease: "power3.out" }, CUAD);
+      tl.to(MR, { scale: 1.14, svgOrigin: "0 0", duration: 0.5, ease: "sine.inOut" }, CUAD);
+      etiquetas([MOLDE]);
+      tl.to(q("#s05-molde-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

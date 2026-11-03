@@ -1,0 +1,42 @@
+[
+ {
+  "t": 0.1,
+  "sfx": "whoosh-short",
+  "vol": 0.18
+ },
+ {
+  "t": 0.85,
+  "sfx": "pop",
+  "vol": 0.24
+ },
+ {
+  "t": 2.55,
+  "sfx": "whoosh-short",
+  "vol": 0.18
+ },
+ {
+  "t": 3.3,
+  "sfx": "pop",
+  "vol": 0.24
+ },
+ {
+  "t": 4.45,
+  "sfx": "whoosh-short",
+  "vol": 0.18
+ },
+ {
+  "t": 5.2,
+  "sfx": "pop",
+  "vol": 0.24
+ },
+ {
+  "t": 6.45,
+  "sfx": "whoosh-short",
+  "vol": 0.18
+ },
+ {
+  "t": 7.2,
+  "sfx": "pop",
+  "vol": 0.24
+ }
+]

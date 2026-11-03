@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-equipo"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-equipo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-equipo"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-equipo"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s08-equipo"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-equipo"] .ac4 { fill: none; stroke: #5ce611; stroke-width: 4; }
+    [data-composition-id="s08-equipo"] .gris { fill: none; stroke: #7c8698; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-equipo"] .gris-fino { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-equipo"] .molde { fill: #7c8698; fill-opacity: 0.2; fill-rule: evenodd; stroke: none; }
+    [data-composition-id="s08-equipo"] .pz { fill: #5ce611; fill-opacity: 0.13; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-equipo"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s08-equipo"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s08-equipo"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s08-equipo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s08-equipo"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s08-equipo"] .mono-gris { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #7c8698; }
+    [data-composition-id="s08-equipo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-equipo"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+[data-composition-id="s08-equipo"] .pzg { fill: #7c8698; fill-opacity: 0.2; stroke: #7c8698; stroke-width: 7; stroke-linejoin: round; }
+  </style>
+  <div id="root" data-composition-id="s08-equipo" data-width="1080" data-height="1920" data-duration="3.25">
+    <div id="s08-equipo-escena" class="capa clip" data-start="0" data-duration="3.25" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <rect class="ln-fino s08-card" x="150" y="636" width="780" height="438" rx="24" />
+        <text class="mono-gris s08-head" x="196" y="694" font-size="28">A MANO, CADA DÍA</text>
+        <g class="s08-fila s08-fila0">
+          <rect class="gris-fino s08-box0" x="196" y="742" width="36" height="36" rx="6" />
+          <g transform="translate(286 760) scale(0.32) translate(178 0)"><g class="s08-pt0"><path class="pzg" d="M-140 -65 A65 65 0 0 0 -140 65 Z" /></g></g>
+          <text class="lex s08-tx0" x="336" y="770" font-size="32">Pasar la yerba al Excel</text></g><g class="s08-fila s08-fila1">
+          <rect class="gris-fino s08-box1" x="196" y="822" width="36" height="36" rx="6" />
+          <g transform="translate(286 840) scale(0.32) translate(0 195)"><g class="s08-pt1"><path class="pzg" d="M-55 -140 V-200 L0 -245 L55 -200 V-140 Z" /></g></g>
+          <text class="lex s08-tx1" x="336" y="850" font-size="32">Acordarse del precio</text></g><g class="s08-fila s08-fila2">
+          <rect class="gris-fino s08-box2" x="196" y="902" width="36" height="36" rx="6" />
+          <g transform="translate(286 920) scale(0.32) translate(-170 0)"><g class="s08-pt2"><path class="pzg" d="M140 -95 H200 V-35 H140 Z M140 35 H200 V95 H140 Z" /></g></g>
+          <text class="lex s08-tx2" x="336" y="930" font-size="32">Cargar el otro local</text></g><g class="s08-fila s08-fila3">
+          <rect class="gris-fino s08-box3" x="196" y="982" width="36" height="36" rx="6" />
+          <g transform="translate(286 1000) scale(0.32) translate(0 -185)"><g class="s08-pt3"><path class="pzg" d="M-60 140 V215 H90 V175 H35 V140 Z" /></g></g>
+          <text class="lex s08-tx3" x="336" y="1010" font-size="32">Anotar al proveedor</text></g>
+        <g class="s08-per s08-per0"><circle class="ln" cx="440" cy="1132" r="19" /><path class="ln" d="M406 1192 C406 1160 474 1160 474 1192" /></g><g class="s08-per s08-per1"><circle class="ln" cx="540" cy="1132" r="19" /><path class="ln" d="M506 1192 C506 1160 574 1160 574 1192" /></g><g class="s08-per s08-per2"><circle class="ln" cx="640" cy="1132" r="19" /><path class="ln" d="M606 1192 C606 1160 674 1160 674 1192" /></g>
+      </svg>
+
+      <div class="etiqueta"><span class="e1">Trabajo a mano</span><span class="e2">Para tu equipo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-equipo";
+      const DUR = 3.25;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+      // aparece suave desde abajo
+      const subir = (el, t, o) => tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: o ?? 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      // late una vez
+      const latir = (el, t, s, org) => tl.to(el, { scale: s ?? 1.1, svgOrigin: org ?? "0 0", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etiquetas = (ET) => ET.forEach((t, i) => {
+        const el = q(".e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+
+      const PUNTA = 0.11, TRABAJO = 1.31, MANO = 1.81, EQUIPO = 2.41;
+      dibujar([q(".s08-card")], 0, 0.5, 0.6);
+      subir(q(".s08-head"), 0.1);
+      for (let i = 0; i < 4; i++) {
+        pop(q(".s08-pt" + i), PUNTA + i * 0.12);
+        pop(q(".s08-box" + i), PUNTA + 0.05 + i * 0.12);
+        escribir(q(".s08-tx" + i), TRABAJO - 0.15 + i * 0.13, 0.4);
+      }
+      // "mano": los casilleros siguen vacíos, laten
+      tl.to(qa("[class*='s08-box']"), { opacity: 0.4, duration: 0.12, yoyo: true, repeat: 3 }, MANO);
+      // "equipo": tres personas, con todo eso encima
+      qa(".s08-per").forEach((el, i) => pop(el, EQUIPO - 0.1 + i * 0.1));
+      tl.to(qa(".s08-per"), { y: 6, duration: 0.25, ease: "power2.in", yoyo: true, repeat: 1 }, EQUIPO + 0.4);
+      etiquetas([TRABAJO, EQUIPO]);
+      tl.to(q("#s08-equipo-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

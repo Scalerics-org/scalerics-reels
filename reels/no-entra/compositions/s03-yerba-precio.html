@@ -1,0 +1,118 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-yerba-precio"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-yerba-precio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-yerba-precio"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-yerba-precio"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s03-yerba-precio"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-yerba-precio"] .ac4 { fill: none; stroke: #5ce611; stroke-width: 4; }
+    [data-composition-id="s03-yerba-precio"] .gris { fill: none; stroke: #7c8698; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-yerba-precio"] .gris-fino { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-yerba-precio"] .molde { fill: #7c8698; fill-opacity: 0.2; fill-rule: evenodd; stroke: none; }
+    [data-composition-id="s03-yerba-precio"] .pz { fill: #5ce611; fill-opacity: 0.13; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-yerba-precio"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s03-yerba-precio"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s03-yerba-precio"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s03-yerba-precio"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s03-yerba-precio"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s03-yerba-precio"] .mono-gris { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #7c8698; }
+    [data-composition-id="s03-yerba-precio"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-yerba-precio"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+[data-composition-id="s03-yerba-precio"] .hl { fill: #5ce611; fill-opacity: 0.42; stroke: #5ce611; stroke-width: 6; stroke-linejoin: round; }
+  </style>
+  <div id="root" data-composition-id="s03-yerba-precio" data-width="1080" data-height="1920" data-duration="4.57">
+    <div id="s03-yerba-precio-escena" class="capa clip" data-start="0" data-duration="4.57" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s03-p"><g class="s03-pr"><path class="pz s03-p-u" d="M-140 -140 H-55 V-200 L0 -245 L55 -200 V-140 H140 V-95 H200 V-35 H140 V35 H200 V95 H140 V140 H35 V175 H90 V215 H-60 V140 H-140 V65 A65 65 0 0 1 -140 -65 Z" /><g class="s03-p-glifos"><text class="mono-ac " x="-176" y="9" font-size="24" text-anchor="middle" data-layout-ignore>kg</text><circle class="ac4 " cx="0" cy="-210" r="8" /><text class="lex-ac " x="0" y="-158" font-size="34" text-anchor="middle" data-layout-ignore>$</text><text class="mono-ac " x="170" y="-57" font-size="26" text-anchor="middle" data-layout-ignore>1</text><text class="mono-ac " x="170" y="73" font-size="26" text-anchor="middle" data-layout-ignore>2</text><text class="mono-ac " x="-12" y="194" font-size="26" text-anchor="middle" data-layout-ignore>30</text></g>
+          <path class="hl s03-hl s03-hl-yerba" d="M-140 -65 A65 65 0 0 0 -140 65 Z" /><path class="hl s03-hl s03-hl-precio" d="M-55 -140 V-200 L0 -245 L55 -200 V-140 Z" /><path class="hl s03-hl s03-hl-locales" d="M140 -95 H200 V-35 H140 Z M140 35 H200 V95 H140 Z" /><path class="hl s03-hl s03-hl-prov" d="M-60 140 V215 H90 V175 H35 V140 Z" />
+        </g></g>
+        <g class="s03-r-yerba"><circle class="relleno-ac s03-dot" cx="346" cy="905" r="6" />
+          <text class="lex s03-t1" x="322" y="902" font-size="32" text-anchor="end">Yerba suelta</text>
+          <text class="mono-ac s03-t2" x="322" y="940" font-size="28" text-anchor="end">POR KILO</text></g>
+        <g class="s03-r-precio">
+          <text class="lex s03-t1" x="540" y="630" font-size="32" text-anchor="middle">Precio especial</text>
+          <text class="mono-ac s03-t2" x="540" y="667" font-size="28" text-anchor="middle">CLIENTE DE SIEMPRE</text></g>
+        <g class="s03-r-locales"><circle class="relleno-ac s03-dot" cx="730" cy="905" r="6" />
+          <text class="lex s03-t1" x="752" y="902" font-size="32">Dos locales</text>
+          <g class="s03-t2">
+            <path class="ln-ac s03-casa" d="M754 950 L772 934 L790 950 V972 H754 Z" />
+            <path class="ln-ac s03-casa" d="M808 950 L826 934 L844 950 V972 H808 Z" /></g></g>
+        <g class="s03-r-prov">
+          <text class="lex s03-t1" x="540" y="1140" font-size="32" text-anchor="middle">Proveedor</text>
+          <text class="mono-ac s03-t2" x="540" y="1177" font-size="28" text-anchor="middle">TE FÍA A 30 DÍAS</text></g>
+      </svg>
+
+      
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-yerba-precio";
+      const DUR = 4.57;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+      // aparece suave desde abajo
+      const subir = (el, t, o) => tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: o ?? 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      // late una vez
+      const latir = (el, t, s, org) => tl.to(el, { scale: s ?? 1.1, svgOrigin: org ?? "0 0", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etiquetas = (ET) => ET.forEach((t, i) => {
+        const el = q(".e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+
+      const PR = q(".s03-pr");
+      gsap.set(q(".s03-p"), { x: 540, y: 905 });
+      gsap.set(PR, { scale: 0.85, svgOrigin: "0 0" });
+      // vive: se mece despacio
+      tl.fromTo(PR, { rotation: -1.5, svgOrigin: "0 0" }, { rotation: 1.5, svgOrigin: "0 0", duration: DUR / 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+      const rotulo = (n, t1, t2) => {
+        const g = ".s03-r-" + n;
+        gsap.set(qa(g + " > *"), { opacity: 0 });
+        const hl = q(".s03-hl-" + n);
+        tl.fromTo(hl, { opacity: 0 }, { opacity: 1, duration: 0.15 }, t1 - 0.05);
+        tl.to(hl, { opacity: 0.55, duration: 0.5 }, t1 + 0.4);
+        tl.fromTo(hl, { scale: 1.12, svgOrigin: "0 0" }, { scale: 1, svgOrigin: "0 0", duration: 0.4, ease: "back.out(2)" }, t1 - 0.05);
+        if (q(g + " .s03-dot")) pop(q(g + " .s03-dot"), t1);
+        subir(q(g + " .s03-t1"), t1 + 0.05);
+        subir(q(g + " .s03-t2"), t2);
+      };
+      const yaEsta = (n, o) => {
+        gsap.set(qa(".s03-r-" + n + " > *"), { opacity: o });
+        gsap.set(q(".s03-hl-" + n), { opacity: 0.4 });
+      };
+      gsap.set(qa(".s03-hl"), { opacity: 0 });
+      const YERBA = 0.5, KILO = 1.2, PRECIO = 2.4, CLIENTE = 3.2;
+      gsap.set(qa(".s03-r-locales > *, .s03-r-prov > *"), { opacity: 0 });
+      tl.fromTo(q(".s03-p"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0);
+      rotulo("yerba", YERBA, KILO);
+      rotulo("precio", PRECIO, CLIENTE);
+      // lo ya contado se apaga un poco
+      tl.to(qa(".s03-r-yerba > *"), { opacity: 0.55, duration: 0.4 }, PRECIO);
+      tl.to(q("#s03-yerba-precio-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

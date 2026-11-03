@@ -1,0 +1,121 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-sistema"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-sistema"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-sistema"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sistema"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s11-sistema"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sistema"] .ac4 { fill: none; stroke: #5ce611; stroke-width: 4; }
+    [data-composition-id="s11-sistema"] .gris { fill: none; stroke: #7c8698; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sistema"] .gris-fino { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sistema"] .molde { fill: #7c8698; fill-opacity: 0.2; fill-rule: evenodd; stroke: none; }
+    [data-composition-id="s11-sistema"] .pz { fill: #5ce611; fill-opacity: 0.13; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-sistema"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s11-sistema"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s11-sistema"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s11-sistema"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s11-sistema"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s11-sistema"] .mono-gris { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #7c8698; }
+    [data-composition-id="s11-sistema"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-sistema"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+[data-composition-id="s11-sistema"] .hueco { fill: #efeee5; fill-opacity: 0.05; stroke: #efeee5; stroke-width: 6; stroke-linejoin: round; }
+  </style>
+  <div id="root" data-composition-id="s11-sistema" data-width="1080" data-height="1920" data-duration="10.93">
+    <div id="s11-sistema-escena" class="capa clip" data-start="0" data-duration="10.93" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s11-chip" data-x="306.5" data-y="642">
+          <rect class="ln-fino s11-chip-r" x="231.5" y="614" width="150" height="56" rx="28" />
+          <circle class="relleno-ac" cx="257.5" cy="642" r="7" />
+          <text class="lex" x="275.5" y="652" font-size="28">Stock</text></g><g class="s11-chip" data-x="489.5" data-y="642">
+          <rect class="ln-fino s11-chip-r" x="397.5" y="614" width="184" height="56" rx="28" />
+          <circle class="relleno-ac" cx="423.5" cy="642" r="7" />
+          <text class="lex" x="441.5" y="652" font-size="28">Pedidos</text></g><g class="s11-chip" data-x="723" data-y="642">
+          <rect class="ln-fino s11-chip-r" x="597.5" y="614" width="251" height="56" rx="28" />
+          <circle class="relleno-ac" cx="623.5" cy="642" r="7" />
+          <text class="lex" x="641.5" y="652" font-size="28">Proveedores</text></g>
+        <g class="s11-chip" data-x="381.5" data-y="714">
+          <rect class="ln-fino s11-chip-r" x="315" y="686" width="133" height="56" rx="28" />
+          <circle class="relleno-ac" cx="341" cy="714" r="7" />
+          <text class="lex" x="359" y="724" font-size="28">Caja</text></g><g class="s11-chip" data-x="614.5" data-y="714">
+          <rect class="ln-fino s11-chip-r" x="464" y="686" width="301" height="56" rx="28" />
+          <circle class="relleno-ac" cx="490" cy="714" r="7" />
+          <text class="lex" x="508" y="724" font-size="28">Varios locales</text></g>
+        <rect class="ln-fino s11-placa" x="340" y="810" width="400" height="400" rx="28" />
+        <g class="s11-h"><path class="hueco s11-hueco" d="M-140 -140 H-55 V-200 L0 -245 L55 -200 V-140 H140 V-95 H200 V-35 H140 V35 H200 V95 H140 V140 H35 V175 H90 V215 H-60 V140 H-140 V65 A65 65 0 0 1 -140 -65 Z" transform="scale(0.66)" /></g>
+        <circle class="ln-ac s11-onda" cx="540" cy="1010" r="120" />
+        <g class="s11-ok"><circle class="relleno-ac" cx="740" cy="810" r="26" /><path d="M727 811 L737 821 L754 800" fill="none" stroke="#0b1d35" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></g>
+        <g class="s11-p"><g class="s11-pr"><path class="pz s11-p-u" d="M-140 -140 H-55 V-200 L0 -245 L55 -200 V-140 H140 V-95 H200 V-35 H140 V35 H200 V95 H140 V140 H35 V175 H90 V215 H-60 V140 H-140 V65 A65 65 0 0 1 -140 -65 Z" /><g class="s11-p-glifos"><text class="mono-ac " x="-176" y="9" font-size="24" text-anchor="middle" data-layout-ignore>kg</text><circle class="ac4 " cx="0" cy="-210" r="8" /><text class="lex-ac " x="0" y="-158" font-size="34" text-anchor="middle" data-layout-ignore>$</text><text class="mono-ac " x="170" y="-57" font-size="26" text-anchor="middle" data-layout-ignore>1</text><text class="mono-ac " x="170" y="73" font-size="26" text-anchor="middle" data-layout-ignore>2</text><text class="mono-ac " x="-12" y="194" font-size="26" text-anchor="middle" data-layout-ignore>30</text></g></g></g>
+      </svg>
+
+      <div class="etiqueta"><span class="e1">Sistema a medida</span><span class="e2">Entra entera</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-sistema";
+      const DUR = 10.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+      // aparece suave desde abajo
+      const subir = (el, t, o) => tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: o ?? 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      // late una vez
+      const latir = (el, t, s, org) => tl.to(el, { scale: s ?? 1.1, svgOrigin: org ?? "0 0", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etiquetas = (ET) => ET.forEach((t, i) => {
+        const el = q(".e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+
+      const SCALERICS = 0.14, MEDIDA = 1.94, CHIPS = [2.93, 3.5, 3.94, 5.23, 6.04], FORMA = 7.24, PIEZA = 8.95, ENTRA = 9.34, ENTERA = 9.84;
+      gsap.set(q(".s11-h"), { x: 540, y: 1010 });
+      gsap.set(q(".s11-p"), { x: 540, y: 1010 });
+      gsap.set(q(".s11-pr"), { scale: 0.66, svgOrigin: "0 0" });
+      gsap.set(qa(".s11-p, .s11-onda, .s11-ok"), { opacity: 0 });
+      // la placa y el hueco con la forma de la pieza
+      dibujar([q(".s11-placa")], 0.05, 0.6);
+      dibujar([q(".s11-hueco")], SCALERICS + 0.2, 1.0);
+      tl.fromTo(q(".s11-hueco"), { fillOpacity: 0 }, { fillOpacity: 0.05, duration: 0.5 }, SCALERICS + 0.8);
+      latir(q(".s11-h"), MEDIDA, 1.05);
+      // los módulos, cada uno en su palabra
+      qa(".s11-chip").forEach((el, i) => pop(el, CHIPS[i] - 0.05));
+      // "forma": el hueco se pone verde
+      tl.to(q(".s11-hueco"), { stroke: "#5ce611", duration: 0.3 }, FORMA);
+      latir(q(".s11-h"), FORMA, 1.06);
+      tl.to(qa(".s11-chip"), { opacity: 0.4, duration: 0.4 }, PIEZA - 0.3);
+      // "la pieza entra entera"
+      tl.fromTo(q(".s11-p"), { opacity: 0, y: 960 }, { opacity: 1, y: 960, duration: 0.2 }, PIEZA);
+      tl.fromTo(q(".s11-pr"), { scale: 0.9, svgOrigin: "0 0" }, { scale: 0.84, svgOrigin: "0 0", duration: 0.39, ease: "sine.out" }, PIEZA);
+      tl.to(q(".s11-p"), { y: 1010, duration: 0.28, ease: "power3.in" }, ENTRA);
+      tl.to(q(".s11-pr"), { scale: 0.66, svgOrigin: "0 0", duration: 0.28, ease: "power3.in" }, ENTRA);
+      tl.fromTo(q(".s11-onda"), { opacity: 0.9, scale: 1, svgOrigin: "540 1010" }, { opacity: 0, scale: 2.2, svgOrigin: "540 1010", duration: 0.7, ease: "power2.out", immediateRender: false }, ENTRA + 0.28);
+      tl.fromTo(q(".s11-placa"), { y: 0 }, { y: 6, duration: 0.07, yoyo: true, repeat: 1 }, ENTRA + 0.28);
+      tl.to(qa(".s11-chip"), { opacity: 1, duration: 0.3 }, ENTERA);
+      pop(q(".s11-ok"), ENTERA - 0.1);
+      etiquetas([MEDIDA, ENTERA]);
+      tl.to(q("#s11-sistema-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

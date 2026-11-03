@@ -1,0 +1,121 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-giro"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-giro"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-giro"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-giro"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s09-giro"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-giro"] .ac4 { fill: none; stroke: #5ce611; stroke-width: 4; }
+    [data-composition-id="s09-giro"] .gris { fill: none; stroke: #7c8698; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-giro"] .gris-fino { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-giro"] .molde { fill: #7c8698; fill-opacity: 0.2; fill-rule: evenodd; stroke: none; }
+    [data-composition-id="s09-giro"] .pz { fill: #5ce611; fill-opacity: 0.13; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-giro"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s09-giro"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s09-giro"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s09-giro"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s09-giro"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s09-giro"] .mono-gris { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #7c8698; }
+    [data-composition-id="s09-giro"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-giro"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+[data-composition-id="s09-giro"] .hl { fill: #5ce611; fill-opacity: 0.45; stroke: none; }
+  </style>
+  <div id="root" data-composition-id="s09-giro" data-width="1080" data-height="1920" data-duration="4.71">
+    <div id="s09-giro-escena" class="capa clip" data-start="0" data-duration="4.71" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s09-p"><g class="s09-pr">
+          <g class="s09-entera"><path class="pz s09-p-u" d="M-140 -140 H-55 V-200 L0 -245 L55 -200 V-140 H140 V-95 H200 V-35 H140 V35 H200 V95 H140 V140 H35 V175 H90 V215 H-60 V140 H-140 V65 A65 65 0 0 1 -140 -65 Z" /><g class="s09-p-glifos"><text class="mono-ac " x="-176" y="9" font-size="24" text-anchor="middle" data-layout-ignore>kg</text><circle class="ac4 " cx="0" cy="-210" r="8" /><text class="lex-ac " x="0" y="-158" font-size="34" text-anchor="middle" data-layout-ignore>$</text><text class="mono-ac " x="170" y="-57" font-size="26" text-anchor="middle" data-layout-ignore>1</text><text class="mono-ac " x="170" y="73" font-size="26" text-anchor="middle" data-layout-ignore>2</text><text class="mono-ac " x="-12" y="194" font-size="26" text-anchor="middle" data-layout-ignore>30</text></g><path class="hl s09-hl" d="M-140 -65 A65 65 0 0 0 -140 65 Z" /><path class="hl s09-hl" d="M-55 -140 V-200 L0 -245 L55 -200 V-140 Z" /><path class="hl s09-hl" d="M140 -95 H200 V-35 H140 Z M140 35 H200 V95 H140 Z" /><path class="hl s09-hl" d="M-60 140 V215 H90 V175 H35 V140 Z" /></g>
+          <g class="s09-partes"><path class="pz s09-cuerpo" d="M-140 -140 H140 V140 H-140 Z" /><g class="s09-pt s09-pt-yerba"><path class="pz s09-ptp s09-ptp-yerba" d="M-140 -65 A65 65 0 0 0 -140 65 Z" /><text class="mono-ac s09-gl" x="-176" y="9" font-size="24" text-anchor="middle" data-layout-ignore>kg</text></g><g class="s09-pt s09-pt-precio"><path class="pz s09-ptp s09-ptp-precio" d="M-55 -140 V-200 L0 -245 L55 -200 V-140 Z" /><circle class="ac4 s09-gl" cx="0" cy="-210" r="8" /><text class="lex-ac s09-gl" x="0" y="-158" font-size="34" text-anchor="middle" data-layout-ignore>$</text></g><g class="s09-pt s09-pt-locales"><path class="pz s09-ptp s09-ptp-locales" d="M140 -95 H200 V-35 H140 Z M140 35 H200 V95 H140 Z" /><text class="mono-ac s09-gl" x="170" y="-57" font-size="26" text-anchor="middle" data-layout-ignore>1</text><text class="mono-ac s09-gl" x="170" y="73" font-size="26" text-anchor="middle" data-layout-ignore>2</text></g><g class="s09-pt s09-pt-prov"><path class="pz s09-ptp s09-ptp-prov" d="M-60 140 V215 H90 V175 H35 V140 Z" /><text class="mono-ac s09-gl" x="-12" y="194" font-size="26" text-anchor="middle" data-layout-ignore>30</text></g></g>
+        </g></g>
+        <g class="s09-sello"><g transform="translate(540 1158) rotate(-5)">
+          <rect class="gris-fino" x="-130" y="-38" width="260" height="76" rx="8" />
+          <text class="mono-gris" x="0" y="13" font-size="36" text-anchor="middle">DEFECTO</text></g></g>
+        <line class="ln-ac s09-tacha" x1="395" y1="1172" x2="685" y2="1140" />
+        <line class="ln-ac s09-hilo s09-hilo0" x1="285" y1="875" x2="382" y2="900" stroke-width="3" /><g class="s09-cli s09-cli0"><circle class="ln" cx="285" cy="861" r="14" /><path class="ln" d="M261 905 C261 883 309 883 309 905" /></g><line class="ln-ac s09-hilo s09-hilo1" x1="665" y1="690" x2="560" y2="760" stroke-width="3" /><g class="s09-cli s09-cli1"><circle class="ln" cx="665" cy="676" r="14" /><path class="ln" d="M641 720 C641 698 689 698 689 720" /></g><line class="ln-ac s09-hilo s09-hilo2" x1="800" y1="875" x2="700" y2="900" stroke-width="3" /><g class="s09-cli s09-cli2"><circle class="ln" cx="800" cy="861" r="14" /><path class="ln" d="M776 905 C776 883 824 883 824 905" /></g><line class="ln-ac s09-hilo s09-hilo3" x1="415" y1="1055" x2="500" y2="1060" stroke-width="3" /><g class="s09-cli s09-cli3"><circle class="ln" cx="415" cy="1041" r="14" /><path class="ln" d="M391 1085 C391 1063 439 1063 439 1085" /></g>
+      </svg>
+
+      <div class="etiqueta"><span class="e1">Ojo</span><span class="e2">No es un defecto</span><span class="e3">Por esto te eligen</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-giro";
+      const DUR = 4.71;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-20% 100% -20% 0)" }, { clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+      // aparece suave desde abajo
+      const subir = (el, t, o) => tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: o ?? 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      // late una vez
+      const latir = (el, t, s, org) => tl.to(el, { scale: s ?? 1.1, svgOrigin: org ?? "0 0", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etiquetas = (ET) => ET.forEach((t, i) => {
+        const el = q(".e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+
+      const OJO = 0.06, RARO = 0.96, NOES = 1.66, DEFECTO = 2.46, ES = 3.29, ELIGEN = 3.91;
+      const PR = q(".s09-pr");
+      gsap.set(q(".s09-p"), { x: 540, y: 900 });
+      gsap.set(PR, { scale: 0.8, svgOrigin: "0 0" });
+      gsap.set(q(".s09-entera"), { opacity: 0 });
+      gsap.set(qa(".s09-hl, .s09-hilo"), { opacity: 0 });
+      const SALE = { yerba: [-90, 50, -24], precio: [30, -60, 20], locales: [90, 40, 22], prov: [-40, 70, -18] };
+      const CEN = {"yerba":[-178,0],"precio":[0,-195],"locales":[170,0],"prov":[0,185]};
+      // las puntas recortadas vuelven a su lugar y recuperan el color
+      ["yerba","precio","locales","prov"].forEach((n, i) => {
+        const [dx, dy, r] = SALE[n];
+        const g = q(".s09-pt-" + n);
+        const org = CEN[n][0] + " " + CEN[n][1];
+        gsap.set(g, { x: dx, y: dy, rotation: r, svgOrigin: org });
+        gsap.set(g.querySelector("path"), { stroke: "#7c8698", fill: "#7c8698" });
+        gsap.set(qa(".s09-pt-" + n + " text"), { fill: "#7c8698" });
+        tl.to(g, { x: 0, y: 0, rotation: 0, svgOrigin: org, duration: 0.55, ease: "back.out(1.3)" }, OJO + 0.1 + i * 0.07);
+        tl.to(g.querySelector("path"), { stroke: "#5ce611", fill: "#5ce611", duration: 0.3 }, OJO + 0.35 + i * 0.07);
+        tl.to(qa(".s09-pt-" + n + " text"), { fill: "#5ce611", duration: 0.3 }, OJO + 0.35 + i * 0.07);
+      });
+      tl.fromTo(q(".s09-partes"), { opacity: 0.6 }, { opacity: 1, duration: 0.2 }, 0);
+      tl.set(q(".s09-entera"), { opacity: 1 }, 0.9);
+      tl.set(q(".s09-partes"), { opacity: 0 }, 0.9);
+      // "raro": las puntas se encienden
+      tl.to(qa(".s09-hl"), { opacity: 1, duration: 0.15, stagger: 0.08 }, RARO);
+      tl.to(qa(".s09-hl"), { opacity: 0.3, duration: 0.4 }, RARO + 0.5);
+      latir(PR, RARO, 1.06);
+      // "no es un defecto": el sello gris, tachado en verde
+      tl.fromTo(q(".s09-sello"), { opacity: 0, scale: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.in" }, NOES);
+      dibujar([q(".s09-tacha")], DEFECTO, 0.35);
+      tl.to(qa(".s09-sello, .s09-tacha"), { opacity: 0, y: 20, duration: 0.3 }, ES - 0.1);
+      // "te eligen": clientes que llegan, cada uno por una punta
+      qa(".s09-cli").forEach((el, i) => {
+        pop(el, ELIGEN - 0.45 + i * 0.12);
+        tl.to(q(".s09-hilo" + i), { opacity: 1, duration: 0.01 }, ELIGEN - 0.3 + i * 0.12);
+        dibujar([q(".s09-hilo" + i)], ELIGEN - 0.3 + i * 0.12, 0.3);
+      });
+      tl.to(qa(".s09-hl"), { opacity: 0.7, duration: 0.3 }, ELIGEN);
+      etiquetas([OJO + 0.05, DEFECTO, ELIGEN]);
+      tl.to(q("#s09-giro-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
