@@ -1,0 +1,167 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-libreria"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-libreria"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-libreria"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-libreria"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-libreria"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-libreria"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-libreria"] .ln-rojo { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-libreria"] .apagado { opacity: 0.42; }
+    [data-composition-id="s02-libreria"] .crema { fill: #efeee5; }
+    [data-composition-id="s02-libreria"] .verde { fill: #5ce611; }
+    [data-composition-id="s02-libreria"] .rojo { fill: #b8574e; }
+    [data-composition-id="s02-libreria"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s02-libreria"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s02-libreria"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s02-libreria"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s02-libreria"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-libreria"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s02-libreria"] .rotulo { position: absolute; left: 0; right: 0; top: 612px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.24em; color: #5ce611; }
+    [data-composition-id="s02-libreria"] .rotulo span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s02-libreria"] .rotulo b { font-weight: 500; color: #efeee5; }
+    [data-composition-id="s02-libreria"] .s02-cartel { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 46px; letter-spacing: 0.06em; fill: #efeee5; }
+    [data-composition-id="s02-libreria"] .s02-busca { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.08em; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s02-libreria" data-width="1080" data-height="1920" data-duration="5.31">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="5.31" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s02-local">
+          <path class="ln s02-dib" d="M120 1200 H980" />
+          <path class="ln s02-dib" d="M410 712 H910 V780 H410 Z" />
+          <path class="ln s02-dib" d="M390 800 H930 L906 856 H414 Z" />
+          <path class="ln4 s02-dib" d="M414 856 q 27 24 54 0 q 27 24 54 0 q 27 24 54 0 q 27 24 54 0 q 27 24 54 0 q 27 24 54 0 q 27 24 54 0 q 27 24 54 0 q 27 24 60 0" />
+          <path class="ln4 apagado s02-dib" d="M480 800 L470 856 M570 800 L564 856 M660 800 V856 M750 800 L756 856 M840 800 L850 856" />
+          <path class="ln s02-dib" d="M400 856 V1200 M920 856 V1200" />
+          <path class="ln s02-dib" d="M430 900 H700 V1150 H430 Z" />
+          <path class="ln4 s02-dib" d="M440 1000 H690" />
+          <path class="ln4 s02-dib" d="M460 1000 V940 H486 V1000 M492 1000 V952 H514 V1000 M520 1000 V930 H548 V1000" />
+          <path class="ln4 s02-dib" d="M590 996 L640 936 M610 998 L664 944" />
+          <path class="ln s02-dib" d="M740 900 H890 V1200 M740 900 V1200" />
+          <circle class="crema s02-pomo" cx="760" cy="1060" r="6" />
+          <text class="s02-cartel s02-txt" x="660" y="762" text-anchor="middle">LIBRERÍA</text>
+          <g class="s02-busca-g">
+            <path class="ln4" d="M462 1030 H668 V1124 H462 Z" />
+            <text class="s02-busca" x="565" y="1068" text-anchor="middle">BUSCAMOS</text>
+            <text class="s02-busca" x="565" y="1102" text-anchor="middle">PERSONAL</text>
+            <g class="s02-tilde"><circle class="ln-ac4" cx="668" cy="1030" r="20" style="fill:#07111f" /><path class="ln-ac4" d="M658 1030 L665 1038 L679 1022" /></g>
+          </g>
+        </g>
+        
+<g class="s02-c1"><g class="s02-c1-in">
+  <path class="ln s02-d-c1" d="M-30 -112 V0 M30 -112 V0 M-30 0 H-48 M30 0 H48" />
+  <path class="ln s02-d-c1" d="M-64 -108 V-194 Q-64 -230 -28 -230 H28 Q64 -230 64 -194 V-108 Z" />
+  <g class="s02-c1-bi"><path class="ln s02-d-c1" d="M-64 -204 Q-98 -164 -102 -118" /></g>
+  <g class="s02-c1-bd"><path class="ln s02-d-c1" d="M64 -204 Q98 -164 102 -118" /></g>
+  <circle class="ln s02-d-c1" cx="0" cy="-286" r="42" />
+  <circle class="crema s02-cara-c1" cx="-14" cy="-286" r="4.5" /><circle class="crema s02-cara-c1" cx="14" cy="-286" r="4.5" />
+  <path class="ln4 s02-d-c1" d="M-12 -266 Q0 -258 12 -266" />
+  <g class="s02-c1-bolsa"><path class="ln4" d="M96 -126 H140 L146 -66 H90 Z M106 -126 Q118 -146 130 -126" /></g>
+</g></g>
+        
+<g class="s02-c2"><g class="s02-c2-in">
+  <path class="ln s02-d-c2" d="M-30 -112 V0 M30 -112 V0 M-30 0 H-48 M30 0 H48" />
+  <path class="ln s02-d-c2" d="M-64 -108 V-194 Q-64 -230 -28 -230 H28 Q64 -230 64 -194 V-108 Z" />
+  <g class="s02-c2-bi"><path class="ln s02-d-c2" d="M-64 -204 Q-98 -164 -102 -118" /></g>
+  <g class="s02-c2-bd"><path class="ln s02-d-c2" d="M64 -204 Q98 -164 102 -118" /></g>
+  <circle class="ln s02-d-c2" cx="0" cy="-286" r="42" />
+  <circle class="crema s02-cara-c2" cx="-14" cy="-286" r="4.5" /><circle class="crema s02-cara-c2" cx="14" cy="-286" r="4.5" />
+  <path class="ln4 s02-d-c2" d="M-12 -266 Q0 -258 12 -266" />
+  
+</g></g>
+        
+<g class="s02-l"><g class="s02-l-in">
+  <path class="ln s02-d-l" d="M-30 -112 V0 M30 -112 V0 M-30 0 H-48 M30 0 H48" />
+  <path class="ln s02-d-l" d="M-66 -108 V-194 Q-66 -232 -28 -232 H28 Q66 -232 66 -194 V-108 Z" />
+  <g class="s02-l-bi"><path class="ln s02-d-l" d="M-66 -206 Q-100 -164 -104 -118" /></g>
+  <g class="s02-l-bd"><path class="ln s02-d-l" d="M66 -206 Q100 -164 104 -118" /></g>
+  <circle class="ln s02-d-l" cx="0" cy="-290" r="42" />
+  <path class="ln s02-d-l" d="M-42 -294 Q-40 -340 0 -336 Q40 -340 42 -296" />
+  <path class="ln s02-d-l" d="M34 -320 Q72 -308 62 -256" />
+  <circle class="crema s02-cara-l" cx="-14" cy="-290" r="4.5" />
+  <circle class="crema s02-cara-l" cx="14" cy="-290" r="4.5" />
+  <path class="ln4 s02-d-l" d="M-13 -270 Q0 -260 13 -270" />
+  <g class="s02-l-chapa"><rect class="ln-ac4" x="-48" y="-188" width="96" height="38" rx="8" /><text class="chapa" x="0" y="-160" text-anchor="middle">LUCÍA</text></g>
+</g></g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Primer día</span><span class="s02-e2">Librería de barrio</span><span class="s02-e3">Le va bien</span><span class="s02-e4">Por eso contrató</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-libreria";
+      const DUR = 5.31;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const cambio = (pref) => {
+        let actual = null;
+        return (n, t) => {
+          if (actual) tl.to(q(actual), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+          actual = "." + pref + n;
+          tl.fromTo(q(actual), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        };
+      };
+      const etq = cambio("s02-e");
+      const rot = cambio("s02-r");
+      const caras = (k, t) => { gsap.set(qa(".s02-cara-" + k), { opacity: 0 }); tl.to(qa(".s02-cara-" + k), { opacity: 1, duration: 0.15 }, t); };
+      
+      const LUCIA = 0.54, LIBRERIA = 1.34, VA = 3.34, CONTRATO = 4.24;
+      dibujar(qa(".s02-dib"), 0, 0.6, 0.35);
+      gsap.set(q(".s02-txt"), { opacity: 0 }); gsap.set(q(".s02-pomo"), { opacity: 0 });
+      tl.to([q(".s02-txt"), q(".s02-pomo")], { opacity: 1, duration: 0.3 }, 0.5);
+      gsap.set(q(".s02-busca-g"), { opacity: 0 });
+      pop(q(".s02-busca-g"), 1.0);
+      gsap.set(q(".s02-tilde"), { opacity: 0 });
+      etq(1, 0);
+      // Lucía en la vereda
+      gsap.set(q(".s02-l"), { x: 230, y: 1200, scale: 0.95, svgOrigin: "0 0" });
+      dibujar(qa(".s02-d-l"), LUCIA - 0.3, 0.5);
+      caras("l", LUCIA + 0.1);
+      gsap.set(q(".s02-l-chapa"), { opacity: 0 });
+      pop(q(".s02-l-chapa"), LUCIA + 0.3);
+      tl.to(q(".s02-l-in"), { y: -6, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, LUCIA + 0.5);
+      tl.fromTo(q(".s02-local"), { scale: 1 }, { scale: 1.02, svgOrigin: "660 960", duration: 0.3, yoyo: true, repeat: 1 }, LIBRERIA);
+      etq(2, LIBRERIA);
+      // le va bien: entran clientes
+      gsap.set(q(".s02-c1"), { x: 1040, y: 1200, scale: 0.6, svgOrigin: "0 0", opacity: 0 });
+      gsap.set(q(".s02-c2"), { x: 1060, y: 1200, scale: 0.55, svgOrigin: "0 0", opacity: 0 });
+      tl.to(q(".s02-c1"), { opacity: 1, duration: 0.2 }, VA - 0.3);
+      tl.to(q(".s02-c1"), { x: 815, duration: 0.9, ease: "power2.out" }, VA - 0.3);
+      tl.to(q(".s02-c1-in"), { y: -8, duration: 0.15, yoyo: true, repeat: 5 }, VA - 0.3);
+      tl.to(q(".s02-c2"), { opacity: 1, duration: 0.2 }, VA + 0.2);
+      tl.to(q(".s02-c2"), { x: 990, duration: 0.6, ease: "power2.out" }, VA + 0.2);
+      tl.to(q(".s02-c2"), { x: 815, duration: 0.7, ease: "power2.inOut" }, VA + 1.1);
+      tl.to(q(".s02-c2"), { opacity: 0, scale: 0.48, svgOrigin: "0 0", duration: 0.4 }, VA + 1.7);
+      tl.to(q(".s02-c2-in"), { y: -8, duration: 0.15, yoyo: true, repeat: 9 }, VA + 0.2);
+      tl.to(q(".s02-c1"), { opacity: 0, scale: 0.5, svgOrigin: "0 0", duration: 0.4 }, VA + 1.0);
+      etq(3, 2.75);
+      // contrató
+      pop(q(".s02-tilde"), CONTRATO, 0.4);
+      tl.fromTo(q(".s02-busca-g path"), { stroke: "#efeee5" }, { stroke: "#5ce611", duration: 0.25 }, CONTRATO);
+      tl.to(q(".s02-l-bd"), { rotation: -120, svgOrigin: "66 -206", duration: 0.35, ease: "back.out(2)" }, CONTRATO + 0.1);
+      etq(4, CONTRATO);
+
+      // salida
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

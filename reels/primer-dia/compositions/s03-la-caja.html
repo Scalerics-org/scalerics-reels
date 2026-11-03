@@ -1,0 +1,180 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-la-caja"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-la-caja"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-la-caja"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-la-caja"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-la-caja"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-la-caja"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-la-caja"] .ln-rojo { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-la-caja"] .apagado { opacity: 0.42; }
+    [data-composition-id="s03-la-caja"] .crema { fill: #efeee5; }
+    [data-composition-id="s03-la-caja"] .verde { fill: #5ce611; }
+    [data-composition-id="s03-la-caja"] .rojo { fill: #b8574e; }
+    [data-composition-id="s03-la-caja"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s03-la-caja"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s03-la-caja"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s03-la-caja"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s03-la-caja"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-la-caja"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s03-la-caja"] .rotulo { position: absolute; left: 0; right: 0; top: 612px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.24em; color: #5ce611; }
+    [data-composition-id="s03-la-caja"] .rotulo span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s03-la-caja"] .rotulo b { font-weight: 500; color: #efeee5; }
+    [data-composition-id="s03-la-caja"] .s03-globo-txt { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s03-la-caja"] .s03-q { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 64px; fill: #b8574e; }
+  </style>
+  <div id="root" data-composition-id="s03-la-caja" data-width="1080" data-height="1920" data-duration="6.9">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="6.9" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s03-cp"><rect x="0" y="0" width="1080" height="1062" /></clipPath><clipPath id="s03-cp2"><rect class="s03-cprect" x="0" y="0" width="1080" height="1062" /></clipPath></defs>
+        <path class="ln s03-piso" d="M120 1200 H960" />
+        <g clip-path="url(#s03-cp2)"><g class="s03-entra">
+<g class="s03-l"><g class="s03-l-in">
+  <path class="ln s03-d-l" d="M-30 -112 V0 M30 -112 V0 M-30 0 H-48 M30 0 H48" />
+  <path class="ln s03-d-l" d="M-66 -108 V-194 Q-66 -232 -28 -232 H28 Q66 -232 66 -194 V-108 Z" />
+  <g class="s03-l-bi"><path class="ln s03-d-l" d="M-66 -206 Q-100 -164 -104 -118" /></g>
+  <g class="s03-l-bd"><path class="ln s03-d-l" d="M66 -206 Q100 -164 104 -118" /></g>
+  <circle class="ln s03-d-l" cx="0" cy="-290" r="42" />
+  <path class="ln s03-d-l" d="M-42 -294 Q-40 -340 0 -336 Q40 -340 42 -296" />
+  <path class="ln s03-d-l" d="M34 -320 Q72 -308 62 -256" />
+  <circle class="crema s03-cara-l" cx="-14" cy="-290" r="4.5" />
+  <circle class="crema s03-cara-l" cx="14" cy="-290" r="4.5" />
+  <path class="ln4 s03-d-l" d="M-13 -270 Q0 -260 13 -270" />
+  <g class="s03-l-chapa"><rect class="ln-ac4" x="-48" y="-188" width="96" height="38" rx="8" /><text class="chapa" x="0" y="-160" text-anchor="middle">LUCÍA</text></g>
+</g></g></g></g>
+        <g class="s03-detras" clip-path="url(#s03-cp)">
+<g class="s03-d"><g class="s03-d-in">
+  <path class="ln s03-d-d" d="M-34 -112 V0 M34 -112 V0 M-34 0 H-54 M34 0 H54" />
+  <path class="ln s03-d-d" d="M-76 -108 V-198 Q-76 -238 -34 -238 H34 Q76 -238 76 -198 V-108 Z" />
+  <path class="ln4 s03-d-d" d="M-26 -236 L0 -190 L26 -236" />
+  <circle class="crema s03-cara-d" cx="0" cy="-166" r="4.5" /><circle class="crema s03-cara-d" cx="0" cy="-136" r="4.5" />
+  <g class="s03-d-bi"><path class="ln s03-d-d" d="M-76 -212 Q-112 -168 -116 -120" /></g>
+  <g class="s03-d-bd"><path class="ln s03-d-d" d="M76 -212 Q112 -168 116 -120" /></g>
+  <circle class="ln s03-d-d" cx="0" cy="-298" r="46" />
+  <path class="ln4 s03-d-d" d="M-46 -300 Q-52 -330 -36 -338 M46 -300 Q52 -330 36 -338" />
+  <circle class="ln4 s03-d-d" cx="-18" cy="-300" r="13" /><circle class="ln4 s03-d-d" cx="18" cy="-300" r="13" />
+  <path class="ln4 s03-d-d" d="M-5 -300 H5" />
+  <circle class="crema s03-cara-d" cx="-18" cy="-300" r="3.5" /><circle class="crema s03-cara-d" cx="18" cy="-300" r="3.5" />
+  <path class="ln4 s03-d-d" d="M-20 -274 Q-10 -282 0 -276 Q10 -282 20 -274" />
+  <path class="ln4 s03-d-d" d="M-11 -263 Q0 -256 11 -263" />
+</g></g></g>
+        <g class="s03-caja-box"><g class="s03-caja-in">
+          <rect class="ln4" x="-92" y="-56" width="184" height="104" rx="6" style="fill:#0a1a2e" /><path class="ln4" d="M-92 -56 L-112 -84 M92 -56 L112 -84 M-30 -56 V-20 H30 V-56" />
+        </g></g>
+        <g class="s03-most">
+          <path class="ln s03-dib-m" d="M140 1062 H940 M150 1078 V1200 M930 1078 V1200 M140 1078 H940" />
+          <g class="s03-reg">
+            <path class="ln s03-dib-r" d="M410 1062 V984 Q410 970 424 970 H576 Q590 970 590 984 V1062" />
+            <path class="ln s03-dib-r" d="M440 970 V916 H560 V970" />
+            <path class="ln4 s03-dib-r" d="M410 1030 H590" />
+            <path class="ln4 apagado s03-dib-r" d="M436 994 H456 M470 994 H490 M504 994 H524 M538 994 H558" />
+            <text class="mono s03-reg-txt" x="500" y="952" text-anchor="middle">0,00</text>
+          </g>
+          <g class="s03-candado">
+            <path class="ln-rojo" d="M614 1008 V990 Q614 970 634 970 Q654 970 654 990 V1008" />
+            <rect class="ln-rojo" x="604" y="1008" width="60" height="48" rx="8" style="fill:#0a1a2e" />
+            <circle class="rojo" cx="634" cy="1030" r="6" />
+          </g>
+        </g>
+        <g class="s03-globo-l">
+          <path class="ln4" d="M270 760 Q270 724 306 724 H354 Q390 724 390 760 Q390 796 354 796 H330 L312 820 L314 796 H306 Q270 796 270 760 Z" />
+          <text class="s03-q" x="330" y="784" text-anchor="middle">?</text>
+        </g>
+        <g class="s03-globo-d">
+          <path class="ln4" d="M640 744 Q640 712 672 712 H900 Q932 712 932 744 Q932 776 900 776 H830 L808 802 L806 776 H672 Q640 776 640 744 Z" />
+          <text class="s03-globo-txt" x="786" y="756" text-anchor="middle">DESPUÉS</text>
+        </g>
+      </svg>
+      <div class="rotulo"><span class="s03-r1">08:00 · <b>LA LLEGADA</b></span><span class="s03-r2">08:15 · <b>LA CAJA</b></span></div>
+      <div class="etiqueta"><span class="s03-e1">Llega con ganas</span><span class="s03-e2">¿Cómo se abre?</span><span class="s03-e3">Te lo muestro después</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-la-caja";
+      const DUR = 6.9;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const cambio = (pref) => {
+        let actual = null;
+        return (n, t) => {
+          if (actual) tl.to(q(actual), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+          actual = "." + pref + n;
+          tl.fromTo(q(actual), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        };
+      };
+      const etq = cambio("s03-e");
+      const rot = cambio("s03-r");
+      const caras = (k, t) => { gsap.set(qa(".s03-cara-" + k), { opacity: 0 }); tl.to(qa(".s03-cara-" + k), { opacity: 1, duration: 0.15 }, t); };
+      
+      const GANAS = 1.33, CUARTO = 2.18, ABRE = 3.73, CAJA = 4.13, ESO = 5.05, DESPUES = 5.83;
+      rot(1, 0);
+      etq(1, 0.6);
+      // Lucía entra caminando (arranca ya dibujada a medias: el corte viene de s02)
+      gsap.set(q(".s03-l"), { x: 0, y: 1200 });
+      dibujar([q(".s03-piso")], 0, 0.5, 0.4);
+      dibujar(qa(".s03-d-l"), 0, 0.45, 0.3);
+      tl.fromTo(q(".s03-entra"), { x: 40 }, { x: 420, duration: 1.2, ease: "power2.out" }, 0);
+      tl.to(q(".s03-l-in"), { y: -10, duration: 0.15, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0);
+      tl.to(q(".s03-l-bd"), { rotation: -130, svgOrigin: "66 -206", duration: 0.35, ease: "back.out(2)" }, GANAS - 0.1);
+      tl.to(q(".s03-l-in"), { y: -30, duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out" }, GANAS);
+      gsap.set(q(".s03-cprect"), { scaleY: 1.81, svgOrigin: "0 0" });
+      tl.to(q(".s03-cprect"), { scaleY: 1, svgOrigin: "0 0", duration: 0.01 }, CUARTO + 0.15);
+      // 08:15: aparece el mostrador; Lucía pasa atrás
+      rot(2, CUARTO);
+      tl.to(q(".s03-l-bd"), { rotation: 0, svgOrigin: "66 -206", duration: 0.3 }, CUARTO - 0.2);
+      tl.to(q(".s03-piso"), { opacity: 0, duration: 0.2 }, CUARTO);
+      tl.to(q(".s03-entra"), { x: 280, duration: 0.5, ease: "power2.inOut" }, CUARTO - 0.1);
+      dibujar(qa(".s03-dib-m"), CUARTO, 0.5);
+      dibujar(qa(".s03-dib-r"), CUARTO + 0.2, 0.5);
+      gsap.set(q(".s03-reg-txt"), { opacity: 0 });
+      tl.to(q(".s03-reg-txt"), { opacity: 0.6, duration: 0.2 }, CUARTO + 0.6);
+      gsap.set(q(".s03-candado"), { opacity: 0 });
+      pop(q(".s03-candado"), CAJA - 0.1, 0.4);
+      tl.to(q(".s03-candado"), { rotation: 10, svgOrigin: "634 975", duration: 0.12, yoyo: true, repeat: 3 }, CAJA + 0.3);
+      // el globo de Lucía
+      gsap.set(q(".s03-globo-l"), { opacity: 0 });
+      pop(q(".s03-globo-l"), ABRE - 0.2, 0.4);
+      tl.to(q(".s03-globo-l text"), { rotation: 12, transformOrigin: "50% 80%", duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, ABRE + 0.2);
+      tl.to(qa(".s03-cara-l"), { x: 6, duration: 0.2 }, ABRE);
+      etq(2, ABRE - 0.2);
+      // el dueño pasa con una caja de cartón
+      gsap.set(q(".s03-d"), { x: 1150, y: 1200, opacity: 0 });
+      tl.set(q(".s03-d"), { opacity: 1 }, ESO - 0.6);
+      gsap.set(q(".s03-caja-box"), { x: 1150, y: 1000, opacity: 0 });
+      tl.set(q(".s03-caja-box"), { opacity: 1 }, ESO - 0.6);
+      tl.to([q(".s03-d"), q(".s03-caja-box")], { x: 800, duration: 0.6, ease: "power2.out" }, ESO - 0.6);
+      tl.to(q(".s03-d-in"), { y: -8, duration: 0.15, yoyo: true, repeat: 3 }, ESO - 0.6);
+      tl.to(qa(".s03-cara-d"), { x: -6, duration: 0.2 }, ESO);
+      tl.to(qa(".s03-cara-l"), { x: 12, duration: 0.2 }, ESO);
+      gsap.set(q(".s03-globo-d"), { opacity: 0 });
+      pop(q(".s03-globo-d"), ESO, 0.4);
+      tl.to(q(".s03-globo-l"), { opacity: 0.35, duration: 0.3 }, ESO + 0.2);
+      tl.to([q(".s03-d"), q(".s03-caja-box")], { x: 860, duration: 1.2, ease: "sine.inOut" }, ESO + 0.4);
+      tl.to(q(".s03-candado"), { x: 5, duration: 0.07, yoyo: true, repeat: 5 }, DESPUES);
+      etq(3, ESO);
+
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

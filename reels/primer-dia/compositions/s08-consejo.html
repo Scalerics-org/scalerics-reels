@@ -1,0 +1,151 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-consejo"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-consejo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-consejo"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-consejo"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-consejo"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-consejo"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-consejo"] .ln-rojo { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-consejo"] .apagado { opacity: 0.42; }
+    [data-composition-id="s08-consejo"] .crema { fill: #efeee5; }
+    [data-composition-id="s08-consejo"] .verde { fill: #5ce611; }
+    [data-composition-id="s08-consejo"] .rojo { fill: #b8574e; }
+    [data-composition-id="s08-consejo"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s08-consejo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s08-consejo"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s08-consejo"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s08-consejo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-consejo"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s08-consejo"] .rotulo { position: absolute; left: 0; right: 0; top: 612px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.24em; color: #5ce611; }
+    [data-composition-id="s08-consejo"] .rotulo span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s08-consejo"] .rotulo b { font-weight: 500; color: #efeee5; }
+    [data-composition-id="s08-consejo"] .s08-fila { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; fill: #efeee5; }
+    [data-composition-id="s08-consejo"] .s08-tit { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.16em; fill: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s08-consejo" data-width="1080" data-height="1920" data-duration="7.76">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="7.76" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <defs><clipPath id="s08-cf0"><rect class="s08-cr" x="330" y="822" width="520" height="70" /></clipPath><clipPath id="s08-cf1"><rect class="s08-cr" x="330" y="912" width="520" height="70" /></clipPath><clipPath id="s08-cf2"><rect class="s08-cr" x="330" y="1002" width="520" height="70" /></clipPath><clipPath id="s08-cf3"><rect class="s08-cr" x="330" y="1092" width="520" height="70" /></clipPath></defs>
+        <g class="s08-tablet">
+          <path class="ln s08-dib-tab" d="M260 660 H820 Q860 660 860 700 V1200 Q860 1240 820 1240 H260 Q220 1240 220 1200 V700 Q220 660 260 660 Z" />
+          <circle class="crema s08-cam" cx="540" cy="682" r="6" />
+        </g>
+        <g class="s08-hoja">
+          <path class="ln s08-dib-hoja" d="M276 700 H804 V1200 H276 Z" />
+          <path class="ln4 apagado s08-dib-hoja" d="M300 800 H780" />
+        </g>
+        <text class="s08-tit" x="540" y="770" text-anchor="middle">CÓMO SE HACE</text>
+        
+        <g class="s08-f">
+          <circle class="crema s08-bul" cx="314" cy="868" r="6" />
+          <g class="s08-box"><rect class="ln-ac4" x="296" y="850" width="36" height="36" rx="8" /></g>
+          <g clip-path="url(#s08-cf0)"><text class="s08-fila" x="350" y="880">Abrir la caja</text></g>
+          <path class="ln4 apagado s08-sub" d="M350 906 H780" />
+        </g>
+        <g class="s08-f">
+          <circle class="crema s08-bul" cx="314" cy="958" r="6" />
+          <g class="s08-box"><rect class="ln-ac4" x="296" y="940" width="36" height="36" rx="8" /></g>
+          <g clip-path="url(#s08-cf1)"><text class="s08-fila" x="350" y="970">Cargar un pedido</text></g>
+          <path class="ln4 apagado s08-sub" d="M350 996 H780" />
+        </g>
+        <g class="s08-f">
+          <circle class="crema s08-bul" cx="314" cy="1048" r="6" />
+          <g class="s08-box"><rect class="ln-ac4" x="296" y="1030" width="36" height="36" rx="8" /></g>
+          <g clip-path="url(#s08-cf2)"><text class="s08-fila" x="350" y="1060">Hacer un presupuesto</text></g>
+          <path class="ln4 apagado s08-sub" d="M350 1086 H780" />
+        </g>
+        <g class="s08-f">
+          <circle class="crema s08-bul" cx="314" cy="1138" r="6" />
+          <g class="s08-box"><rect class="ln-ac4" x="296" y="1120" width="36" height="36" rx="8" /></g>
+          <g clip-path="url(#s08-cf3)"><text class="s08-fila" x="350" y="1150">Recibir mercadería</text></g>
+          <path class="ln4 apagado s08-sub" d="M350 1176 H780" />
+        </g>
+        <g class="s08-lapiz"><g class="s08-lapiz-in">
+          <path class="ln" d="M0 0 L14 -40 L118 -140 L146 -112 L42 -12 Z M14 -40 L42 -12 M104 -126 L132 -98" style="fill:#0a1a2e" />
+          <circle class="verde" cx="4" cy="-6" r="5" />
+        </g></g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">Consejo de colega</span><span class="s08-e2">Antes de contratar</span><span class="s08-e3">Escribilo</span><span class="s08-e4">Mejor: en un sistema</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-consejo";
+      const DUR = 7.76;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const cambio = (pref) => {
+        let actual = null;
+        return (n, t) => {
+          if (actual) tl.to(q(actual), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+          actual = "." + pref + n;
+          tl.fromTo(q(actual), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        };
+      };
+      const etq = cambio("s08-e");
+      const rot = cambio("s08-r");
+      const caras = (k, t) => { gsap.set(qa(".s08-cara-" + k), { opacity: 0 }); tl.to(qa(".s08-cara-" + k), { opacity: 1, duration: 0.15 }, t); };
+      
+      const ANTES = 1.36, ESCRIBI = 2.45, MEJOR = 4.64, SISTEMA = 5.89, NEGOCIO = 6.89;
+      // la hoja arranca a medio dibujar
+      dibujar(qa(".s08-dib-hoja"), 0, 0.5, 0.4);
+      gsap.set(q(".s08-tit"), { opacity: 0 });
+      pop(q(".s08-tit"), 0.2);
+      etq(1, 0);
+      gsap.set(qa(".s08-cr"), { scaleX: 0, svgOrigin: "330 0" });
+      gsap.set(qa(".s08-box"), { opacity: 0 });
+      gsap.set(qa(".s08-bul, .s08-sub"), { opacity: 0 });
+      tl.to(qa(".s08-sub"), { opacity: 0.42, duration: 0.25, stagger: 0.08 }, 0.4);
+      tl.to(qa(".s08-bul"), { opacity: 0.6, duration: 0.25, stagger: 0.08 }, 0.5);
+      // el lápiz aparece y espera
+      gsap.set(q(".s08-lapiz"), { x: 760, y: 1150, opacity: 0 });
+      gsap.set(q(".s08-lapiz-in"), { scale: 0.75, svgOrigin: "0 0" });
+      tl.to(q(".s08-lapiz"), { opacity: 1, duration: 0.2 }, ANTES - 0.2);
+      tl.fromTo(q(".s08-lapiz"), { x: 820, y: 1220 }, { x: 350, y: 884, duration: 0.6, ease: "power2.inOut" }, ANTES);
+      tl.to(q(".s08-lapiz-in"), { rotation: -8, svgOrigin: "0 0", duration: 0.25, yoyo: true, repeat: 1 }, ANTES + 0.6);
+      etq(2, ANTES);
+      // escribe los cuatro renglones
+      const W = [310, 350, 430, 390];
+      qa(".s08-cr").forEach((r, i) => {
+        const t = ESCRIBI + i * 0.5;
+        tl.to(r, { scaleX: 1, svgOrigin: "330 0", duration: 0.45, ease: "none" }, t);
+        tl.fromTo(q(".s08-lapiz"), { x: 350, y: 884 + i * 90 }, { x: 350 + W[i], y: 884 + i * 90, duration: 0.45, ease: "none", immediateRender: false }, t);
+        tl.to(q(".s08-lapiz-in"), { y: -6, duration: 0.075, yoyo: true, repeat: 5 }, t);
+      });
+      tl.to(q(".s08-lapiz"), { x: 900, y: 1260, opacity: 0, duration: 0.4, ease: "power2.in" }, ESCRIBI + 2.0);
+      etq(3, ESCRIBI);
+      // mejor todavía: la hoja se vuelve sistema
+      dibujar(qa(".s08-dib-tab"), MEJOR - 0.1, 0.6);
+      gsap.set(q(".s08-cam"), { opacity: 0 });
+      tl.to(q(".s08-cam"), { opacity: 1, duration: 0.2 }, MEJOR + 0.4);
+      tl.to(qa(".s08-dib-hoja"), { opacity: 0, duration: 0.4 }, MEJOR + 0.2);
+      tl.to(qa(".s08-bul"), { opacity: 0, duration: 0.2 }, SISTEMA - 0.2);
+      qa(".s08-box").forEach((b, i) => pop(b, SISTEMA - 0.1 + i * 0.1));
+      tl.fromTo(q(".s08-tablet"), { scale: 1 }, { scale: 1.03, svgOrigin: "540 950", duration: 0.2, yoyo: true, repeat: 1 }, NEGOCIO);
+      etq(4, MEJOR);
+
+      // salida
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

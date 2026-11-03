@@ -1,0 +1,107 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-rojo { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .apagado { opacity: 0.42; }
+    [data-composition-id="s12-cta"] .crema { fill: #efeee5; }
+    [data-composition-id="s12-cta"] .verde { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .rojo { fill: #b8574e; }
+    [data-composition-id="s12-cta"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s12-cta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s12-cta"] .rotulo { position: absolute; left: 0; right: 0; top: 612px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.24em; color: #5ce611; }
+    [data-composition-id="s12-cta"] .rotulo span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s12-cta"] .rotulo b { font-weight: 500; color: #efeee5; }
+    [data-composition-id="s12-cta"] .s12-head { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .s12-pre { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 44px; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="7.1">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="7.1" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s12-card">
+          <path class="ln s12-dib" d="M200 700 H880 Q910 700 910 730 V1000 Q910 1030 880 1030 H200 Q170 1030 170 1000 V730 Q170 700 200 700 Z" />
+          <text class="s12-head" x="540" y="764" text-anchor="middle">TU TURNO</text>
+          <text class="s12-pre" x="540" y="852" text-anchor="middle">¿Qué le enseñarías</text>
+          <text class="s12-pre" x="540" y="910" text-anchor="middle">a alguien nuevo?</text>
+          <path class="ln4 apagado s12-dib" d="M240 976 H840" />
+          <rect class="verde s12-cursor" x="244" y="940" width="16" height="30" />
+        </g>
+        <g class="s12-globo">
+          <path class="ln s12-gl" d="M420 1080 H660 Q690 1080 690 1110 V1170 Q690 1200 660 1200 H520 L480 1234 L486 1200 H420 Q390 1200 390 1170 V1110 Q390 1080 420 1080 Z" />
+          <circle class="crema s12-pt" cx="490" cy="1140" r="9" /><circle class="crema s12-pt" cx="540" cy="1140" r="9" /><circle class="crema s12-pt" cx="590" cy="1140" r="9" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s12-e1">Lo primero que enseñarías</span><span class="s12-e2">Contalo en los comentarios</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 7.1;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const cambio = (pref) => {
+        let actual = null;
+        return (n, t) => {
+          if (actual) tl.to(q(actual), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+          actual = "." + pref + n;
+          tl.fromTo(q(actual), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        };
+      };
+      const etq = cambio("s12-e");
+      const rot = cambio("s12-r");
+      const caras = (k, t) => { gsap.set(qa(".s12-cara-" + k), { opacity: 0 }); tl.to(qa(".s12-cara-" + k), { opacity: 1, duration: 0.15 }, t); };
+      
+      const PRIMERO = 0.56, NUEVO = 2.06, CONTALO = 2.36, COMENTARIOS = 3.26;
+      dibujar(qa(".s12-dib"), 0, 0.5, 0.35);
+      gsap.set(qa(".s12-head, .s12-pre"), { opacity: 0 });
+      tl.to(q(".s12-head"), { opacity: 1, duration: 0.3 }, 0.15);
+      qa(".s12-pre").forEach((t, i) => tl.fromTo(t, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, [0.25, NUEVO - 0.5][i]));
+      etq(1, PRIMERO);
+      // cursor que titila hasta el final (repeticiones finitas)
+      gsap.set(q(".s12-cursor"), { opacity: 0 });
+      tl.to(q(".s12-cursor"), { opacity: 1, duration: 0.05 }, 0.6);
+      tl.to(q(".s12-cursor"), { opacity: 0, duration: 0.05, repeat: 21, yoyo: true, repeatDelay: 0.25 }, 0.9);
+      // el globo de comentario
+      dibujar([q(".s12-gl")], NUEVO - 0.3, 0.5);
+      gsap.set(qa(".s12-pt"), { opacity: 0 });
+      tl.to(qa(".s12-pt"), { opacity: 1, duration: 0.15, stagger: 0.1 }, NUEVO);
+      tl.to(qa(".s12-pt"), { y: -10, duration: 0.25, stagger: 0.12, yoyo: true, repeat: 9, ease: "sine.inOut" }, NUEVO + 0.3);
+      tl.to(q(".s12-gl"), { stroke: "#5ce611", duration: 0.3 }, CONTALO);
+      tl.to(qa(".s12-pt"), { fill: "#5ce611", duration: 0.3 }, CONTALO);
+      tl.fromTo(q(".s12-globo"), { scale: 1 }, { scale: 1.08, svgOrigin: "540 1150", duration: 0.2, yoyo: true, repeat: 1 }, COMENTARIOS);
+      tl.to(q(".s12-card"), { y: -6, duration: 1.2, yoyo: true, repeat: 2, ease: "sine.inOut" }, 3.4);
+      etq(2, CONTALO);
+
+      // salida
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

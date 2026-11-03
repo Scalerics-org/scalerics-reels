@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .ln-rojo { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .apagado { opacity: 0.42; }
+    [data-composition-id="s01-gancho"] .crema { fill: #efeee5; }
+    [data-composition-id="s01-gancho"] .verde { fill: #5ce611; }
+    [data-composition-id="s01-gancho"] .rojo { fill: #b8574e; }
+    [data-composition-id="s01-gancho"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 22px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s01-gancho"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s01-gancho"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s01-gancho"] .lx { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s01-gancho"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-gancho"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s01-gancho"] .rotulo { position: absolute; left: 0; right: 0; top: 612px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.24em; color: #5ce611; }
+    [data-composition-id="s01-gancho"] .rotulo span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s01-gancho"] .rotulo b { font-weight: 500; color: #efeee5; }
+    [data-composition-id="s01-gancho"] .s01-dia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 64px; fill: #efeee5; }
+    [data-composition-id="s01-gancho"] .s01-q { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 150px; fill: #b8574e; }
+    [data-composition-id="s01-gancho"] .s01-tit { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="4.56">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.56" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- calendario -->
+        <g class="s01-cal">
+          <path class="ln s01-dib-cal" d="M190 760 H470 Q490 760 490 780 V1060 Q490 1080 470 1080 H190 Q170 1080 170 1060 V780 Q170 760 190 760 Z" />
+          <path class="ln s01-dib-cal" d="M170 840 H490" />
+          <path class="ln s01-dib-cal" d="M240 736 V786 M420 736 V786" />
+          <text class="mono s01-cal-txt" x="330" y="814" text-anchor="middle">NOVIEMBRE</text>
+          <text class="s01-dia s01-cal-txt" x="330" y="960" text-anchor="middle">LUNES</text>
+          <text class="mono s01-cal-txt" x="330" y="1030" text-anchor="middle">PRIMER DÍA</text>
+          <path class="ln-ac s01-circ" d="M330 896 C420 892 470 912 468 952 C466 996 400 1006 320 1004 C240 1002 190 988 192 950 C194 914 250 898 344 902" />
+        </g>
+        <!-- carpeta -->
+        <g class="s01-carp">
+          <path class="ln s01-dib-carp" d="M590 1080 V820 Q590 806 604 806 H690 L716 834 H906 Q920 834 920 848 V1080 Z" />
+          <g class="s01-hojas">
+            <path class="ln4 s01-hoja2" d="M640 900 V760 H880 V900" />
+            <g class="s01-hoja1">
+              <path class="ln s01-dib-hoja" d="M620 900 V720 Q620 708 632 708 H858 Q870 708 870 720 V900" />
+              <text class="s01-tit" x="745" y="756" text-anchor="middle">CÓMO SE HACE</text>
+              <path class="ln4 apagado s01-renglon" d="M652 800 H838" stroke-dasharray="10 14" />
+              <path class="ln4 apagado s01-renglon" d="M652 840 H838" stroke-dasharray="10 14" />
+              <path class="ln4 apagado s01-renglon" d="M652 880 H838" stroke-dasharray="10 14" />
+              
+              <text class="s01-q" x="745" y="1010" text-anchor="middle">?</text>
+            </g>
+          </g>
+          <path class="ln s01-dib-carp s01-frente" d="M576 1080 L600 900 H934 L910 1080 Z" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Empieza el lunes</span><span class="s01-e2">¿Dónde está escrito?</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 4.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: L + 1, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, d) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const cambio = (pref) => {
+        let actual = null;
+        return (n, t) => {
+          if (actual) tl.to(q(actual), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+          actual = "." + pref + n;
+          tl.fromTo(q(actual), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        };
+      };
+      const etq = cambio("s01-e");
+      const rot = cambio("s01-r");
+      const caras = (k, t) => { gsap.set(qa(".s01-cara-" + k), { opacity: 0 }); tl.to(qa(".s01-cara-" + k), { opacity: 1, duration: 0.15 }, t); };
+      
+      const LUNES = 1.5, DONDE = 2.36, ESCRITO = 2.7, TODO = 3.6;
+      dibujar(qa(".s01-dib-cal"), 0, 0.5, 0.3);
+      gsap.set(qa(".s01-cal-txt"), { opacity: 0 });
+      tl.to(qa(".s01-cal-txt"), { opacity: 1, duration: 0.25, stagger: 0.12 }, 0.2);
+      tl.fromTo(q(".s01-cal"), { rotation: -4, svgOrigin: "330 760" }, { rotation: 2, svgOrigin: "330 760", duration: 1.2, ease: "sine.inOut" }, 0);
+      tl.to(q(".s01-cal"), { rotation: 0, svgOrigin: "330 760", duration: 1, ease: "sine.inOut" }, 1.2);
+      dibujar([q(".s01-circ")], LUNES - 0.1, 0.5);
+      tl.fromTo(q(".s01-cal"), { scale: 1 }, { scale: 1.04, svgOrigin: "330 920", duration: 0.15, yoyo: true, repeat: 1 }, LUNES + 0.35);
+      etq(1, 0.1);
+      // carpeta: se dibuja de entrada y se abre en "dónde"
+      dibujar(qa(".s01-dib-carp"), 0.35, 0.55);
+      gsap.set(q(".s01-hojas"), { opacity: 0 });
+      tl.set(q(".s01-hojas"), { opacity: 1 }, DONDE - 0.1);
+      tl.fromTo(q(".s01-hoja1"), { y: 260 }, { y: 0, duration: 0.5, ease: "back.out(1.4)" }, DONDE - 0.1);
+      tl.fromTo(q(".s01-hoja2"), { y: 220, opacity: 0 }, { y: 0, opacity: 0.5, duration: 0.5, ease: "back.out(1.4)" }, DONDE);
+      tl.fromTo(q(".s01-frente"), { y: 0 }, { y: 6, duration: 0.2, yoyo: true, repeat: 1 }, DONDE);
+      gsap.set(qa(".s01-renglon"), { opacity: 0 });
+      tl.to(qa(".s01-renglon"), { opacity: 0.42, duration: 0.2, stagger: 0.1 }, ESCRITO);
+      etq(2, DONDE);
+      // el signo de pregunta en "todo"
+      gsap.set(q(".s01-q"), { opacity: 0 });
+      pop(q(".s01-q"), TODO - 0.1, 0.4);
+      tl.to(q(".s01-q"), { scale: 1.12, transformOrigin: "50% 80%", duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, TODO + 0.4);
+      tl.to(q(".s01-carp"), { x: 6, duration: 0.08, yoyo: true, repeat: 3 }, TODO + 0.1);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
