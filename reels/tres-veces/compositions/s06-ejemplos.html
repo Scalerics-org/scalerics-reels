@@ -1,0 +1,122 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-ejemplos"] .s06-capa, [data-composition-id="s06-ejemplos"] .s06-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s06-ejemplos"] .s06-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-ejemplos"] .s06-w { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #ffffff; }
+    [data-composition-id="s06-ejemplos"] .s06-w span { display: inline-block; }
+    [data-composition-id="s06-ejemplos"] .s06-etiqueta { position: absolute; left: 0; right: 0; top: 400px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #5ce611; text-transform: uppercase; }
+    [data-composition-id="s06-ejemplos"] .s06-trazo { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-ejemplos"] .s06-trazo.v { stroke: #5ce611; }
+
+
+    .s06-fila { position: absolute; left: 110px; width: 900px; height: 210px; }
+    .s06-txt { position: absolute; left: 140px; top: 0; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 62px; line-height: 1.06; text-transform: uppercase; letter-spacing: -0.015em; white-space: nowrap; }
+    .s06-txt.gris { color: #7c8698; }
+    .s06-txt.blanco { color: #ffffff; opacity: 0; }
+    .s06-tag { position: absolute; left: 140px; top: 148px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.24em; color: #5ce611; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s06-ejemplos" data-width="1080" data-height="1920" data-duration="4.59">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="4.59" data-track-index="0">
+      <div class="s06-escenario">
+        <div class="s06-etiqueta">Lo de todos los días</div>
+        <svg class="s06-svg" viewBox="0 0 1080 1920">
+      
+      <circle class="s06-trazo s06-circ s06-circ0" cx="160" cy="708" r="42" style="stroke:#7c8698" />
+        <path class="s06-trazo v s06-tilde s06-tilde0" d="M 140 710 L 156 726 L 184 692" />
+        <circle class="s06-trazo s06-circ s06-circ1" cx="160" cy="968" r="42" style="stroke:#7c8698" />
+        <path class="s06-trazo v s06-tilde s06-tilde1" d="M 140 970 L 156 986 L 184 952" />
+        <circle class="s06-trazo s06-circ s06-circ2" cx="160" cy="1228" r="42" style="stroke:#7c8698" />
+        <path class="s06-trazo v s06-tilde s06-tilde2" d="M 140 1230 L 156 1246 L 184 1212" />
+        </svg>
+        
+
+        <div class="s06-fila s06-fila0" style="top:640px">
+          <div class="s06-txt gris">Pasar el pedido<br>a la planilla</div>
+          <div class="s06-txt blanco">Pasar el pedido<br>a la planilla</div>
+          <div class="s06-tag">Se hace solo</div>
+        </div>
+        <div class="s06-fila s06-fila1" style="top:900px">
+          <div class="s06-txt gris">Avisar que<br>está listo</div>
+          <div class="s06-txt blanco">Avisar que<br>está listo</div>
+          <div class="s06-tag">Se hace solo</div>
+        </div>
+        <div class="s06-fila s06-fila2" style="top:1160px">
+          <div class="s06-txt gris">Mandar el resumen<br>del día</div>
+          <div class="s06-txt blanco">Mandar el resumen<br>del día</div>
+          <div class="s06-tag">Se hace solo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-ejemplos";
+      const DUR = 4.59;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // golpe: entra grande y se asienta EN la palabra
+      const golpe = (el, t, k = 1.45) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: k }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.out", immediateRender: false }, t - 0.05);
+      };
+      // sube: entra desde abajo
+      const sube = (el, t, d = 110) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: d, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "back.out(1.8)", immediateRender: false }, t - 0.06);
+      };
+      // desliza: entra de costado
+      const desliza = (el, t, d = 140) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: d, filter: "blur(6px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.26, ease: "power3.out", immediateRender: false }, t - 0.06);
+      };
+      // sale: se va para arriba con blur
+      const sale = (els, t, d = -120) => tl.to(els, { y: d, opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in", stagger: 0.04 }, t);
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popDiv = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+
+      tl.fromTo(q(".s06-etiqueta"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.25 }, 0);
+      const EJ = [[0,0.85],[1.57,2.32],[2.92,3.84]];
+      EJ.forEach(([t, ok], i) => {
+        const f = q(".s06-fila" + i);
+        desliza(f, t + 0.02, 160);
+        pop(q(".s06-circ" + i), t + 0.05, "160 " + (672 + i * 260 + 36));
+        // se resuelve: tilde verde, el texto pasa de gris a blanco
+        dibujar([q(".s06-tilde" + i)], ok, 0.25);
+        tl.to(q(".s06-circ" + i), { stroke: "#5ce611", duration: 0.15 }, ok);
+        tl.to(f.querySelector(".gris"), { opacity: 0, duration: 0.2 }, ok);
+        tl.to(f.querySelector(".blanco"), { opacity: 1, duration: 0.2 }, ok);
+        gsap.set(f.querySelector(".s06-tag"), { opacity: 0 });
+        tl.fromTo(f.querySelector(".s06-tag"), { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.22, immediateRender: false }, ok + 0.1);
+      });
+      // al final los tres laten juntos
+      tl.to(qa(".s06-tilde"), { scale: 1.2, transformOrigin: "50% 50%", duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut" }, 4.12);
+
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

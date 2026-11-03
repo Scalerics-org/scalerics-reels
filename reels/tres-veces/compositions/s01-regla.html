@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-regla"] .s01-capa, [data-composition-id="s01-regla"] .s01-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s01-regla"] .s01-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-regla"] .s01-w { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #ffffff; }
+    [data-composition-id="s01-regla"] .s01-w span { display: inline-block; }
+    [data-composition-id="s01-regla"] .s01-etiqueta { position: absolute; left: 0; right: 0; top: 400px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #5ce611; text-transform: uppercase; }
+    [data-composition-id="s01-regla"] .s01-trazo { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-regla"] .s01-trazo.v { stroke: #5ce611; }
+
+
+    .s01-una { top: 505px; font-size: 150px; }
+    .s01-para { top: 760px; font-size: 80px; font-weight: 700; color: #efeee5; }
+    .s01-sacarte { top: 870px; font-size: 200px; font-weight: 900; }
+    .s01-encima { top: 1080px; font-size: 150px; font-weight: 900; color: #5ce611; }
+    .s01-semana { position: absolute; left: 290px; width: 500px; top: 1300px; height: 104px; border: 5px solid #5ce611; border-radius: 52px; text-align: center; line-height: 94px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 50px; letter-spacing: 0.08em; color: #5ce611; text-transform: uppercase; }
+  </style>
+  <div id="root" data-composition-id="s01-regla" data-width="1080" data-height="1920" data-duration="3.78">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="3.78" data-track-index="0">
+      <div class="s01-escenario">
+        <div class="s01-etiqueta">Consejo de colega</div>
+        <svg class="s01-svg" viewBox="0 0 1080 1920">
+      
+      <g class="s01-subr"><line class="s01-trazo v s01-sr" x1="200" y1="690" x2="880" y2="690" />
+        <line class="s01-trazo v s01-sr" x1="200" y1="690" x2="200" y2="726" /><line class="s01-trazo v s01-sr" x1="268" y1="690" x2="268" y2="712" /><line class="s01-trazo v s01-sr" x1="336" y1="690" x2="336" y2="712" /><line class="s01-trazo v s01-sr" x1="404" y1="690" x2="404" y2="712" /><line class="s01-trazo v s01-sr" x1="472" y1="690" x2="472" y2="712" /><line class="s01-trazo v s01-sr" x1="540" y1="690" x2="540" y2="726" /><line class="s01-trazo v s01-sr" x1="608" y1="690" x2="608" y2="712" /><line class="s01-trazo v s01-sr" x1="676" y1="690" x2="676" y2="712" /><line class="s01-trazo v s01-sr" x1="744" y1="690" x2="744" y2="712" /><line class="s01-trazo v s01-sr" x1="812" y1="690" x2="812" y2="712" /><line class="s01-trazo v s01-sr" x1="880" y1="690" x2="880" y2="726" /></g>
+        </svg>
+        
+
+        <div class="s01-w s01-una">Una regla</div>
+        <div class="s01-w s01-para">para saber qué</div>
+        <div class="s01-w s01-sacarte">sacarte</div>
+        <div class="s01-w s01-encima">de encima</div>
+        <div class="s01-semana">esta semana</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-regla";
+      const DUR = 3.78;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // golpe: entra grande y se asienta EN la palabra
+      const golpe = (el, t, k = 1.45) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: k }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.out", immediateRender: false }, t - 0.05);
+      };
+      // sube: entra desde abajo
+      const sube = (el, t, d = 110) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: d, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "back.out(1.8)", immediateRender: false }, t - 0.06);
+      };
+      // desliza: entra de costado
+      const desliza = (el, t, d = 140) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: d, filter: "blur(6px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.26, ease: "power3.out", immediateRender: false }, t - 0.06);
+      };
+      // sale: se va para arriba con blur
+      const sale = (els, t, d = -120) => tl.to(els, { y: d, opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in", stagger: 0.04 }, t);
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popDiv = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+
+      tl.fromTo(q(".s01-una"), { scale: 1.05, opacity: 0.75 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power4.out" }, 0);
+      tl.fromTo(q(".s01-etiqueta"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.1);
+      // "una regla" con subrayado que es una regla de medir
+      dibujar(qa(".s01-sr").slice(0, 1), 0.05, 0.45, 0.6);
+      gsap.set(qa(".s01-sr").slice(1), { opacity: 0 });
+      qa(".s01-sr").slice(1).forEach((el, i) => tl.to(el, { opacity: 1, duration: 0.05 }, 0.25 + i * 0.03));
+      sube(q(".s01-para"), 0.7, 70);
+      golpe(q(".s01-sacarte"), 1.6, 1.6);
+      desliza(q(".s01-encima"), 2.0, 220);
+      // sacarte de encima: un empujón seco
+      [[-14, 0], [10, 0], [0, 0]].forEach(([x], i) => tl.to(q(".s01-sacarte"), { x, duration: 0.05, ease: "none" }, 2.08 + i * 0.05));
+      popDiv(q(".s01-semana"), 2.28);
+      tl.to(q(".s01-semana"), { scale: 1.05, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, 3.0);
+      tl.to(q(".s01-encima"), { x: 10, duration: 0.6, ease: "sine.inOut" }, 2.4);
+
+      // salida
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

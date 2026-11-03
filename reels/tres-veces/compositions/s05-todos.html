@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-todos"] .s05-capa, [data-composition-id="s05-todos"] .s05-escenario { position: absolute; inset: 0; }
+    [data-composition-id="s05-todos"] .s05-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-todos"] .s05-w { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; color: #ffffff; }
+    [data-composition-id="s05-todos"] .s05-w span { display: inline-block; }
+    [data-composition-id="s05-todos"] .s05-etiqueta { position: absolute; left: 0; right: 0; top: 400px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.34em; color: #5ce611; text-transform: uppercase; }
+    [data-composition-id="s05-todos"] .s05-trazo { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-todos"] .s05-trazo.v { stroke: #5ce611; }
+
+    [data-composition-id="s05-todos"] .s05-regla line, [data-composition-id="s05-todos"] .s05-regla rect, [data-composition-id="s05-todos"] .s05-regla path { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-todos"] .s05-regla .s05-tick { stroke-width: 4; opacity: 0.55; }
+    [data-composition-id="s05-todos"] .s05-regla .s05-marca { stroke: #efeee5; stroke-width: 6; }
+    [data-composition-id="s05-todos"] .s05-regla .s05-cursor line, [data-composition-id="s05-todos"] .s05-regla .s05-cursor path { stroke: #5ce611; stroke-width: 7; }
+    [data-composition-id="s05-todos"] .s05-rlab { position: absolute; top: 1530px; width: 400px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; text-transform: uppercase; color: #efeee5; opacity: 0.45; white-space: nowrap; }
+    [data-composition-id="s05-todos"] .s05-rlab.on { color: #5ce611; }
+
+    .s05-todos { top: 540px; font-size: 200px; font-weight: 900; }
+    .s05-dias { top: 750px; font-size: 150px; font-weight: 900; }
+    .s05-semana { position: absolute; left: 0; right: 0; top: 960px; display: flex; justify-content: center; gap: 26px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 44px; letter-spacing: 0.06em; color: #7c8698; }
+    .s05-semana span { display: inline-block; }
+    .s05-que { top: 560px; font-size: 120px; font-weight: 800; color: #efeee5; }
+    .s05-solo { top: 700px; font-size: 330px; font-weight: 900; color: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s05-todos" data-width="1080" data-height="1920" data-duration="2.19">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="2.19" data-track-index="0">
+      <div class="s05-escenario">
+        <div class="s05-etiqueta">Todos los días</div>
+        <svg class="s05-svg" viewBox="0 0 1080 1920">
+      <g class="s05-regla">
+        <rect class="s05-reglabox" x="150" y="1440" width="780" height="70" rx="10" />
+        <line class="s05-tick" x1="176" y1="1440" x2="176" y2="1456" /><line class="s05-tick" x1="202" y1="1440" x2="202" y2="1456" /><line class="s05-tick" x1="228" y1="1440" x2="228" y2="1456" /><line class="s05-tick" x1="254" y1="1440" x2="254" y2="1456" /><line class="s05-tick" x1="280" y1="1440" x2="280" y2="1470" /><line class="s05-tick" x1="306" y1="1440" x2="306" y2="1456" /><line class="s05-tick" x1="332" y1="1440" x2="332" y2="1456" /><line class="s05-tick" x1="358" y1="1440" x2="358" y2="1456" /><line class="s05-tick" x1="384" y1="1440" x2="384" y2="1456" /><line class="s05-tick" x1="410" y1="1440" x2="410" y2="1470" /><line class="s05-tick" x1="436" y1="1440" x2="436" y2="1456" /><line class="s05-tick" x1="462" y1="1440" x2="462" y2="1456" /><line class="s05-tick" x1="488" y1="1440" x2="488" y2="1456" /><line class="s05-tick" x1="514" y1="1440" x2="514" y2="1456" /><line class="s05-tick" x1="540" y1="1440" x2="540" y2="1470" /><line class="s05-tick" x1="566" y1="1440" x2="566" y2="1456" /><line class="s05-tick" x1="592" y1="1440" x2="592" y2="1456" /><line class="s05-tick" x1="618" y1="1440" x2="618" y2="1456" /><line class="s05-tick" x1="644" y1="1440" x2="644" y2="1456" /><line class="s05-tick" x1="670" y1="1440" x2="670" y2="1470" /><line class="s05-tick" x1="696" y1="1440" x2="696" y2="1456" /><line class="s05-tick" x1="722" y1="1440" x2="722" y2="1456" /><line class="s05-tick" x1="748" y1="1440" x2="748" y2="1456" /><line class="s05-tick" x1="774" y1="1440" x2="774" y2="1456" /><line class="s05-tick" x1="800" y1="1440" x2="800" y2="1470" /><line class="s05-tick" x1="826" y1="1440" x2="826" y2="1456" /><line class="s05-tick" x1="852" y1="1440" x2="852" y2="1456" /><line class="s05-tick" x1="878" y1="1440" x2="878" y2="1456" /><line class="s05-tick" x1="904" y1="1440" x2="904" y2="1456" /><line class="s05-marca s05-marca0" x1="290" y1="1436" x2="290" y2="1486" /><line class="s05-marca s05-marca1" x1="470" y1="1436" x2="470" y2="1486" /><line class="s05-marca s05-marca2" x1="800" y1="1436" x2="800" y2="1486" />
+        <g class="s05-cursor"><line x1="0" y1="1370" x2="0" y2="1426" /><path d="M -16 1406 L 0 1428 L 16 1406" /></g>
+      </g>
+      <g class="s05-loop"><path class="s05-trazo v s05-lp" d="M 640 1210 A 100 100 0 1 1 540 1110" /><path class="s05-trazo v s05-lp" d="M 512 1086 L 544 1110 L 516 1140" /></g>
+        </svg>
+        <div class="s05-rlab s05-rlab0" style="left:90px">1 vez</div><div class="s05-rlab s05-rlab1" style="left:270px">2 veces</div><div class="s05-rlab s05-rlab2" style="left:600px">todos los días</div>
+
+        <div class="s05-w s05-todos">¿Todos</div>
+        <div class="s05-w s05-dias">los días?</div>
+        <div class="s05-semana"><span>LUN</span><span>MAR</span><span>MIÉ</span><span>JUE</span><span>VIE</span><span>SÁB</span></div>
+        <div class="s05-w s05-que">Que se haga</div>
+        <div class="s05-w s05-solo">solo.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-todos";
+      const DUR = 2.19;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // golpe: entra grande y se asienta EN la palabra
+      const golpe = (el, t, k = 1.45) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: k }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.out", immediateRender: false }, t - 0.05);
+      };
+      // sube: entra desde abajo
+      const sube = (el, t, d = 110) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, y: d, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.26, ease: "back.out(1.8)", immediateRender: false }, t - 0.06);
+      };
+      // desliza: entra de costado
+      const desliza = (el, t, d = 140) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, x: d, filter: "blur(6px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.26, ease: "power3.out", immediateRender: false }, t - 0.06);
+      };
+      // sale: se va para arriba con blur
+      const sale = (els, t, d = -120) => tl.to(els, { y: d, opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in", stagger: 0.04 }, t);
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, origen) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: origen }, { opacity: 1, scale: 1, svgOrigin: origen, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+      const popDiv = (el, t) => {
+        gsap.set(el, { opacity: 0 });
+        tl.fromTo(el, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+      };
+
+      gsap.set(qa(".s05-marca"), { opacity: 1 });
+      gsap.set(qa(".s05-rlab"), { opacity: 0.45 });
+
+      gsap.set([q(".s05-rlab0"), q(".s05-rlab1")], { opacity: 0.8 });
+      gsap.set([q(".s05-marca0"), q(".s05-marca1")], { stroke: "#5ce611" });
+      gsap.set(q(".s05-cursor"), { x: 470 });
+      tl.fromTo(q(".s05-etiqueta"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.25 }, 0);
+      golpe(q(".s05-todos"), 0.02, 1.5);
+      sube(q(".s05-dias"), 0.3, 90);
+      tl.to(q(".s05-cursor"), { x: 800, duration: 0.5, ease: "power3.inOut" }, 0.1);
+      tl.to(q(".s05-rlab2"), { opacity: 1, color: "#5ce611", duration: 0.15 }, 0.55);
+      tl.to(q(".s05-marca2"), { stroke: "#5ce611", duration: 0.15 }, 0.55);
+      // los días se prenden uno atrás del otro
+      const dias = qa(".s05-semana span");
+      gsap.set(dias, { opacity: 0 });
+      dias.forEach((d, i) => {
+        tl.fromTo(d, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.12, immediateRender: false }, 0.3 + i * 0.08);
+      });
+      sale([q(".s05-todos"), q(".s05-dias"), q(".s05-semana")], 0.84);
+      sube(q(".s05-que"), 0.97, 90);
+      golpe(q(".s05-solo"), 1.48, 1.7);
+      [[-10, 6], [8, -4], [0, 0]].forEach(([x, y], i) => tl.to(q(".s05-escenario"), { x, y, duration: 0.04, ease: "none" }, 1.66 + i * 0.045));
+      dibujar(qa(".s05-lp"), 1.55, 0.35);
+      tl.to(q(".s05-loop"), { rotation: 300, svgOrigin: "540 1210", duration: 0.7, ease: "power2.out" }, 1.75);
+
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
