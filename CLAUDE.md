@@ -38,6 +38,36 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
 5. Los reels de abajo marcados como ejemplos (vagos, ojala-te-fundas, el-golpe, el-juicio, infiel,
    negocio-zombi) sirven solo por el ritmo y la edición, NO por el tono ni por el estilo visual.
 
+6. **El formato preferido ahora (Juan, 02-11): el motion persuasivo de TikTok.** Explicar por
+   qué comprar mostrando DOS comercios del mismo rubro: uno con el sistema y otro sin. Siempre
+   con los dibujos de líneas ("están buenos, hay que seguir haciéndolos") pero con MÁS identidad
+   de Scalerics: navy, verde, crema, Lexend, logo, y la misma voz de narrador (Orus) como firma.
+   Patrones de referencia (investigados el 02-11; no hay un "A vs B" de software con viralidad
+   medida, son estructuras que se repiten en explainers SaaS como ServiceNow, Triple Whale,
+   Lemonade, Slack AI, Kinsta, monday.com):
+   - **Dos negocios** (serie fija, "Mismo rubro, misma calle, una sola diferencia"): pantalla
+     partida o en secuencia, el de la izquierda en caos, el de la derecha en orden.
+   - **Caos → control**: abre con aluvión (pedidos, planillas, papeles), el sistema lo ordena,
+     cierra con el panel resuelto.
+   - **Convergencia**: cuaderno, Excel, post-its y apps se juntan en un solo panel.
+   - **Rutina + punto de dolor**: la tarea de siempre y el sistema entra justo donde duele.
+   - **Contador o dato en vivo**: un número que crece en pantalla (horas perdidas, stock que se
+     acaba) sin inventar estadísticas.
+   - **Tipografía cinética**: solo texto grande y ritmo, para un reel corto de 15-25 s.
+   Recursos: gancho en los primeros 2-3 s (nunca abrir con el logo), se entiende sin sonido
+   (texto en pantalla), interfaz recreada en motion (tildes verdes, tarjetas, cursores), color
+   con significado (lo que está mal en gris o rojo apagado, lo resuelto en verde de marca).
+   Ideas ya listas (tomalas antes de inventar): "Dos cafeterías en la misma cuadra. Una sabe quién
+   volvió esta semana." (Puntos) · "Cuaderno, Excel, WhatsApp y una pila de post-its. Mirá lo que
+   pasa cuando se juntan." (CRM) · "Este contador suma las horas que tu equipo pasa copiando datos
+   de un lado a otro." (automatización) · "Dos tiendas iguales a las 23:40: una cerró, la otra
+   está vendiendo." (tienda online) · "Lunes, 9 de la mañana: 14 pedidos, 3 proveedores, un solo
+   encargado." (sistema/agente interno) · "Tu negocio no entra en un software genérico." (a
+   medida) · "Te buscaron en Google. ¿Qué encontraron?" (sitio web) · "El producto que más vendés
+   es justo el que se te acaba." (stock) · "¿Cuánto vendiste ayer? Si tenés que calcularlo, seguí
+   mirando." (reportes).
+   Por tanda de 5, **al menos 2 con este formato** (uno de ellos "Dos negocios").
+
 **Publicación:** Juan no aprueba a mano (02-11: "no esperes a que yo te los apruebe, nos
 olvidamos"). El publicador (`herramientas/publicar.mjs`) toma primero la cola de aprobados y, si
 está vacía, el reel más nuevo que no se publicó ni se descartó. O sea: lo que sube la rutina sale
