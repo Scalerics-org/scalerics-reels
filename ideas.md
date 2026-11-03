@@ -180,6 +180,11 @@
 - 03-11 · `turnos-vacios` · Agente de IA (turnos) · "Tu agenda del martes estaba llena. Y la silla quedó vacía tres veces." La agenda de la peluquería de Carla, 9:00 a 18:30: a las 11, a las 15 y a las 16:30 no vino nadie (bloques en rojo apagado, "NO VINO"), la tijera quieta y te enterás tarde; nadie es malo, la gente se olvida; el mismo martes con el agente de IA: el lunes confirma por WhatsApp ("¿te confirmo mañana a las once?"), a "mañana no puedo" le ofrece el jueves, el hueco de las 11 pasa a Camila que estaba en espera y a medianoche agenda un turno nuevo mientras Carla duerme; la agenda termina en verde · Etiquetá a la peluquera que vive mirando la agenda [motion rutina + punto de dolor · agenda del día recreada, líneas de marca]
 
 ## En curso
+- 03-11 · `dos-distribuidoras` · Sistema a medida (cuentas corrientes y cobranzas) · tanda 3 del 03-11 · [motion Dos negocios]
+- 03-11 · `un-precio` · Automatizaciones (precios en todos lados) · tanda 3 del 03-11 · [motion convergencia]
+- 03-11 · `feliz-cumple` · Puntos · tanda 3 del 03-11 · [formato D confesión de clienta]
+- 03-11 · `tres-veces` · Consejo pyme (automatizar) · tanda 3 del 03-11 · [tipografía cinética corta]
+- 03-11 · `lo-pienso` · Agente de IA (seguimiento) · tanda 3 del 03-11 · [motion caos a control]
 
 
 
