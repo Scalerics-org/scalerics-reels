@@ -1,0 +1,162 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-camion"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-camion"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-camion"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-camion"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-camion"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-camion"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-camion"] .ln-gr { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-camion"] .pt { stroke-dasharray: 2 14; }
+    [data-composition-id="s10-camion"] .ap { opacity: 0.45; }
+    [data-composition-id="s10-camion"] .verde { fill: #5ce611; }
+    [data-composition-id="s10-camion"] .crema { fill: #efeee5; }
+    [data-composition-id="s10-camion"] .rojo { fill: #b8574e; }
+    [data-composition-id="s10-camion"] .osc { fill: #07111f; }
+    [data-composition-id="s10-camion"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s10-camion"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s10-camion"] .t-ro { fill: #d27a6e; }
+    [data-composition-id="s10-camion"] .t-gr { fill: #8f99aa; }
+    [data-composition-id="s10-camion"] .t-osc { fill: #07111f; }
+    [data-composition-id="s10-camion"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s10-camion"] .lex3 { font-family: "Lexend", sans-serif; font-weight: 300; }
+    [data-composition-id="s10-camion"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s10-camion"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s10-camion"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s10-camion"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-camion"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s10-camion"] .etiqueta span.mal { color: #d27a6e; }
+  </style>
+  <div id="root" data-composition-id="s10-camion" data-width="1080" data-height="1920" data-duration="3.02">
+    <div id="s10-camion-escena" class="capa clip" data-start="0" data-duration="3.02" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s10-dia s10-d0"><rect class="ln4 s10-dr0" x="150" y="600" width="92" height="84" rx="18" />
+      <text class="lex t-cr s10-dl0" x="196" y="656" font-size="36" text-anchor="middle">L</text></g>
+<g class="s10-dia s10-d1"><rect class="ln4 s10-dr1" x="262" y="600" width="92" height="84" rx="18" />
+      <text class="lex t-cr s10-dl1" x="308" y="656" font-size="36" text-anchor="middle">M</text></g>
+<g class="s10-dia s10-d2"><rect class="ln4 s10-dr2" x="374" y="600" width="92" height="84" rx="18" />
+      <text class="lex t-cr s10-dl2" x="420" y="656" font-size="36" text-anchor="middle">M</text></g>
+<g class="s10-dia s10-d3"><rect class="ln4 s10-dr3" x="486" y="600" width="92" height="84" rx="18" />
+      <text class="lex t-cr s10-dl3" x="532" y="656" font-size="36" text-anchor="middle">J</text></g>
+<g class="s10-dia s10-d4"><rect class="ln4 s10-dr4" x="598" y="600" width="92" height="84" rx="18" />
+      <text class="lex t-cr s10-dl4" x="644" y="656" font-size="36" text-anchor="middle">V</text></g>
+<g class="s10-dia s10-d5"><rect class="ln4 s10-dr5" x="710" y="600" width="92" height="84" rx="18" />
+      <text class="lex t-cr s10-dl5" x="756" y="656" font-size="36" text-anchor="middle">S</text></g>
+<g class="s10-dia s10-d6"><rect class="ln4 s10-dr6" x="822" y="600" width="92" height="84" rx="18" />
+      <text class="lex t-cr s10-dl6" x="868" y="656" font-size="36" text-anchor="middle">D</text></g>
+        <g class="s10-cam"><g class="s10-cin">
+          <rect class="ln" x="120" y="870" width="470" height="290" rx="14" />
+          <path class="ln" d="M590 960 H700 L770 1050 V1160 H590 Z" />
+          <path class="ln4" d="M610 980 H690 L736 1046 H610 Z" />
+          <circle class="ln" cx="230" cy="1180" r="40" /><circle class="ln" cx="660" cy="1180" r="40" />
+          <path class="ln4 ap" d="M60 1230 H980" />
+        </g></g>
+        <g class="s10-cj0">
+  <g>
+    <circle class="ln4" cx="182" cy="1064" r="9" /><circle class="ln4" cx="210" cy="1064" r="9" /><circle class="ln4" cx="238" cy="1064" r="9" />
+    <rect class="ln4" x="160" y="1072" width="100" height="64" rx="8" />
+    <path class="ln4" d="M168 1094 H252" />
+    <text class="lex t-ac" x="210" y="1126" font-size="26" text-anchor="middle">G</text>
+  </g></g>
+        <g class="s10-cj1">
+  <g>
+    <circle class="ln4" cx="322" cy="1064" r="9" /><circle class="ln4" cx="350" cy="1064" r="9" /><circle class="ln4" cx="378" cy="1064" r="9" />
+    <rect class="ln4" x="300" y="1072" width="100" height="64" rx="8" />
+    <path class="ln4" d="M308 1094 H392" />
+    <text class="lex t-ac" x="350" y="1126" font-size="26" text-anchor="middle">K</text>
+  </g></g>
+        <g class="s10-cj2">
+  <g>
+    <circle class="ln4" cx="462" cy="1064" r="9" /><circle class="ln4" cx="490" cy="1064" r="9" /><circle class="ln4" cx="518" cy="1064" r="9" />
+    <rect class="ln4" x="440" y="1072" width="100" height="64" rx="8" />
+    <path class="ln4" d="M448 1094 H532" />
+    <text class="lex t-ac" x="490" y="1126" font-size="26" text-anchor="middle">B</text>
+  </g></g>
+        <g class="s10-cj3">
+  <g>
+    <circle class="ln4" cx="252" cy="972" r="9" /><circle class="ln4" cx="280" cy="972" r="9" /><circle class="ln4" cx="308" cy="972" r="9" />
+    <rect class="ln4" x="230" y="980" width="100" height="64" rx="8" />
+    <path class="ln4" d="M238 1002 H322" />
+    
+  </g></g>
+        <g class="s10-cj4">
+  <g>
+    <circle class="ln4" cx="392" cy="972" r="9" /><circle class="ln4" cx="420" cy="972" r="9" /><circle class="ln4" cx="448" cy="972" r="9" />
+    <rect class="ln4" x="370" y="980" width="100" height="64" rx="8" />
+    <path class="ln4" d="M378 1002 H462" />
+    
+  </g></g>
+        <g class="s10-hugo" transform="translate(880 1230) scale(0.72)">
+  <g class="s10-hugo-in">
+    <circle class="ln" cx="0" cy="-292" r="44" />
+    <path class="ln" d="M-46 -300 Q-44 -346 0 -346 Q44 -346 46 -300 Z" />
+    <path class="ln" d="M40 -304 Q74 -304 86 -292" />
+    <circle class="crema" cx="-15" cy="-282" r="4.5" /><circle class="crema" cx="15" cy="-282" r="4.5" />
+    <path class="ln4 s10-boca" d="M-14 -262 Q0 -252 14 -262" />
+    <path class="ln" d="M-72 -110 V-196 Q-72 -234 -32 -234 H32 Q72 -234 72 -196 V-110" />
+    <path class="ln" d="M-60 -206 H60 V-74 Q0 -64 -60 -74 Z" />
+    <path class="ln" d="M-30 -70 V0 M30 -70 V0 M-30 0 H-50 M30 0 H50" />
+    <g class="s10-bi"><path class="ln" d="M-72 -210 Q-108 -166 -112 -116" /></g>
+    <g class="s10-bd"><path class="ln" d="M72 -210 Q108 -166 112 -116" /></g>
+    
+  </g></g>
+      </svg>
+      <div class="etiqueta"><span class="e1">Jueves</span><span class="e2">A cargar</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-camion";
+      const DUR = 3.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const sube = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const latir = (el, t, n, s) => tl.to(el, { scale: s ?? 1.06, transformOrigin: "50% 50%", duration: 0.32, ease: "sine.inOut", yoyo: true, repeat: (n ?? 2) * 2 - 1 }, t);
+      let etqN = 0;
+      const etq = (k, t) => {
+        if (etqN) tl.to(q(".e" + etqN), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etqN = k;
+      };
+
+      const JUE = 0.15, HUGO = 0.84, CARGA = 1.83, CAMION = 2.23;
+      dibujar(qa(".s10-dia rect"), 0, 0.4, 0.4);
+      tl.fromTo(qa(".s10-dia text"), { opacity: 0.2 }, { opacity: 1, duration: 0.3 }, 0.05);
+      tl.to(q(".s10-dr3"), { stroke: "#5ce611", duration: 0.2 }, JUE);
+      tl.to(q(".s10-dl3"), { fill: "#5ce611", duration: 0.2 }, JUE);
+      punch(q(".s10-d3"), JUE, 1.18);
+      tl.to(qa(".s10-d0, .s10-d1, .s10-d2, .s10-d4, .s10-d5, .s10-d6"), { opacity: 0.4, duration: 0.3 }, JUE + 0.1);
+      dibujar(qa(".s10-cin .ln, .s10-cin .ln4"), 0.1, 0.55);
+      gsap.set(qa(".s10-cj0, .s10-cj1, .s10-cj2, .s10-cj3, .s10-cj4"), { opacity: 0 });
+      pop(q(".s10-hugo-in"), HUGO - 0.2, 0.8);
+      tl.to(q(".s10-bd"), { rotation: -70, svgOrigin: "72 -210", duration: 0.2, yoyo: true, repeat: 3 }, CARGA - 0.2);
+      [0, 1, 2, 3, 4].forEach((k) => tl.fromTo(q(".s10-cj" + k), { opacity: 0, x: 300 - k * 40, y: -120 }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power2.out" }, CARGA - 0.35 + k * 0.1));
+      tl.to(qa(".s10-cam, .s10-cj0, .s10-cj1, .s10-cj2, .s10-cj3, .s10-cj4"), { y: -6, duration: 0.08, yoyo: true, repeat: 3 }, CAMION + 0.1);
+      tl.to(qa(".s10-cam, .s10-cj0, .s10-cj1, .s10-cj2, .s10-cj3, .s10-cj4"), { x: "-=40", duration: 0.5, ease: "power2.in" }, CAMION + 0.4);
+      etq(1, JUE);
+      etq(2, CARGA);
+      tl.to(q("#s10-camion-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

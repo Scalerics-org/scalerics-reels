@@ -1,0 +1,120 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-scalerics"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-scalerics"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-scalerics"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-scalerics"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-scalerics"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-scalerics"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-scalerics"] .ln-gr { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-scalerics"] .pt { stroke-dasharray: 2 14; }
+    [data-composition-id="s11-scalerics"] .ap { opacity: 0.45; }
+    [data-composition-id="s11-scalerics"] .verde { fill: #5ce611; }
+    [data-composition-id="s11-scalerics"] .crema { fill: #efeee5; }
+    [data-composition-id="s11-scalerics"] .rojo { fill: #b8574e; }
+    [data-composition-id="s11-scalerics"] .osc { fill: #07111f; }
+    [data-composition-id="s11-scalerics"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s11-scalerics"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s11-scalerics"] .t-ro { fill: #d27a6e; }
+    [data-composition-id="s11-scalerics"] .t-gr { fill: #8f99aa; }
+    [data-composition-id="s11-scalerics"] .t-osc { fill: #07111f; }
+    [data-composition-id="s11-scalerics"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s11-scalerics"] .lex3 { font-family: "Lexend", sans-serif; font-weight: 300; }
+    [data-composition-id="s11-scalerics"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s11-scalerics"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s11-scalerics"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s11-scalerics"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-scalerics"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s11-scalerics"] .etiqueta span.mal { color: #d27a6e; }
+  </style>
+  <div id="root" data-composition-id="s11-scalerics" data-width="1080" data-height="1920" data-duration="4.65">
+    <div id="s11-scalerics-escena" class="capa clip" data-start="0" data-duration="4.65" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s11-marca"><text class="lex t-cr" x="540" y="690" font-size="64" text-anchor="middle" letter-spacing="2">Scalerics</text></g>
+        <g class="s11-hugo" transform="translate(370 1150)">
+  <g class="s11-hugo-in">
+    <circle class="ln" cx="0" cy="-292" r="44" />
+    <path class="ln" d="M-46 -300 Q-44 -346 0 -346 Q44 -346 46 -300 Z" />
+    <path class="ln" d="M40 -304 Q74 -304 86 -292" />
+    <circle class="crema" cx="-15" cy="-282" r="4.5" /><circle class="crema" cx="15" cy="-282" r="4.5" />
+    <path class="ln4 s11-boca" d="M-14 -262 Q0 -252 14 -262" />
+    <path class="ln" d="M-72 -110 V-196 Q-72 -234 -32 -234 H32 Q72 -234 72 -196 V-110" />
+    <path class="ln" d="M-60 -206 H60 V-74 Q0 -64 -60 -74 Z" />
+    <path class="ln" d="M-30 -70 V0 M30 -70 V0 M-30 0 H-50 M30 0 H50" />
+    <g class="s11-bi"><path class="ln" d="M-72 -210 Q-108 -166 -112 -116" /></g>
+    <g class="s11-bd"><path class="ln" d="M72 -210 Q108 -166 112 -116" /></g>
+    <rect class="ln-ac" x="-50" y="-176" width="100" height="40" rx="9" style="stroke-width:4" />
+    <text class="chapa" x="0" y="-147" text-anchor="middle">HUGO</text>
+  </g></g>
+        <g class="s11-ag" transform="translate(710 1150)">
+  <g class="s11-ag-in">
+    <path class="ln" d="M0 -300 V-326" /><circle class="verde s11-antena" cx="0" cy="-336" r="10" />
+    <rect class="ln" x="-85" y="-300" width="170" height="140" rx="44" />
+    <g class="s11-ojos"><rect class="verde" x="-42" y="-258" width="18" height="34" rx="9" /><rect class="verde" x="24" y="-258" width="18" height="34" rx="9" /></g>
+    <path class="ln4" d="M-20 -200 Q0 -188 20 -200" />
+    <path class="ln" d="M0 -160 V-148" /><rect class="ln" x="-66" y="-148" width="132" height="118" rx="30" />
+    <text class="ia" x="0" y="-74" text-anchor="middle">IA</text>
+    <path class="ln" d="M-28 -30 V0 M28 -30 V0 M-28 0 H-46 M28 0 H46" />
+    <g class="s11-abi"><path class="ln" d="M-66 -130 Q-100 -100 -104 -64" /></g>
+    <g class="s11-abd"><path class="ln" d="M66 -130 Q100 -100 104 -64" /></g>
+  </g></g>
+        <path class="ln-ac s11-llave" d="M240 1180 Q240 1206 266 1206 H514 Q540 1206 540 1230 Q540 1206 566 1206 H814 Q840 1206 840 1180" />
+      </svg>
+      <div class="etiqueta"><span class="e1">Agentes de IA</span><span class="e2">Uno más del equipo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-scalerics";
+      const DUR = 4.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const sube = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const latir = (el, t, n, s) => tl.to(el, { scale: s ?? 1.06, transformOrigin: "50% 50%", duration: 0.32, ease: "sine.inOut", yoyo: true, repeat: (n ?? 2) * 2 - 1 }, t);
+      let etqN = 0;
+      const etq = (k, t) => {
+        if (etqN) tl.to(q(".e" + etqN), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etqN = k;
+      };
+
+      const SCAL = 0.21, AGENTES = 1.31, TRABAJAN = 2.51, EQUIPO = 3.71;
+      pop(q(".s11-hugo-in"), 0, 0.85, 0.35);
+      gsap.set(qa(".s11-marca"), { opacity: 0 });
+      sube(q(".s11-marca"), SCAL - 0.05, 20);
+      tl.fromTo(q(".s11-ag-in"), { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.6)" }, AGENTES - 0.2);
+      tl.to(q(".s11-abd"), { rotation: -110, svgOrigin: "66 -130", duration: 0.25, ease: "power2.out" }, AGENTES + 0.3);
+      tl.to(q(".s11-abd"), { rotation: -80, svgOrigin: "66 -130", duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, AGENTES + 0.55);
+      tl.to(q(".s11-abd"), { rotation: 0, svgOrigin: "66 -130", duration: 0.25 }, TRABAJAN + 0.3);
+      tl.to(q(".s11-bd"), { rotation: -30, svgOrigin: "72 -210", duration: 0.3 }, TRABAJAN);
+      tl.to(q(".s11-hugo-in"), { y: -8, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, TRABAJAN + 0.4);
+      tl.to(q(".s11-ojos"), { scaleY: 0.15, svgOrigin: "0 -241", duration: 0.08, yoyo: true, repeat: 1 }, TRABAJAN + 0.8);
+      dibujar([q(".s11-llave")], EQUIPO - 0.25, 0.5);
+      punch(q(".s11-marca"), EQUIPO + 0.3, 1.05);
+      etq(1, AGENTES);
+      etq(2, TRABAJAN);
+      tl.to(q("#s11-scalerics-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

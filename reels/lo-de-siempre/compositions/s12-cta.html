@@ -1,0 +1,108 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-gr { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .pt { stroke-dasharray: 2 14; }
+    [data-composition-id="s12-cta"] .ap { opacity: 0.45; }
+    [data-composition-id="s12-cta"] .verde { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .crema { fill: #efeee5; }
+    [data-composition-id="s12-cta"] .rojo { fill: #b8574e; }
+    [data-composition-id="s12-cta"] .osc { fill: #07111f; }
+    [data-composition-id="s12-cta"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s12-cta"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .t-ro { fill: #d27a6e; }
+    [data-composition-id="s12-cta"] .t-gr { fill: #8f99aa; }
+    [data-composition-id="s12-cta"] .t-osc { fill: #07111f; }
+    [data-composition-id="s12-cta"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s12-cta"] .lex3 { font-family: "Lexend", sans-serif; font-weight: 300; }
+    [data-composition-id="s12-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s12-cta"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s12-cta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s12-cta"] .etiqueta span.mal { color: #d27a6e; }
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="6.47">
+    <div id="s12-cta-escena" class="capa clip" data-start="0" data-duration="6.47" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s12-card"><g class="s12-cin">
+          <rect class="ln-ac" x="200" y="610" width="680" height="100" rx="24" />
+          <text class="mono t-ac" x="236" y="670" font-size="24">MIÉ</text>
+          <path class="ln-ac" d="M330 634 V686" style="stroke-width:4" />
+          <text class="lex t-cr" x="358" y="673" font-size="34">2 agua · 3 refresco</text>
+          <g class="s12-ok"><circle class="ln-ac" cx="840" cy="660" r="20" style="stroke-width:4" /><path class="ln-ac" style="stroke-width:5" d="M831 660 l6.4 6.4 l12 -12.4" /></g>
+        </g></g>
+        <g class="s12-preg">
+          <text class="lex t-cr" x="540" y="836" font-size="58" text-anchor="middle">¿Qué te piden</text>
+          <text class="lex t-ac" x="540" y="910" font-size="58" text-anchor="middle">todas las semanas?</text>
+        </g>
+        <g class="s12-box"><rect class="ln" x="150" y="1010" width="780" height="180" rx="34" />
+          <text class="mono t-ac" x="190" y="1062" font-size="24">COMENTARIOS</text>
+          <path class="ln4 ap" d="M190 1084 H890" />
+          <text class="lex t-gr" x="190" y="1146" font-size="34">Lo de siempre es...</text>
+          <rect class="crema s12-cur" x="518" y="1112" width="4" height="44" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="e1">Contanos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 6.47;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const sube = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const latir = (el, t, n, s) => tl.to(el, { scale: s ?? 1.06, transformOrigin: "50% 50%", duration: 0.32, ease: "sine.inOut", yoyo: true, repeat: (n ?? 2) * 2 - 1 }, t);
+      let etqN = 0;
+      const etq = (k, t) => {
+        if (etqN) tl.to(q(".e" + etqN), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etqN = k;
+      };
+
+      const PIDEN = 0.06, SEMANAS = 1.36, CONTANOS = 2.11, COMENT = 2.56;
+      dibujar(qa(".s12-cin .ln-ac"), 0, 0.45, 0.4);
+      tl.fromTo(qa(".s12-cin text"), { opacity: 0.2 }, { opacity: 1, duration: 0.3 }, 0.05);
+      gsap.set(qa(".s12-ok, .s12-preg, .s12-box"), { opacity: 0 });
+      pop(q(".s12-ok"), 0.3, 0.5);
+      sube(q(".s12-preg text"), PIDEN - 0.1, 20);
+      sube(qa(".s12-preg text")[1], SEMANAS - 0.6, 20);
+      tl.to(q(".s12-preg"), { opacity: 1, duration: 0.01 }, PIDEN - 0.1);
+      gsap.set(qa(".s12-preg text"), { opacity: 0 });
+      tl.fromTo(q(".s12-box"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, CONTANOS - 0.1);
+      punch(q(".s12-box"), COMENT + 0.1, 1.03);
+      for (let t = CONTANOS + 0.4; t < DUR - 0.6; t += 0.9) tl.to(q(".s12-cur"), { opacity: 0, duration: 0.05, yoyo: true, repeat: 1, repeatDelay: 0.4 }, t);
+      tl.to(q(".s12-card"), { y: -8, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, CONTANOS + 0.6);
+      tl.to(qa(".s12-preg text")[1], { scale: 1.04, transformOrigin: "50% 50%", duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1 }, COMENT + 1.2);
+      etq(1, CONTANOS);
+      tl.to(q("#s12-cta-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

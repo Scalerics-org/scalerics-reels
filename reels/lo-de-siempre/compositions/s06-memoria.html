@@ -1,0 +1,131 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-memoria"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-memoria"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-memoria"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-memoria"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-memoria"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-memoria"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-memoria"] .ln-gr { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-memoria"] .pt { stroke-dasharray: 2 14; }
+    [data-composition-id="s06-memoria"] .ap { opacity: 0.45; }
+    [data-composition-id="s06-memoria"] .verde { fill: #5ce611; }
+    [data-composition-id="s06-memoria"] .crema { fill: #efeee5; }
+    [data-composition-id="s06-memoria"] .rojo { fill: #b8574e; }
+    [data-composition-id="s06-memoria"] .osc { fill: #07111f; }
+    [data-composition-id="s06-memoria"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s06-memoria"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s06-memoria"] .t-ro { fill: #d27a6e; }
+    [data-composition-id="s06-memoria"] .t-gr { fill: #8f99aa; }
+    [data-composition-id="s06-memoria"] .t-osc { fill: #07111f; }
+    [data-composition-id="s06-memoria"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s06-memoria"] .lex3 { font-family: "Lexend", sans-serif; font-weight: 300; }
+    [data-composition-id="s06-memoria"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s06-memoria"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s06-memoria"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s06-memoria"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-memoria"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s06-memoria"] .etiqueta span.mal { color: #d27a6e; }
+  </style>
+  <div id="root" data-composition-id="s06-memoria" data-width="1080" data-height="1920" data-duration="4.5">
+    <div id="s06-memoria-escena" class="capa clip" data-start="0" data-duration="4.5" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s06-hugo" transform="translate(270 1230)">
+  <g class="s06-hugo-in">
+    <circle class="ln" cx="0" cy="-292" r="44" />
+    <path class="ln" d="M-46 -300 Q-44 -346 0 -346 Q44 -346 46 -300 Z" />
+    <path class="ln" d="M40 -304 Q74 -304 86 -292" />
+    <circle class="crema" cx="-15" cy="-282" r="4.5" /><circle class="crema" cx="15" cy="-282" r="4.5" />
+    <path class="ln4 s06-boca" d="M-14 -262 Q0 -252 14 -262" />
+    <path class="ln" d="M-72 -110 V-196 Q-72 -234 -32 -234 H32 Q72 -234 72 -196 V-110" />
+    <path class="ln" d="M-60 -206 H60 V-74 Q0 -64 -60 -74 Z" />
+    <path class="ln" d="M-30 -70 V0 M30 -70 V0 M-30 0 H-50 M30 0 H50" />
+    <g class="s06-bi"><path class="ln" d="M-72 -210 Q-108 -166 -112 -116" /></g>
+    <g class="s06-bd"><path class="ln" d="M72 -210 Q108 -166 112 -116" /></g>
+    <rect class="ln-ac" x="-50" y="-176" width="100" height="40" rx="9" style="stroke-width:4" />
+    <text class="chapa" x="0" y="-147" text-anchor="middle">HUGO</text>
+  </g></g>
+        <circle class="ln4 s06-burb" cx="372" cy="900" r="10" /><circle class="ln4 s06-burb" cx="410" cy="860" r="15" />
+        <g class="s06-n s06-n0"><g class="s06-nin">
+      <rect class="ln4 s06-nb" x="470" y="640" width="470" height="126" rx="24" />
+      <text class="mono t-gr s06-nq" x="502" y="684" font-size="22">GRACIELA</text>
+      <text class="lex t-cr" x="502" y="734" font-size="34">2 agua · 3 refresco</text>
+      <g class="s06-ok"><circle class="ln-ac" cx="890" cy="684" r="20" style="stroke-width:4" /><path class="ln-ac" style="stroke-width:5" d="M881 684 l6.4 6.4 l12 -12.4" /></g>
+    </g></g>
+<g class="s06-n s06-n1"><g class="s06-nin">
+      <rect class="ln4 s06-nb" x="470" y="800" width="470" height="126" rx="24" />
+      <text class="mono t-gr s06-nq" x="502" y="844" font-size="22">KIOSCO</text>
+      <text class="lex t-cr" x="502" y="894" font-size="34">4 gaseosa</text>
+      <g class="s06-ok"><circle class="ln-ac" cx="890" cy="844" r="20" style="stroke-width:4" /><path class="ln-ac" style="stroke-width:5" d="M881 844 l6.4 6.4 l12 -12.4" /></g>
+    </g></g>
+<g class="s06-n s06-n2"><g class="s06-nin">
+      <rect class="ln4 s06-nb" x="470" y="960" width="470" height="126" rx="24" />
+      <text class="mono t-gr s06-nq" x="502" y="1004" font-size="22">BAR</text>
+      <text class="lex t-cr" x="502" y="1054" font-size="34">6 agua · 2 soda</text>
+      <g class="s06-ok"><circle class="ln-ac" cx="890" cy="1004" r="20" style="stroke-width:4" /><path class="ln-ac" style="stroke-width:5" d="M881 1004 l6.4 6.4 l12 -12.4" /></g>
+    </g></g>
+        <g class="s06-lista"><rect class="ln-ac" x="450" y="1128" width="510" height="70" rx="20" />
+          <text class="mono t-ac" x="705" y="1173" font-size="26" text-anchor="middle">LO DE SIEMPRE · AUTO</text></g>
+      </svg>
+      <div class="etiqueta"><span class="e1">De memoria</span><span class="e2">Trabaja sola</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-memoria";
+      const DUR = 4.5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const sube = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const latir = (el, t, n, s) => tl.to(el, { scale: s ?? 1.06, transformOrigin: "50% 50%", duration: 0.32, ease: "sine.inOut", yoyo: true, repeat: (n ?? 2) * 2 - 1 }, t);
+      let etqN = 0;
+      const etq = (k, t) => {
+        if (etqN) tl.to(q(".e" + etqN), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etqN = k;
+      };
+
+      const MEMORIA = 0.84, LLEVA = 1.44, UNO = 1.74, AHORA = 2.65, TRABAJA = 3.24;
+      dibujar(qa(".s06-hugo-in .ln, .s06-hugo-in .ln4"), 0, 0.5, 0.45);
+      tl.fromTo(qa(".s06-hugo-in .crema, .s06-hugo-in text"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+      // se toca la sien: se acuerda
+      tl.to(q(".s06-bd"), { rotation: -120, svgOrigin: "72 -210", duration: 0.35, ease: "power2.out" }, 0.3);
+      gsap.set(qa(".s06-burb, .s06-n, .s06-ok, .s06-lista"), { opacity: 0 });
+      qa(".s06-burb").forEach((b, i) => pop(b, MEMORIA - 0.3 + i * 0.1, 0.4));
+      [[MEMORIA, 0], [LLEVA, 1], [UNO, 2]].forEach(([t, k]) => tl.fromTo(q(".s06-n" + k), { opacity: 0, x: -60, scale: 0.8, transformOrigin: "0% 50%" }, { opacity: 1, x: 0, scale: 1, transformOrigin: "0% 50%", duration: 0.35, ease: "back.out(1.6)" }, t));
+      tl.to(q(".s06-hugo-in"), { y: -8, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, LLEVA);
+      // Ahora: se ponen verdes y se ordenan solas
+      tl.to(q(".s06-bd"), { rotation: 0, svgOrigin: "72 -210", duration: 0.3 }, AHORA);
+      tl.to(qa(".s06-nb"), { stroke: "#5ce611", duration: 0.3, stagger: 0.08 }, AHORA);
+      tl.to(qa(".s06-nq"), { fill: "#5ce611", duration: 0.3, stagger: 0.08 }, AHORA);
+      tl.to(qa(".s06-burb"), { opacity: 0, duration: 0.2 }, AHORA);
+      [0, 1, 2].forEach((k) => { tl.to(q(".s06-n" + k), { x: -10, y: -14, duration: 0.4, ease: "power3.inOut" }, TRABAJA - 0.1 + k * 0.08); pop(qa(".s06-ok")[k], TRABAJA + 0.1 + k * 0.15, 0.4); });
+      tl.to(q(".s06-hugo"), { opacity: 0.5, duration: 0.4 }, TRABAJA);
+      tl.fromTo(q(".s06-lista"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, TRABAJA - 0.1);
+      etq(1, MEMORIA);
+      etq(2, TRABAJA);
+      tl.to(q("#s06-memoria-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

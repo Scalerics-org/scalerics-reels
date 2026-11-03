@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .ln-gr { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-gancho"] .pt { stroke-dasharray: 2 14; }
+    [data-composition-id="s01-gancho"] .ap { opacity: 0.45; }
+    [data-composition-id="s01-gancho"] .verde { fill: #5ce611; }
+    [data-composition-id="s01-gancho"] .crema { fill: #efeee5; }
+    [data-composition-id="s01-gancho"] .rojo { fill: #b8574e; }
+    [data-composition-id="s01-gancho"] .osc { fill: #07111f; }
+    [data-composition-id="s01-gancho"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s01-gancho"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s01-gancho"] .t-ro { fill: #d27a6e; }
+    [data-composition-id="s01-gancho"] .t-gr { fill: #8f99aa; }
+    [data-composition-id="s01-gancho"] .t-osc { fill: #07111f; }
+    [data-composition-id="s01-gancho"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s01-gancho"] .lex3 { font-family: "Lexend", sans-serif; font-weight: 300; }
+    [data-composition-id="s01-gancho"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s01-gancho"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s01-gancho"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s01-gancho"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-gancho"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s01-gancho"] .etiqueta span.mal { color: #d27a6e; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="5.02">
+    <div id="s01-gancho-escena" class="capa clip" data-start="0" data-duration="5.02" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+<g class="s01-card s01-c0"><g class="s01-cin">
+      <rect class="ln4 s01-borde" x="200" y="610" width="680" height="100" rx="24" />
+      <text class="mono t-gr" x="232" y="670" font-size="24">SEM 1</text>
+      <path class="ln-gr" d="M352 634 V686" />
+      <text class="lex t-cr" x="380" y="673" font-size="34">2 agua · 3 refresco</text>
+    </g></g>
+<g class="s01-card s01-c1"><g class="s01-cin">
+      <rect class="ln4 s01-borde" x="200" y="732" width="680" height="100" rx="24" />
+      <text class="mono t-gr" x="232" y="792" font-size="24">SEM 2</text>
+      <path class="ln-gr" d="M352 756 V808" />
+      <text class="lex t-cr" x="380" y="795" font-size="34">2 agua · 3 refresco</text>
+    </g></g>
+<g class="s01-card s01-c2"><g class="s01-cin">
+      <rect class="ln4 s01-borde" x="200" y="854" width="680" height="100" rx="24" />
+      <text class="mono t-gr" x="232" y="914" font-size="24">SEM 3</text>
+      <path class="ln-gr" d="M352 878 V930" />
+      <text class="lex t-cr" x="380" y="917" font-size="34">2 agua · 3 refresco</text>
+    </g></g>
+<g class="s01-card s01-c3"><g class="s01-cin">
+      <rect class="ln4 s01-borde" x="200" y="976" width="680" height="100" rx="24" />
+      <text class="mono t-gr" x="232" y="1036" font-size="24">SEM 4</text>
+      <path class="ln-gr" d="M352 1000 V1052" />
+      <text class="lex t-cr" x="380" y="1039" font-size="34">2 agua · 3 refresco</text>
+    </g></g>
+        <g class="s01-glob">
+          <path class="verde" d="M240 1000 H820 Q856 1000 856 1036 V1092 Q856 1128 820 1128 H300 L250 1160 L262 1124 Q240 1116 240 1092 Z" />
+          <text class="lex t-osc" x="548" y="1080" font-size="38" text-anchor="middle">¿Te mando lo de siempre?</text>
+        </g>
+        <g class="s01-antes">
+          <text class="lex t-ac" x="330" y="1196" font-size="40" text-anchor="middle">MIÉ</text>
+          <path class="ln-ac" d="M660 1182 H420 M452 1160 L420 1182 L452 1204" />
+          <text class="lex t-gr" x="740" y="1196" font-size="40" text-anchor="middle">JUE</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="e1">Cada semana</span><span class="e2">Un día antes</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 5.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const sube = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const latir = (el, t, n, s) => tl.to(el, { scale: s ?? 1.06, transformOrigin: "50% 50%", duration: 0.32, ease: "sine.inOut", yoyo: true, repeat: (n ?? 2) * 2 - 1 }, t);
+      let etqN = 0;
+      const etq = (k, t) => {
+        if (etqN) tl.to(q(".e" + etqN), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etqN = k;
+      };
+
+      const PIDEN = 0.6, MISMO = 1, SEMANAS = 1.8, YSI = 3.02, OFRE = 3.4, ANTES = 3.7;
+      // la primera arranca medio dibujada (el cuadro 0 no puede estar negro)
+      dibujar([q(".s01-c0 .s01-borde")], 0, 0.5, 0.45);
+      gsap.set(q(".s01-c0 .s01-cin"), { opacity: 1 });
+      tl.fromTo(qa(".s01-c0 text"), { opacity: 0.2 }, { opacity: 1, duration: 0.3 }, 0);
+      const ts = [PIDEN, MISMO, SEMANAS];
+      [1, 2, 3].forEach((k, i) => {
+        tl.fromTo(q(".s01-c" + k), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, ts[i] - 0.05);
+      });
+      // las que ya están se apagan un poco: siempre lo mismo
+      tl.to(qa(".s01-c0, .s01-c1"), { opacity: 0.55, duration: 0.4 }, SEMANAS + 0.1);
+      tl.to(qa(".s01-c2"), { opacity: 0.7, duration: 0.4 }, SEMANAS + 0.3);
+      tl.to(q(".s01-c3"), { y: 6, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, SEMANAS + 0.4);
+      // "¿Y si...": se juntan en una y se pone verde
+      [1, 2, 3].forEach((k) => tl.to(q(".s01-c" + k), { y: -122 * k, opacity: 0, duration: 0.4, ease: "power3.inOut" }, YSI - 0.1));
+      tl.to(q(".s01-c0"), { opacity: 1, duration: 0.2 }, YSI);
+      tl.to(q(".s01-c0 .s01-borde"), { stroke: "#5ce611", duration: 0.25 }, YSI + 0.15);
+      tl.to(q(".s01-c0 .t-gr"), { fill: "#5ce611", duration: 0.25 }, YSI + 0.15);
+      punch(q(".s01-c0 .s01-cin"), YSI + 0.2, 1.05);
+      gsap.set(qa(".s01-glob, .s01-antes"), { opacity: 0 });
+      tl.fromTo(q(".s01-glob"), { opacity: 0, y: -260, scale: 0.6, transformOrigin: "50% 0%" }, { opacity: 1, y: -240, scale: 1, transformOrigin: "50% 0%", duration: 0.4, ease: "back.out(1.6)" }, OFRE - 0.1);
+      tl.to(q(".s01-glob"), { y: -232, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, OFRE + 0.4);
+      tl.fromTo(q(".s01-antes"), { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, ANTES - 0.1);
+      tl.to(q(".s01-antes path"), { x: -14, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, ANTES + 0.4);
+      etq(1, 0.1);
+      etq(2, ANTES);
+      tl.to(q("#s01-gancho-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

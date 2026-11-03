@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-chat"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-chat"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-chat"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-chat"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-chat"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-chat"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-chat"] .ln-gr { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-chat"] .pt { stroke-dasharray: 2 14; }
+    [data-composition-id="s08-chat"] .ap { opacity: 0.45; }
+    [data-composition-id="s08-chat"] .verde { fill: #5ce611; }
+    [data-composition-id="s08-chat"] .crema { fill: #efeee5; }
+    [data-composition-id="s08-chat"] .rojo { fill: #b8574e; }
+    [data-composition-id="s08-chat"] .osc { fill: #07111f; }
+    [data-composition-id="s08-chat"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s08-chat"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s08-chat"] .t-ro { fill: #d27a6e; }
+    [data-composition-id="s08-chat"] .t-gr { fill: #8f99aa; }
+    [data-composition-id="s08-chat"] .t-osc { fill: #07111f; }
+    [data-composition-id="s08-chat"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s08-chat"] .lex3 { font-family: "Lexend", sans-serif; font-weight: 300; }
+    [data-composition-id="s08-chat"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s08-chat"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s08-chat"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s08-chat"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-chat"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s08-chat"] .etiqueta span.mal { color: #d27a6e; }
+  </style>
+  <div id="root" data-composition-id="s08-chat" data-width="1080" data-height="1920" data-duration="9.74">
+    <div id="s08-chat-escena" class="capa clip" data-start="0" data-duration="9.74" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s08-cel">
+          <rect class="ln s08-cd" x="170" y="590" width="740" height="660" rx="52" />
+          <path class="ln4 s08-cd" d="M500 616 H580" />
+          <circle class="ln4 s08-cd" cx="240" cy="672" r="30" />
+          <text class="lex t-cr s08-h" x="240" y="682" font-size="28" text-anchor="middle">G</text>
+          <text class="lex t-cr s08-h" x="286" y="668" font-size="30">Graciela</text>
+          <text class="mono t-gr s08-h" x="286" y="698" font-size="20" data-layout-ignore>ALMACÉN · MIÉ 10:02</text>
+          <path class="ln4 ap s08-cd" d="M200 724 H880" />
+        </g>
+        <g class="s08-b1">
+          <text class="mono t-ac" x="880" y="752" font-size="18" text-anchor="end" data-layout-ignore>AGENTE DE IA</text>
+          <rect class="ln-ac" x="330" y="762" width="550" height="106" rx="26" />
+          <text class="lex t-cr s08-l1" x="358" y="808" font-size="31">Hola Graciela, ¿te mando</text>
+          <text class="lex t-cr s08-l2" x="358" y="850" font-size="31">lo de siempre?</text>
+        </g>
+        <g class="s08-rows">
+          <rect class="ln-ac" x="330" y="882" width="550" height="124" rx="26" />
+          <g class="s08-r1"><g class="s08-t1g"><circle class="ln-gr" cx="372" cy="919" r="18" style="stroke-width:4" /><path class="ln-gr" style="stroke-width:5" d="M363.9 919 l5.76 5.76 l10.799999999999999 -11.16" /></g><g class="s08-t1"><circle class="ln-ac" cx="372" cy="919" r="18" style="stroke-width:4" /><path class="ln-ac" style="stroke-width:5" d="M363.9 919 l5.76 5.76 l10.799999999999999 -11.16" /></g><text class="lex t-cr" x="406" y="930" font-size="30">2 cajones de agua</text></g>
+          <g class="s08-r2"><g class="s08-t2g"><circle class="ln-gr" cx="372" cy="971" r="18" style="stroke-width:4" /><path class="ln-gr" style="stroke-width:5" d="M363.9 971 l5.76 5.76 l10.799999999999999 -11.16" /></g><g class="s08-t2"><circle class="ln-ac" cx="372" cy="971" r="18" style="stroke-width:4" /><path class="ln-ac" style="stroke-width:5" d="M363.9 971 l5.76 5.76 l10.799999999999999 -11.16" /></g><text class="lex t-cr" x="406" y="982" font-size="30">3 cajones de refresco</text></g>
+        </g>
+        <g class="s08-b2"><rect class="ln-ac" x="630" y="1018" width="250" height="58" rx="22" />
+          <text class="lex t-cr" x="755" y="1058" font-size="30" text-anchor="middle">¿Agrego algo?</text></g>
+        <g class="s08-b3"><rect class="ln" x="200" y="1092" width="540" height="62" rx="22" />
+          <text class="lex t-cr" x="224" y="1134" font-size="30">Sí, y sumale una caja de yerba.</text></g>
+        <g class="s08-yerba"><rect class="verde" x="590" y="1170" width="290" height="50" rx="18" />
+          <text class="mono t-osc" x="735" y="1204" font-size="22" text-anchor="middle">+ 1 CAJA DE YERBA</text></g>
+      </svg>
+      <div class="etiqueta"><span class="e1">Lo de siempre</span><span class="e2">¡Sí!</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-chat";
+      const DUR = 9.74;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const sube = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const latir = (el, t, n, s) => tl.to(el, { scale: s ?? 1.06, transformOrigin: "50% 50%", duration: 0.32, ease: "sine.inOut", yoyo: true, repeat: (n ?? 2) * 2 - 1 }, t);
+      let etqN = 0;
+      const etq = (k, t) => {
+        if (etqN) tl.to(q(".e" + etqN), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etqN = k;
+      };
+
+      const TE = 0.64, DOS = 2.6, AGUA = 3.24, TRES = 3.84, REF = 4.24, AGREGO = 5.52, SI = 6.94, SUMALE = 7.74, YERBA = 8.64;
+      dibujar(qa(".s08-cd"), 0, 0.45, 0.4);
+      tl.fromTo(qa(".s08-h"), { opacity: 0.2 }, { opacity: 1, duration: 0.3 }, 0.05);
+      gsap.set(qa(".s08-rows, .s08-r1, .s08-r2, .s08-t1, .s08-t2, .s08-b2, .s08-b3, .s08-yerba"), { opacity: 0 });
+      tl.fromTo(q(".s08-b1"), { opacity: 0, y: 30, scale: 0.9, transformOrigin: "100% 0%" }, { opacity: 1, y: 0, scale: 1, transformOrigin: "100% 0%", duration: 0.35, ease: "back.out(1.6)" }, 0.05);
+      tl.fromTo(q(".s08-l1"), { opacity: 0, x: -8 }, { opacity: 1, x: 0, duration: 0.25 }, 0.1);
+      tl.fromTo(q(".s08-l2"), { opacity: 0, x: -8 }, { opacity: 1, x: 0, duration: 0.25 }, TE + 0.3);
+      tl.fromTo(q(".s08-rows"), { opacity: 0, y: 20, scale: 0.92, transformOrigin: "100% 0%" }, { opacity: 1, y: 0, scale: 1, transformOrigin: "100% 0%", duration: 0.3, ease: "back.out(1.6)" }, DOS - 0.2);
+      sube(q(".s08-r1"), DOS - 0.05, 14);
+      pop(q(".s08-t1"), AGUA, 0.5);
+      sube(q(".s08-r2"), TRES - 0.05, 14);
+      pop(q(".s08-t2"), REF + 0.1, 0.5);
+      tl.fromTo(q(".s08-b2"), { opacity: 0, y: 20, scale: 0.85, transformOrigin: "100% 0%" }, { opacity: 1, y: 0, scale: 1, transformOrigin: "100% 0%", duration: 0.3, ease: "back.out(1.6)" }, AGREGO - 0.05);
+      punch(q(".s08-b2"), AGREGO + 0.4, 1.04);
+      // la respuesta de Graciela
+      tl.fromTo(q(".s08-b3"), { opacity: 0, y: 30, scale: 0.85, transformOrigin: "0% 100%" }, { opacity: 1, y: 0, scale: 1, transformOrigin: "0% 100%", duration: 0.35, ease: "back.out(2)" }, SI - 0.08);
+      tl.to(q(".s08-b3"), { y: -10, duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out" }, SI + 0.35);
+      // en "yerba": todo sube un poco y aparece el chip verde abajo
+            tl.fromTo(q(".s08-yerba"), { opacity: 0, scale: 0.6, transformOrigin: "100% 50%" }, { opacity: 1, scale: 1, transformOrigin: "100% 50%", duration: 0.35, ease: "back.out(1.8)" }, SUMALE);
+      etq(1, 0.1);
+      etq(2, SI);
+      tl.to(q("#s08-chat-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,18 @@
+Tus clientes te piden lo mismo todas las semanas.
+¿Y si se lo ofrecieras antes?
+Hugo tiene una distribuidora chica: almacenes, kioscos y bares del barrio.
+Cada jueves, la misma rutina: esperar que le escriban.
+Graciela, la del almacén, se acuerda a las once de la noche.
+El kiosco le compró al que pasó primero.
+Y el bar pidió de menos: el sábado se quedó sin agua.
+Querían comprar. Nadie les preguntó a tiempo.
+Y Hugo sabe de memoria lo que lleva cada uno.
+Ahora, esa memoria trabaja sola.
+El miércoles, un agente de IA le escribe a cada cliente.
+Hola Graciela, ¿te mando lo de siempre? Dos cajones de agua y tres de refresco. ¿Agrego algo?
+Sí, y sumale una caja de yerba.
+Toma el pedido con tus precios y tu stock, y se lo deja armado.
+Si le preguntan algo que no sabe, le pasa la charla a Hugo.
+El jueves, Hugo ya no espera: carga el camión.
+En Scalerics hacemos agentes de IA que trabajan como uno más de tu equipo.
+¿Qué te piden tus clientes todas las semanas? Contanos en los comentarios.

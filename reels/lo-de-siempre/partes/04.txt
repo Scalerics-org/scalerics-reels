@@ -1,0 +1,5 @@
+Toma el pedido con tus precios y tu stock, y se lo deja armado.
+Si le preguntan algo que no sabe, le pasa la charla a Hugo.
+El jueves, Hugo ya no espera: carga el camión.
+En Scalerics hacemos agentes de IA que trabajan como uno más de tu equipo.
+¿Qué te piden tus clientes todas las semanas? Contanos en los comentarios.

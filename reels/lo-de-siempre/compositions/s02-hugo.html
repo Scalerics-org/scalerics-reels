@@ -1,0 +1,164 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-hugo"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-hugo"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-hugo"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-hugo"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-hugo"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-hugo"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-hugo"] .ln-gr { fill: none; stroke: #7c8698; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-hugo"] .pt { stroke-dasharray: 2 14; }
+    [data-composition-id="s02-hugo"] .ap { opacity: 0.45; }
+    [data-composition-id="s02-hugo"] .verde { fill: #5ce611; }
+    [data-composition-id="s02-hugo"] .crema { fill: #efeee5; }
+    [data-composition-id="s02-hugo"] .rojo { fill: #b8574e; }
+    [data-composition-id="s02-hugo"] .osc { fill: #07111f; }
+    [data-composition-id="s02-hugo"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s02-hugo"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s02-hugo"] .t-ro { fill: #d27a6e; }
+    [data-composition-id="s02-hugo"] .t-gr { fill: #8f99aa; }
+    [data-composition-id="s02-hugo"] .t-osc { fill: #07111f; }
+    [data-composition-id="s02-hugo"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s02-hugo"] .lex3 { font-family: "Lexend", sans-serif; font-weight: 300; }
+    [data-composition-id="s02-hugo"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s02-hugo"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s02-hugo"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s02-hugo"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; height: 40px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-hugo"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s02-hugo"] .etiqueta span.mal { color: #d27a6e; }
+  </style>
+  <div id="root" data-composition-id="s02-hugo" data-width="1080" data-height="1920" data-duration="4.56">
+    <div id="s02-hugo-escena" class="capa clip" data-start="0" data-duration="4.56" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s02-dep">
+          <path class="ln s02-dd" d="M110 1230 V760 L320 640 L530 760 V1230" />
+          <path class="ln s02-dd" d="M90 1230 H550" />
+          <rect class="ln4 s02-dd" x="170" y="740" width="300" height="64" rx="12" />
+          <text class="mono t-cr s02-cartel" x="320" y="783" font-size="24" text-anchor="middle">DISTRIBUIDORA</text>
+        </g>
+        <g class="s02-cajones">
+          <g class="s02-cj0">
+  <g>
+    <circle class="ln4" cx="152" cy="1152" r="9" /><circle class="ln4" cx="180" cy="1152" r="9" /><circle class="ln4" cx="208" cy="1152" r="9" />
+    <rect class="ln4" x="130" y="1160" width="100" height="64" rx="8" />
+    <path class="ln4" d="M138 1182 H222" />
+    
+  </g></g>
+          <g class="s02-cj1">
+  <g>
+    <circle class="ln4" cx="152" cy="1072" r="9" /><circle class="ln4" cx="180" cy="1072" r="9" /><circle class="ln4" cx="208" cy="1072" r="9" />
+    <rect class="ln4" x="130" y="1080" width="100" height="64" rx="8" />
+    <path class="ln4" d="M138 1102 H222" />
+    
+  </g></g>
+          <g class="s02-cj2">
+  <g>
+    <circle class="ln4" cx="152" cy="992" r="9" /><circle class="ln4" cx="180" cy="992" r="9" /><circle class="ln4" cx="208" cy="992" r="9" />
+    <rect class="ln4" x="130" y="1000" width="100" height="64" rx="8" />
+    <path class="ln4" d="M138 1022 H222" />
+    
+  </g></g>
+        </g>
+        <g class="s02-hugo" transform="translate(380 1230)">
+  <g class="s02-hugo-in">
+    <circle class="ln" cx="0" cy="-292" r="44" />
+    <path class="ln" d="M-46 -300 Q-44 -346 0 -346 Q44 -346 46 -300 Z" />
+    <path class="ln" d="M40 -304 Q74 -304 86 -292" />
+    <circle class="crema" cx="-15" cy="-282" r="4.5" /><circle class="crema" cx="15" cy="-282" r="4.5" />
+    <path class="ln4 s02-boca" d="M-14 -262 Q0 -252 14 -262" />
+    <path class="ln" d="M-72 -110 V-196 Q-72 -234 -32 -234 H32 Q72 -234 72 -196 V-110" />
+    <path class="ln" d="M-60 -206 H60 V-74 Q0 -64 -60 -74 Z" />
+    <path class="ln" d="M-30 -70 V0 M30 -70 V0 M-30 0 H-50 M30 0 H50" />
+    <g class="s02-bi"><path class="ln" d="M-72 -210 Q-108 -166 -112 -116" /></g>
+    <g class="s02-bd"><path class="ln" d="M72 -210 Q108 -166 112 -116" /></g>
+    <rect class="ln-ac" x="-50" y="-176" width="100" height="40" rx="9" style="stroke-width:4" />
+    <text class="chapa" x="0" y="-147" text-anchor="middle">HUGO</text>
+  </g></g>
+        <g class="s02-f0"><g class="">
+    <path class="ln" d="M650 810 V640 H950 V810" />
+    <path class="ln" d="M650 686 q30 26 60 0 q30 26 60 0 q30 26 60 0 q30 26 60 0 q30 26 60 0" />
+    <path class="ln" d="M650 686 H950" />
+    <rect class="ln" x="672" y="736" width="64" height="74" rx="6" />
+    <rect class="ln" x="762" y="736" width="166" height="34" rx="6" />
+    <text class="lex t-cr" x="800" y="674" font-size="26" text-anchor="middle">ALMACÉN</text>
+  </g></g>
+        <g class="s02-f1"><g class="">
+    <path class="ln" d="M650 1020 V850 H950 V1020" />
+    <path class="ln" d="M650 896 q30 26 60 0 q30 26 60 0 q30 26 60 0 q30 26 60 0 q30 26 60 0" />
+    <path class="ln" d="M650 896 H950" />
+    <rect class="ln" x="672" y="946" width="64" height="74" rx="6" />
+    <rect class="ln" x="762" y="946" width="166" height="34" rx="6" />
+    <text class="lex t-cr" x="800" y="884" font-size="26" text-anchor="middle">KIOSCO</text>
+  </g></g>
+        <g class="s02-f2"><g class="">
+    <path class="ln" d="M650 1230 V1060 H950 V1230" />
+    <path class="ln" d="M650 1106 q30 26 60 0 q30 26 60 0 q30 26 60 0 q30 26 60 0 q30 26 60 0" />
+    <path class="ln" d="M650 1106 H950" />
+    <rect class="ln" x="672" y="1156" width="64" height="74" rx="6" />
+    <rect class="ln" x="762" y="1156" width="166" height="34" rx="6" />
+    <text class="lex t-cr" x="800" y="1094" font-size="26" text-anchor="middle">BAR</text>
+  </g></g>
+        <path class="ln-ac pt s02-r0" d="M530 800 C580 780 600 730 640 724" />
+        <path class="ln-ac pt s02-r1" d="M530 960 C580 950 600 936 640 934" />
+        <path class="ln-ac pt s02-r2" d="M530 1120 C580 1130 600 1144 640 1146" />
+      </svg>
+      <div class="etiqueta"><span class="e1">Distribuidora</span><span class="e2">Reparto del barrio</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-hugo";
+      const DUR = 4.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const sube = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 24 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const latir = (el, t, n, s) => tl.to(el, { scale: s ?? 1.06, transformOrigin: "50% 50%", duration: 0.32, ease: "sine.inOut", yoyo: true, repeat: (n ?? 2) * 2 - 1 }, t);
+      let etqN = 0;
+      const etq = (k, t) => {
+        if (etqN) tl.to(q(".e" + etqN), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etqN = k;
+      };
+
+      const CHICA = 0.98, ALM = 1.82, KIO = 2.48, BAR = 3.18;
+      dibujar(qa(".s02-dd"), 0, 0.55, 0.4);
+      tl.fromTo(q(".s02-cartel"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.25);
+      [0, 1, 2].forEach((k) => pop(q(".s02-cj" + k), 0.2 + k * 0.15, 0.7));
+      pop(q(".s02-hugo-in"), 0.05, 0.8, 0.45);
+      tl.to(q(".s02-bd"), { rotation: -40, svgOrigin: "72 -210", duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.5);
+      punch(q(".s02-cartel"), CHICA, 1.12);
+      [[ALM, 0], [KIO, 1], [BAR, 2]].forEach(([t, k]) => {
+        dibujar(qa(".s02-f" + k + " path, .s02-f" + k + " rect"), t - 0.1, 0.45, 0.5);
+        tl.fromTo(q(".s02-f" + k + " text"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, t + 0.1);
+        const r = q(".s02-r" + k);
+        tl.fromTo(r, { opacity: 0 }, { opacity: 1, duration: 0.3 }, t);
+        tl.fromTo(r, { strokeDashoffset: 60 }, { strokeDashoffset: 0, duration: 1.2, ease: "none" }, t);
+      });
+      tl.to(qa(".s02-r0, .s02-r1, .s02-r2"), { strokeDashoffset: -48, duration: 1.4, ease: "none" }, BAR + 1.2);
+      etq(1, 0.1);
+      etq(2, ALM);
+      tl.to(q("#s02-hugo-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
