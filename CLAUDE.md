@@ -68,6 +68,18 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
    mirando." (reportes).
    Por tanda de 5, **al menos 2 con este formato** (uno de ellos "Dos negocios").
 
+8. **El cierre de TODOS los reels: la videollamada gratis (Juan, 03-11).** El reel termina
+   ofreciendo una videollamada gratis con Scalerics para ver el caso del que mira. Una sola
+   acción, siempre la misma, para poder medir cuántos llegan:
+   - **En el video** (última escena, ~3 s, tipografía grande de marca): "Videollamada gratis con
+     Scalerics" y abajo "Link en nuestro perfil". La voz lo dice con naturalidad y ligado al tema
+     del reel ("¿Querés ver cómo quedaría en tu local? Agendá una videollamada gratis, el link está
+     en nuestro perfil."). Nada de "¡no te lo pierdas!" ni urgencias falsas.
+   - **En `descripcion.txt`**, antes de los hashtags, una línea: "Agendá una videollamada gratis
+     con nosotros: link en el perfil (calendly.com/scalerics/consultoriagratuita)".
+   - Reemplaza al "comentá/etiquetá/mandáselo" como acción principal. Se puede dejar una pregunta
+     para comentar ANTES, si suma, pero la última acción es la videollamada.
+
 7. **Más fuerza visual (Juan, 03-11, revisando la tanda del 03-11: "dale perfecto arreglá eso").**
    La tanda del 03-11 estuvo bien en contenido y marca, pero en el celular se ve floja. Desde ahora:
    - **Llenar la pantalla.** El dibujo o la interfaz ocupa al menos el 60-70 % del ancho y del alto
