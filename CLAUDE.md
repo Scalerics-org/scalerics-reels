@@ -298,13 +298,18 @@ Todo desde la raíz del repo salvo donde dice. `<slug>` = nombre corto del reel 
     `node herramientas/portada.mjs <slug>` (con el candado de Chrome): arma
     `reels/<slug>/portada.png` con un cuadro del reel de fondo y el gancho en letras gigantes.
     ```
-    { "t": 5.6, "chica": "Te voy a robar", "grande": "tus clientes", "sello": "Plan: el golpe",
-      "acento": "#f5c518", "sello_color": "#e5484d", "zoom": 1.15, "foco": "35%" }
+    { "t": 5.6, "chica": "Dos cafeterías.", "grande": "Una sabe quién volvió", "sello": "Dos negocios",
+      "acento": "#5ce611", "sello_color": "#5ce611", "zoom": 1.15, "foco": "35%" }
     ```
-    - **CLICKBAIT** (Juan, 29-10: "miniaturas personalizadas clickbaiteras"): el personaje con zoom
+    - **De marca, para pymes (Juan, 03-11: "está llegando a un público muy infantil")**: acento y
+      sello en verde `#5ce611` (rojo apagado solo para marcar el problema), fondo navy, sin
+      personajes caricaturescos en primer plano, sin amarillo chillón. El clickbait es de
+      curiosidad o de dato ("¿Qué encontraron?", "Una sabe quién volvió"), no de chiste.
+      Ejemplos buenos: `reels/dos-cafeterias`, `reels/se-juntan`, `reels/te-buscaron`.
+    - **CLICKBAIT** (Juan, 29-10: "miniaturas personalizadas clickbaiteras"), dentro de lo de arriba: el objeto o la escena central con zoom
       como primer plano (`zoom` 1.3-1.9, `foco`/`foco_x` para encuadrarlo arriba del texto), una
       etiqueta que pica en `sello` ("¡No sos vos, Marcelo!", "¿Lo contratás?", "¿Culpable?"), el
-      giro en `grande` ("es una IA", "no pide aumento") y, cuando suma, `circulo` {x, y, r} rojo
+      giro en `grande` y, cuando suma, `circulo` {x, y, r} rojo
       sobre la cara u objeto y `flecha` {x, y, rot} roja apuntándolo (x, y = la cola; rot en
       grados, 0 = derecha, positivo baja). Ejemplos: `reels/empleado-del-mes`, `reels/entrevista-de-trabajo`.
       Sin imágenes generadas con IA (gastan el crédito de Google): siempre un cuadro del reel.

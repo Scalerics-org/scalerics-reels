@@ -149,14 +149,20 @@ if (video) {
   // Sale en el orden de la cola (`orden`, que se edita en el CRM); si falta, el que se aprobó antes.
   const revision = (await estadoJson("revision.json")) || {};
   const veto = fs.existsSync("no-publicar.txt") ? fs.readFileSync("no-publicar.txt", "utf8").split(/\s+/).filter(Boolean) : [];
-  const hechos = [...fs.readFileSync("ideas.md", "utf8").matchAll(/^- \d\d-\d\d · `([a-z0-9-]+)`/gm)].map((m) => m[1]);
+  const filas = [...fs.readFileSync("ideas.md", "utf8").matchAll(/^- (\d\d)-(\d\d) · `([a-z0-9-]+)`/gm)];
+  const hechos = filas.map((m) => m[3]);
+  // Lo de antes del 03-11 es de la línea vieja (piratas, lucha libre, cómic...: "llega a un público muy
+  // infantil", Juan 03-11). Eso sale solo si alguien lo aprueba a mano; sin revisar, no.
+  // "Hechos" está en orden de llegada: la línea nueva arranca en el primer reel del 03-11.
+  const desde = filas.findIndex((m) => m[1] === "03" && m[2] === "11");
+  const lineaNueva = new Set(desde < 0 ? [] : filas.slice(desde).map((m) => m[3]));
   const lugar = (s) => (Number.isFinite(revision[s].orden) ? revision[s].orden : Infinity);
   const aprobados = hechos
     .filter((h) => revision[h]?.estado === "en_cola" && falta(h).length && !veto.includes(h))
     .sort((a, b) => lugar(a) - lugar(b) || String(revision[a].fecha || "").localeCompare(String(revision[b].fecha || "")));
   // Sin aprobados, sale solo el más nuevo que nadie revisó (Juan, 02-11: "no esperes a que yo te
   // los apruebe"). Los descartados en el panel no salen nunca.
-  const sinRevisar = hechos.filter((h) => !revision[h] && falta(h).length && !veto.includes(h)).reverse();
+  const sinRevisar = hechos.filter((h) => !revision[h] && lineaNueva.has(h) && falta(h).length && !veto.includes(h)).reverse();
   const pendientes = [...aprobados, ...sinRevisar];
   for (const s2 of pendientes) {
     try {
