@@ -1,0 +1,77 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-celular"] .s08-capa, [data-composition-id="s08-celular"] .s08-tel, [data-composition-id="s08-celular"] svg { position: absolute; inset: 0; }
+    [data-composition-id="s08-celular"] .s08-l { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; }
+    [data-composition-id="s08-celular"] .s08-ocho { top: 410px; font-weight: 800; font-size: 104px; color: #ffffff; }
+    [data-composition-id="s08-celular"] .s08-solo { top: 1440px; font-weight: 900; font-size: 116px; color: #5ce611; }
+    [data-composition-id="s08-celular"] .s08-hora { position: absolute; left: 330px; width: 420px; top: 650px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 300; font-size: 120px; line-height: 1; color: #efeee5; }
+    [data-composition-id="s08-celular"] .s08-fecha { position: absolute; left: 330px; width: 420px; top: 790px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(239, 238, 229, 0.7); }
+    [data-composition-id="s08-celular"] .s08-notif { position: absolute; left: 352px; top: 870px; width: 376px; padding: 22px 24px 24px; border: 3px solid #5ce611; border-radius: 26px; background: #0a1a2a; }
+    [data-composition-id="s08-celular"] .s08-nh { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.04em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-celular"] .s08-nt { margin-top: 10px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; color: #ffffff; }
+    [data-composition-id="s08-celular"] .s08-nm { margin-top: 8px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 46px; color: #5ce611; white-space: nowrap; }
+    [data-composition-id="s08-celular"] .s08-nr { margin-top: 10px; font-family: "Lexend", sans-serif; font-weight: 500; font-size: 28px; line-height: 1.35; color: #efeee5; }
+    [data-composition-id="s08-celular"] .s08-d { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <div id="root" data-composition-id="s08-celular" data-width="1080" data-height="1920" data-duration="3.3">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="3.3" data-track-index="0">
+      <div class="s08-l s08-ocho">A las ocho,</div>
+      <div class="s08-tel">
+        <svg viewBox="0 0 1080 1920" width="1080" height="1920">
+          <rect class="s08-d s08-dt" x="330" y="560" width="420" height="820" rx="56" />
+          <path class="s08-d s08-dt" d="M490 600 L590 600" />
+          <path class="s08-d s08-dt" d="M480 1345 L600 1345" />
+        </svg>
+        <div class="s08-hora">08:00</div>
+        <div class="s08-fecha">Miércoles</div>
+        <div class="s08-notif">
+          <div class="s08-nh">Tu sistema</div>
+          <div class="s08-nt">Resumen de ayer</div>
+          <div class="s08-nm">$ 48.250</div>
+          <div class="s08-nr">Más vendido:<br>Yerba 1 kg<br>Caja cerrada</div>
+        </div>
+      </div>
+      <div class="s08-l s08-solo">Te llega solo.</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-celular";
+      const DUR = 3.3;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const OCHO = 0.6, LLEGA = 1.6, SOLO = 1.88;
+
+      dibujar(qa(".s08-dt"), 0, 0.5, 0.55);
+      tl.fromTo(q(".s08-tel"), { y: 60 }, { y: 0, duration: 0.5, ease: "power3.out" }, 0);
+      gsap.set([q(".s08-ocho"), q(".s08-hora"), q(".s08-fecha"), q(".s08-notif"), q(".s08-solo")], { opacity: 0 });
+      tl.fromTo(q(".s08-ocho"), { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.out", immediateRender: false }, OCHO - 0.05);
+      tl.fromTo(q(".s08-hora"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, OCHO);
+      tl.to(q(".s08-fecha"), { opacity: 1, duration: 0.3 }, OCHO + 0.15);
+      // la notificación baja
+      tl.fromTo(q(".s08-notif"), { opacity: 0, y: -60, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, LLEGA - 0.1);
+      tl.to([q(".s08-hora"), q(".s08-fecha")], { opacity: 0.35, duration: 0.2 }, LLEGA);
+      tl.to(q(".s08-tel"), { x: 8, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, LLEGA + 0.05);
+      tl.fromTo(q(".s08-solo"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.26, ease: "back.out(2)", immediateRender: false }, SOLO);
+      tl.to(q(".s08-notif"), { scale: 1.04, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.4);
+
+      tl.to(q("#s08-escena"), { scale: 1.1, opacity: 0, filter: "blur(6px)", transformOrigin: "50% 50%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

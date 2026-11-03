@@ -1,0 +1,122 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-datos"] .s07-capa, [data-composition-id="s07-datos"] .s07-todo { position: absolute; inset: 0; }
+    [data-composition-id="s07-datos"] .s07-tit { position: absolute; left: 0; right: 0; top: 410px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 88px; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase; white-space: nowrap; color: #ffffff; }
+    [data-composition-id="s07-datos"] .s07-tit span { color: #5ce611; }
+    [data-composition-id="s07-datos"] .s07-panel { position: absolute; left: 120px; top: 560px; width: 840px; height: 960px; border: 5px solid #efeee5; border-radius: 36px; }
+    [data-composition-id="s07-datos"] .s07-head { position: absolute; left: 120px; top: 628px; width: 840px; height: 5px; background: #efeee5; }
+    [data-composition-id="s07-datos"] .s07-card { position: absolute; border: 3px solid rgba(239, 238, 229, 0.3); border-radius: 22px; }
+    [data-composition-id="s07-datos"] .s07-mono { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(239, 238, 229, 0.75); white-space: nowrap; }
+    [data-composition-id="s07-datos"] .s07-monto { position: absolute; left: 190px; top: 712px; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 96px; line-height: 1; letter-spacing: -0.02em; color: #5ce611; white-space: nowrap; }
+    [data-composition-id="s07-datos"] .s07-prod { position: absolute; left: 190px; font-family: "Lexend", sans-serif; font-weight: 600; font-size: 30px; line-height: 34px; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s07-datos"] .s07-barra { position: absolute; left: 470px; height: 32px; border-radius: 8px; background: rgba(239, 238, 229, 0.35); transform-origin: 0% 50%; }
+    [data-composition-id="s07-datos"] .s07-barra.s07-top { background: #5ce611; }
+    [data-composition-id="s07-datos"] .s07-big { position: absolute; font-family: "Lexend", sans-serif; font-weight: 700; line-height: 1; white-space: nowrap; }
+    [data-composition-id="s07-datos"] svg { position: absolute; inset: 0; }
+    [data-composition-id="s07-datos"] .s07-v { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-datos"] .s07-d { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <div id="root" data-composition-id="s07-datos" data-width="1080" data-height="1920" data-duration="4.04">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="4.04" data-track-index="0">
+      <div class="s07-tit s07-t1"><span>Ventas</span> del día</div>
+      <div class="s07-tit s07-t2">Lo que <span>más sale</span></div>
+      <div class="s07-tit s07-t3"><span>Quién</span> te compra</div>
+      <div class="s07-tit s07-t4"><span>Caja</span> y <span>stock</span></div>
+      <div class="s07-todo">
+        <div class="s07-panel"></div>
+        <div class="s07-head"></div>
+        <div class="s07-mono" style="left: 170px; top: 580px; font-size: 28px;">Panel · Ayer</div>
+        <div class="s07-mono" style="left: 700px; top: 580px; font-size: 28px; color: #5ce611;">Al día</div>
+
+        <div class="s07-card s07-ca" style="left: 160px; top: 660px; width: 760px; height: 170px;"></div>
+        <div class="s07-mono s07-ca" style="left: 190px; top: 676px;">Ventas de ayer</div>
+        <div class="s07-monto s07-ca">$ 48.250</div>
+
+        <div class="s07-card s07-cb" style="left: 160px; top: 860px; width: 760px; height: 270px;"></div>
+        <div class="s07-mono s07-cb" style="left: 190px; top: 878px;">Lo que más sale</div>
+        <div class="s07-prod s07-cb" style="top: 930px; color: #5ce611;">Yerba 1 kg</div>
+        <div class="s07-prod s07-cb" style="top: 978px;">Galletitas</div>
+        <div class="s07-prod s07-cb" style="top: 1026px;">Leche</div>
+        <div class="s07-prod s07-cb" style="top: 1074px;">Pan</div>
+        <div class="s07-barra s07-top s07-cb" style="top: 931px; width: 410px;"></div>
+        <div class="s07-barra s07-cb" style="top: 979px; width: 300px;"></div>
+        <div class="s07-barra s07-cb" style="top: 1027px; width: 230px;"></div>
+        <div class="s07-barra s07-cb" style="top: 1075px; width: 160px;"></div>
+
+        <div class="s07-card s07-cc" style="left: 160px; top: 1160px; width: 760px; height: 150px;"></div>
+        <div class="s07-big s07-cc" style="left: 300px; top: 1185px; font-size: 48px; color: #efeee5;">Laura P.</div>
+        <div class="s07-mono s07-cc" style="left: 300px; top: 1250px; color: #5ce611; letter-spacing: 0.06em;">3 compras esta semana</div>
+
+        <div class="s07-card s07-cd" style="left: 160px; top: 1340px; width: 370px; height: 150px;"></div>
+        <div class="s07-mono s07-cd" style="left: 190px; top: 1358px;">Caja</div>
+        <div class="s07-big s07-cd" style="left: 250px; top: 1412px; font-size: 46px; color: #5ce611;">Cerrada</div>
+
+        <div class="s07-card s07-ce" style="left: 550px; top: 1340px; width: 370px; height: 150px;"></div>
+        <div class="s07-mono s07-ce" style="left: 580px; top: 1358px;">Stock</div>
+        <div class="s07-big s07-ce" style="left: 580px; top: 1412px; font-size: 42px; color: #efeee5;">2 a reponer</div>
+
+        <svg viewBox="0 0 1080 1920" width="1080" height="1920">
+          <path class="s07-v s07-spark" d="M640 800 L690 780 L730 790 L780 750 L820 760 L880 705" />
+          <circle class="s07-d s07-av" cx="225" cy="1235" r="42" />
+          <path class="s07-d s07-av" d="M225 1228 m -14 0 a 14 14 0 1 0 28 0 a 14 14 0 1 0 -28 0 M200 1265 Q 225 1240 250 1265" />
+          <path class="s07-v s07-tilde" d="M192 1440 L210 1458 L238 1424" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-datos";
+      const DUR = 4.04;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const SALE = 1.04, QUIEN = 2.21, CAJA = 3.26, STOCK = 3.75;
+
+      // el panel ya está (viene de s06) y se agranda
+      tl.fromTo(q(".s07-todo"), { scale: 0.92, opacity: 0.6 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power3.out", transformOrigin: "50% 1040px" }, 0);
+      const titulos = qa(".s07-tit");
+      gsap.set(titulos, { opacity: 0 });
+      [0, SALE, QUIEN, CAJA].forEach((t, i) => {
+        if (i > 0) tl.to(titulos[i - 1], { opacity: 0, y: -30, duration: 0.08 }, t - 0.12);
+        tl.fromTo(titulos[i], { opacity: 0, scale: 1.3, y: 0 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.out", immediateRender: false }, i > 0 ? t - 0.03 : 0);
+      });
+      const tarjeta = (c, t) => {
+        gsap.set(qa(c), { opacity: 0 });
+        tl.fromTo(qa(c), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, t);
+      };
+      tarjeta(".s07-ca", 0.05);
+      // el monto sube hasta 48.250
+      const monto = q(".s07-monto");
+      const v = { n: 0 };
+      tl.fromTo(v, { n: 0 }, { n: 48250, duration: 0.8, ease: "power2.out", onUpdate: () => { const n = Math.round(v.n / 10) * 10; monto.textContent = "$ " + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "."); } }, 0.1);
+      dibujar([q(".s07-spark")], 0.3, 0.6);
+      tarjeta(".s07-cb", SALE - 0.05);
+      qa(".s07-barra").forEach((b, i) => {
+        tl.fromTo(b, { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.out", immediateRender: false }, SALE + 0.05 + i * 0.07);
+      });
+      tarjeta(".s07-cc", QUIEN - 0.05);
+      dibujar(qa(".s07-av"), QUIEN, 0.4);
+      tarjeta(".s07-cd", CAJA - 0.05);
+      dibujar([q(".s07-tilde")], CAJA + 0.1, 0.25);
+      tarjeta(".s07-ce", STOCK - 0.05);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", scale: 1.06, transformOrigin: "50% 50%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
