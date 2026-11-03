@@ -1,0 +1,149 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-estado"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s10-estado"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-estado"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-estado"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.5); }
+    [data-composition-id="s10-estado"] svg.caja, [data-composition-id="s10-estado"] svg.pizza, [data-composition-id="s10-estado"] svg.moto-s, [data-composition-id="s10-estado"] svg.horno-c, [data-composition-id="s10-estado"] svg.horno-m { position: absolute; overflow: visible; }
+    [data-composition-id="s10-estado"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 42px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s10-estado"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s10-estado"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s10-estado"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s10-estado"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s10-estado"] .pill.preg { padding: 10px 30px 14px; font-size: 110px; font-weight: 800; border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s10-estado"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s10-estado"] .lead.g { stroke: #5ce611; } [data-composition-id="s10-estado"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s10-estado"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s10-estado"] .dot.g { fill: #5ce611; } [data-composition-id="s10-estado"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s10-estado"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s10-estado"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s10-estado"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s10-estado"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s10-estado"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s10-estado"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s10-estado"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s10-estado"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s10-estado"] .trk { position: absolute; width: 900px; height: 440px; border-radius: 44px; background: #efeee5; box-shadow: 0 18px 0 rgba(3,6,12,0.45); }
+    [data-composition-id="s10-estado"] .trk-h { position: absolute; left: 50px; top: 36px; font: 700 48px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s10-estado"] .trk-s { position: absolute; right: 50px; top: 44px; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: #3fa60a; }
+    [data-composition-id="s10-estado"] .trk-s b { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: #5ce611; margin-right: 12px; }
+    [data-composition-id="s10-estado"] .trk-track, [data-composition-id="s10-estado"] .trk-fill { position: absolute; left: 130px; top: 248px; width: 640px; height: 16px; border-radius: 8px; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s10-estado"] .trk-fill { background: #5ce611; }
+    [data-composition-id="s10-estado"] .nd { position: absolute; top: 190px; width: 132px; height: 132px; border-radius: 50%; background: #cfcdbf; border: 8px solid #efeee5; }
+    [data-composition-id="s10-estado"] .nd-on { position: absolute; inset: -8px; border-radius: 50%; background: #5ce611; border: 8px solid #efeee5; opacity: 0; }
+    [data-composition-id="s10-estado"] .nd svg { position: absolute; left: 16px; top: 16px; }
+    [data-composition-id="s10-estado"] .lb { position: absolute; top: 346px; width: 220px; text-align: center; font: 600 34px/1 "Lexend", sans-serif; color: #0b1220; opacity: 0.4; }
+    [data-composition-id="s10-estado"] .mk { position: absolute; top: 96px; width: 120px; height: 75px; }
+    [data-composition-id="s10-estado"] .mk svg.caja { left: 0; top: 0; width: 120px; height: 75px; }
+    [data-composition-id="s10-estado"] .mt { position: absolute; left: 22px; width: 408px; height: 214px; border-radius: 30px; background: #efeee5; }
+    [data-composition-id="s10-estado"] .mt-h { position: absolute; left: 28px; top: 24px; font: 700 32px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s10-estado"] .mt-s { position: absolute; right: 24px; top: 18px; opacity: 0; }
+    [data-composition-id="s10-estado"] .mt-track, [data-composition-id="s10-estado"] .mt-fill { position: absolute; left: 60px; top: 133px; width: 288px; height: 12px; border-radius: 6px; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s10-estado"] .mt-fill { background: #5ce611; }
+    [data-composition-id="s10-estado"] .mn { position: absolute; top: 101px; width: 76px; height: 76px; border-radius: 50%; background: #cfcdbf; border: 6px solid #efeee5; }
+    [data-composition-id="s10-estado"] .mn-on { position: absolute; inset: -6px; border-radius: 50%; background: #5ce611; border: 6px solid #efeee5; opacity: 0; }
+    [data-composition-id="s10-estado"] .mn svg { position: absolute; left: 7px; top: 7px; }
+    [data-composition-id="s10-estado"] .tel-lado { position: absolute; left: 316px; top: 574px; width: 480px; height: 960px; border-radius: 72px; background: #a9a798; }
+    [data-composition-id="s10-estado"] .tel { position: absolute; left: 300px; top: 560px; width: 480px; height: 960px; border-radius: 72px; background: #efeee5; }
+    [data-composition-id="s10-estado"] .tel-pan { position: absolute; left: 14px; top: 14px; right: 14px; bottom: 14px; border-radius: 58px; background: #111c30; overflow: hidden; }
+    [data-composition-id="s10-estado"] .tel-notch { position: absolute; left: 180px; top: 26px; width: 120px; height: 28px; border-radius: 14px; background: #efeee5; }
+    [data-composition-id="s10-estado"] .ch-h { position: absolute; left: 0; top: 0; width: 452px; height: 150px; background: #1f3254; }
+    [data-composition-id="s10-estado"] .ch-av { position: absolute; left: 24px; top: 58px; width: 76px; height: 76px; }
+    [data-composition-id="s10-estado"] .ch-n { position: absolute; left: 118px; top: 66px; font: 700 34px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s10-estado"] .ch-e { position: absolute; left: 118px; top: 108px; font: 500 24px/1 "Lexend", sans-serif; color: #5ce611; }
+    [data-composition-id="s10-estado"] .bb { position: absolute; max-width: 360px; padding: 18px 24px 20px; border-radius: 28px; font: 600 32px/1.2 "Lexend", sans-serif; color: #0b1220; opacity: 0; }
+    [data-composition-id="s10-estado"] .bb.in { left: 22px; background: #efeee5; border-top-left-radius: 8px; }
+    [data-composition-id="s10-estado"] .bb.out { right: 22px; background: #5ce611; border-top-right-radius: 8px; }
+    [data-composition-id="s10-estado"] .bb-tag { display: block; margin-bottom: 8px; font: 500 24px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: #3fa60a; }
+    [data-composition-id="s10-estado"] .bb-ok { margin-left: 10px; font: 700 22px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.45); }
+    [data-composition-id="s10-estado"] .bb.in .bb-ok { color: #3fa60a; }
+[data-composition-id="s10-estado"] .mt { top: 178px; }
+  </style>
+  <div id="root" data-composition-id="s10-estado" data-width="1080" data-height="1920" data-duration="3.48">
+    <div id="s10-estado-esc" class="esc clip" data-start="0" data-duration="3.48" data-track-index="0">
+
+      <div class="capa telw">
+<div class="tel-lado"></div>
+<div class="tel"><div class="tel-pan"><div class="ch-h"><div class="ch-av"><svg width="76" height="76" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="#5ce611"/><path d="M18 36 L24 22 H56 L62 36 Z" fill="#0b1220"/><rect x="22" y="36" width="36" height="24" fill="#0b1220"/><rect x="35" y="44" width="10" height="16" fill="#5ce611"/></svg></div><div class="ch-n">Tu local</div><div class="ch-e">en línea</div></div>
+  <div class="bb out o1" style="top:186px">¿Y mi pedido?<span class="bb-ok">✓✓</span></div>
+  <div class="bb out o2" style="top:290px">¿Hola?<span class="bb-ok">✓✓</span></div>
+  
+<div class="mt ">
+  <div class="mt-h">Tu pedido</div><div class="mt-s"><svg width="26" height="26" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div class="mt-track"></div><div class="mt-fill"></div>
+  <div class="mn mn0" style="left:22px"><div class="mn-on"></div><svg width="50" height="50" viewBox="0 0 90 90" aria-hidden="true"><path d="M18 24 L72 24 L45 76 Z" fill="none" stroke="#0b1220" stroke-width="7" stroke-linejoin="round"/><circle cx="38" cy="36" r="5" fill="#0b1220"/><circle cx="52" cy="40" r="5" fill="#0b1220"/><circle cx="45" cy="54" r="5" fill="#0b1220"/></svg></div><div class="mn mn1" style="left:118px"><div class="mn-on"></div><svg width="50" height="50" viewBox="0 0 90 90" aria-hidden="true"><rect x="12" y="20" width="66" height="52" rx="9" fill="none" stroke="#0b1220" stroke-width="7"/><rect x="22" y="38" width="46" height="24" rx="5" fill="#0b1220"/><circle cx="26" cy="29" r="3.5" fill="#0b1220"/><circle cx="38" cy="29" r="3.5" fill="#0b1220"/></svg></div><div class="mn mn2" style="left:214px"><div class="mn-on"></div><svg width="50" height="50" viewBox="0 0 90 90" aria-hidden="true"><path d="M20 47 L37 63 L70 28" fill="none" stroke="#0b1220" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="mn mn3" style="left:310px"><div class="mn-on"></div><svg width="50" height="50" viewBox="0 0 90 90" aria-hidden="true"><circle cx="24" cy="64" r="11" fill="none" stroke="#0b1220" stroke-width="7"/><circle cx="68" cy="64" r="11" fill="none" stroke="#0b1220" stroke-width="7"/><path d="M30 62 L46 62 L56 38 L66 38 M60 40 L70 62" fill="none" stroke="#0b1220" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="10" y="30" width="28" height="22" rx="4" fill="#0b1220"/></svg></div>
+</div>
+  <div class="bb in i1" style="top:412px"><span class="bb-tag">AVISO AUTOMÁTICO</span>Tu pedido está en el horno<span class="bb-ok">✓✓</span></div>
+  <div class="bb in i2" style="top:576px"><span class="bb-tag">AVISO AUTOMÁTICO</span>Tu pedido está listo<span class="bb-ok">✓✓</span></div>
+  <div class="bb in i3" style="top:740px"><span class="bb-tag">AVISO AUTOMÁTICO</span>Salió para tu casa<span class="bb-ok">✓✓</span></div></div><div class="tel-notch"></div></div></div>
+      <div class="selbox sb" style="left:386px;top:808px;width:132px;height:132px"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div>
+      <div class="pill lleno n1" style="left:820px;top:1380px">Sale solo</div>
+      <div class="pill g n2" style="left:790px;top:520px">Cambia de estado</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-estado";
+      const DUR = 3.48;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)", immediateRender: true }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "steps(" + (b - a) + ")", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
+      // la barrita grande
+      const NXJ = [0, 213, 427, 640];
+      if (q(".trk-fill")) gsap.set(q(".trk-fill"), { scaleX: 0, transformOrigin: "0% 50%" });
+      const pasoSet = (i) => { gsap.set(q(".trk-fill"), { scaleX: i / 3 }); for (let k = 0; k <= i; k++) { gsap.set(q(".nd" + k + " .nd-on"), { opacity: 1 }); gsap.set(q(".lb" + k), { opacity: 1 }); } gsap.set(q(".mk"), { x: NXJ[i] }); };
+      const paso = (i, t) => {
+        tl.to(q(".trk-fill"), { scaleX: i / 3, duration: 0.35, ease: "power2.inOut" }, t);
+        tl.to(q(".mk"), { x: NXJ[i], duration: 0.4, ease: "power2.inOut" }, t);
+        tl.to(q(".nd" + i + " .nd-on"), { opacity: 1, duration: 0.15 }, t + 0.22);
+        late(".nd" + i, t + 0.22, 1.16);
+        tl.to(q(".lb" + i), { opacity: 1, duration: 0.2 }, t + 0.22);
+      };
+      // la barrita chica
+      const MXJ = [0, 96, 192, 288];
+      if (q(".mt-fill")) gsap.set(q(".mt-fill"), { scaleX: 0, transformOrigin: "0% 50%" });
+      const miniSet = (i) => { gsap.set(q(".mt-fill"), { scaleX: i / 3 }); for (let k = 0; k <= i; k++) gsap.set(q(".mn" + k + " .mn-on"), { opacity: 1 }); if (i === 3) gsap.set(q(".mt-s"), { opacity: 1 }); };
+      const mini = (i, t) => {
+        tl.to(q(".mt-fill"), { scaleX: i / 3, duration: 0.35, ease: "power2.inOut" }, t);
+        tl.to(q(".mn" + i + " .mn-on"), { opacity: 1, duration: 0.15 }, t + 0.22);
+        late(".mn" + i, t + 0.22, 1.2);
+        if (i === 3) pop(".mt-s", t + 0.35, 0.3, 0.3);
+      };
+      const telw = q(".telw");
+      if (telw) gsap.set(telw, { scale: 1.25, y: 20, transformOrigin: "540px 1040px" });
+
+
+      gsap.set(qa(".o1, .o2"), { opacity: 0 });
+      miniSet(0);
+      tl.fromTo(q(".telw"), { scale: 1.25 }, { scale: 1.3, duration: 3.4, ease: "sine.inOut" }, 0);
+      // cambia de estado: pasa al horno
+      mini(1, 0.5);
+      caja(".sb", 0.75);
+      pop(".n2", 1.28);
+      // le llega un aviso solo
+      fuera(".n2, .sb", 1.85, 0.18);
+      tl.fromTo(q(".i1"), { opacity: 0, x: -40, scale: 0.85, transformOrigin: "0% 0%" }, { opacity: 1, x: 0, scale: 1, duration: 0.32, ease: "back.out(2)" }, 1.98);
+      pop(".n1", 2.48);
+      late(".i1", 3.18, 1.05);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

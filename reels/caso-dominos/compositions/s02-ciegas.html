@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-ciegas"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s02-ciegas"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-ciegas"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-ciegas"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.5); }
+    [data-composition-id="s02-ciegas"] svg.caja, [data-composition-id="s02-ciegas"] svg.pizza, [data-composition-id="s02-ciegas"] svg.moto-s, [data-composition-id="s02-ciegas"] svg.horno-c, [data-composition-id="s02-ciegas"] svg.horno-m { position: absolute; overflow: visible; }
+    [data-composition-id="s02-ciegas"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 42px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s02-ciegas"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s02-ciegas"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s02-ciegas"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s02-ciegas"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s02-ciegas"] .pill.preg { padding: 10px 30px 14px; font-size: 110px; font-weight: 800; border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s02-ciegas"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s02-ciegas"] .lead.g { stroke: #5ce611; } [data-composition-id="s02-ciegas"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s02-ciegas"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s02-ciegas"] .dot.g { fill: #5ce611; } [data-composition-id="s02-ciegas"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s02-ciegas"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s02-ciegas"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s02-ciegas"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s02-ciegas"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s02-ciegas"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s02-ciegas"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s02-ciegas"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s02-ciegas"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s02-ciegas"] .trk { position: absolute; width: 900px; height: 440px; border-radius: 44px; background: #efeee5; box-shadow: 0 18px 0 rgba(3,6,12,0.45); }
+    [data-composition-id="s02-ciegas"] .trk-h { position: absolute; left: 50px; top: 36px; font: 700 48px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s02-ciegas"] .trk-s { position: absolute; right: 50px; top: 44px; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: #3fa60a; }
+    [data-composition-id="s02-ciegas"] .trk-s b { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: #5ce611; margin-right: 12px; }
+    [data-composition-id="s02-ciegas"] .trk-track, [data-composition-id="s02-ciegas"] .trk-fill { position: absolute; left: 130px; top: 248px; width: 640px; height: 16px; border-radius: 8px; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s02-ciegas"] .trk-fill { background: #5ce611; }
+    [data-composition-id="s02-ciegas"] .nd { position: absolute; top: 190px; width: 132px; height: 132px; border-radius: 50%; background: #cfcdbf; border: 8px solid #efeee5; }
+    [data-composition-id="s02-ciegas"] .nd-on { position: absolute; inset: -8px; border-radius: 50%; background: #5ce611; border: 8px solid #efeee5; opacity: 0; }
+    [data-composition-id="s02-ciegas"] .nd svg { position: absolute; left: 16px; top: 16px; }
+    [data-composition-id="s02-ciegas"] .lb { position: absolute; top: 346px; width: 220px; text-align: center; font: 600 34px/1 "Lexend", sans-serif; color: #0b1220; opacity: 0.4; }
+    [data-composition-id="s02-ciegas"] .mk { position: absolute; top: 96px; width: 120px; height: 75px; }
+    [data-composition-id="s02-ciegas"] .mk svg.caja { left: 0; top: 0; width: 120px; height: 75px; }
+    [data-composition-id="s02-ciegas"] .mt { position: absolute; left: 22px; width: 408px; height: 214px; border-radius: 30px; background: #efeee5; }
+    [data-composition-id="s02-ciegas"] .mt-h { position: absolute; left: 28px; top: 24px; font: 700 32px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s02-ciegas"] .mt-s { position: absolute; right: 24px; top: 18px; opacity: 0; }
+    [data-composition-id="s02-ciegas"] .mt-track, [data-composition-id="s02-ciegas"] .mt-fill { position: absolute; left: 60px; top: 133px; width: 288px; height: 12px; border-radius: 6px; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s02-ciegas"] .mt-fill { background: #5ce611; }
+    [data-composition-id="s02-ciegas"] .mn { position: absolute; top: 101px; width: 76px; height: 76px; border-radius: 50%; background: #cfcdbf; border: 6px solid #efeee5; }
+    [data-composition-id="s02-ciegas"] .mn-on { position: absolute; inset: -6px; border-radius: 50%; background: #5ce611; border: 6px solid #efeee5; opacity: 0; }
+    [data-composition-id="s02-ciegas"] .mn svg { position: absolute; left: 7px; top: 7px; }
+    [data-composition-id="s02-ciegas"] .tel-lado { position: absolute; left: 316px; top: 574px; width: 480px; height: 960px; border-radius: 72px; background: #a9a798; }
+    [data-composition-id="s02-ciegas"] .tel { position: absolute; left: 300px; top: 560px; width: 480px; height: 960px; border-radius: 72px; background: #efeee5; }
+    [data-composition-id="s02-ciegas"] .tel-pan { position: absolute; left: 14px; top: 14px; right: 14px; bottom: 14px; border-radius: 58px; background: #111c30; overflow: hidden; }
+    [data-composition-id="s02-ciegas"] .tel-notch { position: absolute; left: 180px; top: 26px; width: 120px; height: 28px; border-radius: 14px; background: #efeee5; }
+    [data-composition-id="s02-ciegas"] .ch-h { position: absolute; left: 0; top: 0; width: 452px; height: 150px; background: #1f3254; }
+    [data-composition-id="s02-ciegas"] .ch-av { position: absolute; left: 24px; top: 58px; width: 76px; height: 76px; }
+    [data-composition-id="s02-ciegas"] .ch-n { position: absolute; left: 118px; top: 66px; font: 700 34px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s02-ciegas"] .ch-e { position: absolute; left: 118px; top: 108px; font: 500 24px/1 "Lexend", sans-serif; color: #5ce611; }
+    [data-composition-id="s02-ciegas"] .bb { position: absolute; max-width: 360px; padding: 18px 24px 20px; border-radius: 28px; font: 600 32px/1.2 "Lexend", sans-serif; color: #0b1220; opacity: 0; }
+    [data-composition-id="s02-ciegas"] .bb.in { left: 22px; background: #efeee5; border-top-left-radius: 8px; }
+    [data-composition-id="s02-ciegas"] .bb.out { right: 22px; background: #5ce611; border-top-right-radius: 8px; }
+    [data-composition-id="s02-ciegas"] .bb-tag { display: block; margin-bottom: 8px; font: 500 24px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: #3fa60a; }
+    [data-composition-id="s02-ciegas"] .bb-ok { margin-left: 10px; font: 700 22px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.45); }
+    [data-composition-id="s02-ciegas"] .bb.in .bb-ok { color: #3fa60a; }
+
+    [data-composition-id="s02-ciegas"] svg.caja { left: 150px; top: 690px; width: 800px; height: 500px; }
+    [data-composition-id="s02-ciegas"] .oscuro { position: absolute; inset: 0; background: rgba(8,13,24,0.72); opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-ciegas" data-width="1080" data-height="1920" data-duration="2.26">
+    <div id="s02-ciegas-esc" class="esc clip" data-start="0" data-duration="2.26" data-track-index="0">
+
+      <div class="sombra sh" style="left:250px;top:1049px;width:600px;height:46px"></div>
+      <svg class="caja c0" viewBox="0 0 640 400" aria-hidden="true" data-layout-allow-overflow>
+  <polygon points="40,170 510,170 510,262 40,262" fill="#d9d7c9"/>
+  <rect x="40" y="198" width="470" height="24" fill="#5ce611"/>
+  <rect x="40" y="170" width="470" height="8" fill="rgba(11,18,32,0.14)"/>
+  <polygon points="510,170 620,40 620,132 510,262" fill="#b4b2a3"/>
+  <polygon points="510,198 620,68 620,92 510,222" fill="#3fa60a"/>
+  <polygon points="40,170 150,40 620,40 510,170" fill="#efeee5"/>
+  <polygon points="330,170 440,40 480,40 370,170" fill="rgba(255,255,255,0.45)"/>
+  <g transform="matrix(1 0 -0.465 0.55 330 105)"><circle r="86" fill="#5ce611"/><polygon points="-44,-38 44,-38 0,52" fill="#0b1220"/><circle cx="-14" cy="-16" r="9" fill="#efeee5"/><circle cx="14" cy="-10" r="9" fill="#efeee5"/><circle cx="0" cy="16" r="9" fill="#efeee5"/></g>
+  
+</svg>
+      <div class="oscuro"></div>
+      <div class="pill preg nq0" style="left:230px;top:760px">?</div><div class="pill preg nq1" style="left:860px;top:700px">?</div><div class="pill preg nq2" style="left:540px;top:600px">?</div>
+      <div class="pill rl n1" style="left:540px;top:1420px">Sin saber nada</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-ciegas";
+      const DUR = 2.26;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)", immediateRender: true }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "steps(" + (b - a) + ")", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
+      // la barrita grande
+      const NXJ = [0, 213, 427, 640];
+      if (q(".trk-fill")) gsap.set(q(".trk-fill"), { scaleX: 0, transformOrigin: "0% 50%" });
+      const pasoSet = (i) => { gsap.set(q(".trk-fill"), { scaleX: i / 3 }); for (let k = 0; k <= i; k++) { gsap.set(q(".nd" + k + " .nd-on"), { opacity: 1 }); gsap.set(q(".lb" + k), { opacity: 1 }); } gsap.set(q(".mk"), { x: NXJ[i] }); };
+      const paso = (i, t) => {
+        tl.to(q(".trk-fill"), { scaleX: i / 3, duration: 0.35, ease: "power2.inOut" }, t);
+        tl.to(q(".mk"), { x: NXJ[i], duration: 0.4, ease: "power2.inOut" }, t);
+        tl.to(q(".nd" + i + " .nd-on"), { opacity: 1, duration: 0.15 }, t + 0.22);
+        late(".nd" + i, t + 0.22, 1.16);
+        tl.to(q(".lb" + i), { opacity: 1, duration: 0.2 }, t + 0.22);
+      };
+      // la barrita chica
+      const MXJ = [0, 96, 192, 288];
+      if (q(".mt-fill")) gsap.set(q(".mt-fill"), { scaleX: 0, transformOrigin: "0% 50%" });
+      const miniSet = (i) => { gsap.set(q(".mt-fill"), { scaleX: i / 3 }); for (let k = 0; k <= i; k++) gsap.set(q(".mn" + k + " .mn-on"), { opacity: 1 }); if (i === 3) gsap.set(q(".mt-s"), { opacity: 1 }); };
+      const mini = (i, t) => {
+        tl.to(q(".mt-fill"), { scaleX: i / 3, duration: 0.35, ease: "power2.inOut" }, t);
+        tl.to(q(".mn" + i + " .mn-on"), { opacity: 1, duration: 0.15 }, t + 0.22);
+        late(".mn" + i, t + 0.22, 1.2);
+        if (i === 3) pop(".mt-s", t + 0.35, 0.3, 0.3);
+      };
+      const telw = q(".telw");
+      if (telw) gsap.set(telw, { scale: 1.25, y: 20, transformOrigin: "540px 1040px" });
+
+
+      const C = q(".c0");
+      // la caja baja al centro y se queda quieta: no sabés nada de ella
+      tl.to(C, { y: 140, duration: 0.6, ease: "power2.inOut" }, 0);
+      tl.to(q(".sh"), { y: 140, duration: 0.6, ease: "power2.inOut" }, 0);
+      late(".c0", 1.06, 1.06);
+      pop(".nq2", 1.46); pop(".nq0", 1.58); pop(".nq1", 1.7);
+      tl.to(q(".oscuro"), { opacity: 1, duration: 0.3 }, 1.86);
+      nota(1, 1.9);
+      tl.to(qa(".preg"), { y: -12, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.9);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

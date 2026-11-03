@@ -192,6 +192,7 @@
 
 ## En curso
 
+- 03-11 · `caso-dominos` · prueba serie Caso de éxito (no publicar hasta que Juan lo vea)
 
 
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
