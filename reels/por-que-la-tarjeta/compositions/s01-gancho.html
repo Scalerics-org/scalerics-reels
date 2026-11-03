@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.55); }
+    [data-composition-id="s01-gancho"] .tw { position: absolute; left: 160px; top: 870px; width: 760px; height: 480px; perspective: 2200px; }
+    [data-composition-id="s01-gancho"] .tarj { position: absolute; inset: 0; transform-style: preserve-3d; }
+    [data-composition-id="s01-gancho"] .cara { position: absolute; inset: 0; border-radius: 40px; overflow: hidden; backface-visibility: hidden; }
+    [data-composition-id="s01-gancho"] .canto { position: absolute; inset: 0; border-radius: 40px; background: #b9b7a8; }
+    [data-composition-id="s01-gancho"] .canto.c1 { transform: translateZ(-8px); } [data-composition-id="s01-gancho"] .canto.c2 { transform: translateZ(-16px); background: #9d9b8d; }
+    [data-composition-id="s01-gancho"] .canto.puntos.c1 { background: #3fa60a; } [data-composition-id="s01-gancho"] .canto.puntos.c2 { background: #2f7f07; }
+    [data-composition-id="s01-gancho"] .frente { background: #efeee5; transform: translateZ(0.1px); }
+    [data-composition-id="s01-gancho"] .frente.puntos { background: #5ce611; }
+    [data-composition-id="s01-gancho"] .dorso { background: #16243d; border: 6px solid #2c4268; transform: translateZ(-20px) rotateY(180deg); }
+    [data-composition-id="s01-gancho"] .luz { position: absolute; inset: 0; background: linear-gradient(128deg, rgba(11,18,32,0) 58%, rgba(11,18,32,0.09) 58%); }
+    [data-composition-id="s01-gancho"] .brillo { position: absolute; left: -320px; top: -200px; width: 120px; height: 900px; background: rgba(255,255,255,0.42); transform: rotate(22deg); box-shadow: 70px 0 0 -28px rgba(255,255,255,0.3); }
+    [data-composition-id="s01-gancho"] .fs-top { position: absolute; left: 48px; top: 30px; font: 800 74px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s01-gancho"] .fs-emb { position: absolute; right: 44px; top: 30px; width: 104px; height: 104px; }
+    [data-composition-id="s01-gancho"] .fs-onda { position: absolute; left: 0; top: 0; width: 760px; height: 480px; }
+    [data-composition-id="s01-gancho"] .fs-lbl { position: absolute; left: 48px; top: 330px; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: #0b1220; }
+    [data-composition-id="s01-gancho"] .fs-num { position: absolute; left: 48px; top: 376px; font: 600 48px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s01-gancho"] .fs-bar { position: absolute; left: 500px; top: 334px; width: 212px; height: 90px; }
+    [data-composition-id="s01-gancho"] .fp-top { position: absolute; left: 48px; top: 40px; font: 800 70px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s01-gancho"] .fp-sub { position: absolute; right: 48px; top: 66px; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.3em; color: #0b1220; }
+    [data-composition-id="s01-gancho"] .fp-sellos { position: absolute; left: 48px; top: 196px; width: 664px; height: 80px; }
+    [data-composition-id="s01-gancho"] .fp-num { position: absolute; left: 48px; top: 376px; font: 600 46px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s01-gancho"] .ds-av { position: absolute; left: 44px; top: 40px; width: 140px; height: 140px; }
+    [data-composition-id="s01-gancho"] .ds-nom { position: absolute; left: 214px; top: 62px; font: 700 50px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s01-gancho"] .ds-sub { position: absolute; left: 216px; top: 128px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: rgba(239,238,229,0.6); }
+    [data-composition-id="s01-gancho"] .ds-fila { position: absolute; left: 48px; display: flex; align-items: center; gap: 22px; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s01-gancho"] .ds-fila.f1 { top: 222px; } [data-composition-id="s01-gancho"] .ds-fila.f2 { top: 300px; } [data-composition-id="s01-gancho"] .ds-fila.f3 { top: 378px; }
+    [data-composition-id="s01-gancho"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 36px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s01-gancho"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s01-gancho"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s01-gancho"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s01-gancho"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s01-gancho"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s01-gancho"] .lead.g { stroke: #5ce611; } [data-composition-id="s01-gancho"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s01-gancho"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s01-gancho"] .dot.g { fill: #5ce611; } [data-composition-id="s01-gancho"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s01-gancho"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s01-gancho"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s01-gancho"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s01-gancho"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s01-gancho"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s01-gancho"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s01-gancho"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s01-gancho"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s01-gancho"] .pg { position: absolute; left: 0; top: 0; width: 860px; height: 980px; background: #efeee5; border-radius: 36px; overflow: hidden; }
+    [data-composition-id="s01-gancho"] .pg-head { position: absolute; left: 0; top: 0; width: 860px; height: 150px; background: #5ce611; font: 800 72px/150px "Lexend", sans-serif; text-align: center; color: #0b1220; letter-spacing: 0.02em; }
+    [data-composition-id="s01-gancho"] .pg-dias { position: absolute; left: 0; top: 162px; width: 860px; height: 50px; display: flex; }
+    [data-composition-id="s01-gancho"] .pg-dias span { flex: 1; text-align: center; font: 500 32px/50px "IBM Plex Mono", monospace; color: rgba(11,18,32,0.5); }
+    [data-composition-id="s01-gancho"] .pg-svg { position: absolute; left: 0; top: 0; width: 860px; height: 980px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .pg-svg .num { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; fill: rgba(11,18,32,0.55); }
+    [data-composition-id="s01-gancho"] .pg-svg .grilla { stroke: rgba(11,18,32,0.1); stroke-width: 3; }
+    [data-composition-id="s01-gancho"] .pg-luz { position: absolute; inset: 0; background: linear-gradient(118deg, rgba(11,18,32,0) 62%, rgba(11,18,32,0.06) 62%); }
+    [data-composition-id="s01-gancho"] .hoja { position: absolute; left: 0; width: 860px; height: 980px; border-radius: 36px; }
+    [data-composition-id="s01-gancho"] .anillo { position: absolute; top: -40px; width: 40px; height: 92px; border-radius: 20px; background: #1f3254; border: 6px solid #2c4268; }
+    [data-composition-id="s01-gancho"] .tel-lado { position: absolute; left: 316px; top: 574px; width: 480px; height: 960px; border-radius: 72px; background: #a9a798; }
+    [data-composition-id="s01-gancho"] .tel { position: absolute; left: 300px; top: 560px; width: 480px; height: 960px; border-radius: 72px; background: #efeee5; }
+    [data-composition-id="s01-gancho"] .tel-pan { position: absolute; left: 14px; top: 14px; right: 14px; bottom: 14px; border-radius: 58px; background: #111c30; overflow: hidden; }
+    [data-composition-id="s01-gancho"] .tel-notch { position: absolute; left: 180px; top: 26px; width: 120px; height: 28px; border-radius: 14px; background: #efeee5; }
+    [data-composition-id="s01-gancho"] .sello, [data-composition-id="s01-gancho"] .sello-ok { position: absolute; width: 64px; height: 64px; border-radius: 50%; }
+    [data-composition-id="s01-gancho"] .sello { border: 5px solid rgba(239,238,229,0.45); }
+    [data-composition-id="s01-gancho"] .sello-ok svg { width: 64px; height: 64px; }
+    [data-composition-id="s01-gancho"] .cont { position: absolute; left: 0; right: 0; top: 1118px; text-align: center; font: 800 84px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s01-gancho"] .cont-sub { position: absolute; left: 0; right: 0; top: 1222px; text-align: center; font: 500 28px/1 "Lexend", sans-serif; color: rgba(239,238,229,0.62); }
+    [data-composition-id="s01-gancho"] .tel-btn { position: absolute; left: 360px; top: 1300px; width: 360px; height: 84px; border-radius: 42px; background: #5ce611; font: 700 32px/84px "Lexend", sans-serif; text-align: center; color: #0b1220; }
+    [data-composition-id="s01-gancho"] .tel-lbl { position: absolute; left: 0; right: 0; top: 890px; text-align: center; font: 500 26px/1 "IBM Plex Mono", monospace; letter-spacing: 0.24em; color: rgba(239,238,229,0.6); }
+
+    [data-composition-id="s01-gancho"] .tit { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font: 800 132px/1.02 "Lexend", sans-serif; color: #fff; letter-spacing: -0.03em; }
+    [data-composition-id="s01-gancho"] .tit .v { color: #5ce611; display: inline-block; }
+    [data-composition-id="s01-gancho"] .tachar { stroke: #c7655b; stroke-width: 8; stroke-linecap: round; fill: none; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="4.89">
+    <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="4.89" data-track-index="0">
+
+      <div class="sombra sh" style="left:220px;top:1415px;width:640px;height:70px"></div>
+      
+<div class="tw card"><div class="tarj" data-layout-allow-overlap>
+  <div class="canto super c2"></div><div class="canto super c1"></div>
+  
+  <div class="cara frente super">
+  <div class="fs-top">SÚPER</div>
+  <svg class="fs-emb" viewBox="0 0 104 104" aria-hidden="true"><circle cx="52" cy="52" r="52" fill="#5ce611"/><path d="M52 20 L61 42 L85 43 L66 58 L73 82 L52 68 L31 82 L38 58 L19 43 L43 42 Z" fill="#0b1220"/></svg>
+  <svg class="fs-onda" viewBox="0 0 760 480" aria-hidden="true"><path d="M0 200 C 200 150, 430 262, 760 182 L760 258 C 430 334, 210 226, 0 282 Z" fill="#5ce611"/><path d="M0 282 C 210 226, 430 334, 760 258 L760 276 C 430 352, 210 244, 0 300 Z" fill="#3fa60a"/></svg>
+  <div class="fs-lbl">TARJETA DE PUNTOS</div>
+  <div class="fs-num">•••• 0417</div>
+  <svg class="fs-bar" viewBox="0 0 212 90" aria-hidden="true"><rect x="0" y="0" width="7" height="90" fill="#0b1220"/><rect x="10" y="0" width="4" height="90" fill="#0b1220"/><rect x="16" y="0" width="4" height="90" fill="#0b1220"/><rect x="30" y="0" width="7" height="90" fill="#0b1220"/><rect x="38" y="0" width="4" height="90" fill="#0b1220"/><rect x="52" y="0" width="4" height="90" fill="#0b1220"/><rect x="58" y="0" width="7" height="90" fill="#0b1220"/><rect x="64" y="0" width="4" height="90" fill="#0b1220"/><rect x="80" y="0" width="4" height="90" fill="#0b1220"/><rect x="92" y="0" width="7" height="90" fill="#0b1220"/><rect x="98" y="0" width="4" height="90" fill="#0b1220"/><rect x="112" y="0" width="4" height="90" fill="#0b1220"/><rect x="124" y="0" width="7" height="90" fill="#0b1220"/><rect x="130" y="0" width="4" height="90" fill="#0b1220"/><rect x="146" y="0" width="4" height="90" fill="#0b1220"/><rect x="154" y="0" width="7" height="90" fill="#0b1220"/><rect x="168" y="0" width="4" height="90" fill="#0b1220"/><rect x="176" y="0" width="4" height="90" fill="#0b1220"/><rect x="188" y="0" width="7" height="90" fill="#0b1220"/><rect x="200" y="0" width="4" height="90" fill="#0b1220"/></svg><div class="luz"></div><div class="brillo"></div></div>
+</div></div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M790 760 L700 900"/><circle class="dot  d1" cx="700" cy="900" r="11"/><path class="tachar tx" d="M640 712 L940 712"/></svg>
+      <div class="pill  n1" style="left:790px;top:712px">¿Un regalo?</div>
+      <div class="tit"><div>¿Por qué</div><div>la <span class="v">tarjeta</span></div><div class="v">de puntos?</div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 4.89;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)", immediateRender: t <= 0 ? true : true }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const brillo = (s, t) => tl.fromTo(q(s), { x: 0 }, { x: 1400, duration: 0.9, ease: "power2.inOut", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      const T = q(".tarj"), W = q(".card");
+      // cuadro 0: el gancho entero y la tarjeta ya grande
+      gsap.set(T, { rotationY: -30, rotationX: 16, rotationZ: -8 });
+      tl.fromTo(q(".tit"), { scale: 1.06, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo(W, { y: 40, scale: 0.96 }, { y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, 0);
+      tl.to(T, { rotationY: -18, rotationX: 12, rotationZ: -6, duration: 3.3, ease: "sine.inOut" }, 0);
+      tl.to(W, { y: -26, duration: 1.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.7);
+      tl.to(q(".sh"), { scale: 0.9, opacity: 0.8, duration: 1.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.7);
+      brillo(".card .brillo", 0.35);
+      tl.fromTo(qa(".tit .v"), { scale: 1 }, { scale: 1.06, transformOrigin: "50% 50%", duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, 2.0);
+      tl.to(q(".tit"), { opacity: 0, y: -60, duration: 0.3, ease: "power2.in" }, 3.12);
+      // "No es para regalarte nada."
+      tl.to(T, { ...{ rotationY: -12, rotationX: 10, rotationZ: -5 }, duration: 1.3, ease: "power2.inOut" }, 3.4);
+      nota(1, 3.78);
+      dibujar(".tx", 4.3, 0.25);
+      tl.to(q(".n1"), { borderColor: "#c7655b", color: "#c7655b", duration: 0.15 }, 4.3);
+      brillo(".card .brillo", 3.9);
+      sinNota(1, 4.62); tl.to(q(".tx"), { opacity: 0, duration: 0.2 }, 4.62);
+      tl.to(W, { y: 0, duration: 0.6, ease: "power2.inOut" }, 4.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

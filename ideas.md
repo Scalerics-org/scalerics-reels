@@ -193,6 +193,7 @@
 
 
 
+- 03-11 · `por-que-la-tarjeta` · prueba formato resultaaquee (no publicar hasta que Juan lo vea)
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
 
 ## Banco de ideas (tomá uno o inventá otro; el tema es solo el punto de partida: elegí un FORMATO y un ESTILO distintos, ver CLAUDE.md)

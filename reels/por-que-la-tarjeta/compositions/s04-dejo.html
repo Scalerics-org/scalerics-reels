@@ -1,0 +1,150 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-dejo"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-dejo"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-dejo"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-dejo"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.55); }
+    [data-composition-id="s04-dejo"] .tw { position: absolute; left: 160px; top: 870px; width: 760px; height: 480px; perspective: 2200px; }
+    [data-composition-id="s04-dejo"] .tarj { position: absolute; inset: 0; transform-style: preserve-3d; }
+    [data-composition-id="s04-dejo"] .cara { position: absolute; inset: 0; border-radius: 40px; overflow: hidden; backface-visibility: hidden; }
+    [data-composition-id="s04-dejo"] .canto { position: absolute; inset: 0; border-radius: 40px; background: #b9b7a8; }
+    [data-composition-id="s04-dejo"] .canto.c1 { transform: translateZ(-8px); } [data-composition-id="s04-dejo"] .canto.c2 { transform: translateZ(-16px); background: #9d9b8d; }
+    [data-composition-id="s04-dejo"] .canto.puntos.c1 { background: #3fa60a; } [data-composition-id="s04-dejo"] .canto.puntos.c2 { background: #2f7f07; }
+    [data-composition-id="s04-dejo"] .frente { background: #efeee5; transform: translateZ(0.1px); }
+    [data-composition-id="s04-dejo"] .frente.puntos { background: #5ce611; }
+    [data-composition-id="s04-dejo"] .dorso { background: #16243d; border: 6px solid #2c4268; transform: translateZ(-20px) rotateY(180deg); }
+    [data-composition-id="s04-dejo"] .luz { position: absolute; inset: 0; background: linear-gradient(128deg, rgba(11,18,32,0) 58%, rgba(11,18,32,0.09) 58%); }
+    [data-composition-id="s04-dejo"] .brillo { position: absolute; left: -320px; top: -200px; width: 120px; height: 900px; background: rgba(255,255,255,0.42); transform: rotate(22deg); box-shadow: 70px 0 0 -28px rgba(255,255,255,0.3); }
+    [data-composition-id="s04-dejo"] .fs-top { position: absolute; left: 48px; top: 30px; font: 800 74px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s04-dejo"] .fs-emb { position: absolute; right: 44px; top: 30px; width: 104px; height: 104px; }
+    [data-composition-id="s04-dejo"] .fs-onda { position: absolute; left: 0; top: 0; width: 760px; height: 480px; }
+    [data-composition-id="s04-dejo"] .fs-lbl { position: absolute; left: 48px; top: 330px; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: #0b1220; }
+    [data-composition-id="s04-dejo"] .fs-num { position: absolute; left: 48px; top: 376px; font: 600 48px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s04-dejo"] .fs-bar { position: absolute; left: 500px; top: 334px; width: 212px; height: 90px; }
+    [data-composition-id="s04-dejo"] .fp-top { position: absolute; left: 48px; top: 40px; font: 800 70px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s04-dejo"] .fp-sub { position: absolute; right: 48px; top: 66px; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.3em; color: #0b1220; }
+    [data-composition-id="s04-dejo"] .fp-sellos { position: absolute; left: 48px; top: 196px; width: 664px; height: 80px; }
+    [data-composition-id="s04-dejo"] .fp-num { position: absolute; left: 48px; top: 376px; font: 600 46px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s04-dejo"] .ds-av { position: absolute; left: 44px; top: 40px; width: 140px; height: 140px; }
+    [data-composition-id="s04-dejo"] .ds-nom { position: absolute; left: 214px; top: 62px; font: 700 50px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s04-dejo"] .ds-sub { position: absolute; left: 216px; top: 128px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: rgba(239,238,229,0.6); }
+    [data-composition-id="s04-dejo"] .ds-fila { position: absolute; left: 48px; display: flex; align-items: center; gap: 22px; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s04-dejo"] .ds-fila.f1 { top: 222px; } [data-composition-id="s04-dejo"] .ds-fila.f2 { top: 300px; } [data-composition-id="s04-dejo"] .ds-fila.f3 { top: 378px; }
+    [data-composition-id="s04-dejo"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 36px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s04-dejo"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s04-dejo"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s04-dejo"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s04-dejo"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s04-dejo"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s04-dejo"] .lead.g { stroke: #5ce611; } [data-composition-id="s04-dejo"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s04-dejo"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s04-dejo"] .dot.g { fill: #5ce611; } [data-composition-id="s04-dejo"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s04-dejo"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s04-dejo"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s04-dejo"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s04-dejo"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s04-dejo"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s04-dejo"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s04-dejo"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s04-dejo"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s04-dejo"] .pg { position: absolute; left: 0; top: 0; width: 860px; height: 980px; background: #efeee5; border-radius: 36px; overflow: hidden; }
+    [data-composition-id="s04-dejo"] .pg-head { position: absolute; left: 0; top: 0; width: 860px; height: 150px; background: #5ce611; font: 800 72px/150px "Lexend", sans-serif; text-align: center; color: #0b1220; letter-spacing: 0.02em; }
+    [data-composition-id="s04-dejo"] .pg-dias { position: absolute; left: 0; top: 162px; width: 860px; height: 50px; display: flex; }
+    [data-composition-id="s04-dejo"] .pg-dias span { flex: 1; text-align: center; font: 500 32px/50px "IBM Plex Mono", monospace; color: rgba(11,18,32,0.5); }
+    [data-composition-id="s04-dejo"] .pg-svg { position: absolute; left: 0; top: 0; width: 860px; height: 980px; overflow: visible; }
+    [data-composition-id="s04-dejo"] .pg-svg .num { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 34px; fill: rgba(11,18,32,0.55); }
+    [data-composition-id="s04-dejo"] .pg-svg .grilla { stroke: rgba(11,18,32,0.1); stroke-width: 3; }
+    [data-composition-id="s04-dejo"] .pg-luz { position: absolute; inset: 0; background: linear-gradient(118deg, rgba(11,18,32,0) 62%, rgba(11,18,32,0.06) 62%); }
+    [data-composition-id="s04-dejo"] .hoja { position: absolute; left: 0; width: 860px; height: 980px; border-radius: 36px; }
+    [data-composition-id="s04-dejo"] .anillo { position: absolute; top: -40px; width: 40px; height: 92px; border-radius: 20px; background: #1f3254; border: 6px solid #2c4268; }
+    [data-composition-id="s04-dejo"] .tel-lado { position: absolute; left: 316px; top: 574px; width: 480px; height: 960px; border-radius: 72px; background: #a9a798; }
+    [data-composition-id="s04-dejo"] .tel { position: absolute; left: 300px; top: 560px; width: 480px; height: 960px; border-radius: 72px; background: #efeee5; }
+    [data-composition-id="s04-dejo"] .tel-pan { position: absolute; left: 14px; top: 14px; right: 14px; bottom: 14px; border-radius: 58px; background: #111c30; overflow: hidden; }
+    [data-composition-id="s04-dejo"] .tel-notch { position: absolute; left: 180px; top: 26px; width: 120px; height: 28px; border-radius: 14px; background: #efeee5; }
+    [data-composition-id="s04-dejo"] .sello, [data-composition-id="s04-dejo"] .sello-ok { position: absolute; width: 64px; height: 64px; border-radius: 50%; }
+    [data-composition-id="s04-dejo"] .sello { border: 5px solid rgba(239,238,229,0.45); }
+    [data-composition-id="s04-dejo"] .sello-ok svg { width: 64px; height: 64px; }
+    [data-composition-id="s04-dejo"] .cont { position: absolute; left: 0; right: 0; top: 1118px; text-align: center; font: 800 84px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s04-dejo"] .cont-sub { position: absolute; left: 0; right: 0; top: 1222px; text-align: center; font: 500 28px/1 "Lexend", sans-serif; color: rgba(239,238,229,0.62); }
+    [data-composition-id="s04-dejo"] .tel-btn { position: absolute; left: 360px; top: 1300px; width: 360px; height: 84px; border-radius: 42px; background: #5ce611; font: 700 32px/84px "Lexend", sans-serif; text-align: center; color: #0b1220; }
+    [data-composition-id="s04-dejo"] .tel-lbl { position: absolute; left: 0; right: 0; top: 890px; text-align: center; font: 500 26px/1 "IBM Plex Mono", monospace; letter-spacing: 0.24em; color: rgba(239,238,229,0.6); }
+
+    [data-composition-id="s04-dejo"] .calw { position: absolute; left: 110px; top: 590px; width: 860px; height: 980px; perspective: 2400px; }
+    [data-composition-id="s04-dejo"] .cruz { fill: none; stroke: #c7655b; stroke-width: 10; stroke-linecap: round; }
+    [data-composition-id="s04-dejo"] .sl-l { position: absolute; top: 1432px; font: 600 34px/1 "Lexend", sans-serif; }
+    [data-composition-id="s04-dejo"] .sl-l.a { left: 120px; color: #5ce611; } [data-composition-id="s04-dejo"] .sl-l.b { right: 120px; color: #c7655b; }
+    [data-composition-id="s04-dejo"] .sl-track { position: absolute; left: 120px; top: 1508px; width: 840px; height: 30px; border-radius: 15px; background: #1f3254; }
+    [data-composition-id="s04-dejo"] .sl-fill { position: absolute; left: 120px; top: 1508px; width: 840px; height: 30px; border-radius: 15px; background: #5ce611; }
+    [data-composition-id="s04-dejo"] .sl-knob { position: absolute; left: 172px; top: 1483px; width: 80px; height: 80px; border-radius: 50%; background: #efeee5; border: 8px solid #0b1220; box-shadow: 0 8px 0 rgba(3,6,12,0.45); }
+    [data-composition-id="s04-dejo"] .slider { opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-dejo" data-width="1080" data-height="1920" data-duration="3.21">
+    <div id="s04-dejo-esc" class="esc clip" data-start="0" data-duration="3.21" data-track-index="0">
+
+      
+      <div class="sombra sh" style="left:130px;top:1574px;width:820px;height:64px"></div>
+      <div class="calw">
+        <div class="hoja" style="top:26px;background:#bab8a9"></div>
+        <div class="hoja" style="top:13px;background:#d6d4c6"></div>
+        <div class="pg nov"><div class="pg-head">NOVIEMBRE</div>
+    <div class="pg-dias"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+    <svg class="pg-svg" viewBox="0 0 860 980" aria-hidden="true"><path d="M24 343 H836" class="grilla"/><path d="M24 466 H836" class="grilla"/><path d="M24 589 H836" class="grilla"/><path d="M24 712 H836" class="grilla"/><path d="M24 835 H836" class="grilla"/><text x="753.14" y="258" class="num">1</text><text x="16" y="381" class="num">2</text><text x="138.86" y="381" class="num">3</text><text x="261.71" y="381" class="num">4</text><text x="384.57" y="381" class="num">5</text><text x="507.43" y="381" class="num">6</text><text x="630.29" y="381" class="num">7</text><text x="753.14" y="381" class="num">8</text><text x="16" y="504" class="num">9</text><text x="138.86" y="504" class="num">10</text><text x="261.71" y="504" class="num">11</text><text x="384.57" y="504" class="num">12</text><text x="507.43" y="504" class="num">13</text><text x="630.29" y="504" class="num">14</text><text x="753.14" y="504" class="num">15</text><text x="16" y="627" class="num">16</text><text x="138.86" y="627" class="num">17</text><text x="261.71" y="627" class="num">18</text><text x="384.57" y="627" class="num">19</text><text x="507.43" y="627" class="num">20</text><text x="630.29" y="627" class="num">21</text><text x="753.14" y="627" class="num">22</text><text x="16" y="750" class="num">23</text><text x="138.86" y="750" class="num">24</text><text x="261.71" y="750" class="num">25</text><text x="384.57" y="750" class="num">26</text><text x="507.43" y="750" class="num">27</text><text x="630.29" y="750" class="num">28</text><text x="753.14" y="750" class="num">29</text><text x="16" y="873" class="num">30</text><g class="m15"><rect x="746.57" y="477.5" width="104" height="104" rx="16" fill="rgba(199,101,91,0.1)" stroke="#c7655b" stroke-width="6" stroke-dasharray="14 10"/><g class="" transform="translate(798.57 529.5) scale(0.82)"><rect x="-36" y="-46" width="72" height="92" rx="10" fill="rgba(199,101,91,0.35)"/><rect x="18" y="-46" width="18" height="92" rx="6" fill="rgba(199,101,91,0.35)"/><rect x="-36" y="-6" width="72" height="26" fill="#0b1220"/><text x="0" y="13" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="17" fill="#efeee5" data-layout-ignore>YERBA</text></g></g><g class="m30"><rect x="9.43" y="846.5" width="104" height="104" rx="16" fill="rgba(199,101,91,0.1)" stroke="#c7655b" stroke-width="6" stroke-dasharray="14 10"/><g class="" transform="translate(61.43 898.5) scale(0.82)"><rect x="-36" y="-46" width="72" height="92" rx="10" fill="rgba(199,101,91,0.35)"/><rect x="18" y="-46" width="18" height="92" rx="6" fill="rgba(199,101,91,0.35)"/><rect x="-36" y="-6" width="72" height="26" fill="#0b1220"/><text x="0" y="13" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="17" fill="#efeee5" data-layout-ignore>YERBA</text></g></g><path class="cruz x15" d="M758.57 489.5 L838.57 569.5 M838.57 489.5 L758.57 569.5"/><path class="cruz x30" d="M21.43 858.5 L101.43 938.5 M101.43 858.5 L21.43 938.5"/></svg><div class="pg-luz"></div></div><div class="pg oct"><div class="pg-head">OCTUBRE</div>
+    <div class="pg-dias"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+    <svg class="pg-svg" viewBox="0 0 860 980" aria-hidden="true"><path d="M24 368 H836" class="grilla"/><path d="M24 516 H836" class="grilla"/><path d="M24 664 H836" class="grilla"/><path d="M24 812 H836" class="grilla"/><text x="384.57" y="258" class="num">1</text><text x="507.43" y="258" class="num">2</text><text x="630.29" y="258" class="num">3</text><text x="753.14" y="258" class="num">4</text><text x="16" y="406" class="num">5</text><text x="138.86" y="406" class="num">6</text><text x="261.71" y="406" class="num">7</text><text x="384.57" y="406" class="num">8</text><text x="507.43" y="406" class="num">9</text><text x="630.29" y="406" class="num">10</text><text x="753.14" y="406" class="num">11</text><text x="16" y="554" class="num">12</text><text x="138.86" y="554" class="num">13</text><text x="261.71" y="554" class="num">14</text><text x="384.57" y="554" class="num">15</text><text x="507.43" y="554" class="num">16</text><text x="630.29" y="554" class="num">17</text><text x="753.14" y="554" class="num">18</text><text x="16" y="702" class="num">19</text><text x="138.86" y="702" class="num">20</text><text x="261.71" y="702" class="num">21</text><text x="384.57" y="702" class="num">22</text><text x="507.43" y="702" class="num">23</text><text x="630.29" y="702" class="num">24</text><text x="753.14" y="702" class="num">25</text><text x="16" y="850" class="num">26</text><text x="138.86" y="850" class="num">27</text><text x="261.71" y="850" class="num">28</text><text x="384.57" y="850" class="num">29</text><text x="507.43" y="850" class="num">30</text><text x="630.29" y="850" class="num">31</text><g class="" transform="translate(430 306) scale(1)"><rect x="-36" y="-46" width="72" height="92" rx="10" fill="#5ce611"/><rect x="18" y="-46" width="18" height="92" rx="6" fill="#3fa60a"/><rect x="-36" y="-6" width="72" height="26" fill="#0b1220"/><text x="0" y="13" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="17" fill="#efeee5" data-layout-ignore>YERBA</text></g><g class="" transform="translate(552.86 602) scale(1)"><rect x="-36" y="-46" width="72" height="92" rx="10" fill="#5ce611"/><rect x="18" y="-46" width="18" height="92" rx="6" fill="#3fa60a"/><rect x="-36" y="-6" width="72" height="26" fill="#0b1220"/><text x="0" y="13" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="17" fill="#efeee5" data-layout-ignore>YERBA</text></g><g class="" transform="translate(675.71 898) scale(1)"><rect x="-36" y="-46" width="72" height="92" rx="10" fill="none" stroke="#5ce611" stroke-width="6" stroke-dasharray="12 10"/></g></svg><div class="pg-luz"></div></div>
+        <div class="anillo" style="left:190px"></div><div class="anillo" style="left:630px"></div>
+      </div>
+      <div class="slider"><div class="sl-l a">Viene seguido</div><div class="sl-l b">Dejó de venir</div><div class="sl-track"></div><div class="sl-fill"></div><div class="sl-knob"></div></div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead r l1" d="M880 1110 L849.6 1050.14"/><circle class="dot r d1" cx="849.6" cy="1050.14" r="11"/></svg>
+      <div class="pill rl n1" style="left:890px;top:1150px">No vino</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-dejo";
+      const DUR = 3.21;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)", immediateRender: t <= 0 ? true : true }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const brillo = (s, t) => tl.fromTo(q(s), { x: 0 }, { x: 1400, duration: 0.9, ease: "power2.inOut", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      const C = q(".calw");
+      gsap.set(C, { scale: 0.84, y: -30, transformOrigin: "50% 0%" });
+      gsap.set(q(".sh"), { y: -200, scale: 0.85 });
+      // se da vuelta la hoja
+      tl.to(q(".pg.oct"), { rotationX: 100, transformOrigin: "50% 0%", duration: 0.5, ease: "power2.in" }, 0.12);
+      tl.to(q(".pg.oct"), { opacity: 0, duration: 0.1 }, 0.55);
+      tl.fromTo(qa(".m15, .m30"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.62);
+      tl.fromTo(q(".slider"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.7);
+      gsap.set(q(".sl-fill"), { scaleX: 0.12, transformOrigin: "0% 50%" });
+      dibujar(".x15", 1.08, 0.3);
+      nota(1, 1.2);
+      tl.fromTo(q(".m30"), { scale: 1 }, { scale: 1.08, svgOrigin: "61.43 908.5", duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, 1.78);
+      dibujar(".x30", 1.85, 0.3);
+      // el deslizador pasa de "viene seguido" a "dejó de venir"
+      tl.to(q(".sl-knob"), { x: 656, duration: 0.7, ease: "power2.inOut" }, 2.05);
+      tl.to(q(".sl-fill"), { scaleX: 0.9, backgroundColor: "#c7655b", duration: 0.7, ease: "power2.inOut" }, 2.05);
+      tl.to(q(".sl-knob"), { borderColor: "#c7655b", duration: 0.2 }, 2.5);
+      tl.fromTo(q(".sl-l.b"), { scale: 1 }, { scale: 1.15, transformOrigin: "100% 50%", duration: 0.18, yoyo: true, repeat: 1, immediateRender: false }, 2.5);
+      salida(2.98);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
