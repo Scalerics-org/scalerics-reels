@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-oficio"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-oficio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-oficio"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-oficio"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s09-oficio"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-oficio"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-oficio"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s09-oficio"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s09-oficio"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s09-oficio"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s09-oficio"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s09-oficio"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s09-oficio"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #5ce611; }
+    [data-composition-id="s09-oficio"] .num { font-family: "Lexend", sans-serif; font-weight: 800; fill: #5ce611; }
+    [data-composition-id="s09-oficio"] .apagado { opacity: 0.42; }
+    [data-composition-id="s09-oficio"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-oficio"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s09-oficio" data-width="1080" data-height="1920" data-duration="6.73">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="6.73" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s09-tipo"><g class="s09-tipo-in">
+          <circle class="ln s09-p" cx="540" cy="900" r="48" />
+          <path class="ln s09-p" d="M494 884 Q 500 846 540 846 Q 584 846 588 884" />
+          <circle class="relleno-crema s09-ojo" cx="523" cy="900" r="5" /><circle class="relleno-crema s09-ojo" cx="557" cy="900" r="5" />
+          <path class="ln s09-p" d="M525 922 Q 540 934 555 922" />
+          <line class="ln-ac s09-p" x1="584" y1="868" x2="618" y2="836" />
+          <path class="ln s09-p" d="M450 1180 V 1020 Q 450 970 500 970 H 580 Q 630 970 630 1020 V 1180" />
+          <rect class="ln s09-p" x="482" y="1000" width="116" height="170" rx="12" />
+          <path class="ln s09-p" d="M450 1010 L 405 1110" /><path class="ln s09-p" d="M630 1010 L 680 1090" />
+          <rect class="ln s09-p" x="668" y="1080" width="54" height="44" rx="8" />
+          <line class="ln-fino s09-p" x1="722" y1="1110" x2="790" y2="1110" />
+          <g class="s09-esc"><circle class="relleno-ac" cx="540" cy="1050" r="26" /><path class="ln-ac" d="M528 1072 L520 1100 M552 1072 L560 1100" />
+            <text class="mono-ac" x="540" y="1150" text-anchor="middle" font-size="22">OFICIO</text></g>
+        </g></g>
+        <g class="s09-ok"><circle class="ln-ac " cx="680" cy="860" r="34" /><path class="ln-ac " d="M665.72 861 l10.2 10.2 l18.700000000000003 -20.4" /></g>
+        <g class="s09-d1"><g class="s09-d1-in"><g transform="translate(640 720) rotate(-10)">
+          <rect class="ln" x="-48" y="-64" width="96" height="128" rx="10" />
+          <line class="ln-fino" x1="-28" y1="-34" x2="28" y2="-34" /><line class="ln-fino" x1="-28" y1="-6" x2="18" y2="-6" /><line class="ln-fino" x1="-28" y1="22" x2="28" y2="22" />
+        </g></g></g><g class="s09-d2"><g class="s09-d2-in"><g transform="translate(860 760) rotate(8)">
+          <rect class="ln" x="-48" y="-64" width="96" height="128" rx="10" />
+          <line class="ln-fino" x1="-28" y1="-34" x2="28" y2="-34" /><line class="ln-fino" x1="-28" y1="-6" x2="18" y2="-6" /><line class="ln-fino" x1="-28" y1="22" x2="28" y2="22" />
+        </g></g></g><g class="s09-d3"><g class="s09-d3-in"><g transform="translate(930 960) rotate(-4)">
+          <rect class="ln" x="-48" y="-64" width="96" height="128" rx="10" />
+          <line class="ln-fino" x1="-28" y1="-34" x2="28" y2="-34" /><line class="ln-fino" x1="-28" y1="-6" x2="18" y2="-6" /><line class="ln-fino" x1="-28" y1="22" x2="28" y2="22" />
+        </g></g></g>
+        <g class="s09-casa">
+          <path class="ln" d="M620 1200 V 1060 L 760 960 L 900 1060 V 1200 Z" stroke-dasharray="14 16" opacity="0.6" />
+          <text class="lex apagado" x="760" y="1150" text-anchor="middle" font-size="80">?</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">Tranquilo</span><span class="s09-e2">Oficio tenés</span><span class="s09-e3">Le falta un lugar</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-oficio";
+      const DUR = 6.73;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { opacity: 1, clipPath: "inset(-20% 100% -20% 0)" }, { opacity: 1, clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+
+
+      dibujar(qa(".s09-p"), 0, 0.6, 1, 0.04);
+      tl.fromTo(qa(".s09-ojo"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.3);
+      pop(q(".s09-ok"), 0.97);
+      tl.fromTo(q(".s09-esc"), { opacity: 0, scale: 0.4, svgOrigin: "540 1050" }, { opacity: 1, scale: 1, svgOrigin: "540 1050", duration: 0.4, ease: "back.out(2.2)" }, 2.24);
+      tl.to(q(".s09-tipo-in"), { y: -10, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 }, 2.67);
+      // "Lo que le falta": se corre y aparecen los presupuestos sueltos
+      tl.to(q(".s09-tipo"), { x: -300, scale: 0.85, svgOrigin: "540 1180", opacity: 0.6, duration: 0.5, ease: "power3.inOut" }, 3.85);
+      tl.to(q(".s09-ok"), { opacity: 0, duration: 0.3 }, 3.85);
+      ["s09-d1", "s09-d2", "s09-d3"].forEach((c, i) => {
+        tl.fromTo(q("." + c), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 0.75, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 4.2 + i * 0.18);
+        tl.fromTo(q("." + c + "-in"), { y: 0 }, { y: i % 2 ? 12 : -12, duration: 0.7, ease: "sine.inOut", yoyo: true, repeat: 1 }, 4.5);
+      });
+      tl.fromTo(q(".s09-casa"), { opacity: 0, scale: 0.85, svgOrigin: "760 1080" }, { opacity: 1, scale: 1, svgOrigin: "760 1080", duration: 0.4, ease: "back.out(1.6)" }, 5.4);
+      // "vivir": se acercan a la casita
+      [[-60, 160], [-50, 120], [-110, 40]].forEach(([dx, dy], i) => tl.to(q(".s09-d" + (i + 1)), { x: dx, y: dy, scale: 0.6, transformOrigin: "50% 50%", duration: 0.6, ease: "power2.inOut" }, 5.95 + i * 0.05));
+      // etiqueta mono
+      const ET = [0.97,2.24,3.9];
+      ET.forEach((t, i) => {
+        const el = q(".s09-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+      // salida
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

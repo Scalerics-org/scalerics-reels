@@ -1,0 +1,111 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-habito-dos"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-habito-dos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-habito-dos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-habito-dos"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s05-habito-dos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-habito-dos"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-habito-dos"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s05-habito-dos"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s05-habito-dos"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s05-habito-dos"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s05-habito-dos"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s05-habito-dos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s05-habito-dos"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #5ce611; }
+    [data-composition-id="s05-habito-dos"] .num { font-family: "Lexend", sans-serif; font-weight: 800; fill: #5ce611; }
+    [data-composition-id="s05-habito-dos"] .apagado { opacity: 0.42; }
+    [data-composition-id="s05-habito-dos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-habito-dos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s05-habito-dos" data-width="1080" data-height="1920" data-duration="3.82">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.82" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="cap"><g class="cap-in">
+          <text class="mono cap-h" x="540" y="712" text-anchor="middle" font-size="40">HÁBITO</text>
+          <text class="num" x="540" y="1170" text-anchor="middle" font-size="560">2</text>
+        </g></g>
+        <g class="s05-cal">
+          <rect class="ln s05-c" x="320" y="650" width="600" height="380" rx="20" />
+          <line class="ln-fino s05-c" x1="320" y1="740" x2="920" y2="740" />
+          <line class="ln-fino s05-c" x1="320" y1="885" x2="920" y2="885" />
+          <text class="mono s05-d" x="362.85714285714283" y="705" text-anchor="middle" font-size="22" letter-spacing="0.04em">LUN</text><text class="mono s05-d" x="448.57142857142856" y="705" text-anchor="middle" font-size="22" letter-spacing="0.04em">MAR</text><text class="mono s05-d" x="534.2857142857142" y="705" text-anchor="middle" font-size="22" letter-spacing="0.04em">MIÉ</text><text class="mono s05-d" x="620" y="705" text-anchor="middle" font-size="22" letter-spacing="0.04em">JUE</text><text class="mono s05-d" x="705.7142857142857" y="705" text-anchor="middle" font-size="22" letter-spacing="0.04em">VIE</text><text class="mono s05-d" x="791.4285714285713" y="705" text-anchor="middle" font-size="22" letter-spacing="0.04em">SÁB</text><text class="mono s05-d" x="877.1428571428571" y="705" text-anchor="middle" font-size="22" letter-spacing="0.04em">DOM</text>
+          <g class="s05-mini"><rect class="ln" x="428.57142857142856" y="785" width="40" height="54" rx="6" /><line class="ln-fino" x1="438.57142857142856" y1="805" x2="458.57142857142856" y2="805" /><line class="ln-fino" x1="438.57142857142856" y1="820" x2="458.57142857142856" y2="820" /></g>
+          <circle class="ln-ac s05-circ" cx="705.7142857142857" cy="812" r="40" />
+          <circle class="relleno-ac s05-pto" cx="705.7142857142857" cy="812" r="10" />
+          <circle class="ln-fino s05-vac" cx="362.85714285714283" cy="955" r="5" /><circle class="ln-fino s05-vac" cx="448.57142857142856" cy="955" r="5" /><circle class="ln-fino s05-vac" cx="534.2857142857142" cy="955" r="5" /><circle class="ln-fino s05-vac" cx="620" cy="955" r="5" /><circle class="ln-fino s05-vac" cx="791.4285714285713" cy="955" r="5" /><circle class="ln-fino s05-vac" cx="877.1428571428571" cy="955" r="5" />
+        </g>
+        <g class="s05-chip">
+          <rect class="ln-ac" x="400" y="1070" width="440" height="72" rx="36" />
+          <text class="lex-ac" x="620" y="1117" text-anchor="middle" font-size="32">Volver a escribir</text>
+        </g>
+        <g class="s05-msg"><g class="s05-msg-in">
+          <rect class="relleno-ac" x="635.7142857142857" y="905" width="140" height="64" rx="28" />
+          <path fill="none" stroke="#07111f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M683.7142857142857 938 l14 14 l30 -30" />
+        </g></g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Hábito 2</span><span class="s05-e2">Ponen fecha</span><span class="s05-e3">Y escriben</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-habito-dos";
+      const DUR = 3.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { opacity: 1, clipPath: "inset(-20% 100% -20% 0)" }, { opacity: 1, clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+
+      // número de capítulo: golpe y después badge arriba a la izquierda
+      const capitulo = (tAchica) => {
+        tl.fromTo(q(".cap-in"), { opacity: 0, scale: 1.5, svgOrigin: "540 960" }, { opacity: 1, scale: 1, svgOrigin: "540 960", duration: 0.4, ease: "power4.out" }, 0);
+        tl.fromTo(q(".cap-h"), { opacity: 0, y: 20 }, { opacity: 0.8, y: 0, duration: 0.3, ease: "power3.out" }, 0.12);
+        tl.to(q(".cap-in"), { scale: 1.04, svgOrigin: "540 960", duration: Math.max(0.3, tAchica - 0.45), ease: "sine.inOut" }, 0.4);
+        tl.to(q(".cap"), { scale: 0.3, x: -365, y: -205, svgOrigin: "540 960", duration: 0.45, ease: "power3.inOut" }, tAchica - 0.05);
+        tl.to(q(".cap-in"), { scale: 1, svgOrigin: "540 960", duration: 0.45, ease: "power3.inOut" }, tAchica - 0.05);
+      };
+
+      capitulo(0.99);
+      dibujar(qa(".s05-c"), 0.95, 0.45, 1, 0.08);
+      tl.fromTo(qa(".s05-d"), { opacity: 0 }, { opacity: 0.8, duration: 0.2, stagger: 0.03 }, 1.05);
+      pop(q(".s05-mini"), 1.1, 0.5);
+      tl.fromTo(qa(".s05-vac"), { opacity: 0 }, { opacity: 0.6, duration: 0.2, stagger: 0.03 }, 1.15);
+      dibujar(q(".s05-circ"), 1.29, 0.45);
+      tl.fromTo(q(".s05-pto"), { opacity: 0, scale: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, 1.4);
+      tl.fromTo(q(".s05-chip"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 1.6);
+      // "escriben": sale el mensaje
+      tl.fromTo(q(".s05-msg-in"), { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 2.95);
+      tl.to(q(".s05-msg"), { x: 90, y: -10, duration: 0.5, ease: "power2.out" }, 3.2);
+      // etiqueta mono
+      const ET = [0.15,1.29,2.92];
+      ET.forEach((t, i) => {
+        const el = q(".s05-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+      // salida
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

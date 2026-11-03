@@ -1,0 +1,1058 @@
+[
+ {
+  "id": 0,
+  "text": "Lo",
+  "start": 0,
+  "end": 0.1
+ },
+ {
+  "id": 1,
+  "text": "que",
+  "start": 0.1,
+  "end": 0.2
+ },
+ {
+  "id": 2,
+  "text": "hacen",
+  "start": 0.2,
+  "end": 0.4
+ },
+ {
+  "id": 3,
+  "text": "las",
+  "start": 0.4,
+  "end": 0.6
+ },
+ {
+  "id": 4,
+  "text": "pymes",
+  "start": 0.6,
+  "end": 0.9
+ },
+ {
+  "id": 5,
+  "text": "que",
+  "start": 0.9,
+  "end": 1
+ },
+ {
+  "id": 6,
+  "text": "crecen",
+  "start": 1,
+  "end": 1.4
+ },
+ {
+  "id": 7,
+  "text": "el",
+  "start": 1.4,
+  "end": 1.5
+ },
+ {
+  "id": 8,
+  "text": "día",
+  "start": 1.5,
+  "end": 1.8
+ },
+ {
+  "id": 9,
+  "text": "después",
+  "start": 1.8,
+  "end": 2
+ },
+ {
+  "id": 10,
+  "text": "de",
+  "start": 2,
+  "end": 2.2
+ },
+ {
+  "id": 11,
+  "text": "mandar",
+  "start": 2.2,
+  "end": 2.5
+ },
+ {
+  "id": 12,
+  "text": "un",
+  "start": 2.5,
+  "end": 2.6
+ },
+ {
+  "id": 13,
+  "text": "presupuesto.",
+  "start": 2.6,
+  "end": 3.2
+ },
+ {
+  "id": 14,
+  "text": "Un",
+  "start": 3.77,
+  "end": 3.8
+ },
+ {
+  "id": 15,
+  "text": "martes,",
+  "start": 3.95,
+  "end": 4.2
+ },
+ {
+  "id": 16,
+  "text": "una",
+  "start": 4.2,
+  "end": 4.6
+ },
+ {
+  "id": 17,
+  "text": "carpintería",
+  "start": 4.6,
+  "end": 5.1
+ },
+ {
+  "id": 18,
+  "text": "manda",
+  "start": 5.1,
+  "end": 5.5
+ },
+ {
+  "id": 19,
+  "text": "el",
+  "start": 5.5,
+  "end": 5.5
+ },
+ {
+  "id": 20,
+  "text": "presupuesto",
+  "start": 5.5,
+  "end": 6.1
+ },
+ {
+  "id": 21,
+  "text": "de",
+  "start": 6.1,
+  "end": 6.2
+ },
+ {
+  "id": 22,
+  "text": "un",
+  "start": 6.2,
+  "end": 6.3
+ },
+ {
+  "id": 23,
+  "text": "placard.",
+  "start": 6.3,
+  "end": 6.6
+ },
+ {
+  "id": 24,
+  "text": "La",
+  "start": 7.118,
+  "end": 7.2
+ },
+ {
+  "id": 25,
+  "text": "clienta",
+  "start": 7.2,
+  "end": 7.4
+ },
+ {
+  "id": 26,
+  "text": "contesta:",
+  "start": 7.4,
+  "end": 8
+ },
+ {
+  "id": 27,
+  "text": "\"Buenísimo,",
+  "start": 8.499,
+  "end": 9
+ },
+ {
+  "id": 28,
+  "text": "lo",
+  "start": 9,
+  "end": 9.3
+ },
+ {
+  "id": 29,
+  "text": "veo",
+  "start": 9.3,
+  "end": 9.5
+ },
+ {
+  "id": 30,
+  "text": "y",
+  "start": 9.5,
+  "end": 9.7
+ },
+ {
+  "id": 31,
+  "text": "te",
+  "start": 9.7,
+  "end": 9.9
+ },
+ {
+  "id": 32,
+  "text": "aviso.\"",
+  "start": 9.9,
+  "end": 10
+ },
+ {
+  "id": 33,
+  "text": "Ahí",
+  "start": 10.726,
+  "end": 10.8
+ },
+ {
+  "id": 34,
+  "text": "empieza",
+  "start": 10.8,
+  "end": 11.3
+ },
+ {
+  "id": 35,
+  "text": "la",
+  "start": 11.3,
+  "end": 11.4
+ },
+ {
+  "id": 36,
+  "text": "parte",
+  "start": 11.4,
+  "end": 11.7
+ },
+ {
+  "id": 37,
+  "text": "que",
+  "start": 11.7,
+  "end": 11.8
+ },
+ {
+  "id": 38,
+  "text": "casi",
+  "start": 11.8,
+  "end": 12.1
+ },
+ {
+  "id": 39,
+  "text": "nadie",
+  "start": 12.1,
+  "end": 12.3
+ },
+ {
+  "id": 40,
+  "text": "mira.",
+  "start": 12.3,
+  "end": 12.6
+ },
+ {
+  "id": 41,
+  "text": "Hábito",
+  "start": 13.07,
+  "end": 13.4
+ },
+ {
+  "id": 42,
+  "text": "uno:",
+  "start": 13.4,
+  "end": 14.077
+ },
+ {
+  "id": 43,
+  "text": "anotan",
+  "start": 14.077,
+  "end": 14.5
+ },
+ {
+  "id": 44,
+  "text": "a",
+  "start": 14.5,
+  "end": 14.6
+ },
+ {
+  "id": 45,
+  "text": "quién",
+  "start": 14.6,
+  "end": 14.9
+ },
+ {
+  "id": 46,
+  "text": "se",
+  "start": 14.9,
+  "end": 15
+ },
+ {
+  "id": 47,
+  "text": "lo",
+  "start": 15,
+  "end": 15.1
+ },
+ {
+  "id": 48,
+  "text": "mandaron",
+  "start": 15.1,
+  "end": 15.5
+ },
+ {
+  "id": 49,
+  "text": "y",
+  "start": 15.5,
+  "end": 15.7
+ },
+ {
+  "id": 50,
+  "text": "cuándo.",
+  "start": 15.7,
+  "end": 16.1
+ },
+ {
+  "id": 51,
+  "text": "En",
+  "start": 16.1,
+  "end": 16.5
+ },
+ {
+  "id": 52,
+  "text": "un",
+  "start": 16.5,
+  "end": 16.7
+ },
+ {
+  "id": 53,
+  "text": "lugar",
+  "start": 16.7,
+  "end": 16.7
+ },
+ {
+  "id": 54,
+  "text": "fijo,",
+  "start": 16.7,
+  "end": 17
+ },
+ {
+  "id": 55,
+  "text": "no",
+  "start": 17.444,
+  "end": 17.6
+ },
+ {
+  "id": 56,
+  "text": "en",
+  "start": 17.6,
+  "end": 17.7
+ },
+ {
+  "id": 57,
+  "text": "un",
+  "start": 17.7,
+  "end": 17.8
+ },
+ {
+  "id": 58,
+  "text": "post-it",
+  "start": 17.8,
+  "end": 18.3
+ },
+ {
+  "id": 59,
+  "text": "que",
+  "start": 18.3,
+  "end": 18.5
+ },
+ {
+  "id": 60,
+  "text": "se",
+  "start": 18.5,
+  "end": 18.6
+ },
+ {
+  "id": 61,
+  "text": "despega.",
+  "start": 18.6,
+  "end": 19.1
+ },
+ {
+  "id": 62,
+  "text": "Hábito",
+  "start": 19.513,
+  "end": 19.8
+ },
+ {
+  "id": 63,
+  "text": "dos:",
+  "start": 19.8,
+  "end": 19.9
+ },
+ {
+  "id": 64,
+  "text": "le",
+  "start": 19.9,
+  "end": 20.5
+ },
+ {
+  "id": 65,
+  "text": "ponen",
+  "start": 20.5,
+  "end": 20.8
+ },
+ {
+  "id": 66,
+  "text": "fecha",
+  "start": 20.8,
+  "end": 21
+ },
+ {
+  "id": 67,
+  "text": "a",
+  "start": 21,
+  "end": 21.2
+ },
+ {
+  "id": 68,
+  "text": "volver",
+  "start": 21.2,
+  "end": 21.6
+ },
+ {
+  "id": 69,
+  "text": "a",
+  "start": 21.6,
+  "end": 21.7
+ },
+ {
+  "id": 70,
+  "text": "escribir.",
+  "start": 21.7,
+  "end": 21.8
+ },
+ {
+  "id": 71,
+  "text": "Y",
+  "start": 22.429,
+  "end": 22.5
+ },
+ {
+  "id": 72,
+  "text": "escriben.",
+  "start": 22.5,
+  "end": 22.9
+ },
+ {
+  "id": 73,
+  "text": "No",
+  "start": 23.331,
+  "end": 23.4
+ },
+ {
+  "id": 74,
+  "text": "un",
+  "start": 23.4,
+  "end": 23.6
+ },
+ {
+  "id": 75,
+  "text": "\"¿y?",
+  "start": 23.6,
+  "end": 23.8
+ },
+ {
+  "id": 76,
+  "text": "¿lo",
+  "start": 23.99,
+  "end": 24.4
+ },
+ {
+  "id": 77,
+  "text": "pensaste?\".",
+  "start": 24.4,
+  "end": 24.8
+ },
+ {
+  "id": 78,
+  "text": "Algo",
+  "start": 25.487,
+  "end": 25.7
+ },
+ {
+  "id": 79,
+  "text": "útil:",
+  "start": 25.7,
+  "end": 26
+ },
+ {
+  "id": 80,
+  "text": "\"¿Lo",
+  "start": 26.427,
+  "end": 26.5
+ },
+ {
+  "id": 81,
+  "text": "querés",
+  "start": 26.5,
+  "end": 26.7
+ },
+ {
+  "id": 82,
+  "text": "con",
+  "start": 26.7,
+  "end": 26.9
+ },
+ {
+  "id": 83,
+  "text": "puertas",
+  "start": 26.9,
+  "end": 27.2
+ },
+ {
+  "id": 84,
+  "text": "corredizas?\"",
+  "start": 27.2,
+  "end": 27.5
+ },
+ {
+  "id": 85,
+  "text": "Hábito",
+  "start": 28.341,
+  "end": 28.6
+ },
+ {
+  "id": 86,
+  "text": "tres:",
+  "start": 28.6,
+  "end": 29.27
+ },
+ {
+  "id": 87,
+  "text": "si",
+  "start": 29.27,
+  "end": 29.4
+ },
+ {
+  "id": 88,
+  "text": "la",
+  "start": 29.4,
+  "end": 29.4
+ },
+ {
+  "id": 89,
+  "text": "respuesta",
+  "start": 29.4,
+  "end": 29.7
+ },
+ {
+  "id": 90,
+  "text": "es",
+  "start": 29.7,
+  "end": 30
+ },
+ {
+  "id": 91,
+  "text": "no,",
+  "start": 30,
+  "end": 30
+ },
+ {
+  "id": 92,
+  "text": "preguntan",
+  "start": 30.589,
+  "end": 30.9
+ },
+ {
+  "id": 93,
+  "text": "por",
+  "start": 30.9,
+  "end": 31.05
+ },
+ {
+  "id": 94,
+  "text": "qué.",
+  "start": 31.05,
+  "end": 31.2
+ },
+ {
+  "id": 95,
+  "text": "Y",
+  "start": 31.2,
+  "end": 31.8
+ },
+ {
+  "id": 96,
+  "text": "lo",
+  "start": 31.8,
+  "end": 32
+ },
+ {
+  "id": 97,
+  "text": "anotan.",
+  "start": 32,
+  "end": 32.3
+ },
+ {
+  "id": 98,
+  "text": "Precio,",
+  "start": 32.862,
+  "end": 33.2
+ },
+ {
+  "id": 99,
+  "text": "plazo,",
+  "start": 33.2,
+  "end": 33.7
+ },
+ {
+  "id": 100,
+  "text": "madera:",
+  "start": 33.7,
+  "end": 34.1
+ },
+ {
+  "id": 101,
+  "text": "así",
+  "start": 34.401,
+  "end": 34.6
+ },
+ {
+  "id": 102,
+  "text": "el",
+  "start": 34.6,
+  "end": 34.7
+ },
+ {
+  "id": 103,
+  "text": "próximo",
+  "start": 34.7,
+  "end": 35.1
+ },
+ {
+  "id": 104,
+  "text": "presupuesto",
+  "start": 35.1,
+  "end": 35.6
+ },
+ {
+  "id": 105,
+  "text": "sale",
+  "start": 35.6,
+  "end": 35.9
+ },
+ {
+  "id": 106,
+  "text": "mejor.",
+  "start": 35.9,
+  "end": 36.3
+ },
+ {
+  "id": 107,
+  "text": "Si",
+  "start": 36.926,
+  "end": 37
+ },
+ {
+  "id": 108,
+  "text": "alguna",
+  "start": 37,
+  "end": 37.3
+ },
+ {
+  "id": 109,
+  "text": "vez",
+  "start": 37.3,
+  "end": 37.4
+ },
+ {
+  "id": 110,
+  "text": "se",
+  "start": 37.4,
+  "end": 37.6
+ },
+ {
+  "id": 111,
+  "text": "te",
+  "start": 37.6,
+  "end": 37.6
+ },
+ {
+  "id": 112,
+  "text": "pasó,",
+  "start": 37.6,
+  "end": 37.9
+ },
+ {
+  "id": 113,
+  "text": "tranquilo:",
+  "start": 37.9,
+  "end": 38.7
+ },
+ {
+  "id": 114,
+  "text": "oficio",
+  "start": 39.168,
+  "end": 39.5
+ },
+ {
+  "id": 115,
+  "text": "de",
+  "start": 39.5,
+  "end": 39.6
+ },
+ {
+  "id": 116,
+  "text": "vendedor",
+  "start": 39.6,
+  "end": 40
+ },
+ {
+  "id": 117,
+  "text": "tenés.",
+  "start": 40,
+  "end": 40.2
+ },
+ {
+  "id": 118,
+  "text": "Lo",
+  "start": 40.826,
+  "end": 40.9
+ },
+ {
+  "id": 119,
+  "text": "que",
+  "start": 40.9,
+  "end": 41
+ },
+ {
+  "id": 120,
+  "text": "le",
+  "start": 41,
+  "end": 41.1
+ },
+ {
+  "id": 121,
+  "text": "falta",
+  "start": 41.1,
+  "end": 41.4
+ },
+ {
+  "id": 122,
+  "text": "al",
+  "start": 41.4,
+  "end": 41.5
+ },
+ {
+  "id": 123,
+  "text": "seguimiento",
+  "start": 41.5,
+  "end": 41.8
+ },
+ {
+  "id": 124,
+  "text": "es",
+  "start": 41.8,
+  "end": 42.2
+ },
+ {
+  "id": 125,
+  "text": "un",
+  "start": 42.2,
+  "end": 42.4
+ },
+ {
+  "id": 126,
+  "text": "lugar",
+  "start": 42.4,
+  "end": 42.7
+ },
+ {
+  "id": 127,
+  "text": "donde",
+  "start": 42.7,
+  "end": 42.9
+ },
+ {
+  "id": 128,
+  "text": "vivir.",
+  "start": 42.9,
+  "end": 43
+ },
+ {
+  "id": 129,
+  "text": "En",
+  "start": 43.66,
+  "end": 43.72
+ },
+ {
+  "id": 130,
+  "text": "Scalerics",
+  "start": 43.86,
+  "end": 44.2
+ },
+ {
+  "id": 131,
+  "text": "armamos",
+  "start": 44.2,
+  "end": 44.8
+ },
+ {
+  "id": 132,
+  "text": "ese",
+  "start": 44.8,
+  "end": 45
+ },
+ {
+  "id": 133,
+  "text": "lugar:",
+  "start": 45,
+  "end": 45.3
+ },
+ {
+  "id": 134,
+  "text": "un",
+  "start": 45.817,
+  "end": 45.9
+ },
+ {
+  "id": 135,
+  "text": "CRM",
+  "start": 45.9,
+  "end": 46.4
+ },
+ {
+  "id": 136,
+  "text": "a",
+  "start": 46.4,
+  "end": 46.6
+ },
+ {
+  "id": 137,
+  "text": "medida.",
+  "start": 46.6,
+  "end": 47
+ },
+ {
+  "id": 138,
+  "text": "Cada",
+  "start": 47.543,
+  "end": 47.7
+ },
+ {
+  "id": 139,
+  "text": "presupuesto",
+  "start": 47.7,
+  "end": 48
+ },
+ {
+  "id": 140,
+  "text": "con",
+  "start": 48,
+  "end": 48.4
+ },
+ {
+  "id": 141,
+  "text": "su",
+  "start": 48.4,
+  "end": 48.5
+ },
+ {
+  "id": 142,
+  "text": "fecha",
+  "start": 48.5,
+  "end": 48.7
+ },
+ {
+  "id": 143,
+  "text": "y",
+  "start": 48.7,
+  "end": 48.8
+ },
+ {
+  "id": 144,
+  "text": "su",
+  "start": 48.8,
+  "end": 48.9
+ },
+ {
+  "id": 145,
+  "text": "respuesta,",
+  "start": 48.9,
+  "end": 49.2
+ },
+ {
+  "id": 146,
+  "text": "y",
+  "start": 49.808,
+  "end": 49.9
+ },
+ {
+  "id": 147,
+  "text": "cada",
+  "start": 49.9,
+  "end": 50.1
+ },
+ {
+  "id": 148,
+  "text": "mañana",
+  "start": 50,
+  "end": 50.5
+ },
+ {
+  "id": 149,
+  "text": "te",
+  "start": 50.5,
+  "end": 50.6
+ },
+ {
+  "id": 150,
+  "text": "avisa",
+  "start": 50.6,
+  "end": 50.9
+ },
+ {
+  "id": 151,
+  "text": "a",
+  "start": 50.9,
+  "end": 51
+ },
+ {
+  "id": 152,
+  "text": "quién",
+  "start": 51,
+  "end": 51.2
+ },
+ {
+  "id": 153,
+  "text": "escribirle.",
+  "start": 51.2,
+  "end": 51.8
+ },
+ {
+  "id": 154,
+  "text": "Y",
+  "start": 52.074,
+  "end": 52.3
+ },
+ {
+  "id": 155,
+  "text": "el",
+  "start": 52.3,
+  "end": 52.4
+ },
+ {
+  "id": 156,
+  "text": "placard",
+  "start": 52.4,
+  "end": 52.7
+ },
+ {
+  "id": 157,
+  "text": "del",
+  "start": 52.7,
+  "end": 52.9
+ },
+ {
+  "id": 158,
+  "text": "martes",
+  "start": 52.9,
+  "end": 53.2
+ },
+ {
+  "id": 159,
+  "text": "no",
+  "start": 53.558,
+  "end": 53.7
+ },
+ {
+  "id": 160,
+  "text": "queda",
+  "start": 53.7,
+  "end": 53.9
+ },
+ {
+  "id": 161,
+  "text": "en",
+  "start": 53.9,
+  "end": 53.9
+ },
+ {
+  "id": 162,
+  "text": "el",
+  "start": 53.9,
+  "end": 54
+ },
+ {
+  "id": 163,
+  "text": "aire.",
+  "start": 54,
+  "end": 54.1
+ },
+ {
+  "id": 164,
+  "text": "Mandáselo",
+  "start": 54.753,
+  "end": 55.2
+ },
+ {
+  "id": 165,
+  "text": "a",
+  "start": 55.2,
+  "end": 55.2
+ },
+ {
+  "id": 166,
+  "text": "tu",
+  "start": 55.2,
+  "end": 55.3
+ },
+ {
+  "id": 167,
+  "text": "socio.",
+  "start": 55.3,
+  "end": 55.7
+ },
+ {
+  "id": 168,
+  "text": "Al",
+  "start": 56.119,
+  "end": 56.2
+ },
+ {
+  "id": 169,
+  "text": "que",
+  "start": 56.2,
+  "end": 56.3
+ },
+ {
+  "id": 170,
+  "text": "siempre",
+  "start": 56.3,
+  "end": 56.6
+ },
+ {
+  "id": 171,
+  "text": "dice:",
+  "start": 56.6,
+  "end": 56.9
+ },
+ {
+  "id": 172,
+  "text": "\"ya",
+  "start": 57.223,
+  "end": 57.3
+ },
+ {
+  "id": 173,
+  "text": "van",
+  "start": 57.3,
+  "end": 57.5
+ },
+ {
+  "id": 174,
+  "text": "a",
+  "start": 57.5,
+  "end": 57.6
+ },
+ {
+  "id": 175,
+  "text": "llamar\".",
+  "start": 57.6,
+  "end": 57.8
+ }
+]

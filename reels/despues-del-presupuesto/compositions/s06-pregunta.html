@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-pregunta"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-pregunta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-pregunta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-pregunta"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s06-pregunta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-pregunta"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-pregunta"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s06-pregunta"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s06-pregunta"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s06-pregunta"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s06-pregunta"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s06-pregunta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s06-pregunta"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #5ce611; }
+    [data-composition-id="s06-pregunta"] .num { font-family: "Lexend", sans-serif; font-weight: 800; fill: #5ce611; }
+    [data-composition-id="s06-pregunta"] .apagado { opacity: 0.42; }
+    [data-composition-id="s06-pregunta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-pregunta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s06-pregunta" data-width="1080" data-height="1920" data-duration="5.01">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="5.01" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s06-a"><g class="s06-a-in">
+          <rect class="ln" x="250" y="625" width="520" height="116" rx="32" />
+          <path class="ln" d="M300 741 L285 775 L330 741" />
+          <text class="lex" x="510" y="698" text-anchor="middle" font-size="42">¿Y? ¿Lo pensaste?</text>
+          <line class="ln-rojo s06-tacha" x1="280" y1="684" x2="740" y2="684" />
+        </g></g>
+        <g class="s06-b"><g class="s06-b-in">
+          <rect class="ln-ac" x="230" y="800" width="620" height="150" rx="32" />
+          <path class="ln-ac" d="M800 950 L815 985 L770 950" />
+          <text class="lex s06-bt1" x="540" y="864" text-anchor="middle" font-size="40">¿Lo querés con</text>
+          <text class="lex-ac s06-bt2" x="540" y="914" text-anchor="middle" font-size="40">puertas corredizas?</text>
+        </g></g>
+        <g class="s06-pl"><g transform="translate(540 1125) scale(0.5)">
+          <rect class="ln" x="-140" y="-200" width="280" height="400" rx="10" />
+          <line class="ln" x1="-140" y1="160" x2="140" y2="160" />
+          <g class="s06-puerta"><rect class="ln" x="-132" y="-190" width="132" height="345" rx="6" /><line class="ln" x1="-20" y1="-30" x2="-20" y2="20" /></g>
+          <rect class="ln" x="0" y="-190" width="132" height="345" rx="6" /><line class="ln" x1="20" y1="-30" x2="20" y2="20" />
+        </g></g>
+        <g class="s06-flechas">
+          <path class="ln-ac s06-fl" d="M420 1130 H350 M366 1114 L350 1130 L366 1146" />
+          <path class="ln-ac s06-fl" d="M660 1130 H730 M714 1114 L730 1130 L714 1146" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">Así no</span><span class="s06-e2">Una pregunta útil</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-pregunta";
+      const DUR = 5.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { opacity: 1, clipPath: "inset(-20% 100% -20% 0)" }, { opacity: 1, clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+
+
+      tl.fromTo(q(".s06-a"), { opacity: 0, scale: 0.85, svgOrigin: "510 683" }, { opacity: 0.5, scale: 1, svgOrigin: "510 683", duration: 0.35, ease: "back.out(1.6)" }, 0.2);
+      dibujar(q(".s06-tacha"), 1.07, 0.35);
+      tl.to(q(".s06-a-in"), { x: 8, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, 1.1);
+      tl.to(q(".s06-a"), { opacity: 0.22, duration: 0.4 }, 1.6);
+      // la pregunta útil
+      tl.fromTo(q(".s06-b"), { opacity: 0, scale: 0.85, svgOrigin: "540 875" }, { opacity: 1, scale: 1, svgOrigin: "540 875", duration: 0.35, ease: "back.out(1.6)" }, 2.3);
+      gsap.set(qa(".s06-bt1, .s06-bt2"), { opacity: 0 });
+      escribir(q(".s06-bt1"), 3.05, 0.4);
+      escribir(q(".s06-bt2"), 3.5, 0.5);
+      tl.fromTo(q(".s06-pl"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 2.5);
+      // "corredizas": la puerta se desliza
+      tl.to(q(".s06-puerta"), { x: 120, duration: 0.5, ease: "power2.inOut", yoyo: true, repeat: 1, repeatDelay: 0.2 }, 3.87);
+      dibujar(qa(".s06-fl"), 3.85, 0.3, 1, 0.05);
+      // etiqueta mono
+      const ET = [0.27,2.37];
+      ET.forEach((t, i) => {
+        const el = q(".s06-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+      // salida
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

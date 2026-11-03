@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s12-cta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s12-cta"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s12-cta"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .num { font-family: "Lexend", sans-serif; font-weight: 800; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .apagado { opacity: 0.42; }
+    [data-composition-id="s12-cta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s12-cta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+[data-composition-id="s12-cta"] .s12-marca { font-family: "Lexend", sans-serif; font-weight: 700; fill: #ffffff; }
+    [data-composition-id="s12-cta"] .s12-pill { font-family: "Lexend", sans-serif; font-weight: 600; fill: #07111f; }
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="6.65">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="6.65" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s12-top">
+          <text class="s12-marca" x="540" y="700" text-anchor="middle" font-size="100">Scalerics</text>
+          <text class="mono" x="540" y="762" text-anchor="middle" font-size="26" opacity="0.75">CRM A MEDIDA PARA PYMES</text>
+        </g>
+        <g class="s12-socio"><g class="s12-socio-in">
+          <circle class="ln s12-s" cx="380" cy="985" r="58" />
+          <path class="ln s12-s" d="M330 965 Q 340 925 380 925 Q 420 925 432 965" />
+          <circle class="relleno-crema s12-ojo" cx="360" cy="985" r="5" /><circle class="relleno-crema s12-ojo" cx="400" cy="985" r="5" />
+          <path class="ln s12-s" d="M364 1012 Q 380 1020 396 1012" />
+          <path class="ln s12-s" d="M250 1180 Q 250 1070 380 1070 Q 510 1070 510 1180" />
+        </g></g>
+        <g class="s12-globo"><g class="s12-globo-in">
+          <rect class="ln" x="520" y="860" width="400" height="104" rx="30" />
+          <path class="ln" d="M560 964 L540 1000 L600 964" />
+          <text class="lex" x="720" y="926" text-anchor="middle" font-size="36">Ya van a llamar.</text>
+        </g></g>
+        <g class="s12-rel"><circle class="ln-ac" cx="880" cy="1060" r="40" /><line class="ln-ac s12-aguja" x1="880" y1="1060" x2="880" y2="1032" /><line class="ln-ac" x1="880" y1="1060" x2="900" y2="1060" /></g>
+        <g class="s12-p">
+          <rect class="relleno-crema" x="270" y="1212" width="540" height="82" rx="41" />
+          <text class="s12-pill" x="540" y="1266" text-anchor="middle" font-size="36">Mandáselo a tu socio</text>
+        </g>
+      </svg>
+      
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 6.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { opacity: 1, clipPath: "inset(-20% 100% -20% 0)" }, { opacity: 1, clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+
+
+      tl.fromTo(q(".s12-top"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s12-p"), { opacity: 0, scale: 0.8, svgOrigin: "540 1253" }, { opacity: 1, scale: 1, svgOrigin: "540 1253", duration: 0.4, ease: "back.out(1.8)" }, 0.05);
+      dibujar(qa(".s12-s"), 0.9, 0.5, 1, 0.06);
+      tl.fromTo(qa(".s12-ojo"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 1.2);
+      tl.fromTo(q(".s12-globo"), { opacity: 0, scale: 0.8, svgOrigin: "560 964" }, { opacity: 0.6, scale: 1, svgOrigin: "560 964", duration: 0.35, ease: "back.out(1.6)" }, 2.42);
+      tl.to(q(".s12-socio-in"), { rotation: 3, svgOrigin: "380 1180", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 2.5);
+      tl.fromTo(q(".s12-rel"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 2.85);
+      tl.fromTo(q(".s12-aguja"), { rotation: 0, svgOrigin: "880 1060" }, { rotation: 720, svgOrigin: "880 1060", duration: 3.2, ease: "power1.inOut" }, 2.9);
+      [4.0, 5.4].forEach((t) => tl.to(q(".s12-p"), { scale: 1.06, svgOrigin: "540 1253", duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, t));
+      // etiqueta mono
+      const ET = [];
+      ET.forEach((t, i) => {
+        const el = q(".s12-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
