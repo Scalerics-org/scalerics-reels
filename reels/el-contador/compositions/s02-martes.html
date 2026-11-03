@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-martes"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-martes"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-martes"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-martes"] .ln-ap { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-martes"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-martes"] .ln-rojo { fill: none; stroke: #c7655b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-martes"] .rel-ac { fill: #5ce611; }
+    [data-composition-id="s02-martes"] .rel-cr { fill: #efeee5; }
+    [data-composition-id="s02-martes"] .tx { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s02-martes"] .tx-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s02-martes"] .tx-rojo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #c7655b; }
+    [data-composition-id="s02-martes"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s02-martes"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s02-martes"] .mono-rojo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #c7655b; }
+    [data-composition-id="s02-martes"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-martes"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s02-martes"] .etiqueta .man { color: #c7655b; }
+
+  </style>
+  <div id="root" data-composition-id="s02-martes" data-width="1080" data-height="1920" data-duration="2.35">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="2.35" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s02-cal">
+        <rect class="ln s02-d1" x="110" y="860" width="260" height="300" rx="22" />
+        <path class="ln s02-d1" d="M110 940 H370" />
+        <path class="ln s02-d1" d="M170 836 V884 M310 836 V884" />
+        <text class="mono-ac s02-t1" x="240" y="915" text-anchor="middle">MARTES</text>
+        <path class="ln-ap s02-d1" d="M150 990 H330 M150 1040 H330 M150 1090 H280" />
+        </g>
+        <g class="s02-dep">
+        <path class="ln s02-d2" d="M570 1220 V960 L770 850 L970 960 V1220" />
+        <rect class="ln s02-d2" x="650" y="1040" width="240" height="180" rx="6" />
+        <path class="ln-ap s02-d2" d="M650 1080 H890 M650 1120 H890 M650 1160 H890" />
+        <rect class="ln s02-d2" x="675" y="958" width="190" height="46" rx="8" />
+        <text class="mono s02-t2" x="770" y="990" text-anchor="middle" style="font-size:28px">DEPÓSITO</text>
+        </g>
+        <g class="s02-cajas">
+        <rect class="ln s02-caja" x="400" y="1150" width="70" height="70" rx="4" />
+        <rect class="ln s02-caja" x="470" y="1150" width="70" height="70" rx="4" />
+        <rect class="ln s02-caja" x="435" y="1080" width="70" height="70" rx="4" />
+        </g>
+        <line class="ln s02-d1" x1="90" y1="1220" x2="990" y2="1220" />
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Un martes cualquiera</span><span class="s02-e2">Una distribuidora</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-martes";
+      const DUR = 2.35;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.03);
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      const centro = (el) => { const b = el.getBBox(); return (b.x + b.width / 2) + " " + (b.y + b.height / 2); };
+      // aparece entero con golpe
+      const pop = (els, t, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const o = centro(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t + i * (paso ?? 0.08));
+        });
+      };
+      const latir = (el, t, s) => { const o = centro(el); tl.to(el, { scale: s ?? 1.08, svgOrigin: o, duration: 0.13, yoyo: true, repeat: 1, ease: "power2.out" }, t); };
+      // etiqueta: muestra la i (1..n) en t y saca la anterior
+      let etAnt = null;
+      const etq = (i, t) => {
+        const el = q(".s02-e" + i);
+        if (etAnt) tl.to(etAnt, { opacity: 0, duration: 0.2 }, t - 0.2);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etAnt = el;
+      };
+
+      dibujar(qa(".s02-d1"), 0, 0.5, 0.4);
+      pop(q(".s02-t1"), 0.1);
+      latir(q(".s02-cal"), 0.5, 1.05);
+      etq(1, 0.15);
+      dibujar(qa(".s02-d2"), 0.8, 0.55);
+      pop(q(".s02-t2"), 1.3);
+      pop(qa(".s02-caja"), 1.3, 0.12);
+      etq(2, 1.25);
+      tl.to(q(".s02-cal"), { y: -6, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.0);
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

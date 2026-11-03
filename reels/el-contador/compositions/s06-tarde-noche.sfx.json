@@ -1,0 +1,9 @@
+[
+  {"t":0.86,"sfx":"notification","vol":0.2},
+  {"t":1.15,"sfx":"notification","vol":0.2},
+  {"t":1.45,"sfx":"notification","vol":0.2},
+  {"t":1.75,"sfx":"notification","vol":0.2},
+  {"t":3.3,"sfx":"sparkle","vol":0.18},
+  {"t":4.3,"sfx":"whoosh-short","vol":0.2},
+  {"t":4.65,"sfx":"typing","vol":0.2,"max":1}
+]

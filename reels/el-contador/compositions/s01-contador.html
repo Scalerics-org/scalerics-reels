@@ -1,0 +1,109 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-contador"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-contador"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-contador"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-contador"] .ln-ap { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-contador"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-contador"] .ln-rojo { fill: none; stroke: #c7655b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-contador"] .relleno { fill: #efeee5; }
+    [data-composition-id="s01-contador"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-contador"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s01-contador"] .s01-man { color: #c7655b; }
+  </style>
+  <div id="root" data-composition-id="s01-contador" data-width="1080" data-height="1920" data-duration="4.95">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.95" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- mesa -->
+        <line class="ln s01-dib" x1="120" y1="1220" x2="960" y2="1220" />
+        <!-- celular (izquierda) -->
+        <g class="s01-cel">
+          <rect class="ln s01-dib" x="150" y="1040" width="110" height="180" rx="20" />
+          <path class="ln s01-dib" d="M190 1058 H220" />
+          <rect class="ln-ap s01-dib" x="168" y="1084" width="62" height="26" rx="10" />
+          <rect class="ln-ap s01-dib" x="180" y="1124" width="62" height="26" rx="10" />
+        </g>
+        <!-- planilla (derecha) -->
+        <g class="s01-pla">
+          <rect class="ln s01-dib" x="800" y="1040" width="140" height="180" rx="10" />
+          <path class="ln-ap s01-dib" d="M800 1080 H940 M800 1115 H940 M800 1150 H940 M800 1185 H940 M847 1040 V1220 M893 1040 V1220" />
+        </g>
+        <!-- Sofía en el medio, con la notebook -->
+        <g class="s01-per">
+          <circle class="ln s01-dib" cx="540" cy="1066" r="24" />
+          <path class="ln s01-dib" d="M516 1064 Q514 1034 540 1036 Q566 1034 564 1064" />
+          <path class="ln s01-dib" d="M562 1056 Q586 1066 578 1094" />
+          <path class="ln s01-dib" d="M492 1160 Q494 1104 540 1100 Q586 1104 588 1160" />
+          <path class="ln s01-dib" d="M470 1220 L486 1160 H594 L610 1220" />
+        </g>
+        <!-- el dato que va y viene -->
+        <g class="s01-dato">
+          <rect class="ln-rojo" x="-34" y="-22" width="68" height="44" rx="8" />
+          <path class="ln-rojo" d="M-20 -6 H20 M-20 8 H8" />
+        </g>
+        <path class="ln-ap s01-arco" d="M280 1060 Q540 930 780 1060" />
+        <path class="ln-ap s01-arco2" d="M780 1110 Q540 1000 280 1110" />
+      </svg>
+      <div class="etiqueta"><span class="s01-e1 s01-man">Copiar · pegar</span><span class="s01-e2 s01-man">De un lado a otro</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-contador";
+      const DUR = 4.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const EQUIPO = 2.0;
+      const COPIANDO = 2.7;
+      const LADO = 3.7;
+
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.03);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.03);
+        });
+      };
+
+      // arranca medio dibujado (cuadro 0 con dibujo)
+      dibujar(qa(".s01-dib"), 0, 0.7, 0.5);
+      // "equipo": Sofía hace un saludito
+      tl.fromTo(q(".s01-per"), { y: 0 }, { y: -8, duration: 0.16, yoyo: true, repeat: 1, ease: "power2.out" }, EQUIPO);
+
+      // el dato va y viene entre el celular y la planilla, cada vez más rápido
+      const dato = q(".s01-dato");
+      gsap.set(dato, { x: 215, y: 1100, opacity: 0 });
+      tl.to(dato, { opacity: 1, duration: 0.15 }, 1.0);
+      const viajes = [[1.0, 0.7], [1.75, 0.6], [2.4, 0.5], [2.95, 0.42], [3.42, 0.36], [3.82, 0.32], [4.18, 0.3]];
+      viajes.forEach(([t, d], i) => {
+        const ida = i % 2 === 0;
+        tl.to(dato, { x: ida ? 870 : 215, duration: d, ease: "power1.inOut" }, t);
+        tl.to(dato, { y: 1000, duration: d / 2, ease: "sine.out", yoyo: true, repeat: 1 }, t);
+        tl.to(q(".s01-per"), { rotation: ida ? 4 : -4, svgOrigin: "540 1220", duration: d * 0.6, ease: "sine.inOut" }, t);
+      });
+      dibujar([q(".s01-arco")], COPIANDO - 0.1, 0.5);
+      dibujar([q(".s01-arco2")], LADO - 0.2, 0.5);
+      // la planilla y el celular laten cuando llega el dato
+      tl.to(q(".s01-pla"), { scale: 1.06, svgOrigin: "870 1130", duration: 0.12, yoyo: true, repeat: 1 }, 1.7);
+      tl.to(q(".s01-cel"), { scale: 1.06, svgOrigin: "205 1130", duration: 0.12, yoyo: true, repeat: 1 }, 2.35);
+
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, COPIANDO);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, LADO - 0.2);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, LADO);
+
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

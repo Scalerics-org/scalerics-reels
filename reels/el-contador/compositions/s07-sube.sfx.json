@@ -1,0 +1,6 @@
+[
+  {"t":1.87,"sfx":"chime","vol":0.22},
+  {"t":2.9,"sfx":"click","vol":0.2},
+  {"t":3.3,"sfx":"click","vol":0.2},
+  {"t":3.67,"sfx":"glitch-1","vol":0.18,"max":0.4}
+]

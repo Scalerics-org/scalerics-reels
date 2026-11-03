@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-automatico"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-automatico"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-automatico"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-automatico"] .ln-ap { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-automatico"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-automatico"] .ln-rojo { fill: none; stroke: #c7655b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-automatico"] .rel-ac { fill: #5ce611; }
+    [data-composition-id="s08-automatico"] .rel-cr { fill: #efeee5; }
+    [data-composition-id="s08-automatico"] .tx { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s08-automatico"] .tx-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s08-automatico"] .tx-rojo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #c7655b; }
+    [data-composition-id="s08-automatico"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s08-automatico"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s08-automatico"] .mono-rojo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #c7655b; }
+    [data-composition-id="s08-automatico"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-automatico"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s08-automatico"] .etiqueta .man { color: #c7655b; }
+
+  </style>
+  <div id="root" data-composition-id="s08-automatico" data-width="1080" data-height="1920" data-duration="7.04">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="7.04" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s08-cal">
+        <rect class="ln s08-d1" x="330" y="860" width="260" height="240" rx="22" />
+        <path class="ln s08-d1" d="M330 940 H590 M390 836 V884 M530 836 V884" />
+        <text class="mono-ac s08-t1" x="460" y="915" text-anchor="middle">MARTES</text>
+        <path class="ln-ap s08-d1" d="M370 990 H550 M370 1040 H500" />
+        <g class="s08-eng"><path class="ln-ac" d="M705 990 L725 996 L735 976 L755 990 L748 1010 L768 1020 L762 1040 L742 1040 L738 1062 L716 1062 L710 1042 L690 1038 L686 1018 L702 1008 Z" /><circle class="ln-ac" cx="727" cy="1019" r="16" /></g>
+        </g>
+        <rect class="ln s08-d2" x="100" y="960" width="150" height="250" rx="26" />
+        <path class="ln s08-d2" d="M150 984 H200" />
+        <rect class="ln-ap s08-d2" x="118" y="1020" width="110" height="46" rx="12" />
+        <rect class="ln s08-d2" x="460" y="980" width="160" height="230" rx="10" />
+        <path class="ln-ap s08-d2" d="M460 1030 H620 M460 1080 H620 M460 1130 H620 M520 980 V1210" />
+        <rect class="ln s08-d2" x="800" y="980" width="180" height="150" rx="14" />
+        <path class="ln s08-d2" d="M890 1130 V1180 M840 1200 H940" />
+        <text class="mono s08-d3" x="175" y="1242" text-anchor="middle" style="font-size:28px">WHATSAPP</text>
+        <text class="mono s08-d3" x="540" y="1242" text-anchor="middle" style="font-size:28px">PLANILLA</text>
+        <text class="mono s08-d3" x="890" y="1242" text-anchor="middle" style="font-size:28px">FACTURA</text>
+        <path class="ln-ac s08-f1" d="M262 1060 H448" />
+        <path class="ln-ac s08-f2" d="M632 1060 H788" />
+        <g class="s08-fila"><rect class="rel-ac" x="530" y="1040" width="80" height="30" rx="6" /><rect class="rel-ac" x="470" y="1040" width="40" height="30" rx="6" /></g>
+        <path class="ln-ac s08-fac" d="M820 1020 H960 M820 1055 H930 M820 1090 H950" />
+        <g class="s08-dato"><rect class="ln-ac" x="-36" y="-24" width="72" height="48" rx="9" /><path class="ln-ac" d="M-20 -6 H20 M-20 8 H8" /></g>
+        <g class="s08-ok1"><circle class="ln-ac" cx="610" cy="975" r="22" /><path class="ln-ac" d="M600 975 L608 983 L621 967" /></g>
+        <g class="s08-ok2"><circle class="ln-ac" cx="975" cy="975" r="22" /><path class="ln-ac" d="M965 975 L973 983 L986 967" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">El mismo martes</span><span class="s08-e2">Con automatizaciones</span><span class="s08-e3">Se pasa solo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-automatico";
+      const DUR = 7.04;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.03);
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      const centro = (el) => { const b = el.getBBox(); return (b.x + b.width / 2) + " " + (b.y + b.height / 2); };
+      // aparece entero con golpe
+      const pop = (els, t, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const o = centro(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t + i * (paso ?? 0.08));
+        });
+      };
+      const latir = (el, t, s) => { const o = centro(el); tl.to(el, { scale: s ?? 1.08, svgOrigin: o, duration: 0.13, yoyo: true, repeat: 1, ease: "power2.out" }, t); };
+      // etiqueta: muestra la i (1..n) en t y saca la anterior
+      let etAnt = null;
+      const etq = (i, t) => {
+        const el = q(".s08-e" + i);
+        if (etAnt) tl.to(etAnt, { opacity: 0, duration: 0.2 }, t - 0.2);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etAnt = el;
+      };
+
+      dibujar(qa(".s08-d1"), 0, 0.5, 0.45);
+      pop(q(".s08-t1"), 0.45);
+      etq(1, 0.5);
+      tl.to(q(".s08-cal"), { x: 70, duration: 0.5, ease: "power3.out" }, 1.4);
+      pop(q(".s08-eng"), 1.74);
+      tl.to(q(".s08-eng"), { rotation: 180, svgOrigin: "727 1019", duration: 1.3, ease: "power1.out" }, 1.74);
+      etq(2, 1.74);
+      tl.to(q(".s08-cal"), { opacity: 0, y: -30, duration: 0.35, ease: "power2.in" }, 2.85);
+      dibujar(qa(".s08-d2"), 3.0, 0.5, 1, 0.02);
+      pop(qa(".s08-d3"), 3.2, 0.06);
+      dibujar([q(".s08-f1")], 3.64, 0.5);
+      const d = q(".s08-dato");
+      gsap.set(d, { x: 175, y: 1043, opacity: 0 });
+      tl.to(d, { opacity: 1, duration: 0.12 }, 3.64);
+      tl.to(d, { x: 540, duration: 1.0, ease: "power2.inOut" }, 3.94);
+      tl.to(d, { opacity: 0, duration: 0.12 }, 5.0);
+      pop(q(".s08-fila"), 5.0);
+      pop(q(".s08-ok1"), 5.14);
+      etq(3, 3.94);
+      dibujar([q(".s08-f2")], 5.4, 0.4);
+      tl.set(d, { x: 540 }, 5.4);
+      tl.to(d, { opacity: 1, duration: 0.1 }, 5.45);
+      tl.to(d, { x: 890, duration: 0.6, ease: "power2.inOut" }, 5.45);
+      tl.to(d, { opacity: 0, duration: 0.12 }, 6.05);
+      dibujar([q(".s08-fac")], 6.05, 0.35);
+      pop(q(".s08-ok2"), 6.14);
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

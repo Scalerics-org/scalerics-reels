@@ -1,0 +1,116 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-planilla"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-planilla"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-planilla"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-planilla"] .ln-ap { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-planilla"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-planilla"] .ln-rojo { fill: none; stroke: #c7655b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-planilla"] .rel-ac { fill: #5ce611; }
+    [data-composition-id="s03-planilla"] .rel-cr { fill: #efeee5; }
+    [data-composition-id="s03-planilla"] .tx { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s03-planilla"] .tx-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s03-planilla"] .tx-rojo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #c7655b; }
+    [data-composition-id="s03-planilla"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s03-planilla"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s03-planilla"] .mono-rojo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #c7655b; }
+    [data-composition-id="s03-planilla"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-planilla"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s03-planilla"] .etiqueta .man { color: #c7655b; }
+
+  </style>
+  <div id="root" data-composition-id="s03-planilla" data-width="1080" data-height="1920" data-duration="3.19">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.19" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect class="ln s03-d" x="120" y="830" width="240" height="400" rx="40" />
+        <path class="ln s03-d" d="M205 862 H275" />
+        <g class="s03-msj">
+        <rect class="ln" x="146" y="920" width="190" height="100" rx="18" />
+        <text class="tx" x="166" y="962">4 cajas</text>
+        <text class="tx" x="166" y="998">de agua</text>
+        </g>
+        <text class="mono s03-wa" x="240" y="1190" text-anchor="middle" style="font-size:28px">WHATSAPP</text>
+        <g transform="translate(540 1220) scale(0.9)"><g class="s03-sofia">
+        <circle class="ln" cx="0" cy="-130" r="24" />
+        <path class="ln" d="M-24 -132 Q-26 -162 0 -160 Q26 -162 24 -132" />
+        <path class="ln" d="M22 -140 Q46 -130 38 -104" />
+        <path class="ln" d="M-48 0 Q-48 -96 0 -100 Q48 -96 48 0" />
+        </g></g>
+        <line class="ln s03-d" x1="440" y1="1220" x2="640" y2="1220" />
+        <rect class="ln s03-d" x="690" y="860" width="270" height="360" rx="12" />
+        <path class="ln-ap s03-d" d="M690 920 H960 M690 980 H960 M690 1040 H960 M690 1100 H960 M690 1160 H960 M780 860 V1220" />
+        <text class="mono s03-pl" x="825" y="900" text-anchor="middle" style="font-size:28px">PLANILLA</text>
+        <g class="s03-fila"><text class="tx-rojo" x="704" y="1020">4</text><text class="tx-rojo" x="796" y="1020">agua</text></g>
+        <g class="s03-vuela"><rect class="ln-rojo" x="-40" y="-26" width="80" height="52" rx="10" /><path class="ln-rojo" d="M-22 -6 H22 M-22 8 H10" /></g>
+        <path class="ln-ap s03-flecha" d="M370 900 Q540 800 690 900" />
+      </svg>
+      <div class="etiqueta"><span class="s03-e1 man">WhatsApp → planilla</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-planilla";
+      const DUR = 3.19;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.03);
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      const centro = (el) => { const b = el.getBBox(); return (b.x + b.width / 2) + " " + (b.y + b.height / 2); };
+      // aparece entero con golpe
+      const pop = (els, t, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const o = centro(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t + i * (paso ?? 0.08));
+        });
+      };
+      const latir = (el, t, s) => { const o = centro(el); tl.to(el, { scale: s ?? 1.08, svgOrigin: o, duration: 0.13, yoyo: true, repeat: 1, ease: "power2.out" }, t); };
+      // etiqueta: muestra la i (1..n) en t y saca la anterior
+      let etAnt = null;
+      const etq = (i, t) => {
+        const el = q(".s03-e" + i);
+        if (etAnt) tl.to(etAnt, { opacity: 0, duration: 0.2 }, t - 0.2);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etAnt = el;
+      };
+
+      dibujar(qa(".s03-d"), 0, 0.5, 0.45);
+      pop(q(".s03-wa"), 0.15);
+      pop(q(".s03-pl"), 0.3);
+      pop(q(".s03-msj"), 0.7);
+      latir(q(".s03-msj"), 1.0, 1.06);
+      pop(q(".s03-sofia"), 1.4);
+      // Sofía mira el celular, después la planilla
+      tl.to(q(".s03-sofia"), { rotation: -5, svgOrigin: "0 0", duration: 0.25 }, 1.5);
+      tl.to(q(".s03-sofia"), { rotation: 5, svgOrigin: "0 0", duration: 0.3 }, 2.1);
+      dibujar([q(".s03-flecha")], 1.85, 0.45);
+      const v = q(".s03-vuela");
+      gsap.set(v, { x: 240, y: 970, opacity: 0 });
+      tl.to(v, { opacity: 1, duration: 0.1 }, 1.9);
+      tl.to(v, { x: 825, duration: 0.55, ease: "power2.inOut" }, 1.9);
+      tl.to(v, { y: 860, duration: 0.275, ease: "sine.out", yoyo: true, repeat: 1 }, 1.9);
+      tl.to(v, { y: 1010, opacity: 0, duration: 0.2 }, 2.45);
+      pop(q(".s03-fila"), 2.45);
+      etq(1, 1.9);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

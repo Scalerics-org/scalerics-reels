@@ -1,0 +1,109 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-frena"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-frena"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-frena"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-frena"] .ln-ap { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-frena"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-frena"] .ln-rojo { fill: none; stroke: #c7655b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-frena"] .rel-ac { fill: #5ce611; }
+    [data-composition-id="s10-frena"] .rel-cr { fill: #efeee5; }
+    [data-composition-id="s10-frena"] .tx { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s10-frena"] .tx-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s10-frena"] .tx-rojo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #c7655b; }
+    [data-composition-id="s10-frena"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s10-frena"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s10-frena"] .mono-rojo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.12em; fill: #c7655b; }
+    [data-composition-id="s10-frena"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-frena"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s10-frena"] .etiqueta .man { color: #c7655b; }
+
+  </style>
+  <div id="root" data-composition-id="s10-frena" data-width="1080" data-height="1920" data-duration="4.95">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="4.95" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s10-ic"><rect class="ln-ac" x="186" y="895" width="68" height="56" rx="10" /><path class="ln-ac" d="M208 923 L217 932 L233 914" /></g><g class="s10-ic"><rect class="ln-ac" x="346" y="895" width="68" height="56" rx="10" /><path class="ln-ac" d="M368 923 L377 932 L393 914" /></g><g class="s10-ic"><rect class="ln-ac" x="506" y="895" width="68" height="56" rx="10" /><path class="ln-ac" d="M528 923 L537 932 L553 914" /></g><g class="s10-ic"><rect class="ln-ac" x="666" y="895" width="68" height="56" rx="10" /><path class="ln-ac" d="M688 923 L697 932 L713 914" /></g><g class="s10-ic"><rect class="ln-ac" x="826" y="895" width="68" height="56" rx="10" /><path class="ln-ac" d="M848 923 L857 932 L873 914" /></g>
+        <g transform="translate(220 1225) scale(0.85)"><g class="s10-sofia">
+        <circle class="ln" cx="0" cy="-130" r="24" />
+        <path class="ln" d="M-24 -132 Q-26 -162 0 -160 Q26 -162 24 -132" />
+        <path class="ln" d="M22 -140 Q46 -130 38 -104" />
+        <path class="ln" d="M-48 0 Q-48 -96 0 -100 Q48 -96 48 0" />
+        </g></g>
+        <g transform="translate(420 1225) scale(0.85)"><g class="s10-cli"><circle class="ln" cx="0" cy="-130" r="24" /><path class="ln" d="M-48 0 Q-48 -96 0 -100 Q48 -96 48 0" /></g></g>
+        <g class="s10-hab"><rect class="ln-ac" x="250" y="1010" width="120" height="56" rx="18" /><circle class="rel-ac" cx="285" cy="1038" r="6" /><circle class="rel-ac" cx="310" cy="1038" r="6" /><circle class="rel-ac" cx="335" cy="1038" r="6" /></g>
+        <g class="s10-mar"><g transform="translate(680 1225) scale(0.85)"><g class="">
+        <circle class="ln" cx="0" cy="-130" r="24" />
+        <path class="ln" d="M-26 -136 Q-24 -164 0 -164 Q24 -164 26 -136 Z" />
+        <path class="ln" d="M24 -138 H54" />
+        <path class="ln" d="M-48 0 Q-48 -96 0 -100 Q48 -96 48 0" />
+        </g></g><rect class="ln" x="700" y="1080" width="70" height="60" rx="4" /></g>
+        <path class="ln s10-d" d="M960 1225 V1010 H880 V1225" />
+        <path class="ln-ac s10-fl" d="M780 1060 H860" /><path class="ln-ac s10-fl2" d="M838 1042 L862 1060 L838 1078" />
+        <line class="ln s10-d" x1="110" y1="1225" x2="990" y2="1225" />
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Atender</span><span class="s10-e2">Vender</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-frena";
+      const DUR = 4.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.03);
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+          tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      const centro = (el) => { const b = el.getBBox(); return (b.x + b.width / 2) + " " + (b.y + b.height / 2); };
+      // aparece entero con golpe
+      const pop = (els, t, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const o = centro(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t + i * (paso ?? 0.08));
+        });
+      };
+      const latir = (el, t, s) => { const o = centro(el); tl.to(el, { scale: s ?? 1.08, svgOrigin: o, duration: 0.13, yoyo: true, repeat: 1, ease: "power2.out" }, t); };
+      // etiqueta: muestra la i (1..n) en t y saca la anterior
+      let etAnt = null;
+      const etq = (i, t) => {
+        const el = q(".s10-e" + i);
+        if (etAnt) tl.to(etAnt, { opacity: 0, duration: 0.2 }, t - 0.2);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etAnt = el;
+      };
+
+      dibujar(qa(".s10-d"), 0, 0.5, 0.45);
+      pop(qa(".s10-ic"), 0.75, 0.06);
+      latir(q(".s10-ic:nth-of-type(3)"), 1.2, 1.1);
+      pop(q(".s10-sofia"), 1.63);
+      pop(q(".s10-cli"), 1.75);
+      pop(q(".s10-hab"), 2.3);
+      tl.to(q(".s10-sofia"), { rotation: 4, svgOrigin: "0 0", duration: 0.2, yoyo: true, repeat: 3 }, 2.45);
+      etq(1, 2.45);
+      pop(q(".s10-mar"), 3.3);
+      tl.to(q(".s10-mar"), { x: 90, duration: 1.1, ease: "power1.inOut" }, 3.85);
+      tl.to(q(".s10-mar"), { y: -8, duration: 0.14, yoyo: true, repeat: 7, ease: "sine.inOut" }, 3.85);
+      dibujar([q(".s10-fl")], 3.85, 0.3);
+      pop(q(".s10-fl2"), 4.1);
+      etq(2, 3.85);
+
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
