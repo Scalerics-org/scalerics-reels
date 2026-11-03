@@ -1,0 +1,27 @@
+[
+ {
+  "t": 0,
+  "sfx": "whoosh-short",
+  "vol": 0.2
+ },
+ {
+  "t": 1.25,
+  "sfx": "pop",
+  "vol": 0.22
+ },
+ {
+  "t": 2.1,
+  "sfx": "key-press",
+  "vol": 0.22
+ },
+ {
+  "t": 2.44,
+  "sfx": "key-press",
+  "vol": 0.22
+ },
+ {
+  "t": 2.79,
+  "sfx": "key-press",
+  "vol": 0.22
+ }
+]

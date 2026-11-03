@@ -1,0 +1,90 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-scalerics"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-scalerics"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-scalerics"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-scalerics"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-scalerics"] .ln-rj { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-scalerics"] .ln-f { stroke-width: 4; }
+    [data-composition-id="s11-scalerics"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s11-scalerics"] .punt { stroke-dasharray: 3 14; }
+    [data-composition-id="s11-scalerics"] .card { fill: #0a1628; }
+    [data-composition-id="s11-scalerics"] .vidrio, [data-composition-id="s11-scalerics"] .relleno { fill: #5ce611; }
+    [data-composition-id="s11-scalerics"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s11-scalerics"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s11-scalerics"] .t-rj { fill: #c0625a; }
+    [data-composition-id="s11-scalerics"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s11-scalerics"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s11-scalerics"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.06em; fill: #efeee5; }
+    [data-composition-id="s11-scalerics"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s11-scalerics"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s11-scalerics"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-scalerics"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s11-scalerics" data-width="1080" data-height="1920" data-duration="4.06">
+    <div id="s11-escena" class="capa clip" data-start="0" data-duration="4.06" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s11-panel">
+          <rect class="card" x="200" y="760" width="680" height="400" rx="24" /><rect class="ln" x="200" y="760" width="680" height="400" rx="24" />
+          <text class="mono t-ac" x="230" y="812" font-size="26">TU SISTEMA</text>
+          <path class="ln ln-f" d="M200 836 H880" stroke-opacity="0.5" />
+          <g class="s11-mod"><rect class="ln ln-f" x="230" y="866" width="300" height="120" rx="16" /><text class="lex t-cr" x="256" y="938" font-size="30">CLIENTES</text><g class="s11-tic"><circle class="ln-ac ln-f " cx="488" cy="926" r="18" /><path class="ln-ac ln-f " d="M479.9 926.36 L486.2 932.48 L497 919.16" /></g></g><g class="s11-mod"><rect class="ln ln-f" x="550" y="866" width="300" height="120" rx="16" /><text class="lex t-cr" x="576" y="938" font-size="30">SALDOS</text><g class="s11-tic"><circle class="ln-ac ln-f " cx="808" cy="926" r="18" /><path class="ln-ac ln-f " d="M799.9 926.36 L806.2 932.48 L817 919.16" /></g></g><g class="s11-mod"><rect class="ln ln-f" x="230" y="1006" width="300" height="120" rx="16" /><text class="lex t-cr" x="256" y="1078" font-size="30">AVISOS</text><g class="s11-tic"><circle class="ln-ac ln-f " cx="488" cy="1066" r="18" /><path class="ln-ac ln-f " d="M479.9 1066.36 L486.2 1072.48 L497 1059.16" /></g></g><g class="s11-mod"><rect class="ln ln-f" x="550" y="1006" width="300" height="120" rx="16" /><text class="lex t-cr" x="576" y="1078" font-size="30">PEDIDOS</text><g class="s11-tic"><circle class="ln-ac ln-f " cx="808" cy="1066" r="18" /><path class="ln-ac ln-f " d="M799.9 1066.36 L806.2 1072.48 L817 1059.16" /></g></g>
+        </g>
+        <g class="s11-cinta">
+          <path class="ln-ac s11-dc" d="M200 734 H880" />
+          <path class="ln-ac ln-f s11-dc" d="M200 734 v22" /><path class="ln-ac ln-f s11-dc" d="M234 734 v11" /><path class="ln-ac ln-f s11-dc" d="M268 734 v11" /><path class="ln-ac ln-f s11-dc" d="M302 734 v11" /><path class="ln-ac ln-f s11-dc" d="M336 734 v11" /><path class="ln-ac ln-f s11-dc" d="M370 734 v22" /><path class="ln-ac ln-f s11-dc" d="M404 734 v11" /><path class="ln-ac ln-f s11-dc" d="M438 734 v11" /><path class="ln-ac ln-f s11-dc" d="M472 734 v11" /><path class="ln-ac ln-f s11-dc" d="M506 734 v11" /><path class="ln-ac ln-f s11-dc" d="M540 734 v22" /><path class="ln-ac ln-f s11-dc" d="M574 734 v11" /><path class="ln-ac ln-f s11-dc" d="M608 734 v11" /><path class="ln-ac ln-f s11-dc" d="M642 734 v11" /><path class="ln-ac ln-f s11-dc" d="M676 734 v11" /><path class="ln-ac ln-f s11-dc" d="M710 734 v22" /><path class="ln-ac ln-f s11-dc" d="M744 734 v11" /><path class="ln-ac ln-f s11-dc" d="M778 734 v11" /><path class="ln-ac ln-f s11-dc" d="M812 734 v11" /><path class="ln-ac ln-f s11-dc" d="M846 734 v11" /><path class="ln-ac ln-f s11-dc" d="M880 734 v22" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="e1">Scalerics</span><span class="e2">A la medida de tu negocio</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-scalerics";
+      const DUR = 4.06;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        if (!Array.isArray(els)) els = [els];
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2 });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 2) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // para trazos punteados: se revelan con opacidad y un pequeño desplazamiento
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const aparece = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const punch = (el, t, k) => tl.to(el, { scale: k ?? 1.06, transformOrigin: "50% 50%", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const apagar = (el, t, o) => tl.to(el, { opacity: o ?? 0.28, duration: 0.4, ease: "power2.out" }, t);
+      let etqAct = null;
+      const etq = (sel, t) => {
+        const el = q(sel);
+        if (etqAct) tl.to(etqAct, { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, t - 0.12);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqAct = el;
+      };
+
+      const SCAL = 0.56, SIST = 1.39, MEDIDA = 2.3, NEG = 2.96;
+      tl.fromTo(q(".s11-panel"), { opacity: 0, scale: 0.9, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.45, ease: "back.out(1.5)" }, 0.05);
+      etq(".e1", SCAL);
+      qa(".s11-mod").forEach((m, i) => pop(m, SIST - 0.1 + i * 0.12));
+      dibujar(qa(".s11-dc"), MEDIDA - 0.2, 0.55);
+      etq(".e2", MEDIDA);
+      qa(".s11-tic").forEach((t, i) => pop(t, NEG - 0.1 + i * 0.1, 0.5));
+      tl.to(q(".s11-panel"), { y: -6, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, NEG + 0.4);
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

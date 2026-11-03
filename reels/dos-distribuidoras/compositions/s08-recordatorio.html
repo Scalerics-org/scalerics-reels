@@ -1,0 +1,120 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-recordatorio"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-recordatorio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-recordatorio"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-recordatorio"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-recordatorio"] .ln-rj { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-recordatorio"] .ln-f { stroke-width: 4; }
+    [data-composition-id="s08-recordatorio"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s08-recordatorio"] .punt { stroke-dasharray: 3 14; }
+    [data-composition-id="s08-recordatorio"] .card { fill: #0a1628; }
+    [data-composition-id="s08-recordatorio"] .vidrio, [data-composition-id="s08-recordatorio"] .relleno { fill: #5ce611; }
+    [data-composition-id="s08-recordatorio"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s08-recordatorio"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s08-recordatorio"] .t-rj { fill: #c0625a; }
+    [data-composition-id="s08-recordatorio"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s08-recordatorio"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s08-recordatorio"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.06em; fill: #efeee5; }
+    [data-composition-id="s08-recordatorio"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s08-recordatorio"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s08-recordatorio"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-recordatorio"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-recordatorio" data-width="1080" data-height="1920" data-duration="5">
+    <div id="s08-escena" class="capa clip" data-start="0" data-duration="5" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <line class="ln " x1="40" y1="1150" x2="1040" y2="1150" />
+        <line class="ln-div " x1="540" y1="630" x2="540" y2="1220" />
+        <g class="s08-ha"><text class="nom" x="270" y="668" text-anchor="middle" fill="#efeee5" fill-opacity="0.55">RAÚL</text><text class="sub" x="270" y="708" text-anchor="middle" fill="#efeee5" fill-opacity="0.4">SIN SISTEMA</text></g>
+        <g class="s08-hb"><text class="nom" x="810" y="668" text-anchor="middle" fill="#5ce611">SILVIA</text><text class="sub" x="810" y="708" text-anchor="middle" fill="#5ce611" fill-opacity="0.8">A SU MEDIDA</text></g>
+        <g transform="translate(270 1150)" opacity="0.28">
+  <path class="ln " d="M-190 0 V-200 H190 V0" />
+  <path class="ln " d="M-206 -200 H206" />
+  <rect class="ln " x="-140" y="-258" width="280" height="46" rx="8" />
+  <text class="cartel " x="0" y="-226" text-anchor="middle">DISTRIBUIDORA</text>
+  <path class="ln " d="M-160 0 V-150 H20 V0" />
+  <path class="ln ln-f " d="M-160 -136 H20" />
+  <path class="ln ln-f " d="M-146 0 V-56 H-86 V0 M-78 0 V-56 H-18 V0 M-130 -56 V-104 H-62 V-56" />
+  <rect class="ln " x="60" y="-150" width="100" height="64" rx="6" />
+  
+  <path class="ln " d="M78 0 V-64 H142 V0" /></g>
+        <g class="s08-g2" opacity="0.3"><g class="s08-g2i"><rect class="card" x="584" y="768" width="340" height="470" rx="40" /><rect class="ln" x="584" y="768" width="340" height="470" rx="40" /><path class="ln" d="M724 792 h60" /></g></g>
+        <g class="s08-g1" opacity="0.5"><g class="s08-g1i"><rect class="card" x="612" y="754" width="340" height="470" rx="40" /><rect class="ln" x="612" y="754" width="340" height="470" rx="40" /><path class="ln" d="M752 778 h60" /></g></g>
+        <g class="s08-tel"><rect class="card" x="640" y="740" width="340" height="470" rx="40" /><rect class="ln" x="640" y="740" width="340" height="470" rx="40" /><path class="ln" d="M780 764 h60" /></g>
+        <g class="s08-not"><g class="s08-not-in">
+          <rect class="card" x="656" y="786" width="308" height="96" rx="18" /><rect class="ln-ac ln-f" x="656" y="786" width="308" height="96" rx="18" />
+          <circle class="relleno" cx="680" cy="818" r="9" />
+          <text class="lex t-ac" x="696" y="827" font-size="24">Distribuidora Silvia</text>
+          <text class="lex t-cr" x="680" y="864" font-size="24" fill-opacity="0.75">Tu resumen del mes</text>
+        </g></g>
+        <text class="lex t-cr s08-hola" x="672" y="934" font-size="30">Hola, Rosa.</text>
+        <g class="s08-det">
+          <g class="s08-row"><text class="lex t-cr" x="672" y="990" font-size="24" fill-opacity="0.8">Pedido 08/10</text><text class="lex t-cr" x="948" y="990" font-size="24" text-anchor="end">$ 8.200</text></g>
+          <g class="s08-row"><text class="lex t-cr" x="672" y="1032" font-size="24" fill-opacity="0.8">Pedido 22/10</text><text class="lex t-cr" x="948" y="1032" font-size="24" text-anchor="end">$ 4.200</text></g>
+          <path class="ln ln-f s08-sep" d="M672 1056 H948" stroke-opacity="0.4" />
+          <g class="s08-row"><text class="lex t-ac" x="672" y="1100" font-size="30">Saldo</text><text class="lex t-ac" x="948" y="1100" font-size="30" text-anchor="end">$ 12.400</text></g>
+        </g>
+        <g class="s08-chip"><rect class="ln-ac ln-f" x="688" y="1130" width="244" height="42" rx="21" /><text class="mono t-ac" x="810" y="1160" font-size="24" text-anchor="middle">AUTOMÁTICO</text></g>
+      </svg>
+      <div class="etiqueta"><span class="e1">Recordatorio</span><span class="e2">Sale solo</span><span class="e3">Con su detalle</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-recordatorio";
+      const DUR = 5;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        if (!Array.isArray(els)) els = [els];
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2 });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 2) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // para trazos punteados: se revelan con opacidad y un pequeño desplazamiento
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const aparece = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const punch = (el, t, k) => tl.to(el, { scale: k ?? 1.06, transformOrigin: "50% 50%", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const apagar = (el, t, o) => tl.to(el, { opacity: o ?? 0.28, duration: 0.4, ease: "power2.out" }, t);
+      let etqAct = null;
+      const etq = (sel, t) => {
+        const el = q(sel);
+        if (etqAct) tl.to(etqAct, { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, t - 0.12);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqAct = el;
+      };
+
+      const SILVIA = 0.28, REC = 0.98, LLEGA = 1.68, SOLO = 1.98, CADA = 2.48, DET = 3.68;
+      tl.fromTo(q(".s08-ha"), { opacity: 1 }, { opacity: 0.35, duration: 0.3 }, 0);
+      punch(q(".s08-hb"), SILVIA, 1.08);
+      tl.fromTo(q(".s08-tel"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s08-not"), { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, REC);
+      etq(".e1", REC);
+      aparece(q(".s08-hola"), LLEGA);
+      pop(q(".s08-chip"), SOLO);
+      etq(".e2", SOLO);
+      tl.to(q(".s08-chip"), { scale: 1.06, transformOrigin: "50% 50%", duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, SOLO + 0.5);
+      gsap.set(qa(".s08-g1i, .s08-g2i"), { opacity: 0 });
+      tl.fromTo(q(".s08-g1i"), { opacity: 0, x: 28, y: -14 }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out" }, CADA - 0.1);
+      tl.fromTo(q(".s08-g2i"), { opacity: 0, x: 56, y: -28 }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power3.out" }, CADA + 0.15);
+      qa(".s08-row").forEach((r, i) => aparece(r, DET - 0.1 + i * 0.22, 10));
+      tl.fromTo(q(".s08-sep"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, DET + 0.3);
+      etq(".e3", DET + 0.1);
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

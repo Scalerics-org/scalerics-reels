@@ -1,0 +1,101 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-diferencia"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-diferencia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-diferencia"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-diferencia"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-diferencia"] .ln-rj { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-diferencia"] .ln-f { stroke-width: 4; }
+    [data-composition-id="s02-diferencia"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s02-diferencia"] .punt { stroke-dasharray: 3 14; }
+    [data-composition-id="s02-diferencia"] .card { fill: #0a1628; }
+    [data-composition-id="s02-diferencia"] .vidrio, [data-composition-id="s02-diferencia"] .relleno { fill: #5ce611; }
+    [data-composition-id="s02-diferencia"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s02-diferencia"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s02-diferencia"] .t-rj { fill: #c0625a; }
+    [data-composition-id="s02-diferencia"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s02-diferencia"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s02-diferencia"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.06em; fill: #efeee5; }
+    [data-composition-id="s02-diferencia"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s02-diferencia"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s02-diferencia"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-diferencia"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-diferencia" data-width="1080" data-height="1920" data-duration="3.22">
+    <div id="s02-escena" class="capa clip" data-start="0" data-duration="3.22" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <line class="ln-div s02-div" x1="540" y1="630" x2="540" y2="1220" />
+        <g class="s02-ha"><text class="nom" x="270" y="668" text-anchor="middle" fill="#efeee5" fill-opacity="0.55">RAÚL</text><text class="sub" x="270" y="708" text-anchor="middle" fill="#efeee5" fill-opacity="0.4">SIN SISTEMA</text></g>
+        <g class="s02-hb"><text class="nom" x="810" y="668" text-anchor="middle" fill="#5ce611">SILVIA</text><text class="sub" x="810" y="708" text-anchor="middle" fill="#5ce611" fill-opacity="0.8">A SU MEDIDA</text></g>
+        <g transform="translate(270 840)"><g class="s02-r1a"><rect class="ln s02-d1a" x="-64" y="-28" width="128" height="58" rx="6" /><path class="ln ln-f s02-d1a" d="M-64 0 H64" /><path class="ln s02-d1a" d="M-48 -28 V-52 l6 -10 V-76 h8 V-62 l6 10 V-28" /><path class="ln s02-d1a" d="M-10 -28 V-52 l6 -10 V-76 h8 V-62 l6 10 V-28" /><path class="ln s02-d1a" d="M28 -28 V-52 l6 -10 V-76 h8 V-62 l6 10 V-28" /></g></g>
+        <g transform="translate(810 840)"><g class="s02-r1b"><rect class="ln s02-d1b" x="-64" y="-28" width="128" height="58" rx="6" /><path class="ln ln-f s02-d1b" d="M-64 0 H64" /><path class="ln s02-d1b" d="M-48 -28 V-52 l6 -10 V-76 h8 V-62 l6 10 V-28" /><path class="ln s02-d1b" d="M-10 -28 V-52 l6 -10 V-76 h8 V-62 l6 10 V-28" /><path class="ln s02-d1b" d="M28 -28 V-52 l6 -10 V-76 h8 V-62 l6 10 V-28" /></g></g>
+        <text class="lex t-cr s02-eq1" x="540" y="842" font-size="64" text-anchor="middle" fill-opacity="0.6">=</text>
+        <g transform="translate(270 990)"><g class="s02-r2a"><path class="ln s02-d2a" d="M0 54 V-6" /><rect class="ln s02-d2a" x="-80" y="-50" width="160" height="44" rx="6" /><text class="cartel" x="0" y="-19" text-anchor="middle">CALLE</text></g></g>
+        <g transform="translate(810 990)"><g class="s02-r2b"><path class="ln s02-d2b" d="M0 54 V-6" /><rect class="ln s02-d2b" x="-80" y="-50" width="160" height="44" rx="6" /><text class="cartel" x="0" y="-19" text-anchor="middle">CALLE</text></g></g>
+        <text class="lex t-cr s02-eq2" x="540" y="990" font-size="64" text-anchor="middle" fill-opacity="0.6">=</text>
+        <g transform="translate(250 1140)"><g class="s02-r3a" opacity="0.6"><rect class="ln " x="-48" y="-62" width="96" height="124" rx="8" /><path class="ln ln-f " d="M-26 -72 v20 M0 -72 v20 M26 -72 v20 M-30 -20 h60 M-30 4 h44 M-30 28 h52" /></g></g>
+        <text class="lex t-rj s02-preg" x="350" y="1172" font-size="88" text-anchor="middle">?</text>
+        <g transform="translate(790 1140)"><g class="s02-r3b"><rect class="ln " x="-46" y="-74" width="92" height="148" rx="16" /><path class="ln ln-f " d="M-14 -60 h28" /><text class="lex t-ac" x="0" y="-10" font-size="30" text-anchor="middle">$</text><circle class="ln-ac ln-f " cx="0" cy="34" r="18" /><path class="ln-ac ln-f " d="M-8.1 34.36 L-1.8 40.48 L9 27.16" /></g></g>
+        <g class="s02-neq"><text class="lex t-ac" x="540" y="1166" font-size="96" text-anchor="middle">≠</text></g>
+      </svg>
+      <div class="etiqueta"><span class="e1">Dos negocios</span><span class="e2">Una diferencia</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-diferencia";
+      const DUR = 3.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        if (!Array.isArray(els)) els = [els];
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2 });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 2) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // para trazos punteados: se revelan con opacidad y un pequeño desplazamiento
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const aparece = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const punch = (el, t, k) => tl.to(el, { scale: k ?? 1.06, transformOrigin: "50% 50%", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const apagar = (el, t, o) => tl.to(el, { opacity: o ?? 0.28, duration: 0.4, ease: "power2.out" }, t);
+      let etqAct = null;
+      const etq = (sel, t) => {
+        const el = q(sel);
+        if (etqAct) tl.to(etqAct, { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, t - 0.12);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqAct = el;
+      };
+
+      const RUBRO = 0.22, CALLE = 1.12, DIF = 2.0;
+      gsap.set(qa(".s02-ha, .s02-hb, .s02-div"), { opacity: 1 });
+      etq(".e1", 0.05);
+      dibujar(qa(".s02-d1a"), 0, 0.5, 0.5);
+      dibujar(qa(".s02-d1b"), RUBRO - 0.1, 0.5);
+      pop(q(".s02-eq1"), RUBRO + 0.3, 0.6);
+      dibujar(qa(".s02-d2a"), CALLE - 0.4, 0.45);
+      dibujar(qa(".s02-d2b"), CALLE - 0.25, 0.45);
+      tl.fromTo(qa(".s02-r2a text, .s02-r2b text"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, CALLE - 0.05);
+      pop(q(".s02-eq2"), CALLE + 0.1, 0.6);
+      pop(q(".s02-r3a"), DIF);
+      pop(q(".s02-preg"), DIF + 0.25, 0.6);
+      pop(q(".s02-r3b"), DIF + 0.1);
+      tl.fromTo(q(".s02-neq"), { opacity: 0, scale: 1.6, transformOrigin: "50% 60%" }, { opacity: 1, scale: 1, transformOrigin: "50% 60%", duration: 0.4, ease: "back.out(2.2)" }, DIF + 0.5);
+      etq(".e2", DIF + 0.5);
+      tl.to(q(".s02-preg"), { rotation: -10, svgOrigin: "350 1140", duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, DIF + 0.7);
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

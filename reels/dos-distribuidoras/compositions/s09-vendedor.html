@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-vendedor"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-vendedor"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-vendedor"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-vendedor"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-vendedor"] .ln-rj { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-vendedor"] .ln-f { stroke-width: 4; }
+    [data-composition-id="s09-vendedor"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s09-vendedor"] .punt { stroke-dasharray: 3 14; }
+    [data-composition-id="s09-vendedor"] .card { fill: #0a1628; }
+    [data-composition-id="s09-vendedor"] .vidrio, [data-composition-id="s09-vendedor"] .relleno { fill: #5ce611; }
+    [data-composition-id="s09-vendedor"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s09-vendedor"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s09-vendedor"] .t-rj { fill: #c0625a; }
+    [data-composition-id="s09-vendedor"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s09-vendedor"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s09-vendedor"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.06em; fill: #efeee5; }
+    [data-composition-id="s09-vendedor"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s09-vendedor"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s09-vendedor"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-vendedor"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s09-vendedor" data-width="1080" data-height="1920" data-duration="4.95">
+    <div id="s09-escena" class="capa clip" data-start="0" data-duration="4.95" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <line class="ln " x1="40" y1="1150" x2="1040" y2="1150" />
+        <line class="ln-div " x1="540" y1="630" x2="540" y2="1220" />
+        <g class="s09-ha"><text class="nom" x="270" y="668" text-anchor="middle" fill="#efeee5" fill-opacity="0.55">RAÚL</text><text class="sub" x="270" y="708" text-anchor="middle" fill="#efeee5" fill-opacity="0.4">SIN SISTEMA</text></g>
+        <g class="s09-hb"><text class="nom" x="810" y="668" text-anchor="middle" fill="#5ce611">SILVIA</text><text class="sub" x="810" y="708" text-anchor="middle" fill="#5ce611" fill-opacity="0.8">A SU MEDIDA</text></g>
+        <g transform="translate(270 1150)" opacity="0.28">
+  <path class="ln " d="M-190 0 V-200 H190 V0" />
+  <path class="ln " d="M-206 -200 H206" />
+  <rect class="ln " x="-140" y="-258" width="280" height="46" rx="8" />
+  <text class="cartel " x="0" y="-226" text-anchor="middle">DISTRIBUIDORA</text>
+  <path class="ln " d="M-160 0 V-150 H20 V0" />
+  <path class="ln ln-f " d="M-160 -136 H20" />
+  <path class="ln ln-f " d="M-146 0 V-56 H-86 V0 M-78 0 V-56 H-18 V0 M-130 -56 V-104 H-62 V-56" />
+  <rect class="ln " x="60" y="-150" width="100" height="64" rx="6" />
+  
+  <path class="ln " d="M78 0 V-64 H142 V0" /></g>
+        <g transform="translate(890 1150) scale(0.9)"><g class="s09-van">
+  <path class="ln s09-dv" d="M-110 -22 V-104 H34 L76 -62 H110 V-22" />
+  <path class="ln s09-dv" d="M42 -94 L66 -66 H42 Z" />
+  <path class="ln s09-dv" d="M-110 -22 H-88 M-48 -22 H42 M82 -22 H110" />
+  <circle class="ln s09-dv" cx="-68" cy="-20" r="20" /><circle class="ln s09-dv" cx="62" cy="-20" r="20" /></g></g>
+        <g transform="translate(650 1150)"><g class="s09-vend"><circle class="ln s09-dp" cx="0" cy="-150" r="24" /><path class="ln s09-dp" d="M-26 -160 H26 M-20 -160 q20 -24 40 0 M26 -160 h18" />
+    <path class="ln s09-dp" d="M0 -126 V-50" /><path class="ln s09-dp" d="M0 -112 L-34 -66 M0 -112 L34 -66" />
+    <path class="ln s09-dp" d="M-24 -114 H24 L30 -50 H-30 Z" />
+    <path class="ln s09-dp" d="M-12 -50 L-20 0 M12 -50 L20 0" /><rect class="ln ln-f s09-dp" x="24" y="-96" width="22" height="38" rx="5" /></g></g>
+        <path class="ln-ac ln-f punt s09-linea" d="M690 1048 C 720 1010, 740 990, 760 966" />
+        <g class="s09-card">
+          <rect class="card" x="590" y="744" width="420" height="222" rx="24" /><rect class="ln" x="590" y="744" width="420" height="222" rx="24" />
+          <text class="lex t-cr" x="616" y="792" font-size="30">Almacén Rosa</text>
+          <g class="s09-saldo"><text class="lex t-cr" x="616" y="846" font-size="26" fill-opacity="0.8">Saldo</text><text class="lex t-ac" x="984" y="846" font-size="30" text-anchor="end">$ 12.400</text>
+          <text class="lex t-cr" x="616" y="884" font-size="24" fill-opacity="0.55">vence el 05/11</text></g>
+          <rect class="ln ln-f" x="616" y="900" width="368" height="48" rx="24" />
+          <rect class="relleno s09-btnf" x="616" y="900" width="368" height="48" rx="24" />
+          <text class="lex t-cr s09-bt1" x="800" y="933" font-size="26" text-anchor="middle">Cargar pedido</text>
+          <text class="lex s09-bt2" x="800" y="933" font-size="26" text-anchor="middle" fill="#0a1628">Cargar pedido</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="e1">Antes de cargar</span><span class="e2">Ve el saldo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-vendedor";
+      const DUR = 4.95;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        if (!Array.isArray(els)) els = [els];
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L + 2, strokeDashoffset: L + 2 });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: (L + 2) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      // para trazos punteados: se revelan con opacidad y un pequeño desplazamiento
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const aparece = (el, t, dy) => tl.fromTo(el, { opacity: 0, y: dy ?? 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const punch = (el, t, k) => tl.to(el, { scale: k ?? 1.06, transformOrigin: "50% 50%", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const apagar = (el, t, o) => tl.to(el, { opacity: o ?? 0.28, duration: 0.4, ease: "power2.out" }, t);
+      let etqAct = null;
+      const etq = (sel, t) => {
+        const el = q(sel);
+        if (etqAct) tl.to(etqAct, { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, t - 0.12);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        etqAct = el;
+      };
+
+      const CARGAR = 0.38, VEND = 1.78, CEL = 2.38, SALDO = 3.08, ALM = 3.68;
+      tl.fromTo(q(".s09-ha"), { opacity: 1 }, { opacity: 0.35, duration: 0.3 }, 0);
+      dibujar(qa(".s09-dv"), 0, 0.5, 0.45);
+      tl.fromTo(q(".s09-van"), { x: 120 }, { x: 0, duration: 0.8, ease: "power3.out" }, 0);
+      etq(".e1", CARGAR);
+      tl.to(q(".s09-van"), { y: -4, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.9);
+      dibujar(qa(".s09-dp"), VEND - 0.3, 0.5);
+      tl.fromTo(q(".s09-linea"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, CEL - 0.1);
+      pop(q(".s09-card"), CEL);
+      gsap.set(qa(".s09-btnf, .s09-bt2"), { opacity: 0 });
+      gsap.set(q(".s09-saldo"), { opacity: 0 });
+      aparece(q(".s09-saldo"), SALDO - 0.05, 10);
+      etq(".e2", SALDO);
+      tl.to(qa(".s09-btnf, .s09-bt2"), { opacity: 1, duration: 0.2 }, ALM);
+      tl.to(q(".s09-bt1"), { opacity: 0, duration: 0.2 }, ALM);
+      punch(q(".s09-card"), ALM, 1.04);
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
