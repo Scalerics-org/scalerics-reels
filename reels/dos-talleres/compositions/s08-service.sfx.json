@@ -1,0 +1,36 @@
+[
+ {
+  "t": 0.95,
+  "sfx": "notification",
+  "vol": 0.3,
+  "max": 0.8
+ },
+ {
+  "t": 3.1,
+  "sfx": "pop",
+  "vol": 0.2
+ },
+ {
+  "t": 3.95,
+  "sfx": "click",
+  "vol": 0.24
+ },
+ {
+  "t": 4.1,
+  "sfx": "chime",
+  "vol": 0.2,
+  "max": 0.7
+ },
+ {
+  "t": 4.7,
+  "sfx": "sparkle",
+  "vol": 0.16,
+  "max": 0.6
+ },
+ {
+  "t": 5.75,
+  "sfx": "notification",
+  "vol": 0.28,
+  "max": 0.8
+ }
+]

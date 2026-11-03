@@ -1,0 +1,111 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-diferencia"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-diferencia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-diferencia"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-diferencia"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-diferencia"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-diferencia"] .ln-calle { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 34 26; }
+    [data-composition-id="s02-diferencia"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s02-diferencia"] .relleno { fill: #5ce611; }
+    [data-composition-id="s02-diferencia"] .caja { fill: #0a1628; }
+    [data-composition-id="s02-diferencia"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s02-diferencia"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s02-diferencia"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s02-diferencia"] .t-os { fill: #0a1628; }
+    [data-composition-id="s02-diferencia"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s02-diferencia"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s02-diferencia"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; }
+    [data-composition-id="s02-diferencia"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s02-diferencia"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-diferencia"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s02-diferencia" data-width="1080" data-height="1920" data-duration="3.33">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="3.33" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+    <g class="s02-calle" opacity="0.5">
+  <line class="ln s02-cl" x1="40" y1="892" x2="1040" y2="892" stroke-opacity="0.35" />
+  <line class="ln s02-cl" x1="40" y1="968" x2="1040" y2="968" stroke-opacity="0.35" />
+  <line class="ln-calle s02-cl-c" x1="40" y1="930" x2="1040" y2="930" /></g>
+    <g class="s02-ha">
+  <text class="nom" x="64" y="668" fill="#efeee5" fill-opacity="0.55">GUSTAVO</text>
+  <text class="sub" x="64" y="704" fill="#efeee5" fill-opacity="0.4">SIN AVISOS</text></g><g class="s02-hb">
+  <text class="nom" x="64" y="998" fill="#5ce611">ANDREA</text>
+  <text class="sub" x="64" y="1034" fill="#5ce611" fill-opacity="0.8">CON AVISOS</text></g>
+    <g class="s02-l1" transform="translate(420 850) rotate(-30) scale(1.9)"><path class="ln s02-l1d" d="M-7 -4 V-56 C-24 -60 -28 -86 -14 -96 L-7 -80 H7 L14 -96 C28 -86 24 -60 7 -56 V-4 Q0 4 -7 -4 Z" /></g>
+    <g class="s02-l2" transform="translate(420 1180) rotate(-30) scale(1.9)"><path class="ln s02-l2d" d="M-7 -4 V-56 C-24 -60 -28 -86 -14 -96 L-7 -80 H7 L14 -96 C28 -86 24 -60 7 -56 V-4 Q0 4 -7 -4 Z" /></g>
+    <g class="s02-c1" transform="translate(630 860)"><path class="ln s02-c1d" d="M0 0 V-120" /><rect class="ln s02-c1d" x="-80" y="-190" width="160" height="62" rx="8" /><text class="mono t-cr s02-c1d-t" x="0" y="-149" font-size="26" text-anchor="middle">CALLE</text></g>
+    <g class="s02-c2" transform="translate(630 1190)"><path class="ln s02-c2d" d="M0 0 V-120" /><rect class="ln s02-c2d" x="-80" y="-190" width="160" height="62" rx="8" /><text class="mono t-cr s02-c2d-t" x="0" y="-149" font-size="26" text-anchor="middle">CALLE</text></g>
+    <g class="s02-eq1"><path class="ln s02-eq1d" d="M394 918 H446 M394 942 H446" /></g>
+    <g class="s02-eq2"><path class="ln s02-eq2d" d="M604 918 H656 M604 942 H656" /></g>
+    <g class="s02-t1"><g transform="translate(880 830) scale(1.5)">
+  <path class="ln s02-t1d" d="M-36 0 H36 L28 -34 H-28 Z" />
+  <circle class="ln s02-t1d" cx="0" cy="-17" r="8" />
+  <path class="ln s02-t1d" d="M-44 -40 Q-44 -56 -28 -56 H28 Q44 -56 44 -40 L44 -36 H26 V-42 H-26 V-36 H-44 Z" /></g>
+      <text class="lex t-ro s02-preg" x="960" y="720" font-size="72" text-anchor="middle">?</text></g>
+    <g class="s02-t2">
+      <rect class="ln" x="822" y="1010" width="116" height="200" rx="20" />
+      <path class="ln" d="M862 1026 h36" />
+      <rect class="relleno" x="836" y="1060" width="88" height="44" rx="10" />
+      <path class="ln-ac" d="M856 1150 l14 14 l26 -30" />
+    </g>
+    <g class="s02-dif"><text class="lex t-ac" x="880" y="962" font-size="96" text-anchor="middle">≠</text></g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Dos negocios</span><span class="s02-e2">Una diferencia</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-diferencia";
+      const DUR = 3.33;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s02-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s02-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d, o) => tl.fromTo(el, { opacity: 0 }, { opacity: o ?? 1, duration: d ?? 0.3 }, t);
+
+      const RUBRO = 0.45, CALLE = 1.35, UNA = 1.55, DIF = 2.35;
+      tl.fromTo(qa(".s02-ha, .s02-hb, .s02-calle"), { opacity: 0 }, { opacity: (i) => i < 2 ? 1 : 0.5, duration: 0.3 }, 0);
+      dibujar(qa(".s02-l1d, .s02-l2d"), 0, 0.5, 0.4);
+      tl.fromTo(qa(".s02-l1, .s02-l2"), { rotation: -20, svgOrigin: "420 1000" }, { rotation: 0, svgOrigin: "420 1000", duration: 0.5, ease: "back.out(1.6)" }, 0);
+      dibujar(qa(".s02-eq1d"), RUBRO, 0.3);
+      etq(1, 0.1);
+      dibujar(qa(".s02-c1d, .s02-c2d"), CALLE - 0.5, 0.45);
+      aparecer(qa(".s02-c1d-t, .s02-c2d-t"), CALLE - 0.1);
+      dibujar(qa(".s02-eq2d"), CALLE, 0.3);
+      // una sola diferencia
+      dibujar(qa(".s02-t1d"), UNA, 0.4);
+      pop(q(".s02-t2"), UNA + 0.15, 0.6);
+      pop(q(".s02-preg"), UNA + 0.4, 0.5);
+      tl.to(q(".s02-t1"), { x: 3, duration: 0.05, yoyo: true, repeat: 7, ease: "none" }, UNA + 0.5);
+      tl.fromTo(q(".s02-dif"), { opacity: 0, scale: 0.3, svgOrigin: "880 930" }, { opacity: 1, scale: 1, svgOrigin: "880 930", duration: 0.4, ease: "back.out(2.4)" }, DIF);
+      tl.to(qa(".s02-l1, .s02-l2, .s02-c1, .s02-c2, .s02-eq1, .s02-eq2"), { opacity: 0.4, duration: 0.4 }, DIF + 0.1);
+      tl.to(q(".s02-t2"), { y: -6, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, DIF + 0.4);
+      etq(2, DIF);
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

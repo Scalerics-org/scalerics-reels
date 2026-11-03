@@ -1,0 +1,23 @@
+[
+ {
+  "t": 0.96,
+  "sfx": "click-soft",
+  "vol": 0.2
+ },
+ {
+  "t": 1.26,
+  "sfx": "click-soft",
+  "vol": 0.2
+ },
+ {
+  "t": 1.8,
+  "sfx": "whoosh-short",
+  "vol": 0.2
+ },
+ {
+  "t": 4.15,
+  "sfx": "chime",
+  "vol": 0.26,
+  "max": 0.8
+ }
+]

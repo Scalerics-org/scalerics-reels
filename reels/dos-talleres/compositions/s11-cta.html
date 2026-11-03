@@ -1,0 +1,133 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-cta"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-cta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-cta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-cta"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-cta"] .ln-calle { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 34 26; }
+    [data-composition-id="s11-cta"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s11-cta"] .relleno { fill: #5ce611; }
+    [data-composition-id="s11-cta"] .caja { fill: #0a1628; }
+    [data-composition-id="s11-cta"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s11-cta"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s11-cta"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s11-cta"] .t-os { fill: #0a1628; }
+    [data-composition-id="s11-cta"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s11-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s11-cta"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; }
+    [data-composition-id="s11-cta"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s11-cta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-cta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s11-cta" data-width="1080" data-height="1920" data-duration="7.27">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="7.27" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+    <g class="s11-calle">
+  <line class="ln s11-cl" x1="40" y1="892" x2="1040" y2="892" stroke-opacity="0.35" />
+  <line class="ln s11-cl" x1="40" y1="968" x2="1040" y2="968" stroke-opacity="0.35" />
+  <line class="ln-calle s11-cl-c" x1="40" y1="930" x2="1040" y2="930" /></g>
+    <g class="s11-ha">
+  <text class="nom" x="64" y="668" fill="#efeee5" fill-opacity="0.55">GUSTAVO</text>
+  <text class="sub" x="64" y="704" fill="#efeee5" fill-opacity="0.4">SIN AVISOS</text></g><g class="s11-hb">
+  <text class="nom" x="64" y="998" fill="#5ce611">ANDREA</text>
+  <text class="sub" x="64" y="1034" fill="#5ce611" fill-opacity="0.8">CON AVISOS</text></g>
+    <g class="s11-a" transform="translate(520 870) scale(0.85)"><g class="s11-a-in">
+  <path class="ln s11-dib-a" d="M-250 0 V-170 H250 V0" />
+  <rect class="ln s11-dib-a" x="-150" y="-222" width="300" height="46" rx="8" />
+  <path class="ln s11-dib-a" d="M-220 0 V-140 H60 V0" />
+  <path class="ln s11-dib-a" d="M-220 -126 H60 M-220 -114 H60" />
+  <rect class="ln s11-dib-a" x="100" y="-140" width="120" height="70" rx="6" />
+  <path class="ln s11-dib-a" d="M100 -105 H220" />
+  <rect class="relleno s11-luz-a" x="108" y="-132" width="104" height="54" rx="3" />
+  <text class="mono t-cr s11-dib-a-txt" x="0" y="-189" font-size="26" text-anchor="middle">TALLER</text>
+  <g transform="translate(-80 0) scale(0.82)">
+  <path class="ln s11-dib-a"  d="M-118 -22 V-46 Q-116 -60 -96 -62 L-58 -66 L-28 -98 H44 L78 -66 L106 -62 Q120 -58 120 -42 V-22" />
+  <path class="ln s11-dib-a"  d="M-118 -22 H-94 M-46 -22 H52 M96 -22 H120 M-18 -92 L-42 -66 H66 L40 -92 Z" />
+  <circle class="ln s11-dib-a"  cx="-70" cy="-22" r="22" />
+  <circle class="ln s11-dib-a"  cx="74" cy="-22" r="22" /></g></g></g>
+    <g class="s11-b" transform="translate(520 1200) scale(0.85)"><g class="s11-b-in">
+  <path class="ln s11-dib-b" d="M-250 0 V-170 H250 V0" />
+  <rect class="ln s11-dib-b" x="-150" y="-222" width="300" height="46" rx="8" />
+  <path class="ln s11-dib-b" d="M-220 0 V-140 H60 V0" />
+  <path class="ln s11-dib-b" d="M-220 -126 H60 M-220 -114 H60" />
+  <rect class="ln s11-dib-b" x="100" y="-140" width="120" height="70" rx="6" />
+  <path class="ln s11-dib-b" d="M100 -105 H220" />
+  <rect class="relleno s11-luz-b" x="108" y="-132" width="104" height="54" rx="3" />
+  <text class="mono t-cr s11-dib-b-txt" x="0" y="-189" font-size="26" text-anchor="middle">TALLER</text>
+  <g transform="translate(-80 0) scale(0.82)">
+  <path class="ln s11-dib-b"  d="M-118 -22 V-46 Q-116 -60 -96 -62 L-58 -66 L-28 -98 H44 L78 -66 L106 -62 Q120 -58 120 -42 V-22" />
+  <path class="ln s11-dib-b"  d="M-118 -22 H-94 M-46 -22 H52 M96 -22 H120 M-18 -92 L-42 -66 H66 L40 -92 Z" />
+  <circle class="ln s11-dib-b"  cx="-70" cy="-22" r="22" />
+  <circle class="ln s11-dib-b"  cx="74" cy="-22" r="22" /></g></g></g>
+    <rect class="ln-punt s11-f1" stroke="#efeee5" stroke-opacity="0.7" x="284" y="636" width="472" height="248" rx="18" />
+    <rect class="ln-punt s11-f2" stroke="#5ce611" x="284" y="966" width="472" height="248" rx="18" />
+    <text class="lex t-cr s11-q1" x="900" y="780" font-size="40" text-anchor="middle" fill-opacity="0.75">¿ARRIBA?</text>
+    <text class="lex t-ac s11-q2" x="900" y="1110" font-size="40" text-anchor="middle">¿ABAJO?</text>
+    <g class="s11-com">
+      <rect class="caja" x="796" y="872" width="220" height="110" rx="26" stroke="#5ce611" stroke-width="5" />
+      <path class="ln-ac" d="M830 982 l-12 26 l40 -26" />
+      <circle class="relleno s11-d" cx="856" cy="927" r="12" /><circle class="relleno s11-d" cx="906" cy="927" r="12" /><circle class="relleno s11-d" cx="956" cy="927" r="12" />
+    </g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">¿Arriba o abajo?</span><span class="s11-e2">Contanos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-cta";
+      const DUR = 7.27;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s11-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s11-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d, o) => tl.fromTo(el, { opacity: 0 }, { opacity: o ?? 1, duration: d ?? 0.3 }, t);
+
+      const MEC = 0.42, ARRIBA = 1.42, ABAJO = 2.12, CONTANOS = 2.8;
+      tl.fromTo(qa(".s11-calle, .s11-ha, .s11-hb"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0);
+      gsap.set(q(".s11-luz-a"), { opacity: 0.3 }); gsap.set(q(".s11-luz-b"), { opacity: 0.9 });
+      gsap.set(q(".s11-dib-b-txt"), { fill: "#5ce611" });
+      dibujar(qa(".s11-dib-a, .s11-dib-b"), 0, 0.5, 0.3);
+      punch(q(".s11-a-in"), MEC, 1.04); punch(q(".s11-b-in"), MEC + 0.1, 1.04);
+      etq(1, 0.5);
+      aparecer(q(".s11-f1"), ARRIBA - 0.1, 0.25);
+      pop(q(".s11-q1"), ARRIBA, 0.6);
+      tl.fromTo(q(".s11-f1"), { strokeDashoffset: 0 }, { strokeDashoffset: -160, duration: 5.6, ease: "none" }, ARRIBA - 0.1);
+      aparecer(q(".s11-f2"), ABAJO - 0.1, 0.25);
+      pop(q(".s11-q2"), ABAJO, 0.6);
+      tl.fromTo(q(".s11-f2"), { strokeDashoffset: 0 }, { strokeDashoffset: -160, duration: 5.0, ease: "none" }, ABAJO - 0.1);
+      pop(q(".s11-com"), CONTANOS - 0.05, 0.5);
+      etq(2, CONTANOS);
+      qa(".s11-d").forEach((d, i) => {
+        tl.fromTo(d, { y: 0, opacity: 0.4 }, { y: -10, opacity: 1, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 6 }, CONTANOS + 0.3 + i * 0.15);
+      });
+      tl.to(q(".s11-com"), { scale: 1.05, transformOrigin: "50% 50%", duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 3 }, CONTANOS + 1.2);
+      tl.to(qa(".s11-q1"), { rotation: -4, transformOrigin: "50% 50%", duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, ARRIBA + 0.4);
+      tl.to(qa(".s11-q2"), { rotation: 4, transformOrigin: "50% 50%", duration: 0.4, yoyo: true, repeat: 5, ease: "sine.inOut" }, ABAJO + 0.4);
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,144 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-llamada"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-llamada"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-llamada"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-llamada"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-llamada"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-llamada"] .ln-calle { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 34 26; }
+    [data-composition-id="s04-llamada"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s04-llamada"] .relleno { fill: #5ce611; }
+    [data-composition-id="s04-llamada"] .caja { fill: #0a1628; }
+    [data-composition-id="s04-llamada"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s04-llamada"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s04-llamada"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s04-llamada"] .t-os { fill: #0a1628; }
+    [data-composition-id="s04-llamada"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s04-llamada"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s04-llamada"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 34px; }
+    [data-composition-id="s04-llamada"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s04-llamada"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-llamada"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s04-llamada" data-width="1080" data-height="1920" data-duration="6.01">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.01" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+    <g class="s04-calle">
+  <line class="ln s04-cl" x1="40" y1="892" x2="1040" y2="892" stroke-opacity="0.35" />
+  <line class="ln s04-cl" x1="40" y1="968" x2="1040" y2="968" stroke-opacity="0.35" />
+  <line class="ln-calle s04-cl-c" x1="40" y1="930" x2="1040" y2="930" /></g>
+    <g class="s04-ha">
+  <text class="nom" x="64" y="668" fill="#efeee5" fill-opacity="0.55">GUSTAVO</text>
+  <text class="sub" x="64" y="704" fill="#efeee5" fill-opacity="0.4">SIN AVISOS</text></g>
+    <g class="s04-a" transform="translate(600 870)">
+  <path class="ln s04-dib-a" d="M-250 0 V-170 H250 V0" />
+  <rect class="ln s04-dib-a" x="-150" y="-222" width="300" height="46" rx="8" />
+  <path class="ln s04-dib-a" d="M-220 0 V-140 H60 V0" />
+  <path class="ln s04-dib-a" d="M-220 -126 H60 M-220 -114 H60" />
+  <rect class="ln s04-dib-a" x="100" y="-140" width="120" height="70" rx="6" />
+  <path class="ln s04-dib-a" d="M100 -105 H220" />
+  <rect class="relleno s04-luz-a" x="108" y="-132" width="104" height="54" rx="3" />
+  <text class="mono t-cr s04-dib-a-txt" x="0" y="-189" font-size="26" text-anchor="middle">TALLER</text>
+  <g transform="translate(-80 0) scale(0.82)">
+  <path class="ln s04-dib-a"  d="M-118 -22 V-46 Q-116 -60 -96 -62 L-58 -66 L-28 -98 H44 L78 -66 L106 -62 Q120 -58 120 -42 V-22" />
+  <path class="ln s04-dib-a"  d="M-118 -22 H-94 M-46 -22 H52 M96 -22 H120 M-18 -92 L-42 -66 H66 L40 -92 Z" />
+  <circle class="ln s04-dib-a"  cx="-70" cy="-22" r="22" />
+  <circle class="ln s04-dib-a"  cx="74" cy="-22" r="22" /></g></g>
+    <g class="s04-g" transform="translate(300 870)"><g class="s04-g-in">
+  <circle class="ln s04-gd" cx="0" cy="-128" r="17" />
+  <path class="ln s04-gd" d="M-18 -134 Q-16 -152 0 -152 Q16 -152 18 -134 Z M18 -136 H32" />
+  <path class="ln s04-gd" d="M0 -111 V-52 M-15 -52 H15 M-12 -52 L-16 0 M12 -52 L16 0" />
+  <path class="ln s04-gd" d="M-14 -100 H14 V-60 H-14 Z" /></g></g>
+    <g class="s04-ll"><g transform="translate(330 800) rotate(-30) scale(0.9)"><path class="ln s04-lld" d="M-7 -4 V-56 C-24 -60 -28 -86 -14 -96 L-7 -80 H7 L14 -96 C28 -86 24 -60 7 -56 V-4 Q0 4 -7 -4 Z" /></g></g>
+    <g class="s04-tel">
+      <path class="ln" d="M914 866 H986 L978 832 H922 Z" /><circle class="ln" cx="950" cy="849" r="8" />
+    </g>
+    <g class="s04-tubo"><path class="ln" d="M893 814 Q893 793 914 793 H986 Q1007 793 1007 814 L1007 819 H984 V811 H916 V819 H893 Z" /></g>
+    <g class="s04-ondas">
+      <path class="ln-ro" d="M880 790 q-14 18 0 36 M862 778 q-24 30 0 60" />
+      <path class="ln-ro" d="M1020 790 q14 18 0 36 M1038 778 q24 30 0 60" />
+    </g>
+    <g class="s04-glo">
+      <rect class="caja" x="520" y="930" width="520" height="120" rx="26" stroke="#c0625a" stroke-width="5" />
+      <path class="ln-ro" d="M940 930 l30 -36 l6 36" />
+      <text class="lex t-cr" x="780" y="1006" font-size="48" text-anchor="middle">¿Ya está mi auto?</text>
+    </g>
+    <g class="s04-i1"><circle class="ln" cx="660" cy="1150" r="40" /><path class="ln" d="M644 1134 q-4 22 14 34 q14 10 22 6 l6 -10 l-12 -8 l-8 6 q-10 -6 -14 -16 l6 -8 l-8 -12 Z" /></g><g class="s04-i2"><circle class="ln" cx="800" cy="1150" r="40" /><path class="ln" d="M784 1134 q-4 22 14 34 q14 10 22 6 l6 -10 l-12 -8 l-8 6 q-10 -6 -14 -16 l6 -8 l-8 -12 Z" /></g><g class="s04-i3"><circle class="ln-ro" cx="940" cy="1150" r="40" /><path class="ln-ro" d="M924 1134 q-4 22 14 34 q14 10 22 6 l6 -10 l-12 -8 l-8 6 q-10 -6 -14 -16 l6 -8 l-8 -12 Z" /></g>
+    <text class="mono t-ro s04-n3" x="940" y="1236" font-size="28" text-anchor="middle">3ª</text>
+    <text class="lex t-cr s04-pts" x="300" y="800" font-size="64" text-anchor="middle" fill-opacity="0.6">...</text>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">¿Ya está mi auto?</span><span class="s04-e2">Tercera llamada</span><span class="s04-e3">Deja la llave</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-llamada";
+      const DUR = 6.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s04-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s04-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d, o) => tl.fromTo(el, { opacity: 0 }, { opacity: o ?? 1, duration: d ?? 0.3 }, t);
+
+      const AUTO = 0.8, TERCERA = 1.8, GUSTAVO = 3.84, DEJA = 4.3, LLAVE = 4.9, ATIENDE = 5.2;
+      tl.fromTo(qa(".s04-calle, .s04-ha"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0);
+      gsap.set(q(".s04-luz-a"), { opacity: 0.3 });
+      dibujar(qa(".s04-dib-a, .s04-gd"), 0, 0.4, 0.3);
+      // el teléfono suena y sale el globo
+      gsap.set(q(".s04-ondas"), { opacity: 0 });
+      tl.to(q(".s04-ondas"), { opacity: 1, duration: 0.05 }, 0);
+      tl.to(q(".s04-ondas"), { opacity: 0.2, duration: 0.12, yoyo: true, repeat: 7, ease: "none" }, 0.05);
+      tl.to(qa(".s04-tel, .s04-tubo"), { rotation: 6, svgOrigin: "950 840", duration: 0.05, yoyo: true, repeat: 15, ease: "none" }, 0);
+      tl.fromTo(q(".s04-glo"), { opacity: 0, scale: 0.6, svgOrigin: "960 930" }, { opacity: 1, scale: 1, svgOrigin: "960 930", duration: 0.4, ease: "back.out(1.8)" }, 0.05);
+      punch(q(".s04-glo"), AUTO, 1.05);
+      etq(1, 0.1);
+      // tercera llamada
+      tl.to(q(".s04-glo"), { opacity: 0, y: -10, duration: 0.25 }, TERCERA - 0.35);
+      pop(q(".s04-i1"), TERCERA - 0.2, 0.6);
+      pop(q(".s04-i2"), TERCERA - 0.05, 0.6);
+      pop(q(".s04-i3"), TERCERA + 0.15, 0.4);
+      tl.to(q(".s04-i3"), { scale: 1.2, transformOrigin: "50% 50%", duration: 0.15, yoyo: true, repeat: 1 }, TERCERA + 0.6);
+      pop(q(".s04-n3"), TERCERA + 0.3, 0.5);
+      tl.to(qa(".s04-i1, .s04-i2"), { opacity: 0.4, duration: 0.3 }, TERCERA + 0.6);
+      tl.to(q(".s04-ondas"), { opacity: 1, duration: 0.05 }, TERCERA + 0.1);
+      tl.to(q(".s04-ondas"), { opacity: 0.2, duration: 0.12, yoyo: true, repeat: 9, ease: "none" }, TERCERA + 0.15);
+      tl.to(qa(".s04-tel, .s04-tubo"), { rotation: 6, svgOrigin: "950 840", duration: 0.05, yoyo: true, repeat: 19, ease: "none" }, TERCERA + 0.1);
+      etq(2, TERCERA + 0.1);
+      // deja la llave: cae girando
+      tl.to(q(".s04-g-in"), { rotation: 8, svgOrigin: "0 0", duration: 0.2, yoyo: true, repeat: 1 }, GUSTAVO);
+      tl.to(q(".s04-ll"), { y: 66, rotation: 200, svgOrigin: "330 790", duration: 0.55, ease: "power2.in" }, DEJA);
+      tl.to(q(".s04-ll"), { y: 58, duration: 0.12, yoyo: true, repeat: 1 }, DEJA + 0.55);
+      etq(3, DEJA);
+      // atiende: va hasta el teléfono y levanta el tubo
+      tl.to(q(".s04-g"), { x: 850, duration: 0.7, ease: "power2.inOut" }, LLAVE - 0.4);
+      tl.to(q(".s04-tubo"), { x: -60, y: -40, rotation: -60, svgOrigin: "950 805", duration: 0.35, ease: "power2.out" }, ATIENDE);
+      tl.to(q(".s04-ondas"), { opacity: 0, duration: 0.15 }, ATIENDE);
+      tl.to(qa(".s04-i1, .s04-i2, .s04-i3, .s04-n3"), { opacity: 0.25, duration: 0.3 }, ATIENDE);
+      pop(q(".s04-pts"), ATIENDE + 0.15, 0.5);
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
